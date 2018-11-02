@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404044"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914167"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Aracı durumu çözümü, Azure
 Aracı durumu çözümü, Azure, tüm raporlanan aracılar için doğrudan yanıt vermeyen Log Analytics için Log Analytics çalışma alanı veya System Center Operations Manager yönetim grubu bağlı ve işletimsel gönderme anlamanıza yardımcı olur veriler.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
@@ -39,7 +39,7 @@ System Center Operations Manager yönetim grubunuzun bir Log Analytics çalışm
 Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Yapılandırma
-Aracı durumu çözümü açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [çözüm ekleme](../log-analytics/log-analytics-add-solutions.md). Başka bir yapılandırma işlemi gerekmez.
+Aracı durumu çözümü açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [çözüm ekleme](monitoring-solutions.md). Başka bir yapılandırma işlemi gerekmez.
 
 
 ## <a name="data-collection"></a>Veri toplama
@@ -118,4 +118,4 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örne
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Log Analytics’ten uyarı oluşturma hakkında daha ayrıntılı bilgi edinmek için bkz. [Log Analytics’teki Uyarılar](../log-analytics/log-analytics-alerts.md) .
+* Log Analytics’ten uyarı oluşturma hakkında daha ayrıntılı bilgi edinmek için bkz. [Log Analytics’teki Uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) .

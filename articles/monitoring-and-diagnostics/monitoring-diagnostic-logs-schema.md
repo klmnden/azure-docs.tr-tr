@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 17efbfffde68208b76120d449f4e1d70e843fc7d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116202"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914354"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -92,9 +92,11 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.Batch/batchAccounts|ServiceLog|Hizmeti günlükleri|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Uç noktaya ilişkin ölçümleri (ör. bant genişliği, çıkış) alır.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Ağ Güvenlik Grubu Kural Akışı Olayı|Ağ Güvenlik Grubu Kural Akışı Olayı|
-|Microsoft.CognitiveServices/accounts|Denetim|Denetim|
+|Microsoft.CognitiveServices/accounts|Denetim|Denetim Günlükleri|
+|Microsoft.CognitiveServices/accounts|RequestResponse|İstek ve Yanıt Günlükleri|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API sunucusu|
 |Microsoft.ContainerService/managedClusters|kube denetleyicisi Yöneticisi|Kubernetes denetleyicisi Yöneticisi|
+|Microsoft.ContainerService/managedClusters|Küme otomatik ölçeklendiricinin|Kubernetes kümesi Ölçeklendiriciyi|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes Zamanlayıcı|
 |Microsoft.ContainerService/managedClusters|koruma|Kimlik doğrulama Web kancası|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -105,7 +107,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.DataLakeAnalytics/accounts|İstekler|Günlükleri iste|
 |Microsoft.DataLakeStore/accounts|Denetim|Denetim Günlükleri|
 |Microsoft.DataLakeStore/accounts|İstekler|Günlükleri iste|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL yavaş sorgu günlükleri|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL sunucusu günlükleri|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL sunucusu günlükleri|
 |Microsoft.Devices/ıothubs|Bağlantılar|Bağlantılar|
 |Microsoft.Devices/ıothubs|DeviceTelemetry|Cihaz Telemetrisi|
@@ -128,6 +130,14 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.EventHub/namespaces|ArchiveLogs|Arşiv günlükleri|
 |Microsoft.EventHub/namespaces|OperationalLogs|İşlem günlükleri|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Otomatik ölçek günlükleri|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Değerlendirmeleri Otomatik Ölçeklendirme|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Ölçek Eylemlerini Otomatik Ölçeklendirme|
+|Microsoft.IoTSpaces/Graph|İzleme|İzleme|
+|Microsoft.IoTSpaces/Graph|İşletimsel|İşletimsel|
+|Microsoft.IoTSpaces/Graph|Denetim|Denetim|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|Giriş|Giriş|
+|Microsoft.IoTSpaces/Graph|Çıkış|Çıkış|
 |Microsoft.KeyVault/vaults|AuditEvent|Denetim Günlükleri|
 |Microsoft.Logic/workflows|İş akışı WorkflowRuntime|İş akışı çalışma zamanı tanılama olayları|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Tümleştirme Hesabı izleme olayları|
@@ -136,6 +146,8 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Yük Dengeleyici uyarı olayları|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Yük Dengeleyici araştırması sistem durumu|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS koruması bildirimleri|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Akış günlüklerini DDoS riskini azaltma kararları|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|DDoS azaltma raporları|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM koruma uyarıları|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Uygulama ağ geçidi erişim günlüğü|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Uygulama ağ geçidi performans günlüğü|
@@ -151,6 +163,8 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S tanılama günlükleri|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager araştırma durumu olay sonuçları|
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Eşleme yolu tablo günlükleri|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Frontdoor erişim günlüğü|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Frontdoor Web uygulaması güvenlik duvarı günlüğü|
 |Microsoft.PowerBIDedicated/capacities|Altyapısı|Altyapısı|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup raporlama verileri|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery işleri|
@@ -173,10 +187,21 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.Sql/servers/databases|Kilitlenmeler|Kilitlenmeler|
 |Microsoft.Sql/servers/databases|Denetim|Denetim Günlükleri|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL güvenlik denetim olayı|
-|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW istekleri|
-|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW isteği adımları|
+|Microsoft.Sql/servers/databases|DmsWorkers|DMS çalışanları|
+|Microsoft.Sql/servers/databases|ExecRequests|Exec istekleri|
+|Microsoft.Sql/servers/databases|RequestSteps|İstek adımları|
+|Microsoft.Sql/servers/databases|SqlRequests|SQL istekleri|
+|Microsoft.Sql/servers/databases|Bekler|Bekler|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|Kaynak kullanım istatistikleri|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|SQL güvenlik denetim olayı|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL İçgörüleri|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Query Store çalışma zamanı istatistikleri|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Query Store bekleme istatistikleri|
+|Microsoft.Sql/managedInstances/databases|Hatalar|Hatalar|
 |Microsoft.StreamAnalytics/streamingjobs|Yürütme|Yürütme|
 |Microsoft.StreamAnalytics/streamingjobs|Yazma|Yazma|
+|Microsoft.Web/Sites|FunctionExecutionLogs|İşlev yürütme günlükleri|
+|Microsoft.Web/Sites/slots|FunctionExecutionLogs|İşlev yürütme günlükleri|
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

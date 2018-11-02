@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d5d75c25d03c02d6d49fc2fd8aeec995cea52314
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7977dc55d101c99bf1f850a529083916367308b4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414276"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747822"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>PowerShell (Klasik) kullanarak iç özel statik IP adresi ayarlama
 Çoğu durumda, sanal makineniz için statik iç IP adresi belirtmeniz gerekmez. Bir sanal ağdaki VM'ler otomatik olarak bir dahili IP adresine, belirttiğiniz aralıktan alır. Ancak bazı durumlarda, belirli bir sanal makine için statik bir IP adresi belirtme mantıklıdır. Örneğin, sanal makinenizin DNS çalıştıracağınız veya bir etki alanı denetleyicisi olacaktır. Statik iç IP adresi ile VM stop/sağlamayı kaldırma durumunda bile aracılığıyla kalır. 
@@ -28,9 +28,14 @@ ms.locfileid: "50414276"
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun kullanmanızı önerir [Resource Manager dağıtım modeli](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
+## <a name="install-the-azure-powershell-service-management-module"></a>Azure PowerShell Service Management modülünü yükleme
+
+Aşağıdaki komutları çalıştırmadan önce emin [Azure PowerShell Service Management modülünü](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
+) makineye yüklenir. Azure PowerShell Service Management modülünü sürüm geçmişi için bkz: [Azure modülü PowerShell galerisinde](https://www.powershellgallery.com/packages/Azure/5.3.0).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Belirli bir IP adresi kullanılabilir olup olmadığını doğrulama
-Doğrulama IP adresi *10.0.0.7* adlı bir sanal ağda kullanılabilir *TestVnet*, aşağıdaki PowerShell komutunu çalıştırın ve değerini doğrulamak *IsAvailable*:
+Doğrulama IP adresi *10.0.0.7* adlı bir sanal ağda kullanılabilir *TestVnet*, aşağıdaki PowerShell komutunu çalıştırın ve değerini doğrulamak *IsAvailable*.
+
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 

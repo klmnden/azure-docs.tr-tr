@@ -1,5 +1,5 @@
 ---
-title: Diğer izleme hizmetlerinden gelen uyarıları yönetme
+title: Azure İzleyici'de izleme diğer hizmetlerden Uyarıları yönetme
 description: Azure İzleyici'de Nagios ve Zabbix SCOM Uyarıları yönetme
 author: anantr
 services: monitoring
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d9d0cb326fb063e0a6bbfaab6a85961ab2b35416
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: bc597d42fe89c0e03c4af1db3a935031b9043a98
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389403"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748281"
 ---
 # <a name="manage-alerts-from-other-monitoring-services"></a>Diğer izleme hizmetlerinden gelen uyarıları yönetme
 
@@ -25,7 +25,7 @@ Bu kayıtları toplamak için gerekli yapılandırmayı gerçekleştirmelidir, b
 1. İçin **System Center Operations Manager** uyarıları [Operations Manager yönetim grubunuzu Log Analytics çalışma alanınıza bağlanmak](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). System Center Operations Manager'da oluşturulan tüm uyarılar, Log Analytics'e aktarılır.
 
 ## <a name="view-your-alert-instances"></a>Uyarı örneklerinizi görüntüleyebilir
-Log Analytics'na aktarma yapılandırıldıktan sonra youd bu hizmetleri izleme uyarı örneklerden görüntüleme başlayabilirsiniz [uyarı deneyimi birleşik](https://aka.ms/azure-alerts-overview). Birleştirilmiş uyarılar deneyimi varsa sonra [uyarı örneklerinizi yönetin](https://aka.ms/managing-alert-instances), [Bu uyarılar üzerinde oluşturulan akıllı grupları yönetme](https://aka.ms/managing-smart-groups) ve [uyarılarınızı durumunu değiştirebilir ve akıllı grupları](https://aka.ms/managing-alert-smart-group-states).
+Log Analytics'na aktarma yapılandırdıktan sonra bu hizmetleri izleme uyarı örneklerden görüntüleme başlayabilirsiniz [uyarı deneyimi birleşik](https://aka.ms/azure-alerts-overview). Birleştirilmiş uyarılar deneyimi varsa sonra [uyarı örneklerinizi yönetin](https://aka.ms/managing-alert-instances), [Bu uyarılar üzerinde oluşturulan akıllı grupları yönetme](https://aka.ms/managing-smart-groups) ve [uyarılarınızı durumunu değiştirebilir ve akıllı grupları](https://aka.ms/managing-alert-smart-group-states).
 
 > [!NOTE]
 >  Birleştirilmiş uyarılar deneyiminin Nagios uyarıları olmayan durum bilgisi olan – örneğin [izleme koşulu](https://aka.ms/azure-alerts-overview) uyarının "Fired" "Çözülmüş" geçer değil. Bunun yerine "Fired" ve "Çözülmüş" ayrı uyarı örneklerinin görüntülenir. 

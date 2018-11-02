@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b2e7cc46a844ff866ae2d325b610653cd3179d8d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406330"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914575"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -30,7 +30,7 @@ Office 365 yönetim çözümü, Log Analytics, Office 365 ortamınızda izlemeni
 - Yapılandırma değişiklikleri veya yüksek ayrıcalıklı işlemleri izlemek için yönetici etkinliklerini izler.
 - Algılama ve kuruluş gereksinimlerinize özelleştirilebilen istenmeyen kullanıcı davranışı araştırın.
 - Denetim ve uyumluluk gösterir. Örneğin, dosya erişim işlemleri ve denetim ve uyumluluk işlemiyle size gibi gizli bilgiler içeren dosyaları üzerinde izleyebilirsiniz.
-- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [günlük aramaları](../log-analytics/log-analytics-log-search.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
+- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [günlük aramaları](../log-analytics/log-analytics-queries.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
@@ -518,9 +518,9 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 | OrganizationId | Kuruluşunuzun Office 365 kiracısı için GUID. Bu değer her zaman içinde gerçekleştiği Office 365 hizmet ne olursa olsun, kuruluşunuz için aynı olacaktır. |
 | RecordType | Gerçekleştirilen işlem türü. |
 | ResultStatus | Eylemin (Operation özelliğinde belirtilen) başarılı olup olmadığını gösterir. Olası değerler şunlardır: Succeeded, PartiallySucceded veya Failed. Exchange yönetim etkinliği için ya da True değeridir ya da yanlış. |
-| Kullanıcı Kimliği | UPN'sini (kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlanan eylemi gerçekleştiren kullanıcının; Örneğin, my_name@my_domain_name. Sistem hesapları (sharepoınt\system veya gibi ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtları da dahil edilir. | 
+| UserId | UPN'sini (kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlanan eylemi gerçekleştiren kullanıcının; Örneğin, my_name@my_domain_name. Sistem hesapları (sharepoınt\system veya gibi ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtları da dahil edilir. | 
 | UserKey | Kullanıcı Kimliği özelliğinde belirtilen kullanıcı için alternatif bir kimliği.  Örneğin, bu özellik, kullanıcıların SharePoint, OneDrive iş ve Exchange için gerçekleştirilen olayları için passport benzersiz Tanımlayıcısı (PUID) ile doldurulur. Bu özellik, diğer hizmetler ve sistem hesapları tarafından gerçekleştirilen olayları gerçekleşen olayları için kullanıcı kimliği özelliği olarak aynı değeri de belirtebilirsiniz|
-| UserType | İşlemi gerçekleştiren kullanıcının türü.<br><br>Yönetici<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |
+| UserType | İşlemi gerçekleştiren kullanıcının türü.<br><br>Yönetim Bölgesi<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory temel
@@ -709,6 +709,6 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-log-searches.md)’te Günlük Aramalarını kullanın.
+* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-log-search.md)’te Günlük Aramalarını kullanın.
 * [Kendi panolarınızı oluşturun](../log-analytics/log-analytics-dashboards.md) , sık kullanılan Office 365 arama sorgularını görüntülemek için.
-* [Uyarı oluşturma](../log-analytics/log-analytics-alerts.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  
+* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  

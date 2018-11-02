@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2efaae7794cf5f12719d3d1420d9db6903592559
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409518"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913198"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
 Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../log-analytics/log-analytics-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
@@ -30,8 +30,8 @@ Bu öğreticide oluşturma ve Log Analytics'e veri yazmak için Azure Otomasyonu
 ## <a name="prerequisites"></a>Önkoşullar
 Bu senaryo, aşağıdaki kaynakları Azure aboneliğinizde yapılandırılmış gerektirir.  Her ikisi de ücretsiz bir hesap olabilir.
 
-- [Log Analytics çalışma alanı](../log-analytics/log-analytics-get-started.md).
-- [Azure Otomasyonu hesabı](../automation/automation-offering-get-started.md).
+- [Log Analytics çalışma alanı](../log-analytics/log-analytics-quick-create-workspace.md).
+- [Azure Otomasyonu hesabı](..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Senaryoya genel bakış
 Bu öğreticide, Otomasyon işleri hakkında bilgi toplayan bir runbook yazacaksınız.  Azure Otomasyonu Düzenleyicisi'nde bir betik yazma ve başlatmak için PowerShell ile Azure automation'daki Runbook'lar uygulanır.  Gerekli bilgileri toplayacağınızı doğruladıktan sonra verileri Log Analytics'e yazmak ve özel veri türü doğrulamak.  Son olarak, düzenli aralıklarla runbook'u başlatmak için bir zamanlama oluşturacaksınız.
@@ -145,7 +145,7 @@ Azure Otomasyonu, bir ortama içerir [runbook'unuzu test](../automation/automati
     ![POST çıkış](media/monitoring-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Log Analytics kayıtları doğrulayın
-Runbook testi tamamlandı ve çıkış başarıyla alındı doğrulandı sonra kayıtları kullanarak oluşturulduğunu doğrulayabilirsiniz bir [Log analytics'te günlük araması](../log-analytics/log-analytics-log-searches.md).
+Runbook testi tamamlandı ve çıkış başarıyla alındı doğrulandı sonra kayıtları kullanarak oluşturulduğunu doğrulayabilirsiniz bir [Log analytics'te günlük araması](../log-analytics/log-analytics-log-search.md).
 
 ![Günlük çıktısı](media/monitoring-runbook-datacollect/log-output.png)
 

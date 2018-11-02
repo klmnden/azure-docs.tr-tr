@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 2508d43e876a7e463d68eed1b1ca93ddf0d1e9d1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166274"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913353"
 ---
-# <a name="implement-a-geo-distributed-database"></a>Coğrafi olarak dağıtılmış bir veritabanı uygulama
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Öğretici: coğrafi olarak dağıtılmış bir veritabanı uygulama
 
 Bu öğreticide, uzak bir bölgeye yük devretme için Azure SQL veritabanı ve uygulamasını yapılandırır ve sonra yük devretme planınızı test edersiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz: 
 

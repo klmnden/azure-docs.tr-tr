@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 25c9cbcaf852aa07bcbe4f71bf69de366d4dbb87
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420974"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754044"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: aracı veya uzantı ile ilgili sorunlar
 
@@ -48,7 +48,6 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 
 **Hata kodu**: UserErrorRpCollectionLimitReached <br>
 **Hata iletisi**: geri yükleme noktası koleksiyonu en yüksek sınırına ulaştı. <br>
-Açıklama:  
 * Otomatik temizleme kurtarma noktasının önleme kurtarma noktası kaynak grubu üzerinde bir kilit ise bu sorun oluşabilir.
 * Bu sorun ayrıca birden çok yedekleme günde tetiklenen oluşabilir. RPs 7 gün boyunca bekletilir anlık olarak günde yalnızca bir yedekleme şu anda öneririz ve 18 yalnızca anlık RPs herhangi bir zamanda bir VM ile ilişkili olabilir. <br>
 
@@ -59,7 +58,7 @@ Bu sorunu çözmek için kaynak grubu üzerindeki kilidi kaldırın ve temizleme
     > Yedekleme hizmeti, geri yükleme noktası koleksiyonu depolamak için sanal makinenin kaynak grubundan ayrı bir kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda değil kilitlemek için önerilir. Backup hizmeti tarafından oluşturulan kaynak grubu adlandırma biçimi: AzureBackupRG_`<Geo>`_`<number>` örn: AzureBackupRG_northeurope_1
 
 
-**1. adım: [kilit geri yükleme noktası kaynak grubu grubundan Kaldır](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**1. adım: [kilit geri yükleme noktası kaynak grubundan Kaldır](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **2. adım: [geri yükleme noktası koleksiyonunu Temizle](#clean_up_restore_point_collection)**<br>
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - anlık görüntü işlemi, sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu
@@ -95,6 +94,21 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **4. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntünün alınması](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **5. neden: [güncelleştirmek veya yüklemek yedekleme uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
 **6. neden: [Backup hizmeti, bir kaynak grubu kilidi nedeniyle eski geri yükleme noktalarını silme izni yok](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - şu anda Azure Backup 1023 GB'den büyük disk boyutlarını desteklemez
+
+**Hata kodu**: UserErrorUnsupportedDiskSize <br>
+**Hata iletisi**: şu anda Azure Backup 1023 GB'den büyük disk boyutlarını desteklemez <br>
+
+Kasanız, Azure VM yedekleme yığını v2'ye yükseltilmemiş olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Yükseltme için Azure VM yedekleme yığını V2 sağlayacak 4 TB'a kadar destekler. Bu gözden [avantajları](backup-upgrade-to-vm-backup-stack-v2.md), [konuları](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)ve ardından izleyerek yükseltmeye devam edin [yönergeleri](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>Standart SSD disk şu anda Azure Backup UserErrorStandardSSDNotSupported - desteklemiyor
+
+**Hata kodu**: UserErrorStandardSSDNotSupported <br>
+**Hata iletisi**: şu anda Azure Backup, standart SSD disk desteklemiyor <br>
+
+Şu anda Azure Backup, Azure VM yedekleme yığını v2'ye yükseltilmiş kasaları için standart SSD diskleri destekler. Bu gözden [avantajları](backup-upgrade-to-vm-backup-stack-v2.md), [konuları](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)ve ardından izleyerek yükseltmeye devam edin [yönergeleri](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
 
@@ -208,7 +222,7 @@ Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantıs�
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Kurtarma noktası kaynak grubundan kilidi kaldırın
 1. [Azure Portal](http://portal.azure.com/) oturum açın.
-2. Git **tüm kaynakları seçeneği**, geri yükleme noktası koleksiyonu kaynak grubunu seçin aşağıdaki biçimde AzureBackupRG_<Geo>_<number>.
+2. Git **tüm kaynakları seçeneği**, geri yükleme noktası koleksiyonu kaynak grubunu seçin aşağıdaki biçimde AzureBackupRG_`<Geo>`_`<number>`.
 3. İçinde **ayarları** bölümünden **kilitleri** kilitler görüntülenecek.
 4. Kilidi kaldırmak için üç noktayı seçin ve **Sil**.
 
@@ -217,17 +231,17 @@ Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantıs�
 ### <a name="clean_up_restore_point_collection"></a> Geri yükleme noktası koleksiyonunu Temizle
 Kilit kaldırdıktan sonra geri yükleme noktalarını temizlenmesi gerekir. Geri yükleme noktaları temizlemek için aşağıdaki yöntemlerden herhangi birini izleyin:<br>
 * [Geri yükleme noktası koleksiyonu çalışan geçici yedekleme tarafından Temizle](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Yedekleme hizmeti tarafından oluşturulan portaldan geri yükleme noktası koleksiyonu Temizle](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Temiz geri yükleme noktası koleksiyonu Azure portalından](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Geri yükleme noktası koleksiyonu çalışan geçici yedekleme tarafından Temizle
 Kilit kaldırdıktan sonra bir ad-geçici/el ile yedekleme tetikleyin. Bu, geri yükleme noktalarını otomatik olarak temizlenir garanti eder. Bu ad-geçici/el ile işlem ilk kez başarısız olmasına beklediğiniz; Ancak, bunu el ile silinmesini geri yükleme noktaları yerine otomatik temizleme sağlayacaktır. Temizleme sonrasında, sonraki zamanlanmış yedekleme başarılı olması gerekir.
 
 > [!NOTE]
-    > Otomatik temizleme ad-geçici/el ile yedeklemeyi tetikleme birkaç saat sonra gerçekleşir. Zamanlanmış yedeklemenizi yine başarısız sonra listelenen adımları kullanarak geri yükleme noktası koleksiyonu el ile silmeyi deneyin [burada](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+    > Otomatik temizleme ad-geçici/el ile yedeklemeyi tetikleme birkaç saat sonra gerçekleşir. Zamanlanmış yedeklemenizi yine başarısız sonra listelenen adımları kullanarak geri yükleme noktası koleksiyonu el ile silmeyi deneyin [burada](#clean-up-restore-point-collection-from-azure-portal).
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Yedekleme hizmeti tarafından oluşturulan portaldan geri yükleme noktası koleksiyonu Temizle<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Temiz geri yükleme noktası koleksiyonu Azure portalından <br>
 
-Geri yüklemeyi el ile temizlemek için kaynak grubunu, aşağıdaki adımları üzerindeki kilit nedeniyle temizlenmez koleksiyonunun noktaları:
+Noktaları, kaynak grubundaki kilit nedeniyle temizlenmez koleksiyonu geri yüklemeyi el ile temizlemek için aşağıdaki adımları deneyin:
 1. [Azure Portal](http://portal.azure.com/) oturum açın.
 2. Üzerinde **Hub** menüsünde tıklayın **tüm kaynaklar**, aşağıdaki biçimde AzureBackupRG_ kaynak grubunu seçin`<Geo>`_`<number>` , VM'nin bulunduğu.
 

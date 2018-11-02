@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159525"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913679"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Azure VM, Azure SQL veritabanı yönetilen örneğine bağlanmak için yapılandırın
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure VM, Azure SQL veritabanı yönetilen örneğine bağlanmak için yapılandırın
 
 Bu hızlı başlangıçlar, bir Azure SQL veritabanı yönetilen SQL Server Management Studio (SSMS) kullanarak örneğine bağlanmak için bir Azure sanal makinesi yapılandırma işlemi gösterilmektedir. Noktadan siteye bağlantısı kullanarak bir şirket içi istemci bilgisayarından bağlanmak gösteren bir hızlı başlangıç için bkz: [noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md) 
 
@@ -37,7 +37,7 @@ Aşağıdaki adımlar yönetilen örnek yönetilen örneğine bağlanmak için s
 
 1. Yönetilen örnek, oluşturduğunuz kaynak grubunu açın [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md) hızlı başlangıç, yönetilen örneği için sanal ağ'a tıklayın ve ardından **alt ağlar**.
 
-   ![Yönetilen örnek kaynaklar](./media/sql-database-managed-instance-configure-vm/resources.png)
+   ![Yönetilen Örnek kaynakları](./media/sql-database-managed-instance-configure-vm/resources.png)
 
 2. Tıklayın **+** yanındaki oturum **alt** yeni bir alt ağ oluşturmak için.
 
@@ -142,5 +142,5 @@ Bağlandıktan sonra Veritabanları düğümündeki sistem ve kullanıcı verita
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Noktadan siteye bağlantısı kullanarak bir şirket içi istemci bilgisayarından bağlanmak gösteren bir hızlı başlangıç için bkz: [noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
-- Bağlantı seçenekleri uygulamalar için genel bakış için bkz: [, uygulamaların yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md).
-- Mevcut SQL Server veritabanını şirket içi, yönetilen örneğe geri yüklemek için kullanabileceğiniz [geçiş için Azure veritabanı geçiş hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) bir veritabanı yedekleme dosyasından geri yüklemek veya [T-SQL RESTORE komut](sql-database-managed-instance-get-started-restore.md) bir veritabanı yedekleme dosyasından geri yüklemek için.
+- Uygulamaların bağlantı seçeneklerine genel bir bakış için bkz: [Uygulamalarınızı Yönetilen Örneğe bağlama](sql-database-managed-instance-connect-app.md).
+- Mevcut bir SQL Server veritabanını şirket içinden Yönetilen bir örneğe geri yüklerken, veritabanı yedekleme dosyasından geri yükleme işlemini [Geçiş için Azure Veritabanı Geçiş Hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) veya [T-SQL RESTORE komutu](sql-database-managed-instance-get-started-restore.md) ile yapabilirsiniz.

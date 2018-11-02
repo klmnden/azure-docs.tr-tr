@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025948"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748298"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
-Bu makalede, Azure Resource Manager tarafından dağıtılan bir bir sanal makinesini (VM) için ortamınızı hazırlamak için adımları sağlar. Yordamları gösterilen adımlar, Azure portalını kullanın. Bir sanal Makine'yi yedeklediğinizde, yedekleme verileri veya kurtarma noktaları, Kurtarma Hizmetleri yedekleme kasasında depolanır. 
+Bu makalede, Azure Resource Manager tarafından dağıtılan bir bir sanal makinesini (VM) için ortamınızı hazırlamak için adımları sağlar. Yordamları gösterilen adımlar, Azure portalını kullanın. Bir sanal Makine'yi yedeklediğinizde, yedekleme verileri veya kurtarma noktaları, Kurtarma Hizmetleri yedekleme kasasında depolanır.
 
 
 
@@ -45,7 +45,7 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Yedekleme ve bir VM geri yüklenirken uygulanan sınırlamalar
 Ortamınızı hazırlama önce bu sınırlamalar anladığınızdan emin olun:
 
-* 32'den fazla veri diski içeren sanal makineleri yedekleme desteklenmez.
+* 16'dan fazla veri diski içeren sanal makineleri yedekleme desteklenmez.
 * Linux Linux birleşik anahtar Kurulum (LUKS) şifreleme ile şifrelenmiş VM'ler için yedekleme desteklenmez.
 * Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren VM'lerin yedeklenmesi önerilmemektedir. Bu yapıldığında, CSV yazıcılar hata beklenir. Bunlar, bir anlık görüntü görevi sırasında küme yapılandırmasında bulunan tüm sanal makineler içeren gerektirir. Azure Backup, çoklu VM tutarlılığı desteklememektedir.
 * Yedekleme verileri, bir VM'ye bağlı ağ sürücülerini içermez.
@@ -194,7 +194,7 @@ VM'nin çalışır durumda olup olmadığını Backup hizmeti yedekleme uzantıs
 ## <a name="establish-network-connectivity"></a>Ağ bağlantısı kurma
 VM anlık görüntülerini yönetmek için yedek Dahili hat Azure genel IP adreslerine bağlantısı gerekir. Doğru internet bağlantısı olmadan zaman aşımı sanal makinenin HTTP istekleri ve yedekleme işlemi başarısız olur. Örneğin--yerde--bir ağ güvenlik grubu (NSG) aracılığıyla erişim kısıtlamalarını dağıtımınız varsa, yedekleme trafiği için bir yol sağlamak için aşağıdaki seçeneklerden birini seçin:
 
-* [Beyaz liste Azure veri merkezi IP aralıkları](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [Beyaz liste Azure veri merkezi IP aralıkları](http://www.microsoft.com/download/details.aspx?id=41653).
 * Bir HTTP proxy sunucusu için trafiği yönlendirme dağıtın.
 
 Hangi seçeneğin kullanılacağını verirken, yönetilebilirlik, ayrıntılı bir denetim ve maliyet arasında tercihlerdir.
@@ -205,7 +205,7 @@ Hangi seçeneğin kullanılacağını verirken, yönetilebilirlik, ayrıntılı 
 | Bir HTTP Ara sunucusunu kullanacak |Depolama üzerinde ayrıntılı denetim proxy'sinde URL'leri izin verilir.<br><br>Vm'leri tek noktası internet erişimi.<br><br>Azure IP adresi değişiklikleri tabi değildir. |Ara yazılımla VM çalıştırmaya yönelik ek maliyet. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Beyaz liste Azure veri merkezi IP aralıkları
-Azure veri merkezi IP aralıklarını güvenilir listeye bakın [Azure Web sitesi](http://www.microsoft.com/en-us/download/details.aspx?id=41653) IP aralıkları ve yönergeleri hakkında ayrıntılı bilgi için.
+Azure veri merkezi IP aralıklarını güvenilir listeye bakın [Azure Web sitesi](http://www.microsoft.com/download/details.aspx?id=41653) IP aralıkları ve yönergeleri hakkında ayrıntılı bilgi için.
 
 Kullanarak belirli bir bölgenin depolama bağlantılara izin vermek [hizmet etiketleri](../virtual-network/security-overview.md#service-tags). Depolama hesabına erişime izin veren kuralın internet erişimini engelleyen bir kural daha yüksek önceliğe sahip olduğundan emin olun.
 

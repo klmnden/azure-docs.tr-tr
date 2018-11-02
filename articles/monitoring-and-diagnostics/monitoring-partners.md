@@ -5,28 +5,28 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/08/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8ffeac78b809ea19163360e85d1c841c55b2364a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955376"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914627"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyici iş ortağı tümleştirmeleri
 | İş Ortakları |  |  |
 | --- | --- | --- |
-| [**AlertLogic**<br/>![ortak logosu][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![ortak logosu][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![ortak logosu][atlassian-logo]][atlassian-anchor] 
-| [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![ortak logosu][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![ortak logosu][cloudhealth-logo]][cloudhealth-anchor] 
-| [**CloudMonix** <br/> ![ortak logosu][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![ortak logosu][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![ortak logosu][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/> ![ortak logosu][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![ortak logosu][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![ortak logosu][influxdata-logo]][influxdata-anchor]
-| [**Mantıksal İzleyici**<br/>![ortak logosu][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![ortak logosu][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![ortak logosu][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![ortak logosu][opsgenie-logo]][opsgenie-anchor] 
-| [**PagerDuty**<br/>![ortak logosu][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![ortak logosu][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![ortak logosu][sciencelogic-logo]][sciencelogic-anchor] 
-| [**SignalFx**<br/>![ortak logosu][signalfx-logo]<br/>][signalfx-anchor] | [**Sıgnl4**<br/>![ortak logosu][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
-| [**Splunk** <br/> ![ortak logosu][splunk-logo]][splunk-anchor] | [**Sumo mantığı**<br/>![ortak logosu][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![ortak logosu][turbonomic-logo]][turbonomic-anchor] 
-
+| [**AlertLogic**<br/>![ortak logosu][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![ortak logosu][appdynamics-logo]][appdynamics-anchor] | [**ArcSight**][arcsight-anchor] |
+| [**Atlassian**<br/>![ortak logosu][atlassian-logo]][atlassian-anchor] | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![ortak logosu][circonus-logo]][circonus-anchor] |
+| [**CloudHealth**<br/>![ortak logosu][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/> ![ortak logosu][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![ortak logosu][datadog-logo]][datadog-anchor] |
+| [**Dynatrace** <br/> ![ortak logosu][dynatrace-logo]][dynatrace-anchor] | [**Esnek**<br/>![ortak logosu][elastic-logo]][elastic-anchor] | [**Grafana**<br/>![ortak logosu][grafana-logo]][grafana-anchor] |
+| [**Influxdata**<br/>![ortak logosu][influxdata-logo]][influxdata-anchor] | [**Mantıksal İzleyici**<br/>![ortak logosu][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![ortak logosu][moogsoft-logo]][moogsoft-anchor] |
+| [**NewRelic**<br/>![ortak logosu][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![ortak logosu][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![ortak logosu][pagerduty-logo]][pagerduty-anchor] |
+| [**QRadar**<br/>![ortak logosu][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![ortak logosu][sciencelogic-logo]][sciencelogic-anchor] | [**SignalFx**<br/>![ortak logosu][signalfx-logo]<br/>][signalfx-anchor] |
+| [**Sıgnl4**<br/>![ortak logosu][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [**Splunk** <br/> ![ortak logosu][splunk-logo]][splunk-anchor] |
+| [**Sumo mantığı**<br/>![ortak logosu][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![ortak logosu][turbonomic-logo]][turbonomic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Günlük Yöneticisi
 Alert Logic Log Manager, sanal makine, uygulama ve güvenlik analizi ve saklama için Azure platformunda günlüklerini toplar. Ayrıca, Azure İzleyici API aracılığıyla Azure etkinlik günlüğü toplar. Bu bilgiler, malfeasance algılamak ve uyumluluk gereksinimlerini karşılamak için kullanılır.
@@ -37,6 +37,11 @@ Alert Logic Log Manager, sanal makine, uygulama ve güvenlik analizi ve saklama 
 AppDynamics uygulama performans yönetimi (APM) hızla performans sorunlarını gidermek ve Azure ortamında çalışan uygulamalarına performansını iyileştirmek uygulama sahipleri sağlar. Azure Cloud Services (PaaS) izleyebilirsiniz web ve çalışan rolleri, sanal makineler (Iaas), Uzak Hizmet Algılama (Microsoft Azure Service Bus), Microsoft Azure kuyruk, Microsoft Azure uzak Hizmetleri (Azure Blob), Azure kuyruk (Microsoft Service Bus), veri Depolama ve Microsoft Azure Blob Depolama. AppDynamics APM Azure Marketi'nde kullanımınıza sunuluyor.
 
 [Belgelerine gidin.][appdynamics-doc]
+
+## <a name="microfocus-arcsight"></a>Microfocus ArcSight
+ArcSight Azure izleyici olay hub'ları için akıllı bir bağlayıcı vardır.
+
+[Daha fazla bilgi edinin.][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 Azure İzleyici uyarılarda JIRA bilet oluşturabilirsiniz.
@@ -62,11 +67,6 @@ CloudMonix, otomasyon, izleme ve Microsoft Azure platformu Hizmetleri kendi kend
 
 [Belgelerine gidin.][cloudmonix-doc]
 
-## <a name="cloudyn"></a>Cloudyn
-Cloudyn yönetir ve çoklu platform, hibrit bulut dağıtımları için potansiyel bulut tam olarak farkına oluşturmasına yardımcı olmak için en iyi duruma getirir. SaaS çözümü, kullanım, performans ve maliyet görünürlük sunar. Bu, Öngörüler ve akıllı iyileştirme ve bulut yönetimi için eyleme dönüştürülebilir öneriler sağlar. Cloudyn sorumluluk doğru geri ödeme ve hiyerarşik maliyet ayırma yönetimi sağlar. Cloudyn ınsights ve Azure dağıtımınızı en iyi duruma getirmek için eyleme dönüştürülebilir öneriler sağlamak üzere Azure izleme ile tümleşiktir.
-
-[Belgelerine gidin.][cloudyn-doc]
-
 ## <a name="datadog"></a>Datadog
 Datadog dünyanın önde gelen bulut ölçekli uygulamalar için hizmet izleme olur. Araya veri sunucuları, veritabanları, araçları ve Hizmetleri sisteminiz birleşik bir görünümünü sunmak için getirir. Bu özellikler bir SaaS tabanlı veri analizi platformunda sağlanır. Bu hizmet geliştirme sağlar ve kapalı kalma süresinin, işbirliğine dayalı bir şekilde çalışması için ekiplerinin performans sorunlarını ve geliştirme ve dağıtım döngülerimizi zamanında bitirecek emin olun. Datadog ile Azure'ı tümleştirerek toplayın ve altyapınız genelinde ölçümleri görüntüleyin. VM ölçümlerini, uygulama düzeyinde ölçümler ile ilişkilendirin. Dilim ve ölçümlerinizi özellikleri ve özel etiketler herhangi bir birleşimini kullanarak ayrıntılı olarak inceleyin.
 
@@ -76,6 +76,11 @@ Datadog dünyanın önde gelen bulut ölçekli uygulamalar için hizmet izleme o
 Dynatrace OneAgent Azure uzantı mekanizması Azure Vm'leri ve uygulama hizmetleri ile tümleşir. Bu şekilde Dynatrace OneAgent konakları, ağ ve Hizmetleri ile ilgili performans ölçümleri bir araya getirebilirsiniz. Dynatrace, yalnızca ölçümü görüntüleniyor yanı sıra, ortamları uçtan uca görselleştirir. Bu, veritabanı katmanı için istemci tarafı hareketleri gösterir. Dynatrace, yapay ZEKA tabanlı bağıntı sorunları sağlar ve kodu ve veritabanı düzeyinde Öngörüler yöntemi vermek için kök-neden-analizi tamamen tümleşiktir. Bu bilgiler sorun giderme ve performans iyileştirmeleri çok daha kolay hale getirir.
 
 [Belgelerine gidin.][dynatrace-doc]
+
+## <a name="elastic"></a>Esnek
+Esnek arama şirketidir. Elastik oluşturucuları (Elasticsearch, Kibana, Beats'ten ve Logstash) Elastic Stack'in özünde, kendi kendine Yönetilen derlemeler ve verileri gerçek zamanlı olarak ve uygun ölçekte arama, günlüğe kaydetme, güvenlik ve analiz için kullanılabilir hale SaaS teklifleri kullanım.
+
+[Belgelerine gidin.][elastic-doc]
 
 ## <a name="grafana"></a>Grafana
 Grafana, zaman serisi ölçüm verileri görselleştirmenize olanak sağlayan bir açık kaynak uygulamasıdır.
@@ -167,14 +172,15 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
+[arcsight-anchor]: #microfocus-arcsight "ArcSight"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
 [botmetric-anchor]: #botmetric "Botmetric"
 [circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
-[cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
+[elastic-anchor]: #elastic "Esnek"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
 [influxdata-anchor]: #Influxdata "Influxdata"
@@ -198,9 +204,9 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 [circonus-logo]: ./media/partner-logos/circonus.png
 [cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
-[cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
+[elastic-logo]: ./media/partner-logos/elastic.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
 [influxdata-logo]: ./media/partner-logos/influxdata.png
@@ -219,14 +225,15 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic belgeleri."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics belgeleri."
+[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight belgeleri."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric giriş."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix giriş."
-[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn giriş."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog belgeleri."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace belgeleri."
+[elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastik belgeleri."
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure İzleyici Grafana tümleştirmesi."
 [influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Azure İzleyici Influxdata Telegraf tümleştirmesi."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Mantıksal İzleyici belgeleri."

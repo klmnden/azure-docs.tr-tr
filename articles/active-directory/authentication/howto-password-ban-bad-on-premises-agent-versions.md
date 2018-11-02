@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743264"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913645"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Önizleme: Azure AD parola koruması Aracı sürüm geçmişi
 
@@ -23,6 +23,23 @@ ms.locfileid: "50743264"
 | --- |
 | Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+Yayın Tarihi: 11/01/2018
+
+Düzeltmeleri:
+
+* DC aracı ve proxy hizmeti artık sertifika güven hataları nedeniyle başarısız olması.
+* DC aracı ve proxy hizmeti FIPS uyumlu makineler için ek düzeltmelere sahip.
+* Proxy hizmeti artık düzgün şekilde TLS 1.2 yalnızca ağ ortamında çalışır.
+* Küçük bir performans ve sağlamlık düzeltmeleri
+* Gelişmiş günlük kaydı
+
+Değişiklikler:
+
+* Gereken en düşük işletim sistemi düzeyinde Proxy Hizmeti için artık Windows Server 2012 R2. DC Aracı hizmeti için en düşük gerekli işletim sistemi düzeyi Windows Server 2012 kalır.
+* Parola doğrulama algoritması bir Genişletilmiş karakter normalleştirme tablosunu kullanır. Bu, önceki sürümlerde kabul edildi reddediliyor parolalarda neden olabilir.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ Düzeltmeleri:
 > Yerinde yükseltme DC Aracısı yazılım yeniden başlatma gerektirir.
 
 * DC aracı ve proxy hizmet desteği yalnızca FIPS uyumlu algoritmalar kullanmak için yapılandırılmış bir sunucuda çalıştırmak.
-* Gelişmiş günlük kaydı
 * Küçük bir performans ve sağlamlık düzeltmeleri
+* Gelişmiş günlük kaydı
 
 ## <a name="11103"></a>1.1.10.3
 

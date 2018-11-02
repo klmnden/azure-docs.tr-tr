@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585722"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754061"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure Blob depolama alanından güvenli bir şekilde dışarı aktarmak için nasıl kullanılacağını adım adım yönergeler sağlar. Hizmet, Azure veri merkezine boş sürücüleri gönderin gerektirir. Hizmet veri sürücüleri için depolama hesabınızdan verir ve ardından sürücüleri geri gelir.
@@ -64,7 +64,7 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
     - Depolama hesabınızdan, boş sürücü veya sürücüler için vermek istediğiniz blob verileri belirtin. 
     - Tercih **tümünü dışarı aktar** blob depolama hesabındaki verileri.
     
-         ![Tümünü dışarı aktar](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
+         ![Tümünü Dışarı Aktar](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
     - Hangi kapsayıcıları ve BLOB'ları dışarı aktarmak için belirtebilirsiniz.
         - **Dışarı aktarmak için bir blob belirtmek için**: kullanım **eşit** Seçici. Blob kapsayıcı adı ile başlayan, göreli yolunu belirtin. Kullanım *$root* kök kapsayıcısı belirtin.
@@ -114,7 +114,7 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
 Pano işin tamamlandığından emin bildirdiğinde, diskleri size gönderilir ve sevk irsaliyesi için takip numarasını portalda kullanılabilir.
 
 1. Dışarı aktarılan verileri sürücüleriyle aldıktan sonra sürücüleri kilidini açmak için BitLocker anahtarlarını edinmeniz gerekir. Azure portalında dışarı aktarma işi gidin. Tıklayın **içeri/dışarı aktarma** sekmesi. 
-2. Seçme ve dışarı aktarma işi listeden simge. Git **BitLocker anahtarlarını** ve anahtarları kopyalayın.
+2. Seçin ve listeden, dışarı aktarma işi tıklayın. Git **BitLocker anahtarlarını** ve anahtarları kopyalayın.
    
    ![Dışarı aktarma işi için BitLocker anahtarlarını görüntüle](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 

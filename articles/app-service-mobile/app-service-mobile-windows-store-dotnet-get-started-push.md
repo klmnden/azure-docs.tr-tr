@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c137f6cfdff9d043a656783f38ec9b894e644338
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818829"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913028"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Windows uygulamanızı anında iletme bildirimleri ekleme
 
@@ -37,21 +37,23 @@ Bu öğreticide, anında iletme bildirimleri ekleme [Windows Hızlı Başlangı�
 
 ## <a name="register-your-app-for-push-notifications"></a>Anında iletme bildirimleri için uygulamanızı kaydetme
 
-Microsoft Store için uygulamanızı gönderin, sonra Windows Bildirim Hizmetleri (anında iletme göndermek için WNS ile) tümleştirmek için sunucu projenizi yapılandırmak gerekir.
+Microsoft Store için uygulamanızı gönderin, sonra tümleştirmek için sunucu projenizi yapılandırmak gereken [Windows Bildirim Hizmetleri (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) anında iletme göndermek için.
 
 1. UWP uygulaması projesini Visual Studio Çözüm Gezgini'nde sağ tıklayın, **Store** > **uygulamayı Store ile ilişkilendir...** .
 
     ![Uygulamayı Microsoft Store ile ilişkilendirme](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+
 2. Sihirbazı'nda tıklatın **sonraki**, Microsoft hesabınızla oturum açın, uygulamanız için bir ad yazın **yeni bir uygulama adı ayrılmaya**, ardından **ayırma**.
 3. Uygulama kaydı başarıyla oluşturulduktan sonra yeni bir uygulama adı seçin, **sonraki**ve ardından **ilişkilendirmek**. Bu, uygulama bildirimine gerekli Microsoft Store kayıt bilgilerini ekler.
-4. Gidin [Windows Dev Center](https://dev.windows.com/en-us/overview), oturum açma Microsoft hesabınızla, yeni uygulama kaydı içinde tıklayın **uygulamalarım**, ardından **Hizmetleri**  >   **Anında iletme bildirimleri**.
-5. İçinde **anında iletme bildirimleri** sayfasında **Live Services sitesi** altında **Microsoft Azure Mobile Services**.
-6. Kayıt sayfanın altındaki değeri Not **uygulama gizli dizilerini** ve **paket SID'si**, mobil uygulamanızın arka ucunu yapılandırmak için sonraki olarak kullanacağınız.
+4. Gidin [uygulama kayıt portalı](https://apps.dev.microsoft.com/) ve Microsoft hesabınızla oturum açın. Önceki adımda ilişkili Windows Store uygulamaya tıklayın.
+5. Kayıt sayfanın altındaki değeri Not **uygulama gizli dizilerini** ve **paket SID'si**, mobil uygulamanızın arka ucunu yapılandırmak için sonraki olarak kullanacağınız.
 
     ![Uygulamayı Microsoft Store ile ilişkilendirme](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > Gizli anahtar ve paket SID'si önemli güvenlik kimlik bilgileridir. Bu değerleri kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın. **Uygulama kimliği** sahip gizli dizi Microsoft Account kimlik doğrulamasını yapılandırmak için kullanılır.
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) UWP uygulamalarına anında iletme bildirimleri için yapılandırmaya yönelik yönergeler de vardır.
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için arka uç yapılandırın
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 55dc43f238b487392be48047b3d608f84e1e3ee2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f5d1968503c7aa82ba58c80eec886b19fc44b4f5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579319"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913603"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure izleme verilerini kullanma
 
@@ -24,17 +24,17 @@ Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici i
 | Veri türü | Kategori | Desteklenen hizmetler | Erişim yöntemi |
 | --- | --- | --- | --- |
 | Azure platform düzeyi ölçümlerini izleme | Ölçümler | [Listesine buradan bakın](monitoring-supported-metrics.md) | <ul><li>**REST API:** [Azure İzleyici ölçüm API'si](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Depolama blobu veya olay hub'ı:** [tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| Konuk işletim sistemi ölçümleri (ör. işlem performans sayaçları) | Ölçümler | [Windows](../virtual-machines-dotnet-diagnostics.md) ve Linux sanal makineleri (v2) [bulut Hizmetleri](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Depolama tablo veya blob:** [Windows veya Linux Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Olay hub'ı:** [Windows Azure tanılama](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
+| Konuk işletim sistemi ölçümleri (ör. işlem performans sayaçları) | Ölçümler | [Windows](../virtual-machines-dotnet-diagnostics.md) ve Linux sanal makineleri (v2) [bulut Hizmetleri](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Depolama tablo veya blob:** [Windows veya Linux Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Olay hub'ı:** [Windows Azure tanılama](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | Özel veya uygulama ölçümleri | Ölçümler | Application Insights ile izlenen herhangi bir uygulama | <ul><li>**REST API:** [Application Insights REST API](https://dev.applicationinsights.io/reference)</li></ul> |
 | Depolama ölçümleri | Ölçümler | Azure Storage | <ul><li>**Depolama tablosu:** [depolama analizi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Faturalama verileri | Ölçümler | Tüm Azure Hizmetleri | <ul><li>**REST API:** [Azure kaynak kullanım ve RateCard API'leri](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Etkinlik Günlüğü | Olaylar | Tüm Azure Hizmetleri | <ul><li>**REST API:** [Azure İzleyici olayları API'si](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Depolama blobu veya olay hub'ı:** [günlük profili](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Azure İzleyici tanılama günlükleri | Olaylar | [Listesine buradan bakın](monitoring-diagnostic-logs-schema.md) | <ul><li>**Depolama blobu veya olay hub'ı:** [tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| Konuk işletim sistemi günlükleri (örn. işlem IIS, ETW, Syslog) | Olaylar | [Windows](../virtual-machines-dotnet-diagnostics.md) ve Linux sanal makineleri (v2) [bulut Hizmetleri](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Depolama tablo veya blob:** [Windows veya Linux Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Olay hub'ı:** [Windows Azure tanılama](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
+| Konuk işletim sistemi günlükleri (örn. işlem IIS, ETW, Syslog) | Olaylar | [Windows](../virtual-machines-dotnet-diagnostics.md) ve Linux sanal makineleri (v2) [bulut Hizmetleri](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Depolama tablo veya blob:** [Windows veya Linux Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Olay hub'ı:** [Windows Azure tanılama](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | App Service günlükleri | Olaylar | Uygulama hizmetleri | <ul><li>**Dosya, tablo veya blob Depolama:** [Web uygulama tanılama](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Depolama günlükleri | Olaylar | Azure Storage | <ul><li>**Depolama tablosu:** [depolama analizi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Güvenlik Merkezi uyarıları | Olaylar | Azure Güvenlik Merkezi | <ul><li>**REST API:** [güvenlik uyarıları](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
-| Active Directory raporlama | Olaylar | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API'si](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
+| Active Directory raporlama | Olaylar | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API'si](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md)</li></ul> |
 | Güvenlik Merkezi kaynak durumu | Durum | [Desteklenen tüm kaynaklar](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST API:** [güvenlik durumları](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Kaynak Durumu | Durum | Desteklenen hizmetler | <ul><li>**REST API:** [kaynak durumu REST API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Azure İzleyici ölçüm uyarıları | Bildirimler | [Listesine buradan bakın](monitoring-supported-metrics.md) | <ul><li>**Web kancası:** [Azure ölçüm uyarıları](insights-webhooks-alerts.md)</li></ul> |
@@ -46,6 +46,6 @@ Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici i
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [Azure İzleyici ölçümleri](monitoring-overview-metrics.md)
+- Daha fazla bilgi edinin [Azure İzleyici ölçümleri](../monitoring/monitoring-data-collection.md)
 - Daha fazla bilgi edinin [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md)
 - Daha fazla bilgi edinin [Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)

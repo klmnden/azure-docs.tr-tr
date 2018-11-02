@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 784213531c061912dded8e7776e79bea5adb217b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466061"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914660"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
 
@@ -30,14 +30,12 @@ Bu özellik, uygulama geliştiriciler tarafından hangi kullanıcıların uygula
 - Azure AD belirteçleri döndüren belirli talep davranışını değiştirin.
 - Ekleme ve özel talepler uygulamanıza erişebilirsiniz. 
 
-> [!Note]
+> [!NOTE]
 > Bu özellik şu anda genel Önizleme aşamasındadır. Değişiklikleri geri almaya veya kaldırmaya hazırlıklı olun. Bu özellik, herhangi bir Azure AD aboneliğiniz genel Önizleme sırasında kullanılabilir. Ancak, bazı yönlerini özellik özelliği genel kullanıma sunulduğunda, bir Azure AD premium aboneliği gerektirebilir.
 
 Standart talepler ve belirteçler nasıl kullanıldığı listesi için bkz. [Azure AD tarafından verilen belirteçlere Temelleri](v1-id-and-access-tokens.md). 
 
-Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) istemciler tarafından en iyi performansı elde etmek için daha küçük simge boyutları.  Sonuç olarak, eski erişim ve kimlik belirteçlerini dahil birkaç talep artık v2.0 belirteçleri varsa ve için özellikle uygulama başına temelinde sorulması gerekir.
-
-  
+Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) istemciler tarafından en iyi performansı elde etmek için daha küçük simge boyutları. Sonuç olarak, eski erişim ve kimlik belirteçlerini dahil birkaç talep artık v2.0 belirteçleri varsa ve için özellikle uygulama başına temelinde sorulması gerekir.
 
 **Tablo 1: uygulanabilirliği**
 
@@ -46,67 +44,68 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 | Kişisel Microsoft hesabı  | Yok - RPS biletleri yerine kullanılır | Destek yakında |
 | Azure AD hesabı          | Desteklenen                          | Uyarılar ile desteklenen      |
 
-> [!Important]
-> Şu anda, hem kişisel hesapları hem de Azure AD destekleyen uygulamaları (aracılığıyla kaydedilen [uygulama kayıt portalı](https://apps.dev.microsoft.com)) isteğe bağlı bir talep kullanamazsınız.  Ancak, yalnızca Azure AD v2.0 uç noktası kullanmak için kayıtlı uygulamalar bildiriminde talep isteğe bağlı bir talep elde edebilirsiniz.
+> [!IMPORTANT]
+> Hem kişisel hesapları hem de Azure AD destekleyen uygulamaları (aracılığıyla kaydedilen [uygulama kayıt portalı](https://apps.dev.microsoft.com)) isteğe bağlı bir talep kullanamazsınız. Ancak, yalnızca Azure AD v2.0 uç noktası kullanmak için kayıtlı uygulamalar bildiriminde talep isteğe bağlı bir talep elde edebilirsiniz. Azure portalında mevcut uygulama bildirim düzenleyicisini kullanabilirsiniz **uygulama kayıtları** , isteğe bağlı bir talep düzenleme deneyimi. Ancak, bu işlevleri henüz yeni uygulama bildirim düzenleyicisini kullanarak kullanılamıyor **uygulama kayıtları (Önizleme)** karşılaşırsınız.
 
 ## <a name="standard-optional-claims-set"></a>Standart isteğe bağlı bir talep kümesi
-İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir.  Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)aşağıdaki.  Talepleri eklerken unutmayın **erişim belirteci**, bu istenen erişim belirteçleri için geçerli *için* uygulama (bir web API), olanları *tarafından* uygulama.  Bu, API'nizi erişen istemci ne olursa olsun, doğru verilere API'nizi karşı kimlik doğrulaması yapmak için kullandıkları erişim belirteci mevcut olmasını sağlar.
 
-> [!Note]
->Bu talep çoğunu içinde Jwt'ler v1.0 ve v2.0 belirteçleri, ancak değil SAML belirteçlerini dışında belirteç Türü sütununda belirtilmedikçe dahil edilebilir.  Ayrıca, isteğe bağlı talepleri yalnızca AAD kullanıcıları için şu anda desteklendiğinden, MSA desteği ekleniyor.  MSA v2.0 uç noktada destek isteğe bağlı bir talep varsa, kullanıcı türü sütunu bir AAD veya MSA kullanıcısı için bir talep olup olmadığını gösterir.  
+İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir. Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)aşağıdaki. Talepleri eklerken unutmayın **erişim belirteci**, bu istenen erişim belirteçleri için geçerli *için* uygulama (bir web API), olanları *tarafından* uygulama. Bu, API'nizi erişen istemci ne olursa olsun, doğru verilere API'nizi karşı kimlik doğrulaması yapmak için kullandıkları erişim belirteci mevcut olmasını sağlar.
+
+> [!NOTE]
+> Bu talep çoğunu içinde Jwt'ler v1.0 ve v2.0 belirteçleri, ancak değil SAML belirteçlerini dışında belirteç Türü sütununda belirtilmedikçe dahil edilebilir. Ayrıca, isteğe bağlı talepleri yalnızca AAD kullanıcıları için şu anda desteklendiğinden, MSA desteği ekleniyor. MSA v2.0 uç noktada destek isteğe bağlı bir talep varsa, kullanıcı türü sütunu bir AAD veya MSA kullanıcısı için bir talep olup olmadığını gösterir. 
 
 **Tablo 2: Standart isteğe bağlı bir talep kümesi**
 
 | Ad                        | Açıklama   | Belirteç türü | Kullanıcı Türü | Notlar  |
 |-----------------------------|----------------|------------|-----------|--------|
-| `auth_time`                | Zaman zaman son kullanıcı kimlik doğrulaması.  Bkz: Openıd Connect belirtimi.| JWT        |           |  |
+| `auth_time`                | Zaman zaman son kullanıcı kimlik doğrulaması. Bkz: Openıd Connect belirtimi.| JWT        |           |  |
 | `tenant_region_scope`      | Kaynak Kiracı bölgesi | JWT        |           | |
 | `signin_state`             | Oturum durumu talebi   | JWT        |           | dönüş değerleri bayrakları 6:<br> "dvc_mngd": cihaz yönetilir<br> "dvc_cmp": cihaz uyumlu<br> "dvc_dmjd": cihaz etki alanına katılmış olan<br> "dvc_mngd_app": cihaz MDM yönetilir<br> "inknownntwk": bilinen ağ içinde cihazdır.<br> "kmsı": Canlı bana imzalı olarak kullanıldı. <br> |
-| `controls`                 | Birden çok değerli talep koşullu erişim ilkeleri tarafından zorlanan oturum denetimleri içeren.  | JWT        |           | 3 değeri:<br> "app_res": uygulamanın daha ayrıntılı sınırlamalar zorlamak için gerekir. <br> "ca_enf": koşullu erişim zorlama ertelendi ve yine de gereklidir. <br> "no_cookie": Bu tarayıcıda tanımlama bilgisi için değişimi yetersiz bir belirteçtir. <br>  |
+| `controls`                 | Birden çok değerli talep koşullu erişim ilkeleri tarafından zorlanan oturum denetimleri içeren. | JWT        |           | 3 değeri:<br> "app_res": uygulamanın daha ayrıntılı sınırlamalar zorlamak için gerekir. <br> "ca_enf": koşullu erişim zorlama ertelendi ve yine de gereklidir. <br> "no_cookie": Bu tarayıcıda tanımlama bilgisi için değişimi yetersiz bir belirteçtir. <br>  |
 | `home_oid`                 | Konuk kullanıcılar için kullanıcının giriş kiracısında kullanıcının nesne kimliği.| JWT        |           | |
 | `sid`                      | Oturum başına kullanıcı signout için kullanılan oturum kimliği. | JWT        |           |         |
 | `platf`                    | Cihaz platformu    | JWT        |           | Cihaz türü doğrulayabilirsiniz yönetilen cihazlar için kısıtlı.|
 | `verified_primary_email`   | Kullanıcının PrimaryAuthoritativeEmail kaynağı      | JWT        |           |         |
 | `verified_secondary_email` | Kullanıcının SecondaryAuthoritativeEmail kaynağı   | JWT        |           |        |
-| `enfpolids`                | Uygulanan ilkeyi kimlikleri. Geçerli kullanıcı için değerlendirilen kimlikleri ilke listesi.  | JWT |  |  |
-| `vnet`                     | VNET belirleyici bilgi.    | JWT        |           |      |
+| `enfpolids`                | Uygulanan ilkeyi kimlikleri. Geçerli kullanıcı için değerlendirilen kimlikleri ilke listesi. | JWT |  |  |
+| `vnet`                     | VNET belirleyici bilgi. | JWT        |           |      |
 | `fwd`                      | IP adresi.| JWT    |   | İstekte bulunan istemciye (bir sanal ağ içindeki olduğunda) özgün IPv4 adresini ekler |
 | `ctry`                     | Kullanıcının ülke | JWT |           | Azure AD döndürür `ctry` varsa ve FR, JP, SZ ve benzeri gibi bir standart iki harfli ülke kodu talep değeri isteğe bağlı bir talep. |
 | `tenant_ctry`              | Kaynak kiracının ülke | JWT | | |
-| `xms_pdl`          | Tercih edilen veri konumu   | JWT | | Çoklu coğrafi kiracılar için bu yöntem, kullanıcının hangi coğrafi bölgede gösteren 3 harfli koddur.  Daha fazla ayrıntı için [tercih edilen veri konumu hakkında Azure AD Connect belgelerini](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Örneğin: `APC` Asya Pasifik için. |
-| `xms_pl`                   | Kullanıcı tercih edilen dil  | JWT ||Kullanıcının, uygulamanın tercih edilen dil, ayarlayın.  Konuk erişimi senaryoları kendi giriş kiracısında kaynağı.  Tümünü CC biçimlendirilmiş ("en-us"). |
-| `xms_tpl`                  | Kiracı tercih edilen dil| JWT | | Kaynak Kiracı kişinin tercih ettiği dili, ayarlayın.  Biçimlendirilmiş LL ("tr"). |
+| `xms_pdl`          | Tercih edilen veri konumu   | JWT | | Çoklu coğrafi kiracılar için bu yöntem, kullanıcının hangi coğrafi bölgede gösteren 3 harfli koddur. Daha fazla ayrıntı için [tercih edilen veri konumu hakkında Azure AD Connect belgelerini](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Örneğin: `APC` Asya Pasifik için. |
+| `xms_pl`                   | Kullanıcı tercih edilen dil  | JWT ||Kullanıcının, uygulamanın tercih edilen dil, ayarlayın. Konuk erişimi senaryoları kendi giriş kiracısında kaynağı. Tümünü CC biçimlendirilmiş ("en-us"). |
+| `xms_tpl`                  | Kiracı tercih edilen dil| JWT | | Kaynak Kiracı kişinin tercih ettiği dili, ayarlayın. Biçimlendirilmiş LL ("tr"). |
 | `ztdid`                    | Sıfır dokunma dağıtım kimliği | JWT | | Cihaz kimliği için kullanılan [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `acct`             | Kiracıdaki kullanıcıların hesap durumu.   | JWT, SAML | | Kullanıcı, kiracısının üyesi ise, değer `0`.  Bir konuk olmaları durumunda değerdir `1`.  |
-| `upn`                      | UserPrincipalName talep.  | JWT, SAML  |           | Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz.  <br> Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `acct`             | Kiracıdaki kullanıcıların hesap durumu. | JWT, SAML | | Kullanıcı, kiracısının üyesi ise, değer `0`. Bir konuk olmaları durumunda değerdir `1`. |
+| `upn`                      | UserPrincipalName talep. | JWT, SAML  |           | Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz. <br> Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>İsteğe bağlı taleplerin v2.0
 
-Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde istenmedikçe dahil değildir.  Bu talepler yalnızca (kimlik ve erişim belirteçler) Jwt'ler için geçerlidir.  
+Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde istenmedikçe dahil değildir. Bu talepler yalnızca (kimlik ve erişim belirteçler) Jwt'ler için geçerlidir. 
 
 **Tablo 3: Yalnızca V2.0 isteğe bağlı talepleri**
 
-| JWT talep     | Ad                            | Açıklama                                                                                                                    | Notlar |
+| JWT talep     | Ad                            | Açıklama                                | Notlar |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
-| `ipaddr`      | IP Adresi                      | Oturum açtığınız istemci IP adresi.                                                                                      |       |
-| `onprem_sid`  | Şirket içi güvenlik tanımlayıcısı |                                                                                                                                |       |
-| `pwd_exp`     | Parola süre sonu zamanı        | Parola süresinin dolma datetime.                                                                                    |       |
-| `pwd_url`     | Parola URL'sini değiştirme             | Kullanıcının parolasını değiştirmek için ziyaret edebileceği bir URL.                                                                        |       |
-| `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilse, talep dahil değildir                     |       |
-| `nickname`    | Takma ad                        | İlk veya son adından ayrı kullanıcı için ek bir ad.                                                             |       |                                                                                                                |       |
+| `ipaddr`      | IP Adresi                      | Oturum açtığınız istemci IP adresi.   |       |
+| `onprem_sid`  | Şirket İçi Güvenlik Tanımlayıcısı |                                             |       |
+| `pwd_exp`     | Parola süre sonu zamanı        | Parola süresinin dolma datetime. |       |
+| `pwd_url`     | Parola URL'sini değiştirme             | Kullanıcının parolasını değiştirmek için ziyaret edebileceği bir URL.   |       |
+| `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilse, talep dahil değildir.   |       |
+| `nickname`    | Takma ad                        | İlk veya son adından ayrı kullanıcı için ek bir ad. |       |                                                                                                                |       |
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adı Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" |       |
 | `given_name`  | Ad                      | İlk sağlar veya "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı taleplerin ek özellikler
 
-Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek için yapılandırılabilir.  Bu ek özellikler genellikle farklı veri beklentileri ile şirket içi uygulamaların taşınmasına yardımcı olmak için kullanılır (örneğin, `include_externally_authenticated_upn_without_hash` hashmarks işleyemiyor istemcilerle yardımcı olur (`#`) UPN içinde)
+Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek için yapılandırılabilir. Bu ek özellikler genellikle farklı veri beklentileri ile şirket içi uygulamaların taşınmasına yardımcı olmak için kullanılır (örneğin, `include_externally_authenticated_upn_without_hash` hashmarks işleyemiyor istemcilerle yardımcı olur (`#`) UPN içinde)
 
 **Tablo 4: standart isteğe bağlı talep yapılandırma değerleri**
 
 | Özellik adı                                     | Ek özellik adı                                                                                                             | Açıklama |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  SAML hem JWT yanıtlar için kullanılabilir.            |
-| | `include_externally_authenticated_upn`              | Kaynak kiracıda depolanmış olarak UPN Konuk içerir.  Örneğin, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
+| `upn`                                                 |                                                                                                                                      |  SAML hem JWT yanıtlar için kullanılabilir.        |
+| | `include_externally_authenticated_upn`              | Kaynak kiracıda depolanmış olarak UPN Konuk içerir. Örneğin, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Yukarıdaki aynı dışındaki hashmarks (`#`) alt çizgi ile değiştirilir (`_`), örneğin `foo_hometenant.com_EXT_@resourcetenant.com` |             
 
 > [!Note]
@@ -127,7 +126,7 @@ Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek içi
 }
 ```
 
-Bu OptionalClaims nesne başka bir upn ile ek giriş kiracısında ve kaynak Kiracı bilgileri içerecek şekilde istemciye döndürülen kimlik belirteci neden olur.  Bu, yalnızca değiştirecek `upn` (farklı bir IDP kimlik doğrulaması kullanan için) kiracıda bir Konuk kullanıcı, belirteçte talep. 
+Bu OptionalClaims nesne başka bir upn ile ek giriş kiracısında ve kaynak Kiracı bilgileri içerecek şekilde istemciye döndürülen kimlik belirteci neden olur. Bu, yalnızca değiştirecek `upn` (farklı bir IDP kimlik doğrulaması kullanan için) kiracıda bir Konuk kullanıcı, belirteçte talep. 
 
 ## <a name="configuring-optional-claims"></a>İsteğe bağlı bir talep yapılandırma
 
@@ -172,9 +171,9 @@ Bir uygulama tarafından istenen isteğe bağlı talepleri bildirir. Bir uygulam
 
 | Ad        | Tür                       | Açıklama                                           |
 |-------------|----------------------------|-------------------------------------------------------|
-| `idToken`     | Koleksiyon (OptionalClaim) | İsteğe bağlı talep kimliği JWT belirteci döndürdü.     |
+| `idToken`     | Koleksiyon (OptionalClaim) | İsteğe bağlı talep kimliği JWT belirteci döndürdü. |
 | `accessToken` | Koleksiyon (OptionalClaim) | JWT erişim belirtecinde verilen talepleri isteğe bağlı. |
-| `saml2Token`  | Koleksiyon (OptionalClaim) | SAML belirtecinde verilen talepleri isteğe bağlı.       |
+| `saml2Token`  | Koleksiyon (OptionalClaim) | SAML belirtecinde verilen talepleri isteğe bağlı.   |
 
 ### <a name="optionalclaim-type"></a>OptionalClaim türü
 
@@ -185,13 +184,13 @@ Belirli bir talep tarafından destekleniyorsa, ayrıca AdditionalProperties alan
 
 | Ad                 | Tür                    | Açıklama                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                 | Edm.String              | İsteğe bağlı bir talep adı.                                                                                                                                                                                                                                                                               |
+| `name`                 | Edm.String              | İsteğe bağlı bir talep adı.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Kaynağı (dizin nesnesi) talep. Önceden tanımlanmış talep ve kullanıcı tanımlı talep uzantı özelliklerinden vardır. Kaynak değeri null ise, talep önceden tanımlanmış isteğe bağlı bir talep var. Kullanıcı kaynak değeri ise name özelliği kullanıcı nesnesi uzantı özelliği değer. |
-| `essential`            | Edm.Boolean             | Değer true ise, istemci tarafından belirtilen talep son kullanıcı tarafından istenen belirli görev için bir yumuşak yetkilendirme deneyimi sağlamak gereklidir. Varsayılan değer false'tur.                                                                                                                 |
-| `additionalProperties` | Koleksiyon (Edm.String) | Talep ek özellikleri. Bu koleksiyonda bir özellik varsa, belirtilen ad özelliği isteğe bağlı bir talep davranışını değiştirir.                                                                                                                                                   |
+| `essential`            | Edm.Boolean             | Değer true ise, istemci tarafından belirtilen talep son kullanıcı tarafından istenen belirli görev için bir yumuşak yetkilendirme deneyimi sağlamak gereklidir. Varsayılan değer false'tur.                                                                                                             |
+| `additionalProperties` | Koleksiyon (Edm.String) | Talep ek özellikleri. Bu koleksiyonda bir özellik varsa, belirtilen ad özelliği isteğe bağlı bir talep davranışını değiştirir.                                                                                                                                               |
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>Özel talepler dizin uzantıları aracılığıyla yapılandırma
 
-Standart isteğe bağlı talep kümesine ek olarak, belirteçleri directory şema uzantıları içerecek şekilde de yapılandırılabilir (bkz [Directory şema uzantılarını makalesi](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) daha fazla bilgi için).  Bu özellik, uygulamanızı – örneğin kullanabileceğiniz ek kullanıcı bilgileri, bir ek tanımlayıcı veya kullanıcı önemli yapılandırma seçeneğini eklemek için yararlıdır. 
+Standart isteğe bağlı talep kümesine ek olarak, belirteçleri directory şema uzantıları içerecek şekilde de yapılandırılabilir (bkz [Directory şema uzantılarını makalesi](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) daha fazla bilgi için). Bu özellik, uygulamanızı – örneğin kullanabileceğiniz ek kullanıcı bilgileri, bir ek tanımlayıcı veya kullanıcı önemli yapılandırma seçeneğini eklemek için yararlıdır. 
 
 > [!Note]
 > Uygulamanızı bildirim istekleri, özel uzantı ve bir MSA kullanıcısı oturum uygulamanıza directory şema uzantıları yalnızca AAD özelliği olduğundan, bu uzantıları döndürülmez. 
@@ -245,7 +244,7 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
             ]
       }
       ```
-      Bu durumda, isteğe bağlı farklı talepler her uygulama alabilir belirteci türüne eklendi. Kimlik belirteçlerini artık tam formunda Federasyon kullanıcıları için UPN içerecektir (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Bu uygulama için diğer istemcilerin istek erişim belirteçleri artık auth_time talebi içerir. SAML belirteçlerini skypeId directory şema uzantısı şimdi içerecektir (Bu örnekte, bu uygulama için uygulama kimliği ab603c56068041afb2f6832e2a17e237 olduğu).  SAML belirteçlerini Skype kimliği olarak açığa çıkarır `extension_skypeId`.
+      Bu durumda, isteğe bağlı farklı talepler her uygulama alabilir belirteci türüne eklendi. Kimlik belirteçlerini artık tam formunda Federasyon kullanıcıları için UPN içerecektir (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Bu uygulama için diğer istemcilerin istek erişim belirteçleri artık auth_time talebi içerir. SAML belirteçlerini skypeId directory şema uzantısı şimdi içerecektir (Bu örnekte, bu uygulama için uygulama kimliği ab603c56068041afb2f6832e2a17e237 olduğu). SAML belirteçlerini Skype kimliği olarak açığa çıkarır `extension_skypeId`.
 
 1. Aktualizuje SE manifest tamamladığınızda, tıklayın **Kaydet** bildirimi kaydetmek için
 

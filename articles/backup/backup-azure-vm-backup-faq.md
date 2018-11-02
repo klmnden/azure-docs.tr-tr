@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414803"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753976"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
 Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -48,13 +48,13 @@ Evet. Hatta bir makine kapatıldığında yedeklemelerin gerçekleştirildiğind
 Evet. "Anlık görüntü almak" aşamasında olan, bir yedekleme işi iptal edebilirsiniz. **Anlık görüntüden veri aktarımı sürüyorsa bir iş iptal edilemiyor**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Ben kaynak grubu kilit my yedeklenen yönetilen disk Vm'leri üzerinde etkin. Yedeklemelerim çalışmaya devam edecek mi?
-Kullanıcının kaynak grubunu kilitler, Backup hizmeti daha eski geri yükleme noktalarını silmek mümkün değil. Bu nedenle, yeni yedeklemeleri'nin arka ucundan uygulanan en fazla 18 geri yükleme noktası sınırı olduğundan başarısız olmaya başlar. RG kilitlendikten sonra Yedeklemelerinizin bir iç hata ile başarısız oluyorsa, aşağıdaki adımları [geri yüklemeyi kaldırma adımları işaret koleksiyonu](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+Kullanıcının kaynak grubunu kilitler, Backup hizmeti daha eski geri yükleme noktalarını silmek mümkün değil. Bu nedenle, yeni yedeklemeleri'nin arka ucundan uygulanan en fazla 18 geri yükleme noktası sınırı olduğundan başarısız olmaya başlar. RG kilitlendikten sonra Yedeklemelerinizin bir iç hata ile başarısız oluyorsa, aşağıdaki adımları [geri yüklemeyi kaldırma adımları işaret koleksiyonu](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Yedekleme İlkesi hesaba Yaz Time(DST) kaydetme sürüyor?
 Hayır. Tarih ve saat, yerel bilgisayarınızda görüntülenir, yerel saat ve geçerli gün ışığından yararlanma saatine göre olduğunu unutmayın. Bu nedenle zamanlanmış yedeklemeler için yapılandırılan süre, yerel saat DST nedeniyle farklı olabilir.
 
 ### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>Kaç tane veri diskleri en fazla bir VM, Azure Backup tarafından yedeklenmek üzere ekleme?
-Azure Backup artık 32 adede kadar disklere sahip sanal makinelerin yedeklenmesini destekler. 32 disk desteği almak için [Azure VM yedekleme yığını v2'ye yükseltme](backup-upgrade-to-vm-backup-stack-v2.md). 24 Eylül 2018 tarihinden itibaren korunmasını tüm VM'lerin desteklenen.
+Azure Backup artık en fazla 16 disklerle sanal makinelerin yedeklenmesini destekler. 16 disk desteği almak için [Azure VM yedekleme yığını v2'ye yükseltme](backup-upgrade-to-vm-backup-stack-v2.md). 24 Eylül 2018 tarihinden itibaren korunmasını tüm VM'lerin desteklenen.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Mu Azure yedekleme desteği standart SSD disk yönetiliyor?
 Azure Backup'ın destekledikleri [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), Microsoft Azure sanal makineler için kalıcı depolama için yeni bir tür. Üzerinde yönetilen diskler için desteklenir [Azure VM yedekleme yığını v2'ye](backup-upgrade-to-vm-backup-stack-v2.md).

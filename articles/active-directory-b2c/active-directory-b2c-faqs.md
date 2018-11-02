@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264724"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914779"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
@@ -72,7 +72,7 @@ Azure AD B2C kiracısı oluştururken sağladığınız Azure AD B2C Kiracı ad�
 1. Açık **Azure Active Directory** dikey penceresi.
 1. Tıklayın **özellikleri** sekmesi.
 1. Değişiklik **adı** alan.
-1. Tıklayın **Kaydet** sayfanın üstünde.
+1. Sayfanın üst kısmından **Kaydet**'e tıklayın.
 
 Şu anda değiştirme olanağı yoktur "den:" e-posta ile sekmesindeki. Üzerinden oy [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) doğrulama e-posta gövdesinin özelleştirme ilgilendiğiniz.
 
@@ -80,7 +80,7 @@ Azure AD B2C kiracısı oluştururken sağladığınız Azure AD B2C Kiracı ad�
 Azure AD Graph API, geçiş aracı yazmak için kullanabilirsiniz. Bkz: [Kullanıcı Geçiş Kılavuzu](active-directory-b2c-user-migration.md) Ayrıntılar için.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Parola ilkeleri, Azure AD B2C'de yerel hesaplar için kullanılır?
-Yerel hesaplar için Azure AD B2C parola ilkesini ilkesi için Azure AD temel alır. Azure AD B2C kaydolma, kaydolma veya oturum açma ve parola ilkelerini kullanır "güçlü" parola gücünü sıfırlama ve parolaları sona ermez. Okuma [Azure AD parola ilkesi](https://msdn.microsoft.com/library/azure/jj943764.aspx) daha fazla ayrıntı için.
+Yerel hesaplar için Azure AD B2C parola ilkesini ilkesi için Azure AD temel alır. Azure AD B2C kaydolma, kaydolma veya oturum açma ve parola ilkelerini kullanır "güçlü" parola gücünü sıfırlama ve parolaları sona ermez. Okuma [Azure AD parola ilkesi](https://msdn.microsoft.com/library/azure/jj943764.aspx) daha fazla ayrıntı için. Hesap kilitlemeleri uygulayın ve parolaları hakkında daha fazla bilgi için bkz: [yönettiği kaynaklar ve Azure Active Directory B2C verilerinde tehditleri](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Şirket içi Active Directory dizinimde Azure AD B2C'ye depolanan müşteri kimliklerini geçirmek için Azure AD Connect kullanabilir miyim?
 Hayır, Azure AD Connect, Azure AD B2C ile çalışmak için tasarlanmamıştır. Kullanmayı [Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md) kullanıcı geçişi için.  Bkz: [Kullanıcı Geçiş Kılavuzu](active-directory-b2c-user-migration.md) Ayrıntılar için.

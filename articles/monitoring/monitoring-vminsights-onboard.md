@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8cca69109f07cbcffe2a5d796262e51fc9233cc5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092783"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914697"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
 Bu makalede, Azure sanal makinelerinizin işletim sistemi durumunu izleyin ve keşfedin ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme VM'ler için Azure İzleyici'kurmak açıklar.  
@@ -355,12 +355,12 @@ Aşağıdaki tabloda sağlanan ilke tanımlarını listeler.
 |Ad |Açıklama |Tür |  
 |-----|------------|-----|  
 |[Önizleme]: VM'ler için Azure İzleyici'yi etkinleştir |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler (VM) için etkinleştirin. Log Analytics çalışma alanı, parametre olarak alır. |Girişim |  
-|[Önizleme]: denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Uyumlu sanal makine görüntüsü (OS) tanımlanan listesinde değilse raporları VM'ler ve aracı yüklü değil. |İlke |  
-|[Önizleme]: denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Uyumlu sanal makine görüntüsü (OS) tanımlanan listesinde değilse raporları VM'ler ve aracı yüklü değil. |İlke |  
-|[Önizleme]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık aracısını Linux Vm'leri için VM görüntüsü (OS) tanımlanan listesinde ise ve aracı yüklü dağıtın. |İlke |  
-|[Önizleme]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |Windows Vm'leri için bağımlılık Aracısı VM görüntüsü (OS) tanımlanan listesinde ise ve aracı yüklü dağıtın. |İlke |  
-|[Önizleme]: Linux sanal makineleri için Log Analytics aracısını dağıtmayı |Log Analytics aracısını Linux Vm'leri için VM görüntüsü (OS) tanımlanan listesinde ise ve aracı yüklü dağıtın. |İlke |  
-|[Önizleme]: Windows Vm'leri için Log Analytics aracısını dağıtmayı |VM görüntüsü (OS) tanımlanan listesinde ise ve aracı yüklü Windows Vm'leri için log Analytics aracısını dağıtın. |İlke |  
+|[Önizleme]: denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |VM Görüntüsü (işletim sistemi) tanımlı listede değilse ve aracı yüklenmemişse VM'yi uyumsuz olarak bildirir. |İlke |  
+|[Önizleme]: denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |VM Görüntüsü (işletim sistemi) tanımlı listede değilse ve aracı yüklenmemişse VM'yi uyumsuz olarak bildirir. |İlke |  
+|[Önizleme]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Linux VM'ler için Bağımlılık Aracısı dağıtın. |İlke |  
+|[Önizleme]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Windows VM'leri için Bağımlılık Aracısı dağıtın. |İlke |  
+|[Önizleme]: Linux sanal makineleri için Log Analytics aracısını dağıtmayı |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Linux VM'leri için Log Analytics Aracısı dağıtın. |İlke |  
+|[Önizleme]: Windows Vm'leri için Log Analytics aracısını dağıtmayı |VM Görüntüsü (İşletim Sistemi) tanımlı listedeyse ve aracı yüklenmemişse Windows VM'leri için Log Analytics Aracısı dağıtın. |İlke |  
 
 Tek başına ilke (girişimle dahil değil) 
 

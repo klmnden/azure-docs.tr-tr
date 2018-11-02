@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae02868500329763ea459f8fb81be17598fac4ec
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954849"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914541"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -113,6 +113,7 @@ Bir olay hub'ına Azure İzleyici ile izleme verilerinizi yönlendirme, iş orta
     1. [Azure İzleyici eklenti Splunk için](https://splunkbase.splunk.com/app/3534/) Splunkbase ve açık kaynaklı proje kullanılabilir. [Belgeleri buradadır](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Bir eklenti yükleyemiyorsanız Splunk Örneğinizde (örn.) varsa bir ara sunucu kullanıldığında veya Splunk bulutunda çalışan), bu olayları kullanarak Splunk HTTP Olay Toplayıcısı iletebilir [olay hub'ındaki yeni iletileri tarafından tetiklenen bu işlevin](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -bir olay hub'ından veri tüketmek SumoLogic ayarlamaya yönelik yönergeler [buradan kullanılabilir](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **ArcSight** -ArcSight Azure olay hub'ı akıllı bağlayıcı olarak kullanılabilir parçası [ArcSight akıllı bağlayıcı koleksiyonu](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
 * **Syslog sunucusu** - stream Azure İzleyici verileri doğrudan bir syslog sunucusuna göz atabilirsiniz isterseniz [bu github deposunu](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Sonraki Adımlar

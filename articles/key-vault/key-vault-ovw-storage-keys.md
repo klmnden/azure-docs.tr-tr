@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f3f310c247aea3842b5ec7a9a1409032d5bdc0bf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232231"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912926"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
 
@@ -34,9 +34,12 @@ ms.locfileid: "50232231"
     - Bu adımları izleyerek [belge](https://docs.microsoft.com/azure/storage/) bir depolama hesabı oluşturmak için  
     - **Adlandırma:** depolama hesabı adları 3 ila 24 karakter uzunluğunda olmalıdır ve yalnızca sayılar ve küçük harfler içerebilir.        
       
-<a name="step-by-step-instructions"></a>Adım adım yönergeleri ile
--------------------------
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Key Vault depolama hesabı anahtarlarını yönetmek için kullanımı konusunda adım yönergeleri ile adım
+--------------------------------------------------------------------------------
 İçinde yönergeler, size Key Vault operatör izinleri depolama hesabınız için bir hizmet olarak atama
+
+> [!NOTE]
+> Lütfen Azure anahtar kasası yönetilen ayarladıktan sonra depolama hesabı anahtarları, bunlar Not gereken **Hayır** artık değiştirilmesi dışında Key Vault aracılığıyla. Yönetilen depolama hesabı anahtarları Key Vault depolama hesabı anahtarını döndürme yönetmeyi tercih anlamına gelir
 
 1. Depolama hesabının kaynak Kimliğini almak için aşağıdaki komutu çalıştırın, bir depolama hesabı oluşturulduktan sonra yönetmek istediğiniz
 
@@ -71,6 +74,8 @@ ms.locfileid: "50232231"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+### <a name="relavant-azure-cli-cmdlets"></a>İşaretlemek Azure CLI cmdlet'leri
+- [Azure CLI'yı depolama cmdlet'leri](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>İlgili Powershell cmdlet'leri
 

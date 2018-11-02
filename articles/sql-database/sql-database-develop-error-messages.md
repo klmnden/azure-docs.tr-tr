@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/31/2018
+ms.openlocfilehash: 233e6e9bccd8729cd61514f2855799cf3d22d72b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064399"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914677"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -106,35 +106,35 @@ Azure SQL veritabanı ile çalışırken kaynakların aşırı kullanımı şu h
 ## <a name="elastic-pool-errors"></a>Elastik Havuz Hataları
 Oluşturma ve elastik havuzlar kullanarak şu hatalarla ilgili:
 
-| ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |Esnek havuz depolama sınırına ulaştı. Esnek havuz depolama alanı kullanımı (%d) MB aşamaz. |MB cinsinden esnek havuz alanı sınırı. |Esnek havuz depolama sınırını ulaşıldığında bir veritabanına veri yazmak çalışıyor. |Dtu'larının artırmayı deneyin ve/veya kendi depolama sınırını artırmak için elastik havuza mümkünse ekleyerek depolama elastik havuz içindeki tek tek veritabanları tarafından kullanılan depolama veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
-| 10929 |EX_USER |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Bkz: [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) Yardım almak için. Aksi halde, lütfen daha sonra tekrar deneyin. |DTU /; veritabanı başına en düşük vCore değeri DTU / veritabanı başına en yüksek vCore değeri |Esnek havuzdaki tüm veritabanları arasında eş zamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için Dtu veya sanal çekirdek esnek havuzun mümkünse artırmayı deneyin veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
-| 40844 |EX_USER |Veritabanı '%ls' sunucusundaki '%ls' bir elastik havuzdaki '%ls' sürümü veritabanıdır ve sürekli kopyalama ilişkiye sahip olamaz. |Veritabanı adı, veritabanı sürümü, sunucu adı |StartDatabaseCopy komutu, bir elastik havuzdaki bir premium olmayan db için verilir. |Çok yakında |
-| 40857 |EX_USER |Esnek havuz için sunucu bulunamadı: '%ls', elastik havuz adı: '%ls'. |sunucusunun adı; Elastik havuz adı |Belirtilen bir elastik havuz, belirtilen sunucuda yok. |Geçerli bir elastik havuz adı sağlayın. |
-| 40858 |EX_USER |'%Ls' esnek havuzu zaten şu sunucuda: '%ls' |Elastik havuz adı, sunucu adı |Belirtilen bir elastik havuz, belirtilen mantıksal sunucuda zaten mevcut. |Yeni elastik havuz adı sağlayın. |
-| 40859 |EX_USER |Elastik havuz, '%ls' hizmet katmanı desteklemez. |Esnek havuz hizmet katmanı |Belirtilen hizmet katmanı, elastik havuz sağlama için desteklenmiyor. |Doğru sürümü sağlayın veya hizmet katmanı varsayılan hizmet katmanı kullanmak için boş bırakın. |
-| 40860 |EX_USER |Elastik havuz, '%ls' ve hizmet hedefi '%ls' birleşimi geçerli değil. |Elastik havuz adı; Hizmet katmanı |Elastik havuz ve hizmet katmanı belirtilebilir birlikte yalnızca 'ElasticPool' kaynak türü belirtilirse. |Elastik havuz ve Hizmet katmanını doğru birleşimini belirtin. |
-| 40861 |EX_USER |Veritabanı sürümü ' %. *ls olan esnek havuz katmanından farklı olamaz ' %.* ls'. |veritabanı sürümü, elastik havuz hizmet katmanı |Esnek havuz katmanından farklı veritabanı sürümüdür. |Esnek havuz katmanından farklı bir veritabanı sürümü belirtmeyin.  Veritabanı sürümü belirtilmesi gerekmez unutmayın. |
-| 40862 |EX_USER |Esnek havuz adının belirtilmesi gerekir esnek havuz hizmeti hedefi belirtildiyse smbiosguid'sinin. |None |Esnek havuz hizmeti hedefi, bir elastik havuzu benzersiz olarak tanımlamıyor. |Esnek havuz hizmeti hedefi kullanarak elastik havuz adı belirtin. |
-| 40864 |EX_USER |Elastik havuz için Dtu'lar'ın en az olmalıdır (%d) Dtu hizmet katmanı için ' %. * ls'. |Elastik havuz için Dtu'lar; Esnek havuz hizmet katmanı. |Alt sınır aşağıda elastik havuz için Dtu'lar yapılmaya çalışılıyor. |Esnek havuz için en az alt sınır Dtu ayarı yeniden deneyin. |
-| 40865 |EX_USER |Elastik havuz için Dtu'lar (%d) Dtu hizmet katmanı için aşamaz ' %. * ls'. |Elastik havuz için Dtu'lar; Esnek havuz hizmet katmanı. |Üst sınırı üstünde elastik havuz için Dtu'lar yapılmaya çalışılıyor. |Yeniden deneme sınırına aşmayan elastik havuz için Dtu'lar ayarlanamadı. |
-| 40867 |EX_USER |Veritabanı başına maksimum DTU olmalıdır en az (%d) hizmet katmanı için ' %. * ls'. |Veritabanı başına en fazla DTU; Esnek havuz hizmet katmanı |Desteklenen sınırı aşağıdaki veritabanı başına en fazla DTU yapılmaya çalışılıyor. | İstenen ayarını destekleyen esnek havuz Hizmet katmanını kullanmayı düşünün. |
-| 40868 |EX_USER |Hizmet katmanı için veritabanı başına maksimum DTU (%d) büyük olamaz ' %. * ls'. |Veritabanı başına en fazla DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına en fazla DTU yapılmaya çalışılıyor. | İstenen ayarını destekleyen esnek havuz Hizmet katmanını kullanmayı düşünün. |
-| 40870 |EX_USER |Hizmet katmanı için veritabanı başına minimum DTU (%d) büyük olamaz ' %. * ls'. |Veritabanı başına minimum DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına minimum DTU yapılmaya çalışılıyor. | İstenen ayarını destekleyen esnek havuz Hizmet katmanını kullanmayı düşünün. |
-| 40873 |EX_USER |Dtu esnek havuzun (%d) veritabanları (%d) ve (%d) veritabanı başına minimum DTU sayısını aşamaz. |Elastik havuzdaki veritabanı sayısı; Veritabanı başına minimum DTU; Elastik havuz Dtu. |Esnek havuz Dtu aşan esnek havuzdaki veritabanları için minimum DTU belirtin çalışılıyor. | Elastik havuz için Dtu'lar artırmayı veya veritabanı başına minimum DTU azaltın veya esnek havuzdaki veritabanlarının sayısını azaltın. |
-| 40877 |EX_USER |Herhangi bir veritabanına içermediği sürece, bir elastik havuz silinemez. |None |Esnek havuz, bir veya daha fazla veritabanı içerir ve bu nedenle silinemiyor. |Veritabanları, silmek için esnek havuzdan kaldırın. |
-| 40881 |EX_USER |Esnek havuzu ' %. * ls, veritabanı sayısı sınırına ulaşıldı.  Esnek havuz için veritabanı sayısı sınırına (%d) dtu'ları ile bir elastik havuz için (%d) aşamaz. |Elastik havuz adı; Elastik havuz, veritabanı sayısı sınırı; edtu'ları için kaynak havuzu. |Oluşturma veya elastik havuz, veritabanı sayısı sınırına ulaşıldığında veritabanı için elastik havuz ekleme çalışılıyor. | Veritabanı sınırını artırmak için Dtu esnek havuzun mümkünse artırmayı deneyin veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
-| 40889 |EX_USER |Dtu'lar ve esnek havuz depolama sınırı ' %. * ls kullanılamaz azaldıkça, yeterli depolama alanına veritabanları için sağlamayacağından. |Elastik havuz adı. |Depolama kullanımını aşağıda esnek havuz depolama sınırını azaltın çalışılıyor. | Tek veritabanlarını elastik havuzdaki depolama kullanımını azaltmayı deneyin veya veritabanlarını kendi Dtu'lar ve depolama sınırı azaltmak için havuzdan kaldırabilirsiniz. |
-| 40891 |EX_USER |(%D) veritabanı başına minimum DTU (%d) veritabanı başına maksimum DTU'yu aşamaz. |Veritabanı başına minimum DTU; Veritabanı başına maksimum DTU. |Veritabanı başına en fazla DTU daha yüksek veritabanı başına minimum DTU yapılmaya çalışılıyor. |Veritabanı başına minimum DTU, veritabanı başına en fazla DTU aşmadığından emin olun. |
-| TBD |EX_USER |Bir elastik havuzdaki tek bir veritabanı depolama alanı boyutu tarafından izin verilen en büyük boyutu aşamaz ' %. * ls hizmet katmanı elastik havuz. |Esnek havuz hizmet katmanı |Veritabanı için en büyük boyutu esnek havuz hizmet katmanı tarafından izin verilen en büyük boyutu aşıyor. |Esnek havuz hizmet katmanı tarafından izin verilen en büyük boyutu sınırları dahilinde veritabanının maksimum boyutunu ayarlayın. |
+| Hata kodu | Severity | Açıklama | Düzeltici Eylem |
+|:--- |:--- |:--- |:--- |
+| 1132 | 17 |Esnek havuz depolama sınırına ulaştı. Esnek havuz depolama alanı kullanımı (%d) MB aşamaz. Esnek havuz depolama sınırını ulaşıldığında bir veritabanına veri yazmak çalışıyor. |Dtu'larının artırmayı deneyin ve/veya kendi depolama sınırını artırmak için elastik havuza mümkünse ekleyerek depolama elastik havuz içindeki tek tek veritabanları tarafından kullanılan depolama veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
+| 10929 | 16 |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Bkz: [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) Yardım almak için. Aksi halde, lütfen daha sonra tekrar deneyin. DTU /; veritabanı başına en düşük vCore değeri DTU / veritabanı başına en yüksek vCore değeri. Esnek havuzdaki tüm veritabanları arasında eş zamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için Dtu veya sanal çekirdek esnek havuzun mümkünse artırmayı deneyin veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
+| 40844 | 16 |Veritabanı '%ls' sunucusundaki '%ls' bir elastik havuzdaki '%ls' sürümü veritabanıdır ve sürekli kopyalama ilişkiye sahip olamaz.  |Yok |
+| 40857 | 16 |Esnek havuz için sunucu bulunamadı: '%ls', elastik havuz adı: '%ls'. Belirtilen bir elastik havuz, belirtilen sunucuda yok. | Geçerli bir elastik havuz adı sağlayın. |
+| 40858 | 16 |'%Ls' esnek havuzu zaten şu sunucuda: '%ls'. Belirtilen bir elastik havuz, belirtilen mantıksal sunucuda zaten mevcut. | Yeni elastik havuz adı sağlayın. |
+| 40859 | 16 |Elastik havuz, '%ls' hizmet katmanı desteklemez. Belirtilen hizmet katmanı, elastik havuz sağlama için desteklenmiyor. |Doğru sürümü sağlayın veya hizmet katmanı varsayılan hizmet katmanı kullanmak için boş bırakın. |
+| 40860 | 16 |Elastik havuz, '%ls' ve hizmet hedefi '%ls' birleşimi geçerli değil. Elastik havuz ve hizmet katmanı belirtilebilir birlikte yalnızca 'ElasticPool' kaynak türü belirtilirse. |Elastik havuz ve Hizmet katmanını doğru birleşimini belirtin. |
+| 40861 | 16 |Veritabanı sürümü ' %. *ls olan esnek havuz katmanından farklı olamaz ' %.* ls'. Esnek havuz katmanından farklı veritabanı sürümüdür. |Esnek havuz katmanından farklı bir veritabanı sürümü belirtmeyin.  Veritabanı sürümü belirtilmesi gerekmez unutmayın. |
+| 40862 | 16 |Esnek havuz adının belirtilmesi gerekir esnek havuz hizmeti hedefi belirtildiyse smbiosguid'sinin. Esnek havuz hizmeti hedefi, bir elastik havuzu benzersiz olarak tanımlamıyor. |Esnek havuz hizmeti hedefi kullanarak elastik havuz adı belirtin. |
+| 40864 | 16 |Elastik havuz için Dtu'lar'ın en az olmalıdır (%d) Dtu hizmet katmanı için ' %. * ls'. Alt sınır aşağıda elastik havuz için Dtu'lar yapılmaya çalışılıyor. |Esnek havuz için en az alt sınır Dtu ayarı yeniden deneyin. |
+| 40865 | 16 |Elastik havuz için Dtu'lar (%d) Dtu hizmet katmanı için aşamaz ' %. * ls'. Üst sınırı üstünde elastik havuz için Dtu'lar yapılmaya çalışılıyor. |Yeniden deneme sınırına aşmayan elastik havuz için Dtu'lar ayarlanamadı. |
+| 40867 | 16 |Veritabanı başına maksimum DTU olmalıdır en az (%d) hizmet katmanı için ' %. * ls'. Desteklenen sınırı aşağıdaki veritabanı başına en fazla DTU yapılmaya çalışılıyor. | İstenen ayarını destekleyen esnek havuz Hizmet katmanını kullanmayı düşünün. |
+| 40868 | 16 |Hizmet katmanı için veritabanı başına maksimum DTU (%d) büyük olamaz ' %. * ls'. Desteklenen sınırı aşan veritabanı başına en fazla DTU yapılmaya çalışılıyor. | İstenen ayarını destekleyen esnek havuz Hizmet katmanını kullanmayı düşünün. |
+| 40870 | 16 |Hizmet katmanı için veritabanı başına minimum DTU (%d) büyük olamaz ' %. * ls'. Desteklenen sınırı aşan veritabanı başına minimum DTU yapılmaya çalışılıyor. | İstenen ayarını destekleyen esnek havuz Hizmet katmanını kullanmayı düşünün. |
+| 40873 | 16 |Dtu esnek havuzun (%d) veritabanları (%d) ve (%d) veritabanı başına minimum DTU sayısını aşamaz. Esnek havuz Dtu aşan esnek havuzdaki veritabanları için minimum DTU belirtin çalışılıyor. | Elastik havuz için Dtu'lar artırmayı veya veritabanı başına minimum DTU azaltın veya esnek havuzdaki veritabanlarının sayısını azaltın. |
+| 40877 | 16 |Herhangi bir veritabanına içermediği sürece, bir elastik havuz silinemez. Esnek havuz, bir veya daha fazla veritabanı içerir ve bu nedenle silinemiyor. |Veritabanları, silmek için esnek havuzdan kaldırın. |
+| 40881 | 16 |Esnek havuzu ' %. * ls, veritabanı sayısı sınırına ulaşıldı.  Esnek havuz için veritabanı sayısı sınırına (%d) dtu'ları ile bir elastik havuz için (%d) aşamaz. Oluşturma veya elastik havuz, veritabanı sayısı sınırına ulaşıldığında veritabanı için elastik havuz ekleme çalışılıyor. | Veritabanı sınırını artırmak için Dtu esnek havuzun mümkünse artırmayı deneyin veya veritabanlarını elastik havuzdan kaldırabilirsiniz. |
+| 40889 | 16 |Dtu'lar ve esnek havuz depolama sınırı ' %. * ls kullanılamaz azaldıkça, yeterli depolama alanına veritabanları için sağlamayacağından. Depolama kullanımını aşağıda esnek havuz depolama sınırını azaltın çalışılıyor. | Tek veritabanlarını elastik havuzdaki depolama kullanımını azaltmayı deneyin veya veritabanlarını kendi Dtu'lar ve depolama sınırı azaltmak için havuzdan kaldırabilirsiniz. |
+| 40891 | 16 |(%D) veritabanı başına minimum DTU (%d) veritabanı başına maksimum DTU'yu aşamaz. Veritabanı başına en fazla DTU daha yüksek veritabanı başına minimum DTU yapılmaya çalışılıyor. |Veritabanı başına minimum DTU, veritabanı başına en fazla DTU aşmadığından emin olun. |
+| TBD | 16 |Bir elastik havuzdaki tek bir veritabanı depolama alanı boyutu tarafından izin verilen en büyük boyutu aşamaz ' %. * ls hizmet katmanı elastik havuz. Veritabanı için en büyük boyutu esnek havuz hizmet katmanı tarafından izin verilen en büyük boyutu aşıyor. |Esnek havuz hizmet katmanı tarafından izin verilen en büyük boyutu sınırları dahilinde veritabanının maksimum boyutunu ayarlayın. |
 
 İlgili konu başlıkları:
 
-* [Elastik havuz (C#) oluşturma](sql-database-elastic-pool-manage-csharp.md) 
-* [Elastik havuz (C#) yönetme](sql-database-elastic-pool-manage-csharp.md). 
-* [Elastik havuz (PowerShell) oluşturma](sql-database-elastic-pool-manage-powershell.md) 
-* [İzleme ve yönetme (PowerShell) elastik havuzlara](sql-database-elastic-pool-manage-powershell.md).
+* [Elastik havuz (C#) oluşturma](sql-database-elastic-pool-manage-csharp.md)
+* [Bir esnek havuzunu yönetme (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Elastik havuz (PowerShell) oluşturma](sql-database-elastic-pool-manage-powershell.md)
+* [İzleme ve yönetme (PowerShell) elastik havuz](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Genel hata
 Aşağıdaki hatalar, önceki tüm kategoriye ayrılır değil.
@@ -142,8 +142,8 @@ Aşağıdaki hatalar, önceki tüm kategoriye ayrılır değil.
 | Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin), geçersiz karakterler içerdiğinden geçerli bir ad değil. |
-| 18452 |14 |Oturum açma başarısız oldu. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
-| 18456 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(kullanıcı için oturum açma başarısız "%.&#x2a;ls". Parola değiştirme başarısız. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor.) |
+| 18452 |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
+| 18456 |14 |Oturum açma başarısız oldu, kullanıcı için ' %. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (kullanıcısı için oturum açılamadı "%.&#x2a; ls".) |
 | 18470 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'. Neden: Disabled.%.&#x2a;ls hesaptır ls |
 | 40014 |16 |Birden fazla veritabanı aynı işlemde kullanılamaz. |
 | 40054 |16 |Bu SQL Server sürümünde kümelenmiş dizini olmayan tablolar desteklenmez. Kümelenmiş bir dizin oluşturun ve yeniden deneyin. |

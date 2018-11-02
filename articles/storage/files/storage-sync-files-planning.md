@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237914"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914337"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -27,13 +27,13 @@ Bir Azure dosya eşitleme dağıtımı planlama ayrıntılarını almadan önce 
 Depolama eşitleme hizmeti Azure dosya eşitleme için üst düzey Azure kaynağıdır. Depolama eşitleme hizmeti kaynak depolama hesabı kaynağı eşdüzeyde ve Azure kaynak grupları için benzer şekilde dağıtılabilir. Depolama hesabı kaynağı farklı bir üst düzey kaynaktan gerekir çünkü depolama eşitleme hizmeti birden çok eşitleme grupları aracılığıyla birden fazla depolama hesabı ile eşitleme ilişkisi oluşturabilirsiniz. Bir abonelikte dağıtılmış birden çok depolama eşitleme hizmeti kaynakları olabilir.
 
 ### <a name="sync-group"></a>Eşitleme grubu
-Bir eşitleme grubu eşitleme topolojisi için bir dosya kümesini tanımlar. Bir eşitleme grubu içindeki uç noktalar birbiriyle eşitlenmiş olarak tutulur. Örneğin, iki ayrı Azure dosya eşitleme ile yönetmek istediğiniz dosyaları kümesi varsa, iki eşitleme grubu oluşturma ve farklı uç noktaları her eşitleme grubuna ekleyin. Depolama eşitleme hizmeti, ihtiyacınız kadar eşitleme grupları barındırabilirsiniz.  
+Eşitleme grubu, bir dosya kümesi için eşitleme topolojisini tanımlar. Bir eşitleme grubu içindeki uç noktalar birbiriyle eşitlenmiş olarak tutulur. Örneğin, iki ayrı Azure dosya eşitleme ile yönetmek istediğiniz dosyaları kümesi varsa, iki eşitleme grubu oluşturma ve farklı uç noktaları her eşitleme grubuna ekleyin. Depolama eşitleme hizmeti, ihtiyacınız kadar eşitleme grupları barındırabilirsiniz.  
 
 ### <a name="registered-server"></a>Kayıtlı sunucu
 Sunucu (veya küme) arasında bir güven ilişkisi kayıtlı sunucu nesnesini temsil eder ve depolama eşitleme hizmeti. Depolama eşitleme hizmeti örneğine istediğiniz sayıda sunucusu kaydedebilirsiniz. Ancak, bir sunucu (veya küme) aynı anda yalnızca bir depolama eşitleme hizmeti ile kaydedilebilir.
 
 ### <a name="azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı
-Azure dosya eşitleme aracısını Windows Server'ın bir Azure dosya paylaşımı ile eşitlenmesine imkan sağlayan indirilebilir bir pakettir. Azure dosya eşitleme aracısının üç ana bileşeni vardır: 
+Azure Dosya Eşitleme aracısı, Windows Server’ın bir Azure dosya paylaşımı ile eşitlenmesini sağlayan indirilebilir bir pakettir. Azure dosya eşitleme aracısının üç ana bileşeni vardır: 
 - **FileSyncSvc.exe**: arka plan sunucusu uç noktalarda değişiklik izleme ve Azure oturumlarını eşitleme başlatma sorumlu Windows hizmeti.
 - **StorageSync.sys**: Azure dosyaları'na katmanlama dosyaları için sorumlu olan Azure dosya eşitleme dosya sistemi filtresi (ne zaman bulut katmanlaması etkin).
 - **PowerShell Yönetimi cmdlet'leri**: Microsoft.StorageSync Azure kaynak sağlayıcısı ile etkileşim kurmak için kullandığınız PowerShell cmdlet'leri. Bunlar aşağıdaki (varsayılan) konumda bulabilirsiniz:
@@ -41,7 +41,7 @@ Azure dosya eşitleme aracısını Windows Server'ın bir Azure dosya paylaşım
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Sunucu uç noktası
-Sunucu uç noktası, kayıtlı bir sunucuda, bir sunucu birimdeki bir klasör gibi belirli bir konuma temsil eder. Kullanıcıya ad alanlarını çakışmıyorsa birden çok sunucu uç noktaları aynı birimde mevcut olabilir (örneğin, `F:\sync1` ve `F:\sync2`). Bulut katmanlaması ilkeleri her sunucu uç noktası için ayrı ayrı yapılandırabilirsiniz. 
+Sunucu uç noktası, bir sunucu birimi üzerindeki klasör gibi kayıtlı bir sunucu üzerindeki belirli bir noktayı temsil eder. Kullanıcıya ad alanlarını çakışmıyorsa birden çok sunucu uç noktaları aynı birimde mevcut olabilir (örneğin, `F:\sync1` ve `F:\sync2`). Bulut katmanlaması ilkeleri her sunucu uç noktası için ayrı ayrı yapılandırabilirsiniz. 
 
 Sunucu uç noktası aracılığıyla bir takma noktası oluşturabilirsiniz. Sunucu uç noktasını içinde bağlama atlanır unutmayın.  
 
@@ -242,7 +242,9 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Doğu Asya | Hong Kong |
 | Doğu ABD | Virginia |
 | Doğu ABD 2 | Virginia |
+| Orta Kuzey ABD | Illinois |
 | Kuzey Avrupa | İrlanda |
+| Orta Güney ABD | Texas |
 | Güney Hindistan | Chennai |
 | Güneydoğu Asya | Singapur |
 | Birleşik Krallık Güney | Londra |
@@ -269,6 +271,7 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 | Doğu ABD             | Batı ABD            |
 | Doğu ABD 2           | Orta ABD         |
 | Kuzey Avrupa        | Batı Avrupa        |
+| Orta Kuzey ABD    | Orta Güney ABD   |
 | Güney Hindistan         | Orta Hindistan      |
 | Güneydoğu Asya      | Doğu Asya          |
 | Birleşik Krallık Güney            | Birleşik Krallık Batı            |

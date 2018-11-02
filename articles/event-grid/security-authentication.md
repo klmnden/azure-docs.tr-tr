@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: babanisa
-ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741530"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914048"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -191,15 +191,83 @@ Son üç işlemi dışında normal okuma işlemleri filtrelenmiş büyük olası
 
 ### <a name="built-in-roles"></a>Yerleşik roller
 
-Event Grid Olay Aboneliklerini yönetmek için iki yerleşik rol sağlar. Bu roller `EventSubscription Contributor (Preview)` ve `EventSubscription Reader (Preview)`. Bunlar, olay etki alanı uygularken önemlidir. Verilen eylemler hakkında daha fazla bilgi için bkz. [olay etki alanı - erişim yönetimi](event-domains.md#access-management).
+Event Grid Olay Aboneliklerini yönetmek için iki yerleşik rol sağlar. Uygularken önemli oldukları [olay etki alanı](event-domains.md) çünkü bunlar kullanıcılara konular, olay etki alanı, abone olmak için ihtiyaç duydukları izinleri verin. Bu roller, olay abonelikleri üzerinde odaklanır ve konuları oluşturma gibi eylemler için erişim izni yok.
 
 Yapabilecekleriniz [bir kullanıcı veya grup bu rolleri Ata](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+**EventGrid EventSubscription katkıda bulunan (Önizleme)**: Event Grid aboneliği işlemleri yönetme
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**EventGrid EventSubscription Okuyucu (Önizleme)**: Event Grid aboneliği edinin
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
 
 ### <a name="custom-roles"></a>Özel roller
 
 Yerleşik roller farklı olan izinleri belirtmeniz gerekiyorsa, özel roller oluşturabilirsiniz.
 
-Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları aşağıda verilmiştir.
+Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları aşağıda verilmiştir. Bunlar yalnızca olay abonelikleri daha geniş erişim vermek için bu özel roller yerleşik rollerden farklıdır.
 
 **EventGridReadOnlyRole.json**: yalnızca salt okunur işlemlere izin verin.
 

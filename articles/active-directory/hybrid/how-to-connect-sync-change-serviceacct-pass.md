@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315171"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747261"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirme
 Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve Azure AD Connect eşitleme hizmeti hesabı parolasını yeniden kadar eşitleme hizmeti mümkün başlangıç doğru olmayacak. 
@@ -44,7 +44,7 @@ Hizmet hesabı parolasını değiştirdiğinizde yapılması gereken iki şey va
 Parola güncelleştirdiyseniz, ikinci olarak, belirli koşullar altında eşitleme hizmeti artık DPAPI ile şifreleme anahtarını geri alabilirsiniz. Şifreleme anahtarı olmadan, eşitleme hizmeti şirket içine/dışına AD ile Azure AD eşitleme için gerekli olan parolaları şifresi çözülemiyor.
 Hataları gibi görürsünüz:
 
-- Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "**Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü inceleyin. Microsoft olmayan bir hizmette varsa hizmet satıcısını ve hizmete özgü hata koduna bakın \*\*-21451857952**\*\*."
+- Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "** Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü inceleyin. Microsoft olmayan bir hizmette varsa hizmet satıcısını ve hizmete özgü hata koduna bakın **-21451857952 ***. "
 - Altındaki Windows Olay Görüntüleyicisi, uygulama olay günlüğüne bir hata içeriyor. **olay kimliği 6028** ve hata iletisi *"**sunucu şifreleme anahtarı erişilemez durumda.**"*
 
 Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD Connect Sync şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) parola değiştirme.
@@ -59,6 +59,8 @@ Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD 
 
 Şifreleme anahtarını iptal gerekiyorsa, bunu gerçekleştirmek için aşağıdaki yordamları kullanın.
 
+1. [Eşitleme hizmeti durdurulamıyor](#stop-the-synchronization-service)
+
 1. [Var olan şifreleme anahtarını iptal](#abandon-the-existing-encryption-key)
 
 2. [AD DS hesap parolasını girin](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD 
 3. [Azure AD eşitleme hesabının parolasını yeniden Başlat](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [Eşitleme Hizmeti Başlat](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>Eşitleme hizmeti durdurulamıyor
+İlk Windows hizmeti Denetim Yöneticisi'nde hizmetini durdurabilirsiniz.  Hizmet çalışırken durdurmak çalışmadığından emin olun.  İse, tamamlar ve ardından stop kadar bekleyin.
+
+
+1. Windows Hizmet Denetimi Yöneticisi (Başlangıç → Hizmetleri) gidin.
+2. Seçin **Microsoft Azure AD eşitleme** ve Durdur'u tıklatın.
 
 #### <a name="abandon-the-existing-encryption-key"></a>Var olan şifreleme anahtarını iptal
 Yeni şifreleme anahtarının oluşturulabilmesi mevcut şifreleme anahtarını iptal:

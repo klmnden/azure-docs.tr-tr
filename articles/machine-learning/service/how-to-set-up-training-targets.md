@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: dfa9da5102c2a47b14cbd70380b70b4561c3191d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215489"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748468"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
@@ -463,7 +463,7 @@ Bir eğitim çalıştırma göndermek için iki yolu vardır:
 * Gönderme bir `Pipeline` nesne.
 
 > [!IMPORTANT]
-> Azure Databricks, Azure Datalake Analytics ve Azure HDInsight hedefleri yalnızca bir işlem hattında kullanılabilen işlem.
+> Azure Databricks ve Azure Datalake Analytics hedefleri yalnızca bir işlem hattında kullanılabilen işlem.
 > Yerel işlem hedefi, bir işlem hattında kullanılamaz.
 
 ### <a name="submit-using-scriptrunconfig"></a>Kullanarak Gönder `ScriptRunConfig`

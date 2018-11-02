@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9fb955b6bce5b3d40def095180326fdc9aed33b1
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095537"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747907"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -44,7 +44,7 @@ Hayır. Bir kasada depolanan yedekleme verileri, farklı bir kasaya taşınamaz.
 Hayır. Bir kurtarma Hizmetleri kasası, yalnızca depolanan yedeklemelere önce depolama seçenekleri değiştirebilirsiniz.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Bir kurtarma Hizmetleri kasasına yedeklenen sanal makineler için bir öğe düzeyinde geri yükleme (ILR) yapabilirim?
-Hayır, ILR desteklenmez. 
+Hayır, ILR desteklenmez.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup aracısı
@@ -99,7 +99,7 @@ Evet. Ancak önce DPM'yi ayarlayın ve ardından Azure Backup aracısını yükl
 ## <a name="general-backup"></a>Genel yedekleme
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Yedekleme Zamanlama sınırları vardır?
-Evet. 
+Evet.
 - Windows Server veya Windows günde üç kez makinelere yedekleyebilirsiniz. Günlük veya haftalık zamanlamalar için zamanlama ilkesini ayarlayabilirsiniz.
 - Günde DPM'yi yedekleyebilirsiniz. Günlük, haftalık, aylık ve yıllık için zamanlama ilkesini ayarlayabilirsiniz.
 - Günde bir Azure sanal makinelerini yedekleyebilirsiniz.
@@ -110,12 +110,12 @@ Azure Backup, dosyaları ve Azure Backup sunucusu ve DPM tarafından korunan uyg
 
 **OS**| **SKU** |**Ayrıntılar**
 --- | --- | ---
-İş istasyonu | | 
+İş istasyonu | |
 Windows 10 64 bit | Enterprise, Pro, Home | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 8.1 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 8 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 7 64-bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
-Sunucu | | 
+Sunucu | |
 Windows Server 2016 64 bit | Standard, Datacenter, Essentials | WIT en son hizmet paketleri/güncelleştirmeler.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | En son hizmet paketleri/güncelleştirmelerle.
 Windows Server 2012 64 bit | Datacenter, Foundation, Standard | En son hizmet paketleri/güncelleştirmelerle.
@@ -133,20 +133,20 @@ Azure VM Linux yedeklemeleri için Azure yedeklemeyi destekler [Azure tarafında
 Boyutları sınırlamaları aşağıdaki gibidir:
 
 
-İşletim sistemi/makine | Veri kaynağı boyutu sınırı 
---- | --- | --- 
-Windows 8 veya üzeri | 54.400 GB 
-Windows 7 |1700 GB 
-Windows Server 2012 veya üzeri | 54.400 GB 
-Windows Server 2008, Windows Server 2008 R2 | 1700 GB 
-Azure VM | 32 veri diskleri<br/><br/> 4095 GB'a kadar veri diski
+İşletim sistemi/makine | Veri kaynağı boyutu sınırı
+--- | --- | ---
+Windows 8 veya üzeri | 54.400 GB
+Windows 7 |1700 GB
+Windows Server 2012 veya üzeri | 54.400 GB
+Windows Server 2008, Windows Server 2008 R2 | 1700 GB
+Azure VM | 16 veri diski<br/><br/> 4095 GB'a kadar veri diski
 
 ## <a name="how-is-the-data-source-size-determined"></a>Belirlenen veri kaynağı boyutu nasıl mi?
 
 Aşağıdaki tabloda, her bir veri kaynağı boyutunun nasıl belirlendiği açıklanmaktadır.
 
 **Veri kaynağı** | **Ayrıntılar**
---- | --- 
+--- | ---
 Birim |Tek bir birime yedeklenen VM'ye gelen verilerin miktarını yedeklendi.
 SQL Server veritabanı |Yedeklenmekte olan tek SQL veritabanının boyutunu.
 SharePoint | Yedeklenmekte olan bir SharePoint grubu içinde içerik ve yapılandırma veritabanlarının toplamı.
@@ -158,7 +158,7 @@ BMR/sistem durumu |Yedeklenmekte olan makinenin BMR'yi veya sistem durumunu tek 
 
 Kurtarma Hizmetleri kasası kullanarak yedekleme veri miktarına bir sınır yoktur.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Bir yedekleme işini başlatıldıktan sonra iptal edersem aktarılan yedekleme verileri silinir mi? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Bir yedekleme işini başlatıldıktan sonra iptal edersem aktarılan yedekleme verileri silinir mi?
 Hayır. Yedekleme işi iptal edilmeden önce kasaya aktarılan tüm veriler kasada kalır. Azure Backup, yedekleme işlemi sırasında yedekleme verilerine zaman zaman denetim noktaları eklemek üzere bir denetim noktası mekanizması kullanır. Yedekleme verilerinde denetim noktaları bulunduğundan, sonraki yedekleme işlemi dosyaların bütünlüğünü doğrulayabilir. Bir sonraki yedekleme işi, daha önce yedeklenen verilerin üzerine artımlı olarak gerçekleşir. Artımlı yedekleme işlemlerinin yalnızca yeni veya değiştirilmiş verileri aktarması, bant genişliğinin daha iyi kullanılması anlamına gelir.
 
 Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm veriler yoksayılır. Bir sonraki yedekleme işi, son başarılı yedekleme işinden artımlı verileri aktarır.
@@ -186,7 +186,7 @@ Hayır. Yedekleme işinin önce kasaya aktarılan tüm veriler kasada kalır ipt
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>DPM olmayan DPM ve Windows makineleri için bekletme ilkeleri aynı mı?
 Evet, her ikisi de günlük, haftalık, aylık ve yıllık bekletme ilkelerine sahiptir.
 
-### <a name="can-i-customize-retention-policies"></a>Bekletme ilkeleri özelleştirebilirim? 
+### <a name="can-i-customize-retention-policies"></a>Bekletme ilkeleri özelleştirebilirim?
 Evet, özelleştirdikten ilkeleri. Örneğin, haftalık ve günlük bekletme gereksinimlerini, ancak yıllık ve aylık yapılandırabilirsiniz.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Farklı bir kez Yedekleme Zamanlama ve bekletme ilkeleri için kullanabilir miyim?
@@ -208,7 +208,7 @@ Azure Backup alanı mimarisi, hızlı geri yükleme özelliğiyle optimum veri d
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Oluşturulabilecek kurtarma noktalarının sayısına yönelik bir sınır var mıdır?
 
-Korumalı bir örnek için en çok 9999 kurtarma noktası oluşturabilirsiniz. Korumalı örnek, bir bilgisayar, sunucu (fiziksel veya sanal) veya Azure'a yedekler iş yükü ' dir. 
+Korumalı bir örnek için en çok 9999 kurtarma noktası oluşturabilirsiniz. Korumalı örnek, bir bilgisayar, sunucu (fiziksel veya sanal) veya Azure'a yedekler iş yükü ' dir.
 
 - Daha fazla bilgi edinin [yedekleme ve bekletme](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - Hakkında bilgi edinin [korumalı örnekler](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
@@ -238,7 +238,7 @@ Evet. Azure'da bekleyen şifrelenmiş verilerdir.
 - Şirket içi yedekleme için kullanarak Azure'a yedeklerken sağladığınız parola sıfırlama sırasında şifreleme sağlanır.
 - Azure Vm'leri için şifrelenmiş-en-depolama hizmeti şifrelemesi (SSE) kullanarak sıfırlama verilerdir.
 
-Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözmez. 
+Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözmez.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Şifreleme anahtarı yedekleme verilerini şifrelemek için kullanılan minimum uzunluğu nedir?

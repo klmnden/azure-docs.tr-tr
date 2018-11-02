@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094236"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914320"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -271,7 +271,7 @@ Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçe
 |İzleme hizmet |Bir hizmet veya seçin, *tüm* tüm hizmetleri dahil etmek için. Yalnızca gelen uyarılar *VM Insights* bu özellik için desteklenir.| 
 |Zaman aralığı| Yalnızca seçili zaman penceresi içinde tetiklenen uyarılar görünümünde dahil edilir. Desteklenen değerler şunlardır: son bir saat, son 24 saat, son 7 günde ve son 30 gün. | 
 
-**Uyarı ayrıntısı** sayfası, bir uyarı durumuna değiştirmenize olanak tanır ve uyarının ayrıntılarını sağlayan seçtiğinizde görüntülenir. Uyarıları yönetme hakkında daha fazla bilgi için bkz: [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+**Uyarı ayrıntısı** sayfası, bir uyarı durumuna değiştirmenize olanak tanır ve uyarının ayrıntılarını sağlayan seçtiğinizde görüntülenir. Uyarıları yönetme hakkında daha fazla bilgi için bkz: [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/alert-metric.md).  
 
 >[!NOTE]
 >Şu anda bu sistem durumu ölçütleri temel alarak yeni uyarılar oluşturun veya var olan sistem durumu uyarı kuralları Azure İzleyici'de portaldan değiştirmek için desteklenmiyor.  

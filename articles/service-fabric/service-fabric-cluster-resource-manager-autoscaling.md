@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362611"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914065"
 ---
 # <a name="introduction-to-auto-scaling"></a>Otomatik ölçeklendirme giriş
 Otomatik ölçeklendirme Hizmetleri raporladığınız ya da kendi kaynak kullanımını temel alarak yük hizmetlerinizi dinamik olarak ölçeklendirmeniz mi ek bir Service fabric özelliktir. Otomatik ölçeklendirme, büyük esneklik sağlar ve ek örnekler ya da isteğe bağlı hizmetinizin bölümler sağlama sağlar. Tüm otomatik ölçeklendirme işlemi, otomatik ve şeffaf ve bir hizmette ilkelerinizi ayarladıktan sonra hizmet düzeyinde el ile ölçeklendirme işlemleri için gerek yoktur. Otomatik ölçeklendirme üzerinde hizmet oluşturma zamanında veya herhangi bir zamanda hizmet güncelleştirerek kapatılabilir.
@@ -41,7 +41,7 @@ Bir Service Fabric kümesindeki her bir hizmet için otomatik ölçeklendirme il
 Şu anda otomatik ölçekleme için desteklenen iki mekanizma vardır. İlk otomatik ölçeklendirme gerçekleştirildiği ekleyerek veya kaldırarak kapsayıcılar veya durum bilgisi olmayan hizmetler için tasarlanmıştır [örnekleri](service-fabric-concepts-replica-lifecycle.md). Durum bilgisi olan ve durum bilgisi olmayan hizmetler için otomatik ölçeklendirme da ekleyerek gerçekleştirilebilir veya kaldırma adlı [bölümleri](service-fabric-concepts-partitioning.md) hizmeti.
 
 > [!NOTE]
-> Şu anda hizmet başına yalnızca bir ölçeklendirme İlkesi desteği yoktur.
+> Şu anda hizmet başına yalnızca bir ölçeklendirme İlkesi ve ilke başına yalnızca bir ölçeklendirme tetikleyici desteği yoktur.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Ortalama bölüm yük tetikleyici bağlı olarak örnek ölçeklendirme
 İlk tetikleyici türünü bir durum bilgisi olmayan hizmet bölümdeki örneklerinin yük temel alır. Ölçüm yükleri bir bölüm, her örneği için yük almak için ilk düzleştirilmiş ve ardından bu değerleri bölüm tüm örneklerinde ortalaması alınır. Hizmet zaman ölçeklendirileceği belirlemek üç faktöre vardır:

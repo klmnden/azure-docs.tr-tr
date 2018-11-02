@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406679"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747550"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search ile Cosmos DB'ye bağlanma
 
@@ -48,6 +48,8 @@ Ek API'ler için destek, gelecek. İlk desteklemek için hangilerinin belirlemem
 ## <a name="prerequisites"></a>Önkoşullar
 
 Cosmos DB hesabının yanı sıra, olması gerekir. bir [Azure Search Hizmeti](search-create-service-portal.md). 
+
+Cosmos DB hesabınızdaki tüm belgelerin otomatik olarak dizinini koleksiyonu isteyip istemediğinizi seçebilirsiniz. Varsayılan olarak, tüm belgelerin otomatik olarak dizine alınır, ancak otomatik dizin oluşturma devre dışı kapatabilirsiniz. Dizin oluşturmayı devre dışı bırakıldığında, belgelerin yalnızca aracılığıyla erişilebilen kendi kendine bağlantılar veya belge kullanarak sorgular tarafından kimliği Azure arama, Cosmos DB, Azure Search tarafından dizine koleksiyonda açık dizin otomatik gerektirir. 
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Azure Search dizin oluşturucu kavramları

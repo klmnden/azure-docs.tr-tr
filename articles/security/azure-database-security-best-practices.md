@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 50cfc2e8420d9f427b02c739f497d8546d880d7c
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040114"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747771"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure veritabanı en iyi güvenlik uygulamaları
 Güvenlik veritabanlarını yönetmek için güvenliğin çok önemli olduğu ve her zaman için bir öncelik olmuştur [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/). Veritabanlarınızı sıkı bir şekilde en yasal karşılamak amacıyla güvenli hale getirilebilir veya güvenlik gereksinimleri, HIPAA, ISO 27001/27002 ve PCI DSS düzey 1 gibi. Güvenlik uyumluluk sertifikaları güncel bir listesi kullanılabilir [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). Ayrıca, Mevzuat gereksinimlerine göre belirli Azure veri merkezlerinde veritabanlarınızı yerleştirmek seçebilirsiniz.
@@ -72,22 +72,18 @@ Avantajları şunlardır:
 
 > [!NOTE]
 > SQL Server kimlik doğrulaması, Kerberos güvenlik protokolünü kullanamazsınız.
->
->
 
 SQL Server kimlik doğrulamasını kullanıyorsanız, şunları yapmalısınız:
 
 - Güçlü kimlik bilgileri kendiniz yönetirsiniz.
 - Bağlantı dizesindeki kimlik bilgilerini koruyun.
-- Ağ üzerinden web sunucusu vm'sinden veritabanı geçirilen kimlik bilgileri (büyük olasılıkla) koruyun. Daha fazla bilgi için [nasıl yapılır: SQL Server kullanarak SQL kimlik doğrulaması, ASP.NET 2.0 bağlanma](https://msdn.microsoft.com/library/ms998300.aspx).
+- Ağ üzerinden web sunucusu vm'sinden veritabanı geçirilen kimlik bilgileri (büyük olasılıkla) koruyun. Daha fazla bilgi için [nasıl yapılır: SQL Server kullanarak SQL kimlik doğrulaması, ASP.NET 2.0 bağlanma](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Azure Active Directory (AD) kimlik doğrulaması*
 Azure AD kimlik doğrulaması, Azure SQL veritabanı'na bağlanma mekanizması olduğundan ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Azure AD'de kimlik kullanarak. Azure AD kimlik doğrulaması ile veritabanı kullanıcılarının kimliklerini ve diğer Microsoft Hizmetleri tek bir merkezi konumda yönetebilir. Merkezi kimlik yönetimi, veritabanı kullanıcıları yönetmek için tek bir yerde sağlar ve izin yönetimini kolaylaştırır.
 
 > [!NOTE]
 > Azure AD kimlik doğrulaması SQL Server kimlik doğrulamasının kullanılması öneririz.
->
->
 
 Avantajları şunlardır:
 
@@ -112,12 +108,12 @@ Yapılandırma adımları yapılandırmak ve Azure AD kimlik doğrulamasını ku
 
 Ayrıntılı bilgiler bulabilirsiniz [kullanımı Azure Active Directory kimlik doğrulamasını SQL veritabanı, yönetilen örneği veya SQL veri ambarı ile](../sql-database/sql-database-aad-authentication.md).
 
-## <a name="protect-your-data-by-using-encryption"></a>Şifreleme kullanarak verilerinizi koruyun
-[Azure SQL veritabanı saydam veri şifrelemesi](https://msdn.microsoft.com/library/dn948096.aspx) diskteki verilerin korunmasına yardımcı olur ve donanım yetkisiz erişime karşı korur. Bu gerçek zamanlı şifreleme ve şifre çözme veritabanını, ilişkili yedeklemeler ve işlem günlük dosyaları bekleme sırasında uygulamada değişiklik gerektirmeden gerçekleştirir. Saydam veri şifrelemesi tüm veritabanı depolama, veritabanı şifreleme anahtarı olarak adlandırılan bir simetrik anahtarı'nı kullanarak şifreler.
+## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>Şifreleme ve satır düzeyinde güvenlik kullanarak verilerinizi koruyun
+[Azure SQL veritabanı saydam veri şifrelemesi](../sql-database/transparent-data-encryption-azure-sql.md) diskteki verilerin korunmasına yardımcı olur ve donanım yetkisiz erişime karşı korur. Bu gerçek zamanlı şifreleme ve şifre çözme veritabanını, ilişkili yedeklemeler ve işlem günlük dosyaları bekleme sırasında uygulamada değişiklik gerektirmeden gerçekleştirir. Saydam veri şifrelemesi tüm veritabanı depolama, veritabanı şifreleme anahtarı olarak adlandırılan bir simetrik anahtarı'nı kullanarak şifreler.
 
 Tüm depolama bile şifrelenir, ayrıca veritabanı şifrelemek önemlidir. Bu veri koruma için derinlemesine savunma yaklaşım uygulamasıdır. Azure SQL veritabanı kullanıyorsanız ve hassas verileri (örneğin, kredi kartı veya sosyal güvenlik numaraları) korumak istediğiniz, veritabanları ile FIPS 140-2 doğrulanmış 256 bit AES şifreleme şifreleyebilirsiniz. Bu şifreleme, çoğu endüstri standartları (örneğin, HIPAA ve PCI) gereksinimlerini karşılar.
 
-İlgili dosyaların [arabellek havuzu uzantısı (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) saydam veri şifrelemesi kullanarak bir veritabanı şifrelediğinizde şifrelenmez. Dosya sistemi düzeyinde şifreleme araçları gibi kullanmalısınız [BitLocker](https://technet.microsoft.com/library/cc732774) veya [şifreleme dosya sistemi (EFS)]() BPE ilgili dosyalar için.
+İlgili dosyaların [arabellek havuzu uzantısı (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) saydam veri şifrelemesi kullanarak bir veritabanı şifrelediğinizde şifrelenmez. Dosya sistemi düzeyinde şifreleme araçları gibi kullanmalısınız [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) veya [şifreleme dosya sistemi (EFS)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10)) BPE ilgili dosyalar için.
 
 Yetkili bir kullanıcı bir güvenlik yöneticisi veya bir veritabanı yöneticisi gibi veri erişebildiğinden, veritabanı saydam veri şifrelemesi ile şifrelenir olsa bile bu önerileri de izlemelidir:
 
@@ -128,9 +124,9 @@ Yetkili bir kullanıcı bir güvenlik yöneticisi veya bir veritabanı yönetici
 
 Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır:
 
-- [Hücre düzeyinde şifreleme](https://msdn.microsoft.com/library/ms179331.aspx): Belirli sütunları hatta veri hücrelerini farklı şifreleme anahtarlarıyla şifrelemenizi sağlar.
-- [Her zaman şifreli](https://msdn.microsoft.com/library/mt163865.aspx), istemcilerin istemci uygulamaları içindeki hassas verileri şifrelemek ve hiçbir zaman şifreleme anahtarları (SQL veritabanı veya SQL Server) veritabanı altyapısı açığa sağlar. Sonuç olarak, her zaman şifreli verileri (ve görüntüleyebileceğini) arasında bir ayrım sağlar ve kişilere yönetenler (ama hiçbir erişimi olması gerekir).
-- [Satır düzeyi güvenlik](https://msdn.microsoft.com/library/dn765131), sorguyu yürüten kullanıcının özelliklerine dayanan bir veritabanı tablosundaki satırlara erişimi denetlemek müşterilerin sağlar. (Örneğin özellikleri grup üyeliği ve yürütme bağlamı sahiptir.)
+- [Hücre düzeyinde şifreleme](/sql/relational-databases/security/encryption/encrypt-a-column-of-data): Belirli sütunları hatta veri hücrelerini farklı şifreleme anahtarlarıyla şifrelemenizi sağlar.
+- [Her zaman şifreli](/sql/relational-databases/security/encryption/always-encrypted-database-engine), istemcilerin istemci uygulamaları içindeki hassas verileri şifrelemek ve hiçbir zaman şifreleme anahtarları (SQL veritabanı veya SQL Server) veritabanı altyapısı açığa sağlar. Sonuç olarak, her zaman şifreli verileri (ve görüntüleyebileceğini) arasında bir ayrım sağlar ve kişilere yönetenler (ama hiçbir erişimi olması gerekir).
+- [Satır düzeyi güvenlik](/sql/relational-databases/security/row-level-security), sorguyu yürüten kullanıcının özelliklerine dayanan bir veritabanı tablosundaki satırlara erişimi denetlemek müşterilerin sağlar. (Örneğin özellikleri grup üyeliği ve yürütme bağlamı sahiptir.)
 
 Veritabanı düzeyinde şifreleme kullanmayan kuruluşlarda SQL veritabanlarında bulunan verilerini tehlikeye saldırılara daha maruz kalabilir.
 

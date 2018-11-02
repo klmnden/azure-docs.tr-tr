@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 89d35197567c4bd44c5867dbb120d07e9f99d1e9
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437053"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746811"
 ---
 Azure sanal makinesi (VM) oluştururken bir [sanal ağ](../articles/virtual-network/virtual-networks-overview.md) (VNet) oluşturmanız ya da mevcut bir VNet’i kullanmanız gerekir. Sanal ağda VM’lerinize nasıl erişilmesini istediğinize de karar vermeniz gerekir. [Kaynakları oluşturmadan önce planlama yapmak](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) ve [ağ kaynaklarının sınırlarını](../articles/azure-subscription-service-limits.md#networking-limits) anladığınızdan emin olmak önemlidir.
 
@@ -151,7 +151,7 @@ Bu tabloda bir iç yük dengeleyici oluşturmak için kullanabileceğiniz yönte
 
 VM’ler aynı sanal ağda oluşturulabilir ve özel IP adreslerini kullanarak birbirine bağlanabilir. VM’ler, farklı alt ağlarda olsalar bile bir ağ geçidi yapılandırma ya da genel IP adresleri yapılandırma gerekstirmeden birbirine bağlanabilir. VM’leri bir VNet’e eklemek için VNet’i oluşturursunuz ve her VM’yi oluşturduğunuz sırada VNet’e ve alt ağa atarsınız. VM’ler ağ ayarlarını dağıtım veya başlatma sırasında alır.  
 
-VM’ler dağıtıldığı sırada VM’lere bir IP adresi atanır. Bir VNet veya alt ağa birden çok VM dağıtırsanız, bunlara başlatıldıkları sırada IP adresleri atanır. Bir VM ile ilişkili iç IP adresi dinamik bir IP adresidir (DIP). Bir VM’ye statik bir DIP ayırabilirsiniz. Statik bir DIP ayırmanız durumunda, yanlışlıkla başka bir VM’nin statik DIP’sini kullanmaktan kaçınmak için belirli bir alt ağı kullanmayı göz önünde bulundurun.  
+VM’ler dağıtıldığı sırada VM’lere bir IP adresi atanır. Bir VNet veya alt ağa birden çok VM dağıtırsanız, bunlara başlatıldıkları sırada IP adresleri atanır. Ayrıca, bir VM'ye statik bir IP ayırabilirsiniz. Statik IP ayırdığınızda, bir statik IP başka bir VM için yanlışlıkla kaçınmak için belirli bir alt ağ kullanmayı düşünmeniz gerekir.  
 
 Bir VM oluşturur ve daha sonra bu VM’yi bir VNet’e geçirmek isterseniz bu işlem basit bir yapılandırma değişikliği değildir. VM’yi yeniden VNet’e dağıtmanız gerekir. Yeniden dağıtmanın en kolay yolu VM’ye bağlı diskleri silmeden VM’yi silmek ve özgün diskleri kullanarak VM’yi VNet’te yeniden oluşturmaktır. 
 

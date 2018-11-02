@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621210"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747567"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid kavramları
 
@@ -48,7 +48,7 @@ Uygulamanızı tasarlarken oluşturmak için ne kadar konunun verirken esnekliğ
 
 ## <a name="event-subscriptions"></a>Olay abonelikleri
 
-Bir abonelik içinde almayı isteyen bir konuya hangi olayların Event Grid söyler. Abonelik oluştururken, olayı işlemek için bir uç nokta sağlar. Uç noktasına gönderilen olaylar için filtre uygulayabilirsiniz. Olay türü veya konu deseni filtreleyebilirsiniz. Daha fazla bilgi için [Event Grid aboneliği şema](subscription-creation-schema.md).
+Abonelik alma içinde ilginizi çeken bir konuya hangi olayların Event Grid söyler. Abonelik oluştururken, olayı işlemek için bir uç nokta sağlar. Uç noktasına gönderilen olaylar için filtre uygulayabilirsiniz. Olay türü veya konu deseni filtreleyebilirsiniz. Daha fazla bilgi için [Event Grid aboneliği şema](subscription-creation-schema.md).
 
 Abonelik oluşturma örnekler için bkz:
 
@@ -58,9 +58,17 @@ Abonelik oluşturma örnekler için bkz:
 
 Geçerli olay Kılavuzu abonelikleri alma hakkında daha fazla bilgi için bkz: [Event Grid aboneliklerini sorgulama](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Olay aboneliği süre sonu
+
+[Event Grid uzantısı](/cli/azure/azure-cli-extensions-list) Azure CLI bir sona erme ayarlamanıza olanak sağlar. bir olay aboneliği oluştururken tarih. REST API kullanıyorsanız kullanın `api-version=2018-09-15-preview`
+
+Olay aboneliği otomatik olarak bu tarihten sonra süresi doldu. Sınırlı bir süre için yalnızca gerekli olay aboneliklerine yönelik bir sona erme süresini ayarlayabilir ve bu Aboneliklerdeki temizleme hakkında endişelenmeye gerek istemiyorum. Örneğin, bir senaryoyu test etmek için bir olay aboneliği oluşturulurken bir sona erme süresini ayarlayabilir isteyebilirsiniz. 
+
+Bir süre sonu ayarlama örneği için bkz: [Gelişmiş Filtreler ile abone ol](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Olay işleyicileri
 
-Event Grid açısından bakıldığında, bir olay işleyicisi, burada olay gönderilir yerdir. Olayı işlemek için bazı başka bir eylem işleyici alır. Event Grid, birden çok işleyici türlerini destekler. Desteklenen bir Azure hizmeti veya kendi Web kancası işleyicisi olarak kullanabilirsiniz. İşleyici türüne bağlı olarak, Event Grid olay teslimini garanti etmek için farklı mekanizmalar izler. HTTP Web kancası olay işleyicileri için olay işleyicisi durum kodu dönene kadar yeniden denenir `200 – OK`. Kuyruk hizmeti başarıyla kuyruğa ileti gönderme işlemi kadar için Azure depolama kuyruğu, olayları yeniden denenir.
+Event Grid açısından bakıldığında, bir olay işleyicisi, burada olay gönderilir yerdir. Olayı işlemek için bazı başka bir eylem işleyici alır. Event Grid, çeşitli işleyici türlerini destekler. Desteklenen bir Azure hizmeti veya kendi Web kancası işleyicisi olarak kullanabilirsiniz. İşleyici türüne bağlı olarak, Event Grid olay teslimini garanti etmek için farklı mekanizmalar izler. HTTP Web kancası olay işleyicileri için olay işleyicisi durum kodu dönene kadar yeniden denenir `200 – OK`. Kuyruk hizmeti başarıyla kuyruğa ileti gönderme işlemleri kadar için Azure depolama kuyruğu, olayları yeniden denenir.
 
 Tüm desteklenen Event Grid işleyicilerin uygulanması hakkında daha fazla bilgi için bkz: [Azure Event Grid olay işleyicileri](event-handlers.md).
 
@@ -74,7 +82,7 @@ Event Grid olay abonenin uç noktası tarafından alındı doğrulayamazsa olay 
 
 ## <a name="batching"></a>Toplu İşleme
 
-Özel bir konu kullanırken, olayları bir dizide her zaman yayımlanması gerekir. Bu olabilir düşük aktarım hızı senaryoları biri toplu Bununla birlikte, yüksek hacimli usecases için tavsiye edilir, toplu birden çok olay başına birlikte yayımlama daha yüksek verimlilik elde edin. Toplu iş 1 MB'a kadar olabilir. Her olay, 64 KB hala aşmamalıdır.
+Özel bir konu kullanırken, olayları bir dizide her zaman yayımlanması gerekir. Düşük aktarım hızı senaryoları, Bununla birlikte, yüksek hacimli için kullanım örnekleri için bu bir toplu olabilir, birçok batch önerilir başına birlikte olayları yayımlamak daha yüksek verimlilik elde edin. Toplu iş 1 MB'a kadar olabilir. Her olay hala 64 KB'den büyük olmaması gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

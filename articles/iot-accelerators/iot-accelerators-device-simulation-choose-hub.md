@@ -6,35 +6,37 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/06/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: ee96173ca5f36dee0f08c38e4b6e29da6fee804e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 38cde750ce07741a433baa1b8607a584f94ad9b1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967561"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753930"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Mevcut bir IOT hub ile cihaz benzetimi çözüm Hızlandırıcısını kullanın
 
-Cihaz benzetimi çözüm Hızlandırıcısını sağladığınızda, benzetim kullanmak için kaynak grubu Çözüm Hızlandırıcısı'nın IOT hub'ı dağıtmayı tercih edebilirsiniz.
+Cihaz benzetimini dağıtma, benzetim kullanmak için bir IOT hub'ı dağıtmayı seçebilirsiniz. Bu seçenek dağıtan bir [S2 katmanı IOT hub ile tek bir ölçek birimi](../iot-hub/iot-hub-scaling.md). Bu isteğe bağlı IOT hub'ı dağıtırsanız, yine de bir simülasyon çalıştırma için başka bir IOT Hub'ı hedefleyecek şekilde seçebilirsiniz.
 
-İsteğe bağlı IOT hub'ı dağıtmak seçmezseniz, çalıştırdığınız herhangi simülasyonlar için kendi hub'ı kullanmanız gerekir. İsteğe bağlı IOT hub'ı dağıtmayı tercih ederseniz, bu isteğe bağlı bir hub veya hub'ınıza kendi kullanmayı da tercih edebilirsiniz.
+İsteğe bağlı IOT hub'ı dağıtma kullanmayı tercih ederseniz, çalıştırdığınız herhangi simülasyonlar için kendi hub'ı kullanmanız gerekir.
 
 IOT hub'ı yoksa, her zaman yeni bir tane oluşturabilirsiniz [Azure portalında](https://portal.azure.com).
 
-Önceden var olan bir IOT hub'ı kullanmak için bir bağlantı dizesi gerekir. **iothubowner** paylaşılan erişim ilkesi. Bu bağlantı dizesinden alabilirsiniz [Azure portalında](https://portal.azure.com):
+Önceden var olan bir IOT hub'ı kullanmak için bağlantı dizesi gerekir. **iothubowner** paylaşılan erişim ilkesi. Bu bağlantı dizesinden alabilirsiniz [Azure portalında](https://portal.azure.com):
 
 1. Hub'ın yapılandırma sayfasında portalında **paylaşılan erişim ilkeleri**.
+
 1. Tıklayın **iothubowner**.
+
 1. Birincil veya ikincil bağlantı dizesini kopyalayın.
 
 [![Bağlantı dizesini alma](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
 
 Benzetim yapılandırdığınızda kopyaladığınız bağlantı dizesini kullanın:
 
-[![Benzetim yapılandırın](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-expanded.png#lightbox)
+![Benzetim yapılandırın](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation.png)
 
-## <a name="next-steps"></a>Sonraki adımlar
+### <a name="next-steps"></a>Sonraki adımlar
 
-Bu nasıl yapılır kılavuzunda, bir benzetim var olan IOT hub'ı kullanmayı öğrendiniz. Ardından, edinmek isteyebilir nasıl [özel cihaz modelini yapılandırmak](iot-accelerators-device-simulation-custom-model.md) bir simülasyonu için.
+Bu nasıl yapılır kılavuzunda, bir benzetim var olan IOT hub'ı kullanmayı öğrendiniz. Ardından, edinmek isteyebilir nasıl [Gelişmiş cihaz modeli oluşturma](iot-accelerators-device-simulation-advanced-device.md) bir simülasyonu için.

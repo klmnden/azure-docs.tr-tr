@@ -9,14 +9,14 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2ec5caab32e12411f5ccab4a9a6b98d3c4e57c0b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414641"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748043"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Depolama kaynağı silme hatalarını giderme
 
@@ -69,10 +69,7 @@ Bu adımları tamamladıktan sonra depolama hesabı, kapsayıcı veya blob silin
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Senaryo 3: depolama silme - hesap, Vm'lere eklenmiş tüm BLOB Depolama hesabında tanımlayın
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları**. Depolama hesabına altında Git **Blob hizmeti** seçin **kapsayıcıları**.
-
-    ![Depolama hesabı kapsayıcıları ve "kiralama vurgulanmış durumu" ile "Kiralanmış" portal ekran görüntüsü](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. Hub menüsünde **tüm kaynakları**. Depolama hesabına altında Git **Blob hizmeti** seçin **Blobları**.
 3. İçinde **kapsayıcıları** bölmesinde, tüm kapsayıcıları tanımlamak burada **kiralama durumu** olduğu **kiralanmış** izleyin [Senaryo 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) her  **Kiralanmış** kapsayıcı.
 4. İzleyin [2. adım](#step-2-delete-vm-to-detach-os-disk) ve [3. adım](#step-3-detach-data-disk-from-the-vm) vm'lerle silmek **OSDisk** ve ayırma **DataDisk**. 
 

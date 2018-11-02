@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bb87b9ae207da27d45d559903499177472ee1185
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648811"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914218"
 ---
 # <a name="batch-transcription"></a>Toplu iş transkripsiyonu
 
@@ -27,9 +27,9 @@ Batch tanıma API'si, metin tanıma, ek özellikleri ile birlikte zaman uyumsuz 
 
 1. Toplu işlem isteği oluşturma
 
-2. Sorgu Durumu 
+2. Sorgu durumu 
 
-3. Trnascriptions indiriliyor
+3. Döküm indiriliyor
 
 > [!NOTE]
 > Batch tanıma API'si, genellikle saatlik ses binlerce accumulate çağrı merkezleri için idealdir. API, büyük hacimli ses kayıtlarını özelliği kolaylaştıran bir "Başlat ve unut" felsefemiz tarafından yönlendirilir.

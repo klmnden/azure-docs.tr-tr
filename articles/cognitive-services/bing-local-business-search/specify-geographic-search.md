@@ -1,0 +1,56 @@
+---
+title: Bing yerel iş arama API'si sonuçlarını filtrelemek için coğrafi sınırları kullanmanız | Microsoft Docs
+titleSuffix: Azure Cognitive Services
+description: Bing yerel iş arama API'si arama sonuçlarını filtrelemek hakkında bilgi edinmek için bu makaleyi kullanın.
+services: cognitive-services
+author: mikedodaro
+manager: rosh
+ms.service: cognitive-services
+ms.component: bing-local-business
+ms.topic: article
+ms.date: 11/01/2018
+ms.author: rosh, v-gedod
+ms.openlocfilehash: 246b0d3f2edcf941a49e7e57043225ff4c276064
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748694"
+---
+# <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Coğrafi sınırları Bing yerel iş arama API'si sonuçlarını filtrelemek için kullanılır
+
+Bing yerel iş arama API'sini kullanarak aramak istediğiniz belirli coğrafi alanda sınırlar ayarlamanıza imkan sağlar `localCircularView` veya `localMapView` sorgu parametreleri. Yalnızca bir parametresi sorgularınızdaki kullandığınızdan emin olun. 
+
+Bir arama terimi açık bir coğrafi konum içeriyorsa, Bing yerel iş API'si otomatik olarak, arama sonuçlarını sınırlarını ayarlamak için kullanır. Örneğin, bir arama terimi yoksa `sailing in San Diego`, ardından `San Diego` konumu ve diğer sorgu parametrelerinde belirtilen konumlar veya kullanıcı üst bilgiler yok sayılacak kullanılır. 
+
+Coğrafi konum arama terimini algılanan değil ve sorgu parametreleri kullanarak belirtilen coğrafi konum, Bing yerel iş arama API'si isteğinin konumdan belirlemeye çalışacaktır `X-Search-ClientIP` veya `X-Search-Location` üstbilgileri. Hiçbiri üstbilgisi belirtilirse, API istek istemci IP'sini gelen konumunu belirler ve GPS koordinatlarını mobil cihazlar için.
+
+## <a name="localcircularview"></a>localCircularView
+
+`localCircularView` Parametresi döngüsel bir coğrafi bölge etrafında bir RADIUS tarafından tanımlanan, enlem/boylam koordinatları kümesini oluşturur. Bu parametreyi kullanırken, Bing yerel iş arama API'si alınan yanıtları yalnızca bu daire konumlara aksine içerecektir `localMapView` konumları arama alanının dışına biraz içerebilecek parametresi.
+
+Bir döngüsel coğrafi arama alanını belirlemek için bir enlem ve boylam daire ve bir RADIUS metre olarak merkezi olarak hizmet vermek için seçin. Bu parametre sonra bir sorgu dizesi için örneğin eklenerek: `q=Restaurants&localCircularView=47.6421,-122.13715,5000`.
+
+Tam sorgu:
+
+````
+https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+````
+
+## <a name="localmapview"></a>localMapView
+
+`localMapView` Parametresi Kuzeybatı köşeler ve Güneydoğu belirtmek için iki koordinat kullanarak aramak için coğrafi bir dikdörtgen alan belirtir. Bu parametreyi kullanırken, Bing yerel iş arama API'si alınan yanıtları içinde ve yalnızca belirtilen alan dışındaki konumlara aksine içerebilir `localCircularView` yalnızca konumlara arama alanı içeren bir parametre.
+
+Bir dikdörtgen arama alanını belirlemek için iki enlem/boylam koordinatları Güneydoğu yapacak ve sınır Kuzeybatı köşelerini'ı seçin. Güneydoğu koordinatları ilk olarak, aşağıdaki örnekte olduğu gibi tanımlar emin olun: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.
+
+Tam sorgu:
+
+````
+https://www.bingapis.com/api/v7/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
+````
+
+## <a name="next-steps"></a>Sonraki adımlar
+- [Yerel işletme arama Java hızlı başlangıç](quickstarts/local-search-java-quickstart.md)
+- [Yerel işletme arama C# hızlı başlangıç](quickstarts/local-quickstart.md)
+- [Yerel işletme arama düğüm hızlı başlangıç](quickstarts/local-search-node-quickstart.md)
+- [Yerel iş arama Python hızlı başlangıç](quickstarts/local-search-python-quickstart.md)

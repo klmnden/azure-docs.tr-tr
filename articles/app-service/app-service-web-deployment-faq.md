@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302597"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748451"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure Web Apps'te dağıtım hakkında SSS
 
@@ -79,7 +79,7 @@ FTP sorunları çözmek için:
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Benim kodumu App Service'e nasıl yayımlayabilirim?
 
-Azure hızlı başlangıç, uygulamanızın dağıtım yığını ve tercih ettiğiniz yöntemi kullanarak dağıtmanıza yardımcı olması için tasarlanmıştır. Azure portalında Hızlı Başlangıç'ı kullanmak için Git **ayarları** > **uygulama dağıtımı**.
+Azure hızlı başlangıç, uygulamanızın dağıtım yığını ve tercih ettiğiniz yöntemi kullanarak dağıtmanıza yardımcı olması için tasarlanmıştır. Azure portalında Hızlı Başlangıç'ı kullanmak için app service, altında giderek **dağıtım**seçin **hızlı**.
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Neden uygulamamı bazen App Service'e dağıtım sonrasında yeniden başlatılacak mı?
 

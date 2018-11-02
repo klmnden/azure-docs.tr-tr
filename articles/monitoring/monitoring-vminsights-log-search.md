@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 2a965825bed45362bdb43b2ce88b101d2041026d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095431"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914269"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
-VM'ler için Azure İzleyici, performansı ve bağlantı ölçümler, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Azure İzleyici'de Log Analytics veri deposuna iletir.  Bu veriler için kullanılabilir [arama](../log-analytics/log-analytics-log-searches.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
+VM'ler için Azure İzleyici, performansı ve bağlantı ölçümler, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Azure İzleyici'de Log Analytics veri deposuna iletir.  Bu veriler için kullanılabilir [arama](../log-analytics/log-analytics-log-search.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
 
 ## <a name="map-records"></a>Harita kayıtları
 Her bir benzersiz bilgisayar ve işlem, bir işlem veya bilgisayar başlatıldığında veya Azure İzleyici için Vm'leri eşleme özelliğini eklendiğinden, oluşturulan kayıtlarına ek olarak saat başına tek bir kayıt oluşturulur. Bu kayıtları aşağıdaki tablolarda özelliklere sahiptir. Alanları ve değerleri ServiceMapComputer_CL olaylar ServiceMap Azure Resource Manager API'si makine kaynak alanları eşleyin. Alanları ve değerleri ServiceMapProcess_CL olaylar ServiceMap Azure Resource Manager API'si işlem kaynak alanlarını eşleyin. ResourceName_s alanın, karşılık gelen Resource Manager kaynak adı alanında eşleşir. 

@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 053dbc27908b14e70fa2c7502ec7c4e3ae652bf5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 11/01/2018
+ms.openlocfilehash: 913e374e51b968650b14d3f6563f64c217b76ad0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469767"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913821"
 ---
-# <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma
+# <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Hızlı Başlangıç: yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma
 
 Ne zaman bir veritabanı arşivden almanız veya başka bir platformdan diğerine geçirirken, veritabanı şemasını ve verileri içeri aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. Bir BACPAC dosyasına BACPAC SQL Server veritabanındaki verileri ve meta verileri içeren bir uzantıya sahip bir ZIP dosyasıdır. Bir BACPAC dosyası (yalnızca standart depolama) Azure blob depolama alanından içeri aktarılabilir veya yerel depoda bir şirket içi konum. Alma hızını en üst düzeye çıkarmak için daha yüksek bir hizmet katmanına belirtin ve boyutu, bir P6 gibi işlem ve sonra içeri aktarma başarılı olduktan sonra uygun şekilde aşağı ölçeklendirin öneririz. Ayrıca, içeri aktarma işleminden veritabanı uyumluluk düzeyi, kaynak veritabanının uyumluluk düzeyini temel alır.
 

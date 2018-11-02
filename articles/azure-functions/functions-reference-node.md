@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 18ff0e3fadad64f7bd7fe014a6dcec6a628ef1b9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740463"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914562"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -76,7 +76,7 @@ Kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScr
 
 Aşağıdaki örnek tetiklendi ve hemen bir kısayoldur günlüğe kaydeden basit bir işlevdir.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -112,19 +112,24 @@ JavaScript'te [bağlamaları](functions-triggers-bindings.md) yapılandırılır
 ### <a name="reading-trigger-and-input-data"></a>Okuma tetikleyici ve giriş verileri
 Tetikleme ve giriş (bağlamalarını `direction === "in"`) üç yolla bir işlev tarafından okunabilir:
  - **_[Önerilen]_  İşlevinize geçirilen parametreler olarak.** İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. Unutmayın `name` tanımlanan özellik *function.json* olması gerektiği olsa da, parametre adıyla eşleşmesi gerekmez.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **Üyeleri olarak [ `context.bindings` ](#contextbindings-property) nesne.** Her üye tarafından adlandırılan `name` tanımlanan özellik *function.json*.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **JavaScript kullanarak girdi olarak [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) nesne.** Bu, aslında giriş parametre olarak geçirmeyi aynıdır, ancak girişleri dinamik olarak işlemenizi sağlar.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -137,7 +142,8 @@ Tetikleme ve giriş (bağlamalarını `direction === "in"`) üç yolla bir işle
 
 Verileri aşağıdaki yollardan birinde bir çıkış bağlamaları atayabilirsiniz. Bu yöntemler birleştirmemelisiniz değil.
 - **_[Birden çok çıkış için önerilen]_  Döndüren bir nesne.** İşlev döndüren zaman uyumsuz/Promise kullanıyorsanız, bir nesne ile atanan çıktı verilerini döndürebilir. Aşağıdaki örnekte çıkış bağlamaları "httpResponse" ve "queueOutput" olarak adlandırılan *function.json*.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ Verileri aşağıdaki yollardan birinde bir çıkış bağlamaları atayabilirsi
       };
   };
   ```
+  
   Zaman uyumlu bir işlevin kullanıyorsanız, bu nesneyi kullanarak döndürebilir [ `context.done` ](#contextdone-method) (örneğe bakın).
 - **_[Tek çıkış için önerilen]_  $Return bağlama adını kullanarak ve doğrudan değer döndürüyor.** Bu, yalnızca zaman uyumsuz/döndüren işlevleri Promise çalışır. Örnekte bakın [bir zaman uyumsuz işlev dışarı aktarma](#exporting-an-async-function). 
 - **Değerler atamada `context.bindings`**  doğrudan context.bindings için değerler atayabilirsiniz.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {

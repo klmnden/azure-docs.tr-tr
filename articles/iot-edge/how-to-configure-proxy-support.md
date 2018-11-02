@@ -4,16 +4,16 @@ description: Azure IOT Edge çalışma zamanı ve bir proxy sunucu üzerinden il
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037465"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913232"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma
 
@@ -25,6 +25,18 @@ IOT Edge cihazı bir proxy sunucusu ile çalışmak için yapılandırma temel a
 2. Docker daemon'ı ve IOT Edge arka plan programı, Cihazınızda proxy sunucusu kullanacak şekilde yapılandırın.
 3. Cihazınızda config.yaml dosyasındaki edgeAgent özelliklerini yapılandırın.
 4. Ortam değişkenlerini IOT Edge çalışma zamanı ve diğer IOT Edge modülleri dağıtım bildiriminde ayarlayın. 
+
+## <a name="know-your-proxy-url"></a>Proxy URL'nizi bildirin
+
+Docker cinini ve IOT Edge Cihazınızda yapılandırmak için proxy URL'sini de bilmeniz gerekir. 
+
+Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**proxy_port**. 
+
+* **Protokolü** HTTP veya HTTPS. Docker Daemon programını, kapsayıcı kayıt defteri ayarlarınıza bağlı olarak her iki protokolü kullanılarak yapılandırılabilir. ancak IOT Edge arka plan programı ve çalışma zamanı kapsayıcılardaki her zaman HTTPS kullanmanız gerekir.
+
+* **Proxy_host** bir proxy sunucusunun adresidir. Ara sunucunuz kimlik doğrulaması gerektiriyorsa, proxy_host biçiminde bir parçası olarak kimlik bilgilerinizi sağlayabilir **kullanıcı**:**parola**@**proxy_host**. 
+
+* **Proxy_port** proxy ağ trafiğini yanıt ağ bağlantı noktası. 
 
 ## <a name="install-the-runtime"></a>Çalışma zamanını yükleme
 
@@ -47,7 +59,7 @@ IOT Edge Cihazınızda çalışan Docker ve IOT Edge Daemon proxy sunucusu kulla
 
 ### <a name="docker-daemon"></a>Docker Daemon programını
 
-Docker Daemon programını ortam değişkenleriyle yapılandırmak için Docker belgelerine bakın. Çoğu kapsayıcı kayıt defterleri (DockerHub ve Azure kapsayıcı kayıt defterleri dahil) ayarlamalısınız değişkendir HTTPS istekleri desteklediğimizden **erişmek**. Aktarım Katmanı Güvenliği (TLS) desteklemeyen bir kayıt defterinden görüntüleri çekmek sonra ayarlamalısınız **HTTP_PROXY**. 
+Docker Daemon programını ortam değişkenleriyle yapılandırmak için Docker belgelerine bakın. Çoğu kapsayıcı kayıt defterleri (DockerHub ve Azure kapsayıcı kayıt defterleri dahil) ayarlamalısınız parametredir HTTPS istekleri desteklediğimizden **erişmek**. Aktarım Katmanı Güvenliği (TLS) desteklemeyen bir kayıt defterinden görüntüleri çekmek sonra ayarlamalısınız **HTTP_PROXY** parametresi. 
 
 Docker sürümünüzü makalenin seçin: 
 
@@ -113,7 +125,9 @@ IOT Edge Cihazınızda config.yaml dosyasını açın. Linux sistemlerinde, bu d
 
 Config.yaml dosyasında **Edge Aracısı modülü spec** bölümü. Edge Aracısı tanımını içeren bir **env** ortam değişkenlerini ekleyebileceğiniz parametresi. 
 
-![edgeAgent tanımı](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Env parametresi için yer tutucular ve yeni bir satıra yeni bir değişken ekleyin, küme parantezleri kaldırın. YAML içinde girintileri iki boşluk olduğunu unutmayın. 
 
@@ -201,7 +215,7 @@ Dahil ettiyseniz **UpstreamProtocol** IOT Edge Cihazınızda confige.yaml dosyas
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

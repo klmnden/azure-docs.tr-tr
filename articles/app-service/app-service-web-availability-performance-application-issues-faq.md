@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307917"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748128"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web Apps için uygulama performansı ile ilgili SSS
 
@@ -34,11 +34,11 @@ Bu makalede, uygulama performans sorunları hakkında sık sorulan sorular (SSS)
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Yüksek CPU tüketimi senaryo sorunlarını nasıl giderebilirim?
 
-Bazı yüksek CPU tüketimi senaryolarda, uygulamanızı daha fazla bilgi işlem kaynakları gerçekten gerektirebilir. Bu durumda, uygulama ihtiyaç duyduğu tüm kaynakları alır. Bu nedenle daha yüksek bir hizmet katmanına ölçeklendirmeyi düşünün. Diğer durumlarda, yüksek CPU tüketimi hatalı bir döngü veya kodlama bir uygulama tarafından kaynaklanıyor olabilir. Daha yüksek CPU tüketimi işlemi tetikleniyor Öngörüler alma iki bölümden oluşur. İlk olarak, bir işlem dökümü oluşturur ve sonra işlem dökümü analiz edin. Daha fazla bilgi için [yakalamak ve Web uygulamaları için yüksek CPU tüketimi için bir döküm dosyası çözümleme](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Bazı yüksek CPU tüketimi senaryolarda, uygulamanızı daha fazla bilgi işlem kaynakları gerçekten gerektirebilir. Bu durumda, uygulama ihtiyaç duyduğu tüm kaynakları alır. Bu nedenle daha yüksek bir hizmet katmanına ölçeklendirmeyi düşünün. Diğer durumlarda, yüksek CPU tüketimi hatalı bir döngü veya kodlama bir uygulama tarafından kaynaklanıyor olabilir. Daha yüksek CPU tüketimi işlemi tetikleniyor Öngörüler alma iki bölümden oluşur. İlk olarak, bir işlem dökümü oluşturur ve sonra işlem dökümü analiz edin. Daha fazla bilgi için [yakalamak ve Web uygulamaları için yüksek CPU tüketimi için bir döküm dosyası çözümleme](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Yüksek bellek tüketimi senaryosu sorunlarını nasıl giderebilirim?
 
-Yüksek bellek tüketimi bazı senaryolarda, uygulamanızı daha fazla bilgi işlem kaynakları gerçekten gerektirebilir. Bu durumda, uygulama ihtiyaç duyduğu tüm kaynakları alır. Bu nedenle daha yüksek bir hizmet katmanına ölçeklendirmeyi düşünün. Diğer durumlarda, bir bellek sızıntısı koddaki bir hata neden olabilir. Bir kodlama uygulama bellek tüketimini da artırabilir. Ne tüketim iki bölümden oluşur, yüksek bellek harekete Öngörüler alınıyor. İlk olarak, bir işlem dökümü oluşturur ve sonra işlem dökümü analiz edin. Azure Site uzantı Galerisi kilitlenme tanılayıcı verimli bir şekilde hem de bu adımları gerçekleştirebilir. Daha fazla bilgi için [yakalamak ve Web uygulamaları için aralıklı yüksek bellek için bir döküm dosyası çözümleme](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Yüksek bellek tüketimi bazı senaryolarda, uygulamanızı daha fazla bilgi işlem kaynakları gerçekten gerektirebilir. Bu durumda, uygulama ihtiyaç duyduğu tüm kaynakları alır. Bu nedenle daha yüksek bir hizmet katmanına ölçeklendirmeyi düşünün. Diğer durumlarda, bir bellek sızıntısı koddaki bir hata neden olabilir. Bir kodlama uygulama bellek tüketimini da artırabilir. Ne tüketim iki bölümden oluşur, yüksek bellek harekete Öngörüler alınıyor. İlk olarak, bir işlem dökümü oluşturur ve sonra işlem dökümü analiz edin. Azure Site uzantı Galerisi kilitlenme tanılayıcı verimli bir şekilde hem de bu adımları gerçekleştirebilir. Daha fazla bilgi için [yakalamak ve Web uygulamaları için aralıklı yüksek bellek için bir döküm dosyası çözümleme](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>App Service web apps PowerShell kullanarak nasıl otomatikleştirebilirim?
 

@@ -1,6 +1,6 @@
 ---
-title: İzleme aracıları Azure genel bakış | Microsoft Docs
-description: Bu makale Azure VM'ler izleme destekleyen Azure aracılarını kullanılabilir ayrıntılı bir genel bakış sağlar.
+title: Azure İzleme Aracısı genel bakış | Microsoft Docs
+description: Bu makalede, Azure Vm'leri izleme destekleyen Azure aracıları kullanılabilir ayrıntılı bir bakış sağlar.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: magoedte
-ms.openlocfilehash: a399c3968e5ee1e2d1f6d623a68dbb1e15cef212
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 62edeb36fcd56733630edc6fa27c9963f20b0186
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088674"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913555"
 ---
 # <a name="overview-of-the-azure-agents-to-monitor-azure-virtual-machines"></a>Azure sanal makinelerini izlemek için Azure aracıları genel bakış
-Microsoft Azure, Azure veya Microsoft Windows ve Linux çalıştıran diğer bulut sağlayıcıları barındırılan sanal makineleri farklı veri türlerini toplamak için birden çok yol sağlar.  Bu makalede, sırayla, hangisinin service management destekleyecektir belirlemek her bir aracının bulunan veya genel gereksinimlerini izleme yetenekleri ve farkları açıklamaktadır yardımcı olur.  
+Microsoft Azure, Azure'da veya Microsoft Windows ve Linux çalıştıran diğer bulut sağlayıcılarında barındırılan sanal makinelerden farklı türde veri toplamak için birden çok yol sağlar.  Bu makalede farklar ve sırayla, hangi hizmet yönetim destekleyecek belirlemek her bir aracı ile kullanılabilir veya genel gereksinimleri izleme özellikleri açıklayan yardımcı olur.  
 
-## <a name="comparing-azure-diagnostic-and-log-analytics-agent"></a>Azure tanılama ve günlük analizi aracı karşılaştırma
-Bugün Azure'da, aracıları bir Azure VM - izlemek kullanılabilir günlük analizi Aracısı Linux ve Windows için ve Azure tanılama uzantısını iki tür vardır.  Temelde, bu aracıları ölçümleri ve günlükleri toplamak ve bir depoya iletmek için tasarlanmıştır. Ancak, çıktıı olmasıdır.  
+## <a name="comparing-azure-diagnostic-and-log-analytics-agent"></a>Azure tanılama ve Log Analytics aracısını karşılaştırma
+Bugün Azure'da aracılar - Azure VM'deki izlemek için kullanılabilen Azure tanılama uzantısı ve Linux ve Windows için Log Analytics aracısını iki tür vardır.  Temelde, bu aracıları ölçümlerini ve günlüklerini toplamak ve iletmek için bir depo için tasarlanmıştır. Bununla birlikte, burada benzerlikleri son olmasıdır.  
 
-[Azure tanılama uzantısını](../monitoring-and-diagnostics/azure-diagnostics.md), 2010'da, genel olarak kullanılabilir hale geldi bu yana hangi Azure bulut Hizmetleri için sağlanmış olan bir VM gibi bir Azure Iaas kaynaktan basit tanılama veri koleksiyonunu sunar bir aracı ve Azure depolama alanına kalır.  Birkaç kullanılabilen araçlar biriyle gibi görüntülemek seçtiğiniz depolama biriminde, sonra [Visual Studio Server Explorer'da](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) ve [Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+[Azure tanılama uzantısını](../monitoring-and-diagnostics/azure-diagnostics.md), 2010'da genel kullanıma sunulan duyurulduğu, Azure bulut Hizmetleri için sağlanmış olan basit bir tanılama veri koleksiyonunu bir VM gibi bir Azure Iaas kaynak sunar ve bir aracı ve Azure depolama için kalıcı.  Depolama alanında birkaç kullanılabilir araç biriyle gibi görüntülemek için seçtiğiniz sonra [Visual Studio sunucu Gezgini'ndeki](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) ve [Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Toplanacak seçebilirsiniz:
 
-* İşletim sistemi performans sayaçları ve olay günlüklerini veya önceden tanımlanmış bir kümesini toplamak belirtebilirsiniz. 
-* Tüm istekleri ve/veya bir IIS web sunucusu için başarısız istekleri
-* .NET uygulama izleme Çıktı günlükleri
+* İşletim sistemi performans sayaçları ve olay günlüklerini veya önceden tanımlanmış birtakım toplamak belirtebilirsiniz. 
+* Tüm istekleri ve/veya bir IIS web sunucusuna başarısız istekler
+* .NET uygulama izleme çıkış günlükleri
 * Windows (ETW) olayları için olay izleme 
 * Syslog günlüğü olaylarını Topla  
 * Kilitlenme bilgi dökümleri 
 
-Veri alternatif olarak iletilmesi için [Application Insights](../application-insights/app-insights-cloudservices.md), [günlük analizi](../log-analytics/log-analytics-overview.md), ya da kullanarak Azure olmayan hizmetlerine [olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Veri alternatif olarak iletilmesi için [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-overview.md), veya kullanan Azure dışı hizmetlerine [olay hub'ı](../event-hubs/event-hubs-about.md). 
 
-Gelişmiş birden fazla topluyorsunuz ölçümleri ve bir alt kümesini günlükleri ihtiyaç duyacağınız izleme için Windows ve Linux için günlük analizi Aracısı gerekli değildir.  Bu aracı ile otomasyon ve bunlar, Azure Vm'leriniz yaşam döngüsü boyunca kapsamlı yönetimini sağlamak üzere sunar özellikler kümesini de dahil olmak üzere günlük analizi gibi Azure hizmetleri kullanan imkanınız olur. Buna aşağıdakiler dahildir:
+Gelişmiş birden fazla toplama ölçüm ve günlükleri kümesini gerek duyduğunuz izleme için Windows ve Linux için Log Analytics aracısını gereklidir.  Bu aracı ile otomasyon ve Log Analytics, Azure vm'lerinizi yaşam döngüleri boyunca kapsamlı yönetim sunmak için sundukları özellik kümesini de dahil olmak üzere, gibi Azure hizmetlerini kullanmaya başlayabilirsiniz. Buna aşağıdakiler dahildir:
 
-* [Azure Otomasyonu güncelleştirme yönetimi](../automation/automation-update-management.md) işletim sistemi güncelleştirmeleri
-* [Azure Otomasyonu istenen durum Yapılandırması](../automation/automation-dsc-overview.md) tutarlı yapılandırma durumunu korumak için
-* Yapılandırma değişiklikleri ile İzle [Azure Otomasyon değişiklik izleme ve stok](../automation/automation-change-tracking.md)
-* İşletim sistemi ve barındırılan uygulamalar gibi özel günlüklerinden koleksiyonunu [FluentD](../log-analytics/log-analytics-data-sources-json.md), [özel günlükler](../log-analytics/log-analytics-data-sources-custom-logs.md), [MySQL ve Apache](../log-analytics/log-analytics-data-sources-linux-applications.md) günlük analizi ile
-* Azure Hizmetleri gibi [Application Insights](https://docs.microsoft.com/azure/application-insights/) ve [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/) verilerini doğrudan günlük analizi yerel olarak depolar.  
+* [Azure Otomasyonu, güncelleştirme yönetimi](../automation/automation-update-management.md) işletim sistemi güncelleştirmeleri
+* [Azure Otomasyonu Desired State Configuration](../automation/automation-dsc-overview.md) tutarlı yapılandırma durumunu korumak üzere
+* İzleme yapılandırma değişiklikleriyle [Azure Otomasyon, değişiklik izleme ve stok](../automation/automation-change-tracking.md)
+* İşletim sistemi ve barındırılan uygulamalar gibi özel günlükleri koleksiyonunu [FluentD](../log-analytics/log-analytics-data-sources-json.md), [özel günlükleri](../log-analytics/log-analytics-data-sources-custom-logs.md), [MySQL ve Apache](../log-analytics/log-analytics-data-sources-linux-applications.md) Log Analytics ile
+* Azure Hizmetleri gibi [Application Insights](https://docs.microsoft.com/azure/application-insights/) ve [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/) yerel olarak kendi verilerini doğrudan Log Analytics'te depolar.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz: [günlük analizi ile ortamınızdaki bilgisayarlardan verileri toplama](../log-analytics/log-analytics-concept-hybrid.md) gereksinimleri ve kullanılabilir yöntemlerin merkeziniz veya başka bir bulut ortamında bilgisayarlara aracı dağıtmak için gözden geçirmek için.
+- Bkz: [Log Analytics ile ortamınızdaki bilgisayarlardan verileri toplama](../log-analytics/log-analytics-concept-hybrid.md) gereksinimleri ve kullanılabilir yöntemlerin aracı, veri merkezinizi veya diğer bulut ortamında dağıtmak için gözden geçirmek için.
 - Azure VM’lerden veri toplamayı yapılandırmak için bkz. [Azure Sanal Makineler hakkında veri toplama](../log-analytics/log-analytics-quick-collect-azurevm.md). 

@@ -1,6 +1,6 @@
 ---
 title: Yönetim çözümleri görünümlerde | Microsoft Docs
-description: 'Yönetim çözümleri genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede, Görünüm Tasarımcısı tarafından oluşturulan bir görünüm vermek ve bir yönetim çözümü dahil açıklar. '
+description: 'Yönetim çözümleri genellikle verileri görselleştirmek için bir veya daha fazla görünümler içerir.  Bu makalede, Görünüm Tasarımcısı tarafından oluşturulan bir görünüm dışarı aktarma ve Yönetimi çözümünde dahil açıklar. '
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: b4f54358f4bc1db973d6fe7163411e3a313c3cf4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 27bec2b7fa53e7564841e6f89be7e4d81a9b9f1a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887870"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913045"
 ---
 # <a name="views-in-management-solutions-preview"></a>Görünümlerde yönetim çözümleri (Önizleme)
 > [!NOTE]
-> Bu, şu anda önizlemede olan yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.    
+> Şu anda Önizleme aşamasında olan yönetim çözümleri oluşturmak için başlangıç belgeleri budur. Aşağıda açıklanan herhangi bir şema tabi bir değişikliktir.    
 
 
-[Yönetim çözümleri](monitoring-solutions.md) genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede tarafından oluşturulan bir görünüm dışarı aktarma [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) ve bir yönetim çözümü içerir.  
+[Yönetim çözümleri](monitoring-solutions.md) genellikle verileri görselleştirmek için bir veya daha fazla görünümler içerir.  Bu makalede tarafından oluşturulan bir görünüm dışarı aktarma [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) ve Yönetimi çözümünde içerir.  
 
 > [!NOTE]
-> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [tasarım ve yapı Azure Yönetimi çözümünde](monitoring-solutions-creating.md)
+> Bu makaledeki örnekleri parametreler ve değişkenler gerekli olduğunu veya yönetim çözümleri için yaygın olduğunu ve açıklanan kullanmak [tasarım ve derleme Azure Yönetimi çözümünde](monitoring-solutions-creating.md)
 >
 >
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [bir yönetim çözümü oluşturma](monitoring-solutions-creating.md) ve çözüm dosya yapısı.
+Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [yönetimi çözümü oluşturmak](monitoring-solutions-creating.md) ve çözüm dosya yapısı.
 
 ## <a name="overview"></a>Genel Bakış
-Bir yönetim çözümü bir görünüm eklemek için oluşturduğunuz bir **kaynak** içinde için [çözüm dosyasını](monitoring-solutions-creating.md).  Görünümün ayrıntılı yapılandırma tanımlayan JSON ancak ve bir şey yok tipik çözüm Yazar el ile oluşturmak mümkün olacaktır genellikle karmaşıktır.  Görünümü kullanarak oluşturmak için kullanılan en yaygın yöntem olan [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md)dışa aktarın ve ardından ayrıntılı yapılandırmasına ekleyin.
+Görünüm bir yönetim çözümüne dahil etmek için oluşturduğunuz bir **kaynak** içinde için [çözüm dosyası](monitoring-solutions-creating.md).  Görünümün ayrıntılı yapılandırma açıklayan JSON olsa ve bir şey tipik çözüm Yazar el ile oluşturmanız mümkün olacaktır genellikle karmaşıktır.  Görünümünü kullanarak oluşturmak için en yaygın yöntemidir [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md)dışa aktarın ve ardından ayrıntılı yapılandırmasına ekleyin.
 
-Görünüm bir çözüme eklemek için temel adımlar aşağıda belirtilmiştir.  Her adım, aşağıdaki bölümlerde daha ayrıntılı açıklanmıştır.
+Görünüm bir çözüme eklemek için temel adımlar aşağıdaki gibidir.  Her adım, aşağıdaki bölümlerde daha ayrıntılı açıklanmıştır.
 
-1. Görünüm bir dosyaya aktarın.
-2. Görünüm kaynak çözümde oluşturun.
+1. Görünüm bir dosyaya dışarı aktarın.
+2. Görünüm kaynağı çözüm oluşturun.
 3. Ayrıntıları Görüntüle ekleyin.
 
-## <a name="export-the-view-to-a-file"></a>Görünüm bir dosyaya dışarı aktarma
-Bölümündeki yönergeleri izleyin [günlük analizi Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) bir görünüm bir dosyaya vermek için.  Dışarı aktarılan dosyayı aynı JSON biçiminde olacaktır [öğeleri çözüm dosyası olarak](monitoring-solutions-solution-file.md).  
+## <a name="export-the-view-to-a-file"></a>Görünüm bir dosyaya aktarın.
+Konumundaki yönergeleri [Log Analytics Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) görünümü bir dosyaya vermek için.  Dışarı aktarılan dosya JSON biçiminde aynı olacaktır [öğeleri çözüm dosyası olarak](monitoring-solutions-solution-file.md).  
 
-**Kaynakları** görünüm dosyası öğe türüne sahip bir kaynak olacaktır **Microsoft.OperationalInsights/workspaces** , günlük analizi çalışma alanını temsil eder.  Bu öğe bir alt öğe türüne sahip olacaktır **görünümleri** görünümü temsil eder ve ayrıntılı yapılandırmasını içerir.  Bu öğenin ayrıntılarını kopyalamanız ve ardından çözümünüze kopyalayın.
+**Kaynakları** görünüm öğesi bir kaynak türünde olacaktır **Microsoft.OperationalInsights/workspaces** , Log Analytics çalışma alanını temsil eder.  Bu öğe türüne sahip bir alt öğesi gerekir **görünümleri** görünümünü temsil eder ve ayrıntılı yapılandırmasını içerir.  Bu öğenin ayrıntıları kopyalayın ve çözümünüze kopyalayın.
 
-## <a name="create-the-view-resource-in-the-solution"></a>Çözümde görünüm kaynağı oluşturma
-Aşağıdaki görünüm kaynağa eklemek **kaynakları** çözüm dosyanızın öğesi.  Bu, aynı zamanda eklemelisiniz seçeneklerdir değişkenleri kullanır.  Unutmayın **Pano** ve **OverviewTile** dışarı aktarılan görünüm dosyasından karşılık gelen özelliklerle kılacak yer tutucuları özelliklerdir.
+## <a name="create-the-view-resource-in-the-solution"></a>Çözümde görünümü kaynak oluşturma
+Eklemek için aşağıdaki görünümü kaynak **kaynakları** çözüm dosyanız öğesidir.  Bu, ayrıca eklemelisiniz seçeneklerdir değişkenleri kullanır.  Unutmayın **Pano** ve **OverviewTile** dışarı aktarılan görünümü dosyasından karşılık gelen özelliklerle üzerine yazılacak yer tutucuları özelliklerdir.
 
     {
         "apiVersion": "[variables('LogAnalyticsApiVersion')]",
@@ -73,39 +73,39 @@ Aşağıdaki görünüm kaynağa eklemek **kaynakları** çözüm dosyanızın �
         }
     }
 
-Çözüm dosyası değişkenleri öğesine aşağıdaki değişkenleri eklemek ve bu çözümünüz için değerleri değiştirin.
+Çözüm dosyasının değişkenleri öğeye aşağıdaki değişkenleri eklemek ve çözümünüz için bu değerleri değiştirin.
 
     "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
 
-Dışarı aktarılan görünüm dosyanızdan tüm görünüm kaynak kopyalamak, ancak bunu çözümünüzde çalıştırmak aşağıdaki değişiklikleri yapmanız gerekir unutmayın.  
+Tüm görünüm kaynağı verilen görünümü dosyanızdan Kopyala, ancak çözümünüzde çalışabilmesi için aşağıdaki değişiklikleri yapmanız unutmayın.  
 
 * **Türü** görünüm için kaynak gelen değiştirilmesi gereken **görünümleri** için **Microsoft.OperationalInsights/workspaces**.
-* **Adı** görünüm kaynak için özellik çalışma alanı adı içerecek şekilde değiştirilmesi gerekir.
-* Çalışma alanı bağımlılığını çalışma kaynak çözümde tanımlı değil bu yana kaldırılması gerekiyor.
-* **DisplayName** özelliği görünümüne eklenmesi gerekiyor.  **Kimliği**, **adı**, ve **DisplayName** tüm eşleşmesi gerekir.
-* Parametre adları gerekli parametrelerinin eşleşecek şekilde değiştirilmesi gerekir.
-* Değişkenleri çözümde tanımlanan ve uygun özelliklerinde kullanılır.
+* **Adı** görünümü kaynak için özellik çalışma alanı adını içerecek şekilde değiştirilmesi gerekir.
+* Bağımlılık çalışma alanının çalışma alanı kaynağına çözümde tanımlanmamış beri kaldırılması gerekiyor.
+* **DisplayName** özelliği görünüme eklenmesi gerekiyor.  **Kimliği**, **adı**, ve **DisplayName** tüm eşleşmesi gerekir.
+* Parametre adları, gerekli parametreleri eşleşecek şekilde değiştirilmelidir.
+* Değişkenleri çözümde tanımlanan ve uygun özellikler kullanılır.
 
-### <a name="log-analytics-api-version"></a>Günlük analizi API sürümü
-Resource Manager şablonunda tanımlanan tüm günlük analizi kaynaklarını özelliğine sahip **apiVersion** kaynak kullanması gereken API sürümü tanımlar.  Bu kullanan sorguları görünümlerle için farklı bir sürümdür [eski ve yükseltilmiş sorgu dili](../log-analytics/log-analytics-log-search-upgrade.md).  
+### <a name="log-analytics-api-version"></a>Günlük analizi API'si sürümü
+Bir Resource Manager şablonunda tanımlı tüm Log Analytics kaynakları bir özelliği olan **apiVersion** kullanması gereken kaynak API sürümünü tanımlar.  Bu görünümlerle kullanan sorguları için farklı bir sürümdür [eski ve yükseltilen sorgu dili](../log-analytics/log-analytics-log-search.md).  
 
- Aşağıdaki tabloda, eski ve yükseltilmiş çalışma alanlarında görünümler için günlük analizi API sürümleri belirtir: 
+ Aşağıdaki tabloda, eski ve yükseltilen çalışma alanlarında görünümler için Log Analytics API sürümleri belirtir: 
 
-| Çalışma alanında sürümü | API sürümü | Sorgu |
+| Çalışma alanı sürümü | API sürümü | Sorgu |
 |:---|:---|:---|
-| V1 (eski)   | 2015-11-01-Önizleme | Eski biçimi.<br> Örnek: Yazın olay EventLevelName = hata =  |
-| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; burada EventLevelName "Error" ==  |
-| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; burada EventLevelName "Error" ==  |
+| V1 (eski)   | 2015-11-01-Önizleme | Eski biçimi.<br> Örnek: Türü olay EventLevelName = hata =  |
+| v2 (yükseltilmiş) | 2015-11-01-Önizleme | Eski biçimi.  Yüklemede yükseltilen biçimine dönüştürülür.<br> Örnek: Türü olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; burada EventLevelName "Error" ==  |
+| v2 (yükseltilmiş) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; burada EventLevelName "Error" ==  |
 
 
-## <a name="add-the-view-details"></a>Görünüm ayrıntılarını Ekle
-Dışarı aktarılan görünüm dosyası görünüm kaynak iki öğelerinde içerecek **özellikleri** adlı öğe **Pano** ve **OverviewTile** ayrıntılı içerir Görünüm yapılandırması.  Bu iki öğenin ve içerikleri içine kopyalamak **özellikleri** çözüm dosyanızdaki görünüm kaynak öğesidir.
+## <a name="add-the-view-details"></a>Ayrıntıları Ekle
+Dışarı aktarılan görünüm dosyası görünümü kaynak iki öğeyi de içerecek **özellikleri** adlı bir öğe **Pano** ve **OverviewTile** ayrıntılı içerir Görünüm yapılandırması.  Bu iki öğe ve bunların içeriğini içine kopyalayın **özellikleri** çözüm dosyanız görünümü kaynak öğesi.
 
 ## <a name="example"></a>Örnek
-Örneğin, aşağıdaki örnek basit çözüm dosyasını bir görünümle gösterir.  Üç nokta (...) için gösterilen **Pano** ve **OverviewTile** alanı nedeniyle içeriği.
+Örneğin, aşağıdaki örnek, bir basit çözüm dosyası bir görünümünü gösterir.  Üç nokta (...) için gösterilen **Pano** ve **OverviewTile** alanı nedeniyle içeriği.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -188,5 +188,5 @@ Dışarı aktarılan görünüm dosyası görünüm kaynak iki öğelerinde içe
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Oluşturma ayrıntılarının öğrenin [yönetim çözümleri](monitoring-solutions-creating.md).
-* Dahil [Otomasyon runbook'ları yönetim çözümünüzdeki](monitoring-solutions-resources-automation.md).
+* Oluşturma tüm ayrıntıları öğrenin [yönetim çözümleri](monitoring-solutions-creating.md).
+* Dahil [yönetim çözümünüzü Otomasyon runbook'ları](monitoring-solutions-resources-automation.md).

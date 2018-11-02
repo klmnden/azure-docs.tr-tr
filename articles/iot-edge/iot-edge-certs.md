@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313421"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914388"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IOT Edge sertifika kullanım ayrıntısı
 
@@ -21,7 +21,7 @@ IOT Edge sertifikalar kullanılır modülleri ve aşağı akış IOT cihazları 
 
 Ölçekli senaryolar, yanı sıra geliştirme ve test senaryoları IOT Edge sertifikaları nasıl çalışabileceğini Karışıklıktan sertifikaların IOT Edge'nın kullanımı hakkındaki temizlemek için bu makalede açıklanır. Farklı (bash ve Powershell) komut dosyalarını olsa da, Linux ve Windows arasında aynı kavramlardır.
 
-## <a name="iot-edge-certificates"></a>IOT Edge sertifikaları
+## <a name="iot-edge-certificates"></a>IoT Edge sertifikaları
 
 Çoğu durumda, üreticiler bağımsız bir Edge cihazının son kullanıcılardan varlıklardır. Bazen yalnızca üretici işleci arasındaki bir ticari olarak satışta Edge cihazı satın ilişkidir. Diğer durumlarda, bir uç cihazın adına işleci oluşturmak için sözleşme altında çalışan üreticisi. IOT Edge sertifika tasarım, her iki senaryoyu dikkate dener.
 
@@ -78,9 +78,9 @@ Makul bir soru olabilir "neden IOT Edge gerekmez 'iş yükü CA' ek sertifika? D
 
 ## <a name="devtest-implications"></a>Geliştirme ve Test uygulamaları
 
-Microsoft geliştirme sürecini kolaylaştırır ve test senaryoları için bir dizi sağlar [kolaylık betikleri](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) saydam bir ağ geçidi senaryosunda IOT Edge için uygun olmayan üretim sertifikası oluşturmak için.
+Microsoft geliştirme sürecini kolaylaştırır ve test senaryoları için bir dizi sağlar [kolaylık betikleri](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) saydam bir ağ geçidi senaryosunda IOT Edge için uygun olmayan üretim sertifikası oluşturmak için. Komut dosyalarını nasıl örnekler için bkz [saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma](how-to-create-transparent-gateway.md).
 
-Bu betikler, bu makalede açıklanan sertifika zinciri yapısına uygun sertifikaları oluşturur. İçin [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) veya [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). Aşağıdaki komutlar, "kök CA sertifikasını" ve tek "ara CA sertifikası" oluşturur.
+Bu betikler, bu makalede açıklanan sertifika zinciri yapısına uygun sertifikaları oluşturur. Aşağıdaki komutlar, "kök CA sertifikasını" ve tek "ara CA sertifikası" oluşturur.
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ Ekran görüntüsünde gösterilen sertifika derinliği hiyerarşisini görebili
 
 [Azure IOT Edge modüllerini anlama](iot-edge-modules.md)
 
-[IOT Edge cihazı saydam bir ağ geçidi (Linux) kullanın](how-to-create-transparent-gateway-linux.md)
-
-[IOT Edge cihazı saydam bir ağ geçidi (Windows) kullanın](how-to-create-transparent-gateway-windows.md)
+[Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma](how-to-create-transparent-gateway.md)

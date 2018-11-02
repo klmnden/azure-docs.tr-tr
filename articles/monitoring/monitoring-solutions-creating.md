@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2f7871aac0469e5fb8eaaebef9ca48404609bab7
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528036"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912569"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarım ve azure'da (Önizleme) bir yönetim çözümü oluşturun
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.locfileid: "39528036"
 
 ## <a name="what-is-a-management-solution"></a>Bir yönetim çözümü nedir?
 
-Yönetim çözümleri belirli bir yönetim senaryosunu sağlamak için birlikte çalışan Azure kaynakları içerir.  Olarak uygulanan [Resource Manager şablonlarını](../azure-resource-manager/resource-manager-template-walkthrough.md) yüklemek ve çözüm yüklendikten sonra içerdiği kaynaklarla yapılandırma ayrıntılarını içerir.
+Yönetim çözümleri belirli bir yönetim senaryosunu sağlamak için birlikte çalışan Azure kaynakları içerir.  Olarak uygulanan [Resource Manager şablonlarını](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) yüklemek ve çözüm yüklendikten sonra içerdiği kaynaklarla yapılandırma ayrıntılarını içerir.
 
 Temel bileşenleri tek tek Azure ortamınızda yazlım Yönetimi çözümünüz için stratejisidir.  Düzgün çalışmasını işlevselliğini açtıktan sonra daha sonra bunları paketleme başlatabilirsiniz bir [yönetim çözüm dosyası]( monitoring-solutions-solution-file.md). 
 
@@ -49,7 +49,7 @@ Log Analytics deposunda açıklandığı toplanan veri kaynakları birkaç yol v
 Tüm kullanılabilir veri kaynakları erişilebilir değil veri gerektiren sonra kullanabileceğiniz [HTTP veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md) olanak sağlayan bir REST API'sine çağrı yapmadan herhangi bir istemciden Log Analytics depoya veri yazmak.  Özel veri toplama Yönetimi çözümüne en yaygın yolları oluşturmaktır bir [Azure Otomasyonu'nda runbook](../automation/automation-runbook-types.md) gerekli verileri Azure'a veya dış kaynaklardan toplar ve yazılacak veri toplayıcı API'sini kullanır. Depo.  
 
 ### <a name="log-searches"></a>Günlük aramaları
-[Günlük aramaları](../log-analytics/log-analytics-log-searches.md) ayıklayın ve Log Analytics depodaki verileri analiz etmek için kullanılır.  Bunlar, görünümler ve uyarılar, geçici çözümleme veri deposunda gerçekleştirmesine izin verme yanı sıra tarafından kullanılır.  
+[Günlük aramaları](../log-analytics/log-analytics-log-search.md) ayıklayın ve Log Analytics depodaki verileri analiz etmek için kullanılır.  Bunlar, görünümler ve uyarılar, geçici çözümleme veri deposunda gerçekleştirmesine izin verme yanı sıra tarafından kullanılır.  
 
 Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıcıya yardımcı olacağını düşündüğünüz tüm sorguları tanımlamanız gerekir.  Bunlar Portalı'nda kayıtlı aramalar kullanabilecekleri olacaktır ve bunları de içerebilir bir [, liste sorguları görselleştirme bölümü](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) özel görünümünüzdeki.
 
@@ -58,7 +58,7 @@ Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıc
 
 Ardından sorun büyük olasılıkla otomatik bir işlem ile düzeltilebilir, bu düzeltmesi yapmak için Azure Automation'da bir runbook genellikle oluşturacaksınız.  Çoğu Azure hizmeti ile yönetilebilir [cmdlet'leri](/powershell/azure/overview) , bu tür işlevleri gerçekleştirmek için runbook yararlanarak.
 
-Dış işlevler bir uyarıya yanıt olarak çözümünüzün gerektirdiği sonra kullanabileceğiniz bir [Web kancası yanıtı](../log-analytics/log-analytics-alerts-actions.md).  Bu, uyarıyı bilgi gönderirken bir dış web hizmetini çağırmak sağlar.
+Dış işlevler bir uyarıya yanıt olarak çözümünüzün gerektirdiği sonra kullanabileceğiniz bir [Web kancası yanıtı](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  Bu, uyarıyı bilgi gönderirken bir dış web hizmetini çağırmak sağlar.
 
 ### <a name="views"></a>Görünümler
 Log Analytics'teki görünümler, Log Analytics deposuna verilerini görselleştirmek için kullanılır.  Her çözüm, genellikle tek bir görünümle içerecek bir [döşeme](../log-analytics/log-analytics-view-designer-tiles.md) kullanıcının ana panosunda görüntülenir.  Görünüm herhangi bir sayıda içerebilir [görselleştirme bölümleri](../log-analytics/log-analytics-view-designer-parts.md) kullanıcıya toplanan verilerin farklı görselleştirmeler sağlamak için.

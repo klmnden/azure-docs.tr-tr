@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 335db0130ae6dd3d11d6592208fdf37e762509e5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420260"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914830"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -48,7 +48,6 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 
 
 - Öznitelik barındırılan sesli posta beklendiği gibi çalıştığından emin olmak için geri yazma işlevini değiştirildi.  Bazı senaryolarda, Azure AD, bir null değer ile geri yazma sırasında msExchUcVoicemailSettings öznitelik üzerine.  Bulut değeri ayarlanmadığı taktirde azure AD'ye artık şirket içi bu özniteliğin değeri, artık temizler.
-- Değiştirilen varsayılan kuralları işlenmesini iyileştirdik. Varsayılan kuralları için değişiklik yaptınız ve varsayılan kuralları onarmak için Seçenekler'de sunulan artık bildirilir. 
 - Tanılama, araştırmak ve Azure AD'ye bağlantı sorunlarını belirlemek için Azure AD Connect sihirbazındaki eklendi. Bu aynı Tanılama, Test - AdSyncAzureServiceConnectivity cmdlet'ini kullanarak doğrudan Powershell aracılığıyla da çalıştırılabilir. 
 - Tanılama, araştırmak ve AD'ye bağlantı sorunlarını belirlemek için Azure AD Connect sihirbazındaki eklendi. Bu aynı tanılama ADConnectivityTools Powershell modülünde başlangıç ConnectivityValidation işlevi kullanılarak doğrudan Powershell aracılığıyla da çalıştırılabilir.  Daha fazla bilgi için [ADConnectivityTool PowerShell Modülü nedir?](how-to-connect-adconnectivitytools.md)
 - Hibrit Azure Active Directory Join ve cihaz geri yazma için bir AD şeması sürüm öncesi denetimi eklendi 

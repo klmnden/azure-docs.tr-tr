@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056714"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914728"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -117,10 +117,10 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50135|Hesap riski nedeniyle parola değişikliği gerekiyor|
 |50136|Msa oturumunu uygulamaya yeniden yönlendirin - Tek MSA oturumu algılandı |
 |50140|Bu hata, kullanıcı oturum açtığında "Oturumumu açık bırak" kesintisi nedeniyle oluştu. Daha fazla bilgi almak için Bağıntı Kimliği, İstek Kimliği ve Hata kodu ile [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md). |
-|50143|Oturum uyuşmazlığı - Kullanıcı kiracısı farklı kaynak nedeniyle etki alanı ipucu ile eşleşmediğinden oturum geçersiz. Daha fazla bilgi almak için Bağıntı Kimliği, İstek Kimliği ve Hata kodu ile [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+|50143|Oturum uyuşmazlığı - kullanıcı Kiracı etki alanı ipucu farklı kaynak nedeniyle eşleşmediği için oturum geçersiz.  [Bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) daha ayrıntılı bilgi edinmek için bağıntı kimliği, istek kimliği ve hata koduna sahip.|
 |50144|Kullanıcının Active Directory parolasının süresi doldu. Kullanıcı için yeni bir parola oluşturun veya son kullanıcıdan self servis sıfırlama aracını kullanmasını isteyin|
 |50146|Bu uygulamanın, uygulamaya özel bir imzalama anahtarı ile yapılandırılması gerekiyor. Bu şekilde yapılandırılmamış veya anahtarın süresi dolmuş ya da anahtar henüz geçerli değil. Uygulama sahibine başvurun|
-|50148|code_verifier, PKCE yetkilendirme isteğinde belirtilen code_challenge ile eşleşmiyor. Uygulama geliştiricisine başvurun. |
+|50148|code_verifier, PKCE yetkilendirme isteğinde belirtilen code_challenge ile eşleşmiyor. Uygulama geliştiricisine başvurun. |
 |50155|Bu kullanıcı için cihaz kimlik doğrulaması başarısız oldu|
 |50158|Dış güvenlik sınaması gerçekleştirilmedi|
 |50161|Dış sağlayıcı tarafından gönderilen talepler yeterli değil veya dış sağlayıcıya eksik talep gönderildi|
@@ -128,7 +128,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50169|Bölge geçerli hizmet ad alanının yapılandırılmış bir bölgesi değil.|
 |50172|Dış talep sağlayıcısı onaylanmadı. Kiracı yöneticisine başvurun|
 |50173|Yeni kimlik doğrulama belirteci gereklidir. Kullanıcıdan yeni kimlik bilgilerini kullanarak yeniden oturum açmasını isteyin|
-|50177|Geçiş kullanıcıları için dış sınama desteklenmiyor|
+|50177|Dış sınaması geçiş kullanıcılar için desteklenmiyor|
 |50178|Geçiş kullanıcıları için Oturum Denetimi desteklenmiyor|
 |50180|Windows Tümleşik kimlik doğrulaması gerekli. Sorunsuz SSO için kiracıyı etkinleştirin.|
 |51001|Şirket İçi Güvenlik Tanımlayıcısı - Şirket İçi UPN ile Etki Alanı İpucu mevcut değil|
@@ -152,7 +152,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |70007|Uygulama bir belirteç isterken desteklenmeyen bir 'response_mode' değeri döndürdü. Uygulama sahibine başvurun|
 |70008|Sağlanan yetkilendirme kodu veya yenileme belirtecinin süresi doldu -iptal edildi. Kullanıcıdan yeniden oturum açmasını isteyin|
 |70011|Uygulama tarafından istenen kapsam geçersiz. Uygulama sahibine başvurun|
-|70012|MSA (tüketici) kullanıcısının kimliği doğrulanırken bir sunucu hatası oluştu. Lütfen yeniden deneyin. Başarısız olmaya devam ederse [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+|70012|MSA (tüketici) kullanıcısının kimliği doğrulanırken bir sunucu hatası oluştu. Lütfen yeniden deneyin. Bu başarısız olmaya devam ederse [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Kullanıcının cihaz kod akışı için yanlış kullanıcı kodu girmesi nedeniyle geçersiz doğrulama kodu. Yetkilendirme onaylanmadı|
 |70019|Doğrulama kodunun süresi doldu. Kullanıcıdan oturum açmayı yeniden denemesini isteyin|
 |70037|Hatalı sınama yanıtı sağlandı. Uzaktan kimlik doğrulama oturumu reddedildi.|
@@ -180,6 +180,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |90014| Bir protokol iletisi için gerekli bir alan eksik, uygulama sahibine başvurun. Uygulama sahibi bu durumda, oturum açma isteği için gerekli tüm parametreleri olduğundan emin olun. |
 |90072| Hesabın kiracıda bir dış kullanıcı olarak önce eklenmesi gerekir. Oturum kapatma ve yeniden farklı bir Azure AD ile oturum açma hesabı.|
 |90094| Grant yönetici izinleri gerektirir. Bu uygulama için rıza sağlamanın Kiracı yöneticinize başvurun.|
+|500133| Onaylama işlemi, geçerli zaman aralığı içinde değil. Kullanıcı onayı için kullanmadan önce erişim belirtecinin süresi dolmadı emin olun veya yeni bir belirteç isteyin.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

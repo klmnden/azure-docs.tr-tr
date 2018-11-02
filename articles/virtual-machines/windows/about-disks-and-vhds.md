@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d6491ea1fd46d1dbd3d258a79a8d8e932173dae5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023569"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912297"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows Vm'leri için diskleri depolama hakkında
 
@@ -42,7 +42,7 @@ Azure geçici disk nasıl kullandığı hakkında daha fazla bilgi için bkz. [M
 
 ### <a name="data-disk"></a>Veri diski
 
-Veri diski uygulama verileri veya tutmak için ihtiyacınız olan diğer verileri depolamak için bir sanal makineye bağlı bir vhd'dir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski 4.095 GB'lık maksimum kapasiteye sahiptir, yönetilen diskler 32.767 TiB kapasiteye sahiptir. Bunu ve depolama türünü ekleyebilirsiniz kaç veri diskinin diskleri barındırmak için kullanabileceğiniz sanal makinenin boyutunu belirler.
+Veri diski uygulama verileri veya tutmak için ihtiyacınız olan diğer verileri depolamak için bir sanal makineye bağlı bir vhd'dir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski 4.095 GB'lık maksimum kapasiteye sahiptir, yönetilen diskler 32.767 GiB kapasiteye sahiptir. Bunu ve depolama türünü ekleyebilirsiniz kaç veri diskinin diskleri barındırmak için kullanabileceğiniz sanal makinenin boyutunu belirler.
 
 > [!NOTE]
 > Sanal makineler kapasiteler hakkında daha fazla bilgi için bkz. [boyutları için Windows sanal makineleri](sizes.md).

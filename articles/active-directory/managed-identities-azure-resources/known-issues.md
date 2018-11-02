@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295590"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913997"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -29,7 +29,7 @@ ms.locfileid: "44295590"
 ## <a name="frequently-asked-questions-faqs"></a>Sık Sorulan Sorular (SSS)
 
 > [!NOTE]
-> Azure kaynakları için yönetilen kimlikleri daha önce yönetilen hizmet kimliği (MSI) olarak bilinen hizmetin yeni adıdır.
+> Azure kaynakları için yönetilen kimlikler, Yönetilen Hizmet Kimliği (MSI) olarak bilinen hizmetin yeni adıdır.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Azure kaynakları için yönetilen kimlikleri, Azure Cloud Services ile çalışır mı?
 
@@ -60,7 +60,7 @@ Azure örnek meta veri hizmeti hakkında daha fazla bilgi için bkz. [IMDS belge
 
 Azure Iaas tarafından desteklenen tüm Linux dağıtımları ile yönetilen kimlikleri IMDS uç noktası aracılığıyla Azure kaynakları için kullanılabilir. 
 
-Not: Yönetilen kimlikleri (Ocak 2019'da kullanımdan kaldırma planlanan) VM uzantısını Azure kaynakları için yalnızca aşağıdaki Linux dağıtımları destekler:
+VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) Azure kaynakları için yönetilen kimlikleri yalnızca aşağıdaki Linux dağıtımları destekler:
 - CoreOS kararlı
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ VM başlatıldıktan sonra aşağıdaki komutu kullanarak etiket kaldırılabili
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Kullanıcı tarafından atanan kimliklerle bilinen sorunlar
+### <a name="vm-extension-provisioning-fails"></a>VM uzantısı başarısız sağlama
 
-- kullanıcı tarafından atanan kimlik atamaları, yalnızca VM ve VMSS için kullanılabilir. Önemli: kullanıcı tarafından atanan kimlik atamaları gelecek ay içinde değiştirin.
-- Kullanıcı tarafından atanan kimlikleri aynı VM/VMSS üzerinde yinelenen, başarısız VM/VMSS neden olur. Bu, farklı büyük/küçük harf ile eklenen kimliklerini içerir. Örneğin MyUserAssignedIdentity ve myuserassignedidentity. 
-- Bir VM sağlama (Ocak 2019'da kullanımdan kaldırma planlanan) VM uzantısı, DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
-- 'Var olmayan' kullanıcı tarafından atanan bir kimlik ekleniyor VM başarısız olmasına neden olur. 
-- Adında özel karakterler (örneğin, alt çizgi) ile bir kullanıcı tarafından atanan kimliği oluşturma, desteklenmiyor.
-- kullanıcı tarafından atanan kimlik adları uçtan uca senaryo için 24 karakterden kısıtlanır. ad 24 karakterden daha fazla kullanıcı tarafından atanan kimliklerle atanacak başarısız olur.
+VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin.
+ 
+> [!NOTE]
+> VM uzantısı için kullanımdan kaldırılma Ocak 2019 tarafından planlanmaktadır. IMDS uç nokta kullanmaya geçmenizi öneririz.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Azure AD dizinler arasında bir aboneliğin aktarılması
+
+Bir aboneliğe taşınmış/aktarılan başka bir dizine olduğunda yönetilen kimlikleri güncelleştirilmemiş. Sonuç olarak, herhangi bir mevcut sistem tarafından atanan veya kullanıcı tarafından atanan yönetilen kimlikleri bozuk olacaktır. 
+
+Geçici bir çözüm olarak abonelik taşındıktan sonra sistem tarafından atanan yönetilen kimlikleri devre dışı bırakabilir ve yeniden etkinleştirin. Benzer şekilde, silebilir ve hiç kullanıcı tarafından atanan bir yönetilen kimlik yeniden oluşturun. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Kullanıcı tarafından atanan yönetilen kimlikleri ile ilgili bilinen sorunlar
+
+- Kullanıcı tarafından atanan bir yönetilen kimlik adında özel karakterler (örneğin, alt çizgi) ile oluşturma, desteklenmiyor.
+- Kullanıcı tarafından atanan kimlik adları 24 karakterle sınırlıdır. Ad 24 karakterden daha uzunsa kimliği (yani sanal makine.) bir kaynağa atanmış başarısız olur
 - Desteklenen sınırı (Ocak 2019'da kullanımdan kaldırma planlanan) yönetilen kimlik sanal makine uzantısı'nı kullanarak, kullanıcı tarafından atanan 32 yönetilen kimlikleri olur. Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512'dır.  
-- İkinci bir kullanıcı tarafından atanan kimliği eklerken ClientID VM uzantısı için istekleri belirteçleri kullanılabilir olmayabilir. Bir risk azaltma, Azure kaynaklarını VM uzantısı aşağıdaki iki bash komutları için yönetilen kimlikleri yeniden başlatın:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Bir VM, bir kullanıcı tarafından atanan kimliği ancak sistem tarafından atanan kimlik olduğunda, portal kullanıcı Arabirimi gösterilir kimliklerini Azure kaynakları için devre dışı olarak yönetiliyor. Sistem tarafından atanan kimlik etkinleştirmek için bir Azure Resource Manager şablonu, Azure CLI veya SDK'yı kullanın.
+- Kullanıcı tarafından atanan bir yönetilen kimlik farklı kaynak grubuna taşımak kesmek kimlik neden olur. Sonuç olarak, bu kimliğin isteği belirteçleri mümkün olmayacaktır. 
+- Abonelik başka bir dizine aktarmak, mevcut bir kullanıcı tarafından atanan yönetilen kimlikleri çalışmamasına neden olur. 

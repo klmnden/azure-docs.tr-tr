@@ -1,5 +1,5 @@
 ---
-title: Tehdit Yönetimi Azure Active Directory B2C | Microsoft Docs
+title: Kaynaklar ve Azure Active Directory B2C verilerinde tehditleri yönetme | Microsoft Docs
 description: Hizmet reddi saldırılarını ve Azure Active Directory B2C parola saldırıları algılama ve Önleme teknikleri hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
@@ -7,26 +7,36 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2016
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1801fe9695aa15850d600300b957df2c7d7cd9ef
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ee99e7346d438e81a0cd25f8c522838524732568
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057444"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912858"
 ---
-# <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: Tehdit Yönetimi
+# <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Kaynaklar ve Azure Active Directory B2C verilerinde tehditleri yönetme
 
-Tehdit yönetimi, sistem ve ağ saldırılarına karşı koruma için planlamayı içerir. Hizmet reddi saldırılarını kaynakları hedeflenen kullanıcılara kullanımdan. Kaynaklara yetkisiz erişim için parola saldırılarına yol. Azure Active Directory B2C (Azure AD B2C), verilerinizi birden çok yolla bu tehditlere karşı korumanıza yardımcı olur yerleşik özelliklere sahiptir.
+Azure Active Directory (Azure AD) B2C, kaynaklarınıza ve verilerin tehditlere karşı korumanıza yardımcı olur yerleşik özelliklere sahiptir. Bu tehditler, hizmet reddi saldırılarını ve parola saldırılarını içerir. Hizmet reddi saldırılarını kaynakları hedeflenen kullanıcılara kullanımdan. Kaynaklara yetkisiz erişim için parola saldırılarına yol. 
 
 ## <a name="denial-of-service-attacks"></a>Hizmet reddi saldırılarını
 
-Azure AD B2C kullanır algılama ve Önleme teknikleri SYN tanımlama bilgileri ve temel alınan kaynakları hizmet reddi saldırılarına karşı korumak için oranı ve bağlantı sınırları gibi.
+Azure AD B2C SYN tanımlama bilgisi kullanılarak SYN baskın saldırılarına karşı felaketlerden koruyor. Azure AD B2C, hizmet reddi saldırılarına karşı da hızları ve bağlantıları için sınırları kullanarak korur.
 
 ## <a name="password-attacks"></a>Parola saldırıları
 
-Azure AD B2C azaltma teknikleri parola saldırıları için bir yerde de vardır. Parola deneme yanılma saldırıları ve sözlük parola saldırılarını azaltma içerir. Kullanıcılar tarafından ayarlanan parolaların makul karmaşık olması gerekmez. Çeşitli sinyalleri kullanarak, Azure AD B2C isteklerinin bütünlüğünü analiz eder. Azure AD B2C, hedeflenen kullanıcıların bilgisayar korsanlarının ve botnet akıllı bir şekilde ayırt etmek için tasarlanmıştır. Azure AD B2C, karmaşık bir strateji, bir saldırı olasılığını girilen parolaları temel hesapları kilitlemek için sağlar.
+Kullanıcılar tarafından ayarlanan parolaların makul karmaşık olması gerekmez. Azure AD B2C parola saldırılarını yürürlükte olan azaltma teknikleri var. Parola deneme yanılma saldırıları ve sözlük parola saldırılarını azaltma içerir. Çeşitli sinyalleri kullanarak, Azure AD B2C isteklerinin bütünlüğünü analiz eder. Azure AD B2C, hedeflenen kullanıcıların bilgisayar korsanlarının ve botnet akıllı bir şekilde ayırt etmek için tasarlanmıştır. 
+
+Azure AD B2C hesapları kilitlemek için karmaşık bir strateji kullanır. Hesapları istek ve girilen parolaları IP kilitlenir. Kilitleme süresi ayrıca girişimin bir saldırı olma olasılığına göre artar. Bir parola başarısız 10 kez denendi sonra bir dakikalık kilitleme gerçekleşir. Sonra Hesap kilidi, bir oturum açma başarısız, sonraki açışınızda başka bir dakikalık kilitleme oluşur ve her hizmette oturum açma için devam eder. Aynı parolayı tekrar tekrar girilmesi olarak birden çok başarısız oturum açma bilgileri sayılmaz. 
+
+İlk 10 kilitleme bir dakikadan uzun olur. Sonraki 10 kilitleme dönemleri biraz daha uzun ve her 10 kilitleme nokta sonra süresi artar. Hesap kilitli değil, başarılı bir oturum açma işleminden sonra sıfır kilidi açma sayacı sıfırlanır. Kilitleme nokta beş saate kadar sürebilir. 
+
+Şu anda, şunları yapamazsınız:
+
+- 10'dan az başarısız oturum açma bilgileri ile bir kilitleme tetikleyin
+- Çıkış kilitli hesaplarının bir listesini alma
+- Kilitleme ilkesi yapılandırma
 
 Daha fazla bilgi için ziyaret [Microsoft Trust Center](https://www.microsoft.com/trustcenter/default.aspx).
