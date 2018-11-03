@@ -8,28 +8,21 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: dae75d118ec46c5023f0bb347fe5fbefafb84c4a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227257"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961524"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure İzleyici ölçüm uyarılarını kaynakları desteklenir
 
-Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](monitoring-overview-unified-alerts.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](insights-alerts-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
+Azure İzleyici, önemli avantajlar eski üzerinde olan yeni ölçüm uyarı türü artık destekliyor [Klasik ölçüm uyarıları](insights-alerts-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
 
-Yeni ölçüm uyarılarının ölçümleriniz günlüklerinden ölçümleri bir parçası olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz 
-- [Performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) Windows ve Linux makineler için
-- [Aracı sistem durumu sinyal kayıtları](../operations-management-suite/oms-solution-agenthealth.md)
-- [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md) kayıtları
-- [Olay verilerini](../log-analytics/log-analytics-data-sources-windows-events.md) günlükleri
- 
-> [!NOTE]
-> Özel ölçüm ve/veya boyut yalnızca veriler için seçilen süre içinde olup olmadığını gösterilir. Bu ölçümler, Azure Log Analytics çalışma alanlarında Doğu ABD, Batı Orta ABD ve Batı Avrupa sahip müşteriler için kullanılabilir. Log Analytics ölçümleri şu anda genel Önizleme aşamasındadır ve dedir aşamasındadır.
+Yeni ölçüm uyarılarının, ölçümler olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz. Daha fazla bilgi için görüntüleme [günlükleri için ölçüm uyarıları](monitoring-metric-alerts-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, destek PowerShell, CLI, REST
-Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell ve Azure CLI Sürüm 2.0 ve daha yüksek kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
+Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell ve Azure CLI Sürüm 2.0 ve daha yüksek kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
 
 ## <a name="metrics-and-dimensions-supported"></a>Ölçümler ve desteklenen boyutlar
 Yeni ölçüm uyarılarının boyutlar kullanmak için ölçümleri uyarı destekler. Ölçümünüzün doğru düzeyine filtrelemek için boyutları kullanabilirsiniz. Geçerli boyut yanı sıra tüm desteklenen ölçümler incelediniz ve gelen görselleştirilmiş [Azure İzleyici - ölçüm Gezgini](monitoring-metric-charts.md).
@@ -58,7 +51,7 @@ Yeni uyarıları ile desteklenen Azure İzleyici ölçüm kaynağı tam listesi 
 |Microsoft.Network/expressRouteCircuits | Yok |  [Express route bağlantı hatları](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | Yok| [DNS bölgeleri](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
 |Microsoft.Network/loadBalancers (yalnızca standart SKU'lar için)| Evet| [Yük Dengeleyiciler](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
-|Microsoft.Network/publicipaddresses     |  Yok       |[Genel IP adresi](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/publicipaddresses     |  Yok       |[Genel IP adresleri](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.PowerBIDedicated/capacities | Yok | [Kapasiteleri](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Network/trafficManagerProfiles | Evet | [Traffic Manager profilleri](monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.Search/searchServices     |   Yok      |[Arama Hizmetleri](monitoring-supported-metrics.md#microsoftsearchsearchservices)|

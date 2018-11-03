@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4945bf6064f2614c1779957317d21279d09e05d3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413069"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964110"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Görünüm Tasarımcısı kutucukları Log analytics'te Başvuru Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızdaki çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
@@ -179,5 +179,5 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) kutucuklar sorguları desteklemek için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) kutucuklar sorguları desteklemek için.
 * Ekleme [görselleştirme bölümleri](log-analytics-view-designer-parts.md) , özel bir görünüm.

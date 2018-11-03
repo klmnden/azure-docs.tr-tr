@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: ad6bf2db44996684096deb2b351301e450d80249
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5cce3005a0058604136e05d9c3bf9700d5296bf3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747975"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964091"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -204,7 +204,7 @@ Genel amaçlı V2 depolama hesaplarının (hem sık erişimli ve seyrek erişiml
 ## <a name="replicated-machines---networking"></a>Çoğaltılan makineler - ağ
 **Yapılandırma** | **Destek** | **Ayrıntılar**
 --- | --- | ---
-NIC | B & elirli bir Azure VM boyutu için desteklenen en büyük sayı | VM yük devretme sırasında oluşturulduğunda NIC oluşturulur.<br/><br/> Çoğaltma etkinleştirildiğinde kaynak VM üzerindeki NIC sayısı VM yük devretmesi NIC sayısına bağlıdır. Çoğaltmayı etkinleştirdikten sonra bir NIC ekleyip, yük devretme sonrasında çoğaltılmış sanal makine üzerindeki NIC sayısı etkisi yoktur.
+NIC | Belirli bir Azure VM boyutu için desteklenen en büyük sayı | VM yük devretme sırasında oluşturulduğunda NIC oluşturulur.<br/><br/> Çoğaltma etkinleştirildiğinde kaynak VM üzerindeki NIC sayısı VM yük devretmesi NIC sayısına bağlıdır. Çoğaltmayı etkinleştirdikten sonra bir NIC ekleyip, yük devretme sonrasında çoğaltılmış sanal makine üzerindeki NIC sayısı etkisi yoktur.
 İnternet Yük Dengeleyici | Desteklenen | Bir kurtarma planında bir Azure Otomasyonu betik kullanarak önceden yapılandırılmış bir yük dengeleyici ile ilişkilendirin.
 İç Load balancer | Desteklenen | Bir kurtarma planında bir Azure Otomasyonu betik kullanarak önceden yapılandırılmış bir yük dengeleyici ile ilişkilendirin.
 Genel IP adresi | Desteklenen | Var olan bir genel IP adresini NIC ile ilişkilendirin Veya, bir genel IP adresi oluşturun ve bir kurtarma planında bir Azure Otomasyonu betik kullanarak NIC ile ilişkilendirin.

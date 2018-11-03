@@ -1,19 +1,19 @@
 ---
 title: Azure IOT Central uygulamanıza (C#) Raspberry Pi'yi Connnect | Microsoft Docs
 description: Bir cihaz geliştirici olarak C# kullanarak Azure IOT Central uygulamanızı Raspberry Pi'yi bağlanma.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734244"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956732"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -23,10 +23,10 @@ Bu makalede, Microsoft Azure IOT Central uygulamanıza C# programlama dilini kul
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
+Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki bileşenleri gerekir:
 
 * [.NET core 2](https://www.microsoft.com/net) geliştirme makinenizde yüklü. Bir uygun Kod Düzenleyicisi gibi olmalıdır [Visual Studio Code](https://code.visualstudio.com/).
-* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [Azure IOT Central uygulaması oluşturmayı](howto-create-application.md).
+* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
 * Raspbian işletim sistemi çalıştıran bir Raspberry Pi cihaz.
 
 
@@ -34,10 +34,21 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspberry Pi** cihaz şablonu aşağıdaki özelliklere sahip: 
 
-- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnometer** (X ölçülür. Y, Z ekseni), **Accelorometer** (ölçülen X, Y, Z ekseni) ve **jiroskop** (X, Y ölçülür Z ekseni).
-- Ayarları gösteren **voltaj**, **geçerli**,**fanı hızı** ve **IR** Aç/Kapat.
-- Cihaz özelliği içeren özellik **sayı öldürmüş** ve **konumu** bulut özelliği.
-
+- Telemetri, cihaz toplayacak aşağıdaki ölçüleri içerir:
+    - Nem oranı
+    - Sıcaklık
+    - Basınç
+    - Magnetometer (X, Y, Z)
+    - İvme ölçer (X, Y, Z)
+    - Jiroskop (X, Y, Z)
+- Ayarlar
+    - Voltaj
+    - Geçerli
+    - Fan hızı
+    - IR Aç/Kapat.
+- Özellikler
+    - Numara cihaz özelliği öldürmüş
+    - Konum bulut özelliği
 
 Cihaz şablon yapılandırması hakkında tam Ayrıntılar için bkz [Raspberry PI cihaz şablonu ayrıntıları](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 

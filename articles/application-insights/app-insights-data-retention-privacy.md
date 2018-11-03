@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 86b7b87c8cc11be5c4f2c8892905bb6e6800e729
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079081"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958891"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -173,7 +173,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 Varsayılan olarak `ServerTelemetryChannel` geçerli kullanıcının yerel uygulama veri klasörü kullanır `%localAppData%\Microsoft\ApplicationInsights` veya geçici klasörü `%TMP%`. (Bkz [uygulama](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) buraya.) Depolama klasörü belirtilmediği sürece bir Linux ortamında yerel depolama devre dışı bırakılır.
 
-Aşağıdaki kod parçacığını nasıl ayarlanacağını gösterir `ServerTelemetryChannel.StorageFolder` içinde `ConfigureServices()` yöntemi, `Startup.cs` sınıfı:
+Aşağıdaki kod parçacığını nasıl ayarlanacağını gösterir `ServerTelemetryChannel.StorageFolder` içinde `ConfigureServices()`  yöntemi, `Startup.cs` sınıfı:
 
 ```
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -232,7 +232,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Uygulama anlayışları'nda depolanan kişisel verileri
 
-Bizim [Application Insights kişisel verileri makale](app-insights-customer-data.md) ayrıntılı bu sorunu ele alınmaktadır.
+Bizim [Application Insights kişisel verileri makale](../log-analytics/log-analytics-personal-data-mgmt.md) ayrıntılı bu sorunu ele alınmaktadır.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kullanıcılarım Application ınsights'ı kapatabilir miyim?
 Doğrudan yönetilemez. Application ınsights'ı etkinleştirmek için kullanıcılarınızın çalışabilecek bir anahtar sağlıyoruz yok.
@@ -274,7 +274,7 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 | İstekler |URL'ye, süresini, yanıt kodu |
 | Bağımlılıklar |Türü (SQL, HTTP,...), bağlantı dizesi veya URI, eşitleme/zaman uyumsuz, süre, başarı, SQL deyimiyle (Durum İzleyicisi) |
 | **Özel durumlar** |Tür, **ileti**, çağrı yığınlarını, kaynak dosya ve satır numarası, iş parçacığı kimliği |
-| Kilitlenmeler |İşlem kimliği, üst işlem kimliği, kilitlenme iş parçacığı kimliği; uygulama düzeltme eki, kimliği, derleme;  özel durum türü, adres, nedeni; Karıştırılmış simgeleri ve kayıtları, ikili başlangıç ve bitiş adreslerini, ikili dosya adı ve yolu, cpu türü |
+| Kilitlenmeleri |İşlem kimliği, üst işlem kimliği, kilitlenme iş parçacığı kimliği; uygulama düzeltme eki, kimliği, derleme;  özel durum türü, adres, nedeni; Karıştırılmış simgeleri ve kayıtları, ikili başlangıç ve bitiş adreslerini, ikili dosya adı ve yolu, cpu türü |
 | İzleme |**İleti** ve önem derecesi |
 | Performans sayaçları |İşlemci zamanı, kullanılabilir bellek, istek hızı, özel durum oranı, işleme özel bayt sayısı, g/ç hızı, istek süresi, istek sırası uzunluğu |
 | Kullanılabilirlik |Web test yanıt kodu, süre, her test adımı, test adı, zaman damgası, başarı, yanıt süresi, test konumu |

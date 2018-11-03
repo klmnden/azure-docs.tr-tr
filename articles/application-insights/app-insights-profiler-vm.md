@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10cd05bd40262815e3b27c861982debc18e5b4f3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 152632c55fc21d2b49f6dfd8ae734833ea870898
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142496"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978375"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Bir Azure sanal makine veya sanal makine ölçek kümesi ile Application Insights Profiler çalışan profili web uygulamaları
 Ayrıca, Application Insights Profiler'ı bu hizmetlerin dağıtabilirsiniz:
@@ -63,11 +63,8 @@ Bu sayfa, Azure VM veya Azure sanal makine ölçek çalışan Application Insigh
 
 1. Uygulamanızı dağıtın.
 
-## <a name="enable-profiler-on-on-premises-servers"></a>Şirket içi sunucularda Profiler'ı etkinleştir
-
-Bir şirket içi sunucusunda Profiler etkinleştirme de tek başına modunda çalışan bir Application Insights Profiler denir. Azure tanılama uzantısı değişiklikler bağlı değildir.
-
-Profiler'ın şirket içi sunucular için kümesini resmi olarak desteklemesi için hiçbir plan sahibiz. Bu senaryo ile denemeler de ilgileniyorsanız yapabilecekleriniz [destek kodunu indirin](https://github.com/ramach-msft/AIProfiler-Standalone). Duyuyoruz *değil* sorumlu kod bakımı, sorunlar ve kodla ilgili özellik isteklerini yanıtlama.
+## <a name="can-profiler-run-on-on-premises-servers"></a>Profil Oluşturucu, şirket içi sunucularda çalıştırabilir miyim?
+Şirket içi sunucular için si Insights Profiler'ı desteklemek için herhangi bir plan sahibiz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

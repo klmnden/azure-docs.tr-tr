@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057452"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979514"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL söz dizimi başvurusu
 
@@ -2656,20 +2656,30 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Geçerli bir sayısal ifade var.  
-  
+     Dizi başlanan sıfır tabanlı sayısal dizini. Negatif değerler dizisi yani -1 başvuruları son öğesi göreli başlangıç dizini dizideki son öğeyi belirtmek için kullanılabilir.  
+
+-   `num_expr`  
+
+     Sonuçta elde edilen dizideki öğelerin sayısı.    
+
  **Dönüş türleri**  
   
- Bir Boolean değer döndürür.  
+ Bir dizi ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek nasıl ARRAY_SLICE kullanarak bir diziye bir parçası.  
+ Aşağıdaki örnek, ARRAY_SLICE kullanarak bir dizi farklı dilim alma gösterilmektedir.  
   
 ```  
 SELECT   
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1),  
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1)  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100)      
+  
 ```  
   
  Sonuç kümesini burada verilmiştir.  
@@ -2677,10 +2687,15 @@ SELECT
 ```  
 [{  
            "$1": ["strawberries", "bananas"],   
-           "$2": ["strawberries"]  
-       }]  
+           "$2": ["strawberries"],
+           "$3": ["strawberries"],  
+           "$4": ["strawberries", "bananas"], 
+           "$5": [],
+           "$6": ["strawberries", "bananas"],
+           "$7": [] 
+}]  
 ```  
-  
+ 
 ###  <a name="bk_spatial_functions"></a> Uzamsal İşlevler  
  Aşağıdaki skaler işlevler bir uzamsal nesne giriş değeri bir işlem gerçekleştirmek ve bir sayısal veya Boolean değeri döndürür.  
   

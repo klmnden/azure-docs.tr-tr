@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 05bdc841108bf1fb909375b6f2c6399f8121ceeb
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344660"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958109"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Kullanıcılar, PostgreSQL sunucusu için Azure veritabanı'nda oluşturma 
 Bu makalede, PostgreSQL sunucusu için Azure veritabanı kullanıcıları nasıl oluşturabileceğiniz açıklanır.
@@ -36,7 +36,7 @@ Sunucu Yöneticisi kullanıcı hesabı, ek kullanıcılar oluşturma ve bu kulla
    Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Sunucu adını ve sunucu oturum açma bilgilerini kolayca bulabilirsiniz **genel bakış** sayfası veya **özellikleri** Azure portalında sayfası. 
 
 2. Veritabanı sunucunuza bağlanmak için yönetici hesabı ve parolayı kullanın. PgAdmin veya psql gibi tercih edilen istemci aracını kullanın.
-   Bağlanmak nasıl emin değilseniz bkz [Cloud Shell'de psql kullanarak PostgreSQL veritabanına bağlanma](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
+   Bağlanmak nasıl emin değilseniz bkz [hızlı başlangıç](./quickstart-create-server-database-portal.md)
 
 3. Düzenleyin ve aşağıdaki SQL kodu çalıştırın. Yer tutucu değerini < new_user > için yeni kullanıcı adınızı değiştirin ve yer tutucu parola kendi güçlü bir parola ile değiştirin. 
 

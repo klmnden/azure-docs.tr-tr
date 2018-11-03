@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 08/30/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ff6978ddbf8718ad45a4265898109b7ac799d70c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 2977c3d1656bacf8ba8d34080641ea6c5cdf5bbe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468755"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957143"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure portalından IOT Central'ı yönetme 
 Oluşturma ve IOT Central Web sitesinden IOT Central uygulamaları yönetmeye ek olarak, IOT Central Azure portalından yönetebilirsiniz. Bu makalede, nelerin mümkün olduğunu ve bunun nasıl yapıldığını göstereceğiz.
@@ -35,14 +35,14 @@ IOT Central uygulamasına satır öğesi arama sonuçlarında tıklayın.
 
 ![Yönetim Portalı: IOT Central kaynak](media\howto-manage-iot-central-from-portal\image0c.png)
 
-Formdaki tüm alanları doldurun. Bu form, formun IOT Central Web sitesinden uygulamaları oluşturmak için doldurmak için ihtiyacınız benzerdir. Her alanı doldurun hakkında daha fazla bilgi edinmek için başvurabilirsiniz [IOT Central uygulamasına oluşturma](https://docs.microsoft.com/ azure/iot-central/howto-create-application) belge. 
+Formdaki tüm alanları doldurun. Bu form, formun IOT Central Web sitesinden uygulamaları oluşturmak için doldurmak için ihtiyacınız benzerdir. Her alanı doldurun hakkında daha fazla bilgi için kullanıma [IOT Central uygulamasına oluşturma](quick-deploy-iot-central.md) hızlı başlangıç. 
 
 ![Yönetim Portalı: IOT Central kaynak oluştur](media\howto-manage-iot-central-from-portal\image1.png)  
 
 Tüm alanları doldurduktan sonra "Oluştur" düğmesine tıklayın.
 
 ## <a name="manage-existing-iot-central-applications"></a>Mevcut IOT Central uygulamaları yönetme
-Bir Azure IOT Central uygulamasına zaten varsa, silebilirsiniz taşıyabilirsiniz Azure portalında farklı bir abonelik veya kaynak grubu. Bu deneme aboneliği yedekler beri 7 günlük deneme uygulamaları Azure Portalı'nda göremez.
+Bir Azure IOT Central uygulamasına zaten varsa, silebilirsiniz taşıyabilirsiniz Azure portalında farklı bir abonelik veya kaynak grubu. Bu deneme aboneliği yedekler beri Azure portalında deneme uygulamalarını göremez.
 
 Başlamak için sol taraftaki ana gezinti menüsündeki "tüm kaynaklar" a tıklayın. Uygulamanızın adını yazın ve kaynak listesinde, bulmak için arama kutusunu kullanın. Yönetmek istediğiniz IOT Central uygulaması üzerinde'ye tıklayın.
 

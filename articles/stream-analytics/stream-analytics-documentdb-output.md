@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057454"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957157"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB için Azure Stream Analytics çıkışı  
 Stream Analytics hedefleyebilir [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) yapılandırılmamış JSON verileri üzerinde veri arşivleme ve düşük gecikme süreli sorgular için JSON çıkışında, etkinleştirme. Bu belge, bu yapılandırmayı uygulamak için bazı en iyi uygulamaları kapsar.
@@ -37,6 +37,13 @@ Uygulama gereksinimlerinize eşleştirmek için ince ayar koleksiyonu ve veritab
 Azure Cosmos DB ile Stream Analytics tümleştirmesi ekleme veya güncelleştirme belirli bir belge kimliği sütunu temel alarak koleksiyonunuzdaki kayıtlarını sağlar. Bu da verilir bir *Upsert*.
 
 Stream Analytics ile belge kimliği çakışması ekleme başarısız olduğunda burada güncelleştirmeleri yalnızca işiniz bir iyimser upsert yaklaşımı kullanır. Bu güncelleştirme, düzeltme ekini, diğer bir deyişle belgeye kısmi güncelleştirmeler etkinleştirir, yeni özellikler veya varolan bir özellik kademeli olarak gerçekleştirilen değiştirme ek gerçekleştirilir. Ancak, değişiklikler, JSON belge sonucu üzerine tüm dizi diğer bir deyişle, dizi içinde dizi özelliklerin değerlerini değil birleştirilir.
+
+Gelen JSON belgesini alan otomatik olarak Cosmos DB belge kimliği sütunu olarak kullanılır ve herhangi bir sonraki yazma, bu nedenle, bunlardan biri için önde gelen işlenir varolan bir kimliği alanı, varsa:
+- eklemek için benzersiz bir kimlik sağlama
+- Yinelenen kimlikleri ve 'ID' için ayarlanmış ' Belge Kimliği' upsert müşteri adayları
+- Yinelenen kimlikleri ve 'Belge Kimliği' değil kümesi müşteri adayları hata için ilk belge sonra
+
+Kaydetmek istiyorsanız <i>tüm</i> yinelenen bir Kimliğe sahip olanlar da dahil olmak üzere Belge Kimliği alanı sorgunuzda (AS anahtar sözcüğü ile) yeniden adlandırın ve Kimliği alanı oluşturun veya başka bir sütunun değeri ile Kimliğini değiştirin Cosmos DB sağlar (AS anahtar sözcüğü kullanılarak veya 'Belge Kimliği' ayarı kullanarak).
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB'de bölümleme verileri
 Azure Cosmos DB [sınırsız](../cosmos-db/partition-data.md) bölümler, iş yüküne göre ölçeklenen, verilerinizi otomatik Azure Cosmos DB bölümleme için önerilen yaklaşım. Sınırsız kapsayıcılar için yazarken, Stream Analytics sayıda paralel yazıcılar önceki bir sorgu adımına veya bölümleme düzeni giriş kullanır.

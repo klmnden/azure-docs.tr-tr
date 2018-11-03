@@ -10,17 +10,17 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e9a6e9c7407939ea9e76cad569e870d578b37f9
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3aca356b9caadc3a4ffee98ca7dc330eb1c520d8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307370"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962954"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL veri ambarı ile Azure Stream Analytics'i kullanma
 Azure Stream Analytics, akış verileri bulutta üzerinden düşük gecikme süreli, yüksek oranda kullanılabilir ve ölçeklenebilir karmaşık olay işleme sağlayan tam olarak yönetilen bir hizmettir. Okuyarak temellerini öğrenebilirsiniz [Azure Stream analytics'e giriş][Introduction to Azure Stream Analytics]. Stream Analytics ile izleyerek uçtan uca çözüm oluşturmaya nasıl ardından öğrenebilirsiniz [Azure Stream Analytics'i kullanmaya başlama] [ Get started using Azure Stream Analytics] öğretici.
 
-Bu makalede, akış analizi işlerinizi çıkış havuzu olarak Azure SQL Data Warehouse veritabanınıza kullanmayı öğreneceksiniz.
+Bu makalede, Stream Analytics işleri için çıkış havuzu olarak Azure SQL Data Warehouse veritabanınıza kullanmayı öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki adımlarda ilk olarak, üzerinde işlem [Azure Stream Analytics'i kullanmaya başlama] [ Get started using Azure Stream Analytics] öğretici.  

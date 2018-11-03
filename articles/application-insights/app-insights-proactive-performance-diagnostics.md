@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419733"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960829"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anomalileri
 
@@ -161,7 +161,7 @@ Size bildirir dikkat edin:
 
 Application Insights, kullanıcılarınızın kısmı yalnızca etkileyen, veya bazı durumlarda kullanıcılar yalnızca etkileyen performans sorunlarını bulur. Örneğin, sayfa yükleme hakkında bildirim daha yavaş tarayıcı başka tür tarayıcıları, bir tür veya istekleri belirli bir sunucudan daha yavaş sunulur. Yavaş sayfa, belirli bir işletim sistemi kullanan istemciler için bir coğrafi alanda yükler gibi özellikleri bileşimleri ile ilişkili sorunları da bulabilir.  
 
-Anomalileri bunlar gibi verileri inceleyerek algılamak çok zor olan, ancak, düşündüğünüzden daha yaygındır. Müşterilerinizin şikayet olduğunda genellikle bunlar yalnızca yüzey. Bu süre, çok geç s: Etkilenen kullanıcılar zaten rakiplerinizin için geçiş!
+Anomalileri bunlar gibi verileri inceleyerek algılamak çok zor olan, ancak, düşündüğünüzden daha yaygındır. Müşterilerinizin şikayet olduğunda genellikle bunlar yalnızca yüzey. O zamana dek çok geç: Etkilenen kullanıcılar zaten rakiplerinizin için geçiş!
 
 Şu anda, sayfa yükleme süreleri, sunucuda istek yanıt süreleri ve bağımlılık yanıt süreleri algoritmalarınızı arayın.  
 
@@ -185,8 +185,8 @@ Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımc
 
 * [Profil Oluşturucu](app-insights-profiler.md) 
 * [Anlık görüntü hata ayıklayıcısı](app-insights-snapshot-debugger.md)
-* [Analizler](app-insights-analytics-tour.md)
-* [Analytics akıllı tanılama](app-insights-analytics-diagnostics.md)
+* [Analizler](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics akıllı tanılama](app-insights-analytics.md)
 
 Akıllı algılama tamamen otomatik olarak yapılır. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 

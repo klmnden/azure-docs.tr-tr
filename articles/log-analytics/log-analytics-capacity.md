@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182629"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961951"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlama
 
@@ -50,8 +50,8 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 | Bağlı Kaynak | Destek | Açıklama |
 |---|---|---|
-| [Windows aracıları](log-analytics-windows-agent.md) | Evet | Çözüm, Windows aracılarından kapasite ve performans verileri bilgilerini toplar. |
-| [Linux aracıları](log-analytics-linux-agents.md) | Hayır    | Çözüm, doğrudan Linux aracılarından kapasite ve performans verileri bilgi toplamaz.|
+| [Windows aracıları](log-analytics-agent-windows.md) | Evet | Çözüm, Windows aracılarından kapasite ve performans verileri bilgilerini toplar. |
+| [Linux aracıları](log-analytics-quick-collect-linux-computer.md) | Hayır    | Çözüm, doğrudan Linux aracılarından kapasite ve performans verileri bilgi toplamaz.|
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Evet |Çözüm, bağlı SCOM yönetim grubundaki aracılardan kapasite ve performans verilerini toplar. Log Analytics SCOM Aracısı'ndan doğrudan bir bağlantı gerekli değildir.|
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Azure depolama kapasite ve performans verilerini dahil etmez.|
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 Kapasite ve performans çözümü, çalışma alanınıza eklemek için aşağıdaki adımı uygulayın.
 
-- Kapasite ve performans çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
+- Kapasite ve performans çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
 
 ## <a name="management-packs"></a>Yönetim paketleri
 
@@ -138,4 +138,4 @@ Aşağıdaki tabloda toplanan ve bu çözüm tarafından hesaplanan kapasite ve 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı kapasite ve performans verilerini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-queries.md) ayrıntılı kapasite ve performans verilerini görüntülemek için.

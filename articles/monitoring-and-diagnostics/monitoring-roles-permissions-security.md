@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 1a42c13bc0b441074829b1753c1d3cab8fbfaccf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407578"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957837"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
 Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen gerekir. Özel İzleme (destek mühendisleri, devops mühendislerine) üzerinde çalışan takım üyeleri sahipseniz veya yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği sınırlandırırken yalnızca izleme verilerine erişimi vermek isteyebilirsiniz, örneğin, değiştirme, veya kaynakları silin. Bu makalede, azure'da bir kullanıcı için bir yerleşik izleme RBAC rolü uygulamak veya izleme sınırlı izinlere ihtiyaç duyan bir kullanıcı için kendi özel rol oluşturma gösterilmektedir. Ardından, Azure İzleyici ile ilgili kaynaklarınızı ve içerdikleri verilere erişimi nasıl sınırlamak için güvenlik konuları açıklanmaktadır.
@@ -186,5 +186,5 @@ Daha fazla bilgi için [ağ güvenlik ve Azure depolama](../storage/common/stora
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [RBAC ve izinler de Resource Manager hakkında bilgi edinin](../role-based-access-control/overview.md)
-* [Azure'da izlemeye genel bakış okuyun](monitoring-overview.md)
+* [Azure'da izlemeye genel bakış okuyun](../azure-monitor/overview.md)
 

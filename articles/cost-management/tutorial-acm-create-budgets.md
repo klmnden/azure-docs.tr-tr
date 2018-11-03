@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017374"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977677"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
 
-Maliyet Yönetimi'nde bütçe planlaması ve sürücü Kurumsal sorumluluk bilincini yardımcı olur. Bütçeleriyle, kullanan veya belirli bir süre boyunca abone Azure Hizmetleri için hesap. Diğerleri kendi proaktif olarak maliyetleri yönetmek ve harcama zaman içinde nasıl ilerledikçe izlemek için harcama hakkında bildirmenize yardımcı olurlar. Zaman içinde nasıl harcama ilerledikçe görebilirsiniz. Oluşturduğunuz bütçe eşikleri aşıldığında yalnızca bildirimleri tetiklenir. Kaynaklarınızı hiçbiri etkilenir ve tüketiminiz durduruldu değil. Bütçe karşılaştırın ve maliyetleri analiz ederken harcama izlemek için kullanabilirsiniz.
+Maliyet Yönetimi hizmetindeki bütçe işlevi, kuruluşunuzda sorumluluk kültürünü planlamanıza ve güçlendirmenize yardımcı olur. Bütçeleri kullanarak belirli bir dönem içinde kullandığınız veya abone olduğunuz Azure hizmetlerini takip edebilirsiniz. Diğerleri kendi proaktif olarak maliyetleri yönetmek ve harcama zaman içinde nasıl ilerledikçe izlemek için harcama hakkında bildirmenize yardımcı olurlar. Zaman içinde nasıl harcama ilerledikçe görebilirsiniz. Oluşturduğunuz bütçe eşikleri aşıldığında yalnızca bildirimleri tetiklenir. Kaynaklarınızı hiçbiri etkilenir ve tüketiminiz durduruldu değil. Bütçe karşılaştırın ve maliyetleri analiz ederken harcama izlemek için kullanabilirsiniz.
 
 Bütçe gelecekte bir sona erme tarihi seçtiğinizde aynı bütçe tutarını (aylık, üç aylık veya yıllık) bir süre sonunda otomatik olarak sıfırlama. Bütçelenen zaman ayrı bütçelerini oluşturmanıza gerek bunlar ile aynı bütçe miktarını sıfırlamak için para birimi tutarlar gelecek dönemlere ait farklı.
 
@@ -33,13 +33,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bütçeleri, tüm Azure EA müşterileri tarafından kullanılabilir. Bir Azure EA aboneliği oluşturmak ve bütçelerini yönetmek için okuma erişimi olmalıdır. Kurumsal Anlaşma fatura hesapları bütçelerini tarafından desteklenmez.
+Bütçeleri, tüm Azure EA müşterileri tarafından kullanılabilir. Bütçe oluşturmak ve yönetmek için Azure EA aboneliğinde okuma yetkisine sahip olmanız gerekir. EA aboneliklerinde ve kaynak gruplarınız için ayrı ayrı bütçeden oluşturabilirsiniz. Ancak, EA hesapları faturalama bütçelerini oluşturulamıyor.
 
-Bütçe tek tek abonelik veya kaynak grubu düzeyinde oluşturulur. Aşağıdaki Azure izinleri bütçelerini için abonelik başına kullanıcı ve grup tarafından desteklenir:
+Aşağıdaki Azure izinleri bütçelerini için abonelik başına kullanıcı ve grup tarafından desteklenir:
 
-- Sahip – oluşturmak, değiştirmek veya bir abonelik bütçelerini silin.
-- Katkıda bulunan – oluşturmak, değiştirmek veya kendi bütçelerini silin. Başkaları tarafından oluşturulan bütçelerini için bütçe miktarını değiştirebilirsiniz.
-- Okuyucu – iznine sahip oldukları bütçelerini görüntüleyebilirsiniz.
+- Sahip – Bir abonelik için bütçe oluşturabilir, değiştirebilir veya silebilir.
+- Katkıda bulunan – Kendi bütçelerini oluşturabilir, değiştirebilir veya silebilir. Başkaları tarafından oluşturulan bütçelerin miktarlarını değiştirebilir.
+- Okuyucu – İzin verilen bütçeleri görüntüleyebilir.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

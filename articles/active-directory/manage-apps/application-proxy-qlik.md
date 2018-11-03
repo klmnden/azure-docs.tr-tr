@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5f103e9fe410374a551eb43d456d5993bdd36627
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057163"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962563"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama Ara sunucusu ve Qlik Sense 
 Azure Active Directory Uygulama Ara sunucusu ve Qlik Sense kolayca Qlik Sense dağıtımınız için uzaktan erişim sağlamak için uygulama ara sunucusu kullanmanız mümkün olduğundan emin olmak için birlikte kurdu.  
@@ -58,7 +58,11 @@ Aşağıdaki istisnalarla birlikte uygulama #1 olduğu gibi aynı adımları izl
 ## <a name="testing"></a>Test Etme 
 Uygulamanızı şimdi test etmek hazırdır. Her iki uygulama için atanan bir kullanıcı olarak uygulama #1 ve oturum açma QlikSense yayımlamak için kullanılan dış URL erişin.  
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="additional-references"></a>Ek başvurular
+Uygulama Ara sunucusu ile uygulama yayımlama Qlik Sense hakkında daha fazla bilgi için Qlik topluluk makalesine bakın: [Azure AD ile tümleşik Windows Qlik Sense ile Kerberos kısıtlanmış temsil kullanarak kimlik doğrulaması](https://community.qlik.com/docs/DOC-20183).
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 - [Uygulama Ara sunucusu ile uygulama yayımlama](application-proxy-publish-azure-portal.md)
-- [Uygulama Proxy bağlayıcıları ile çalışma](application-proxy-connector-groups.md).
+- [Uygulama Proxy bağlayıcıları ile çalışma](application-proxy-connector-groups.md)
+

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057728"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960013"
 ---
 # <a name="import-data-into-analytics"></a>Analiz verilerini içeri aktarma
 
@@ -120,10 +120,10 @@ JSON biçimi
  
 Her sütun, konum, adı ve türüne göre tanımlanır.
 
-* Konum – ayrılmış dosya biçimlendirmek için konumudur eşlenen değer. JSON biçimi, bu eşlenen anahtarının jpath değil.
-* Adı – sütunun görüntülenen adı.
-* Türü – bu sütunun veri türü.
- 
+* Konumu - ayrılmış dosya biçimlendirmek için eşlenen değer konumunu şeklindedir. JSON biçimi, bu eşlenen anahtarının jpath değil.
+* Adı - sütunun görüntülenen adı.
+* Türü - bu sütunun veri türü.
+
 > [!NOTE]
 > Örnek verileri kullanıldı ve dosya biçimi ayrılmış durumda şema tanımı tüm sütunları eşlemeniz ve sonunda yeni sütunlar eklemeniz gerekir.
 > 
@@ -137,7 +137,7 @@ Verileri içeri aktarmak için Azure depolamaya yükleme, bir erişim anahtarı 
 
 El ile aşağıdaki işlemi gerçekleştirin veya düzenli aralıklarla yapmak için bir Otomatik Sistem ayarlayın. Her içeri aktarmak istediğiniz veri bloğu için şu adımları izlemesi gerekir.
 
-1. Verileri karşıya yükleme [Azure blob depolama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Verileri karşıya yükleme [Azure blob depolama](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * Blobları olabilir herhangi sıkıştırılmamış en fazla 1 GB boyut. Büyük BLOB'ları, yüzlerce MB, performans açısından bakılırsa idealdir.
  * Karşıya yükleme zamanı ve gecikme süresi verilerin sorgu için kullanılabilir geliştirmek için Gzip ile sıkıştırabilirsiniz. Kullanım `.gz` dosya adı uzantısı.
@@ -198,7 +198,7 @@ Daha ayrıntılı bilgi yanıt hata iletisinde kullanılabilir.
 
 Bu kod [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet paketi.
 
-### <a name="classes"></a>Sınıfları
+### <a name="classes"></a>Sınıflar
 
 ```csharp
 namespace IngestionClient 
@@ -369,5 +369,5 @@ Bu kod, her blob için kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Log Analytics sorgu dili turu](app-insights-analytics-tour.md)
+* [Log Analytics sorgu dili turu](../log-analytics/query-language/get-started-analytics-portal.md)
 * Logstash kullanıyorsanız, [Logstash eklentisini verilerini Application Insights'a gönderme](https://github.com/Microsoft/logstash-output-application-insights)

@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: d32e05e99543b30ee92ea455ae2f800b09d83661
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5db215a3bf87ac42ac832a59ce39f7e72c45527f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009297"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963362"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Bir CSP olarak oluşturun ve bir Azure IOT Central uygulamasına, müşteri adına yönetmek 
 
@@ -35,13 +35,13 @@ Azure IOT Central Uygulama Yöneticisi sayfasına gelirsiniz. Azure IOT Central,
 
 Azure IOT Central bir uygulama oluşturmak için tıklayın **yeni uygulama** Döşe. Bu uygulama oluşturma sayfası yüklenir. Bu sayfadaki tüm alanları doldurun ve ardından **Oluştur**. Aşağıdaki alanların her biri hakkında daha fazla bilgi bulabilirsiniz.
 
-![CSP'ler için uygulama sayfası oluşturma](media\howto-create-application-asCSP\image4-1.png)
+![CSP'ler için uygulama sayfası oluşturma](media\howto-create-application-asCSP\image4.png)
 
-![CSP'ler için uygulama sayfası oluşturma](media\howto-create-application-asCSP\image4-2.png)
+![CSP'ler için uygulama sayfası oluşturma](media\howto-create-application-asCSP\image4-1.png)
 
 ## <a name="payment-plan"></a>Ödeme planı
 
-Oluşturabileceğiniz yalnızca CSP olarak ücretli uygulamalar oluşturun. Azure IOT Central müşterinize göstermek için ayrı bir deneme uygulaması oluşturabilirsiniz. Deneme ve Ücretli uygulamalar hakkında daha fazla bilgi [Azure IOT fiyatlandırma sayfası Merkezi](https://azure.microsoft.com/pricing/details/iot-central/).
+CSP olarak yalnızca Kullandıkça Öde uygulamalar oluşturabilirsiniz. Azure IOT Central müşterinize göstermek için ayrı bir deneme uygulaması oluşturabilirsiniz. Deneme ve Kullandıkça Öde uygulamalar hakkında daha fazla bilgi [Azure IOT fiyatlandırma sayfası Merkezi](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Uygulama Adı
 

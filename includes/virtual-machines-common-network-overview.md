@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 89d35197567c4bd44c5867dbb120d07e9f99d1e9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746811"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50974021"
 ---
 Azure sanal makinesi (VM) oluştururken bir [sanal ağ](../articles/virtual-network/virtual-networks-overview.md) (VNet) oluşturmanız ya da mevcut bir VNet’i kullanmanız gerekir. Sanal ağda VM’lerinize nasıl erişilmesini istediğinize de karar vermeniz gerekir. [Kaynakları oluşturmadan önce planlama yapmak](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) ve [ağ kaynaklarının sınırlarını](../articles/azure-subscription-service-limits.md#networking-limits) anladığınızdan emin olmak önemlidir.
 
@@ -36,9 +36,7 @@ Bu temel kaynaklara ek olarak şu isteğe bağlı kaynakları da göz önünde b
 
 [Ağ arabirimi (NIC)](../articles/virtual-network/virtual-network-network-interface.md), bir VM ile bir sanal ağ (VNet) arasındaki çift yönlü bağlantıdır. Bir VM en az bir NIC içermelidir, ancak oluşturduğunuz VM’nin boyutuna bağlı olarak birden fazla NIC içerebilir. Her VM kaç NIC hakkında bilgi edinmek için boyutu destekler [Windows](../articles/virtual-machines/windows/sizes.md) veya [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Birden çok NIC ile VM oluşturma ve ekleyebilir veya NIC VM yaşam döngüsü ile kaldırabilirsiniz. Birden çok NIC, farklı alt ağlara bağlanmak ve gönderme veya en uygun arabirimi üzerinden trafiği almak için bir VM izin verir.
-
-VM bir kullanılabilirlik kümesine eklenmişse, kullanılabilirlik kümesindeki VM’lerin tamamı bir veya birden çok NIC içermelidir. Birden çok NIC içeren VM’lerin aynı sayıda NIC içermesi gerekmez, ancak hepsinin en az iki tane NIC’si olmalıdır.
+Birden çok NIC ile VM oluşturma ve ekleyebilir veya NIC VM yaşam döngüsü ile kaldırabilirsiniz. Birden çok NIC, farklı alt ağlara bağlanmak ve gönderme veya en uygun arabirimi üzerinden trafiği almak için bir VM izin verir. Herhangi bir sayıda ağ arabirimine sahip VM'ler aynı kullanılabilirlik kümesinde en fazla sanal makine boyutu tarafından desteklenen sayıyı bulunabilir. 
 
 Bir VM’ye bağlı her NIC’nin VM ile aynı konum ve abonelikte bulunması gerekir. Her NIC’nin NIC ile aynı Azure konumunda ve aboneliğinde bulunan bir VNet’e bağlanması gerekir. Oluşturulduktan sonra bir VM'nin bağlı olduğu alt ağ değiştirebilir, ancak Vnet'i değiştiremezsiniz. Bir VM’ye bağlı her NIC’ye VM silinene kadar değişmeyen bir MAC adresi atanır.
 

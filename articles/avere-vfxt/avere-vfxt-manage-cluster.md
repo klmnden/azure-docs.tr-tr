@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5b91329f5287c1d8f76c98f27d9bc2fd464a11a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634566"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958925"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT kümesini yönetme
 
@@ -83,7 +83,7 @@ Avere Denetim Masası'nda gibi değiştirilen verileri kalıcı olarak arka uç 
 
 vfxt.PY VM kümesi denetleyicisinde önceden yüklenir. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Tam vfxt.py Kullanım Kılavuzu, GitHub üzerinde kullanılabilir: <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
+Tam vfxt.py Kullanım Kılavuzu, GitHub üzerinde kullanılabilir: [bulut vfxt.py ile küme yönetimi](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Vfxt.py ile küme düğümleri Ekle
 
@@ -115,7 +115,7 @@ Prototip kullanmıyorsanız, yukarıda açıklanan bilgiler dahil olmak üzere t
    --log ~/vfxt.log
 ```
 
-Daha fazla bilgi için okuma [bir kümeye düğüm ekleme](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) vfxt.py Kullanım Kılavuzu'nda.
+Daha fazla bilgi için okuma [bir kümeye düğüm ekleme](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) vfxt.py Kullanım Kılavuzu'nda.
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>Bir küme ile vfxt.py Durdur
 
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-Küme durdurulduğundan, küme düğümleri belirtmek için örnek tanımlayıcılarını geçmesi gerekir. Okuma [değiştirmek için hangi küme belirtme](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) daha fazla bilgi için vfxt.py Kullanım Kılavuzu'nda.
+Küme durdurulduğundan, küme düğümleri belirtmek için örnek tanımlayıcılarını geçmesi gerekir. Okuma [değiştirmek için hangi küme belirtme](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) daha fazla bilgi için vfxt.py Kullanım Kılavuzu'nda.
 
 ### <a name="destroy-a-cluster-with-vfxtpy"></a>Vfxt.py ile bir kümeyi yok edin
 
@@ -139,8 +139,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 Seçenek ``--quick-destroy`` küme önbellekten değiştirilen verileri yazmak istemiyorsanız kullanılabilir.
 
-Okuma [vfxt.py Kullanım Kılavuzu](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>) ek bilgi için.  
-<!-- change to final location when available -->
+Okuma [vfxt.py Kullanım Kılavuzu](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) ek bilgi için.  
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>Azure portalından küme Vm'leri yönetme 
 

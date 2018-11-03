@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 756417ee2f98549d648386c2471baa74889245a4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914032"
+ms.locfileid: "50957717"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure sanal makinesine Uzak Masaüstü Hizmetleri başlatma değil
 
@@ -58,6 +58,7 @@ Uzak Masaüstü Hizmetleri sanal makinede çalışmadığından bu sorun oluşur
 
 - TermService'nin kümesine **devre dışı bırakılmış**. 
 - TermService'nin kilitlenme veya askıda. 
+- TermService hatalı bir yapılandırma için başlangıç nedeniyle değil.
 
 ## <a name="solution"></a>Çözüm
 
@@ -98,16 +99,17 @@ Bu sorunu gidermek için seri Konsolu kullanın. Veya başka [çevrimdışı VM'
 
     |  Hata |  Öneri |
     |---|---|
-    |5 - ERİŞİM REDDEDİLDİ |Bkz: [TermService'nin erişim reddedildi hatası nedeniyle durdurulduğunu](#termService-service-is-stopped-because-of-an-access-denied-error). |
-    |1058 - ERROR_SERVICE_DISABLED  |Bkz: [TermService'nin devre dışı](#termService-service-is-disabled).  |
+    |5 - ERİŞİM REDDEDİLDİ |Bkz: [TermService'nin erişim reddedildi hatası nedeniyle durdurulduğunu](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Bkz: [TermService'nin devre dışı](#termService-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.|
+    |1067 - ERROR_PROCESS_ABORTED  |Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termService-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.    |
-    |1070 - ERROR_SERVICE_START_HANG   | [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Bkz: [TermService'nin oturum açma hatası nedeniyle başarısız oluyor](#termService-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | Bkz: [TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Bkz: [TermService'nin devre dışı](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için. |
-    |1753   |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.   |
-
+    |1753   |[Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.   |   |5 - ERİŞİM REDDEDİLDİ |Bkz: [TermService'nin erişim reddedildi hatası nedeniyle durdurulduğunu](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Erişim reddedildi bir sorun nedeniyle TermService'nin durduruldu
 
 1. Bağlanma [seri konsol](serial-console-windows.md#) ve PowerShell örneği açın.
@@ -139,7 +141,14 @@ Bu sorunu gidermek için seri Konsolu kullanın. Veya başka [çevrimdışı VM'
    procmon /Terminate 
    ```
 
-5. Dosya toplama **c:\temp\ProcMonTrace.PML**. Kullanarak açın **procmon**. Ardından filtre **sonucudur erişim reddedildi**aşağıdaki ekran görüntüsünde gösterildiği gibi:
+5. Dosya toplama **c:\temp\ProcMonTrace.PML**:
+
+    1. [VM'ye veri diski](../windows/attach-managed-disk-portal.md
+).
+    2. Seri konsol dosyayı yeni bir sürücüye kopyalayın kullanın. Örneğin, `copy C:\temp\ProcMonTrace.PML F:\`. Bu komutta, F bağlanan veri diskinin sürücü harfidir.
+    3. Veri sürücüsü ayırma ve bir çalışan işlem İzleyicisi ubstakke yüklü olan bir VM ekleyebilirsiniz.
+
+6. Açık **ProcMonTrace.PML** işlem İzleyicisi'ni kullanarak VM çalışma. Ardından filtre **sonucudur erişim reddedildi**aşağıdaki ekran görüntüsünde gösterildiği gibi:
 
     ![İşlem İzleyicisi sonuca göre filtreleme](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
@@ -168,6 +177,27 @@ Bu sorunu gidermek için seri Konsolu kullanın. Veya başka [çevrimdışı VM'
 
 4. Uzak Masaüstü kullanarak sanal Makineye bağlanmayı deneyin.
 
+#### <a name="termservice-service-fails-because-of-logon-failure"></a>TermService'nin oturum açma hatası nedeniyle başarısız olur.
+
+1. Bu hizmet başlangıç hesabını değiştirdiyseniz, bu sorun oluşur. Bu varsayılan değiştirildi: 
+
+        sc config TermService obj= 'NT Authority\NetworkService'
+2. Hizmetini başlatın:
+
+        sc start TermService
+3. Uzak Masaüstü kullanarak sanal Makineye bağlanmayı deneyin.
+
+#### <a name="termservice-service-crashes-or-hangs"></a>TermService'nin kilitlenmesine veya yanıt vermemeye başlıyor
+1. Hizmet durumunu takılıyorsa **başlangıç** veya **durdurma**, sonra hizmeti durdurmayı deneyin: 
+
+        sc stop TermService
+2. Kendi 'svchost' kapsayıcı hizmeti ayırma:
+
+        sc config TermService type= own
+3. Hizmetini başlatın:
+
+        sc start TermService
+4. Hizmet yine de başlatmak, başarısız olduysa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>VM'yi çevrimdışı onarın
 

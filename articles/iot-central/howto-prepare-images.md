@@ -1,6 +1,6 @@
 ---
-title: Azure IOT merkezi uygulamanıza resimler yükleyin | Microsoft Docs
-description: Oluşturucu olarak hazırlamak ve görüntüleri Azure IOT merkezi uygulamanızı karşıya yükleme hakkında bilgi edinin.
+title: Görüntüleri karşıya yüklemek için Azure IOT Central uygulamasına | Microsoft Docs
+description: Bir oluşturucu hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme hakkında bilgi edinin.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fd9c8ed5559b00bc755e3f04c768dceeb487562
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 18c44a3d91a4964d054c8e142394da7d69772ed0
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628030"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960710"
 ---
-# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Hazırlama ve Azure IOT merkezi uygulamanıza resimler yükleyin
+# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme
 
-Bu makalede, nasıl bir oluşturucu olarak Microsoft Azure IOT merkezi uygulamanızı özel resimler karşıya yükleyerek özelleştirebileceğiniz açıklanmaktadır. Örneğin, aygıt resmini içeren bir cihaz Pano özelleştirebilirsiniz.
+Bu makalede, nasıl bir oluşturucu, Microsoft Azure IOT Central uygulamasına özel görüntüleri karşıya yükleyerek özelleştirebileceğiniz açıklanmaktadır. Örneğin, cihazın resmi bir cihaz panosunu özelleştirebilirsiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-1. Azure IOT merkezi bir uygulama. Daha fazla bilgi için bkz: [Azure IOT merkezi uygulamanızı oluşturma](howto-create-application.md).
-1. Ölçekleme ve resim dosyalarını yeniden boyutlandırma için bir araçtır.
+1. Azure IOT Central bir uygulamadır. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
+1. Ölçeklendirme ve resim dosyalarını yeniden boyutlandırma için bir araç.
 
-## <a name="choose-where-to-use-custom-images"></a>Özel görüntüleri kullanmak konumu seçin
+## <a name="choose-where-to-use-custom-images"></a>Özel görüntüler kullanmak hedef konumu seçin
 
-Azure IOT merkezi uygulamanın aşağıdaki konumlarda özel resimler ekleyebilirsiniz:
+Bir Azure IOT Central uygulamasına aşağıdaki konumlarda özel görüntüleri ekleyebilirsiniz:
 
 * **Uygulama Yöneticisi** sayfası
 
@@ -42,81 +42,81 @@ Azure IOT merkezi uygulamanın aşağıdaki konumlarda özel resimler ekleyebili
 
     ![Görüntüye cihaz şablonu](media/howto-prepare-images/devicetemplate.png)
 
-* Bir aygıt Panoda bir kutucuğu
+* Bir cihaz Panoda bir kutucuğu
 
-    ![Görüntüye cihaz döşeme](media/howto-prepare-images/devicetile.png)
+    ![Cihaz kutucuğundaki görüntüsü](media/howto-prepare-images/devicetile.png)
 
 * Bir cihaz kümesi Panoda bir kutucuğu
 
-    ![Görüntüye cihaz kümesi döşeme](media/howto-prepare-images/devicesettile.png)
+    ![Cihaz kümesi kutucuğundaki görüntüsü](media/howto-prepare-images/devicesettile.png)
 
 ## <a name="prepare-the-images"></a>Görüntüleri hazırlama
 
-Tüm dört konumlarda PNG, GIF veya JPEG görüntüleri kullanabilirsiniz.
+Tüm dört konumlarında PNG, GIF veya JPEG görüntülerini kullanabilirsiniz.
 
-Aşağıdaki tabloda kullanabileceğiniz görüntü boyutları özetlenmektedir:
+Aşağıdaki tabloda kullanabileceğiniz resim boyutları özetlenmektedir:
 
 | Konum | Boyutlar |
 | -------- | ------ |
 | **Uygulama Yöneticisi** | 268 x 160 piksel |
 | Cihaz şablonu | 64 x 64 piksel |
-| Giriş sayfası ve Pano kutucukları | En küçük boyutlu döşeme 200 x 200 olan piksel, büyük döşeme küçük döşeme kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 piksel, 400 x 200 piksel veya 400 x 400 piksel |
+| Giriş sayfası ve Pano kutucukları | En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px |
 
-Uygulamanın en iyi görüntülemek için önceki tabloda gösterilen boyutları eşleşen görüntüleri oluşturmanız gerekir.
+Uygulamada en iyi görüntü için yukarıdaki tabloda gösterilen boyutları eşleşen görüntüleri oluşturmanız gerekir.
 
-## <a name="upload-the-images"></a>Resimler yükleyin
+## <a name="upload-the-images"></a>Görüntüleri karşıya yükleme
 
-Aşağıdaki bölümlerde, farklı konumlarda kullanılacak görüntüleri karşıya açıklanmaktadır:
+Aşağıdaki bölümlerde farklı konumlarda kullanmak üzere istediğiniz görüntüyü karşıya yükleme açıklanmaktadır:
 
 ### <a name="application-manager"></a>Uygulama Yöneticisi
 
-Kullanılacak görüntüyü karşıya yüklemek için **Uygulama Yöneticisi**, gitmek **uygulama ayarları** sayfasındaki **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
+Üzerinde kullanılacak bir görüntü karşıya yüklemek için **Uygulama Yöneticisi**, gitmek **uygulama ayarları** sayfasını **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
 
-![Uygulama görüntüsü karşıya yükle](media/howto-prepare-images/uploadapplicationmanager.png)
+![Uygulama görüntüsünü karşıya yükleme](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Karşıya yükleme görüntüsünü tıklatın ve ardından yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
 
 ### <a name="home-page"></a>Giriş sayfası
 
-Giriş sayfasında kullanmak üzere bir görüntüyü karşıya yüklemek için gidin **giriş sayfası** uygulama ve anahtar tasarım modu. Bu görevi tamamlamak için bir oluşturucusu olmalıdır:
+Giriş sayfasında kullanılacak bir görüntü karşıya yüklemek için gidin **giriş sayfası** uygulamanızın ve üzerinde Tasarım modunu değiştir. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
-![Giriş sayfası görüntüsü karşıya yükle](media/howto-prepare-images/uploadhomepage.png)
+![Giriş sayfası görüntüsünü karşıya yükleme](media/howto-prepare-images/uploadhomepage.png)
 
-Karşıya yükleme görüntüsünü tıklatın ve ardından yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
 
-Görüntü gönderildikten sonra bu tasarım moduna geçiş sırasında boyutlandırabilirsiniz.
+Görüntüyü karşıya yükler, sonra Tasarım modu açık durumdayken yeniden boyutlandırabilirsiniz.
 
 ### <a name="device-template"></a>Cihaz şablonu
 
-Bir aygıt şablonunda kullanılacak bir görüntü karşıya yüklemek için gidin **aygıt Explorer**cihaz şablonu ve ardından bir cihaz seçin ve tasarım moduna geç. Bu görevi tamamlamak için bir oluşturucusu olmalıdır:
+Bir cihaz şablonunda kullanılacak bir görüntü karşıya yüklemek için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin ve tasarım moduna geçin. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
-![Cihaz şablon görüntüsü karşıya yükle](media/howto-prepare-images/uploaddevicetemplate.png)
+![Cihaz şablon görüntüsünü karşıya yükleme](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Karşıya yükleme görüntüsünü tıklatın ve ardından yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
 
 ### <a name="device-dashboard"></a>Cihaz panosu
 
-Bir aygıt Panoda kullanmak üzere bir görüntüyü karşıya yüklemek için gidin **aygıt Explorer**, cihaz şablonu ve bir cihaz seçin. Ardından **Pano** sayfası ve anahtar Tasarım modunda. Bu görevi tamamlamak için bir oluşturucusu olmalıdır:
+Cihaz panosunda kullanılacak bir görüntü karşıya yüklemek için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin. Ardından **Pano** sayfası ve anahtar tasarım modu. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
-![Cihaz Pano görüntüsü karşıya yükle](media/howto-prepare-images/uploaddevicedashboard.png)
+![Cihaz Pano görüntüsünü karşıya yükleme](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Karşıya yükleme görüntüsünü tıklatın ve ardından yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
 
-Görüntü gönderildikten sonra yeniden boyutlandırma ve onu çalışırken yeniden konumlandırmak **Tasarım modunda** açık.
+Görüntü yükledikten sonra yeniden boyutlandırabilir ve sırasında yeniden konumlandırdığınız **tasarım modu** açık.
 
-### <a name="device-set-dashboard"></a>Cihaz Pano ayarlama
+### <a name="device-set-dashboard"></a>Cihaz Pano Ayarla
 
-Bir cihaz kümesi Panoda kullanmak üzere bir görüntüyü karşıya yüklemek için gidin **aygıt kümeleri** aygıt kümesi ve bir cihaz seçin. Ardından **Pano** sayfası ve anahtar **Tasarım modunda** üzerinde:
+Bir cihaz kümesi Panoda kullanılacak bir görüntü karşıya yüklemek için gidin **cihaz kümeleri** cihaz kümesi ve bir cihaz seçin. Ardından **Pano** sayfası ve anahtar **tasarım modu** üzerinde:
 
-![Aygıt kümesi Pano resmini karşıya yükle](media/howto-prepare-images/uploaddevicesetdashboard.png)
+![Cihaz kümesi Panosu resmi karşıya yükle](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Karşıya yükleme görüntüsünü tıklatın ve ardından yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
 
-Görüntü gönderildikten sonra yeniden boyutlandırma ve tasarım moduna geçiş sırasında yeniden konumlandırmak.
+Görüntü yükledikten sonra yeniden boyutlandırabilir ve tasarım modu açık durumdayken yeniden konumlandırma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hazırlama ve görüntüleri Azure IOT merkezi uygulamanızı karşıya yüklemek öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
+Hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme gerçekleştirmeyi öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
-> [Azure IOT merkezi uygulamanızı aygıtları yönetme](howto-manage-devices.md)
+> [Azure IOT Central uygulamanızdaki cihazları yönetme](howto-manage-devices.md)

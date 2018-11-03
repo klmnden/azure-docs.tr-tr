@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c56a0239209f5c71130c9dd8173eed48f60a3b0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042079"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962784"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Log analytics'te Active Directory sistem durumu denetimi çözümü ile Active Directory ortamınızı en iyi duruma getirme
 
@@ -53,7 +53,7 @@ Bu çözüm, Önceliklendirilmiş öneriler dağıtılan sunucu altyapınızı b
 
 Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinizin sistem durumu denetimi gerçekleştirmek için bunlar bir aracı ve aşağıdaki desteklenen yöntemlerden birini kullanarak Log analytics'e bağlantı gerektirir:
 
-1. Yükleme [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) , etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenmiyor.
+1. Yükleme [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) , etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenmiyor.
 2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubunu Log Analytics hizmeti ile tümleştirilmiş değil, etki alanı denetleyicisi veri toplamak ve iletmek için Log Analytics ile birden çok girişli olabilir Hizmet ve Operations Manager tarafından yine de izlenmelidir.  
 3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
 
@@ -186,4 +186,4 @@ Sonraki, varsayılan olarak yedi günde sistem durumu denetimi çalıştırır, 
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-searches.md) ayrıntılı veri AD sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı veri AD sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.

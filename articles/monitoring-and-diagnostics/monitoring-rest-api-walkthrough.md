@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1d04c4335fcb2d7264d91e0b147c43828b3cff2e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955314"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958755"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme Kılavuzu
 Bu makalede kodunuzu kullanabilmeniz için kimlik doğrulaması yapma gösterilmektedir [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -54,7 +54,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Azure İzleyici API sorgulamak için istemci uygulaması daha önce oluşturulan hizmet sorumlusuyla kimlik doğrulaması yapmak için kullanmanız gerekir. Aşağıdaki örnek PowerShell Betiği bir gösterir kullanarak yaklaşımını [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) JWT kimlik doğrulama belirteci almak için (ADAL). JWT belirteci varsayılan olarak, Azure İzleyici REST API için bir HTTP yetkilendirme parametresi isteklerinde bir parçası olarak geçirilir.
+Azure İzleyici API sorgulamak için istemci uygulaması daha önce oluşturulan hizmet sorumlusuyla kimlik doğrulaması yapmak için kullanmanız gerekir. Aşağıdaki örnek PowerShell Betiği bir gösterir kullanarak yaklaşımını [Active Directory Authentication Library](../active-directory/develop/active-directory-authentication-libraries.md) JWT kimlik doğrulama belirteci almak için (ADAL). JWT belirteci varsayılan olarak, Azure İzleyici REST API için bir HTTP yetkilendirme parametresi isteklerinde bir parçası olarak geçirilir.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -694,7 +694,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Gözden geçirme [izlemeye genel bakış](monitoring-overview.md).
+* Gözden geçirme [izlemeye genel bakış](../azure-monitor/overview.md).
 * Görünüm [Azure İzleyici ile desteklenen ölçümler](monitoring-supported-metrics.md).
 * Gözden geçirme [Microsoft Azure REST API Başvurusu izleme](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Gözden geçirme [Azure Yönetimi Kitaplığı](https://msdn.microsoft.com/library/azure/mt417623.aspx).

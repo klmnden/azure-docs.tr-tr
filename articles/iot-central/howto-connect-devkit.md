@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cca475f552495a42aabc60faf0bd57382f148120
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736980"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958593"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -23,7 +23,7 @@ Bu makalede, Microsoft Azure IOT Central uygulamanıza MXChip IOT DevKit (DevKit
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [Azure IOT Central uygulaması oluşturmayı](howto-create-application.md).
+1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
 1. Bir DevKit cihaz. DevKit cihaz satın almak için ziyaret [MXChip IOT DevKit](http://mxchip.com/az3166).
 
 

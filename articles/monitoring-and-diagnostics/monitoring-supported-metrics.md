@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962956"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964195"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -366,16 +366,16 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Boyut yok|
 |Kalan CPU Kredisi|Kalan CPU Kredisi|Sayı|Ortalama|Veri bloğunun kullanabileceği toplam kredi sayısı|Boyut yok|
 |Tüketilen CPU Kredisi|Tüketilen CPU Kredisi|Sayı|Ortalama|Sanal Makine tarafından tüketilen toplam kredi sayısı|Boyut yok|
-|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan Toplam Bayt/Sn|SlotId|
-|Disk Başına Yazma Bayt/sn|Veri Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan Toplam Bayt/Sn|SlotId|
-|Disk Başına Okuma İşlemi/Sn|Veri Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|SlotId|
-|Disk Başına Yazma İşlemi/Sn|Veri Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|SlotId|
-|Disk Başına QD|Veri Diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
-|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim Sistemi Diski Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okunan Toplam Bayt/Sn|Boyut yok|
-|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim Sistemi Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazılan Toplam Bayt/Sn|Boyut yok|
-|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim Sistemi Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|Boyut yok|
-|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim Sistemi Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|Boyut yok|
-|İşletim Sistemi Disk Başına QD|İşletim Sistemi Diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Boyut yok|
+|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan toplam bayt/sn|SlotId|
+|Disk Başına Yazma Bayt/sn|Veri Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan toplam bayt/sn|SlotId|
+|Disk Başına Okuma İşlemi/Sn|Veri Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan toplam IOPS|SlotId|
+|Disk Başına Yazma İşlemi/Sn|Veri Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan toplam IOPS|SlotId|
+|Disk Başına QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
+|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim Sistemi Diski Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde işletim sistemi diski için tek bir diskten okunan toplam bayt/sn|Boyut yok|
+|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim Sistemi Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde işletim sistemi diski için tek bir diske yazılan toplam bayt/sn|Boyut yok|
+|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim Sistemi Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan toplam IOPS|Boyut yok|
+|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim Sistemi Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan toplam IOPS|Boyut yok|
+|İşletim Sistemi Disk Başına QD|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Boyut yok|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -390,16 +390,16 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Boyut yok|
 |Kalan CPU Kredisi|Kalan CPU Kredisi|Sayı|Ortalama|Veri bloğunun kullanabileceği toplam kredi sayısı|Boyut yok|
 |Tüketilen CPU Kredisi|Tüketilen CPU Kredisi|Sayı|Ortalama|Sanal Makine tarafından tüketilen toplam kredi sayısı|Boyut yok|
-|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan Toplam Bayt/Sn|SlotId|
-|Disk Başına Yazma Bayt/sn|Veri Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan Toplam Bayt/Sn|SlotId|
-|Disk Başına Okuma İşlemi/Sn|Veri Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|SlotId|
-|Disk Başına Yazma İşlemi/Sn|Veri Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|SlotId|
-|Disk Başına QD|Veri Diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
-|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim sistemi diski Okuma Bayt/sn|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okunan Toplam Bayt/Sn|Boyut yok|
-|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim Sistemi Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazılan Toplam Bayt/Sn|Boyut yok|
-|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim Sistemi Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|Boyut yok|
-|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim Sistemi Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|Boyut yok|
-|İşletim Sistemi Disk Başına QD|İşletim Sistemi Diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Boyut yok|
+|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan toplam bayt/sn|SlotId|
+|Disk Başına Yazma Bayt/sn|Veri Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan toplam bayt/sn|SlotId|
+|Disk Başına Okuma İşlemi/Sn|Veri Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan toplam IOPS|SlotId|
+|Disk Başına Yazma İşlemi/Sn|Veri Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan toplam IOPS|SlotId|
+|Disk Başına QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
+|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim sistemi diski Okuma Bayt/sn|CountPerSecond|Ortalama|İzleme döneminde işletim sistemi diski için tek bir diskten okunan toplam bayt/sn|Boyut yok|
+|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim Sistemi Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde işletim sistemi diski için tek bir diske yazılan toplam bayt/sn|Boyut yok|
+|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim Sistemi Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan toplam IOPS|Boyut yok|
+|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim Sistemi Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan toplam IOPS|Boyut yok|
+|İşletim Sistemi Disk Başına QD|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Boyut yok|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -414,16 +414,16 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Boyut yok|
 |Kalan CPU Kredisi|Kalan CPU Kredisi|Sayı|Ortalama|Veri bloğunun kullanabileceği toplam kredi sayısı|Boyut yok|
 |Tüketilen CPU Kredisi|Tüketilen CPU Kredisi|Sayı|Ortalama|Sanal Makine tarafından tüketilen toplam kredi sayısı|Boyut yok|
-|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan Toplam Bayt/Sn|SlotId|
-|Disk Başına Yazma Bayt/sn|Veri Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan Toplam Bayt/Sn|SlotId|
-|Disk Başına Okuma İşlemi/Sn|Veri Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|SlotId|
-|Disk Başına Yazma İşlemi/Sn|Veri Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|SlotId|
-|Disk Başına QD|Veri Diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
-|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim Sistemi Diski Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okunan Toplam Bayt/Sn|Boyut yok|
-|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim Sistemi Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazılan Toplam Bayt/Sn|Boyut yok|
-|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim Sistemi Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|Boyut yok|
-|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim Sistemi Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|Boyut yok|
-|İşletim Sistemi Disk Başına QD|İşletim Sistemi Diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Boyut yok|
+|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan toplam bayt/sn|SlotId|
+|Disk Başına Yazma Bayt/sn|Veri Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan toplam bayt/sn|SlotId|
+|Disk Başına Okuma İşlemi/Sn|Veri Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan toplam IOPS|SlotId|
+|Disk Başına Yazma İşlemi/Sn|Veri Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan toplam IOPS|SlotId|
+|Disk Başına QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
+|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim Sistemi Diski Okuma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde işletim sistemi diski için tek bir diskten okunan toplam bayt/sn|Boyut yok|
+|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim Sistemi Diski Yazma Bayt/Sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde işletim sistemi diski için tek bir diske yazılan toplam bayt/sn|Boyut yok|
+|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim Sistemi Diski Okuma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan toplam IOPS|Boyut yok|
+|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim Sistemi Diski Yazma İşlemi/Sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan toplam IOPS|Boyut yok|
+|İşletim Sistemi Disk Başına QD|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Boyut yok|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -431,7 +431,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |---|---|---|---|---|---|
 |CpuUsage|CPU Kullanımı|Sayı|Ortalama|Milicore'daki tüm çekirdeklerde CPU kullanımı.|kapsayıcı adı|
 |MemoryUsage|Bellek Kullanımı|Bayt|Ortalama|Bayt olarak toplam bellek kullanımı.|kapsayıcı adı|
-|NetworkBytesReceivedPerSecond|Saniyede Alınan Ağ Bant Sayısı|Bayt|Ortalama|Saniye başına alınan ağ bayt sayısı.|Boyut yok|
+|NetworkBytesReceivedPerSecond|Saniyede Alınan Ağ Bant Sayısı|Bayt|Ortalama|Saniyede alınan ağ bayt sayısı.|Boyut yok|
 |NetworkBytesTransmittedPerSecond|Saniyede Aktarılan Ağ Bant Sayısı|Bayt|Ortalama|Saniyede aktarılan ağ bant sayısı.|Boyut yok|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
@@ -587,8 +587,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |devices.totalDevices|(Kullanım dışı) toplam cihaz sayısı|Sayı|Toplam|IOT hub'ınıza kayıtlı cihaz sayısı|Boyut yok|
 |devices.connectedDevices.allProtocol|Bağlı cihazlar (kullanım dışı) |Sayı|Toplam|IOT hub'ınıza bağlı cihazların sayısı|Boyut yok|
 |d2c.telemetry.egress.Success|Yönlendirme: teslim telemetri iletilerini|Sayı|Toplam|İletileri IOT Hub'ın yönlendirme kullanarak tüm uç noktalara başarıyla teslim sayısı. Bir ileti birden çok Uç noktalara yönlendirilir, bu değer her başarılı bir teslimat için bir tane artırır. Bir ileti birden çok kez aynı uç noktasına teslim ise bu değer her başarılı bir teslimat için bir tane artırır.|Boyut yok|
-|d2c.telemetry.egress.dropped|Yönlendirme: bırakılan telemetri iletilerini |Sayı|Toplam|İletileri IOT Hub'ın nedeniyle ölü uç noktalarına yönlendirme tarafından bırakılan sayısı. Bu değer, geri dönüş yol bırakılan iletiler var. iletilmemiş olarak sunulan iletiler sayılmaz.|Boyut yok|
-|d2c.telemetry.egress.orphaned|Yönlendirme: yalnız bırakılmış telemetri iletilerini |Sayı|Toplam|(Temel kural dahil) tüm yönlendirme kuralları ile eşleşmedi çünkü iletileri IOT Hub'ı yönlendirerek yalnız bırakılmış sayısı. |Boyut yok|
+|d2c.telemetry.egress.dropped|Yönlendirme: bırakılan telemetri iletilerini |Sayı|Toplam|İletileri IOT Hub'ın nedeniyle ölü uç noktalarına yönlendirme tarafından bırakılan sayısı. Bu değer, geri dönüş yol bırakılan iletiler var. iletilmemiş olarak sunulan iletiler sayılmaz.|Boyut yok|
+|d2c.telemetry.egress.orphaned|Yönlendirme: yalnız bırakılmış telemetri iletilerini |Sayı|Toplam|(Temel kural dahil) tüm yönlendirme kuralları ile eşleşmedi çünkü iletileri IOT Hub'ı yönlendirerek yalnız bırakılmış sayısı. |Boyut yok|
 |d2c.telemetry.egress.invalid|Yönlendirme: uyumsuz telemetri iletilerini|Sayı|Toplam|IOT Hub'ın yönlendirme uç nokta ile uyumsuzluk nedeniyle ileti teslim edilemedi sayısı. Bu değer, yeniden denemeler içermez.|Boyut yok|
 |d2c.telemetry.egress.fallback|Yönlendirme: ileti geri dönüş için teslim|Sayı|Toplam|Geri dönüş rota ile ilişkili uç noktasına iletileri IOT Hub'ın yönlendirme teslim sayısı.|Boyut yok|
 |d2c.endpoints.egress.eventHubs|Yönlendirme: iletilerin olay Hub'ına teslim|Sayı|Toplam|IOT hub'ı başarıyla yönlendirme, olay hub'ı uç noktalar için ileti teslim sayısı.|Boyut yok|
@@ -1570,6 +1570,6 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure İzleyici'de ölçümleri hakkında bilgi edinin](monitoring-overview-metrics.md)
-* [Ölçümler üzerinde uyarı oluşturma](insights-receive-alert-notifications.md)
+* [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../monitoring/monitoring-data-collection.md)
+* [Ölçümler üzerinde uyarı oluşturma](monitoring-overview-alerts.md)
 * [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](monitoring-overview-of-diagnostic-logs.md)

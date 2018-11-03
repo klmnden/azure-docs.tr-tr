@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3b1724853b4c874a1482a13c4de0ccb179f52f98
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5247edc02a62f67755ce818645f66f616c5266ce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041112"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962410"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog Log analytics'te veri kaynakları
 Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için OMS aracısı yüklü olduğunda, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı bu durumda OMS deposunda karşılık gelen bir kaydın oluşturulduğu Log Analytics ileti gönderir.  
@@ -45,7 +45,7 @@ Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her ö
 Varsayılan olarak, tüm yapılandırma değişiklikleri tüm aracılara otomatik olarak gönderilir.  Syslog her Linux aracısını el ile yapılandırmak istiyorsanız, kutunun işaretini kaldırın *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog Linux Aracısı'nı yapılandırma
-Zaman [OMS aracısı yüklü bir Linux istemcide](log-analytics-linux-agents.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler.  Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz.  Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
+Zaman [OMS aracısı yüklü bir Linux istemcide](log-analytics-quick-collect-linux-computer.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler.  Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz.  Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
 
 > [!NOTE]
 > Syslog yapılandırmasını düzenlerseniz, değişikliklerin etkili olması syslog daemon'u başlatmak gerekir.
@@ -207,6 +207,6 @@ Aşağıdaki tabloda, Syslog kayıtları almak günlük sorguları farklı örne
 | Syslog &#124; Summarize aggregatedvalue = count() tesis tarafından |Syslog kayıtlarını Say tesis tarafından. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
 * Kullanım [özel alanlar](log-analytics-custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
-* [Linux aracıları yapılandırma](log-analytics-linux-agents.md) diğer veri türlerini, toplanacak.
+* [Linux aracıları yapılandırma](log-analytics-quick-collect-linux-computer.md) diğer veri türlerini, toplanacak.

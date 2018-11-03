@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159321"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979004"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için Uyarılar oluşturmak için Azure portalını kullanma
 
@@ -44,19 +44,15 @@ Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure portalı ile bir ölçüm üzerinde uyarı kuralı oluşturma
 1. İçinde [portalı](https://portal.azure.com/)izlemek olan kaynağı bulun ve seçin.
-2. Bu adım, SQL veritabanı ve SQL DW elastik havuzları için farklıdır: 
-
-   - **SQL veritabanı ve elastik havuzlar yalnızca**: seçin **uyarılar** veya **uyarı kuralları** izleme bölümü altında. Simge ve metin, farklı kaynaklar için biraz değişebilir.  
+2. Seçin **uyarılar (Klasik)** izleme bölümü altında. Simge ve metin, farklı kaynaklar için biraz değişebilir.  
    
-     ![İzleme](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![İzleme](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW yalnızca**: seçin **izleme** ortak görevleri bölümünün altında. Tıklayın **DWU kullanımı** grafiği.
+   - **SQL DW yalnızca**: tıklayın **DWU kullanımı** grafiği. Seçin **Klasik uyarıları görüntüleme**
 
-     ![ORTAK GÖREVLER](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. Seçin **uyarısı Ekle** komut ve alanları doldurun.
+3. Seçin **ölçüm uyarısı Ekle (Klasik)** düğmesine tıklayın ve alanları doldurun.
    
-    ![Uyarı Ekle](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Uyarı Ekle](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Adı** Uyarınız kuralı ve seçin bir **açıklama**, bildirim e-postalarda de gösterilmektedir.
 5. Seçin **ölçüm** izleyin ve ardından istediğiniz bir **koşul** ve **eşiği** ölçüm için değer. Ayrıca **süresi** uyarı tetiklenmeden önce ölçüm kuralının karşılanması gereken süre. Örneğin, "PT5M" süresi kullanıyorsanız ve uyarıyı % 80'in CPU görünüyor, uyarının ne zaman tetikler **ortalama** 5 dakika boyunca % 80'in CPU olmuştur. İlk tetikleyici gerçekleşir sonra ortalama CPU üzerinde 5 dakika % 80 aşağısına olduğunda tekrar tetikler. CPU ölçüm dakikada bir gerçekleşir. Desteklenen zaman pencereleri için aşağıdaki tabloya başvurun ve toplama yazın ve her uyarı kullandığı değil tüm uyarılar, ortalama değer kullanın.   
 6. Denetleme **e-posta sahipleri...**  yöneticileri ve ortak yöneticilerin uyarı tetiklendiğinde almayacağınızı istiyorsanız.

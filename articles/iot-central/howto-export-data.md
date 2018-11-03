@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034918"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962801"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IOT Central verilerinizi dışarı aktarma
 
@@ -26,10 +26,10 @@ Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central verileri A
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir genişletilmiş 30 günlük deneme IOT Central uygulamasına veya Ücretli bir uygulama.
-- Bir Azure aboneliği bir Azure hesabı.
-- Aynı Azure IOT Central uygulamanızdaki bir yönetici hesabıdır.
-- Aynı Azure hesabı, bir depolama hesabı oluşturun veya mevcut bir depolama hesabı aynı Azure aboneliğinde erişmek için izinlere sahiptir.
+- Bir Kullandıkça Öde uygulamasıdır.
+- Sahip bir yönetici, IOT Central uygulamanızda:
+    - IOT Central uygulamanızın bulunduğu Azure aboneliğinde bir Azure hesabı
+    - bir depolama oluşturma izni olan bir hesap veya bu Azure aboneliğinde mevcut bir depolama hesabı erişim
 
 ## <a name="types-of-data-to-export"></a>Dışarı aktarmak için veri türleri
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f28a636f4df1343431762cf1eb8aec9b660f2e2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419801"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962512"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -82,7 +82,7 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 | Linux sunucuları   | **Gelişmiş ayarlar** çalışma alanı için menü. |
 | Azure Storage     | **Gelişmiş ayarlar** çalışma alanı için menü. |
 | System Center     | **Gelişmiş ayarlar** çalışma alanı için menü. |
-| Office 365        | Bkz: [belgeleri Office 365 yönetim çözümü](../operations-management-suite/oms-solution-office-365.md) yapılandırma ayrıntıları için. |
+| Office 365        | Bkz: [belgeleri Office 365 yönetim çözümü](../monitoring/monitoring-solution-office-365.md) yapılandırma ayrıntıları için. |
 | Windows Telemetrisi | Çözüm ayarları menüsü. Bkz: [Azure portalında Windows Analytics](/windows/deployment/update/windows-analytics-azure-portal) yapılandırma ayrıntıları için. |
 | ITSM Bağlayıcısı    | Bkz: [bağlanma ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile](../log-analytics/log-analytics-itsmc-connections.md) ITSM hizmetine Log Analytics ile ilgili yönergeler için. |
 

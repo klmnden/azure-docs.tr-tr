@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 6e5bbdf0d43b642816a58419c2ce1c186fd44acb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248087"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960761"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Otomatik olarak bir Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme
 Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda kaynak tanılama ayarlarını yapılandırmak için. Bu, otomatik olarak tanılama günlükleri ve ölçümleri Event Hubs, bunları bir depolama hesabında arşivlemek veya bir kaynak oluşturulduğunda bunları Log Analytics'e göndermek için akış başlatmanıza olanak sağlar.
@@ -263,9 +263,9 @@ Bir işlem kaynağı tanılamayı etkinleştirmek için örneğin bir sanal maki
 > 
 > 
 
-Örnekler de dahil olmak üzere sürecin tamamı açıklanan [bu belgedeki](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Örnekler de dahil olmak üzere sürecin tamamı açıklanan [bu belgedeki](../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)
+* [Azure Tanılama Günlükleri](monitoring-overview-of-diagnostic-logs.md)
 * [Stream Event hubs'a, Azure tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

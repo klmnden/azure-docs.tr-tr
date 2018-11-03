@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 49012c69a6dacaf76c95ea4c760e5951ecb6a9fb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420566"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958857"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>VM ölçek kümeleri için Resource Manager şablonlarını kullanarak gelişmiş otomatik ölçeklendirme yapılandırması
 Ölçek daraltma ve sanal makine ölçek kümelerinde yinelenen bir zamanlamaya göre veya belirli bir tarihe göre performans ölçüm eşiklere dayanarak genişleme kullanabilirsiniz. Ölçek eylemleri için e-posta ve Web kancası bildirimleri de yapılandırabilirsiniz. Bu kılavuzda, bir VM ölçek kümesi'nde bir Resource Manager şablonu kullanarak bu nesneleri yapılandırma örneği gösterilir.
 
 > [!NOTE]
-> Bu izlenecek yol, sanal makine ölçek kümeleri için adımlar açıklanmaktadır, ancak aynı bilgiyi otomatik ölçeklendirme için geçerlidir. [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Bir basit performans ölçümü CPU gibi basit bir ölçek daraltma veya genişletme ayarını bir VM ölçek kümesi bağlı için başvurmak [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) ve [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) belgeleri
+> Bu izlenecek yol, sanal makine ölçek kümeleri için adımlar açıklanmaktadır, ancak aynı bilgiyi otomatik ölçeklendirme için geçerlidir. [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Bir basit performans ölçümü CPU gibi basit bir ölçek daraltma veya genişletme ayarını bir VM ölçek kümesi bağlı için başvurmak [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) ve [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) belgeleri
 >
 >
 

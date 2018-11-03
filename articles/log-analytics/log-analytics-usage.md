@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0ca9cf0ff75ea76cd2dc203fbdb37162ed1ace34
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415272"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962767"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -58,7 +58,7 @@ Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği 
 3. Log Analytics çalışma alanlarınızın listesinde, bir çalışma alanı seçin.
 4. Sol bölmedeki listeden **Kullanım ve tahmini maliyetler**’i seçin.
 5. **Kullanım ve tahmini maliyetler** panosunda, **Zaman: Son 24 saat** değerini seçerek zaman aralığı üzerinde değişiklik yapabilir ve zaman aralığını değiştirebilirsiniz.<br><br> ![zaman aralığı](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-searches.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.<br><br> ![örnek veri kullanım kpi’si](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-search.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.<br><br> ![örnek veri kullanım kpi’si](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.<br><br> ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
@@ -78,7 +78,7 @@ Aşağıdaki sorgu, ne zaman bir günde 100 GB'den fazla veri toplanacağını t
 
 Farklı bir veri hacminde uyarıda bulunmak için, sorgulardaki 100 değerini uyarılmak istediğiniz GB sayısıyla değiştirin.
 
-Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) başlığı altında açıklanan adımları kullanın.
+Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/alert-metric.md) başlığı altında açıklanan adımları kullanın.
 
 İlk sorgu için, yani 24 saat içinde 100 GB'den fazla veri toplandığında uyarı oluştururken şu ayarları yapın:  
 
@@ -163,19 +163,19 @@ Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
 | Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> - Toplanan olay günlüklerinin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
 | Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> - Toplanan tesislerin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
 | AzureDiagnostics           | Aşağıdaki amaçlarla kaynak günlüğü koleksiyonunu değiştirin: <br> - Log Analytics’e günlük gönderen kaynak sayısını azaltma <br> - Yalnızca gerekli günlükleri toplama |
-| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın. |
+| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
 Kullanıyorsanız *(Log Analytics) düğüm başına* düğüm ve çözüm sayısına göre temel fiyatlandırma katmanındaysanız ödersiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.<br><br> ![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görüntülemek için **Tümünü göster...** öğesine tıklayın.
 
-Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
+Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-searches.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
-* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) başlığı altında açıklanan adımları kullanın.
-* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
+* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-search.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
+* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/alert-metric.md) başlığı altında açıklanan adımları kullanın.
+* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın.
 * Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin.
 * [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin.
 * Olay toplama ayarlarınızda değişiklik yapmak için, [olay günlüğü yapılandırması](log-analytics-data-sources-windows-events.md) konusunu gözden geçirin.

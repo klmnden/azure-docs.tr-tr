@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB'de çakışma çözümü
+title: Çakışma çözüm türlerini ve Azure Cosmos DB'de çözümleme ilkeleri
 description: Bu makalede, çakışma kategorileri ve Azure Cosmos DB'de Çakışma çözümlemesi ilkeleri açıklanır.
 services: cosmos-db
 author: markjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2f219ed6c3155e8b7d3d978116e1748f6c115fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244118"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958602"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Çakışma türlerini ve çözümleme ilkeleri
 
@@ -20,29 +20,31 @@ ms.locfileid: "50244118"
 
 Birden çok yazan eşzamanlı olarak birden çok bölgede aynı öğesi güncelleştirdiğinizde birden çok yazma bölgeleri ile yapılandırılmış, Cosmos DB hesapları için güncelleştirme çakışmaları oluşabilir. Güncelleştirme çakışmaları aşağıdaki üç tür olarak sınıflandırılan:
 
-1. **Çakışmaları Ekle** bir uygulama, iki veya daha fazla öğe ile aynı benzersiz dizin (örneğin, ID özelliği) aynı anda iki veya daha fazla bölgelerden ekler. oluşabilir. Bu durumda, tüm yazma işlemlerini başlangıçta kendi ilgili yerel bölgelerde başarılı olabilir, ancak yalnızca bir öğe özgün kimliği ile seçtiğiniz çakışma çözüm İlkesi bağlı olarak, son olarak taahhüt eder.
-2. **Çakışmaları değiştirin** bir uygulamayı tek bir öğesi iki veya daha fazla bölgede aynı anda güncelleştiren oluşabilir.
-3. **Çakışmaları Sil** uygulamanın aynı anda bir bölgeden bir öğeyi siler ve başka bir bölgeden güncelleştirmeleri oluşabilir.
+1. **Çakışmaları Ekle:** bir uygulama, iki veya daha fazla öğe ile aynı benzersiz dizin (örneğin, ID özelliği) aynı anda iki veya daha fazla bölgelerden ekler. bu çakışmaları oluşabilir. Bu durumda, tüm yazma işlemlerini başlangıçta kendi ilgili yerel bölgelerde başarılı olabilir, ancak yalnızca bir öğe özgün kimliği ile seçtiğiniz çakışma çözüm İlkesi bağlı olarak, son olarak taahhüt eder.
+
+1. **Çakışmaları değiştirin:** uygulamanın aynı anda bölgelerden iki veya daha fazla tek bir öğe güncelleştirildiğinde bu çakışmaları oluşabilir.
+
+1. **Çakışmaları Sil:** bir uygulamayı aynı anda bir bölgeden bir öğeyi siler ve diğer bölgeden güncelleştirir, bu çakışmaları oluşabilir.
 
 ## <a name="conflict-resolution-policies"></a>Çakışma çözümleme ilkeleri
 
 Cosmos DB güncelleştirme çakışmaları çözümlemek için esnek bir ilke odaklı mekanizması sunar. Cosmos kapsayıcısı üzerinde aşağıdaki iki Çakışma çözümlemesi ilkeler arasından seçim yapabilirsiniz:
 
-- **Son yazma WINS (LWW)** , varsayılan olarak kullanır (zaman eşitleme saati protokolü temel alarak) sistem tanımlı bir zaman damgası özellik. Alternatif olarak, SQL API'si kullanılırken, Cosmos DB ("çakışma çözümleme yolu" da bilinir) diğer özelliklerden herhangi birini özel sayısal Çakışma çözümlemesi için kullanılacak belirtmenizi sağlar.  
+- **Son yazma WINS (LWW):** (zaman eşitleme saati protokolü temel alarak) sistem tanımlı bir zaman damgası özellik varsayılan olarak, bu çözümleme İlkesi kullanır. Alternatif olarak, SQL API'sini kullanarak, Cosmos DB Çakışma çözümlemesi için kullanılacak ("çakışma çözümleme yolu" da bilinir) diğer özelliklerden herhangi birini özel sayısal belirtmenize olanak tanır.  
 
-İki veya daha fazla öğe çakışma Ekle veya Değiştir işlemleri, "çakışma çözümleme yolu" için en yüksek değeri içeren bir öğe "Birinci" olur. Çakışma çözümleme yolu için aynı sayısal değere birden çok öğe varsa, seçili "Birincisi" sürümü sistem tarafından belirlenir. Tüm bölgeler ayarlamak için bir tek kazanan birinciyi ve son taahhüt öğenin aynı sürümü ile yakınsanmasını garanti edilir. Varsa ilgili çakışmalar Sil silinen sürümden her zaman ekler veya çakışma çözümleme yolu değerinden bağımsız olarak değiştir çakışmaları üzerinden kazanır.
+  İki veya daha fazla öğe çakışma Ekle veya Değiştir işlemleri, "çakışma çözümleme yolu" için en yüksek değeri içeren bir öğe "Birinci" olur. Çakışma çözümleme yolu için aynı sayısal değere birden çok öğe varsa, seçili "Birincisi" sürümü sistem tarafından belirlenir. Tüm bölgeler ayarlamak için bir tek kazanan birinciyi ve son taahhüt öğenin aynı sürümü ile yakınsanmasını garanti edilir. İlgili Sil çakışmalarından varsa, silinen sürümden her zaman ya da ekleme WINS veya çakışmaları, çakışma çözümleme yolu değerinden bağımsız olarak değiştirin.
 
-> [!NOTE]
-> Varsayılan çakışma çözümü İlkesi LWW olduğundan ve SQL, tablo, MongoDB, Cassandra ve Gremlin API'leri için kullanılabilir.
+  > [!NOTE]
+  > Son yazma WINS varsayılan çakışma çözümü İlkesi ve SQL, tablo, MongoDB, Cassandra ve Gremlin API hesapları için kullanılabilir.
 
-Daha fazla bilgi için bkz. [LWW kullanan örnekler Çakışma çözümlemesi ilkelerinin](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Daha fazla bilgi için bkz. [LWW kullanan örnekler Çakışma çözümlemesi ilkelerinin](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-- **Özel** Bu ilke, uygulama tanımlı semantiği çakışmaları karşılaştırmak için tasarlanmıştır. Cosmos kapsayıcınızın Bu ilkeyi düzenlerken, ayrıca sunucu tarafında veritabanı işlem altında güncelleştirme çakışmaları algılandığında otomatik olarak çağrılır bir birleştirme depolanan yordam, kaydetmeniz gerekir. Tam olarak sistemidir taahhüt protokolünün bir parçası olarak bir birleştirme yordamının yürütülmesi için bir kez garanti.  
+- **Özel:** Bu çözümleme İlkesi uygulama tanımlı semantiği çakışmaları karşılaştırmak için tasarlanmıştır. Bu ilke Cosmos kapsayıcınızın ayarlanırken, ayrıca güncelleştirme çakışmaları sunucuda veritabanı işlem altında algılandığında otomatik olarak çağrılan bir birleştirme depolanan yordam, kaydetmek gerekir. Tam olarak sistemidir taahhüt protokolünün bir parçası olarak bir birleştirme yordamının yürütülmesi için bir kez garanti.  
 
-Ancak, özel bir çözüm seçeneğiyle kapsayıcınızı yapılandırın, ancak herhangi bir birleştirme yordam kapsayıcı üzerindeki kaydı başarısız veya birleştirme yordamı çalışma zamanında bir özel durum oluşturursa, çakışmaları akışı çakışmaları yazılır. Uygulamanızı çakışmaları akışta çakışmaları el ile çözümlemeniz gerekir. Daha fazla bilgi için bkz. [özel çözümleme İlkesi ve nasıl akış çakışmaları kullanılacağını kullanma örnekleri](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Ancak, özel bir çözüm seçeneğiyle kapsayıcınızı yapılandırın, ancak herhangi bir birleştirme yordam kapsayıcı üzerindeki kaydı başarısız veya birleştirme yordamı çalışma zamanında bir özel durum oluşturursa, çakışmaları akışı çakışmaları yazılır. Uygulamanızı çakışmaları akışta çakışmaları el ile çözümlemeniz gerekir. Daha fazla bilgi için bkz. [özel çözümleme İlkesi ve nasıl akış çakışmaları kullanılacağını kullanma örnekleri](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-> [!NOTE]
-> Özel çakışma çözüm ilkesi yalnızca SQL API'si hesapları için kullanılabilir.
+  > [!NOTE]
+  > Özel çakışma çözüm ilkesi yalnızca SQL API'si hesapları için kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

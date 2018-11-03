@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996562"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959282"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
 **[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'leri veya Azure CLI.
@@ -44,7 +44,7 @@ Akış özelliği için tanılama günlüklerini kullanabilir birkaç yolu vard�
 Tanılama günlüklerini programlı olarak portal, akış veya kullanarak etkinleştirebilirsiniz [Azure İzleyici REST API'leri](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Tanılama ayarını oluşturduğunuz her iki durumda da bir Event Hubs ad alanı ve günlük kategorileri ve ad alanına göndermek istediğiniz ölçümleri, belirttiğiniz içinde. Bir olay hub'ı etkinleştirdiğiniz her günlük kategorisi için bir ad alanı oluşturulur. Bir tanılama **günlüğü kategorisi** kaynak toplayabilir günlük türüdür.
 
 > [!WARNING]
-> Etkinleştirme ve işlem kaynakları (örneğin, VM'ler veya Service Fabric) tanılama günlüklerinin akışını [farklı bir dizi adım gerektirir](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> Etkinleştirme ve işlem kaynakları (örneğin, VM'ler veya Service Fabric) tanılama günlüklerinin akışını [farklı bir dizi adım gerektirir](azure-diagnostics-streaming-event-hubs.md).
 
 Event Hubs ad alanı, hem abonelik hem de her iki aboneliğin uygun RBAC erişim ayarı yapılandıran kullanıcının sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olmak zorunda değil, aynı AAD kiracısındaki bir parçasıdır.
 
@@ -191,10 +191,10 @@ Event Hubs'a akış'ı destekleyen tüm kaynak sağlayıcılarının bir listesi
 
 ## <a name="stream-data-from-compute-resources"></a>Stream verilerden bilgi işlem kaynakları
 
-Ayrıca Windows Azure tanılama aracısını kullanarak işlem kaynaklarını tanılama günlüklerinin akışını yapabilirsiniz. [Bu makaleye bakın](../event-hubs/event-hubs-streaming-azure-diags-data.md) ayarlanacağını öğrenmek için.
+Ayrıca Windows Azure tanılama aracısını kullanarak işlem kaynaklarını tanılama günlüklerinin akışını yapabilirsiniz. [Bu makaleye bakın](azure-diagnostics-streaming-event-hubs.md) ayarlanacağını öğrenmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure İzleyici ile Stream Azure Active Directory günlükleri](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Azure İzleyici ile Stream Azure Active Directory günlükleri](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Azure Tanılama Günlükleri](monitoring-overview-of-diagnostic-logs.md)
-* [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

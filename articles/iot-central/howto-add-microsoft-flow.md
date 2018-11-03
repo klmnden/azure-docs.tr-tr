@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155584"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959299"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun
 
@@ -21,8 +21,10 @@ ms.locfileid: "50155584"
 
 Birçok uygulama ve işletme kullanıcılarının kullandığı hizmetler arasında iş akışlarını otomatikleştirmek için Microsoft Flow kullanın. Microsoft Flow IOT Central Bağlayıcısı'nı kullanarak IOT Central içinde bir kuralı tetiklendiğinde iş akışları tetikleyebilirsiniz. IOT Central veya başka bir uygulama tarafından tetiklenen bir iş akışında bir cihaz oluşturma, bir cihazın özellikleri ve ayarları güncelleştirin veya bir cihazı silmek için Eylemler IOT Central Bağlayıcısı kullanabilirsiniz. Kullanıma [bu Microsoft Flow şablonları](https://aka.ms/iotcentralflowtemplates) mobil bildirim ve Microsoft Teams gibi diğer hizmetlere IOT Central bağlanma.
 
-> [!NOTE] 
-> Microsoft Flow ile Microsoft, kişisel veya iş veya Okul hesabıyla oturum açmanız gerekir. Microsoft Flow planları hakkında daha fazla bilgi [burada](https://aka.ms/microsoftflowplans).
+## <a name="prerequisites"></a>Önkoşullar
+
+- Bir Kullandıkça Öde uygulama
+- Microsoft, kişisel veya iş veya Okul hesabı Flow'da oturum açmayı ([Microsoft Flow planları hakkında daha fazla bilgi](https://aka.ms/microsoftflowplans))
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Bir kuralı tetiklendiğinde bir iş akışı tetikleyicisi
 

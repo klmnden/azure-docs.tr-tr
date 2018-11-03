@@ -1,5 +1,5 @@
 ---
-title: Azure sanal makine seri Konsolu | Microsoft Docs
+title: Linux için Azure sanal makine seri Konsolu | Microsoft Docs
 description: Azure sanal makineleri için çift yönlü seri konsol.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741717"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963827"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux için sanal makine seri Konsolu
 
@@ -33,17 +33,17 @@ Windows Vm'leri için seri konsol belgeleri için bkz [Windows için sanal makin
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-* Seri konsol eriştiğiniz VM kaynak yönetimi dağıtım modeline kullanmanız gerekir. Klasik dağıtımlar desteklenmez. 
+- Seri konsol eriştiğiniz VM kaynak yönetimi dağıtım modeline kullanmanız gerekir. Klasik dağıtımlar desteklenmez. 
 
-* Seri konsol içinde eriştiğiniz VM olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin. Seçin **önyükleme tanılaması** gelen **destek + sorun giderme** bölümü.
+- Hangi erişim seri konsol VM olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin. 
 
     ![Önyükleme tanılama ayarları](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-Seri konsol kullanan bir hesabınızın olması gerekir [sanal makine Katılımcısı rolü](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı: 
+- Seri konsol kullanan bir hesabınızın olması gerekir [sanal makine Katılımcısı rolü](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı: 
 
-* Sanal Makinenin seri konsol eriştiğiniz parola tabanlı bir hesabı olması gerekir. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) işlevi VM erişimi uzantısı. Seçin **parolayı Sıfırla** gelen **destek + sorun giderme** bölümü. 
+    - Sanal Makinenin seri konsol eriştiğiniz parola tabanlı bir hesabı olması gerekir. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) işlevi VM erişimi uzantısı. Seçin **parolayı Sıfırla** gelen **destek + sorun giderme** bölümü. 
 
-* Linux dağıtımları için özel ayarları için bkz: [seri konsol Linux dağıtım kullanılabilirlik](#serial-console-linux-distribution-availability).
+    - Linux dağıtımları için özel ayarları için bkz: [seri konsol Linux dağıtım kullanılabilirlik](#serial-console-linux-distribution-availability).
 
 
 
@@ -51,12 +51,14 @@ Seri konsol kullanan bir hesabınızın olması gerekir [sanal makine Katılımc
 Seri konsol sanal makineler için yalnızca Azure Portalı aracılığıyla erişilebilir:
 
   1. [Azure portalı](https://portal.azure.com) açın.
+
   1. Sol menüden **sanal makineler**.
+
   1. VM listesinde seçin. VM için genel bakış sayfası açılır.
+
   1. Ekranı aşağı kaydırarak **destek + sorun giderme** seçin ve bölüm **seri konsol**. Seri konsolu ile yeni bir bölme açılır ve bağlantısını başlatır.
 
-   ![Linux seri konsol penceresi](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Linux seri konsol penceresi](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

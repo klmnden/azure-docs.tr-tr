@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2ba921a45619c74af230b282c23adff502ae5b6d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418611"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961458"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure ağ Log Analytics çözümleri izleme
 
@@ -86,7 +86,7 @@ Aşağıdaki ölçümler Application Gateway'ler için desteklenir: yeniden
 ### <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Yükleme ve Azure Application Gateway analytics çözümü yapılandırmak için aşağıdaki yönergeleri kullanın:
 
-1. Azure Application Gateway analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
+1. Azure Application Gateway analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
 2. Etkinleştirmek için günlüğe kaydetme tanılama [Application Gateway'ler](../application-gateway/application-gateway-diagnostics.md) izlemek istediğiniz.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Portalda Azure Application Gateway tanılamayı etkinleştirme
@@ -157,7 +157,7 @@ Günlükleri, ağ güvenlik grupları için desteklenir:
 ### <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Yükleme ve Azure ağ analizi çözümü yapılandırmak için aşağıdaki yönergeleri kullanın:
 
-1. Azure ağ güvenlik grubu analizi çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
+1. Azure ağ güvenlik grubu analizi çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
 2. Etkinleştirmek için günlüğe kaydetme tanılama [ağ güvenlik grubu](../virtual-network/virtual-network-nsg-manage-log.md) izlemek istediğiniz kaynakları.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Portalda Azure ağ güvenlik grubu tanılamayı etkinleştirme
@@ -215,7 +215,7 @@ Güncelleştirilmiş çözümlerini kullanmak için:
 
 1. [Azure Application Gateway'ler aracılığıyla doğrudan Log Analytics'e gönderilecek tanılama Yapılandır](#enable-azure-application-gateway-diagnostics-in-the-portal)
 2. [Azure ağ güvenlik grupları'ndan doğrudan Log Analytics'e gönderilecek tanılama Yapılandır](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Etkinleştirme *Azure Application Gateway Analytics* ve *Azure ağ güvenlik grubu analizi* açıklanan işlemi kullanarak çözüm [ekleme Log Analytics çözümleri Çözüm Galerisi](log-analytics-add-solutions.md)
+2. Etkinleştirme *Azure Application Gateway Analytics* ve *Azure ağ güvenlik grubu analizi* açıklanan işlemi kullanarak çözüm [ekleme Log Analytics çözümleri Çözüm Galerisi](../monitoring/monitoring-solutions.md)
 3. Tüm kaydedilmiş sorgular, panolar veya yeni veri türü kullanılacağını uyarıları güncelleştirme
   + AzureDiagnostics için türüdür. Kaynak türü için Azure ağ bağlantısı günlükleri filtrelemek için kullanabilirsiniz.
 
@@ -236,4 +236,4 @@ Değişiklik yeni çözümde görünür değil. önce toplanan veriler. Alan adl
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-searches.md) ayrıntılı Azure tanılama verilerini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı Azure tanılama verilerini görüntülemek için.

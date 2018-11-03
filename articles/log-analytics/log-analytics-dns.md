@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9ac8d876e9c79e5aadfcf834e18e94f6ac8b3a30
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a621cba2eda0156cbe191f330c805d2cca64b3ba
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408481"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960897"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -44,8 +44,8 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 | **Bağlı kaynak** | **Destek** | **Açıklama** |
 | --- | --- | --- |
-| [Windows aracıları](log-analytics-windows-agent.md) | Evet | Çözüm, Windows aracılarından DNS bilgilerini toplar. |
-| [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, doğrudan Linux aracılarından DNS bilgi toplamaz. |
+| [Windows aracıları](log-analytics-agent-windows.md) | Evet | Çözüm, Windows aracılarından DNS bilgilerini toplar. |
+| [Linux aracıları](log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, doğrudan Linux aracılarından DNS bilgi toplamaz. |
 | [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md) | Evet | Çözüm, bağlı Operations Manager yönetim grubundaki aracılardan DNS bilgilerini toplar. Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Verileri yönetim grubundan Log Analytics çalışma alanına iletilir. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Azure depolama çözümü tarafından kullanılmaz. |
 
@@ -57,8 +57,8 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 Çözümü yapılandırmak için aşağıdaki bilgileri kullanın:
 
-- Olmalıdır bir [Windows](log-analytics-windows-agent.md) veya [Operations Manager](log-analytics-om-agents.md) aracıyı izlemek istediğiniz her bir DNS sunucusunda.
-- DNS analizi çözümü Log Analytics çalışma alanınızdan ekleyebileceğiniz [Azure Marketi](https://aka.ms/dnsanalyticsazuremarketplace). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
+- Olmalıdır bir [Windows](log-analytics-agent-windows.md) veya [Operations Manager](log-analytics-om-agents.md) aracıyı izlemek istediğiniz her bir DNS sunucusunda.
+- DNS analizi çözümü Log Analytics çalışma alanınızdan ekleyebileceğiniz [Azure Marketi](https://aka.ms/dnsanalyticsazuremarketplace). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
 
 Çözüm, daha fazla yapılandırma gerek olmadan veri toplamaya başlar. Ancak, veri toplamayı Özelleştir için şu yapılandırmayı kullanabilirsiniz.
 
@@ -190,4 +190,4 @@ Geri bildirim size iki yolu vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı DNS günlük kayıtları görüntülemek için.
+[Arama günlüklerini](log-analytics-log-search.md) ayrıntılı DNS günlük kayıtları görüntülemek için.

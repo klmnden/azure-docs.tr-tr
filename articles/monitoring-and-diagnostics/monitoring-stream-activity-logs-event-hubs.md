@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af8248bb68068c20d62a2d8cc1e86fd9997a740c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258007"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962972"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure etkinlik günlüğünün Event Hubs'a Stream
 Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) neredeyse gerçek zamanlı olarak ya da herhangi bir uygulama için:
@@ -101,5 +101,5 @@ Etkinlik günlüğü için şema kullanılabilir [Azure etkinlik günlüğü ile
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](monitoring-archive-activity-log.md)
 * [Azure etkinlik günlüğüne genel bakış okuyun](monitoring-overview-activity-logs.md)
-* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](insights-auditlog-to-webhook-email.md)
+* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](monitor-alerts-unified-log-webhook.md)
 

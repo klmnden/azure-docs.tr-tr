@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 62b5c8fd0a63e660cd4126755d94ea90cf4d412b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388329"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961169"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure İzleyici günlükler için ölçüm uyarıları oluşturma  
 
@@ -22,8 +22,8 @@ Azure İzleyicisi'ni destekleyen [ölçüm uyarı türü](monitoring-near-real-t
 
 Ölçümleriniz Azure veya şirket içi kaynaklar dahil olmak üzere günlüklerinden ölçümleri bir parçası olarak ayıklanan popüler Log Analytics günlükleri ile ilgili ölçüm Uyarıları'nı kullanabilirsiniz. Desteklenen Log Analytics çözümleri aşağıda listelenmiştir:
 - [Performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) Windows ve Linux makineler için
-- [Aracı sistem durumu sinyal kayıtları](../operations-management-suite/oms-solution-agenthealth.md)
-- [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md) kayıtları
+- [Aracı sistem durumu sinyal kayıtları](../monitoring/monitoring-solution-agenthealth.md)
+- [Güncelleştirme yönetimi](../automation/automation-update-management.md) kayıtları
 - [Olay verilerini](../log-analytics/log-analytics-data-sources-windows-events.md) günlükleri
  
 Kullanmak için birçok faydası vardır **günlükleri için ölçüm uyarıları** sorgu tabanlı üzerinden [günlük uyarıları](alert-log.md) Azure'da; bunlardan bazıları aşağıda listelenmiştir:
@@ -47,7 +47,7 @@ Log Analytics'te Azure İzleyici - ölçümler ile işlenmeden önce popüler g�
 Log Analytics veri çalışır Ölçüm günlükleri için toplanan önce aşağıdaki yukarı ve kullanılabilir ayarlanmalıdır:
 1. **Etkin Log Analytics çalışma alanı**: geçerli ve etkin Log Analytics çalışma alanı mevcut olmalıdır. Daha fazla bilgi için [Azure portalında Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **Aracı için Log Analytics çalışma alanı yapılandırılmış**: önceki adımda kullanılan Log Analytics çalışma alanına Azure Vm'leri (veya) şirket içi Vm'leri için veri göndermek yapılandırılacak aracının gerekir. Daha fazla bilgi için [Log Analytics - Aracısı genel bakış](../monitoring/monitoring-overview-azure-agents.md).
-3. **Desteklenen Log Analytics çözümleri yüklü**: Log Analytics çözümü, yapılandırılmış ve gönderen verileri Log Analytics çalışma alanına - desteklenen olmalıdır çözümler [Windows ve Linux için performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md), [Aracı sistem durumu sinyal kayıtlarını](../operations-management-suite/oms-solution-agenthealth.md), [güncelleştirme yönetimi, ve [olay verilerini](../log-analytics/log-analytics-data-sources-windows-events.md).
+3. **Desteklenen Log Analytics çözümleri yüklü**: Log Analytics çözümü, yapılandırılmış ve gönderen verileri Log Analytics çalışma alanına - desteklenen olmalıdır çözümler [Windows ve Linux için performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md), [Aracı sistem durumu sinyal kayıtlarını](../monitoring/monitoring-solution-agenthealth.md), [güncelleştirme yönetimi, ve [olay verilerini](../log-analytics/log-analytics-data-sources-windows-events.md).
 4. **Günlükleri göndermek için yapılandırılmış analiz çözümleri oturum**: günlük analizi çözümü, gerekli günlükleri/veri karşılık gelen olmalıdır [Log Analytics çalışma alanları için desteklenen ölçümler](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) etkin. Örneğin, *% kullanılabilir bellek* sayacı bunu yapılandırılmalıdır [performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) çözüm ilk.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Yapılandırma günlükleri için ölçüm Uyarısı

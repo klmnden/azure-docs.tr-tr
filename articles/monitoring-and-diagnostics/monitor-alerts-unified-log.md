@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421093"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958162"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
@@ -122,4 +122,4 @@ Günlük uyarıları fiyatlandırması geçerli belirtildikten adresindeki [Azur
 * Anlamak [günlük uyarıları azure'da Web kancalarıyla](monitor-alerts-unified-log-webhook.md).
 * Hakkında bilgi edinin [Azure uyarıları](monitoring-overview-unified-alerts.md).
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md).
-* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-overview.md).    
+* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-queries.md).    

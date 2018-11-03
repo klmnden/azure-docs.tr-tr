@@ -13,19 +13,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378145"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962393"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
 Azure Media Services ile etkinliklerin canlı akış sunarken aşağıdaki bileşenler yaygın olarak kullanılır:
 
 * Etkinliği yayınlamak için kullanılan bir kamera.
-* Sinyaller kamera (veya başka bir cihaz, dizüstü bilgisayar gibi) Lve akış hizmetine gönderilen akışlara dönüştürür canlı bir video Kodlayıcısı. Sinyaller SCTE-35 ve Ad ipuçları reklam de içerebilir. 
+* Sinyaller kamera (veya başka bir cihaz, dizüstü bilgisayar gibi) canlı akış hizmetine gönderilen akışlara dönüştürür canlı bir video Kodlayıcısı. Sinyaller SCTE-35 ve Ad ipuçları reklam de içerebilir. 
 * Media Services canlı akış hizmeti, alma, Önizleme, paketleme, kaydetme, şifrelemek ve müşterilerinize veya başkalarına dağıtım için bir CDN içeriği yayını sağlar.
 
 Bu makalede ayrıntılı bir genel bakış sağlar ve Media Services ile canlı akış ilgili ana bileşenleri diyagramları içerir.

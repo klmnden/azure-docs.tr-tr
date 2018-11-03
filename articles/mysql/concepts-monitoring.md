@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 11/01/2018
+ms.openlocfilehash: 0796ab0a0923d9a04e07542c576883c004c63263
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091564"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957761"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MySQL için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
@@ -41,9 +41,10 @@ Bu ölçümler, MySQL için Azure veritabanı için kullanılabilir:
 |seconds_behind_master|Saniyeler içinde çoğaltma gecikmesi|Sayı|Çoğaltma sunucusu, ana sunucu karşı geciken saniye sayısı.|
 |network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
+|backup_storage_used|Kullanılan yedekleme depolama alanı|Bayt|Kullanılan yedekleme depolama alanı miktarı.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
-Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Bu günlükler, OMS Log Analytics, olay hub'ları ve depolama hesabı Azure tanılama günlükleri aracılığıyla da kullanılabilir. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
+Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Bu günlükler, OMS Log Analytics, olay hub'ları ve depolama hesabı Azure tanılama günlükleri aracılığıyla da kullanılabilir. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [uyarıları ayarlamak nasıl](howto-alert-on-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

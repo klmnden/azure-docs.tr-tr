@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 48c53b1b0c037e6bcfea3be49fdd2110e1e694b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2a231de3eaa67a656fb90d6498d36a226ff8622
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970711"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963074"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure İzleyici otomatik ölçeklendirme ortak ölçümleri
 Azure İzleyici otomatik ölçeklendirmesini (ölçüler) telemetri verilerini temel alarak çalışan örnek sayısı yukarı veya aşağı ölçeklendirmenize olanak tanıyor. Bu belgede kullanmak isteyebileceğiniz ortak ölçümler açıklanmıştır. Azure portalında göre ölçeklendirmek için kaynak ölçüm seçebilirsiniz. Ancak, göre ölçeklendirmek için farklı bir kaynaktan herhangi bir ölçüm seçebilirsiniz.
@@ -29,7 +29,7 @@ VM ölçek kümeleri kullanıyorsanız ve listelenen belirli bir ölçüm görm�
 
 Belirli bir ölçüm değil olup olmadığını örneklenen veya istediğiniz sıklıkta aktarılan tanılama yapılandırması güncelleştirebilirsiniz.
 
-Yukarıdaki her iki durumda da true ise, daha sonra gözden [PowerShell kullanarak Windows çalıştıran bir sanal makine Azure tanılamayı etkinleştirerek](../virtual-machines/windows/ps-extensions-diagnostics.md) yapılandırmak ve ölçüm etkinleştirmek için Azure VM tanılama uzantınızın güncelleştirmek için PowerShell hakkında. Bu makalede ayrıca örnek tanılama yapılandırma dosyası içerir.
+Yukarıdaki her iki durumda da true ise, daha sonra gözden [PowerShell kullanarak Windows çalıştıran bir sanal makine Azure tanılamayı etkinleştirerek](../virtual-machines/extensions/diagnostics-windows.md) yapılandırmak ve ölçüm etkinleştirmek için Azure VM tanılama uzantınızın güncelleştirmek için PowerShell hakkında. Bu makalede ayrıca örnek tanılama yapılandırma dosyası içerir.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Resource Manager tabanlı Windows ve Linux VM'ler için konak ölçümleri
 Aşağıdaki konak düzeyinde ölçümler, varsayılan olarak Azure VM ve VMSS için hem Windows hem de Linux örnekleri gönderilir. Bu ölçümler Azure VM açıklamaktadır, ancak Azure VM konağı yerine Konuk sanal Makinede yüklü bir aracı üzerinden toplanır. Otomatik ölçeklendirme kuralları, bu ölçümleri kullanabilirsiniz.

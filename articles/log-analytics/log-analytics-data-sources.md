@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b8c3a2cc67c47753957963fc04b52f934b10ddfc
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 776033bde46f170295900d154cbbb3c7df73ab11
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041722"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960268"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log analytics'te veri kaynakları
 Log Analytics bağlı kaynaklardan veri toplar ve Log Analytics çalışma alanınızda depolar.  Her birinden toplanan veriler, yapılandırdığınız veri kaynakları tarafından tanımlanır.  Log analytics'te verileri, bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belli bir türdeki kayıtları oluşturur.
 
 ![Analytics veri toplama oturum](./media/log-analytics-data-sources/overview.png)
 
-Veri kaynakları farklı [yönetim çözümleri](log-analytics-add-solutions.md), ayrıca bağlı kaynaklardan gelen verileri toplamak ve Log Analytics'te kayıtları oluşturun.  Veri çözümleri genellikle toplamaya ek olarak, günlük aramaları ve belirli bir uygulama veya hizmet işlemi analiz etmenize yardımcı olacak görünümler içerir.
+Veri kaynakları farklı [yönetim çözümleri](../monitoring/monitoring-solutions.md), ayrıca bağlı kaynaklardan gelen verileri toplamak ve Log Analytics'te kayıtları oluşturun.  Veri çözümleri genellikle toplamaya ek olarak, günlük aramaları ve belirli bir uygulama veya hizmet işlemi analiz etmenize yardımcı olacak görünümler içerir.
 
 
 ## <a name="summary-of-data-sources"></a>Veri kaynakları özeti
@@ -68,5 +68,5 @@ Log Analytics tarafından toplanan tüm veriler, çalışma alanında kayıt ola
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [çözümleri](../monitoring/monitoring-solutions.md) Log Analytics'e işlev eklemek ve ayrıca çalışma alanına veri toplayın.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
-* Yapılandırma [uyarılar](log-analytics-alerts.md) proaktif olarak size, veri kaynakları ve çözümlerinden toplanan kritik veri bildirmek için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Yapılandırma [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) proaktif olarak size, veri kaynakları ve çözümlerinden toplanan kritik veri bildirmek için.

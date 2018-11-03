@@ -4,17 +4,17 @@ description: SCP.NET oluşturmak için kullanmayı öğrenin. AĞ tabanlı Storm
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-ms.author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: daf9efb2f9044ed1395b0f2aa3663c2471406e2f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fb7a8ed81794e3a5c1a772fd242f5ef85a800365
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045473"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959214"
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
 SCP, güvenilir ve tutarlı, gerçek zamanlı oluşturmak için platform ve yüksek performanslı bilgi işlem uygulama ' dir. Üst kısmındaki yerleşik [Apache Storm](http://storm.incubator.apache.org/) --bir akış işleme sistemi OSS topluluklar göre tasarlanmıştır. Storm Nathan Marz tarafından tasarlanmıştır ve açık Twitter tarafından kaynaklanan oluştu. Bunu yararlanır [Apache ZooKeeper](http://zookeeper.apache.org/), işbirliği ve durum yönetimini son derece güvenilir etkinleştirmek için başka bir Apache projesi dağıtılmış. 

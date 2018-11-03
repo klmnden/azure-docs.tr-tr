@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08a85cea75d692573f9e9e6c4bcd8bb61e03867f
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041978"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963923"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -88,7 +88,7 @@ Cevap: bu bölgedir geçici kapasite üst sınırına ulaştı. Sınır içinde 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>S. Log Analytics aracı aynı zamanda Azure Güvenlik Merkezi olarak kullanıyor mu?
 
-Y: erken Haziran 2017'de, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başladı. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi Platform geçişi ile ilgili SSS](../security-center/security-center-platform-migration-faq.md).
+Y: erken Haziran 2017'de, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başladı. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi Platform geçişi ile ilgili SSS](../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>S. Hangi denetimleri AD tarafından gerçekleştirilir ve SQL değerlendirmesi çözümleri?
 
@@ -135,7 +135,7 @@ Log Analytics'e UTC saatini kullanır ve her günün gece yarısı UTC başlatı
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>S. Veri toplama durduğunda nasıl uyarılabilirim?
 
-Y: açıklanan adımları kullanın [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) veri toplamayı durdurur bildirilmesini sağlamak için.
+Y: açıklanan adımları kullanın [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/alert-metric.md) veri toplamayı durdurur bildirilmesini sağlamak için.
 
 Veri toplama durduğunda için uyarı oluştururken şu ayarları yapın:
 
@@ -231,4 +231,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Log Analytics ile çalışmaya başlama](log-analytics-get-started.md) Log Analytics hakkında daha fazla bilgi edinin ve dakikalar içinde çalışmaya başlayın.
+* [Log Analytics ile çalışmaya başlama](../azure-monitor/overview.md) Log Analytics hakkında daha fazla bilgi edinin ve dakikalar içinde çalışmaya başlayın.

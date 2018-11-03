@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f5db8c4e8137d9758113210ad433278eb8f5a2ee
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404078"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962138"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme
 
@@ -54,8 +54,8 @@ Diğer Log Analytics çözümlerinin çoğu farklı olarak, etkinlik günlükler
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| [Windows aracıları](log-analytics-windows-agent.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
-| [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
+| [Windows aracıları](log-analytics-agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
+| [Linux aracıları](log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Çözüm, Azure depolama biriminden bir bilgi toplamaz. |
 
@@ -67,7 +67,7 @@ Diğer Log Analytics çözümlerinin çoğu farklı olarak, etkinlik günlükler
 
 Etkinlik günlüğü analizi çözümü, çalışma alanları için yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
-1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
+1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../monitoring/monitoring-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
 2. Etkinlik günlüklerini Log Analytics çalışma alanınıza dönmek için yapılandırın.
     1. Azure portalında çalışma alanınızı seçin ve ardından **Azure etkinlik günlüğü**.
     2. Her abonelik için abonelik adına tıklayın.  
@@ -89,7 +89,7 @@ Tıklayın **Azure etkinlik günlüklerini** açmak için kutucuğa **Azure etki
 
 Etkinlik günlüğü verileri bir yalnızca görünür *sonra* etkinliği günlüklerinizi daha önce veri görüntüleyemezsiniz çözüme konulunca yapılandırdınız.
 
-| Dikey pencere | Açıklama |
+| Dikey penceresi | Açıklama |
 | --- | --- |
 | Azure etkinlik günlüğü girdileri | Azure etkinlik günlüğü girdisi üst çubuk grafik, seçtiğiniz tarih aralığı için kayıt toplamları gösterir ve en iyi 10 etkinlik çağıranlar listesini gösterir. Günlük araması çalıştırmak için çubuk grafiğe tıklayın <code>AzureActivity</code>. Bu öğe tüm etkinlik günlüğü girdilerini döndüren bir günlük araması gerçekleştirmek için arayan bir öğeye tıklayın. |
 | Duruma göre etkinlik günlükleri | Azure etkinlik günlüğü durumunun seçtiğiniz tarih aralığı için bir halka grafiği gösterir. Ayrıca üst on durum kayıtlarını içeren bir liste listesini gösterir. Günlük araması çalıştırmak için grafiği tıklatın <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Bu durum kaydını tüm etkinlik günlüğü girdilerini döndüren bir günlük araması gerçekleştirmek için bir durum öğesini tıklatın. |
@@ -100,5 +100,5 @@ Etkinlik günlüğü verileri bir yalnızca görünür *sonra* etkinliği günl�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Oluşturma bir [uyarı](log-analytics-alerts-creating.md) belirli bir etkinlik olduğunda gerçekleşir.
-- Kullanım [günlük araması](log-analytics-log-searches.md) , etkinlik günlüklerinden daha ayrıntılı bilgi görüntülemek için.
+- Oluşturma bir [uyarı](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) belirli bir etkinlik olduğunda gerçekleşir.
+- Kullanım [günlük araması](log-analytics-log-search.md) , etkinlik günlüklerinden daha ayrıntılı bilgi görüntülemek için.

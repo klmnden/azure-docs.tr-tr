@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 00ce57dbff749d4ee906e0e7dae1d828ef85326f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240146"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962070"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -154,7 +154,8 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
 
-*1809 güncelleştirmesi güncelleştirme sonrası adımları yoktur.*
+> [!Important]  
+> Azure Stack dağıtımınıza, sonraki güncelleştirme paketi tarafından etkinleştirilen uzantısı konağı için hazırlanın. Aşağıdaki yönergeleri kullanarak sisteminizi hazırlama [hazırlamak için Azure Stack için uzantısı konağı](azure-stack-extension-host-prepare.md).
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [Link to KB]()  

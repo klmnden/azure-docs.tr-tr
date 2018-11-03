@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299109"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962886"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow için Azure Application Insights işlemleri Bağlayıcısı ile otomatik hale getirin
 
@@ -47,7 +47,7 @@ Bu öğreticide, verileri bir web uygulaması için Grup öznitelikleri için An
 ### <a name="step-3-add-an-application-insights-action"></a>3. adım: Application Insights Eylem Ekle
 1. Tıklayın **yeni adım**ve ardından **Eylem Ekle**.
 1. Arama **Azure Application Insights**.
-1. Tıklayın **Azure Application Insights – görselleştirme Analytics sorgu Önizleme**.
+1. Tıklayın **Azure Application Insights - analiz görselleştirme sorgu Önizleme**.
 
     ![Analiz sorgusu penceresi](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -85,7 +85,7 @@ Kendi sorgularınızı oluşturduğunuzda, akışınıza eklemeden önce bunlar 
 
 1. Tıklayın **yeni adım**ve ardından **Eylem Ekle**.
 1. Arama **Office 365 Outlook**.
-1. Tıklayın **Office 365 Outlook-e-posta Gönder**.
+1. Tıklayın **Office 365 Outlook - e-posta Gönder**.
 
     ![Office 365 Outlook seçim penceresi](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -125,7 +125,7 @@ Akış çalıştırıldığında, e-posta listede belirttiğiniz alıcılara aş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Oluşturma hakkında daha fazla bilgi edinin [analiz sorguları](app-insights-analytics-using.md).
+- Oluşturma hakkında daha fazla bilgi edinin [analiz sorguları](../log-analytics/query-language/get-started-queries.md).
 - Daha fazla bilgi edinin [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

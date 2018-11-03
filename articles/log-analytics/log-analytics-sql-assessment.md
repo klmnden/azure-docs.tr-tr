@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: be2fd826ffa658ec04bd937036e37bf55cbf65a4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407733"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964144"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log analytics'te SQL Server sistem durumu denetimi çözümü SQL ortamınızla en iyi duruma getirme
 
@@ -53,7 +53,7 @@ Yapılan öneriler bilgi ve müşteri binlerce Microsoft mühendisinin göre kaz
 
 SQL Server sunucularda sistem durumu denetimi gerçekleştirmek için bunlar bir aracı ve aşağıdaki desteklenen yöntemlerden birini kullanarak Log analytics'e bağlantı gerektirir:
 
-1. Yükleme [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) sunucusu zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenen değil ise.
+1. Yükleme [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) sunucusu zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenen değil ise.
 2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubunu Log Analytics hizmeti ile tümleşik olmayan, sunucu verileri toplamak ve hala Hizmeti'ne iletmek için Log Analytics ile birden çok girişli olabilir Operations Manager tarafından izlenecek.  
 3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
 
@@ -184,7 +184,7 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+* [Arama günlüklerini](log-analytics-log-search.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.

@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634536"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958619"
 ---
-# <a name="deploy-the-vfxt-cluster"></a>VFXT kümesi dağıtma
+# <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
 VFXT kümesi oluşturmak için en kolay yolu gereken betikler, şablonları ve yazılım altyapı oluşturmak ve vFXT kümeyi yönetmek için olan bir sanal makine bir küme denetleyicisi kullanmaktır.
 
@@ -30,7 +30,7 @@ Küme dağıtım adımları ve planlama hakkında daha fazla bilgi için okuma [
 
 Bu belgedeki yönergeleri uyguladıktan sonra bir sanal ağ, bir alt ağ, bir denetleyici ve aşağıdaki çizimde gösterildiği gibi bir vFXT küme olacaktır:
 
-![İsteğe bağlı bir blob depolama ve üç içeren bir alt ağ içeren sanal ağ gösteren diyagram vFXT düğümleri/vFXT kümesi ve bir VM etiketli küme denetleyicisi etiketlenmiş Vm'lere gruplandırılmış](media/avere-vfxt-deployment-500px.png)
+![İsteğe bağlı bir blob depolama ve üç içeren bir alt ağ içeren sanal ağ gösteren diyagram vFXT düğümleri/vFXT kümesi ve bir VM etiketli küme denetleyicisi etiketlenmiş Vm'lere gruplandırılmış](media/avere-vfxt-deployment.png)
 
 Başlamadan önce şu önkoşulların giderdik emin olun:  
 
@@ -198,9 +198,7 @@ Ayrıca eksik bulabilirsiniz denetleyicisi VM bilgi sayfasına atarak bilgileri.
 
 Şablon çıkış Kaynak Yöneticisi'nden bu bilgileri bulmak için bu yordamı izleyin:
 
-1. Azure portal'ın üst çubukta bildirim simgesine **kaynak grubuna gidin**. Bu denetleyici ve vnet içeren yeni bir kaynak grubu gösterir.
-
-   ![Bildirimleri bölümü "Dağıtım başarılı oldu" ile portal, ileti ve "kaynak grubuna gidin" ve "Panoya Sabitle" düğmeleri](media/avere-vfxt-browse-to-rg.png)
+1. Küme denetleyiciniz için kaynak grubuna gidin.
 
 1. Sol taraftaki **dağıtımları**, ardından **Microsoft.Template**.
 

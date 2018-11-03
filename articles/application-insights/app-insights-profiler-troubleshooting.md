@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142565"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978851"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -46,16 +46,16 @@ Profil Oluşturucu, application ınsights kaynağınızın izleme iletileri ve �
 
 1. Dönem boyunca isteği yoksa profil oluşturucuyu çalışan, profil oluşturucu etkin olan, bir uygulama bölümü tarafından işlenen istekleri emin olun. Bazen uygulamaları birden çok bileşenden oluşur ancak Profiler yalnızca bazıları için değil, bileşenlerin tümünü etkindir. Application Insights Profiler ' ı yapılandırma sayfası izlemeleri karşıya yüklediğiniz bileşenleri gösterir.
 
-### <a name="net-core-21-bug"></a>**.Net Core 2.1 hata** 
+### <a name="net-core-21-bug"></a>.Net Core 2.1 hata
 İzlemeleri ASP.NET Core 2.1 üzerinde çalışan uygulamalardan alınan karşıya yükleme engelleyen Profil Oluşturucu aracı bir hata yoktur. Biz bir düzeltme üzerinde çalışıyoruz ve sahip olur, hazır olan en kısa sürede. Bu hata düzeltmesini Ekim sonuna dağıtılır.
 
-### <a name="other-things-to-check"></a>**Denetlenecek başka şeyler:**
+### <a name="other-things-to-check"></a>Denetlenecek başka şeyler:
 * Uygulamanızı .NET Framework 4.6 üzerinde çalışıyor.
 * Web uygulamanız için bir ASP.NET Core uygulaması ise, en az çalıştırmalıdır ASP.NET Core 2.0.
 * Görüntülemeye çalıştığınız veriler birkaç haftadır eskiyse, zaman filtrenizi görüntülemeyi deneyin ve yeniden deneyin. İzlemeleri yedi gün sonra silinir.
 * Olun proxy'leri veya bir güvenlik duvarı olması erişimi engelledi https://gateway.azureserviceprofiler.net.
 
-### <a id="double-counting"></a>**Çift paralel iş parçacığı sayımı**
+### <a id="double-counting"></a>Çift paralel iş parçacığı sayımı
 
 Bazı durumlarda, toplam süre ölçümü yığın Görüntüleyicisi'nde istek süresi büyük.
 
@@ -63,11 +63,11 @@ Bazı durumlarda, toplam süre ölçümü yığın Görüntüleyicisi'nde istek 
 
 Paralel iş parçacıkları, izlemelerinde gördüğünüzde, istek için kritik yolu olmadığından emin olmak için hangi iş parçacıkları bekleyen belirleyin. Çoğu durumda, iş parçacığı hızlı bir şekilde bir bekleme durumuna geçtiğinde yalnızca diğer iş parçacıkları üzerinde bekliyor. Diğer iş parçacıkları hakkında yoğunlaşabilirsiniz ve bekleyen iş parçacıklarının sürede yoksay.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**Profil oluşturma Görüntüleyicisi'nde hata raporu**
+### <a name="error-report-in-the-profile-viewer"></a>Profil Görüntüleyicisi'nde hata raporu
 Portalında bir destek bileti gönderin. Hata iletisindeki bağıntı Kimliğini eklediğinizden emin olun.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>Profiler uygulama hizmetlerinde sorunlarını giderme
-### <a name="for-the-profiler-to-work-properly"></a>**Düzgün çalışması profil oluşturucu için:**
+### <a name="for-the-profiler-to-work-properly"></a>Düzgün çalışması profil oluşturucu için:
 * Temel katman web app service planınızın olması gerekir veya üzeri.
 * Web uygulamanızı uygulama Hizmetleri (2.6.5) Application Insights uzantısının yüklü olması gerekir.
 * Web uygulamanızı olmalıdır **appınsıghts_ınstrumentatıonkey** Application Insights SDK'sı tarafından kullanılan aynı izleme anahtarı ile yapılandırılmış uygulama ayarı.
@@ -82,7 +82,7 @@ Portalında bir destek bileti gönderin. Hata iletisindeki bağıntı Kimliğini
     
     ![Profil Oluşturucu webjob günlüğü]
 
-### <a name="manual-installation"></a>**El ile yükleme**
+### <a name="manual-installation"></a>El ile yükleme
 
 Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar hale getirilir. Ortamınızı gerektiriyorsa, güncelleştirmelerin el ile uygulayabilirsiniz. Örnek uygulamanız PowerApps için Web Apps ortamda çalışıyor olabilir.
 
@@ -97,9 +97,9 @@ Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar 
 1. Yükleme **Application Insights** Azure Web uygulamaları Galerisi.
 1. Web uygulamasını yeniden başlatın.
 
-### <a name="too-many-active-profiling-sessions"></a>**Profil oluşturma çok fazla etkin oturumlar**
+### <a name="too-many-active-profiling-sessions"></a>Profil oluşturma çok fazla etkin oturumlar
 
-Şu anda en fazla dört Azure web uygulamaları ve aynı hizmet planında çalıştırdığınız dağıtım yuvalarını Profiler etkinleştirebilirsiniz. Profiler web işi profil oluşturma çok fazla etkin oturum yapıyorsa, bazı web uygulamaları, farklı hizmet planına taşıyın.
+Şu anda en fazla dört Azure web uygulamaları ve aynı hizmet planında çalıştırdığınız dağıtım yuvalarını Profiler etkinleştirebilirsiniz. Daha fazla web uygulaması, bir app service planında çalıştırmayı varsa, Profil Oluşturucu tarafından oluşturulan bir Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException görebilirsiniz. Profil Oluşturucu, her web uygulaması için ayrı olarak çalışır ve her uygulama için bir ETW oturumu başlatmak çalışır. Ancak aynı anda etkin olabilen ETW oturumlarına sınırlı sayıda vardır. Profiler web işi profil oluşturma çok fazla etkin oturum yapıyorsa, bazı web uygulamaları, farklı hizmet planına taşıyın.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Dağıtım hatası: Dizin boş değil ' D:\\giriş\\site\\wwwroot\\App_Data\\işlerin
 

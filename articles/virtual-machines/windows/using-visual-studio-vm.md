@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 934f9a7eb626c94ed35a17a5b385b850fbbbe537
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 1922475056fa79aafbf72c75c09eff19cea2b54b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542659"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978460"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure'da Visual Studio görüntüleri
 Önceden yapılandırılmış Azure sanal makineler'de (VM) Visual Studio kullanarak herhangi bir şey bir yukarı ve çalışan geliştirme ortamına gitmek için hızlı ve kolay bir yoludur. Sistem görüntüleri farklı Visual Studio yapılandırmalarıyla kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -34,8 +34,8 @@ En son ana sürümleri, Visual Studio 2017 ve Visual Studio 2015 için görünt�
 
 | Yayın sürümü                                              | Sürümleri                     |     Ürün sürümü     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: En son (sürüm 15,8)                    |    Kurumsal ve topluluk     |      Sürüm 15.8.4     |
-| Visual Studio 2017: En son Önizleme (sürüm 15.9, Önizleme 2) |    Kurumsal ve topluluk     |      Sürüm 15.9.0     |
+| Visual Studio 2017: En son (sürüm 15,8)                    |    Kurumsal ve topluluk     |      Sürüm 15.8.7     |
+| Visual Studio 2017: En son Önizleme (sürüm 15.9, Preview 5) |    Kurumsal ve topluluk     |      Sürüm 15.9.0     |
 |         Visual Studio 2017: RTW                              |    Kurumsal ve topluluk     |      Sürüm 15.0.18    |
 |   Visual Studio 2015: En son (Aktualizace 3)                      |    Kurumsal ve topluluk     |  Sürüm 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             None             | (Bakım için süresi doldu) |

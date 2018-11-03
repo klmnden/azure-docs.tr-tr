@@ -3,18 +3,18 @@ title: Azure Stream Analytics kullanan IoT gerçek zamanlı veri akışları
 description: Akış analizi ve gerçek zamanlı veri işleme ile birlikte IoT algılayıcı etiketleri ve veri akışları
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ea4d33b569ae0932d6091869c4825cf2b5e69664
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 8a4e5b180438203e345ef6c5323ab010f4757c0e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697722"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978085"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
 Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fa73062cc2fdfa3704088f37b2e4856e134a6dfe
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470329"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979038"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -143,6 +143,12 @@ Proxy ayarlarınız doğru ise proxy sunucu yöneticinize başvurmanız gerekebi
 ## <a name="unable-to-retrieve-children-error-message"></a>"Alma alt oluşturulamıyor" hata iletisi
 
 Bir ara sunucu Azure'a bağlıysa, proxy ayarlarınızın doğru olduğunu doğrulayın. Bir kaynak için abonelik veya hesap sahibinden erişim verilmiş, okuma veya bu kaynak için izinler listesinde doğrulayın.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Bağlantı dizesi tam yapılandırma ayarları yok
+
+Bu hata iletisini alırsanız, depolama hesabı anahtarlarını almak için gerekli izinlere sahip değilsiniz mümkündür. Durumun bu olup olmadığını onaylamak için portala gidin ve depolama hesabınızı bulun. Hızlı depolama hesabınız için bir düğüme sağ tıklayın ve "Portalını açın,"'i tıklatarak bunu yapabilirsiniz. Bunu yaptığınızda, "Erişim anahtarlar" dikey penceresine gidin. Anahtarlarını görüntülemek için izinleri yoksa, "Erişim hakkınız yok" iletisi içeren bir sayfa görürsünüz. Geçici çözüm bu sorunu ya da hesap anahtarı başka birinden alabilir ve adı ve anahtarı ile eklemek veya bir SAS depolama hesabı için birisinden ve depolama hesabı eklemek için kullanın.
+
+Hesap anahtarlarını görürseniz, sorunu gidermenize yardımcı olabiliriz şekilde sonra lütfen bir Github'da sorun kaydedebilir.
 
 ## <a name="issues-with-sas-url"></a>SAS URL ile ilgili sorunlar
 Bir SAS URL'sini kullanarak ve bu hatanın bir hizmeti bağlanıyorsanız:

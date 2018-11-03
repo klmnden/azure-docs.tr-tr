@@ -5,16 +5,16 @@ keywords: Azure HDInsight, Storm, SSS, sorun giderme kılavuzu, yaygın sorunlar
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-ms.author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: cad9e6ceb22ab66b5a3fe00358eb6b6170a3f29f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 291d292a67dc42b96e14f0d3afc7a9625f7e5be6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049596"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960915"
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Storm sorunlarını giderme
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 9a902aef0f4605c51e8dbbab49639997066be705
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423521"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961068"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log analytics'te özel günlükler
 Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek.  Toplandığında, her bir kayıtta tek tek alanları kullanarak oturum açma ayrıştırabilirsiniz [özel alanlar](log-analytics-custom-fields.md) Log Analytics özelliğidir.
@@ -182,4 +182,4 @@ Bir sorgu kullandığımız *türü MyApp_CL =* toplanan günlük tüm kayıtlar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kullanım [özel alanlar](log-analytics-custom-fields.md) tek tek alanları için özel oturum açma girişleri ayrıştırılamıyor.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.

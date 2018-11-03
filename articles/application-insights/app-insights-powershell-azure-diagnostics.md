@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: 0a95da39b73201ea15bd6d3be64de9a12571028d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e2ec165d0183510487744bc98e31688eb5de0f8c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095194"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959265"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Bir Azure web uygulaması için Application Insights’ı kurmak üzere PowerShell’i kullanma
-[Microsoft Azure](https://azure.com), [Azure Application Insights](app-insights-overview.md)'a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](app-insights-azure-diagnostics.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
+[Microsoft Azure](https://azure.com), [Azure Application Insights](app-insights-overview.md)'a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
 
 ## <a name="azure-template"></a>Azure şablonu
 web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kaynaklarınızı oluşturuyorsanız, bunu kaynak düğümüne ekleyerek Application Insights’ı yapılandırabilirsiniz:
@@ -136,6 +136,6 @@ Tanılama uzantısını her bir rolden kaldırmak için:
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Application Insights’la Azure Cloud Services uygulamalarını izleme](app-insights-cloudservices.md)
-* [Azure Tanılama verilerini Application Insights’a gönderme](app-insights-azure-diagnostics.md)
+* [Azure Tanılama verilerini Application Insights’a gönderme](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Yapılandırma uyarılarını otomatik hale getirme](app-insights-powershell-alerts.md)
 

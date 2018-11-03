@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9c2b5db4fe35227600e7ab8d94f2cc8701cf529b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402949"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963793"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı'ndan Nagios ve Zabbix'ten Log analytics'te uyarıları Topla 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
  
 ## <a name="prerequisites"></a>Önkoşullar
 Linux için Log Analytics aracısını sürümüne Nagios toplama uyarıları destekleyen 4.2.x ve Zabbix sürümüne 2.x.
@@ -80,7 +80,7 @@ Nagios sunucuda uyarıları toplamak için aşağıdaki adımları gerçekleşti
 
 
 ## <a name="alert-records"></a>Uyarı kayıtları
-Nagios ve Zabbix uyarı kayıtları alabilir kullanarak [günlük aramaları](log-analytics-log-searches.md) Log analytics'te.
+Nagios ve Zabbix uyarı kayıtları alabilir kullanarak [günlük aramaları](log-analytics-log-search.md) Log analytics'te.
 
 ### <a name="nagios-alert-records"></a>Nagios uyarı kayıtları
 
@@ -118,5 +118,5 @@ Zabbix tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [uyarılar](log-analytics-alerts.md) Log analytics'te.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Hakkında bilgi edinin [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) Log analytics'te.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

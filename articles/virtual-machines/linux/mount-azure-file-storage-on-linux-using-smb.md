@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982214"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958687"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure dosya depolama bağlama SMB kullanarak Linux vm'lerinde
 
@@ -100,6 +100,7 @@ Azure dosya paylaşımını yerel dizine bağlayın.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+Yukarıdaki komut [bağlama](https://linux.die.net/man/8/mount) özgü seçenekleri ve Azure dosya paylaşımını bağlamak için komutu [CIFS](https://linux.die.net/man/8/mount.cifs). Özellikle, file_mode ve dir_mode = seçenekleri kümesi dosyalar ve dizinler izni `0777`. `0777` Okuma, yazma ve Yürütme izinleri tüm kullanıcılara izin verir. Bu izinleri diğer değerleri değiştirerek değiştirebilirsiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod). Ayrıca diğer kullanabilirsiniz [CIFS](https://linux.die.net/man/8/mount.cifs) GID veya uid gibi seçenekleri. 
 
 
 ## <a name="persist-the-mount"></a>Kalıcı bağlama

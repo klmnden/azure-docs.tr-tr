@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b7b8734e648e79ab22a6783e7fab31e942f08eb4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 11307e3c0dbf831a03b5f7685b8e44f03f8d242e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418441"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957240"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell ile bir Log Analytics çalışma alanı oluşturma
 
@@ -131,4 +131,4 @@ Bir çalışma alanı kullanılabilir olduğuna göre telemetri izleme koleksiyo
 * Azure Tanılama veya Azure depolama ile Azure kaynaklarından veri toplamayı etkinleştirmek için bkz: [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](log-analytics-azure-storage.md).  
 * Ekleme [System Center Operations Manager veri kaynağı olarak](log-analytics-om-agents.md) , Operations Manager yönetim grubuna bildirimde bulunan aracılardan veri toplamak ve Log Analytics çalışma alanınızda depolamak için.  
 * Connect [Configuration Manager](log-analytics-sccm.md) hiyerarşideki koleksiyona üye olan bilgisayarlara aktarmak için.  
-* Gözden geçirme [yönetim çözümleri](log-analytics-add-solutions.md) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.
+* Gözden geçirme [yönetim çözümleri](../monitoring/monitoring-solutions.md) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.

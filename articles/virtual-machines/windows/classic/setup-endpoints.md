@@ -13,25 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 10/23/2018
 ms.author: cynthn
-ms.openlocfilehash: cca9adb40557cf7bf9e1d4129fc6bd61cbf0df4f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 373003eb8be0482ed96d7d11ecd879237f69b47a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618248"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957174"
 ---
-# <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Azure'da klasik bir Windows sanal makinesinde uç noktaları ayarlama yapma
-Klasik dağıtım modelini kullanarak Azure'da oluşturduğunuz sanal makinelere otomatik olarak için tüm Windows üzerinde özel bir ağ kanalının aynı bulut hizmetinde veya sanal ağı diğer sanal makinelerle iletişim kurar. Ancak uç noktaları bir sanal makineye gelen ağ trafiği yönlendirmek için İnternet'te veya diğer sanal ağlara bilgisayarlarda gerektirir. Bu makale için de kullanılabilir olan [Linux sanal makineleri](../../linux/classic/setup-endpoints.md).
+# <a name="set-up-endpoints-on-a-windows-virtual-machine-by-using-the-classic-deployment-model"></a>Klasik dağıtım modelini kullanarak Windows sanal makinesinde uç noktaları ayarlama
+Klasik dağıtım modelini kullanarak Azure'da oluşturduğunuz Windows sanal makineleri (VM'ler) otomatik olarak özel bir ağ kanalı diğer vm'lerle aynı bulut hizmetinde veya sanal ağ üzerinden iletişim kurabilir. Ancak internet veya diğer sanal ağlara bilgisayarlarda bir VM'ye gelen ağ trafiği yönlendirmek için uç noktalar gerektirir. 
+
+Uç noktaları ayarlama üzerinde de ayarlayabilirsiniz [Linux sanal makineleri](../../linux/classic/setup-endpoints.md).
 
 > [!IMPORTANT]
-> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makale, klasik dağıtım modelini kapsamaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.  
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-İçinde **Resource Manager** dağıtım modelini kullanarak uç noktaları yapılandırılmış **ağ güvenlik grupları (Nsg'ler)**. Daha fazla bilgi için [Azure portalını kullanarak sanal makinelerinize dış erişime izin vermek](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+İçinde **Resource Manager** dağıtım modeli, uç noktaları kullanılarak yapılandırılır **ağ güvenlik grupları (Nsg'ler)**. Daha fazla bilgi için [Azure portalını kullanarak, bir VM'ye dış erişim izni ver](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Azure portalında bir Windows sanal makine oluşturduğunuzda, Uzak Masaüstü ve Windows PowerShell uzaktan iletişimini yönelik olanlar gibi ortak uç noktaları genellikle sizin için otomatik olarak oluşturulur. Sanal makine oluştururken veya daha sonra gerektiğinde ek uç noktası yapılandırabilirsiniz.
+Azure portalında bir Windows VM oluşturduğunuzda, Uzak Masaüstü ve Windows PowerShell uzaktan iletişimini uç noktaları gibi ortak uç noktaları genellikle sizin için otomatik olarak oluşturulur. Daha sonra gerektiğinde, ek uç noktalar yapılandırabilirsiniz.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB'de Jeo-uzamsal veri ile çalışma | Microsoft Docs
+title: Azure Cosmos DB SQL API hesabı Jeo-uzamsal verilerle çalışmaya | Microsoft Docs
 description: Dizin oluşturma ve Azure Cosmos DB ve SQL API'si ile uzamsal nesnelerini sorgula öğrenin.
 services: cosmos-db
 author: SnehaGunda
@@ -7,18 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 11/01/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b1dcd9ba428618e1b234d76d5ad459eab0662aa
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417574"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961917"
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Jeo-uzamsal ve Azure Cosmos DB'de GeoJSON konum verileri ile çalışma
-Bu makale Jeo-uzamsal işlevler için giriş niteliğindedir [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Bu okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:
+# <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı ile Jeo-uzamsal ve GeoJSON konum verileri kullanın
+
+Bu makalede, Azure Cosmos DB Jeo-uzamsal işlevler için giriş niteliğindedir. Şu anda depolamak ve Jeo-uzamsal veri erişimi yalnızca Cosmos DB SQL API hesabı tarafından desteklenir. Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:
 
 * Azure Cosmos DB'de nasıl uzamsal veri depoluyor?
 * Azure Cosmos DB'de SQL ve LINQ Jeo-uzamsal verileri nasıl sorgulama yapabilirsiniz?
@@ -133,9 +133,6 @@ public class UserProfile
     [JsonProperty("location")]
     public Point Location { get; set; }
 
-    [JsonProperty("profiletype")]
-    public string ProfileType { get; set; }
-
     // More properties
 }
 
@@ -197,7 +194,7 @@ Uzamsal İşlevler, uzamsal veri yakınlık sorguları gerçekleştirmek için k
       "id": "WakefieldFamily"
     }]
 
-Uzamsal dizin oluşturma ilkenizi dizin oluşturma dahil, "uzaklık sorguları" verimli bir şekilde dizini alabilecektir. Uzamsal dizin oluşturma hakkında ayrıntılı bilgi için aşağıdaki bölümüne bakın. Bir uzamsal dizin için belirtilen yollara sahip değilseniz, hala uzamsal sorgular belirterek gerçekleştirebilirsiniz `x-ms-documentdb-query-enable-scan` istek üst bilgisi "true" değeri olarak ayarlanmış. . NET'te, bu isteğe bağlı olarak geçirerek yapılabilir **FeedOptions** sorgularla bağımsız değişkeni [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) true olarak ayarlanmış. 
+Uzamsal dizin oluşturma ilkenizi dizin oluşturma dahil, "uzaklık sorguları" verimli bir şekilde dizini alabilecektir. Uzamsal dizin oluşturma ile ilgili daha fazla bilgi için aşağıdaki bölümüne bakın. Bir uzamsal dizin için belirtilen yollara sahip değilseniz, hala uzamsal sorgular belirterek gerçekleştirebilirsiniz `x-ms-documentdb-query-enable-scan` istek üst bilgisi "true" değeri olarak ayarlanmış. . NET'te, bu isteğe bağlı olarak geçirerek yapılabilir **FeedOptions** sorgularla bağımsız değişkeni [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) true olarak ayarlanmış. 
 
 ST_WITHIN bir noktası Çokgen içinde kaynaklandığını, kontrol etmek için kullanılabilir. Yaygın olarak çokgenler, posta kodları, durumu sınırları veya doğal formations gibi sınırlarını temsil etmek için kullanılır. Uzamsal dizin oluşturma ilkenizi dizin oluşturma dahil, yeniden ardından "içinde" sorguları verimli bir şekilde dizini alabilecektir. 
 
@@ -279,7 +276,7 @@ SQL .NET SDK'sını da sağlayıcıları yöntem Saplaması `Distance()` ve `Wit
 **LINQ sorgusu için uzaklık**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

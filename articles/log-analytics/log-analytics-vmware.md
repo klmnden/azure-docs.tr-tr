@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 38537f3e2884160a99d333f1414d3f45755cd4f9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9b0a9b8c976ce5ef9fb57a6f8bcfd076f370bb10
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404622"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964008"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
 
@@ -42,7 +42,7 @@ Log analytics'te VMware izleme çözümü, Merkezi günlük kaydı ve büyük VM
 vSphere ESXi konağına 5.5, 6.0 ve 6.5
 
 #### <a name="prepare-a-linux-server"></a>Bir Linux sunucusu hazırlama
-Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [Log Analytics Linux Aracısı](log-analytics-linux-agents.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.
+Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [Log Analytics Linux Aracısı](log-analytics-quick-collect-linux-computer.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
@@ -131,7 +131,7 @@ VMware kutucuk, Log Analytics çalışma alanınızda görünür. Bu, hataları 
 
 Ayrıntılı bilgi dikey belirli gösteren Log Analytics arama bölmesini açmak için istediğiniz dikey pencereye tıklayın.
 
-Buradan, belirli bir şey değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te günlük aramaları kullanarak verileri bulmak](log-analytics-log-searches.md).
+Buradan, belirli bir şey değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te günlük aramaları kullanarak verileri bulmak](log-analytics-log-search.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi ana etkinlik bulun
 Tek bir ESXi ana bilgisayarı, kendi işlemleri temel alan birden fazla günlük oluşturur. VMware izleme çözümü, bunları merkezileştirir ve de olay sayılarını özetler. Bu merkezi görünüm hangi ESXi ana bilgisayarına fazla miktarda olay varsa ve hangi olayların ortamınızda en sık gerçekleşen anlamanıza yardımcı olur.
@@ -165,7 +165,7 @@ Arama sorguları kaydetme, Log Analytics standart bir özelliktir ve yararlı bu
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Uyarı sorguları oluşturma
-Sorgularınızın oluşturduktan sonra belirli olaylar meydana geldiğinde, sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [Log analytics'teki uyarılar](log-analytics-alerts.md) uyarılar oluşturma hakkında daha fazla bilgi için. Sorguları ve diğer sorgu örnekleri uyarı örnekleri için bkz: [İzleyici Log Analytics kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog gönderisi.
+Sorgularınızın oluşturduktan sonra belirli olaylar meydana geldiğinde, sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [Log analytics'teki uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) uyarılar oluşturma hakkında daha fazla bilgi için. Sorguları ve diğer sorgu örnekleri uyarı örnekleri için bkz: [İzleyici Log Analytics kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog gönderisi.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Ayarı üzerinde ESXi ana bilgisayar ne gerekiyor? Hangi etki alanım geçerli ortamda gerekir mi?
@@ -206,6 +206,6 @@ Birden çok nedeni olabilir:
     d. Dosya yok veya kullanıcı ve grup ayarı yanlış tarafından düzeltici varsa [bir Linux sunucusu hazırlama](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük aramaları](log-analytics-log-searches.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.
+* Kullanım [günlük aramaları](log-analytics-log-search.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.
 * [Kendi panolarınızı oluşturun](log-analytics-dashboards.md) VMware konak veriler gösteriliyor.
-* [Uyarı oluşturma](log-analytics-alerts.md) belirli VMware konak olaylar gerçekleştiğinde.
+* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) belirli VMware konak olaylar gerçekleştiğinde.

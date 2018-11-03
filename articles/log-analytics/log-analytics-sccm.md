@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad5721ff7304629ba786b1fed308ccb05b4a5211
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418084"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962733"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -69,7 +69,7 @@ Log Analytics bağlantısı eklemek için Configuration Manager ortamınızı ol
    
 2. Üzerinde **genel** aşağıdaki eylemleri yaptığınız her öğenin ayrıntılarını sahip ve ardından seçin ve onaylayın **sonraki**.
 
-   1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydettiğinize göre ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydettiğinize göre ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
    2. Azure portalında Azure Active Directory'de kayıtlı uygulama için bir uygulama gizli anahtarı oluşturdunuz.  
    3. Azure portalında Log Analytics erişim iznine kayıtlı web uygulaması sağladık.  
       ![Log Analytics Sihirbazı genel sayfası bağlantısı](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ Koleksiyonları içeri aktarıldıktan sonra kaç koleksiyon üyelikleri bilgisa
 
 ![Bilgisayar grupları - SCCM sekmesi](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Tek tıkladığınızda, tüm içeri aktarılan gruplarının ya da her gruba ait tüm bilgisayarların görüntüleyen arama açılır. Kullanarak [günlük araması](log-analytics-log-searches.md), Configuration Manager verilerini detaylı olarak çözümlenmesi başlayabilirsiniz.
+Tek tıkladığınızda, tüm içeri aktarılan gruplarının ya da her gruba ait tüm bilgisayarların görüntüleyen arama açılır. Kullanarak [günlük araması](log-analytics-log-search.md), Configuration Manager verilerini detaylı olarak çözümlenmesi başlayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük araması](log-analytics-log-searches.md) Configuration Manager verileriniz hakkında ayrıntılı bilgi görüntülemek için.
+* Kullanım [günlük araması](log-analytics-log-search.md) Configuration Manager verileriniz hakkında ayrıntılı bilgi görüntülemek için.

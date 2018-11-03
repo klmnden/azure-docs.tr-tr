@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406543"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962546"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM yedekleme yığını v2'ye yükseltme
 
@@ -28,8 +28,8 @@ Resource Manager dağıtım modeli sanal makine (VM) yedekleme yığını yükse
 
 * Yönetilmeyen bir sanal makinenin özgün depolama hesaplarına geri yüklerken kullanabilme özelliği. Depolama hesabı arasında dağıtılmış diskleri VM olsa bile bu özelliği var. Çok çeşitli sanal makine yapılandırmaları için geri yükleme işlemlerini hızlandırır.
     > [!NOTE]
-    > Bu özellik, veri kurtarma noktasından sanal makinenin diskleri yerine olarak aynı değil. 
-    
+    > Bu özellik, veri kurtarma noktasından sanal makinenin diskleri yerine olarak aynı değil.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>Yeni yığın içinde değişen nedir?
 Şu anda, yedekleme işini iki aşamadan oluşur:
@@ -55,7 +55,7 @@ Varsayılan olarak, anlık görüntüler yedi gün boyunca tutulur. Bu özellik,
 * Premium depolama hesapları için anında kurtarma noktalarının sayısı 10 TB sınırını doğrultusunda için alınan anlık görüntülere ayrılmış alanı.
 
 > [!NOTE]
-> Azure VM yedekleme yığını V2 için Azure Backup destek alma yükseltme [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) ve en fazla 32 veri diski içeren sanal makineleri.
+> Azure Backup destek almak için Azure VM yedekleme yığını v2'ye yükseltme [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## <a name="upgrade"></a>Yükseltme
 ### <a name="the-azure-portal"></a>Azure portal
@@ -119,4 +119,4 @@ Her gün yeni bir anlık görüntü alınır. Yedi bireysel anlık görüntüler
 Artımlı anlık yönetilmeyen diskler için kullanılır. Yönetilen diskler için Azure Backup kullanan tarafından oluşturulan koleksiyon blob anlık görüntüleri ve bu nedenle, artımlı bir noktaya geri yükleme.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Standart SSD almak nasıl bir sanal makine için disk desteği yönetiliyor?
-Azure Backup destek almak için Azure VM yedekleme yığını v2'ye yükseltme [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Yükseltmeden sonra da en fazla 32 veri diski içeren sanal makineleri yedekleyebilirsiniz.
+Azure Backup destek almak için Azure VM yedekleme yığını v2'ye yükseltme [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).

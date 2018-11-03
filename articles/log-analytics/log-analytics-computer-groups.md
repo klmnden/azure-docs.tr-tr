@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: bb95caf7f50b52d2c423de31d4fda701f4c16b40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408549"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963792"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Bilgisayar grupları Log analytics'te günlük aramaları
 
-Log analytics'te bilgisayar grupları kapsamına izin [günlük aramaları](log-analytics-log-search-new.md) bilgisayarlar belirli bir dizi.  Her Grup ya da tanımladığınız bir sorgu kullanarak bilgisayarları veya grupları alarak farklı kaynaktaki doldurulur.  Grubun bir günlük aramasına dahil olduğu zaman sonuçları gruptaki bilgisayarlara eşleşen kayıtları sınırlıdır.
+Log analytics'te bilgisayar grupları kapsamına izin [günlük aramaları](log-analytics-log-search.md) bilgisayarlar belirli bir dizi.  Her Grup ya da tanımladığınız bir sorgu kullanarak bilgisayarları veya grupları alarak farklı kaynaktaki doldurulur.  Grubun bir günlük aramasına dahil olduğu zaman sonuçları gruptaki bilgisayarlara eşleşen kayıtları sınırlıdır.
 
 ## <a name="creating-a-computer-group"></a>Bir bilgisayar grubu oluşturuluyor
 Aşağıdaki tabloda yöntemlerden birini kullanarak Log analytics'te bilgisayar grubu oluşturabilirsiniz.  Aşağıdaki bölümlerde her yöntemi hakkında ayrıntılı bilgi sağlanır. 
@@ -136,5 +136,5 @@ Active Directory veya WSUS oluşturulan her bilgisayar grup üyeliğini için Lo
 | TimeGenerated |Tarih ve saat bilgisayar grubu oluşturulduğunda veya güncelleştirildiğinde. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
 

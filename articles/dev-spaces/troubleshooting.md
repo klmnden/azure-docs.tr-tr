@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 09/11/2018
 ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-manager: douge
-ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bca818cb4e13066f8a631111b75f50384e521ac1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353367"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978902"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -231,6 +230,16 @@ Helm istemci artık kümede çalışan Tiller pod konuşabilirsiniz değilse bu 
 
 ### <a name="try"></a>Deneyin:
 Genellikle, kümenizin aracı düğümleri yeniden başlatılıyor, bu sorunu çözer.
+
+## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Bir geliştirme alanında çalışan diğer pod'ları ile Azure geliştirme alanları proxy etkileyebilir
+
+### <a name="reason"></a>Neden
+AKS kümenizde bir ad alanı üzerinde geliştirme alanları etkinleştirdiğinizde, ek bir kapsayıcı olarak adlandırılan _mindaro proxy_ her biri, ad alanı içinde çalışan pod'ların yüklenir. Bu kapsayıcı geliştirme alanları takım geliştirme özellikleri için tam sayı olan pod Hizmetleri'nde çağrılarını karşılar.
+
+Ne yazık ki bu pod'ların çalışan belirli hizmetleri ile engelleyebilir. Özellikle, Redis Önbelleği'ni çalıştıran, yönetici/bağımlı iletişim bağlantısı hataları neden pod'ları ile uğratır.
+
+### <a name="try"></a>Deneyin:
+Etkilenen pod(s) yapan küme içinde bir ad alanına taşıyabilirsiniz _değil_ geliştirme rest geliştirme alanları özellikli bir ad alanı içinde uygulamanızın çalışmaya devam ederken, etkin boşluk. Geliştirme alanları yüklemez _mindaro proxy_ kapsayıcı geliştirme olmayan alanları içinde etkin ad alanları.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure geliştirme alanları bir kapsayıcı oluşturmak için var olan my Dockerfile kullanmak gibi görünüyor 
 

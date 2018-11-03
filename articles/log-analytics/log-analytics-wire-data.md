@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 61ceea60962acc2e1ec032df49683e8a28381dd7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f2ced1d6e5a7368fbf136d31889a763b3306e37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405370"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964077"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics'te Wire Data 2.0 (Önizleme) çözümü
 
@@ -33,7 +33,7 @@ Log Analytics aracısını ek olarak kablo verileri çözüm BT altyapınıza bi
 >[!NOTE]
 >Hizmet eşlemesi zaten dağıtmış olan veya hizmet eşlemesi dikkate veya [VM'ler için Azure İzleyici](../monitoring/monitoring-vminsights-overview.md), yeni bir bağlantı ölçümleri veri toplamak ve iletilen verilerle karşılaştırılabilir bilgi sağlayan bir Log Analytics deposunda kümesi yok.
 
-Varsayılan olarak, Log Analytics Windows ve Linux'ın yerleşik sayaçlarıyla belirttiğiniz diğer performans sayaçlarından gelen CPU, bellek, disk ve ağ performansına ilişkin verileri günlüğe kaydeder. Her aracı için, alt ağlar ve bilgisayar tarafından kullanılmakta olan uygulama düzeyi protokoller de dahil olmak üzere, ağ ve diğer verileri toplama işlemi gerçek zamanlı olarak yapılır.  Wire Data, alttaki TCP aktarım katmanında değil uygulama düzeyindeki ağ verilerine bakar.  Çözüm tek tek ACK'lere ve SYN'lere bakmaz.  Karşılıklı anlaşma tamamlandıktan sonra, bu canlı bir bağlantı olarak kabul edilir ve Bağlandı olarak işaretlenir. Söz konusu bağlantı, her iki taraf da yuvanın açık olduğunu ve verilerin ileri ve geri geçiş yapabildiğini kabul ettiği sürece canlı kalır.  İki taraftan biri bağlantıyı kapatınca Bağlantı Kesildi olarak işaretlenir.  Bu nedenle, yalnızca başarıyla tamamlanan paketlerin bant genişliğini sayar; yeniden göndermeleri veya başarısız paketleri raporlamaz.
+Varsayılan olarak, Log Analytics Windows ve Linux'ın yerleşik sayaçlarıyla belirttiğiniz diğer performans sayaçlarından gelen CPU, bellek, disk ve ağ performansına ilişkin verileri günlüğe kaydeder. Her aracı için, alt ağlar ve bilgisayar tarafından kullanılmakta olan uygulama düzeyi protokoller de dahil olmak üzere, ağ ve diğer verileri toplama işlemi gerçek zamanlı olarak yapılır.  Wire Data, alttaki TCP aktarım katmanında değil uygulama düzeyindeki ağ verilerine bakar.  Çözüm tek tek ACK'lere ve SYN'lere bakmaz.  Karşılıklı anlaşma tamamlandıktan sonra, bu canlı bir bağlantı olarak kabul edilir ve Bağlandı olarak işaretlenir. Söz konusu bağlantı, her iki taraf da yuvanın açık olduğunu ve verilerin ileri ve geri geçiş yapabildiğini kabul ettiği sürece canlı kalır.  İki taraftan biri bağlantıyı kapatınca Bağlantı Kesildi olarak işaretlenir.  Bu nedenle, yalnızca başarıyla tamamlanan paketlerin bant genişliğini sayar; yeniden göndermeleri veya başarısız paketleri raporlamaz.
 
 [Cisco'nun NetFlow protokolüyle](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html) [sFlow](http://www.sflow.org/)'u veya başka bir yazılımı kullandıysanız, sinyal verilerinden gördüğünüz istatistikler ve veriler tanıdık gelecektir.
 
@@ -60,7 +60,7 @@ Wire Data verilerini Microsoft Bağımlılık Aracısı'ndan alır. Log Analytic
 
 | **Bağlı kaynak** | **Destekleniyor** | **Açıklama** |
 | --- | --- | --- |
-| Windows aracıları | Evet | Wire Data, Windows aracı bilgisayarlarından gelen verileri analiz eder ve toplar. <br><br> Ek olarak [Windows için Log Analytics aracısını](log-analytics-windows-agent.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems). |
+| Windows aracıları | Evet | Wire Data, Windows aracı bilgisayarlarından gelen verileri analiz eder ve toplar. <br><br> Ek olarak [Windows için Log Analytics aracısını](log-analytics-agent-windows.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems). |
 | Linux aracıları | Evet | Wire Data, Linux aracı bilgisayarlarından gelen verileri analiz eder ve toplar.<br><br> Ek olarak [Linux için Log Analytics aracısını](log-analytics-quick-collect-linux-computer.md), Linux aracıları Microsoft bağımlılık Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems). |
 | System Center Operations Manager yönetim grubu | Evet | Wire Data, bağlantılı bir [System Center Operations Manager yönetim grubunda](log-analytics-om-agents.md) Windows ve Linux aracılarından gelen verileri analiz eder ve toplar. <br><br> System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
 | Azure depolama hesabı | Hayır | Wire Data verileri aracı bilgisayarlardan topladığından, Azure Depolama'dan toplayacağı veri yoktur. |
@@ -197,7 +197,7 @@ Aşağıdaki bölümlerde Bağımlılık Aracısı için desteklenen işletim si
 
 Çalışma alanlarınızda Wire Data çözümünü yapılandırmak için aşağıdaki adımları uygulayın.
 
-1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
+1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../monitoring/monitoring-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
 2. Veri almak istediğiniz her bilgisayara Bağımlılık Aracısı'nı yükleyin. Bağımlılık Aracısı en yakındaki komşularla bağlantıları izleyebildiğinden her bilgisayarda bir aracıya ihtiyacınız olmayabilir.
 
 > [!NOTE]
@@ -211,7 +211,7 @@ Bağımlılık Aracısı, Windows çalıştıran bilgisayarlara InstallDependenc
 
 Windows çalıştıran her bilgisayara Bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
-1. Yükleme adımlarını izleyerek Log Analytics aracısını [ortamınızda barındırılan Windows bilgisayarlardan verileri toplama](log-analytics-windows-agent.md).
+1. Yükleme adımlarını izleyerek Log Analytics aracısını [ortamınızda barındırılan Windows bilgisayarlardan verileri toplama](log-analytics-agent-windows.md).
 2. Önceki bölümde verilen bağlantıyı kullanarak Windows Bağımlılık Aracısı'nı indirin ve ardından şu komutu kullanarak aracıyı çalıştırın: `InstallDependencyAgent-Windows.exe`
 3. Sihirbazı izleyerek aracıyı yükleyin.
 4. Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracıları için günlük dizini: %Programfiles%\Microsoft Dependency Agent\logs.
@@ -373,7 +373,7 @@ Yönetim paketinin adı Microsoft.IntelligencePacks.ApplicationDependencyMonitor
 
 - Wire Data çözümü Windows Server 2012 R2, Windows 8.1 ve daha sonraki işletim sistemlerini çalıştıran bilgisayarlardan veri alır.
 - Sinyal verilerini almak istediğiniz bilgisayarlarda Microsoft .NET Framework 4.0 veya üstü bulunmalıdır.
-- [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md) başlığı altında açıklanan işlemi kullanarak Wire Data çözümünü Log Analytics çalışma alanınıza ekleyin. Başka bir yapılandırma işlemi gerekmez.
+- [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../monitoring/monitoring-solutions.md) başlığı altında açıklanan işlemi kullanarak Wire Data çözümünü Log Analytics çalışma alanınıza ekleyin. Başka bir yapılandırma işlemi gerekmez.
 - Belirli bir çözümle ilişkili sinyal verilerini görüntülemek istiyorsanız, çözümün çalışma alanınıza önceden eklenmiş olması gerekir.
 
 Aracılarınız yüklendikten ve siz çözümü yükledikten sonra, çalışma alanınızda Wire Data 2.0 kutucuğu gösterilir.
@@ -451,4 +451,4 @@ Her giriş verileri türü için _WireData_ türünde bir kayıt oluşturulur. A
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ayrıntılı sinyal verileri arama kayıtlarını görüntülemek için [günlüklerde arama yapın](log-analytics-log-searches.md).
+- Ayrıntılı sinyal verileri arama kayıtlarını görüntülemek için [günlüklerde arama yapın](log-analytics-log-search.md).

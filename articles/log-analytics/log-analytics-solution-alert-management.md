@@ -15,28 +15,28 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 29cc2cdc13d07d97bb1da872cbf53ea5353a0e16
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: e0bc49fb3b85decb97366b62771a191702149b1a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044595"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960540"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log analytics'teki uyarı yönetimi çözümü
 
 ![Uyarı Yönetimi simgesi](media/log-analytics-solution-alert-management/icon.png)
 
-Uyarı yönetimi çözümü tüm uyarıları Log Analytics deponuzdaki analiz etmenize yardımcı olur.  Bu uyarılar bir çeşitli kaynaklardan kaynaklar dahil olmak üzere gelmiş olabilir [Log Analytics tarafından oluşturulan](log-analytics-alerts.md) veya [Nagios veya Zabbix içeri aktarılan](log-analytics-linux-agents.md). Çözüm ayrıca uyarılar herhangi aktarır [bağlı System Center Operations Manager Yönetim grupları](log-analytics-om-agents.md).
+Uyarı yönetimi çözümü tüm uyarıları Log Analytics deponuzdaki analiz etmenize yardımcı olur.  Bu uyarılar bir çeşitli kaynaklardan kaynaklar dahil olmak üzere gelmiş olabilir [Log Analytics tarafından oluşturulan](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) veya [Nagios veya Zabbix içeri aktarılan](log-analytics-quick-collect-linux-computer.md). Çözüm ayrıca uyarılar herhangi aktarır [bağlı System Center Operations Manager Yönetim grupları](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Çözüm herhangi bir kayıt türü ile Log Analytics deposunda çalışır **uyarı**, ne olursa olsun bu kayıtları toplamak için gerekli bir yapılandırmadır gerçekleştirmeniz gerekir.
 
-- Log Analytics uyarılarını için [uyarı kuralları oluşturma](log-analytics-alerts.md) doğrudan depoda uyarı kayıtları oluşturmak için.
-- Nagios ve Zabbix uyarıları için [bu sunucuları yapılandırmak](log-analytics-linux-agents.md) uyarıları Log Analytics'e göndermek için.
+- Log Analytics uyarılarını için [uyarı kuralları oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) doğrudan depoda uyarı kayıtları oluşturmak için.
+- Nagios ve Zabbix uyarıları için [bu sunucuları yapılandırmak](log-analytics-quick-collect-linux-computer.md) uyarıları Log Analytics'e göndermek için.
 - System Center Operations Manager uyarıları için [Operations Manager yönetim grubunuzu Log Analytics çalışma alanınıza bağlanmak](log-analytics-om-agents.md).  System Center Operations Manager'da oluşturulan tüm uyarılar, Log Analytics'e aktarılır.  
 
 ## <a name="configuration"></a>Yapılandırma
-Uyarı yönetimi çözümü açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [çözüm ekleme](log-analytics-add-solutions.md). Başka bir yapılandırma işlemi gerekmez.
+Uyarı yönetimi çözümü açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [çözüm ekleme](../monitoring/monitoring-solutions.md). Başka bir yapılandırma işlemi gerekmez.
 
 ## <a name="management-packs"></a>Yönetim paketleri
 Ardından System Center Operations Manager yönetim grubunuzun Log Analytics çalışma alanınıza bağlıysa, bu çözümü eklediğinizde, aşağıdaki yönetim paketlerini System Center Operations Manager'da yüklenir.  Yapılandırma veya bakım gerekli yönetim paketleri yoktur.
@@ -51,8 +51,8 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 | Bağlı Kaynak | Destek | Açıklama |
 |:--- |:--- |:--- |
-| [Windows aracıları](log-analytics-windows-agent.md) | Hayır |Doğrudan Windows aracıları uyarılar oluşturmaz.  Log Analytics uyarılarını, olaylarından oluşturulabilir ve Windows aracıları toplanan performans verileri. |
-| [Linux aracıları](log-analytics-linux-agents.md) | Hayır |Doğrudan Linux aracıları uyarılar oluşturmaz.  Log Analytics uyarılarını olayları ve performans verilerinden Linux aracılarından toplanan oluşturulabilir.  Nagios ve Zabbix uyarıları Linux Aracısı gerektiren bu sunuculardan toplanır. |
+| [Windows aracıları](log-analytics-agent-windows.md) | Hayır |Doğrudan Windows aracıları uyarılar oluşturmaz.  Log Analytics uyarılarını, olaylarından oluşturulabilir ve Windows aracıları toplanan performans verileri. |
+| [Linux aracıları](log-analytics-quick-collect-linux-computer.md) | Hayır |Doğrudan Linux aracıları uyarılar oluşturmaz.  Log Analytics uyarılarını olayları ve performans verilerinden Linux aracılarından toplanan oluşturulabilir.  Nagios ve Zabbix uyarıları Linux Aracısı gerektiren bu sunuculardan toplanır. |
 | [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md) |Evet |Operations Manager aracıları üzerinde oluşturulan uyarıların yönetim grubu için teslim ve sonra Log Analytics'e iletilir.<br><br>Operations Manager aracılarının doğrudan Log analytics'e bağlantı gerekli değildir. Uyarı verileri yönetim grubundan Log Analytics deposuna iletilir. |
 
 
@@ -74,7 +74,7 @@ Tıklayarak **uyarı Yönetimi** açmak için kutucuğa **uyarı Yönetimi** Pan
 | Etkin SCOM Uyarıları |Tüm uyarıları Operations Manager'dan dışında herhangi bir durumu ile toplanan *kapalı* uyarının kaynağına göre gruplandırılmış. |
 | Tüm etkin uyarıları |Tüm uyarılar ile uyarı adına göre gruplandırılmış tüm önem derecesi. Yalnızca Operations Manager uyarıları ile herhangi bir durumu dışında içeren *kapalı*. |
 
-Sağa kaydırdığınızda Pano gerçekleştirmek için tıklayabilirsiniz birkaç yaygın sorguları listeler bir [günlük araması](log-analytics-log-searches.md) uyarı verileri için.
+Sağa kaydırdığınızda Pano gerçekleştirmek için tıklayabilirsiniz birkaç yaygın sorguları listeler bir [günlük araması](log-analytics-log-search.md) uyarı verileri için.
 
 ![Uyarı Yönetim Panosu](media/log-analytics-solution-alert-management/dashboard.png)
 
@@ -123,4 +123,4 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan uyarı kayıtlarına iliş
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Log Analytics’ten uyarı oluşturma hakkında daha ayrıntılı bilgi edinmek için bkz. [Log Analytics’teki Uyarılar](log-analytics-alerts.md) .
+* Log Analytics’ten uyarı oluşturma hakkında daha ayrıntılı bilgi edinmek için bkz. [Log Analytics’teki Uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) .

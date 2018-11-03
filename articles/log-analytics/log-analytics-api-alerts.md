@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5effed58ea0fab9051470a44be30fbb3a7fd7feb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409161"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962665"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -28,7 +28,7 @@ Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetm
 Log Analytics arama REST API, RESTful olduğu ve Azure Resource Manager REST API aracılığıyla erişilebilir. Bu belgede, API'yi kullanarak bir PowerShell komut satırı burada erişilen örnekler bulabilirsiniz [ARMClient](https://github.com/projectkudu/ARMClient), Azure Resource Manager API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. PowerShell ile ARMClient ve Log Analytics arama API'sine erişmek için birçok seçenekten birini kullanılır. Bu araçlarla, Log Analytics çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için RESTful Azure Resource Manager API'si kullanabilir. API, birçok farklı şekilde, program aracılığıyla arama sonuçlarını kullanmanıza olanak sağlayan, arama sonuçları JSON biçiminde çıkarır.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Şu anda ile kayıtlı bir aramayı Log analytics'te uyarıları yalnızca oluşturulabilir.  Başvurabilirsiniz [Log Search REST API'sine](log-analytics-log-search-api.md) daha fazla bilgi için.
+Şu anda ile kayıtlı bir aramayı Log analytics'te uyarıları yalnızca oluşturulabilir.  Başvurabilirsiniz [Log Search REST API'sine](log-analytics-log-search.md) daha fazla bilgi için.
 
 ## <a name="schedules"></a>Zamanlamalar
 Kayıtlı bir aramayı bir veya daha fazla zamanlama olabilir. Ne sıklıkta arama çalıştırma ve zaman aralığı üzerinde ölçütler tanımlanmıştır, zamanlamayı tanımlar.
@@ -451,8 +451,7 @@ Yeni bir e-posta Uyarı oluşturmak için tam bir örnek aşağıda verilmiştir
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
+    $emailJson = "{'Özellikler': {'Name': 'MyEmailAction', 'Sürüm': '1', 'önem': 'Type 'Uyarı',': 'Uyarı', 'Eşik': {'Operator': 'gt', 'Value': 10}, 'EmailNotification': {'Alıcılar': ['recipient1@contoso.com','recipient2@contoso.com'], 'Konu':' Bu konu, ', 'Eki': 'None'}} "armclient /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/ yerleştirin Eylemler / $ActionId /? api sürümü 2015-03-20 $emailJson =
 
 #### <a name="webhook-actions"></a>Web kancası eylemleri
 Web kancası eylemleri, bir URL çağırma ve isteğe bağlı olarak gönderilmesi için bir yük sağlayarak bir işlem başlar.  Azure Otomasyonu runbook'ları dışındaki işlemler çağırabilir Web kancaları için yöneliktir dışında düzeltme eylemlerinde benzerdir.  İçin uzak işlem teslim edilecek bir yükü sağlama ek seçeneği de sağlanır.
@@ -511,6 +510,6 @@ Put yöntemi, bir zamanlama için bir Web kancası eylemi değiştirmek için va
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük aramaları yapmak için REST API](log-analytics-log-search-api.md) Log analytics'te.
+* Kullanım [günlük aramaları yapmak için REST API](log-analytics-log-search.md) Log analytics'te.
 * Hakkında bilgi edinin [oturum uyarılar azure uyarıları](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

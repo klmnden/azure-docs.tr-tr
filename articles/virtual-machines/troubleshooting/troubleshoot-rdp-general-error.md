@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239399"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960166"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM'de bir RDP genel hata sorunlarını giderme
 
@@ -65,7 +65,7 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
 
 ### <a name="serial-console"></a>Seri konsol
 
-#### <a name="step-1-turn-on-remote-deskop"></a>1. adım: Uzak Masaüstü Aç
+#### <a name="step-1-turn-on-remote-desktop"></a>1. adım: Uzak Masaüstü'nü açın.
 
 1. Erişim [seri konsol](serial-console-windows.md) seçerek **destek ve sorun giderme** > **seri konsol (Önizleme)**. VM'de özelliği etkinleştirilmişse, sanal makine başarıyla bağlanabilirsiniz.
 
@@ -76,94 +76,91 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
    ```
    ch -si 1
    ```
-4. Kayıt defteri anahtarlarını değerleri aşağıdaki gibi denetleyin:
 
-   1. RDP bileşeni etkin olduğundan emin olun.
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2. adım: kayıt defteri anahtarlarını RDP değerlerini kontrol edin:
+
+1. RDP tarafından devre dışı bırakılırsa onay ilkeleri.
 
       ```
-      REM Get the local policy
+      REM Get the local policy 
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
 
       REM Get the domain policy if any
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      Etki alanı ilkesi varsa, kurulumu yerel ilkesinde üzerine yazılır.
+      - Etki alanı ilkesi varsa, kurulumu yerel ilkesinde üzerine yazılır.
+      - Etki alanı ilkesi RDP devre dışı (1) ve ardından etki alanı denetleyicisinden AD güncelleştirme ilkesi olduğunu bildiren durumunda.
+      - Etki alanı ilkesi RDP etkin (0) olduğunu belirtiyorsa, ardından hiçbir güncelleştirme gerekir.
+      - Etki alanı ilkesi mevcut değil ve yerel ilkesini RDP devre dışı bırakıldığını belirtir (1), aşağıdaki komutu kullanarak RDP'yi etkinleştirin: 
+      
+            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+                  
 
-         - Etki alanı ilkesi RDP devre dışı (1) ve ardından etki alanı denetleyicisinden AD güncelleştirme ilkesi olduğunu bildiren durumunda.
-         - Etki alanı ilkesi RDP etkin (0) olduğunu belirtiyorsa, ardından hiçbir güncelleştirme gerekir.
-
-      Etki alanı ilkesi mevcut değil ve yerel ilkesini RDP devre dışı bırakıldığını belirtir (1), aşağıdaki komutu kullanarak RDP'yi etkinleştirin:
-
-         ```
-         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-         ```
-
-   2. Terminal sunucusu geçerli yapılandırmasını denetleyin.
+2. Terminal sunucusu geçerli yapılandırmasını denetleyin.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
       ```
 
-   3. Komut 0 döndürürse, terminal sunucusu devre dışı bırakıldı. Ardından, terminal sunucusu aşağıdaki gibi etkinleştirin:
+      Komut 0 döndürürse, terminal sunucusu devre dışı bırakıldı. Ardından, terminal sunucusu aşağıdaki gibi etkinleştirin:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-   4. Terminal Sunucu modülü, bir terminal sunucu grubuna (RDS veya Citrix) sunucusuysa modu boşaltma için ayarlanır. Terminal sunucusu modülü geçerli modunu kontrol edin.
+3. Terminal Sunucu modülü, bir terminal sunucu grubuna (RDS veya Citrix) sunucusuysa modu boşaltma için ayarlanır. Terminal sunucusu modülü geçerli modunu kontrol edin.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
       ```
 
-   5. Komut 1 değerini döndürürse, Terminal Sunucu modülü boşaltma moduna ayarlanır. Ardından, çalışma moduna modülü şu şekilde ayarlayın:
+      Komut 1 değerini döndürürse, Terminal Sunucu modülü boşaltma moduna ayarlanır. Ardından, çalışma moduna modülü şu şekilde ayarlayın:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-   6. Terminal sunucusuna bağlanabilir olup olmadığını denetleyin.
+4. Terminal sunucusuna bağlanabilir olup olmadığını denetleyin.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-   7. Komut 1 değerini döndürürse, terminal sunucusuna bağlanamıyor. Ardından, bağlantıyı aşağıdaki gibi etkinleştirin:
+      Komut 1 değerini döndürürse, terminal sunucusuna bağlanamıyor. Ardından, bağlantıyı aşağıdaki gibi etkinleştirin:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
       ```
-
-   8. RDP dinleyicisi geçerli yapılandırmasını denetleyin.
+5. RDP dinleyicisi geçerli yapılandırmasını denetleyin.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
       ```
 
-   9. Komut 0 döndürürse, RDP dinleyicisi devre dışı bırakıldı. Ardından, dinleyici aşağıdaki gibi etkinleştirin:
+      Komut 0 döndürürse, RDP dinleyicisi devre dışı bırakıldı. Ardından, dinleyici aşağıdaki gibi etkinleştirin:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-   10. RDP dinleyiciye bağlanıp bağlanamadığınızı denetleyin.
+6. RDP dinleyiciye bağlanıp bağlanamadığınızı denetleyin.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   11. Komut 1 değerini döndürürse, RDP dinleyicisi ile bağlantı kurulamıyor. Ardından, bağlantıyı aşağıdaki gibi etkinleştirin:
+   Komut 1 değerini döndürürse, RDP dinleyicisi ile bağlantı kurulamıyor. Ardından, bağlantıyı aşağıdaki gibi etkinleştirin:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-6. VM’yi yeniden başlatın.
+7. VM’yi yeniden başlatın.
 
-7. Yazarak çıkış CMD örneğinden `exit`ve tuşuna **Enter** iki kez.
+8. Yazarak çıkış CMD örneğinden `exit`ve tuşuna **Enter** iki kez.
 
-8. VM'yi yeniden başlatın yazarak `restart`.
+9. VM'yi yeniden başlatın yazarak `restart`ve sonra VM'ye bağlanın.
 
 Hala sorun olursa, adım 2 taşıyın.
 
@@ -177,13 +174,13 @@ Daha fazla bilgi için [Uzak Masaüstü bağlantısını keser sık Azure VM'de]
 
 ### <a name="offline-repair"></a>Çevrimdışı onarım
 
-#### <a name="step-1-turn-on-remote-deskop"></a>1. adım: Uzak Masaüstü Aç
+#### <a name="step-1-turn-on-remote-desktop"></a>1. adım: Uzak Masaüstü'nü açın.
 
 1. [İşletim sistemi diskini bir kurtarma VM'si ekleme](../windows/troubleshoot-recovery-disks-portal.md).
 2. Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın.
 3. Disk olarak işaretlenmiş olduğundan emin olun **çevrimiçi** Disk Yönetimi Konsolu'nda. Ekli işletim sistemi diski için atanan sürücü harfini unutmayın.
-3. Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın.
-4. Yükseltilmiş bir komut istemi oturumu açın (**yönetici olarak çalıştır**). Aşağıdaki komut dosyasını çalıştırın. Bu betikte ekli işletim sistemi diski için atanan sürücü harfini f Değiştir VM'niz için uygun değeri bu sürücü harfiyle olduğunu varsayıyoruz.
+4. Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın.
+5. Yükseltilmiş bir komut istemi oturumu açın (**yönetici olarak çalıştır**). Aşağıdaki komut dosyasını çalıştırın. Bu betikte ekli işletim sistemi diski için atanan sürücü harfini f Değiştir VM'niz için uygun değeri bu sürücü harfiyle olduğunu varsayıyoruz.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -219,21 +216,21 @@ Daha fazla bilgi için [Uzak Masaüstü bağlantısını keser sık Azure VM'de]
       reg unload HKLM\BROKENSOFTWARE 
       ```
 
-3. VM'nin etki alanına katılmış ise, RDP devre dışı bırakan bir Grup İlkesi olup olmadığını görmek için aşağıdaki kayıt defteri anahtarını kontrol edin. 
+6. VM'nin etki alanına katılmış ise, RDP devre dışı bırakan bir Grup İlkesi olup olmadığını görmek için aşağıdaki kayıt defteri anahtarını kontrol edin. 
 
-   ```
-   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-   ```
-
+      ```
+      HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+      ```
 
       Bu anahtar değeri ayarlamak RDP anlamına gelen 1 ilke tarafından devre dışı bırakılır. Uzak Masaüstü GPO İlkesi aracılığıyla etkinleştirmek için etki alanı denetleyicisinden şu ilkeyi değiştirin:
 
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
+   
+      **Bilgisayar Yapılandırması\İlkeler\Yönetim şablonları:**
 
-4. VM kurtarma diskten çıkarın.
-5. [Diskten yeni bir VM oluşturma](../windows/create-vm-specialized.md).
+      İlke Deﬁ Bileşenleri\Uzak Desktop Hizmetleri\Uzak Masaüstü oturumu Host\Connections\Allow kullanıcıların Uzak Masaüstü Hizmetleri kullanarak uzaktan bağlanma
+  
+7. VM kurtarma diskten çıkarın.
+8. [Diskten yeni bir VM oluşturma](../windows/create-vm-specialized.md).
 
 Hala sorun olursa, adım 2 taşıyın.
 

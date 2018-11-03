@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8653056c5c4b0e5b6831d3cc2b0006e89ac01bdd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251151"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978624"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs altyapı - uygulama geçiş ve tümleştirme İdaresi
-Geliştirme/test Laboratuvar ortamınız oluşturulduktan sonra aşağıdaki sorular hakkında düşünmek gerekir: 
+Geliştirme/test Laboratuvar ortamınız oluşturulduktan sonra aşağıdaki sorular hakkında düşünmek gerekir:
 
-- Nasıl ortamı içinde proje ekibinizin yazılımınız? 
+- Nasıl ortamı içinde proje ekibinizin yazılımınız?
 - Nasıl gerekli Kurumsal ilkelerle izleyin ve değer uygulamanıza eklemek için çevikliği korumak emin olabilirim?
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Azure Market görüntüleri özel görüntüler karşılaştırması
@@ -60,10 +60,10 @@ DevTest Labs ortamına özel kuruluş görüntülerim getirmek için bir kolayca
 ### <a name="answer"></a>Yanıt
 Bkz: [Immage Fabrika deseni bu videoyu](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Bu senaryo Gelişmiş bir senaryodur ve sağlanan örnek betikler yalnızca betiklerdir. Herhangi bir değişikliğe ihtiyaç olup, yönetmek ve ortamınızda kullanılan komut dosyaları korumak gerekir.
 
-Visual Studio Team Services (VSTS) içinde bir özel görüntü işlem hattı oluşturmak için DevTest Labs'i kullanarak:
+Azure işlem hatlarında özel resim bir işlem hattı oluşturmak için DevTest Labs'i kullanarak:
 
 - [Giriş: Sanal makineleri dakikalar içinde Azure DevTest labs'deki bir görüntü fabrikası ayarlayarak hazırlanın](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Fabrika – bölüm 2 görüntü! Sanal makineler oluşturmak için VSTS ve Fabrika Laboratuvar Kurulumu](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Fabrika – bölüm 2 görüntü! Sanal makineler oluşturmak için Azure işlem hatları ve Fabrika Laboratuvar Kurulumu](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Görüntü Factory – bölüm 3: Kaydet özel görüntüler ve birden çok Labs kullanarak dağıtma](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Video: Azure DevTest Labs ile özel görüntü Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -79,7 +79,7 @@ Evet. Dikkate alınması gereken – gelen ve giden trafiği iki unsur vardır.
 
 **Giden trafik** – sanal makineleri doğrudan genel internet'e giderek önlemek ve kurumsal bir güvenlik duvarı aracılığıyla trafiği zorlamak istiyorsanız sonra şirket içi trafiği expressroute üzerinden yönlendirebilir veya VPN kullanarak zorlamalı yönlendirme.
 
-> [!NOTE] 
+> [!NOTE]
 > Proxy ayarları olmadan trafiği engelleyen bir proxy sunucunuz varsa, özel durumlar için laboratuvar yapıt depolama hesabı eklemek unutmayın.
 
 Ağ güvenlik grupları, sanal makine ya da alt ağlar için de kullanabilirsiniz. Bu adım, ek bir izin ver / trafiği engellemek için koruma katmanı ekler.
@@ -100,9 +100,9 @@ Aksi takdirde, DevTest Labs her ortamın kendi sanal ağı olabilir. Ancak, bulu
 Özel IP ve genel IP ile paylaşılan bir IP ne zaman kullanmalıyım?
 
 ### <a name="answer"></a>Yanıt
-Bir siteden siteye VPN veya Express Route kullandığınız makinelerinizi genel internet üzerinden erişilebilir, iç ağ aracılığıyla ve erişilemez olacak şekilde özel IP'ler kullanmayı düşünün. 
+Bir siteden siteye VPN veya Express Route kullandığınız makinelerinizi genel internet üzerinden erişilebilir, iç ağ aracılığıyla ve erişilemez olacak şekilde özel IP'ler kullanmayı düşünün.
 
-> [!NOTE] 
+> [!NOTE]
 > Laboratuvar sahibi yanlışlıkla hiç kimse, VM'ler için genel IP adresleri oluşturduğundan emin olmak için bu alt ağ ilkesi değiştirebilirsiniz. Abonelik sahibi, genel IP'ler oluşturulmasını önleyen bir abonelik İlkesi oluşturmanız gerekir.
 
 Paylaşılan genel IP'ler kullanırken bir laboratuvarındaki sanal makinelerde bir genel IP adresi paylaşın. Bu yaklaşım, belirli bir aboneliği için genel IP adresleri barındırabileceğiniz ihlal önlemek gerektiğinde yararlı olabilir.
@@ -125,7 +125,7 @@ Kullanıcı başına veya Laboratuvar başına sanal makine sayısını düşün
 DevTest Labs Ortamımın Resource Manager şablonlarını nasıl kullanabilirim?
 
 ### <a name="answer"></a>Yanıt
-Bölümünde anlatılan adımları kullanarak DevTest Labs ortamına Resource Manager şablonlarınızı dağıtmak [ortamları özellik DevTest labs'deki](devtest-lab-test-env.md) makalesi. Aslında, Resource Manager şablonlarınızı bir Git deposuna (Visual Studio Team Services veya GitHub) denetleyin ve ekleme bir [şablonlarınızın özel depoya](devtest-lab-test-env.md) Laboratuvar için.
+Bölümünde anlatılan adımları kullanarak DevTest Labs ortamına Resource Manager şablonlarınızı dağıtmak [ortamları özellik DevTest labs'deki](devtest-lab-test-env.md) makalesi. Aslında, Resource Manager şablonlarınızı bir Git deposuna (Azure depoları veya GitHub) denetleyin ve ekleme bir [şablonlarınızın özel depoya](devtest-lab-test-env.md) Laboratuvar için.
 
 Bu senaryo, konak geliştirme makineler için DevTest Labs'i kullanarak faydalı olmayabilir ancak üretim temsilcisi bir hazırlık ortamı oluşturuyorsanız yararlı olabilir.
 

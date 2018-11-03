@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042130"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979259"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -68,7 +68,9 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 
   ![Uygulama graph izinleri ayarlayın](media/aad-integration/delegated-permissions.png)
 
-7. Seçin **Bitti**, seçin *Microsoft Graph* API'leri listesinden seçip **izinler**. Geçerli hesabın, bir kiracı Yöneticisi değilse, bu adımı başarısız olur
+  **Done** (Bitti) öğesini seçin.
+
+7. Seçin *Microsoft Graph* API'leri listesinden seçip **izinler**. Geçerli hesabın, bir kiracı Yöneticisi değilse, bu adımı başarısız olur
 
   ![Uygulama graph izinleri ayarlayın](media/aad-integration/grant-permissions.png)
 
@@ -98,7 +100,9 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 
   ![AKS AAD sunucu uygulaması uç noktası seçin](media/aad-integration/select-server-app.png)
 
-4. Seçin **Bitti** ve **izinler** bu adımı tamamlamak için.
+  Seçin **bitti**
+
+4. API sunucunuz listeden seçin ve sonra **izinler**:
 
   ![İzinleri verme](media/aad-integration/grant-permissions-client.png)
 

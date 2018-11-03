@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996358"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960336"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Yükleme ve yapılandırma azure'da bir Linux VM'ye bağlanmak için Uzak Masaüstü
 Azure'da Linux sanal makineleri (VM'ler), genellikle bir güvenli Kabuk (SSH) bağlantısı kullanarak komut satırından yönetilir. Yeni Linux veya hızlı sorun giderme senaryoları için Uzak Masaüstü kullanımını daha kolay olabilir. Bu makalede ayrıntılı bir masaüstü ortamını yüklemek ve yapılandırmak nasıl ([xfce](https://www.xfce.org)) ve Uzak Masaüstü ([xrdp](http://www.xrdp.org)) Resource Manager dağıtım modelini kullanarak Linux VM.
@@ -57,6 +57,7 @@ Yüklü bir masaüstü ortamını olduğuna göre bir Uzak Masaüstü hizmeti, g
 
 ```bash
 sudo apt-get install xrdp
+sudo systemctl enable xrdp
 ```
 
 Oturumunuz başlattığınızda kullanmak için hangi masaüstü ortamı xrdp söyleyin. Xrdp xfce masaüstü ortamınızı kullanacak şekilde yapılandırın:

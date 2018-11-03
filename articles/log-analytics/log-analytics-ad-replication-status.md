@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c850eee67224d09ea2715a58c3cd8eca4ab07af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c248e126d99c7cb83895871ec24d41ffcfd84d29
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041911"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960693"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics ile Active Directory çoğaltma durumunu izleme
 
@@ -34,7 +34,7 @@ AD çoğaltma durumu çözüm paketi, Active Directory ortamınızı çoğaltma 
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
 * Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyin ve AD çoğaltma verilerini Log Analytics'e göndermek için aracıları yapılandırmanız gerekir. Windows bilgisayarlarını Log Analytics'e bağlama anlamak için bkz. [bağlanmak Windows bilgisayarlarını Log Analytics'e](log-analytics-windows-agent.md). Etki alanı denetleyicinizi Log Analytics'e bağlama, görmek istediğiniz mevcut bir System Center Operations Manager ortamının bir parçası ise [Log Analytics için Operations Manager'ı bağlama](log-analytics-om-agents.md).
-* Active Directory çoğaltma durumu çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
+* Active Directory çoğaltma durumu çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları
 Veri toplama metotlarını ve verileri için AD çoğaltma durumu nasıl toplanır hakkında diğer ayrıntıları aşağıdaki tabloda gösterilmektedir.
@@ -110,7 +110,7 @@ Bu listelerden birine herhangi bir öğeye tıkladığınızda, günlük arama �
 
 ![Arama sonuçlarında AD çoğaltma durumu hataları](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Buradan daha fazla filtrelemek, arama sorguyu değiştirin ve benzeri. Günlük araması'nı kullanma hakkında daha fazla bilgi için bkz. [günlük aramaları](log-analytics-log-searches.md).
+Buradan daha fazla filtrelemek, arama sorguyu değiştirin ve benzeri. Günlük araması'nı kullanma hakkında daha fazla bilgi için bkz. [günlük aramaları](log-analytics-log-search.md).
 
 **HelpLink** alan belirli hata hakkında ek ayrıntılar ile TechNet sayfanın URL'sini gösterir. Kopyalayın ve bu bağlantı sorunlarını giderme ve hata düzeltme hakkında bilgi için tarayıcı pencerenizi yapıştırın.
 
@@ -154,4 +154,4 @@ Etki alanı denetleyicilerinizden biri bağlama konusunda yardıma ihtiyacınız
 Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics veya System Center Operations Manager bağlanmak istemiyorsanız bkz [AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-searches.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.

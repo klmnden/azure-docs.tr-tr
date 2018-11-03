@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce8946e5a022eea9281898d1518cc3e8bfb50ee5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092514"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957497"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application ınsights'ta HockeyApp verileri araştırma
 
@@ -52,7 +52,7 @@ Veri akışını başlatmak için bir süre sürer.
 
 ![Application Insights kaynağı verileri bekleniyor](./media/app-insights-hockeyapp-bridge-app/04.png)
 
-Bu kadar! HockeyApp belgelenmiş uygulamanızda bu noktadan itibaren toplanan özel ve izleme verileri artık Ayrıca, Application Insights analiz ve sürekli dışarı aktarma özellikleri kullanılabilir.
+İşte bu kadar! HockeyApp belgelenmiş uygulamanızda bu noktadan itibaren toplanan özel ve izleme verileri artık Ayrıca, Application Insights analiz ve sürekli dışarı aktarma özellikleri kullanılabilir.
 
 Kısa bir süre için kullanıma sunuldu bu özelliklerin her biri gözden geçirelim.
 
@@ -61,7 +61,7 @@ Analytics, geçici tanılayın ve nedenlerini ve desenleri daha hızlı keşfede
 
 ![Analiz](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Analytics hakkında daha fazla bilgi edinin](app-insights-analytics-tour.md)
+* [Analytics hakkında daha fazla bilgi edinin](../log-analytics/query-language/get-started-analytics-portal.md)
 
 ## <a name="continuous-export"></a>Sürekli dışarı aktarma
 Sürekli dışarı aktarma, bir Azure Blob Depolama kapsayıcısına verilerinizi vermenize olanak sağlar. Verileriniz şu anda Application Insights tarafından sunulan saklama süresinden daha uzun süre tutmanız gerekiyorsa bu çok kullanışlıdır. Blob storage'da verileri tutmak, SQL veritabanı veya depolama çözümü, tercih edilen veri işleyin.
@@ -69,5 +69,5 @@ Sürekli dışarı aktarma, bir Azure Blob Depolama kapsayıcısına verileriniz
 [Sürekli dışarı aktarma hakkında daha fazla bilgi edinin](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Verilerinizi analiz uygulama](app-insights-analytics-tour.md)
+* [Verilerinizi analiz uygulama](../log-analytics/query-language/get-started-analytics-portal.md)
 

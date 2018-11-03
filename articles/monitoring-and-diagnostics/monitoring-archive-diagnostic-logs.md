@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab7689cb18dcd11926abc2e9806885b1072e3886
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983693"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960183"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
@@ -26,7 +26,7 @@ Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri, CLI v
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamadan önce yapmanız [depolama hesabı oluşturma](../storage/storage-create-storage-account.md) tanılama günlüklerinizi arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca bir depolama hesabına tanılama ölçümleri ve Etkinlik günlüğünü arşivleme, ancak, tüm izleme verilerini merkezi bir konumda tutmak için de tanılama günlükleriniz için bu depolama hesabı kullanmak mantıklı olabilir.
+Başlamadan önce yapmanız [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) tanılama günlüklerinizi arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca bir depolama hesabına tanılama ölçümleri ve Etkinlik günlüğünü arşivleme, ancak, tüm izleme verilerini merkezi bir konumda tutmak için de tanılama günlükleriniz için bu depolama hesabı kullanmak mantıklı olabilir.
 
 > [!NOTE]
 >  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
@@ -161,7 +161,7 @@ PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depol
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Blobları analiz için indirin](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Blobları analiz için indirin](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Bir Event Hubs ad alanı için Stream tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure İzleyici ile Azure Active Directory günlüklerini arşivleme](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)

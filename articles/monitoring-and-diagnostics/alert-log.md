@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 43ff945747915edb76da8b593b232e86778374ce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419376"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958517"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -57,7 +57,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
    > [!NOTE]
 
-   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../log-analytics/log-analytics-log-searches.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../log-analytics/log-analytics-overview.md). 
+   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../log-analytics/log-analytics-log-searches.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../log-analytics/log-analytics-queries.md). 
 
 1.  *Günlük uyarıları*: içinde seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 
@@ -132,7 +132,7 @@ Bu nedenle aşağıdaki bölümde ayrıntıları sağlayın kaynak şablonu içi
 ### <a name="azure-resource-template-for-log-analytics"></a>Log Analytics için Azure kaynak şablonu
 Günlük uyarıları için Log Analytics kayıtlı bir aramayı düzenli aralıklarla çalıştıran uyarı kuralları tarafından oluşturulur. Sorgu eşleşmenin sonuçlarını ölçütleri belirtilirse, bir uyarı kaydı oluşturulur ve bir veya daha fazla Eylemler çalıştırılır. 
 
-Kaynak şablonu Log analytics arama ve Log analytics uyarılarını kayıtlı için Log Analytics belgeleri bölümünde kullanılabilir. Daha fazla bilgi için bkz, [ekleme Log Analytics kayıtlı aramaları ve Uyarıları](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); yalnızca tanım örnekleri ve bunun yanı sıra şema ayrıntılarını içerir.
+Kaynak şablonu Log analytics arama ve Log analytics uyarılarını kayıtlı için Log Analytics belgeleri bölümünde kullanılabilir. Daha fazla bilgi için bkz, [ekleme Log Analytics kayıtlı aramaları ve Uyarıları](../monitoring/monitoring-solutions-resources-searches-alerts.md); yalnızca tanım örnekleri ve bunun yanı sıra şema ayrıntılarını içerir.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Application Insights için Azure kaynak şablonu
 Application Insights kaynakları için günlük uyarı sahip bir tür `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Başarılı bir işlem 201 durum yeni uyarı kuralı oluşturma döndürülecek 
 * Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](monitor-alerts-unified-log.md)
 * Anlamak [günlük uyarıları için Web kancası eylemleri](monitor-alerts-unified-log-webhook.md)
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md)
-* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-queries.md). 
 

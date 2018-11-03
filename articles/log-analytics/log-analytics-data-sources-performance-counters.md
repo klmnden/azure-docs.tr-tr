@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5822d32906419e8b0615dd8686ec47de28deb38f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d03af1398f8fd714246c88308ba615ae17010b39
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182238"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962036"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log analytics'te Windows ve Linux performans veri kaynakları
 Windows ve Linux performans sayaçları, performans donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Log Analytics uzun süreli analiz için performans verilerini toplama ve raporlama ek olarak, neredeyse gerçek zamanlı (NRT) analiz için sık sık aralıklarla performans sayaçları toplayabilirsiniz.
@@ -227,5 +227,5 @@ Aşağıdaki tabloda farklı performans kayıtları almak günlük aramaları ö
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Linux uygulamaları performans sayaçlarını Topla](log-analytics-data-sources-linux-applications.md) MySQL ve Apache HTTP Server dahil olmak üzere.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
 * İçin toplanan verileri dışarı aktarma [Power BI](log-analytics-powerbi.md) ek görselleştirmeler ve analiz için.

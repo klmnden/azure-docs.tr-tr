@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079370"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978187"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container ınstances'da yaygın sorunlarını giderme
 
@@ -102,7 +102,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -187,7 +187,7 @@ Windows kapsayıcı başlangıç süreye sağlamak için aşağıdakilerden biri
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows kapsayıcıları yavaş bir ağ hazırlığı
 
-Windows kapsayıcıları için ilk oluşturma 5 saniyeye kadar gelen veya giden bağlantı ücreti ödemeniz gerekebilir. İlk Kurulumdan sonra kapsayıcı ağ iletişimi uygun şekilde devam edecektir.
+İlk oluşturma, Windows kapsayıcıları, 30 saniyeye kadar (veya nadir durumlarda daha uzun) gelen veya giden bağlantı olabilir. Kapsayıcı uygulamanızı Internet bağlantısı gerektiriyorsa, gecikme ekleyin ve yeniden deneme mantığı, Internet bağlantısı kurmak 30 saniye izin vermek için. İlk Kurulumdan sonra kapsayıcı ağ iletişimi uygun şekilde devam edecektir.
 
 ## <a name="resource-not-available-error"></a>Kaynak kullanılamıyor hatası
 

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: ef1422db799db6d635ad9f03908e3a34f312e408
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 752a0262503550b9995ac76f648a132429203cce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974247"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961441"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısı nedir
-Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda desteklenen olan Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](monitoring-overview.md).
+Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda desteklenen olan Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../azure-monitor/overview.md).
 
 ## <a name="linux-agent"></a>Linux Aracısı
-A [uzantısının Linux sürümü](../virtual-machines/linux/diagnostic-extension.md) Linux çalıştıran sanal makineler için kullanılabilir. Toplanan istatistikleri ve davranışı Windows sürümünden farklılık gösterir.
+A [uzantısının Linux sürümü](../virtual-machines/extensions/diagnostics-linux.md) Linux çalıştıran sanal makineler için kullanılabilir. Toplanan istatistikleri ve davranışı Windows sürümünden farklılık gösterir.
 
 ## <a name="data-you-can-collect"></a>Toplayabileceğiniz veriler
 Azure tanılama uzantısı, aşağıdaki veri türlerini toplayabilirsiniz:
@@ -42,7 +42,7 @@ Azure tanılama uzantısı, aşağıdaki veri türlerini toplayabilirsiniz:
 ## <a name="data-storage"></a>Veri depolama
 Uzantı verilerini depolayan bir [Azure depolama hesabı](azure-diagnostics-storage.md) belirttiğiniz.
 
-Buna da gönderebilirsiniz [Application Insights](../application-insights/app-insights-cloudservices.md). Kendisine akış için başka bir seçenektir [olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md), daha sonra Azure dışı izleme hizmetlerine göndermek sağlar.
+Buna da gönderebilirsiniz [Application Insights](../application-insights/app-insights-cloudservices.md). Kendisine akış için başka bir seçenektir [olay hub'ı](../event-hubs/event-hubs-about.md), daha sonra Azure dışı izleme hizmetlerine göndermek sağlar.
 
 ### <a name="azure-monitor"></a>Azure İzleyici
 Ayrıca, Azure İzleyici, veri gönderme seçeneğiniz de vardır. Şu anda bu havuz yalnızca performans sayaçları için geçerlidir. VM'NİZDE VMSS, toplanan performans sayaçlarını göndermek veya Bulut hizmeti için özel ölçümleriniz Azure İzleyici olanak tanır. Azure Monitor havuzu destekler:
@@ -53,7 +53,7 @@ Ayrıca, Azure İzleyici, veri gönderme seçeneğiniz de vardır. Şu anda bu h
 Bu havuz yapılandırma hakkında daha fazla bilgi için lütfen başvurmak [Azure tanılama şeması belgeleri.](azure-diagnostics-schema-1dot3-and-later.md)
 
 ## <a name="versioning-and-configuration-schema"></a>Sürüm oluşturma ve yapılandırma şeması
-Bkz: [Azure tanılama sürüm geçmişi ve şema](azure-diagnostics-versioning-history.md).
+Bkz: [Azure tanılama sürüm geçmişi ve şema](azure-diagnostics-schema.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -68,16 +68,16 @@ Daha gelişmiş konular için bkz.
 
 * [Azure Tanılama, Cloud Services için Application Insights ile kullanma](../application-insights/app-insights-cloudservices.md)
 * [Azure Tanılama ile bulut Hizmetleri uygulamasının akışı izleme](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Bulut hizmetleri üzerinde tanılamayı ayarlamak için PowerShell kullanma](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Bulut hizmetleri üzerinde tanılamayı ayarlamak için PowerShell kullanma](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtual Machines
 * Visual Studio kullanıyorsanız, bkz. [izleme Azure sanal makineler için Visual Studio kullanımı](../vs-azure-tools-debug-cloud-services-virtual-machines.md) kullanmaya başlamak için. Aksi takdirde bkz:
-* [Bir Azure sanal makinesi üzerinde Azure tanılama ayarlama](../virtual-machines-dotnet-diagnostics.md)
+* [Bir Azure sanal makinesi üzerinde Azure tanılama ayarlama](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
 
 Daha gelişmiş konular için bkz.
 
-* [Azure sanal Makineler'de tanılamayı ayarlamak için PowerShell kullanma](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [İzleme ve tanılama Azure Resource Manager şablonu kullanarak bir Windows sanal makinesi oluşturma](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure sanal Makineler'de tanılamayı ayarlamak için PowerShell kullanma](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [İzleme ve tanılama Azure Resource Manager şablonu kullanarak bir Windows sanal makinesi oluşturma](../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric"></a>Service Fabric
 Kullanmaya başlayın [bir Service Fabric uygulamasını izleme](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Bu makalede aldıktan sonra birçok diğer Service Fabric tanılama makalelerin sol taraftaki gezinti ağacında kullanılabilir.

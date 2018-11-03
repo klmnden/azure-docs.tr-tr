@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 526ba73858322ee41f649a338f22226da6af33e7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421195"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964093"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -157,13 +157,13 @@ Pano bağlantıları ile ilgili tüm sorunları analiz etmek için bir başlang�
 
 Etkilenen bilgisayarlar, hizmet eşlemesi çözümünü içinde karşı eşitlenen olayları da görselleştirebilirsiniz.
 
-Hizmet eşlemesi, otomatik olarak Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini bulur ve hizmetler arasındaki iletişimi eşler. Bunları – kritik hizmetleri sunan birbirine sistemleri düşündüğünüz sunucularınızın görüntülemenize olanak sağlar. Hizmet eşlemesi, işlemler, sunucular arasında bağlantılar gösterir ve bağlantı noktalarını yapılandırma TCP bağlantılı mimarisiyle arasında bir aracı yüklemesini dışındaki gerekli. [Daha fazla bilgi edinin](../operations-management-suite/operations-management-suite-service-map.md).
+Hizmet eşlemesi, otomatik olarak Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini bulur ve hizmetler arasındaki iletişimi eşler. Bunları – kritik hizmetleri sunan birbirine sistemleri düşündüğünüz sunucularınızın görüntülemenize olanak sağlar. Hizmet eşlemesi, işlemler, sunucular arasında bağlantılar gösterir ve bağlantı noktalarını yapılandırma TCP bağlantılı mimarisiyle arasında bir aracı yüklemesini dışındaki gerekli. [Daha fazla bilgi edinin](../monitoring/monitoring-service-map.md).
 
 Hizmet eşlemesi çözümünü kullanıyorsanız, aşağıdaki örnekte gösterildiği gibi ITSM çözümleriyle oluşturulan hizmet Masası öğeleri görüntüleyebilirsiniz:
 
 ![Log Analytics ekranı](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Daha fazla bilgi: [hizmet eşlemesi](../operations-management-suite/operations-management-suite-service-map.md)
+Daha fazla bilgi: [hizmet eşlemesi](../monitoring/monitoring-service-map.md)
 
 
 ## <a name="additional-information"></a>Ek bilgiler

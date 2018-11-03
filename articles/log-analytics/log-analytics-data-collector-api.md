@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cedebbe1ba0dcf40af0f2f001f022ffaad175c70
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319719"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959639"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
 Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
@@ -201,7 +201,7 @@ Bu tabloda eksiksiz hizmet döndürebilir durum kodları listelenmiştir:
 Log Analytics HTTP veri toplayıcı API'sini, arama ile kayıt tarafından gönderilen veri **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandıysanız **MyCustomLog**, tüm kayıtları döndürecekti sonra **türü MyCustomLog_CL =**.
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+> Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
 
 > `MyCustomLog_CL`
 
@@ -470,6 +470,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanım [günlük arama API'si](log-analytics-log-search-api.md) Log Analytics depodan veri alınamadı.
+- Kullanım [günlük arama API'si](log-analytics-log-search.md) Log Analytics depodan veri alınamadı.
 
 - Hakkında daha fazla bilgi [veri işlem hattı ile veri toplayıcı API'sini oluşturma](log-analytics-create-pipeline-datacollector-api.md) Log analytics'e Logic Apps iş akışı kullanarak.

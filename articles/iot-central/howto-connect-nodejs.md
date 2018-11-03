@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4702b0eb53897f173311c40469c912cf41751f24
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d97b14d52a33d6879ee92b38993f4526823c4a0
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155159"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964007"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -23,7 +23,7 @@ Bu makalede, Microsoft Azure IOT Central uygulamanıza bir fiziksel cihazı tems
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-1. Azure IOT Central bir uygulamadır. Daha fazla bilgi için [Azure IOT Central uygulaması oluşturmayı](howto-create-application.md).
+1. Azure IOT Central bir uygulamadır. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
 1. Bir geliştirme makinesi ile [Node.js](https://nodejs.org/) 4.0.0 sürümünü veya sonraki bir sürümü yüklü. Çalıştırabileceğiniz `node --version` sürümünüzü denetlemek için komut satırına. Node.js çeşitli işletim sistemleri için kullanılabilir.
 
 ## <a name="create-a-device-template"></a>Bir cihaz şablonu oluşturma

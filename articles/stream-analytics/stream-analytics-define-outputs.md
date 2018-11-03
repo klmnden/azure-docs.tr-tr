@@ -3,18 +3,18 @@ title: Azure Stream Analytics çıkışları anlama
 description: Bu makalede, Azure Stream Analytics, Power BI gibi analiz sonuçları için kullanılabilir veri çıkış seçenekleri açıklanır.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 396b843ecd17c15e9476bacb5e96545f963f0c4e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: abf581430f7cf7020145b0217c387b8c2fc4f795
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747856"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979412"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla. 
@@ -323,10 +323,11 @@ Aşağıdaki tabloda bazı toplu işleme çıktısı için dikkat edilecek nokta
 | Azure Service Bus kuyruğu   | İleti başına 256 KB</br> Ayrıca bkz: [Service Bus sınırlar](../service-bus-messaging/service-bus-quotas.md) | İleti başına tek olay |
 | Azure Service Bus konusu | İleti başına 256 KB</br> Ayrıca bkz: [Service Bus sınırlar](../service-bus-messaging/service-bus-quotas.md) | İleti başına tek olay |
 | Azure Cosmos DB   | Bkz: [Azure Cosmos DB sınırlar](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Toplu iş boyutu ve sıklığı dinamik olarak ayarlanmış CosmosDB yanıtları yazmaktır. </br> Stream Analytics'ten alınan belirlenmiş sınırlama yoktur. |
-| Azure İşlevleri   | | Varsayılan toplu iş boyutu 246 KB'dir. </br> Toplu iş başına varsayılan olay sayısı 100'dür. </br> Toplu iş boyutu yapılandırılabilir ve artırabilir veya azaltılabilir Stream Analytics'te [çıktı seçenekleri](#azure-functions). 
+| Azure İşlevleri   | | Toplu iş boyutu varsayılan 256 KB'dir. </br> Toplu iş başına varsayılan olay sayısı 100'dür. </br> Toplu iş boyutu yapılandırılabilir ve artırabilir veya azaltılabilir Stream Analytics'te [çıktı seçenekleri](#azure-functions). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
+
 > [Hızlı Başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

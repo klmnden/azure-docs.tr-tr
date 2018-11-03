@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421076"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960727"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
@@ -96,7 +96,7 @@ Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek 
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Log analytics'te verileri nasıl sorgu?
 
-Portalında veya Gelişmiş analiz deneyimi Log analytics'in bir parçası olarak günlük arama dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli çözümler](../log-analytics/log-analytics-add-solutions.md) günlük verileri anında Öngörüler Log Analytics'e gönderme, alma için yükleyebilirsiniz.
+Portalında veya Gelişmiş analiz deneyimi Log analytics'in bir parçası olarak günlük arama dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli çözümler](../monitoring/monitoring-solutions.md) günlük verileri anında Öngörüler Log Analytics'e gönderme, alma için yükleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

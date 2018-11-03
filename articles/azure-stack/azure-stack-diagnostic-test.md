@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1726b7d1ac6a4c39e7a8dab733644d01e5f3381e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740323"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957517"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack için bir doğrulama testi Çalıştır
 
@@ -144,7 +144,7 @@ Bir CESARETLENDİRİCİ oturumunda çalıştırın:
 Belirli testleri hariç tutmak için:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Ignore AzsInfraPerformance
 ````
 
@@ -161,7 +161,7 @@ Bir CESARETLENDİRİCİ oturumunda çalıştırın:
 Çalıştırabileceğiniz yedekleme yapılandırdıktan sonra paylaşıma doğrulamak için AzsBackupShareAccessibility CESARETLENDİRİCİ oturumundan çalıştırın ERCS aracılığıyla erişilebilir:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Include AzsBackupShareAccessibility
 ````
 

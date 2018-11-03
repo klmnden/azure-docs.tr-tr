@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038787"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958415"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
 Arama özelliği, [Application Insights](app-insights-overview.md) bulmak ve sayfa görüntülemeleri, özel durumlar gibi tek bir telemetri öğelerini keşfedin veya web istekleri için kullanın. Ve günlük izlemeleri ve kodlanmış olayları görüntüleyebilir.
 
-(Verileriniz üzerinde daha karmaşık sorgular için [Analytics](app-insights-analytics-tour.md).)
+(Verileriniz üzerinde daha karmaşık sorgular için [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Burada arama görüyor musunuz?
 
@@ -102,7 +102,7 @@ Aynı özellik değerine sahip tüm öğeleri bulun:
 ## <a name="search-the-data"></a>Veri arama
 
 > [!NOTE]
-> Daha karmaşık sorgular yazmak için açık [ **Analytics** ](app-insights-analytics-tour.md) arama dikey pencerenin üst.
+> Daha karmaşık sorgular yazmak için açık [ **Analytics** ](../log-analytics/query-language/get-started-analytics-portal.md) arama dikey pencerenin üst.
 > 
 
 Herhangi bir özellik değeri terimlerini arayabilirsiniz. Bu yazdığınız, özellikle yararlı olacaktır [özel olaylar](app-insights-api-custom-events-metrics.md) özellik değerlerine sahip. 
@@ -164,7 +164,7 @@ Gönderme verisi otomatik olarak oturum yok, ancak kullanabileceğiniz [TrackTra
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Sonraki adımlar
-* [Karmaşık sorgular Analytics'te yazma](app-insights-analytics-tour.md)
+* [Karmaşık sorgular Analytics'te yazma](../log-analytics/query-language/get-started-analytics-portal.md)
 * [Günlükleri ve özel telemetri, Application Insights'a gönderme](app-insights-asp-net-trace-logs.md)
 * [Kullanılabilirlik ve yanıt hızını testleri ayarlama](app-insights-monitor-web-app-availability.md)
 * [Sorun giderme](app-insights-troubleshoot-faq.md)

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7d4b4a98c38757eb33c3f8713f662ed52a686924
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166342"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978664"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Service Bus ölçümleri
 
@@ -80,6 +80,8 @@ Aşağıdaki iki türde hatalar, kullanıcı hataları sınıflandırılan:
 | ------------------- | ----------------- |
 |Gelen iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'a gönderilen iletilerin sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Giden iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'tan alınan iletilerin sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+| İletiler (Önizleme) | Bir sıradaki/konudaki iletilerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Boyut: EntityName |
+| ActiveMessages (Önizleme) | Bir sıradaki/konudaki etkin iletilerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Boyut: EntityName |
 
 ## <a name="connection-metrics"></a>Bağlantı ölçümü
 

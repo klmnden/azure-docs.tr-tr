@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: b5632db57e902eef76860f85de6e76f85861090a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c478c2c4af12ecaa02e6700ec7faffc5b9862a00
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728972"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958194"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Raspberry Pi'yi bağlanmak, Azure IOT Central uygulamasına (Python)
 
@@ -23,9 +23,9 @@ Bu makalede, Raspberry Pi'yi Python programlama dili kullanarak, Microsoft Azure
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
+Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki bileşenleri gerekir:
 
-* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [Azure IOT Central uygulaması oluşturmayı](howto-create-application.md).
+* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
 * Raspbian işletim sistemi çalıştıran bir Raspberry Pi cihaz. Monitör, klavye ve fare Raspberry Pi'yi bağlı GUI ortama erişmek için gereksinim duyduğunuz. Raspberry Pi şunları [İnternet'e](https://www.raspberrypi.org/learning/software-guide/wifi/).
 * İsteğe bağlı olarak, bir [algılama Hat](https://www.raspberrypi.org/products/sense-hat/) Raspberry Pi eklenti Panosu. Bu pano, Azure IOT Central uygulamasına göndermek için çeşitli sensörlerden alınan telemetri verileri toplar. Yoksa bir **algılama Hat** Panosu, bunun yerine bir öykünücü kullanabilirsiniz (kullanılabilir Raspberry Pi görüntünün parçası olarak).
 
@@ -33,17 +33,28 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspberry Pi** cihaz şablonu aşağıdaki özelliklere sahip: 
 
-- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnometer** (X ölçülür. Y, Z ekseni), **Accelorometer** (ölçülen X, Y, Z ekseni), ve **jiroskop** (X, Y ölçülür Z ekseni).
-- Ayarları gösteren **voltaj**, **geçerli**,**fanı hızı** ve **IR** Aç/Kapat.
-- Cihaz özelliği içeren özellik **sayı öldürmüş** ve **konumu** bulut özelliği.
+- Telemetri, cihaz toplayacak aşağıdaki ölçüleri içerir:
+    - Nem oranı
+    - Sıcaklık
+    - Basınç
+    - Magnetometer (X, Y, Z)
+    - İvme ölçer (X, Y, Z)
+    - Jiroskop (X, Y, Z)
+- Ayarlar
+    - Voltaj
+    - Geçerli
+    - Fan hızı
+    - IR Aç/Kapat.
+- Özellikler
+    - Numara cihaz özelliği öldürmüş
+    - Konum bulut özelliği
 
-
-Cihaz şablon yapılandırması hakkında tam Ayrıntılar için bkz [Raspberry PI cihaz şablonu ayrıntıları](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
+Cihaz şablon yapılandırmasının tam ayrıntılarını başvurmak [Raspberry PI cihaz şablonu ayrıntıları](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
     
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Raspberry Pi** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği, birincil anahtar**). Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
+Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Raspberry Pi** cihaz bağlantı ayrıntılarının cihaz şablonu ve İzle (**kapsam kimliği, cihaz kimliği, birincil anahtar**). Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
 
 
 ### <a name="configure-the-raspberry-pi"></a>Raspberry Pi yapılandırın

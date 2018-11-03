@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0285b9208247aa84f56d127e734e8a5e87048ac6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044255"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961373"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Log analytics'te Windows olay günlüğü veri kaynakları
 Windows olay günlükleri, en sık kullanılan bir [veri kaynakları](log-analytics-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracılarını kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan tüm özel günlükleri belirtmenin yanı sıra sistem ve uygulama gibi standart günlüklerinden olayları toplayabilir.
@@ -40,7 +40,7 @@ Bir olay günlüğü adı yazarken, Log Analytics ortak olay günlüğü adları
 Log Analytics, olay oluşturulurken, seçilen bir önem derecesi izlenen bir olay günlüğünden eşleşen her olay toplar.  Aracı, onun yerine toplar, her olay günlüğüne kaydeder.  Aracıyı bir süre için çevrimdışı olursa, bu olayları aracının çevrimdışı durumdayken oluşturulmuş olsalar bile sonra Log Analytics olayları son devre dışı kaldığı toplar.  Bu olayları olay günlüğüne aracının çevrimdışı durumdayken üzerine yazılmasını uncollected olaylarla sarmalar, toplanmayan olasılığı yoktur.
 
 >[!NOTE]
->Log Analytics, kaynak SQL Server tarafından oluşturulan denetim olaylarının toplamak değil *MSSQLSERVER* anahtar sözcükleri - içeren, olay kimliği 18453 *Klasik* veya *denetim başarı* ve anahtar sözcüğü *0xa0000000000000*.
+>Log Analytics, kaynak SQL Server tarafından oluşturulan denetim olaylarının toplamak değil *MSSQLSERVER* anahtar sözcükleri - içeren, olay kimliği 18453 *Klasik* veya *denetim başarı* ve anahtar sözcüğü *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Windows olay kayıtları özellikleri
@@ -76,6 +76,6 @@ Aşağıdaki tabloda, Windows olay kayıtları almak günlük aramaları farklı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](log-analytics-data-sources.md) analiz.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
 * Kullanım [özel alanlar](log-analytics-custom-fields.md) olay kayıtları tek tek alanlarına ayrıştırılamıyor.
 * Yapılandırma [performans sayaçlarını toplamayı](log-analytics-data-sources-performance-counters.md) Windows aracılarınızdan.

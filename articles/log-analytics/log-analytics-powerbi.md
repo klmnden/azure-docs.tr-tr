@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7610fcfc144e4337f8556c8824dc7d104265bcc4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c3e0494d813f625a23f55171953d9145411a7024
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044561"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960311"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics verilerini Power BI'a aktarma
 
@@ -81,5 +81,5 @@ Power BI'da oluşturulan veri kümesini Power BI Desktop uygulamasında daha ön
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) Power BI'a aktarılabilir sorguları oluşturmak için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) Power BI'a aktarılabilir sorguları oluşturmak için.
 * Daha fazla bilgi edinin [Power BI](http://powerbi.microsoft.com) Log Analytics dışarı aktarmaya temel görselleştirmeler oluşturun.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167061"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961084"
 ---
 # <a name="application-insights-for-web-pages"></a>Web sayfaları için Application Insights
 Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
@@ -230,7 +230,7 @@ Sayfa adında,URL’deki karakterlerin aynısı bulunabilir, ancak "#" veya "?" 
 ## <a name="usage-tracking"></a>Kullanımı izleme
 Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
-* [Kullanıcı davranış analizi araçları hakkında bilgi edinin](app-insights-web-track-usage.md)
+* [Kullanıcı davranış analizi araçları hakkında bilgi edinin](app-insights-usage-overview.md)
 * [Özel etkinlikler ve ölçüm API’si hakkında bilgi edinin](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -241,7 +241,7 @@ Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
 
 ## <a name="next"></a> Sonraki adımlar
-* [Kullanımı izleme](app-insights-web-track-usage.md)
+* [Kullanımı izleme](app-insights-usage-overview.md)
 * [Özel etkinlikler ve ölçümler](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-web-track-usage.md)
+* [Build-measure-learn](app-insights-usage-overview.md)
 

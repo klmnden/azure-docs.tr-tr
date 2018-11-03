@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights dışında daha fazlasına | Microsoft Docs
-description: Application Insights ile Başlarken sonra keşfedebilirsiniz özelliklerinin bir özeti aşağıda verilmiştir.
+title: Azure Application Insights'tan daha fazla alın | Microsoft Docs
+description: Application Insights ile Başlarken sonra keşfedebilirsiniz özelliklerin özeti aşağıda verilmiştir.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5d46b446a71d75a20cc4771b651fbf107db31358
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294345"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958450"
 ---
-# <a name="more-telemetry-from-application-insights"></a>Daha fazla Application Insights telemetrisini
-Sonra [ASP.NET kodunuza Application Insights eklenen](app-insights-asp-net.md), daha fazla telemetrisi almak için yapabileceğiniz birkaç şey vardır. 
+# <a name="more-telemetry-from-application-insights"></a>Application ınsights'tan daha fazla telemetri
+Sonra [ASP.NET kodunuza Application Insights eklenmiş](app-insights-asp-net.md), daha fazla telemetri almak için yapabileceğiniz birkaç şey vardır. 
 
 | Eylem | Ne alacaksınız|
 |---|---|
-|(IIS sunucuları) [Durum İzleyicisi yükleme](http://go.microsoft.com/fwlink/?LinkId=506648) her server makinesinde.<br/>(Azure web uygulamaları) Web uygulaması için Azure denetim masasında Application Insights dikey penceresini açın.| [**Performans sayaçları**](app-insights-performance-counters.md)<br/>[**Özel durumlar** ](app-insights-asp-net-exceptions.md) - ayrıntılı Yığın izlemeleri<br/>[**Bağımlılıklar**](app-insights-asp-net-dependencies.md)|
-|[JavaScript kod parçacığı web sayfalarınıza ekleme](app-insights-javascript.md)|[Sayfa performans](app-insights-web-track-usage.md), tarayıcı özel durumları, AJAX performans. Özel istemci-tarafı telemetri.|
-|[Kullanılabilirlik web testleri oluşturma](app-insights-monitor-web-app-availability.md)|Sitenizi kullanılamaz hale gelirse uyarıları alma|
-|[Buildinfo.config olun](https://msdn.microsoft.com/library/dn449058.aspx) MSBuild tarafından oluşturulan|[Ölçüm grafiklerinde ek açıklamaları oluşturma](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
-|[Özel olayları ve ölçümleri yazma](app-insights-api-custom-events-metrics.md)|İş olayları ve ölçümleri sayısı, ayrıntılı kullanım ve daha fazla izleme.|
-|[Canlı sitenizi profil](https://aka.ms/AIProfilerPreview)|Canlı web uygulamanızdan ayrıntılı işlevi zamanlamaları|
+|(IIS sunucuları) [Durum İzleyicisi yükleyin](http://go.microsoft.com/fwlink/?LinkId=506648) her sunucu makinesinde.<br/>(Azure web uygulamaları) Web uygulaması için Azure denetim masasında Application Insights dikey penceresini açın.| [**Performans sayaçları**](app-insights-performance-counters.md)<br/>[**Özel durumlar** ](app-insights-asp-net-exceptions.md) - ayrıntılı Yığın izlemeleri<br/>[**Bağımlılıkları**](app-insights-asp-net-dependencies.md)|
+|[JavaScript kod parçacığını web sayfalarınıza ekleme](app-insights-javascript.md)|[Sayfa performansı](app-insights-usage-overview.md), tarayıcı özel durumları, AJAX performans. Özel istemci tarafı telemetri.|
+|[Kullanılabilirlik web testleri oluşturun](app-insights-monitor-web-app-availability.md)|Sitenizi kullanılamaz hale gelirse uyarılar alın|
+|[Buildınfo.config olun](https://msdn.microsoft.com/library/dn449058.aspx) MSBuild tarafından oluşturulur|[Ek açıklamalar ölçüm grafikleri oluşturma](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
+|[Yazma özel olaylar ve ölçümler](app-insights-api-custom-events-metrics.md)|İş olayları ve ölçümleri sayısı, ayrıntılı kullanım ve daha fazlasını izleyin.|
+|[Sitenizin Canlı profil](https://aka.ms/AIProfilerPreview)|Canlı web uygulamanızdan ayrıntılı işlevi zamanlamaları|
 
 
 

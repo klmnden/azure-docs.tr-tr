@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d49360fe39b0df7fc1172c3927e8725af10f927d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638228"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963889"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -103,7 +103,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
 
 ### <a name="configure-the-solution"></a>Çözümü yapılandırma 
 
-1. Çalışma alanınızdan Ağ Performansı İzleyicisi çözüm ekleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md). 
+1. Çalışma alanınızdan Ağ Performansı İzleyicisi çözüm ekleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md). 
 2. Log Analytics çalışma alanınızın açın ve seçin **genel bakış** Döşe. 
 3. Seçin **Ağ Performansı İzleyicisi** döşeme iletinin *çözüm ek yapılandırma gerektirir*.
 
@@ -251,7 +251,7 @@ Haritada gösterilen topolojisi Katman 3 topolojisi ve Katman 2 cihazları ve ba
 
 ## <a name="log-analytics-search"></a>Log Analytics arama 
 
-Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [Log Analytics arama](log-analytics-log-search-new.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin.  **Ortak sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
+Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [Log Analytics arama](log-analytics-log-search.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin.  **Ortak sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
 
 ## <a name="alerts"></a>Uyarılar
 

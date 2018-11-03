@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741190"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978647"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Önizleme: Azure AD parola koruması izleme, raporlama ve sorun giderme
 
@@ -28,9 +28,11 @@ Azure AD parola koruması dağıtıldıktan sonra izleme ve raporlama temel gör
 
 ## <a name="on-premises-logs-and-events"></a>Şirket içi günlüklerini ve olayları
 
-### <a name="dc-agent-service"></a>DC Aracısı hizmeti
+### <a name="dc-agent-admin-log"></a>DC aracı yönetim günlüğü
 
-Her etki alanı denetleyicisinde DC Aracı hizmeti yazılımı kendi parola doğrulamaları (ve diğer durum) sonuçlarının bir yerel olay günlüğüne yazar: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
+Her etki alanı denetleyicisinde DC Aracı hizmeti yazılımı kendi parola doğrulamaları (ve diğer durum) sonuçlarının bir yerel olay günlüğüne yazar:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
 Olayları aşağıdaki aralıklarını kullanarak çeşitli DC aracı bileşenleri tarafından kaydedilir:
 
@@ -62,101 +64,153 @@ Anahtar parolası doğrulama ile ilgili olayları aşağıdaki gibidir:
 > [!TIP]
 > Gelen parolaların Microsoft genel parola listesine göre ilk doğrulanır; Bu başarısız olursa başka işlem gerçekleştirilir. Parola değişikliklerini azure'da gerçekleştirilen gibi aynı davranışı budur.
 
-#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Örnek olay günlüğü iletisi için olay kimliği 10014 başarılı parola ayarlama
+#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Örnek olay günlüğü iletisi olay kimliği 10014 (başarılı parola küme)
 
-Değiştirilen parolayı belirtilen kullanıcı için geçerli Azure parola ilkesiyle uyumlu olarak doğrulandı.
+```
+The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- Kullanıcı adı: BPL_02885102771 tam adı:
+ UserName: BPL_02885102771
+ FullName:
+```
 
-#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Örnek olay günlüğü iletisi için olay kimliği 10017 ve 30003 başarısız parola ayarlama
+#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Örnek olay günlüğü iletisi olay kimliği 10017 ve 30003 (başarısız parola küme)
 
 10017:
 
-Geçerli Azure parola ilkesiyle uymadığından belirtilen kullanıcı için parolayı Sıfırla bağlantısı reddedildi. Bağıntılı olay günlüğü iletisi daha fazla ayrıntı için lütfen bkz.
+```
+The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- Kullanıcı adı: BPL_03283841185 tam adı:
+ UserName: BPL_03283841185
+ FullName:
+```
 
 30003:
 
-En az bir geçerli Azure parola ilkesi Kiracı başına yasaklanmış parola listesinde mevcut belirteçlerin uymadığı için belirtilen kullanıcı için parolayı Sıfırla bağlantısı reddedildi.
+```
+The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- Kullanıcı adı: BPL_03283841185 tam adı:
+ UserName: BPL_03283841185
+ FullName:
+```
 
-Diğer bazı önemli olay günlüğü iletilerini dikkat edilmesi gereken şunlardır:
+#### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Örnek olay günlüğü iletisi olay kimliği 30001 (hiçbir ilke kullanılabilir nedeniyle kabul parola)
 
-#### <a name="sample-event-log-message-for-event-id-30001"></a>Olay Kimliği 30001 örnek olay günlüğü iletisi
+```
+The password for the specified user was accepted because an Azure password policy is not available yet
 
-Belirtilen kullanıcının parolasını Azure parola ilkesi henüz kullanılabilir olmadığı için kabul edildi
+UserName: SomeUser
+FullName: Some User
 
-Kullanıcı adı: SomeUser FullName: bazı kullanıcı
+This condition may be caused by one or more of the following reasons:%n
 
-Bu durum, bir veya daha fazla aşağıdaki nedenlerle: % n neden olabilir
+1. The forest has not yet been registered with Azure.
 
-1. Azure ile orman henüz kaydedilmemiş.
+   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
 
-   Çözüm adımları: yönetici kaydı AzureADPasswordProtectionForest cmdlet'ini kullanarak orman kaydetmeniz gerekir.
+2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
 
-2. Bir Azure AD parola koruması Proxy henüz geçerli ormandaki en az bir makine üzerinde kullanılabilir değil.
+   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
 
-   Çözüm adımları: yönetici yüklemeli ve kayıt AzureADPasswordProtectionProxy cmdlet'ini kullanarak bir proxy kaydedin.
+3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
 
-3. Bu etki alanı Denetleyicisinin herhangi bir Azure AD parola koruması Proxy örneği için ağ bağlantısı yok.
+   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
 
-   Çözüm adımları: en az bir Azure AD parola koruması Proxy örneği için ağ bağlantısı olduğundan emin olun.
+4. This DC does not have connectivity to other domain controllers in the domain.
 
-4. Bu etki alanı Denetleyicisinin, etki alanındaki diğer etki alanı denetleyicilerine bağlantı yok.
+   Resolution steps: ensure network connectivity exists to the domain.
+```
 
-   Çözüm adımları: etki alanına ağ bağlantısı olduğundan emin olun.
+#### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Örnek olay günlüğü iletisi olay kimliği 30006 (yeni ilke tarafından zorunlu kılınmayı)
 
-#### <a name="sample-event-log-message-for-event-id-30006"></a>Olay Kimliği 30006 örnek olay günlüğü iletisi
+```
+The service is now enforcing the following Azure password policy.
 
-Hizmet artık aşağıdaki Azure parola ilkesini zorunlu kıldığı.
-
+ Enabled: 1
  AuditOnly: 1
+ Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+ Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+ Enforce tenant policy: 1
+```
 
- Genel ilke tarih: 2018-05-15T00:00:00.000000000Z
+#### <a name="dc-agent-operational-log"></a>DC Aracısı işlem günlüğü
 
- Kiracı İlkesi tarih: 2018-06-10T20:15:24.432457600Z
+DC Aracısı hizmeti de ilgili işletimsel olayları aşağıdaki günlüğüne:
 
- Kiracı İlkesi Uygula: 1
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
-#### <a name="dc-agent-log-locations"></a>DC aracı günlük konumları
+#### <a name="dc-agent-trace-log"></a>DC aracı izleme günlükleri
 
-DC Aracısı hizmeti de ilgili işletimsel olayları aşağıdaki günlüğüne: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational
+DC aracısı aşağıdaki günlük kaydı için ayrıntılı hata ayıklama düzeyinde izleme olaylarını günlüğe kaydedebilirsiniz:
 
-Ayrıca hata ayıklama düzeyinde ayrıntılı izleme olayları DC Aracısı hizmeti aşağıdaki günlük kaydı için oturum açabilir: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
+
+İzleme günlüğü kaydının varsayılan olarak devre dışıdır.
 
 > [!WARNING]
-> İzleme günlüğü varsayılan olarak devre dışıdır. Etkin olduğunda, bu günlük yüksek hacimli olayları alır ve etki alanı denetleyicisi performansını etkileyebilir. Bir sorunun daha kapsamlı bir araştırma gerektirdiğinde bu nedenle, bu Gelişmiş günlük yalnızca etkinleştirilmiş olmalıdır ve yalnızca en az bir süre için.
+>  Etkinleştirildiğinde, izleme günlüğü yüksek hacimli olayları alır ve etki alanı denetleyicisi performansını etkileyebilir. Bir sorunun daha kapsamlı bir araştırma gerektirdiğinde bu nedenle, bu Gelişmiş günlük yalnızca etkinleştirilmiş olmalıdır ve yalnızca en az bir süre için.
+
+#### <a name="dc-agent-text-logging"></a>DC aracı metin günlüğü
+
+DC Aracı hizmeti, aşağıdaki kayıt defteri değerini ayarlayarak bir metin günlüğüne yazmak için yapılandırılabilir:
+
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters! EnableTextLogging = 1 (REG_DWORD değeri)
+
+Metin günlüğü varsayılan olarak devre dışıdır. Değişikliklerin etkili olması için bu değer için DC aracı hizmetini yeniden başlatılması gerekiyor. DC etkinleştirildiğinde aracısı hizmetinin altında yer alan bir günlük dosyasına yazar:
+
+`%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
+
+> [!TIP]
+> Metin günlüğü izleme günlüğüne kaydedilebilir debug düzeyi girişleri alır, ancak genellikle gözden geçirin ve analiz etmek için daha kolay bir biçimde olacaktır.
+
+> [!WARNING]
+> Etkin olduğunda, bu günlük yüksek hacimli olayları alır ve etki alanı denetleyicisi performansını etkileyebilir. Bir sorunun daha kapsamlı bir araştırma gerektirdiğinde bu nedenle, bu Gelişmiş günlük yalnızca etkinleştirilmiş olmalıdır ve yalnızca en az bir süre için.
 
 ### <a name="azure-ad-password-protection-proxy-service"></a>Azure AD parola koruması proxy hizmeti
 
-Parola koruması Proxy Hizmeti aşağıdaki olay günlüğüne olayları en az bir dizi yayar: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational
+#### <a name="proxy-service-event-logs"></a>Proxy hizmeti olay günlükleri
 
-Parola koruması Proxy Hizmeti ayrıca aşağıdaki günlük kaydı için ayrıntılı hata ayıklama düzeyinde izleme olayları kaydedebilirsiniz: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace
+Proxy Hizmeti, olayları aşağıdaki olay günlüklerinden en az bir dizi yayar:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational`
+
+Proxy Hizmeti aşağıdaki günlük kaydı için ayrıntılı hata ayıklama düzeyinde izleme olaylarını günlüğe kaydedebilirsiniz:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
+
+İzleme günlüğü kaydının varsayılan olarak devre dışıdır.
 
 > [!WARNING]
-> İzleme günlüğü varsayılan olarak devre dışıdır. Etkin olduğunda, bu günlük yüksek hacimli olayları alır ve bu proxy konağını performansını etkileyebilir. Bir sorunun daha kapsamlı bir araştırma gerektirdiğinde bu nedenle, bu günlük yalnızca etkinleştirilmiş olmalıdır ve yalnızca en az bir süre için.
+> Etkin olduğunda, yüksek hacimli olay izleme günlüğü alır ve bu proxy konağını performansını etkileyebilir. Bir sorunun daha kapsamlı bir araştırma gerektirdiğinde bu nedenle, bu günlük yalnızca etkinleştirilmiş olmalıdır ve yalnızca en az bir süre için.
 
-### <a name="dc-agent-discovery"></a>DC Aracısı bulma
+#### <a name="proxy-service-text-logging"></a>Proxy hizmet metin günlüğü
 
-`Get-AzureADPasswordProtectionDCAgent` Cmdlet'i, bir etki alanı veya orman çalışan çeşitli DC aracılarla ilgili temel bilgileri görüntülemek için kullanılabilir. Bu bilgiler, çalışan DC aracı hizmetleri tarafından kayıtlı serviceConnectionPoint nesnelerden alınır. Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
+Proxy Hizmeti, aşağıdaki kayıt defteri değerini ayarlayarak bir metin günlüğüne yazmak için yapılandırılabilir:
 
-```
-PS C:\> Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = 1 (REG_DWORD değeri)
 
-Çeşitli özellikleri, her DC Aracısı yaklaşık bir saatlik aralıklarla güncelleştirilir. Yine de Active Directory çoğaltma gecikmesine verilerdir.
+Metin günlüğü varsayılan olarak devre dışıdır. Değişikliklerin etkili olması için bu değer için Proxy Hizmeti yeniden başlatma gerekiyor. Hizmetinin altında yer alan bir günlük dosyasına yazar Proxy etkin olduğunda:
 
-Cmdlet'in sorgu kapsamı kullanarak etkilenebilir orman veya – etki alanı parametreleri.
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+> [!TIP]
+> Metin günlüğü izleme günlüğüne kaydedilebilir debug düzeyi girişleri alır, ancak genellikle gözden geçirin ve analiz etmek için daha kolay bir biçimde olacaktır.
+
+> [!WARNING]
+> Etkin olduğunda, bu günlük yüksek hacimli olayları alır ve etki alanı denetleyicisi performansını etkileyebilir. Bir sorunun daha kapsamlı bir araştırma gerektirdiğinde bu nedenle, bu Gelişmiş günlük yalnızca etkinleştirilmiş olmalıdır ve yalnızca en az bir süre için.
+
+#### <a name="powershell-cmdlet-logging"></a>PowerShell cmdlet günlükleri
+
+Azure AD parola koruması Powershell cmdlet'lerinin çoğu altında yer alan bir metin günlüğü için yazılacaktır:
+
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+Bir cmdlet hatası oluşur ve neden ve/veya özetleri çözüm kolaylıkla görünebilir değil, bu metin günlükleri de consulted.
 
 ### <a name="emergency-remediation"></a>Acil Durum düzeltme
 
-Burada DC Aracı hizmeti sorunlarına neden olmaktan talihsiz bir durum meydana gelirse, DC aracı hizmetini hemen kapatılması. DC aracı parola filtresi DLL'sinin çalışan olmayan hizmeti çağırmak çalışır ve uyarı olayları (10012, 10013) günlüğe kaydeder, ancak bu süre boyunca tüm gelen parolaları kabul edilir. DC Aracı hizmeti daha sonra da aracılığıyla Windows Hizmet Denetimi Yöneticisi "Disabled" başlatma türüyle gerektiği şekilde yapılandırılmış olabilir.
+Burada, DC Aracı hizmeti sorunlara neden olan bir durum meydana gelirse, DC aracı hizmetini hemen kapatılması. DC aracı parola filtresi DLL'sinin hala çalışan olmayan hizmeti çağırmak çalışır ve uyarı olayları (10012, 10013) günlüğe kaydeder, ancak bu süre boyunca tüm gelen parolaları kabul edilir. DC Aracı hizmeti daha sonra da aracılığıyla Windows Hizmet Denetimi Yöneticisi "Disabled" başlatma türüyle gerektiği şekilde yapılandırılmış olabilir.
 
 ### <a name="performance-monitoring"></a>Performans izleme
 
@@ -182,6 +236,7 @@ Etki alanı denetleyicisi Dizin Hizmetleri Onarım Modu'nda önyüklenir, DC Ara
 ## <a name="domain-controller-demotion"></a>Etki alanı denetleyicisinin indirgemesi
 
 Hala DC Aracısı yazılımını çalıştıran bir etki alanı denetleyicisini indirgemek için desteklenir. Yöneticiler ancak DC Aracısı yazılımını çalışmaya devam eder ve geçerli parola ilkesini zorlama indirgeme işlemi sırasında devam bilmeniz gerekir. (İndirme işlemi bir parçası olarak belirtilen) yeni yerel yönetici hesabı parolası gibi başka bir parola doğrulanır. Microsoft, güvenli parolalar DC indirgeme yordamının parçası olarak yerel yönetici hesapları için seçilmesi önerir; ancak yeni yerel yönetici hesabı parolasını DC Aracısı yazılımı tarafından doğrulanmasını indirgeme işlem yordamlarını önceden varolan karışıklığa neden olabilir.
+
 İndirgeme başarılı oldu ve etki alanı denetleyicisi gizleyip gizlemeyeceğini ve normal üye sunucu olarak yeniden çalıştırmayı sonra pasif modunda çalışan DC Aracısı yazılımını döner. Ardından herhangi bir zamanda kaldırılabilir.
 
 ## <a name="removal"></a>Çıkarma
@@ -189,35 +244,36 @@ Hala DC Aracısı yazılımını çalıştıran bir etki alanı denetleyicisini 
 Etki alanı ve orman ilgili tüm durum temizleme ve genel Önizleme yazılımını kaldırmak için karar verilir, bu görevi, aşağıdaki adımları kullanarak gerçekleştirilebilir:
 
 > [!IMPORTANT]
-> Sırayla bu adımları gerçekleştirmek önemlidir. Herhangi bir örneğini Proxy Hizmeti parola koruması bırakılması durumunda çalışan serviceConnectionPoint nesne düzenli aralıklarla yeniden oluşturmanız hem de düzenli aralıklarla sysvol durumu yeniden oluşturun.
+> Sırayla bu adımları gerçekleştirmek önemlidir. Proxy Hizmeti herhangi bir örneğini çalıştıran bırakılırsa düzenli aralıklarla serviceConnectionPoint nesne yeniden oluşturur. DC Aracısı hizmeti herhangi bir örneğini çalıştıran bırakılırsa düzenli aralıklarla serviceConnectionPoint nesne ve sysvol durumu yeniden oluşturun.
 
 1. Parola koruması ara yazılım, tüm makineleri kaldırın. Bu adım mu **değil** yeniden başlatılmasını gerektirir.
 2. Tüm etki alanı denetleyicilerinden DC Aracısı yazılımı kaldırın. Bu adım **gerektirir** yeniden başlatma.
-3. El ile her etki alanı adlandırma bağlamı tüm proxy hizmeti bağlantı noktalarını kaldırın. Bu nesnelerin konumu aşağıdaki Active Directory Powershell komutuyla bulunan:
-   ```
+3. El ile her etki alanı adlandırma bağlamı tüm Proxy Hizmeti bağlantı noktalarını kaldırın. Bu nesnelerin konumu aşağıdaki Active Directory Powershell komutuyla bulunan:
+
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Yıldız işareti kullanın ("*") sonunda $keywords değişken değeri.
 
-   Elde edilen nesnenin aracılığıyla bulunan `Get-ADObject` komutu ardından ayrıştırılabileceği `Remove-ADObject`, veya el ile silindi. 
+   Aracılığıyla elde edilen nesne bulundu `Get-ADObject` komutu ardından ayrıştırılabileceği `Remove-ADObject`, veya el ile silindi. 
 
 4. El ile tüm DC aracı bağlantı noktaları, her etki alanı adlandırma içeriği kaldırın. Olabilir bir genel Önizleme yazılımını yaygın olarak nasıl dağıtıldığına bağlı olarak ormandaki etki alanı denetleyicisi başına bu nesneler. Bu nesnenin konumu aşağıdaki Active Directory Powershell komutuyla bulunan:
 
-   ```
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   Elde edilen nesnenin aracılığıyla bulunan `Get-ADObject` komutu ardından ayrıştırılabileceği `Remove-ADObject`, veya el ile silindi.
+   Aracılığıyla elde edilen nesne bulundu `Get-ADObject` komutu ardından ayrıştırılabileceği `Remove-ADObject`, veya el ile silindi.
 
 5. Orman düzeyinde yapılandırma durumunu el ile kaldırın. Orman yapılandırma durumu, Active Directory yapılandırma adlandırma bağlamında bir kapsayıcıda tutulur. Bulunan ve aşağıda silindi:
 
-   ```
-   $passwordProtectonConfigContainer = "CN=Azure AD password protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   ```Powershell
+   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject $passwordProtectonConfigContainer
    ```
 

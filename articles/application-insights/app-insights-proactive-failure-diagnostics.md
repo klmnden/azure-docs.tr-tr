@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093994"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960931"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Akıllı algılama - hata Anomalileri
 [Application Insights](app-insights-overview.md) otomatik olarak web uygulamanızın olağandışı başarısız istek oranı artışı karşılaşırsa neredeyse gerçek zamanlı olarak bildirir. Bu, HTTP isteklerini veya başarısız olarak raporlanır bağımlılık çağrıları oranını olağan dışı bir artış algılar. Başarısız istekler, istekleri için yanıt kodları 400 veya daha yüksek olan genellikle biçimindedir. Önceliklendirmenize ve sorunu tanılamanıza yardımcı olmak için hataları ve ilgili telemetriyi özelliklerini analizini bildiriminde sağlanır. Daha ileri tanılama için Application Insights portalına bağlantıları vardır. Normal hata oranı tahmin etmek için makine öğrenimi algoritmaları kullanır gibi özellik Kurulum ya da yapılandırması gerekir.
@@ -40,7 +40,7 @@ Ayarladıktan sonra [projeniz için Application Insights](app-insights-overview.
 Size bildirir dikkat edin:
 
 * Normal uygulama davranışına göre hata oranı.
-* Kaç kullanıcının – ne kadar endişelenmenize gerek bilmesi etkilenir.
+* Kaç kullanıcının - ne kadar endişelenmenize gerek bilmesi etkilenir.
 * Hatalarla ilgili özellik deseni. Bu örnekte, belirli bir yanıt kodu, istek adı (işlem) ve uygulama sürümü yok. Bu hemen, kodunuzda arama nerede başlatılacağını anlatır. Diğer olasılıklar, belirli bir tarayıcı veya istemci işletim sistemi olabilir.
 * Özel durum, günlük izlemeleri ve bağımlılık hatası (veritabanları veya diğer dış bileşenlere) karakterize hataları ile ilişkilendirilecek görünen.
 * İlgili aramalar Application ınsights telemetrisi üzerinde doğrudan bağlantılar.
@@ -147,7 +147,7 @@ Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımc
 
 * [Ölçüm Gezgini](app-insights-metrics-explorer.md)
 * [Arama Gezgini](app-insights-diagnostic-search.md)
-* [Analytics - güçlü sorgu dili](app-insights-analytics-tour.md)
+* [Analytics - güçlü sorgu dili](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Akıllı algılama tamamen otomatik olarak yapılır. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 

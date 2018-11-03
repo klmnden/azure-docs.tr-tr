@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: caccd70e17d814fb58d5801ed12192e56f0e16ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412831"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959976"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log analytics'te Azure Key Vault Analytics çözümü
 
@@ -38,7 +38,7 @@ Azure Key Vault AuditEvent günlüklerini incelemek için Log Analytics içindek
 ## <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Yükleme ve Azure anahtar kasası çözümü yapılandırmak için aşağıdaki yönergeleri kullanın:
 
-1. Azure Key Vault çözümünden etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
+1. Azure Key Vault çözümünden etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
 2. Kullanarak izlemek, Key Vault kaynak için tanılama günlüğünü etkinleştirme [portalı](#enable-key-vault-diagnostics-in-the-portal) veya [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Key Vault portalda tanılamayı etkinleştirin
@@ -136,7 +136,7 @@ Ocak 2017'de, günlükleri Key Vault'tan Log Analytics'e gönderme desteklenen y
 Güncel çözümü kullanmak için:
 
 1. [Key Vault'tan doğrudan Log Analytics'e gönderilecek tanılama Yapılandır](#enable-key-vault-diagnostics-in-the-portal)  
-2. Açıklanan işlemi kullanarak Azure Key Vault çözümü etkinleştirme [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md)
+2. Açıklanan işlemi kullanarak Azure Key Vault çözümü etkinleştirme [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md)
 3. Tüm kaydedilmiş sorgular, panolar veya yeni veri türü kullanılacağını uyarıları güncelleştirme
   + Değişiklik türüdür: KeyVaults AzureDiagnostics için. Kaynak türü, anahtar kasası günlükleri için filtre uygulamak için kullanabilirsiniz.
   - Yerine: `KeyVaults`, kullanın `AzureDiagnostics | where ResourceType'=="VAULTS"`
@@ -153,4 +153,4 @@ Değişiklik yeni çözümde görünür değil. önce toplanan veriler. Alan adl
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-searches.md) ayrıntılı Azure anahtar kasası verilerini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı Azure anahtar kasası verilerini görüntülemek için.

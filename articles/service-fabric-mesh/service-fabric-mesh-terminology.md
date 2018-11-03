@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 0047ed4f0a172451bd50af3f62e2fecb8e147bf2
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944452"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979140"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh terminolojisi
 
@@ -84,5 +84,6 @@ Aşağıdaki tabloda, farklı uygulama modelleri ve bunlar için Service Fabric 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Fabric Mesh hakkında daha fazla bilgi için genel bakış okuyun:
-- [Service Fabric Mesh genel bakış](service-fabric-mesh-overview.md)
+Service Fabric Mesh hakkında daha fazla bilgi edinmek için [Service Fabric Mesh’e genel bakış](service-fabric-mesh-overview.md) makalesini okuyun.
+
+Bul yanıtlar [sık sorulan sorular](service-fabric-mesh-faq.md).

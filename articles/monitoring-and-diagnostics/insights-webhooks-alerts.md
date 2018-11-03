@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0f08e63d6cbf5be8667b1fd61556e3f33e31d06f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380307"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957667"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Web kancası kullanarak bir Azure sistem bilgisini Klasik ölçüm uyarısı sahip
 İşlem Sonrası veya özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yönlendirmek için Web kancaları kullanabilirsiniz. Sohbet veya Mesajlaşma Hizmetleri aracılığıyla veya diğer çeşitli eylemler için bir takıma bildirin hataları oturum, SMS iletileri göndermek Hizmetleri yönlendirmek için bir uyarısında Web kancası kullanabilirsiniz. 
 
-Bu makalede, Azure bir ölçüm uyarısında Web kancası ayarlama açıklanır. Ayrıca, bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir. Azure etkinlik için şema ve kurulumu hakkında bilgi için günlük uyarı (uyarı) olaylarına bakın [bir Azure etkinlik günlüğü uyarısında Web kancası çağırma](insights-auditlog-to-webhook-email.md).
+Bu makalede, Azure bir ölçüm uyarısında Web kancası ayarlama açıklanır. Ayrıca, bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir. Azure etkinlik için şema ve kurulumu hakkında bilgi için günlük uyarı (uyarı) olaylarına bakın [bir Azure etkinlik günlüğü uyarısında Web kancası çağırma](monitor-alerts-unified-log-webhook.md).
 
 Azure uyarıları, uyarı içeriği JSON biçiminde bir Web kancası uyarı oluştururken sağladığınız URI göndermek için HTTP POST kullanın. Şema, bu makalenin sonraki bölümlerinde tanımlanır. URI geçerli bir HTTP veya HTTPS uç noktası olmalıdır. Azure, uyarı etkinleştirildiğinde, istek başına tek bir giriş gönderir.
 

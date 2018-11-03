@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 6e15fee02fd001bddd25a19b8a9420eb899d4f85
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740562"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978681"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack tanılama araçları
 
@@ -112,11 +112,11 @@ if($s)
 - Varsa **FromDate** ve **ToDate** parametreleri belirtilmemişse, varsayılan olarak son dört saat boyunca günlükleri toplanır.
 - Kullanım **FilterByNode** günlükleri bilgisayar adına göre filtre uygulamak için parametre. Örneğin:
 ```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
 ```
 - Kullanım **FilterByLogType** günlükleri türüne göre filtrelemek için parametre. Dosya, paylaşım veya WindowsEvent göre filtrelemek seçebilirsiniz. Örneğin:
 ```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
 ```
 - Kullanabileceğiniz **TimeOutInMinutes** parametresini kullanarak günlük toplama için zaman aşımını ayarlayın. 150 (2,5 saat) için varsayılan olarak ayarlanır.
 - Sürüm 1805 ve daha sonra döküm dosyası günlük toplama varsayılan olarak devre dışıdır. Bunu etkinleştirmek için **IncludeDumpFile** parametresi geçin. 
@@ -124,30 +124,25 @@ Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -
 
  |   |   |   |    |
  | - | - | - | -  |   
- |ACS|İşlem|InfraServiceController|QueryServiceCoordinator|
- |ACSBlob|CPI|Altyapı|QueryServiceWorker|
- |ACSDownloadService|CRP|KeyVaultAdminResourceProvider|SeedRing|
- |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
- |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
- |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
- |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
- |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
- |ACSSettingsService|EventAdminRP|MDM|Depolama|
- |ACSTableMaster|EventRP|MetricsAdminRP|storageAccounts|
- |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
- |ACSWac|Fabric|MetricsServer|Kiracı|
- |ADFS|FabricRing|MetricsStoreService|TraceCollector|
- |ApplicationController|FabricRingServices|MonAdminRP|URP|
- |ASAppGateway|FirstTierAggregationService|MonitoringAgent|Kullanım|
- |AzureBridge|FRP|MonRP|UsageBridge|
- |AzureMonitor|Galeri|NC|virtualMachines|
- |AzureStackBitlocker|Ağ geçidi|Ağ|OLUŞTU|
- |BareMetal|Ögesi|NonPrivilegedAppGateway|WASBootstrap|
- |BRP|HintingServiceV2|NRP|WASPUBLIC|
- |CA|HRP|OboService|WindowsDefender|
- |CacheService|IBC|OEM|     |
- |Bulut|Identityprovider|OnboardRP|     |   
- |Küme|IDN'ler|PXE|     |
+ |ACS                   |CacheService                   |IBC                            |OEM|
+ |ACSDownloadService    |İşlem                        |InfraServiceController         |OnboardRP|
+ |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+ |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+ |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+ |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+ |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
+ |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+ |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+ |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+ |ACSWac                |ExternalDNS                    |MetricsRP                      |Depolama|
+ |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+ |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+ |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+ |AzureBridge           |FRP                            |MonRP                          |virtualMachines   |
+ |AzureMonitor          |Ağ geçidi                        |NC                             |OLUŞTU|
+ |BareMetal             |Ögesi               |NonPrivilegedAppGateway        |WASPUBLIC|
+ |BRP                   |HintingServiceV2               |NRP                            |   |
+ |CA                    |HRP                            |OboService                     |   |
  |   |   |   |    |
 
 ### <a name="additional-considerations"></a>Diğer konular

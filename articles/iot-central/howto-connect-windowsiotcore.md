@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 88285ea658b194daf69b12116649e2389374c349
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d166d490c00a9805ec9cecae6509acc531d8d711
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025540"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959877"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -23,7 +23,7 @@ Bu makalede, Microsoft Azure IOT Central uygulamanızı Windows IOT Core cihazı
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [Azure IOT Central uygulaması oluşturmayı](howto-create-application.md).
+1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
 2. Windows 10 IoT Core işletim sistemi çalıştıran bir cihaz. Bu kılavuz için Raspberry Pi'yi kullanacağız.
 
 

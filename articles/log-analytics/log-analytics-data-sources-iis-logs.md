@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
 ms.comopnent: ''
-ms.openlocfilehash: 7b44c0712c4d88ec0bbb7a94f574c2a12faf3550
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6670b6648a0f38879b57b05cb3c6c6e15ca832b4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040685"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958228"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log Analytics'te IIS günlükleri
 Internet Information Services (IIS) kullanıcı etkinliği Log Analytics tarafından toplanan günlük dosyalarını depolar.  
@@ -72,7 +72,7 @@ Aşağıdaki tabloda IIS günlük kayıtları almak günlük sorguları farklı 
 
 | Sorgu | Açıklama |
 |:--- |:--- |
-| W3cııslog |Tüm IIS günlük kaydı. |
+| W3CIISLog |Tüm IIS günlük kaydı. |
 | W3cııslog &#124; burada scStatus 500 == |Tüm IIS günlük kayıtları 500 dönüş durumu. |
 | W3cııslog &#124; Count() işlevi tarafından CIP özetleme |İstemci IP adresine göre sayısı, IIS günlük girdilerinin. |
 | W3cııslog &#124; burada csHost "www.contoso.com" == &#124; Count() işlevi tarafından csUriStem özetleme |URL'ye göre girişlerinde konak www.contoso.com oturum sayısı, IIS. |
@@ -80,5 +80,5 @@ Aşağıdaki tabloda IIS günlük kayıtları almak günlük sorguları farklı 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](log-analytics-data-sources.md) analiz.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
 * Log analytics'te, IIS günlükleri bulunan önemli koşulları proaktif olarak bildirmek için uyarıları yapılandırın.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b33cbce582fde24e4cad6f0c208de3796a04f116
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407178"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963345"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface hub'lar durumlarını izlemek için Log Analytics ile izleme
 
@@ -35,7 +35,7 @@ Microsoft Monitoring Agent yüklüyse her Surface Hub sahiptir. Kendi verilerini
 
 * A [Log Analytics aboneliği](https://azure.microsoft.com/pricing/details/log-analytics/) izlemek istediğiniz cihaz sayısını destekleyen düzeyi. Log Analytics fiyatlandırma kaç cihazın kayıtlı ve elinizdeki verilere bağlı olarak bu işlemleri değişir. Bu, Surface Hub sunum planlarken dikkate almasını istersiniz.
 
-Ardından, mevcut bir Log Analytics çalışma alanı ekleyin veya yeni bir tane oluşturun. Ayrıntılı yönergeler için her iki yöntemi kullanarak altındadır [Log Analytics ile çalışmaya başlama](log-analytics-get-started.md). Log Analytics çalışma alanı yapılandırıldıktan sonra Surface Hub cihazları kaydetmek için iki yolu vardır:
+Ardından, mevcut bir Log Analytics çalışma alanı ekleyin veya yeni bir tane oluşturun. Ayrıntılı yönergeler için her iki yöntemi kullanarak altındadır [Azure portalında Log Analytics çalışma alanı oluşturma](log-analytics-quick-create-workspace.md). Log Analytics çalışma alanı yapılandırıldıktan sonra Surface Hub cihazları kaydetmek için iki yolu vardır:
 
 * Otomatik olarak Intune aracılığıyla
 * El ile **ayarları** Surface Hub Cihazınızda.
@@ -84,8 +84,8 @@ Surface hub'ları izleme Log Analytics gibi diğer kaydedilen cihazların izleme
 
    ![Surface Hub Panosu](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-Oluşturabileceğiniz [uyarılar](log-analytics-alerts.md) mevcut veya özel günlük aramaları göre. Log Analytics, Surface hub'larından toplar. veriler kullanılarak, sorunlar ve cihazlarınız için tanımladığınız koşulların uyarısında için arama yapabilirsiniz.
+Oluşturabileceğiniz [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) mevcut veya özel günlük aramaları göre. Log Analytics, Surface hub'larından toplar. veriler kullanılarak, sorunlar ve cihazlarınız için tanımladığınız koşulların uyarısında için arama yapabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-searches.md) ayrıntılı Surface Hub verilerini görüntülemek için.
-* Oluşturma [uyarılar](log-analytics-alerts.md) Surface hub'larıyla sorunları ortaya çıktığında bunu size bildirecek.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı Surface Hub verilerini görüntülemek için.
+* Oluşturma [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) Surface hub'larıyla sorunları ortaya çıktığında bunu size bildirecek.

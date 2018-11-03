@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86c0343a3492bf91eedda9303e3c6ac9cf86c4c3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 498633d9f73c4a9b669ddd3469b62c01d2a19397
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947328"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958721"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
@@ -150,7 +150,7 @@ ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiysen
 
 * **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri, tanılama araması ve kodun detayına gitme ile hata ayıklama hakkında bilgi içerir.
 * **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/> Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma hakkında bilgi içerir.
-* **[Analytics](app-insights-analytics-tour.md)** - Güçlü sorgu dili.
+* **[Analytics](../log-analytics/query-language/get-started-analytics-portal.md)** - Güçlü sorgu dili.
 
 ### <a name="alerts"></a>Uyarılar
 

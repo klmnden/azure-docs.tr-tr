@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986330"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978410"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantı mimarisi
 
@@ -31,19 +31,30 @@ Aşağıdaki diyagram, Azure SQL veritabanı bağlantısı mimarisinin üst düz
 
 Aşağıdaki adımlar, Azure SQL veritabanı yazılım yük dengeleyici (SLB) ve Azure SQL veritabanı ağ geçidi aracılığıyla Azure SQL veritabanı için bir bağlantının nasıl kurulacağını açıklar.
 
-- İstemciler, azure'da veya Azure dışındaki ortak IP adresi ve bağlantı noktası 1433'ü dinler SLB bağlanır.
-- SLB, Azure SQL veritabanı ağ geçidi trafiği yönlendirir.
-- Ağ geçidi doğru proxy Ara yazılımıyla trafiği yönlendirir.
-- Proxy ara yazılım için uygun Azure SQL veritabanı trafiği yönlendirir.
+- İstemciler bir genel IP adresi vardır ve 1433 numaralı bağlantı noktasını dinler SLB bağlanır.
+- Azure SQL veritabanı ağ geçidi trafiği SLB iletir.
+- Etkin bağlantı İlkesi, yeniden yönlendirmeleri veya proxy'ler doğru proxy ara yazılım trafiğe bağlı olarak ağ geçidi.
+- Proxy ara yazılım, trafik uygun Azure SQL veritabanına iletir.
 
 > [!IMPORTANT]
 > Bu bileşenlerin her birinin reddi (DDoS) hizmeti koruma ağ ve uygulama katmanı yerleşik dağıtılmış.
 
+## <a name="connection-policy"></a>Bağlantı İlkesi
+
+Azure SQL veritabanı, SQL veritabanı sunucusu bağlantı İlkesi ayarı için aşağıdaki üç seçenekten destekler:
+
+- **(Önerilen) yeniden yönlendirme:** istemciler doğrudan veritabanını barındıran düğüme bağlantı kurar. Bağlantıyı etkinleştirmek için istemciler bölgesindeki tüm Azure IP adreslerine giden güvenlik duvarı kuralları sağlar (Bu ağ güvenlik grupları (NSG) ile kullanmayı deneyin [hizmet etiketleri](../virtual-network/security-overview.md#service-tags)), yalnızca Azure SQL veritabanı ağ geçidi IP adresi. Paketler, doğrudan veritabanına gidin olduğundan, gecikme süresi ve aktarım hızı performansı geliştirdik.
+- **Proxy:** bu modda, tüm bağlantıların Azure SQL veritabanı ağ geçitleri taşınır. Bağlantıyı etkinleştirmek için istemci yalnızca Azure SQL veritabanı ağ geçidi IP adresleri (genellikle iki IP adresi bölge başına) izin giden güvenlik duvarı kurallarınız olmalıdır. Bu modu seçme, daha yüksek gecikme süresi ve iş yükü doğasına bağlı olarak daha düşük aktarım hızı, sonuçlanabilir. Yeniden yönlendirme bağlantı İlkesi düşük gecikme süresi ve yüksek aktarım hızı için Proxy bağlantı ilkesi üzerine öneririz.
+- **Varsayılan:** Proxy ya da yeniden yönlendirme bağlantı İlkesi açıkça yapmadığınız sürece bu bağlantı İlkesi tüm sunucularda oluşturulduktan sonra etkindir. Etkin ilke olup bağlantıları (yeniden yönlendirme) azure'da veya Azure (Proxy) dışındaki kaynaklanan üzerinde bağlıdır.
+
 ## <a name="connectivity-from-within-azure"></a>Azure içinde bağlantısı
 
-Azure içinde gelen bağlanıyorsanız, bağlantı İlkesi bağlantılarınızı sahip **yeniden yönlendirme** varsayılan olarak. Bir ilke **yeniden yönlendirme** TCP oturumu, Azure SQL veritabanı için istemci oturum kurulduktan sonra bağlantıları sonra yeniden yönlendirilirse, proxy ara yazılım için hedef sanal IP değişiklik Azure verilerinden anlamına gelir. SQL veritabanı ağ geçidi, proxy ara yazılım. Bundan sonra Azure SQL veritabanı ağ geçidi atlayarak doğrudan proxy ara yazılımı üzerinden, sonraki tüm paketlere akış. Aşağıdaki diyagram Bu trafik akışını gösterir.
+Bağlantılarınızı Azure içinde 10 Kasım 2018'den sonra oluşturulmuş bir sunucuya bağlanan bir bağlantı ilkesi varsa **yeniden yönlendirme** varsayılan olarak. Bir ilke **yeniden yönlendirme** TCP oturumu, Azure SQL veritabanı için istemci oturum kurulduktan sonra bağlantıları sonra yeniden yönlendirilirse, proxy ara yazılım için hedef sanal IP değişiklik Azure verilerinden anlamına gelir. SQL veritabanı ağ geçidi, proxy ara yazılım. Bundan sonra Azure SQL veritabanı ağ geçidi atlayarak doğrudan proxy ara yazılımı üzerinden, sonraki tüm paketlere akış. Aşağıdaki diyagram Bu trafik akışını gösterir.
 
 ![mimariye genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> SQL veritabanı sunucusu, bağlantı İlkesi 10 Kasım 2018'den önce oluşturduysanız, açıkça ayarlanmış **Proxy**. Hizmet uç noktaları kullanırken, bağlantı ilkelerinizi değiştirme öneririz **yeniden yönlendirme** daha iyi performans sağlamak. Bağlantı ilkelerinizi değiştirirseniz **yeniden yönlendirme**, olmayacaktır NSG IP'ler, aşağıda listelenen Azure SQL veritabanı ağ geçidi üzerinde giden izin vermek için yeterli, giden tüm Azure SQL veritabanı IP'lere izin vermelidir. Bu NSG (ağ güvenlik grupları) hizmet etiketleri yardımıyla gerçekleştirilebilir. Daha fazla bilgi için [hizmet etiketleri](../virtual-network/security-overview.md#service-tags).
 
 ## <a name="connectivity-from-outside-of-azure"></a>Azure dışındaki bağlantısı
 
@@ -51,19 +62,11 @@ Azure dışından bağlanıyorsanız, bağlantılarınızı, bağlantı İlkesi 
 
 ![mimariye genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> Hizmet uç noktaları Azure SQL veritabanı ile ilkenizi kullanıldığında **Proxy** varsayılan olarak. Bağlantısı, sanal ağ içinde etkinleştirmek için aşağıdaki listede belirtilen Azure SQL veritabanı ağ geçidi IP adreslerine giden bağlantılara izin vermesi gerekir.
-
-Hizmet uç noktaları kullanırken bağlantı ilkelerinizi değiştirme öneririz **yeniden yönlendirme** daha iyi performans sağlamak. Bağlantı ilkelerinizi değiştirirseniz **yeniden yönlendirme** olmayacaktır NSG IP'ler, aşağıda listelenen Azure SQL veritabanı ağ geçidi üzerinde giden izin vermek için yeterli, giden tüm Azure SQL veritabanı IP'lere izin vermelidir. Bu NSG (ağ güvenlik grupları) hizmet etiketleri yardımıyla gerçekleştirilebilir. Daha fazla bilgi için [hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL veritabanı ağ geçidi IP adresleri
 
 Şirket içi kaynaklardan bir Azure SQL veritabanına bağlanmak için Azure SQL veritabanı ağ geçidi, Azure bölgesi için giden ağ trafiğine izin vermeniz gerekir. Bağlantılarınızı yalnızca ağ geçidi üzerinden şirket içi kaynaklardan bağlanırken varsayılan değer olan ara sunucu modunda bağlanırken gidin.
 
 Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için birincil ve ikincil IP'ler listeler. Bazı bölgeler için iki IP adresi vardır. Bu bölgede, birincil IP adresi geçerli bir ağ geçidi IP adresini ve ikinci IP adresini bir yük devretme IP adresidir. Yük devretme adresi size yüksek hizmet kullanılabilirliğini korumak için sunucunuzun taşıyabilirsiniz adresidir. Bu bölgeler için her iki IP adreslerine giden izin öneririz. İkinci IP adresi Microsoft'a ait ve bağlantıları kabul etmek üzere Azure SQL veritabanı tarafından etkinleştirilinceye kadar tüm hizmetleri dinlemez.
-
-> [!IMPORTANT]
-> Azure içinde içinden bağlanan bağlantı ilkelerinizi olacaktır **yeniden yönlendirme** varsayılan olarak (dışında hizmet uç noktaları kullanıyorsanız). Aşağıdaki IP'leri izin vermek için yeterli olur. Tüm Azure SQL veritabanı IP'lere izin vermeniz gerekir. Bir sanal ağ içinde gelen bağlanıyorsanız bu NSG (ağ güvenlik grupları) hizmet etiketleri yardımıyla gerçekleştirilebilir. Daha fazla bilgi için [hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Bölge Adı | Birincil IP adresi | İkincil IP adresi |
 | --- | --- |--- |

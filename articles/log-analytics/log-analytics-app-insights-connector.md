@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f3a90bf0dad2d0e9c6d51e942d88fb933b8ed1f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408217"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961339"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -44,8 +44,8 @@ Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanı
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| [Windows aracıları](log-analytics-windows-agent.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
-| [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
+| [Windows aracıları](log-analytics-agent-windows.md) | Hayır | Çözüm, Windows aracılarından bilgi toplamaz. |
+| [Linux aracıları](log-analytics-quick-collect-linux-computer.md) | Hayır | Çözüm, Linux aracılarından bilgi toplamaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Bir bağlı SCOM yönetim grubundaki aracılardan çözüm herhangi bir bilgi toplamaz. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Çözüm, Azure depolama biriminden bilgilerin toplanması yapar. |
 
@@ -57,7 +57,7 @@ Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanı
 
 ## <a name="configuration"></a>Yapılandırma
 
-1. Azure Web Apps Analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
+1. Azure Web Apps Analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
 2. [Azure portala](https://portal.azure.com) gidin. Seçin **tüm hizmetleri** Application Insights'ı açın. Ardından Application ınsights'ı arayın. 
 3. Altında **abonelikleri**, Application Insights kaynaklarını içeren bir aboneliği seçin ve ardından altındaki **adı**, bir veya daha fazla uygulama seçin.
 4. **Kaydet**’e tıklayın.
@@ -267,4 +267,4 @@ Bu çözüm panosunda gösterilen örnek günlük aramaları kümesi yok. Örnek
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanım [günlük araması](log-analytics-log-searches.md) Application Insights uygulamalarınız için ayrıntılı bilgileri görüntülemek için.
+- Kullanım [günlük araması](log-analytics-log-search.md) Application Insights uygulamalarınız için ayrıntılı bilgileri görüntülemek için.

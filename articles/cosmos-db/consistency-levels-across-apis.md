@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: ed08b90b9e216ee8713bfe445e98144bf2ba02d4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244195"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956392"
 ---
-# <a name="consistency-levels-and-cosmos-db-apis"></a>Tutarlılık düzeyleri ve Cosmos DB API'leri
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Tutarlılık düzeyleri ve Azure Cosmos DB API'leri
 
-Beş tutarlılık modeli, varsayılan API Cosmos DB kullanıldığında SQL API'si tarafından yerel olarak desteklenir. Ek olarak SQL API'si, Cosmos DB kablo protokolünü uyumlu API'leri için yerel destek MongoDB, Apache Cassandra, Gremlin ve Azure tabloları gibi popüler veritabanları için de sağlar. Bu veritabanları, hiçbiri tam olarak tanımlanmış tutarlılık modeli ya da SLA destekli için tutarlılık düzeylerini garanti eder ve Cosmos DB sunduğu beş tutarlılık modeli yalnızca bir kısmı genellikle sağlamak sunar. SQL API, Gremlin API ve tablo API'si için Cosmos hesabında yapılandırılmış varsayılan tutarlılık düzeyini kullanılır.
+Azure Cosmos DB tarafından sunulan beş tutarlılık modeli, Cosmos DB kullanıldığında varsayılan API. Cosmos DB SQL API tarafından yerel olarak desteklenir. Ek olarak SQL API'si, Cosmos DB kablo protokolünü uyumlu API'leri için yerel destek MongoDB, Apache Cassandra, Gremlin ve Azure tabloları gibi popüler veritabanları için de sağlar. Tam olarak ne teklif bu veritabanları ya da SLA destekli garantisi için tutarlılık düzeyleri tutarlılık modeli tanımlanır. Bu veritabanları genellikle yalnızca bir alt kümesini Cosmos DB tarafından sunulan beş tutarlılık modeli sağlar. SQL API, Gremlin API ve tablo API'si için Cosmos hesapta yapılandırdığınız varsayılan tutarlılık düzeyini kullanılır.
 
-Aşağıdaki tablo OSS istemci sürücü tarafından istenen Apache Cassandra için veri tutarlılığı arasındaki eşlemeyi gösterir 4.x ve Cassandra API'si ve MongoDB API'si, sırasıyla kullanırken MongoDB 3.4 ve karşılık gelen Cosmos DB tutarlılık düzeyleri.
+Aşağıdaki bölümlerde OSS istemci sürücü tarafından istenen Apache Cassandra için veri tutarlılığı arasındaki eşlemeyi Göster 4.x ve Cassandra API'si ve MongoDB API'si, sırasıyla kullanırken MongoDB 3.4 ve karşılık gelen Cosmos DB tutarlılık düzeyleri.
 
-## <a id="cassandra-mapping"></a>Apache Cassandra ve Cosmos DB tutarlılık düzeyleri eşleme
+## <a id="cassandra-mapping"></a>Apache Cassandra ve Cosmos DB tutarlılık düzeyleri arasında eşleme
 
-Aşağıdaki tabloda, her iki çoklu bölge ve tek bölge dağıtımı için Cosmos DB tutarlılık düzeyi "Varsayılan" ile Apache Cassandra 4.x istemci arasında okuma tutarlılığı için eşleme gösterir.
+Aşağıdaki tabloda, çok bölgeli hem tek bölgeli dağıtımları için Cosmos DB'de Apache Cassandra 4.x istemci varsayılan tutarlılık düzeyini arasında "okuma tutarlılığı" eşleme gösterilmektedir.
 
 | **Apache Cassandra 4.x** | **Cosmos DB (çok bölgeli)** | **Cosmos DB (tek bölge)** |
 | - | - | - |
@@ -36,7 +36,7 @@ Aşağıdaki tabloda, her iki çoklu bölge ve tek bölge dağıtımı için Cos
 
 ## <a id="mongo-mapping"></a>MongoDB 3.4 ve Cosmos DB tutarlılık düzeyleri arasında eşleme
 
-Aşağıdaki tabloda, "Okuma" MongoDB 3.4 ve Cosmos DB "Varsayılan" tutarlılık düzeyi ile ilgili konuları hem çok bölgeli ve tek bölge dağıtımı için eşlemeyi gösterir.
+Aşağıdaki tabloda, çok bölgeli hem tek bölgeli dağıtımları için Cosmos DB MongoDB 3.4 varsayılan tutarlılık düzeyini arasında "konuları okuyun" eşleme gösterir.
 
 | **MongoDB 3.4** | **Cosmos DB (çok bölgeli)** | **Cosmos DB (tek bölge)** |
 | - | - | - |

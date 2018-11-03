@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: byvinyal
-ms.openlocfilehash: c22f3dbc06dd43a31bf43634437c7f377dac8813
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: MT
+ms.openlocfilehash: 702783ce581ba59b64892035eca3fb28787eec0f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457315"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958976"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -145,6 +145,8 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Uygulama ağ geçidi sınırlar
+
+Aşağıdaki tabloda, aksi belirtilmedikçe v1, v2, standart ve WAF SKU'ları için geçerlidir.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="network-watcher-limits"></a>Ağ İzleyicisi sınırları

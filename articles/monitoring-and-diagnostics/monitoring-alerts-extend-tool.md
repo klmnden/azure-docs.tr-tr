@@ -1,5 +1,5 @@
 ---
-title: Uyarıları günlük Analytcs ' Azure'a genişletme
+title: Uyarıları Log Analytics’ten Azure’a genişletme
 description: Bu makalede, uyarıları Log Analytics'ten Azure Uyarıları'na genişletebileceğiniz API ve araçları açıklar.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415712"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957430"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
 Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
@@ -470,7 +470,7 @@ Her hata için düzeltme adımları şunlardır:
 
 - **Hata: Abonelik/kaynak grubu düzeyinde ilke varsa**: ![Operations Management Suite portal sayfasının uyarı ayarlarını, ilke hata iletisiyle vurgulandığı ekran görüntüsü](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    Zaman [Azure İlkesi](../azure-policy/azure-policy-introduction.md) olduğu uygulanan yeni bir kaynak (Operations Management Suite) Log Analytics çalışma alanı içeren bir abonelik veya kaynak grubu içinde sınırlar. Sistem uyarıları Azure'a genişletme ve gerekli Eylem grupları oluşturma silemiyor.
+    Zaman [Azure İlkesi](../governance/policy/overview.md) olduğu uygulanan yeni bir kaynak (Operations Management Suite) Log Analytics çalışma alanı içeren bir abonelik veya kaynak grubu içinde sınırlar. Sistem uyarıları Azure'a genişletme ve gerekli Eylem grupları oluşturma silemiyor.
     
     Çözümlemek için neden olan ilkeyi Düzenle *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* çalışma alanını içeren, abonelik veya kaynak grubundaki yeni kaynaklarının oluşturulmasını önleyen bir hata. Azure portalı, PowerShell, Azure CLI veya API kullanarak bunu yapabilirsiniz. Hataya neden olduğunu uygun ilkeyi bulmak için eylemleri denetleyebilirsiniz. Daha fazla bilgi için bkz. [eylemleri denetlemek için etkinlik günlüklerini görüntüleme](../azure-resource-manager/resource-group-audit.md). 
     

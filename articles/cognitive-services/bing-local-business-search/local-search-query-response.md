@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: ed671b135a9f2f26d459e327eac9b5041d2d213b
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a86db516e76a91d6e4bec378c47baf6eec13d032
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748709"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959061"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Gönderme ve Bing yerel iş arama API'si sorgularının ve yanıtlarının kullanma
 
@@ -32,7 +32,7 @@ Tam istek URL'si sözdizimi aşağıda gösterilmiştir. Bing yerel iş arama AP
 Yerel arama kategorileri hakkında daha fazla bilgi için bkz: [Bing yerel iş arama API'si için kategorileri arama](local-categories.md).
 
 ```
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
+https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
 ```
 
 ## <a name="using-responses"></a>Yanıtlarını kullanma

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341251"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958959"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs kullanarak Azure Tanılama verileri etkin yolu akış
 Azure Tanılama, bulut Hizmetleri sanal makinelerden (VM'ler) ölçümlerini ve günlüklerini toplamak ve sonuçları Azure depolama alanına aktarmak için esnek bir yol sağlar. Mart 2016 (SDK 2.9) zaman çerçevesinde başlayarak, özel veri kaynakları için Tanılama verileri gönderme ve sık kullanılan yol veri aktarma saniyeler içinde kullanarak [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -42,7 +42,7 @@ Olay hub'ları receieving Azure Tanılama'yı verilerden bulut Hizmetleri, VM'le
 * Mevcut Azure tanılama yapılandırmalarını kullanarak uygulamada bir *.wadcfgx* dosya ve aşağıdaki yöntemlerden biri:
   * Visual Studio: [Azure bulut Hizmetleri ve sanal makineler için tanılamayı yapılandırma](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [PowerShell kullanarak Azure bulut hizmetlerinde tanılamayı etkinleştirme](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Event Hubs ad alanı makale sağlanan [Event Hubs ile çalışmaya başlama](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Event Hubs ad alanı makale sağlanan [Event Hubs ile çalışmaya başlama](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Azure Tanılama Olay hub'ları havuz bağlanın
 Varsayılan olarak, Azure tanılama her zaman günlükleri ve ölçümleri bir Azure depolama hesabına gönderir. Bir uygulama Ayrıca verileri olay hub'ları için yeni bir ekleyerek gönderebilir **havuzlarını** bölümüne **PublicConfig** / **WadCfg** öğesinin *. wadcfgx* dosya. Visual Studio'da *.wadcfgx* dosya şu yolda depolanır: **bulut hizmeti projesi** > **rolleri** > **() RoleName)** > **diagnostics.wadcfgx** dosya.
@@ -220,7 +220,7 @@ Aşağıdaki resimde sağlıklı, olay hub'ına süre 23: 00 sonra Başlangıç 
 ## <a name="view-hot-path-data"></a>Sık erişimli-path verilerini görüntüleme
 Daha önce açıklandığı gibi dinleme ve Event Hubs verilerini işlemeye yönelik birçok kullanım örnekleri vardır.
 
-Basit bir yaklaşım, olay hub'ına dinleyin ve çıkış akışına yazdırmak için bir küçük test konsol uygulaması oluşturmaktır. Daha ayrıntılı olarak açıklanan aşağıdaki kodu koyabilirsiniz [Event Hubs ile çalışmaya başlama](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)), bir konsol uygulamasında.  
+Basit bir yaklaşım, olay hub'ına dinleyin ve çıkış akışına yazdırmak için bir küçük test konsol uygulaması oluşturmaktır. Daha ayrıntılı olarak açıklanan aşağıdaki kodu koyabilirsiniz [Event Hubs ile çalışmaya başlama](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), bir konsol uygulamasında.  
 
 Konsol uygulaması içermelidir Not [olay işlemcisi konağı NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -508,7 +508,7 @@ Korumalı ayarları:
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
-* [Event Hubs’a genel bakış](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Event Hubs’a genel bakış](../event-hubs/event-hubs-about.md)
 * [Olay Hub’ı oluşturma](../event-hubs/event-hubs-create.md)
 * [Event Hubs ile ilgili SSS](../event-hubs/event-hubs-faq.md)
 

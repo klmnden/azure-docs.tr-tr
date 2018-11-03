@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 43713cd4d217f2b43a0966f4de4f3573d4ef9b09
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269573"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979548"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
@@ -281,7 +281,7 @@ JSON nesneleri ve XML düğümü ile çalışmak için bu işleme işlevleri kul
 <a name="alphabetical-list"></a>
 <a name="action"></a>
 
-### <a name="action"></a>eylem
+### <a name="action"></a>action
 
 Dönüş *geçerli* çalışma zamanı ya da bir ifadeye atayabilirsiniz diğer JSON ad ve değer çiftleri değerlerinden çıkış eylem. Varsayılan olarak, bu işlevi tüm eylem nesnesine başvuruyor ancak değerini istediğiniz bir özellik isteğe bağlı olarak belirtebilirsiniz. Ayrıca bkz: [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
@@ -451,7 +451,7 @@ Ve bu sonucu verir: `"Succeeded"`
 
 <a name="add"></a>
 
-### <a name="add"></a>ekle
+### <a name="add"></a>add
 
 İki sayıyı eklemesini sonucu döndürür.
 
@@ -1751,7 +1751,7 @@ Bu örnekler, bu koleksiyonlarında ilk öğeyi bulun:
 
 ```
 first('hello')
-first([0, 1, 2])
+first(createArray(0, 1, 2))
 ```
 
 Ve bu sonuçlar döndürebilir: 
@@ -2312,7 +2312,7 @@ intersection('<collection1>', '<collection2>', ...)
 Bu örnekte, bu dizileri arasında ortak öğeleri bulur:  
 
 ```
-intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
 Ve bir dizi döndürür *yalnızca* bu öğeler: `[1, 2]`
@@ -2343,7 +2343,7 @@ join([<collection>], '<delimiter>')
 Bu örnek bir dize sınırlayıcı belirtilen karakter ile bu dizideki öğelerden oluşturur:
 
 ```
-join([a, b, c], '.')
+join(createArray('a', 'b', 'c'), '.')
 ```
 
 Ve bu sonucu verir: `"a.b.c"`
@@ -2375,7 +2375,7 @@ Bu örnekler, bu koleksiyonlarında son öğeyi bulun:
 
 ```
 last('abcd')
-last([0, 1, 2, 3])
+last(createArray(0, 1, 2, 3))
 ```
 
 Ve bu sonuçları döndürür: 
@@ -2441,7 +2441,7 @@ Bu örneklerde bu koleksiyonlardaki öğe sayısı:
 
 ```
 length('abcd')
-length([0, 1, 2, 3])
+length(createArray(0, 1, 2, 3))
 ```
 
 Ve bu sonucu döndürür: `4`
@@ -2569,7 +2569,7 @@ Bu örnekler, sayı ve bir dizi kümesinden en yüksek değeri alın:
 
 ```
 max(1, 2, 3)
-max([1, 2, 3])
+max(createArray(1, 2, 3))
 ```
 
 Ve bu sonucu döndürür: `3`
@@ -2602,7 +2602,7 @@ Bu örnekler, en düşük değer sayı ve bir dizi kümesinde alın:
 
 ```
 min(1, 2, 3)
-min([1, 2, 3])
+min(createArray(1, 2, 3))
 ```
 
 Ve bu sonucu döndürür: `1`
@@ -3007,7 +3007,7 @@ skip([<collection>], <count>)
 Bu örnek, bir öğe, ' % s'sayısı 0, belirtilen dizinin Önden kaldırır: 
 
 ```
-skip([0, 1, 2, 3], 1)
+skip(createArray(0, 1, 2, 3), 1)
 ```
 
 Bu dizinin kalan öğeleri döndürür: `[1,2,3]`
@@ -3351,7 +3351,7 @@ Bu örnekler, bu koleksiyonun önünden belirtilen sayıda öğeyi alın:
 
 ```
 take('abcde`, 3)
-take([0, 1, 2, 3, 4], 3)
+take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
 Ve bu sonuçlar döndürebilir:
@@ -3626,7 +3626,7 @@ union([<collection1>], [<collection2>], ...)
 Bu örnekte *tüm* bu koleksiyonlara öğeleri: 
 
 ```
-union([1, 2, 3], [1, 2, 10, 101])
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
 Ve bu sonucu verir: `[1, 2, 3, 10, 101]`

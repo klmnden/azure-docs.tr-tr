@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238806"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959996"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -49,6 +49,7 @@ Karma Azure AD uygulamanız planlamak için ile kendinizi alıştırın:
 |---|---|
 |![İşaretli][1]|Cihazları gözden geçir desteklenir|
 |![İşaretli][1]|Gözden geçirme bilmeniz gerekenler|
+|![İşaretli][1]|Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin|
 |![İşaretli][1]|Senaryonuzu seçin|
 
 
@@ -112,6 +113,11 @@ Kuruluşunuz, kimliği doğrulanmış bir giden bağlantı proxy'si aracılığ�
 Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu sizin için doğru olup olmadığını [cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl](hybrid-azuread-join-control.md).
 
 
+## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin
+
+Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu örnek için her şeyin beklendiği gibi çalıştığını doğrulamak için ilk dağıtım sırasında true'dur.
+
+Daha fazla bilgi için [cihazlarınızı hibrit Azure AD'ye katılma denetleme](hybrid-azuread-join-control.md)
 
 ## <a name="select-your-scenario"></a>Senaryonuzu seçin
 

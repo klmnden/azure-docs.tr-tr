@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: efa2b60ccfc6af6cfb4a46e17b13a426d4e8c9fe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249888"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958823"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullanırken sorunlarını giderme
 Bu makale ortak sorunları, geçici çözümler, tanılama adımları ve araçları kullanırken kapsar [Java zaman uyumsuz ADK](sql-api-sdk-async-java.md) ile Azure Cosmos DB SQL API hesabı.
@@ -48,7 +48,7 @@ Açık sayısı ("nofile") (en az olarak çift, bağlantı havuzu boyutu olarak)
 
 ##### <a name="snat"></a>Azure SNAT (PAT) bağlantı noktası tükenmesi
 
-Uygulamanızı Azure VM'deki varsayılan olarak dağıtılıp dağıtılmadığını [Azure SNAT bağlantı noktaları](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) VM'nizi dışında herhangi bir uç noktaya bağlantı kurmak için kullanılır. Sanal makineden Cosmos DB uç noktasına izin verilen bağlantı sayısı tarafından sınırlı [Azure SNAT yapılandırma](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Uygulamanız varsayılan olarak bir genel IP adresi Azure sanal makinesinde dağıtılması durumunda [Azure SNAT bağlantı noktaları](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) VM'nizi dışında herhangi bir uç noktaya bağlantı kurmak için kullanılır. Sanal makineden Cosmos DB uç noktasına izin verilen bağlantı sayısı tarafından sınırlı [Azure SNAT yapılandırma](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 Azure SNAT bağlantı noktaları, yalnızca Azure sanal makinenizin özel IP adresi vardır ve bir genel IP adresi için bir bağlantı kurmak bir işlem VM'den çalışır olduğunda kullanılır. Bu nedenle, Azure SNAT sınırlama önlemek için iki geçici çözüm vardır:
     * Azure Cosmos DB hizmet uç noktanıza açıklandığı gibi Azure VM ağınızın alt ağa eklemek [sanal ağ hizmet uç noktası etkinleştirme](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Hizmet uç noktası etkinleştirildiğinde, artık bir genel IP ile cosmos DB'ye yerine VNET gönderdiği istekleri ve alt ağ kimlik gönderilir. Bu değişiklik, genel IP'ler izin verilir, yalnızca güvenlik duvarı bırakmaları neden olabilir. Hizmet uç noktası etkinleştirilirken güvenlik duvarı kullanıyorsanız, güvenlik duvarını kullanarak alt ağ Ekle [VNET ACL'leri](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).

@@ -8,33 +8,32 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 21464ccfbd5712b18e46a271a93232dc3ba7d3c8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 656742727b2bd85ac93211c74d82fe11d0bc0f46
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244083"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963906"
 ---
-# <a name="global-distribution---under-the-hood"></a>Genel dağıtım - başlık altında
+# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB genel dağıtımını - başlık altında
 
-Azure Cosmos DB, Azure'nın temel bir hizmet olduğundan tüm Azure bölgeleri arasında genel, bağımsız, Savunma Bakanlığı (DoD) ve kamu bulutlarında dahil olmak üzere dünya çapında dağıtılır. Bir veri merkezi içinde dağıtın ve Azure Cosmos DB hizmetini makineler, çok büyük "Damgalar" üzerinde her ayrılmış yerel depolama ile yönetin. Bir veri merkezi içinde Azure Cosmos DB her potansiyel olarak birden fazla donanım Nesilleri çalıştıran birçok kümeler arasında dağıtılır. Kümesindeki makineleri genellikle 10-20 hata etki alanlarına yayılır.
+Azure Cosmos DB, Azure'nın temel bir hizmet olduğundan tüm Azure bölgeleri arasında genel, bağımsız, Savunma Bakanlığı (DoD) ve kamu bulutlarında dahil olmak üzere dünya çapında dağıtılır. Bir veri merkezi içinde dağıtın ve Azure Cosmos DB, makinelerin büyük Damgalar üzerinde her ayrılmış yerel depolama ile yönetin. Bir veri merkezi içinde Azure Cosmos DB her potansiyel olarak birden fazla donanım Nesilleri çalıştıran birçok kümeler arasında dağıtılır. Kümesindeki makineleri genellikle 10-20 hata etki alanlarına yayılır. Cosmos DB genel dağıtım sistemin topolojisi aşağıdaki resimde gösterilmektedir:
 
 ![Sistemin topolojisi](./media/global-dist-under-the-hood/distributed-system-topology.png)
-**sistemi topolojisi**
 
-Azure Cosmos DB'de küresel dağıtım, anahtar teslim: herhangi bir zamanda birkaç tıklama ile veya programlama yoluyla tek bir API çağrısı ile müşteri ekleyebilir veya kendi Cosmos veritabanıyla ilişkili coğrafi bölgeler kaldırabilirsiniz. Bir Cosmos veritabanı, sırayla Cosmos kapsayıcıların bir kümesinden oluşur. Cosmos DB'de kapsayıcıları dağıtımı ve ölçeklenebilirliği mantıksal birimleri görev yapar. Koleksiyonlar, tablolar ve grafikler oluşturduğunuz (dahili) yalnızca Cosmos kapsayıcılardır. Kapsayıcılardır tamamen şemadan ve bir sorgu için bir kapsam belirtin. Bir Cosmos kapsayıcıdaki tüm veri alımı sırasında otomatik olarak dizine. Otomatik dizin oluşturma, şema veya dizin yönetimi, özellikle küresel olarak dağıtılan bir kurulumda yaşamadan ile uğraşmak zorunda kalmadan verileri sorgulamak kullanıcıların sağlar.  
-
-Aşağıdaki görüntüde gösterildiği gibi bir kapsayıcıdaki verilerin iki boyutta dağıtılır:  
+**Azure Cosmos DB'de küresel dağıtım, anahtar teslim:** dilediğiniz zaman birkaç tıklama ile veya programlama yoluyla tek bir API çağrısıyla ekleyebilir veya kendi Cosmos veritabanıyla ilişkili coğrafi bölgeler kaldırın. Bir Cosmos veritabanı, sırayla Cosmos kapsayıcıların bir kümesinden oluşur. Cosmos DB'de kapsayıcıları dağıtımı ve ölçeklenebilirliği mantıksal birimleri görev yapar. Koleksiyonlar, tablolar ve grafikler oluşturduğunuz (dahili) yalnızca Cosmos kapsayıcılardır. Kapsayıcılardır tamamen şemadan ve bir sorgu için bir kapsam belirtin. Bir Cosmos kapsayıcıdaki veri alımı sırasında otomatik olarak dizine alınır. Otomatik dizin oluşturma, şema veya dizin yönetimi, özellikle küresel olarak dağıtılan bir kurulumda yaşamadan ile uğraşmak zorunda kalmadan verileri sorgulamak kullanıcıların sağlar.  
 
 - Belirli bir bölgede bir kapsayıcı içindeki veri bölümü-sağlayın ve (yerel dağıtım) temel alınan kaynak bölümler tarafından şeffaf bir şekilde yönetilen anahtar kullanılarak dağıtılır.  
+
 - Her kaynak bölümü aynı zamanda coğrafi bölgeler arasında çoğaltılır (genel dağıtım). 
 
 Ne zaman esnek bir şekilde Cosmos DB kullanarak uygulama aktarım hızını (veya daha fazla depolama alanını kullanan) bir Cosmos kapsayıcı, Cosmos DB bölüm yönetimi işlemlerini şeffaf bir şekilde işler (bölme, kopyalama, silme) tüm bölgeler arasında. Ölçek, dağıtım veya hatalardan bağımsız, Cosmos DB verilerin herhangi sayıda bölgesinde Global olarak dağıtılmış kapsayıcılar içinde tek sistem görüntüsünü sağlamaya devam eder.  
 
-![Kaynak bölümler](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
-**kaynak bölümlerden dağıtım**
+Aşağıdaki görüntüde gösterildiği gibi bir kapsayıcıdaki verilerin iki boyutta dağıtılır:  
 
-Fiziksel kaynak bölümü, bir çoğaltma kümesine adlı çoğaltma grubu tarafından uygulanır. Her makine, önceki görüntüde gösterildiği gibi çeşitli kaynak bölümler işlemlerin sabit bir dizi ilgili çoğaltmalar yüzlerce barındırır. Yinelemeler için kaynak bölümler karşılık gelen dinamik olarak yerleştirilir ve bir küme ve veri merkezleri bölge içindeki makineler arasında Yük Dengelemesi.  
+![Kaynak bölümler](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+
+Kaynak bölümü, bir çoğaltma kümesine adlı çoğaltma grubu tarafından uygulanır. Her makine, önceki görüntüde gösterildiği gibi çeşitli kaynak bölümler işlemlerin sabit bir dizi karşılık çoğaltmaları yüzlerce barındırır. Yinelemeler için kaynak bölümler karşılık gelen dinamik olarak yerleştirilir ve bir küme ve veri merkezleri bölge içindeki makineler arasında Yük Dengelemesi.  
 
 Bir yinelemenin benzersiz bir Azure Cosmos DB kiracıya ait. Her yineleme Cosmos DB'NİN'ın bir örneğini barındıran [veritabanı altyapısı](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), ilişkili dizinleri yanı sıra kaynakları yönetir. Cosmos DB'nin veritabanı altyapısı bir atom kayıt sırasını (ARS) temel tür sisteminde çalışır. Altyapı, bir şema ve kayıtların yapısını ve örnek değerleri arasındaki sınırı Bulanıklaştırma kavramına bağımsızdır. Cosmos DB, otomatik olarak her şeyi alımı sırasında şema veya dizin yönetimiyle ilgilenmenize gerek kalmadan, Global olarak dağıtılmış verileri sorgulamak kullanıcılara verimli bir biçimde dizin oluşturma tarafından tam şema agnosticism ulaşır.
 

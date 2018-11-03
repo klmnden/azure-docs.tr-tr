@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144531"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958670"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Sanal makine teklifi yayımlama Kılavuzu
 
@@ -29,18 +29,18 @@ Hangi dağıtılır ve faturalandırılır Market aracılığıyla işlem teklif
 
 ## <a name="free-trial"></a>Ücretsiz Deneme 
 
-Kullanıcıların kendi lisansını getir (KLG) blling modeli kullanılırken sınırlı terimi yazılım lisanslarını erişerek teklifinizi sınamak düzenleyebilirsiniz. Bu teklif dağıtmak için gereksinimleri aşağıdadır. 
+Kullanıcıların kendi lisansını getir (KLG) faturalandırma modeli kullanılırken sınırlı terimi yazılım lisanslarını erişerek teklifinizi sınamak düzenleyebilirsiniz. Bu teklif dağıtmak için gereksinimleri aşağıdadır. 
 
 |Gereksinimler  |Ayrıntılar  |
 |---------|---------|
-|Ücretsiz deneme süresi ve deneme sürümü deneyimi     |   Müşterinizin, uygulamanızı sınırlı bir süre için ücretsiz deneyebilirsiniz. Müşteri, teklifiniz için herhangi bir lisans ya da abonelik ücretlerini ödemek için gerekli değildir. Müşterileriniz temel alınan Microsoft birinci taraf ürün veya hizmet için ödeme yapmak gerekmez. Tüm deneme sürümü seçeneği, Azure aboneliğinize dağıtılır. Yönetim ve maliyet iyileştirmesi tek kontrol sizde. Ücretsiz deneme sürümü ya da etkileşimli tanıtım tercih edebilirsiniz. Neyin seçin ne olursa olsun, ücretsiz deneme sürümünüzü müşteri teklifinizi hiçbir ek ücret ödemeden denemek için önceden ayarlanmış bir süre sağlamanız gerekir.|
+|Ücretsiz deneme süresi ve deneme sürümü deneyimi     |   Müşterilerinizin uygulamanızı sınırlı bir süre için ücretsiz deneyebilirsiniz. Müşterilere, teklifiniz için herhangi bir lisans ya da Abonelik ücretleri ödemeniz gerekecektir Not aynıdır. Müşterileriniz temel alınan Microsoft birinci taraf ürün veya hizmet için ödeme yapmak gerekmez. Tüm deneme sürümü seçeneği, Azure aboneliğinize dağıtılır. Yönetim ve maliyet iyileştirmesi tek kontrol sizde. Ücretsiz deneme sürümü ya da etkileşimli tanıtım tercih edebilirsiniz. Neyin seçin ne olursa olsun, ücretsiz deneme sürümünüzü müşteriler ek ücret ödemeden, bir teklif denemek için önceden ayarlanmış bir süre sağlamanız gerekir.|
 |Kolayca yapılandırılabilir, kullanıma hazır bir çözüm    |  Uygulamanızı, kolay ve hızlı yapılandırmak ve ayarlamak olmalıdır.       |
 |Kullanılabilirlik / çalışma süresi    |    En az % 99,9 çalışma süresi, SaaS uygulaması veya platformu olmalıdır.     |
 |Azure Active Directory     |    Teklifinizi Azure Active Directory (Azure AD) ile etkin onay Federasyon çoklu oturum açma (SSO) (Azure AD Federasyon SSO) izin vermeniz gerekir.     |
 
 ## <a name="test-drive"></a>Test Sürüşü
 
-Bir veya daha fazla sanal makine infrastructure-as-a-service(IaaS) veya SaaS uygulamaları aracılığıyla dağıtın. Bir sanal makine ya da bir iş ortağı-tarafından barındırılan yönetilen çözümün tamamında otomatik sağlama yayımlama seçeneği olan test sürüşü yararı Kılavuzlu Tur. Bir test sürüşüne müşteriniz için ek ücret ödemeden bir değerlendirme sağlar. Müşterinizin deneme sürümü deneyimi ile etkileşim kurmak amacıyla, mevcut bir Azure müşterisi olmasına gerek yok. 
+Bir veya daha fazla sanal makine olarak-a-hizmet altyapı (Iaas) veya hizmet olarak yazılım-a-(SaaS) uygulamaları aracılığıyla dağıtın. Bir sanal makine ya da bir iş ortağı-tarafından barındırılan yönetilen çözümün tamamında otomatik sağlama yayımlama seçeneği olan test sürüşü yararı Kılavuzlu Tur. Bir test sürüşüne müşteriniz için ek ücret ödemeden bir değerlendirme sağlar. Müşterinizin deneme sürümü deneyimi ile etkileşim kurmak amacıyla, mevcut bir Azure müşterisi olmasına gerek yok. 
 
 Şu adresten bizimle [amp testdrive](mailto:amp-testdrive@microsoft.com) kullanmaya başlamak için. 
 

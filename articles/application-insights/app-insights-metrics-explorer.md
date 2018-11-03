@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c35f4366b2290164036316be8de730e20aa99bf
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 99ace7be05f186ac920aa9671946389e95e3a3a6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092671"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958126"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application ınsights'ta ölçümleri keşfederken
 Ölçümlerde [Application Insights] [ start] ölçülen değerleri ve telemetriyi uygulamanızdan gönderilen olayların sayısı. Performans sorunları tespit edin ve eğilimler, uygulamanızın nasıl kullanıldığını izleyin yardımcı olur. Çok çeşitli standart ölçüm vardır ve kendi özel Ölçümler ve olaylar da oluşturabilirsiniz.
@@ -194,14 +194,14 @@ Bir ölçüm grafiği doğrudan eşdeğer Analytics sorgusu almak için Analytic
 
     Farklı filtreler farklı grafikler üzerinde ayarlamak istiyorsanız bunları farklı dikey pencerelerinde oluşturma gibi ayrı sık kaydedin. İsterseniz, bunları birbirine yanı sıra görebilirsiniz, böylece bunları panoya sabitleyebilirsiniz.
 * Ölçüme göre tanımlanmamış özelliği bir grafiği gruplarsanız, ardından olacaktır hiçbir şey grafiği. 'Gruplandırma ölçütü' temizlemeyi deneyin veya farklı gruplandırma özelliğini seçin.
-* Performans verileri (CPU, GÇ oranı vb.) Java web Hizmetleri, Windows Masaüstü uygulamaları için kullanılabilir [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](app-insights-monitor-performance-live-website-now.md), ve [Azure Cloud Services](app-insights-azure.md). Azure Web siteleri için kullanılabilir değildir.
+* Performans verileri (CPU, GÇ oranı vb.) Java web Hizmetleri, Windows Masaüstü uygulamaları için kullanılabilir [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](app-insights-monitor-performance-live-website-now.md), ve [Azure Cloud Services](app-insights-overview.md). Azure Web siteleri için kullanılabilir değildir.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Application Insights ile kullanımı izleme](app-insights-web-track-usage.md)
+* [Application Insights ile kullanımı izleme](app-insights-usage-overview.md)
 * [Tanılama aramayı kullanma](app-insights-diagnostic-search.md)
 
 <!--Link references-->

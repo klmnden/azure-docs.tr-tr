@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5d61c3a3232645fc5f1c18696cf3232bf9b37aa2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026237"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957759"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>İzlenecek yol: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
 Bu makalede telemetri verilerinin alınacağı gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Veri ve veri görselleştirme yakalama uygulamanıza Application Insights betiğini ekleme tam işlemi gösterilecektir.
@@ -63,7 +63,7 @@ Uygulamanızı izlemek için bir Application Insights SDK'sını uygulamanıza e
     Kod, Application ınsights kaynağınızı tanımlayan izleme anahtarını içerir.
 3. Kaydedin ve yayımlayın.
 
-    ![Kaydet ve Yayımla](./media/app-insights-sample-mscrm/00006.png)
+    ![Kaydet ve yayımla](./media/app-insights-sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Gereç formlar
 1. Microsoft CRM Online içinde hesabı formunu açın
@@ -136,4 +136,4 @@ Bunu daha da derin analizi yapabilirsiniz, [Microsoft Power BI için verileri d�
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 * [Application Insights nedir?](app-insights-overview.md)
 * [Web sayfaları için Application Insights](app-insights-javascript.md)
-* [Daha fazla örnekleri ve izlenecek yollar](app-insights-code-samples.md)
+* [Daha fazla örnekleri ve izlenecek yollar](app-insights-overview.md)

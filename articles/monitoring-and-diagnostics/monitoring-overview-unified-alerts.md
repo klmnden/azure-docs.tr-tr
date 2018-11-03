@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117619"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962206"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Birleştirilmiş uyarılar Azure İzleyici'de
 
@@ -53,7 +53,7 @@ Birleştirilmiş uyarılar deneyiminin aşağıdaki kavramları yazma deneyimind
 | Hedef kaynak | Belirli kaynaklar ve uyarı verme için kullanılabilir sinyaller tanımlar. Bir hedef herhangi bir Azure kaynak olabilir.<br><br>Örnekler: sanal makine, depolama hesabı, sanal makine ölçek kümesi, Log Analytics çalışma alanı, Application Insights kaynağı |
 | Sinyal | Hedef kaynak tarafından yayılan veri kaynağı. Desteklenen sinyal türleri *ölçüm*, *etkinlik günlüğü*, *Application Insights*, ve *günlük*. |
 | Ölçütler | Birleşimi _sinyal_ ve _mantıksal_ bir hedef kaynak üzerindeki uygulanır.<br><br>Örnekler: Yüzde 70 > % CPU, sunucu yanıt süresi > 4 ms, günlük sonuç sayısı > 100 sorgu vb. |
-| Mantığı | Sinyal içinde olduğunu doğrulamak için kullanıcı tanımlı mantık aralığı/değerler bekleniyor. |
+| Mantık | Sinyal içinde olduğunu doğrulamak için kullanıcı tanımlı mantık aralığı/değerler bekleniyor. |
 | Eylem | Uyarı tetiklendiğinde gerçekleştirilecek eylem. Bir uyarı tetiklendiğinde birden fazla eylem ortaya çıkabilir. Bu uyarılar eylem gruplarını destekler.<br><br>Örnekler: e-posta adresi, bir webhook URL'sine çağrı e-postayla gönderme |
 | İzleme koşulu | Ölçüm uyarısı oluşturulan koşul çözümlenmiş olup olmadığını gösterir. Ölçüm uyarı kuralları belirli bir ölçüm düzenli aralıklarla örnek. Ardından uyarı kuralını ölçütü karşılanırsa "gönderildi." ile ilgili bir koşul yeni bir uyarı oluşturulur  Ölçütler karşılanıyorsa yine de, ölçüm yeniden örneklenir, hiçbir şey olmaz.  Ölçütleri karşılanmadığında, ardından uyarının koşulu olarak "Çözüldü" değiştirilir Ölçütler karşılanıyorsa, sonraki açışınızda "gönderildi." ile ilgili bir koşul başka bir uyarı oluşturulur |
 
@@ -82,9 +82,9 @@ Aşağıdaki üç adımı ile yeni bir uyarı kuralı oluşturun:
  
 Bu basitleştirilmiş bir yazma işlemi artık izleme kaynağı veya bir Azure kaynağı seçmeden önce desteklenen sinyalleri bilmesini gerektirmez. Kullanılabilir sinyaller listesi otomatik olarak seçtiğiniz hedef kaynak göre filtrelenir ve uyarı kuralı mantığını tanımlama aracılığıyla yol gösterir.
 
-Uyarı kuralları oluşturma hakkında daha fazla bilgi [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](monitor-alerts-unified-usage.md).
+Uyarı kuralları oluşturma hakkında daha fazla bilgi [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](alert-metric.md).
 
-Uyarılar, çeşitli Azure izleme hizmetleri arasında kullanılabilir. Hakkında bilgi ve bu hizmetlerin her biri kullanıldığı durumlar için bkz: [izleme Azure uygulamalarını ve kaynaklarını](./monitoring-overview.md). Aşağıdaki tabloda, Azure genelinde kullanılabilir olan uyarı kuralları türlerinin bir listesini sağlar. Ayrıca, birleşik uyarı deneyimi tarafından desteklenen özellikler listelenir.
+Uyarılar, çeşitli Azure izleme hizmetleri arasında kullanılabilir. Hakkında bilgi ve bu hizmetlerin her biri kullanıldığı durumlar için bkz: [izleme Azure uygulamalarını ve kaynaklarını](../azure-monitor/overview.md). Aşağıdaki tabloda, Azure genelinde kullanılabilir olan uyarı kuralları türlerinin bir listesini sağlar. Ayrıca, birleşik uyarı deneyimi tarafından desteklenen özellikler listelenir.
 
 | **Kaynak İzleyicisi** | **Sinyal türü**  | **Açıklama** | 
 |-------------|----------------|-------------|
@@ -120,7 +120,7 @@ Yeni deneyimi etkinleştirdiğinizde, erişiminiz olan tüm abonelikler kaydedil
 
 Yeni uyarı deneyimini Eylem grupları veya uyarı kurallarınızı Bildirimlerde yapılandırmasını etkilemez. Yalnızca görüntülemek ve Azure portalında uyarıları tetiklenme örneklerini yönetme şeklini değiştirir.
 
-### <a name="smart-groups"></a>Akıllı grupları
+### <a name="smart-groups"></a>Akıllı gruplar
 Akıllı grupları, ilgili uyarıları tek bir birim yerine uyarıları ayrı ayrı olarak yönetmenize olanak tanıyarak Gürültüyü azaltma. Akıllı grupları ayrıntılarını görüntülemek ve Uyarılar için nasıl durumu benzer şekilde ayarlayın. Her uyarı, bir ve yalnızca bir akıllı grubunun bir üyesidir.
 
 Tek bir sorunu temsil eden ilgili uyarıları birleştirmek için makine öğrenimini kullanarak akıllı grupları otomatik olarak oluşturulur. Bir uyarı oluşturulduğunda, algoritma yeni bir akıllı grubu veya benzer yapıya geçmiş desenleri ve benzer özellikleri gibi bilgileri temel alarak varolan akıllı grubuna ekler. 
@@ -139,7 +139,7 @@ Gelişmiş birleştirilmiş uyarılar, uyarı durumu kavramını sunar. Çözüm
 |:---|:---|
 | Yeni | Sorun yalnızca algıladı ve henüz gözden. |
 | Onaylanan | Bir yönetici, uyarıyı gözden geçirdi ve üzerinde çalışmaya başladı. |
-| Kapalı | Sorun çözüldü. Bir uyarı kapatıldıktan sonra başka bir duruma değiştirerek yeniden açabilirsiniz. |
+| Kapatıldı | Sorun çözüldü. Bir uyarı kapatıldıktan sonra başka bir duruma değiştirerek yeniden açabilirsiniz. |
 
 Bir uyarının durumunu izleme koşulu farklıdır. Ölçüm uyarı kuralları, bir koşulu için uyarı ayarlayabilirsiniz _çözümlenen_ zaman hata artık koşul. Uyarı durumu kullanıcı tarafından ayarlanan ve izleme koşulu bağımsızdır. Sistem izleme koşulu "Çözülmüş" için olsa da, uyarı durumu kullanıcı değiştirmediği kadar değiştirilmez.
 
@@ -169,9 +169,9 @@ Başka bir sayfasını açmak için uyarılar sayfasında üstüne aşağıdaki 
 
 | Değer | Açıklama |
 |:---|:---|
-| Toplam uyarı | Seçilen ölçütlerle eşleşen uyarılar toplam sayısı. Bu değer ile filtre tüm uyarılar görünümünü açmak için seçin. |
-| Akıllı grupları | Seçilen ölçütlerle eşleşen uyarılardan oluşturulan akıllı grupları toplam sayısı. Tüm uyarılar Görünümü'nde akıllı grupları listesini açmak için bu değeri seçin.
-| Toplam uyarı kuralı | Uyarı kuralları seçili abonelik ve kaynak grubunda toplam sayısı. Seçili abonelikte ve kaynak grubu üzerinde filtre kuralları görünümünü açmak için bu değeri seçin.
+| Toplam uyarı sayısı | Seçilen ölçütlerle eşleşen uyarılar toplam sayısı. Bu değer ile filtre tüm uyarılar görünümünü açmak için seçin. |
+| Akıllı gruplar | Seçilen ölçütlerle eşleşen uyarılardan oluşturulan akıllı grupları toplam sayısı. Tüm uyarılar Görünümü'nde akıllı grupları listesini açmak için bu değeri seçin.
+| Toplam uyarı kuralı sayısı | Uyarı kuralları seçili abonelik ve kaynak grubunda toplam sayısı. Seçili abonelikte ve kaynak grubu üzerinde filtre kuralları görünümünü açmak için bu değeri seçin.
 
 
 ### <a name="all-alerts-page"></a>Tüm uyarılar sayfasında 
@@ -224,7 +224,7 @@ Akıllı Grup ayrıntı sayfası aşağıdaki bölümleri içerir.
 | Geçmiş | Akıllı grup için yapılan tüm değişiklikler tarafından gerçekleştirilen her eylemi listeler. Durum değişikliklerini ve uyarı üyelik değişiklikleri şu anda sınırlı budur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Yeni uyarı deneyimi oluşturun, görüntüleyin ve Uyarıları yönetmek için kullanmayı öğrenin](monitor-alerts-unified-usage.md)
+- [Yeni uyarı deneyimi oluşturun, görüntüleyin ve Uyarıları yönetmek için kullanmayı öğrenin](alert-metric.md)
 - [Günlük uyarıları uyarı deneyimi hakkında bilgi edinin](monitor-alerts-unified-log.md)
 - [Uyarı deneyimi ölçüm Uyarıları hakkında bilgi edinin](monitoring-near-real-time-metric-alerts.md)
-- [Etkinlik günlüğü uyarıları uyarı deneyimi hakkında bilgi edinin](monitoring-activity-log-alerts-new-experience.md)
+- [Etkinlik günlüğü uyarıları uyarı deneyimi hakkında bilgi edinin](alert-activity-log.md)

@@ -2,17 +2,17 @@
 title: Azure ExpressRoute doğrudan'ı yapılandırma | Microsoft Docs
 description: Bu sayfa ExpressRoute doğrudan (Önizleme) yapılandırmanıza yardımcı olur.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: e0009791263c45e0172abcb4836aaadde26f3ace
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 11/02/2018
+ms.author: jaredro
+ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887198"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959685"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>ExpressRoute doğrudan (Önizleme) yapılandırma
 
@@ -23,7 +23,7 @@ ExpressRoute doğrudan, Microsoft'un küresel ağı dünya genelindeki stratejik
 >
 > Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="resources"></a>1. Kaynak Oluştur
+## <a name="resources"></a>Kaynak Oluştur
 
 1. Azure'da oturum açın ve aboneliği seçin. ExpressRoute bağlantı hatları ve ExpressRoute doğrudan kaynak aynı abonelikte olması gerekir.
 
@@ -154,10 +154,9 @@ ExpressRoute doğrudan, Microsoft'un küresel ağı dünya genelindeki stratejik
   Circuits                   : []
   ```
 
-## <a name="state"></a>2. Bağlantı Yöneticisi durumunu değiştir
+## <a name="state"></a>Bağlantı Yöneticisi durumunu değiştir
 
-Bu işlem, her bir çapraz bağlantı doğru birincil site için her yönlendirici olarak düzeltme eki uygulama ve ikincil olduğundan emin olmanın bir katman 1 testi yürütmek için kullanılmalıdır.
-
+  Bu işlem, her bir çapraz bağlantı doğru birincil site için her yönlendirici olarak düzeltme eki uygulama ve ikincil olduğundan emin olmanın bir katman 1 testi yürütmek için kullanılmalıdır.
 1. ExpressRoute doğrudan ayrıntıları alın.
 
   ```powershell
@@ -223,9 +222,9 @@ Bu işlem, her bir çapraz bağlantı doğru birincil site için her yönlendiri
   Circuits                   : []
   ```
 
-İle aynı yordamı `AdminState = “Disabled”` bağlantı noktalarını açmak için.
+  İle aynı yordamı `AdminState = “Disabled”` bağlantı noktalarını açmak için.
 
-## <a name="circuit"></a>3. Bir bağlantı hattı oluşturma
+## <a name="circuit"></a>Bir bağlantı hattı oluşturma
 
 Varsayılan olarak 10 bağlantı hatları ExpressRoute doğrudan kaynak olduğu abonelikte oluşturabilirsiniz. Bu destek birimi tarafından artırılabilir. Sağlanan hem kullanılan bant genişliğini izlemek için sorumlu olursunuz. Bant genişliğiniz ExpressRoute doğrudan kaynaktaki tüm devreler bant genişliği toplamını ve kullanılan bant genişliği fiziksel kullanımı temel alınan fiziksel arabirim.
 
@@ -235,43 +234,43 @@ Standart veya premium devreler oluşturulabilir. Premium bağlantı hatları se�
 
 Bir devreyi ExpressRoute doğrudan kaynağı oluşturun.
 
-```powershell
-New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 1.0 | 2.0 | 5.0 | 10.0 | 40.0 | 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
-```
+  ```powershell
+  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  ```
 
-Diğer bant genişlikleri içerir: 1.0, 2.0, 5.0, 10.0 ve 40.0
+  Diğer bant genişlikleri içerir: 5.0, 10.0 ve 40.0
 
-**Örnek çıktı:**
+  **Örnek çıktı:**
 
-```powershell
-Name                             : ExpressRoute-Direct-ckt
-ResourceGroupName                : Contoso-Direct-rg
-Location                         : westcentralus
-Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
+  ```powershell
+  Name                             : ExpressRoute-Direct-ckt
+  ResourceGroupName                : Contoso-Direct-rg
+  Location                         : westcentralus
+  Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
                                    rk/expressRouteCircuits/ExpressRoute-Direct-ckt
-Etag                             : W/"<etagnumber>"
-ProvisioningState                : Succeeded
-Sku                              : {
+  Etag                             : W/"<etagnumber>"
+  ProvisioningState                : Succeeded
+  Sku                              : {
                                      "Name": "Premium_MeteredData",
                                      "Tier": "Premium",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             : 
-ServiceProviderProperties        : null
-ExpressRoutePort                 : {
+  CircuitProvisioningState         : Enabled
+  ServiceProviderProvisioningState : Provisioned
+  ServiceProviderNotes             : 
+    ServiceProviderProperties        : null
+  ExpressRoutePort                 : {
                                      "Id": "/subscriptions/<subscriptionID>n/resourceGroups/Contoso-Direct-rg/providers/Micros
                                    oft.Network/expressRoutePorts/Contoso-Direct"
                                    }
-BandwidthInGbps                  : 10
-Stag                             : 2
-ServiceKey                       : <number>
-Peerings                         : []
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag     
-```
+  BandwidthInGbps                  : 10
+  Stag                             : 2
+  ServiceKey                       : <number>
+  Peerings                         : []
+  Authorizations                   : []
+  AllowClassicOperations           : False
+  GatewayManagerEtag     
+  ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298651"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958614"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
 ## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor?
@@ -172,7 +172,7 @@ Bir uyarı oluştuğunda, Application Insights izleme sistemi işinizi otomatik 
 ## <a name="next-steps"></a>Sonraki adımlar
 Application Insights ile çalışmaya başlamak kolaydır. Ana Seçenekler şunlardır:
 
-* Zaten çalışan bir web uygulaması izleme. Bu, tüm yerleşik performans telemetrisine sağlar. İçin kullanılabilir [Java](app-insights-java-live.md) ve [IIS sunucuları](app-insights-monitor-performance-live-website-now.md), için ve ayrıca [Azure web apps](app-insights-azure.md).
+* Zaten çalışan bir web uygulaması izleme. Bu, tüm yerleşik performans telemetrisine sağlar. İçin kullanılabilir [Java](app-insights-java-live.md) ve [IIS sunucuları](app-insights-monitor-performance-live-website-now.md), için ve ayrıca [Azure web apps](app-insights-overview.md).
 * Projeniz, geliştirme sırasında izleyin. Bunu yapabilmeniz [ASP.NET](app-insights-asp-net.md) veya [Java](app-insights-java-get-started.md) uygulamaları yanı [Node.js](app-insights-nodejs.md) ve çok sayıda [diğer türleri](app-insights-platforms.md). 
 * Gereç [herhangi bir web sayfasında](app-insights-javascript.md) kısa kod parçacığını ekleyerek.
 

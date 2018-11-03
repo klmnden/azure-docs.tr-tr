@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e504f8c4fb34084d613e7ab1e506187a856defef
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416469"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961849"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
 Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -293,7 +293,7 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
 
 
 - ITSMC yüklü. Daha fazla bilgi: [BT Hizmet Yönetimi bağlayıcı çözümü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Azure AD ile - provance uygulama kaydedilmelidir ve istemci kimliği kullanımına sunulur. Ayrıntılı bilgi için bkz. [active directory kimlik doğrulamasını yapılandırma](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Azure AD ile - provance uygulama kaydedilmelidir ve istemci kimliği kullanımına sunulur. Ayrıntılı bilgi için bkz. [active directory kimlik doğrulamasını yapılandırma](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Kullanıcı rolü: yönetici.
 

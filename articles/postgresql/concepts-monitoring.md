@@ -7,13 +7,13 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/01/2018
+ms.openlocfilehash: 819c3b50c99471025e1eb2a98e47f60eee7ef518
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867791"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962614"
 ---
 # <a name="monitor-and-tune"></a>İzleme ve ayarlama
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. PostgreSQL için Azure veritabanı sunucunuzu davranışını bir anlayış sağlamak için çeşitli izleme seçeneklerini sağlar.
@@ -39,6 +39,7 @@ Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
 |connections_failed|Başarısız Bağlantılar|Sayı|Başarısız bağlantılar sunucu sayısı.|
 |network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
+|backup_storage_used|Kullanılan yedekleme depolama alanı|Bayt|Kullanılan yedekleme depolama alanı miktarı.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
 Sunucunuzda, günlüğe kaydetmeyi etkinleştirebilirsiniz. Bu günlükler Azure tanılama günlükleri aracılığıyla da kullanılabilir [Log Analytics](../log-analytics/log-analytics-queries.md), olay hub'ları ve depolama hesabı. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.

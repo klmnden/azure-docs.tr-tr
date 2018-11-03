@@ -3,17 +3,17 @@ title: Azure Stream Analytics işleri için uyumluluk düzeyini anlayın
 description: Son uyumluluk düzeyinde bir Azure Stream Analytics işi ve önemli değişiklikler için uyumluluk düzeyi hakkında bilgi edinin
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343597"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977722"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyumluluk düzeyi
  

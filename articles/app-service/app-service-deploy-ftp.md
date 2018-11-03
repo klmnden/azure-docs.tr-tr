@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f82a01f3a2b88e66988717eb008a65c8f2aecf28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8f32e84e5381a548ada2c5ad393e16c65b17379e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900334"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957191"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -45,7 +45,7 @@ Kullanmanız önerilir **uygulama kimlik** her uygulama için benzersiz olduğun
 
 ## <a name="deploy-files-to-azure"></a>Dosyalar Azure'da dağıtma
 
-1. FTP istemcinizden (örneğin, [Visual Studio](https://www.visualstudio.com/vs/community/) veya [FileZilla](https://filezilla-project.org/download.php?type=client)), uygulamanızı bağlamak için topladığınız bağlantı bilgilerini kullanın.
+1. FTP istemcinizden (örneğin, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), veya [WinSCP](https://winscp.net/index.php)), uygulamanızı bağlamak için topladığınız bağlantı bilgilerini kullanın.
 3. Dosyalarınızı ve ilgili dizin yapılarını kopyalama [ **/site/wwwroot** dizin](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) azure'da (veya **/site/wwwroot/App_Data/iş/** WebJobs için dizin).
 4. Uygulamanın düzgün çalıştığından doğrulamak için uygulamanızın URL'sine gidin. 
 

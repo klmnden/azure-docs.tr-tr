@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 845bc46ec56bfd6681c4fb318a57de19f66c0edf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f1ca7abc867df25d37093cb777f35216b5ee5a30
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403888"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957990"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM uzantısı sorunlarını giderme
 Bu makalede, Windows ve Linux'ta Microsoft Azure üzerinde çalışan sanal makineler için Log Analytics VM uzantısı ile karşılaşabilirsiniz ve bunların çözülmesine yönelik olası çözümler önerir hatalarını giderme hakkında Yardım sağlar.
@@ -58,7 +58,7 @@ Varsa *Microsoft Monitoring Agent* VM uzantısı yükleme değil veya raporlama,
 6. Sanal makinede yükseltilmiş bir PowerShell penceresinde aşağıdakileri yazarak Microsoft Monitoring Agent durumunu görüntüleme `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Microsoft Monitoring Agent Kurulum günlük dosyalarını gözden geçirin `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-Daha fazla bilgi için [Windows uzantı sorunlarını giderme](../virtual-machines/windows/extensions-oms.md).
+Daha fazla bilgi için [Windows uzantı sorunlarını giderme](../virtual-machines/extensions/oms-windows.md).
 
 ## <a name="troubleshooting-linux-vm-extension"></a>Linux VM uzantı sorunlarını giderme
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
@@ -70,7 +70,7 @@ Varsa *Linux için Log Analytics aracısını* VM uzantısı yükleme değil vey
 2. Linux VM uzantısı günlük dosyaları için iyi durumda olmayan diğer durumlar için Log Analytics aracısını gözden `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` ve `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Uzantı durumunun sağlıklı olduğundan, ancak veri değil karşıya yükleniyor Linux günlük dosyalarında için Log Analytics aracısını gözden geçirin. `/var/opt/microsoft/omsagent/log/omsagent.log`
 
-Daha fazla bilgi için [Linux uzantı sorunlarını giderme](../virtual-machines/linux/extensions-oms.md).
+Daha fazla bilgi için [Linux uzantı sorunlarını giderme](../virtual-machines/extensions/oms-linux.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

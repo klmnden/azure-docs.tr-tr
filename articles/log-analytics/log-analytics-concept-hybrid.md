@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6c58967255270231f61c59205ed12a9cdfec6897
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406883"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958704"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Log Analytics aracısını ile karma bir ortamda veri topla
 
@@ -127,6 +127,6 @@ Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilen veya [yü
 
 * Gözden geçirme [veri kaynakları](log-analytics-data-sources.md) Windows veya Linux sisteminizden veri toplamak kullanılabilir veri kaynaklarını anlamasına olanak. 
 
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
 
-* Hakkında bilgi edinin [çözümleri](log-analytics-add-solutions.md) Log Analytics'e işlev eklemek ve de Log Analytics çalışma alanına veri toplar.
+* Hakkında bilgi edinin [çözümleri](../monitoring/monitoring-solutions.md) Log Analytics'e işlev eklemek ve de Log Analytics çalışma alanına veri toplar.

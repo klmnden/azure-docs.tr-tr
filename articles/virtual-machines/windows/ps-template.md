@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df1cada5e730189546f65d9799926807390db083
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432265"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959840"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Bir Resource Manager şablonundan bir Windows sanal makine oluşturma
 
@@ -53,9 +53,9 @@ Tüm kaynaklar içinde dağıtılmış olması gereken bir [kaynak grubu](../../
 
 ## <a name="create-the-files"></a>Dosyaları oluşturma
 
-Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değerlerini sağlayan bir parametre dosyası oluşturun. Azure Resource Manager işlemlerini gerçekleştirmek için kullanılan bir yetkilendirme dosyası oluşturabilir.
+Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değerlerini sağlayan bir parametre dosyası oluşturun. Azure Resource Manager işlemlerini gerçekleştirmek için kullanılan bir yetkilendirme dosyası oluşturabilir. 
 
-1. Adlı bir dosya oluşturun *CreateVMTemplate.json* ve bu JSON kodunu ekleyin:
+1. Adlı bir dosya oluşturun *CreateVMTemplate.json* ve JSON kod ekleyin. Değiştirin `domainNameLabel` kendi benzersiz bir ada sahip.
 
     ```json
     {

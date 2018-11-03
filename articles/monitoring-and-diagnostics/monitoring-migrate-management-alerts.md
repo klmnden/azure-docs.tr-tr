@@ -1,6 +1,6 @@
 ---
-title: Etkinlik günlüğü Uyarıları Yönetimi olayları Azure uyarılar geçirme
-description: Uyarılar yönetim olaylarına 1 Ekim kaldırılır. Geçirme kullanılamamasıdır uyarıları ile hazırlayın.
+title: Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
+description: 1 Ekim yönetim olayları ile ilgili uyarılar kaldırılacak. Geçirme varolan uyarıları göre hazırlayın.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 9e4302b780d0c08afbc791a0aec6bfd806aba161
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21651c577dc6b519b139aa7bbfc6d03d8f2c6980
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263713"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962155"
 ---
-# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Etkinlik günlüğü Uyarıları Yönetimi olayları Azure uyarılar geçirme
+# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
 
 
 > [!WARNING]
-> Yönetim olaylarını uyarılar veya ondan sonra Ekim 1 kapatılır. Bu uyarılar ve öyleyse geçirmek anlamak için aşağıdaki yönergeleri kullanın.
+> Tarihinde veya sonrasında 1 Ekim yönetim olayları ile ilgili uyarılar kapatılır. Bu uyarılar ve bu durumda geçiş anlamak için aşağıdaki yönergeleri kullanın.
 >
 > 
 
-## <a name="what-is-changing"></a>Ne değiştirme
+## <a name="what-is-changing"></a>Ne değişiyor
 
-Azure İzleyicisi'ni (önceki adıyla Azure Öngörüler) Yönetimi olayları dışına tetiklenir ve bir Web kancası URL'si veya e-posta adreslerine bildirim oluşturulan bir uyarı oluşturmak için bir özellik sunmuştur. Oluşturmuş olabileceğiniz bunlardan birini uyarıları şu yollardan biriyle:
-* Belirli kaynak türlerine yönelik Azure portalında bölümünde İzleme -> Uyarılar -> Ekle "Uyarı" olarak ayarlandığı "Olayları" Uyarısı,
+Azure İzleyici (eski adıyla Azure öngörüleri) yönetimi olaylarını dışına tetiklenir ve bir Web kancası URL'si veya e-posta adreslerine bildirim oluşturulan bir uyarı oluşturmak için bir özellik sunuluyor. Oluşturmuş olabileceğiniz bunlardan birine uyarılarını şu adımlardan herhangi birini:
+* Bazı kaynak türleri için Azure portalında izleme bölümünden -> Uyarılar -> Ekle "Uyarısı" ayarlandığı "Olaylar" için uyarı,
 * Add-AzureRmLogAlertRule PowerShell cmdlet'ini çalıştırarak
-* Doğrudan kullanarak [uyarı REST API](http://docs.microsoft.com/rest/api/monitor/alertrules) ile odata.type = "ManagementEventRuleCondition" ve dataSource.odata.type "RuleManagementEventDataSource" =
+* Doğrudan kullanarak [uyarı REST API'si](http://docs.microsoft.com/rest/api/monitor/alertrules) odata.type ile "ManagementEventRuleCondition" ve dataSource.odata.type = "RuleManagementEventDataSource" =
  
-Aşağıdaki PowerShell betiğini her uyarıdaki ayarlanan koşulları yanı sıra, aboneliğiniz olan Yönetim olayları tüm uyarıların bir listesi döndürür.
+Aşağıdaki PowerShell betiğini tüm uyarıların bir listesi, aboneliğinizin yanı sıra her bir uyarı koşullara sahip yönetim olayları döndürür.
 
 ```powershell
 Connect-AzureRmAccount
@@ -49,11 +49,11 @@ foreach ($alert in $alerts) {
 } 
 ```
 
-Yönetim olaylarına herhangi bir uyarı varsa PowerShell cmdlet'i yukarıdaki uyarı iletilerini bunun gibi bir dizi çıktı:
+Uyarı Yönetimi olayları varsa, PowerShell cmdlet'i yukarıdaki uyarı iletilerini bunun gibi bir dizi çıkarır:
 
 `WARNING: The output of this cmdlet will be flattened, i.e. elimination of the properties field, in a future release to improve the user experience.`
 
-Bu uyarı iletilerini göz ardı edilebilir. Yönetim olaylarına uyarıları varsa, bu PowerShell cmdlet'ini çıktısı şuna benzeyecektir:
+Bu uyarı iletilerini yoksayılabilir. Yönetim olaylarına uyarılar varsa, bu PowerShell cmdlet'in çıktısı şuna benzeyecektir:
 
 ```
 Alert Name: webhookEvent1
@@ -90,29 +90,29 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 ---------------------------------
 ```
 
-Her uyarı kesikli çizgi ile ayrılır ve ayrıntıları uyarı ve izlenmekte olan belirli kuralın kaynak Kimliğini içerir.
+Her bir uyarı tarafından kesikli çizgiye ayrılır ve ayrıntıları, uyarı ve izlenmekte olan belirli bir kuralın kaynak Kimliğini içerir.
 
-Bu işlev için geçişi [Azure etkinlik günlüğü uyarıları izleme](monitoring-activity-log-alerts.md). Bu yeni uyarılar, etkinlik günlüğü olaylarını bir koşul ayarlamaya ve yeni bir olay koşul eşleştiğinde bir bildirim almak etkinleştirin. Bunlar ayrıca Yönetim olaylarına uyarılardan çeşitli iyileştirmeler sağlar:
-* Grubunuzun bildirim alıcıların ("eylem") kullanarak çok sayıda uyarı yeniden [Eylem grupları](monitoring-action-groups.md), bir uyarı alması gereken değiştirme karmaşıklığını azaltır.
-* Doğrudan eylem gruplarıyla SMS kullanarak telefonunuza bir bildirim alırsınız.
-* Yapabilecekleriniz [Resource Manager şablonları ile etkinlik günlüğü uyarıları oluşturma](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
-* Daha fazla esneklik ve belirli ihtiyaçlarınızı karşılaması için karmaşıklık koşullar oluşturabilirsiniz.
-* Bildirimleri daha hızlı bir şekilde teslim edilir.
+Bu işlev için geçirileceğini [Azure etkinlik günlüğü uyarıları izleme](monitoring-activity-log-alerts.md). Bu yeni uyarılar, etkinlik günlüğü olayları bir koşul ayarlamaya ve yeni bir olay koşul eşleştiğinde bir bildirim almak etkinleştirin. Bunlar ayrıca uyarılar yönetim olayları ile ilgili çeşitli geliştirmeler sağlar:
+* Grubunuzun bildirim alıcıları ("Eylemler") kullanarak çok sayıda uyarı yeniden [Eylem grupları](monitoring-action-groups.md), bir uyarı almanız gerekir değiştirme karmaşıklığı azaltır.
+* Doğrudan SMS ile Eylem grupları kullanarak telefonunuza bir bildirim alabilir.
+* Yapabilecekleriniz [Resource Manager şablonları ile etkinlik günlüğü uyarıları oluşturma](alert-activity-log.md).
+* Daha fazla esneklik ve belirli ihtiyaçlarınızı karşılamak için karmaşıklık koşulları oluşturabilirsiniz.
+* Bildirimleri daha hızlı teslim edilir.
  
-## <a name="how-to-migrate"></a>Geçirme
+## <a name="how-to-migrate"></a>Geçiş yapma
  
 Yeni Etkinlik günlüğü uyarısı oluşturmak için şunlardan birini yapabilirsiniz:
-* İzleyin [kılavuzumuzu Azure portalında bir uyarı oluşturma hakkında](monitoring-activity-log-alerts.md)
-* Bilgi edinmek için nasıl [Resource Manager şablonu kullanarak bir uyarı oluşturabilir.](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* İzleyin [kılavuzumuza Azure portalında uyarı oluşturma](monitoring-activity-log-alerts.md)
+* Bilgi edinmek için nasıl [Resource Manager şablonu kullanarak bir uyarı oluştur](alert-activity-log.md)
  
-Daha önce oluşturduğunuz yönetim olaylarını uyarılar, etkinlik günlüğü uyarıları otomatik olarak geçirilmez. Şu anda yapılandırdıysanız ve el ile etkinlik günlüğü uyarıları olarak yeniden oluşturmanız Yönetimi olayları uyarılar listelemek için yukarıdaki PowerShell komut dosyasını kullanmanız gerekir. Bu uyarılar yönetim olayları artık Azure aboneliğinizde görünür olacak Ekim 1 önce yapılmalıdır. Azure uyarıları, Azure İzleyici ölçüm uyarıları, Application Insights uyarıları ve günlük analizi uyarılar dahil olmak üzere diğer türleri, bu değişiklikten etkilenmez. Herhangi bir sorunuz varsa, aşağıdaki yorumları gönderin.
+Daha önce oluşturduğunuz yönetim olayları ile ilgili uyarılar, etkinlik günlüğü uyarılarına otomatik olarak geçirilmez. Şu anda yapılandırdıysanız ve bunları el ile etkinlik günlüğü uyarısı yeniden Yönetimi olayları ile ilgili uyarılar listelemek için yukarıdaki PowerShell Betiği kullanmanız gerekir. Bu yönetim olayları ile ilgili uyarılar artık Azure aboneliğinizde görünür olacak 1 Ekim önce yapılmalıdır. Azure uyarıları, Azure İzleyici ölçüm uyarıları, Application Insights uyarıları ve Log Analytics uyarılarını gibi diğer türleri, bu değişiklikten etkilenmez. Herhangi bir sorunuz varsa aşağıdaki yorumları gönderin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Daha fazla bilgi edinmek [etkinlik günlüğü](monitoring-overview-activity-logs.md)
-* Yapılandırma [Azure Portalı aracılığıyla etkinlik günlüğü uyarıları](monitoring-activity-log-alerts.md)
-* Yapılandırma [etkinlik günlüğü uyarıları aracılığıyla kaynak yöneticisi](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Gözden geçirme [etkinlik günlüğü uyarı Web kancası şeması](monitoring-activity-log-alerts-webhook.md)
-* Daha fazla bilgi edinmek [hizmet bildirimleri](monitoring-service-notifications.md)
-* Daha fazla bilgi edinmek [Eylem grupları](monitoring-action-groups.md)
+* Daha fazla bilgi edinin [etkinlik günlüğü](monitoring-overview-activity-logs.md)
+* Yapılandırma [Azure portal aracılığıyla etkinlik günlüğü uyarıları](monitoring-activity-log-alerts.md)
+* Yapılandırma [etkinlik günlüğü uyarıları Resource Manager aracılığıyla](alert-activity-log.md)
+* Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](monitoring-activity-log-alerts-webhook.md)
+* Daha fazla bilgi edinin [hizmet bildirimleri](monitoring-service-notifications.md)
+* Daha fazla bilgi edinin [Eylem grupları](monitoring-action-groups.md)

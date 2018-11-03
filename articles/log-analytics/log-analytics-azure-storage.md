@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 297b3f4c9ef110f8adc9dcb5cd9eac9e30729a5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: da1f69fc4b962114668c3365ef345c361a22a526
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180134"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963974"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmet Günlükleri ve Log Analytics kullanım ölçümlerini Topla
 
@@ -35,14 +35,14 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 | Hizmet                 | Kaynak Türü                           | Günlükler        | Ölçümler     | Çözüm |
 | --- | --- | --- | --- | --- |
 | Uygulama ağ geçitleri    | Microsoft.Network/applicationGateways   | Tanılama | Tanılama | [Azure uygulama ağ geçidi analizi](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
-| Application Insights    |                                         | Bağlayıcı   | Bağlayıcı   | [Application Insights Bağlayıcısı](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Önizleme) |
+| Application ınsights    |                                         | Bağlayıcı   | Bağlayıcı   | [Application Insights Bağlayıcısı](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Önizleme) |
 | Automation hesapları     | Microsoft.Automation/AutomationAccounts | Tanılama |             | [Daha fazla bilgi](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch hesapları          | Microsoft.Batch/batchAccounts           | Tanılama | Tanılama | |
 | Klasik bulut Hizmetleri  |                                         | Depolama     |             | [Daha fazla bilgi](log-analytics-azure-storage-iis-table.md) |
 | Bilişsel hizmetler      | Microsoft.CognitiveServices/accounts    |             | Tanılama | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Tanılama |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Tanılama |             | |
-| Olay Hub'ı ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
+| Olay hub'ı ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
 | IoT Hub                | Microsoft.Devices/ıothubs               |             | Tanılama | |
 | Key Vault               | Microsoft.KeyVault/vaults               | Tanılama |             | [Anahtar kasası analizi](log-analytics-azure-key-vault.md) |
 | Yük Dengeleyiciler          | Microsoft.Network/loadBalancers         | Tanılama |             |  |
@@ -51,7 +51,7 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 | Kurtarma kasaları         | Microsoft.RecoveryServices/vaults       |             |             | [Azure kurtarma Hizmetleri analizi (Önizleme)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Hizmet ara         | Microsoft.Search/searchServices         | Tanılama | Tanılama | |
 | Service Bus ad alanı   | Microsoft.ServiceBus/namespaces         | Tanılama | Tanılama | [Service Bus analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Depolama     |             | [Service Fabric analizi (Önizleme)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | Depolama     |             | [Service Fabric analizi (Önizleme)](../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Tanılama | [Azure SQL Analytics (Önizleme)](log-analytics-azure-sql.md) |
 | Depolama                 |                                         |             | Betik      | [Azure depolama analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Dahili numara   | Dahili numara <br> Tanılama  | |
@@ -61,14 +61,14 @@ Toplama günlükleri ve ölçümleri Azure Hizmetleri için dört farklı yolu v
 
 
 > [!NOTE]
-> Azure sanal makineleri (Linux ve Windows) izlemek için yüklemenizi öneririz [Log Analytics VM uzantısı](log-analytics-azure-vm-extension.md). Aracı, sanal makinelerinizin içinde toplanan Öngörüler sağlar. Uzantı sanal makine ölçek kümeleri için de kullanabilirsiniz.
+> Azure sanal makineleri (Linux ve Windows) izlemek için yüklemenizi öneririz [Log Analytics VM uzantısı](log-analytics-quick-collect-azurevm.md). Aracı, sanal makinelerinizin içinde toplanan Öngörüler sağlar. Uzantı sanal makine ölçek kümeleri için de kullanabilirsiniz.
 >
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure tanılama verilerini doğrudan Log Analytics'e bağlanma
 Birçok Azure kaynağı tanılama günlükleri yazabiliyor ve doğrudan Log Analytics ve bunun için ölçümleri analiz için veri toplama tercih edilen yoludur. Azure Tanılama'yı kullanarak, verileri Log Analytics'e hemen yazılır ve ilk veri depolama alanına yazmaya gerek yoktur.
 
-Destekleyen azure kaynak [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) kendi günlükleri ve ölçümleri doğrudan Log Analytics'e gönderebilirsiniz.
+Destekleyen azure kaynak [Azure İzleyici](../azure-monitor/overview.md) kendi günlükleri ve ölçümleri doğrudan Log Analytics'e gönderebilirsiniz.
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla Log Analytics’e gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -158,5 +158,5 @@ Azure şablonu galeri sahip [Azure Otomasyonu kullanma örnekleri](https://azure
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Olaylar için IIS ve tablo depolama için BLOB Depolama kullanma](log-analytics-azure-storage-iis-table.md) Azure tablo depolama veya BLOB depolamaya yazılan IIS günlükler, yazma tanılama Hizmetleri için günlüklerini okumak için.
-* [Çözümlerle](log-analytics-add-solutions.md) veri Öngörüler sağlar.
-* [Arama sorguları kullanılır](log-analytics-log-searches.md) verileri çözümlemek için.
+* [Çözümlerle](../monitoring/monitoring-solutions.md) veri Öngörüler sağlar.
+* [Arama sorguları kullanılır](log-analytics-log-search.md) verileri çözümlemek için.

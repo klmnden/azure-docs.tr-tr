@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429074"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964127"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -157,6 +157,10 @@ Bu güncelleştirme ayrıca L1 Terminal içinde açıklanan hata (L1TF) olarak b
 - Bazı durumlarda, bir güncelleştirme dikkat gerektirdiğinde karşılık gelen bir uyarı oluşturulamayabilir. Doğru durumu Portalı'nda yine de yansıtılır ve etkilenmez.
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
+
+> [!Important]  
+> Azure Stack dağıtımınıza uzantısı konağı için hazır olun. Aşağıdaki yönergeleri kullanarak sisteminizi hazırlama [hazırlamak için Azure Stack için uzantısı konağı](azure-stack-extension-host-prepare.md).
+
 Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md). 
 - [KB 4468920 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
