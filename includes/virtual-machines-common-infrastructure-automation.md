@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227322"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981777"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure'da sanal makineler ile altyapıyı Otomasyon araçları kullanma
 Oluşturup uygun ölçekte tutarlı bir şekilde Azure sanal makineleri (VM'ler) yönetmek için Otomasyon biçimi genellikle istenildiği gibi. Birçok araca ve tam Azure altyapı dağıtımı ve Yönetimi yaşam döngüsünü otomatikleştirmenize olanak tanıyan çözümler vardır. Bu makalede, Azure'da kullanabileceğiniz altyapı Otomasyonu araçlardan bazıları tanıtılmaktadır. Bu araçlar genellikle aşağıdaki yaklaşımlardan birini sığacak:
@@ -129,9 +129,9 @@ Azure Otomasyonu, Vm'leri belirli bir dizi nasıl yapılandırılmalıdır tanı
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps hizmetleriyle](https://www.visualstudio.com/team-services/) paylaşımı ve kod, otomatik derlemeler kullanın ve bir sürekli tümleştirme ve geliştirme (CI/CD) işlem hattı oluşturma izleme yardımcı olacak araçları paketidir. Azure DevOps hizmetleriyle, kullanımı kolaylaştırmak için Visual Studio ve diğer düzenleyiciler ile tümleştirilir. Azure DevOps hizmetleriyle oluşturabilir ve Azure Vm'leri yapılandırabilir ve ardından kod bu bilgisayarlara dağıtın.
 
-Şunları nasıl yapacağınızı öğrenin:
+Aşağıdakiler hakkında daha fazla bilgi edinin:
 
-- [Azure DevOps hizmetleriyle sürekli tümleştirme işlem hattı oluşturma](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Azure DevOps Hizmetleri](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins

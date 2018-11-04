@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035456"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981776"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Portalda bakım için zamanlanmış Vm'leri görüntüleme
 
@@ -49,17 +49,9 @@ Azure portalını kullanın ve bakım için zamanlanmış Vm'leri arayın.
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Bildirim ve Portalı'nda uyarılar
 
-Azure aboneliğine sahip ve ikincil sahipler gruba e-posta göndererek planlı bakım için zamanlama iletişim kurar. Azure etkinlik günlüğü uyarıları oluşturarak, bu iletişim için ek alıcılar ve kanallar ekleyebilirsiniz. Daha fazla bilgi için [Azure etkinlik günlüğü ile abonelik etkinliğini İzle](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure aboneliğine sahip ve ikincil sahipler gruba e-posta göndererek planlı bakım için zamanlama iletişim kurar. Azure etkinlik günlüğü uyarıları oluşturarak, bu iletişim için ek alıcılar ve kanallar ekleyebilirsiniz. Daha fazla bilgi için [etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Soldaki menüde **İzleyici**. 
-3. İçinde **İzleyici - uyarılar (Klasik)** bölmesinde tıklayın **+ etkinlik günlüğü uyarısı Ekle**.
-5. Bilgileri tamamlayın **etkinlik günlüğü uyarısı Ekle** kümesinde aşağıdaki emin olun ve sayfa **ölçütleri**:
-   - **Olay kategorisi**: Hizmet durumu
-   - **Hizmetleri**: sanal makine ölçek kümeleri ve sanal makineler
-   - **Tür**: planlı bakım 
-    
-Etkinlik günlüğü uyarılarının nasıl yapılandırılacağı hakkında daha fazla bilgi edinmek için [etkinlik günlüğü uyarıları oluşturma](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
+Ayarladığınızdan emin olun **olay türü** olarak **planlı Bakım** ve **Hizmetleri** olarak **sanal makine ölçek kümeleri** ve/veya **Sanal makineler**
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Portaldan vm'nizde Bakımı Başlat
