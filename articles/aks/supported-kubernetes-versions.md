@@ -27,11 +27,11 @@ AKS, dört alt Kubernetes sürümlerini destekler:
 - Yukarı Akış (n) olan geçerli alt sürümü yayımlanan
 - İkincil bir üç önceki sürümleri. Her desteklenen podverze iki kararlı düzeltme ekleri de destekler.
 
-Örneğin, AKS sunarsa *1.11.x* bugün desteği de için sağlanan *1.10.a* + *1.10.b*, *1.9.c*  +  *1.9d*, *1.8.e*\ + *1.8F* (burada yitirmiş düzeltme eki sürümleri iki en son kararlı yapı değildir).
+Örneğin, AKS sunarsa *1.11.x* bugün desteği de için sağlanan *1.10.a* + *1.10.b*, *1.9.c*  +  *1.9d*, *1.8.e* + *1.8F* (burada yitirmiş düzeltme eki sürümleri iki en son kararlı yapı değildir).
 
 Yeni bir ikincil sürüm eklendiğinde, desteklenen en eski ikincil sürüm ve yama sürümleri kullanımdan kaldırıldı. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 15 gün duyuru Azure güncelleştirme kanalları yapılır. Where yukarıdaki örnekte *1.11.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.7.g* + *1.7.h*.
 
-Portalında veya Azure CLI ile bir AKS kümesi dağıtırken, küme her zaman en son düzeltme eki ve n-1 podverze ayarlayın. Örneğin, AKS destekliyorsa *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9 d*, *1.8.e*\ + *1.8F*, yeni küme için varsayılan sürüm *1.10.b*.
+Portalında veya Azure CLI ile bir AKS kümesi dağıtırken, küme her zaman en son düzeltme eki ve n-1 podverze ayarlayın. Örneğin, AKS destekliyorsa *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9 d*, *1.8.e* + *1.8F*, yeni küme için varsayılan sürüm *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Şu anda desteklenen sürümler listesi
 
@@ -62,7 +62,7 @@ KubernetesVersion    Upgrades
 
 Kullanıyorsanız *n-4* sürümü, SLO dışında olan. Sonra yükseltme sürümü n-4 n-3 başarılı olursa, SLO geri sunulur. Örneğin:
 
-- Desteklenen AKS sürümleri varsa *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*,  *1.8.e*\ + *1.8F* ve bulunduğunuz *1.7.g* veya *1.7.h*, SLO dışında olan.
+- Desteklenen AKS sürümleri varsa *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*,  *1.8.e* + *1.8F* ve bulunduğunuz *1.7.g* veya *1.7.h*, SLO dışında olan.
 - Yükseltme işlemi *1.7.g* veya *1.7.h* için *1.8.e* veya *1.8.f* başarılı, SLO geri olursunuz.
 
 Şundan eski sürümlere yükseltme *n-4* desteklenmez. Bu gibi durumlarda, müşterilerin yeni AKS küme oluşturma ve iş yüklerini yeniden öneririz.
