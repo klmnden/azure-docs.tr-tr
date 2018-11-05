@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 14938e25cc41ea11baef94b6a9e01e070ffac654
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 029342b5db33a7c713e915ae72066f732b6f46f0
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158199"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979429"
 documentType: LandingData
 title: Azure Service Fabric Mesh Belgeleri
 metadata:
@@ -20,7 +20,7 @@ metadata:
   ms.date: 07/26/2018
   ms.author: ryanwi
 abstract:
-  description: Azure Service Fabric Mesh, geliştiricilerin herhangi bir altyapıyı yönetmeden görev açısından kritik uygulamaları oluşturup dağıtmasına olanak tanıyan, tam olarak yönetilen bir hizmettir.  Service Fabric Mesh’i kullanarak, talep üzerine ölçeklendirilen güvenli ve dağıtılmış mikro hizmet uygulamaları oluşturup çalıştırabilirsiniz. Hızlı başlangıçlarımız ve öğreticilerimiz ile Service Fabric Mesh’i kullanmayı öğrenin.  Daha fazla bilgi almak için <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh’e genel bakış</a> makalesini okuyun.
+  description: Azure Service Fabric Mesh, geliştiricilerin herhangi bir altyapıyı yönetmeden görev açısından kritik uygulamaları oluşturup dağıtmasına olanak tanıyan, tam olarak yönetilen bir hizmettir.  Service Fabric Mesh’i kullanarak, talep üzerine ölçeklendirilen güvenli ve dağıtılmış mikro hizmet uygulamaları oluşturup çalıştırabilirsiniz. Hızlı başlangıçlarımız ve öğreticilerimiz ile Service Fabric Mesh’i kullanmayı öğrenin.  Daha fazla bilgi edinmek için <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh'e genel bakış</a> konusunu ve <a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">sık sorulan soruları</a> okuyun.
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:

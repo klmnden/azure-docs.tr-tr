@@ -86,7 +86,18 @@
 ### [Azure üzerinden SaaS satışı](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS API’leri](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-## [Kapsayıcılar](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
+
+## [Kapsayıcılar teklifi](./cloud-partner-portal/containers/cpp-containers-offer.md)
+### [Önkoşullar](./cloud-partner-portal/containers/cpp-prerequisites.md)
+### [Kapsayıcı teklifi oluşturma](./cloud-partner-portal/containers/cpp-create-offer.md)
+#### [Teklif ayarları sekmesi](./cloud-partner-portal/containers/cpp-offer-settings-tab.md)
+#### [SKU'lar sekmesi](./cloud-partner-portal/containers/cpp-skus-tab.md)
+#### [Market sekmesi](./cloud-partner-portal/containers/cpp-marketplace-tab.md)
+#### [Destek sekmesi](./cloud-partner-portal/containers/cpp-support-tab.md)
+### [Kapsayıcı teknik varlıklarını oluşturma](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
+### [Kapsayıcı teklifini yayımlama](./cloud-partner-portal/containers/cpp-publish-offer.md)
+### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
 
 ## [IoT Edge modülü teklifi](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Önkoşullar](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
