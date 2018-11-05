@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a46564c324edb1999a2e1b1d482817685df2893
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 3fa41f894e3228310bae6a9407cfcc426c27bfdc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205995"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963727"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -158,7 +158,7 @@ Web sayfalarındaki veriler gelir.
 Bkz: [bağımlılık telemetrisi](app-insights-asp-net-dependencies.md) ve [özel durum telemetrisi](app-insights-asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Performans verisi
-Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmetleri](app-insights-java-collectd.md), [Windows Masaüstü uygulamaları](app-insights-windows-desktop.md), [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](app-insights-monitor-performance-live-website-now.md), ve [Azure bulut Hizmetleri](app-insights-azure.md). Sunucu Ayarları altında bulabilirsiniz.
+Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmetleri](app-insights-java-collectd.md), [Windows Masaüstü uygulamaları](app-insights-windows-desktop.md), [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](app-insights-monitor-performance-live-website-now.md), ve [Azure bulut Hizmetleri](app-insights-overview.md). Sunucu Ayarları altında bulabilirsiniz.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>(Sunucu) veri için my server uygulaması yayımladım beri
 * Aslında tüm Microsoft kopyaladığınız denetleyin. Sunucuya Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll birlikte Applicationınsights DLL'leri

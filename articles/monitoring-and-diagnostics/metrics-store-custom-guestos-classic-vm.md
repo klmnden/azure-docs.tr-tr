@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 06b3d97f4b2b7867f09a8c4e5fe974615e9b0c70
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093429"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958636"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Azure İzleyici'veri deposu için bir Windows sanal makine (Klasik) konuk işletim sistemi ölçümleri gönderme
 
@@ -45,7 +45,7 @@ Bu makalede açıklanan işlem, yalnızca Windows işletim sistemi çalıştıra
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
-Bölümündeki yönergeleri kullanarak Azure Active Directory kiracınızda bir hizmet ilkesi oluşturma [hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). Bu süreç boyunca çalışırken aşağıdakileri unutmayın: 
+Bölümündeki yönergeleri kullanarak Azure Active Directory kiracınızda bir hizmet ilkesi oluşturma [hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md). Bu süreç boyunca çalışırken aşağıdakileri unutmayın: 
 - Bu uygulama için yeni istemci gizli anahtarı oluşturun.
 - Sonraki adımlarda, anahtar ve kullanmak için istemci kimliği kaydedin.
 
