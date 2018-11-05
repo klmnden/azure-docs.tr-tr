@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123457"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961900"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -36,7 +36,7 @@ Kimin uyarı göndermesi gerektiğini de yapılandırabilirsiniz:
 
 Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](monitoring-action-groups.md).
 
-Azure Resource Manager şablonları kullanarak hizmet durumu bildirimi uyarılarını yapılandırma hakkında daha fazla bilgi için bkz: [Resource Manager şablonları](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+Azure Resource Manager şablonları kullanarak hizmet durumu bildirimi uyarılarını yapılandırma hakkında daha fazla bilgi için bkz: [Resource Manager şablonları](alert-activity-log.md).
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Azure portalını kullanarak yeni bir eylem grubu için bir hizmet durumu bildirimi üzerinde uyarı oluşturma
 1. İçinde [portalı](https://portal.azure.com)seçin **hizmet durumu**.
@@ -70,7 +70,7 @@ Azure Resource Manager şablonları kullanarak hizmet durumu bildirimi uyarılar
 
 1. Alıcıları listesi, alıcı sağlayarak tanımlayın:
 
-    a. **Ad**: alıcının adını, diğer adı veya tanımlayıcısı girin.
+    a. **Ad**: alıcı s adı, diğer adı veya tanımlayıcısı girin.
 
     b. **Eylem türü**: seçin, SMS, e-posta, Web kancası, Azure uygulama ve daha fazla.
 

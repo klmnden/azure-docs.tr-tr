@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056273"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963124"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](http://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
@@ -41,7 +41,7 @@ Application Insights sorgunuzu almak için Power BI'ın Masaüstü sürümünü 
 Yükleme [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Bir Analytics sorgusunu dışarı aktarma
-1. [Analytics açın ve sorgunuzu yazma](app-insights-analytics-tour.md).
+1. [Analytics açın ve sorgunuzu yazma](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Test ve Sonuçlardan memnun kadar sorgu daraltın. Vermeden önce sorgu Analytics'te düzgün çalıştığından emin olun.
 3. Üzerinde **dışarı** menüsünde seçin **Power BI (M)**. Metin dosyasını kaydedin.
    
@@ -109,7 +109,7 @@ Veri kümesini analiz sorgusundan gelen azaltma gereksinimlerinizi karşılamıy
    * Değiştirin  **https://management.azure.com/subscriptions/...**
    * ile  **https://api.applicationinsights.io/beta/apps/...**
 3. Son olarak, kimlik bilgilerini temel güncelleştirin ve API anahtarınızı kullanın.
-  
+ �
 
 **Var olan bir komut dosyası**
  ```
@@ -155,5 +155,5 @@ Application Insights grafikleri değerlerle diğer kaynakları ve analiz sorgula
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Power BI - öğrenin](http://www.powerbi.com/learning/)
-* [Analizi Öğreticisi](app-insights-analytics-tour.md)
+* [Analizi Öğreticisi](../log-analytics/query-language/get-started-analytics-portal.md)
 

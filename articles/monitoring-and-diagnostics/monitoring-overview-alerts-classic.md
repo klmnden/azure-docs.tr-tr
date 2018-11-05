@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c69a61f19b55cd325cd594173dbf3b5f2b4576b8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987654"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962937"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft azure'da Klasik uyarılar nedir?
 
@@ -29,7 +29,7 @@ Son Azure İzleyici'de, Application Insights, Log Analytics ve hizmetin sistem d
 
 Azure portalında Klasik uyarıları kullanıcı ekran, yalnızca klasik uyarıları görüntüleyebilirsiniz. Bu ekrandan alma **Klasik uyarıları görüntüleyip** uyarılar ekranında düğmesi. 
 
- ![Azure portalında uyarı seçenekleri](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Azure portalında uyarı seçenekleri](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)�
 
 Yeni uyarılar kullanıcı deneyimi üzerinde Klasik uyarılar deneyiminin aşağıdaki faydaları vardır:
 -   **Daha iyi bir bildirim sistemi** -tüm yeni uyarıları, bildirimleri ve Uyarıları birden çok yeniden kullanılabilir eylemler grupları adlı eylem grupları kullanın. Klasik ölçüm uyarısı ve eski Log Analytics uyarılarını Eylem grupları kullanmayın.
@@ -89,14 +89,14 @@ Web kancaları otomasyon ve düzeltme, örneğin, kullanarak sağlar:
 ## <a name="next-steps"></a>Sonraki adımlar
 Uyarı kuralları ve bunları kullanarak yapılandırma hakkında bilgi alın:
 
-* Daha fazla bilgi edinin [ölçümleri](monitoring-overview-metrics.md)
-* Yapılandırma [Azure portalında Klasik ölçüm uyarıları](insights-alerts-portal.md)
-* Yapılandırma [Klasik ölçüm uyarılarını PowerShell](insights-alerts-powershell.md)
-* Yapılandırma [Klasik ölçüm uyarılarını komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
+* Daha fazla bilgi edinin [ölçümleri](../monitoring/monitoring-data-collection.md)
+* Yapılandırma [Azure portalında Klasik ölçüm uyarıları](alert-metric-classic.md)
+* Yapılandırma [Klasik ölçüm uyarılarını PowerShell](alert-metric-classic.md)
+* Yapılandırma [Klasik ölçüm uyarılarını komut satırı arabirimi (CLI)](alert-metric-classic.md)
 * Yapılandırma [Klasik ölçüm uyarılarını Azure İzleyici REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Daha fazla bilgi edinin [etkinlik günlüğü](monitoring-overview-activity-logs.md)
 * Yapılandırma [Azure portal aracılığıyla etkinlik günlüğü uyarıları](monitoring-activity-log-alerts.md)
-* Yapılandırma [etkinlik günlüğü uyarıları Resource Manager aracılığıyla](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Yapılandırma [etkinlik günlüğü uyarıları Resource Manager aracılığıyla](alert-activity-log.md)
 * Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](monitoring-activity-log-alerts-webhook.md)
 * Daha fazla bilgi edinin [Eylem grupları](monitoring-action-groups.md)
-* Yapılandırma [yeni uyarılar](monitor-alerts-unified-usage.md)
+* Yapılandırma [yeni uyarılar](alert-metric.md)

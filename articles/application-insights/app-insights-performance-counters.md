@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094103"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960115"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application ınsights'ta sistem performans sayaçları
 Windows sağlayan çok çeşitli [performans sayaçları](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) CPU doluluğu, bellek, disk ve ağ kullanımı gibi. Ayrıca kendi tanımlayabilirsiniz. [Application Insights](app-insights-overview.md) bu performans sayaçlarını bir şirket içi konak veya sanal makinede yönetimsel erişim sahibi uygulamanızı IIS altında çalışıp çalışmadığını gösterebilir. Grafik Canlı uygulamanızın kullanabileceği kaynakları belirtmek ve sunucu örnekleri arasında dengesiz yük belirlemenize yardımcı olabilir.
@@ -27,7 +27,7 @@ Performans sayaçları, bir tablo, sunucu örneği tarafından bu parçaları i�
 
 ![Uygulama anlayışları'nda bildirilen performans sayaçları](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Performans sayaçları Azure Web Apps için kullanılamaz. Ancak [Application Insights'a Azure Tanılama verileri gönderme](app-insights-azure-diagnostics.md).)
+(Performans sayaçları Azure Web Apps için kullanılamaz. Ancak [Application Insights'a Azure Tanılama verileri gönderme](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
 
 ## <a name="view-counters"></a>Sayaçları görüntüleyin
 Sunucu dikey penceresinde varsayılan birtakım performans sayaçlarını gösterir. 
@@ -96,7 +96,7 @@ Veya, oluşturduğunuz özel ölçümler ile aynı şeyi yapmak için:
 ## <a name="performance-counters-in-analytics"></a>Analytics'te performans sayaçları
 Arama ve performans sayacı raporlarda görüntüleme [Analytics](app-insights-analytics.md).
 
-**PerformanceCounters** şema sunan `category`, `counter` adı ve `instance` her performans sayacının adı.  Her uygulama için telemetriyi yalnızca bu uygulama için sayaçları görürsünüz. Örneğin, görmek için hangi sayaçları kullanılabilir: 
+**PerformanceCounters** şema sunan `category`, `counter` adı ve `instance` her performans sayacının adı.  Her uygulama için telemetriyi yalnızca bu uygulama için sayaçları, ll bakın. Örneğin, görmek için hangi sayaçları kullanılabilir: 
 
 ![Application Insights analytics performans sayaçları](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

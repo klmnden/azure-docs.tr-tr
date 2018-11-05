@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376678"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978749"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -66,7 +66,7 @@ Nisan konuk işletim sistemi kullanıma sundu.
 ## <a name="family-5-releases"></a>Ailesi 5 yayınlar
 **Windows Server 2016**
 
-.NET Framework'ün yüklü: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET Framework'ün yüklü: 3.5, 4.6.2
 
 > [!NOTE]
 > İşletim sistemi ailesi 5 RDP parolasını en az 10 karakter uzunluğunda olmalıdır.
@@ -84,7 +84,7 @@ Nisan konuk işletim sistemi kullanıma sundu.
 ## <a name="family-4-releases"></a>Ailesi 4 yayınlar
 **Windows Server 2012 R2**
 
-.NET Framework'ün yüklü: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework'ün yüklü: 3.5, 4.5.1
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Nisan konuk işletim sistemi kullanıma sundu.
 ## <a name="family-3-releases"></a>Aile 3 yayınlar
 **Windows Server 2012**
 
-.NET Framework'ün yüklü: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework'ün yüklü: 3.5, 4.5
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ Nisan konuk işletim sistemi kullanıma sundu.
 ## <a name="family-2-releases"></a>Ailesi 2 yayınlar
 **Windows Server 2008 R2 SP1**
 
-.NET Framework'ün yüklü: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework'ün yüklü: 3.5 (2.0 ve 3.0 içerir)
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
