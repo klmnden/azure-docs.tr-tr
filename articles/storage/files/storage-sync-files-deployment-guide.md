@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 261f8dfe41ece0cd56a4a71972e3142ef8440afb
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f32dd0fb1ffd1bbd2c58f187b2dbc310a48f65ff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918118"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011077"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -38,14 +38,14 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
     > Azure dosya eşitleme henüz PowerShell 6 + Windows Server 2012 R2 veya Windows Server 2016'yı desteklemez.
 * Azure dosya eşitleme ile kullanmak istediğiniz sunucularda AzureRM PowerShell modülü. AzureRM PowerShell modülü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Her zaman, Azure PowerShell modüllerinin en son sürümünü kullanmanızı öneririz. 
 
-## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Windows Server'ın Azure dosya eşitleme ile kullanmak üzere hazırlama
-Yük devretme kümesinde, her sunucu düğümü dahil olmak üzere, Azure dosya eşitleme ile kullanmayı planladığınız her sunucu için devre dışı **Internet Explorer Artırılmış Güvenlik Yapılandırması**. Bu, yalnızca ilk sunucu kaydı için gereklidir. Sunucu kaydedildikten sonra yeniden etkinleştirebilirsiniz.
+## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Windows Server’ı Azure Dosya Eşitleme ile kullanmaya hazırlama
+Yük devretme kümesinde, her sunucu düğümü dahil olmak üzere, Azure dosya eşitleme ile kullanmayı planladığınız her sunucu için devre dışı **Internet Explorer Artırılmış Güvenlik Yapılandırması**. Bu, yalnızca ilk sunucu kaydı için gereklidir. Sunucu kaydedildikten sonra özelliği yeniden etkinleştirebilirsiniz.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 1. Sunucu Yöneticisi'ni açın.
 2. Tıklayın **yerel sunucu**:  
     !["Yerel sunucuda" sol tarafındaki Sunucu Yöneticisi kullanıcı Arabirimi](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
-3. Üzerinde **özellikleri** alt bölme, bağlantısını seçin **IE Artırılmış Güvenlik Yapılandırması**.  
+3. **Özellikler** alt bölmesinde **IE Artırılmış Güvenlik Yapılandırması** bağlantısını seçin.  
     ![Sunucu Yöneticisi kullanıcı arabiriminde "IE Artırılmış Güvenlik Yapılandırması" bölmesi](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
 4. İçinde **Internet Explorer Artırılmış Güvenlik Yapılandırması** iletişim kutusunda **kapalı** için **Yöneticiler** ve **kullanıcılar**:  
     ![Internet Explorer Artırılmış Güvenlik Yapılandırması pop penceresi "Kapalı" ile işaretli](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
@@ -70,8 +70,8 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 
 ---
 
-## <a name="install-the-azure-file-sync-agent"></a>Azure dosya eşitleme aracısını yükleme
-Azure dosya eşitleme aracısını Windows Server'ın bir Azure dosya paylaşımı ile eşitlenmesine imkan sağlayan indirilebilir bir pakettir. 
+## <a name="install-the-azure-file-sync-agent"></a>Azure Dosya Eşitleme aracısını yükleme
+Azure Dosya Eşitleme aracısı, Windows Server’ın bir Azure dosya paylaşımı ile eşitlenmesini sağlayan indirilebilir bir pakettir. 
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 Aracısı'ndan indirebileceğiniz [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Yükleme tamamlandığında, Azure dosya eşitleme aracı yüklemesini başlatmak için MSI paketini çift tıklayın.
@@ -125,7 +125,7 @@ Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 
 ---
 
-## <a name="deploy-the-storage-sync-service"></a>Depolama eşitleme hizmetini dağıtma 
+## <a name="deploy-the-storage-sync-service"></a>Depolama Eşitleme Hizmetini Dağıtma 
 Yerleştirme ile Azure dosya eşitleme dağıtımı başlatır bir **depolama eşitleme hizmeti** seçili aboneliğinizin bir kaynak grubuna kaynak. Birkaç bu gerektiğinde sağlama öneririz. Sunucularınızın ve bu kaynak arasında bir güven ilişkisi oluşturmanız gerekir ve bir sunucu yalnızca bir depolama eşitleme hizmeti kaydedilebilir. Sonuç olarak, sunucu grupları ayırmak gerektiği kadar depolama Eşitleme Hizmetleri dağıtmak için önerilir. Farklı depolama Eşitleme Hizmetleri sunuculardan birbirleri ile eşitleme yapamıyor aklınızda bulundurun.
 
 > [!Note]
@@ -134,7 +134,7 @@ Yerleştirme ile Azure dosya eşitleme dağıtımı başlatır bir **depolama e�
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 Depolama eşitleme hizmeti dağıtmak için Git [Azure portalında](https://portal.azure.com/), tıklayın *yeni* ve sonra Azure dosya eşitleme için arama yapın. Arama sonuçlarında seçin **Azure dosya eşitleme**ve ardından **Oluştur** açmak için **dağıtma depolama eşitleme** sekmesi.
 
-Açılan bölmede aşağıdaki bilgileri girin:
+Açılan bölmeye aşağıdaki bilgileri girin:
 
 - **Ad**: depolama eşitleme hizmeti için (abonelik) başına benzersiz bir ad.
 - **Abonelik**: depolama eşitleme hizmetini oluşturmak istediğiniz aboneliği. Kuruluşunuzun yapılandırma stratejisi bağlı olarak, bir veya daha fazla abonelik erişimi olabilir. Bir Azure aboneliği (örneğin, Azure dosyaları) her bir bulut hizmeti için fatura bilgilerini en temel kapsayıcıdır.
@@ -216,24 +216,24 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 
 ---
 
-## <a name="register-windows-server-with-storage-sync-service"></a>Windows Server depolama eşitleme hizmeti ile kaydetme
-Windows Server depolama eşitleme hizmeti ile kaydetme, sunucu (veya küme) arasında bir güven ilişkisi oluşturur ve depolama eşitleme hizmeti. Bir sunucu yalnızca bir depolama eşitleme hizmetine kayıtlı olması ve diğer sunuculara ve Azure ile eşitleyebilirsiniz dosya paylaşımları aynı depolama eşitleme hizmeti ile ilişkili.
+## <a name="register-windows-server-with-storage-sync-service"></a>Windows Server’ı Depolama Eşitleme Hizmetine kaydetme
+Windows Server’ı bir Depolama Eşitleme Hizmeti’ne kaydetmek, sunucunuz (veya kümeniz) ile Depolama Eşitleme Hizmeti arasında bir güven ilişkisi kurar. Bir sunucu yalnızca bir Depolama Eşitleme Hizmeti’ne kaydedilebilir ve aynı Depolama Eşitleme Hizmeti ile ilişkili diğer sunucular ve Azure dosya paylaşımları ile eşitlenebilir.
 
 > [!Note]
 > Sunucu kaydı depolama eşitleme hizmeti, Windows server oluşturur ve sunucunun kayıtlı kalır sürece geçerli olan kendi kimliğini kullanır ancak sonradan sunucusu arasında bir güven ilişkisi oluşturmak için Azure kimlik bilgilerinizi kullanır ve Geçerli paylaşılan erişim imzası (depolama SAS) belirteci geçerli değil. Sunucu, bu nedenle sunucunun herhangi bir Eşitleme durduruluyor Azure dosya paylaşımlarınızın erişme olanağını kaldırma, kaydı olduğunda yeni bir SAS belirteci sunucuya yayınlanamıyor.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-Sunucu kaydı UI otomatik olarak Azure dosya eşitleme Aracısı yüklendikten sonra açmanız gerekir. Seçili değilse bunu el ile dosya konumundan açabilirsiniz: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Sunucu kaydı UI açıldığında seçin **oturum** başlamak için.
+Sunucu kaydı UI otomatik olarak Azure dosya eşitleme Aracısı yüklendikten sonra açmanız gerekir. Açılmazsa, şu dosya konumundan kendiniz açabilirsiniz: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Sunucu kaydı UI açıldığında seçin **oturum** başlamak için.
 
 Oturum açtıktan sonra aşağıdaki bilgileri girmeniz istenir:
 
-![Sunucu kaydı UI görüntüsü](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
+![Sunucu Kaydı kullanıcı arabiriminin ekran görüntüsü](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
 - **Azure aboneliği**: depolama eşitleme hizmeti içeren aboneliği (bkz [depolama eşitleme hizmeti dağıtma](#deploy-the-storage-sync-service)). 
 - **Kaynak grubu**: depolama eşitleme hizmeti içeren bir kaynak grubu.
 - **Depolama eşitleme hizmeti**: istediğiniz kaydetmek depolama eşitleme hizmeti adı.
 
-Uygun bilgileri seçtikten sonra seçin **kaydetme** sunucu kaydını tamamlamak için. Bir ek oturum açma için kayıt işleminin bir parçası olarak istenir.
+Uygun bilgileri seçtikten sonra seçin **kaydetme** sunucu kaydını tamamlamak için. Kayıt işleminin bir parçası olarak bir kez daha oturum açmanız istenir.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```PowerShell
@@ -242,8 +242,8 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 
 ---
 
-## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Bir eşitleme grubuna ve bir bulut uç noktası oluşturma
-Bir eşitleme grubu eşitleme topolojisi için bir dosya kümesini tanımlar. Bir eşitleme grubu içindeki uç noktalar birbiriyle eşitlenmiş olarak tutulur. Bir Azure dosya paylaşımı ve bir veya daha fazla sunucu uç noktalarını temsil eden bir bulut uç noktası, bir eşitleme grubu içermelidir. Sunucu uç noktası kayıtlı sunucudaki bir yolu temsil eder. Sunucu uç noktaları, bir sunucu birden çok eşitleme gruplarında olabilir. İstenen eşitleme topolojinizi uygun şekilde tanımlamak gerek duyduğunuz kadar eşitleme grupları oluşturabilirsiniz.
+## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Bir eşitleme grubu ve bir bulut uç noktası oluşturma
+Eşitleme grubu, bir dosya kümesi için eşitleme topolojisini tanımlar. Bir eşitleme grubu içindeki uç noktalar birbiriyle eşitlenmiş olarak tutulur. Eşitleme grubu, bir Azure dosya paylaşımı ve en az bir sunucu uç noktasını temsil eden bir bulut uç noktası içermelidir. Sunucu uç noktası kayıtlı sunucudaki bir yolu temsil eder. Sunucu uç noktaları, bir sunucu birden çok eşitleme gruplarında olabilir. İstenen eşitleme topolojinizi uygun şekilde tanımlamak gerek duyduğunuz kadar eşitleme grupları oluşturabilirsiniz.
 
 Bulut uç noktası, bir Azure dosya paylaşımı için bir işaretçidir. Tüm sunucu uç noktalarını, bulut uç noktası hub yaparak bulut uç noktasıyla eşitlenir. Depolama hesabı için Azure dosya paylaşımı depolama eşitleme hizmeti ile aynı bölgede bulunması gerekir. Bir özel durum ile Azure dosya paylaşımının tamamen eşitlenir: özel bir klasörüne bir NTFS birimi gizli "Sistem Birim bilgisi" klasörüne karşılaştırılabilir sağlanacak. Bu dizin denir ". SystemShareInformation". Bu, diğer uç noktalar ile eşitlenmez önemli eşitleme meta verileri içerir. Kullanmayın veya silmeden!
 
@@ -253,11 +253,11 @@ Bulut uç noktası, bir Azure dosya paylaşımı için bir işaretçidir. Tüm s
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 Bir eşitleme grubu oluşturmak için [Azure portalında](https://portal.azure.com/)depolama eşitleme hizmetinize gidin ve ardından **+ eşitleme grubu**:
 
-![Azure portalında yeni bir eşitleme grubu oluşturma](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
+![Azure portalda yeni bir eşitleme grubu oluşturma](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
-Açılan bölmede bir bulut uç noktası ile bir eşitleme grubu oluşturmak için aşağıdaki bilgileri girin:
+Açılan bölmede, bulut uç noktası olan bir eşitleme grubu oluşturmak için aşağıdaki bilgileri girin:
 
-- **Eşitleme grubu adı**: Oluşturulacak eşitleme grubunun adı. Bu ad, depolama eşitleme hizmeti içinde benzersiz olmalıdır, ancak sizin için mantıklı olan herhangi bir ad olabilir.
+- **Eşitleme grubu adı**: Oluşturulacak eşitleme grubunun adı. Bu ad Depolama Eşitleme Hizmetinde benzersiz olmalıdır, ancak size mantıklı gelen herhangi bir ad olabilir.
 - **Abonelik**: depolama eşitleme hizmetinde dağıtıldığı abonelik [depolama eşitleme hizmeti dağıtma](#deploy-the-storage-sync-service).
 - **Depolama hesabı**: seçerseniz **depolama hesabını seçin**, eşitlemek istediğiniz Azure dosya paylaşımını içeren depolama hesabı seçin, başka bir bölmesi görünür.
 - **Azure dosya paylaşımı**: istediğiniz eşitleme Azure dosya paylaşımının adı.
@@ -310,14 +310,14 @@ New-AzureRmStorageSyncCloudEndpoint `
 ---
 
 ## <a name="create-a-server-endpoint"></a>Sunucu uç noktası oluşturma
-Sunucu uç noktası, kayıtlı bir sunucuda, bir sunucu birimdeki bir klasör gibi belirli bir konuma temsil eder. Sunucu uç noktası bir kayıtlı sunucu (bir bağlı paylaşım yerine) bir yol olmalıdır ve bulut katmanlaması kullanmak için yolun sistem dışı bir birimde olması gerekir. Ağa bağlı depolama (NAS) desteklenmiyor.
+Sunucu uç noktası, bir sunucu birimi üzerindeki klasör gibi kayıtlı bir sunucu üzerindeki belirli bir noktayı temsil eder. Sunucu uç noktası bir kayıtlı sunucu (bir bağlı paylaşım yerine) bir yol olmalıdır ve bulut katmanlaması kullanmak için yolun sistem dışı bir birimde olması gerekir. Ağa bağlı depolama (NAS) desteklenmiyor.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 Sunucu uç noktası eklemek için yeni oluşturulan bir eşitleme grubuna gidin ve ardından **sunucusu uç noktası ekleme**.
 
-![Eşitleme grubu bölmesinde yeni bir sunucu uç noktası ekleme](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
+![Eşitleme grubu bölmesine yeni bir sunucu uç noktası ekleme](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
-İçinde **sunucusu uç noktası ekleme** bölmesinde, sunucu uç noktası oluşturmak için aşağıdaki bilgileri girin:
+**Sunucu uç noktası ekle** bölmesinde bir sunucu uç noktası oluşturmak için aşağıdaki bilgileri girin:
 
 - **Kayıtlı sunucu**: sunucu veya küme sunucu uç noktasını oluşturmak istediğiniz adı.
 - **Yol**: Windows Server yolu eşitleme grubunun bir parçası olarak eşitlenir.

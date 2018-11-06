@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0ca9cf0ff75ea76cd2dc203fbdb37162ed1ace34
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962767"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006507"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -58,7 +58,7 @@ Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği 
 3. Log Analytics çalışma alanlarınızın listesinde, bir çalışma alanı seçin.
 4. Sol bölmedeki listeden **Kullanım ve tahmini maliyetler**’i seçin.
 5. **Kullanım ve tahmini maliyetler** panosunda, **Zaman: Son 24 saat** değerini seçerek zaman aralığı üzerinde değişiklik yapabilir ve zaman aralığını değiştirebilirsiniz.<br><br> ![zaman aralığı](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-search.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.<br><br> ![örnek veri kullanım kpi’si](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-queries.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.<br><br> ![örnek veri kullanım kpi’si](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.<br><br> ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
@@ -173,7 +173,7 @@ Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görü
 Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-search.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
+* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-queries.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
 * Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/alert-metric.md) başlığı altında açıklanan adımları kullanın.
 * Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın.
 * Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin.

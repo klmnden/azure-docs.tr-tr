@@ -2,19 +2,19 @@
 title: İzleme ve Azure HDInsight'ın Ambari Web kullanıcı arabirimini kullanarak yönetme
 description: Linux tabanlı HDInsight kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, dahil olan HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 3f2c9a246a7252241ffb65a4fa8545ba84e81df8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: f722c9610051aadd82d1a00d466edbe05aafc843
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096476"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010040"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak yönetme
 

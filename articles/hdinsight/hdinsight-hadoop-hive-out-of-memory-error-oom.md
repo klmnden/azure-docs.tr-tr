@@ -3,19 +3,19 @@ title: Azure HDInsight bellek hatası dışında bir Hive Düzelt
 description: Yetersiz bellek hatasını HDInsight içinde bir Hive'ı düzeltin. Bir müşteri senaryosuna birçok büyük tablolar arasında bir sorgu gereklidir.
 keywords: yetersiz bellek hata OOM, Hive ayarları
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1ef4d8fa85a983c736fad73b652d8614c9a96ae5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: dae987957763c532ee12e43aa591bf5f4fb57b0a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109860"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008139"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight bellek hatası dışında bir Hive Düzelt
 

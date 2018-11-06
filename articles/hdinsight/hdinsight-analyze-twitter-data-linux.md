@@ -1,22 +1,22 @@
 ---
 title: Apache Hive - Azure HDInsight ile twitter verilerini çözümleme
-description: Hive ve Hadoop üzerinde HDInsight ham TWitter verilerini aranabilir bir Hive tablosuna dönüştürmek için kullanmayı öğrenin.
+description: Ham TWitter verilerini aranabilir bir Hive tablosuna dönüştürmek için HDInsight üzerinde Apache Hive ve Apache Hadoop kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a20f9ef6e42027cf3f499654ac8a43eee7b41854
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d037c4fc65bc32ff183ddc7a8925cd2f51411ea0
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104087"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034635"
 ---
-# <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Hive ve Hadoop üzerinde HDInsight kullanarak Twitter verilerini çözümleme
+# <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hive ve Apache Hadoop kullanarak Twitter verilerini çözümleme
 
 Twitter verilerini işleme için Apache Hive'ı kullanmayı öğrenin. Belirli bir sözcük içeren çoğu tweetleri gönderen Twitter kullanıcıların listesini sonucudur.
 

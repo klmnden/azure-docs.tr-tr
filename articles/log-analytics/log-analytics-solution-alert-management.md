@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e0bc49fb3b85decb97366b62771a191702149b1a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fa76ccf7019097c5f27aa126b0a5a7dc81ffbd41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960540"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008156"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log analytics'teki uyarı yönetimi çözümü
 
@@ -74,7 +74,7 @@ Tıklayarak **uyarı Yönetimi** açmak için kutucuğa **uyarı Yönetimi** Pan
 | Etkin SCOM Uyarıları |Tüm uyarıları Operations Manager'dan dışında herhangi bir durumu ile toplanan *kapalı* uyarının kaynağına göre gruplandırılmış. |
 | Tüm etkin uyarıları |Tüm uyarılar ile uyarı adına göre gruplandırılmış tüm önem derecesi. Yalnızca Operations Manager uyarıları ile herhangi bir durumu dışında içeren *kapalı*. |
 
-Sağa kaydırdığınızda Pano gerçekleştirmek için tıklayabilirsiniz birkaç yaygın sorguları listeler bir [günlük araması](log-analytics-log-search.md) uyarı verileri için.
+Sağa kaydırdığınızda Pano gerçekleştirmek için tıklayabilirsiniz birkaç yaygın sorguları listeler bir [günlük araması](log-analytics-queries.md) uyarı verileri için.
 
 ![Uyarı Yönetim Panosu](media/log-analytics-solution-alert-management/dashboard.png)
 

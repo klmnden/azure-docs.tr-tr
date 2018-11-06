@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f5db8c4e8137d9758113210ad433278eb8f5a2ee
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fab4bcb62d15be11ab0a588b7a58447f05b4466a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962138"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014678"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme
 
@@ -100,5 +100,5 @@ Etkinlik günlüğü verileri bir yalnızca görünür *sonra* etkinliği günl�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Oluşturma bir [uyarı](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) belirli bir etkinlik olduğunda gerçekleşir.
-- Kullanım [günlük araması](log-analytics-log-search.md) , etkinlik günlüklerinden daha ayrıntılı bilgi görüntülemek için.
+- Oluşturma bir [uyarı](../monitoring-and-diagnostics/alert-metric.md) belirli bir etkinlik olduğunda gerçekleşir.
+- Kullanım [günlük araması](log-analytics-queries.md) , etkinlik günlüklerinden daha ayrıntılı bilgi görüntülemek için.

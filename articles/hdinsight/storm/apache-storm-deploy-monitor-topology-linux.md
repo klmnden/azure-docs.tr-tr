@@ -3,18 +3,18 @@ title: Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönet
 description: Dağıtma, izleme ve Storm panosunu kullanarak Linux tabanlı HDInsight üzerinde Apache Storm topolojilerini yönetme hakkında bilgi edinin. Visual Studio için Hadoop araçlarını kullanın.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 486fcdfecf70b13d01c259f36b74676fb8e4d54f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f01b55cefab98cdcd4711a7ccb7c1b1f4c2993ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042965"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009479"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 

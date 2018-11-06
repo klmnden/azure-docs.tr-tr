@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning hizmetinin 59 karakter veya daha az fiili eylem. Azure Machine Learning adını ekleyin. Test Başlığı Buraya https://moz.com/learn/seo/title-tag (örneğin - Azure Machine Learning hizmeti ile Python web hizmetleri dağıtma)
-description: Bunun nasıl yapılacağı ve müşteri kullanarak Azure Machine Learning sözcükleri öğrenin. Bu dize 115-145 karakter makalesinde açıklanır. Burada SEO eylem fiillerin türünü kullanın. Bu bilgileri, makale tarih damgası ile arama sayfası satır içi görüntülenir. Giriş para, makalenin hedefi tanımlıyorsa, bunu burada uzunluğu düzenlenebilir kullanabilirsiniz.
+title: Azure Machine Learning hizmeti 59 karakter ya da daha az için fiili eylem. Azure Machine Learning adını içerir. Başlığı Buraya test https://moz.com/learn/seo/title-tag (örneğin - Azure Machine Learning hizmeti ile Python web hizmetleri dağıtma)
+description: Bunun nasıl yapılacağı ve müşteri kullanarak Azure Machine Learning'de sözcükleri öğrenin. Bu dize için 115 145 karakter makalesinde açıklar. Burada SEO tür eylem fiilleri kullanın. Bu bilgileri makale tarih damgası ile arama sayfası satır içi görüntülenir. Giriş para makalenizin hedefi tanımlıyorsa, uzunluğu için burada düzenlenen kullanabilirsiniz.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,61 +10,61 @@ ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
 ms.openlocfilehash: 1fd64cca8eb51cdcaa2eb6e8cbce853b6a55b0e6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188166"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013012"
 ---
-# <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Bu H1 makaleyi başlığıdır. Makale, ikinci en büyük etkiye araması, 100 karakter veya daha az üstündeki Search'te göründüğü görünür
+# <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Bu H1 başlığı makalenin ' dir. Aramada, 100 karakter veya daha az ikinci en büyük etkisi olan makalenin üst Search'te göründüğü görünür
 
 Burada Kılavuzu: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
 
 
-1 paragraf 1 veya 2 kısa tümce makalesinde birincil amacı sağlar. 
+1 paragraf birincil amacı 1 veya 2 kısa cümleler makalesinde sağlar. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Nasıl yapılır bu kılavuzu adım için gerekir:
-- [Bir makine öğrenme hesabı](template-howto.md)
+Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
+- [Machine learning hesabı](template-howto.md)
 
 ## <a name="section-here-h2"></a>Burada H2 bölüm 
 Burada paragraf. 
-**Bu tümcecik kalın. ** 
+**Bu ifade bold olarak belirlenmiştir. ** 
  *İtalik bu terimdir.*
 
 Bu bir [bir makale için köprü](./template-concepts.md)
 
 Bu görüntü.
 
-![Bu görüntü açıklamasıdır](media/overview-what-is-azure-ml/aml-concepts.png) görüntüleri medya klasöründe makaleyi ve dosya adıyla eşleşen bir alt dizine sahip depolanması gerektiğini unutmayın.
+![Bu görüntü açıklamasıdır](media/overview-what-is-azure-ml/aml-concepts.png) görüntüleri makale ve dosya adıyla eşleşen bir alt dizin ile medya klasörüne depolanması gerektiğini unutmayın.
 
 ## <a name="section-here-h2"></a>Burada H2 bölüm
-Bu tablo başlıkları var:
+Bu tabloda başlıkları var:
 
-|Column1  |Column2  |Column3  |
+|Column1  |Column2  |Sütun3  |
 |---------|---------|---------|
-|Row1|1 değeri|Değer A|
+|Satır1|Değer 1|Bir değer|
 |Satırı 2|Değer 2|B değeri|
-|Satırı 3|3 değeri|Değer C|
+|Satırı 3|Değer 3|Değer C|
 
 ## <a name="section-here-h2"></a>Burada H2 bölüm
-Bu numaralandırılmış bir listesidir:
+Bu bir numaralı liste.
 
-1. İlk öğesi
+1. İlk öğe
 
-   İlk öğe olarak aynı aralığı olması için bu paragraf girintili.
+   Bu paragraf ilk öğe olarak aynı boşluk olacak şekilde girintili hale getirilir.
 
 2. İkinci öğe
-   - Bu cümleyi madde işareti olan
+   - bir madde işareti şu cümleyi olduğu
    - Bu cümleyi olan başka bir madde işareti
 
-3. Üçüncü öğesi
+3. Üçüncü öğe
 
-4. İleri öğesi
+4. Belirtilen öğe
 
 5. Beşinci öğesi
 
-## <a name="this-list-is-bulleted-list"></a>Bu listeyi listesidir:
+## <a name="this-list-is-bulleted-list"></a>Madde işaretli liste listesidir:
 - Öğe 1
 - Öğe 2
 - Öğe 3
@@ -74,4 +74,4 @@ Bu numaralandırılmış bir listesidir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Machine learning hakkında daha fazla bilgi için bkz: [başka bir makale](template-howto.md)
+Machine learning hakkında daha fazla bilgi için bkz: [başka bir makalede](template-howto.md)

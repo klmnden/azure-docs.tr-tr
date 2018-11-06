@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914779"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010652"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Azure portalında Azure AD B2C uzantısı neden erişemiyorum?
-Neden Azure AD uzantısı, çalışmadığı için sık karşılaşılan iki nedeni vardır.  Azure AD B2C kullanıcı rolünüzün dizinde genel yönetici olmanız gerekir.  Erişimi olması düşünüyorsanız lütfen yöneticinize başvurun.  Genel yönetici ayrıcalıkları varsa, Azure AD B2C dizini ve Azure Active Directory dizin olduğundan emin olun.  Yönergeler için bkz: [bir Azure AD B2C dizini oluşturma](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Neden Azure AD uzantısı, çalışmadığı için sık karşılaşılan iki nedeni vardır.  Azure AD B2C kullanıcı rolünüzün dizinde genel yönetici olmanız gerekir.  Erişimi olması düşünüyorsanız lütfen yöneticinize başvurun.  Genel yönetici ayrıcalıkları varsa, Azure AD B2C dizini ve Azure Active Directory dizin olduğundan emin olun.  Yönergeler için bkz: [Azure AD B2C kiracısı oluşturma](tutorial-create-tenant.md).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Azure AD B2C özellikleri var olan, çalışan tabanlı Azure AD kiracımı kullanabilir miyim?
 Azure AD ve Azure AD B2C ayrı ürün teklifleri ve aynı kiracıda bir arada bulunamaz.  Azure AD kiracısı bir kuruluşu temsil eder.  Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil eder.  Özel ilkeleri ile (genel Önizleme), Azure AD B2C'yi bir kuruluşta çalışanlar kimlik doğrulaması sağlayan Azure AD'ye devredebilir.
@@ -39,12 +39,12 @@ Uygulamaları için kullanıcı hesapları, her zaman bir kaydolma İlkesi, kayd
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Hangi sosyal kimlik sağlayıcıları artık destekliyorsunuz? Hangilerinin gelecekte desteklemeyi planlıyor musunuz?
 Şu anda Facebook, Google +, LinkedIn, Amazon, Twitter (Önizleme), WeChat (Önizleme), Weibo (Önizleme) ve h destekliyoruz (Önizleme). Müşteri talebine göre diğer popüler sosyal kimlik sağlayıcıları için destek ekleyeceğiz.
 
-Azure AD B2C'yi de için destek ekledi [özel ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Bunlar [özel ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) destekleyen herhangi bir kimlik sağlayıcısı ile kendi ilkeleri oluşturmak için geliştirici izin [Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) veya SAML. 
+Azure AD B2C'yi de için destek ekledi [özel ilkeler](active-directory-b2c-overview-custom.md).  Bunlar [özel ilkeler](active-directory-b2c-overview-custom.md) destekleyen herhangi bir kimlik sağlayıcısı ile kendi ilkeleri oluşturmak için geliştirici izin [Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) veya SAML. 
 
 Göz atarak özel ilkeleri kullanmaya başlama bizim [özel ilke başlangıç paketi](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Çeşitli sosyal kimlik sağlayıcılarını tüketiciler hakkında daha fazla bilgi toplamak için kapsamları yapılandırabilirim?
-Hayır, ancak bu özellik, yol haritamızda olur. Sosyal kimlik sağlayıcıları desteklenen kümemizdeki için kullanılan varsayılan kapsamları misiniz:
+Hayır. Sosyal kimlik sağlayıcıları desteklenen kümemizdeki için kullanılan varsayılan kapsamları misiniz:
 
 * Facebook: e-posta
 * Google +: e-posta
@@ -56,7 +56,7 @@ Hayır, ancak bu özellik, yol haritamızda olur. Sosyal kimlik sağlayıcılar�
 Hayır, uygulamanızda herhangi bir yerde (bulutta veya şirket içi) barındırabilir. Azure AD B2C ile etkileşim kurmak için gerekli olan genel olarak erişilebilir uç noktaları üzerinde HTTP isteklerini gönderip olanağı.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Birden çok Azure AD B2C kiracıları var. Nasıl bunları Azure portalında yönetebilirim?
-Azure portalının sol tarafındaki menüde 'Azure AD B2C' açmadan önce yönetmek istediğiniz dizine geçiş yapmanız gerekir.  Kimliğinizi Azure portalının sağ üst kısımdaki tıklayarak dizinleri değiştirin ve ardından bir dizin, açılan menüde görüntülenen seçin.  Bir adım adım için görüntülerle görün [Azure AD B2C ayarlarına Navigate](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+Azure portalının sol tarafındaki menüde 'Azure AD B2C' açmadan önce yönetmek istediğiniz dizine geçiş yapmanız gerekir.  Kimliğinizi Azure portalının sağ üst kısımdaki tıklayarak dizinleri değiştirin ve ardından bir dizin, açılan menüde görüntülenen seçin.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Nasıl doğrulama e-postaları özelleştirebilirim (içerik ve "den:" alanı) Azure AD B2C tarafından gönderilen?
 Kullanabileceğiniz [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md) doğrulama e-postaları içeriğini özelleştirmek için. Özellikle, bu iki öğenin e-postanın özelleştirilebilir:
@@ -74,7 +74,7 @@ Azure AD B2C kiracısı oluştururken sağladığınız Azure AD B2C Kiracı ad�
 1. Değişiklik **adı** alan.
 1. Sayfanın üst kısmından **Kaydet**'e tıklayın.
 
-Şu anda değiştirme olanağı yoktur "den:" e-posta ile sekmesindeki. Üzerinden oy [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) doğrulama e-posta gövdesinin özelleştirme ilgilendiğiniz.
+Şu anda değiştirme olanağı yoktur "den:" e-posta ile sekmesindeki.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Nasıl my mevcut kullanıcı adları, parolalar ve profilleri my veritabanından Azure AD B2C'ye geçişini sağlayabilir miyim?
 Azure AD Graph API, geçiş aracı yazmak için kullanabilirsiniz. Bkz: [Kullanıcı Geçiş Kılavuzu](active-directory-b2c-user-migration.md) Ayrıntılar için.
@@ -113,8 +113,7 @@ Evet!  Hakkında bilgi edinin [dil özelleştirme](active-directory-b2c-referenc
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C kiracıma nasıl silebilirim?
 Azure AD B2C kiracınızı silmek için aşağıdaki adımları izleyin:
 
-1. Bu adımları [Azure AD B2C ayarlarına gidin](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) Azure portalında.
-1. Gidin **uygulamaları**, **kimlik sağlayıcıları**, ve **tüm ilkeleri** ve her birinin tüm girişleri silin.
+1. Azure AD B2C kiracınızdaki tüm ilkeleri silin.
 1. Şimdi oturum açın [Azure portalında](https://portal.azure.com/) Abonelik Yöneticisi olarak. (Aynı iş veya Okul hesabı veya Azure'a kaydolmak için kullandığınız aynı Microsoft hesabını kullanın.)
 1. Geçiş için Azure AD B2C kiracısı silmek istediğiniz.
 2. Soldaki Active Directory menüsüne gidin.

@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme 
 description: Bu belge Azure Güvenlik Merkezi önerilerinin uygulanması gösterilmektedir **bir web uygulaması güvenlik duvarı ekleme** ve **uygulama korumasını sonlandırma**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2018
-ms.author: terrylan
-ms.openlocfilehash: 8824e9f7481ed92eb482c14280e79a94be3c9372
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: dd97691bf84fa8b065b4c4aafa02b8be0503d2bf
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300724"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51017007"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme
 Azure Güvenlik Merkezi bir web uygulaması Güvenlik Duvarı (WAF) eklemek, bir Microsoft iş ortağından, web uygulamalarınızın güvenliğini sağlamak için önerebilir. Bu belge, bu öneriyi uygulamak nasıl bir örnek üzerinden açıklanmaktadır.

@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0c67ee20ee73edb5eb6c6c806d7e5960f3719de6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023449"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008785"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Hızlı Başlangıç: Content Moderator ile tanıdık Al
 
@@ -48,7 +48,7 @@ Ardından, gözden geçirme ekibi oluşturun. Bir çalışma senaryosunda, bu hi
 
 ## <a name="review-moderation-tags"></a>Moderation etiketleri gözden geçirin
 
-Uygulanan denetimi etiketleri gözden geçirin. İçeriğinize hangi etiketlerin uygulanan ve her kategoride puanı neydi görebilirsiniz.
+Uygulanan denetimi etiketleri gözden geçirin. İçeriğinize hangi etiketlerin uygulanan ve her kategoride puanı neydi görebilirsiniz. Bkz: [görüntü](image-moderation-api.md), [metin](text-moderation-api.md), ve [Video](video-moderation-api.md) ne farklı içerik etiketleri hakkında daha fazla bilgi edinmek için denetleme konuları belirtin.
 
 ![Sonuçları gözden geçirme](images/reviewresults_text.png)
 
@@ -70,4 +70,4 @@ Ya da kodunuzda yönetim API'leri kullanmaya başlamak için sonraki adımlar il
 Yönetim API'leri kendilerini uygulamanızda kullanmayı öğrenin.
 - Görüntü denetimi uygulayın. Kullanım [API Konsolu](try-image-api.md) veya [ C# hızlı](image-moderation-quickstart-dotnet.md) görüntülerini taramak ve olası yetişkinlere yönelik ve müstehcen içeriğin etiketleri, güven puanları ve diğer kullanarak algılamak için bilgi ayıklanır.
 - Metin denetimi uygulayın. Kullanma [API Konsolu](try-text-api.md) veya [ C# Hızlı Başlangıç](text-moderation-quickstart-dotnet.md) olası küfür makine destekli istenmeyen metin sınıflandırma (Önizleme), metin içeriğini taramak ve kişisel bilgileri (PII). 
-- Video denetimi uygulayın. Kullanım [ C# hızlı](video-moderation-api.md) videoları taramak ve olası yetişkinlere yönelik ve müstehcen içerikleri algılama için. 
+- Video denetimi uygulayın. İzleyin [Video denetimi nasıl yapılır Kılavuzu C# ](video-moderation-api.md) videoları taramak ve olası yetişkinlere yönelik ve müstehcen içerikleri algılama için. 

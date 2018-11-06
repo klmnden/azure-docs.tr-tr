@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579553"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035044"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Yönetilen etki alanınız için geçersiz bir hizmet sorumlusu yapılandırma sorunlarını giderme
 
@@ -45,7 +45,7 @@ Hangi hizmet sorumluları yeniden oluşturulması gerekir belirlemek için aşa�
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Eksik bir hizmet sorumlusu PowerShell ile yeniden oluşturun](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Ad alanına Microsoft.AAD yeniden kaydettirin](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Ad alanına Microsoft.AAD yeniden kaydettirin](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Kendi kendine düzeltme hizmet sorumluları](#service-principals-that-self-correct) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Ad alanına Microsoft.AAD yeniden kaydettirin](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Eksik bir hizmet sorumlusu PowerShell ile yeniden oluşturun
 Kimliğine sahip bir hizmet sorumlusu, adımları ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` Azure AD dizininizi eksik.
@@ -76,7 +76,7 @@ Bu sorunu gidermek için bir PowerShell penceresinde aşağıdaki komutları yaz
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Azure portalını kullanarak Microsoft AAD ad alanına yeniden kaydedin
-Kimliğine sahip bir hizmet sorumlusu, adımları ```443155a6-77f3-45e3-882b-22b3a8d431fb``` veya ```abba844e-bc0e-44b0-947a-dc74e5d09022``` Azure AD dizininizi eksik.
+Kimliğine sahip bir hizmet sorumlusu, adımları ```443155a6-77f3-45e3-882b-22b3a8d431fb``` veya ```abba844e-bc0e-44b0-947a-dc74e5d09022``` veya ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` Azure AD dizininizi eksik.
 
 **Çözüm:** etki alanı Hizmetleri dizininiz geri yüklemek için aşağıdaki adımları kullanın:
 
@@ -85,12 +85,6 @@ Kimliğine sahip bir hizmet sorumlusu, adımları ```443155a6-77f3-45e3-882b-22b
 3. Sol taraftaki gezinti kullanma seçim **kaynak sağlayıcıları**
 4. Tablodaki "Microsoft.AAD" için arama ve tıklayın **yeniden kaydettirin**
 5. Uyarı çözümlendiğinde emin olmak için iki saat içinde yönetilen etki alanınız için sağlık durumu sayfasını görüntüleyin.
-
-
-## <a name="service-principals-that-self-correct"></a>Hizmet sorumluları, kendi kendine düzeltme
-Kimliğine sahip bir hizmet sorumlusu, adımları ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` Azure AD dizininizi eksik.
-
-**Çözüm:** Azure AD Domain Services, bu belirli bir hizmet sorumlusu eksik, yanlış yapılandırılmış veya silinmiş olduğunda algılayabilir. Hizmet, bu hizmet sorumlusunu otomatik olarak yeniden oluşturur. Ancak, uygulamayı silmek ihtiyacınız olacak ve sertifika dağıtımını yaparken, uygulama ve nesne artık olacak şekilde, silinen uygulama ile birlikte çalışan nesne yeni hizmet sorumlusu tarafından değiştirilmesi mümkün olmayacaktır. Bu, etki alanınızda yeni bir hata önünü açacak. Özetlenen adımları izleyin [AADDS105 bölümüne](#alert-aadds105-password-synchronization-application-is-out-of-date) bu sorunu önlemek için. Sonra iki saat sonra yeni hizmet sorumlusu yeniden emin olmak için yönetilen etki alanınızın sistem durumunu denetleyin.
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Uyarı AADDS105: Parola eşitlemesi uygulama güncel değil
@@ -110,8 +104,8 @@ Bu sorunu gidermek için bir PowerShell penceresinde aşağıdaki komutları yaz
 2. Aşağıdaki PowerShell komutlarını kullanarak nesne ve eski uygulama Sil
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

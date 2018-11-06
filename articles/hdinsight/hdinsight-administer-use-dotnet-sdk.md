@@ -1,22 +1,22 @@
 ---
-title: .NET SDK'sı - Azure HDInsight Hadoop kümelerini yönetme
-description: HDInsight .NET SDK kullanarak HDInsight Hadoop kümeleri için yönetim görevlerini gerçekleştirmeyi öğreneceksiniz.
+title: HDInsight - Azure .NET SDK'sı ile Apache Hadoop kümelerini yönetme
+description: HDInsight .NET SDK kullanarak HDInsight, Apache Hadoop kümeleri için yönetim görevlerini gerçekleştirmeyi öğreneceksiniz.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110808"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037771"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak HDInsight Hadoop kümelerini yönetme
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Kullanarak HDInsight kümelerini nasıl yöneteceğinizi öğrenin [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
@@ -142,12 +142,12 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
 HDInsight tarafından desteklenen küme her tür veri düğümü sayısı değiştirmenin etkisi:
 
-* Hadoop
+* Apache Hadoop
   
     Sorunsuz bir şekilde, bekleyen veya çalışan tüm işleri etkilemeden çalışan bir Hadoop kümesinde çalışan düğümleri sayısını artırabilirsiniz. İşlem devam ederken yeni işleri da gönderilebilir. Böylece küme her zaman işlevsel bir durumda bırakılır bir ölçeklendirme işlemi hataları düzgün bir şekilde ele alınır.
   
     Bir Hadoop kümesini veri düğümü sayısını azaltarak ölçeklendiğinde, kümedeki hizmetlerinden bazılarını yeniden başlatılır. Bu tüm çalışan ve farklı bekleyen işleri ölçeklendirme işleminin tamamlanması sırasında başarısız olmasına neden olur. İşlemi tamamlandıktan sonra ancak, işleri yeniden oluşturabilirsiniz.
-* HBase
+* Apache HBase
   
     Sorunsuz bir şekilde ekleyebilir veya çalışırken düğümleri HBase kümenize kaldırın. Bölge sunucuları ölçeklendirme işlemi tamamladıktan birkaç dakika içinde otomatik olarak dengelenir. Ancak, küme baş düğümüne günlüğe kaydetme ve bir komut istemi penceresinden aşağıdaki komutları çalıştırmadan tarafından el ile bölgesel sunucuları dengeleyebilirsiniz:
   
@@ -156,7 +156,7 @@ HDInsight tarafından desteklenen küme her tür veri düğümü sayısı deği�
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     Sorunsuz bir şekilde ekleyebilir veya çalışırken Storm kümenize veri düğümleri kaldırma. Ancak, ölçeklendirme işlemi başarıyla tamamlandıktan sonra topoloji yeniden dengelemeniz gerekir.
   
@@ -192,9 +192,9 @@ HDInsight kümeleri aşağıdaki HTTP web Hizmetleri (Bu hizmetlerin tümü, RES
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton da
+* Apache Ambari
+* Apache Oozie
+* Apache templeton da
 
 Varsayılan olarak, bu hizmetler için erişim verilir. İptal etme / erişim izni. İptal etmek için:
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 Bkz: [HDInsight Hadoop MapReduce çalıştırma örnekleri](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Hive işlerini göndermek için** 
+**Apache Hive işleri göndermek için** 
 
 Bkz: [.NET SDK kullanarak Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Pig işleri göndermek için**
+**Apache Pig işleri göndermek için**
 
 Bkz: [.NET SDK'sını kullanarak çalıştırma Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Sqoop işleri göndermek için**
+**Apache Sqoop işleri göndermek için**
 
 Bkz: [HDInsight ile Sqoop kullanma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Oozie işleri göndermek için**
+**Apache Oozie iş göndermek için**
 
 Bkz: [tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](hdinsight-use-oozie-linux-mac.md).
 

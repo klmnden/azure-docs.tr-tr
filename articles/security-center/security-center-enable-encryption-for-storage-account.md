@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde depolama hesabı için şifrelemeyi etkinleş
 description: Bu belge Azure Güvenlik Merkezi önerilerinin uygulanması gösterilmektedir **Azure depolama hesabı için şifrelemeyi etkinleştirme**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
-ms.author: terrylan
-ms.openlocfilehash: 3765d150c63515337be13d821dce51944eae4655
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: f12054ce79742cf68b7bf1a260f441df192aa18c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298277"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010533"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme
 Azure Güvenlik Merkezi, bekleyen veri için Azure depolama hizmeti şifrelemesi etkinleştirmenizi önerebilir.
@@ -44,7 +44,7 @@ Depolama hizmeti şifrelemesi yalnızca Resource Manager depolama hesaplarında 
    ![Depolama hesabı için şifrelemeyi etkinleştirme][1]
 2. **Depolama şifrelemesini etkinleştir** dikey penceresi açılır. Bu dikey pencere, burada depolama şifreleme devre dışı Azure depolama hesaplarını listeler. Bu örnekte, seçelim **storageacct1**.
    ![Depolama şifrelemesini etkinleştirme][2]
-3. **Şifreleme** dikey **storageacct1** açılır. Seçin **etkin**.
+3. **Şifreleme** dikey **storageacct1** açılır. **Etkin**’i seçin.
    ![Şifreleme dikey penceresi][3]
 4. **Kaydet**’i seçin.
 

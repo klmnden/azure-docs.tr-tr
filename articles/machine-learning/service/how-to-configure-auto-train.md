@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430196"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008955"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Otomatik makine öğrenimi deneme yapılandırma
 
@@ -192,7 +192,7 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `max_time_sec` |    Belirli bir yinelemeye geçen süreyi (saniye) miktarını sınırlar. Bir yineleme belirtilen miktarı aşarsa, bu yineleme iptal. Aksi durumda ayarlama, yineleme işlemi tamamlanana kadar çalışmaya devam edecektir. |   None
 `n_cross_validations`   |Çapraz doğrulama bölmelerinin sayısı| None
 `validation_size`   |Tüm eğitim örnek bir yüzdesi olarak ayarlanmış doğrulama boyutu.|  None
-`preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Veriler eksik: veri-sayısal ortalama, çoğu occurance metinle birlikte eksik Imputes </li><li>Kategorik değerlere: veri türü sayısal ve benzersiz değerleri ise daha az yüzde 5'inden, sık erişimli bir kodlama içinde dönüştürür </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False | 
+`preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Veriler eksik: veri-sayısal ortalama, çoğu oluşum metinle birlikte eksik Imputes </li><li>Kategorik değerlere: veri türü sayısal ve benzersiz değerleri ise daha az yüzde 5'inden, sık erişimli bir kodlama içinde dönüştürür </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true | False | 
 `blacklist_algos`   | Otomatik ML deneme çalışır birçok farklı algoritma vardır. ML deneme belirli algoritmaları dışlanacak otomatik yapılandırın. Algoritmalarından kümeniz için iyi çalışmaz farkında olması durumunda yararlıdır. Algoritmalar hariç kaydettiğinizde kaynaklar ve eğitim süresini hesaplayabilirsiniz.<br/>Sınıflandırma için izin verilen değerler<br/><li>Lojistik regresyon</li><li>SGD Sınıflandırıcısı</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>Ek ağaçları</li><li>Gradyan artırma</li><li>lgbm_classifier</li><br/>Regresyon için izin verilen değerler<br/><li>Elastik net</li><li>Gradyan artırırken regresörü</li><li>DT regresörü</li><li>kNN regresörü</li><li>Lars Şekil</li><li>SGD regresörü</li><li>RF regresörü</li><li>Ek ağaçları regresörü</li>|   None
 `verbosity` |En ayrıntılı ve kritik olan olan bilgileri günlüğe kaydetme düzeyini denetler en az.<br/>İzin verilen değerler şunlardır:<br/><li>logging.INFO</li><li>günlüğe kaydetme. UYARI</li><li>günlüğe kaydetme. HATA</li><li>günlüğe kaydetme. KRİTİK</li>  | logging.INFO</li> 
 `X` | Tüm özellikleri ile eğitme |  None

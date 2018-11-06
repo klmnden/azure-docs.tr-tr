@@ -3,19 +3,19 @@ title: Hortonworks korumalı alanı ile Intellij için Azure araç setini kullan
 description: Hortonworks korumalı alanı ile Intellij için Azure araç setindeki HDInsight araçlarını kullanmayı öğrenin.
 keywords: hadoop araçları, hive sorgusu, ıntellij, hortonworks korumalı alanı, ıntellij için azure Araç Seti
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 02adeb46ad7533f3668f5a46ffc19b6ce5b86b6f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: hrasheed
+ms.openlocfilehash: 2f09bd7055b987a8647a24d4ebb6ea5a27888a53
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420736"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015596"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma
 

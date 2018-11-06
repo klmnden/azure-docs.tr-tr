@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717684"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016055"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -24,8 +24,8 @@ Bu makalede, Azure portalında Eylem grupları oluşturma ve yönetme işlemini 
 Her eylem aşağıdaki özelliklerinden oluşur:
 
 * **Ad**: eylem grubu içinde benzersiz bir tanımlayıcı.  
-* **Eylem türü**: bir sesli arama veya SMS gönderebilen, bir e-posta Gönder Web kancası çağırma bir ITSM aracına veri gönderme mantıksal uygulamayı çağırın Azure uygulamasına anında iletme bildirimi gönderin veya Otomasyon runbook'u çalıştırın.
-* **Ayrıntılar**: karşılık gelen telefon numarası, e-posta adresi, Web kancası URI veya ITSM bağlantı ayrıntıları.
+* **Eylem türü**: gerçekleştirilecek eylem. Bir ses araması, SMS, e-posta gönderme verilebilir; veya otomatik eylemler çeşitli türlerde tetikleniyor. Bu makalenin devamındaki türleri bakın. 
+* **Ayrıntılar**: göre değişiklik gösteren ilgili ayrıntıları *eylem türü*. 
 
 Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kullanma hakkında daha fazla bilgi için bkz: [eylem grubu Resource Manager şablonları](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -57,64 +57,45 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kul
 
 1. Seçin **Tamam** eylem grubunu oluşturmak için.
 
-## <a name="action-specific-information"></a>Özel eylem bilgileri
-<dl>
-<dt>Azure uygulama iletimi</dt>
-<dd>En fazla 10 Azure uygulama eylemleri bir eylem grubu içinde olabilir.</dd>
-<dd>Şu anda Azure uygulama eylemi yalnızca ServiceHealth uyarıları da destekler. Başka bir uyarı zaman göz ardı edilir. Bkz: [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
-
-<dt>E-posta</dt>
-<dd>Aşağıdaki e-posta adreslerinden e-postalar gönderilir. E-posta filtreleme uygun şekilde yapılandırıldığından emin olun
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>Bir eylem grubu 1000 adede kadar e-posta eylemleri olabilir</dd>
-<dd>Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
-
-<dt>ITSM</dt>
-<dd>Bir eylem grubunda en fazla 10 ITSM eylemleri olabilir</dd>
-<dd>ITSM eylemi bir ITSM bağlantısı gerektirir. Oluşturmayı bir [ITSM bağlantısı](../log-analytics/log-analytics-itsmc-overview.md).</dd>
-
-<dt>Mantıksal uygulama</dt>
-<dd>10 adede kadar mantıksal uygulama eylemleri bir eylem grubu içinde olabilir</dd>
-
-<dt>Runbook</dt>
-<dd>Bir eylem grubunda en fazla 10 Runbook eylemler olabilir</dd>
-<dd>Başvurmak [Azure abonelik hizmeti limitleri](../azure-subscription-service-limits.md) sınırları üzerinde Runbook yükler</dd>
-
-<dt>SMS</dt>
-<dd>Bir eylem grubunda en fazla 10 SMS eylemler olabilir</dd>
-<dd>Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
-<dd>Bkz: [SMS uyarısı davranışı](monitoring-sms-alert-behavior.md) makale</dd>
-
-<dt>Ses</dt>
-<dd>Bir eylem grubu içinde 10 adede kadar ses eylemler olabilir</dd>
-<dd>Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
-
-<dt>Web kancası</dt>
-<dd>10 adede kadar Web kancası eylemleri bir eylem grubu içinde olabilir
-<dd>Yanıt 10 saniyedir logic - zaman aşımı süresi yeniden deneyin. Web kancası çağrısı olacaktır, 2 katı şu HTTP durum kodları, döndürülen en fazla yeniden deneme: 408, 429, 503, 504 veya HTTP uç noktasına yanıt vermiyor. İlk yeniden deneme 10 saniye sonra gerçekleşir. İkinci ve son yeniden deneme 100 saniye sonra gerçekleşir.</dd>
-<dd>Kaynak IP adresi aralıkları
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncelleştirmeleri almak için bir [hizmet durumu Uyarısı](./monitoring-service-notifications.md) Eylem grupları hizmeti hakkında bilgi veren bildirimleri için izler.
-</dd>
-</dl>
-
 ## <a name="manage-your-action-groups"></a>Eylem grupları yönetme ##
 Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü **İzleyici** dikey penceresi. Yönetmek istediğiniz eylem grubu seçin:
 
 * Ekleme, düzenleme veya eylemleri kaldırın.
 * Eylem grubunu silin.
+
+## <a name="action-specific-information"></a>Özel eylem bilgileri
+**Azure uygulaması anında iletme** -en fazla 10 Azure uygulama eylemleri bir eylem grubu içinde olabilir. Şu anda Azure uygulama eylemi yalnızca ServiceHealth uyarıları da destekler. Başka bir uyarı zaman göz ardı edilir. Bkz: [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](monitoring-activity-log-alerts-on-service-notifications.md).
+
+**E-posta** -aşağıdaki e-posta adreslerinden e-postalar gönderilecek. E-posta filtreleme uygun şekilde yapılandırıldığından emin olun
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+Bir eylem grubu 1000 adede kadar e-posta eylemleri olabilir. Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale
+
+**ITSM** -en fazla 10 olabilir bir eylem grubu ITSM eylem ITSM eylemleri bir ITSM bağlantısı gerektirir. Oluşturmayı bir [ITSM bağlantısı](../log-analytics/log-analytics-itsmc-overview.md).
+
+**Mantıksal uygulama** -10 adede kadar mantıksal uygulama eylemleri bir eylem grubu içinde olabilir
+
+**Runbook** -bir eylem grubu başvuru için en fazla 10 Runbook eylemleri olabilir [Azure abonelik hizmeti limitleri](../azure-subscription-service-limits.md) sınırları üzerinde Runbook yükler
+
+**SMS** -görebileceği bir eylem grubu en fazla 10 SMS eylemler olabilir [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) bakın makalesi [SMS uyarısı davranışı](monitoring-sms-alert-behavior.md) makale
+
+**Ses** -10 adede kadar ses eylemleri bir eylem grubu içinde olabilir</dd>
+Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
+
+**Web kancası** -10 adede kadar Web kancası eylemleri bir eylem grubu içinde olabilir. Yanıt 10 saniyedir logic - zaman aşımı süresi yeniden deneyin. Web kancası çağrısı olacaktır, 2 katı şu HTTP durum kodları, döndürülen en fazla yeniden deneme: 408, 429, 503, 504 veya HTTP uç noktasına yanıt vermiyor. İlk yeniden deneme 10 saniye sonra gerçekleşir. İkinci ve son yeniden deneme 100 saniye sonra gerçekleşir.
+
+Kaynak IP adresi aralıkları
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncelleştirmeleri almak için bir [hizmet durumu Uyarısı](./monitoring-service-notifications.md) Eylem grupları hizmeti hakkında bilgi veren bildirimleri için izler.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar ##
 * Daha fazla bilgi edinin [SMS uyarısı davranışı](monitoring-sms-alert-behavior.md).  

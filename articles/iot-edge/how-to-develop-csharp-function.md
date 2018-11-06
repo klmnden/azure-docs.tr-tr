@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382714"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004417"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Geliştirme ve Azure işlevleri Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -74,7 +74,7 @@ VS Code, sağlanan bir IOT Edge çözümü ile bir Azure işlev projesi oluştur
 
 ## <a name="develop-your-module"></a>Modülü geliştirme
 
-Çözümünüzle birlikte gelen varsayılan Azure işlevi kodu şu konumdadır **modülleri** > [, modül adı] > **EdgeHubTrigger-Csharp** > **run.csx** . Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
+Çözümünüzle birlikte gelen varsayılan Azure işlevi kodu şu konumdadır **modülleri** > [, modül adı] > **modulename.cs**. Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
 
 Kendi kod ile Azure işlevi şablonu özelleştirmek hazır olduğunuzda kullanın [Azure IOT Hub SDK'ları](../iot-hub/iot-hub-devguide-sdks.md) anahtar gereken güvenlik, cihaz yönetimi ve güvenilirlik gibi IOT çözümleri için bu adrese modüller oluşturmak için. 
 
@@ -93,7 +93,7 @@ VS Code Docker Gezgini veya çalıştırarak kapsayıcı durumunuzu denetleme `d
 
    ![Select hata ayıklama yapılandırması](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. `run.csx` sayfasına gidin. İşlev bir kesme noktası ekleyin.
+2. `modulename.cs` sayfasına gidin. İşlev bir kesme noktası ekleyin.
 3. Seçin **hata ayıklamayı Başlat** veya **F5**. Ekleme yapılacak işlem seçin.
 4. VS Code hata ayıklama Görünümü'nde sol bölmedeki değişkenleri görürsünüz. 
 

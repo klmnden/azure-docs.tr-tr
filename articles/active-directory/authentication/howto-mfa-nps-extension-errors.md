@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4097fab5610bf4bee6c14c65d3b45e0de818a0cc
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160918"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036674"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme
 
@@ -30,6 +30,7 @@ Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaş
 | **ESTS_TOKEN_ERROR** | Bölümündeki yönergeleri [MFA NPS uzantısı sorun giderme](howto-mfa-nps-extension.md#troubleshooting) araştırmaya sorun istemci sertifikası ve ADAL belirteç. |
 | **HTTPS_COMMUNICATION_ERROR** | Azure mfa'yı yanıtları almak NPS sunucusunu değiştiremiyor. Güvenlik duvarlarınızdan ve ondan trafik için açık çift yönlü olduğunu doğrulayın https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | NPS uzantısını çalıştıran sunucuda, size ulaşabildiğimizden doğrulayın https://adnotifications.windowsazure.com ve https://login.microsoftonline.com/. Bu siteler yükleme, o sunucudaki bağlantı sorunlarını giderme. |
+| **Azure mfa NPS uzantısı:** <br> Azure mfa NPS uzantısı yalnızca RADIUS isteklerini AccessAccept durumundaki ikincil kimlik doğrulaması gerçekleştirir. İstek yoksayılıyor AccessReject, yanıt durumu ile kullanıcının kullanıcı adı için alınan istek. | Bu hata, genellikle bir kimlik doğrulama hatası AD'de yansıtır veya Azure AD'den yanıtlar almasına NPS sunucusunu alamıyor. Güvenlik duvarlarınızdan ve ondan trafik için açık çift yönlü olduğunu doğrulayın https://adnotifications.windowsazure.com ve https://login.microsoftonline.com 80 ve 443 bağlantı noktalarını kullanarak. Ağ erişim izinleri arama Giriş sekmesinde "NPS Ağ İlkesi aracılığıyla erişimi denetlemek için" ayarının olduğunu denetlemek önemlidir. |
 | **REGISTRY_CONFIG_ERROR** | Kayıt defteri kaynaklanıyor olabilir uygulamanın bir anahtar eksik [PowerShell Betiği](howto-mfa-nps-extension.md#install-the-nps-extension) yüklendikten sonra Çalıştır değildi. Hata iletisi, eksik bir anahtar içermelidir. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa anahtarında olduğundan emin olun. |
 | **REQUEST_FORMAT_ERROR** <br> RADIUS isteğini zorunlu RADIUS userName\Identifier özniteliği eksik. NPS RADIUS isteklerini aldığını doğrulayın. | Bu hata genellikle bir yükleme sorunu yansıtır. RADIUS isteklerini alabileceğini NPS sunucuları NPS uzantısı'nın yüklü olması gerekir. RDG ve RRAS gibi hizmetler için bağımlılık olarak yüklenen NPS sunucuları, RADIUS isteklerini alacak yok. NPS uzantısı, kimlik doğrulama isteğini ayrıntıları okunamıyor olduğundan bu tür yüklemeleri ve hataları üzerinden yüklendiğinde çalışmaz. |
 | **REQUEST_MISSING_CODE** | Parola şifreleme protokolünü NPS ve NAS sunucuları arasında kullanmakta olduğunuz ikincil kimlik doğrulama yöntemini desteklediğinden emin olun. **PAP** bulutta Azure MFA'ın tüm kimlik doğrulama yöntemleri destekler: telefon araması, tek yönlü SMS mesajı, mobil uygulama bildirimi ve mobil uygulama doğrulama kodu. **CHAPV2** ve **EAP** telefon araması ve mobil uygulama bildirimi destekler. |

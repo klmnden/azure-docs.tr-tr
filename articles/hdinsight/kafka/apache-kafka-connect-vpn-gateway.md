@@ -3,18 +3,18 @@ title: Kullanarak sanal ağları - Azure HDInsight Kafka'ya bağlanma
 description: Bir Azure sanal ağ üzerinden HDInsight üzerinde Kafka doğrudan bağlanma hakkında bilgi edinin. Kafka için bir VPN ağ geçidi kullanarak geliştirme istemcilerinden ya da şirket içi ağınızda istemcilerden bir VPN ağ geçidi cihazı kullanarak bağlanmayı öğreneceksiniz.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
-ms.openlocfilehash: 973563a0c9a986bb4dec785b4521566acb657d15
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5f47ce84203d88604183d13f6e9282e2bb846451
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042403"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006014"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Kafka bağlanma
 

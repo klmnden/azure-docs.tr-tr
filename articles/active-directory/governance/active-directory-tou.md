@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8fddcdbb8aa523cf3a98a8f2b203440ceedbdf06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249849"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015222"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -218,7 +218,7 @@ Koşullu erişim ilkeleri hemen etkili olur. Bu durumda, yönetici "Üzgün Bulu
 
 **S: Kullanıcının Kullanım Koşullarını kabul edip etmediğini veya ne zaman kabul ettiğini nasıl görebilirim?**</br>
 Y: üzerinde koşulları kullanım dikey penceresinin altındaki sayıya tıklayın **kabul edilen**. Ayrıca görüntüleyebilir veya Azure AD'de arama kabul etkinliğine denetim günlükleri. Daha fazla bilgi için [kimin kabul ve reddedilen, raporu görüntüle](#view-who-has-accepted-and-declined) ve [görünümü Azure AD denetim günlüklerini](#view-azure-ad-audit-logs).
- 
+
 **S: Bilgiler ne kadar süreyle depolanır?**</br>
 C: kullanıcının kullanım raporu ve kimin kabul ve reddedilen kullanım koşulları süresince depolanan şartları sayar. Azure AD denetim günlükleri, 30 gün boyunca saklanır.
 
@@ -245,12 +245,15 @@ C: Modern kimlik doğrulaması kullanarak kurumsal uygulamalar üzerinde bir ko�
 
 **S: Belirli bir kullanıcı veya uygulamaya birden çok Kullanım Koşulları belgesi ekleyebilir miyim?**</br>
 C: Evet, bu grup veya uygulamaları hedefleyen birden çok koşullu erişim ilkesi oluşturarak bunu gerçekleştirebilirsiniz. Birden çok Kullanım Koşulları belgesinin kapsamında olan bir kullanıcı, bunları tek tek kabul eder.
- 
+
 **S: Bir kullanıcı Kullanım Koşullarını reddederse ne olur?**</br>
 C: Kullanıcının uygulamaya erişimi engellenir. Kullanıcı yeniden oturum açın ve erişmek için koşulları kabul etmesi gerekir.
- 
+
 **S: kullanım koşulları daha önce kabul edildi unaccept mümkün mü?**</br>
 Y: yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kabul](#how-users-can-review-their-terms-of-use), ancak şu anda unaccept bir yolu yoktur.
+
+**Hatırlayamazsam Intune hüküm ve koşulları kullanma da ne olur?**</br>
+Y: her iki Azure AD kullanım koşulları yapılandırdıysanız ve [Intune hüküm ve koşulları](/intune/terms-and-conditions-create), kullanıcının her ikisini de kabul etmek için gerekli. Daha fazla bilgi için [koşulları, kuruluş blog gönderisi için çözüm seçme hakkını](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

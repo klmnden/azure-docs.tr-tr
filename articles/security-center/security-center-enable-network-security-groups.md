@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde ağ güvenlik gruplarını etkinleştirme | M
 description: Bu belge Azure Güvenlik Merkezi önerinin nasıl uygulanacağını gösterir **ağ güvenlik gruplarını etkinleştirme**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 6430be5cce24091f62a7c17d881af98f9c94da95
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 61a7d31dcba538e80b09e927dd8f5aa5c81cf130
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299551"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007765"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ güvenlik gruplarını etkinleştirme
 Azure Güvenlik Merkezi bir zaten etkin değilse, bir ağ güvenlik grubu (NSG) etkinleştirmenizi önerir. Nsg'ler izin veren veya bir sanal ağ, sanal makine örneklerine trafiği reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir NSG'yi doğrudan bu VM ile ilişkilendirme tarafından daha fazla. Daha fazla bilgi edinmek için [bir ağ güvenlik grubu (NSG) nedir?](../virtual-network/security-overview.md)

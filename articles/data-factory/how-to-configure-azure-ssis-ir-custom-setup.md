@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420277"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037048"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme
 
@@ -141,7 +141,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
        1. A `.NET FRAMEWORK 3.5` her düğümde, Azure-SSIS IR, özel bileşenler için gerekli olabilecek .NET Framework'ün önceki bir sürümünü yüklemek için özel bir kurulum içeren klasör
 
-       1. Bir `AAS` istemci kitaplıklarının Azure Analysis Services (AAS) örneğine hizmet sorumlusu kimlik doğrulaması kullanarak bağlanmak Analysis Services görevlerinizi sağlayan Azure-SSIS IR her düğümde yüklemek için özel bir kurulum içeren klasör. İlk olarak, en son indirme **MSOLAP (amd64)** ve **AMO** istemci kitaplıkları/Windows Yükleyici - Örneğin, `x64_15.0.900.108_SQL_AS_OLEDB.msi` ve `x64_15.0.900.108_SQL_AS_AMO.msi` - [burada](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers), ardından bunların tümünü birlikte karşıya `main.cmd` kapsayıcınıza.  
+       1. Bir `AAS` istemci kitaplıklarının Azure Analysis Services (AAS) örneğine hizmet sorumlusu kimlik doğrulaması kullanarak bağlanmak Analysis Services görevlerinizi sağlayan Azure-SSIS IR her düğümde yüklemek için özel bir kurulum içeren klasör. İlk olarak, en son indirme **MSOLAP (amd64)** ve **AMO** istemci kitaplıkları/Windows Yükleyici - Örneğin, `x64_15.0.900.108_SQL_AS_OLEDB.msi` ve `x64_15.0.900.108_SQL_AS_AMO.msi` - [burada](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), ardından bunların tümünü birlikte karşıya `main.cmd` kapsayıcınıza.  
 
        1. A `BCP` SQL Server komut satırı yardımcı programlarını yüklemek için özel bir kurulum içeren klasörü (`MsSqlCmdLnUtils.msi`), toplu kopyalama programı da dahil olmak üzere (`bcp`), her düğüme, Azure-SSIS IR
 

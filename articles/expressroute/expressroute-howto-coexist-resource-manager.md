@@ -6,14 +6,14 @@ author: charwen
 manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 5f4234bd4170e98b50fa025e680bbca1ff46d5ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162351"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035280"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell kullanarak ExpressRoute ve siteden siteye arada var olabilen bağlantılar yapılandırma
 > [!div class="op_single_selector"]
@@ -27,7 +27,9 @@ Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırma
 * ExpressRoute için güvenli bir yük devretme yolu olarak siteden siteye bir VPN yapılandırın. 
 * Alternatif olarak ExpressRoute aracılığıyla bağlı olmayan sitelere bağlanmak için Siteden Siteye VPN’ler kullanabilirsiniz. 
 
-İki senaryo için de yapılandırma adımları bu makalede verilmektedir. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır. Belgeleri henüz mevcut olmasa da bu senaryolar Azure portalını kullanarak yapılandırabilirsiniz.
+İki senaryo için de yapılandırma adımları bu makalede verilmektedir. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır. Belgeleri henüz mevcut olmasa da bu senaryolar Azure portalını kullanarak yapılandırabilirsiniz. Her iki ağ geçidi yapılandırabilirsiniz. Genellikle, kapalı kalma süresi olmadan yeni ağ geçidi veya ağ geçidi bağlantısı eklerken neden olur.
+
+
 
 >[!NOTE]
 >ExpressRoute devresi üzerinde bir Siteden Siteye VPN oluşturmak istiyorsanız, lütfen [bu makaleye](site-to-site-vpn-over-microsoft-peering.md) bakınız.

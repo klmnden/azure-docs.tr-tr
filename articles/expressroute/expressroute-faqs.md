@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 75d2bae0b6980fdd206e68806e994c7fa7b530c8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211375"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037082"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -199,11 +199,7 @@ Evet. Aynı ExpressRoute bağlantı hattına bağlı sanal ağ içinde dağıtı
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>ExpressRoute ile birlikte sanal ağlar için siteden siteye bağlantı kullanabilir miyim?
 
-Evet. ExpressRoute ile siteden siteye VPN'ler bulunabilir.
-
-### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>Bir sanal ağı ExpressRoute kullanmak için siteden siteye / noktadan siteye yapılandırma taşıyabilir miyim?
-
-Evet. Sanal ağınızdaki bir ExpressRoute ağ geçidi oluşturmanız gerekir. İşlemle ilişkili küçük bir kapalı kalma süresi yoktur.
+Evet. ExpressRoute ile siteden siteye VPN'ler bulunabilir. Bkz: [yapılandırma ExpressRoute ve siteden siteye bir arada var olabilen bağlantılar](expressroute-howto-coexist-resource-manager.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Neden bir sanal ağ ExpressRoute ağ geçidi ile ilişkili bir genel IP adresi var mı?
 

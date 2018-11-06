@@ -4,18 +4,18 @@ description: Azure HDInsight tarafından işlenen etkileşimli sorgu Hive verile
 keywords: hdınsight, hadoop, hive, etkileşimli sorgu, Interactive hive, LLAP, directquery
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.openlocfilehash: 1779151f3768542c08ea62d2c9109d4cd66a1e3f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bcef72f42321d770c4bdbb518f0b17ad5950aa7f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041053"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012259"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Doğrudan sorgu kullanarak Azure HDInsight Microsoft Power BI ile etkileşimli sorgu Hive verilerini Görselleştirme
 
@@ -55,7 +55,7 @@ Hivesampletable Hive tablosu tüm HDInsight kümeleri ile birlikte gelir.
 
     ![HDInsight etkileşimli sorgu power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
-## <a name="visualize-data"></a>Verileri Görselleştirme
+## <a name="visualize-data"></a>Verileri görselleştirme
 
 Son yordama devam edin.
 

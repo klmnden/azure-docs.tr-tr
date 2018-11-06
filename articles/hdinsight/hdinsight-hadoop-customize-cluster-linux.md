@@ -2,19 +2,19 @@
 title: Betik eylemleri - Azure kullanarak HDInsight kümelerini özelleştirin
 description: Özel bileşenler betik eylemlerini kullanarak Linux tabanlı HDInsight kümelerine ekleyin. Betik eylemleri, küme yapılandırmasını özelleştirebilir veya ek hizmetler ve yardımcı programları Hue, Solr ve r gibi eklemek için kullanılan Bash betikleridir
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: jasonh
-ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 17273a572e61d2282e7930d4ea1f44bfaf29d734
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978038"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012988"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 

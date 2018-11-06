@@ -2,19 +2,19 @@
 title: HDInsight betik eylemleri - Azure'ı kullanarak kümeleri özelleştirme
 description: HDInsight kümelerini betik eylemi kullanarak özelleştirme öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c4652e65f0f320063d989f97a5428510913005b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: af78dfd480fa972c9fc52c2a3636c3780cfa0147
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105933"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006657"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Windows tabanlı HDInsight kümelerini betik eylemi kullanarak özelleştirme
 **Betik eylemi** çağırmak için kullanılan [özel betikler](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.

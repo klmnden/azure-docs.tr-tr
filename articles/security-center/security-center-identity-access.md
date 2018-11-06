@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 17fd9907a5e3e3f4485b35c8e74d6e46fecb7fda
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303515"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012080"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
 
 > [!NOTE]
 > Kimlik ve erişim izleme önizlemede ve Güvenlik Merkezi'nin standart katmanında yalnızca kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
->
 >
 
 Kimlik, kuruluşunuz için denetim düzlemi olmalıdır, kimliğinizi korumak ise en yüksek önceliğiniz olmalıdır. Güvenlik çevresi bir ağ çevresi bir kimlik çevre için geliştirilmiştir. Güvenlik savunma ağınız hakkında daha az ve daha fazlası hakkında verilerinizi savunma yanı uygulamaları ve kullanıcılarınızın güvenliğini yönetme olur. Günümüzde buluta taşınan veri ve uygulama miktarı arttıkça kimlik yeni savunma hattı haline geliyor.
@@ -56,7 +55,7 @@ Devam etmek için seçin **kimlik ve erişim** altında **kaynakları** veya Gü
 
 ![Güvenlik Merkezi panosu][1]
 
-## <a name="monitor-identity-and-access"></a>İzleyici kimlik ve erişim
+## <a name="monitor-identity-and-access"></a>Kimlik ve erişimi izleme
 Altında **kimlik ve erişim**, iki sekme bulunur:
 
 - **Genel Bakış**: Güvenlik Merkezi tarafından tanımlanan öneriler.
@@ -107,18 +106,25 @@ Altında **abonelikleri**, aboneliklerin listesi yoktur. İlk sütun abonelikler
 ## <a name="recommendations"></a>Öneriler
 Aşağıdaki tabloda kullanılabilir kimlik ve erişim öneriler ve uygulamanız durumunda her birinin yaptığı anlamanıza yardımcı olması için bir başvuru olarak kullanın.
 
-| Öneri | Açıklama |
-| --- | --- |
-| Aboneliğinizde birden çok sahip belirleyin | Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirlemeniz önerir. |
-| Aboneliğinizde en fazla 3 sahipleri belirleyin | Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirlemek önerir. |
-| Aboneliğinizi sahip izinleri olan hesaplar için mfa'yı etkinleştirme | Hesapları veya kaynak ihlalini önlemek için yönetici ayrıcalıkları olan tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirmenizi önerir. |
-| Aboneliğinizde yazma izinleri olan hesaplar için mfa'yı etkinleştirme | Hesapları veya kaynak ihlalini önlemek için yazma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirmenizi önerir. |
-| Aboneliğinizde Okuma izinleri olan hesaplar için mfa'yı etkinleştirme | Hesapları veya kaynak ihlalini önlemek için okuma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirmenizi önerir. |
-| Okuma izinleri olan dış hesapları aboneliğinizden kaldırın | İzlenmeyen erişimi engellemek için aboneliğinizden okuma ayrıcalıklarına sahip dış hesapların kaldırmanızı önerir. |
-| Yazma izinleri olan dış hesapları aboneliğinizden kaldırın | İzlenmeyen erişimi engellemek için aboneliğinizden yazma ayrıcalıklarına sahip dış hesapların kaldırmanızı önerir. |
-| Sahip izinleri olan dış hesapları aboneliğinizden kaldırın | Sahibi izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırmanızı önerir. |
-| Kullanım dışı bırakılmış hesapları abonelikten Kaldır | Önerir kaldırdığınız hesapları aboneliklerinizden kullanım dışı. |
-| Sahip izinleri ile kullanım dışı bırakılmış hesapları abonelikten Kaldır | Önerir kaldırdığınız aboneliklerinizden sahip izinleri ile hesapları kullanım dışı. |
+|Kaynak türü|Güvenlik puanı|Öneri|Açıklama|
+|----|----|----|----|
+|Abonelik|50|Aboneliğinizde sahip izinleri ile Azure yönetim uygulaması hesaplar için mfa'yı etkinleştirme|Hesapları veya kaynak ihlalini önlemek için yönetici ayrıcalıkları olan tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
+|Abonelik|50|Aboneliklerinizi Güvenlik Merkezi'ni etkinleştir |Tüm aboneliklerinizi Gelişmiş tehdit algılama, JIT, uygulama beyaz listesini ve Gelişmiş önerileri için Güvenlik Merkezi'ni etkinleştir |
+|Abonelik|50|Güvenlik Merkezi standart katmanda aboneliklerinizi etkinleştir |Güvenlik Merkezi standart katmanı için Gelişmiş tehdit algılama, JIT, uygulama beyaz listesini ve Gelişmiş öneriler, tüm Aboneliklerde etkinleştirin.|
+|Abonelik|40|Azure yönetim uygulaması aboneliğinizde yazma izinleri olan hesaplar için mfa'yı etkinleştirme|Hesapları veya kaynak ihlalini önlemek için yazma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
+|Abonelik|30|Sahip izinleri olan dış hesapları aboneliğinizden kaldırın|Sahip izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın. |
+|Abonelik|30|Azure yönetim uygulaması aboneliğinizde Okuma izinleri olan hesaplar için mfa'yı etkinleştirme|Hesapları veya kaynak ihlalini önlemek için okuma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
+|Abonelik|25|Yazma izinleri olan dış hesapları aboneliğinizden kaldırın|Yazma izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın. |
+|Abonelik|20|Sahip izinleri ile kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Sahip izinleri ile kullanım dışı bırakılmış hesapların aboneliklerinizden kaldırın.|
+|Abonelik|5|Kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Kullanım dışı bırakılmış hesapların aboneliklerinizden yalnızca geçerli kullanıcılara erişimi etkinleştirmek için kaldırın. |
+|Abonelik|5|Aboneliğinizde birden çok sahip belirleyin|Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirleyin.|
+|Abonelik|5|Aboneliğinizde en fazla 3 sahipleri belirleyin|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
+|Key Vault|5|Anahtar Kasası'nda tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|Abonelik|15|Okuma izinleri olan dış hesapları aboneliğinizden kaldırın|Okuma ayrıcalıklarına sahip dış hesapların aboneliğinizden izlenmeyen erişimi engellemek için kaldırın.|
+|Abonelik|1|Güvenlik ilgili kişi bilgilerini belirtin|Her aboneliğiniz için güvenlik kişi bilgilerini sağlayın. Bir e-posta adresi ve telefon numarası iletişim bilgileridir. Bilgileri güvenlik ekibimizin kaynaklarınızın tehlikede olduğunu tespit olursa sizinle iletişim kurmak için kullanılır|
+
+> ! [NOT] MFA gerektirir, ancak ayarlanmış dışarıda bırakılacak sahip bir koşullu erişim ilkesi oluşturduğunuzda, Azure MFA olmadan oturum açmak bazı kullanıcılar sağladığından Güvenlik Merkezi MFA öneri değerlendirme İlkesi uyumlu olmayan, göz önünde bulundurur.
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi için aşağıdakilere bakın:

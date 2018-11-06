@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c248e126d99c7cb83895871ec24d41ffcfd84d29
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960693"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009751"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics ile Active Directory çoğaltma durumunu izleme
 
@@ -110,7 +110,7 @@ Bu listelerden birine herhangi bir öğeye tıkladığınızda, günlük arama �
 
 ![Arama sonuçlarında AD çoğaltma durumu hataları](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Buradan daha fazla filtrelemek, arama sorguyu değiştirin ve benzeri. Günlük araması'nı kullanma hakkında daha fazla bilgi için bkz. [günlük aramaları](log-analytics-log-search.md).
+Buradan daha fazla filtrelemek, arama sorguyu değiştirin ve benzeri. Günlük araması'nı kullanma hakkında daha fazla bilgi için bkz. [günlük aramaları](log-analytics-queries.md).
 
 **HelpLink** alan belirli hata hakkında ek ayrıntılar ile TechNet sayfanın URL'sini gösterir. Kopyalayın ve bu bağlantı sorunlarını giderme ve hata düzeltme hakkında bilgi için tarayıcı pencerenizi yapıştırın.
 
@@ -154,4 +154,4 @@ Etki alanı denetleyicilerinizden biri bağlama konusunda yardıma ihtiyacınız
 Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics veya System Center Operations Manager bağlanmak istemiyorsanız bkz [AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-queries.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.

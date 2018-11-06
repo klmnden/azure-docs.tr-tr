@@ -2,20 +2,20 @@
 title: HDInsight, Hadoop Oozie Düzenleyici zamana bağlı kullanın
 description: HDInsight, büyük veri hizmeti zaman tabanlı Hadoop Oozie düzenleyicisi kullanın. Oozie ile iş akışlarını ve düzenleyicileri tanımlayın ve işlerini gönderme hakkında bilgi edinin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f10990d2e4531be42f0553875bf3a01f0a23f58
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 430d5938ff8f5fcfee2239e25486459bc7a629ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575669"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016038"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>İş akışları tanımlamak ve işlerini koordine etmek için HDInsight, Hadoop ile zamana dayalı Oozie düzenleyicisi kullanın
 Bu makalede, zamana dayalı Düzenleyicisi işlerini nasıl tetikleyeceğinizi yanı sıra iş akışlarını ve düzenleyicileri nasıl tanımlanacağını öğreneceksiniz. Git yararlıdır [HDInsight ile Oozie kullanma] [ hdinsight-use-oozie] önce bu makaleyi okuyun. Oozie ek olarak, Azure Data Factory kullanarak işleri zamanlayabilirsiniz. Azure Data Factory bilgi edinmek için [kullanım Pig ve Hive ile veri fabrikası](../data-factory/transform-data.md).

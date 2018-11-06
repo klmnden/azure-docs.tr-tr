@@ -3,18 +3,18 @@ title: HDInsight - Azure ML Hizmetleri kümede yönetme
 description: Bir Azure HDInsight ML Hizmetleri kümesinde yönetmeyi öğrenin.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9f6b403c8facd56c447d3e9ae9b30cfdebe01621
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702410"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010771"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight kümesinde ML Hizmetleri yönetme
 

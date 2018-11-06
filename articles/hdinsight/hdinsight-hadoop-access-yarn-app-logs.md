@@ -2,25 +2,25 @@
 title: Hadoop YARN uygulama program aracılığıyla - Azure günlüklerine erişme
 description: Uygulama program aracılığıyla bir HDInsight Hadoop kümesinde günlüklerine erişme.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094410"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035654"
 ---
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde erişim YARN uygulama günlüklerine
-Bu belgede, Azure HDInsight Windows tabanlı bir Hadoop kümesinde tamamlanmış YARN uygulamalarını için günlüklere erişmek açıklanmaktadır
+# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde erişim Apache YARN uygulama günlüklerine
+Bu belgede, Azure HDInsight Windows tabanlı bir Hadoop kümesinde tamamladınız Apache YARN uygulamaları için günlüklere erişmek açıklanmaktadır
 
 > [!IMPORTANT]
-> Bu belgedeki bilgiler yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı HDInsight kümelerinde günlüklerini YARN erişme hakkında bilgi için bkz. [erişim YARN uygulama günlüklerine hadoop'ta Linux tabanlı HDInsight üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> Bu belgedeki bilgiler yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı HDInsight kümelerinde günlüklerini YARN erişme hakkında bilgi için bkz. [erişim Apache YARN uygulama günlüklerine hadoop'ta Linux tabanlı HDInsight üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 

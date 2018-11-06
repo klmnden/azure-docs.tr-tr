@@ -8,18 +8,18 @@ ms.author: tanmayb
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 5db215a3bf87ac42ac832a59ce39f7e72c45527f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963362"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016837"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Bir CSP olarak oluşturun ve bir Azure IOT Central uygulamasına, müşteri adına yönetmek 
 
 Microsoft bulut çözümü sağlayıcısı (CSP) programı bir Microsoft Reseller programdır. Konuşmanın niyetini tüm Microsoft ticari Çevrimiçi Hizmetleri satmak üzere kanal ortaklarımızla birlikte tek bir program sağlamaktır. Daha fazla bilgi edinin [bulut çözümü sağlayıcısı programı](https://partner.microsoft.com/cloud-solution-provider).
 
-Bir CSP olarak oluşturabilir ve Microsoft Azure IOT Central uygulamaları müşterileriniz adına yönetme [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Azure IOT Central uygulamaları müşteriler adına CSP tarafından gibi diğer oluşturulduğunda CSP tarafından yönetilen Azure Hizmetleri, CSP müşterileri için faturalandırma yönetin. Azure IOT Central için ücret toplam faturanız Microsoft Partner Center'da görüntülenir.
+Bir CSP olarak oluşturabilir ve Microsoft Azure IOT Central uygulamaları müşterileriniz adına yönetme [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Azure IOT Central uygulamaları müşteriler adına CSP tarafından gibi diğer oluşturulduğunda CSP tarafından yönetilen Azure Hizmetleri, CSP müşterileri için faturalandırma yönetin. Azure IOT Central için ücret toplam faturanız Microsoft Partner Center'daki görünür.
 
 Başlamak için hesabınızı bir Microsoft iş ortağı portalı için oturum açın ve Azure IOT Central bir uygulama oluşturmak istediğiniz bir müşteri seçin. Sol gezinti bölmesinde müşteri için Hizmet Yönetimi gidin
 
@@ -29,7 +29,7 @@ Azure IOT Central yönetmek kullanılabilir hizmet olarak listelenir. Sayfasınd
 
 ![Azure IOT Central yönetmek kullanılabilir](media\howto-create-application-asCSP\image2.png)
 
-Azure IOT Central Uygulama Yöneticisi sayfasına gelirsiniz. Azure IOT Central, Microsoft Partner Center'dan gelen geldiğini ve müşterinin yönetmek için geldiğini bağlam tutar. Bu uygulama Yöneticisi sayfanın üst bilgisinde onaylanır görürsünüz. Buradan yapabilirsiniz veya daha önce oluşturduğunuz yönetmek veya müşteri için yeni bir uygulama oluşturmak bu müşteri için mevcut uygulamaya gidin.
+Azure IOT Central Uygulama Yöneticisi sayfasına gelirsiniz. Azure IOT Central, Microsoft Partner Center'dan gelen geldiğini ve müşterinin yönetmek için geldiğini bağlam tutar. Bu uygulama Yöneticisi sayfanın üst bilgisinde onaylanır görürsünüz. Buradan, ya da oluşturulan mevcut bir uygulamaya yönetin veya müşteri için yeni bir uygulama oluşturmak daha önce bu müşteri için gidebilirsiniz.
 
 ![CSP'ler için Yöneticisi oluşturma](media\howto-create-application-asCSP\image3.png)
 
@@ -51,7 +51,7 @@ Uygulamanızın ad **Uygulama Yöneticisi** sayfası ve her bir Azure IOT Centra
 
 Uygulama URL'si uygulamanıza bağlantıdır. Tarayıcınızda yer işareti kaydetmesi veya başkalarıyla paylaşabilirsiniz.
 
-Uygulamanız için bir ad girin, uygulama URL'nizi otomatik olarak üretilir. Tercih ederseniz, uygulamanız için farklı bir URL seçebilirsiniz. Her Azure IOT Central URL, Azure IOT Central içinde benzersiz olmalıdır. Seçtiğiniz URL önceden alınmış bir hata iletisi görürsünüz.
+Uygulamanız için bir ad girin, uygulama URL'sini otomatik olarak oluşturulan olur. Tercih ederseniz, uygulamanız için farklı bir URL seçebilirsiniz. Her Azure IOT Central URL, Azure IOT Central içinde benzersiz olmalıdır. Seçtiğiniz URL önceden alınmış bir hata iletisi görürsünüz.
 
 ## <a name="directory"></a>Dizin
 

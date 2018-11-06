@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743271"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011502"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
 
@@ -53,6 +53,13 @@ Gelen özellik için makul bir süre denetim modunda çalıştırıldıktan sonr
 * Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde yüklü olan evrensel C çalışma zamanı olması gerekir.
 Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygulama tarafından gerçekleştirilir. Aksi takdirde uygun işletim sistemine özgü güncelleştirme paketi olabilir yüklü - [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * En az bir sunucu Azure AD parola koruması proxy hizmetini barındıran her etki alanında en az bir etki alanı denetleyicisi arasında ağ bağlantısı olmalıdır. Bu RPC uç nokta Eşleyici bağlantı noktası (135) ve RPC sunucusu bağlantı noktası proxy hizmetine erişmek etki alanı denetleyicisi bağlanmaya izin vermelidir.  RPC sunucusu bağlantı noktası varsayılan olarak dinamik bir RPC bağlantı noktasıdır, ancak yapılandırılabilir (aşağıya bir statik bağlantı noktasını kullanacak şekilde bakın).
+* Azure AD parola koruması proxy hizmeti barındıran tüm makinelerde aşağıdaki uç noktalarına ağ erişimi olması gerekir:
+
+    |Uç Nokta |Amaç|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|Kimlik doğrulama istekleri|
+    |`https://enterpriseregistration.windows.net`|Azure AD parola koruması işlevi|
+
 * Azure AD parola koruması proxy hizmeti ve orman Azure AD'ye kaydetmeniz için bir genel yönetici hesabı.
 * Azure AD ile Windows Server Active Directory orman kaydetmek için orman kök etki alanındaki Active Directory etki alanı yönetici ayrıcalıklarına sahip bir hesap.
 * DC çalıştıran herhangi bir Active Directory etki alanı Aracı hizmeti yazılımı DFSR sysvol çoğaltma için kullanmanız gerekir.

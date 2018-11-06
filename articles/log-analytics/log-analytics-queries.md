@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f5b3aa81a9a87d4dea45e4b2fefd58b1e8b04620
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957616"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005062"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
@@ -32,7 +32,7 @@ Azure İzleyici tarafından toplanan günlük verilerini temel aldığı bir Log
 
 ## <a name="log-queries"></a>Günlük sorguları
 
-Log Analytics bağlantısı herhangi bir veri almak için günlük sorgusu gerektirir.  Olmanıza [Portalı'nda veri çözümleme](log-analytics-log-search-portals.md), [bir uyarı kuralı yapılandırma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) bir belirli bir koşula veya verileri alınırken kullanarak bildirilmesini [Log Analytics API](https://dev.loganalytics.io/), bir sorgu, istediğiniz verileri belirtmek için kullanır.  Bu makale, Log Analytics'te günlük sorguları nasıl kullanıldığını açıklar ve bir oluşturmadan önce anlamanız gereken kavramlar sağlar.
+Log Analytics bağlantısı herhangi bir veri almak için günlük sorgusu gerektirir.  Olmanıza [Portalı'nda veri çözümleme](log-analytics-log-search-portals.md), [bir uyarı kuralı yapılandırma](../monitoring-and-diagnostics/alert-metric.md) bir belirli bir koşula veya verileri alınırken kullanarak bildirilmesini [Log Analytics API](https://dev.loganalytics.io/), bir sorgu, istediğiniz verileri belirtmek için kullanır.  Bu makale, Log Analytics'te günlük sorguları nasıl kullanıldığını açıklar ve bir oluşturmadan önce anlamanız gereken kavramlar sağlar.
 
 
 

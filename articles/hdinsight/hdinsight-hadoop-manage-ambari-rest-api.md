@@ -2,19 +2,19 @@
 title: İzleme ve Ambari REST API - Azure HDInsight ile Hadoop yönetme
 description: Azure HDInsight Hadoop kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, HDInsight kümeleriyle dahil Ambari REST API'sini kullanmayı öğreneceksiniz.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d6e2bdba7e3536404f087dc468a0895d0be0c2a0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: cd999a5bfd9f5691c1e624f7a8226eefee5709eb
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106028"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015818"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Ambari REST API'yi kullanarak HDInsight kümelerini yönetme
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344950"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015358"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: İsteyen erişim belirteçleri
 
-Bir erişim belirteci (olarak gösterilen **erişim\_belirteci** yanıtlarındaki Azure AD B2C'den) tarafından korunan bir istemci, kaynaklara erişmek için kullanabileceğiniz güvenlik belirteci biçimidir bir [yetkilendirme sunucusu](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), web API'si gibi. Erişim belirteçleri olarak temsil edilir [Jwt'ler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) ve hedeflenen kaynak sunucu ve sunucu için verilen izinleri hakkındaki bilgileri içerir. Kaynak sunucuda çağırırken erişim belirteci HTTP isteğinde bulunması gerekir.
+Bir erişim belirteci (olarak gösterilen **erişim\_belirteci** yanıtlarındaki Azure AD B2C'den) tarafından korunan bir istemci, kaynaklara erişmek için kullanabileceğiniz güvenlik belirteci biçimidir bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md), web API'si gibi. Erişim belirteçleri olarak temsil edilir [Jwt'ler](active-directory-b2c-reference-tokens.md) ve hedeflenen kaynak sunucu ve sunucu için verilen izinleri hakkındaki bilgileri içerir. Kaynak sunucuda çağırırken erişim belirteci HTTP isteğinde bulunması gerekir.
 
 Bu makalede, bir istemci uygulamasını yapılandırmak ve almak için web API'si anlatılmaktadır bir **erişim\_belirteci**.
 
@@ -37,22 +37,22 @@ Bir erişim belirteci isteğinde bulunmadan önce ilk web API'si kaydetme ve ver
 ### <a name="register-a-web-api"></a>Web API’si kaydetme
 
 1. Azure portalında Azure AD B2C özellikleri menüsünde tıklatın **uygulamaları**.
-1. Tıklayın **+ Ekle** menüsünün üstünde.
-1. Uygulamanızı tüketicilere tanımlayacak bir **Ad** girin. Örneğin, "Contoso API" girebilirsiniz.
-1. **Web uygulamasını / web API’sini dahil et** anahtarını **Evet**’e getirin.
-1. Rastgele bir değer girin **yanıt URL'leri**. Örneğin, `https://localhost:44316/` girin. API belirteci doğrudan Azure AD B2C'den almalıdır değil beri değer önemli değildir.
-1. Bir **Uygulama Kimliği URI'si** girin. Bu değer, web API’niz için kullanılan tanımlayıcıdır. Örneğin, 'Not' kutuya girin. **Uygulama kimliği URI'si** ardından olacaktır `https://{tenantName}.onmicrosoft.com/notes`.
-1. Uygulamanızı kaydetmek için **Create (Oluştur)** seçeneğine tıklayın.
-1. Oluşturduğunuz uygulamaya tıklayın ve daha sonra kodunuzda kullanacağınız genel benzersiz **Uygulama İstemci Kimliğini** kopyalayın.
+2. Tıklayın **+ Ekle** menüsünün üstünde.
+3. Uygulamanızı tüketicilere tanımlayacak bir **Ad** girin. Örneğin, "Contoso API" girebilirsiniz.
+4. **Web uygulamasını / web API’sini dahil et** anahtarını **Evet**’e getirin.
+5. Rastgele bir değer girin **yanıt URL'leri**. Örneğin, `https://localhost:44316/` girin. API belirteci doğrudan Azure AD B2C'den almalıdır değil beri değer önemli değildir.
+6. Bir **Uygulama Kimliği URI'si** girin. Bu değer, web API’niz için kullanılan tanımlayıcıdır. Örneğin, 'Not' kutuya girin. **Uygulama kimliği URI'si** ardından olacaktır `https://{tenantName}.onmicrosoft.com/notes`.
+7. Uygulamanızı kaydetmek için **Create (Oluştur)** seçeneğine tıklayın.
+8. Oluşturduğunuz uygulamaya tıklayın ve daha sonra kodunuzda kullanacağınız genel benzersiz **Uygulama İstemci Kimliğini** kopyalayın.
 
 ### <a name="publishing-permissions"></a>Yayımlama izinleri
 
 Kapsamlar, izinler için benzer bir API uygulamanızı çağırırken gereklidir. Bazı kapsamların "Okuma" veya "yazma" verilebilir. Web veya yerel uygulamanızı "API'den okumak için" istediğinizi varsayalım. Uygulamanız Azure AD B2C'yi arayın ve "Okuma" kapsamı için erişim sağlayan bir erişim belirteci isteği. Bu tür bir erişim belirteci yaymak Azure AD B2C için uygulamayı "belirli API'SİNDEN okuma" izni gerekir. Bunu yapmak için API'NİZİN ilk "Okuma" kapsam yayımlamak gerekir.
 
 1. Azure AD B2C içinde **uygulamaları** menüsünde, open web API'si uygulaması ("Contoso API").
-1. **Yayımlanan kapsamlar**’a tıklayın. Burada diğer uygulamalara verilebilecek izinleri (kapsamları) tanımlarsınız.
-1. Ekleme **kapsam değerleri** gerektiğinde (örneğin, "Okuma"). Varsayılan olarak, "user_impersonation" kapsamı tanımlanır. İsterseniz, bunu göz ardı edebilirsiniz. Kapsam içinde bir açıklama girin **kapsam adı** sütun.
-1. **Kaydet**’e tıklayın.
+2. **Yayımlanan kapsamlar**’a tıklayın. Burada diğer uygulamalara verilebilecek izinleri (kapsamları) tanımlarsınız.
+3. Ekleme **kapsam değerleri** gerektiğinde (örneğin, "Okuma"). Varsayılan olarak, "user_impersonation" kapsamı tanımlanır. İsterseniz, bunu göz ardı edebilirsiniz. Kapsam içinde bir açıklama girin **kapsam adı** sütun.
+4. **Kaydet**’e tıklayın.
 
 > [!IMPORTANT]
 > **Kapsam adı** açıklamasıdır **kapsam değeri**. Kapsam kullanırken kullandığınızdan emin olun **kapsam değeri**.
@@ -62,11 +62,11 @@ Kapsamlar, izinler için benzer bir API uygulamanızı çağırırken gereklidir
 API kapsamları yayımlamak için yapılandırıldıktan sonra istemci uygulamasının Azure portalından bu kapsamları verilmesi gerekir.
 
 1. Gidin **uygulamaları** Azure AD B2C özellikleri menüsünde menüsü.
-1. Bir istemci uygulama kaydetme ([web uygulaması](active-directory-b2c-app-registration.md#register-a-web-app) veya [yerel istemci](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) zaten yoksa. Başlangıç noktası olarak bu kılavuzu takip ediyorsanız, bir istemci uygulaması kaydetmeniz gerekir.
-1. Tıklayarak **API erişimi**.
-1. **Ekle**'ye tıklayın.
-1. Web API'nizi ve vermek istediğiniz kapsamlarınızı (izinler) seçin.
-1. **Tamam** düğmesine tıklayın.
+2. Bir istemci uygulama kaydetme ([web uygulaması](active-directory-b2c-app-registration.md) veya [yerel istemci](active-directory-b2c-app-registration.md)) zaten yoksa. Başlangıç noktası olarak bu kılavuzu takip ediyorsanız, bir istemci uygulaması kaydetmeniz gerekir.
+3. Tıklayarak **API erişimi**.
+4. **Ekle**'ye tıklayın.
+5. Web API'nizi ve vermek istediğiniz kapsamlarınızı (izinler) seçin.
+6. **Tamam** düğmesine tıklayın.
 
 > [!NOTE]
 > Azure AD B2C, istemci uygulama kullanıcıları için kendi onay istemez. Bunun yerine, tüm onay, yukarıda açıklanan uygulamalar arasında yapılandırılmış izinlere dayalı olarak bir yönetici tarafından sağlanır. Bir uygulama için bir iznini iptal edilirse, bu izni almak daha önce mümkün tüm kullanıcılar artık bunu mümkün olacaktır.

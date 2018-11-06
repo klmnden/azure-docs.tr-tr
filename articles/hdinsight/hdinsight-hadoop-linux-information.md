@@ -3,18 +3,18 @@ title: Linux tabanlı HDInsight üzerinde - Azure Hadoop kullanmaya yönelik ipu
 description: Tanıdık bir Linux ortamı Azure bulutunda çalışan Linux tabanlı HDInsight (Hadoop) kümeleri kullanarak uygulama ipuçları alın.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997514"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015698"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 

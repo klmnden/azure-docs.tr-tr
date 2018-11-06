@@ -1,19 +1,19 @@
 ---
 title: HDInsight - Azure HDInsight şirket içi ağa bağlanma
 description: Azure sanal ağ'daki bir HDInsight kümesi oluşturma ve sonra şirket içi ağınıza bağlanma hakkında bilgi edinin. Özel bir DNS sunucusu kullanarak HDInsight ile şirket içi ağınız arasında ad çözümlemesine yapılandırmayı öğrenin.
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: b9b744edbcb2abce70487c84c85a0aae71494e52
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105877"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016939"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight’ı şirket içi ağınıza bağlama
 

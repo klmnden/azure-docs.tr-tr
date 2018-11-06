@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: f43db05cac03d090116d227536e343c4a7bb0df4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958883"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006745"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -192,7 +192,7 @@ Koşul sonrasında bir uyarı tetikleyen bir Log Analytics sorgusu karşılanıy
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Uyarılar için Azure SQL veritabanı oluşturma
 
-Kolayca [uyarıları oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [günlük araması](log-analytics-log-search.md) ile günlük uyarısı kullanabileceğiniz sorgular:
+Kolayca [uyarıları oluşturma](../monitoring-and-diagnostics/alert-metric.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [günlük araması](log-analytics-queries.md) ile günlük uyarısı kullanabileceğiniz sorgular:
 
 *Azure SQL veritabanı yüksek CPU*
 
@@ -289,6 +289,6 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanım [günlük aramaları](log-analytics-log-search.md) ayrıntılı Azure SQL veri görüntülemek için Log analytics'te.
+- Kullanım [günlük aramaları](log-analytics-queries.md) ayrıntılı Azure SQL veri görüntülemek için Log analytics'te.
 - [Kendi panolarınızı oluşturun](log-analytics-dashboards.md) Azure SQL veri gösteriliyor.
 - [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) belirli bir Azure SQL olaylar gerçekleştiğinde.

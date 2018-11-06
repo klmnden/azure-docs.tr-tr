@@ -1,25 +1,25 @@
 ---
-title: Hata ayıklama ve Hadoop Hizmetleri yığın dökümlerini - Azure ile analiz
-description: Otomatik Hadoop Hizmetleri için yığın dökümlerini toplama ve hata ayıklama ve analiz için Azure Blob Depolama hesabı içinde yerleştirin.
+title: Hata ayıklama ve Apache Hadoop Hizmetleri yığın dökümlerini - Azure ile analiz
+description: Otomatik olarak Apache Hadoop Hizmetleri için yığın dökümlerini toplama ve hata ayıklama ve analiz için Azure Blob Depolama hesabı içinde yerleştirin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2a399899c93addf966d3f2ec0e36d4b1c76b686f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43099776"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038316"
 ---
-# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Hata ayıklama ve Hadoop Hizmetleri çözümlemek için Blob Depolama alanında toplama yığın dökümleri
+# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Hata ayıklama ve Apache Hadoop Hizmetleri çözümlemek için Blob Depolama alanında toplama yığın dökümleri
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Yığın dökümlerini değişkenlerin değerleri döküm oluşturulduğu zaman dahil olmak üzere, uygulamanın bellek anlık görüntüsünü içerir. Bu nedenle bunlar çalıştırma zamanında gerçekleşen sorunları tanılamak için kullanışlıdır. Yığın dökümlerini otomatik olarak Hadoop Hizmetleri için toplanır ve içinde HDInsightHeapDumps altında bir kullanıcının Azure Blob Depolama hesabına yerleştirilen /.
+Yığın dökümlerini değişkenlerin değerleri döküm oluşturulduğu zaman dahil olmak üzere, uygulamanın bellek anlık görüntüsünü içerir. Bu nedenle bunlar çalıştırma zamanında gerçekleşen sorunları tanılamak için kullanışlıdır. Yığın dökümlerini otomatik olarak Apache Hadoop Hizmetleri için toplanır ve içinde HDInsightHeapDumps altında bir kullanıcının Azure Blob Depolama hesabına yerleştirilen /.
 
 Çeşitli Hizmetleri için yığın dökümlerini koleksiyonunu tek tek Küme Hizmetleri için etkinleştirilmesi gerekir. Bu özellik için bir küme için devre dışı olmasını varsayılandır. Toplama etkinleştirildikten sonra nereye kaydedildiklerini Blob Depolama hesabı izleme önerilir, bu nedenle bu yığın dökümlerini büyük olabilir.
 
@@ -30,11 +30,11 @@ Yığın dökümlerini değişkenlerin değerleri döküm oluşturulduğu zaman 
 ## <a name="eligible-services-for-heap-dumps"></a>Uygun hizmetler için yığın dökümlerini
 Aşağıdaki hizmetleri için yığın dökümlerini etkinleştirebilirsiniz:
 
-* **hcatalog** -tempelton
-* **Hive** -hiveserver2, meta veri deposu, derbyserver
+* **Apache hcatalog** -tempelton
+* **Apache hive** -hiveserver2, meta veri deposu, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resourcemanager, nodemanager, timelineserver
-* **hdfs** -datanode, secondarynamenode, namenode
+* **Apache yarn** -resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** -datanode, secondarynamenode, namenode
 
 ## <a name="configuration-elements-that-enable-heap-dumps"></a>Yapılandırma öğeleri, yığın dökümlerini etkinleştirme
 Bir hizmet için yığın dökümlerini etkinleştirmek için bölümündeki tarafından belirtilen aydaki hizmet için uygun yapılandırma öğelerini ayarlamanız gerekir **servıce_name**.

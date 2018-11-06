@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 289aa893a0ffa598d5b9fae67a81e9bf0c9782f7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024875"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014406"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Gelişmiş ağ yapılandırma
 
@@ -35,12 +35,21 @@ Gelişmiş ağ ile yapılandırılan kümeler için ek planlama gerektirir. Sana
 
 Pod'ların ve küme düğümleri için IP adresleri, sanal ağ içinde belirtilen alt ağından atanır. Her düğüm, birincil bir IP adresi ile yapılandırılır. Varsayılan olarak 30 ek IP adresleri düğümde zamanlanmış pod'ların atanan Azure CNI tarafından önceden yapılandırılmış. Kümenizin ölçeğini daralttığınızda, her düğüm alt ağdaki IP adresleriyle benzer şekilde yapılandırılır. Ayrıca görüntüleyebilirsiniz [düğüm başına en fazla pod'ların](#maximum-pods-per-node).
 
+> [!IMPORTANT]
+> Gerekli IP adresi sayısı, yükseltme ve ölçeklendirme işlemlerinin dikkate alınacak noktalar içermelidir. Yalnızca düğümlerin sabit sayıda desteklemek için IP adresi aralığı ayarlarsanız, yükseltin veya kümenizi ölçeklendirme.
+>
+> - Olduğunda, **yükseltme** AKS kümenizi, yeni bir düğüm kümesine dağıtılır. Hizmetleri ve iş yüklerini yeni düğüm üzerinde çalışmaya başlar ve daha eski bir düğümü kümeden kaldırılır. Bu sıralı yükseltme işlemi en az bir ek kullanılabilir olması için IP adres bloğunu gerektirir. Bu durumda, düğüm sayısını `n + 1`.
+>
+> - Olduğunda, **ölçek** AKS kümesi, yeni bir düğüm kümesine dağıtılır. Hizmetleri ve iş yüklerini yeni düğüm üzerinde çalışmaya başlar. IP adresi aralığınızı düğümleri ve kümenize destekleyebilir pod'ların sayısını ölçeklendirmek nasıl isteyebileceğiniz noktaları olması gerekir. Yükseltme işlemleri için ek bir düğümü da bulunması gerekir. Bu durumda, düğüm sayısını `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
+
+Pod'ların, en fazla sayısını çalıştırın ve düzenli olarak yok et ve pod'ları dağıtmak için düğümlerinizin bekliyorsanız, ayrıca bazı ek IP adresleri düğüm başına hesaba katmanız. Bu ek IP adresleri silinecek bir hizmet için birkaç saniye sürebilir dikkate alın ve IP adresi serbest dağıtılması ve adresini almak için yeni bir hizmet.
+
 IP adresi planı bir AKS kümesi bir sanal oluşur için ağ, düğümler, pod'ların ve bir Kubernetes hizmeti adres aralığı için en az bir alt ağ.
 
 | Adres aralığı / Azure kaynağı | Limitler ve boyutlandırma |
 | --------- | ------------- |
 | Sanal ağ | Azure sanal ağı /8 büyük olabilir, ancak 65.536 yapılandırılmış IP adresleri için sınırlıdır. |
-| Alt ağ | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. <p/>Hesaplamak için *minimum* alt ağ boyutu: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Örneğin, 50 düğümlü bir küme: `(50) + (50 * 30 (default)) = 1,550` (/ 21 veya daha büyük)<p>Kümenizi oluştururken pod'ların düğüm başına en fazla belirtmezseniz, pod'ların düğüm başına en fazla sayısını kümesine *30*. IP adresleri gerekli en düşük sayısı bu değere göre belirlenir. En düşük IP adresi gereksinimlerinize göre farklı bir maksimum değer hesaplamak olup [pod'ların düğüm başına en fazla sayısını yapılandırmak nasıl](#configure-maximum---new-clusters) kümenizi dağıttığınızda bu değeri ayarlamak için. |
+| Alt ağ | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. Alt ağ boyutunu da hesap yükseltme işlemleri veya gelecekteki ölçeklendirme gereksinimlerinizi almanız gerekir.<p />Hesaplamak için *minimum* yükseltme işlemleri için ek bir düğümüne dahil alt ağ boyutu: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Örneğin, 50 düğümlü bir küme: `(51) + (51  * 30 (default)) = 1,581` (/ 21 veya daha büyük)<p/>Örneğin, ek bir 10 düğümlerini ölçeklendirmek için sağlama da içeren bir 50 düğüm kümesi: `(61) + (61 * 30 (default)) = 2,440` (/ 20 veya daha büyük)<p>Kümenizi oluştururken pod'ların düğüm başına en fazla belirtmezseniz, pod'ların düğüm başına en fazla sayısını kümesine *30*. IP adresleri gerekli en düşük sayısı bu değere göre belirlenir. En düşük IP adresi gereksinimlerinize göre farklı bir maksimum değer hesaplamak olup [pod'ların düğüm başına en fazla sayısını yapılandırmak nasıl](#configure-maximum---new-clusters) kümenizi dağıttığınızda bu değeri ayarlamak için. |
 | Kubernetes hizmeti adres aralığı | Bu aralık herhangi bir ağ öğe tarafından kullanılan veya bu sanal ağa bağlı. Hizmeti adresi CIDR /12 küçük olmalıdır. |
 | Kubernetes DNS hizmeti IP adresi | Kubernetes içinde IP adresi (kube-dns) Küme hizmetini bulma tarafından kullanılan adres aralığı hizmeti. |
 | Docker köprü adresi | IP adresi (CIDR gösteriminde) Docker köprü düğümlerinde IP adresi kullanılır. Varsayılan değer 172.17.0.1/16. |
@@ -73,7 +82,7 @@ Bir AKS kümesi oluşturduğunuzda, aşağıdaki parametreleri için Gelişmiş 
 
 **Sanal ağ**: Kubernetes kümesini dağıtmak istediğiniz sanal ağı. Kümeniz için yeni bir sanal ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *sanal ağ oluştur* bölümü. Bir Azure sanal ağı için kotaları ve sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Alt ağ**: kümeyi dağıtmak istediğiniz sanal ağ içindeki alt ağ. Kümenizin bir sanal ağdaki yeni bir alt ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *alt ağ oluşturma* bölümü.
+**Alt ağ**: kümeyi dağıtmak istediğiniz sanal ağ içindeki alt ağ. Kümenizin bir sanal ağdaki yeni bir alt ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *alt ağ oluşturma* bölümü. Karma bağlantı için adres aralığı ortamınızdaki diğer sanal ağlara ile çakışma olmaması gerekir.
 
 **Kubernetes hizmeti adres aralığı**: Kubernetes atar sanal IP'ler kümesidir [Hizmetleri] [ services] kümenizdeki. Aşağıdaki gereksinimleri karşılayan herhangi bir özel adres aralığını kullanabilirsiniz:
 

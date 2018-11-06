@@ -3,7 +3,7 @@ title: Güvenlik Merkezi'nde Azure disk şifrelemesi Uygula | Microsoft Docs
 description: Bu belge Azure Güvenlik Merkezi önerinin nasıl uygulanacağını gösterir **disk şifrelemesi Uygula**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 20b55f993e8a570c737d5849af957b4c40089f61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 4ae3dd0446c2e2aaa35f3ae1322834881ec2009c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301641"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012165"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Güvenlik Merkezi'nde Azure disk şifrelemesi Uygula
 Azure Güvenlik Merkezi, Azure Disk şifrelemesi kullanılarak şifrelenmemiş Windows veya Linux VM disk varsa disk şifrelemesi Uygula önerir. Disk şifrelemesi, Windows ve Linux Iaas sanal makine disklerinizi şifreleyin sağlar.  Şifreleme hem işletim sistemi hem de VM’nizin üzerindeki veri birimleri için önerilir.

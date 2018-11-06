@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8525dd443e80bb7d67bc48cc007ab1632ee3e611
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b8b07db6e21fb685ed76409336c98bb5f4ce5bde
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056024"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009445"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL Data Warehouse'a veri yükleme
 
@@ -35,6 +35,7 @@ Bu makale, Data Factory-veri kopyalama aracını işlemini göstermektedir _yük
 
 > [!NOTE]
 > Daha fazla bilgi için [veri kopyalama için veya Azure SQL veri ambarı'ndan Azure Data Factory kullanarak](connector-azure-sql-data-warehouse.md).
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği: Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.

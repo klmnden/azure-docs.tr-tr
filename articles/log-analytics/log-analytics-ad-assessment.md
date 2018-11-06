@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962784"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012063"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Log analytics'te Active Directory sistem durumu denetimi çözümü ile Active Directory ortamınızı en iyi duruma getirme
 
@@ -186,4 +186,4 @@ Sonraki, varsayılan olarak yedi günde sistem durumu denetimi çalıştırır, 
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı veri AD sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-queries.md) ayrıntılı veri AD sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
