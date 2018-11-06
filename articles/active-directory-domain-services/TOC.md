@@ -2,6 +2,7 @@
 
 # Genel Bakış
 ## [Azure AD Etki Alanı Hizmetleri nedir?](active-directory-ds-overview.md)
+## [SSS](active-directory-ds-faqs.md)
 ## Bu sizin için geçerli mi?
 ### [Windows Server AD ile karşılaştırma](active-directory-ds-comparison.md)
 ### [Azure AD katılma ile karşılaştırma](active-directory-ds-compare-with-azure-ad-join.md)
@@ -55,7 +56,6 @@
 ## [Güvenli LDAP sorunlarını giderme](active-directory-ds-ldaps-troubleshoot.md)
 
 # Sorun giderme
-## [SSS’ler](active-directory-ds-faqs.md)
 ## [Sorun giderme kılavuzu](active-directory-ds-troubleshooting.md)
 ## [Sorun giderme uyarıları](active-directory-ds-troubleshoot-alerts.md)
 ### [Bozuk bir NSG yapılandırmasını düzeltme](active-directory-ds-troubleshoot-nsg.md)
