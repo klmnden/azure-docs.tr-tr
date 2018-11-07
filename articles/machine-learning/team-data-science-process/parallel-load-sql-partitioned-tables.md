@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214351"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243429"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL Bölüm Tabloları Kullanarak Paralel Toplu Veri Alma
 Bu belge, bölümlenmiş tablolar, hızlı paralel toplu veri bir SQL Server veritabanına içeri aktarmak için nasıl oluşturulduğu açıklanır. Büyük veri yükleme/aktarım için bir SQL veritabanı, SQL DB ve sonraki sorgular için veri alma kullanılarak geliştirilebilir *bölümlenmiş tabloları ve görünümleri*. 
@@ -102,7 +102,7 @@ Daha fazla bilgi için [bölümlenmiş tablolar oluşturun ve dizinler](https://
 * [Veritabanı alter](https://msdn.microsoft.com/library/bb522682.aspx) günlüğü, örneğin yükünü en aza indirmek için toplu_günlüklü için işlem günlüğü düzenini değiştirmek için:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Veri yükleme hızlandırmak için paralel toplu içeri aktarma işlemlerinde başlatın. SQL Server veritabanlarına büyük veri alma toplu hızlandırılması ipuçları için bkz [1 saatten kısa bir süre içinde 1 TB yükleme](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Veri yükleme hızlandırmak için paralel toplu içeri aktarma işlemlerinde başlatın. SQL Server veritabanlarına büyük veri alma toplu hızlandırılması ipuçları için bkz [1 saatten kısa bir süre içinde 1 TB yükleme](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 Aşağıdaki PowerShell betiğini bir paralel veri BCP kullanarak yükleme örneğidir.
 

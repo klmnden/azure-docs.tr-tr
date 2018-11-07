@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: e22a2431ecae68278276b069bc199cfea60cd413
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 5d2edd3b4d8655133ef2835f0d0e579280123ae7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347367"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249430"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
 
@@ -27,7 +27,7 @@ Uygulama iş yükleri çalıştıran Service Fabric kümeleriniz için uygun des
 
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Üretim sorun bildirin veya Azure için Ücretli destek isteği
 
-Azure'da dağıtılan Service Fabric kümenizdeki sorunları raporlama için bir destek bileti açın [Azure portalında](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) veya [Microsoft destek portalı](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Azure'da dağıtılan Service Fabric kümenizdeki sorunları raporlama için bir destek bileti açın [Azure portalında](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) veya [Microsoft destek portalı](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Aşağıdakiler hakkında daha fazla bilgi edinin:
  
@@ -38,7 +38,7 @@ Aşağıdakiler hakkında daha fazla bilgi edinin:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Üretim sorun bildirin veya tek başına Service Fabric kümeleri için Ücretli destek isteği
 
-Service Fabric kümenizdeki sorunları dağıtılan şirket içi raporlama veya diğer bulutlarda bir profesyonel destek bileti açmak [Microsoft destek portalı](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Service Fabric kümenizdeki sorunları dağıtılan şirket içi raporlama veya diğer bulutlarda bir profesyonel destek bileti açmak [Microsoft destek portalı](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Aşağıdakiler hakkında daha fazla bilgi edinin:
 

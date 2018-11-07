@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: 6218a96b3939b2a07832dd3d6d19327cfb039b68
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 5707f97dff099d1ad914dcf3faa96cc287d48de9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986942"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245673"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -27,16 +27,22 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullana
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
 
 > [!NOTE]
-> Kiracı yöneticileri yalnızca bir Azure AD DS'yi örneği oluşturmak için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Store (ADLS) olup olmadığını Gen1 veya 2. nesil, devre dışı multi-Factor Authentication (MFA) kümeye erişen kullanıcılar için. Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
+> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Store (ADLS) olup olmadığını Gen1 veya 2. nesil, devre dışı multi-Factor Authentication (MFA) kümeye erişmek için ihtiyaç duyan kullanıcılar için. Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
 
 Bir HDInsight kümesi ile ESP oluşturabilmeniz için önce AzureAD DS etkinleştirme önkoşuldur. Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
-Azure AD DS'yi etkinleştirildiğinde, tüm kullanıcılar ve nesneler Azure Active Directory'den varsayılan olarak Azure AD DS'ye eşitleme başlatın. Eşitleme işlemi uzunluğu, Azure AD'de nesneleri sayısına bağlıdır. Eşitleme yüz binlerce nesne için birkaç gün sürebilir. 
+Azure AD DS'yi etkinleştirildiğinde, tüm kullanıcılar ve nesneler Azure Active Directory (AAD dan), varsayılan olarak Azure AD DS'ye eşitleme başlatın. Eşitleme işlemi uzunluğu, Azure AD'de nesneleri sayısına bağlıdır. Eşitleme yüz binlerce nesne için birkaç gün sürebilir. 
 
 Müşteriler, HDInsight kümeleri erişmesi gereken grupları eşitlenecek seçebilir. Bu seçenek, yalnızca belirli gruplara eşitlemenin adlandırılır *eşitleme kapsamı*. Bkz: [yapılandırma kapsamlı eşitleme Azure AD'den yönetilen etki alanınıza](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) yönergeler için.
 
-Güvenli LDAP etkinleştirilirken sertifika konu adında bir etki alanı adı veya konu alternatif adı yerleştirin. Örneğin, etki alanı adınızı ise *contoso.com*, bu tam adı, sertifika konu adı veya konu diğer adı var olduğundan emin olun. Daha fazla bilgi için [güvenli LDAP yapılandırma için bir Azure AD-DS yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+Güvenli LDAP etkinleştirilirken sertifika konu adında bir etki alanı adı ve konu alternatif adı yerleştirin. Örneğin, etki alanı adınızı ise *contoso100.onmicrosoft.com*, bu tam adı, sertifika konu adı ve konu diğer adı var olduğundan emin olun. Daha fazla bilgi için [güvenli LDAP yapılandırma için bir Azure AD-DS yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Aşağıda, otomatik olarak imzalanan sertifika oluşturmanın bir örnektir ve etki alanı adına sahip (*contoso100.onmicrosoft.com*) konu adı hem de DnsName (konu alternatif adı):
 
+```powershell
+$lifetime=Get-Date
+New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
+  -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
+  -Type SSLServerAuthentication -DnsName *.contoso100.onmicrosoft.com, contoso100.onmicrosoft.com
+``` 
 
 ## <a name="check-azure-ad-ds-health-status"></a>Azure AD DS'yi sistem durumunu denetleyin
 Azure Active Directory etki alanı Hizmetleri'niz sistem durumunu görüntülemek için **sistem durumu** altında **Yönet** kategorisi. (Çalışan) yeşil ve eşitleme tamamlandığında, Azure AD-DS durumu olduğundan emin olun.
@@ -45,15 +51,15 @@ Azure Active Directory etki alanı Hizmetleri'niz sistem durumunu görüntüleme
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Oluşturma ve yönetilen bir kimlik yetkilendirme
 
-A **yönetilen kullanıcı tarafından atanan kimliği** etki alanı Hizmetleri işlemleri basitleştirmek için kullanılır. HDInsight etki alanı Hizmetleri katkıda bulunan rolü yönetilen kimlik atadığınızda, okuma, oluşturma, değiştirme ve silme etki alanı Hizmetleri. OU'lar ve hizmet ilkeleri oluşturma gibi belirli etki alanı hizmetleri işlemlerini HDInsight Kurumsal güvenlik paketi için gereklidir. Yönetilen kimlik herhangi bir abonelikte oluşturulabilir. Daha fazla bilgi için [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md).
+A **yönetilen kullanıcı tarafından atanan kimliği** basitleştirmek ve güvenli etki alanı Hizmetleri işlemler için kullanılır. HDInsight etki alanı Hizmetleri katkıda bulunan rolü için yönetilen kimlik olarak atadığınızda, okuma, oluşturma, değiştirme ve silme etki alanı Hizmetleri. OU'lar ve hizmet ilkeleri oluşturma gibi belirli etki alanı hizmetleri işlemlerini HDInsight Kurumsal güvenlik paketi için gereklidir. Yönetilen kimlik herhangi bir abonelikte oluşturulabilir. Daha fazla bilgi için [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md).
 
-ESP HDInsight kümeleri ile kullanmak için bir yönetilen kimlik ayarlamak için zaten yoksa, kullanıcı tarafından atanan bir yönetilen kimlik oluşturun. Bkz: [Create, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) yönergeler için. Ardından, yönetilen kimlik için Ata **HDInsight etki alanı Hizmetleri katkıda bulunan** rolünde Azure AD DS erişim denetimi (DS AAD yönetici ayrıcalıkları bu rol ataması yapmak için gerekli).
+ESP kümeleri için zaten yoksa, kullanıcı tarafından atanan bir yönetilen kimlik oluşturun. Bkz: [Create, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) yönergeler için. Ardından, Ata **HDInsight etki alanı Hizmetleri katkıda bulunan** yönetilen kimliğe (DS AAD yönetici ayrıcalıkları bu rol ataması yapmak için gerekli) Azure AD DS erişim denetimine rol.
 
 ![Azure Active Directory etki alanı Hizmetleri erişim denetimi](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-Yönetilen bir kimlik için atama **HDInsight etki alanı Hizmetleri katkıda bulunan** rol kimliği AAD DS etki alanındaki belirli bir etki alanı Hizmetleri işlemlerin gerçekleştirilmesi için uygun erişimi olduğunu sağlar.
+Atama **HDInsight etki alanı Hizmetleri katkıda bulunan** rolü, bu kimlik, (adına) erişim OU oluşturma, silme OU'ları, vb. AAD DS etki alanındaki gibi etki alanı Hizmetleri işlemleri gerçekleştirmek için uygun olduğunu sağlar.
 
-Yönetilen kimlik oluşturup doğru rolü verilmiş olan bu yönetilen kimlik kullanabilir DS AAD yönetici ayarlayabilirsiniz. Kullanıcılar için yönetilen kimlik ayarlamak için yönetici yönetilen kimlik portalda seçin ve tıklayın **erişim denetimi (IAM)** altında **genel bakış**. Ardından, sağ tarafta ESP HDInsight kümeleri oluşturmak istediğiniz grupları ve kullanıcılar için "Yönetilen kimlik işleci" rolüne atayın. Örneğin, AAD DS yönetici, bu rol için aşağıdaki resimde gösterildiği gibi "yönetilen sjmsi" kimlik "MarketingTeam" grubuna atayabilirsiniz.
+Yönetilen kimlik oluşturup doğru rolü verilmiş olan bu yönetilen kimlik kullanabilir DS AAD yönetici ayarlayabilirsiniz. Kullanıcılar için yönetilen kimlik ayarlamak için yönetici yönetilen kimlik portalda seçin ve tıklayın **erişim denetimi (IAM)** altında **genel bakış**. Ardından, sağ tarafta atayın **yönetilen kimlik işleci** kullanıcıları veya grupları ESP HDInsight kümeleri oluşturmak istediğiniz rol. Örneğin, AAD DS yönetici, bu rol için aşağıdaki resimde gösterildiği gibi "yönetilen sjmsi" kimlik "MarketingTeam" grubuna atayabilirsiniz. Bu, kuruluşunuzdaki doğru kişilere erişim ESP kümelerini oluşturmak amacıyla bu yönetilen bir kimlik kullanacak şekilde sahip olmanızı sağlar.
 
 ![HDInsight yönetilen kimlik işleci rol ataması](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
@@ -74,27 +80,23 @@ Sanal ağlar eşlendikten sonra HDInsight VNET özel bir DNS sunucusu kullanın 
 ![Eşlenen sanal ağ için özel DNS sunucuları yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
 **Sınanacak** ağınızın doğru şekilde ayarlanıp ayarlanmadığını windows VM HDInsight VNET/alt ağına katılın ve etki alanı adı (çözmek için bir IP) ping ve ardından çalıştırın **Ldp.exe'yi** Azure AD DS etki alanını erişmek için. Ardından **bu windows VM onaylamak için etki alanına** istemci ve sunucu tüm gerekli RPC çağrıları başarılı. Ayrıca **nslookup** (örneğin, dış Hive meta veri deposu veya Ranger DB) kullanıyor olabileceğiniz herhangi bir dış DB veya depolama hesabınız için ağ erişimi onaylamak için.
-Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) AAD DS bir NSG tarafından sağlanıyorsa AAD DS alt ağ güvenlik grubu kurallarını güvenilir listededir. 
+Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) AAD DS bir NSG tarafından sağlanıyorsa AAD DS alt ağ güvenlik grubu kurallarını güvenilir listededir. Bu windows etki alanına katılma VM başarılı olur sonraki adıma geçin ve ESP kümeleri oluşturma.
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>ESP ile bir HDInsight kümesi oluşturma
 
 Önceki adımları doğru şekilde ayarladıktan sonra sonraki adıma HDInsight kümesi ile ESP etkin oluşturmaktır. Bir HDInsight kümesi oluşturduğunuzda, Kurumsal güvenlik paketi içinde etkinleştirebilirsiniz **özel** sekmesi. Dağıtım için bir Azure Resource Manager şablonu kullanmak isterseniz, portal deneyimi kez kullanın ve sonra yeniden kullanmak için son "Özet" sayfası üzerinde önceden doldurulmuş şablonunu indirin.
 
-![Azure HDInsight güvenlik ve ağ özellikleri](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-security-networking.png)
-
-ESP etkinleştirdiğinizde, Azure AD DS ile ilgili sık karşılaşılan hatalı yapılandırmalarını otomatik olarak algılandı ve doğrulanır.
-
 ![Azure HDInsight, Kurumsal güvenlik paketi etki alanı doğrulama](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 
-Erkenden algılanması, küme oluşturmadan önce hataları düzeltin izin vererek zamandan tasarruf sağlar.
+ESP etkinleştirdiğinizde, Azure AD DS ile ilgili sık karşılaşılan hatalı yapılandırmalarını otomatik olarak algılandı ve doğrulanır. Bu hataları düzelttikten sonra sonraki adıma geçebilirsiniz: 
 
 ![Azure HDInsight Kurumsal güvenlik paketi, etki alanı doğrulaması başarısız oldu](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
 
 ESP ile HDInsight kümesi oluşturduğunuzda, aşağıdaki parametreleri belirtmeniz gerekir:
 
-- **Kümenin yönetici kullanıcı**: kümenizin bir yönetici, eşitlenmiş Azure AD-DS'den seçin. Bu hesap zaten eşitlenmiş ve Azure AD-DS kullanılabilir olması gerekir.
+- **Kümenin yönetici kullanıcı**: kümenizin bir yönetici, eşitlenmiş Azure AD-DS'den seçin. Bu etki alanı hesabı eşitlendi ve Azure AD-DS kullanılabilir olması gerekir.
 
-- **Erişim grupları küme**: kümeye eşitlemek istediğinizden, kullanıcıları Azure AD DS'de kullanılabilir güvenlik grupları. Örneğin, HiveUsers grup. Daha fazla bilgi için [bir grup oluşturun ve Azure Active Directory'de üye ekleme](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+- **Erişim grupları küme**: eşitleme ve Küme erişimi olan kullanıcılar Azure AD DS'de kullanılabilir güvenlik grupları. Örneğin, HiveUsers grup. Daha fazla bilgi için [bir grup oluşturun ve Azure Active Directory'de üye ekleme](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 - **LDAPS URL'si**: ldaps://contoso.com:636 örneğidir.
 

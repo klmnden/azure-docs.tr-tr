@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244024"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Kurtarma planlarına Azure Otomasyonu runbook'ları ekleme
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Otomasyonu ile nasıl tümleştirildiğini açıklar. Kurtarma planları, Site Recovery ile korunan Vm'leri kurtarma düzenleyebilirsiniz. Kurtarma planları, çoğaltma için ikincil bir Bulutu hem Azure'a çoğaltma için çalışır. Kurtarma planları da yardımcı olun kurtarma **tutarlı bir şekilde doğru**, **tekrarlanabilir**, ve **otomatik**. Azure Otomasyonu ile tümleştirme, sanal makinelerinizin azure'a yük devretme durumunda kurtarma planlarınızı genişletir. Güçlü otomasyon görevleri sunan runbook'ları çalıştırmak için kullanabilirsiniz.
@@ -252,8 +252,8 @@ Başka bir örnek için aşağıdaki videoya bakın. Bu, iki katmanlı bir WordP
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [Azure Otomasyonu hizmeti Run As hesabı](../automation/automation-create-runas-account.md)
-* [Azure Otomasyonu'na genel bakış](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Otomasyonu'na genel bakış")
-* [Azure Otomasyonu örnek betikler](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Otomasyonu örnek betikler")
+* [Azure Otomasyonu'na genel bakış](https://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Otomasyonu'na genel bakış")
+* [Azure Otomasyonu örnek betikler](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Otomasyonu örnek betikler")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Daha fazla bilgi edinin](site-recovery-failover.md) yük devretme işlemleri çalıştırma hakkında.

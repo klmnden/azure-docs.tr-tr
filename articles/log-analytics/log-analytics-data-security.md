@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d042033981cba4e9d56b48543a7c6016a38efb53
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958564"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244483"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belge özelliği hakkında bilgiler tamamlamak için Azure İzleyici, Log Analytics, özel bilgiler sağlamak için tasarlanmıştır [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -36,7 +36,7 @@ Log Analytics hizmetine aşağıdaki yöntemleri kullanarak buluttaki verilerini
 * Uyumluluk
 * güvenlik standartları sertifikaları
 
-Tüm soruları, öneri veya bizim güvenlik ilkeleri de dahil olmak üzere aşağıdaki bilgileri ile ilgili sorunlar ile bizimle [Azure destek seçenekleri](http://azure.microsoft.com/support/options/).
+Tüm soruları, öneri veya bizim güvenlik ilkeleri de dahil olmak üzere aşağıdaki bilgileri ile ilgili sorunlar ile bizimle [Azure destek seçenekleri](https://azure.microsoft.com/support/options/).
 
 ## <a name="sending-data-securely-using-tls-12"></a>TLS 1.2 kullanarak güvenli bir şekilde veri gönderme 
 
@@ -86,7 +86,7 @@ Aşağıdaki tabloda veri türleri gösterilmektedir:
 | Durum |StateChangeEventId, stateId, NewHealthState, OldHealthState, bağlam, TimeGenerated, TimeAdded, StateId2, Basemanagedentityıd, Monitorıd, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fiziksel güvenlik
-Log Analytics hizmeti, Microsoft personeli tarafından yönetilir ve tüm etkinlikleri günlüğe kaydedilir ve denetlenebilir. Log Analytics, bir Azure hizmeti olarak çalıştırılır ve tüm Azure uyumluluk ve güvenlik gereksinimlerini karşılıyor. Fiziksel varlıklarının güvenliği, Azure hakkındaki ayrıntıları 18 sayfasında görüntüleyebilirsiniz [Microsoft Azure güvenliğine genel bakış](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Alanları güvenliğini sağlamak için fiziksel erişim hakları, aktarımı ve sonlandırma dahil olmak üzere Log Analytics hizmeti için sorumluluk artık sahip olan herkes için bir iş günü içinde değiştirilir. Kullandığımız en genel fiziksel altyapı okuyabilirsiniz [Microsoft Datacenters](https://azure.microsoft.com/global-infrastructure/).
+Log Analytics hizmeti, Microsoft personeli tarafından yönetilir ve tüm etkinlikleri günlüğe kaydedilir ve denetlenebilir. Log Analytics, bir Azure hizmeti olarak çalıştırılır ve tüm Azure uyumluluk ve güvenlik gereksinimlerini karşılıyor. Fiziksel varlıklarının güvenliği, Azure hakkındaki ayrıntıları 18 sayfasında görüntüleyebilirsiniz [Microsoft Azure güvenliğine genel bakış](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Alanları güvenliğini sağlamak için fiziksel erişim hakları, aktarımı ve sonlandırma dahil olmak üzere Log Analytics hizmeti için sorumluluk artık sahip olan herkes için bir iş günü içinde değiştirilir. Kullandığımız en genel fiziksel altyapı okuyabilirsiniz [Microsoft Datacenters](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>Olay yönetimi
 Log Analytics için tüm Microsoft hizmetlerini kullanan bir olay Yönetimi sürecinizi sahiptir. Özetlemek gerekirse, biz:

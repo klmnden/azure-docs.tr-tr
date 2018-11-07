@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395738"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250926"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem
 
@@ -64,9 +64,9 @@ Python için bir IDE olan Visual Studio (PTVS) uzantısı önceden yüklenmiş i
 
 ![PTVS Kurulumu](./media/vm-do-ten-things/PTVSSetup.png)
 
-Bkz: [PTVS dokümantasyonu](http://aka.ms/ptvsdocs) Python ortamları oluşturma hakkında daha fazla ayrıntı için.
+Bkz: [PTVS dokümantasyonu](https://aka.ms/ptvsdocs) Python ortamları oluşturma hakkında daha fazla ayrıntı için.
 
-Artık, yeni Python projesi oluşturmak için ayarlanır. Gidin **dosya** -> **yeni** -> **proje** -> **Python** ve türünü seçin Python uygulaması oluşturuyorsunuz. Sağ tıklayarak (Python 2.7 ya da 3.6) istenen sürüm için geçerli proje için Python ortamı ayarlayabilirsiniz **Python ortamları**u seçerek **Ekle/Kaldır Python ortamları**ve ardından olduğu istenen ortama çekme. Üründe PTVS ile çalışma hakkında daha fazla bilgi bulabilirsiniz [belgeleri](http://aka.ms/ptvsdocs).
+Artık, yeni Python projesi oluşturmak için ayarlanır. Gidin **dosya** -> **yeni** -> **proje** -> **Python** ve türünü seçin Python uygulaması oluşturuyorsunuz. Sağ tıklayarak (Python 2.7 ya da 3.6) istenen sürüm için geçerli proje için Python ortamı ayarlayabilirsiniz **Python ortamları**u seçerek **Ekle/Kaldır Python ortamları**ve ardından olduğu istenen ortama çekme. Üründe PTVS ile çalışma hakkında daha fazla bilgi bulabilirsiniz [belgeleri](https://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Jupyter Not Defteri kullanarak keşfedin ve Python veya R ile verilerinizi modelleyin
 Jupyter not defteri veri keşfi ve modelleme için bir tarayıcı tabanlı "IDE" sağlayan güçlü bir ortamdır. Python 2, 3 Python veya R (açık kaynak ve Microsoft R Server) bir Jupyter not defteri kullanabilirsiniz.
@@ -806,7 +806,7 @@ Azure Cosmos DB DSVM erişmek için koşullar başına adımları şunlardır:
 
 1. Azure Cosmos DB Python SDK'sı DSVM üzerinde zaten yüklü (çalıştırma ```pip install pydocumentdb --upgrade``` güncelleştirmek için komut isteminden)
 2. Azure Cosmos DB hesabı oluşturup bir veritabanından [Azure portalı](https://portal.azure.com)
-3. "Azure Cosmos DB geçiş aracı" indirmesine [burada](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) ve tercih ettiğiniz bir dizine ayıklayın
+3. "Azure Cosmos DB geçiş aracı" indirmesine [burada](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) ve tercih ettiğiniz bir dizine ayıklayın
 4. Depolanmış JSON verilerini (volkan veriler) bir [ortak blob](https://cahandson.blob.core.windows.net/samples/volcano.json) Geçiş Aracı (Cosmos DB geçiş aracı yüklediğiniz dizininden dtui.exe) için aşağıdaki komutu parametreler ile Cosmos DB içinde. Bu parametreleri ile kaynak ve hedef konumu girin:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

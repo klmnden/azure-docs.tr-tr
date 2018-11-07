@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a10d354cf819ebaa7e2199d9de0566b3e6bfd1bf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057151"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243769"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure kullanmaya başlama depolama (Azure WebJob Proje)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -145,5 +145,5 @@ Nasıl kullanılacağı hakkında daha fazla bilgi için **CloudTable** nesne, b
 Bir kuyruk iletisi tarafından tetiklenen tablo işlem hakkında bilgi için veya tablo işlemeye özel olmayan Web işleri SDK'sı senaryoları için bkz: [bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama ](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Azure tabloları ile çalışmak için ortak senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure WebJobs ve WebJobs SDK'sı kullanma hakkında daha fazla bilgi için bkz. [Azure WebJobs belgeleri kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
+Bu makalede, Azure tabloları ile çalışmak için ortak senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure WebJobs ve WebJobs SDK'sı kullanma hakkında daha fazla bilgi için bkz. [Azure WebJobs belgeleri kaynakları](https://go.microsoft.com/fwlink/?linkid=390226).
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 80a165c4533f555dce2d86f044f3caa328761123
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b39ae6b5546e9504b9f37504c486c941ab034399
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645756"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250008"
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Tarafından Azure destekli dağıtımlarda Linux
 İş ortakları, Azure Market'teki Linux görüntüleri sağlar. Desteklenen dağıtım listesine daha da fazla çeşitleme katmak çeşitli Linux topluluklarıyla çalışıyoruz. Bu sırada, Market'ten mevcut olmayan dağıtımlar her zaman kendi Linux yönergeleri izleyerek getirebilir [oluşturma ve karşıya yükleme Linux işletim sistemini içeren bir sanal sabit disk](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -38,9 +38,9 @@ Azure Linux Aracısı, Azure Market görüntüleri üzerinde önceden yüklü ol
 | CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS indirin](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4 +: çekirdek |Paket: İçinde [depo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) "WALinuxAgent" altında <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |Çekirdek |Kaynak kodu: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7,9 +, 8.2 + |Çekirdek |Paketi: "waagent" altında depoya <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Oracle Linux |6.4+, 7.0+ |Çekirdek |Paketi: "WALinuxAgent" altında depoya <br/>Kaynak kodu: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Oracle Linux |6.4+, 7.0+ |Çekirdek |Paketi: "WALinuxAgent" altında depoya <br/>Kaynak kodu: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 + 7.1 + |Çekirdek |Paketi: "WALinuxAgent" altında depoya <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SAP için SLES/SLES<br>11 SP4<br>12 SP1 +<br>15|Çekirdek |Paket:<p> 11'de için [bulut: Araçları](https://build.opensuse.org/project/show/Cloud:Tools) depo<br>için "Genel bulut" modülünü "azure-python-agent" altında bulunan 12<br/>Kaynak kodu: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| SUSE Linux Enterprise |SAP için SLES/SLES<br>11 SP4<br>12 SP1 +<br>15|Çekirdek |Paket:<p> 11'de için [bulut: Araçları](https://build.opensuse.org/project/show/Cloud:Tools) depo<br>için "Genel bulut" modülünü "azure-python-agent" altında bulunan 12<br/>Kaynak kodu: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE 42.2 + artık |Çekirdek |Paket: İçinde [bulut: Araçları](https://build.opensuse.org/project/show/Cloud:Tools) altındaki "azure-python-agent" depo <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |Çekirdek |Paketi: "walinuxagent" altında depoya <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 

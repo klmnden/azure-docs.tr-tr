@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 203b3f79e5cca93557b3aa69c5774570c9e57022
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e5e156166ec9e085cf7a3c2dcb72aa9e87bbadf1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719544"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244958"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure sanal makinelerinde (Klasik) SQL Server için Azure anahtar kasası tümleştirmesini yapılandırma
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "38719544"
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Birden çok SQL Server şifreleme özellikleri vardır, örneğin [saydam veri şifrelemesi (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [sütun düzeyinde şifrelemeyi (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), ve [yedekleme şifrelemesi](https://msdn.microsoft.com/library/dn449489.aspx). Bu formlar şifreleme, şifreleme için kullandığınız şifreleme anahtarlarını depolamak ve yönetmek gerektirir. Azure Key Vault (AKV) hizmeti, güvenlik ve bu anahtarları güvenli ve yüksek oranda kullanılabilir bir konumda yönetimini iyileştirmek için tasarlanmıştır. [SQL Server Bağlayıcısı](http://www.microsoft.com/download/details.aspx?id=45344) Bu anahtarları Azure Key vault'tan kullanılacak SQL Server'ı etkinleştirir.
+Birden çok SQL Server şifreleme özellikleri vardır, örneğin [saydam veri şifrelemesi (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [sütun düzeyinde şifrelemeyi (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), ve [yedekleme şifrelemesi](https://msdn.microsoft.com/library/dn449489.aspx). Bu formlar şifreleme, şifreleme için kullandığınız şifreleme anahtarlarını depolamak ve yönetmek gerektirir. Azure Key Vault (AKV) hizmeti, güvenlik ve bu anahtarları güvenli ve yüksek oranda kullanılabilir bir konumda yönetimini iyileştirmek için tasarlanmıştır. [SQL Server Bağlayıcısı](https://www.microsoft.com/download/details.aspx?id=45344) Bu anahtarları Azure Key vault'tan kullanılacak SQL Server'ı etkinleştirir.
 
 > [!IMPORTANT] 
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.

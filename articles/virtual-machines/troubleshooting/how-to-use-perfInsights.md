@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 29af7ad8b582682189320185c460597af53cf6d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413245"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243922"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights’ı kullanma
 
-[Perfınsights](http://aka.ms/perfinsightsdownload) toplar ve Tanılama verileri analiz eder ve azure'da Windows sanal makine performans sorunlarını gidermenize yardımcı olmak için bir rapor sağlayan bir kendi kendine yardım Tanılama aracı. Perfınsights kullanarak doğrudan Portalı'ndan bağımsız bir araç olarak sanal makinelerde çalıştırılabilir [Azure sanal makineler için Performans Tanılama](performance-diagnostics.md), veya yükleyerek [Azure performans tanılama VM uzantısı ](performance-diagnostics-vm-extension.md).
+[Perfınsights](https://aka.ms/perfinsightsdownload) toplar ve Tanılama verileri analiz eder ve azure'da Windows sanal makine performans sorunlarını gidermenize yardımcı olmak için bir rapor sağlayan bir kendi kendine yardım Tanılama aracı. Perfınsights kullanarak doğrudan Portalı'ndan bağımsız bir araç olarak sanal makinelerde çalıştırılabilir [Azure sanal makineler için Performans Tanılama](performance-diagnostics.md), veya yükleyerek [Azure performans tanılama VM uzantısı ](performance-diagnostics-vm-extension.md).
 
 Destek ile irtibat kurmadan önce sanal makineler, performans sorunları yaşıyorsanız, bu aracı çalıştırın.
 
@@ -190,7 +190,7 @@ Bu seçenek hakkında daha fazla bilgi için bkz. [Azure performans tanılama VM
 Perfınsights aracını çalıştırmak için aşağıdaki adımları izleyin:
 
 
-1. İndirme [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
+1. İndirme [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
 2. PerfInsights.zip dosya engeli kaldırın. Bunu yapmak için PerfInsights.zip dosyasını sağ tıklatın ve seçin **özellikleri**. İçinde **genel** sekmesinde **Engellemeyi Kaldır**ve ardından **Tamam**. Bu, herhangi bir ek güvenlik ister olmadan aracı çalıştırmasını sağlar.  
 

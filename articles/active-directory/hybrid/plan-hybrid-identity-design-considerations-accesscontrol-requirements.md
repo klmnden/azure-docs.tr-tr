@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313666"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247713"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için erişim denetimi gereksinimleri belirleme
 Bir kuruluşun kendi karma kimlik çözümü tasarlarken, bunlar bu fırsattan kullanıcılar için kullanılabilir hale getirmek için planlama kaynaklar için erişim gereksinimleri gözden geçirmek için kullanabilirsiniz. Veri erişimi olan tüm dört yapı taşları kimliğinin, çapraz:
@@ -34,7 +34,7 @@ Bir kuruluşun kendi karma kimlik çözümü tasarlarken, bunlar bu fırsattan k
 Aşağıdaki bölümlerde, kimlik doğrulama ve yetkilendirme yönetimi hakkında daha fazla bilgi kapsamakta ve karma kimlik yaşam döngüsü bir parçası olan denetim. Okuma [karma kimlik yönetimi görevleri belirlemek](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) bu özellikler hakkında daha fazla bilgi.
 
 > [!NOTE]
-> Okuma [dört yapı taşları, Identity - karma BT yaş Identity Management'ta](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) her biri, bu yapı taşları hakkında daha fazla bilgi.
+> Okuma [dört yapı taşları, Identity - karma BT yaş Identity Management'ta](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) her biri, bu yapı taşları hakkında daha fazla bilgi.
 > 
 > 
 

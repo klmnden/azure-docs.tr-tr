@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
 ms.component: disks
-ms.openlocfilehash: 401b8ebaa119f146cfcea0f948221c92e8bc6eb9
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: cd2f73b3fb2a8a3d80586063566fe66c37c26c67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713882"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243462"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Windows üzerinde VM diskleri için ölçeklenebilirlik ve performans hedefleri
 
@@ -23,6 +23,8 @@ ms.locfileid: "39713882"
 Bkz: [Windows VM boyutları](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) bakın.
 
 ## <a name="managed-virtual-machine-disks"></a>Yönetilen sanal makine diskleri
+
+Bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır. Bkz. bizim [SSS](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) bulunan hangi bölgelerde öğrenin.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
@@ -34,4 +36,3 @@ Bkz: [Windows VM boyutları](../../virtual-machines/windows/sizes.md?toc=%2fazur
 ## <a name="see-also"></a>Ayrıca bkz.
 
 [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](https://docs.microsoft.com/azure/azure-subscription-service-limits)
-

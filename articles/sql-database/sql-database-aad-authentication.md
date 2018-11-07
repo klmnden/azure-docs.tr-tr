@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 9d4ede9aee5261903a814cc2f29c788a2ba377f3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869778"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244092"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanın.
 
@@ -35,7 +35,7 @@ Azure AD kimlik doğrulaması ile veritabanı kullanıcılarının kimliklerini 
 - Tümleşik Windows kimlik doğrulaması ve diğer Azure Active Directory tarafından desteklenen kimlik doğrulama etkinleştirerek bu parolaları ortadan kaldırabilir.
 - Azure AD kimlik doğrulaması bağımsız veritabanı kullanıcılarını ve veritabanı düzeyinde kimlikleri doğrulamak için kullanır.
 - Azure AD, SQL veritabanına bağlanan uygulamalar için belirteç tabanlı kimlik doğrulamasını destekler.
-- Azure AD kimlik doğrulaması için bir yerel Azure Active Directory etki alanı eşitleme olmadan ADFS (etki alanı Federasyon) veya yerel kullanıcı/parola kimlik doğrulamasını destekler.  
+- Azure AD kimlik doğrulaması için bir yerel Azure Active Directory etki alanı eşitleme olmadan ADFS (etki alanı Federasyon) veya yerel kullanıcı/parola kimlik doğrulamasını destekler.  
 - Azure AD Active Directory Evrensel multi-Factor Authentication (MFA) içeren kimlik doğrulaması kullanan SQL Server Management Studio bağlantılarından destekler.  MFA, güçlü kimlik doğrulaması ile çeşitli kolay doğrulama seçenekleri içerir — telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Daha fazla bilgi için [SQL veritabanı ve SQL veri ambarı ile Azure AD MFA için SSMS desteği](sql-database-ssms-mfa-authentication.md).  
 
 > [!NOTE]  
@@ -118,10 +118,10 @@ Azure Active Directory kimlik doğrulaması, Azure AD kimlikleri kullanarak bir 
 - 30 saniye olarak bağlantı zaman aşımı ayarını öneririz.   
 - SQL Server 2016 Management Studio ve Visual Studio 2015 (sürüm 14.0.60311.1April 2016 veya üzeri) için SQL Server veri araçları, Azure Active Directory kimlik doğrulamasını destekler. (Azure AD kimlik doğrulaması tarafından desteklenen **SqlServer için .NET Framework veri sağlayıcısı**; en az .NET Framework 4.6 sürümü). Bu nedenle en son sürümleri bu araçlar ve veri katmanı uygulamaları (DAC ve. BACPAC), Azure AD kimlik doğrulaması kullanabilirsiniz.   
 - [ODBC sürüm 13.1](https://www.microsoft.com/download/details.aspx?id=53339) ancak Azure Active Directory kimlik doğrulamasını destekleyen `bcp.exe` daha eski bir ODBC sağlayıcısını kullandığından, Azure Active Directory kimlik doğrulaması kullanılarak bağlanılamıyor.   
-- `sqlcmd` Azure Active Directory kimlik doğrulaması başına 13.1 kullanılabilir sürümüyle destekler [İndirme Merkezi](http://go.microsoft.com/fwlink/?LinkID=825643).
-- SQL Server veri araçları, Visual Studio 2015 için en az bir veri Araçları (sürüm 14.0.60311.1) Nisan 2016 sürümünü gerektirir. Şu anda Azure AD kullanıcılarının SSDT nesne Gezgini'nde gösterilmez. Geçici çözüm olarak, kullanıcılar görüntülemek [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+- `sqlcmd` Azure Active Directory kimlik doğrulaması başına 13.1 kullanılabilir sürümüyle destekler [İndirme Merkezi](https://go.microsoft.com/fwlink/?LinkID=825643).
+- SQL Server veri araçları, Visual Studio 2015 için en az bir veri Araçları (sürüm 14.0.60311.1) Nisan 2016 sürümünü gerektirir. Şu anda Azure AD kullanıcılarının SSDT nesne Gezgini'nde gösterilmez. Geçici çözüm olarak, kullanıcılar görüntülemek [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [SQL Server için Microsoft JDBC sürücüsü 6.0](https://www.microsoft.com/download/details.aspx?id=11774) destekleyen Azure AD kimlik doğrulaması. Ayrıca bkz [bağlantı özelliklerini ayarlama](https://msdn.microsoft.com/library/ms378988.aspx).   
-- PolyBase, Azure AD kimlik doğrulamasını kullanarak kimlik doğrulaması yapamaz.   
+- PolyBase, Azure AD kimlik doğrulamasını kullanarak kimlik doğrulaması yapamaz.   
 - Azure AD kimlik doğrulaması SQL veritabanı için Azure portal tarafından desteklenen **veritabanını içeri aktar** ve **veritabanı dışarı aktarma** dikey pencereleri. İçeri ve dışarı aktarma Azure AD kimlik doğrulamasını kullanarak PowerShell komutunu da desteklenir.   
 - Azure AD kimlik doğrulaması, CLI kullanarak SQL veritabanı yönetilen örneği ve SQL veri ambarı için desteklenir. Daha fazla bilgi için [yapılandırma ve SQL veritabanı veya SQL veri ambarı ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md) ve [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 

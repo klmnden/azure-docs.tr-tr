@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251133"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245826"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama Tablo Tasarımı Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -122,7 +122,7 @@ Aşağıdaki örnek, çalışan ve departman varlıkları depolamak için bir ba
 </table>
 
 
-Şu ana kadar bu tasarım temel farklılıklar zorunlu sütunları ve öğeleri aynı tabloda birden fazla varlık türleri Depolama olanağı ile ilişkisel bir veritabanındaki tabloya benzer. Ayrıca, her biri gibi kullanıcı tanımlı Özellikler **FirstName** veya **yaş** tamsayı veya dize, yalnızca gibi ilişkisel bir veritabanındaki bir sütun gibi bir veri türü vardır. Farklı ilişkisel bir veritabanında tablo hizmeti şemasız doğasını bir özelliği aynı veri türüne her varlık üzerinde olması gerekmez, ancak. Karmaşık veri türlerini tek bir özellik depolamak için JSON veya XML gibi bir seri hale getirilmiş biçimi kullanmanız gerekir. Tablo hizmeti gibi desteklenen veri türleri, desteklenen bir tarih aralıkları, adlandırma kuralları ve boyutu sınırlaması hakkında daha fazla bilgi için bkz: [tablo hizmeti veri modelini anlama](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Şu ana kadar bu tasarım temel farklılıklar zorunlu sütunları ve öğeleri aynı tabloda birden fazla varlık türleri Depolama olanağı ile ilişkisel bir veritabanındaki tabloya benzer. Ayrıca, her biri gibi kullanıcı tanımlı Özellikler **FirstName** veya **yaş** tamsayı veya dize, yalnızca gibi ilişkisel bir veritabanındaki bir sütun gibi bir veri türü vardır. Farklı ilişkisel bir veritabanında tablo hizmeti şemasız doğasını bir özelliği aynı veri türüne her varlık üzerinde olması gerekmez, ancak. Karmaşık veri türlerini tek bir özellik depolamak için JSON veya XML gibi bir seri hale getirilmiş biçimi kullanmanız gerekir. Tablo hizmeti gibi desteklenen veri türleri, desteklenen bir tarih aralıkları, adlandırma kuralları ve boyutu sınırlaması hakkında daha fazla bilgi için bkz: [tablo hizmeti veri modelini anlama](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Göreceğiniz gibi tercih ettiğiniz **PartitionKey** ve **RowKey** iyi tablo tasarımı için temeldir. Tabloda depolanan her varlık eşsiz bir bileşimiyle olmalıdır **PartitionKey** ve **RowKey**. Anahtarları gibi bir ilişkisel veritabanı tablosundaki **PartitionKey** ve **RowKey** hızlı göz atmayı sağlayan kümelenmiş bir dizin oluşturmak için değerleri dizin bulunur; ancak, tablo hizmeti herhangi oluşturmaz (daha sonra açıklanan düzenlere bazıları nasıl görünen Bu sınırlandırma çerçevesinde çalışabilirsiniz Göster) yalnızca iki Dizinli Özellikler bunlar için ikincil dizinler.  
 
@@ -133,7 +133,7 @@ Tablo adı, hesap adı ve **PartitionKey** birlikte depolama hizmetindeki tablo 
 
 Tablo hizmetinde Hizmetleri tek bir düğüm bir veya daha fazla tamamlamak bölümleri ve hizmet ölçekler dinamik olarak yük dengeleyici tarafından düğümleri arasında bölümler. Bir düğümü yük altında ise, tablo hizmeti için *bölme* bölümler çeşitli hizmet, farklı düğümlerde düğüme tarafından; trafiği kısalana hizmet yapabilirsiniz *birleştirme* sessiz düğümlerden bölüm aralığı geri tek bir düğüme.  
 
-Daha fazla bilgi için iç ayrıntıları tablo hizmeti ve belirli bölümler hizmet yönetir nasıl incelemeye bakın [Microsoft Azure Depolama: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılıkla](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Daha fazla bilgi için iç ayrıntıları tablo hizmeti ve belirli bölümler hizmet yönetir nasıl incelemeye bakın [Microsoft Azure Depolama: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılıkla](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Varlık grubu işlemleri
 Tablo hizmeti, varlık grubu işlemleri (EGTs) birden fazla varlıkta atomik güncelleştirmeleri gerçekleştirmek için yalnızca yerleşik mekanizmasıdır. EGTs de denir *toplu işlemler* bazı belgelerde. Bu varlıklar aynı bölümde olmasını sağlamak için ihtiyacınız olan birden çok varlık arasında atomik işlem davranışı gereken herhangi bir zamanda EGTs yalnızca aynı bölümde (paylaşım bir tablodaki aynı bölüm anahtarı), saklanan varlıklar üzerinde bunu çalışabilir. Genellikle birden çok varlık türleri aynı tablonun (ve bölüm) tutulması ve birden fazla tablo farklı varlık türleri için kullanmayan bir nedeni de budur. Tek bir EGT en fazla 100 varlık üzerinde çalışabilir.  İşleme için birden çok eş zamanlı EGTs gönderirseniz, aksi takdirde işleme Gecikmeli olarak EGTs arasında ortak olan varlıklar söz konusu EGTs çalıştırmayın sağlamak önemlidir.
@@ -153,7 +153,7 @@ Aşağıdaki tablo, bir tablo hizmeti çözümü yaptığınızda tasarlarken di
 | Boyutu **RowKey** |Bir dize boyutu 1 KB'a kadar |
 | Bir varlık grubu işlem boyutu |Bir işlem en fazla 100 varlık içerebilir ve yükü boyutu 4 MB'tan küçük olmalıdır. Bir EGT varlığın yalnızca bir kez güncelleştirebilirsiniz. |
 
-Daha fazla bilgi için bkz. [Tablo Hizmeti Veri Modelini anlama](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Daha fazla bilgi için bkz. [Tablo Hizmeti Veri Modelini anlama](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ### <a name="cost-considerations"></a>Maliyetle ilgili konular
 Tablo depolama oldukça Hesaplı, ancak kapasite kullanımı hem de işlem miktarını için maliyet tahminlerini değerlendirmenizi tablo hizmeti kullanan herhangi bir çözümün bir parçası olarak içermelidir. Ancak iyileştirmek için normalleştirilmişlikten çıkarılmış veya yinelenen verileri saklama birçok senaryoda performansı veya ölçeklenebilirliği çözümünüzün yararlanmak için geçerli bir yaklaşım olur. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).  
@@ -208,7 +208,7 @@ Aşağıdaki örneklerde, tablo hizmeti aşağıdaki yapıya sahip çalışan va
 | **Geçerlilik süresi** |Tamsayı |
 | **EmailAddress** |Dize |
 
-Önceki bölümde [Azure tablo hizmeti genel bakış](#overview) Azure tablo hizmeti için sorgu tasarlama üzerinde doğrudan bir etkisi olan anahtar özelliklerinden bazılarını açıklar. Bunlar, tablo hizmeti sorguları tasarlamaya yönelik aşağıdaki genel yönergeleri sonuçlanır. Aşağıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup [varlıkları sorgulayın](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Önceki bölümde [Azure tablo hizmeti genel bakış](#overview) Azure tablo hizmeti için sorgu tasarlama üzerinde doğrudan bir etkisi olan anahtar özelliklerinden bazılarını açıklar. Bunlar, tablo hizmeti sorguları tasarlamaya yönelik aşağıdaki genel yönergeleri sonuçlanır. Aşağıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup [varlıkları sorgulayın](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * A ***noktası sorgusu*** kullanılacak en verimli arama ve yüksek hacimli aramaları veya en düşük gecikme gerektiren aramalar için kullanılması önerilir. Böyle bir sorguyu her ikisi de belirterek tek bir varlık verimli bir şekilde bulmak için dizinleri kullanabilirsiniz **PartitionKey** ve **RowKey** değerleri. Örneğin: $filter = (PartitionKey eq 'Satış') ve (RowKey eq '2')  
 * İkinci en iyi olan bir ***aralık sorgusu*** kullanan **PartitionKey** ve bir dizi filtreleri **RowKey** birden fazla varlık döndürülecek değer. **PartitionKey** değer belirli bir bölüm tanımlar ve **RowKey** değerleri bu bölümdeki varlıkları kümesini belirleyin. Örneğin: $filter PartitionKey eq 'Satışları'değerine ve RowKey ge'nin' ve RowKey lt 'T ='  
@@ -437,7 +437,7 @@ Bir dizi çalışan varlıklar için sorgu, çalışan kimliği sırasına koyul
 * Çalışan kimliği aralığı için 000100 000199 kullanımda olan Satış departmanındaki tüm çalışanlar bulmak için: $filter = (PartitionKey eq 'Satış') ve (RowKey ge 'empid_000100') ve (RowKey le 'empid_000199')  
 * Satış departmanındaki tüm çalışanlar ' bir ' harfi ile başlayan bir e-posta adresiyle bulunacak: $filter = (PartitionKey eq 'Satış') ve (RowKey ge 'email_a') ve (RowKey lt 'email_b')  
   
-  Yukarıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup [varlıkları sorgulayın](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Yukarıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup [varlıkları sorgulayın](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Sorunlar ve dikkat edilmesi gerekenler
 Bu düzenin nasıl uygulanacağına karar verirken aşağıdaki noktaları göz önünde bulundurun:  
@@ -491,7 +491,7 @@ Bir dizi çalışan varlıklar için sorgu, çalışan kimliği sırasına koyul
 * Bir aralıkta çalışan kimliği ile Satış departmanındaki tüm çalışanlar bulunacak **000100** için **000199** çalışan kimliği kullanmak sıralanır: $filter = (PartitionKey eq ' empid_Sales') ve (RowKey ge '000100') ve (RowKey le '000199')  
 * E-posta adresi kullanmak sıralanmış 'a' ile başlayan bir e-posta adresiyle Satış departmanındaki tüm çalışanlar bulmak için: $filter = (PartitionKey eq ' email_Sales') ve (RowKey ge 'bir') ve (RowKey lt 'b')  
 
-Yukarıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup Not [varlıkları sorgulayın](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Yukarıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup Not [varlıkları sorgulayın](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Sorunlar ve dikkat edilmesi gerekenler
 Bu düzenin nasıl uygulanacağına karar verirken aşağıdaki noktaları göz önünde bulundurun:  
@@ -1002,7 +1002,7 @@ En iyi bir sorgu dayalı tek bir varlık döndüren bir **PartitionKey** değer 
 
 Böyle senaryolarda, uygulamanızın performansını her zaman tam olarak test etmeniz gerekir.  
 
-Tablo hizmetinde bir sorgu en fazla 1.000 varlıkları tek seferde döndürebilir ve en fazla beş saniye için yürütür. Sorgu beş saniye içinde tamamlanmadı, 1. 000'den fazla varlıklar, sonuç kümesini içerir ya da sorgu bölüm sınırının aşması durumunda, tablo hizmeti, sonraki dizi varlık istemek istemci uygulamasını etkinleştirmek için bir devamlılık belirteci döndürür. Nasıl iş devamlılığı belirteçleri hakkında daha fazla bilgi için bkz. [sorgu zaman aşımı ve sayfalandırma](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Tablo hizmetinde bir sorgu en fazla 1.000 varlıkları tek seferde döndürebilir ve en fazla beş saniye için yürütür. Sorgu beş saniye içinde tamamlanmadı, 1. 000'den fazla varlıklar, sonuç kümesini içerir ya da sorgu bölüm sınırının aşması durumunda, tablo hizmeti, sonraki dizi varlık istemek istemci uygulamasını etkinleştirmek için bir devamlılık belirteci döndürür. Nasıl iş devamlılığı belirteçleri hakkında daha fazla bilgi için bkz. [sorgu zaman aşımı ve sayfalandırma](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Depolama istemci kitaplığı kullanıyorsanız, tablo hizmetinden varlıklar döndürüyor gibi otomatik olarak devamlılık belirteçleri için işleyebilirsiniz. Depolama istemci kitaplığı kullanılarak otomatik olarak aşağıdaki C# kod örneği, tablo hizmeti bunları bir yanıt döndürürse devamlılık belirteçlerini işler:  
 

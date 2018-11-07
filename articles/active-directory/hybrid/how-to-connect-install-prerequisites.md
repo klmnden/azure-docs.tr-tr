@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 5205d7797e7d45266a4f54b842ad56f353abc6d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092800"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252998"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -41,7 +41,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 
 ### <a name="on-premises-active-directory"></a>Şirket içi Active Directory
 * AD şema sürümü ve orman işlev düzeyi Windows Server 2003 veya üstü olmalıdır. Etki alanı denetleyicileri, şema ve orman düzeyinde gereksinimlerin karşılanıp karşılanmadığından sürece herhangi bir sürümü çalıştırabilirsiniz.
-* Özelliğini kullanmayı planlıyorsanız **parola geri yazma**, etki alanı denetleyicileri (en son SP ile) Windows Server 2008 veya üzeri olmalıdır. 2008'de (pre-R2), DC'leri olan sonra uygulamanız gerekir [düzeltme KB2386717](http://support.microsoft.com/kb/2386717).
+* Özelliğini kullanmayı planlıyorsanız **parola geri yazma**, etki alanı denetleyicileri (en son SP ile) Windows Server 2008 veya üzeri olmalıdır. 2008'de (pre-R2), DC'leri olan sonra uygulamanız gerekir [düzeltme KB2386717](https://support.microsoft.com/kb/2386717).
 * Azure AD tarafından kullanılan etki alanı denetleyicisi yazılabilir olmalıdır. Bu **desteklenmiyor** RODC (salt okunur etki alanı denetleyicisi) ve Azure AD Connect tüm yazma yeniden yönlendirmeleri izlemez.
 * Bu **desteklenmiyor** şirket içi ormanlar / "noktalı" kullanarak etki alanı kullanmak için (adında nokta ".") NetBIOS adları.
 * Önerilir [Active Directory geri dönüşüm kutusunu etkinleştirme](how-to-connect-sync-recycle-bin.md).
@@ -123,11 +123,11 @@ Azure AD Connect, Microsoft PowerShell ve .NET Framework 4.5.1 bağlıdır. Bu s
   * Microsoft PowerShell varsayılan olarak yüklenir. Eylem gerekmiyor.
   * .NET framework 4.5.1 ve sonraki sürümleri, Windows Update aracılığıyla sunulur. Denetim Masası'nda Windows Server için en son güncelleştirmeleri yüklediğinizden emin olun.
 * Windows Server 2008R2 ve Windows Server 2012
-  * Microsoft PowerShell'in en son sürümünü kullanılabilir **Windows Management Framework 4.0**üzerinden [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 ve sonraki sürümlerde kullanılabilir [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * Microsoft PowerShell'in en son sürümünü kullanılabilir **Windows Management Framework 4.0**üzerinden [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET framework 4.5.1 ve sonraki sürümlerde kullanılabilir [Microsoft Download Center](https://www.microsoft.com/downloads).
 * Windows Server 2008
-  * PowerShell'in desteklenen son sürümü kullanılabilir **Windows Management Framework 3.0**üzerinden [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 ve sonraki sürümlerde kullanılabilir [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * PowerShell'in desteklenen son sürümü kullanılabilir **Windows Management Framework 3.0**üzerinden [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET framework 4.5.1 ve sonraki sürümlerde kullanılabilir [Microsoft Download Center](https://www.microsoft.com/downloads).
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Azure AD Connect için TLS 1.2 etkinleştir
 Sürüm 1.1.614.0 önce Azure AD Connect varsayılan olarak TLS 1.0 eşitleme altyapısı sunucusu ve Azure AD arasındaki iletişimi şifrelemek için kullanır. .Net uygulamalarını sunucu üzerinde varsayılan olarak TLS 1.2 kullanmak için yapılandırarak bunu değiştirebilirsiniz. TLS 1.2 hakkında daha fazla bilgi bulunabilir [Microsoft Güvenlik Danışma 2960358](https://technet.microsoft.com/security/advisory/2960358).
