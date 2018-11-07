@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
 ms.component: disks
-ms.openlocfilehash: bfd984d128215930182d3c3acfe9d333b946f050
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 18e79854ac57deb9e06bf6296f3865a35f48f0a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713627"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252386"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
 ### <a name="design-and-implement-with-premium-storage"></a>Premium depolama sayesinde tasarlayıp
 * [Premium depolama ile performansa yönelik tasarım](premium-storage-performance.md)
-* [Premium depolama ile BLOB Depolama işlemleri](http://go.microsoft.com/fwlink/?LinkId=521969)
+* [Premium depolama ile BLOB Depolama işlemleri](https://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### <a name="operational-guidance"></a>İşlemsel kılavuz
 * [Azure Premium depolamaya geçiş](../../storage/common/storage-migration-to-premium-storage.md)

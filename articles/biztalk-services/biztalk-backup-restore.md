@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214421"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230300"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Yedekleme ve Geri Yükleme
 
@@ -109,7 +109,7 @@ Bir yedek oluşturulduğunda, aşağıdaki öğeler desteklenir:
 <ul>
 <li>Ölçek birimi sayısı</li>
 <li>Sürüm</li>
-<li>Ürün sürümü</li>
+<li>Ürün Sürümü</li>
 <li>Bölge/veri merkezi</li>
 <li>Access Control Service (ACS) ad alanı ve anahtarı</li>
 <li>İzleme veritabanı bağlantı dizesi</li>
@@ -132,18 +132,18 @@ Bir yedek oluşturulduğunda, aşağıdaki öğeler desteklenir:
 </table>
 
 ## <a name="next"></a>Sonraki
-Azure BizTalk hizmetleri oluşturmak için Git [BizTalk Services: Sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280). Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
+Azure BizTalk hizmetleri oluşturmak için Git [BizTalk Services: Sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280). Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [BizTalk hizmeti yedekleme](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [BizTalk hizmeti yedekten geri yükleyin.](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: Durum Grafiğini hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: Azaltma](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk hizmeti yedekleme](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [BizTalk hizmeti yedekten geri yükleyin.](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Durum Grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Azaltma](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

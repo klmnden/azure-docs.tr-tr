@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 serisi destek paketi oluştur | Microsoft Docs
-description: Oluşturma, şifresini ve StorSimple 8000 serisi cihazınız için bir destek paketi düzenleme öğrenin.
+description: StorSimple 8000 serisi Cihazınızı için bir destek paketi oluşturabilecek, şifresini çözmek ve öğrenin.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,116 +14,116 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743587"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254375"
 ---
-# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Oluşturma ve StorSimple 8000 serisi için bir destek paketi yönetme
+# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Oluşturmak ve yönetmek için StorSimple 8000 serisi bir destek paketi
 
 ## <a name="overview"></a>Genel Bakış
 
-Bir StorSimple destek paketi Microsoft Support StorSimple cihaz sorunları gidermenize yardımcı olacak tüm ilgili günlükleri toplayan bir kullanımı kolay mekanizmasıdır. Toplanan günlükleri şifrelenmiş ve sıkıştırılmış.
+StorSimple destek paketi Microsoft Support StorSimple cihaz sorunları gidermeye yardımcı olmak için tüm ilgili günlükleri toplayan bir kullanımı kolay mekanizmasıdır. Toplanan günlükler şifrelenmiş ve sıkıştırılmış.
 
-Bu öğretici oluşturmak ve StorSimple 8000 serisi cihazınız için destek paketi yönetmek için adım adım yönergeler içerir. Bir StorSimple sanal dizisi ile çalışıyorsanız, Git [günlük paketi oluşturmak](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+Bu öğretici, oluşturmak ve yönetmek için StorSimple 8000 serisi Cihazınızı destek paketi için adım adım yönergeler içerir. StorSimple Virtual Array ile çalışıyorsanız, Git [bir günlük paketi oluşturun](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="create-a-support-package"></a>Bir destek paketi oluştur
+## <a name="create-a-support-package"></a>Destek paketi oluşturma
 
-Bazı durumlarda, StorSimple için Windows PowerShell aracılığıyla destek paketi el ile oluşturmanız gerekir. Örneğin:
+Bazı durumlarda, el ile StorSimple için Windows PowerShell üzerinden destek paketi oluşturmanız gerekir. Örneğin:
 
-* Microsoft Support paylaşımı önce günlük dosyalarınızı hassas bilgileri kaldırmak gerekiyorsa.
-* Bağlantı sorunları nedeniyle paketi karşıya zorluk yaşıyorsanız.
+* Günlük dosyalarınızın Microsoft Support paylaşımı önce önemli bilgileri kaldırmak gerekiyorsa.
+* Bağlantı sorunları nedeniyle paket karşıya yükleme ile ilgili sorunlar yaşıyorsanız.
 
-E-posta Microsoft Support el ile oluşturulan destek paketinizi paylaşabilirsiniz. StorSimple için Windows PowerShell içinde bir destek paketi oluşturmak için aşağıdaki adımları gerçekleştirin.
+E-posta Microsoft Support, el ile oluşturulan destek paketinin paylaşabilirsiniz. Destek Paketi StorSimple için Windows PowerShell'de oluşturmak için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell içinde bir destek paketi oluşturmak için
+#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Destek Paketi StorSimple için Windows PowerShell'de oluşturmak için
 
 1. StorSimple Cihazınızı bağlamak için kullanılan uzak bilgisayarda yönetici olarak bir Windows PowerShell oturumu başlatmak için aşağıdaki komutu girin:
    
     `Start PowerShell`
-2. Windows PowerShell oturumunda Cihazınızı SSAdmin Konsola bağlan:
+2. Windows PowerShell oturumunda, cihazınızın SSAdmin konsoluna Bağlan:
    
-   1. Komut isteminde girin:
+   1. Komut isteminde şunu girin:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. Açılan iletişim kutusunda, cihaz Yöneticisi parolasını girin. Varsayılan parola _Parola1_.
+   2. Açılan iletişim kutusunda, cihaz Yöneticisi parolanızı girin. Varsayılan parola _Password1_.
      
       ![PowerShell kimlik bilgisi iletişim kutusu](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. **Tamam**’ı seçin.
-   4. Komut isteminde girin:
+   4. Komut isteminde şunu girin:
      
       `Enter-PSSession $MS`
-3. Açılan oturumda uygun komutunu girin.
+3. Açılan oturumda uygun komutu girin.
    
-   * Parola korumalı ağ paylaşımları için girin:
+   * Parola ile korunmayan ağ paylaşımları için girin:
      
        `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       (Destek Paketi şifrelendiğinden) için bir parola ve bir şifreleme parolası istenir. Bir destek paketi sonra (aygıt adı geçerli tarih ve saat ile eklenen) varsayılan klasöründe oluşturulur.
-   * Parola korumalı olmayan paylaşımlar için ihtiyacınız olmayan `-Credential` parametresi. Aşağıdakileri girin:
+       (Destek Paketi şifreli olduğundan) için bir parola ve şifreleme parolası istenir. Destek Paketi, ardından varsayılan klasörü (cihaz adı geçerli tarih ve saat ile eklenen) oluşturulur.
+   * Parola ile korunmayan paylaşımları gerekmeyen `-Credential` parametresi. Aşağıdakileri girin:
      
        `Export-HcsSupportPackage`
      
-       Destek paketini hem denetleyicileri varsayılan klasöründe oluşturulur. Sorun giderme için Microsoft Support gönderilebilecek bir şifrelenmiş ve sıkıştırılmış dosya paketidir. Daha fazla bilgi için bkz: [Microsoft Destek birimine başvurun](storsimple-8000-contact-microsoft-support.md).
+       Destek Paketi, her iki denetleyicilerinin varsayılan klasörde oluşturulur. Sorun giderme için Microsoft Support gönderilebilecek bir şifrelenmiş ve sıkıştırılmış dosya paketidir. Daha fazla bilgi için [Microsoft Destek'e başvur](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Dışarı aktarma HcsSupportPackage cmdlet parametreleri
+### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Export-hcssupportpackage komutunu cmdlet parametreleri
 
-Dışarı aktarma HcsSupportPackage cmdlet'iyle şu parametreleri kullanabilirsiniz.
+Export-hcssupportpackage komutunu cmdlet'i ile aşağıdaki parametreleri kullanabilirsiniz.
 
 | Parametre | Gerekli/isteğe bağlı | Açıklama |
 | --- | --- | --- |
-| `-Path` |Gerekli |Destek paketini yerleştirildiği ağ paylaşılan klasörün konumunu belirtmek için kullanın. |
+| `-Path` |Gerekli |Destek Paketi yerleştirildiği ağda paylaşılan klasör konumunu belirtmek için kullanın. |
 | `-EncryptionPassphrase` |Gerekli |Destek Paketi şifrelemek yardımcı olmak için bir parola sağlamak için kullanın. |
-| `-Credential` |İsteğe bağlı |Ağ paylaşılan klasörüne erişim kimlik bilgileri sağlamak için kullanın. |
-| `-Force` |İsteğe bağlı |Şifreleme parolası onayı adımı atlamak için kullanın. |
-| `-PackageTag` |İsteğe bağlı |Bir dizini altında belirtmek için kullanın *yolu* destek paketi yerleştirildiği içinde. Varsayılan değer [aygıt adı]-[geçerli tarih ve time:yyyy-MM-dd-HH-mm-ss]. |
-| `-Scope` |İsteğe bağlı |Olarak belirttiğiniz **küme** hem denetleyicileri için bir destek paketi oluşturmak için (varsayılan). Geçerli denetleyici için yalnızca bir paketi oluşturmak istiyorsanız, belirtin **denetleyicisi**. |
+| `-Credential` |İsteğe bağlı |Paylaşılan ağ klasörüne erişim kimlik bilgileri sağlamak için kullanın. |
+| `-Force` |İsteğe bağlı |Şifreleme parolası onayı adımı atlamak için bu seçeneği kullanın. |
+| `-PackageTag` |İsteğe bağlı |Altında bir dizin belirtin kullanacağınız *yolu* destek paketi yerleştirildiği içinde. Varsayılandır [cihaz adı]-[geçerli tarih ve time:yyyy-MM-dd-HH-mm-ss]. |
+| `-Scope` |İsteğe bağlı |Olarak belirttiğiniz **küme** hem denetleyicileri için bir destek paketi oluşturmak için (varsayılan). Yalnızca geçerli denetleyiciye ait bir paket oluşturmak istiyorsanız, belirtin **denetleyicisi**. |
 
 ## <a name="edit-a-support-package"></a>Destek paketini Düzenle
 
-Bir destek paketi oluşturduktan sonra hassas bilgileri kaldırmak için paketi düzenleyin gerekebilir. Bu, birim adları, cihaz IP adresleri ve günlük dosyalarını yedekleme adlarından içerebilir.
+Destek Paketi oluşturduktan sonra önemli bilgileri kaldırmak için paketi düzenleyin gerekebilir. Bu, birim adları, cihaz IP adreslerini ve günlük dosyalarını yedekleme adlarından içerebilir.
 
 > [!IMPORTANT]
 > Yalnızca StorSimple için Windows PowerShell aracılığıyla oluşturulan bir destek paketi düzenleyebilirsiniz. StorSimple cihaz Yöneticisi hizmeti ile Azure portalında oluşturulan bir paket düzenleyemezsiniz.
 
-Microsoft Support sitesinde karşıya yüklemeden önce bir destek paketi düzenlemek, ilk destek paketi şifresini, dosyaları düzenleyin ve yeniden şifrelemek için. Aşağıdaki adımları gerçekleştirin.
+Üzerinde Microsoft Support sitesini yüklemeden önce bir destek paketi düzenlemek için ilk destek paketi şifresini, dosyaları düzenleyin ve yeniden şifrele. Aşağıdaki adımları uygulayın.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell desteği paketinde düzenlemek için
+#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell'de bir destek paketi düzenlemek için
 
-1. Açıklandığı gibi daha önce bir destek paketi oluştur [StorSimple için Windows PowerShell içinde bir destek paketi oluşturmak için](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Komut dosyasını karşıdan](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) istemciniz yerel olarak.
-3. Windows PowerShell modülünü içeri aktarın. Komut dosyası karşıdan yerel klasörün yolunu belirtin. Modülü içeri aktarmak için şunu girin:
+1. Açıklandığı gibi daha önce bir destek paketi oluştur [StorSimple için Windows PowerShell'de bir destek paketi oluşturulacak](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+2. [Betiği indirin](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) istemciniz üzerinde yerel olarak.
+3. Windows PowerShell modülünü içeri aktarın. Komut dosyasını indirdiğiniz yerel klasör yolunu belirtin. Modülü içeri aktarmak için şunu girin:
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`
 4. Tüm dosyalar *.aes* sıkıştırılmış ve şifrelenmiş dosyalar. Sıkıştırmasını açın ve dosyaların şifresini çözmek için şunu girin:
    
     `Open-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    Gerçek dosya uzantıları için tüm dosyalar artık görüntülendiğini unutmayın.
+    Gerçek dosya uzantıları için tüm dosyaları artık görüntülendiğini unutmayın.
    
     ![Destek paketini Düzenle](./media/storsimple-8000-create-manage-support-package/IC750706.png)
-5. Şifreleme parolası istendiğinde, destek paketi oluştururken kullandığınız parolayı girin.
+5. İçin şifreleme parolası istendiğinde destek paketi oluştururken kullandığınız parolayı girin.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
         Supply values for the following parameters:EncryptionPassphrase: ****
-6. Günlük dosyalarını içeren klasöre gidin. Günlük dosyalarının şimdi sıkıştırması açılmış ve şifresi çünkü bunlar özgün dosya uzantılarını sahip olur. Birim adları ve cihaz IP adresleri gibi herhangi bir müşteriye özgü bilgileri kaldırmak için bu dosyalarda değişiklik ve dosyaları kaydedebilir.
-7. Gzip ile sıkıştırmak ve AES 256 ile şifrelemek için dosyaları kapatın. Bu hız ve Destek paketi bir ağ üzerinden aktarılması güvenliği içindir. Sıkıştır ve dosyaları şifrelemek için aşağıdakileri girin:
+6. Günlük dosyalarını içeren klasöre göz atın. Günlük dosyaları artık sıkıştırması açılmış ve şifresi olduğundan bu özgün dosya uzantıları olacaktır. Birim adları ve cihaz IP adresleri gibi herhangi bir müşteriye özgü bilgileri kaldırmak için bu dosyalarda değişiklik ve dosyaları kaydedin.
+7. Gzip ile sıkıştırmak ve bunları AES-256 ile şifrelemek için dosyaları kapatın. Bu hız ve güvenlik, destek paketini bir ağ üzerinden aktarılması içindir. Sıkıştırma ve dosyaları şifrelemek için aşağıdakileri girin:
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
     ![Destek paketini Düzenle](./media/storsimple-8000-create-manage-support-package/IC750707.png)
-8. İstendiğinde, bir şifreleme parolası değiştirilmiş destek paketi için belirtin.
+8. İstendiğinde, değiştirilen destek paketi için bir şifreleme parolası sağlayın.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
         Supply values for the following parameters:EncryptionPassphrase: ****
-9. Microsoft istendiğinde Support paylaşmanızı sağlayan yeni parolayı not yazın.
+9. Yeni parolayı not yazın, böylece Microsoft istendiğinde Support paylaşabilirsiniz.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Örnek: parola korumalı bir paylaşılan bir destek paketi dosyalarını düzenleme
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Örnek: Destek paketi dosyası parola korumalı bir paylaşılan düzenleme
 
-Aşağıdaki örnek, şifre çözme, düzenleme ve Destek paketi yeniden şifrele gösterilmektedir.
+Aşağıdaki örnek, şifresini çözmek için düzenlemek ve bir destek paketi yeniden şifrele gösterilmektedir.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -148,6 +148,6 @@ Aşağıdaki örnek, şifre çözme, düzenleme ve Destek paketi yeniden şifrel
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Hakkında bilgi edinin [destek paketi toplanan bilgiler](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Bilgi nasıl [aygıt dağıtımınızı gidermek için destek paketler ve cihaz günlükleri kullanan](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Bilgi nasıl [desteği paketleri ve cihaz günlükleri cihaz dağıtımınızın sorunlarını giderdikten kullanılacağını](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Bilgi edinmek için nasıl [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
 

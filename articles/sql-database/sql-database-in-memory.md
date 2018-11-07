@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d850aff8ddb2a8b6cdd68620ae823d582c527581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166937"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229099"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanında bellek içi teknolojileri kullanarak performansını iyileştirin
 
@@ -57,11 +57,11 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın.
 Teknolojileri hakkında ayrıntılı bilgi:
 
 - [Bellek içi OLTP genel bakış ve kullanım senaryoları](https://msdn.microsoft.com/library/mt774593.aspx) (müşteri örnek olay incelemeleri ve kullanmaya başlamak için bilgi başvurular içerir)
-- [Bellek içi OLTP için belgeleri](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Bellek içi OLTP için belgeleri](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Columnstore dizinleri Kılavuzu](https://msdn.microsoft.com/library/gg492088.aspx)
 - Karma işlemsel / (HTAP), olarak da bilinen analitik işleme [gerçek zamanlı işlem analizi](https://msdn.microsoft.com/library/dn817827.aspx)
 
-Bellek içi OLTP hızlı öncü: [hızlı başlangıç 1: T-SQL performansı daha hızlı bellek içi OLTP teknolojileri](http://msdn.microsoft.com/library/mt694156.aspx) (yardımcı olması için başka bir makalede başlama)
+Bellek içi OLTP hızlı öncü: [hızlı başlangıç 1: T-SQL performansı daha hızlı bellek içi OLTP teknolojileri](https://msdn.microsoft.com/library/mt694156.aspx) (yardımcı olması için başka bir makalede başlama)
 
 Kapsamlı videoları teknolojileri hakkında:
 
@@ -158,7 +158,7 @@ Daha fazla alıyormuş, ancak daha görsel olarak çekici performans gösteri i�
 
 1. İçinde [Azure portalında](https://portal.azure.com/), bir sunucuda Premium veya iş açısından kritik bir veritabanı oluşturun. Ayarlama **kaynak** AdventureWorksLT örnek veritabanı. Ayrıntılı yönergeler için bkz. [ilk Azure SQL veritabanınızı oluşturma](sql-database-get-started-portal.md).
 
-2. SQL Server Management Studio ile veritabanına bağlanma [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
+2. SQL Server Management Studio ile veritabanına bağlanma [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Kopyalama [bellek içi OLTP Transact-SQL betiği](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) panonuza. T-SQL betiği, 1. adımda oluşturduğunuz AdventureWorksLT örnek veritabanını gerekli bellek içi nesneleri oluşturur.
 
@@ -291,9 +291,9 @@ Yapmak *_ondisk* sürümü önceki T-SQL betiğinin ostress.exe için her iki te
 VM, konak üzerinde veya seçin, yeniden yürütme işaretleme dili (RML) yardımcı programlarını yükleyin. Yardımcı programları ostress.exe içerir.
 
 Daha fazla bilgi için bkz.
-- Ostress.exe tartışmalarına [örnek veritabanı için bellek içi OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- [Örnek veritabanı için bellek içi OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- [Ostress.exe yüklemek için blog](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- Ostress.exe tartışmalarına [örnek veritabanı için bellek içi OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- [Örnek veritabanı için bellek içi OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- [Ostress.exe yüklemek için blog](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
@@ -379,7 +379,7 @@ Bellek içi testlerimizin tarafından geliştirilmiş performans gösterilmesini
 Bir columnstore dizini geleneksel b-ağacı dizini karşı kullanırken bu bölümde, GÇ ve istatistikleri sonuçlarını karşılaştırın.
 
 
-Bir OLTP iş yükü, gerçek zamanlı analizler için kümelenmemiş bir columnstore dizini kullanmak idealdir. Ayrıntılar için bkz [Columnstore dizinleri açıklanan](http://msdn.microsoft.com/library/gg492088.aspx).
+Bir OLTP iş yükü, gerçek zamanlı analizler için kümelenmemiş bir columnstore dizini kullanmak idealdir. Ayrıntılar için bkz [Columnstore dizinleri açıklanan](https://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
@@ -493,7 +493,7 @@ P2 fiyatlandırma katmanı ile bir veritabanında geleneksel dizin ile karşıla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [1 Hızlı Başlangıç: T-SQL daha hızlı performans için bellek içi OLTP teknolojileri](http://msdn.microsoft.com/library/mt694156.aspx)
+- [1 Hızlı Başlangıç: T-SQL daha hızlı performans için bellek içi OLTP teknolojileri](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Mevcut bir Azure SQL uygulamadaki bellek içi OLTP kullanın](sql-database-in-memory-oltp-migration.md)
 
@@ -508,17 +508,17 @@ P2 fiyatlandırma katmanı ile bir veritabanında geleneksel dizin ile karşıla
 
 - [Azure SQL veritabanı Web günlüğü gönderisinde bellek içi OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Bellek içi OLTP hakkında bilgi edinin](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Bellek içi OLTP hakkında bilgi edinin](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Columnstore dizinleri hakkında bilgi edinin](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [Gerçek zamanlı işlem analizi hakkında bilgi edinin](http://msdn.microsoft.com/library/dn817827.aspx)
+- [Gerçek zamanlı işlem analizi hakkında bilgi edinin](https://msdn.microsoft.com/library/dn817827.aspx)
 
-- Bkz: [yaygın iş yükü düzenleri ve geçiş konuları](http://msdn.microsoft.com/library/dn673538.aspx) (burada bellek içi OLTP yaygın olarak sağlayan önemli ölçüde performans kazanımı iş yükü düzenleri açıklayan)
+- Bkz: [yaygın iş yükü düzenleri ve geçiş konuları](https://msdn.microsoft.com/library/dn673538.aspx) (burada bellek içi OLTP yaygın olarak sağlayan önemli ölçüde performans kazanımı iş yükü düzenleri açıklayan)
 
 #### <a name="application-design"></a>Uygulama tasarımı
 
-- [Bellek içi OLTP (bellek içi iyileştirme)](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Bellek içi OLTP (bellek içi iyileştirme)](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Mevcut bir Azure SQL uygulamadaki bellek içi OLTP kullanın](sql-database-in-memory-oltp-migration.md)
 
@@ -528,4 +528,4 @@ P2 fiyatlandırma katmanı ile bir veritabanında geleneksel dizin ile karşıla
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SQL Server Veri Araçları (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Veri Araçları (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

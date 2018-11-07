@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 29faba8947e189072317f1e85ba6fe71e7805462
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 99b915f14aaa7d306d1bceb5bd4f6bb23abdb929
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957854"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245384"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Uzak Masaüstü Hizmetleri veya bir Windows VM'de yönetici parolasını sıfırlama
 Bir Windows sanal makinesi (VM) bağlanamıyorsanız, yerel Yönetici parolanızı sıfırlayın ya da (Windows etki alanı denetleyicilerinde desteklenmez) Uzak Masaüstü Hizmetleri yapılandırmasını sıfırlayın. Parola sıfırlama için Azure PowerShell'de Azure portal'ı veya VM erişimi uzantısı kullanın. VM'ye açtıktan sonra yerel yönetici için parolayı sıfırlayın.  
@@ -93,7 +93,7 @@ Uzak Masaüstü Hizmetleri ve kimlik bilgileri aşağıdaki yollarla sıfırlaya
 
 - [Azure VM uzantıları ve özellikleri hakkında bilgi edinin](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-- [Bir Azure sanal makinesinde RDP veya SSH ile bağlanma](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+- [Bir Azure sanal makinesinde RDP veya SSH ile bağlanma](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 - [Windows tabanlı bir Azure sanal makinesine Uzak Masaüstü bağlantılarında sorun giderme](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

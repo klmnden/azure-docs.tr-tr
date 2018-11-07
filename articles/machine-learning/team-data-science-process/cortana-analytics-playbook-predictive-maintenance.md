@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 611896dc9428092a76a891168b48f6962d760e60
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093220"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254579"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
 
@@ -351,7 +351,7 @@ PdM karşılaşılan birçok sorun diğer sınıf veya sınıflar için karşıl
 
 Bunlar genel hata oranının en aza indirmeyi amaçlamanız beri verilerde sınıf dengesizliği ile birçok standart öğrenme algoritmalarını performansını, güvenliği aşıldı. %99 negatif ve pozitif %1 örnek bir veri kümesi için tüm örnekleri negatif olarak etiketleme tarafından % 99 doğruluğunu sağlamak için bir model gösterilebilir. Ancak modeli yanlış pozitif tüm örnekler sınıflandırır. doğruluğunun yüksek olsa bile, bu nedenle algoritma yararlı bir değildir. Sonuç olarak, geleneksel değerlendirme gibi ölçümler _hata fiyat genel doğruluğu_ imbalanced öğrenme için yeterli değil. İmbalanced veri kümeleri ile karşı karşıya kalındığında, diğer ölçümleri modeli değerlendirme için kullanılır:
 - Duyarlık
-- Geri çekme
+- Geri çağırma
 - F1 puanları
 - Ayarlanmış maliyeti ROC (alıcı çalıştırma özellikleri)
 
@@ -431,13 +431,13 @@ Microsoft Azure, PdM teknikleri, içerik ve yapay ZEKA kavramları ve uygulama G
 |:-------------------|--------------|
 | [PdM ağaçları ile rastgele orman için öğrenme yolu](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Genel | 
 | [PdM kullanarak derin öğrenme için öğrenme yolu](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Genel |
-| [Azure'da yapay ZEKA geliştiricisi](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Genel |
-| [Microsoft yapay ZEKA Okul](http://aischool.microsoft.com/learning-paths) | Genel |
+| [Azure'da yapay ZEKA geliştiricisi](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Genel |
+| [Microsoft yapay ZEKA Okul](https://aischool.microsoft.com/learning-paths) | Genel |
 | [Github'dan Azure yapay ZEKA öğrenme](https://github.com/Azure/connectthedots/blob/master/readme.md) | Genel |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Genel |
 | [Microsoft yapay ZEKA Youtube Web Seminerleri](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Genel |
 | [Microsoft yapay ZEKA Göster](http://channel9.msdn.com/Shows/AI-Show) | Genel |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | İş Ortakları |
-| [Microsoft iş ortağı ağı](http://learningportal.microsoft.com) | İş Ortakları |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | İş Ortakları |
+| [Microsoft iş ortağı ağı](https://learningportal.microsoft.com) | İş Ortakları |
 
 Ayrıca, yapay ZEKA MOOCS (açık çevrimiçi kurslara) ücretsiz Stanford ve MIT gibi akademik kurumları tarafından çevrimiçi sunulan ve diğer eğitim şirketlerdir.

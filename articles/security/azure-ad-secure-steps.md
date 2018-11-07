@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d52431b50e37101b0272e3ce4bbf91011a477775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341591"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252096"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -182,4 +182,4 @@ Güvenli bir kimlik altyapısı için birçok yönden vardır, ancak bu beş ad�
 Nasıl ciddi bir şekilde kimlik güvenliği alın ve daha güvenli bir duruş kuruluşunuz için kullanışlı bir yol haritası bu belgeyi Umarım veriyoruz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Planlama ve dağıtım önerileri için yardıma ihtiyacınız varsa başvurmak [Azure AD proje dağıtım planları](http://aka.ms/deploymentplans) Yardım.
+Planlama ve dağıtım önerileri için yardıma ihtiyacınız varsa başvurmak [Azure AD proje dağıtım planları](https://aka.ms/deploymentplans) Yardım.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29a91a40df34ecd9270d5805209d361cf990754
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 855a046425f051739f61c74b551d4ffea7b9120a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638044"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252369"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Yedekleme ve sanal makineleri geri yükleme için PowerShell kullanma
 
@@ -62,7 +62,7 @@ Başlamak için:
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Azure Backup'ı ilk kez kullanıyorsanız, kullanmalısınız **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** Azure kurtarma Hizmetleri sağlayıcısını aboneliğinize kaydetmeniz için cmdlet'i.
+5. Azure Backup'ı ilk kez kullanıyorsanız, kullanmalısınız **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** Azure kurtarma Hizmetleri sağlayıcısını aboneliğinize kaydetmeniz için cmdlet'i.
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -72,7 +72,7 @@ Başlamak için:
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ``` 
-    Komut çıktısında **RegistrationState** değiştirilmelidir **kayıtlı**. Değil, yalnızca çalıştırırsanız **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet'ini yeniden.
+    Komut çıktısında **RegistrationState** değiştirilmelidir **kayıtlı**. Değil, yalnızca çalıştırırsanız **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet'ini yeniden.
 
 PowerShell ile aşağıdaki görevleri otomatik hale getirilebilir:
 

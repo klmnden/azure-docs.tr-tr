@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244874"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makinesi sağlama
 
@@ -91,7 +91,7 @@ Linux için veri bilimi sanal makinesi örneğini oluşturmak için adımlar şu
    * **VM Disk türü**: seçin **Premium SSD** katı hal sürücüsü (SSD) tercih ederseniz. Aksi takdirde seçin **standart HDD**. 
    * **Kullanıcı adı**: ilk hesap oturum açma kimliği
    * **Parola**: ilk hesap parolası (kullanabileceğiniz SSH ortak anahtarı parola yerine).
-   * **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin. Bu abonelik için kaynak oluşturma ayrıcalıkları olmalıdır.
+   * **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin. Bu abonelikte kaynak oluşturma ayrıcalıklarına sahip olmanız gerekir.
    * **Kaynak grubu**: yeni bir tane oluşturabilir veya varolan bir grubu kullanın.
    * **Konum**: en uygun veri merkezi seçin. Genellikle, verilerinizden en iyi sahip veya bu fiziksel konumunuza en hızlı ağ erişimi için en yakın veri merkezi bulunur.
    
@@ -118,7 +118,7 @@ Ubuntu DSVM üç yöntemle erişebilirsiniz:
 
 ### <a name="ssh"></a>SSH
 
-VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows üzerinde bir SSH istemcisi aracı gibi indirebilirsiniz [Putty](http://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows'da [Putty](http://www.putty.org) gibi bir SSH istemcisi aracı indirebilirsiniz. Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
 
 > [!NOTE]
 > X2Go istemci testinde iletme X11 daha iyi gerçekleştirdi. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.
@@ -429,6 +429,6 @@ Bir sekme kümesi ile artık bir grafik arabirim açılır. Aşağıda bir örne
 
 * [Üzerinde veri bilimi sanal makinesi için Linux veri bilimi](linux-dsvm-walkthrough.md) izlenecek yol, Linux veri bilimi buraya sağlanan VM ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. 
 * Çeşitli veri bilimi araçlarını, veri bilimi sanal makinesi, bu makalede açıklanan araçları deneyerek keşfedin. Ayrıca çalıştırabileceğiniz *dsvm daha fazla bilgi* Kabuk temel bir giriş ve işaretçileri VM'de yüklü araçları hakkında daha fazla bilgi için sanal makine içinde.  
-* Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](http://aka.ms/tdsp).
+* Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](https://aka.ms/tdsp).
 * Ziyaret [Azure AI Gallery](https://gallery.azure.ai/) Azure yapay ZEKA hizmetlerini kullanma makine öğrenimi ve veri analizi örnekleri için.
 

@@ -1,7 +1,6 @@
 ---
 title: Power BI'da Azure HDInsight ile etkileşimli sorgu Hive verilerini Görselleştirme
-description: Azure HDInsight tarafından işlenen etkileşimli sorgu Hive verilerini görselleştirmek için Microsoft Power BI'ı kullanmayı öğrenin.
-keywords: hdınsight, hadoop, hive, etkileşimli sorgu, Interactive hive, LLAP, directquery
+description: Azure HDInsight etkileşimli sorgu Hive verilerini görselleştirmek için Microsoft Power BI'ı kullanma
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/14/2018
-ms.openlocfilehash: bcef72f42321d770c4bdbb518f0b17ad5950aa7f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: 46b5b3436a33c3f83d85cfb02028759d53d214af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012259"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245282"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Doğrudan sorgu kullanarak Azure HDInsight Microsoft Power BI ile etkileşimli sorgu Hive verilerini Görselleştirme
 
-Microsoft Power BI, Azure HDInsight etkileşimli sorgu kümelerine bağlanmak ve doğrudan sorgu kullanarak Hive verileri görselleştirme hakkında bilgi edinin. Bu öğreticide, verileri Power BI'a hivesampletable Hive tablosundaki yükleyin. Hive tablosu bazı cep telefonu kullanım verilerini içerir. Ardından bir dünya Haritası kullanım verileri Çiz:
+Bu makalede, Microsoft Power BI, Azure HDInsight etkileşimli sorgu kümelerine bağlanmak ve doğrudan sorgu kullanarak Apache Hive verileri görselleştirme açıklar. Sağlanan örnek verileri Power BI'a hivesampletable Hive tablosundaki yükler. Hivesampletable Hive tablosu bazı cep telefonu kullanım verilerini içerir. Ardından bir dünya Haritası kullanım verileri Çiz:
 
 ![HDInsight Power BI harita raporu](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -36,37 +35,49 @@ Bu makalede geçmeden önce aşağıdaki öğelere sahip olmanız gerekir:
 Hivesampletable Hive tablosu tüm HDInsight kümeleri ile birlikte gelir.
 
 1. Power BI Desktop için oturum açın.
-2. Tıklayın **giriş** sekmesinde **Veri Al** gelen **dış veri** Şerit ve ardından **daha fazla**.
+
+2. Tıklayın **giriş** sekmesinde **Veri Al** gelen **dış veri** Şerit ve ardından **daha...** .
 
     ![Açık veri HDInsight Power BI](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    
 3. Gelen **Veri Al** bölmesinde, türü **hdınsight** arama kutusuna. Görmüyorsanız **HDInsight etkileşimli sorgu (Beta)**, Power BI Desktop, en son sürüme güncelleştirmeniz gerekir.
-4. Tıklayın **HDInsight etkileşimli sorgu (Beta)** ve ardından **Connect**.
-5. Tıklayın **devam** kapatmak için **bağlayıcıyı Önizleme** Uyarısı iletişim kutusu.
+
+4. Seçin **HDInsight etkileşimli sorgu (Beta)** ve ardından **Connect**.
+
+5. Seçin **devam** kapatmak için **bağlayıcıyı Önizleme** Uyarısı iletişim kutusu.
+
 6. Gelen **HDInsight etkileşimli sorgu**seçin veya aşağıdaki bilgileri girin:
 
     - **Sunucu**: etkileşimli sorgu kümesi adını girin, örneğin *myiqcluster.azurehdinsight.net*.
+
     - **Veritabanı**: Bu öğretici için girin **varsayılan**.
+    
     - **Veri bağlantısı modu**: Bu öğretici için seçin **DirectQuery**.
 
-    ![HDInsight etkileşimli sorgu power BI directquery bağlanma](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+    ![HDInsight etkileşimli sorgu Power BI DirectQuery bağlanma](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+
 7. **Tamam** düğmesine tıklayın.
-8. HTTP kullanıcı kimlik bilgilerini girin ve ardından **Tamam**.  Varsayılan kullanıcı adı **yönetici**
+
+8. HTTP kullanıcı kimlik bilgilerini girin ve ardından **Tamam**. Varsayılan kullanıcı adı **yönetici**
+
 9. Sol bölmeden **hivesampletale**ve ardından **yük**.
 
-    ![HDInsight etkileşimli sorgu power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
+    ![HDInsight etkileşimli sorgu Power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
-## <a name="visualize-data"></a>Verileri görselleştirme
+## <a name="visualize-data-on-a-map"></a>Harita üzerinde verileri Görselleştirme
 
 Son yordama devam edin.
 
 1. Görsel öğeler bölmesinde seçin **harita**.  Dünya simgesi var.
 
     ![HDInsight Power BI rapor özelleştirir](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
+    
 2. Alanlar bölmesinden seçin **Ülke** ve **devicemake**. Harita üzerinde çizilen verileri görebilirsiniz.
+
 3. Harita genişletin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Power BI'ı kullanarak HDInsight verilerini görselleştirmek öğrendiniz.  Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, Power BI'ı kullanarak HDInsight verilerini görselleştirmek öğrendiniz.  Veri görselleştirme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Microsoft Power BI'ın ODBC kullanarak Azure HDInsight ile Hive verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
 * [Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanma](./../hdinsight-connect-hive-zeppelin.md).

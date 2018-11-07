@@ -15,19 +15,19 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7810027e4ab9df6742b4431d12daf9ba2b678bf6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258995"
 ---
-# <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1.2 sürüm notları, StorSimple 8000 serisi cihazınız için güncelleştirme
+# <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1.2 sürüm notları için StorSimple 8000 serisi Cihazınızı güncelleştirme
 
 ## <a name="overview"></a>Genel Bakış
-Aşağıdaki sürüm notları, yeni özellikleri açıklar ve StorSimple 8000 serisi güncelleştirme 1.2 için kritik açık sorunlar tanımlayın. StorSimple yazılım, sürücü ve disk Bellenim güncelleştirmeleri bu sürümde dahil listesini de içerir. 
+Aşağıdaki sürüm notları, yeni özellikleri açıklar ve kritik açık sorunlar için StorSimple 8000 serisi güncelleştirme 1.2 belirleyin. Ayrıca StorSimple yazılım, sürücü ve disk üretici yazılımı güncelleştirmelerini bu sürüme dahil edilen listesini içerirler. 
 
-Güncelleştirme 1.2 sürüm (GA), güncelleştirme 0.1, güncelleştirme 0.2 veya Update 0.3 yazılımı çalıştıran herhangi bir StorSimple cihazına uygulanabilir. Cihazınızı güncelleştirme 1 veya güncelleştirme 1.1 çalışıyorsa, güncelleştirme 1.2 kullanılamaz. Cihazınızı sürüm (GA) çalışıyorsa, lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) bu güncelleştirmeyi yüklemeye yardımcı olması için.
+Güncelleştirme 1.2 sürümü (GA), güncelleştirme 0.1, güncelleştirme 0.2 veya Update 0.3 yazılımı çalıştıran tüm StorSimple cihazına uygulanabilir. Cihazınızı güncelleştirme 1 veya güncelleştirme 1.1 çalıştırıyorsa güncelleştirmeyi 1.2 kullanılamıyor. Yayın (GA) Cihazınızı çalışıyorsa, lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) bu güncelleştirmenin yüklenmesi ile yardımcı olmak için.
 
 Aşağıdaki tabloda 1, 1.1 ve 1.2 güncelleştirmeleri karşılık gelen cihaz yazılım sürümlerini listeler.
 
@@ -37,80 +37,80 @@ Aşağıdaki tabloda 1, 1.1 ve 1.2 güncelleştirmeleri karşılık gelen cihaz 
 | Güncelleştirme 1.1 |6.3.9600.17521 |
 | Güncelleştirme 1.0 |6.3.9600.17491 |
 
-Lütfen StorSimple çözümünüzde güncelleştirme dağıtmadan önce sürüm notları'nda yer alan bilgileri gözden geçirin. Daha fazla bilgi için bkz: nasıl yapılır [StorSimple Cihazınızda güncelleştirme 1.2 yükleme](storsimple-install-update-1.md). 
+Lütfen StorSimple çözümünüzde güncelleştirme dağıtmadan önce bu sürüm notlarında yer alan bilgileri gözden geçirin. Daha fazla bilgi için bkz. nasıl [güncelleştirme 1.2 StorSimple cihazınıza yüklemeniz](storsimple-install-update-1.md). 
 
 > [!IMPORTANT]
 > * Yaklaşık 5-10 (Windows güncelleştirmeleri dahil) bu güncelleştirmeyi yüklemek için saat sürer. 
-> * Güncelleştirme 1.2 yazılım, LSI sürücü ve disk Bellenim güncelleştirmeleri içerir. Yüklemek için yönergeleri izleyin [StorSimple Cihazınızda güncelleştirme 1.2 yükleme](storsimple-install-update-1.md).
-> * Yeni sürümler için güncelleştirmelerinin göremeyebilirsiniz hemen biz aşamalı güncelleştirmeler yapmak için. Yeniden birkaç gün içinde güncelleştirmeleri taramak üzere olarak yakında kullanılabilir hale gelecektir.
+> * Yazılım, LSI sürücü ve disk üretici yazılımı güncelleştirmelerini güncelleştirme 1.2 sahiptir. Yüklemek için yönergeleri izleyin. [güncelleştirme 1.2 StorSimple cihazınıza yüklemeniz](storsimple-install-update-1.md).
+> * Yeni yayınlar için güncelleştirmeleri göremeyebilirsiniz hemen güncelleştirmeleri aşamalı olarak sunulmasını çünkü. Yeniden birkaç günde güncelleştirmeleri için tarama olarak yakında kullanıma sunulacaktır.
 > 
 > 
 
-## <a name="whats-new-in-update-12"></a>Güncelleştirme 1.2 yenilikler nelerdir?
-Bu özellikler, güncelleştirme 1'de sınırlı sayıda kullanıcılar için kullanılabilir hale ilk yayımlanmıştır. Güncelleştirme 1.2 sürümle birlikte, StorSimple kullanıcıların çoğunun aşağıdaki yeni özellikleri ve geliştirmeleri görür:
+## <a name="whats-new-in-update-12"></a>Güncelleştirme 1.2 ile yenilikler nelerdir?
+Bu özellikler, güncelleştirme 1'de sınırlı sayıda kullanıcıları için kullanılabilir olan ilk kullanıma sunulmuştur. Güncelleştirme 1.2 sürümle birlikte, aşağıdaki yeni özellikler ve geliştirmeler StorSimple kullanıcıların çoğunun görür:
 
-* **8000 serisi cihazlar 5000-7000 Serisi geçiş** – bu sürümde StorSimple bir StorSimple 8000 serisi fiziksel Gereci veya bir sanal verilerini geçirmek 5000-7000 Serisi Gereci kullanıcılara yeni bir geçiş özelliği sunmaktadır Gereci. Geçiş özelliğini iki anahtar değer önermeleri sahiptir:                                                                  
+* **5000-7000 serisinden bir geçiş 8000 serisi cihazlar için** – bu sürüm, StorSimple 5000-7000 Serisi Gereci kullanıcılar verilerine bir StorSimple 8000 serisi fiziksel gereç veya bir sanal geçirmenizi sağlayan yeni bir geçiş özelliğini sunmaktadır. Gereç. Geçiş özelliğini iki temel değer önermeleri sahiptir:                                                                  
   
-  * **İş sürekliliği**, 5000-7000 Serisi uygulamalarıyla 8000 serisi cihazları üzerinde mevcut verilerin geçişini etkinleştirerek.
-  * **8000 serisi cihazları özelliği teklifler geliştirilmiş**, verimli Merkezi Yönetimi StorSimple Yöneticisi hizmeti aracılığıyla birden çok Gereçleri gibi daha iyi donanım sınıfı ve güncelleştirilmiş üretici yazılımı, sanal gereçler, veri mobility ve gelecekteki yol haritası özellikleri.
+  * **İş sürekliliği**, 5000-7000 Serisi gereçlere 8000 serisi gereçler için üzerinde mevcut verilerin geçişini etkinleştirerek.
+  * **8000 serisi Gereçleri özellik teklifleri geliştirilmiş**verimli Merkezi Yönetimi StorSimple Yöneticisi hizmeti aracılığıyla birden çok Gereçleri gibi daha iyi donanım sınıfı ve üretici yazılımı, sanal gereçler, veri mobility güncelleştirildi ve gelecekteki yol haritasında özellikleri.
     
-    Başvurmak [Geçiş Kılavuzu](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) için bir StorSimple geçirmek nasıl 5000-7000 Serisi 8000 serisi aygıtına ayrıntıları. 
-* **Azure kamu portalındaki kullanılabilirlik** – StorSimple artık Azure kamu Portalı'nda kullanılabilir durumdadır. Bkz: nasıl yapılır [Azure kamu portalındaki StorSimple Cihazınızı dağıtma](storsimple-deployment-walkthrough-gov.md).
+    Başvurmak [Geçiş Kılavuzu](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) için nasıl bir StorSimple geçirmek 5000-7000 Serisi için 8000 serisi cihaz ayrıntıları. 
+* **Azure kamu Portalı'nda kullanılabilirlik** – StorSimple Azure kamu portalında kullanıma sunuldu. Bkz. nasıl [Azure kamu Portalı'nda bir StorSimple Cihazınızı dağıtma](storsimple-deployment-walkthrough-gov.md).
 * **Diğer bulut hizmeti sağlayıcıları için destek** – Amazon S3, Amazon S3 RRS, HP ve OpenStack (beta) ile desteklenen diğer bulut hizmeti sağlayıcıları şunlardır.
-* **En son depolama API'leri güncelleştirmeye** – bu sürümle birlikte, en son Azure depolama hizmeti API StorSimple güncelleştirildi. Güncelleştirme 1 yazılımı sürümlerini çalıştıran StorSimple 8000 serisi cihazlar (sürüm, 0.1, 0.2 ve 0.3) Azure depolama hizmeti API'leri 17 Temmuz 2009'dan eski sürümlerini kullanan. Güncelleştirilmiş belirtildiği gibi [depolama hizmeti sürümleri kaldırma hakkında bildiri](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), bu API'leri 1 Ağustos 2016'da kullanım dışı kalacaktır. StorSimple 8000 serisi güncelleştirme 1 ' 1 Ağustos 2016 önce uyguladığınız zorunludur. Bunu yapmak başarısız olursa, StorSimple cihazları düzgün durdurur.
-* **Bölge olarak yedekli depolama (ZRS için) desteği** – depolama API'leri en son sürümüne yükseltmeye bölge olarak yedekli depolama (ZRS) yerel olarak yedekli depolama (LRS) ve coğrafi olarak yedekli depolama (GRS ek olarak StorSimple 8000 serisi destekler ). Bu başvuruda [Azure depolama artıklığı seçeneği makale](../storage/common/storage-redundancy.md) ZRS Ayrıntılar için.
-* **İlk dağıtım ve güncelleştirme deneyimini Gelişmiş** – bu sürümde yükleme ve güncelleştirme işlemleri geliştirilmiştir. Kurulum Sihirbazı'nı yükleme, güvenlik duvarı ayarları ve ağ yapılandırma doğru değilse kullanıcıyı geri bildirim sağlamak için geliştirilmiştir. Ek tanılama cmdlet'leri, ağ aygıtının gidermeye yardımcı olması için sağlanmıştır. Bkz: [deployment makalesi sorun giderme](storsimple-troubleshoot-deployment.md) sorun giderme için kullanılan yeni tanılama cmdlet'ler hakkında daha fazla bilgi için.
+* **En son depolama API'leri güncelleştirmeye** – bu sürümle birlikte, en son Azure depolama hizmetine API'leri StorSimple güncelleştirildi. Güncelleştirme 1 öncesi yazılım sürümleri çalıştıran StorSimple 8000 serisi cihazlar (sürüm, 0.1, 0.2 ve 0,3) Azure depolama hizmeti API'lerini 17 Temmuz 2009'dan eski bir sürümünü kullanıyorsunuz. Güncelleştirilmiş belirtildiği gibi [depolama hizmeti sürümleri kaldırılmasını hakkında duyuru](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), 1 Ağustos 2016 tarihine kadar bu API kullanım dışı bırakılacaktır. StorSimple 8000 Series güncelleştirme 1 1 Ağustos 2016'dan önce uyguladığınız zorunludur. Bunu yapmak başarısız olursa, StorSimple cihazları doğru bir şekilde çalışmayı durdurur.
+* **Bölgesel olarak yedekli depolama (ZRS için) desteği** – bölgesel olarak yedekli depolama (ZRS) yerel olarak yedekli depolama (LRS) ve coğrafi olarak yedekli depolama (GRS ek olarak StorSimple 8000 serisi depolama API'leri, en son sürüme yükseltmeye destekler ). Bu [Azure depolama yedekliliği seçenekleri hakkında daha fazla makale](../storage/common/storage-redundancy.md) ZRS Ayrıntılar için.
+* **İlk dağıtım ve güncelleştirme deneyimini Gelişmiş** – bu sürümde yükleme ve güncelleştirme işlemleri geliştirilmiştir. Kurulum Sihirbazı'nı yükleme, güvenlik duvarı ayarları ve ağ yapılandırması doğru değilse, kullanıcıya geri bildirim sağlamak için geliştirilmiştir. Ek tanılama cmdlet'leri cihazın ağ gidermeye yardımcı olması için sağlanmıştır. Bkz: [dağıtma makalesi sorun giderme](storsimple-troubleshoot-deployment.md) sorun giderme için kullanılan yeni tanılama cmdlet'ler hakkında daha fazla bilgi için.
 
 ## <a name="issues-fixed-in-update-12"></a>Güncelleştirme 1.2 ile giderilen sorunlar
-Aşağıdaki tabloda, 1.2, 1.1 ve 1 güncelleştirmelerinde düzeltilen sorunlardan özetini sağlar.    
+Aşağıdaki tabloda, güncelleştirmeleri 1.2, 1.1 ve 1'de düzeltilen sorunlara ilişkin bir Özet sağlar.    
 
-| Hayır. | Özellik | Sorun | Düzeltilen güncelleştirme | Fiziksel cihaz için geçerlidir | Sanal cihaz için geçerlidir |
+| Hayır. | Özellik | Sorun | Düzeltilen güncelleştirme | Fiziksel cihaz için geçerlidir | Sanal cihaza uygulanır |
 | --- | --- | --- | --- | --- | --- |
-| 1 |StorSimple için Windows PowerShell |Bir kullanıcı StorSimple cihaz StorSimple için Windows PowerShell kullanarak uzaktan eriştikten sonra Kurulum Sihirbazı'nı başlattığınızda, IP giriş veri 0 olan en kısa sürede bir kilitlenme oluştu. Bu hata artık güncelleştirme 1'de düzeltilmiştir. |Güncelleştirme 1 |Evet |Evet |
-| 2 |Fabrika sıfırlaması |Bazı durumlarda, bir Fabrika sıfırlaması gerçekleştirildiğinde StorSimple cihazı takılmış hale geldi ve bu ileti görüntülenir: **Fabrika sıfırlamaya devam ediyor (aşama 8)**. Bu cmdlet devam ederken CTRL + C basıldıysa oldu. Bu hata artık giderilmiştir. |Güncelleştirme 1 |Evet |Hayır |
-| 3 |Fabrika sıfırlaması |Başarısız çift denetleyici üretecini sıfırladıktan sonra cihaz kayıt işlemine devam etmek için izin verildi. Desteklenmeyen Sistem Yapılandırması'nda sonuçlandı. Güncelleştirme 1'in bir hata iletisi gösterilir ve kayıt başarısız fabrika ayarlarına sıfırladı bir aygıtta engellendi. |Güncelleştirme 1 |Evet |Hayır |
-| 4 |Fabrika sıfırlaması |Bazı durumlarda yanlış pozitif uyuşmazlığı uyarılar ortaya çıktı. Yanlış uyuşmazlığı uyarıları artık güncelleştirme 1 çalıştıran cihazlarda oluşturulur. |Güncelleştirme 1 |Evet |Hayır |
-| 5 |Fabrika sıfırlaması |Fabrika sıfırlamasına tamamlanmadan önce kesildiyse, cihaz kurtarma moduna girilen ve StorSimple için Windows PowerShell erişmesine izin vermedi. Bu hata artık giderilmiştir. |Güncelleştirme 1 |Evet |Hayır |
-| 6 |Olağanüstü durum kurtarma |Bir olağanüstü durum kurtarma (DR) hata; burada görüntülerle DR sırasında hedef aygıt yedekler keşfinin başarısız olmasına neden olabilir giderilmiştir. |Güncelleştirme 1 |Evet |Evet |
-| 7 |İzleme LED'leri |Bazı durumlarda, arkasındaki Gereci LED'leri izleme doğru durum yazılmasını belirtmedi. Mavi LED kapalıdır. Veri 0 ve veri 1 LED'leri bile ne zaman bu arabirimleri yapılandırılmamış yanıp. Sorun düzeltilmiştir ve izleme LED'leri artık doğru durumunu gösterir. |Güncelleştirme 1 |Evet |Hayır |
-| 8 |İzleme LED'leri |Bazı durumlarda, güncelleştirme 1'i uyguladıktan sonra etkin denetleyicisinde mavi ışık'böylece active denetleyicisi belirlemek sabit kolaylaştırarak açık. Bu düzeltme eki sürümde bu sorun düzeltilmiştir. |1.2 güncelleştir |Evet |Hayır |
-| 9 |Ağ arabirimleri |Önceki sürümlerde yönlendirilemeyen bir ağ geçidi ile yapılandırılmış bir StorSimple cihazı çevrimdışı duruma. Bu sürümde, Data 0 için bir yönlendirme metriği bırakıldı en düşük önceliğe; yapılan Bu nedenle, diğer ağ arabirimleri bulut etkin olsa bile, CİHAZDAN tüm bulut trafiği veri 0 yönlendirilir. |Güncelleştirme 1 |Evet |Evet |
-| 10 |Yedeklemeler |Yedeklemeleri 24 gün sonra başarısız olmasına neden güncelleştirme 1'in bir hata düzeltme eki sürümü güncelleştirme 1.1 düzeltilmiştir. |Güncelleştirme 1.1 |Evet |Evet |
-| 11 |Yedeklemeler |Önceki sürümlerde bir hata performansın düşük değişiklik oranları ile bulut anlık görüntüleri için ile sonuçlandı. Bu hata, bu düzeltme eki sürümde düzeltilmiştir. |1.2 güncelleştir |Evet |Evet |
-| 12 |Güncelleştirmeler |Başarısız yükseltmeyi bildirilen ve kurtarma moduna denetleyicileri neden güncelleştirme 1'in bir hata sabit bu düzeltme eki sürümde. |1.2 güncelleştir |Evet |Evet |
+| 1 |StorSimple için Windows PowerShell |Bir kullanıcı StorSimple için Windows PowerShell kullanarak StorSimple cihazı uzaktan erişilir ve ardından Kurulum Sihirbazı'nı kullanmaya bir kilitlenme IP girişi Data 0 olan en kısa sürede oluştu. Bu hata, güncelleştirme 1'de artık düzeltildi. |Güncelleştirme 1 |Evet |Evet |
+| 2 |Fabrika sıfırlaması |Bazı durumlarda, bir Fabrika sıfırlaması gerçekleştirildiğinde StorSimple cihaz takılı hale geldi ve bu ileti görüntülenir: **yapıp fabrika ayarlarına sıfırlama ediyor (aşama 8)**. Bu cmdlet devam ederken CTRL + C basıldıysa oldu. Bu hata artık düzeltildi. |Güncelleştirme 1 |Evet |Hayır |
+| 3 |Fabrika sıfırlaması |Başarısız olan çift denetleyici Fabrika sıfırlaması sonra cihaz kayıt işlemine devam etmek için izin verildi. Bu desteklenmeyen sistem yapılandırması sonuçlandı. Güncelleştirme 1'de bir hata iletisi gösterilir ve kayıt başarısız bir Fabrika sıfırlaması sahip bir cihazda engellenir. |Güncelleştirme 1 |Evet |Hayır |
+| 4 |Fabrika sıfırlaması |Bazı durumlarda, yanlış pozitif uyuşmazlığı uyarılar ortaya çıktı. Yanlış uyuşmazlığı uyarıları güncelleştirme 1 çalıştıran cihazlarda artık oluşturulur. |Güncelleştirme 1 |Evet |Hayır |
+| 5 |Fabrika sıfırlaması |Fabrika sıfırlaması tamamlanmadan kesildiyse, cihaz kurtarma moduna ve StorSimple için Windows PowerShell erişmesine izin vermedi. Bu hata artık düzeltildi. |Güncelleştirme 1 |Evet |Hayır |
+| 6 |Olağanüstü durum kurtarma |Burada görüntülerle DR bulunması sırasında hedef cihazda yedeklemeler başarısız olur bir olağanüstü durum kurtarma (DR) hata düzeltildi. |Güncelleştirme 1 |Evet |Evet |
+| 7 |İzleme LED'lerini |Bazı durumlarda, gereç arkasına izleme LED'lerini doğru durum belirtmeyen. Mavi LED kapatıldı. DATA 0 ve 1 LED'lerini veri bile, bu arabirimler yapılandırılmamış yanıp. Sorun düzeltilmiştir ve izleme LED'lerini artık doğru durumunu gösterir. |Güncelleştirme 1 |Evet |Hayır |
+| 8 |İzleme LED'lerini |Bazı durumlarda, güncelleştirme 1'i uyguladıktan sonra etkin denetleyiciyi mavi ışığını'böylece onu etkin denetleyiciyi belirleme zor yapma açık. Bu düzeltme eki sürümde bu sorun düzeltilmiştir. |1.2 güncelleştir |Evet |Hayır |
+| 9 |Ağ arabirimleri |Önceki sürümlerde yönlendirilemeyen bir ağ geçidi ile yapılandırılmış bir StorSimple cihazı çevrimdışı duruma. Bu sürümde, yönlendirme ölçüm için veri 0 olan bir düşük; yapılan Bu nedenle, bulut özellikli diğer ağ arabirimleri olsa bile, CİHAZDAN tüm bulut trafiği Data 0 yönlendirilir. |Güncelleştirme 1 |Evet |Evet |
+| 10 |Yedeklemeler |Güncelleştirme 1.1 yama sürümünde yedeklemeleri 24 gün sonra başarısız olmasına neden güncelleştirme 1'de bir hata düzeltildi. |Güncelleştirme 1.1 |Evet |Evet |
+| 11 |Yedeklemeler |Önceki sürümlerde hata düşük değişiklik oranları bulut anlık görüntüleri için zayıf performans sonuçlandı. Bu düzeltme eki sürümde bu hata düzeltildi. |1.2 güncelleştir |Evet |Evet |
+| 12 |Güncelleştirmeler |Güncelleştirme 1, başarısız bir yükseltmeyi bildirilen ve denetleyiciler kurtarma moduna gitmek neden bir hata bu yama sürümünde düzeltilmiştir. |1.2 güncelleştir |Evet |Evet |
 
-## <a name="known-issues-in-update-12"></a>Güncelleştirme 1.2 bilinen sorunlar
-Aşağıdaki tabloda bu sürümdeki bilinen sorunlara özetini sağlar.
+## <a name="known-issues-in-update-12"></a>Güncelleştirme 1.2'de bilinen sorunlar
+Aşağıdaki tabloda, bu sürümdeki bilinen sorunlara ilişkin bir Özet sağlar.
 
-| Hayır. | Özellik | Sorun | Yorumlar/geçici çözüm | Fiziksel cihaz için geçerlidir | Sanal cihaz için geçerlidir |
+| Hayır. | Özellik | Sorun | Yorumlar/geçici çözüm | Fiziksel cihaz için geçerlidir | Sanal cihaza uygulanır |
 | --- | --- | --- | --- | --- | --- |
-| 1 |Disk çekirdek |8600 cihaz EBOD muhafazası diskleri çoğunluğu hiçbir disk çekirdek kaynaklanan kesildiyse nadir durumlarda, ardından depolama havuzunun çevrimdışı olur. Diskleri yeniden bağlanır olsa bile çevrimdışı kalır. |Aygıt yeniden başlatma gerekir. Sorun devam ederse, Microsoft Support sonraki adımlar için temasa geçin. |Evet |Hayır |
-| 2 |Yanlış denetleyici kimliği |Bir denetleyici değiştirme gerçekleştirildiğinde, denetleyici 0 denetleyicisi 1 olarak görünebilirler. Görüntü eş düğümden yüklendiğinde denetleyicisi değiştirme sırasında denetleyici kimliği başlangıçta eş denetleyicinin kimliği olarak gösterebilir Nadir durumlarda, bu davranış bir sistem yeniden başlatıldıktan sonra görülebilir. |Hiçbir kullanıcı eylemi gerekli değildir. Denetleyici bu değişiklik tamamlandıktan sonra bu durum kendisini çözümleyin. |Evet |Hayır |
-| 3 |Depolama hesapları |Depolama hesabını silmek için Depolama Birimi hizmetini kullanarak desteklenmeyen bir senaryodur. Bu kullanıcı verileri alınamıyor bir durum neden. |Evet |Evet | |
-| 4 |Cihaz yük devretme |Farklı bir hedef cihazlara aynı kaynak cihazdaki birim kapsayıcısının birden çok yük devretme desteklenmiyor. Birden çok cihazı tek bir ölü CİHAZDAN cihaz yük devretme veri sahipliği kaybetmek birim kapsayıcıları aygıt üzerinden başarısız ilk hale getirir. Bu tür bir yük devretme sonrasında, bu birim kapsayıcıları görünür veya Klasik Azure portalında görüntülediğinizde farklı şekilde davranır. | |Evet |Hayır |
-| 5 |Yükleme |SharePoint yükleme için StorSimple bağdaştırıcısı sırasında aygıt IP başarıyla tamamlamak bir yükleme için sırayla sağlamanız gerekir. | |Evet |Hayır |
-| 6 |Web proxy |Web proxy yapılandırması belirtilen protokol olarak HTTPS varsa, cihazı hizmeti iletişimi etkilenecek ve cihaz çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP sahip olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
-| 7 |Web proxy |Yapılandırma ve web proxy bir kayıtlı cihazda etkinleştirirseniz, Cihazınızı etkin denetleyicisinde yeniden başlatmanız gerekir. | |Evet |Hayır |
-| 8 |Yüksek bulut gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye sırasını) ve yüksek g/ç iş yükü bileşimini karşılaştığında, düzeyi düşürülmüş bir duruma aygıt birimleri gidin ve g/ç "cihaz hazır değil" hatası ile başarısız. |El ile aygıt denetleyicileri yeniden başlatın veya bu durumdan kurtarmak için bir aygıt yük devretme gerçekleştirmek gerekir. |Evet |Hayır |
-| 9 |Azure PowerShell |StorSimple cmdlet'ini kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmesi için ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet parantez içine aşağıdaki gibi kaydır: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - First 1 - bekleme** |Evet |Evet |
-| 10 |Geçiş |Geçiş için birden çok birim kapsayıcıları geçirildiğinde ETA son yedekleme için yalnızca ilk birim kapsayıcısı için doğru olur. Ayrıca, ilk birim kapsayıcısı ilk 4 yedeklere geçirildikten sonra paralel geçiş başlar. |Bir kerede bir birim kapsayıcısı geçirmek öneririz. |Evet |Hayır |
-| 11 |Geçiş |Geri yüklendikten sonra yedekleme İlkesi ya da sanal disk grubu birimleri eklenmez. |Yedeklemeler oluşturmak için bir yedekleme İlkesi bu birimleri eklemeniz gerekir. |Evet |Evet |
-| 12 |Geçiş |Geçiş tamamlandıktan sonra 5000/7000 Serisi aygıt geçirilen verileri kapsayıcıları erişmelisiniz değil. |Tam ve kaydedilmiş geçiş tamamlandıktan sonra geçirilen verileri kapsayıcıları silme öneririz. |Evet |Hayır |
-| 13 |Kopya ve DR |Güncelleştirme 1 çalıştıran bir StorSimple cihazı kopyalama veya güncelleştirme 1 yazılımı öncesini çalıştıran bir cihazda olağanüstü durum kurtarma gerçekleştirin. |Hedef aygıt güncelleştirme işlemlerini izin vermek için 1 olarak güncelleştirmeniz gerekir |Evet |Evet |
-| 14 |Geçiş |Birim grupları ile ilişkili birim olduğunda geçiş için yedekleme yapılandırması 5000-7000 Serisi aygıtta başarısız olabilir. |Tüm boş birim gruplarıyla ilişkili birim silin ve yapılandırma yedeklemeyi yeniden deneyin. |Evet |Hayır |
+| 1 |Disk çekirdek |8600 bir cihaz EBOD muhafazası diskler çoğu hiçbir disk çekirdeği kaynaklanan kesilirse nadir durumlarda, ardından depolama havuzunun çevrimdışı olur. Diskleri yeniden bağlantı kuruldu bile çevrimdışı kalır. |Cihaz yeniden başlatma gerekir. Lütfen sorun devam ederse, Microsoft Support için sonraki adımlara başvurun. |Evet |Hayır |
+| 2 |Yanlış denetleyici kimliği |Denetleyici değişiklik yapıldığında, denetleyici 0 denetleyici 1 görünebilir. Eş düğümünden, görüntüyü yüklendiğinde denetleyicisi değiştirme sırasında denetleyici kimliği başlangıçta eş denetleyicinin kimliği olarak gösterebilirsiniz Nadir durumlarda, bu davranışı sistem yeniden başlatma sonrası görülebilir. |Hiçbir kullanıcı eylemi gerekli değildir. Denetleyici bu değişiklik tamamlandıktan sonra bu durum kendi çözülecektir. |Evet |Hayır |
+| 3 |Depolama hesapları |Depolama hesabını silmek için depolama hizmeti kullanarak desteklenmeyen bir senaryodur. Bu, kullanıcı verilerini geri alınamaz bir durum için yol açacaktır. |Evet |Evet | |
+| 4 |Cihaz yük devretme |Farklı bir hedef cihazlara aynı kaynak cihazdaki birim kapsayıcısının birden çok yük devretme işlemleri desteklenmiyor. Birden çok cihaz için cihaz yük devretme tek bir ölü CİHAZDAN veri sahipliği kaybetmek birim kapsayıcıları cihaz başarısız ilk neden olur. Böyle bir yük devrinden sonra bu birim kapsayıcıları görünür veya Azure Klasik Portalı'nda görüntülediğinizde farklı davranır. | |Evet |Hayır |
+| 5 |Yükleme |SharePoint yüklemesi için StorSimple bağdaştırıcısını sırasında yükleme başarıyla tamamlanması için sırayla bir cihazın IP sağlamanız gerekir. | |Evet |Hayır |
+| 6 |Web ara sunucusu |Belirtilen Protokolü HTTPS, web proxy yapılandırması varsa, cihazı hizmeti iletişiminizin etkilenecek ve cihaz çevrimdışı olarak geçer. Destek paketleri, Cihazınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
+| 7 |Web ara sunucusu |Yapılandırırsanız ve bir kayıtlı cihazda web Ara sunucusunu etkinleştirme, Cihazınızda etkin denetleyiciyi yeniden başlatmanız gerekir. | |Evet |Hayır |
+| 8 |Bulut yüksek gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye cinsinden sırası) ve yüksek g/ç iş yükü karşılaştığında, cihaz birimlerine düzeyi düşürülmüş bir duruma geçmesine ve g/ç bir "cihaz hazır değil" hatası ile başarısız olabilir. |El ile cihaz denetleyicileri yeniden veya bu durumdan kurtulmak için cihaz yük devretme gerçekleştirmeniz gerekecektir. |Evet |Hayır |
+| 9 |Azure PowerShell |StorSimple cmdlet kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmeniz ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet gibi parantez içine sarmalamak: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - First 1 - bekleme** |Evet |Evet |
+| 10 |Geçiş |Geçiş için birden çok birim kapsayıcıları geçirildiğinde ETA en son yedekleme için yalnızca ilk birim kapsayıcısı için doğru olur. Ayrıca, ilk 4 yedeklemeler ilk birim kapsayıcısı, geçirildikten sonra paralel geçiş başlar. |Bir birim kapsayıcısı teker teker geçirmek öneririz. |Evet |Hayır |
+| 11 |Geçiş |Geri yüklemeden sonra yedekleme İlkesi ya da sanal disk grubu birimleri eklenmez. |Yedeklemeler oluşturmak için bir yedekleme ilkesi için bu birimler eklemeniz gerekir. |Evet |Evet |
+| 12 |Geçiş |5000/7000 Serisi cihaz, geçiş tamamlandıktan sonra geçirilen verileri kapsayıcıları erişmemelidir. |Geçiş tamamlandı ve kaydedilmiş duruma geldikten sonra geçirilen verileri kapsayıcıları silmenizi öneririz. |Evet |Hayır |
+| 13 |Kopyalama ve DR |Güncelleştirme 1 çalıştıran bir StorSimple cihazına kopyalayın veya güncelleştirme 1 yazılımı öncesini çalıştıran bir cihazda olağanüstü durum kurtarma gerçekleştirin. |Hedef cihaz güncelleştirme 1 için güncelleştirme işlemlerini izin vermek için gerekecektir |Evet |Evet |
+| 14 |Geçiş |Hiçbir ilişkili birimleri ile birim gruplarını olduğunda geçiş için yedekleme yapılandırması 5000-7000 Serisi cihazda başarısız olabilir. |Hiçbir ilişkili birimleri ile tüm boş birim gruplarını silin ve ardından yapılandırma yedeklemeyi yeniden deneyin. |Evet |Hayır |
 
-## <a name="physical-device-updates-in-update-12"></a>Güncelleştirme 1.2 fiziksel aygıt güncelleştirmeleri
-Düzeltme eki güncelleştirme 1.2 (Güncelleştirme 1'den önceki sürümleri çalıştıran) bir fiziksel aygıt uygulanır, yazılım sürümü için 6.3.9600.17584 değiştirir.
+## <a name="physical-device-updates-in-update-12"></a>Güncelleştirme 1.2 fiziksel cihaz güncelleştirmeleri
+Düzeltme eki güncelleştirme 1.2 (Güncelleştirme 1'in önceki sürümlerini çalıştıran) bir fiziksel cihaza uygulanır, yazılım sürümü için 6.3.9600.17584 değişir.
 
-## <a name="controller-and-firmware-updates-in-update-12"></a>Güncelleştirme 1.2 denetleyici ve bellenim güncelleştirmeleri
-Bu sürüm, sürücü ve disk bellenim aygıtınızda güncelleştirir.
+## <a name="controller-and-firmware-updates-in-update-12"></a>Güncelleştirme 1.2 denetleyici ve üretici yazılımı güncelleştirmeleri
+Bu sürüm, sürücü ve disk üretici yazılımı Cihazınızda güncelleştirir.
 
-* SAS denetleyicisi güncelleştirmesi hakkında daha fazla bilgi için bkz: [Microsoft Azure StorSimple Gereci LSI SAS denetleyicileri için Güncelleştirme 1](https://support.microsoft.com/kb/3043005). 
-* Disk bellenim güncelleştirme hakkında daha fazla bilgi için bkz: [Microsoft Azure StorSimple Gereci için Disk bellenim güncelleştirme 1](https://support.microsoft.com/kb/3063416).
+* SAS denetleyicisi güncelleştirme hakkında daha fazla bilgi için bkz. [güncelleştirme 1'de Microsoft Azure StorSimple Gereci LSI SAS denetleyicilerini](https://support.microsoft.com/kb/3043005). 
+* Disk üretici yazılımı güncelleştirme hakkında daha fazla bilgi için bkz. [Disk üretici yazılımı güncelleştirme 1 için Microsoft Azure StorSimple Gereci](https://support.microsoft.com/kb/3063416).
 
-## <a name="virtual-device-updates-in-update-12"></a>Güncelleştirme 1.2 sanal aygıt güncelleştirmeleri
-Bu güncelleştirme, sanal cihaz için uygulanamaz. Yeni sanal cihazların oluşturulması gerekir. 
+## <a name="virtual-device-updates-in-update-12"></a>Sanal cihaz güncelleştirmeleri güncelleştirme 1.2
+Bu güncelleştirme, sanal cihaz için uygulanamaz. Yeni sanal cihazları oluşturulması gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Güncelleştirme 1.2 yüklemeniz](storsimple-install-update-1.md).
+* [Güncelleştirme 1.2 cihazınıza yüklemeniz](storsimple-install-update-1.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 8312841b5f8e4b9979de8abf32ce1009b4243f06
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7107c4ebd3f7df5966dd4c66aa8f453bd4f3d1d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388186"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228360"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -147,8 +147,8 @@ else
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 * [Service Bus’ı PowerShell ile yönetme](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-* [Service Bus kuyrukları, konular ve abonelikler bir PowerShell betiğini kullanarak oluşturma](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Bir Service Bus Namespace ve bir PowerShell betiğini kullanarak bir olay hub'ı oluşturma](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Service Bus kuyrukları, konular ve abonelikler bir PowerShell betiğini kullanarak oluşturma](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Bir Service Bus Namespace ve bir PowerShell betiğini kullanarak bir olay hub'ı oluşturma](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 Kullanıma hazır bazı komut dosyaları indirme için de kullanılabilir:
 

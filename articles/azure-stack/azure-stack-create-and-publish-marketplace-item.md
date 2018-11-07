@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c07e1282a755962b6fe6bc980207a510bd3287a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856464"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253780"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Market öğesi oluşturma ve yayımlama
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 ## <a name="create-a-marketplace-item"></a>Bir Market öğesi oluşturma
-1. [İndirme](http://www.aka.ms/azurestackmarketplaceitem) Azure galeri Paketleyici araç ve örnek Azure Stack Marketini öğesi.
+1. [İndirme](https://www.aka.ms/azurestackmarketplaceitem) Azure galeri Paketleyici araç ve örnek Azure Stack Marketini öğesi.
 2. Örnek Market öğesi açın ve yeniden adlandırma **SimpleVMTemplate** klasör. (Market öğesi--aynı adı kullanın, örneğin, **Contoso.TodoList**.) Bu klasör içerir:
    
    ```shell

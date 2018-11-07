@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421143"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258825"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Şirket içindeki bir bilgisayardan Azure’da dağıtılmış bir HPC Pack kümesine HPC işleri gönderme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "39421143"
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>1. adım: Yükleme ve web bileşenleri baş düğümde yapılandırın
 HTTPS üzerinden kümeye işleri göndermek bir REST arabirimini etkinleştirmek için HPC Pack web bileşenleri HPC paketi üstbilgi düğümü üzerinde yapılandırıldığından emin olun. Bunlar zaten yüklü değilse, öncelikle HpcWebComponents.msi yükleme dosyasını çalıştırarak web bileşenleri yükleyin. Ardından, HPC PowerShell betiğini çalıştırarak bileşenlerini yapılandırma **kümesi HPCWebComponents.ps1**.
 
-Ayrıntılı yordamlar için bkz: [Microsoft HPC Pack Web bileşenlerini yükleme](http://technet.microsoft.com/library/hh314627.aspx).
+Ayrıntılı yordamlar için bkz: [Microsoft HPC Pack Web bileşenlerini yükleme](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > HPC Pack kümeleri için belirli Azure hızlı başlangıç şablonları, yükleyin ve web bileşenleri otomatik olarak yapılandırın.
@@ -169,7 +169,7 @@ Yapılandırmanızı doğrulamak için şirket içi bilgisayardan azure'da küme
 1. Gönderdiğiniz iş sonuçlarını görüntülemek için iş kimliği'ni tıklatın ve ardından **görünümü görevleri** komut çıktısını görüntülemek için (altında **çıkış**).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure kümesine ile işleri de gönderebilirsiniz [HPC Pack REST API'si](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Azure kümesine ile işleri de gönderebilirsiniz [HPC Pack REST API'si](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Python örnek, bir Linux istemcisinden küme işleri göndermek istiyorsanız, bkz [HPC Pack 2012 R2 SDK'sı ve örnek kod](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 9f6b403c8facd56c447d3e9ae9b30cfdebe01621
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010771"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255413"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight kümesinde ML Hizmetleri yönetme
 
@@ -80,7 +80,7 @@ Ayrıca yeni eklenen kullanıcıların Linux sisteminde kök ayrıcalıklarına 
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML Hizmetleri uzaktan bağlanma
 
-Sizin masaüstünüzde çalışan uzak bir örneğini ML istemci HDInsight Hadoop Spark işlem bağlamına erişim ayarlayabilirsiniz. Bunu yapmak için seçenekleri (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript) belirtin, dizüstü tanımlama izin ver işlem bağlamını masaüstünüzde: Örnek:
+Sizin masaüstünüzde çalışan uzak bir örneğini ML istemci HDInsight Spark işlem bağlamına erişim ayarlayabilirsiniz. Bunu yapmak için seçenekleri (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript) belirtin, dizüstü tanımlama izin ver işlem bağlamını masaüstünüzde: Örnek:
 
     myNameNode <- "default"
     myPort <- 0
@@ -226,16 +226,13 @@ Bir işlem bağlamı, hesaplamanın kenar düğümünde yerel olarak yapılması
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > Ayrıca, MapReduce kullanarak hesaplamayı küme düğümleri arasında dağıtabilirsiniz. İşlem bağlamı hakkında daha fazla bilgi için bkz. [işlem bağlamı seçenekleri ML Hizmetleri için üzerinde HDInsight küme](r-server-compute-contexts.md).
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>R kodunu birden fazla düğüme dağıtma
 
 HDInsight üzerinde ML Hizmetleri ile mevcut R kodunu alabilir ve kümedeki birden fazla düğümde kullanarak çalıştırabilirsiniz `rxExec`. Bu işlev bir parametre tarama veya benzetme işlemi sırasında yararlıdır. `rxExec` kullanımını gösteren bir kod örneği aşağıda verilmiştir:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Hala Spark veya MapReduce bağlamını kullanıyorsanız bu komut, üzerinde `(Sys.info()["nodename"])` kodunun çalıştığı çalışan düğümleri için nodename değerini döndürür. Örneğin, dört düğümlü bir kümede, aşağıdaki kod parçacığına benzer bir çıktı beklenir:
+Yine de Spark bağlamını kullanıyorsanız bu komut çalışan düğümleri için nodename değerini döndürür kodu `(Sys.info()["nodename"])` çalıştırın. Örneğin, dört düğümlü bir kümede, aşağıdaki kod parçacığına benzer bir çıktı beklenir:
 
     $rxElem1
         nodename

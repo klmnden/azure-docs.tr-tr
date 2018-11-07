@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696940"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230878"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB sorgu kurallar sayfası
 
@@ -25,7 +25,7 @@ Bir harf boyutlu veya A3 boyutlu indirilerek seçin.
 
 ## <a name="letter-sized-cheat-sheets"></a>Letter boyutlu kurallar sayfası
 
-İndirme [Azure Cosmos DB sorgu letter boyutlu kurallar sayfası](http://go.microsoft.com/fwlink/?LinkId=623215) letter boyutlu incelemesini (8.5 "x 11") yazdırma, oluşturacağız.
+İndirme [Azure Cosmos DB sorgu letter boyutlu kurallar sayfası](https://go.microsoft.com/fwlink/?LinkId=623215) letter boyutlu incelemesini (8.5 "x 11") yazdırma, oluşturacağız.
 
 ![Azure Cosmos DB sorgu kurallar sayfası - letter SQL API'si, JavaScript, MongoDB API, Gremlin API ve tablo API'si sorguları ve işlevler ile boyutlu,](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

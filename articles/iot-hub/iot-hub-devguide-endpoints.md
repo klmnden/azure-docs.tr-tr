@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452675"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251449"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Başvuru - IOT Hub uç noktaları
 
@@ -57,7 +57,7 @@ Aşağıdaki listede, uç noktalar açıklanmaktadır:
 
 * **Hizmet uç noktalarını**. Her IOT hub uç noktaları cihazlarınızla iletişim kurmak çözüm arka ucunuz için bir dizi kullanıma sunar. Bir özel durum dışında Bu uç noktalar yalnızca kullanılarak açılır [AMQP](https://www.amqp.org/) protokolü. Yöntem çağırma uç noktası HTTPS protokolü üzerinden sunulur.
   
-  * *CİHAZDAN buluta iletilerini*. Bu uç nokta ile uyumlu [Azure Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/). Bir arka uç hizmeti okunacak kullanabilirsiniz [CİHAZDAN buluta iletileri](iot-hub-devguide-messages-d2c.md) , cihazlarınız tarafından gönderildi. Bu yerleşik uç nokta yanı sıra IOT hub'ınızdaki özel uç noktaları oluşturabilirsiniz.
+  * *CİHAZDAN buluta iletilerini*. Bu uç nokta ile uyumlu [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Bir arka uç hizmeti okunacak kullanabilirsiniz [CİHAZDAN buluta iletileri](iot-hub-devguide-messages-d2c.md) , cihazlarınız tarafından gönderildi. Bu yerleşik uç nokta yanı sıra IOT hub'ınızdaki özel uç noktaları oluşturabilirsiniz.
   
   * *Bulut buluttan cihaza iletileri gönderme ve teslim alındı bildirimleri almak*. Bu uç noktaları güvenilir göndermek çözüm arka ucunuz etkinleştirme [bulut-cihaz iletilerini](iot-hub-devguide-messages-c2d.md), karşılık gelen teslim veya süre sonu bildirimleri almak için.
   

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 52338cc21e46b544c2abb79cd7094615c837a2e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345246"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233788"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI uygulamalarını çalıştırmak için HPC Pack ile Windows RDMA kümesi ayarlama
 Azure ile Windows RDMA kümesi ayarlama [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) ve [RDMA özellikli HPC VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) paralel ileti geçiş arabirimi (MPI) uygulamalarını çalıştırmak için. RDMA özellikli, Windows Server tabanlı bir HPC Pack kümesinde düğümler ayarladığınızda, MPI uygulamaları düşük gecikme süreli, yüksek aktarım hızı ağ doğrudan uzak bellek erişimi (RDMA) teknolojisini temel alan Azure üzerinden verimli bir şekilde iletişim kurar.
@@ -51,19 +51,19 @@ Mevcut bir HPC Pack kümeden ek bilgi işlem kaynaklarının (PaaS) bulut hizmet
     HPC Pack yükleme paketinden indirme [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Gereksinimler ve bir Azure veri bloğu dağıtımına hazırlanmak için yönergeler için bkz. [Microsoft HPC Pack ile Azure çalışan örneklerine patlama](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Azure aboneliğinde bir yönetim sertifikası yapılandırma**
    
-    Baş düğüm ve Azure arasındaki bağlantıyı güvenli hale getirmek için bir sertifika yapılandırın. Seçenekleri ve yordamlar için bkz. [Azure yönetim sertifikası için HPC Pack yapılandırma senaryolarını](http://technet.microsoft.com/library/gg481759.aspx). Test dağıtımları için HPC Pack bir varsayılan Microsoft HPC Azure yönetimi, Azure aboneliğinize hızlı bir şekilde karşıya yükleyebilirsiniz sertifikası yükler.
+    Baş düğüm ve Azure arasındaki bağlantıyı güvenli hale getirmek için bir sertifika yapılandırın. Seçenekleri ve yordamlar için bkz. [Azure yönetim sertifikası için HPC Pack yapılandırma senaryolarını](https://technet.microsoft.com/library/gg481759.aspx). Test dağıtımları için HPC Pack bir varsayılan Microsoft HPC Azure yönetimi, Azure aboneliğinize hızlı bir şekilde karşıya yükleyebilirsiniz sertifikası yükler.
 3. **Yeni bir bulut hizmeti ve depolama hesabı oluşturma**
    
     Azure portalını (Klasik) bir bulut hizmeti ve depolama hesabı (Klasik) dağıtım için oluşturmak için kullanın. Bu kaynaklar, kullanmak istediğiniz H serisi, A8 veya A9 boyutu kullanılabilir olduğu bir bölgede oluşturun. Bkz: [bölgelere göre Azure ürünleri](https://azure.microsoft.com/regions/services/).
 
 4. **Bir Azure düğümüne şablonu oluşturma**
    
-    Kullanım HPC Kümesi Yöneticisi'nde düğümü Şablon Sihirbazı oluşturma. Adımlar için bkz: [Azure düğüm şablonu oluşturma](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) "Adımları için dağıtma Azure düğümleri ile Microsoft HPC Pack".
+    Kullanım HPC Kümesi Yöneticisi'nde düğümü Şablon Sihirbazı oluşturma. Adımlar için bkz: [Azure düğüm şablonu oluşturma](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) "Adımları için dağıtma Azure düğümleri ile Microsoft HPC Pack".
    
     İlk testler için el ile kullanılabilirlik İlkesi şablonunda yapılandırma öneririz.
 5. **Küme Düğümleri Ekle**
    
-    Kullanım düğümü Sihirbazı HPC Kümesi Yöneticisi'nde ekleyin. Daha fazla bilgi için [Windows HPC kümesine Azure düğümleri Ekle](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
+    Kullanım düğümü Sihirbazı HPC Kümesi Yöneticisi'nde ekleyin. Daha fazla bilgi için [Windows HPC kümesine Azure düğümleri Ekle](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
    
     Düğümlerin boyutunu belirtirken, RDMA özellikli örneği boyutlarından birini seçin.
    
@@ -76,7 +76,7 @@ Mevcut bir HPC Pack kümeden ek bilgi işlem kaynaklarının (PaaS) bulut hizmet
     Düğümleri seçme ve kullanma **Başlat** HPC Kümesi Yöneticisi'nde eylem. Sağlama tamamlandığında, düğümleri seçin ve kullanmak **çevrimiçine** HPC Kümesi Yöneticisi'nde eylem. Düğümleri, işler çalıştırmaya hazırsınız.
 7. **Kümeye işlerini gönderme**
    
-   Küme işlerini çalıştırmak için HPC Pack iş gönderme araçlarını kullanın. Bkz: [Microsoft HPC paketi: iş yönetimi](http://technet.microsoft.com/library/jj899585.aspx).
+   Küme işlerini çalıştırmak için HPC Pack iş gönderme araçlarını kullanın. Bkz: [Microsoft HPC paketi: iş yönetimi](https://technet.microsoft.com/library/jj899585.aspx).
 8. **Durdur (sağlamayı kaldırma) düğümler**
    
    Çalışan işleri tamamladığınızda, düğüm çevrimdışı duruma getirin ve kullanma **Durdur** HPC Kümesi Yöneticisi'nde eylem.

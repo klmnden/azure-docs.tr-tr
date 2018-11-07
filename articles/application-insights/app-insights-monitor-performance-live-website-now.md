@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24ab8e5171ebb33a5f3be5c6bf08e361fff4e4cc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959554"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230929"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
 
@@ -78,7 +78,7 @@ Bu işlemle Application Insights JavaScript SDK tüm web sayfalarına eklenmiş 
 Uygulamanız bir IIS sunucusunda barındırılıyorsa, Durum İzleyici’yi kullanarak Application Insights’ı etkinleştirin.
 
 1. IIS web sunucunuzda yönetici kimlik bilgileriyle oturum açın.
-2. Application Insights Durum İzleyicisi henüz yüklü değilse, [Durum İzleyicisi yükleyicisini](http://go.microsoft.com/fwlink/?LinkId=506648) indirip çalıştırın (veya [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)’ni çalıştırıp Application Insights Durum İzleyicisi için arama yapın).
+2. Application Insights Durum İzleyicisi henüz yüklü değilse, [Durum İzleyicisi yükleyicisini](https://go.microsoft.com/fwlink/?LinkId=506648) indirip çalıştırın (veya [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)’ni çalıştırıp Application Insights Durum İzleyicisi için arama yapın).
 3. Durum İzleyicisi'nde yüklü web uygulamasını veya izlemek istediğiniz web sitesini seçin. Azure kimlik bilgilerinizle oturum açın.
 
     Sonuçlarını Application Insights portalında görmek istediğiniz kaynağı yapılandırın. (Normalde, yeni bir kaynak oluşturmak en iyi yöntemdir. Bu uygulama için zaten [web testleriniz][availability] veya [istemci izleme][client] özelliği varsa mevcut bir kaynağı seçin.) 

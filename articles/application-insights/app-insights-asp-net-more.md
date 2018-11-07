@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5d46b446a71d75a20cc4771b651fbf107db31358
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a1244076efe1c920a23f29de9d25ab6845747fe4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958450"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245860"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Application ınsights'tan daha fazla telemetri
 Sonra [ASP.NET kodunuza Application Insights eklenmiş](app-insights-asp-net.md), daha fazla telemetri almak için yapabileceğiniz birkaç şey vardır. 
 
 | Eylem | Ne alacaksınız|
 |---|---|
-|(IIS sunucuları) [Durum İzleyicisi yükleyin](http://go.microsoft.com/fwlink/?LinkId=506648) her sunucu makinesinde.<br/>(Azure web uygulamaları) Web uygulaması için Azure denetim masasında Application Insights dikey penceresini açın.| [**Performans sayaçları**](app-insights-performance-counters.md)<br/>[**Özel durumlar** ](app-insights-asp-net-exceptions.md) - ayrıntılı Yığın izlemeleri<br/>[**Bağımlılıkları**](app-insights-asp-net-dependencies.md)|
+|(IIS sunucuları) [Durum İzleyicisi yükleyin](https://go.microsoft.com/fwlink/?LinkId=506648) her sunucu makinesinde.<br/>(Azure web uygulamaları) Web uygulaması için Azure denetim masasında Application Insights dikey penceresini açın.| [**Performans sayaçları**](app-insights-performance-counters.md)<br/>[**Özel durumlar** ](app-insights-asp-net-exceptions.md) - ayrıntılı Yığın izlemeleri<br/>[**Bağımlılıkları**](app-insights-asp-net-dependencies.md)|
 |[JavaScript kod parçacığını web sayfalarınıza ekleme](app-insights-javascript.md)|[Sayfa performansı](app-insights-usage-overview.md), tarayıcı özel durumları, AJAX performans. Özel istemci tarafı telemetri.|
 |[Kullanılabilirlik web testleri oluşturun](app-insights-monitor-web-app-availability.md)|Sitenizi kullanılamaz hale gelirse uyarılar alın|
 |[Buildınfo.config olun](https://msdn.microsoft.com/library/dn449058.aspx) MSBuild tarafından oluşturulur|[Ek açıklamalar ölçüm grafikleri oluşturma](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)

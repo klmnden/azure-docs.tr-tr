@@ -5,14 +5,14 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/05/2018
 ms.author: ganesr
-ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9c9f216ee25cd74ac8bcb5521cad85d051422eb2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650137"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219350"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -100,7 +100,7 @@ IP adresi ve AS numarasının aşağıdaki kayıt defterlerinden birinde size ka
 Özel AS Numarası, Microsoft Eşlemesi ile birlikte kullanılabilir ancak bunun için de el ile doğrulama yapılması gerekecektir. Ayrıca, alınan ön ekler için AS YOLU’ndaki özel AS numaralarını kaldırırız. Bunun sonucu olarak, [Microsoft Eşlemesi için yönlendirmeyi etkilemek](expressroute-optimize-routing.md) amacıyla AS YOLU’nda özel AS numaraları ekleyemezsiniz. 
 
 > [!IMPORTANT]
-> ExpressRoute üzerinden Microsoft'a tanıtılan genel IP adreslerinin İnternet’e tanıtılması gerekmez. Bu, diğer Microsoft hizmetlerine bağlantıyı kesebilir. Ancak ağınızda Microsoft içindeki O365 uç noktalarıyla iletişim kuran sunucular tarafından kullanılan Genel IP adresleri, ExpressRoute üzerinden tanıtılabilir. 
+> Aynı genel IP yolu genel İnternet'e ve ExpressRoute üzerinden tanıtmıyoruz. Size bildirmek daha belirli bir yol ExpressRoute ve İnternet'e daha genel bir rota üzerinden öneririz [NAT](expressroute-nat.md). NAT için genel yönlendirme yanı sıra ayrıca genel IP ExpressRoute üzerinden tanıtabilirsiniz içinden, Microsoft Office 365 uç noktaları ile iletişim kuran sunucular şirket içi ağınızda tarafından kullanılan adresleri. 
 > 
 > 
 

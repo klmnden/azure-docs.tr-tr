@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 554718f0bb465ca757fc4dcf6c22d3b0dd80f2fb
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3f0bf2c6c58afbbf9a1256fa5901591e535fe20c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251099"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250773"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
@@ -36,7 +36,7 @@ Azure Cosmos DB için yeni web, mobil, oyun, iyi bir seçimdir ve IOT uygulamala
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Azure Cosmos DB tahmin edilebilir performansı nasıl sunar?
 A [istek birimi](request-units.md) (RU) olan bir Azure Cosmos DB'de aktarım hızı ölçümü. 1 RU aktarım hızı için 1 KB boyutundaki bir belgeyi GET işlemesine karşılık gelir. Okuma, yazma, SQL sorguları ve saklı yordam yürütmeleri dahil olmak üzere Azure Cosmos DB'deki her işlemin, işlemi tamamlamak için gereken aktarım hızına göre belirleyici bir RU değerine sahiptir. CPU, GÇ, bellek ve bunların uygulama işlemesini nasıl etkilediğini hakkında düşünmek yerine tek RU ölçü açısından düşünebilirsiniz.
 
-Her Azure Cosmos DB kapsayıcısı RU saniye başına aktarım hızı açısından sağlanan aktarım hızı ile ayırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği büyütün veya ihtiyaçları, uygulama geliştikçe, kapsayıcının aktarım hızını ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve Yardım için kapsayıcı belirleme bkz gereksinimlerini [aktarım hızı gereksinimlerini tahmin etme](request-units.md#estimating-throughput-needs) deneyin [aktarım hızı hesaplayıcı](https://www.documentdb.com/capacityplanner). Terim *kapsayıcı* burada bir SQL API'si koleksiyonu, Gremlin API grafiği, MongoDB API koleksiyon ve tablo API'si tablo ifade eder. 
+Her Azure Cosmos DB kapsayıcısı RU saniye başına aktarım hızı açısından sağlanan aktarım hızı ile ayırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği büyütün veya ihtiyaçları, uygulama geliştikçe, kapsayıcının aktarım hızını ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve Yardım için kapsayıcı belirleme deneyin gereksinimlerini [aktarım hızı hesaplayıcı](https://www.documentdb.com/capacityplanner). Terim *kapsayıcı* burada bir SQL API'si koleksiyonu, Gremlin API grafiği, MongoDB API koleksiyon ve tablo API'si tablo ifade eder. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB anahtar/değer, sütun, belge ve graf gibi çeşitli veri modellerini nasıl destekler?
 
@@ -462,7 +462,7 @@ RU ücret geçişi çalışma veri kümesini temel alır ve sonuç kümesi. Örn
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Bir grafik veritabanı, Azure Cosmos DB Gremlin API sahip olabileceği en fazla ölçek nedir? 
 
-Azure Cosmos DB kullanır [yatay bölümleme](partition-data.md) otomatik olarak depolama ve aktarım hızı gereksinimleri adresi artış. Bir iş yükü en fazla aktarım hızı ve depolama kapasitesi, belirli bir koleksiyon ile ilişkili olan bölüm sayısı tarafından belirlenir. Ancak, yönergelerine uygun ölçekte bir uygun performans deneyimi sağlamak için belirli bir dizi Gremlin API koleksiyonu vardır. Daha fazla bilgi ve en iyi uygulamalar için bkz. [bölümleme için en iyi uygulamalar](partition-data.md#best-practices-when-choosing-a-partition-key) belge. 
+Azure Cosmos DB kullanır [yatay bölümleme](partition-data.md) otomatik olarak depolama ve aktarım hızı gereksinimleri adresi artış. Bir iş yükü en fazla aktarım hızı ve depolama kapasitesi, belirli bir koleksiyon ile ilişkili olan bölüm sayısı tarafından belirlenir. Ancak, yönergelerine uygun ölçekte bir uygun performans deneyimi sağlamak için belirli bir dizi Gremlin API koleksiyonu vardır. Bölümleme ve en iyi uygulamalar hakkında daha fazla bilgi için bkz. [Azure Cosmos DB'de bölümleme](partition-data.md) makalesi. 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin sürücüleri kullanarak ekleme saldırılarına karşı nasıl koruyabilirim? 
 

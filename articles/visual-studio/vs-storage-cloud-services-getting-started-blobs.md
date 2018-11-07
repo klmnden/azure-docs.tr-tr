@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 076dc58876afbe309e75373a78f84a79951ec2b9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d7f832164a41c2107a2cb9fdca3530b1f5d785cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060373"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253610"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob Depolama ve Visual Studio ile çalışmaya başlama bağlı hizmetler (bulut hizmeti projeleri)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -64,7 +64,7 @@ Zaten mevcut değilse bulut hizmeti projeleri blob'larda programlı olarak eriş
 
 ## <a name="create-a-container-in-code"></a>Kod içinde bir kapsayıcı oluşturma
 > [!NOTE]
-> ASP.NET'te Azure Storage'a göz çağrıları gerçekleştirmek bazı API'leri zaman uyumsuzdur. Bkz: [Async ve Await ile zaman uyumsuz programlama](http://msdn.microsoft.com/library/hh191443.aspx) daha fazla bilgi için. Aşağıdaki örnek kodda, zaman uyumsuz programlama yöntemler kullandığınızı varsayar.
+> ASP.NET'te Azure Storage'a göz çağrıları gerçekleştirmek bazı API'leri zaman uyumsuzdur. Bkz: [Async ve Await ile zaman uyumsuz programlama](https://msdn.microsoft.com/library/hh191443.aspx) daha fazla bilgi için. Aşağıdaki örnek kodda, zaman uyumsuz programlama yöntemler kullandığınızı varsayar.
 > 
 > 
 

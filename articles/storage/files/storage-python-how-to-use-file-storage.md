@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: 37c42c5a680b8768d0882ad97fb3f3f2ed4ab821
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a376e4f5d8d74731f30da47a696656e79ae55ac7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42061088"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245690"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python ile Azure dosyaları için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -178,5 +178,5 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 Python ile Azure dosyaları işlemek öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin.
 
 * [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/)
-* [Azure Depolama Hizmetleri REST API'si](http://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Depolama Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure depolama için Python SDK'sı](https://github.com/Azure/azure-storage-python)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dab1547ca17acaeda3cb168d78b342661ebe4615
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157628"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230487"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Etki Alanı Hizmetleri tarafından yönetilen etki alanını yönetme
 Bu makalede, Azure Active Directory (AD) etki alanı Hizmetleri yönetilen etki alanını yönetme işlemini göstermektedir.
@@ -63,7 +63,7 @@ Azure AD Domain Services yönetilen etki alanlarını, Active Directory Yönetim
 ### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>Yönetilen etki alanı (örneğin, Windows 10) istemci bilgisayardan uzaktan yönetme
 AAD-DS yönetmek için yönergeleri Bu makalede kullanılan bir Windows Server sanal makinesini yönetilen etki. Ancak, bunu yapmak için bir Windows istemci (örneğin, Windows 10) sanal makine kullanmayı da seçebilirsiniz.
 
-Yapabilecekleriniz [Uzak Sunucu Yönetim Araçları (RSAT) yükleme](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) TechNet'te yönergeleri izleyerek bir Windows istemci sanal makine üzerinde.
+Yapabilecekleriniz [Uzak Sunucu Yönetim Araçları (RSAT) yükleme](https://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) TechNet'te yönergeleri izleyerek bir Windows istemci sanal makine üzerinde.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Görev 2 - sanal makinede yükleme Active Directory Yönetim Araçları
 Etki alanına katılmış sanal makinede Active Directory Yönetim Araçları'nı yüklemek için aşağıdaki adımları tamamlayın. Daha fazla bilgi için TechNet bkz [yükleme ve Uzak Sunucu Yönetim Araçları'nı kullanarak bilgi](https://technet.microsoft.com/library/hh831501.aspx).

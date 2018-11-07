@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 160172b25f4bcdb04ac9f9649bca6b08e0be1b0d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246846"
 ---
 # <a name="api-management-caching-policies"></a>API Management önbelleğe alma ilkeleri
-Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CachingPolicies"></a> Önbelleğe alma ilkeleri  
   
@@ -121,7 +121,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |farklı-tarafından-developer-groups|Kümesine `true` kullanıcı rol başına önbellek yanıtları.|Evet||  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
 -   **İlke kapsamları:** API işlemi, ürün  
@@ -193,7 +193,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |süre|Zaman yaşam önbelleğe alınan girişlerin saniye cinsinden belirtilen.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** giden    
 -   **İlke kapsamları:** API işlemi, ürün  
@@ -237,7 +237,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |değişken adı|Adını [bağlam değişkeni](api-management-policy-expressions.md#ContextVariables) için arama başarılı olursa yukarı looked değeri atanır. İçinde bir isabetsizliği arama sonuçları, değişkenin değerini atanacak `default-value` özniteliği veya `null`, `default-value` öznitelik atlanmış.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen, giden arka uç, hata  
 -   **İlke kapsamları:** Genel API, ürün işlem  
@@ -279,7 +279,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |değer|Önbelleğe alınacak değeri.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen, giden arka uç, hata  
 -   **İlke kapsamları:** Genel API, ürün işlem  
@@ -316,7 +316,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |anahtar|Önbellekten kaldırılması için önceden önbelleğe alınan değerin anahtarı.|Evet|Yok|  
   
 #### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **İlke bölümler:** gelen, giden arka uç, hata  
 -   **İlke kapsamları:** Genel API, ürün işlem  

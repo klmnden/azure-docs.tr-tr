@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427187"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259165"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -79,7 +79,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Yalnızca bekleme/yük devretme için kullanılıyorsa, Azure VM'deki SQL Server lisansı için ödeme gerekir mi?**
 
-   Yazılım Güvencesi ve lisans taşınabilirliği açıklandığı kullanın [sanal makine lisanslama SSS](http://azure.microsoft.com/pricing/licensing-faq/) HA dağıtımında pasif ikincil bir çoğaltma olarak katılan tek bir SQL Server Lisansı ödeme yapmam gerekir mi sonra. Aksi takdirde, lisans için ücret ödemem gerekir.
+   Yazılım Güvencesi ve lisans taşınabilirliği açıklandığı kullanın [sanal makine lisanslama SSS](https://azure.microsoft.com/pricing/licensing-faq/) HA dağıtımında pasif ikincil bir çoğaltma olarak katılan tek bir SQL Server Lisansı ödeme yapmam gerekir mi sonra. Aksi takdirde, lisans için ücret ödemem gerekir.
 
 
 ## <a name="administration"></a>Yönetim

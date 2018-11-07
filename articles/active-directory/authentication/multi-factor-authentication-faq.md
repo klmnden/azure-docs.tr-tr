@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057145"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230961"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
@@ -145,7 +145,7 @@ Kuruluşunuz eski istemciler yoksa, kullanıcılarınızın uygulama parolaları
 
 Metin iletileri teslim ve iki yönlü SMS yanıtlara giriş garanti edilmez, hizmet güvenilirliğini etkileyebilecek denetlenemeyen Etkenler olduğundan. Bu etkenler, hedef ülke, cep telefonu operatörü ve sinyal gücü içerir.
 
-Kullanıcılarınız genellikle güvenilir bir şekilde kısa mesaj alma sorunları varsa, mobil uygulama ya da telefon aramasına yöntemi kullanmayı söyleyin. Mobil uygulama bildirimleri hem hücresel ve Wi-Fi bağlantıları üzerinden alabilir. Ayrıca, cihaz hiçbir sinyal hiç olsa bile mobil uygulama doğrulama kodları oluşturur. Microsoft Authenticator uygulamasını kullanılabilir [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+Kullanıcılarınız genellikle güvenilir bir şekilde kısa mesaj alma sorunları varsa, mobil uygulama ya da telefon aramasına yöntemi kullanmayı söyleyin. Mobil uygulama bildirimleri hem hücresel ve Wi-Fi bağlantıları üzerinden alabilir. Ayrıca, cihaz hiçbir sinyal hiç olsa bile mobil uygulama doğrulama kodları oluşturur. Microsoft Authenticator uygulamasını kullanılabilir [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 Kısa mesaj kullanmanız gerekiyorsa, iki yönlü SMS mümkün olduğunda yerine tek yönlü SMS kullanmanızı öneririz. Tek yönlü SMS daha güvenilirdir ve kullanıcıların başka bir ülkeden gönderildiği bir mesaj yanıtlama genel SMS ücretleri doğurmasını engeller.
 

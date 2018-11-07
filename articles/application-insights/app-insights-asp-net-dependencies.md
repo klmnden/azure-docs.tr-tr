@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c54d8b870d6d8c187dcf145b56e3cbae257889a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999721"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259301"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı: bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -44,7 +44,7 @@ Kısmi bağımlılık bilgileri tarafından otomatik olarak toplanan [Applicatio
 
 | Platform | Yükleme |
 | --- | --- |
-| IIS sunucusu |Ya da [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [uygulamanızı .NET framework 4.6 veya üzeri için yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
+| IIS sunucusu |Ya da [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [uygulamanızı .NET framework 4.6 veya üzeri için yükseltme](https://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
 | Azure Web Uygulaması |Web uygulaması Denetim Masası'ndaki [Application Insights dikey penceresini açın, web uygulaması Denetim Masası'ndaki](app-insights-azure-web-apps.md) yükleme istenirse seçin. |
 | Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
@@ -207,7 +207,7 @@ Aşağıdaki tabloya başvurun ve kayıtlarınızın bağımlılık uygulamanız
 
 | Platform | Yükleme |
 | --- | --- |
-| IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md). Veya [uygulamanızı .NET framework 4.6 veya üzeri için yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
+| IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md). Veya [uygulamanızı .NET framework 4.6 veya üzeri için yükseltme](https://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
 | Azure Web Uygulaması |Web uygulaması Denetim Masası'ndaki [Application Insights dikey penceresini açın, web uygulaması Denetim Masası'ndaki](app-insights-azure-web-apps.md) yükleme istenirse seçin. |
 | Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 

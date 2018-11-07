@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 1c498bb857b717682f943af96b222d9712b5d389
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409229"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245656"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Azure SQL veritabanı dizin oluşturucuları kullanarak Azure Search'e bağlanma
 
@@ -140,7 +140,7 @@ Yanıt, aşağıdakine benzer görünmelidir:
     }
 
 Yürütme geçmişi, 50 (en son yürütme yanıtta önce gelirse), ters kronolojik sırada sıralanır en son tamamlanan yürütmelerin içerir.
-Yanıt hakkında ek bilgiler bulunabilir [dizin oluşturucu durumunu Al](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+Yanıt hakkında ek bilgiler bulunabilir [dizin oluşturucu durumunu Al](https://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## <a name="run-indexers-on-a-schedule"></a>Dizin oluşturucular bir zamanlamaya göre çalıştırma
 Düzenli bir zamanlamaya göre çalıştırmak için dizin oluşturucu da düzenleyebilirsiniz. Bunu yapmak için ekleme **zamanlama** oluştururken veya dizin oluşturucunun güncelleştirme özelliği. Aşağıdaki örnekte, dizin oluşturucu güncelleştirmek için PUT İsteği gösterilmektedir:

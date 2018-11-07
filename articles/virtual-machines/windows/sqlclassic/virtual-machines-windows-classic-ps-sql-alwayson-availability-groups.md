@@ -1,6 +1,6 @@
 ---
-title: PowerShell kullanarak Azure VM temelinde Always On kullanılabilirlik grubu yapılandırma | Microsoft Docs
-description: Bu öğretici Klasik dağıtım modeliyle oluşturulan kaynakları kullanır. Always On kullanılabilirlik grubu oluşturmak için PowerShell kullanın.
+title: PowerShell kullanarak bir Azure sanal makinesinde Always On kullanılabilirlik grubu yapılandırma | Microsoft Docs
+description: Bu öğreticide Klasik dağıtım modeliyle oluşturulan kaynaklar kullanılmaktadır. Azure'da bir Always On kullanılabilirlik grubu oluşturmak için PowerShell kullanın.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,51 +15,51 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: fe7384baa6740d316fb5a8ec7b1894f337d88080
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401302"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257944"
 ---
-# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell ile Azure VM'de Always On kullanılabilirlik grubu yapılandırma
+# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Azure VM'de PowerShell ile Always On kullanılabilirlik grubu yapılandırma
 > [!div class="op_single_selector"]
 > * [Klasik: kullanıcı Arabirimi](../classic/portal-sql-alwayson-availability-groups.md)
 > * [Klasik: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Başlamadan önce Azure resource manager modelinde bu görevi tamamlamak olduğunu göz önünde bulundurun. Azure resource manager modeli yeni dağıtımlar için öneririz. Bkz: [SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerinde](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Başlamadan önce artık Azure resource manager modelinde bu görevi tamamlayabilirsiniz göz önünde bulundurun. Yeni dağıtımlar için Azure resource manager modelini öneririz. Bkz: [SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerinde](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> En yeni dağıtımların Resource Manager modelini kullanmasını öneririz. Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir.
+> En yeni dağıtımların Resource Manager modelini kullanmasını öneririz. Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir.
 
-Azure sanal makineleri (VM'ler) yüksek oranda kullanılabilir SQL Server sistem maliyetini düşürmek için veritabanı yöneticilerine yardımcı olabilir. Bu öğretici bir kullanılabilirlik grubu SQL Server Always On uçtan uca bir Azure ortamı içindeki kullanarak uygulama gösterilmektedir. Öğreticinin sonunda Azure, SQL Server Always On çözümünüz aşağıdaki öğelerden oluşur:
+Azure sanal makineleri (VM'ler), Veritabanı yöneticileri, yüksek oranda kullanılabilir SQL Server Sistem maliyetlerini düşürmeye yardımcı olabilir. Bu öğreticide SQL Server Always On için uçtan uca bir Azure ortamı içinde bir kullanılabilirlik grubuna uygulamak gösterilmektedir. Öğreticinin sonunda, SQL Server Always On azure'da çözümünüzü aşağıdaki öğelerden oluşur:
 
-* Bir ön uç dahil olmak üzere birden çok alt ağı ve bir arka uç alt ağ içeren bir sanal ağ.
+* Bir ön uç dahil olmak üzere birden çok alt ağa ve arka uç alt ağı içeren bir sanal ağ.
 * Bir Active Directory etki alanı ile etki alanı denetleyicisi.
-* Arka uç alt ağına dağıtılan ve Active Directory etki alanına katılan iki SQL Server Vm'lerinin.
-* Üç düğümlü Windows Yük devretme kümesi düğüm çoğunluğu çekirdek modeli.
-* Bir kullanılabilirlik veritabanının bir kullanılabilirlik grubu iki synchronous-commit çoğaltmalarından ile.
+* İki SQL Server arka uç alt ağına dağıtılır ve Active Directory etki alanına katılmış sanal makineleri.
+* Düğüm çoğunluğu çekirdek modeli ile üç düğümlü bir Windows Yük devretme kümesi.
+* Bir kullanılabilirlik veritabanının bir kullanılabilirlik grubu ile iki synchronous-commit çoğaltmalarından.
 
-Bu senaryo olduğunda, düşük maliyet veya diğer etkenlere bağlı için değil, Azure üzerinde kendi Basitlik için iyi bir seçimdir. Örneğin, iki düğümlü yük devretme kümesinde çekirdek dosya paylaşım tanığı olarak etki alanı denetleyicisini kullanarak Azure işlem saatleri kaydetmek iki çoğaltma kullanılabilirlik grubu için VM sayısını en aza indirebilirsiniz. Bu yöntem, yukarıdaki yapılandırma birinden tarafından VM sayısını azaltır.
+Bu senaryo, Hesaplı maliyet veya başka faktörlerin için değil, Azure üzerinde Basitlik için iyi bir seçim ' dir. Örneğin, bir iki düğümlü yük devretme kümesinde çekirdek dosya paylaşım tanığı olarak etki alanı denetleyicisi kullanarak azure'da işlem saatleri kaydetmek bir çoğaltma iki kullanılabilirlik grubu için VM sayısını en aza indirebilirsiniz. Bu yöntem, yukarıdaki yapılandırma diğerine göre VM sayısını azaltır.
 
-Bu öğretici, her bir adımın ayrıntıları elaborating olmadan, yukarıda açıklanan çözüm ayarlamak için gerekli olan adımları göstermek için tasarlanmıştır. Bu nedenle, GUI yapılandırma adımlarını sağlayarak yerine her adımda hızlı bir şekilde almak için komut dosyası PowerShell kullanır. Bu öğretici aşağıdaki varsayılır:
+Bu öğretici her adımın ayrıntıları elaborating olmadan, yukarıda açıklandığı gibi çözüm ayarlamak için gerekli olan adımları göstermek için tasarlanmıştır. Bu nedenle, GUI yapılandırma adımları sağlamak yerine, her adımda hızlı bir şekilde yararlanmak için betik oluşturma PowerShell kullanır. Bu öğreticide aşağıdaki varsayılır:
 
-* Sanal makine abone olan bir Azure hesabı zaten var.
+* Sanal makine aboneliği ile bir Azure hesabı zaten var.
 * Yüklediğiniz [Azure PowerShell cmdlet'lerini](/powershell/azure/overview).
-* Always On kullanılabilirlik grupları şirket içi çözümler için sağlam bir anlayış zaten var. Daha fazla bilgi için bkz: [Always On kullanılabilirlik grupları (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Always On kullanılabilirlik grupları şirket içi çözümler için düz bir anlayış zaten var. Daha fazla bilgi için [Always On kullanılabilirlik grupları (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
-## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Azure aboneliğinize bağlanmak ve sanal ağ oluşturma
-1. Bir PowerShell penceresinde, yerel bilgisayarınızda Azure modülünü içeri aktarın, yayımlama ayarları dosyası makinenize indirmek ve indirilen yayımlama ayarlarını içeri aktararak, PowerShell oturumunuz Azure aboneliğinize bağlanmak.
+## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Azure aboneliğinize bağlanın ve sanal ağ oluşturma
+1. Bir PowerShell penceresinde, yerel bilgisayarınızda Azure modülünü içeri aktarın, yayımlama ayarları dosyası makinenize indirmek ve PowerShell oturumunuzda, indirilen yayımlama ayarlarını içeri aktararak Azure aboneliğinize bağlanın.
 
         Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
         Get-AzurePublishSettingsFile
         Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-    **Get-AzurePublishSettingsFile** komutu otomatik olarak Azure yönetim sertifikasıyla oluşturur ve makinenize indirir. Bir tarayıcı otomatik olarak açılır ve Azure aboneliğiniz için Microsoft hesap kimlik bilgilerini girmeniz istenir. İndirilen **.publishsettings** dosyası Azure aboneliğinizi yönetmek için gereken tüm bilgileri içerir. Bu dosya yerel bir dizine kaydedildikten sonra bunu kullanarak içeri **Import-AzurePublishSettingsFile** komutu.
+    **Get-AzurePublishSettingsFile** komut otomatik olarak Azure ile bir yönetim sertifikası oluşturur ve makinenize indirir. Bir tarayıcı otomatik olarak açılır ve Azure aboneliğiniz için Microsoft hesap kimlik bilgilerini girmeniz istenir. İndirilen **.publishsettings** dosya, Azure aboneliğinizi yönetmek için ihtiyacınız olan tüm bilgileri içerir. Bu dosyayı yerel bir dizine kaydettikten sonra bunu kullanarak içeri **Import-AzurePublishSettingsFile** komutu.
 
    > [!NOTE]
-   > .Publishsettings dosyasını Azure Abonelikleriniz ve hizmetleri yönetmek için kullanılan (kodlanmamış), kimlik bilgilerini içerir. Geçici olarak kaynak dizinlerinizi (örneğin, Libraries\Documents klasöründe) dışında depolama ve alma işlemi tamamlandıktan sonra silmek için bu dosya için en iyi güvenlik uygulaması değil. .Publishsettings dosyasını erişim kazanır kötü niyetli bir kullanıcı düzenleme, oluşturma ve Azure hizmetlerinizi silin.
+   > .Publishsettings dosyasını Azure abonelik ve hizmetleri yönetmek için kullanılan (kodlanmamış), kimlik bilgilerini içerir. Bu dosya için en iyi güvenlik uygulaması, kaynak dizinleri (örneğin, Libraries\Documents klasöründe) dışında geçici olarak depolar ve içeri aktarma tamamlandıktan sonra Sil sağlamaktır. .Publishsettings dosyasını erişim kazanır kötü niyetli bir kullanıcı düzenleyin, oluşturun ve Azure hizmetlerinizi silin.
 
 2. Bir dizi bulut BT altyapısı oluşturmak için kullanacağınız değişkenleri tanımlayın.
 
@@ -81,12 +81,12 @@ Bu öğretici, her bir adımın ayrıntıları elaborating olmadan, yukarıda a�
         $vmAdminPassword = "Contoso!000"
         $workingDir = "c:\scripts\"
 
-    Komutlarınızı daha sonra başarılı olmak için aşağıdakilere dikkat edin:
+    Komutlarınızın daha sonra başarılı olmak için aşağıdakilere dikkat edin:
 
-   * Değişkenleri **$storageAccountName** ve **$dcServiceName** bulut depolama hesabı ve bulut sunucunuzu, Internet'te sırasıyla tanımlamak için kullanılırlar çünkü benzersiz olması gerekir.
-   * Değişkenleri belirtir adları **$affinityGroupName** ve **$virtualNetworkName** daha sonra kullanacağınız sanal ağ yapılandırması belgede yapılandırılır.
-   * **$sqlImageName** , SQL Server 2012 Service Pack 1 Enterprise Edition içeren VM görüntüsü güncelleştirilmiş adını belirtir.
-   * Basitleştirmek için **Contoso! 000** tüm Öğreticisi kullanılan aynı parola.
+   * Değişkenleri **$storageAccountName** ve **$dcServiceName** , bulut depolama hesabı ve bulut sunucusu, sırasıyla, Internet'te tanımlamak için kullanıldığından benzersiz olması gerekir.
+   * Değişkenler için belirttiğiniz adları **$affinityGroupName** ve **$virtualNetworkName** daha sonra kullanacağınız sanal ağ yapılandırma belgede yapılandırılır.
+   * **$sqlImageName** güncelleştirilmiş SQL Server 2012 Service Pack 1 Enterprise Edition içeren VM görüntü adını belirtir.
+   * Kolaylık olması için **Contoso! 000** tüm öğretici boyunca kullanılan paroladır.
 
 3. Bir benzeşim grubu oluşturun.
 
@@ -96,12 +96,12 @@ Bu öğretici, her bir adımın ayrıntıları elaborating olmadan, yukarıda a�
             -Description $affinityGroupDescription `
             -Label $affinityGroupLabel
 
-4. Bir yapılandırma dosyasını içeri aktararak bir sanal ağ oluşturun.
+4. Bir yapılandırma dosyasını içeri aktararak sanal ağ oluşturun.
 
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    Yapılandırma dosyasında aşağıdaki XML belgesi içeriyor. Kısaca, adlı bir sanal ağ belirtir **ContosoNET** adlı benzeşim grubundaki **ContosoAG**. Adres alanı sahip **10.10.0.0/16** ve iki alt ağa sahip **10.10.1.0/24** ve **10.10.2.0/24**, olduğu alt ağ ön ve arka alt ağ, sırasıyla. Burada, Microsoft SharePoint gibi istemci uygulamalarını yerleştirebilirsiniz ön alt ağıdır. SQL Server Vm'lerinin nereye geri alt ağıdır. Değiştirirseniz **$affinityGroupName** ve **$virtualNetworkName** değişkenleri daha önce de aşağıdaki karşılık gelen adları değiştirmeniz gerekir.
+    Yapılandırma dosyası, aşağıdaki XML belgesi içeriyor. Kısaca, bu adlı bir sanal ağ belirtir **ContosoNET** adlı benzeşim grubunda **ContosoAG**. Adres alanı sahip **10.10.0.0/16** ve iki alt ağa sahip **10.10.1.0/24** ve **10.10.2.0/24**, olan ön alt ağı ve geri alt ağ, sırasıyla. Burada, Microsoft SharePoint gibi istemci uygulamalarını yerleştirebilirsiniz ön alt yer. Geri alt ağ, SQL Server Vm'leri yerleştirdiğiniz ' dir. Değiştirirseniz **$affinityGroupName** ve **$virtualNetworkName** değişkenleri daha önce de aşağıdaki karşılık gelen adlarını değiştirmeniz gerekir.
 
         <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -124,7 +124,7 @@ Bu öğretici, her bir adımın ayrıntıları elaborating olmadan, yukarıda a�
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-5. Oluşturulan ve aboneliğinizde geçerli depolama hesabı olarak ayarlayın benzeşim grubuyla ilişkili bir depolama hesabı oluşturun.
+5. Oluşturduğunuz ve aboneliğinizde geçerli bir depolama hesabı olarak ayarlanmış bir benzeşim grubu ile ilişkili bir depolama hesabı oluşturun.
 
         New-AzureStorageAccount `
             -StorageAccountName $storageAccountName `
@@ -134,7 +134,7 @@ Bu öğretici, her bir adımın ayrıntıları elaborating olmadan, yukarıda a�
             -SubscriptionName (Get-AzureSubscription).SubscriptionName `
             -CurrentStorageAccount $storageAccountName
 
-6. Etki alanı denetleyicisi sunucusuna yeni bulut hizmeti ve kullanılabilirlik kümesinde oluşturun.
+6. Etki alanı denetleyicisi sunucusuna yeni bulut hizmeti ve kullanılabilirlik kümesindeki oluşturun.
 
         New-AzureVMConfig `
             -Name $dcServerName `
@@ -152,14 +152,14 @@ Bu öğretici, her bir adımın ayrıntıları elaborating olmadan, yukarıda a�
                     –AffinityGroup $affinityGroupName `
                     -VNetName $virtualNetworkName
 
-    Bu piped komutları şunları yapın:
+    Bu piped komutlar, şunları yapın:
 
-   * **AzureVMConfig yeni** bir VM yapılandırması oluşturur.
-   * **Ekleme AzureProvisioningConfig** bir tek başına Windows server'ın yapılandırma parametrelerini sağlar.
-   * **Ekleme AzureDataDisk** None olarak ayarlanmış önbelleğe alma seçeneği ile Active Directory verilerini depolamak için kullanacağınız veri diski ekler.
-   * **Yeni-AzureVM** yeni bir bulut hizmeti ve yeni bir Azure VM yeni bulut hizmeti oluşturur.
+   * **Yeni AzureVMConfig** bir VM yapılandırması oluşturur.
+   * **Ekle-AzureProvisioningConfig** tek başına Windows server'ın yapılandırma parametrelerini sağlar.
+   * **Ekleme AzureDataDisk** hiçbiri olarak ayarlamak önbelleğe alma seçeneği ile Active Directory verilerini depolamak için kullanacağınız veri diski ekler.
+   * **Yeni-AzureVM** yeni bir bulut hizmeti ve yeni bulut hizmetinde yeni bir Azure VM oluşturur.
 
-7. Yeni VM tamamen sağlanması için bekleyin ve çalışma dizininizi Uzak Masaüstü dosyası indirilemedi. Yeni Azure VM sağlamak için uzun bir süre aldığından `while` kullanıma hazır olana kadar yeni VM Yoklama döngüsü devam eder.
+7. Yeni VM tam olarak hazırlanmasını bekleyin ve çalışma dizininizin Uzak Masaüstü dosyası indirmek. Yeni bir Azure VM sağlamak, uzun zaman aldığından `while` kullanıma hazır olana kadar yeni VM Yoklama döngüsü devam eder.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -175,12 +175,12 @@ Bu öğretici, her bir adımın ayrıntıları elaborating olmadan, yukarıda a�
             -Name $dcServerName `
             -LocalPath "$workingDir$dcServerName.rdp"
 
-Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından, bu etki alanı denetleyicisi sunucu üzerinde Active Directory etki alanı yapılandıracaksınız. Yerel bilgisayarınızda PowerShell penceresini açık bırakın. İki SQL Server VM oluşturmak için daha sonra yeniden kullanacaksınız.
+Şimdi, etki alanı denetleyicisi sunucusuna başarıyla hazırlandı. Ardından, bu etki alanı denetleyicisi sunucusuna Active Directory etki alanı yapılandıracaksınız. Yerel bilgisayarınızda PowerShell penceresini kapatmayın. İki SQL Server Vm'leri oluşturmak için daha sonra tekrar kullanacaksınız.
 
-## <a name="configure-the-domain-controller"></a>Etki alanı denetleyicisini Yapılandır
-1. Uzak Masaüstü dosyası başlatarak etki alanı denetleyicisi sunucusuna bağlanın. Makine yöneticisinin AzureAdmin kullanıcı adı ve parolası kullanmak **Contoso! 000**, yeni VM oluştururken belirttiğiniz.
+## <a name="configure-the-domain-controller"></a>Etki alanı denetleyicisi yapılandırma
+1. Uzak Masaüstü dosyası başlatarak etki alanı denetleyicisi sunucusuna bağlanın. Makine yöneticisinin AzureAdmin kullanıcı adı ve parolası kullanmak **Contoso! 000**, yeni sanal makine oluştururken belirttiğiniz.
 2. Yönetici modunda bir PowerShell penceresi açın.
-3. Aşağıdaki komutu çalıştırarak **DCPROMO. EXE** ayarlamak için komut **corp.contoso.com** M sürücüsü veri dizinleri ile etki alanı.
+3. Aşağıdaki komutu çalıştırın **DCPROMO. EXE** ayarlamak için komut **corp.contoso.com** M sürücüde veri dizinlerle etki alanı.
 
         dcpromo.exe `
             /unattend `
@@ -198,10 +198,10 @@ Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından
             /SYSVOLPath:"C:\Windows\SYSVOL" `
             /SafeModeAdminPassword:"Contoso!000"
 
-    Komut bittikten sonra VM otomatik olarak yeniden başlatılır.
+    Komut bittikten sonra VM otomatik olarak yeniden başlatır.
 
-4. Etki alanı denetleyicisi sunucusuna Uzak Masaüstü dosyası başlatarak yeniden bağlanın. Bu süre olarak oturum açın **CORP\Administrator**.
-5. Yönetici modunda bir PowerShell penceresi açın ve aşağıdaki komutu kullanarak Active Directory PowerShell modülünü içeri aktarın:
+4. Uzak Masaüstü dosyası başlatarak etki alanı denetleyicisi sunucusuna yeniden bağlanın. Bu süre olarak oturum **CORP\Administrator**.
+5. Yönetici modunda bir PowerShell penceresi açın ve aşağıdaki komutu kullanarak Active Directory PowerShell modülü içeri aktarın:
 
         Import-Module ActiveDirectory
 
@@ -227,7 +227,7 @@ Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından
             -ChangePasswordAtLogon $false `
             -Enabled $true
 
-    **CORP\Install** SQL Sunucu hizmeti örneği, yük devretme kümesinin ve kullanılabilirlik grubu ile ilgili her şeyi yapılandırmak için kullanılır. **CORP\SQLSvc1** ve **CORP\SQLSvc2** iki SQL Server VM'ler için SQL Server hizmet hesabı olarak kullanılır.
+    **CORP\Install** SQL Sunucu hizmeti örneği, yük devretme kümesinin ve kullanılabilirlik grubu için ilgili her şeyi yapılandırmak için kullanılır. **CORP\SQLSvc1** ve **CORP\SQLSvc2** SQL Server hizmet hesabı olarak iki SQL Server Vm'leri için kullanılır.
 7. Ardından, vermek için aşağıdaki komutları çalıştırın **CORP\Install** etki alanında bilgisayar nesneleri oluşturma izni.
 
         Cd ad:
@@ -239,12 +239,12 @@ Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    Yukarıda belirtilen GUID, bilgisayar nesnesi türü için GUID'dir. **CORP\Install** hesap gereksinimlerini **tüm özellikleri oku** ve **bilgisayar nesneleri oluşturma** yük devretme kümesi için etkin doğrudan nesneleri oluşturma izni. **Tüm özellikleri oku** izni zaten verilen CORP\Install için varsayılan olarak, açıkça vermeniz gerekmez. Yük devretme kümesi oluşturmak için gereken izinler hakkında daha fazla bilgi için bkz: [yük devretme kümesi adım adım Kılavuzu: Active Directory hesaplarını yapılandırma](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    Yukarıda belirtilen GUID için bilgisayar nesnesi türünü GUID'dir. **CORP\Install** hesap gereksinimlerini **tüm özellikleri oku** ve **bilgisayar nesneleri oluşturma** yük devretme kümesi için etkin doğrudan nesneleri oluşturma izni. **Tüm özellikleri oku** izni zaten verildiğinde CORP\Install için varsayılan olarak, bu nedenle açıkça vermeniz gerekmez. Yük devretme kümesini oluşturmak için gereken izinler hakkında daha fazla bilgi için bkz. [yük devretme kümesi adım adım Kılavuzu: Active Directory'de hesapları yapılandırma](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
-    Active Directory ve kullanıcı nesneleri yapılandırma bitirdikten sonra iki SQL Server Vm'lerinin oluşturacak ve bu etki alanına ekleyin.
+    Active Directory ve kullanıcı nesnelerinin yapılandırma bitirdikten sonra iki SQL Server Vm'leri oluşturacak ve bunları bu etki alanına ekleyin.
 
-## <a name="create-the-sql-server-vms"></a>SQL Server Vm'lerinin oluşturma
-1. Yerel bilgisayarınızda açık PowerShell penceresi kullanmaya devam edin. Aşağıdaki ek değişkenleri tanımlayın:
+## <a name="create-the-sql-server-vms"></a>SQL Server Vm'leri oluşturma
+1. Yerel bilgisayarınızda açık olan bir PowerShell penceresi kullanmaya devam edin. Aşağıdaki ek değişkenleri tanımlayın:
 
         $domainName= "corp"
         $FQDN = "corp.contoso.com"
@@ -257,7 +257,7 @@ Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından
         $dataDiskSize = 100
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
 
-    IP adresi **10.10.0.4** oluşturduğunuz ilk VM genellikle atandığı **10.10.0.0/16** Azure sanal ağınızın alt ağ. Bu etki alanı denetleyicisi sunucunuzun adresini çalıştırarak olduğunu doğrulamalısınız **IPCONFIG**.
+    IP adresi **10.10.0.4** genellikle oluşturduğunuz ilk VM'ye atanmış **10.10.0.0/16** Azure sanal ağınızın alt ağ. Bu etki alanı denetleyicisi sunucunuzun adresini çalıştırarak olduğunu doğrulamalısınız **IPCONFIG**.
 2. Aşağıdaki yöneltilen adlı yük devretme kümesinde ilk VM oluşturmak için komutları çalıştırma **ContosoQuorum**:
 
         New-AzureVMConfig `
@@ -284,13 +284,13 @@ Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından
                         -VNetName $virtualNetworkName `
                         -DnsSettings $dnsSettings
 
-    Yukarıdaki komut ilgili olarak aşağıdakileri unutmayın:
+    Yukarıdaki komut ilişkin aşağıdakileri unutmayın:
 
-   * **AzureVMConfig yeni** istenen kullanılabilirlik kümesi adı ile bir VM yapılandırması oluşturur. Sonraki sanal makineleri aynı kullanılabilirlik kümesi adı ile aynı kullanılabilirlik kümesine birleşik oluşturulan.
-   * **Ekleme AzureProvisioningConfig** VM oluşturduğunuz Active Directory etki alanına katılır.
+   * **Yeni AzureVMConfig** istenen kullanılabilirlik kümesi adı ile bir sanal makine yapılandırması oluşturur. Sonraki VM'lerin aynı kullanılabilirlik kümesi adı ile aynı kullanılabilirlik kümesine katılır oluşturulan.
+   * **Ekle-AzureProvisioningConfig** VM oluşturduğunuz Active Directory etki alanına katılır.
    * **Set-AzureSubnet** geri alt ağda VM yerleştirir.
-   * **Yeni-AzureVM** yeni bir bulut hizmeti ve yeni bir Azure VM yeni bulut hizmeti oluşturur. **DnsSettings** parametresi belirtir yeni bulut hizmeti sunucuları için DNS sunucusu IP adresi olduğunu **10.10.0.4**. Etki alanı denetleyicisi sunucunun IP adresidir. Bu parametre, başarılı bir şekilde Active Directory etki alanına katılmak bulut hizmetinde yeni VM'ler etkinleştirmek için gereklidir. Bu parametre olmadan, VM sağlandıktan sonra etki alanı denetleyici sunucusu birincil DNS sunucusu olarak kullanmak için VM IPv4 ayarları el ile ayarlayın ve ardından VM Active Directory etki alanına gerekir.
-3. Aşağıdaki yöneltilen adlı SQL Server VM'ler oluşturmak için komutları çalıştırma **ContosoSQL1** ve **ContosoSQL2**.
+   * **Yeni-AzureVM** yeni bir bulut hizmeti ve yeni bulut hizmetinde yeni bir Azure VM oluşturur. **DnsSettings** parametresinin belirttiği yeni bir bulut hizmeti sunucuları için DNS sunucusunun IP adresine sahiptir **10.10.0.4**. Etki alanı denetleyicisi sunucunun IP adresidir. Bu parametre, bulut hizmetine başarıyla Active Directory etki alanına yeni VM'lerin etkinleştirmek için gereklidir. Bu parametre olmadan, IPv4 ayarları VM sağlandıktan sonra etki alanı denetleyicisi sunucusuna birincil DNS sunucusu olarak kullanmak için VM'yi el ile ayarlamanız ve ardından VM Active Directory etki alanına gerekir.
+3. Aşağıdaki yöneltilen adlı SQL Server Vm'leri oluşturmak için komutları çalıştırma **ContosoSQL1** ve **ContosoSQL2**.
 
         # Create ContosoSQL1...
         New-AzureVMConfig `
@@ -348,14 +348,14 @@ Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından
                         New-AzureVM `
                             -ServiceName $sqlServiceName
 
-    Yukarıdaki komutlarda ilgili olarak aşağıdakileri unutmayın:
+    Yukarıdaki komutlar ilişkin aşağıdakileri unutmayın:
 
-   * **AzureVMConfig yeni** aynı kullanılabilirlik kümesi adı etki alanı denetleyici sunucusu ve SQL Server 2012 Service Pack 1 Enterprise Edition görüntüsü sanal makineye Galerisi kullanır. Okuma yalnızca önbelleğe alma için aynı zamanda işletim sistemi diski ayarlar (hiçbir yazma önbelleğini). Veritabanı dosyalarını VM'e ekleyin ayrı veri diski geçirmek ve hiçbir okuma veya yazma önbelleği ile yapılandırma öneririz. Ancak, sonraki en iyi şey işletim sistemi disk üzerinde okuma önbelleği kaldırılamıyor çünkü işletim sistemi diskte yazma önbelleğini kaldırmaktır.
-   * **Ekleme AzureProvisioningConfig** VM oluşturduğunuz Active Directory etki alanına katılır.
+   * **Yeni AzureVMConfig** aynı kullanılabilirlik kümesi adı etki alanı denetleyicisi sunucusu olarak ve sanal makine galerisinde SQL Server 2012 Service Pack 1 Enterprise Edition görüntüyü kullanır. Ayrıca okuma yalnızca önbelleğe alma için işletim sistemi diski ayarlar (hiçbir yazma önbelleğe alma). Veritabanı dosyalarını ayrı veri diski sanal Makineye eklediğiniz geçirme ve hiçbir okuma veya yazma önbelleği ile yapılandırma öneririz. Ancak, bir sonraki en iyi şey üzerinde işletim sistemi diski okuma önbelleğini kaldıramayacağınız, işletim sistemi disk üzerinde yazma önbelleği kaldırmaktır.
+   * **Ekle-AzureProvisioningConfig** VM oluşturduğunuz Active Directory etki alanına katılır.
    * **Set-AzureSubnet** geri alt ağda VM yerleştirir.
-   * **Ekleme AzureEndpoint** istemci uygulamalarının bu SQL Server Hizmetleri örnekler Internet'te erişebilmesi için erişim uç noktaları ekler. Farklı bağlantı noktaları ContosoSQL1 ve ContosoSQL2 verilir.
-   * **Yeni-AzureVM** ContosoQuorum aynı bulut hizmetindeki yeni SQL Server VM oluşturur. Bunları aynı kullanılabilirlik kümesinde olmasını istiyorsanız, sanal makineleri aynı bulut hizmetinde yerleştirmeniz gerekir.
-4. Her VM çalışma dizininizi, Uzak Masaüstü dosyası indirilemedi ve tamamen sağlanması her bir VM için bekleyin. `for` Döngü döngüleri üç yeni VM'ler ve bunların her biri için en üst düzey süslü ayraçlar içindeki komutları yürütür.
+   * **Ekle-AzureEndpoint** erişim uç noktaları ekler; böylece bu SQL Server Hizmetleri örnekleri Internet üzerindeki istemci uygulamalara erişebilirsiniz. Farklı bağlantı noktalarını ContosoSQL1 ve ContosoSQL2 verilir.
+   * **Yeni-AzureVM** ContosoQuorum aynı bulut hizmetinde yeni SQL Server VM oluşturur. Aynı kullanılabilirlik kümesinde olmasını istiyorsanız aynı bulut hizmetinde VM'lerin yerleştirmeniz gerekir.
+4. Tam olarak hazırlanmasını her VM için ve çalışma dizininizin kendi Uzak Masaüstü dosyası indirmek her bir VM için bekleyin. `for` Döngü döngüleri üç yeni VM'ler ve bunların her biri için en üst düzey süslü ayraçlar içindeki komutları yürütür.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -375,60 +375,60 @@ Etki alanı denetleyici sunucusu artık başarıyla kaynak sağlandı. Ardından
             Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
         }
 
-    SQL Server Vm'lerinin şimdi sağlanır ve çalışıyor, ancak bunlar varsayılan seçeneklerle SQL Server ile birlikte yüklenen.
+    SQL Server Vm'leri artık sağlanır ve çalışıyor, ancak varsayılan seçeneklerle SQL Server ile birlikte yüklenen.
 
-## <a name="initialize-the-failover-cluster-vms"></a>Yük devretme kümesi sanal makineleri Başlat
+## <a name="initialize-the-failover-cluster-vms"></a>Yük devretme kümesi sanal makineleri başlatma
 Bu bölümde, yük devretme kümesi ve SQL Server yüklemesi kullanacağınız üç sunucu değiştirmeniz gerekir. Bu avantajlar şunlardır:
 
-* Tüm sunucuları: yüklemenize gerek **Yük Devretme Kümelemesi** özelliği.
-* Tüm sunucuları: eklemenize gerek **CORP\Install** makine olarak **yönetici**.
+* Tüm sunucular: yüklemeniz gerekir **Yük Devretme Kümelemesi** özelliği.
+* Tüm sunucular: eklemenize gerek **CORP\Install** makineyle **yönetici**.
 * ContosoSQL1 ve yalnızca ContosoSQL2: eklemenize gerek **CORP\Install** olarak bir **sysadmin** varsayılan veritabanı rolü.
-* ContosoSQL1 ve yalnızca ContosoSQL2: eklemenize gerek **NT AUTHORITY\SYSTEM** bir oturum açma ve aşağıdaki izinlerle olarak:
+* ContosoSQL1 ve yalnızca ContosoSQL2: eklemenize gerek **NT AUTHORITY\SYSTEM** bir oturum açma aşağıdaki izinlere sahip olarak:
 
   * Herhangi bir kullanılabilirlik grubu Değiştir
-  * Connect SQL
+  * SQL bağlanma
   * VIEW server state
-* ContosoSQL1 ve yalnızca ContosoSQL2: **TCP** Protokolü SQL Server VM üzerinde zaten etkin. Ancak, yine SQL Server'ın uzaktan erişim için Güvenlik Duvarı'nı açmak gerekir.
+* ContosoSQL1 ve yalnızca ContosoSQL2: **TCP** protokolünün SQL Server VM üzerinde zaten etkin. Ancak, yine de SQL Server'ın uzaktan erişim için güvenlik duvarını açmanız gerekir.
 
-Artık başlamaya hazırsınız. İle başlayarak **ContosoQuorum**, aşağıdaki adımları izleyin:
+Şimdi başlamak hazırsınız. İle başlayarak **ContosoQuorum**, aşağıdaki adımları izleyin:
 
-1. Bağlanmak **ContosoQuorum** Uzak Masaüstü dosyaları başlatmasını tarafından. Makine yöneticisinin kullanıcı adı kullanma **AzureAdmin** ve parola **Contoso! 000**, sanal makineleri oluştururken belirttiğiniz.
-2. Bilgisayarlar başarıyla için birleştirilmiş olduğunu doğrulayın **corp.contoso.com**.
-3. SQL Server yüklemesi otomatik başlatma görevlerini devam etmeden önce tamamlanmasını bekleyin.
+1. Bağlanma **ContosoQuorum** açarak Uzak Masaüstü dosyası. Makine yöneticisinin kullanıcı adı kullanma **AzureAdmin** ve parola **Contoso! 000**, Vm'leri oluştururken belirttiğiniz.
+2. Bilgisayarlar başarıyla için alanına olduğunu doğrulayın **corp.contoso.com**.
+3. SQL Server yüklemesi devam etmeden önce otomatik başlatma görevlerin tamamlanmasını bekleyin.
 4. Yönetici modunda bir PowerShell penceresi açın.
 5. Windows Yük Devretme Kümelemesi özelliğini yükleyin.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
-6. Ekleme **CORP\Install** yerel yönetici olarak.
+6. Ekleme **CORP\Install** yerel bir yönetici olarak.
 
         net localgroup administrators "CORP\Install" /Add
-7. ContosoQuorum dışında oturum açın. Bu sunucu ile artık bitirdiniz.
+7. ContosoQuorum dışında oturum açın. Bu sunucu ile artık hazırsınız.
 
         logoff.exe
 
-Ardından, başlatma **ContosoSQL1** ve **ContosoSQL2**. Aşağıdaki iki SQL Server VM'ler için aynı adımları izleyin.
+Ardından, başlatma **ContosoSQL1** ve **ContosoSQL2**. Aşağıdaki adımları izleyin, hem SQL Server Vm'leri için aynıdır.
 
-1. Uzak Masaüstü dosyaları başlatarak iki SQL Server VM bağlayın. Makine yöneticisinin kullanıcı adı kullanma **AzureAdmin** ve parola **Contoso! 000**, sanal makineleri oluştururken belirttiğiniz.
-2. Bilgisayarlar başarıyla için birleştirilmiş olduğunu doğrulayın **corp.contoso.com**.
-3. SQL Server yüklemesi otomatik başlatma görevlerini devam etmeden önce tamamlanmasını bekleyin.
+1. Uzak Masaüstü dosyası başlatarak iki SQL Server Vm'leri için bağlanın. Makine yöneticisinin kullanıcı adı kullanma **AzureAdmin** ve parola **Contoso! 000**, Vm'leri oluştururken belirttiğiniz.
+2. Bilgisayarlar başarıyla için alanına olduğunu doğrulayın **corp.contoso.com**.
+3. SQL Server yüklemesi devam etmeden önce otomatik başlatma görevlerin tamamlanmasını bekleyin.
 4. Yönetici modunda bir PowerShell penceresi açın.
 5. Windows Yük Devretme Kümelemesi özelliğini yükleyin.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
-6. Ekleme **CORP\Install** yerel yönetici olarak.
+6. Ekleme **CORP\Install** yerel bir yönetici olarak.
 
         net localgroup administrators "CORP\Install" /Add
-7. SQL Server PowerShell sağlayıcısı içeri aktarın.
+7. SQL Server PowerShell sağlayıcısını içeri aktarın.
 
         Set-ExecutionPolicy -Execution RemoteSigned -Force
         Import-Module -Name "sqlps" -DisableNameChecking
-8. Ekleme **CORP\Install** varsayılan SQL Server örneğinde sysadmin rolüne olarak.
+8. Ekleme **CORP\Install** için varsayılan SQL Server örneğinde sysadmin rolüne olarak.
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
-9. Ekleme **NT AUTHORITY\SYSTEM** bir oturum açma yukarıda açıklanan üç izinlerle olarak.
+9. Ekleme **NT AUTHORITY\SYSTEM** olarak bir oturum açma yukarıda açıklanan üç izinlere sahip.
 
         Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
@@ -441,10 +441,10 @@ Ardından, başlatma **ContosoSQL1** ve **ContosoSQL2**. Aşağıdaki iki SQL Se
 
          logoff.exe
 
-Son olarak, kullanılabilirlik grubu yapılandırmak hazırsınız. SQL Server PowerShell sağlayıcısı çalışmanın tümünü gerçekleştirmek için kullanacağınız **ContosoSQL1**.
+Son olarak, kullanılabilirlik grubu yapılandırma hazırsınız. SQL Server PowerShell sağlayıcısını tüm işlemleri gerçekleştirmek için kullanacağınız **ContosoSQL1**.
 
 ## <a name="configure-the-availability-group"></a>Kullanılabilirlik grubu yapılandırma
-1. Bağlanmak **ContosoSQL1** Uzak Masaüstü dosyaları başlatmasını tarafından yeniden. Makine hesabı kullanarak oturum açmak yerine, kullanarak oturum açın **CORP\Install**.
+1. Bağlanma **ContosoSQL1** yeniden başlatarak Uzak Masaüstü dosyası tarafından. Yerine makine hesabını kullanarak oturum açma kullanarak oturum açın **CORP\Install**.
 2. Yönetici modunda bir PowerShell penceresi açın.
 3. Aşağıdaki değişkenleri tanımlayın:
 
@@ -460,7 +460,7 @@ Son olarak, kullanılabilirlik grubu yapılandırmak hazırsınız. SQL Server P
         $backupShare = "\\$server1\backup"
         $quorumShare = "\\$server1\quorum"
         $ag = "AG1"
-4. SQL Server PowerShell sağlayıcısı içeri aktarın.
+4. SQL Server PowerShell sağlayıcısını içeri aktarın.
 
         Set-ExecutionPolicy RemoteSigned -Force
         Import-Module "sqlps" -DisableNameChecking
@@ -482,12 +482,12 @@ Son olarak, kullanılabilirlik grubu yapılandırmak hazırsınız. SQL Server P
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Karşıdan **CreateAzureFailoverCluster.ps1** gelen [Always On kullanılabilirlik grupları Azure VM'de yük devretme kümesi oluşturma](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) yerel çalışma dizinine. Bir işlev yük devretme kümesi oluşturmanıza yardımcı olması için bu betiği kullanırsınız. Windows Yük Devretme Kümelemesi Azure ağ ile nasıl etkileşim önemli bilgiler için bkz: [Azure Virtual Machines'de SQL Server için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
-8. Çalışma dizininizi değiştirebilir ve yük devretme kümesi ile indirilen komut dosyası oluşturabilirsiniz.
+7. İndirme **CreateAzureFailoverCluster.ps1** gelen [Always On kullanılabilirlik gruplarının Azure VM'de yük devretme kümesi oluşturma](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) için yerel çalışma dizini. İşlevsel bir yük devretme kümesi oluşturmanıza yardımcı olması için bu betiği kullanacaksınız. Windows Yük Devretme Kümelemesi Azure ağı ile nasıl etkileştiğini önemli bilgiler için bkz: [Azure sanal Makineler'de SQL Server için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+8. Çalışma dizinine ve indirilen komut dosyası ile yük devretme kümesi oluşturun.
 
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
-9. Always On kullanılabilirlik grupları varsayılan SQL Server örnekleri için etkinleştirmek **ContosoSQL1** ve **ContosoSQL2**.
+9. Always On kullanılabilirlik grupları için varsayılan SQL Server örneklerini etkinleştirileceği **ContosoSQL1** ve **ContosoSQL2**.
 
         Enable-SqlAlwaysOn `
             -Path SQLSERVER:\SQL\$server1\Default `
@@ -499,20 +499,20 @@ Son olarak, kullanılabilirlik grubu yapılandırmak hazırsınız. SQL Server P
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-10. Bir yedekleme dizini oluşturmak ve SQL Server hizmeti hesapları için izinler verebilirsiniz. Bu dizin, ikincil çoğaltma kullanılabilirlik veritabanını hazırlamak için kullanacağız.
+10. Yedekleme dizini oluşturma ve SQL Server hizmet hesapları için izinleri verin. Bu dizin, bir kullanılabilirlik veritabanı ikincil Çoğaltmada hazırlamak için kullanacaksınız.
 
          $backup = "C:\backup"
          New-Item $backup -ItemType directory
          net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
          icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
-11. Bir veritabanı oluşturma **ContosoSQL1** adlı **MyDB1**, hem tam yedekleme hem de bir günlük yedeklemesi alın ve bunları geri **ContosoSQL2** ile **WITH NORECOVERY** seçeneği.
+11. Bir veritabanı oluşturma **ContosoSQL1** adlı **MyDB1**, hem tam yedekleme hem de bir günlük yedeklemesi alın ve bunları geri **ContosoSQL2** ile **WITH NORECOVERY**  seçeneği.
 
          Invoke-SqlCmd -Query "CREATE database $db"
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
-12. Kullanılabilirlik grubu uç SQL Server sanal makinelerin oluşturun ve uygun izinlere uç noktalarda ayarlayın.
+12. Kullanılabilirlik grubu uç noktaları üzerinde SQL Server Vm'leri oluşturma ve uç noktalara uygun izinleri ayarlayın.
 
          $endpoint =
              New-SqlHadrEndpoint MyMirroringEndpoint `
@@ -533,7 +533,7 @@ Son olarak, kullanılabilirlik grubu yapılandırmak hazırsınız. SQL Server P
          Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
          Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
          Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct1]" -ServerInstance $server2
-13. Kullanılabilirlik çoğaltmalarının oluşturun.
+13. Kullanılabilirlik çoğaltmaları oluşturun.
 
          $primaryReplica =
              New-SqlAvailabilityReplica `
@@ -551,7 +551,7 @@ Son olarak, kullanılabilirlik grubu yapılandırmak hazırsınız. SQL Server P
              -FailoverMode "Automatic" `
              -Version 11 `
              -AsTemplate
-14. Son olarak, kullanılabilirlik grubu oluşturun ve ikincil çoğaltma kullanılabilirlik grubuna katılın.
+14. Son olarak, kullanılabilirlik grubunu oluşturma ve ikincil çoğaltma kullanılabilirlik grubuna katılın.
 
          New-SqlAvailabilityGroup `
              -Name $ag `
@@ -566,6 +566,6 @@ Son olarak, kullanılabilirlik grubu yapılandırmak hazırsınız. SQL Server P
              -Database $db
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık başarıyla SQL Server Always On Azure'da bir kullanılabilirlik grubu oluşturarak uyguladık. Bu kullanılabilirlik grubu için bir dinleyici yapılandırmak için bkz: [Azure'da Always On kullanılabilirlik grupları için bir ILB dinleyicisi yapılandırın](../classic/ps-sql-int-listener.md).
+Artık başarıyla SQL Server Always On kullanılabilirlik grubu Azure'da oluşturarak uyguladık. Bu kullanılabilirlik grubu için bir dinleyici yapılandırma için bkz: [Azure'da AlwaysOn Kullanılabilirlik grupları için ILB dinleyicisi yapılandırma](../classic/ps-sql-int-listener.md).
 
-Azure'da SQL Server kullanma hakkında diğer bilgi için bkz: [Azure virtual machines'de SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Azure'da SQL Server'ı kullanma hakkında diğer bilgiler için bkz. [Azure sanal makineler'de SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

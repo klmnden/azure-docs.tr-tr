@@ -1,6 +1,6 @@
 ---
-title: Microsoft Virtual Academy Azure güvenlik kursları | Microsoft Docs
-description: Bu makalede Azure güvenlik seçkin koleksiyonu sağlar Microsoft Virtual Academy kurslar ilgili.  Microsoft Virtual Academy sağlar geliştiriciler, yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknoloji öğrenin, kendi becerilerinizi ve bunların gelişme alanları ilerleyin.
+title: Microsoft Virtual academy Azure güvenlik kursları | Microsoft Docs
+description: Bu makale Azure güvenlik seçkin bir koleksiyonunu sağlar ilgili Kurslar Microsoft Virtual Academy tarafından.  Microsoft Virtual Academy sağlar, geliştiricilere yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknolojileri öğrenin, kendi becerileri ve kariyer hedefleyen ilerleyin.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540057"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248087"
 ---
-# <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy Azure güvenlik kursları
-Microsoft Virtual Academy sağlar geliştiriciler, yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknoloji öğrenin, kendi becerilerinizi ve bunların gelişme alanları ilerleyin.
+# <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual academy Azure güvenlik kursları
+Microsoft Virtual Academy sağlar, geliştiricilere yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknolojileri öğrenin, kendi becerileri ve kariyer hedefleyen ilerleyin.
 
 Bu sayfada Azure güvenlikle ilgili kurslar seçkin koleksiyonunu bulun. Ziyaret [Microsoft Virtual Academy](https://mva.microsoft.com/) tüm kursları görmek için kullanılabilir sahiptirler.
 
-[Bulut geliştirme ve Test](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
+[Bulutta geliştirme ve Test](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
 
-Daha hızlı ve daha iyi uygulamalarını sunmak için gereken bir geliştirici misiniz? Taşıma geliştirme ve test ortamlarında buluta tam olarak, elde yardımcı olabilir! Bunu bitti alma hakkında bilgi ve hareket ettirilmesi avantajlarını bulun. Ayrıca, gösterileri ve Microsoft Azure, geliştirme ve test gereksinimlerinizi nasıl destekleyebilir Göster sunular bakın. Ders güvenlik geliştirme ve dağıtım yöntemleri içerir.
+Daha hızlı ve daha iyi uygulamaları sunmak için ihtiyaç duyan bir geliştirici misiniz? Taşıma geliştirme ve test ortamlarında buluta, tam olarak elde etmenize yardımcı olabilir! Bitti almayı öğrenme ve hareket ettirilmesi avantajları bulun. Ayrıca, tanıtımlar ve Microsoft Azure, geliştirme ve test gereksinimlerinizi nasıl destekleyebileceğini Göster sunumlar bakın. Ders güvenlik üzerinde geliştirme ve dağıtım yöntemleri içerir.
 
-[Azure Linux için ortak görevler](https://mva.microsoft.com/en-us/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
+[Azure'da Linux için ortak görevler](https://mva.microsoft.com/en-us/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
 
-Microsoft Azure platformda Linux kullanma hakkında sorularınız varsa, bu ayrıntılı indirmelere yanıtlar vardır. Bazı genel görevleri uzmanlarla keşfedin [Linux Akademi](https://linuxacademy.com/). Linux sanal makine (VM) oluşturmayı Linux Uzak Masaüstü yazılımı kullanmak ve sanal ana çalışan VM erişme Azure'da öğrenin. Çok sayıda güvenlik teknolojileri ve yapılandırmaları bu indirmelere ele alınmıştır.
+Microsoft Azure platformunda Linux kullanma hakkında sorularınız varsa, bu ayrıntılı kurs yanıtlar sahiptir. Bazı genel görevleri uzmanlarla keşfedin [Linux Academy](https://linuxacademy.com/). Bir Linux sanal makinesini (VM) oluşturmayı, Azure'da Linux VM Uzak Masaüstü yazılımları kullanarak ve sanal konaklar çalıştırma erişme öğrenin. Bu kursta, birçok güvenlik teknolojileri ve yapılandırmalar ele alınır.
 
-[Bulut güvenli](https://mva.microsoft.com/en-us/training-courses/secure-the-cloud-14037?l=lQIkkst0B_5300115881)
+[Bulut güvenliğini sağlama](https://mva.microsoft.com/en-us/training-courses/secure-the-cloud-14037?l=lQIkkst0B_5300115881)
 
-Bu oturumda Microsoft ISO 27001 gibi genel uyumluluk gereksinimlerini karşılamanıza nasıl yardımcı olabileceğini öğrenin / 27018, FedRAMP, PCI ve HIPAA, yeni güvenlik denetimleri ile. Bu denetimler aralığı sırasında geri kalan veri şifrelemesi, anahtar yönetimi, VM koruma, günlüğe kaydetme ve izleme, kötü amaçlı yazılımdan Hizmetleri, kimlik yönetimi denetimleri ve daha fazla erişebilirsiniz.
+Bu oturumda, Microsoft, ISO 27001 gibi genel uyumluluk gereksinimlerini karşılamanıza nasıl yardımcı olabileceğini öğrenin / 27018, FedRAMP, PCI ve HIPAA, yeni güvenlik denetimleri. Bu denetimler aralığı bekleyen veri şifrelemesi, anahtar yönetimi, VM koruma, günlüğe kaydetme ve izleme, kötü amaçlı yazılımdan koruma hizmetleri, kimlik yönetimi, denetimleri ve daha fazlasını erişebilirsiniz.
 
 [Tasarım ve uygulama bulut veri platformu çözümleri](https://mva.microsoft.com/en-us/training-courses/design-and-implement-cloud-data-platform-solutions-15711?l=jbCdW0j1B_3005244527)
 
-Özellikleri ve Microsoft bulut veri platformu çözümleri özelliklerini öğrenin. Platform genel bakış ve duymak güvenlik özellikleri, yüksek kullanılabilirlik için seçenekler, izleme ve bulut verilerini ve daha fazlasını yönetmek için teknikleri hakkında. Ayrıca, nasıl dengelerin tanımlamak ve tasarlamak için ortak kararları ve Microsoft bulut veri platform özellikleri kullanılarak karma bulut çözümleri hakkında yönergeler alın.
+Microsoft bulut veri platformu çözümleri yetenekleri ve özellikleri öğrenin. Platformuna genel bakış edinin ve güvenlik özellikleri, yüksek kullanılabilirlik seçenekleri, izlemek ve bulut veri ve daha fazlasını yönetmek için teknikleri hakkında dinleyin. Ayrıca, nasıl ödünler tanımlamak ve tasarlamak için genel kararlar ve karma bulut çözümlerini kullanarak Microsoft bulut veri platformu özellikleri hakkında rehberlik alın.
 
-[Yönetmek ve güvenli bir bulut ve mobil World kimlikleri](https://mva.microsoft.com/en-us/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
+[Yönetme ve güvenli bir bulut ve mobil dünya kimlikleri](https://mva.microsoft.com/en-us/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
 
-Bu oturumda, nasıl Azure Active Directory ve kullanıcı kimliği, yönetmek ve güvenli Microsoft Advanced Threat Analytics yardımcı tanımlamak güvenlik ihlallerini zarara neden ve kullanıcılarınıza tüm kurumsal kaynaklara erişmek için tek bir kimlik sağlama önce öğrenin. Gölge BT bulmak, uygulama erişimini yönetmek ve şüpheli etkinlik raporlama, Denetim ve uyarı kullanıcı davranış analizi, Gelişmiş Güvenlik ile izlemek için kullanılan teknolojiler keşfedin.
+Bu oturumda, nasıl Azure Active Directory ve Microsoft Advanced Threat Analytics yardımcı olur, güvenli ve kullanıcı kimlik yönetimi tanımlamak güvenlik ihlallerini zarara neden ve kullanıcılarınıza tüm kurumsal erişmek için tek bir kimlik sağlama önce öğrenin kaynaklar. Gölge BT bulmak için uygulama erişimi yönetip şüpheli etkinlik raporlama, Denetim ve uyarı kullanıcı davranış analizi, Gelişmiş Güvenlik aracılığıyla izlemek için kullanılan teknolojileri keşfedin.
 
-[Bulut etkin dünyada güvenlik](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
+[Bulut özellikli bir dünyada güvenlik](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-Uzmanlar müşteri sorumluluk yol haritası aracılığıyla, sağlama [Microsoft Cloud Security Kurumsal Mimarlar için](http://www.microsoft.com/download/48121) posteri. Uzmanlar idare, kapsama stratejileri, güvenlik işlemleri, yüksek değerli varlık koruma, bilgi koruma ve yönetimsel denetim koruma belirli bir Vurgu ile kullanıcı ve cihaz güvenlik dahil olmak üzere güvenlikle ilgili tutumunuzu, her bir parçasını modernizing ilgili öneriler de sağlar. Aynı çerçevesinden Microsoft siber güvenlik ekibi müşterilerin bulut güvenlik değerlendirmek ve güvenlik yol haritası oluşturmak için kullandığını öğrenin.
+Uzmanlar aracılığıyla müşteri sorumluluğu yol haritası, yol [Kurumsal Mimarlar için Microsoft bulut güvenliği](https://www.microsoft.com/download/48121) posteri. Uzmanlara idare, kapsama stratejileri, güvenlik işlemleri, yüksek değerli varlık koruma, Information protection ve kullanıcı ve cihaz güvenlik dahil olmak üzere güvenlik duruşunuzu her bir parçasının modernleştirilmesi için öneriler de sağlar. bir Yönetim denetim koruma belirli Vurgu. Aynı framework, Microsoft siber güvenlik ekibi müşterilerin bulut güvenlik değerlendirmek ve bunları bir güvenlik yol haritası oluşturmak için kullandığını öğrenin.
 
-[Microsoft Azure Iaas derin Dalış](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
+[Microsoft Azure Iaas ayrıntıları](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 
-Microsoft Azure altyapı özelliklerine kullanmayı öğrenin. Bir BT Uzmanı varsa, önceki gerek yoktur Azure ile karşılaşırsınız. Bu oluşturma ve Azure VM'ler, Azure sanal ağlar ve şirket içi bağlantılar şeyler hale getirmek için yapılandırma ve bulut üzerinde çalışan size yol gösterir. Güvenlik özellikleri ve ilgili önemli noktalar indirmelere dahil edilir.
+Microsoft Azure altyapı özelliklerini kullanmayı öğrenin. Bir BT uzmanı, gerek Azure ile önceki deneyime sahip olduğunda. Bu kursta Azure sanal makinelerini, Azure sanal ağları ve şirketler arası bağlantı şeyler almak yapılandırma oluşturmak ve bulutta çalışan sizi yönlendirir. Güvenlik özelliklerini ve konularını kurs dahil edilir.
 
-[BT uzmanları için Azure Security ile çalışmaya başlama](https://mva.microsoft.com/training-courses/getting-started-with-azure-security-for-the-it-professional-11165?l=HfHzCXSAB_7404300474)
+[BT profesyonelleri için Azure güvenliğini kullanmaya başlama](https://mva.microsoft.com/training-courses/getting-started-with-azure-security-for-the-it-professional-11165?l=HfHzCXSAB_7404300474)
 
-Bu demo doldurulmuş seyrinde güvenlik uzmanları ve Azure Mühendisleri ekibi temel sertifikaları alır ve Azure içinde mümkündür araştırır. Tasarlama ve projelerinizi bulutta başarıyla başlatmak için gereken mimarisi ve güvenlik olmasını sağlamak için çeşitli teknolojiler kullanma konusuna bakın. Veri Merkezi işlemlerinin, VM yapılandırması, bir ağ mimarisi ve depolama altyapısını daha yakından inceleyin.
+Bu Tanıtım ağırlıklı kurs, güvenlik uzmanlarından ve Azure mühendislerinden oluşan bir ekibe temel sertifikaların ötesine geçerek alır ve Azure içinde neler yapılabileceğini keşfediyor. Tasarım ve güvenliği ve mimarisi başarıyla projelerinizi bulutta başlatmalısınız olmasını sağlamak için çeşitli teknolojileri kullanma bakın. Veri Merkezi işlemlerinin, VM yapılandırması, ağ mimarisi ve depolama altyapısı öğrenebilirsiniz.
 
-[Azure Resource Manager senaryoları ve desenler derinlemesine bakış](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
+[Azure Resource Manager senaryolarını ve desenlerini derinlemesine inceleyin](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
 
-Komut dosyaları ve dönmesi veya uygulama altyapınızın öğelerini Döndür kolaylaştırmak Araçları Göster uzmanlar, ekibi ile Azure Resource Manager keşfedin. Azure Resource Manager ile güvenlik uygulamak için rol tabanlı erişim denetimi (RBAC) kullanımını keşfedin.
+Komut dosyaları ve çalıştırın veya uygulama altyapınızın öğelerini Döndür kolaylaştıran Araçlar Göster uzmanlar, ekibi ile Azure Resource Manager'ı keşfedin. Azure Resource Manager ile güvenliği uygulamak için rol tabanlı erişim denetimi (RBAC) kullanımını keşfedin.
 
 [Azure Rights Management Services temel becerileri](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
-Cihazlar ve bulut arasında geçen her yerde neden Information protection "olmalıdır" kuruluşunuzdaki gereksinimdir ve kuruluşunuzun fikri mülkiyet hakları yönetimi nasıl koruduğunu öğrenin. Microsoft uzmanlarından uygulamalı deneyim ve teknik bilgileri alın.
+Cihazlar ve bulut arasında geçen her yerde Information protection kuruluşunuzdaki bir "olmalıdır" gereksinim neden olduğunu ve hak yönetimi, kuruluşunuzun fikri mülkiyet nasıl koruduğunu öğrenin. Uygulamalı deneyim ve teknik bilgileri, Microsoft uzmanlarından alın.

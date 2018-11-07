@@ -7,26 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092336"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255311"
 ---
 # <a name="monitor-cluster-performance"></a>Küme performansını izleme
 
-Bir HDInsight kümesinin performans ve sistem durumu izleme, en yüksek performans ve kaynak kullanımını bakımı için gereklidir. İzleme de adresi olası kodlama veya küme yapılandırma hataları yardımcı olabilir.
+Bir HDInsight kümesinin performans ve sistem durumu izleme, en iyi performans ve kaynak kullanımını bakımı için gereklidir. İzleme algılamanıza ve bu küme yapılandırması hataları ve kullanıcı kod sorunlarını ele da yardımcı olabilir.
 
-Aşağıdaki bölümlerde, Küme yükleme en iyi duruma getirme, YARN kuyruk verimlilik ve depolama erişilebilirlik açıklanmaktadır.
+Aşağıdaki bölümlerde, izlemek ve YARN kuyrukları kümelerinizi üzerindeki yükü en iyi duruma getirme açıklar ve depolama azaltma sorunları tespit edin.
 
-## <a name="cluster-loading"></a>Küme yükleniyor
+## <a name="monitor-cluster-load"></a>İzleyici küme yük
 
-Hadoop kümeleri, tüm küme düğümlerine yüklenmesi dengelemeniz. Bu Dengeleme, RAM, CPU ve disk kaynakları tarafından kısıtlanmış işleme görevlerini engeller.
+Hadoop kümeleri en iyi performans sunabilirsiniz yük kümesindeki tüm düğümlere eşit olarak dağıtılır. Bu işleme görevlerinin RAM, CPU ve disk kaynakları tek tek düğümlere tarafından kısıtlanmasını olmadan çalışmasını sağlar.
 
-Üst düzey göz kümenizi ve bunların yükleme düğümleri almak için oturum [Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md), ardından **konakları** sekmesi. Konaklarınızı, tam etki alanı adlarına göre listelenir. Her ana bilgisayarın işletim durumu renkli sistem durumu göstergesi tarafından gösterilir:
+Üst düzey göz kümenizi ve bunların yükleme düğümleri almak için oturum açın [Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md), ardından **konakları** sekmesi. Konaklarınızı, tam etki alanı adlarına göre listelenir. Her ana bilgisayarın işletim durumu renkli sistem durumu göstergesi tarafından gösterilir:
 
 | Renk | Açıklama |
 | --- | --- |
@@ -47,11 +47,11 @@ Bkz: [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak
 
 ## <a name="yarn-queue-configuration"></a>YARN sıra yapılandırması
 
-Hadoop dağıtılmış platformu üzerinde çalışan çeşitli hizmetleri vardır. YARN (başka bir Resource Negotiator henüz) bu hizmetleri düzenler, küme kaynaklarını ayırır ve ortak bir veri kümesi erişimini yönetir.
+Hadoop dağıtılmış platformu üzerinde çalışan çeşitli hizmetleri vardır. YARN (başka bir Resource Negotiator henüz), bu hizmetleri düzenler ve her türlü yük küme eşit olarak dağıtılır emin olmak için küme kaynaklarını ayırır.
 
-YARN, iki Daemon'ları iki sorumlulukları Jobtracker'a, kaynak yönetimi ve iş zamanlama/izleme böler: genel bir ResourceManager ve uygulama başına ApplicationMaster (da).
+YARN, iki Daemon'ları iki sorumlulukları Jobtracker'a, kaynak yönetimi ve iş zamanlama/izleme böler: genel bir kaynak yöneticisi yanı sıra, uygulama başına ApplicationMaster (da).
 
-ResourceManager olduğu bir *saf Zamanlayıcı*ve yalnızca tüm rakip uygulamalar arasında kullanılabilir kaynaklar istemlerde. ResourceManager tüm kaynakların her zaman içinde kullanımı, kapasitesini garanti eder, SLA'ları gibi çeşitli sabitleri için iyileştirme ve benzeri olmasını sağlar. ApplicationMaster resourcemanager'dan kaynak belirleyici ve kapsayıcıları ve kaynak tüketimi izlemek ve yürütmek için NodeManager(s) ile çalışır.
+Kaynak Yöneticisi bir *saf Zamanlayıcı*ve yalnızca tüm rakip uygulamalar arasında kullanılabilir kaynaklar istemlerde. Resource Manager tüm kaynakların her zaman içinde kullanımı, kapasitesini garanti eder, SLA'ları gibi çeşitli sabitleri için iyileştirme ve benzeri olmasını sağlar. ApplicationMaster kaynakları Kaynak Yöneticisi'nden belirleyici ve kapsayıcıları ve kaynak tüketimi izlemek ve yürütmek için NodeManager(s) ile çalışır.
 
 Birden çok kiracının büyük bir küme paylaştığınızda, kümenin kaynak rekabetini yoktur. CapacityScheduler kaynak tarafından sıraya alma isteği'kurmak paylaşımı yönetmenize yardımcı olan takılabilir bir zamanlayıcı var. Ayrıca CapacityScheduler destekler *hiyerarşik kuyrukları* diğer uygulamaları kuyruklar ücretsiz kaynakları kullanmak için izin verilmeden önce bir kuruluşun alt kuyrukları arasında paylaşılan kaynaklar emin olmak için.
 
@@ -63,13 +63,13 @@ YARN Kuyruk Yöneticisi sayfası her birine atanan kapasite yüzdesini yanı sı
 
 ![YARN Kuyruk yöneticisi Ayrıntıları sayfası](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Ambari panosundan Kuyruklarınızı daha ayrıntılı bilgi için seçin **YARN** sol taraftaki listeden hizmet. Altında **hızlı bağlantılar** açılır menüsünde, select **ResourceManager kullanıcı Arabirimi** , etkin düğüm altında.
+Ambari panosundan Kuyruklarınızı daha ayrıntılı bilgi için seçin **YARN** sol taraftaki listeden hizmet. Altında **hızlı bağlantılar** açılır menüsünde, select **kaynak yöneticisi kullanıcı Arabirimi** , etkin düğüm altında.
 
-![ResourceManager kullanıcı Arabirimi menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Kaynak Yöneticisi kullanıcı Arabirimi menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-ResourceManager kullanıcı Arabiriminde seçin **Zamanlayıcı** sol taraftaki menüden. Kuyruklarınızı altında listesini *uygulama sıraları*. Kaynak kısıtlı olup tüm işler ve her ne kadar iyi, bunlar arasında dağıtılmış işleri Kuyruklarınızı için kullanılan kapasite burada görebilirsiniz.
+Kaynak Yöneticisi Arabiriminde seçin **Zamanlayıcı** sol taraftaki menüden. Kuyruklarınızı altında listesini *uygulama sıraları*. Kaynak kısıtlı olup tüm işler ve her ne kadar iyi, bunlar arasında dağıtılmış işleri Kuyruklarınızı için kullanılan kapasite burada görebilirsiniz.
 
-![ResourceManager kullanıcı Arabirimi menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Kaynak Yöneticisi kullanıcı Arabirimi menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Depolama alanı azaltma
 

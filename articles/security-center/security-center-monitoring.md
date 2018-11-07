@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi'nde güvenlik sağlığı kaynak | Microsoft Docs
-description: Bu makale, Azure Güvenlik Merkezi'nde kaynak güvenlik sağlığı izleme başlamanıza yardımcı olur.
+title: Azure Güvenlik Merkezi ile güvenlik duruşunuzu güçlendirin | Microsoft Docs
+description: Bu makale kaynaklarınızı Azure Güvenlik Merkezi'nde izleme ile güvenlik duruşunuzu güçlendirin yardımcı olur.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/21/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 361fc2c6931dcfaed062bd39b75be7bef059b467
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 23369ac9f6cef74bac045017e8f956470e9a1159
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122083"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248869"
 ---
-# <a name="monitoring-resource-security-hygiene-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik sağlığı kaynak izleme
-Bu makale, kaynak güvenlik ilkeleriyle uyumluluğunu mümkün ve izleme gibi sıkı olduğundan emin olmak için Azure Güvenlik Merkezi'nde izleme işlevlerini kullanmanıza yardımcı olur.
+# <a name="strengthen-your-security-posture-with-azure-security-center"></a>Azure Güvenlik Merkezi ile güvenlik duruşunuzu güçlendirin
+Bu makalede güvenlik duruşunuzu güçlendirin yardımcı olur. İzleme özellikleri, Azure Güvenlik Merkezi'nde kaynak güvenlik ilkeleriyle uyumluluğunu mümkün ve izleme gibi sıkı olduğundan emin olmak için kullanın.
 
-## <a name="what-is-resource-security-hygiene"></a>Kaynak güvenlik sağlığı nedir?
-Genellikle izlemeyi, izleme ve bir olayın gerçekleşmesini bekleyip duruma tepki verme olarak ele alırız. Kaynak güvenlik sağlığı, kuruluş standartlarıyla veya en iyi karşılayan olmayan sistemleri tanımlamak için kaynaklarınızı denetleyen öngörülü bir stratejiye sahip olma anlamına gelir.
+## <a name="how-do-you-strengthen-your-security-posture"></a>Nasıl güvenlik duruşunuzu güçlendirin?
+Genellikle izlemeyi, izleme ve bir olayın gerçekleşmesini bekleyip duruma tepki verme olarak ele alırız. Güvenlik duruşunuzu güçlendirme, kuruluş standartlarıyla veya en iyi karşılayan olmayan sistemleri tanımlamak için kaynaklarınızı denetleyen öngörülü bir stratejiye sahip olma anlamına gelir.
 
-## <a name="resource-security-hygiene"></a>Kaynak güvenliği durumu
 Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policies.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur. Aracının yüklü olduğu VM'ler ve bilgisayarların sayısına bağlı olarak, güvenlik güncelleştirmesi durumu ve işletim sistemi yapılandırması gibi bilgisayar yapılandırma ayarları ve VM’ler hakkında bilgi toplamak bir saat veya daha fazla sürebilir. Sorunlar ve ağınızı sağlamlaştırmak ve risk düzeltmek için yollar tam bir listesini görüntüleyebileceğiniz **önerileri** Döşe.
 
 Güvenlik durumunu, kaynaklarınızı ve kaynak türü başına herhangi bir sorun görüntüleyebilirsiniz:
@@ -54,4 +53,4 @@ Bu makalede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağ�
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
+* [Azure Güvenlik Blogu](https://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
