@@ -3,17 +3,17 @@ title: Spark akış işleri ile tam olarak oluşturma-kere olay işleme - Azure 
 description: Spark akış yalnızca tek bir kez bir olayı işlemek için nasıl kurulur.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618830"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241332"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Spark akış işleri ile tam olarak oluşturma-kere olay işleme
 
@@ -61,13 +61,21 @@ Kontrol noktaları Spark akışı iki adımda etkinleştirilir.
 
 1. StreamingContext nesnesinde depolama yolu için kontrol noktalarını yapılandırın:
 
-    VAL ssc yeni StreamingContext (spark, Seconds(1)) ssc.checkpoint("/path/to/checkpoints") =
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     HDInsight bu kontrol noktalarının kümenize, Azure depolama veya Azure Data Lake Store bağlı varsayılan depolama alanı için kaydedilmesi gerekir.
 
 2. Ardından, DStream üzerinde bir denetim noktası aralığı (saniye cinsinden) belirtin. Her bir aralıkta, depolama için giriş olay kaynağından türetilmiş durumu verilerini kalıcı hale getirilir. Kalıcı durum veri kaynağı olay durumu yeniden oluştururken gerekli hesaplama azaltabilir.
 
-    VAL satırları ssc.socketTextStream ("ana bilgisayar adı", 9999) = lines.checkpoint(30) ssc.start() ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Idempotent havuzlarını kullanın
 

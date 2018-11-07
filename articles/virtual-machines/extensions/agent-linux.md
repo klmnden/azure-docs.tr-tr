@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73e5e54e40223f7cd972e2bd2752add9ca82ff2b
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452352"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243888"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Anlama ve Azure Linux Aracısı'nı kullanma
 
@@ -73,7 +73,7 @@ Aracı platformundan bilgi akışına iki kanalı gerçekleşir:
 Aşağıdaki sistemleri edilmiş ve Azure Linux Aracısı ile çalışmak için bilinmektedir:
 
 > [!NOTE]
-> Bu liste, resmi Microsoft Azure platformunda desteklenen sistemleri listesinden burada açıklandığı değişebilir: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Bu liste, resmi Microsoft Azure platformunda desteklenen sistemleri listesinden burada açıklandığı değişebilir: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -344,6 +344,6 @@ Ubuntu bulut görüntüleri kullanan [cloud-init](https://launchpad.net/ubuntu/+
 
 * Daha fazla bilgi için kaynak disk bağlama noktası yapılandırın ve sağlama sırasında değiştirme Ubuntu bulut görüntülerindeki alanı için aşağıdaki kaynaklara bakın:
   
-  * [Ubuntu Wiki: Takas bölümlerini yapılandırma](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Takas bölümlerini yapılandırma](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Bir Azure sanal makinesine özel veri ekleme](../windows/classic/inject-custom-data.md)
 

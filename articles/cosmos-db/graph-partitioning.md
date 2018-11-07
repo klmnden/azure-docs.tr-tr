@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7e9de68866b5e5849d0e48ad5073fc7b89fbb1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078231"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239313"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Bölümlenmiş bir grafik Azure Cosmos DB içinde kullanma
 
-Azure Cosmos DB Gremlin API anahtar özelliklerini de yatay ölçeklenebilirlik aracılığıyla büyük ölçekli grafikleri işlemek yeteneğidir. Bu işlem aracılığıyla elde edilen [özellikleri Azure Cosmos DB'de bölümleme](partition-data.md#how-does-partitioning-work), hangi depolama ve aktarım hızı bakımından bağımsız olarak ölçeklendirilebilir kapsayıcıların kullanın. Azure Cosmos DB aşağıdaki türden kapsayıcıya tüm API'leri destekler:
+Azure Cosmos DB Gremlin API anahtar özelliklerini de yatay ölçeklenebilirlik aracılığıyla büyük ölçekli grafikleri işlemek yeteneğidir. Bu işlem aracılığıyla elde edilen [özellikleri Azure Cosmos DB'de bölümleme](partition-data.md), hangi depolama ve aktarım hızı bakımından bağımsız olarak ölçeklendirilebilir kapsayıcıların kullanın. Azure Cosmos DB aşağıdaki türden kapsayıcıya tüm API'leri destekler:
 
 - **Sabit kapsayıcıyı**: Bu kapsayıcıların bir grafik depolayabilirsiniz 10.000 istek birimi / saniye için ayrılan maksimum boyutu 10 GB'a kadar veritabanı. Sabit bir kapsayıcı oluşturmak için bir bölüm anahtarı özelliği verileri belirtmek gerekli değildir.
 

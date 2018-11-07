@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667456"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238084"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
 
@@ -35,7 +35,7 @@ Bu öğreticide, Azure sanal makineler üzerinde bir SQL Server Always On kullan
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici, SQL Server Always On kullanılabilirlik grupları temel bir anlayışa sahip varsayar. Daha fazla bilgiye ihtiyacınız varsa bkz [genel bakış, Always On kullanılabilirlik grupları (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+Bu öğretici, SQL Server Always On kullanılabilirlik grupları temel bir anlayışa sahip varsayar. Daha fazla bilgiye ihtiyacınız varsa bkz [genel bakış, Always On kullanılabilirlik grupları (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 Aşağıdaki tabloda, bu öğreticiye başlamadan önce tamamlanması gereken önkoşulları listeler:
 
@@ -119,7 +119,7 @@ Bir SQL Server kümesine ekleyin.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Küme Çekirdek dosya paylaşımı ekleme
 
-Bu örnekte Windows Küme, Küme çekirdeğini oluşturmak için bir dosya paylaşımı kullanır. Bu öğreticide, bir düğüm ve dosya paylaşımı çoğunluğu çekirdeği kullanılır. Daha fazla bilgi için [bir yük devretme kümesinde Çekirdek Yapılandırmalarını Anlama](http://technet.microsoft.com/library/cc731739.aspx).
+Bu örnekte Windows Küme, Küme çekirdeğini oluşturmak için bir dosya paylaşımı kullanır. Bu öğreticide, bir düğüm ve dosya paylaşımı çoğunluğu çekirdeği kullanılır. Daha fazla bilgi için [bir yük devretme kümesinde Çekirdek Yapılandırmalarını Anlama](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Uzak Masaüstü oturumu ile dosya paylaşımı tanığı üye sunucuya bağlanın.
 
@@ -168,7 +168,7 @@ Ardından, küme çekirdeği ayarlayın.
 1. Üzerinde **çekirdek tanığı Seç**, tıklayın **dosya paylaşım tanığı yapılandırma**.
 
    >[!TIP]
-   >Windows Server 2016'ya bir bulut tanığı destekler. Bu tür bir Tanık seçerseniz, bir dosya gerekmez Tanık paylaşın. Daha fazla bilgi için [bir yük devretme kümesi için bulut tanığı dağıtma](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Bu öğreticide, önceki işletim sistemleri tarafından desteklenen bir dosya paylaşımı tanığı kullanılır.
+   >Windows Server 2016'ya bir bulut tanığı destekler. Bu tür bir Tanık seçerseniz, bir dosya gerekmez Tanık paylaşın. Daha fazla bilgi için [bir yük devretme kümesi için bulut tanığı dağıtma](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Bu öğreticide, önceki işletim sistemleri tarafından desteklenen bir dosya paylaşımı tanığı kullanılır.
 
 1. Üzerinde **dosya paylaşım Tanığını Yapılandır**, oluşturduğunuz paylaşım yolunu yazın. **İleri**’ye tıklayın.
 
@@ -415,7 +415,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Metin | SQLAlwaysOnEndPointListener |
-   | **Ön uç IP adresi** | Bir adres seçin |Yük Dengeleyici oluştururken oluşturduğunuz adresini kullanın. |
+   | **Ön uç IP adresi** | Adres seçin |Yük Dengeleyici oluştururken oluşturduğunuz adresini kullanın. |
    | **Protokol** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullan | 1433 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 1433 |
@@ -455,7 +455,7 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Metin | WSFCEndPoint |
-   | **Ön uç IP adresi** | Bir adres seçin |WSFC IP adresini yapılandırıldığında oluşturduğunuz adresini kullanın. Bu dinleyici IP adresi farklıdır |
+   | **Ön uç IP adresi** | Adres seçin |WSFC IP adresini yapılandırıldığında oluşturduğunuz adresini kullanın. Bu dinleyici IP adresi farklıdır |
    | **Protokol** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Bağlantı noktası için küme IP adresini kullanın. Bu dinleyici araştırma bağlantı noktası için kullanılmaz kullanılabilir bir bağlantı noktasıdır. | 58888 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 58888 |
@@ -515,7 +515,7 @@ Bağlantıyı test etmek için:
 Hangi SQL Server örneğini birincil çoğaltmayı barındıran için SQLCMD bağlantı otomatik olarak bağlanır.
 
 > [!TIP]
-> Belirttiğiniz bağlantı noktası hem de SQL Server güvenlik duvarının açık olduğundan emin olun. Her iki sunucuyu kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Daha fazla bilgi için [Ekle veya güvenlik duvarı kuralını Düzenle](http://technet.microsoft.com/library/cc753558.aspx).
+> Belirttiğiniz bağlantı noktası hem de SQL Server güvenlik duvarının açık olduğundan emin olun. Her iki sunucuyu kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Daha fazla bilgi için [Ekle veya güvenlik duvarı kuralını Düzenle](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3147061f527621ba98dee84f4d347a6e883d61c0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166478"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257478"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 Elastik veritabanı işlemleri için Azure SQL veritabanı (SQL DB) SQL DB'de birkaç veritabanlarına yayılan işlemler çalıştırmanıza olanak tanır. SQL veritabanı için elastik veritabanı işlem ADO .NET kullanarak .NET uygulamaları için kullanılabilir ve tanıdık programlama deneyimi kullanarak ile tümleştirme [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) sınıfları. Kitaplık almak için bkz. [.NET Framework 4.6.1 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -143,7 +143,7 @@ SQL DB, esnek veritabanı işlem şu anda aşağıdaki sınırlamalar geçerlidi
 * WCF hizmetlerinde işlemler desteklenmez. Örneğin, bir işlem yürütür bir WCF hizmeti yöntemi vardır. Çağrısı bir işlem kapsam içinde kapsayan olarak yapılamayacak bir [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sorularınız varsa lütfen bize ulaşın [SQL veritabanının Forumu](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) ve özellik istekleri için lütfen bunları Ekle [SQL veritabanı geri bildirim Forumu](https://feedback.azure.com/forums/217321-sql-database/).
+Sorularınız varsa lütfen bize ulaşın [SQL veritabanının Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) ve özellik istekleri için lütfen bunları Ekle [SQL veritabanı geri bildirim Forumu](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

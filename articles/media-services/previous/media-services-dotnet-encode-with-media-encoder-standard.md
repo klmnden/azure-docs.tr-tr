@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247801"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241098"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Bir varlık kullanarak Media Encoder .NET Standard ile kodlama 
 Kodlama işleri, Media Services’da en sık gerçekleştirilen işlemler arasındadır. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, Media Services yerleşik Medya Kodlayıcısı kullanabilirsiniz. Bir Media Services iş ortağı tarafından verilen bir kodlayıcı da kullanabilirsiniz; üçüncü taraf Kodlayıcı Azure Marketi aracılığıyla kullanılabilir. 
 
-Bu makalede, .NET, varlıkları ile Medya Kodlayıcısı standart (MES) kodlama için nasıl kullanılacağını gösterir. Media Encoder Standard yapılandırılmış kodlayıcılar hazır birini kullanarak açıklanan [burada](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Bu makalede, .NET, varlıkları ile Medya Kodlayıcısı standart (MES) kodlama için nasıl kullanılacağını gösterir. Media Encoder Standard yapılandırılmış kodlayıcılar hazır birini kullanarak açıklanan [burada](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Her zaman kaynak dosyalarını Uyarlamalı bit hızı MP4 kümesi kodlar ve ardından istediğiniz biçimi kullanarak kümesi dönüştürmek için önerilen [dinamik paketleme](media-services-dynamic-packaging-overview.md). 
 
@@ -39,7 +39,7 @@ Her zaman kaynak dosyalarını Uyarlamalı bit hızı MP4 kümesi kodlar ve ard�
 [Biçimleri ve codec bileşenleri](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES Ön ayarları
-Media Encoder Standard yapılandırılmış kodlayıcılar hazır birini kullanarak açıklanan [burada](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard yapılandırılmış kodlayıcılar hazır birini kullanarak açıklanan [burada](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Giriş ve çıkış meta verileri
 MES kullanarak giriş bir varlık (veya varlık) kodlarken bir çıktı varlığı başarılı elde tamamlama, söz konusu görev kodlayın. Çıktı varlığı video, ses, küçük resimler, bildirimi, kullandığınız kodlama Önayarı üzerinde temel vb. içerir.

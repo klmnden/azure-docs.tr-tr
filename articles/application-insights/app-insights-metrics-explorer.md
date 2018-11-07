@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99ace7be05f186ac920aa9671946389e95e3a3a6
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cc9b3bd1d038bd8aa9c01e806e5448824011bc93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240758"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application ınsights'ta ölçümleri keşfederken
 Ölçümlerde [Application Insights] [ start] ölçülen değerleri ve telemetriyi uygulamanızdan gönderilen olayların sayısı. Performans sorunları tespit edin ve eğilimler, uygulamanızın nasıl kullanıldığını izleyin yardımcı olur. Çok çeşitli standart ölçüm vardır ve kendi özel Ölçümler ve olaylar da oluşturabilirsiniz.
@@ -180,7 +180,7 @@ Telemetrinizin çok daha yakın bir görünüm için açık [Canlı Stream](app-
 Harici olarak işleyebilir, böylece sürekli olarak dışarı aktarılan verileri istiyorsanız kullanmayı [sürekli dışarı aktarma](app-insights-export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
-Verilerinizi daha kapsamlı görünümlerini istiyorsanız [dışarı aktarmak için Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Verilerinizi daha kapsamlı görünümlerini istiyorsanız [dışarı aktarmak için Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Analiz
 [Analytics](app-insights-analytics.md) güçlü bir sorgu dili kullanarak telemetrinizi analiz etmek için daha çok yönlü bir yoludur. Birleştirme veya ölçümleri sonuçlarını işlem ya da uygulamanızın en son performans ayrıntılı inceleme yapmak istiyorsanız, bunu kullanın. 
