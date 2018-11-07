@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltme | 
 description: Bu belge, Azure Güvenlik Merkezi önerisi, "Düzelt güvenlik yapılandırmalarını." nasıl uygulanacağını gösterir
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 74bfc3435ad6d247dabd3a7cbf2910ede5f8c8ca
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296253"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238786"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltme
 Azure Güvenlik Merkezi, sanal makineleri (VM'ler) ve Vm'leri hale getirebilecek yapılandırması için ve saldırı karşısında daha savunmasız bilgisayarları işletim sistemi (OS) günlük analiz eder. Güvenlik Merkezi, işletim sistemi yapılandırması önerilen güvenlik yapılandırması kurallarını eşleşmiyor ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir, güvenlik açıklarını gidermek önerir.
@@ -107,7 +107,7 @@ Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakı
 * Yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinmek için [yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md).
 * İş ortağı çözümlerinizin sistem durumunu izlemek öğrenmek için bkz: [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md).
 * Hizmet kullanımı ile ilgili sık sorulan soruların yanıtları için bkz: [Azure Güvenlik Merkezi SSS](security-center-faq.md).
-* Azure güvenliği ve uyumluluğu ile ilgili blog yazıları için bkz. [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/).
+* Azure güvenliği ve uyumluluğu ile ilgili blog yazıları için bkz. [Azure güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

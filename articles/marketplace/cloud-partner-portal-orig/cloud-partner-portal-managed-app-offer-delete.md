@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 02b4ad8aea3904ba0e99a5ea4d4d035f970e171a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5ad106d45c8bae2d41e0bde74b27f80f4d8ab79b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811759"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241285"
 ---
 <a name="delete-an-offersku-from-azure-marketplace"></a>Azure Marketi'nden bir teklifini/SKU'yu silme 
 ==========================================
 
 Çeşitli nedenlerden dolayı teklifinizi Market’ten kaldırmaya karar verebilirsiniz. Yeni müşteriler artık satın alan veya teklifiniz dağıtmak, ancak mevcut müşteriler etkilenmeyecektir.
-Teklif Sonlandırma, sizinle mevcut müşterileriniz arasındaki hizmet ve/veya lisans sözleşmesini iptal etme işlemidir. Yönergeler ve teklif kaldırma ve sonlandırmayla ilgili ilkeleri tarafından yönetilir [Microsoft Market yayımcı anlaşması](http://go.microsoft.com/fwlink/?LinkID=699560) (bölümüne bakın.
+Teklif Sonlandırma, sizinle mevcut müşterileriniz arasındaki hizmet ve/veya lisans sözleşmesini iptal etme işlemidir. Yönergeler ve teklif kaldırma ve sonlandırmayla ilgili ilkeleri tarafından yönetilir [Microsoft Market yayımcı anlaşması](https://go.microsoft.com/fwlink/?LinkID=699560) (bölümüne bakın.
 7) ve [katılım ilkeleri](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (Bölüm 6.2 bakın). Desteklenen farklı senaryolar silin ve uygulayabileceğiniz adımları ele alınmıştır.
 
 <a name="delete-a-live-sku-from-azure-marketplace"></a>Azure Marketi'nden bir canlı SKU Sil 
