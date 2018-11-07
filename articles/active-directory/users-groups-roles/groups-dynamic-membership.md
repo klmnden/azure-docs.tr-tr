@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/05/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 53c50ba75a16c58d7936a6f06de87218f67f5951
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215336"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219605"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -358,6 +358,7 @@ Ayrıca, bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluştur
  Kuruluş birimi | Şirket içi Active Directory tarafından ayarlayın kuruluş birimi adı eşleşen herhangi bir dize değeri | (device.organizationalUnit - eq "ABD bilgisayarları")
  deviceId | Geçerli bir Azure AD cihaz kimliği | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Geçerli bir Azure AD nesne kimliği |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | Modern iş yeri cihazları etiketleme için Intune cihaz özelliği eşleşen herhangi bir dize | (device.systemLabels-"M365Managed" içerir)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Akış uç noktaları Azure portal ile ölçek | Microsoft Docs
-description: Bu öğreticide Azure portal ile akış uç noktalarını ölçeklendirme adımları açıklanmaktadır.
+title: Akış uç noktaları Azure portalı ile ölçeklendirme | Microsoft Docs
+description: Bu öğreticide Azure portal ile akış uç noktalarını ölçeklendirme adımlarında size kılavuzluk eder.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: f2a14f2622d78a4222a8518172eb1ce8ed9e6637
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc281f8ca04941da88c0ff1b98ff0a044a3184f5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790219"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250841"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Azure portal ile akış uç noktalarını ölçeklendirme
 ## <a name="overview"></a>Genel Bakış
@@ -29,18 +29,18 @@ ms.locfileid: "33790219"
 > 
 > 
 
-**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. **Premium** akış uç noktası olan müşteriler, varsayılan olarak bir akış birimi (SU) alır. Akış uç noktası, SU’lar eklenerek ölçeklendirilebilir. Her SU, uygulamaya ek bant genişliği kapasitesi sağlar. Akış uç nokta türleri ve CDN yapılandırma hakkında daha fazla bilgi için bkz: [akış uç noktası genel bakış](media-services-streaming-endpoints-overview.md) konu.
+**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. **Premium** akış uç noktası olan müşteriler, varsayılan olarak bir akış birimi (SU) alır. Akış uç noktası, SU’lar eklenerek ölçeklendirilebilir. Her SU, uygulamaya ek bant genişliği kapasitesi sağlar. Akış uç noktası türlerini ve CDN yapılandırma hakkında daha fazla bilgi için bkz. [akış uç noktası genel bakış](media-services-streaming-endpoints-overview.md) konu.
  
-Bu konu bir akış uç ölçeklendirme gösterir.
+Bu konuda, ölçeklendirme bir akış uç noktası gösterilmektedir.
 
-Fiyatlandırma ayrıntıları hakkında daha fazla bilgi için bkz. [Media Services Fiyatlandırma Ayrıntıları](http://go.microsoft.com/fwlink/?LinkId=275107).
+Fiyatlandırma ayrıntıları hakkında daha fazla bilgi için bkz. [Media Services Fiyatlandırma Ayrıntıları](https://go.microsoft.com/fwlink/?LinkId=275107).
 
 ## <a name="scale-streaming-endpoints"></a>Akış uç noktalarını ölçeklendirme
 
 Akış birim sayısını değiştirmek için aşağıdakileri yapın:
 
 1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
-2. İçinde **ayarları** penceresinde, seçin **akış uç noktaları**.
+2. İçinde **ayarları** penceresinde **akış uç noktaları**.
 3. Ölçeklendirmek istediğiniz akış uç noktasına tıklayın. 
 
     > [!NOTE] 

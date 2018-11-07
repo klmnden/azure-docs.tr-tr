@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139016"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262291"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -398,7 +398,7 @@ Sertifikayı veren bir anahtar Kasası'nda oluşturulabilmesi için önce aşağ
 
     -   Yapılandırma Sağlayıcısı'nın veren nesne anahtar kasasını oluşturmak için kullanılacak sağlar  
 
-Sertifikaları Portalı'ndan veren nesneleri oluşturma hakkında daha fazla bilgi için bkz. [Key Vault Certificates blogu](http://aka.ms/kvcertsblog)  
+Sertifikaları Portalı'ndan veren nesneleri oluşturma hakkında daha fazla bilgi için bkz. [Key Vault Certificates blogu](https://aka.ms/kvcertsblog)  
 
 Key Vault farklı veren sağlayıcı yapılandırması ile birden çok veren nesneleri oluşturulmasını sağlar. Veren nesne oluşturulduktan sonra bir veya birden çok sertifika ilkeleri adı başvurulabilir. Veren nesneye başvuran bildirir x509 isterken veren nesne belirtilen yapılandırma kullanmak için Key Vault sertifika oluşturma ve yenileme sırasında CA sağlayıcısından sertifika.  
 

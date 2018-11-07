@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714341"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255277"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market sanal makine görüntüsü oluşturmak için teknik Önkoşullar
 İşlem başlamadan önce baştan sona okuyun ve nerede ve neden gerçekleştirilen her adımla anlayın. Mümkün olduğunca, şirketinizin bilgilerini ve diğer verileri hazırlama, gerekli Araçları'nı indirin ve/veya teklif oluşturma işlemi başlamadan önce teknik bileşenler oluşturun. Bu öğeler bu makalede gözden geçirmeden açık olmalıdır.  
@@ -30,7 +30,7 @@ Aşağıdaki öğeler işlemine başlamadan önce hazır olmanız gerekir:
 * Hedeflediğiniz işletim sistemine bağlı olarak, yükleme [Azure PowerShell cmdlet'lerini](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) veya [Linux komut satırı arabirimi aracı](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) gelen [Azure indirmeleri](https://azure.microsoft.com/downloads/) sayfası.
 * Azure Depolama Gezgini'ni Codeplex'ten yükleyin.
 * İndirin ve Azure sertifikası için sertifika Test aracı yükleyin:
-  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Sertifika Aracı'nı çalıştırmak için Windows tabanlı bir bilgisayara ihtiyacınız vardır. Windows tabanlı bir bilgisayarda kullanılabilir değilse, Azure'da bir Windows tabanlı sanal makine kullanarak aracı çalıştırabilirsiniz.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](https://go.microsoft.com/fwlink/?LinkID=526913). Sertifika Aracı'nı çalıştırmak için Windows tabanlı bir bilgisayara ihtiyacınız vardır. Windows tabanlı bir bilgisayarda kullanılabilir değilse, Azure'da bir Windows tabanlı sanal makine kullanarak aracı çalıştırabilirsiniz.
 
 ## <a name="platforms-supported"></a>Desteklenen platformlar
 Windows veya Linux üzerinde Azure tabanlı Vm'leri geliştirebilirsiniz. Bir Azure ile uyumlu sanal sabit disk (VHD) farklı araçları ve adımları hangi işletim sistemine bağlı olarak, kullandığınız oluşturma gibi yayımlama işlemi--öğelerinden bazıları:  

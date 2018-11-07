@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 1922bc25eb7072341848dd7081c31ba6b1f07a3c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6129c83e33d046c2fc9ce1724a27efce5efdfa0e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298837"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258808"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Bağlanan Microsoft Advanced Threat Analytics için Azure Güvenlik Merkezi
 Bu belge Azure Güvenlik Merkezi ile Microsoft Advanced Threat Analytics arasındaki tümleştirmeyi yapılandırmak için yardımcı olur.
@@ -75,6 +75,6 @@ Bu belgede, Güvenlik Merkezi'ne Microsoft ATA bağlantısı kurma öğrendiniz.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 - [Azure Güvenlik Merkezi veri güvenliği](security-center-data-security.md) -verileri nasıl yönetildiği ve korunduğu Güvenlik Merkezi'nde öğrenin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) — en son Azure güvenlik haberlerini ve bilgilerini edinin.
+* [Azure güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/) — en son Azure güvenlik haberlerini ve bilgilerini edinin.
 
 

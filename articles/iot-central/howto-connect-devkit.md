@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cca475f552495a42aabc60faf0bd57382f148120
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958593"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255736"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -69,7 +69,7 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
 #### <a name="to-prepare-the-devkit-device"></a>DevKit cihazı hazırlamak için:
 
 
-1. MXChip için önceden oluşturulmuş en son Azure IOT Central bellenim indirme [sürümleri](http://aka.ms/iotcentral-docs-MXChip-releases) GitHub sayfasında.
+1. MXChip için önceden oluşturulmuş en son Azure IOT Central bellenim indirme [sürümleri](https://aka.ms/iotcentral-docs-MXChip-releases) GitHub sayfasında.
 1. DevKit cihazı bir USB kablosu kullanarak, geliştirme makinenize bağlayın. Windows içinde DevKit cihazdaki depolama alanına eşlenmiş sürücüsünde bir dosya Gezgini penceresi açılır. Örneğin, sürücü olarak adlandırılabilir **AZ3166 (D:)**.
 1. Sürükleme **iotCentral.bin** sürücü pencerenin üzerine dosya. Kopyalama tamamlandığında, cihazı yeni bellenim ile yeniden başlatır.
 

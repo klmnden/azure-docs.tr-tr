@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 302607df2292fe7a67a8b6860dab19eef7f391a9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160375"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232085"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu
 
@@ -25,7 +25,7 @@ ms.locfileid: "47160375"
 
 Genişletilmiş olay yakalama ve rapor bilgilerini için güçlü bir yol için bir kod örneği istersiniz.
 
-Microsoft SQL Server'da [olay dosyası hedef](http://msdn.microsoft.com/library/ff878115.aspx) bir yerel sabit diske dosyasına olay çıktılarının depolanması için kullanılır. Ancak, bu tür dosyaları Azure SQL veritabanı'na kullanılabilir değil. Bunun yerine Azure depolama hizmeti olay dosyası hedef desteklemek için kullanırız.
+Microsoft SQL Server'da [olay dosyası hedef](https://msdn.microsoft.com/library/ff878115.aspx) bir yerel sabit diske dosyasına olay çıktılarının depolanması için kullanılır. Ancak, bu tür dosyaları Azure SQL veritabanı'na kullanılabilir değil. Bunun yerine Azure depolama hizmeti olay dosyası hedef desteklemek için kullanırız.
 
 Bu konuda, bir iki aşamalı bir kod örneği sunar:
 
@@ -44,9 +44,9 @@ Bu konuda, bir iki aşamalı bir kod örneği sunar:
 * SQL Server Management Studio (ssms.exe), ideal olarak en son aylık güncelleştirme sürümü. 
   Gelen son ssms.exe indirebilirsiniz:
   
-  * Başlıklı konusuna [SQL Server Management Studio'yu indirme](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [İndirme için doğrudan bir bağlantı.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Olmalıdır [Azure PowerShell modüllerini](http://go.microsoft.com/?linkid=9811175) yüklü.
+  * Başlıklı konusuna [SQL Server Management Studio'yu indirme](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [İndirme için doğrudan bir bağlantı.](https://go.microsoft.com/fwlink/?linkid=616025)
+* Olmalıdır [Azure PowerShell modüllerini](https://go.microsoft.com/?linkid=9811175) yüklü.
   
   * Modüller komutları gibi - sağlayan **New-AzureStorageAccount**.
 
@@ -506,11 +506,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Önceki Transact-SQL betiği aşağıdaki sistem işlevi event_file okumak için kullanılır:
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 Genişletilmiş olaylar verileri Gelişmiş seçenekleri görüntülemek için bir açıklama şuradan ulaşabilirsiniz:
 
-* [Genişletilmiş olaylar hedef verileri gelişmiş görüntüleme](http://msdn.microsoft.com/library/mt752502.aspx)
+* [Genişletilmiş olaylar hedef verileri gelişmiş görüntüleme](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Kod örneği, SQL Server üzerinde çalıştırmak için dönüştürme
@@ -528,10 +528,10 @@ Microsoft SQL Server'da önceki Transact-SQL örneği çalıştırmak istediğin
 Hesapları ve Azure depolama hizmetinde kapsayıcıları hakkında daha fazla bilgi için bkz:
 
 * [Net'ten BLOB storage kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Kök kapsayıcı ile çalışma](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Ders 1: bir Azure kapsayıcısı üzerinde depolanmış erişim ilkesini ve bir paylaşılan erişim imzası oluşturma](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [2. Ders: paylaşılan erişim imzası kullanarak bir SQL Server kimlik bilgisi oluşturma](http://msdn.microsoft.com/library/dn466435.aspx)
+* [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Kök kapsayıcı ile çalışma](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Ders 1: bir Azure kapsayıcısı üzerinde depolanmış erişim ilkesini ve bir paylaşılan erişim imzası oluşturma](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [2. Ders: paylaşılan erişim imzası kullanarak bir SQL Server kimlik bilgisi oluşturma](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Microsoft SQL Server için genişletilmiş olaylar](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

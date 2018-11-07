@@ -1,24 +1,24 @@
 ---
-title: HDInsight Azure portalını kullanarak Windows tabanlı bir Hadoop kümelerini yönetme
-description: HDInsight hizmeti yönetmeyi öğrenin. Bir HDInsight kümesi oluşturma, etkileşimli JavaScript Konsolu'nu açın ve Hadoop komut konsolunu açın.
+title: HDInsight Azure portalını kullanarak Windows tabanlı Apache Hadoop kümelerini yönetme
+description: HDInsight hizmeti yönetmeyi öğrenin. Bir HDInsight kümesi oluşturma, etkileşimli JavaScript Konsolu'nu açın ve Apache Hadoop komut konsolunu açın.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 67138b9e98818f5d106c73cef027d0eb2515e9a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970286"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233924"
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Windows tabanlı bir Hadoop kümelerini yönetme
+# <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Windows tabanlı Apache Hadoop kümelerini yönetme
 
-Kullanarak [Azure portalında][azure-portal], Windows tabanlı Hadoop kümeleri oluşturma Azure HDInsight, Hadoop kullanıcı parolası değiştirme ve Hadoop komut erişebilmesi için Uzak Masaüstü Protokolü (RDP) etkinleştir kümenin konsolda.
+Kullanarak [Azure portalında][azure-portal], Windows tabanlı Apache Hadoop kümeleri oluşturma Azure HDInsight, Hadoop kullanıcı parolası değiştirme ve Hadoop erişebilmesi için Uzak Masaüstü Protokolü (RDP) etkinleştir kümenin konsolda komutu.
 
 Bu makaledeki bilgiler, yalnızca pencere tabanlı HDInsight kümeleri için geçerlidir. Linux tabanlı kümeler yönetme hakkında daha fazla bilgi için bkz. [yönetme Hadoop kümeleri HDInsight Azure portalını kullanarak](hdinsight-administer-use-portal-linux.md).
 
@@ -34,7 +34,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 * **Azure depolama hesabı** -bir HDInsight kümesi, bir Azure Blob Depolama kapsayıcısı varsayılan dosya sistemi olarak kullanır. Azure Blob storage HDInsight kümeleri ile sorunsuz bir deneyimi nasıl sağladığını hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Blob Depolama kullanma](hdinsight-hadoop-use-blob-storage.md). Bir Azure depolama hesabı oluşturma hakkında daha fazla bilgi edinmek için bkz. [bir depolama hesabının nasıl oluşturulacağını](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Portalını açın
-1. Oturum [ https://portal.azure.com ](https://portal.azure.com).
+1. [https://portal.azure.com](https://portal.azure.com) adresinde oturum açın.
 2. Portal açtıktan sonra şunları yapabilirsiniz:
 
    * Tıklayın **kaynak Oluştur** sol menüden yeni bir küme oluşturmak için:
@@ -67,7 +67,7 @@ HDInsight, geniş Hadoop bileşenleri ile çalışır. Doğrulandı ve desteklen
 Uzak Masaüstü bağlantısı kullanarak küme üzerinde özel yazılım yüklemesi desteklenmez. Kümeler yeniden oluşturmanız gerekiyorsa, bunlar kaybolacak gibi tüm baş düğümün sürücülerindeki dosyaları depolamak kaçınmanız gerekir. Dosyaların Azure Blob Depolama'da depolanması önerilir. BLOB Depolama alanı kalıcıdır.
 
 ## <a name="list-and-show-clusters"></a>Kümeleri Listele ve Göster
-1. Oturum [ https://portal.azure.com ](https://portal.azure.com).
+1. [https://portal.azure.com](https://portal.azure.com) adresinde oturum açın.
 2. Tıklayın **HDInsight kümeleri** sol menüden.
 3. Küme adına tıklayın. Küme listesi uzunsa, sayfanın üst kısmındaki filtre kullanabilirsiniz.
 4. Ayrıntıları göstermek için listedeki bir kümeden çift tıklayın.
@@ -328,7 +328,7 @@ Kümenin, oluşturma sırasında sağladığınız kimlik bilgileri, kümedeki h
     Bir hafta sonu için varsayılan değerleri var.
 
    > [!NOTE]
-   > HDInsight .NET SDK'sı, bir kümede uzak masaüstünü etkinleştirmek için de kullanabilirsiniz. Kullanım **EnableRdp** aşağıdaki şekilde HDInsight istemci nesnesi üzerinde yöntemi: **istemci. EnableRdp (küme adı, konumu, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Benzer şekilde, küme üzerinde Uzak Masaüstü'nü devre dışı bırakmak için kullanabileceğiniz **istemci. (Küme adı, konumu) DisableRdp**. Bu yöntemler hakkında daha fazla bilgi için bkz. [HDInsight .NET SDK başvurusu](http://go.microsoft.com/fwlink/?LinkId=529017). Bu, yalnızca Windows üzerinde çalışan HDInsight kümeleri için geçerlidir.
+   > HDInsight .NET SDK'sı, bir kümede uzak masaüstünü etkinleştirmek için de kullanabilirsiniz. Kullanım **EnableRdp** aşağıdaki şekilde HDInsight istemci nesnesi üzerinde yöntemi: **istemci. EnableRdp (küme adı, konumu, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Benzer şekilde, küme üzerinde Uzak Masaüstü'nü devre dışı bırakmak için kullanabileceğiniz **istemci. (Küme adı, konumu) DisableRdp**. Bu yöntemler hakkında daha fazla bilgi için bkz. [HDInsight .NET SDK başvurusu](https://go.microsoft.com/fwlink/?LinkId=529017). Bu, yalnızca Windows üzerinde çalışan HDInsight kümeleri için geçerlidir.
    >
    >
 

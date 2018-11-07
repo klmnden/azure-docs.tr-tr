@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4156071c36b06be586b05ee98e9eeb0a9138e4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441536"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246869"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure’daki bir HPC Pack kümesinde Linux işlem düğümleri kullanmaya başlama
 Ayarlanmış bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) desteklenen bir Linux dağıtımı çalışan düğümleri işlem kümesi azure'da Windows Server ve birkaç çalıştıran bir baş düğüm içerir. Linux düğümleri ve kümenin Windows baş düğüm arasında verileri taşımak için seçenekleri keşfedin. Kümeye Linux HPC iş gönderme hakkında bilgi edinin.
@@ -186,7 +186,7 @@ Linux düğümleri ve kümenin Windows baş düğüm arasında verileri taşıma
 ### <a name="azure-file-storage"></a>Azure dosya depolama
 [Azure dosya](https://azure.microsoft.com/services/storage/files/) hizmeti, standart SMB 2.1 protokolünü kullanan dosya paylaşımları sunar. Azure Vm'leri ve cloud services bağlı paylaşımlar üzerinden uygulama bileşenleri arasında dosya verilerini paylaşabilir ve şirket içi uygulamalar dosya depolama API'si paylaşımdaki dosya verilerine erişebilir. 
 
-Azure dosya paylaşımı oluşturmak ve baş düğüme bağlamak ayrıntılı adımlar için bkz. [Windows üzerinde Azure dosya depolama ile çalışmaya başlama](../../../storage/files/storage-how-to-use-files-windows.md). Linux düğümlerinde Azure dosya paylaşımını bağlayabilmeniz için bkz: [Azure dosya depolamayı Linux ile kullanma konusunda](../../../storage/files/storage-how-to-use-files-linux.md). Kalıcı bağlantıları ayarlamak için bkz: [Microsoft Azure dosyaları Persisting bağlantılar](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Azure dosya paylaşımı oluşturmak ve baş düğüme bağlamak ayrıntılı adımlar için bkz. [Windows üzerinde Azure dosya depolama ile çalışmaya başlama](../../../storage/files/storage-how-to-use-files-windows.md). Linux düğümlerinde Azure dosya paylaşımını bağlayabilmeniz için bkz: [Azure dosya depolamayı Linux ile kullanma konusunda](../../../storage/files/storage-how-to-use-files-linux.md). Kalıcı bağlantıları ayarlamak için bkz: [Microsoft Azure dosyaları Persisting bağlantılar](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 Aşağıdaki örnekte, Azure dosya paylaşımını bir depolama hesabı oluşturun. Baş düğüme ve paylaşımı bağlamak için bir komut istemi açın ve aşağıdaki komutları girin:
 
@@ -271,7 +271,7 @@ HPC Pack kümesine göndermek için birkaç yol vardır:
 
 HPC Pack GUI araçları ve HPC web Portalı aracılığıyla azure'daki bir kümeye iş gönderme olan aynı Windows işlem düğümleri. Bkz: [HPC Pack İş Yöneticisi](https://technet.microsoft.com/library/ff919691.aspx) ve [nasıl bir şirket içi istemci bilgisayarından'ndan iş gönderme](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-REST API aracılığıyla iş göndermek için başvurmak [oluşturma ve Microsoft HPC Pack REST API'yi kullanarak işleri gönderme](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Bir Linux İstemcisi'ndan iş gönderme için da Python örnek bakın [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
+REST API aracılığıyla iş göndermek için başvurmak [oluşturma ve Microsoft HPC Pack REST API'yi kullanarak işleri gönderme](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Bir Linux İstemcisi'ndan iş gönderme için da Python örnek bakın [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## <a name="clusrun-for-linux-nodes"></a>Linux düğümleri için Clusrun
 HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) aracı, bir komut istemini veya HPC Küme Yöneticisi aracılığıyla Linux düğümlerinde komutları yürütmek için kullanılabilir. Bazı temel örnekler aşağıda verilmiştir.

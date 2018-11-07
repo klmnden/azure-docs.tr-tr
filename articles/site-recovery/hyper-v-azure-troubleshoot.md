@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212956"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248002"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Azure'a çoğaltma ve yük devretme için Hyper-V sorunlarını giderme
 
@@ -98,7 +98,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
     - Çıktıyı denetleyin. Yazıcılarının hatalı durumda olduğundan, aşağıdakileri yapın:
         - VSS işlemi hataları için VM üzerindeki uygulama olay günlüğünü denetleyin.
     - Başarısız yazıcıyla birlikte ilgili hizmetlerin yeniden başlatmayı deneyin:
-        - Birim Gölge Kopyası
+        - Birim Gölge kopyası
          - Azure Site Recovery VSS sağlayıcısı
     - Bunu yaptıktan sonra birkaç uygulamayla tutarlı anlık görüntüleri başarıyla oluşturuldu, görmek için saat bekleyin.
     - Son çare olarak, sanal Makineyi yeniden başlatmayı deneyin. Bu, yanıt vermeyen durumda olan hizmetleri çözebilir.
@@ -167,6 +167,6 @@ Tüm Hyper-V çoğaltma olay bulunan Hyper-V-VMMS\Admin günlüğüne kaydedilir
 
 Bu araçlar, Gelişmiş sorun giderme konusunda yardımcı olabilir:
 
--   Site Recovery günlük koleksiyonu kullanarak VMM için gerçekleştirmek [Desteği Tanılama Platformu (SDP) aracı](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
+-   Site Recovery günlük koleksiyonu kullanarak VMM için gerçekleştirmek [Desteği Tanılama Platformu (SDP) aracı](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -   VMM olmadan Hyper-V için [bu aracı karşıdan](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab), ve günlükleri toplamak için Hyper-V konağı üzerinde çalıştırın.
 

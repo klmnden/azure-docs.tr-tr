@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987622"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228140"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
@@ -25,20 +25,29 @@ Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makaled
 İçeriğinizi Media Services v3 hazır kullanarak çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: **AudioAnalyzerPreset** veya **VideoAnalyzerPreset**. Aşağıdaki makalede nasıl yapılacağı açıklanır **VideoAnalyzerPreset**: [öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Bir Video veya ses Çözümleyicisi hazır kullanırken, hesabınızda 10 S3 medya ayrılmış birimi ayarlamak için Azure portalını kullanın. Daha fazla bilgi için [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md).
+> Video veya Ses Çözümleyicisi önayarlarını kullanırken, hesabınızı 10 S3 Medya Ayrılmış Birimine sahip olacak şekilde ayarlamak için Azure portalı kullanın. Daha fazla bilgi için bkz. [Medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md).
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+## <a name="built-in-presets"></a>Yerleşik hazır
 
-**AudioAnalyzerPreset** bir ses veya video dosyasından birden çok ses ınsights almanıza olanak sağlar. Çıkış bir JSON dosyası (öngörülerle tüm) ve ses transkripti VTT dosyası içerir. Bu hazır kabul diline giriş dosyası biçiminde belirten bir özelliği bir [BCP47](https://tools.ietf.org/html/bcp47) dize. Ses ınsights şunlardır:
+Media Services şu anda aşağıdaki yerleşik Çözümleyicisi hazır destekler:  
+
+|**Önceden tanımlı ayar adı**|**Senaryo**|**Ayrıntılar**|
+|---|---|---|
+|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler.<br/>Ses yükü dilini girişinde 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz (örneğin, ' en-US'). Desteklenen dillerin listesi olduğundan, 'en-US', 'en-GB', 'es-ES', "es-MX", "fr-FR", 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
+|**VideoAnalyzerPreset**|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+Hazır bir ses veya video dosyasından birden çok ses ınsights almanıza olanak sağlar. Çıkış bir JSON dosyası (öngörülerle tüm) ve ses transkripti VTT dosyası içerir. Bu hazır kabul diline giriş dosyası biçiminde belirten bir özelliği bir [BCP47](https://tools.ietf.org/html/bcp47) dize. Ses ınsights şunlardır:
 
 * Ses tanıma – konuşulan kelimeleri zaman damgalı bir kopyası. Birden çok dil desteklenir
 * Konuşmacı dizin oluşturma – konuşmacıların ve karşılık gelen konuşulan kelimeleri ilişkin bir eşleme
 * Konuşma yaklaşım analizi – ses tanıma üzerinde gerçekleştirilen yaklaşım analizi çıkışı
 * Anahtar sözcükler – ses tanıma ayıklanan anahtar sözcükleri.
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** video dosyasından birden çok ses ve video öngörüleri almanıza olanak sağlar. Çıktı (tüm Öngörüler) içeren bir JSON dosyası, video deşifre metni ve küçük bir koleksiyon için bir VTT dosyası içerir. Bu hazır de kabul eden bir [BCP47](https://tools.ietf.org/html/bcp47) (video dilini temsil eden) dize özelliği. Video içgörüleri yukarıda belirtilen tüm ses Öngörüler ve aşağıdaki ek öğeler şunlardır:
+Önceden ayarlanmış bir video dosyasından birden çok ses ve video öngörüleri ayıklamak sağlar. Çıktı (tüm Öngörüler) içeren bir JSON dosyası, video deşifre metni ve küçük bir koleksiyon için bir VTT dosyası içerir. Bu hazır de kabul eden bir [BCP47](https://tools.ietf.org/html/bcp47) (video dilini temsil eden) dize özelliği. Video içgörüleri yukarıda belirtilen tüm ses Öngörüler ve aşağıdaki ek öğeler şunlardır:
 
 * Yüz tanıma izleme – yüzleri videoda mevcut zaman. Face ID ve Parçacıkların karşılık gelen bir koleksiyon her yüz tanıma sahip
 * Görsel metin – optik karakter tanıma algılanan metin. Zaman damgalı ve aynı zamanda anahtar sözcükleri (ses transkripti) ek olarak ayıklamak için kullanılan metindir
@@ -244,7 +253,7 @@ Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makaled
 |SpeakerTalkToListenRatio|Hesaplama videonun toplam zaman bölünmüş konuşmacının monolog (olmadan arasındaki sessizlik) üzerinde harcanan zamanı temel alır. Saat üçüncü ondalık noktasına yuvarlanır.|
 
 
-### <a name="sentiments"></a>yaklaşımları
+### <a name="sentiments"></a>yaklaşımlar
 
 Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0.2 0,1.
 

@@ -12,22 +12,22 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.openlocfilehash: be5089b825a873006696eb074ed4355f415e680b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: b96e8e6e31817f6d261f41dbf3b3047dd49c29ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319527"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258247"
 ---
 ## <a name="setting-up-powershell"></a>PowerShell ayarlama
-Azure PowerShell kullanmadan önce aşağıdaki adımları izleyin.
+Azure PowerShell kullanabilmeniz için şu adımları izleyin.
 
-### <a name="verify-powershell-versions"></a>PowerShell sürümlerini doğrulama
-Windows PowerShell kullanabilmek için Windows PowerShell, sürüm 3.0 veya 4.0 olması gerekir. Windows PowerShell sürümü bulmak için Windows PowerShell komut isteminde bu komutu yazın.
+### <a name="verify-powershell-versions"></a>PowerShell sürümleri doğrulayın
+Windows PowerShell kullanmadan önce Windows PowerShell sürüm 3.0 veya 4.0 olması gerekir. Windows PowerShell sürümünü bulmak için Windows PowerShell komut isteminde bu komutu yazın.
 
     $PSVersionTable
 
-Şöyle bir şey görmeniz gerekir.
+Bunun gibi bir şey görmeniz gerekir.
 
     Name                           Value
     ----                           -----
@@ -39,28 +39,28 @@ Windows PowerShell kullanabilmek için Windows PowerShell, sürüm 3.0 veya 4.0 
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-Doğrulayın değerini **PSVersion** 3.0 veya 4.0. Uyumlu bir sürümünü yüklemek için bkz: [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) veya [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Doğrulayın değerini **PSVersion** 3.0 veya 4.0. Uyumlu bir sürümünü yüklemek için bkz: [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) veya [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
-Azure PowerShell sürüm 0.8.0 sahip olmalıdır veya sonraki bir sürümü. Azure PowerShell komut isteminde bu komutla yüklediğiniz Azure PowerShell sürümü kontrol edebilirsiniz.
+Ayrıca Azure PowerShell sürümü 0.8.0 olmalıdır veya üzeri. Azure PowerShell, Azure PowerShell komut isteminde bu komutu ile yüklü olan sürümü denetleyebilirsiniz.
 
     Get-Module azure | format-table version
 
-Şöyle bir şey görmeniz gerekir.
+Bunun gibi bir şey görmeniz gerekir.
 
     Version
     -------
     0.8.16.1
 
-Yönergeler ve en son sürüme bir bağlantı için bkz: [yükleme ve yapılandırma Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Yönergeler ve en son sürüme bir bağlantı için bkz. [yükleme ve yapılandırma, Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="set-your-azure-account-and-subscription"></a>Azure hesabınızı ve aboneliğinizi ayarlama
-Bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
+Azure aboneliğiniz yoksa, etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 Bir Azure PowerShell komut istemi açın ve bu komutla Azure'da oturum açın.
 
     Add-AzureAccount
 
-Birden çok Azure aboneliğiniz varsa, bu komutla, Azure aboneliklerinize listeleyebilirsiniz.
+Birden çok Azure aboneliğiniz varsa, bu komut Azure aboneliklerinizle listeleyebilirsiniz.
 
     Get-AzureSubscription
 
@@ -77,10 +77,10 @@ Aşağıdaki türde bilgiler alırsınız:
     CurrentStorageAccountName : 
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Azure PowerShell komut isteminde şu komutları çalıştırarak geçerli Azure aboneliği ayarlayabilirsiniz. Dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri doğru ada sahip.
+Azure PowerShell komut isteminde şu komutları çalıştırarak geçerli Azure aboneliğinizi ayarlayabilirsiniz. Dahil olmak üzere, tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri, doğru ada sahip.
 
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-Azure abonelikleri ve hesapları hakkında daha fazla bilgi için bkz: [nasıl yapılır: aboneliğinize bağlanma](/powershell/azureps-cmdlets-docs#Connect).
+Azure aboneliklerini ve hesaplarını hakkında daha fazla bilgi için bkz: [nasıl yapılır: aboneliğinize bağlanma](/powershell/azureps-cmdlets-docs#Connect).
 

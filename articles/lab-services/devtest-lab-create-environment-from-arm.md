@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f2bf811bfb0856b7ceb2fca2fd84c0d9830fb65d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222293"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255635"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma
 
-[Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) kolayca sağlayan [bir VM aynı anda bir laboratuvara ekleme](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Ancak, ortamı birden fazla VM varsa, her VM'yi ayrı ayrı oluşturulmalıdır. Çok katmanlı Web uygulaması veya SharePoint grubu gibi senaryolar için bir mekanizma tek bir adımda birden çok VM oluşturulmasına izin vermek için gereklidir. Azure Resource Manager şablonlarını kullanarak, şimdi altyapısını ve yapılandırmasını kullanarak Azure çözümünüzün tanımlayın ve sürekli olarak tutarlı bir durumda birden çok VM dağıtın. Bu özellik aşağıdaki yararları sağlar:
+[Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040) kolayca sağlayan [bir VM aynı anda bir laboratuvara ekleme](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Ancak, ortamı birden fazla VM varsa, her VM'yi ayrı ayrı oluşturulmalıdır. Çok katmanlı Web uygulaması veya SharePoint grubu gibi senaryolar için bir mekanizma tek bir adımda birden çok VM oluşturulmasına izin vermek için gereklidir. Azure Resource Manager şablonlarını kullanarak, şimdi altyapısını ve yapılandırmasını kullanarak Azure çözümünüzün tanımlayın ve sürekli olarak tutarlı bir durumda birden çok VM dağıtın. Bu özellik aşağıdaki yararları sağlar:
 
 - Azure Resource Manager şablonları, doğrudan, kaynak denetimi deposundan (GitHub veya Azure DevOps Hizmetleri Git) yüklenir.
 - Diğer türleri ile yaparken yapılandırıldıktan sonra kullanıcılarınızın bir ortam Azure portalından, bir Azure Resource Manager şablonu seçerek oluşturabilirsiniz [VM tabanlarını](./devtest-lab-comparing-vm-base-image-types.md).
@@ -64,7 +64,7 @@ Birkaç deposunda Azure Resource Manager şablonlarınızı düzenlemek için iz
 
 Aşağıdaki adımları, laboratuvarınız için Azure portalını kullanarak bir havuz eklerken size kılavuzluk. 
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin.   
 1. Laboratuvar'ın **genel bakış** bölmesinde **yapılandırması ve ilkelerini**.
@@ -94,7 +94,7 @@ Sonraki bölümde, ortamlarında bir Azure Resource Manager şablonundan oluştu
 
 Bir Azure Resource Manager şablon deposu laboratuvarda yapılandırıldıktan sonra Laboratuvar kullanıcılarınızın Azure portalında aşağıdaki adımları kullanarak bir ortam oluşturabilirsiniz:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin.   
 1. Laboratuvar bölmeden **Ekle +**.

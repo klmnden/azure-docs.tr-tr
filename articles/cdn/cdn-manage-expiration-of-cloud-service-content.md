@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: d4ae0c4d5924fab8fcdaf1b4da5c8183a3a5fd0f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092482"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253134"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure cdn'de web içeriğinin kullanım süresini yönetme
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ Aşağıdaki XML yapılandırma dosyası örneği nasıl ayarlanacağını göst
 Kullanılacak **cacheControlMaxAge** öznitelik değerini ayarlamalısınız **cacheControlMode** özniteliğini `UseMaxAge`. Bu ayar HTTP üst bilgi ve yönerge neden `Cache-Control: max-age=<nnn>`, yanıta eklenecek. Timespan değeri biçimi **cacheControlMaxAge** özniteliği `<days>.<hours>:<min>:<sec>`. Değeri saniye dönüştürülür ve değeri olarak kullanılan `Cache-Control` `max-age` yönergesi. Hakkında daha fazla bilgi için `<clientCache>` öğesi bkz [istemci önbellek <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Cache-Control üst bilgileri programlı olarak ayarlama
-ASP.NET uygulamaları için programlı olarak ayarlayarak CDN önbelleğe alma davranışını denetleyen **HttpResponse.Cache** .NET API özelliği. Hakkında bilgi için **HttpResponse.Cache** özelliğine bakın [HttpResponse.Cache özelliği](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) ve [HttpCachePolicy sınıfı](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+ASP.NET uygulamaları için programlı olarak ayarlayarak CDN önbelleğe alma davranışını denetleyen **HttpResponse.Cache** .NET API özelliği. Hakkında bilgi için **HttpResponse.Cache** özelliğine bakın [HttpResponse.Cache özelliği](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) ve [HttpCachePolicy sınıfı](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 
 Program aracılığıyla önbellek uygulama içeriği için ASP.NET, aşağıdaki adımları izleyin:
    1. İçerik ayarlayarak gibi önbelleğe kaydedilemeyen işaretli olduğunu doğrulayın `HttpCacheability` için `Public`. 
@@ -132,6 +132,6 @@ Web içeriğinize TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınız�
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Ayrıntıları okuyun **clientCache** öğesi](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Belgelerini okuyun **HttpResponse.Cache** özelliği](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Belgelerini okuyun **HttpCachePolicy sınıfı**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Belgelerini okuyun **HttpResponse.Cache** özelliği](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
+* [Belgelerini okuyun **HttpCachePolicy sınıfı**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [Önbelleğe alma kavramları hakkında bilgi edinin](cdn-how-caching-works.md)

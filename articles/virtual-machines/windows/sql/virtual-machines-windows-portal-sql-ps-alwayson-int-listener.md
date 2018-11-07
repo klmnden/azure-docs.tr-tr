@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381804"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228224"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicisi - Resource Manager'ı yapılandırma
 Bu konu başlığı altında gösterilir nasıl yapılır:
@@ -41,7 +41,7 @@ Bu konuda, kullanılabilirlik gruplarını zaten yapılandırılmış olmasını
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>Windows Güvenlik duvarını yapılandırma
-Windows Güvenlik Duvarı'nı SQL Server erişimine izin verecek şekilde yapılandırın. Güvenlik duvarı kuralları, SQL Server örneği ve dinleyici araştırma bağlantı noktalarını kullandığı için TCP bağlantılara izin verin. Ayrıntılı yönergeler için bkz. [veritabanı altyapısı erişimi için Windows Güvenlik duvarını yapılandırma](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). SQL Server bağlantı noktası için ve araştırma bağlantı noktası için bir gelen kuralı oluşturun.
+Windows Güvenlik Duvarı'nı SQL Server erişimine izin verecek şekilde yapılandırın. Güvenlik duvarı kuralları, SQL Server örneği ve dinleyici araştırma bağlantı noktalarını kullandığı için TCP bağlantılara izin verin. Ayrıntılı yönergeler için bkz. [veritabanı altyapısı erişimi için Windows Güvenlik duvarını yapılandırma](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). SQL Server bağlantı noktası için ve araştırma bağlantı noktası için bir gelen kuralı oluşturun.
 
 Eğer bir Azure ağ güvenlik grubu ile erişimi kısıtlama olun arka uç SQL Server VM IP adreslerine izin verme kuralları içerir ve yük dengeleyici kayan IP adresleri /AG dinleyicisi ve küme çekirdek IP adresi için varsa.
 
@@ -110,7 +110,7 @@ Birden fazla kullanılabilirlik grubunu kullanmak üzere ek bir IP adresi yük d
 > SQL Server kullanılabilirlik grupları için özel bir araştırma bağlantı noktası her IP adresi gerektirir. Örneğin, bir yük dengeleyicideki bir IP adresi, yoklama bağlantı noktası 59999 kullanıyorsa, bu yük dengeleyici üzerindeki diğer IP adresi yok araştırma bağlantı noktası 59999 kullanabilirsiniz.
 
 * Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz. **yük dengeleyici başına özel ön uç IP** altında [ağ limitleri - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Kullanılabilirlik grubu sınırları hakkında daha fazla bilgi için bkz. [kısıtlamaları (kullanılabilirlik grupları)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Kullanılabilirlik grubu sınırları hakkında daha fazla bilgi için bkz. [kısıtlamaları (kullanılabilirlik grupları)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 Aşağıdaki komut dosyasını yeni bir IP adresi için var olan bir yük dengeleyici ekler. ILB dinleyicisi bağlantı noktası, Yük Dengeleme ön uç bağlantı noktası için kullanır. Bu bağlantı noktası, SQL sunucusunun dinleme yaptığı bağlantı noktası olabilir. SQL Server'ın varsayılan örnekleri için bağlantı noktası 1433'dür. Ön uç bağlantı noktasıyla aynı arka uç bağlantı noktası, bu nedenle, Yük Dengeleme kuralını kullanılabilirlik grubu için bir kayan IP (doğrudan sunucu dönüşü) gerektirir. Benzeri değişkenleri ortamınız için güncelleştirin. 
 
@@ -188,7 +188,7 @@ Bağlantıyı test etmek için:
 Hangi SQL Server örneğini birincil çoğaltmayı barındıran için SQLCMD bağlantı otomatik olarak bağlanır. 
 
 > [!NOTE]
-> Belirttiğiniz bağlantı noktası hem de SQL Server güvenlik duvarının açık olduğundan emin olun. Her iki sunucuyu kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Bkz: [Ekle veya güvenlik duvarı kuralını Düzenle](http://technet.microsoft.com/library/cc753558.aspx) daha fazla bilgi için. 
+> Belirttiğiniz bağlantı noktası hem de SQL Server güvenlik duvarının açık olduğundan emin olun. Her iki sunucuyu kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Bkz: [Ekle veya güvenlik duvarı kuralını Düzenle](https://technet.microsoft.com/library/cc753558.aspx) daha fazla bilgi için. 
 > 
 > 
 
@@ -205,9 +205,9 @@ Daha fazla bilgi için [yapılandırma Always On kullanılabilirlik grubu Azure 
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet'leri
 Azure sanal makineler için iç yük dengeleyici oluşturmak için aşağıdaki PowerShell cmdlet'lerini kullanın.
 
-* [Yeni-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) bir yük dengeleyici oluşturur. 
-* [Yeni-Azurermloadbalancerfrontendıpconfig](http://msdn.microsoft.com/library/mt603510.aspx) bir yük dengeleyici için bir ön uç IP yapılandırması oluşturur. 
-* [Yeni-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) bir yük dengeleyici kuralı yapılandırması oluşturur. 
-* [Yeni-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) bir yük dengeleyici için bir arka uç adres havuzu yapılandırması oluşturur. 
-* [Yeni-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) bir yük dengeleyici için bir araştırma yapılandırması oluşturur.
-* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) bir yük dengeleyici bir Azure kaynak grubundan kaldırır.
+* [Yeni-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) bir yük dengeleyici oluşturur. 
+* [Yeni-Azurermloadbalancerfrontendıpconfig](https://msdn.microsoft.com/library/mt603510.aspx) bir yük dengeleyici için bir ön uç IP yapılandırması oluşturur. 
+* [Yeni-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) bir yük dengeleyici kuralı yapılandırması oluşturur. 
+* [Yeni-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) bir yük dengeleyici için bir arka uç adres havuzu yapılandırması oluşturur. 
+* [Yeni-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) bir yük dengeleyici için bir araştırma yapılandırması oluşturur.
+* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) bir yük dengeleyici bir Azure kaynak grubundan kaldırır.

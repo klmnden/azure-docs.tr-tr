@@ -9,19 +9,19 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 5d25aed196dd6b4ce92ae1cf18e556d1c32295d3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051976"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246472"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme
 Web sitesini ziyaret ederek açmaya çalıştığınızda hatalarla karşılaşırsanız hangi başvuran bitmiştir özellikle bulmaya Data Lake Analytics'i kullanarak Web sitesi günlüklerini analiz etmeyi öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Visual Studio 2015 veya Visual Studio 2013'ün**.
-* **[Visual Studio için Data Lake Araçları](http://aka.ms/adltoolsvs)**.
+* **[Visual Studio için Data Lake Araçları](https://aka.ms/adltoolsvs)**.
 
     Visual Studio için Data Lake araçları yüklendikten sonra göreceğiniz bir **Data Lake** öğesi **Araçları** Visual Studio menüsünde:
 

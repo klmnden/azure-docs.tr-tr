@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055606"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259199"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da uygulama yaşam döngüsü yönetimi
 Azure Machine Learning Studio, Azure bulut platformunda Çalıştır duruma getirdiniz makine öğrenimi denemeleri geliştirmek için kullanılan bir araçtır. Tek bir platformda Visual Studio IDE ve ölçeklenebilir bir bulut hizmeti gibi birleştirilir. Azure Machine Learning Studio'ya çeşitli varlıklar otomatik yürütme ve dağıtım, sürüm oluşturma standart uygulama yaşam döngüsü yönetimi (ALM) yöntemleri birleştirebilirsiniz. Bu makalede bazı seçenekleri ve yaklaşımları açıklanmaktadır.
@@ -43,7 +43,7 @@ Açıldıktan sonra anlık görüntü deney yeni bir deneme kaydedebilir ve sonr
 Denemeyi silerseniz, bu deneyde tüm anlık görüntüleri silinir.
 
 ### <a name="exportimport-experiment-in-json-format"></a>JSON biçiminde içeri/dışarı aktarma denemesi
-Çalıştırılacak gönderilen her zaman çalıştırma geçmişi anlık görüntüleri Azure Machine Learning Studio'da deneme değişmez bir sürümünü tutun. Ayrıca denemenin yerel bir kopyasını kaydedin ve Team Foundation Server gibi sık kullandığınız kaynak denetimi sistemine iade ve daha sonra yeniden deneme oluşturma, yerel dosya oluşturun. Kullanabileceğiniz [Azure Machine Learning PowerShell](http://aka.ms/amlps) commandlet'ler [ *Export-AmlExperimentGraph* ](https://github.com/hning86/azuremlps#export-amlexperimentgraph) ve [  *Import-AmlExperimentGraph* ](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bunları gerçekleştirebilirsiniz.
+Çalıştırılacak gönderilen her zaman çalıştırma geçmişi anlık görüntüleri Azure Machine Learning Studio'da deneme değişmez bir sürümünü tutun. Ayrıca denemenin yerel bir kopyasını kaydedin ve Team Foundation Server gibi sık kullandığınız kaynak denetimi sistemine iade ve daha sonra yeniden deneme oluşturma, yerel dosya oluşturun. Kullanabileceğiniz [Azure Machine Learning PowerShell](https://aka.ms/amlps) commandlet'ler [ *Export-AmlExperimentGraph* ](https://github.com/hning86/azuremlps#export-amlexperimentgraph) ve [  *Import-AmlExperimentGraph* ](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bunları gerçekleştirebilirsiniz.
 
 JSON değerinin metinsel bir gösterimini varlıkları için başvuru veri kümesi veya eğitilen bir modelin gibi çalışma alanında içerebilir deneme grafiğini dosyasıdır. Bu seri hale getirilmiş bir varlık sürümü içermiyor. JSON belgesini çalışma alanınıza içeri aktarmaya çalışırsanız, başvurulan varlıkları aynı varlık deneme başvurulan kimlikleri ile önceden var olmalıdır. Aksi takdirde içeri aktarılan denemeyi erişemez.
 
@@ -85,7 +85,7 @@ Yeni bir Azure Resource Manager tabanlı web hizmeti oluşturursanız, uç nokta
 Dışarı aktarılan WSD dosya ve sürüm denetlemesine oluşturduktan sonra ayrıca WSD yeni bir web hizmeti olarak farklı bir web hizmeti planı farklı bir Azure bölgesinde dağıtabilirsiniz. Yeni web hizmeti planı kimliği yanı sıra, uygun bir depolama hesabı yapılandırması sağladığınız emin olmanız yeterlidir Farklı iLearner dosyalarında yama yapma WSD dosyasını değiştirin ve eğitilen modelin konumu başvuru güncelleştirme ve yeni web hizmeti olarak dağıtın.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Deneme yürütme ve dağıtımını otomatikleştirin
-ALM önemli bir yönüdür yürütme ve uygulamanın dağıtım işlemini otomatik hale getirebilmek sağlamaktır. Azure Machine Learning'de bunu kullanarak gerçekleştirebilirsiniz [PowerShell Modülü](http://aka.ms/amlps). İşte bir örnek için standart bir ALM ilgili uçtan uca adımları kullanarak yürütme/dağıtım işlemi otomatik [Azure Machine Learning Studio PowerShell Modülü](http://aka.ms/amlps). Her adım, bu adımı tamamlamak için kullanabileceğiniz bir veya daha fazla PowerShell commandlet'lerini bağlıdır.
+ALM önemli bir yönüdür yürütme ve uygulamanın dağıtım işlemini otomatik hale getirebilmek sağlamaktır. Azure Machine Learning'de bunu kullanarak gerçekleştirebilirsiniz [PowerShell Modülü](https://aka.ms/amlps). İşte bir örnek için standart bir ALM ilgili uçtan uca adımları kullanarak yürütme/dağıtım işlemi otomatik [Azure Machine Learning Studio PowerShell Modülü](https://aka.ms/amlps). Her adım, bu adımı tamamlamak için kullanabileceğiniz bir veya daha fazla PowerShell commandlet'lerini bağlıdır.
 
 1. [Bir veri kümesi karşıya](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Çalışma alanından bir eğitim denemesini kopyalayarak bir [çalışma](https://github.com/hning86/azuremlps#copy-amlexperiment) veya [galeri](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), veya [alma](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bir [dışarı](https://github.com/hning86/azuremlps#export-amlexperimentgraph) yerel denemeden disk.
@@ -99,6 +99,6 @@ ALM önemli bir yönüdür yürütme ve uygulamanın dağıtım işlemini otomat
 10. Web hizmetini test [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) veya [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) uç noktası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* İndirme [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) modülü ve baştan ALM görevlerinizi otomatikleştirin.
+* İndirme [Azure Machine Learning Studio PowerShell](https://aka.ms/amlps) modülü ve baştan ALM görevlerinizi otomatikleştirin.
 * Bilgi nasıl [oluşturma ve yalnızca tek bir denemede kullanarak ML modelleri çok sayıda yönetme](create-models-and-endpoints-with-powershell.md) PowerShell ve API yeniden eğitme aracılığıyla.
 * Daha fazla bilgi edinin [Azure Machine Learning web hizmetleri dağıtma](publish-a-machine-learning-web-service.md).

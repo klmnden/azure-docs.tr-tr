@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f11012c90ab2b82e945fdb67e224783c3f05c6dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405217"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237562"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -62,7 +62,7 @@ Aşağıdaki listelenen özellikleri olan özelliklerini Azure platformu güvenl
 | [Zorunlu güvenlik Eğitimi, arka plan denetimleri](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Veri konumu üzerinde denetimi](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Ortak Denetimler Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft, Azure hizmetlerindeki veri konumu yönetme](http://azuredatacentermap.azurewebsites.net/)|
 | [Sızma testi](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [izinsiz giriş algılama, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [denetimleri ve günlüğe kaydetme](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Kendi koşullarınıza göre veri erişimi sağlar](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Bulut Hizmetleri son dikkatli olmanızı denetim listesi](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Microsoft, verilerinizi hangi koşullarda erişebilecek kişileri](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Resim datacentre durumu](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fiziksel güvenlik [ağ güvenliğini sağlama](https://docs.microsoft.com/azure/security/security-network-overview) | [Kanuni yaptırım yetkililerine yanıt](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Hizmet, konum ve sektöre göre uyumluluk](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft Azure hizmetlerindeki müşteri verilerini nasıl korur](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
-|  [Güvenlik olay yanıtı](http://aka.ms/SecurityResponsepaper), [paylaşılan sorumluluk](http://aka.ms/sharedresponsibility) |[Katı gizlilik standartları](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure Hizmetleri, saydamlık hub için sertifika gözden geçirin](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
+|  [Güvenlik olay yanıtı](https://aka.ms/SecurityResponsepaper), [paylaşılan sorumluluk](https://aka.ms/sharedresponsibility) |[Katı gizlilik standartları](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure Hizmetleri, saydamlık hub için sertifika gözden geçirin](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
 
 

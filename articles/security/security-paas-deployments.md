@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036516"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262191"
 ---
 # <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
 
@@ -151,7 +151,7 @@ Web uygulamaları, bilinen yaygın güvenlik açıklarından yararlanan kötü a
 ## <a name="monitor-the-performance-of-your-applications"></a>Uygulamalarınızın performansını izleme
 İzleme, performans, sistem durumu ve uygulamanızın kullanılabilirliğini belirlemeye yönelik verileri toplayıp analiz eden işlemidir. Etkili bir izleme stratejisi, uygulamanız için bileşenlerin ayrıntılı işlemini anlamanıza yardımcı olur. Bu sorun haline gelmeden önce onları giderebilmeniz kritik sorunları size bildirerek çalışma artırmanıza yardımcı olur. Ayrıca, güvenlikle ilgili olabilecek anormallikleri yardımcı olur.
 
-Kullanım [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) bulutta veya şirket içinde barındırılan, kullanılabilirlik, performans ve, uygulamanızın kullanımını izlemek için. Application Insights'ı kullanarak, hızlı bir şekilde tanımlamak ve bunları rapor bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları tanılayın. Topladığınız bilgilerle, uygulamanızın bakımı ve iyileştirmeleri ile ilgili bilinçli kararlar alabilirsiniz.
+Kullanım [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) bulutta veya şirket içinde barındırılan, kullanılabilirlik, performans ve, uygulamanızın kullanımını izlemek için. Application Insights'ı kullanarak, hızlı bir şekilde tanımlamak ve bunları rapor bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları tanılayın. Topladığınız bilgilerle, uygulamanızın bakımı ve iyileştirmeleri ile ilgili bilinçli kararlar alabilirsiniz.
 
 Application Insights, topladığı verilerle etkileşim kurmak için kapsamlı araçlara sahiptir. Application Insights, verilerini genel bir depoda saklar. Log Analytics sorgu diliyle ayrıntılı analiz, uyarılar ve panolar gibi paylaşılan işlevlerden yararlanabilir.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f50be01d067032b1143a80e56ccb5d49d899d4d6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415976"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246676"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM için sistemin yeniden başlatılma nedenini anlama
 
@@ -108,7 +108,7 @@ Kapatma süresi, beş dakika kısa olabilir ancak önemli ölçüde uzun olabili
 
 **GÇ aşan sınırlar**
 
-G/ç isteklerinin hacmi g/ç işlemi (IOPS) saniyede disk g/ç sınırları aştığı için tutarlı bir şekilde azaltılır, Vm'leri geçici olarak kapatılmış olabilir. (Standart disk depolama için 500 IOPS sınırlıdır.) Bu sorunu gidermek için disk bölümleme türüyle kullanmak veya konuk VM iş yüküne bağlı olarak depolama alanı yapılandırabilirsiniz. Ayrıntılar için bkz [yapılandırma Azure sanal makinelerini en uygun depolama performansı için](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+G/ç isteklerinin hacmi g/ç işlemi (IOPS) saniyede disk g/ç sınırları aştığı için tutarlı bir şekilde azaltılır, Vm'leri geçici olarak kapatılmış olabilir. (Standart disk depolama için 500 IOPS sınırlıdır.) Bu sorunu gidermek için disk bölümleme türüyle kullanmak veya konuk VM iş yüküne bağlı olarak depolama alanı yapılandırabilirsiniz. Ayrıntılar için bkz [yapılandırma Azure sanal makinelerini en uygun depolama performansı için](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 Daha yüksek IOPS limitlerine Azure Premium depolama ile en fazla 80.000 IOPS aracılığıyla kullanılabilir. Daha fazla bilgi için [yüksek performanslı Premium depolama](../windows/premium-storage.md).
 

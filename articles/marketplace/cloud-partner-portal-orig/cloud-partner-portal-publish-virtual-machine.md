@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387370"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247084"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Bir sanal makine, Azure Market'te yayımlama
 
@@ -37,7 +37,7 @@ Aşağıdaki teknik ve teknik olmayan önkoşulları bir sanal makine Azure Mark
 
 -   [Bir Linux VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Bir Windows VHD'si oluşturma ve yükleme ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Bir Windows VHD'si oluşturma ve yükleme ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Bir Windows VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ Aşağıdaki teknik ve teknik olmayan önkoşulları bir sanal makine Azure Mark
 
 -   Azure Marketi katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul etmiş olursunuz.
 
--   Uyacağınızı kabul edersiniz [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft gizlilik bildirimi](http://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   Uyacağınızı kabul edersiniz [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft gizlilik bildirimi](https://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -211,7 +211,7 @@ Bu fiyatlandırma Excel'den fiyatlar bölgelere yerel para biriminde listelenir.
 
 >[!IMPORTANT]
 >-   Fiyatlar, canlı bir teklife geçtikten sonra değiştirilemez. Bununla birlikte, yine de desteklenen bir bölge ekleme veya kaldırma mümkün olabilir.
->-   Bu fiyata ek olarak bir kullanıcıya ücretlendirilir [Azure\'s sanal makine fiyatlandırma](http://aka.ms/vmpricingdetails).
+>-   Bu fiyata ek olarak bir kullanıcıya ücretlendirilir [Azure\'s sanal makine fiyatlandırma](https://aka.ms/vmpricingdetails).
 >-   Fiyatlar, fiyatları sırasında kullanılabilir para birimi oranlarını kullanarak, yerel para birimindeki tüm bölgeler için ayarlanır.
 >-   Ayarlayın ya da her bölgenin fiyat tek tek görüntülemek için fiyatlandırma elektronik tabloya dışarı aktarın ve özel fiyatlandırma ile alın.
 
@@ -225,7 +225,7 @@ Tamamlamak için sonraki bölümde VM görüntüleri bölümü olacaktır. Bu b�
 
 -   [Bir Linux VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Oluşturma ve bir Windows VHD karşıya yükleme ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Oluşturma ve bir Windows VHD karşıya yükleme ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Bir Windows VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 

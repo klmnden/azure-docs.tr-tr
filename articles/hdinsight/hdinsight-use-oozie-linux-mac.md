@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a2b209dc0204c390b16039ed1cf58b47f29629f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783330"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252114"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma
 
@@ -30,12 +30,12 @@ Azure HDInsight üzerinde Hadoop ile Apache Oozie kullanmayı öğrenin. Oozie, 
 Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanabilirsiniz.
 
 > [!NOTE]
-> HDInsight ile iş akışlarını tanımlamak için başka bir seçenek, Azure Data Factory kullanmaktır. Data Factory hakkında daha fazla bilgi için bkz: [kullanım Pig ve Hive ile veri fabrikası][azure-data-factory-pig-hive].
+> HDInsight ile iş akışlarını tanımlamak için başka bir seçenek, Azure Data Factory kullanmaktır. Data Factory hakkında daha fazla bilgi için bkz: [kullanım Pig ve Hive ile veri fabrikası][azure-data-factory-pig-hive]. Lütfen kurumsal güvenlik paketi ile Oozie kümelerinde bakın kullanın [HDInsight Hadoop, Apache Oozie çalıştırın, Kurumsal güvenlik paketi ile kümeleri](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir HDInsight kümesi**: bkz [Linux'ta HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Normal bir HDInsight kümesi**: bkz [Linux'ta HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -2,19 +2,19 @@
 title: Storm - Azure HDInsight ile Event hubs'tan olay işleme
 description: Visual Studio için HDInsight Araçları'nı kullanarak Visual Studio'da oluşturulan bir C# Storm topolojisi ile Azure Event hubs'tan veri işleme hakkında bilgi edinin.
 services: hdinsight,notification hubs
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cda21c5b0d06335b13ba1aff0e9113544ca11c80
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0eb283eda04d4123e0c05d2c48663a5aca88ebc4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414208"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249566"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>(C#) HDInsight üzerinde Storm ile Azure Event hubs'dan olayları işleme
 
@@ -115,7 +115,7 @@ Bu öğreticide oluşturulan proje tam sürümü indirebilirsiniz [GitHub](https
 
 * Bir [Azure olay hub'ı](../../event-hubs/event-hubs-create.md).
 
-* [Azure .NET SDK'sı](http://azure.microsoft.com/downloads/).
+* [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/).
 
 * [Visual Studio için HDInsight Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -158,7 +158,7 @@ Event Hubs, bu örnek için veri kaynağı. Bilgileri kullanın "bir olay hub'ı
    | EventHubPolicyName |Yazıcı (ilkeyle için farklı bir ad kullandıysanız *Gönder* izni, bunun yerine kullanın.) |
    | EventHubPolicyKey |Yazıcı ilkesi için anahtar. |
    | EventHubNamespace |Olay hub'ınızı içeren ad uzayı. |
-   | EventHubName |Olay hub'ı adı. |
+   | eventHubName |Olay hub'ı adı. |
    | EventHubPartitionCount |Olay hub'ındaki bölüm sayısı. |
 
 4. Kaydet ve Kapat **App.config** dosya.
@@ -174,7 +174,7 @@ Event Hubs, bu örnek için veri kaynağı. Bilgileri kullanın "bir olay hub'ı
    | EventHubPolicyName |Okuyucu (ilkeyle için farklı bir ad kullandıysanız *dinleme* izni, bunun yerine kullanın.) |
    | EventHubPolicyKey |Okuyucu ilkesi için anahtar. |
    | EventHubNamespace |Olay hub'ınızı içeren ad uzayı. |
-   | EventHubName |Olay hub'ı adı. |
+   | eventHubName |Olay hub'ı adı. |
    | EventHubPartitionCount |Olay hub'ındaki bölüm sayısı. |
 
 3. Kaydet ve Kapat **App.config** dosya.

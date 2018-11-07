@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: ccb3c6b1349576c0fa91066f4e98f0a53f5bef45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319609"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248767"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak şirket içi koşullu erişimi ayarlama
 
@@ -51,7 +51,7 @@ Bu özellikler bir Azure Active Directory Premium lisansı satın almış olan m
 * Azure Active Directory Premium lisansı
 * Windows Server 2012 R2 Federasyon Azure ad SSO için yapılandırılmış hizmetleri,
 * Windows Server 2012 R2 Web uygulaması Ara sunucusu 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect'i indirme)](http://www.microsoft.com/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect'i indirme)](https://www.microsoft.com/download/details.aspx?id=47594)
 * Doğrulanmış etki alanı
 
 ## <a name="known-issues-in-this-release"></a>Bu sürümdeki bilinen sorunlar

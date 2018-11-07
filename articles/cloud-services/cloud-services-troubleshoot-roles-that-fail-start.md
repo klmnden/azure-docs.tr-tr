@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 4b4669ecdae474c8926a346ed02f40913cf67265
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093500"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255430"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Başlatmak için Cloud Service rolleri için sorun giderme
 İşte bazı yaygın sorunlar ve çözümleri başlatmak için rolleri Azure Cloud Services'a ilgili.
@@ -66,7 +66,7 @@ Rol erişim ve daha ayrıntılı hata bilgileri uzaktan görüntülemek için Uz
 2. Visual Studio kullanarak çözüm dağıtımı sırasında Uzak Masaüstü'nü etkinleştirin. Daha fazla bilgi için [Visual Studio kullanarak Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. Microsoft Azure Portal'da örneğinin durumunu gösterir. bir kez **hazır**, uzaktan örneğe bağlanın. Cloud Services ile Uzak Masaüstü kullanma hakkında daha fazla bilgi için bkz. [rol örnekleri uzaktan](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Sanal makineye uzak masaüstü yapılandırması sırasında belirtilen kimlik bilgilerini kullanarak oturum açın.
-6. Bir komut penceresi açın.
+6. Komut penceresi açın.
 7. `IPconfig` yazın.
 8. IPv4 adresi değerini not edin.
 9. Internet Explorer'ı açın.
@@ -125,4 +125,4 @@ Tüm hatalar düzeltildikten doğruladıktan sonra hizmeti denetlemeden dağıta
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazlasını görüntüle [sorun giderme makaleleri](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) bulut Hizmetleri için.
 
-Azure PaaS bilgisayar tanılama verilerini kullanarak bulut hizmeti rolü sorunlarını giderme konusunda bilgi almak için bkz: [Kevin Williamson'ın blog dizisini](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Azure PaaS bilgisayar tanılama verilerini kullanarak bulut hizmeti rolü sorunlarını giderme konusunda bilgi almak için bkz: [Kevin Williamson'ın blog dizisini](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

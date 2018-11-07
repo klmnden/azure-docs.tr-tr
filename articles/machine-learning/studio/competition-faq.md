@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240894"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256466"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Yarışmaları Hakkında SSS
 **Cortana Intelligence Yarışmaları nedir?**
 
-Microsoft Cortana Intelligence Yarışmaları topluca dünyanın en karmaşık veri bilimi sorunlarından bazılarını giderme tarafından bir topluluk tarafından veri analizi meraklılarının sahip. Cortana Intelligence Yarışmaları rekabet ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturulabilir dünya genelindeki veri analizi meraklılarının gelen izin verir. Bu barındırılan Yarışmaları yapılmış herkese açık şekilde ilk kez kullanılabilir benzersiz veri kümelerini temel alır. Katılımcılar, ödül kazanma ya da en iyi 10 genel puan tablosu aracılığıyla tanıma alın. Yarışma giriş sayfasında erişebileceğiniz [aka.ms/CIComp](http://aka.ms/CIComp).
+Microsoft Cortana Intelligence Yarışmaları topluca dünyanın en karmaşık veri bilimi sorunlarından bazılarını giderme tarafından bir topluluk tarafından veri analizi meraklılarının sahip. Cortana Intelligence Yarışmaları rekabet ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturulabilir dünya genelindeki veri analizi meraklılarının gelen izin verir. Bu barındırılan Yarışmaları yapılmış herkese açık şekilde ilk kez kullanılabilir benzersiz veri kümelerini temel alır. Katılımcılar, ödül kazanma ya da en iyi 10 genel puan tablosu aracılığıyla tanıma alın. Yarışma giriş sayfasında erişebileceğiniz [aka.ms/CIComp](https://aka.ms/CIComp).
 
 **Microsoft yeni bir yarışmaya ne sıklıkta piyasaya?**
 
@@ -37,7 +37,7 @@ Genel sorular için kullanabileceğiniz [Microsoft Azure Machine Learning Forumu
 
 **Yarışma nasıl katılabilirim?**
 
-Erişim [Yarışmaları](https://gallery.cortanaintelligence.com/competitions) giriş sayfası [Azure AI Gallery](https://gallery.cortanaintelligence.com/), veya Git [ http://aka.ms/CIComp ](http://aka.ms/CIComp). Giriş sayfası, çalışmakta olan tüm yarışmalar listeler. Her bir yarışma ayrıntılı yönergeler ve katılım kuralları, ödülleri ve süresi, kayıt sayfasındaki içerir.
+Erişim [Yarışmaları](https://gallery.cortanaintelligence.com/competitions) giriş sayfası [Azure AI Gallery](https://gallery.cortanaintelligence.com/), veya Git [ http://aka.ms/CIComp ](https://aka.ms/CIComp). Giriş sayfası, çalışmakta olan tüm yarışmalar listeler. Her bir yarışma ayrıntılı yönergeler ve katılım kuralları, ödülleri ve süresi, kayıt sayfasındaki içerir.
 
 1. Tüm yönergeleri okuyun, katılmak istiyorum yarışma bulun ve öğretici bir video izleyin. Ardından **girin yarışma** düğmesine tıklayın ve mevcut Azure Machine Learning çalışma alanınıza başlangıç deneme kopyalayın. Bir çalışma alanına erişim zaten yoksa, oluşturmanız gerekir önceden. Başlangıç denemeyi çalıştırın, performans ölçümü inceleyin ve ardından yaratıcılığınızı model performansını artırmak için kullanın. Çoğu zaman bu adımda, büyük olasılıkla geçireceksiniz.   
 
@@ -98,7 +98,7 @@ Microsoft özel puan tablosu sonuçlarını doğrular ve ardından biz sizinle i
 
 **Ben bir yarışma kazanın, para Ödülü nasıl alırım?**
 
-Yarışma birinci varsa, uygunluk, lisans ve sürüm bildirimi imzalamak gerekir. Bu formu Competition kuralları reiterates. Materyalleri, KAZANANI ABD mükellefleri değillerse W-9 ya da bir Form W-8BEN bir BİZE vergi formu doldurmanız gerekir. Kayıt e-postasını kullanarak biz ödül ödeme işleminin bir parçası tüm kazananları iletişime geçeceğiz. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) bakın.
+Yarışma birinci varsa, uygunluk, lisans ve sürüm bildirimi imzalamak gerekir. Bu formu Competition kuralları reiterates. Materyalleri, KAZANANI ABD mükellefleri değillerse W-9 ya da bir Form W-8BEN bir BİZE vergi formu doldurmanız gerekir. Kayıt e-postasını kullanarak biz ödül ödeme işleminin bir parçası tüm kazananları iletişime geçeceğiz. Lütfen bizim [hüküm ve koşullar](https://aka.ms/comptermsandconditions) bakın.
 
 **Peki birden fazla giriş aynı puanı alır?**
 
@@ -114,5 +114,5 @@ Hayır. Katılmak için bir ücretsiz veya standart bir çalışma alanı kullan
 
 **Kullanıcıların Yarışmaları çözümleri ve girişleri saklarız?**
 
-Kullanıcı girişleri, yalnızca değerlendirme amacıyla kazanan çözümleri tanımlamak korunur. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) özellikleri için.
+Kullanıcı girişleri, yalnızca değerlendirme amacıyla kazanan çözümleri tanımlamak korunur. Lütfen bizim [hüküm ve koşullar](https://aka.ms/comptermsandconditions) özellikleri için.
 

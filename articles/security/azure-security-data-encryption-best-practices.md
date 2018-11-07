@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 86724ca49884f1072297ffcf4fc6498db5ae8ac3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465886"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254647"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure veri güvenliği ve şifreleme için en iyi uygulamalar
 Buluttaki verileri korumaya yardımcı olmak için verilerinizi oluşan ve bu durum için hangi denetimleri kullanılabilir durumda hesabı gerekir. Azure veri güvenliği ve şifreleme için en iyi uygulamalar aşağıdaki veri durumlarını ilgilidir:
@@ -132,7 +132,7 @@ Olmasını öneririz:
 - İş gereksinimlerinizi yansıtan olarak etiketleri uygulayın. Örneğin: "çok gizli" tüm belgeler ve e-postaları sınıflandırmak ve bu verileri korumak için top-secret veriler içerdiğini, adlı bir etiket uygulayın. Ardından, yalnızca yetkili kullanıcılar bu veriler, belirttiğiniz herhangi bir kısıtlama olmadan erişebilirsiniz.
 - Yapılandırma [Azure RMS Kullanım günlüğü](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) böylece kuruluşunuzun koruma hizmeti nasıl kullandığını izleyebilirsiniz.
 
-Zayıf üzerinde kuruluşlar [veri sınıflandırması](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) ve dosya koruması, veri sızıntısını veya veri kötüye kullanımdan daha elverişli olabilir. Uygun dosya koruma ile işletmenizi öngörü, riskli davranışları algılayıp ve düzeltici önlemler alabilir, belgelere erişimi izleyebilir ve benzeri veri akışlarını analiz edebilirsiniz.
+Zayıf üzerinde kuruluşlar [veri sınıflandırması](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) ve dosya koruması, veri sızıntısını veya veri kötüye kullanımdan daha elverişli olabilir. Uygun dosya koruma ile işletmenizi öngörü, riskli davranışları algılayıp ve düzeltici önlemler alabilir, belgelere erişimi izleyebilir ve benzeri veri akışlarını analiz edebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bkz: [Azure güvenlik en iyi uygulamaları ve desenleri](security-best-practices-and-patterns.md) kullanmak üzere daha fazla güvenlik için en iyi yöntemler, tasarlama, dağıtma ve Azure'ı kullanarak bulut çözümlerinizi yönetme.

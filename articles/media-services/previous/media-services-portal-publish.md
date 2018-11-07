@@ -1,6 +1,6 @@
 ---
 title: Azure portalında içerik yayımlama | Microsoft Docs
-description: Bu öğreticide, Azure portalında içeriğinizi yayımlama adımları açıklanmaktadır.
+description: Bu öğreticide Azure portalında içerik yayımlama adımlarında size kılavuzluk eder.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: d93bfc548134f730f4fad49a37593c861d6b6cbb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b7e724158255cc979e9a08cd14c7f4412c4382
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790310"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253406"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure portalında içerik yayımlama
 > [!div class="op_single_selector"]
@@ -35,9 +35,9 @@ ms.locfileid: "33790310"
 > 
 > 
 
-Kullanıcınıza içeriğinizin akışını sağlamak veya indirmek için kullanılabilecek bir URL sağlamak üzere, önce bulucu oluşturarak varlığınızı “yayımlamanız” gerekir. Bulucular varlık dosyaları erişim sağlar. Azure Media Services iki tür bulucuyu destekler: 
+Kullanıcınıza içeriğinizin akışını sağlamak veya indirmek için kullanılabilecek bir URL sağlamak üzere, önce bulucu oluşturarak varlığınızı “yayımlamanız” gerekir. Bulucular varlık dosyalara erişim imkanı sağlar. Azure Media Services iki tür bulucuyu destekler: 
 
-* **Akış (OnDemandOrigin) bulucuları**. Akış bulucuları, uyarlamalı akış için kullanılır. Uyarlamalı akış örnekleri (DASH, MPEG-DASH olarak da bilinir) HTTP üzerinden Apple HTTP canlı akışı (HLS), Microsoft kesintisiz akış ve dinamik Uyarlamalı akış içerir. Akış bulucusu oluşturmak için varlığınız bir .ism dosyası içermelidir. Örneğin, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Akış (OnDemandOrigin) bulucuları**. Akış bulucuları, uyarlamalı akış için kullanılır. Uyarlamalı akış örnekleri HTTP (DASH, MPEG-DASH olarak da adlandırılır) üzerinden Apple HTTP canlı akış (HLS), Microsoft kesintisiz akış ve Dynamic Adaptive Streaming içerir. Akış bulucusu oluşturmak için varlığınız bir .ism dosyası içermelidir. Örneğin, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Aşamalı (paylaşılan erişim imzası) bulucuları**. Aşamalı bulucular, videoları aşamalı indirme aracılığıyla sunmak için kullanılır.
 
 HLS akış URL’si oluşturmak için, URL’ye *(format=m3u8-aapl)* ekleyin.
@@ -56,14 +56,14 @@ Paylaşılan erişim imzası URL'si aşağıdaki biçime sahiptir:
 
     {blob container name}/{asset name}/{file name}/{shared access signature}
 
-Daha fazla bilgi için bkz: [içerik genel bakış sunan](media-services-deliver-content-overview.md).
+Daha fazla bilgi için [içerik teslimine genel bakış](media-services-deliver-content-overview.md).
 
 > [!NOTE]
 > Azure portalında Mart 2015 öncesinde oluşturulmuş olan bulucuların iki yıllık sona erme tarihi vardır.  
 > 
 > 
 
-Bulucunun sona erme tarihi güncelleştirmek için kullanım kullanabilirsiniz bir [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) veya [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259). 
+Bir Bulucunun sona erme tarihini güncelleştirmek için kullanım kullanabilirsiniz bir [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) veya [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Paylaşılan erişim imzası bulucunun sona erme tarihini güncelleştirdiğinizde URL değişir.
@@ -90,7 +90,7 @@ Bazı dikkate alınması gereken noktalar vardır:
 
 * Videonun yayımlandığından emin olun.
 * Azure portal medya oynatıcı varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi seçip kopyalayın ve başka bir oynatıcıya yapıştırın. Örneğin [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) üzerinde videonuzu test edebilirsiniz.
-* Akış akış uç çalıştırması gerekir.  
+* Akış akış uç noktasının çalışıyor olması gerekir.  
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

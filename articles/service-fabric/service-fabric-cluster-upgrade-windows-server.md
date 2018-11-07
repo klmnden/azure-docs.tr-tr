@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2190978b2583b2f5d8a1b10431c65fd24fe6842d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050772"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228156"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Windows Server'da tek başına Azure Service Fabric kümenizi yükseltme 
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ Her bir Service Fabric düğüm ayrı fiziksel veya sanal makine üzerinde nerey
 İki ayrı iş akışları, kümenizin en son sürümü veya desteklenen bir Service Fabric sürüme yükseltebilirsiniz. Bir iş akışı otomatik olarak en son sürümü indirmek için bağlantıya sahip kümeler için kullanılıyor. Diğer iş akışı, en son Service Fabric sürümü indirmek için bağlantınız kümeler için kullanılıyor.
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>En son kod ve yapılandırma indirmek için bağlantıya sahip kümelerini yükseltme
-Küme düğümlerinizi internet bağlantısı varsa, desteklenen bir sürüme kümenizi yükseltmek için bu adımları kullanın [Microsoft Download Center](http://download.microsoft.com).
+Küme düğümlerinizi internet bağlantısı varsa, desteklenen bir sürüme kümenizi yükseltmek için bu adımları kullanın [Microsoft Download Center](https://download.microsoft.com).
 
-Bağlantısına sahip kümeler [Microsoft Download Center](http://download.microsoft.com), Microsoft, yeni Service Fabric sürümleri kullanılabilirliği için düzenli olarak denetler.
+Bağlantısına sahip kümeler [Microsoft Download Center](https://download.microsoft.com), Microsoft, yeni Service Fabric sürümleri kullanılabilirliği için düzenli olarak denetler.
 
 Yeni bir Service Fabric sürümü kullanılabilir olduğunda, paket kümeye yerel olarak indirilir ve yükseltme için hazırlandı. Ayrıca, müşteri bu yeni sürümün bilgilendirmek için sistem aşağıdakine benzer bir açık küme sistem durumu uyarısı gösterir:
 
@@ -106,7 +106,7 @@ Küme sistem durumu uyarısı gördüğünüzde, aşağıdakileri yapın:
     Geri almaya sonuçlanan sorunları giderdikten sonra daha önce açıklandığı gibi aynı adımları izleyerek yükseltmeyi yeniden başlatın.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Sahip kümelerini yükseltme *bağlantı* en son kod ve yapılandırma indirilemedi
-Küme düğümlerinizi internet bağlantısı yoksa, kümenizi desteklenen bir sürüme yükseltmek için bu adımları kullanın [Microsoft Download Center](http://download.microsoft.com).
+Küme düğümlerinizi internet bağlantısı yoksa, kümenizi desteklenen bir sürüme yükseltmek için bu adımları kullanın [Microsoft Download Center](https://download.microsoft.com).
 
 > [!NOTE]
 > İnternet'e bağlı olmayan bir küme çalıştırıyorsanız, yeni yayınlar hakkında bilgi edinmek için Service Fabric ekibi blogu izlemek zorunda. Sistem, yeni sürümler sizi uyarmak için küme sistem durumu uyarısı göstermez.  

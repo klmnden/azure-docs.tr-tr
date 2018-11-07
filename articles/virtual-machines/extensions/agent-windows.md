@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428564"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254001"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure sanal makine Aracısı genel bakış
 Microsoft Azure sanal makine Aracısı (VM Aracısı) sanal makine (VM) etkileşim Azure yapı denetleyicisi tarafından yönetilen güvenli, hafif bir işlemdir. VM Aracısı, etkinleştirme ve Azure sanal makine uzantıları yürütme süreçlerinde birincil role sahiptir. Dağıtım sonrası yapılandırma, yükleme ve yazılım yapılandırma gibi sanal makine, VM uzantılarını etkinleştirin. VM uzantıları, bir sanal makinenin yönetici parola sıfırlama gibi kurtarma özellikleri de olanak sağlar. VM uzantıları Azure VM Aracısı, çalıştırılamaz.
@@ -60,7 +60,7 @@ VM'de yüklü PA olmalıdır bir VM'yi önyüklemek için ancak WinGA yüklü ol
 Aracıların yüklü değilse, Azure yedekleme ya da Azure güvenlik gibi bazı Azure Hizmetleri kullanamazsınız. Bu hizmetler bir uzantı yüklü olmasını gerektirir. Bir VM WinGA olmadan dağıttıysanız, aracı daha sonra en son sürümünü yükleyebilirsiniz.
 
 ### <a name="manual-installation"></a>El ile yükleme
-Windows VM aracısını el ile bir Windows Installer paketi ile yüklenebilir. Azure'a dağıtılan özel bir VM görüntüsü oluşturduğunuzda el ile yüklemesi gerekebilir. Windows VM aracısını el ile yüklemek için [VM aracı yükleyicisini indirmek](http://go.microsoft.com/fwlink/?LinkID=394789).
+Windows VM aracısını el ile bir Windows Installer paketi ile yüklenebilir. Azure'a dağıtılan özel bir VM görüntüsü oluşturduğunuzda el ile yüklemesi gerekebilir. Windows VM aracısını el ile yüklemek için [VM aracı yükleyicisini indirmek](https://go.microsoft.com/fwlink/?LinkID=394789).
 
 VM Aracısı, Windows Installer dosyasını çift tıklayarak yüklenebilir. VM Aracısı otomatik olarak veya katılımsız yüklemesini için aşağıdaki komutu çalıştırın:
 

@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720132"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236015"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?
 Çoklu oturum açma tüm uygulamalar ve yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak iş yapmanız gereken kaynaklara erişmeye çalıştığında anlamına gelir. Oturum açtıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazmak) ikinci kez.
@@ -102,7 +102,7 @@ Başlamaya hazır mısınız? Azure AD arasında çoklu oturum açmayı dağıtm
 Uygulamaları destekledikleri hangi özellikleri tarafından bulma için bazı ipuçları şunlardır:
 
 * Azure AD otomatik hazırlama ve tüm "Öne çıkan uygulamalar" uygulamalar için sağlamayı destekler [Azure Active Directory Uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/).
-* Özellikle destekleyen Federasyon uygulamalarına listesini Federasyon tek SAML, WS-Federasyon gibi bir protokol kullanarak oturum açmayı veya Openıd Connect bulunabilir [burada](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* Özellikle destekleyen Federasyon uygulamalarına listesini Federasyon tek SAML, WS-Federasyon gibi bir protokol kullanarak oturum açmayı veya Openıd Connect bulunabilir [burada](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Uygulamanızı bulduktan sonra çoklu oturum açmayı etkinleştirmek için adım adım yönergeleri app Galerisi'nde hem de Azure portalında izleyerek başlayabilirsiniz.
 

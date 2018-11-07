@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 43e2b2b7f398e8adce0760678c6f0a5208c24c34
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d485195b868b6cbca587c736ac02663491742cdb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240537"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236883"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services hata kodları
 Microsoft Azure Media Services'ı kullanarak, HTTP hata kodları hizmete kimlik doğrulama belirteçlerinizi Media Services'da desteklenmez eylemlerine sona erecek gibi sorunlar bağlı olarak alabilirsiniz. Bir listesi verilmiştir **HTTP hata kodları** , döndürülmesi olası nedenleri ve Media Services ile bunları için.  
@@ -117,7 +117,7 @@ Bu hatayı işlemek için üstel geri alma yeniden deneme mantığı kullanmanı
 > 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Media Services'ı Yönetim hata kodları](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Media Services'ı Yönetim hata kodları](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

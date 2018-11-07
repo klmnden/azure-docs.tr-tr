@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 907175ac341632d2ba0048ab486392b949f83626
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060697"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231575"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -153,7 +153,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Sonraki Adımlar
 Kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için bu bağlantıları izleyin.
 
-* Ziyaret [Azure depolama ekibi blogu](http://blogs.msdn.com/b/windowsazurestorage/)
+* Ziyaret [Azure depolama ekibi blogu](https://blogs.msdn.com/b/windowsazurestorage/)
 * Ziyaret [Ruby için Azure SDK'sı](https://github.com/WindowsAzure/azure-sdk-for-ruby) GitHub deposunu
 
 Azure Service Bus kuyrukları açıklandığı ve bu makalede ele alınan Azure kuyruk hizmeti arasında bir karşılaştırma için [nasıl Service Bus kuyruklarını kullanma](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) makale için bkz: [Azure kuyrukları ve Service Bus kuyrukları - karşılaştırıldığında ve Karşıtlıklar](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

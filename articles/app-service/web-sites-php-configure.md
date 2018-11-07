@@ -13,18 +13,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 39c40482017ae0c0dedcfb1b65ff3767c4e45169
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999197"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230844"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web uygulamalarında PHP yapılandırma
 
 ## <a name="introduction"></a>Giriş
 
-Bu kılavuz için Web Apps'te yerleşik PHP çalışma zamanı yapılandırma işlemi gösterilmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)özel bir PHP çalışma zamanı sağlama ve genişletmeleri etkinleştirme. App Service'ı kullanmak için kaydolun [ücretsiz deneme sürümü]. Bu kılavuzu en almak için ilk App Service'te PHP web uygulaması oluşturmanız gerekir.
+Bu kılavuz için Web Apps'te yerleşik PHP çalışma zamanı yapılandırma işlemi gösterilmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)özel bir PHP çalışma zamanı sağlama ve genişletmeleri etkinleştirme. App Service'ı kullanmak için kaydolun [ücretsiz deneme sürümü]. Bu kılavuzu en almak için ilk App Service'te PHP web uygulaması oluşturmanız gerekir.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 

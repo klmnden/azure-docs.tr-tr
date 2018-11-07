@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393307"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247781"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
 
 **Burada olmayan bir sorunuz mu var?**
 
-Azure Machine Learning'in MSDN üzerinde veri bilimi topluluğu üyelerinin Azure Machine Learning hakkında sorular sorabileceği bir forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. Yanıt aramak veya yeni bir soru sormak için [Azure Machine Learning Forumuna](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) gidin.
+Azure Machine Learning'in MSDN üzerinde veri bilimi topluluğu üyelerinin Azure Machine Learning hakkında sorular sorabileceği bir forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. Yanıt aramak veya yeni bir soru sormak için [Azure Machine Learning Forumuna](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) gidin.
 
 ## <a name="general-questions"></a>Genel sorular
 **Azure Machine Learning nedir?**
@@ -123,7 +123,7 @@ Görüntü girişi özelliği hakkında [Görüntüleri İçeri Aktarma][image-r
 ### <a name="modules"></a>Modüller
 **Aradığım algoritma, veri kaynağı, veri biçimi veya veri dönüştürme işlemi Azure Machine Learning Studio'da yok. Seçeneklerim neler?**
 
-Takip ettiğimiz özellik isteklerini görmek için [kullanıcı geri bildirim forumuna](http://go.microsoft.com/fwlink/?LinkId=404231) gidebilirsiniz. Aradığınız bir özellik zaten istenmişse isteğe oyunuzu ekleyin. Aradığınız özellik mevcut değilse yeni bir istek oluşturun. Bu forumda isteğinizin durumunu da görüntüleyebilirsiniz. Bu listeyi yakından takip edip özellik kullanılabilirliği durumunu sık sık güncelleştiriyoruz. Buna ek olarak, R ve Python için yerleşik desteği kullanarak gerektiğinde özel dönüştürmeler oluşturabilirsiniz.
+Takip ettiğimiz özellik isteklerini görmek için [kullanıcı geri bildirim forumuna](https://go.microsoft.com/fwlink/?LinkId=404231) gidebilirsiniz. Aradığınız bir özellik zaten istenmişse isteğe oyunuzu ekleyin. Aradığınız özellik mevcut değilse yeni bir istek oluşturun. Bu forumda isteğinizin durumunu da görüntüleyebilirsiniz. Bu listeyi yakından takip edip özellik kullanılabilirliği durumunu sık sık güncelleştiriyoruz. Buna ek olarak, R ve Python için yerleşik desteği kullanarak gerektiğinde özel dönüştürmeler oluşturabilirsiniz.
 
 **Var olan kodumu Machine Learning Studio'ya getirebilir miyim?**
 
@@ -182,7 +182,7 @@ Hayır.
 ### <a name="r-module"></a>R modülü
 **Machine Learning Studio'da hangi R paketleri kullanılabilir?**
 
-Machine Learning Studio, şu an 400’ün üzerinde CRAN R paketini desteklemektedir ve buna dahil olan tüm paketlerin [güncel listesi](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) buradadır. Ayrıca, bu listeyi nasıl alacağınızı öğrenmek için bkz. [Denemenizi R ile genişletme](extend-your-experiment-with-r.md). İstediğiniz paket bu listede değilse [kullanıcı geri bildirim forumunda](http://go.microsoft.com/fwlink/?LinkId=404231) paketin adını sağlayın.
+Machine Learning Studio, şu an 400’ün üzerinde CRAN R paketini desteklemektedir ve buna dahil olan tüm paketlerin [güncel listesi](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) buradadır. Ayrıca, bu listeyi nasıl alacağınızı öğrenmek için bkz. [Denemenizi R ile genişletme](extend-your-experiment-with-r.md). İstediğiniz paket bu listede değilse [kullanıcı geri bildirim forumunda](https://go.microsoft.com/fwlink/?LinkId=404231) paketin adını sağlayın.
 
 **Özel bir R modülü oluşturulabilir mi?**
 
@@ -312,7 +312,7 @@ Machine Learning Merkezi'ne düzenli olarak yeni materyaller ekleriz. Machine Le
 
 Azure Machine Learning için teknik destek almak istiyorsanız [Azure Desteği](https://azure.microsoft.com/support/options/)'ne gidin ve **Machine Learning**'i seçin.
 
-Azure Machine Learning'in hizmet hakkında sorular sorabileceğiniz bir MSDN topluluk forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. [Azure Forumu](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)'na gidin.
+Azure Machine Learning'in hizmet hakkında sorular sorabileceğiniz bir MSDN topluluk forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. [Azure Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)'na gidin.
 
 ## <a name="billing-questions"></a>Faturalama soruları
 **Machine Learning için faturalama nasıl gerçekleşir?**

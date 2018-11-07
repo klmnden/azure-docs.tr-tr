@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421058"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262293"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Araç Telemetri analizi çözüm şablonu Power BI Panosu kurulum yönergeleri
 Playbook'u bölümlerde bu menü bağlantılar: 
@@ -30,7 +30,7 @@ Araba bayileri, otomobil üreticileri ve sigorta şirketlerinin yapabildiğinizi
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Dağıtma [araç Telemetri analizi](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) çözüm. 
-* [Power BI Desktop uygulamasını](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Power BI Desktop uygulamasını](https://www.microsoft.com/download/details.aspx?id=45331).
 * Elde bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/). Azure aboneliğiniz yoksa, ücretsiz Azure aboneliği ile başlayın.
 * Power BI hesabınızı açın.
 
@@ -68,7 +68,7 @@ Dağıtım tamamlandıktan sonra el ile işlem yönergeleri izleyin.
 
    ![Power BI oturum açma penceresini](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
-1. Seçin **kabul**. Uygulama çalışmaya başlar.
+1. **Kabul Et**’i seçin. Uygulama çalışmaya başlar.
 
    ![Power BI Pano izinleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
 
@@ -348,7 +348,7 @@ Gerçek zamanlı Pano oluşturuldu. CarEventGenerator.exe ve RealtimeDashboardAp
 
 ### <a name="configure-power-bi-reports"></a>Power BI raporlarını yapılandırma
 
-1. Tasarımcı dosyası açın **ConnectedCarsPbiReport.pbix** Power BI Desktop'ı kullanarak. Zaten sahip değilseniz, Power BI Desktop'tan yükleme [Power BI Desktop yükleme](http://www.microsoft.com/download/details.aspx?id=45331) Web sitesi.
+1. Tasarımcı dosyası açın **ConnectedCarsPbiReport.pbix** Power BI Desktop'ı kullanarak. Zaten sahip değilseniz, Power BI Desktop'tan yükleme [Power BI Desktop yükleme](https://www.microsoft.com/download/details.aspx?id=45331) Web sitesi.
 
 1. Seçin **sorguları Düzenle**.
 

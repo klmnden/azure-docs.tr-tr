@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 0f836a857d6f9748416fda1526a1957af4fc51e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: beab191ff33939053da942b0ce7df22238b8acef
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163605"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247322"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
 
@@ -146,7 +146,7 @@ Veri eşitleme, döngüsel başvurular işlemiyor. Kaçınma emin olun.
 - **Çözüm**. Bu iki çözüm de deneyebilirsiniz:
 
     -   İstemci aracısı için kimlik bilgilerini girmek için Services.msc dosyasını kullanın.
-    -   Bu istemci aracısını kaldırın ve yenisini yükleyin. En son istemci Aracısı'ndan yükleyip [İndirme Merkezi](http://go.microsoft.com/fwlink/?linkid=221479).
+    -   Bu istemci aracısını kaldırın ve yenisini yükleyin. En son istemci Aracısı'ndan yükleyip [İndirme Merkezi](https://go.microsoft.com/fwlink/?linkid=221479).
 
 ### <a name="agent-list"></a> Veritabanım aracı listesinde listelenmiyor
 

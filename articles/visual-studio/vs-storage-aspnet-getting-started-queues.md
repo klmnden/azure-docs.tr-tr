@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321861"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250824"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 
@@ -141,7 +141,7 @@ Aşağıdaki adımlar, bir kuyruk oluşturulacağını göstermektedir:
   
     ![Kuyruk oluştur](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Daha önce de belirtildiği **CloudQueue.CreateIfNotExists** yöntemi döndürür **true** yalnızca kuyruk yok ve oluşturulur. Bu nedenle, sıranın mevcut olduğunda uygulama çalıştırırsanız, yöntem döndürür **false**. Uygulama birden çok kez çalıştırmak için uygulamayı yeniden çalıştırmadan önce sıranın silmeniz gerekir. Aracılığıyla bir sırayı silmek yapılabilir **CloudQueue.Delete** yöntemi. Kuyruk kullanarak silebilirsiniz [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Daha önce de belirtildiği **CloudQueue.CreateIfNotExists** yöntemi döndürür **true** yalnızca kuyruk yok ve oluşturulur. Bu nedenle, sıranın mevcut olduğunda uygulama çalıştırırsanız, yöntem döndürür **false**. Uygulama birden çok kez çalıştırmak için uygulamayı yeniden çalıştırmadan önce sıranın silmeniz gerekir. Aracılığıyla bir sırayı silmek yapılabilir **CloudQueue.Delete** yöntemi. Kuyruk kullanarak silebilirsiniz [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti ekleyin
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 04ee2daaf7b06f8e7bdd8de144a039474551ea11
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222537"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227051"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>.NET 2.9 için Azure SDK sürüm notları
 
@@ -80,7 +80,7 @@ Bu güncelleştirme şunları içerir:
 
 * **Azure Data Lake Araçları** için Visual Studio artık .NET sürümü için Azure SDK'sı ile birleştirilir. Aracı, Azure SDK'yı yüklediğinizde otomatik olarak yüklenir. 
   
-    Aracı sık sık güncelleştirilir, Git [burada](http://aka.ms/datalaketool) güncelleştirmeleri almak için.
+    Aracı sık sık güncelleştirilir, Git [burada](https://aka.ms/datalaketool) güncelleştirmeleri almak için.
 * **Sunucu Gezgini** artık görmek ve bazı U-SQL meta veri varlıklarında oluşturmanıza olanak sağlar. Daha fazla bilgi için [bu](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blogu.
 
 ## <a name="hdinsight-tools"></a>HDInsight araçları

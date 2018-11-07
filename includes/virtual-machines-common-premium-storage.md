@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437147"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263296"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -97,7 +97,7 @@ Bazı bunlar depolama özellikli VM'ler üzerinde premium desteklenen özellikle
     Aynı Premium depolama VM, premium ve standart diskleri kullanabilirsiniz. Premium depolama sayesinde, bir VM sağlama ve birden çok kalıcı veri diskleri VM'e ekleyin. Gerekirse birimin performans ve kapasite artırmak için disklerde stripe.
 
     > [!NOTE]
-    > Premium depolama diskleri kullanarak stripe varsa [depolama alanları](http://technet.microsoft.com/library/hh831739.aspx), depolama alanları ' için kullandığınız her disk 1 sütun kümesi. Aksi takdirde, genel performansını şeritli birim nedeniyle trafik düzensiz şekilde dağıtılmasının disklerde beklenenden daha düşük olabilir. Varsayılan olarak, Sunucu Yöneticisi'nde, 8 adede kadar disk sütunları ayarlayabilirsiniz. 8'den fazla disk varsa, birim oluşturmak için PowerShell kullanın. Sütun sayısını el ile belirtin. Daha fazla disk olsa bile Aksi takdirde, Sunucu Yöneticisi kullanıcı Arabirimi 8 sütunları kullanmaya devam eder. Örneğin, tek kümesi 32 diskiniz varsa, 32 sütunları belirtin. Sanal diski kullanan sütun sayısını belirtmek için [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet'ini kullanın *NumberOfColumns* parametresi. Daha fazla bilgi için [depolama alanlarına genel bakış](http://technet.microsoft.com/library/hh831739.aspx) ve [depolama alanları sık sorulan sorular](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Premium depolama diskleri kullanarak stripe varsa [depolama alanları](https://technet.microsoft.com/library/hh831739.aspx), depolama alanları ' için kullandığınız her disk 1 sütun kümesi. Aksi takdirde, genel performansını şeritli birim nedeniyle trafik düzensiz şekilde dağıtılmasının disklerde beklenenden daha düşük olabilir. Varsayılan olarak, Sunucu Yöneticisi'nde, 8 adede kadar disk sütunları ayarlayabilirsiniz. 8'den fazla disk varsa, birim oluşturmak için PowerShell kullanın. Sütun sayısını el ile belirtin. Daha fazla disk olsa bile Aksi takdirde, Sunucu Yöneticisi kullanıcı Arabirimi 8 sütunları kullanmaya devam eder. Örneğin, tek kümesi 32 diskiniz varsa, 32 sütunları belirtin. Sanal diski kullanan sütun sayısını belirtmek için [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet'ini kullanın *NumberOfColumns* parametresi. Daha fazla bilgi için [depolama alanlarına genel bakış](https://technet.microsoft.com/library/hh831739.aspx) ve [depolama alanları sık sorulan sorular](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Yönetilmeyen diskler için premium depolama hesapları kullandığınız ve uyg
 ### <a name="premium-storage-disk-limits"></a>Premium depolama disk limitleri
 Premium depolama disk sağlarken, diskin maksimum IOPS ve aktarım hızı (bant) belirler. Azure premium depolama disklerini sekiz GA türlerini sunar: P4 (yönetilen diskler yalnızca), P6 (yönetilen diskler yalnızca), P10, P15 (yönetilen diskler yalnızca), P20, P30, P40 ve P50. Yanı sıra üç disk boyutunda önizleme: P60 P70 ve P80. Her premium depolama disk türüne, IOPS ve aktarım hızı için belirli sınırları vardır. Disk türleri için sınırlar aşağıdaki tabloda açıklanmıştır:
 
-| Premium disk türü  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır.
+
+| Premium disk türü  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Disk boyutu           | 32 giB| 64 giB| 128 GiB| 256 giB| 512 GiB| 1024 (1 TiB) giB | 2048 giB (2 tib'a kadar)| 4095 giB (4 tib'a kadar)| 8192 giB (8 tib'a kadar)| 16,384 giB (16 tib'a kadar)| 32.767 giB (32 tib'a kadar)|
 | Disk başına IOPS       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20,000             |
@@ -237,7 +239,7 @@ Premium depolama blob anlık görüntüleri için aşağıdaki sınırlar geçer
 
 Coğrafi olarak yedekli, anlık görüntü kopyalarını bulundurmak için anlık görüntüler bir premium depolama hesabından bir coğrafi olarak yedekli standart depolama hesabı için AzCopy veya kopya blob'u kullanarak kopyalayabilirsiniz. Daha fazla bilgi için [AzCopy komut satırı yardımcı programı ile veri aktarma](../articles/storage/common/storage-use-azcopy.md) ve [kopya blob'u](/rest/api/storageservices/Copy-Blob).
 
-Bir premium depolama hesabında sayfa BLOB'ları karşı REST işlemlerini gerçekleştirme hakkında ayrıntılı bilgi için bkz: [Blob hizmeti işlemleri Azure Premium depolama ile](http://go.microsoft.com/fwlink/?LinkId=521969).
+Bir premium depolama hesabında sayfa BLOB'ları karşı REST işlemlerini gerçekleştirme hakkında ayrıntılı bilgi için bkz: [Blob hizmeti işlemleri Azure Premium depolama ile](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### <a name="managed-disks"></a>Yönetilen diskler
 
@@ -267,12 +269,12 @@ Aşağıdaki Linux dağıtımları için Azure Premium depolama doğrulandı. Da
 | SUSE | SLES 12| 3.12.36-38.1+| SuSE-sles-12-öncelik-v20150213 <br> sles 12 v20150213 SuSE |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [Gerekli LIS4](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Sonraki bölümde nota bakın* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Önerilen LIS4](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Sonraki bölümde nota bakın* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [Gerekli LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Sonraki bölümde nota bakın* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Önerilen LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Sonraki bölümde nota bakın* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 veya RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 veya çakışabilmektedir RHCK[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS LIS sürücüleri

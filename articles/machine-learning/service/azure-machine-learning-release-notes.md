@@ -9,16 +9,53 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158695"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261594"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+
+## <a name="2018-11-05"></a>2018-11-05
+
+### <a name="azure-portal"></a>Azure portal 
+Azure Machine Learning hizmeti için Azure portalı aşağıdaki güncelleştirmeler bulunur:
+  * Yeni bir **işlem hatları** yayımlanan işlem hatları için sekmesinde.
+  * İşlem hedefi olarak var olan bir HDInsight kümesine ekleme desteği eklendi.
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine SDK için Python v0.1.74 Learning
+
++ **Bozucu değişiklikler** 
+  * *Workspace.compute_targets, veri depoları, denemeleri, resimler, modeller* ve *webservices'a* yöntemleri yerine özellikler. Örneğin, *Workspace.compute_targets()* ile *Workspace.compute_targets*.
+  * *Run.get_context* kullanımdan kaldırıldı *Run.get_submitted_run*. İkinci yöntem, sonraki sürümlerde kaldırılacak.
+  * *PipelineData* sınıfı bir parametre yerine olarak datastore_name bir veri deposu nesnesi artık bekliyor. Benzer şekilde, *işlem hattı* default_datastore_name yerine default_datastore kabul eder.
+
++ **Yeni Özellikler**
+  * Azure Machine Learning işlem hatlarını [örnek not defteri](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) artık MPI adımları kullanır.
+  * Jupyter not defterleri için RunDetails pencere, işlem hattının görselleştirilmesi göstermek için güncelleştirilir.
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>Azure Machine Learning veri hazırlama SDK v0.4.0 
+ 
++ **Yeni Özellikler**
+  * Veri profili türü sayısı eklendi 
+  * Değer sayısı ve Histogram kullanıma sunuldu
+  * Daha fazla yüzdebirliklerini veri profilinde
+  * ORTANCA özetleme kullanılabilir
+  * Python 3.7 artık desteklenmektedir
+  * Veri depoları DataPrep paketi içeren bir veri akışı kaydettiğinizde, veri deposu bilgileri DataPrep paketinin bir parçası sürdürülecek
+  * Veri deposu yazma artık desteklenmektedir 
+        
++ **Hata düzeltildi**
+  * 64-bit işaretsiz tamsayı taşıyor artık düzgün bir şekilde Linux üzerinde işlenir
+  * Düz metin dosyalarında smart_read hatalı sabit metin etiketi
+  * Dize sütun türü artık ölçümleri görünümünde gösterilir
+  * Türü sayısı artık tek tek olanları yerine tek FieldType eşlenen ValueKinds gösterecek şekilde düzeltildi
+  * Bir dize olarak yol sağlandığında Write_to_csv artık başarısız
+  * Replace kullanırken, "boş bulma" bırakarak artık başarısız olur 
 
 ## <a name="2018-10-12"></a>2018-10-12
 
@@ -26,9 +63,6 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 
 + **Yeni Özellikler**
   * Yeni çalışma alanı oluştururken, birden çok Kiracı desteği.
-
-+ **Bozucu değişiklikler**
-  * **Yaklaşan bir sonraki sürümde** *Workspace.compute_targets, veri depoları, denemeleri, resimler, modeller* ve *webservices'a* yöntemleri yerine özellikler olur. Örneğin, *Workspace.compute_targets()* ile *Workspace.compute_targets*.
 
 + **Düzeltilen hatalar**
   * Pynacl kitaplığı sürüm artık web hizmetine dağıtırken sabitlenmiş gerekir.
@@ -217,7 +251,7 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
 **Önemli yeni özellikler**
 - [SQL Server ve Azure SQL DB veri kaynağı olarak desteği](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [MMLSpark kullanma GPU desteğiyle Spark üzerinde derin öğrenme](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [Tüm AML kapsayıcıları (ek bir adım gerekli değildir) dağıtılan Azure IOT Edge cihazları ile uyumludur](http://aka.ms/aml-iot-edge-blog)
+- [Tüm AML kapsayıcıları (ek bir adım gerekli değildir) dağıtılan Azure IOT Edge cihazları ile uyumludur](https://aka.ms/aml-iot-edge-blog)
 - Kayıtlı modeli listesi ve ayrıntılı görünümlerini kullanılabilir Azure portalı
 - Kullanıcı adı/parola tabanlı erişim yanı sıra SSH anahtar tabanlı kimlik doğrulaması'nı kullanarak işlem hedeflerini erişme. 
 - Yeni desen sıklığı denetçi'deki verileri deneyimi hazırlayın. 
@@ -282,7 +316,7 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
 - Eklenen `az ml datasource create` komut, komut satırından bir veri kaynağı dosyası oluşturmaya olanak sağlar
 
 #### <a name="model-management-and-operationalization"></a>Model yönetimi ve kullanıma hazır hale getirme
-- [Tüm AML kapsayıcıları (ek bir adım gerekli değildir) kullanıma hazır hale getirdiniz Azure IOT Edge cihazlarında ile uyumludur](http://aka.ms/aml-iot-edge-blog) 
+- [Tüm AML kapsayıcıları (ek bir adım gerekli değildir) kullanıma hazır hale getirdiniz Azure IOT Edge cihazlarında ile uyumludur](https://aka.ms/aml-iot-edge-blog) 
 - Hata iletilerinin o16n CLI geliştirmeleri
 - Model yönetim portalındaki UX hata düzeltmeleri  
 - Model Yönetimi öznitelikler ayrıntı sayfası için tutarlı harfi büyük/küçük harf

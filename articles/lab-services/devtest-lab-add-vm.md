@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e86568da7f3d607c90e42e09a61ced9993c4d744
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254052"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara VM ekleme
 Zaten varsa [ilk VM'nizi oluşturulan](devtest-lab-create-first-vm.md), büyük olasılıkla bunu önceden yüklü yaptığınız [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Şimdi, laboratuvarınız için sonraki VM'ler eklemek istiyorsanız, ayrıca seçebileceğiniz bir *temel* ya da diğer bir deyişle bir [özel görüntü](devtest-lab-create-template.md) veya [formül](devtest-lab-manage-formulas.md). Bu öğreticide, Azure portalını kullanarak bir VM için DevTest labs'deki bir laboratuvara ekleme yoluyla açıklanmaktadır.
@@ -27,7 +27,7 @@ Zaten varsa [ilk VM'nizi oluşturulan](devtest-lab-create-first-vm.md), büyük 
 Bu makalede ayrıca laboratuvarınızda bir VM yapıtları yönetme işlemini gösterir.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Bir VM için Azure DevTest labs'deki bir laboratuvara ekleme adımları
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. VM'yi oluşturmak istediğiniz Laboratuvar labs listesinden seçin.  
 1. Laboratuvar'ın **genel bakış** bölmesinde **+ Ekle**.  
@@ -69,7 +69,7 @@ Bir VM oluştururken, mevcut yapıt ekleyebilirsiniz. Her laboratuar oluşturdu�
 
 Yapıtlar oluşturmak için bkz nasıl keşfetmek için [DevTest Labs ile kullanmak için kendi yapıtları Yazar öğrenin](devtest-lab-artifact-author.md).
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. Çalışmak istediğiniz sanal Makineyi içeren Laboratuvar labs listesinden seçin.  
 1. Seçin **sanal makinelerim**.
@@ -110,7 +110,7 @@ Kaydedildikten sonra Azure Resource Manager şablonu için kullanabileceğiniz [
 2. Üzerinde **görünümü Azure Resource Manager şablonu** bölmesinde şablonu metni seçin.
 3. Seçili metni panoya kopyalayın.
 4. Seçin **Tamam** kapatmak için **Azure Resource Manager şablonu görüntüleme bölmesinde**.
-5. Bir metin düzenleyicisinde açın.
+5. Bir metin düzenleyicisi açın.
 6. Panodaki şablonu metni yapıştırın.
 7. Daha sonra kullanmak için dosyayı kaydedin.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: d8d7850e7d5253cfec4431fed3e09f4007995494
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378933"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249702"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -59,16 +59,16 @@ Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlik
 
 ### <a name="predefined-questions"></a>Önceden tanımlanmış soruları
 
-* Eşiniz/partneriniz ile hangi şehirde tanıştınız?
+* İlk eşiniz/partneriniz ile hangi şehirde tanıştınız?
 * Anneniz ile babanız hangi şehirde tanıştı?
 * Size en yakın kardeşiniz hangi şehirde yaşıyor?
 * Babanız hangi şehirde doğdu?
 * İlk işiniz hangi şehirdeydi?
-* Anneniz hangi şehirde doğmuş?
+* Anneniz hangi şehirde doğdu?
 * 2000 yılına girdiğimiz yılbaşında hangi şehirdeydiniz?
-* Lisede en sevdiğiniz öğretmeninizin soyadı neydi?
+* Lisede en sevdiğiniz öğretmenin soyadı nedir?
 * Başvurduğunuz ancak gitmediğiniz üniversitenin adı nedir?
-* İlk evlilik davetinizi verdiğiniz yerin adı nedir?
+* İlk düğününüzü gerçekleştirdiğiniz yerin adı nedir?
 * Babanızın ikinci adı nedir?
 * En sevdiğiniz yemek nedir?
 * Anneannenizin adı ve soyadı nedir?
@@ -80,19 +80,19 @@ Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlik
 * Altıncı sınıfta hangi okula gidiyordunuz?
 * Çocukken en iyi arkadaşınızın adı ve soyadı neydi?
 * İlk partnerinizin adı ve soyadı neydi?
-* En sevdiğiniz ilkokul öğretmeninizin soyadı neydi?
+* İlkokulda en sevdiğiniz öğretmenin soyadı neydi?
 * İlk arabanızın veya motosikletinizin markası ve modeli neydi?
 * Gittiğiniz ilk okulun adı neydi?
 * Doğduğunuz hastanenin adı neydi?
-* Çocukluğunuzda oturduğunuz ilk evin sokak adı neydi?
+* Çocukluğunuzun geçtiği ilk evin bulunduğu sokağın adı neydi?
 * Çocukluk kahramanınızın adı neydi?
 * En sevdiğiniz peluş hayvanın adı neydi?
 * İlk evcil hayvanınızın adı neydi?
-* Çocukluğunuzdaki takma adınız neydi?
-* Lisede en sevdiğiniz spor neydi?
+* Çocukken lakabınız neydi?
+* Lisedeyken en sevdiğiniz spor hangisiydi?
 * İlk işiniz neydi?
-* Çocukluğunuzda kullandığınız telefon numarasının son dört rakamı neydi?
-* Küçükken, büyüdüğünüzde ne olmak istiyordunuz?
+* Çocukken kullandığınız telefon numaranızın son dört rakamı neydi?
+* Küçükken büyüdüğünüzde ne olmak istiyordunuz?
 * Tanıştığınız en ünlü kişi kim?
 
 Tüm önceden tanımlı güvenlik soruları çevrilir ve kullanıcının tarayıcı yerel ayarları temel alarak Office 365 dilleri kümesinin içine yerelleştirilmiş.
@@ -122,7 +122,7 @@ Microsoft, kullanıcının Azure AD parola erişmeye gerek duymaz bir e-posta he
 
 Microsoft Authenticator uygulaması ek bir Azure AD iş veya Okul hesabı veya Microsoft hesabı için güvenlik düzeyi sağlar.
 
-Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir.
+Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir.
 
 > [!NOTE]
 > Kullanıcıların Self Servis parola sıfırlama için kaydolurken mobil uygulamasını kaydetme seçeneği yoktur. Bunun yerine, kullanıcıların kendi mobil uygulamamız üzerinden kaydedebilirsiniz [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) veya güvenlik bilgileri kayıt Önizleme'de [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
@@ -206,7 +206,7 @@ Office telefon özniteliğinin yöneticiniz tarafından yönetilir.
 >
 > Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
 
-## <a name="app-passwords"></a>Uygulama parolaları
+## <a name="app-passwords"></a>Uygulama Parolaları
 
 Belirli tarayıcı olmayan uygulamaları olmayan bir kullanıcı için multi-Factor authentication etkinleştirildiğinde multi-Factor authentication desteği ve tarayıcı olmayan uygulamaları kullanmaya çalışır, bunlar kimliğini doğrulayamıyor. Bir uygulama parolası kullanıcıların kimliğini doğrulamak devam etmesini sağlar.
 

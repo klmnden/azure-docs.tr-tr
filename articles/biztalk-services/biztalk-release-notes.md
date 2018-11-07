@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576479"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253440"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Hizmetleri için sürüm notları
 
@@ -188,7 +188,7 @@ Ad tabanlı davranışları sertifikaları BizTalk hizmeti projenizde tanımlama
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>SQL veritabanı çevrimdışı olsa bile, iletileri işlemek üzere köprüleri devam
 (Çalışan bilgi dağıtılan yapılarını ve işlem hatlarını gibi depolayan) Microsoft Azure SQL veritabanı, olsa bile, çevrimdışı BizTalk Hizmetleri köprüleri bir süredir iletileri işlemeye devam eder. BizTalk Hizmetleri Köprü yapılandırması ve önbelleğe alınmış yapıları kullanıyor olmasıdır.
-SQL veritabanı çevrimdışı olduğunda tüm iletileri işlemek üzere köprüleri istemiyorsanız, durdurmak veya BizTalk hizmeti askıya alma BizTalk Hizmetleri PowerShell cmdlet'lerini kullanabilirsiniz. Bkz: [Azure BizTalk Hizmeti Yönetimi örnek](http://go.microsoft.com/fwlink/p/?LinkID=329019) işlemlerini yönetmek Windows PowerShell cmdlet'leri için.  
+SQL veritabanı çevrimdışı olduğunda tüm iletileri işlemek üzere köprüleri istemiyorsanız, durdurmak veya BizTalk hizmeti askıya alma BizTalk Hizmetleri PowerShell cmdlet'lerini kullanabilirsiniz. Bkz: [Azure BizTalk Hizmeti Yönetimi örnek](https://go.microsoft.com/fwlink/p/?LinkID=329019) işlemlerini yönetmek Windows PowerShell cmdlet'leri için.  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Ek bir BOM karakter içeren bir köprünün özel kod bileşeni içinde XML ileti okuma
 Bir köprünün özel kod içindeki bir XML ileti okumak için istediğiniz bir senaryo düşünün. .NET API System.Text.Encoding.UTF8.GetString(bytes) kullanıyorsanız ek bir BOM karakter çıkış iletisi başında yer alır. Ek BOM karakter içerecek şekilde çıkış istemiyorsanız, bu nedenle, kullanmalısınız ```System.IO.StreamReader().ReadToEnd()```.

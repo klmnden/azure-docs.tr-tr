@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046227"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229484"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Başarısız olan U-SQL işleri için kullanıcı tanımlı C# kodu hatalarını ayıklama
 
 U-SQL C# kullanarak bir genişletilebilirlik modeli sağlar. U-SQL betiklerini, C# işlevlerini ve bildirim temelli SQL benzeri dil desteği olmayan analiz işlevleri gerçekleştirmek kolaydır. U-SQL genişletilebilirliği için daha fazla bilgi için bkz. [U-SQL Programlama Kılavuzu](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-Uygulamada, hata ayıklama herhangi bir kod gerekebilir, ancak bulutta özel kod ile dağıtılmış bir iş sınırlı günlük dosyalarıyla hata ayıklamak zordur. [Visual Studio için Azure Data Lake Araçları](http://aka.ms/adltoolsvs) adı verilen bir özellik sağlar **başarısız köşe Hatalarını Ayıkla**, yardımcı olan, daha kolay gerçekleşen hataları özel kodunuzda hata ayıklama. U-SQL işi başarısız olduğunda, hata durumu hizmeti kalmasını sağlar ve aracı bulut hatası ortamı hata ayıklama için yerel makinenize indirmek için yardımcı olur. Yerel yükleme, herhangi bir giriş veri ve kullanıcı kodu da dahil olmak üzere tüm bulut ortamı yakalar.
+Uygulamada, hata ayıklama herhangi bir kod gerekebilir, ancak bulutta özel kod ile dağıtılmış bir iş sınırlı günlük dosyalarıyla hata ayıklamak zordur. [Visual Studio için Azure Data Lake Araçları](https://aka.ms/adltoolsvs) adı verilen bir özellik sağlar **başarısız köşe Hatalarını Ayıkla**, yardımcı olan, daha kolay gerçekleşen hataları özel kodunuzda hata ayıklama. U-SQL işi başarısız olduğunda, hata durumu hizmeti kalmasını sağlar ve aracı bulut hatası ortamı hata ayıklama için yerel makinenize indirmek için yardımcı olur. Yerel yükleme, herhangi bir giriş veri ve kullanıcı kodu da dahil olmak üzere tüm bulut ortamı yakalar.
 
 Aşağıdaki videoda başarısız köşe Hatalarını Ayıkla Azure Data Lake araçları, Visual Studio için gösterir.
 
@@ -64,7 +64,7 @@ C# kaynak kodu yakalanır iki durum vardır:
 
 Kaynak kodu çözüme aldıysanız, Visual Studio hata ayıklama araçları (izleme, değişkenler vb.) sorunu gidermek için kullanabilirsiniz:
 
-1. Tuşuna **F5** hata ayıklama başlatılamıyor. Kod bir özel durumun durduruluncaya kadar çalışır.
+1. Hata ayıklamaya başlamak için **F5**'e basın. Kod bir özel durumun durduruluncaya kadar çalışır.
 
 2. Kaynak kodu dosyasını açın ve kesme noktaları, ayarlayın tuşuna **F5** kodda adım adım hata ayıklamak için.
 

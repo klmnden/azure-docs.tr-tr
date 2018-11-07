@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443537"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228887"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services bölünmüş MP4 Canlı içe alma belirtimi
 Bu belirtim protokolü ve parçalanmış MP4 tabanlı canlı akış alımı için Azure Media Services için biçimini açıklar. Media Services müşterileri, etkinliklerin canlı akış ve bulut platformu olarak Azure'u kullanarak gerçek zamanlı olarak içerik yayın için kullanabileceğiniz bir canlı akış hizmeti sağlar. Bu belge, ayrıca en iyi anlatılmaktadır Canlı düzeyde yedekli ve sağlam oluşturmaya yönelik yöntemler alma mekanizmaları.
@@ -38,7 +38,7 @@ Aşağıdaki diyagramda, Media Services canlı akış hizmeti üst düzey mimari
 ![Akış içe alma][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Bitstream biçimi – ISO 14496-12 parçalanmış MP4
-Canlı akış içe alma için kablo biçimini makalesinde ele alındığı bu belgeyi [ISO-14496-12] temel alır. Ayrıntılı bir açıklama parçalanmış MP4 biçimi ve hem uzantıları için isteğe bağlı video dosyaları ve canlı akış alımı için bkz: [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+Canlı akış içe alma için kablo biçimini makalesinde ele alındığı bu belgeyi [ISO-14496-12] temel alır. Ayrıntılı bir açıklama parçalanmış MP4 biçimi ve hem uzantıları için isteğe bağlı video dosyaları ve canlı akış alımı için bkz: [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Canlı biçim tanımlarını alma
 Aşağıdaki liste, Azure Media Services'e Canlı uygulamak tanımlarını içe alma, özel biçim açıklar:
@@ -68,7 +68,7 @@ Ayrıntılı gereksinimler şunlardır:
 1. Kodlayıcı gerekir kullanım `Events()` 9.2 in [1] için Media Services içine Canlı alma açıklandığı isim.
 1. HTTP POST isteği sonlandırır veya bir TCP hatası akış sonundan önce zaman aşımına Kodlayıcı gereken yeni bir bağlantı kullanarak yeni bir POST isteği yayımlamanız ve önceki gereksinimleri izleyin. Ayrıca, kodlayıcı gerekir akıştaki her parça için önceki iki MP4 parçaları yeniden ve medya zaman çizelgesi süreksizlik oluşturmaksızın Sürdür. Her parça için son iki MP4 parçaları yeniden göndermeyi veri kaybı olmadan olmasını sağlar. Diğer bir deyişle, bir ses ve video izleme hem bir akış içeriyor, ve geçerli bir POST isteği başarısız olursa, kodlayıcı yeniden ve gerekir, daha önce başarıyla gönderilen son iki parçaları için ses kaydının ve video için son iki parçalarını yeniden gönder , izleme, daha önce başarıyla, veri kaybı olduğundan emin olmak için gönderildi. Kodlayıcı bağlandığında, bu beşe medya parçasının "İleri" bir arabellek sürdürmeniz gerekir.
 
-## <a name="5-timescale"></a>5. Zaman Çizelgesi
+## <a name="5-timescale"></a>5. Timescale
 [[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) için ölçeği kullanımını açıklar **SmoothStreamingMedia** (Bölüm 2.2.2.1) **StreamElement** (Bölüm 2.2.2.3) **StreamFragmentElement** () Bölümü 2.2.2.6) ve **LiveSMIL** (Bölüm 2.2.7.3.1). Ölçeği değer yoksa, kullanılan varsayılan değer 10,000,000 (10 MHz) ' dir. Kesintisiz akış biçim belirtimi diğer zaman ölçütü değerleri kullanımını engellemez, ancak bu varsayılan kodlayıcı uygulamalarının çoğu kullanın (MHz 10 kesintisiz akış oluşturmak için) değeri, veri alma. Şu nedenle [Azure medya dinamik paketleme](media-services-dynamic-packaging-overview.md) özelliği, 90 KHz ölçeği video akışları ve 44,1 KHz veya 48.1 KHz ses akışları için kullanmanızı öneririz. Farklı bir zaman ölçeğine göre değerler farklı akış için kullanılır, akış düzeyinde ölçeği gönderilmelidir. Daha fazla bilgi için [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. "Stream" tanımı

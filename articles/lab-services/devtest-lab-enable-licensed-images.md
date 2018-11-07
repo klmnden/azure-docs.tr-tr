@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs laboratuvarınızda lisanslı bir görüntüde etkinleştirme | Microsoft Docs
-description: Azure portalını kullanarak Azure DevTest Labs lisanslı bir görüntüde etkinleştirmeyi öğrenin
+title: Azure DevTest labs'deki laboratuvarınızda lisanslı görüntü etkinleştirme | Microsoft Docs
+description: Azure portalını kullanarak Azure DevTest labs'teki lisanslı görüntü etkinleştirme hakkında bilgi edinin
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,86 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0e5de93f8a10d27c28b3f07567f9b6fa7e41d482
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42f3378196b4e3e1dfe1234e801e87875f9c61fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787559"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247662"
 ---
-# <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarınızda lisanslı bir görüntüde etkinleştir
+# <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki laboratuvarınızda lisanslı görüntü etkinleştirme
 
-Azure DevTest Labs'de lisanslı bir görüntü hüküm ve koşulları – genellikle görüntünün laboratuvara kullanıcılar için erişilebilir hale gelmeden önce kabul edilmesi gereken bir üçüncü taraf – içeren biridir. Aşağıdaki bölümlerde, sanal makineler oluşturmak için kullanılabilir; böylece lisanslı görüntülerle çalışma konusunda açıklanmaktadır.
+Azure DevTest Labs'de lisanslı görüntü hüküm ve koşulları – genellikle görüntünün Laboratuvar kullanıcıların erişebileceği önce bu kabul edilmesi gereken bir üçüncü taraf – içeren biridir. Aşağıdaki bölümlerde, sanal makineler oluşturmak için kullanılacak kullanılabilir lisanslı görüntüler ile çalışacak şekilde açıklanmıştır.
 
-## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Lisanslı bir görüntü kullanıcılar için kullanılabilir olup olmadığını belirleme
-Kullanıcıların lisanslı bir görüntüden sanal makineleri oluşturmasını sağlayan ilk adımı, hüküm ve koşulları için lisanslı görüntü benimsenmiş emin olmaktır. Aşağıdaki adımlar nasıl lisanslı bir görüntü teklif durumunu görüntüleyebilir ve, gerekirse, onun hüküm ve koşulları kabul gösterir.
+## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Lisanslı görüntü kullanıcılar için kullanılabilir olup olmadığını belirleme
+Lisanslı bir görüntüden VM oluşturma izin vererek ilk adımı, hüküm ve koşulları için lisanslı görüntü benimsenmiş emin olmaktır. Aşağıdaki adımlar, nasıl lisanslı görüntü teklifi durumunu görüntüleyebilir ve, gerekirse, sözleşmenin hüküm ve koşulları kabul gösterir.
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 
 1. İstenen Laboratuvar labs listesinden seçin.  
 
-1. Sol bölmede altında **ayarları**seçin **yapılandırma ve ilkeleri**.
+1. Sol bölmede altında **ayarları**seçin **yapılandırması ve ilkelerini**.
 
-1. Sol bölmede altında **sanal makine TABANLARI**seçin **Market görüntülerini**. 
+1. Sol bölmede altında **sanal makine TABANLARI**seçin **Market görüntüleri**. 
 
-    ![Market görüntülerini menü öğesi](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
+    ![Market görüntüleri menü öğesi](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
 
-    Dahil olmak üzere tüm kullanılabilir Market görüntülerini listesi gösterilir **teklif durumu** her görüntü için.
+    Dahil olmak üzere tüm kullanılabilir Market görüntüleri listesi gösterilir **teklif durumu** her görüntü için.
 
-    ![Her görüntü için teklif durumu gösteren Market görüntülerini listesi](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-offer-status.png)
+    ![Market görüntüleri gösteren her görüntü için teklif durumu listesi](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-offer-status.png)
 
-    Lisanslı bir görüntü bir teklif durumunu gösterir 
+    Lisanslı görüntü bir teklif durumu gösterilir. 
     
-    - **Koşulları kabul:** lisanslı görüntü VM'ler oluşturmak için kullanıcılar tarafından kullanılabilir. 
-    - **Gözden geçirme gereken koşulları:** lisanslı görüntü kullanıcılar için şu anda kullanılabilir değil. Laboratuvar kullanıcıların sanal makineleri oluşturmak için kullanmadan önce hüküm ve lisans koşullarını kabul edilmesi gerekir. 
+    - **Koşulları kabul:** lisanslı görüntü sanal makineler oluşturmak için kullanıcılar tarafından kullanılabilir. 
+    - **Koşulları gözden geçirme gerekli:** lisanslı görüntü kullanıcılarına şu anda kullanılamıyor. Laboratuvar kullanıcıları sanal makineler oluşturmak için kullanabilmeniz için önce lisans koşullarını ve koşulları kabul edilmesi gerekir. 
 
-## <a name="making-a-licensed-image-available-to-lab-users"></a>Lisanslı bir görüntü Laboratuvar kullanıcılar için kullanılabilir hale getirme
-Lisanslı bir görüntü Laboratuvar kullanıcılar için kullanılabilir olduğundan emin olmak için yönetici izinlerine sahip bir laboratuvar sahibi önce hüküm ve koşulları lisanslı bu görüntü için kabul etmeniz gerekir. Lisanslı bir görüntüyle otomatik olarak ilişkili abonelik için programlı dağıtımı etkinleştirmek, yasal koşulları ve gizlilik bildirimlerini bu görüntü için kabul eder. [Azure Resource Manager Market görüntülerle çalışma](https://azure.microsoft.com/blog/working-with-marketplace-images-on-azure-resource-manager/) Market görüntülerini programlı dağıtımı hakkında ek bilgi sağlar.
+## <a name="making-a-licensed-image-available-to-lab-users"></a>Lisanslı görüntü Laboratuvar kullanıcıları için kullanılabilir hale getirme
+Lisanslı görüntü Laboratuvar kullanıcıları için kullanılabilir olduğundan emin olmak için yönetici izinlerine sahip bir laboratuvar sahibi önce hüküm ve koşulları lisanslı o yansıma için kabul etmeniz gerekir. Programlı dağıtım için lisanslı bir görüntü ile otomatik olarak ilişkili aboneliği etkinleştirme, yasal koşulları ve bu görüntüyü yönelik gizlilik bildirimlerini kabul eder. [Market görüntüleri ile Azure Resource Manager'a bağlı çalışma](https://azure.microsoft.com/blog/working-with-marketplace-images-on-azure-resource-manager/) Market görüntüleri programlamalı dağıtım hakkında ek bilgi sağlar.
 
-Aşağıdaki adımları izleyerek lisanslı bir görüntü için programlı dağıtımı etkinleştirebilirsiniz:
+Lisanslı görüntü için programlamalı dağıtım aşağıdaki adımları izleyerek etkinleştirebilirsiniz:
 
-1. İçinde [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)listesine gidin **Market görüntülerini**.
+1. İçinde [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040)listesine gidin **Market görüntüleri**.
 
-1. Hangi kullanıcıların erişim sahibi olmasını istediğiniz ancak, koşulları kabul edilmemiş için lisanslı bir görüntü tanımlayın. Örneğin, ya da durumunu gösteren bir veri bilimi sanal makine görebilirsiniz **koşullarını kabul** veya **koşulları gözden geçirme gereken**.
+1. Lisanslı görüntü kullanıcıların erişim sahibi izin istiyor ancak, koşulları kabul edilmemiş belirleyin. Örneğin, ya da durumunu gösteren bir veri bilimi sanal makinesi görebilirsiniz **koşulları kabul** veya **koşulları gözden geçirme gerekli**.
 
-    ![Programlamayla dağıtımın penceresini yapılandırma](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Programlı dağıtım penceresine yapılandırın](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Veri bilimi VM'ler veri analizi, machine learning ve AI eğitim için yaygın olarak kullanılan birkaç popüler araçları ile test önceden yüklenmiş ve yapılandırılmış Azure sanal makine görüntüleri, bağımsızdır. [Linux ve Windows için Azure veri bilimi sanal makine için giriş](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) büyük bir bölümünü DSVMs hakkında bilgi sağlar.
+   > Veri bilimi sanal makineleri önceden yüklenmiş, yapılandırılmış ve veri analizi, makine öğrenimi ve yapay ZEKA eğitimi için yaygın olarak kullanılan çeşitli popüler araçlarla test edilen Azure sanal makinesi görüntüleridir. [Linux ve Windows için Azure veri bilimi sanal Makinesi'ne giriş](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) büyük ölçüde Dsvm'leri hakkında bilgi sağlar.
    >
    >
 
-1. İçinde **teklif durumu** sütunu select görüntü için **koşulları gözden geçirme gereken**.
+1. İçinde **teklif durumu** seçme görüntüsü için sütun **koşulları gözden geçirme gerekli**.
 
-1. Programlı dağıtımı Yapılandır penceresinde seçin **etkinleştirmek**.
+1. Programlamalı dağıtımı Yapılandır penceresinde **etkinleştirme**.
 
-    ![Programlamayla dağıtımın penceresini yapılandırma](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
+    ![Programlı dağıtım penceresine yapılandırın](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
 
    > [!IMPORTANT]
-   > Birden çok abonelik programlı dağıtımı Yapılandır penceresinde listelenen görebilirsiniz. Yalnızca hedeflenen abonelik için programlı dağıtımı etkinleştirmek emin olun.
+   > Programlamalı dağıtımı Yapılandır penceresinde listelenen birden çok abonelik görebilirsiniz. Yalnızca hedeflenen abonelik için programlamalı dağıtım etkinleştiriyorsanız emin olun.
    >
    >
 
 
 1. **Kaydet**’i seçin. 
 
-    Market görüntülerini listesinde şimdi gösterir görüntüye **koşullarını kabul** ve sanal makineler oluşturmak kullanıcılar için kullanılabilir.
+    Market görüntüleri listesinde, görüntüde artık **koşulları kabul** ve sanal makineler oluşturmak, kullanıcılar için kullanılabilir.
 
 > [!NOTE]
-> Kullanıcılar, lisanslı bir görüntüden özel bir görüntü oluşturabilirsiniz. Bkz: [bir VHD dosyasındaki özel bir görüntü oluşturun](devtest-lab-create-template.md) daha fazla bilgi için.
+> Kullanıcıların lisanslı bir görüntüyü özel görüntü oluşturabilirsiniz. Bkz: [bir VHD dosyasından özel bir görüntü oluşturma](devtest-lab-create-template.md) daha fazla bilgi için.
 >
 >
 
 
 ## <a name="related-blog-posts"></a>İlgili blog gönderileri
 
-- [Özel resimler veya formüller?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Azure DevTest Labs arasında özel resimler kopyalama](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Özel görüntü veya formül?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Azure DevTest Labs arasında özel görüntüleri kopyalama](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir sanal makineden özel bir görüntü oluşturun](devtest-lab-create-custom-image-from-vm-using-portal.md)
-- [Bir VHD dosyasındaki özel bir görüntü oluşturun](devtest-lab-create-template.md)
-- [Laboratuvarınızı için bir VM ekleme](devtest-lab-add-vm.md)
+- [VM'den özel görüntü oluşturma](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Bir VHD dosyasından özel bir görüntü oluşturma](devtest-lab-create-template.md)
+- [Laboratuvarınız için bir VM ekleme](devtest-lab-add-vm.md)

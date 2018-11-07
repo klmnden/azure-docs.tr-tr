@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: jroth
-ms.openlocfilehash: 0119c6642d68db6a90af07395882e620b1af08c6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258138"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure sanal Makineler'de SQL Server için performans yönergeleri
 
@@ -166,7 +166,7 @@ Premium depolama (DS serisi, DSv2 serisi ve GS serisi) destekleyen VM'ler için 
     ![SQL veri günlüğü ve yedekleme dosyaları](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 * GÇ ve herhangi bir disk belleği etkinlik azaltmak kilitli sayfalar sağlar. Daha fazla bilgi için [bellek seçeneği (Windows) kilit sayfalarında etkinleştirme](https://msdn.microsoft.com/library/ms190730.aspx).
 
-* SQL Server 2012 çalıştırıyorsanız, hizmet paketi 1 Cumulative Update 10 yükleyin. Bu güncelleştirme, SQL Server 2012'de geçici bir tablo ifadesi içine seçin yürüttüğünüzde g/ç kötü performans düzeltmesini içerir. Bu bilgi için [Bilgi Bankası makalesi](http://support.microsoft.com/kb/2958012).
+* SQL Server 2012 çalıştırıyorsanız, hizmet paketi 1 Cumulative Update 10 yükleyin. Bu güncelleştirme, SQL Server 2012'de geçici bir tablo ifadesi içine seçin yürüttüğünüzde g/ç kötü performans düzeltmesini içerir. Bu bilgi için [Bilgi Bankası makalesi](https://support.microsoft.com/kb/2958012).
 
 * Azure içeri/dışarı aktarma, tüm veri dosyaları sıkıştırma göz önünde bulundurun.
 

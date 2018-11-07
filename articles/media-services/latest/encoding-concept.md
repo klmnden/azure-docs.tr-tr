@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: bee74f0399def142915aa26d15ecfa671925f405
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0df13e3364cebe7cb5804b840889bca971b36be2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025591"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235063"
 ---
-# <a name="encoding-with-azure-media-services"></a>Azure Media Services ile kodlama
+# <a name="encoding-with-media-services"></a>Media Services ile kodlama
 
-Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimleri dijital yüksek kaliteli medya dosyalarınızın kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Media Services Ayrıca, video veya ses içeriğini analiz etmenize olanak tanır. Bu konuda size rehberlik içeriğinizi Media Services v3 ile kodlama.
+Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimleri dijital yüksek kaliteli medya dosyalarınızın kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Bu konuda içeriğinizi Media Services v3 ile kodlama konusunda rehberlik sağlar.
 
 Media Services v3 ile kodlanacak, Dönüşüm ve bir iş oluşturmanız gerekir. Dönüşüm kodlama ayarları ve çıktılar için tarif tanımlar ve iş tarif örneğidir. Daha fazla bilgi için [dönüşümler ve işler](transform-concept.md)
 
-Azure Media Services ile kodlarken Kodlayıcı giriş medya dosyalarını nasıl işlenmesi gerektiğini söylemek için hazır kullanın. Örneğin, kodlanmış içeriği görüntü çözünürlüğünü ve/veya istediğiniz ses kanal sayısını belirtebilirsiniz. 
+Media Services ile kodlarken Kodlayıcı giriş medya dosyalarını nasıl işlenmesi gerektiğini söylemek için hazır kullanın. Örneğin, kodlanmış içeriği görüntü çözünürlüğünü ve/veya istediğiniz ses kanal sayısını belirtebilirsiniz. 
 
 Sektördeki en iyi uygulamalarına göre önerilen yerleşik hazır biri ile hızlıca başlayabilirsiniz veya senaryonuz ya da cihaz belirli gereksinimlerinizi hedeflemek için önceden belirlenmiş bir özel bir yapı seçebilirsiniz. Daha fazla bilgi için [kodla özel dönüştürme](customize-encoder-presets-how-to.md). 
 
@@ -34,8 +34,6 @@ Media Services şu anda aşağıdaki yerleşik kodlama Önayarları destekler:
 
 |**Önceden tanımlı ayar adı**|**Senaryo**|**Ayrıntılar**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler.<br/>Ses yükü dilini girişinde 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz (örneğin, ' en-US'). Desteklenen dillerin listesi olduğundan, 'en-US', 'en-GB', 'es-ES', "es-MX", "fr-FR", 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
-|**VideoAnalyzerPreset**|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
 |**BuiltInStandardEncoderPreset**|Akış|Standart Kodlayıcı ile giriş video kodlama için önceden belirlenmiş bir yerleşik ayarlamak için kullanılır. <br/>Şu anda desteklenen aşağıdaki hazır:<br/>**EncoderNamedPreset.AdaptiveStreaming** (önerilir). Daha fazla bilgi için [hızı Merdivenini otomatik oluşturma](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** -yalnızca 192 Kb/sn ile kodlanmış stereo ses içeren tek bir MP4 dosyası üretir.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** -400 KB/sn ve stereo AAC ses 6000 KB/sn arasında 8 GOP hizalı MP4 dosyaları kümesini oluşturur. Çözüm, 1080 p başlar ve aşağı 360 p geçer.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** -400 KB/sn ve stereo AAC ses 3400 KB/sn arasında değişen 6 GOP hizalı MP4 dosyaları kümesini oluşturur. Çözüm, 720 p başlar ve aşağı 360 p geçer.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** -400 KB/sn ve stereo AAC ses 1600 KB/sn arasında değişen 5 GOP hizalı MP4 dosyaları kümesini oluşturur. Çözüm, 480 p başlar ve aşağı 360 p geçer.<br/><br/>Daha fazla bilgi için [kodlama ve akış dosyalarını karşıya yükleniyor,](stream-files-tutorial-with-api.md).|
 |**StandardEncoderPreset**|Akış|Standart Kodlayıcı ile giriş video kodlama, kullanılacak ayarları açıklanır. <br/>Bu dönüşüm hazır özelleştirirken önceden kullanın. Daha fazla bilgi için [nasıl dönüşüm önayarlarını özelleştirme](customize-encoder-presets-how-to.md).|
 
@@ -45,16 +43,15 @@ Media Services kodlama özgü ihtiyaçları ve gereksinimleri karşılamak için
 
 ## <a name="scaling-encoding-in-v3"></a>V3 sürümünde kodlama ölçeklendirme
 
-Şu anda, RU ayarlamak için Azure portalı veya AMS v2 API'leri kullanmayı imajlarını (açıklandığı [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
+Müşteriler şu anda, RU ayarlamak için Azure portalı veya Media Services v2 API'leri kullanmak zorunda (açıklandığı [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 ### <a name="tutorials"></a>Öğreticiler
 
-Aşağıdaki tutorals içeriğinizi Media Services ile kodlama göster:
+Aşağıdaki öğreticide içeriğinizi Media Services ile kodlama gösterilmektedir:
 
-* [Karşıya yükleme, kodlama ve Azure Media Services'i kullanarak akış](stream-files-tutorial-with-api.md)
-* [Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md)
+* [Karşıya yükleme, kodlama ve Media Services'i kullanarak akış](stream-files-tutorial-with-api.md)
 
 ### <a name="code-samples"></a>Kod örnekleri
 

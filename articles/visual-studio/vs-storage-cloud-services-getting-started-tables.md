@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f1e663463ff91da887a4afaebde4b2257347d4f4
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 44056ae1bca2595965abd3a47b4a2aa29d221623
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061737"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255242"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure tablo depolama ve Visual Studio ile çalışmaya başlama (bulut) bağlı Hizmetleri projeleri
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ Azure Table storage hizmeti büyük miktarlarda yapısal veriyi depolamanızı s
 
 Başlamak için önce depolama hesabınızdaki bir tablo oluşturmanız gerekir. Kodda bir Azure tablosu oluşturma ve temel tablo ve ekleme, değiştirme, okuma ve tablo varlıkları okuma gibi varlık işlemlerini gerçekleştirme göstereceğiz. Örnekler C dilinde yazılan\# kullanın ve kod [.NET için Microsoft Azure depolama istemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**Not:** kullanıma Azure depolama alanına çağrı yapan API'lerden bazılarını zaman uyumsuzdur. Bkz: [Async ve Await ile zaman uyumsuz programlama](http://msdn.microsoft.com/library/hh191443.aspx) daha fazla bilgi için. Aşağıdaki kod, zaman uyumsuz programlama yöntemler kullanıldığını varsayar.
+**Not:** kullanıma Azure depolama alanına çağrı yapan API'lerden bazılarını zaman uyumsuzdur. Bkz: [Async ve Await ile zaman uyumsuz programlama](https://msdn.microsoft.com/library/hh191443.aspx) daha fazla bilgi için. Aşağıdaki kod, zaman uyumsuz programlama yöntemler kullanıldığını varsayar.
 
 * Bkz: [.NET kullanarak Azure tablo depolama ile çalışmaya başlama](../storage/storage-dotnet-how-to-use-tables.md) program aracılığıyla tablolar düzenleme hakkında daha fazla bilgi.
 * Bkz: [depolama belgeleri](https://azure.microsoft.com/documentation/services/storage/) Azure depolama hakkında genel bilgiler.

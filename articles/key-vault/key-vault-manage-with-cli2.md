@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256468"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI ile anahtar Kasası'nı yönetme 
 
@@ -50,7 +50,7 @@ Bu makalede Azure CLI komutlarını kullanmak için aşağıdakilerin olması ge
 
 * Bir Microsoft Azure aboneliği. Hesabınız yoksa, [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial).
 * Azure komut satırı arabirimi 2.0 veya sonraki bir sürümü. En son sürümünü yüklemek için bkz: [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
-* Bir anahtar ya da bu makalede oluşturduğunuz parola kullanmak için yapılandırılmış bir uygulama. [Microsoft Yükleme Merkezi](http://www.microsoft.com/download/details.aspx?id=45343)'nde örnek bir uygulama kullanılabilir. Yönergeler için dahil edilen Benioku dosyasına bakın.
+* Bir anahtar ya da bu makalede oluşturduğunuz parola kullanmak için yapılandırılmış bir uygulama. [Microsoft Yükleme Merkezi](https://www.microsoft.com/download/details.aspx?id=45343)'nde örnek bir uygulama kullanılabilir. Yönergeler için dahil edilen Benioku dosyasına bakın.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Azure platformlar arası komut satırı arabirimi ile Yardım alma
 

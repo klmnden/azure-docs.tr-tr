@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
-ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.date: 11/6/2018
+ms.openlocfilehash: b95b62ab2c51fec93870e3f5593d53a599f3dad2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159001"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218959"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -84,14 +84,32 @@ Azure Machine Learning SDK'sı, Azure Machine Learning hizmeti çalışma alanı
 
 Azure not defterleri ve Azure veri bilimi sanal makineleri (Dsvm'leri) Azure Machine Learning hizmeti ile çalışacak şekilde yapılandırılmış olarak sunulur. Bu ortamların Azure Machine Learning SDK'sı gibi gerekli bileşenleri içerir.
 
+### <a name="azure-notebooks"></a>Azure Not Defterleri
+
 - Azure not defterleri, Azure bulutunda bir Jupyter not defteri hizmetidir.
-- Veri bilimi sanal makinesi, veri bilimi iş için tasarlanmış bir özelleştirilmiş sanal makine (VM) görüntüsüdür. Aşağıdakileri içerir:
-  - Popüler Araçlar
-  - Tümleşik geliştirme ortamlarından (IDE'ler)
-  - Jupyter Notebook belgeleri, PyCharm ve Tensorflow gibi paketleri
 - Yine de bu ortamların kullanmak için bir çalışma alanı yapılandırma dosyası gerekir.
 
 Azure Machine Learning hizmeti ile Azure not defterleri kullanma örneği için bkz: [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md).
+
+### <a name="data-science-virtual-machines"></a>Veri Bilimi Sanal Makineleri
+
+- Veri bilimi sanal makinesi, veri bilimi iş için tasarlanmış bir özelleştirilmiş sanal makine (VM) görüntüsüdür. Aşağıdakileri içerir:
+  - Popüler veri bilimi araçları
+  - PyCharm ve RStudio gibi tümleşik geliştirme ortamlarından (IDE'ler)
+  - Jupyter Not defterlerinden ve Tensorflow gibi paketleri
+
+DSVM yüklü birden çok Anaconda ortamı ile birlikte gelir. Azure Machine Learning Python SDK'sını olmadan herhangi bir paket yüklemesi için bir komut istemi penceresi açın ve şu ortam etkinleştirin.
+
+```shell
+conda activate AzureML
+```
+
+Bir kez bu ortamda, hemen kendi seçtiğiniz derleme aracı Azure Machine Learning SDK'sı paketi yüklemeden içe aktarabilirsiniz.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 Veri bilimi sanal makineler üzerinde daha fazla bilgi için [veri bilimi sanal makineleri](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 

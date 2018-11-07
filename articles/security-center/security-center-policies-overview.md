@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295746"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256638"
 ---
 # <a name="security-policy-settings"></a>Güvenlik ilkesi ayarları
 Bu makalede Güvenlik Merkezi'ndeki ilke ayarları güvenliğine genel bakış sağlar.
@@ -56,4 +56,4 @@ Bu makalede, Azure Güvenlik Merkezi'nde güvenlik ilkeleri hakkında bilgi edin
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 - [Azure Güvenlik Merkezi veri güvenliği](security-center-data-security.md): Güvenlik Merkezi'nin nasıl yönetir ve verileri koruyan öğrenin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını alın.
-* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/): en son Azure güvenlik haberlerini ve bilgilerini edinin.
+* [Azure güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/): en son Azure güvenlik haberlerini ve bilgilerini edinin.

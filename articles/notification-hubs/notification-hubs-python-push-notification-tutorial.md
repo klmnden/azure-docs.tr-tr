@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 68754f85347fe6bc075af513580697d1e7a83c18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386596"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247424"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python'dan Notification hubs'ı kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Bir Java/PHP/Python/Ruby MSDN makalesinde açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm Notification Hubs özellikleri erişebileceğiniz [Notification Hubs REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx).
+Bir Java/PHP/Python/Ruby MSDN makalesinde açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm Notification Hubs özellikleri erişebileceğiniz [Notification Hubs REST API'leri](https://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
 > Bu bildirim gönderen Python uygulamak için bir örnek başvuru uygulaması ve resmi olarak desteklenen bildirim hub'ı Python SDK'sını değil.
@@ -47,7 +47,7 @@ Bu makalede gösterilmektedir için:
 > 
 
 ## <a name="client-interface"></a>İstemci arabirimi
-Ana istemci arabirimi kullanılabilir yöntemleri aynı sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx). Bu arabirim, öğreticileri ve örnekleri şu anda bu sitedeki tüm doğrudan çevrilecek sağlar ve internet'teki topluluk tarafından katkıda bulunulan.
+Ana istemci arabirimi kullanılabilir yöntemleri aynı sağlayabilir [.NET Notification Hubs SDK'sı](https://msdn.microsoft.com/library/jj933431.aspx). Bu arabirim, öğreticileri ve örnekleri şu anda bu sitedeki tüm doğrudan çevrilecek sağlar ve internet'teki topluluk tarafından katkıda bulunulan.
 
 Kullanılabilir tüm kod bulabilirsiniz [Python REST sarmalayıcı örneği].
 
@@ -64,7 +64,7 @@ Bir Windows bildirim göndermek için:
 ## <a name="implementation"></a>Uygulama
 Henüz oluşturmadıysanız, izleyin [Başlangıç eğitmeni] arka ucunuzu uygulamak için sahip olduğu bölümü en son yukarı.
 
-Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde bildirim hub'ları REST uç noktalarına erişmesi ve bildirim göndermek için gereken ana adımlar Python uygulamasını açıklar.
+Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde bildirim hub'ları REST uç noktalarına erişmesi ve bildirim göndermek için gereken ana adımlar Python uygulamasını açıklar.
 
 1. Bağlantı dizesini ayrıştırma
 2. Yetkilendirme belirteci oluştur
@@ -96,7 +96,7 @@ Oluşturucusu bağlantı dizesini ayrıştırmak için bir istemci uygulama ana 
 
 
 ### <a name="create-security-token"></a>Güvenlik belirteci oluşturma
-Güvenlik belirteci oluşturma ayrıntılarını kullanılabilir [burada](http://msdn.microsoft.com/library/dn495627.aspx).
+Güvenlik belirteci oluşturma ayrıntılarını kullanılabilir [burada](https://msdn.microsoft.com/library/dn495627.aspx).
 Aşağıdaki yöntemleri ekleyin **NotificationHub** geçerli istek ve kimlik bilgileri bağlantı dizesinden ayıklanan URI'sini temel belirteci oluşturmak için sınıf.
 
     @staticmethod
@@ -148,7 +148,7 @@ Aşağıdaki yöntemleri ekleyin **NotificationHub** geçerli istek ve kimlik bi
 
 Bu sınıf, bir yerel bildirimi gövdesinde veya bir dizi biçim (yerel platform veya şablonu) ve (Apple sona erme özelliğini ve WNS üst bilgiler gibi) platforma özgü özellikleri içeren bir dizi üstbilgileri, bir şablon bildirim özelliklerini ilişkin bir kapsayıcıdır.
 
-Başvurmak [Notification Hubs REST API belgeleri](http://msdn.microsoft.com/library/dn495827.aspx) ve tüm seçenekler için belirli bildirim platformları biçimleri.
+Başvurmak [Notification Hubs REST API belgeleri](https://msdn.microsoft.com/library/dn495827.aspx) ve tüm seçenekler için belirli bildirim platformları biçimleri.
 
 Bu sınıf ile gönderme içinde bildirim yöntemleri artık yazma **NotificationHub** sınıfı.
 

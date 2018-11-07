@@ -3,19 +3,19 @@ title: -Microsoft Avro Library - Hadoop Azure içinde verileri seri hale getirme
 description: Hadoop bellek, veritabanı veya dosya kalıcı hale getirmek için Microsoft Avro Library kullanarak HDInsight üzerinde verileri seri hale getrime ve öğrenin.
 keywords: Avro, hadoop avro
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: ad8d0392b4b0e1e9e8d94e0d5a7a0c72455ecfcb
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 5928c6490c9de6c48b75800158b8298007d7b8ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701006"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246914"
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro library hadoop'ta verileri seri hale getirme
 
@@ -42,14 +42,14 @@ Apache Avro serileştirme biçimi, Azure HDInsight ve Apache Hadoop diğer ortam
 Avro için .NET kitaplığı nesneleri serileştirmek iki yöntemle destekler:
 
 * **Yansıma** -türleri için JSON şeması sözleşme öznitelikleri serileştirilecek .NET türleri verilerden otomatik olarak oluşturulur.
-* **Genel kayıt** -bir JSON şema tarafından temsil edilen bir kayıttaki belirtilen açıkça [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) sınıfının hiçbir .NET türleri serileştirilecek veriler için şema tanımlamak için mevcut olduğunda.
+* **Genel kayıt** -bir JSON şema tarafından temsil edilen bir kayıttaki belirtilen açıkça [ **AvroRecord** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) sınıfının hiçbir .NET türleri serileştirilecek veriler için şema tanımlamak için mevcut olduğunda.
 
 Veri şeması yazıcı ve akışın Okuyucu için biliniyorsa, veri şemasına gönderilebilir. Bir Avro nesne kontejner soubor kullanıldığında durumlarda şema dosyasında depolanır. Veri sıkıştırma için kullanılan codec gibi diğer parametrelerle belirtilebilir. Bu senaryolar daha ayrıntılı olarak açıklanan ve aşağıdaki kod örneklerinde gösterilmektedir:
 
 ## <a name="install-avro-library"></a>Avro Kitaplığı'nı yükleyin
 Kitaplık yüklemeden önce aşağıdakiler gereklidir:
 
-* <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
+* <a href="https://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 veya üzeri)
 
 Microsoft.Developer.accountmanagement bağımlılık Microsoft Avro Library yüklemesi ile otomatik olarak indirilir unutmayın. Yordamı, aşağıdaki bölümde sağlanır:
@@ -93,9 +93,9 @@ Bu konuda sağlanan altı örnekler Microsoft Avro Library tarafından desteklen
 
 Üçüncü ve dördüncü örnekler Avro nesne kapsayıcı dosyalarını kullanarak verileri seri hale getrime ve nasıl gösterir. Veriler bir Avro kapsayıcı dosyasında depolanır, seri durumundan çıkarma için şema paylaşılması gerekir çünkü şeması her zaman birlikte depolanır.
 
-İlk dört örnekler içeren örnek indirilebileceğini <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-86055923" target="_blank">Azure Kod örnekleri</a> site.
+İlk dört örnekler içeren örnek indirilebileceğini <a href="https://code.msdn.microsoft.com/Serialize-data-with-the-86055923" target="_blank">Azure Kod örnekleri</a> site.
 
-Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure Kod örnekleri</a> site.
+Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek <a href="https://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure Kod örnekleri</a> site.
 
 Altıncı örnek Avro serileştirme verilerini Azure Blob Depolama'ya yükler ve bir HDInsight (Hadoop) kümesi ile Hive'ı kullanarak çözümlemek için nasıl kullanılacağını gösterir. Dan indirilebilir <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure Kod örnekleri</a> site.
 
@@ -109,7 +109,7 @@ Konu başlığı altında açıklanan altı örnekler için bağlantılar şunla
 * <a href="#Scenario6">**Avro için Microsoft Azure HDInsight hizmeti veri yükleme kullanmayı** </a> -örnek Avro serileştirme HDInsight hizmetiyle nasıl etkileşim kurduğu gösterilmektedir. Bu örneği çalıştırmak için bir etkin Azure aboneliği ve Azure HDInsight kümesine erişim gerekir.
 
 ## <a name="Scenario1"></a>Örnek 1: Yansıma serileştirme
-Türleri için JSON şeması, otomatik olarak sözleşme öznitelikleri serileştirilecek C# nesne verilerden yansıma aracılığıyla Microsoft Avro Library tarafından oluşturulabilir. Microsoft Avro Library oluşturur bir [ **IAvroSeralizer<T>**  ](http://msdn.microsoft.com/library/dn627341.aspx) serileştirilecek alanlarını tanımlamak için.
+Türleri için JSON şeması, otomatik olarak sözleşme öznitelikleri serileştirilecek C# nesne verilerden yansıma aracılığıyla Microsoft Avro Library tarafından oluşturulabilir. Microsoft Avro Library oluşturur bir [ **IAvroSeralizer<T>**  ](https://msdn.microsoft.com/library/dn627341.aspx) serileştirilecek alanlarını tanımlamak için.
 
 Bu örnekte, nesneleri (bir **SensorData** bir üyesine sınıfla **konumu** struct) bir bellek akışınız için seri hale getirilmiş ve bu akışı sırayla seri durumdan. Sonuç, daha sonra onaylamak için ilk örnek karşılaştırılır **SensorData** aynı nesne, kurtarılır.
 
@@ -236,7 +236,7 @@ Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlay
 ## <a name="sample-2-serialization-with-a-generic-record"></a>Örnek 2: Serileştirme genel kayıt
 Veri .NET sınıflarıyla bir veri anlaşması aracılığıyla gösterilemeyen yansıma kullanılamadığı zaman, bir JSON şeması bir genel kayıtta açıkça belirtilebilir. Bu yöntem, yansıma kullanarak daha yavaştır. Böyle durumlarda veri şemasını da diğer bir deyişle, derleme zamanında bilinen değil dinamik sahip olabilir. Avro biçimi için çalışma zamanında dönüştürülür kadar olan şema bilinmiyor virgülle ayrılmış değerler (CSV) dosyası olarak temsil edilen veri dinamik senaryosu bu tür bir örnektir.
 
-Bu örnek nasıl oluşturup kullanacağınızı gösteren bir [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) bir JSON şeması, verilerle doldurmak nasıl ve ardından bu seri hale getrime ve nasıl açıkça belirtmek için. Sonuç, daha sonra kurtarılmış kaydı aynı olduğundan emin olmak için ilk örnek için karşılaştırılır.
+Bu örnek nasıl oluşturup kullanacağınızı gösteren bir [ **AvroRecord** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) bir JSON şeması, verilerle doldurmak nasıl ve ardından bu seri hale getrime ve nasıl açıkça belirtmek için. Sonuç, daha sonra kurtarılmış kaydı aynı olduğundan emin olmak için ilk örnek için karşılaştırılır.
 
 Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlayacak okuyucular ve yazıcılar, arasında paylaşılacak varsayılır. Şema serileştirilmiş verilerle birlikte dahil edilmesi gereken nesne kapsayıcısı biçimiyle genel kayıt kullanarak veri arabellekleri seri hale getrime ve nasıl bir örnek için bkz <a href="#Scenario4">nesne kapsayıcısı dosyalarıyla kullanarak serileştirme Genel kayıt</a> örnek.
 
@@ -357,9 +357,9 @@ Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlay
 
 
 ## <a name="sample-3-serialization-using-object-container-files-and-serialization-with-reflection"></a>Örnek 3: nesne kapsayıcısı dosyaları ve Serileştirme ile yansıma kullanarak serileştirme
-Bu örnek senaryoda benzer <a href="#Scenario1"> ilk örnek</a>, burada şemayı yansıma ile örtük olarak belirtilir. Fark, burada ise, şema, seri durumdan çıkarır okuyucu bilindiği varsayılır değil. **SensorData** serileştirilecek nesneleri ve bunların örtük olarak belirtilen şema tarafından temsil edilen bir Avro nesne kontejner soubor depolanır [ **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı.
+Bu örnek senaryoda benzer <a href="#Scenario1"> ilk örnek</a>, burada şemayı yansıma ile örtük olarak belirtilir. Fark, burada ise, şema, seri durumdan çıkarır okuyucu bilindiği varsayılır değil. **SensorData** serileştirilecek nesneleri ve bunların örtük olarak belirtilen şema tarafından temsil edilen bir Avro nesne kontejner soubor depolanır [ **AvroContainer** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı.
 
-Bu örnekte ile verileri seri [ **SequentialWriter<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx) ve seri durumdan çıkarılmış ile [ **SequentialReader<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx). Sonuç, ardından kimlik emin olmak için başlangıç örneklerine karşılaştırılır.
+Bu örnekte ile verileri seri [ **SequentialWriter<SensorData>**  ](https://msdn.microsoft.com/library/dn627340.aspx) ve seri durumdan çıkarılmış ile [ **SequentialReader<SensorData>**  ](https://msdn.microsoft.com/library/dn627340.aspx). Sonuç, ardından kimlik emin olmak için başlangıç örneklerine karşılaştırılır.
 
 Aracılığıyla varsayılan nesne kapsayıcısı dosyasındaki verilerin sıkıştırılmış [ **Deflate** ] [ deflate-100] .NET Framework 4'ten sıkıştırma codec bileşeni. Bkz: <a href="#Scenario5"> beşinci örnek</a> daha yeni ve daha üst bir sürümünü kullanmayı öğrenmek için bu konudaki [ **Deflate** ] [ deflate-110] sıkıştırma codec bileşeni .NET Framework 4.5 kullanılabilir.
 
@@ -599,7 +599,7 @@ Aracılığıyla varsayılan nesne kapsayıcısı dosyasındaki verilerin sıkı
 ## <a name="sample-4-serialization-using-object-container-files-and-serialization-with-generic-record"></a>Örnek 4: nesne kapsayıcısı dosyaları ve Serileştirme ile genel kayıt kullanarak serileştirme
 Bu örnek senaryoda benzer <a href="#Scenario2"> ikinci örnek</a>, burada şema JSON ile açıkça belirtilir. Fark, burada ise, şema, seri durumdan çıkarır okuyucu bilindiği varsayılır değil.
 
-Test veri kümesini bir liste halinde toplanan [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) nesneleri açıkça tanımlanmış bir JSON şeması ve tarafından temsil edilen nesne kapsayıcısı dosyasında depolanan [  **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı. Bu kapsayıcı dosya, ardından bir dosyaya kaydedilebilir bir bellek akış sıkıştırılmamış veri serileştirmek için kullanılan bir yazıcı oluşturur. [ **Codec.Null** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) okuyucu oluşturmak için kullanılan parametresi, bu verileri sıkıştırılmaz belirtir.
+Test veri kümesini bir liste halinde toplanan [ **AvroRecord** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) nesneleri açıkça tanımlanmış bir JSON şeması ve tarafından temsil edilen nesne kapsayıcısı dosyasında depolanan [  **AvroContainer** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı. Bu kapsayıcı dosya, ardından bir dosyaya kaydedilebilir bir bellek akış sıkıştırılmamış veri serileştirmek için kullanılan bir yazıcı oluşturur. [ **Codec.Null** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) okuyucu oluşturmak için kullanılan parametresi, bu verileri sıkıştırılmaz belirtir.
 
 Ardından veriler dosyadan okunan ve nesnelerin bir koleksiyona seri durumdan. Bu koleksiyon, bunların özdeş olduğunu onaylamak için Avro kayıtları ilk listesine karşılaştırılır.
 
@@ -859,7 +859,7 @@ Ardından veriler dosyadan okunan ve nesnelerin bir koleksiyona seri durumdan. B
 
 
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Örnek 5: bir özel sıkıştırma codec bileşeni ile nesne kapsayıcısı dosyaları kullanarak serileştirme
-Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek [Azure Kod örnekleri](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
+Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek [Azure Kod örnekleri](https://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
 
 [Avro belirtimi](http://avro.apache.org/docs/current/spec.html#Required+Codecs) isteğe bağlı sıkıştırma codec kullanımına izin verir (Ayrıca **Null** ve **Deflate** Varsayılanları). Bu örnekte, Snappy gibi yeni bir codec uygulanmamasının (isteğe bağlı desteklenen codec olarak belirtilen [Avro belirtimi](http://avro.apache.org/docs/current/spec.html#snappy)). .NET Framework 4.5 uygulamasını kullanma işlemini gösterir [ **Deflate** ] [ deflate-110] göre daha iyi bir sıkıştırma algoritması sağlayan codec [zlib ](http://zlib.net/) varsayılan .NET Framework 4 sürümünden sıkıştırma kitaplığı.
 

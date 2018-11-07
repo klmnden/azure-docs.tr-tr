@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365263"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231635"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
-Azure, hatalarını ayıklamaya yardımcı olmak üzere yerleşik tanılama sağlar bir [App Service web uygulaması](http://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede, Azure tarafından günlüğe kaydedilen bilgilere nasıl yanı sıra tanılama günlüğünü etkinleştirme ve uygulamanız için izleme ekleme öğrenin.
+Azure, hatalarını ayıklamaya yardımcı olmak üzere yerleşik tanılama sağlar bir [App Service web uygulaması](https://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede, Azure tarafından günlüğe kaydedilen bilgilere nasıl yanı sıra tanılama günlüğünü etkinleştirme ve uygulamanız için izleme ekleme öğrenin.
 
 Bu makalede [Azure portalında](https://portal.azure.com), tanılama günlükleri ile çalışmak için Azure PowerShell ve Azure komut satırı arabirimi (Azure CLI). Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Visual Studio'daki sorun giderme Azure](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -37,10 +37,10 @@ Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilir
 
 * **Ayrıntılı hata günlüğü** -ayrıntılı hata bilgileri belirten bir hata (durum kodu 400 veya üzeri) HTTP durum kodları için. Bu sunucunun döndürülen hata kodu neden belirlemek yardımcı olabilecek bilgiler içerebilir.
 * **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya döndürülecek belirli bir HTTP hatası neden olan yalıtmak çalışıyorsanız yararlı olur.
-* **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemleri hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimini](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). İşlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
+* **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemleri hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimini](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). İşlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
 
 ### <a name="application-diagnostics"></a>Uygulama tanılamaları
-Uygulama Tanılama web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamalarında kullanabileceğiniz [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) uygulama tanılama günlüğüne bilgileri günlüğe kaydetmek için sınıf. Örneğin:
+Uygulama Tanılama web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamalarında kullanabileceğiniz [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) uygulama tanılama günlüğüne bilgileri günlüğe kaydetmek için sınıf. Örneğin:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ Günlükleri depolanan dizin yapısı aşağıdaki gibidir:
 * **Uygulama günlükleri** -/LogFiles/uygulama /. Bu klasör, uygulama günlüğü tarafından üretilen bilgileri içeren bir veya daha fazla metin dosyalarını içerir.
 * **Başarısız istek izlemelerin** -/ LogFiles/W3SVC ### /. Bu klasör, XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. XSL dosyası biçimlendirme ve Internet Explorer'da görüntülendiğinde XML dosyalarının içeriğini filtreleme işlevi sağladığından, XML dosyaları gibi aynı dizine XSL dosyası indirme emin olun.
 * **Ayrıntılı Hata günlüklerini** -/LogFiles DetailedErrors /. Bu klasör, ortaya çıkan HTTP hataları için kapsamlı bilgiler sağlayan bir veya daha fazla .htm dosyaları içerir.
-* **Web sunucusu günlüklerini** -/LogFiles/http/RawLogs. Bu klasör bir veya daha fazla metin dosyaları olarak biçimlendirilmiş kullanarak [W3C Genişletilmiş günlük dosyası biçimini](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web sunucusu günlüklerini** -/LogFiles/http/RawLogs. Bu klasör bir veya daha fazla metin dosyaları olarak biçimlendirilmiş kullanarak [W3C Genişletilmiş günlük dosyası biçimini](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan iç dağıtım işlemleri tarafından oluşturulan günlükleri içeren, hem de Git dağıtımları için günlüğe kaydeder. Ayrıca dağıtım günlükleri D:\home\site\deployments altında bulabilirsiniz.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **-yolu**
 Kullanılabilir yollarının listesini görmek için - ListPath parametresini kullanın.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure PowerShell kullanmak için nasıl](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure PowerShell kullanmak için nasıl](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -264,7 +264,7 @@ Başarısız istek izlemelerin adlı XML dosyalarında depolanan **fr ### .xml**
 Ayrıntılı Hata günlüklerini oluşmuş HTTP hataları hakkında daha ayrıntılı bilgi sağlayan HTML belgeleridir. Bunlar yalnızca HTML belgeleri olduğundan, bir web tarayıcısı kullanarak görüntülenebilir.
 
 ### <a name="web-server-logs"></a>Web sunucu günlükleri
-Web sunucusu günlükleri kullanılarak biçimlendirilen [W3C Genişletilmiş günlük dosyası biçimini](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu bilgileri bir metin düzenleyicisi kullanarak okuyabilir veya gibi yardımcı programlar kullanılarak Ayrıştırılan [günlük ayrıştırıcısı](http://go.microsoft.com/fwlink/?LinkId=246619).
+Web sunucusu günlükleri kullanılarak biçimlendirilen [W3C Genişletilmiş günlük dosyası biçimini](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu bilgileri bir metin düzenleyicisi kullanarak okuyabilir veya gibi yardımcı programlar kullanılarak Ayrıştırılan [günlük ayrıştırıcısı](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Azure web uygulamaları tarafından üretilen günlükleri desteklemeyen **s-computername**, **s-ip**, veya **cs-version** alanları.
@@ -274,7 +274,7 @@ Web sunucusu günlükleri kullanılarak biçimlendirilen [W3C Genişletilmiş g�
 ## <a name="nextsteps"></a> Sonraki adımlar
 * [Web uygulamalarını izleme](web-sites-monitor.md)
 * [Visual Studio'da Azure web apps sorunlarını giderme](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analiz web uygulaması günlüklerinin HDInsight içinde](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analiz web uygulaması günlüklerinin HDInsight içinde](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.

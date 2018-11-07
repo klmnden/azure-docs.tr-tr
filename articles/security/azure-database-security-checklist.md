@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: db976fb61c5659fbdcb7ba30aa4f619d52d441c4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402516"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252403"
 ---
 # <a name="azure-database-security-checklist"></a>Azure veritabanı güvenlik denetim listesi
 
@@ -34,7 +34,7 @@ Bunlar:
 -   Access management kullanma
 -   Veri şifrelemesi
 -   SQL Veritabanı denetimi
--   SQL veritabanı tehdit algılama
+-   SQL Veritabanı tehdit algılama
 
 ## <a name="introduction"></a>Giriş
 Bulut bilgi işlem birçok uygulama kullanıcıları, Veritabanı yöneticileri ve programcıların bilginiz yeni güvenlik paradigmalarını gerektirir. Sonuç olarak, bazı kuruluşlar, bir bulut altyapısı için algılanan güvenlik riskleri nedeniyle veri yönetimi uygulamak bunu yapamıyor. Ancak, bu sorunu çoğunu aracılığıyla Microsoft Azure ve Microsoft Azure SQL veritabanı yerleşik güvenlik özelliklerinin daha iyi bir anlayış alleviated.
@@ -47,7 +47,7 @@ Okumanızı öneririz [Azure veritabanı en iyi güvenlik uygulamaları](https:/
 | ------------ | -------- |
 |**Verileri koruma**||
 | <br> Hareket/aktarım sırasında şifreleme| <ul><li>[Aktarım Katmanı Güvenliği](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), veri ağlara taşırken veri şifreleme için.</li><li>Veritabanı göre istemcilerden güvenli iletişim gerektiren [TDS (Tablosal veri Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protokolü üzerinden TLS (Aktarım Katmanı Güvenliği).</li></ul> |
-|<br>Bekleme sırasında şifreleme| <ul><li>[Saydam veri şifrelemesi](http://go.microsoft.com/fwlink/?LinkId=526242), etkin olmayan verileri fiziksel olarak dijital biçimde depolanır.</li></ul>|
+|<br>Bekleme sırasında şifreleme| <ul><li>[Saydam veri şifrelemesi](https://go.microsoft.com/fwlink/?LinkId=526242), etkin olmayan verileri fiziksel olarak dijital biçimde depolanır.</li></ul>|
 |**Erişimi denetleme**||  
 |<br> Veritabanı Erişimi | <ul><li>[Kimlik doğrulaması](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory kimlik doğrulaması) AD kimlik doğrulaması, Azure Active Directory tarafından yönetilen kimlikleri kullanır.</li><li>[Yetkilendirme](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) kullanıcılar gerekli olan en düşük ayrıcalıkları verin.</li></ul> |
 |<br>Uygulama erişimi| <ul><li>[Satır düzeyi güvenlik](https://msdn.microsoft.com/library/dn765131) (kullanarak güvenlik ilkesi, bir kullanıcının kimliği, rol veya yürütme bağlamına dayalı satır düzeyinde erişimi kısıtlama aynı anda).</li><li>[Dinamik veri maskeleme](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (kullanma iznine & İlkesi sınırlar hassas verilerin görünürlüğünü ayrıcalık sahibi için ayrıcalıklı olmayan kullanıcıları maskeleyerek)</li></ul>|

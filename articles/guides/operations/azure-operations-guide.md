@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250790"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -227,7 +227,7 @@ Daha fazla bilgi için [Microsoft Azure kaynak tüketiminize öngörü](../../bi
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Fiyatlandırma hesaplayıcı ile tahmini maliyet
 
-Her Azure hizmeti için fiyatlandırma farklılık gösterir. Çoğu Azure hizmeti temel, standart ve Premium Katmanlar sunar. Genellikle, her katmanda, çeşitli fiyat ve performans düzeyleri vardır. Kullanarak [çevrimiçi fiyatlandırma hesaplayıcı](http://azure.microsoft.com/pricing/calculator), fiyatlandırma tahminler oluşturabilirsiniz. Hesaplayıcı, tek bir kaynak veya kaynak grubunun maliyetini tahmin etmek için esneklik içerir.
+Her Azure hizmeti için fiyatlandırma farklılık gösterir. Çoğu Azure hizmeti temel, standart ve Premium Katmanlar sunar. Genellikle, her katmanda, çeşitli fiyat ve performans düzeyleri vardır. Kullanarak [çevrimiçi fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator), fiyatlandırma tahminler oluşturabilirsiniz. Hesaplayıcı, tek bir kaynak veya kaynak grubunun maliyetini tahmin etmek için esneklik içerir.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -415,7 +415,7 @@ Bir depolama hesabı dağıtmak için birkaç seçenek vardır.
 
 #### <a name="portal"></a>Portal
 
-Azure portalını kullanarak bir depolama hesabı dağıtmak, yalnızca bir etkin Azure aboneliği ve bir web tarayıcısına erişimi gerekir. Yeni bir depolama hesabı, yeni veya mevcut bir kaynak grubuna dağıtabilirsiniz. Depolama hesabı oluşturduktan sonra portalı kullanarak blob kapsayıcı veya dosya paylaşımı oluşturabilirsiniz. Tablo oluşturma ve depolama varlıkları program aracılığıyla kuyruk. Daha fazla bilgi için [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md).
+Azure portalını kullanarak bir depolama hesabı dağıtmak, yalnızca bir etkin Azure aboneliği ve bir web tarayıcısına erişimi gerekir. Yeni bir depolama hesabı, yeni veya mevcut bir kaynak grubuna dağıtabilirsiniz. Depolama hesabı oluşturduktan sonra portalı kullanarak blob kapsayıcı veya dosya paylaşımı oluşturabilirsiniz. Tablo oluşturma ve depolama varlıkları program aracılığıyla kuyruk. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md).
 
 Azure portalında bir depolama hesabından dağıtımına ek olarak, portalda bir Azure Resource Manager şablonu dağıtabilirsiniz. Bu, dağıtmak ve tüm kaynakların herhangi bir depolama hesabı dahil olmak üzere şablonda tanımlanan şekilde yapılandırın. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ab338964a67991c0e97bf218f8aa004e0e5dfe38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418255"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248478"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup’ta dosya ve klasörlerin yavaş yedekleme sorunlarını giderme
 Bu makalede, Azure Backup kullanırken, dosya ve klasörlerin yavaş yedekleme performansı nedenini tanılamanıza yardımcı olmak için sorun giderme kılavuzu verilmiştir. Dosyalarını yedeklemek için Azure Backup Aracısı'nı kullandığınızda, yedekleme işlemi beklenenden daha uzun sürebilir. Bu gecikme, bir veya daha fazlasını tarafından kaynaklanabilir:
@@ -23,7 +23,7 @@ Bu makalede, Azure Backup kullanırken, dosya ve klasörlerin yavaş yedekleme p
 * [Backup Aracısı, Azure sanal makinesi (VM) üzerinde çalışıyor.](#cause3)  
 * [Çok sayıda dosya (milyon) yedekleme yapıyorsanız.](#cause4)
 
-İndirme ve yükleme sorunlarını giderme başlamadan önce öneririz [en son Azure Backup aracısını](http://aka.ms/azurebackup_agent). Çeşitli sorunları gidermek, özellikleri ekleyin ve performansı artırmak için Backup Aracısı sık güncelleştirmeler vermiyoruz.
+İndirme ve yükleme sorunlarını giderme başlamadan önce öneririz [en son Azure Backup aracısını](https://aka.ms/azurebackup_agent). Çeşitli sorunları gidermek, özellikleri ekleyin ve performansı artırmak için Backup Aracısı sık güncelleştirmeler vermiyoruz.
 
 Ayrıca gözden geçirmenizi öneririz [Azure Backup hizmeti hakkında SSS](backup-azure-backup-faq.md) değil karşılaştığınız herhangi bir ortak yapılandırma sorunlarını emin olmak için.
 

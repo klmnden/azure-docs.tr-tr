@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3d9a5b3c0ae0b6058d3e8ccf8cdb340bd1200edc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247050"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara etiket ekleme
 
@@ -40,7 +40,7 @@ Her etiket oluşan bir **adı**/**değer** çifti. Örneğin, adında bir etiket
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Mevcut bir laboratuvar etiketleri yönetme adımları
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**.
 1. Labs listesinden eklemek veya etiketleri yönetmek istediğiniz Laboratuvar seçin.  
 1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.  

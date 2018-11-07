@@ -1,6 +1,6 @@
 ---
-title: Veri Fabrikası kullanım örneği - ürün önerileri
-description: Diğer hizmetlerin yanı sıra Azure Data Factory kullanarak uygulanan bir kullanım durumu hakkında bilgi edinin.
+title: Data Factory kullanım örneği - ürün önerileri
+description: Azure Data Factory ile birlikte diğer hizmetleri kullanılarak uygulanan bir kullanım örneği hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -14,49 +14,49 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622474"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229262"
 ---
 # <a name="use-case---product-recommendations"></a>Kullanım Örneği - Ürün Önerileri
-Azure Data Factory Çözüm Hızlandırıcıları Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Bkz: [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) bu paketi hakkında ayrıntılar için sayfa. Bu belgede, Azure kullanıcıların zaten Çözüldü ve Azure Data Factory ve diğer Cortana Intelligence Bileşen Hizmetleri kullanılarak uygulanan ortak bir kullanım örneği açıklanmaktadır.
+Azure Data Factory Çözüm Hızlandırıcıları, Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Bkz: [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) bu paketi hakkında daha fazla ayrıntı için. Bu belgede, Azure kullanıcılarının zaten çözülen ve Azure Data Factory ve diğer Cortana Intelligence Bileşen Hizmetleri kullanılarak uygulanan genel bir kullanım örneği açıklanmaktadır.
 
 ## <a name="scenario"></a>Senaryo
-Çevrimiçi Perakendeciler genellikle büyük olasılıkla ilginizi olmasını ve bu nedenle büyük olasılıkla satın ürünleriyle sunarak ürünlerini satın müşterilerine ikna istiyorsunuz. Bunu gerçekleştirmek için çevrimiçi Perakendeciler, belirli bir kullanıcı için kişiselleştirilmiş ürün önerilerini kullanarak kendi kullanıcının çevrimiçi deneyimini özelleştirme gerekir. Kişiselleştirilmiş Bu öneriler, geçerli ve geçmiş davranışı verileri, ürün bilgilerini, yeni sunulan markalar ve ürün ve müşteri Segment veri alışveriş göre tabanlı yapılması üzeresiniz.  Ayrıca, bunlar birlikte, tüm kullanıcıların genel kullanım davranış analizini göre kullanıcı ürün önerilerini sağlayabilir.
+Çevrimiçi Perakendeciler yaygın olarak, müşterilerine büyük olasılıkla ilginizi olmasını ve bu nedenle büyük olasılıkla satın ürünleriyle sunarak ürün satın ikna istiyorsunuz. Bunu gerçekleştirmek için çevrimiçi Perakendeciler belirli bir kullanıcı için kişiselleştirilmiş ürün önerileri kullanarak kendi kullanıcı çevrimiçi deneyimini özelleştirmeniz gerekir. Bu kişiselleştirilmiş öneriler, geçerli ve geçmiş alışveriş davranış verilerini, ürün bilgilerini, yeni tanıtılan markalar ve ürün ve müşteri Segment veri tabanlı yapılması üzeresiniz.  Ayrıca, bunlar birlikte tüm kullanıcıları genel kullanım davranış analizini temel kullanıcı ürün önerileri sağlayabilir.
 
-Kullanıcı tıklatın satış dönüştürmeleri için en iyi duruma getirme ve daha yüksek satış gelirinin kazanmak için bu perakende belirtilir.  Bunlar, bu dönüştürme Müşteri ilgi alanları ve Eylemler dayalı olarak bağlamsal, davranış tabanlı ürün öneriler sunarak elde edin. Bu kullanım durumu için örnek olarak, müşterileri için en iyi duruma getirmek istediğiniz işletmeler çevrimiçi Perakendeciler kullanın. Ancak, bu ilkeler, müşterilerinin kendi mal ve hizmet geçici devreye ve müşterilerin satın alma kişiselleştirilmiş ürün önerilerini deneyiminizi geliştirmek için istediği herhangi bir işletme için geçerlidir.
+Bu Satıcıların kullanıcı tıklatın satış dönüştürmeleri için en iyi duruma getirmek ve daha yüksek satış gelir kazanın olmaktır.  Bunlar, bu dönüştürme Müşteri Vade farkı ve Eylemler göre bağlamsal, davranış tabanlı ürün önerileri sunarak elde edin. Bu kullanım vakası için örnek olarak, müşterileri için en iyi duruma getirmek istediğiniz işletmeler çevrimiçi Perakendeciler kullanın. Ancak, mal ve hizmet geçici olarak, müşterilerle etkileşim kurun ve kişiselleştirilmiş ürün önerileri müşterilerinin satın alma deneyiminizi geliştirmek isteyen tüm işletmeler için bu ilkeler geçerlidir.
 
 ## <a name="challenges"></a>Zorluklar
-Birçok zorluklar mevcuttur, çevrimiçi Perakendeciler yüz bu tür bir kullanım örneği çalışırken. 
+Vardır birçok güçlükle de bu çevrimiçi Perakendeciler yüz bu tür bir kullanım örneği çalışırken. 
 
-İlk olarak, farklı boyutlarda ve şekiller verilerin birden çok veri kaynaklarından alınan gerekir hem şirket içinde ve bulutta. Kullanıcının çevrimiçi perakende site gözatar olarak bu veriler ürün verilerini, geçmiş müşteri davranışı verileri ve kullanıcı verilerini içerir. 
+İlk olarak, farklı boyut ve şekillerde verilerin birden çok veri kaynağından alınan gerekir hem şirket içi ve bulut. Bu veriler, çevrimiçi perakende sitesini kullanıcının gider gibi ürün verileri, geçmiş müşteri davranışı verileri ve kullanıcı verilerini içerir. 
 
-İkinci, kişiselleştirilmiş ürün önerilerini makul ve doğru şekilde hesaplanan tahmin ve gerekir. Ürün, marka ve müşteri davranışı ve tarayıcı verilerini ek olarak, çevrimiçi Perakendeciler, ayrıca kullanıcı için en iyi ürün önerilerini belirlenmesi faktörü son alışveriş müşteri geri bildirimi eklemeniz gerekir. 
+İkinci, kişiselleştirilmiş ürün önerileri makul bir şekilde ve doğru bir şekilde hesaplanan tahmin edilen ve gerekir. Ürün, marka ve müşteri davranışı ve tarayıcı verilerinin yanı sıra çevrimiçi Perakendeciler ayrıca müşteri geri bildirimi, kullanıcı için en iyi ürün önerileri belirlenmesi etkimesi için geçmiş satın eklemeniz gerekir. 
 
-Üçüncü önerileri sorunsuz göz atma ve satın alma deneyimi sağlamak ve en son ve ilgili öneriler sunmak için kullanıcıya hemen teslim edilebilir olmalıdır. 
+Üçüncü olarak, öneriler sorunsuz gezinme ve satın alma deneyimi sağlar ve en son ve ilgili öneriler sağlamak için kullanıcıya hemen teslim edilebilir olması gerekir. 
 
-Son olarak, perakende genel yukarı satış izleyerek kendi yaklaşım etkisini ölçmek ve çapraz satış tıklatın dönüştürme satış başarı ve bunların gelecekteki önerileri ayarlamak gerekir.
+Son olarak, genel yukarı satış izleyerek yaklaşımlarını verimliliğini ölçme ve çapraz satış tıklatın dönüştürme satış başarılar ve bunların geleceğe yönelik öneriler için ayarlamak Perakendeciler gerekir.
 
 ## <a name="solution-overview"></a>Çözüme Genel Bakış
-Bu örnek kullanım örneği Çözüldü ve Azure Data Factory ve de dahil olmak üzere diğer Cortana Intelligence component services kullanarak gerçek Azure kullanıcılar tarafından uygulanan [Hdınsight](https://azure.microsoft.com/services/hdinsight/) ve [Power BI](https://powerbi.microsoft.com/).
+Bu örnek kullanım örneği çözülen ve Azure Data Factory ve dahil olmak üzere diğer Cortana Intelligence Bileşen Hizmetleri'ni kullanarak gerçek Azure kullanıcılar tarafından uygulanan [HDInsight](https://azure.microsoft.com/services/hdinsight/) ve [Power BI](https://powerbi.microsoft.com/).
 
-Çevrimiçi satıcısı kendi veri depolama seçenekleri iş akışı boyunca olarak Azure Blob Depolama, bir şirket içi SQL server, Azure SQL DB ve bir ilişkisel veri reyonu kullanır.  Blob deposu, müşteri bilgileri, müşteri davranışı verileri ve ürün bilgi verilerini içerir. Bir ürün kataloğu depolanmış şirket içi SQL veri ambarı ve ürün bilgileri verileri ürün marka bilgileri içerir. 
+Çevrimiçi satış şirketi, iş akışı boyunca kendi veri depolama seçenekleri olarak Azure Blob Depolama, şirket içi SQL server, Azure SQL DB ve ilişkisel veri reyonu kullanır.  Blob depolama, müşteri bilgileri, müşteri davranış verilerini ve ürün bilgileri verileri içerir. Ürün bilgisi verileri ürün marka bilgilerini içeren ve bir ürün kataloğu depolanmış şirket içi bir SQL veri ambarı'nda. 
 
-Tüm veriler birleştirilmiş ve müşteri ilgi alanları ve Eylemler, Ürün Kataloğu Web sitesi kullanıcı gözatar sırada dayalı olarak kişiselleştirilmiş öneriler sunmak için bir ürün öneri sistemine ssas'nin. Müşteriler, ayrıca tek bir kullanıcıya ilgili olmayan genel Web sitesi kullanım desenlerini bakarak ürün ilgili ürünler dayalı bakın.
+Tüm verileri birleştirilir ve müşteri vade farkı ve Eylemler, Ürün Kataloğu Web sitesi kullanıcı gözatar sırada göre kişiselleştirilmiş öneriler sunmak için bir ürün önerisi sisteme beslenir. Müşteriler ayrıca, herhangi bir kullanıcı için ilgili olmayan genel bir Web sitesi kullanım düzenlerini göz atan ürün ile ilgili ürünleri göre bakın.
 
-![Kullanım örneği diyagramı](./media/data-factory-product-reco-usecase/diagram-1.png)
+![Kullanım durumu diyagramı](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Ham web günlüğü dosyalarını gigabayt günlük olarak yarı yapılandırılmış dosyaları çevrimiçi satıcısında'nın Web sitesinden üretilir. Ham web günlük dosyaları ve müşteri ve ürün kataloğu bilgilerini alınan düzenli aralıklarla veri fabrikasının genel olarak dağıtılmış veri taşıma hizmeti olarak kullanarak bir Azure Blob depolama alanına. Gün için ham günlük dosyaları, uzun vadeli depolama için blob depolama birimindeki (yıl ve ay) bölümlenir.  [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/) blob deposu ham günlük dosyalarında bölüm ve Hive veya Pig betikleri kullanarak ölçekte alınan günlükleri işlemek için kullanılır. Verileri bölümlenen web günlüklerini öğrenme öneri sistemine kişiselleştirilmiş ürün öneri oluşturmak amacıyla bir makine için gerekli girişleri ayıklamak için işlenir.
+Ham web günlüğü dosyaları gigabayt, yarı yapılandırılmış dosyalar olarak çevrimiçi satış şirketi'nın Web sitesinden günlük oluşturulur. Ham web günlüğü dosyaları ve müşteri ve ürün kataloğu bilgilerini alınan düzenli olarak bir hizmet olarak Data Factory'nin küresel çapta dağıtılan veri hareketini kullanarak bir Azure Blob Depolama içine. Gün için ham günlük dosyaları, uzun vadeli depolama için blob depolama alanında (yıl ve aya göre) bölümlenir.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) ham günlük dosyaları blob depolama bölümlemek ve uygun ölçekte hem Hive ve Pig betiklerini kullanarak alınan günlükler işlemek için kullanılır. Bölümlenmiş web verilerini günlüğe kaydeder. bir machine learning öneri sistemin kişiselleştirilmiş ürün önerileri oluşturma için gerekli girişleri ayıklamak için işlenir.
 
-Bu örnekte öğrenme makine için kullanılan öneri öneri platformundan öğrenme bir açık kaynak makine sistemidir [Apache Mahout](http://mahout.apache.org/).  Tüm [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) veya özel model senaryoya uygulanabilir.  Mahout modeli genel kullanım düzenlerini esas alarak Web sitesinde öğeleri arasında benzerlik tahmin etmek ve bireysel kullanıcıyı temel alarak kişiselleştirilmiş öneri oluşturmak amacıyla kullanılır.
+Makine öğrenimi Bu örnekte kullanılan öneri açık kaynaklı bir makine öğrenme öneri platformdan sistemidir [Apache Mahout](http://mahout.apache.org/).  Tüm [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) veya senaryoya özel model uygulanabilir.  Mahout model, genel kullanım modellerini Web sitesindeki öğeleri arasında benzerlik tahmin etmek ve tek tek kullanıcıya bağlı kişiselleştirilmiş öneriler oluşturmak için kullanılır.
 
-Son olarak, kişiselleştirilmiş ürün önerilerini sonuç kümesini bir ilişkisel veri reyonuna tüketimi için satıcıya Web sitesi tarafından taşınır.  Sonuç kümesi ayrıca doğrudan blob depolama alanından başka bir uygulama tarafından erişilen, veya ek mağazaları diğer tüketicilerin ve kullanım örnekleri için taşınır.
+Son olarak, kişiselleştirilmiş ürün önerileri sonuç kümesi bir ilişkisel veri reyonuna tüketimleri perakendecisi Web sitesi tarafından taşınır.  Sonuç kümesi de doğrudan blob depolama alanından başka bir uygulama tarafından erişilen veya diğer tüketiciler ve kullanım örnekleri için ek mağazalarının taşındı.
 
 ## <a name="benefits"></a>Avantajlar
-Kendi ürün öneri stratejisi en iyi duruma getirme ve iş hedeflerini ile hizalama çözümü çevrimiçi Satıcısı'nın ticaret ve hedefleri pazarlama karşılanır. Ayrıca, bunlar faaliyete ve ürün öneri iş akışı verimli, güvenilir ve uygun maliyetli bir şekilde yönetmek kullanabilirsiniz. Yaklaşım bunları kendi modeli güncelleştirmek ve satış tıklatın dönüştürme başarıları ölçüler üzerinde temel verimliliğinden ince ayar yapmak daha kolay hale. Azure Data Factory kullanarak, kullanıcılar kendi zaman alabilir ve pahalı el ile bulut kaynak yönetimi bırakın ve isteğe bağlı bulut kaynak yönetimi için taşıma. Bu nedenle, bunlar zaman, para tasarrufu ve çözüm dağıtımı için kendi süresini azaltabilir. Veri çizgileri görünümleri ve işletimsel hizmet durumu görselleştirmek ve sezgisel Data Factory izleme ve yönetim Azure portalından kullanılabilir kullanıcı Arabirimi ile ilgili sorunları giderme kolay hale geldi. Kendi çözüm şimdi zamanlanmış ve böylece bitmiş veri güvenilir bir şekilde üretilen ve kullanıcılara teslim ve verileri ve işleme bağımlılıkları insan etkileşimi olmadan otomatik olarak yönetilir yönetilir.
+Kendi ürün önerisi strateji en iyi duruma getirme ve iş hedeflerine hizalama, çevrimiçi satış şirketi'nın mağazacılık ve hedefleri pazarlama çözümü karşılaştı. Ayrıca, bunlar kullanıma hazır hale getirme ve ürün önerisi iş akışı verimli, güvenilir ve uygun maliyetli bir şekilde yönetmek kullanabilirsiniz. Yaklaşım, modeli güncelleştirmek ve verimliliğinden satış tıklatın dönüştürme başarıları ölçümlerine üzerinde ince ayar için yaptığınız. Azure Data Factory kullanarak, bunlar, zaman alıcı ve pahalı el ile bulut kaynak yönetimi iptal ve isteğe bağlı bulut kaynak yönetimi için taşıma sunmayı başarabilseydiniz nasıl olurdu. Bu nedenle, bunlar zaman para kazanmak için Çözüm dağıtımı kendi süresini azaltmak kullanabilirsiniz. Veri kökenini görünümleri ve işletimsel hizmet durumu görselleştirmenize ve sezgisel Data factory'yi izleme ve Yönetimi Azure portalından kullanılabilir kullanıcı Arabirimi sorunlarını gidermek kolay hale geldi. Çözüm artık zamanlanan ve tamamlanan verileri güvenilir bir şekilde oluşturulur ve kullanıcılara sunulan ve veri ve işlem bağımlılıklarını insan müdahalesi olmadan otomatik olarak yönetilir yönetilir.
 
-Bu kişiselleştirilmiş alışveriş deneyimi sağlayarak daha fazla rekabet çekici bir müşteri oluşturulan çevrimiçi satıcısında deneyimi ve bu nedenle satış ve genel müşteri memnuniyetini artırın.
+Bu kişiselleştirilmiş alışveriş deneyimi sağlayarak, çevrimiçi satış şirketi daha rekabetçi, ilgi çekici bir müşteri deneyimi ve bu nedenle satış ve genel müşteri memnuniyetini artırın.
 

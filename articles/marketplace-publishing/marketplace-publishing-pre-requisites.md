@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261570"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Azure Marketi için bir teklif oluşturmak için genel Önkoşullar
 Teklif oluşturma işlemiyle birlikte ilerlemek için gereken genel, iş işlem-odaklı önkoşulları anlayın.
@@ -70,7 +70,7 @@ Bu VM görüntülerinizi oluşturmak ve görüntülerin üzerinden teslim için 
 
 ## <a name="sell-from-countries"></a>"Satış yapan" ülkeler
 > [!WARNING]
-> Hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık onaylı "satış yapan" ülkeleri birinden olduğundan emin olmanız gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Etkin bir şekilde arıyoruz yakın gelecekte bu ülkelerde listesini genişletin, bu nedenle Takipte kalın. Bölüm 1b, tam listesi için bkz. [Azure Marketi katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833).
+> Hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık onaylı "satış yapan" ülkeleri birinden olduğundan emin olmanız gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Etkin bir şekilde arıyoruz yakın gelecekte bu ülkelerde listesini genişletin, bu nedenle Takipte kalın. Bölüm 1b, tam listesi için bkz. [Azure Marketi katılım ilkeleri](https://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 

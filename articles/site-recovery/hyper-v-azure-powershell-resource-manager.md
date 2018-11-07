@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214792"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229416"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell ve Azure Resource Manager'ı kullanarak Hyper-V Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama
 
@@ -24,7 +24,7 @@ Bu makalede, Hyper-V Vm'lerini Azure'a çoğaltma için Windows PowerShell, Azur
 
 Azure PowerShell cmdlet'lerini Windows PowerShell kullanarak Azure yönetmenizi sağlar. Site Recovery PowerShell cmdlet, Azure PowerShell için Azure Resource Manager ile kullanılabilir korumak ve sunucularınızı azure'da kurtarmanıza yardımcı olur.
 
-Bu makalede kullanmak için bir PowerShell uzman olmanız gerekmez, ancak modüller, cmdlet'ler ve oturumlar gibi temel kavramları anlamanız gerekir. Okuma [Windows PowerShell ile çalışmaya başlama](http://technet.microsoft.com/library/hh857337.aspx), ve [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
+Bu makalede kullanmak için bir PowerShell uzman olmanız gerekmez, ancak modüller, cmdlet'ler ve oturumlar gibi temel kavramları anlamanız gerekir. Okuma [Windows PowerShell ile çalışmaya başlama](https://technet.microsoft.com/library/hh857337.aspx), ve [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
 > Microsoft iş ortaklarına bulut çözümü sağlayıcısı (CSP) programında yapılandırabilir ve ilgili CSP aboneliklerini (Kiracı abonelikleri) müşteri sunuculara koruma yönetebilirsiniz.

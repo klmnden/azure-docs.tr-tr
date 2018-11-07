@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716010"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227408"
 ---
 > [!NOTE]
 > Bu belgeler artık geçerli değil ve doğru değil. Lütfen Azure Marketi'nde gitmeyi [satıcı Kılavuzu](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) bir teklifi Azure Marketi'nde yayımlama konusunda yönergeler için.
@@ -28,7 +28,7 @@ ms.locfileid: "39716010"
 Bu makalede, geliştiricilerin oluşturmanıza, dağıtmanıza ve diğer Azure müşterileri ve iş ortakları satın alıp kullanmak için Azure Market'te listelenen çözümleri yönetmenize yardımcı olmak için sağlanır.
 
 ## <a name="marketplace-publishing"></a>Market'te yayımlama
-Bir Azure yayımcı dağıtın ve yenilikçi bir çözüm ya da hizmet diğer geliştiriciler, ISV'ler, satış ve Market'te BT uzmanları. Market aracılığıyla, hızla bulut tabanlı uygulamalarını ve mobil çözümler geliştirmek isteyen müşterilere ulaşabilir. İş kullanıcıları, çözümünüzün olmasını istiyorsanız, düşünmek isteyebilirsiniz [AppSource](http://appsource.microsoft.com) Market.
+Bir Azure yayımcı dağıtın ve yenilikçi bir çözüm ya da hizmet diğer geliştiriciler, ISV'ler, satış ve Market'te BT uzmanları. Market aracılığıyla, hızla bulut tabanlı uygulamalarını ve mobil çözümler geliştirmek isteyen müşterilere ulaşabilir. İş kullanıcıları, çözümünüzün olmasını istiyorsanız, düşünmek isteyebilirsiniz [AppSource](https://appsource.microsoft.com) Market.
 
 
 ## <a name="supported-types-of-solutions"></a>Desteklenen tür çözümler
@@ -51,7 +51,7 @@ Bir sanal makine yayımlamak için [çözüm](https://createopportunity.azureweb
 >[!NOTE]
 > Bir iş ortağı Hesap Yöneticisi veya DX ortak yönetici ile çalışıyorsanız, çözümünüzü Azure sertifikası programı için aday gösterin isteyin. Ayrıca gidebilirsiniz [Microsoft Azure sertifikası](http://createopportunity.azurewebsites.net) Web ve uygulama formu doldurun. İş ortağı Hesap Yöneticisi veya DX ortak Yöneticisi'nde e-postası girin **Microsoft Sponsor kişi** kutusu.
 
-Uygunluk ölçütlerini karşılıyorsanız [Azure Marketi katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833) ve uygulamanızın onaylanan, biz size ekleme çözümünüzü Marketi çalışmaya başlayın.
+Uygunluk ölçütlerini karşılıyorsanız [Azure Marketi katılım ilkeleri](https://go.microsoft.com/fwlink/?LinkID=526833) ve uygulamanızın onaylanan, biz size ekleme çözümünüzü Marketi çalışmaya başlayın.
 
 ### <a name="register-your-account-as-a-microsoft-seller"></a>Hesabınızı bir Microsoft satıcı kaydedin.
 Microsoft hesabınız olarak kaydetmek bir [Microsoft Developer hesabı](marketplace-publishing-accounts-creation-registration.md).

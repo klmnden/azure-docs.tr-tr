@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 65a0d8074b8dcf89d8fc713cb4b2272c6576e8fb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043963"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248580"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R Araçları’ndan iş gönderme
 
-[Visual Studio için R Araçları](https://www.visualstudio.com/vs/rtvs/) (RTVS) olan ücretsiz, açık kaynaklı bir uzantı için Community (ücretsiz), Professional ve Enterprise sürümleri hem [Visual Studio 2017](https://www.visualstudio.com/downloads/), ve [Visual Studio 2015 güncelleştirme 3](http://go.microsoft.com/fwlink/?LinkId=691129)veya üzeri.
+[Visual Studio için R Araçları](https://www.visualstudio.com/vs/rtvs/) (RTVS) olan ücretsiz, açık kaynaklı bir uzantı için Community (ücretsiz), Professional ve Enterprise sürümleri hem [Visual Studio 2017](https://www.visualstudio.com/downloads/), ve [Visual Studio 2015 güncelleştirme 3](https://go.microsoft.com/fwlink/?LinkId=691129)veya üzeri.
 
 Araçlar sunarak RTVS R akışınızı geliştirir [R etkileşimli penceresi](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), IntelliSense (kod tamamlama) [çizim görselleştirme](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) ggplot2 ve ggviz, gibiRkitaplıklarıaracılığıyla[R kodu hata ayıklama](https://docs.microsoft.com/visualstudio/rtvs/debugging)ve daha fazlası.
 

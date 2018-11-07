@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962886"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256434"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow için Azure Application Insights işlemleri Bağlayıcısı ile otomatik hale getirin
 
@@ -34,7 +34,7 @@ Ek Eylemler ekleyebilirsiniz. Microsoft Flow eylemleri yüzlerce kullanılabilir
 Bu öğreticide, verileri bir web uygulaması için Grup öznitelikleri için Analytics otomatik küme algoritması kullanan bir akış oluşturmak öğreneceksiniz. Akış, e-postayla nasıl Microsoft Flow ve Application Insights Analytics birlikte kullanabileceğiniz tek bir örnek sonuçları otomatik olarak gönderir. 
 
 ### <a name="step-1-create-a-flow"></a>1. adım: bir akış oluşturma
-1. Oturum [Microsoft Flow](http://flow.microsoft.com)ve ardından **Akışlarım**.
+1. Oturum [Microsoft Flow](https://flow.microsoft.com)ve ardından **Akışlarım**.
 1. Tıklayın **sıfırdan bir akış oluşturun**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>2. adım: akışınız için bir Tetikleyici oluşturma

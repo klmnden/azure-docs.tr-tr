@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578912"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255788"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcıları düzeltme
 
@@ -61,9 +61,9 @@ Burada görüntülenen bilgileri gözden geçirin. Listelenen tüm hesapların p
 
 Etkilenen hesapları düzeltmeye ve ortamınızın güvenliğini sağlamaya yardımcı olmak için aşağıdaki eylemleri gerçekleştirin:
 
-1.  Çok faktörlü kimlik doğrulaması ve self servis parola sıfırlama için bilgilerin doğruluğunu [onaylayın](http://aka.ms/MFAValid). 
-2.  Tüm kullanıcılarda çok faktörlü kimlik doğrulamasını [etkinleştirin](http://aka.ms/MFAuth). 
-3.  Etkilenen her hesap için, bu [düzeltme betiğini](http://aka.ms/remediate) kullanıp aşağıdaki adımları otomatik olarak gerçekleştirebilirsiniz: 
+1.  Çok faktörlü kimlik doğrulaması ve self servis parola sıfırlama için bilgilerin doğruluğunu [onaylayın](https://aka.ms/MFAValid). 
+2.  Tüm kullanıcılarda çok faktörlü kimlik doğrulamasını [etkinleştirin](https://aka.ms/MFAuth). 
+3.  Etkilenen her hesap için, bu [düzeltme betiğini](https://aka.ms/remediate) kullanıp aşağıdaki adımları otomatik olarak gerçekleştirebilirsiniz: 
 
     a. Hesabın güvenliğini sağlamak ve etkin oturumları sonlandırmak için parolayı sıfırlayın.
 
@@ -87,10 +87,10 @@ Etkilenen hesapları düzeltmeye ve ortamınızın güvenliğini sağlamaya yard
 
 Ayrıca şunları yapmalısınız:
 
-- Alışılmadık etkinlikleri belirlemek üzere bu [kılavuzu](http://aka.ms/fixaccount) okuyun ve yönergelerini uygulayın. 
-- Kiracınızdaki etkinliği analiz etmenize yardımcı olması için [denetim işlem hattını etkinleştirin](http://aka.ms/improvesecurity). Bu tamamlandıktan sonra, tüm etkinlik günlükleri denetim deponuza doldurulmaya başlar. Bu noktada, [Güvenlik ve Uyumluluk Merkezi'nin Arama ve Araştırma](http://aka.ms/sccsearch) özelliğinden de yararlanabilirsiniz. 
-- Tüm hesaplarınızda posta kutusu denetimini etkinleştirmek için bu [betiği](http://aka.ms/mailboxaudit1) kullanın. 
-- Tüm posta kutularınız için temsilci izinlerini ve posta iletme kurallarını gözden geçirin. Bu görevi gerçekleştirmek için bu [PowerShell betiğini](http://aka.ms/delegateforwardrules) kullanabilirsiniz. 
+- Alışılmadık etkinlikleri belirlemek üzere bu [kılavuzu](https://aka.ms/fixaccount) okuyun ve yönergelerini uygulayın. 
+- Kiracınızdaki etkinliği analiz etmenize yardımcı olması için [denetim işlem hattını etkinleştirin](https://aka.ms/improvesecurity). Bu tamamlandıktan sonra, tüm etkinlik günlükleri denetim deponuza doldurulmaya başlar. Bu noktada, [Güvenlik ve Uyumluluk Merkezi'nin Arama ve Araştırma](https://aka.ms/sccsearch) özelliğinden de yararlanabilirsiniz. 
+- Tüm hesaplarınızda posta kutusu denetimini etkinleştirmek için bu [betiği](https://aka.ms/mailboxaudit1) kullanın. 
+- Tüm posta kutularınız için temsilci izinlerini ve posta iletme kurallarını gözden geçirin. Bu görevi gerçekleştirmek için bu [PowerShell betiğini](https://aka.ms/delegateforwardrules) kullanabilirsiniz. 
 
 
 

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: d01a5a8a9a60bef315327721b9f55345bc3d1361
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645093"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229688"
 ---
 # <a name="customize-your-text-translations"></a>Metin çevirilerinizi özelleştirin
 
@@ -37,7 +37,7 @@ Sistem, ayrıca, belge düzeyinde paralel ancak henüz cümle düzeyinde hizalan
 
 Eğitim veri miktarı ve uygun türe, kazanç 5 ve 10 arasında beklenecek yaygın görülen bir durumdur veya özel Translator kullanarak daha da fazla BLEU çeviri kalitesini işaret eder.
 
-Mevcut verileri temel alan özelleştirme çeşitli düzeyleri hakkında daha fazla ayrıntı bulunabilir [özel Translator Kullanıcı Kılavuzu](http://aka.ms/CustomTranslatorDocs).
+Mevcut verileri temel alan özelleştirme çeşitli düzeyleri hakkında daha fazla ayrıntı bulunabilir [özel Translator Kullanıcı Kılavuzu](https://aka.ms/CustomTranslatorDocs).
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
@@ -53,7 +53,7 @@ Eski Microsoft Translator hub'ı, istatistiksel makine çevirisi çevirmek için
 | SMT özelleştirme | Evet   | Hayır |
 | NMT özelleştirme | Hayır    | Evet |
 | Yeni birleşik konuşma Hizmetleri özelleştirme | Hayır    | Evet |
-| [İzleme yok](http://www.aka.ms/notrace) | Evet   | Evet |
+| [İzleme yok](https://www.aka.ms/notrace) | Evet  | Evet |
 
 ## <a name="collaborative-translations-framework"></a>İşbirliğine dayalı çevirileri Framework
 
@@ -65,4 +65,4 @@ Eski Microsoft Translator hub'ı, istatistiksel makine çevirisi çevirmek için
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Özel Translator'ı kullanarak bir özelleştirilmiş dil sistemi](http://aka.ms/CustomTranslatorDocs)
+> [Özel Translator'ı kullanarak bir özelleştirilmiş dil sistemi](https://aka.ms/CustomTranslatorDocs)

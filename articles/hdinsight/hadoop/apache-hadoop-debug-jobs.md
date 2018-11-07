@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046499"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261158"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop günlüklerini analiz etme
 
@@ -59,7 +59,7 @@ Bu tablolardaki verilere erişmek için kullanılabilen birçok araç vardır:
 * Excel için Power Query
 
 #### <a name="use-power-query-for-excel"></a>Excel için Power Query kullanın
-Power Query yüklenebilir [Excel için Microsoft Power Query](http://www.microsoft.com/en-us/download/details.aspx?id=39379). Sistem gereksinimleri için indirme sayfasına bakın.
+Power Query yüklenebilir [Excel için Microsoft Power Query](https://www.microsoft.com/en-us/download/details.aspx?id=39379). Sistem gereksinimleri için indirme sayfasına bakın.
 
 **Açın ve hizmet günlüğü analiz etmek için Power Query kullanın.**
 
@@ -83,7 +83,7 @@ Power Query yüklenebilir [Excel için Microsoft Power Query](http://www.microso
 Artık, filtreleme ve sıralama gerektiği için Excel kullanabilirsiniz. Sorun ortaya ancak Hadoop Hizmetleri ile neler makul bir resim seçme ve yukarıda açıklanan sütunları gruplandırma sağlar detaya için (ileti gibi) diğer sütunlar eklemek isteyebilirsiniz. Aynı fikir setuplog ve hadoopinstalllog tablolara uygulanabilir.
 
 #### <a name="use-visual-studio"></a>Visual Studio'yu kullanma
-**Visual Studio'yu kullanın.**
+**Visual Studio kullanma**
 
 1. Visual Studio'yu açın.
 2. Gelen **görünümü** menüsünde tıklatın **Cloud Explorer**. Veya tıklamanız yeterlidir **CTRL +\, CTRL + X**.

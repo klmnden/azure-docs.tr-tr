@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: e7e0f6747beea43b55ae1a20da44cde3c070cd89
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 678a31b8c07b21e4bb2c43b8e8bc286d66ee4bab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091381"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233754"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Application Insights uyarıları ayarlamak için PowerShell kullanma
 Yapılandırılmasını otomatikleştirebilirsiniz [uyarılar](app-insights-alerts.md) içinde [Application Insights](app-insights-overview.md).
@@ -35,7 +35,7 @@ Azure aboneliğiniz önce PowerShell kullanmadıysanız:
 
 Azure Powershell modülü, komut dosyalarını çalıştırmak istediğiniz makineye yükleyin.
 
-* Yükleme [Microsoft Web Platformu Yükleyicisi (v5 veya üzeri)](http://www.microsoft.com/web/downloads/platform.aspx).
+* Yükleme [Microsoft Web Platformu Yükleyicisi (v5 veya üzeri)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Microsoft Azure PowerShell'i yüklemek için kullanın
 
 ## <a name="connect-to-azure"></a>Azure'a Bağlanma
@@ -50,7 +50,7 @@ Azure PowerShell'i başlatın ve [aboneliğinize bağlanma](/powershell/azure/ov
 ## <a name="get-alerts"></a>Uyarılar alın
     Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## <a name="add-alert"></a>Uyarı ekle
+## <a name="add-alert"></a>Uyarı Ekle
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -100,27 +100,27 @@ Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm pa
 ## <a name="metric-names"></a>Ölçüm adları
 | Ölçüm adı | Ekran adı | Açıklama |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Tarayıcı özel durumları |Tarayıcıda oluşan yakalanmayan özel durum sayısı. |
+| `basicExceptionBrowser.count` |Tarayıcı özel durumları |Tarayıcıda oluşan Yakalanmayan Özel durum sayısı. |
 | `basicExceptionServer.count` |Sunucu özel durumları |Uygulama tarafından oluşturulan yakalanamayan özel durum sayısı |
 | `clientPerformance.clientProcess.value` |İstemci işlem süresi |DOM'un yüklenmesi arasında bir belgenin son bayt alma süresi. Zaman uyumsuz istekler hala işleniyor. |
 | `clientPerformance.networkConnection.value` |Sayfa yükleme ağ bağlantı süresi |Ağa bağlanmak için tarayıcıya geçen süre. Önbelleğe alınmış 0 olabilir. |
 | `clientPerformance.receiveRequest.value` |Yanıt süresi alınıyor |Yanıt almak başlatma isteği gönderilirken tarayıcı arasındaki süre. |
 | `clientPerformance.sendRequest.value` |İstek gönderme süresi |İsteği göndermek için tarayıcı tarafından harcanan süre. |
-| `clientPerformance.total.value` |Tarayıcı sayfa yükleme süresi |Kullanıcı isteğinden DOM, stil sayfaları, betikler ve resimler yüklenene kadar geçen süre. |
-| `performanceCounter.available_bytes.value` |Uygun bellek |Bir işlem veya sistem kullanımı için hemen kullanılabilir fiziksel bellek. |
-| `performanceCounter.io_data_bytes_per_sec.value` |İşlem GÇ Hızı |Dosyalar, ağ ve cihazlar üzerinde saniyede okunan ve yazılan toplam bayt. |
+| `clientPerformance.total.value` |Tarayıcı sayfa yükleme süresi |Kullanıcı isteğinden DOM, stil sayfaları, betikler ve resimler yüklenene kadar süre. |
+| `performanceCounter.available_bytes.value` |Kullanılabilir bellek |Bir işlem veya sistem kullanımı için hemen kullanılabilir fiziksel bellek. |
+| `performanceCounter.io_data_bytes_per_sec.value` |İşlem GÇ hızı |Saniyede okunan ve dosyaları, ağ ve cihazlar için yazılan toplam bayt sayısı. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |özel durum oranı |Saniye başına oluşturulan bir özel durumlar. |
 | `performanceCounter.percentage_processor_time.value` |İşlem CPU'su |Tüm işlem iş parçacıklarının yönergeleri yürütmek için işlemciyi tarafından uygulama işlemi için kullanılan geçen süre yüzdesi. |
-| `performanceCounter.percentage_processor_total.value` |İşlemci zamanı |İşlemcinin Boşta olmayan iş parçacıklarında geçirdiği sürenin yüzdesi. |
+| `performanceCounter.percentage_processor_total.value` |İşlemci zamanı |İşlemcinin boşta olmayan iş parçacıklarında geçirdiği sürenin yüzdesi. |
 | `performanceCounter.process_private_bytes.value` |İşleme özel bayt sayısı |İzlenen uygulama işlemleri için özel olarak atanan bellek. |
-| `performanceCounter.request_execution_time.value` |ASP.NET isteği yürütme süresi |En son isteğin yürütülme süresi. |
+| `performanceCounter.request_execution_time.value` |ASP.NET isteği yürütme süresi |En son isteği yürütme süresi. |
 | `performanceCounter.requests_in_application_queue.value` |ASP.NET isteklerini yürütme sırası |Uygulama istek kuyruğunun uzunluğu. |
-| `performanceCounter.requests_per_sec.value` |ASP.NET isteği hızı |Saniyede ASP.NET'ten uygulamaya yapılan tüm isteklerin oranı. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET isteği hızı |ASP.net'ten saniyede uygulamaya yapılan tüm isteklerin oranı. |
 | `remoteDependencyFailed.durationMetric.count` |Bağımlılık hataları |Sunucu uygulama tarafından dış kaynaklara yapılan başarısız çağrıların sayısı. |
-| `request.duration` |Sunucu yanıt süresi |Bir HTTP isteğinin alınmasıyla yanıtın gönderilmesi arasında geçen süre. |
+| `request.duration` |Sunucu yanıt süresi |Bir HTTP isteğinin alınmasıyla yanıtın gönderilmesi tamamlama arasındaki süre. |
 | `request.rate` |İstek oranı |Saniyede uygulamaya yapılan tüm isteklerin oranı. |
 | `requestFailed.count` |Başarısız istekler |Bir yanıt kodunda sonuçlanan HTTP isteği sayısı > 400 = |
-| `view.count` |Sayfa görünümleri |Bir web sayfası için istemci kullanıcı isteklerini sayısı. Yapay trafik filtrelendi. |
+| `view.count` |Sayfa görüntülemeleri |Bir web sayfası için istemci kullanıcı isteklerini sayısı. Yapay trafik filtrelendi. |
 | {, özel ölçüm adı} |{Ölçüm adı} |Ölçüm, değer tarafından bildirilen [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) veya [ölçümleri parametresi bir izleme çağrısının](app-insights-api-custom-events-metrics.md#properties). |
 
 Ölçümler, farklı telemetri modülleri tarafından gönderilir:

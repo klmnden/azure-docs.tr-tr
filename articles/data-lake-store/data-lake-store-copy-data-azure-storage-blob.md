@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cf5ace29dabd3a55524fe38403a07e3916ea7d6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390901"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230759"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "44390901"
 >
 >
 
-Azure Data Lake depolama Gen1 sağlayan bir komut satırı aracı [AdlCopy](http://aka.ms/downloadadlcopy), aşağıdaki kaynaklardan gelen verileri kopyalamak için:
+Azure Data Lake depolama Gen1 sağlayan bir komut satırı aracı [AdlCopy](https://aka.ms/downloadadlcopy), aşağıdaki kaynaklardan gelen verileri kopyalamak için:
 
 * Data Lake depolama Gen1 içine Azure depolama Bloblarından. Azure depolama BLOB'ları için Data Lake depolama Gen1 verileri kopyalamak için AdlCopy kullanamazsınız.
 * İki Azure Data Lake depolama Gen1 hesapları arasında.
@@ -43,7 +43,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 * **Azure depolama BLOB'ları** bazı verileri içeren kapsayıcı.
 * **Bir Azure Data Lake depolama Gen1 hesap**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 * **(İsteğe bağlı) Azure Data Lake Analytics hesabı** -bkz [Azure Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md) bir Data Lake Analytics hesabı oluşturmak yönergeler.
-* **AdlCopy aracı**. AdlCopy aracını yükleme [ http://aka.ms/downloadadlcopy ](http://aka.ms/downloadadlcopy).
+* **AdlCopy aracı**. AdlCopy aracını yükleme [ http://aka.ms/downloadadlcopy ](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy aracının sözdizimi
 AdlCopy aracı ile çalışmak için aşağıdaki sözdizimini kullanın.

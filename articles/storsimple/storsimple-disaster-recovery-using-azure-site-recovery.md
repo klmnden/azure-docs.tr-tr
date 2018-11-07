@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249277"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple üzerinde barındırılan dosya paylaşımları için Azure Site Recovery kullanarak otomatik olağanüstü durum kurtarma çözümü
 ## <a name="overview"></a>Genel Bakış
@@ -43,7 +43,7 @@ StorSimple depolama alanında barındırılan dosya paylaşımları için Azure 
    - StorSimple depolama cihazında birimlerde barındırılan dosya paylaşımları
    - [Azure Site kurtarma Hizmetleri kasası](../site-recovery/site-recovery-vmm-to-vmm.md) bir Microsoft Azure aboneliği için oluşturulan
 
-Ayrıca, Azure kurtarma siteniz varsa, çalıştırmak [Azure sanal makine hazır olma durumu değerlendirmesi aracı](http://azure.microsoft.com/downloads/vm-readiness-assessment/) Hizmetleri sanal makinesi, Azure Vm'leri ve Azure Site Recovery ile uyumlu olduklarından emin olun.
+Ayrıca, Azure kurtarma siteniz varsa, çalıştırmak [Azure sanal makine hazır olma durumu değerlendirmesi aracı](https://azure.microsoft.com/downloads/vm-readiness-assessment/) Hizmetleri sanal makinesi, Azure Vm'leri ve Azure Site Recovery ile uyumlu olduklarından emin olun.
 
 Gecikme süresi, StorSimple Cloud Appliance, Otomasyon hesabı ve depolama oluşturma emin olun (Bu, maliyetin neden olabilir) sorunları önlemek için aynı bölgede hesabı.
 
@@ -81,7 +81,7 @@ Bu adım, şirket içi dosya sunucusu ortamı hazırlama gerektirir, oluşturma 
 
 1. VM Aracısı her dosya sunucusu sanal makineleri yükleyin. Bu, Azure Otomasyon betikleri başarısız VM'lerin yükünü çalıştırabilmeniz için gereklidir.
    
-   1. [Aracıyı indirin](http://aka.ms/vmagentwin) için `C:\\Users\\<username>\\Downloads`.
+   1. [Aracıyı indirin](https://aka.ms/vmagentwin) için `C:\\Users\\<username>\\Downloads`.
    1. Windows PowerShell'i Yönetici modunda (yönetici olarak çalıştır) açın ve ardından indirme konumuna gitmek için aşağıdaki komutu girin:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -168,16 +168,16 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
 1. Otomasyon hesabı'nda tıklatın **değişkenleri** &gt; **değişken Ekle** ve aşağıdaki değişkenleri ekleyin. Bu varlıklar şifrelemeyi seçebilirsiniz. Bu kurtarma planı belirli değişkenlerdir. Kurtarma planı, değişkenlerinizi TestPlan StorSimRegKey, TestPlan-AzureSubscriptionName olması ve benzeri sonraki adımda oluşturacağınız TestPlan, adıdır.
 
    - **BaseUrl**: Azure bulutu için Azure Resource Manager URL'si. Kullanarak başlayın **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet'i.
-   - *RecoveryPlanName* **- ResourceGroupName**: StorSimple kaynak için Azure Resource Manager grubu.
-   - *RecoveryPlanName* **- ManagerName**: StorSimple cihazı olan StorSimple kaynak.
-   - *RecoveryPlanName* **- DeviceName**: devredilecek olan StorSimple cihaz.
-   - *RecoveryPlanName* **- DeviceIpAddress**: aygıtın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **Ağ** &gt; **DNS ayarlarını** grup).
-   - *RecoveryPlanName* **- VolumeContainers**: virgülle ayrılmış bir dize üzerinde; örneğin başarısız için gereken cihazdaki birim kapsayıcıların: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName* **- TargetDeviceName**: StorSimple Cloud Appliance üzerinde kapsayıcılardır devredilecek.
-   - *RecoveryPlanName* **- TargetDeviceIpAddress**: hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** Grup &gt; **ağ** sekmesi).
-   - *RecoveryPlanName* **- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
-   - *RecoveryPlanName* **- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
-   - *RecoveryPlanName* **- VMGUIDS**: bir sanal makine koruma sırasında Azure Site Recovery her VM üzerinde VM başarısız ayrıntılarını sağlayan benzersiz bir kimliği atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
+   - * RecoveryPlanName ***- ResourceGroupName**: StorSimple kaynak için Azure Resource Manager grubu.
+   - * RecoveryPlanName ***- ManagerName**: StorSimple cihazı olan StorSimple kaynak.
+   - * RecoveryPlanName ***- DeviceName**: devredilecek olan StorSimple cihaz.
+   - * RecoveryPlanName ***- DeviceIpAddress**: aygıtın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **Ağ** &gt; **DNS ayarlarını** grup).
+   - * RecoveryPlanName ***- VolumeContainers**: virgülle ayrılmış bir dize üzerinde; örneğin başarısız için gereken cihazdaki birim kapsayıcıların: volcon1, volcon2, volcon3.
+   - * RecoveryPlanName ***- TargetDeviceName**: StorSimple Cloud Appliance üzerinde kapsayıcılardır devredilecek.
+   - * RecoveryPlanName ***- TargetDeviceIpAddress**: hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** Grup &gt; **ağ** sekmesi).
+   - * RecoveryPlanName ***- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
+   - * RecoveryPlanName ***- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
+   - * RecoveryPlanName ***- VMGUIDS**: bir sanal makine koruma sırasında Azure Site Recovery her VM üzerinde VM başarısız ayrıntılarını sağlayan benzersiz bir kimliği atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
 
     Kurtarma planı fileServerpredayRP, adıdır, örneğin, ardından, **değişkenleri**, **bağlantıları** ve **sertifikaları** sekmesi, ekledikten sonra aşağıdaki gibi görünmelidir Tüm varlıklar için.
 
@@ -289,7 +289,7 @@ Başvurmak [Active Directory DR çözümü](../site-recovery/site-recovery-activ
 
 #### <a name="to-perform-a-planned-failover"></a>Planlı bir yük devretme gerçekleştirme
 1. Azure portalında **kurtarma Hizmetleri** kasası &gt; **kurtarma planları (Site Recovery)** &gt; **recoveryplan_name** için oluşturuldu dosya sunucusu VM.
-1. Kurtarma planı dikey penceresinde tıklayın **daha fazla** &gt; **planlı yük devretme**.  
+1. Kurtarma planı dikey penceresinde tıklayın **daha fazla** &gt; **planlı yük devretme**.
 
    ![Kurtarma planı](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Üzerinde **planlı yük devretmeyi Onayla** dikey penceresinde, kaynak ve hedef konumları ve select hedef ağ seçin ve yük devretme işlemini başlatmak için ✓ onay simgesine tıklayın.
@@ -301,7 +301,7 @@ Planlanmamış bir yük devretme sırasında StorSimple birimlerini sanal cihaza
 
 #### <a name="to-perform-a-failover"></a>Bir yük devretme gerçekleştirmek için
 1. Azure portalında **kurtarma Hizmetleri** kasası &gt; **kurtarma planları (Site Recovery)** &gt; **recoveryplan_name** için oluşturuldu dosya sunucusu VM.
-1. Kurtarma planı dikey penceresinde tıklayın **daha fazla** &gt; **yük devretme**.  
+1. Kurtarma planı dikey penceresinde tıklayın **daha fazla** &gt; **yük devretme**.
 1. Üzerinde **yük devretmeyi Onayla** dikey penceresinde kaynağını seçin ve hedef konumları.
 1. Seçin **sanal makineleri kapatmak ve en son verileri eşitleyin** Site Recovery korumalı sanal makineyi kapatır ve verileri eşitleyerek veri en son sürümünü yük devretme denemesi gerektiğini belirtmek için.
 1. Yük devretmeden sonra yürütme bekleme durumuna sanal makineler yer. Tıklayın **işleme** için yük devretmeyi yürütürsünüz.
@@ -312,7 +312,7 @@ Bir yedekleme yapıldıktan sonra bir yeniden çalışma sırasında StorSimple 
 
 #### <a name="to-perform-a-failback"></a>Bir yeniden çalışma gerçekleştirme
 1. Azure portalında **kurtarma Hizmetleri** kasası &gt; **kurtarma planları (Site Recovery)** &gt; **recoveryplan_name** için oluşturuldu dosya sunucusu VM.
-1. Kurtarma planı dikey penceresinde tıklayın **daha fazla** &gt; **planlı yük devretme**.  
+1. Kurtarma planı dikey penceresinde tıklayın **daha fazla** &gt; **planlı yük devretme**.
 1. Kaynak ve hedef konumların seçin, VM oluşturma seçenekleri ve uygun veri eşitlemeyi seçin.
 1. Tıklayın **Tamam** yeniden çalışma işlemini başlatmak için düğme.
    
@@ -321,10 +321,10 @@ Bir yedekleme yapıldıktan sonra bir yeniden çalışma sırasında StorSimple 
 ## <a name="best-practices"></a>En İyi Uygulamalar
 ### <a name="capacity-planning-and-readiness-assessment"></a>Kapasite planlama ve hazır olma durumu değerlendirmesi
 #### <a name="hyper-v-site"></a>Hyper-V sitesi
-Kullanım [kullanıcı kapasite Planlayıcısı aracını](http://www.microsoft.com/download/details.aspx?id=39057) sunucu, depolama ve Hyper-V çoğaltma ortamınız için ağ altyapısını tasarlama.
+Kullanım [kullanıcı kapasite Planlayıcısı aracını](https://www.microsoft.com/download/details.aspx?id=39057) sunucu, depolama ve Hyper-V çoğaltma ortamınız için ağ altyapısını tasarlama.
 
 #### <a name="azure"></a>Azure
-Çalıştırabileceğiniz [Azure sanal makine hazır olma durumu değerlendirmesi aracı](http://azure.microsoft.com/downloads/vm-readiness-assessment/) vm'lerinde Azure Vm'leri ve Azure Site kurtarma Hizmetleri ile uyumlu olduklarından emin olun. Hazır olma durumu değerlendirmesi aracı, VM yapılandırmaları denetler ve yapılandırmaları Azure ile uyumsuz olduğunda uyarır. Örneğin, C: sürücüsü 127 GB'den büyük olması durumunda bir uyarı verir.
+Çalıştırabileceğiniz [Azure sanal makine hazır olma durumu değerlendirmesi aracı](https://azure.microsoft.com/downloads/vm-readiness-assessment/) vm'lerinde Azure Vm'leri ve Azure Site kurtarma Hizmetleri ile uyumlu olduklarından emin olun. Hazır olma durumu değerlendirmesi aracı, VM yapılandırmaları denetler ve yapılandırmaları Azure ile uyumsuz olduğunda uyarır. Örneğin, C: sürücüsü 127 GB'den büyük olması durumunda bir uyarı verir.
 
 Kapasite planlama en az iki önemli işlemden oluşur:
 

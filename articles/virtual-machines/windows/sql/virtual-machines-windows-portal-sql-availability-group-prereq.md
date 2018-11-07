@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371494"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253083"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlayın
 
@@ -35,14 +35,14 @@ Aşağıdaki diyagram, öğreticide yapı gösterir.
 
 ## <a name="review-availability-group-documentation"></a>Kullanılabilirlik grubu belgelerini gözden geçirin
 
-Bu öğreticide, SQL Server Always On kullanılabilirlik grupları hakkında bilgi sahibi olduğunuzu varsayar. Bu teknolojiyle ilgili bilgi sahibi değilseniz bkz [genel bakış, Always On kullanılabilirlik grupları (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+Bu öğreticide, SQL Server Always On kullanılabilirlik grupları hakkında bilgi sahibi olduğunuzu varsayar. Bu teknolojiyle ilgili bilgi sahibi değilseniz bkz [genel bakış, Always On kullanılabilirlik grupları (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Bir Azure hesabı oluşturun
 Bir Azure hesabınız olmalıdır. Yapabilecekleriniz [ücretsiz bir Azure hesabı açın](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) veya [Visual Studio abone Avantajlarınızı etkinleştirebilir](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+1. [Azure Portal](http://portal.azure.com) oturum açın.
 2. Tıklayın **+** portalda yeni bir nesne oluşturmak için.
 
    ![Yeni nesne](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -85,7 +85,7 @@ Sanal ağ oluşturmak için:
    | --- | --- |
    | **Ad** |autoHAVNET |
    | **Adres alanı** |10.33.0.0/24 |
-   | **Alt ağ adı** |Yönetici |
+   | **Alt ağ adı** |Yönetim Bölgesi |
    | **Alt ağ adres aralığı** |10.33.0.0/29 |
    | **Abonelik** |Kullanmak istediğiniz aboneliği belirtin. **Abonelik** yalnızca bir aboneliğiniz varsa boştur. |
    | **Kaynak grubu** |Seçin **var olanı kullan** ve kaynak grubu adını seçin. |
@@ -349,7 +349,7 @@ Active Directory ve kullanıcı nesnelerinin yapılandırma bitirdikten sonra ik
 
 ## <a name="create-sql-server-vms"></a>SQL Server Vm'leri oluşturma
 
-Üç ek sanal makine oluşturun. Çözüm, SQL Server örneklerini içeren iki sanal makine gerektirir. Üçüncü bir sanal makine bir Tanık olarak çalışmaya devam edecek. Windows Server 2016 kullanabileceğiniz bir [bulut tanığı](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), ancak bu belgenin önceki işletim sistemlerinde tutarlılık için bir Tanık sanal makine kullanır.  
+Üç ek sanal makine oluşturun. Çözüm, SQL Server örneklerini içeren iki sanal makine gerektirir. Üçüncü bir sanal makine bir Tanık olarak çalışmaya devam edecek. Windows Server 2016 kullanabileceğiniz bir [bulut tanığı](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), ancak bu belgenin önceki işletim sistemlerinde tutarlılık için bir Tanık sanal makine kullanır.  
 
 Devam etmeden önce aşağıdaki tasarım kararlarını göz önünde bulundurun.
 

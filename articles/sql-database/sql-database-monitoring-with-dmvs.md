@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 5dba091f62e320d6f9a48bea0208ef74db351402
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: df3062349ac384b92eeaf9483310cd5d3b48921f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095514"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238565"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Dinamik yönetim görünümlerini kullanarak Azure SQL Database’i izleme
 
@@ -682,7 +682,7 @@ SQL veritabanı analiz için geçmişe dönük İstatistikler oturumları sorgul
 
 ## <a name="monitoring-query-performance"></a>Sorgu performansını izleme
 
-Yavaş veya uzun süre çalışan sorguların önemli sistem kaynakları kullanabilir. Bu bölümde, birkaç ortak sorgu performansı sorunlarını algılamak için dinamik yönetim görünümlerini nasıl yapılacağı açıklanır. Sorun giderme, eski ancak yine de yararlı bir başvuru [SQL Server 2008'de performans sorunlarını giderme](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) Microsoft TechNet makalesi.
+Yavaş veya uzun süre çalışan sorguların önemli sistem kaynakları kullanabilir. Bu bölümde, birkaç ortak sorgu performansı sorunlarını algılamak için dinamik yönetim görünümlerini nasıl yapılacağı açıklanır. Sorun giderme, eski ancak yine de yararlı bir başvuru [SQL Server 2008'de performans sorunlarını giderme](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) Microsoft TechNet makalesi.
 
 ### <a name="finding-top-n-queries"></a>İlk N sorgularını bulma
 

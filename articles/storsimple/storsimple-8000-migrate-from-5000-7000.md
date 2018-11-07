@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818925"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234417"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>8000 serisi cihaz için StorSimple 5000-7000 serisinden veri geçirme
 
@@ -57,7 +57,7 @@ Bir konak tarafı geçiş 8000 serisi bağımsız olarak ayarlama ve veriler iç
 | 3.   | Başarılı bir geçiş tüm verileri gerecinde yerel. Verilere erişirken hiçbir gecikmeleri vardır. | Azure depolama alanı tüketimi, veriler 5000/7000 CİHAZDAN silinene kadar artacaktır.                                                                                                        |
 | 4.   |                                                                                                                           | Geçiş sırasında bu verilerin 7000/5000 Serisi cihaz büyük miktarda veri varsa, maliyetleri ve Azure'dan veri indirmeye ilgili gecikmeleri ödenmesini azure'dan indirilmesi gerekir. |
 
-Bu makalede yalnızca 8000 serisi cihaz 5000/7000'den geçiş özelliğe odaklanır. Konak tarafı geçiş hakkında daha fazla bilgi için Git [geçiş diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
+Bu makalede yalnızca 8000 serisi cihaz 5000/7000'den geçiş özelliğe odaklanır. Konak tarafı geçiş hakkında daha fazla bilgi için Git [geçiş diğer depolama cihazlarından](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
 ## <a name="migration-prerequisites"></a>Geçiş önkoşulları
 

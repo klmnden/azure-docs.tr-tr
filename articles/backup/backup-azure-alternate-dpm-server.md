@@ -1,6 +1,6 @@
 ---
-title: Bir Azure yedekleme sunucusundan veri kurtarma
-description: Herhangi bir sunucudan Azure yedekleme bu kasaya kayıtlı bir kurtarma Hizmetleri kasası yazdıramadığının verileri kurtarın.
+title: Bir Azure Backup Sunucusu'ndan veri kurtarma
+description: Azure Backup bu kasaya kayıtlı tüm sunuculardan bir kurtarma Hizmetleri kasasına koruma uyguladım verileri kurtarın.
 services: backup
 author: nkolli1
 manager: shreeshd
@@ -8,96 +8,96 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: adigan
-ms.openlocfilehash: 8559532f873e8073e736f881374fec1c080d08c3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aa2796ab8e4cd9b8ab5e7fc3b4804f5535ac3518
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604412"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254460"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Sunucusu’ndan veri kurtarma
-Azure yedekleme sunucusu, bir kurtarma Hizmetleri kasası yedeklediğiniz verileri kurtarmak için kullanabilirsiniz. İşlem yapmak için bu nedenle Azure yedekleme sunucusu Yönetim Konsolu'na tümleştirilmiştir ve diğer Azure Backup bileşenleri için kurtarma iş akışı benzer.
+Azure Backup sunucusu, bir kurtarma Hizmetleri kasasına yedeklediğiniz verileri kurtarmak için kullanabilirsiniz. İşlem yapmak için bu nedenle Azure Backup sunucusu yönetim konsolunda oturum tümleşiktir ve diğer Azure Backup bileşenlerini kurtarma iş akışını benzer.
 
 > [!NOTE]
-> Bu makalede [System Center Data Protection Manager 2012 R2 için UR7 veya sonraki sürümleriyle] geçerlidir (https://support.microsoft.com/en-us/kb/3065246), ile birleştirilmiş [en son Azure Backup aracısını](http://aka.ms/azurebackup_agent).
+> Bu makalede [System Center Data Protection Manager 2012 R2 için UR7 veya sonraki sürümlerle] geçerlidir (https://support.microsoft.com/en-us/kb/3065246), ile birleştirilmiş [en son Azure Backup aracısını](https://aka.ms/azurebackup_agent).
 >
 >
 
-Bir Azure yedekleme sunucusundan verileri kurtarmak için:
+Bir Azure Backup Sunucusu'ndan veri kurtarma için:
 
-1. Gelen **kurtarma** sekmesini Azure yedekleme sunucusu Yönetim Konsolu, tıklatın **'Dış DPM Ekle'** (en üst ekranın sol).   
+1. Gelen **kurtarma** sekmesi Azure Backup sunucusu yönetim konsolunda, **'Dış DPM Ekle'** (sırasında ekranın sol üst köşesindeki).   
     ![Dış DPM Ekle](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
-2. Yeni Yükleme **kasa kimlik bilgileri** ile ilişkili kasasından **Azure yedekleme sunucusu** veri kurtarılmakta olan yerlerde, Azure yedekleme sunucusu Azure yedekleme sunucuları listesinden Kurtarma Hizmetleri Kasayla birlikte kaydedilen seçin ve sağlamak **şifreleme parolası** verisini kurtarıldığı sunucuyla ilişkili.
+2. Yeni indirme **kasa kimlik bilgileri** ilişkili kasadan **Azure Backup sunucusu** veri kurtarılmakta olan yerlerde, Azure yedekleme sunucuları listesi, Azure Backup Sunucusu'ndan kayıtlı seçin Kurtarma Hizmetleri kasası ve sağlayan **şifreleme parolası** verisini kurtarılıyor sunucuyla ilişkili.
 
     ![Dış DPM kimlik bilgileri](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
    > [!NOTE]
-   > Yalnızca Azure yedekleme sunucuları aynı kayıt kasayla ilişkili birbirlerinin verileri kurtarabilir.
+   > Yalnızca Azure yedekleme aynı kayıt kasayla ilişkili sunucuları, diğer işlemelerin verileri kurtarabilir.
    >
    >
 
-    Dış Azure yedekleme sunucusu başarıyla eklendikten sonra dış sunucu ve yerel Azure yedekleme sunucusundan veri göz atabilirsiniz **kurtarma** sekmesi.
-3. Dış Azure yedekleme sunucusu tarafından korunan üretim sunucularında kullanılabilir listesini bulun ve uygun veri kaynağını seçin.
+    Dış Azure Backup sunucusu başarıyla eklendikten sonra dış sunucunun ve yerel Azure Backup Sunucusu'ndan veri göz atabilirsiniz **kurtarma** sekmesi.
+3. Dış Azure Backup sunucusu tarafından korunan üretim sunucularında kullanılabilir listesine göz atın ve uygun veri kaynağını seçin.
 
-    ![Dış DPM sunucusu Gözat](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
-4. Seçin **ay ve yıl** gelen **kurtarma noktaları** açılan, gerekli seçin **kurtarma tarih** kurtarma noktasının oluşturulduğu için ve select **kurtarma süresini**.
+    ![Dış DPM sunucusuna göz atma](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
+4. Seçin **ay ve yıl** gelen **kurtarma noktaları** gerekli seçin, açılan menü **kurtarma tarih** zaman kurtarma noktasının oluşturulduğu ve seçin**Kurtarma zamanı**.
 
-    Dosya ve klasörlerin listesini taranan ve herhangi bir yere kurtarılan alt bölmesinde görüntülenir.
+    Dosya ve klasörlerin listesini göz atıp herhangi bir yere kurtarılan alt bölmesinde görünür.
 
-    ![Dış DPM sunucusunu kurtarma noktaları](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Uygun öğeyi sağ tıklatın ve'ı tıklatın **kurtarmak**.
+    ![Dış DPM sunucusuna kurtarma noktaları](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
+5. Uygun öğeyi sağ tıklayın ve tıklayın **kurtarmak**.
 
     ![Dış DPM kurtarma](./media/backup-azure-alternate-dpm-server/recover.png)
-6. Gözden geçirme **kurtarmak seçimi**. Veri ve kurtarılan yedekleme kopyasının süresi yanı sıra, yedek kopyayı oluşturulduğu kaynak doğrulayın. Seçimi yanlışsa tıklatın **iptal** uygun Kurtarma noktasını seçmek için geri kurtarma sekmesine gidin. Seçimi doğruysa **sonraki**.
+6. Gözden geçirme **kurtarma seçimi**. Veri ve kurtarılan yedek kopyasının süresi yanı sıra, yedekleme kopyası oluşturulduğu kaynak doğrulayın. Seçimi yanlış ise, tıklayın **iptal** uygun Kurtarma noktasını seçmek için geri kurtarma sekmesine gidin. Seçimi doğru ise, tıklayın **sonraki**.
 
     ![Dış DPM kurtarma özeti](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 7. Seçin **alternatif bir konuma Kurtar**. **Gözat** doğru konuma kurtarma.
 
     ![Dış DPM kurtarma alternatif konumu](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
-8. İlgili seçeneği **kopya oluştur**, **atla**, veya **üzerine yaz**.
+8. İlgili seçeneğini **kopya oluştur**, **atla**, veya **üzerine yaz**.
 
    * **Kopya Oluştur** -bir ad çakışması varsa, dosyanın bir kopyasını oluşturur.
-   * **Atla** - bir ad çakışması varsa özgün dosya bırakır dosyasını kurtarmak değil.
-   * **Üzerine** - bir ad çakışması varsa dosya kopyasının üzerine yazar.
+   * **Skip** - bir ad çakışması varsa bırakır özgün dosya dosya kurtarılmıyor.
+   * **Üzerine** - bir ad çakışması varsa dosyanın kopyasının üzerine yazar.
 
-     Uygun seçeneği belirtin **geri güvenlik**. Verilerin nerede kurtarılacak hedef bilgisayarın güvenlik ayarlarını veya kurtarma noktası oluşturulduğunda ürün için uygun güvenlik ayarlarını uygulayabilirsiniz.
+     Uygun bir seçeneği belirleyin **geri güvenlik**. Verilerin nerede kurtarılmakta olan hedef bilgisayarın güvenlik ayarlarını veya kurtarma noktası oluşturulduğu anda ürün için uygun güvenlik ayarlarını uygulayabilirsiniz.
 
-     Tanımlamak olup bir **bildirim** kurtarma başarıyla tamamlandıktan sonra gönderilir.
+     Tanımlamak olup olmadığını bir **bildirim** kurtarma başarıyla tamamlandıktan sonra gönderilir.
 
      ![Dış DPM kurtarma bildirimleri](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. **Özet** ekran kadarki seçilen seçenekleri listeler. Tıkladığınızda **'Kurtar'**, verileri içi uygun konuma kurtarılır.
+9. **Özeti** ekran şimdiye seçilen seçenekleri listeler. ' A tıkladığınızda **'Kurtar'**, verilerin uygun şirket içi konuma kurtarılır.
 
     ![Dış DPM kurtarma seçenekleri özeti](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
    > [!NOTE]
-   > Kurtarma işi izlenebilir **izleme** Azure yedekleme sunucusu sekmesinde.
+   > Kurtarma işi izlenebilir **izleme** sekmesi Azure Backup sunucusu.
    >
    >
 
     ![Kurtarma izleme](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
-10. Tıklayabilirsiniz **dış DPM Temizle** üzerinde **kurtarma** dış DPM sunucusu görünümünü kaldırmak için DPM sunucusunun sekmesi.
+10. Tıklayabilirsiniz **dış DPM'yi Temizle** üzerinde **kurtarma** DPM sunucusunun dış DPM sunucusunun görünümünü kaldırmak için sekmesinde.
 
-    ![Dış DPM Temizle](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
+    ![Dış DPM'i Temizle](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
-## <a name="troubleshooting-error-messages"></a>Hata iletileri sorunlarını giderme
+## <a name="troubleshooting-error-messages"></a>Hata iletileri sorunları giderme
 | Hayır. | Hata İletisi | Sorun giderme adımları |
 |:---:|:--- |:--- |
-| 1. |Bu sunucu, kasa kimlik bilgileri tarafından belirtilen kasaya kayıtlı değil. |**Neden:** seçilen kasa kimlik bilgilerini Azure yedekleme kurtarma denemesi sunucuyla ilişkili kurtarma Hizmetleri Kasası'na ait olmadığından, bu hata görünür. <br> **Çözüm:** indirme için kasa kimlik bilgilerini kurtarma Hizmetleri kasası Azure yedekleme sunucusu kayıtlı. |
-| 2. |Kurtarılabilir veriler kullanılamıyor veya seçili sunucu DPM sunucusu değil. |**Neden:** vardır kayıtlı kurtarma Hizmetleri Kasası'na herhangi bir Azure yedekleme sunucusu veya sunucuları henüz meta veriler karşıya yüklenmedi veya seçili sunucu bir Azure yedekleme sunucusu (diğer adıyla Windows Server veya Windows istemcisi) değil. <br> **Çözüm:** varsa Kurtarma Hizmetleri Kasası'na kayıtlı diğer Azure yedekleme sunucusu, en son Azure Backup aracısının yüklü olduğundan emin olun. <br>Varsa kayıtlı kurtarma Hizmetleri Kasası'na diğer Azure yedekleme sunucusu, kurtarma işlemini başlatmak için yüklemeden sonra bir gün bekleyin. Gecelik iş buluta korunan tüm yedeklemeler için meta veriler karşıya yükler. Veri kurtarma için kullanılabilir. |
-| 3. |Başka bir DPM sunucusu bu kasaya kaydedilmiştir. |**Neden:** diğer Azure yedekleme, Kurtarma denemesi kasaya kayıtlı sunucu yok.<br>**Çözüm:** varsa Kurtarma Hizmetleri Kasası'na kayıtlı diğer Azure yedekleme sunucusu, en son Azure Backup aracısının yüklü olduğundan emin olun.<br>Varsa kayıtlı kurtarma Hizmetleri Kasası'na diğer Azure yedekleme sunucusu, kurtarma işlemini başlatmak için yüklemeden sonra bir gün bekleyin. Gecelik iş bulut tüm korumalı yedeklemeler için meta veriler karşıya yükleme. Veri kurtarma için kullanılabilir. |
-| 4. |Sağlanan şifreleme parolası şu sunucuyla ilişkili parolayla eşleşmiyor: **<server name>** |**Neden:** kurtarılmakta olan Azure yedekleme sunucunun veri verilerden şifreleme işleminde kullanılan şifreleme parolası sağlanan şifreleme parolası eşleşmiyor. Aracısı, verileri şifrelemek alamıyor. Bu nedenle kurtarma başarısız olur.<br>**Çözüm:** Lütfen Azure yedekleme verileri kurtarıldığı sunucu ile ilişkilendirilen tam aynı şifreleme parolası belirtin. |
+| 1. |Bu sunucu, kasa kimlik bilgileri tarafından belirtilen kasaya kayıtlı değil. |**Neden:** seçili kasa kimlik bilgilerini kurtarma denemesi Azure Backup sunucusu ile ilişkili kurtarma Hizmetleri kasasına ait değil, bu hata görüntülenir. <br> **Çözüm:** kurtarma Hizmetleri kasası kimlik bilgisi dosyasından kasa Azure Backup sunucusu kayıtlı indirme. |
+| 2. |Kurtarılabilir veriler kullanılamıyor veya seçili sunucu DPM sunucusu değil. |**Neden:** vardır diğer hiçbir Azure Backup sunucusu, Kurtarma Hizmetleri Kasası'na kayıtlı sunucuların henüz meta verilerini karşıya yüklenmedi veya seçili sunucu bir Azure Backup sunucusu (Windows Server veya Windows istemcisi olarak da bilinir) değil. <br> **Çözüm:** varsa diğer Azure Backup sunucusu, Kurtarma Hizmetleri kasasına kayıtlı, en son Azure Backup aracısının yüklü olduğundan emin olun. <br>Varsa diğer Azure Backup sunucusu, Kurtarma Hizmetleri kasasına kayıtlı, kurtarma işlemini başlatmak için yükleme sonrasında bir gün bekleyin. Gecelik iş bulut korumalı tüm yedeklemeler için meta verileri yükler. Veri kurtarma için kullanılabilir. |
+| 3. |Başka bir DPM sunucusu, bu kasaya kaydedilmiştir. |**Neden:** diğer Azure yedekleme, Kurtarma denenir kasaya kayıtlı sunucu yok.<br>**Çözüm:** varsa diğer Azure Backup sunucusu, Kurtarma Hizmetleri kasasına kayıtlı, en son Azure Backup aracısının yüklü olduğundan emin olun.<br>Varsa diğer Azure Backup sunucusu, Kurtarma Hizmetleri kasasına kayıtlı, kurtarma işlemini başlatmak için yükleme sonrasında bir gün bekleyin. Gecelik iş bulut korumalı tüm yedeklemeler için meta verileri yükler. Veri kurtarma için kullanılabilir. |
+| 4. |Sağlanan şifreleme parolası, aşağıdaki sunucuyla ilişkili parolayla eşleşmiyor: **<server name>** |**Neden:** kurtarılmakta olan Azure Backup Sunucusu'nun veri veriler şifreleme işleminde kullanılan şifreleme parolası sağlanan şifreleme parolası eşleşmiyor. Verilerin şifresini çözmek aracı silemiyor. Bu nedenle kurtarma başarısız olur.<br>**Çözüm:** Lütfen Azure yedekleme verilerini kurtarılıyor sunucu ile ilişkilendirilen aynı tam şifreleme parolası sağlayın. |
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 ### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Harici bir DPM sunucusu UR7 ve en son Azure Backup aracısını yükledikten sonra neden ekleyemiyorum?
 
-Buluta (güncelleştirme paketi 7'den önceki, bir güncelleştirme paketi kullanılarak) korunan veri kaynakları ile DPM sunucusu için UR7 ve en son Azure Backup aracısını başlatmaya yükledikten sonra en az bir gün beklemeniz gerekir **dış DPM Ekle sunucu**. Bir günlük süre için DPM koruma gruplarının meta verileri Azure'a yüklemeniz için gereklidir. Koruma grubu meta veri gecelik işi üzerinden ilk kez yüklenir.
+UR7 ve en son Azure Backup aracısını başlatmak için yükledikten sonra en az bir gün beklemeniz gerekir (güncelleştirme paketi 7'den önceki, bir güncelleştirme paketini kullanarak) bulut için korunan veri kaynakları ile DPM sunucuları için **dış DPM Ekle sunucu**. Bir günlük dönem için DPM koruma gruplarının meta verileri Azure'a karşıya yüklemek için gereklidir. Koruma grubu meta verileri ilk kez gecelik işi aracılığıyla yüklenir.
 
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Gerekli Microsoft Azure kurtarma Hizmetleri Aracısı'nın en düşük sürümü nedir?
+### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Gereken Microsoft Azure kurtarma Hizmetleri Aracısı'nın en düşük sürümü nedir?
 
-Microsoft Azure kurtarma Hizmetleri Aracısı ya da Azure Yedekleme aracısı, bu özelliği etkinleştirmek için gerekli en düşük sürümü 2.0.8719.0 ' dir.  Aracının sürümünü görüntülemek için: Denetim Masası'nı açın **>** tüm Denetim Masası öğeleri **>** programlar ve Özellikler **>** Microsoft Azure kurtarma Hizmetleri Aracısı. Küçüktür 2.0.8719.0 sürümse yükleyip [en son Azure Backup aracısını](https://go.microsoft.com/fwLink/?LinkID=288905).
+Microsoft Azure kurtarma Hizmetleri aracısı veya Azure Backup Aracısı, bu özelliği etkinleştirmek için gerekli en düşük sürümü 2.0.8719.0 ' dir.  Aracının sürümünü görüntülemek için: denetim masasını açın **>** tüm Denetim Masası öğeleri **>** programlar ve Özellikler **>** Microsoft Azure kurtarma Hizmetleri Aracısı. Sürüm 2.0.8719.0'den az ise, indirme ve yükleme [en son Azure Backup aracısını](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-![Dış DPM Temizle](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
+![Dış DPM'i Temizle](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar:
 • [Azure Backup ile ilgili SSS](backup-azure-backup-faq.md)

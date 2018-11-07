@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211732"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247764"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Çok katmanlı SAP NetWeaver uygulama dağıtımı için olağanüstü durum kurtarmayı ayarlama
 
@@ -93,8 +93,8 @@ Olağanüstü durum kurtarma ayarlama adımları aşağıda verilmiştir
 2. Bir kurtarma ağı tasarlama
 3.  Bir etki alanı denetleyicisi çoğaltma
 4.  Temel katman verileri çoğaltma 
-5.  Yük devretme testi yapın 
-6.  Bir yük devretme yapın 
+5.  Yük devretme testi gerçekleştirin 
+6.  Yük devretme gerçekleştirin 
 
 Aşağıda bu örnekte kullanılan her bir katman olağanüstü durum kurtarma için önerilir. 
 
@@ -150,7 +150,7 @@ En yaygın olarak kullanılan Azure Site Recovery betikleri için 'Azure'a Dağ�
 
 1.  Azure portalında kurtarma Hizmetleri kasanızı seçin.
 2.  SAP uygulamaları için oluşturduğunuz kurtarma planı seçin.
-3.  Seçin **yük devretme testi**.
+3.  **Yük Devretme Testi**'ni seçin.
 4.  Test yük devretme işlemini başlatmak için kurtarma noktası ve Azure sanal ağı'nı seçin.
 5.  İkincil bir ortamı yukarı olduğunda doğrulamaları gerçekleştirin.
 6.  Yük devretme ortamı temizlemek için doğrulamaları tamamlandığı zaman seçin **yük devretme testini Temizle**.
@@ -161,11 +161,11 @@ Daha fazla bilgi için [Azure Site recovery'de yük devretme testi](site-recover
 
 1.  Azure portalında kurtarma Hizmetleri kasanızı seçin.
 2.  SAP uygulamaları için oluşturduğunuz kurtarma planı seçin.
-3.  Seçin **yük devretme**.
+3.  **Yük devretme**'yi seçin.
 4.  Yük devretme işlemini başlatmak için kurtarma noktasını seçin.
 
 Daha fazla bilgi için [Site recovery'de yük devretme](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Site RECOVERY'yi kullanarak SAP NetWeaver dağıtımlar için bir olağanüstü durum kurtarma çözümü oluşturma hakkında daha fazla bilgi edinmek için indirilebilir teknik incelemesine bakın [SAP NetWeaver: Azure Site Recovery ile bir olağanüstü durum kurtarma çözümü oluşturma](http://aka.ms/asr-sap). Beyaz Kağıt, çeşitli SAP mimarileri için öneriler ele alınmaktadır, Azure üzerinde SAP için desteklenen uygulamalar ve VM türleri listeler ve olağanüstü durum kurtarma çözümünüzü test planı seçenekleri açıklar.
+* Site RECOVERY'yi kullanarak SAP NetWeaver dağıtımlar için bir olağanüstü durum kurtarma çözümü oluşturma hakkında daha fazla bilgi edinmek için indirilebilir teknik incelemesine bakın [SAP NetWeaver: Azure Site Recovery ile bir olağanüstü durum kurtarma çözümü oluşturma](https://aka.ms/asr-sap). Beyaz Kağıt, çeşitli SAP mimarileri için öneriler ele alınmaktadır, Azure üzerinde SAP için desteklenen uygulamalar ve VM türleri listeler ve olağanüstü durum kurtarma çözümünüzü test planı seçenekleri açıklar.
 * Daha fazla bilgi edinin [diğer iş yükleri çoğaltma](site-recovery-workload.md) Site Recovery kullanarak.

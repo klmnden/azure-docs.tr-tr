@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric MongoDB kullanan bir Node.js uygulaması dağıtma | Microsoft Docs
-description: Bir Azure Service Fabric kümesi dağıtmak için birden çok Konuk yürütülebilir dosyalar paketini konusunda gözden geçirme
+title: Azure Service Fabric için MongoDB kullanan bir Node.js uygulaması dağıtma | Microsoft Docs
+description: Bir Azure Service Fabric kümesine dağıtmak için birden fazla konuk tarafından yürütülebilir uygulama paketini nasıl yönergeleri
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 9a7ab3881cd1058a60ff7d5f6e50c296f042e76e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206088"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249005"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Konuk tarafından yürütülebilir birden çok uygulama dağıtma
-Bu makalede, paket ve birden çok Konuk yürütülebilir dosyalar için Azure Service Fabric dağıtma gösterilmektedir. Derleme ve tek bir Service Fabric paketi dağıtmak için okuma nasıl için [yürütülebilir Konuk dağıtmak için Service Fabric](service-fabric-deploy-existing-app.md).
+Bu makalede, paketleyin ve birden fazla Konuk yürütülebilir dosyaları Azure Service Fabric'e dağıtma gösterilmektedir. Oluşturmak ve tek bir Service Fabric paket dağıtımı için okuma nasıl için [Konuk yürütülebilir dosyası, Service Fabric'e dağıtma](service-fabric-deploy-existing-app.md).
 
-Bu kılavuz, MongoDB veri deposu olarak kullanan bir Node.js ön ucuna sahip bir uygulamanın nasıl dağıtılacağı gösterilmektedir, ancak başka bir uygulama üzerinde bağımlılıklara sahip herhangi bir uygulama adımları uygulayabilirsiniz.   
+Bu izlenecek yolda veri deposu olarak MongoDB kullanan bir Node.js ön ucuna sahip bir uygulamanın nasıl dağıtılacağı gösterir, ancak başka bir uygulama üzerinde bağımlılıkları olan herhangi bir uygulama adımları uygulayabilirsiniz.   
 
-Birden çok Konuk yürütülebilir dosyaları içeren uygulama paketini oluşturmak için Visual Studio'yu kullanabilirsiniz. Bkz: [var olan bir uygulama paketi için Visual Studio'yu kullanarak](service-fabric-deploy-existing-app.md). İlk Konuk yürütülebilir ekledikten sonra uygulama projesine sağ tıklayın ve seçin **Ekle -> Yeni Service Fabric hizmet** ikinci Konuk yürütülebilir proje çözüme eklemek için. Not: Visual Studio projesini kaynak bağlamayı seçerseniz, Visual Studio çözümü oluşturma uygulama paketinizi kaynağındaki değişikliklerle güncel olduğundan emin olun. 
+Visual Studio, birden fazla Konuk yürütülebilir dosyaları içeren uygulama paketini oluşturmak için kullanabilirsiniz. Bkz: [var olan bir uygulamayı paketlemek için Visual Studio kullanarak](service-fabric-deploy-existing-app.md). İlk Konuk yürütülebilir dosyası ekledikten sonra uygulama projesine sağ tıklayın ve seçin **Ekle -> Yeni Service Fabric hizmeti** ikinci Konuk yürütülebilir projeyi çözüme eklemek için. Not: Visual Studio projesini kaynak bağlamak isterseniz, Visual Studio çözümü uygulama paketinizi değişiklikleri kaynak güncel olduğundan emin olun. 
 
 ## <a name="samples"></a>Örnekler
-* [Paketleme ve dağıtma bir konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Paketleme ve dağıtma Konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)
 
-## <a name="manually-package-the-multiple-guest-executable-application"></a>El ile birden çok Konuk yürütülebilir uygulama paketi
-Bunun yerine el ile yürütülebilir Konuk paketleyebilirsiniz. El ile paketleme için bu makalede şu adresten edinilebilir Service Fabric paketleme aracı kullanan [ http://aka.ms/servicefabricpacktool ](http://aka.ms/servicefabricpacktool).
+## <a name="manually-package-the-multiple-guest-executable-application"></a>El ile birden fazla konuk tarafından yürütülebilir uygulama paketi
+Alternatif olarak el ile Konuk yürütülebilir dosyası paketleyebilirsiniz. El ile paketleme için bu makalede bulunabilir Service Fabric paketleme aracı kullanır. [ http://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
 
-### <a name="packaging-the-nodejs-application"></a>Node.js Uygulama paketleme
-Bu makale, Node.js Service Fabric kümesindeki düğümlere yüklü olmadığını varsayar. Sonuç olarak paketlemeden önce düğüm uygulamanızın kök dizinine Node.exe eklemeniz gerekir. (Express web çerçevesi ve Jade şablon motoru kullanarak) Node.js uygulaması dizin yapısını birine benzer görünmelidir:
+### <a name="packaging-the-nodejs-application"></a>Node.js uygulaması paketleme
+Bu makalede, Node.js, Service Fabric kümesindeki düğümlere yüklenmedi varsayılır. Sonuç olarak node.js uygulamanızı paketleme önce kök dizinine Node.exe eklemeniz gerekir. Dizin yapısı (Express web çerçevesini ve Jade şablon altyapısı kullanılarak) Node.js uygulaması, aşağıdaki gibi görünmelidir:
 
 ```
 |-- NodeApplication
@@ -61,22 +61,22 @@ Bu makale, Node.js Service Fabric kümesindeki düğümlere yüklü olmadığın
     |-- node.exe
 ```
 
-Sonraki adım olarak, Node.js uygulaması için uygulama paketi oluşturun. Aşağıdaki kodu Node.js uygulaması içeren bir Service Fabric uygulama paketi oluşturur.
+Sonraki adım olarak, bir Node.js uygulaması için uygulama paketi oluşturun. Aşağıdaki kod, Node.js uygulaması içeren bir Service Fabric uygulama paketi oluşturur.
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:NodeAppType
 ```
 
-Kullanılmakta olan parametreleri açıklamasını aşağıdadır:
+Kullanılmayan parametreleri açıklaması aşağıda verilmiştir:
 
-* **/ source** paketlenmesi uygulama dizinine işaret eder.
-* **/ target** içinde paket oluşturulmalıdır dizin tanımlar. Bu dizin kaynak dizinden farklı olması gerekir.
-* **Appname** var olan uygulamaya uygulama adını tanımlar. Bu hizmet adı bildiriminde ve değil Service Fabric uygulama adı dönüşür anlamak önemlidir.
-* **/ exe** Service Fabric başlatın, bu durumda olması yürütülebilir tanımlar `node.exe`.
-* **/ma** yürütülebilir başlatmak için kullanılan bağımsız değişken tanımlar. Node.js yüklenmemiş gibi Service Fabric yürüterek Node.js web sunucusu başlatmak gereken `node.exe bin/www`.  `/ma:'bin/www'` kullanılacak paketleme aracı söyler `bin/www` node.exe bağımsız değişkeni olarak.
-* **/ Uygulama türü** Service Fabric uygulaması türü adını tanımlar.
+* **/ source** paketlenmesi gereken uygulamanın dizinine işaret eder.
+* **/ target** , paketin oluşturulacağı dizin tanımlar. Bu dizin, kaynak dizinden farklı olmak zorundadır.
+* **yüklemede** var olan uygulamayı uygulama adını tanımlar. Bu bildirimde hizmet adını ve Service Fabric uygulama adı için dönüşür anlamak önemlidir.
+* **/ exe** Service Fabric, bu durumda başlatmak için gereken yürütülebilir tanımlar `node.exe`.
+* **/ma** yürütülebilir dosyayı başlatmak için kullanılan bağımsız değişkeni tanımlar. Node.js yüklü değil gibi Service Fabric yürüterek Node.js web sunucusunu başlatmak gereken `node.exe bin/www`.  `/ma:'bin/www'` paketleme aracını kullanmak için bildiren `bin/www` node.exe için bağımsız değişken olarak.
+* **/ Apptype özelliğine** Service Fabric uygulama türü adını tanımlar.
 
-/ Target parametresinde belirtilen dizine göz atarsanız, araç tümüyle işlevsel bir Service Fabric paketi aşağıda gösterildiği gibi oluşturdu görebilirsiniz:
+/ Target parametresinde belirtilen dizine göz atarsanız, aşağıda gösterildiği gibi bir araç tam olarak işlevsel bir Service Fabric paket oluşturdu görebilirsiniz:
 
 ```
 |--[yourtargetdirectory]
@@ -96,7 +96,7 @@ Kullanılmakta olan parametreleri açıklamasını aşağıdadır:
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Oluşturulan ServiceManifest.xml şimdi nasıl Node.js web sunucusu başlatılması gerekir, aşağıdaki kod parçacığında gösterildiği gibi açıklayan bir bölümü vardır:
+Oluşturulan ServiceManifest.xml şimdi nasıl Node.js web sunucusunun başlatılması gerekir, aşağıdaki kod parçacığında gösterildiği gibi açıklayan bir bölümü vardır:
 
 ```xml
 <CodePackage Name="C" Version="1.0">
@@ -109,7 +109,7 @@ Oluşturulan ServiceManifest.xml şimdi nasıl Node.js web sunucusu başlatılma
     </EntryPoint>
 </CodePackage>
 ```
-Aşağıda gösterildiği gibi ServiceManifest.xml dosyasında uç nokta bilgileri güncelleştirmek gereken şekilde bu örnekte, bağlantı noktası 3000, Node.js web sunucusu dinler.   
+Aşağıda gösterildiği gibi ServiceManifest.xml dosyasındaki uç nokta bilgileri güncelleştirmeye gerek duyduğunuz şekilde bu örnekte Node.js web sunucusu bağlantı noktası 3000 dinler.   
 
 ```xml
 <Resources>
@@ -119,9 +119,9 @@ Aşağıda gösterildiği gibi ServiceManifest.xml dosyasında uç nokta bilgile
 </Resources>
 ```
 ### <a name="packaging-the-mongodb-application"></a>MongoDB Uygulama paketleme
-Node.js uygulaması paketlenmiş, devam edin ve MongoDB paket. Önceden belirtildiği gibi şimdi geçtikleri adımlar Node.js ve MongoDB özel değildir. Aslında, bir Service Fabric uygulaması olarak birlikte paketlenmesi yönelik tüm uygulamalar için geçerlidir.  
+Node.js uygulaması paketlediğinizden, devam edin ve MongoDB paket. Daha önce belirtildiği gibi artık Git aracılığıyla adımlar Node.js ve MongoDB özgü değildir. Aslında, bir Service Fabric uygulaması olarak birlikte paketlenmesi gereken tüm uygulamalara uygulanır.  
 
-MongoDB paketlemek için Mongod.exe ve Mongo.exe paketi emin olmak istersiniz. Her iki ikili dosyaları bulunan `bin` , MongoDB yükleme dizininin dizin. Dizin yapısı birine benzer.
+MongoDB paketlemek için Mongod.exe ve Mongo.exe paketini emin olmanız gerekir. Her iki ikili dosyaları bulunur `bin` MongoDB yükleme dizininin dizin. Dizin yapısı aşağıdaki gibi görünür.
 
 ```
 |-- MongoDB
@@ -130,25 +130,25 @@ MongoDB paketlemek için Mongod.exe ve Mongo.exe paketi emin olmak istersiniz. H
         |-- mongo.exe
         |-- anybinary.exe
 ```
-Service Fabric gereken MongoDB, benzer bir komutla aşağıdaki başlatmak kullanmanız gereken şekilde `/ma` MongoDB paketleme, parametre.
+Service Fabric gereken MongoDB benzer bir komut aşağıdaki başlatmak kullanmanız gereken şekilde `/ma` MongoDB paketlenirken parametresi.
 
 ```
 mongod.exe --dbpath [path to data]
 ```
 > [!NOTE]
-> Düğümün yerel dizin MongoDB veri dizini yerleştirirseniz veriler bir düğümü hatasına karşı korunmaz. Dayanıklı depolama kullanabilir veya veri kaybını önlemek için ayarlanmış bir MongoDB çoğaltma uygulamak.  
+> MongoDB veri dizini düğümünün yerel dizinde koyarsanız veri olması durumunda bir düğümde hata oluştuktan korunuyor değil. Dayanıklı depolama kullanabilir veya bir MongoDB çoğaltma veri kaybını önlemek için uygulama.  
 >
 >
 
-PowerShell ya da komut kabuğunu biz paketleme aracını aşağıdaki parametrelerle çalıştırın:
+PowerShell veya komut kabuğu, biz paketleme aracı aşağıdaki parametrelerle çalıştırın:
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
 ```
 
-Service Fabric uygulama paketinizi MongoDB eklemek için uygulama zaten var. aynı dizine/target parametresi noktaları yanı sıra Node.js uygulama bildirimi emin olmanız gerekir. Ayrıca aynı ApplicationType adı kullandığınızdan emin olmanız gerekir.
+MongoDB, Service Fabric uygulama paketini eklemek için uygulamayı içeren aynı dizinde / target parametre noktalarına yanı sıra Node.js uygulaması bildirim emin olmanız gerekir. ApplicationType adın aynısını kullanarak emin olmanız gerekir.
 
-Şirketinizdeki dizine gözatın ve aracı oluşturulmuş inceleyin.
+Şimdi dizinine göz atın ve hangi aracın oluşturduğu inceleyin.
 
 ```
 |--[yourtargetdirectory]
@@ -164,7 +164,7 @@ Service Fabric uygulama paketinizi MongoDB eklemek için uygulama zaten var. ayn
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Gördüğünüz gibi aracı yeni bir klasör, MongoDB, MongoDB ikili dosyaları içeren dizine eklendi. Açarsanız `ApplicationManifest.xml` dosya, paket artık Node.js uygulaması ve MongoDB içerdiğini görebilirsiniz. Aşağıdaki kod, uygulama bildirimi içeriğini gösterir.
+Gördüğünüz gibi aracı yeni bir klasör, MongoDB, MongoDB ikili dosyaları içeren dizine eklenir. Açarsanız `ApplicationManifest.xml` dosyasını, paket şimdi Node.js uygulama ve MongoDB içerdiğini görebilirsiniz. Aşağıdaki kod, uygulama bildiriminin içeriği gösterir.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -190,7 +190,7 @@ Gördüğünüz gibi aracı yeni bir klasör, MongoDB, MongoDB ikili dosyaları 
 ```
 
 ### <a name="publishing-the-application"></a>Uygulama yayımlama
-PowerShell komut dosyalarını kullanarak yerel Service Fabric kümesi için uygulama yayımlamak için son adımdır bakın:
+PowerShell komut dosyalarını kullanarak yerel bir Service Fabric kümesine uygulama yayımlamak için son adımdır bakın:
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -204,18 +204,18 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Uygulamayı yerel kümeye başarıyla yayımlandığında Node.js uygulaması Node.js uygulaması--hizmeti bildiriminde örneğin girmiş olduğunuz bağlantı noktası üzerinde erişebilirsiniz http://localhost:3000.
+Uygulamayı yerel kümeye başarıyla yayımlandığında, Node.js uygulaması--hizmet bildiriminde örneğin girmiş olduğunuz bağlantı noktası üzerinde Node.js uygulamaya erişebilmesi için http://localhost:3000.
 
-Bu öğreticide, kolayca bir Service Fabric uygulaması olarak iki uygulamalarınız için nasıl gördünüz. Aynı zamanda yüksek kullanılabilirlik ve sistem durumu sistem tümleştirme gibi Service Fabric özelliklerinden bazıları yararlanabilir böylece Service Fabric dağıtmayı öğrendiniz.
+Bu öğreticide, bir Service Fabric uygulaması olarak iki mevcut uygulamaları kolayca paketlenecek öğrendiniz. Ayrıca bazı Service Fabric özellikleri, yüksek kullanılabilirlik ve sistem durumu sistem tümleştirmesi gibi yararlanabilir, böylece Service Fabric'e dağıtma gerçekleştirmeyi öğrendiniz.
 
 
-## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Yeoman Linux'ta kullanarak var olan bir uygulamaya daha fazla Konuk yürütülebilir dosyaları ekleme
+## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Daha fazla Konuk yürütülebilir dosyaları, Linux üzerinde Yeoman kullanarak var olan bir uygulamaya ekleme
 
 `yo` kullanılarak oluşturulmuş bir uygulamaya başka bir hizmet eklemek için aşağıdaki adımları uygulayın: 
 1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
-2. Çalıştırma `yo azuresfguest:AddService` ve gerekli ayrıntıları sağlayın.
+2. Çalıştırma `yo azuresfguest:AddService` ve gerekli ayrıntıları belirtin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* İle kapsayıcıları dağıtma hakkında bilgi edinin [Service Fabric ve kapsayıcıları genel bakış](service-fabric-containers-overview.md)
-* [Paketleme ve dağıtma bir konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* Kapsayıcılar ile dağıtma hakkında bilgi edinin [Service Fabric ve kapsayıcılar genel bakış](service-fabric-containers-overview.md)
+* [Paketleme ve dağıtma Konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)

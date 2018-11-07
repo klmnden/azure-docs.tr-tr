@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261169"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Depolama Gezgini’nde Azure Cosmos DB’yi Yönetme
 
@@ -130,7 +130,7 @@ Gezgin bölmesindeki bir aboneliğe sağ tıklayarak birçok hızlı eylem göre
 
 2. Bölüm anahtarını belirtebilmek için **Sınırsız**’ı seçin ve sonra **Tamam**’a tıklayarak işlemi tamamlayın.
 
-    Bir koleksiyon oluşturulurken bölüm anahtarı kullanılırsa, oluşturma işlemi tamamlandıktan sonra koleksiyondaki bölüm anahtarı değeri değiştirilemez. Bölüm anahtarı ayarlarıyla ilgili bilgi için bkz. [Bölümleme için tasarlama](partition-data.md#designing-for-partitioning).
+    Bir koleksiyon oluşturulurken bölüm anahtarı kullanılırsa, oluşturma işlemi tamamlandıktan sonra koleksiyondaki bölüm anahtarı değeri değiştirilemez.
 
     ![Bölüm anahtarı](./media/storage-explorer/partitionkey.png)
 

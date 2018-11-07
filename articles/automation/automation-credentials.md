@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585349"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233448"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure automation'da kimlik bilgisi varlıkları
 
-Bir Otomasyon kimlik bilgisi varlığı, bir kullanıcı adı ve parola gibi güvenlik kimlik bilgilerini içeren bir nesne içerir. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak PSCredential nesnesinin ayıklamak veya kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'ler Runbook'larda ve DSC yapılandırmaları kullanabilir. Kimlik bilgileri özellikleri Azure Automation'da güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilebilen [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) etkinlik.
+Bir Otomasyon kimlik bilgisi varlığı, bir kullanıcı adı ve parola gibi güvenlik kimlik bilgilerini içeren bir nesne içerir. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak PSCredential nesnesinin ayıklamak veya kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'ler Runbook'larda ve DSC yapılandırmaları kullanabilir. Kimlik bilgileri özellikleri Azure Automation'da güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilebilen [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) etkinlik.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -53,7 +53,7 @@ Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları kimlik
 
 | Etkinlikler | Açıklama |
 |:--- |:--- |
-| Get-AutomationPSCredential |Runbook'tan veya DSC yapılandırmasından içinde kullanmak için bir kimlik bilgisi alır. Döndürür bir [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) nesne. |
+| Get-AutomationPSCredential |Runbook'tan veya DSC yapılandırmasından içinde kullanmak için bir kimlik bilgisi alır. Döndürür bir [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) nesne. |
 
 > [!NOTE]
 > Değişkenleri kullanmaktan kaçınmanız gerekir – Name parametresinde, Get-AutomationPSCredential olduğundan bu runbook veya DSC yapılandırmaları arasındaki bağımlılıkları genişlemesiyle ve kimlik bilgisi varlıkları tasarım zamanında.
@@ -94,7 +94,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Bir PowerShell kimlik bilgisi kullanma
 
-Bir runbook'tan veya DSC yapılandırmasından ile kimlik bilgisi varlığı almak **Get-AutomationPSCredential** etkinlik. Bu döndürür bir [PSCredential nesnesinin](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) bir etkinlik veya cmdlet'i parametre gerektiren bir PSCredential ile kullanabilirsiniz. Tek tek kullanmak için kimlik bilgisi nesnesinin özelliklerini de alabilirsiniz. Nesnesi için kullanıcı adı ve parolayı güvenli bir özelliğe sahiptir ve kullanabileceğiniz **GetNetworkCredential** döndürülecek yöntemi bir [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) nesnesini güvenli olmayan bir sürümü sağlar parola.
+Bir runbook'tan veya DSC yapılandırmasından ile kimlik bilgisi varlığı almak **Get-AutomationPSCredential** etkinlik. Bu döndürür bir [PSCredential nesnesinin](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) bir etkinlik veya cmdlet'i parametre gerektiren bir PSCredential ile kullanabilirsiniz. Tek tek kullanmak için kimlik bilgisi nesnesinin özelliklerini de alabilirsiniz. Nesnesi için kullanıcı adı ve parolayı güvenli bir özelliğe sahiptir ve kullanabileceğiniz **GetNetworkCredential** döndürülecek yöntemi bir [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) nesnesini güvenli olmayan bir sürümü sağlar parola.
 
 ### <a name="textual-runbook-sample"></a>Metinsel runbook örneği
 

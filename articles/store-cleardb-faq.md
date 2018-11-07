@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665731"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230640"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanma hakkında sık sorulan soruları yanıtlar.
@@ -106,7 +106,7 @@ Doğrudan olmayan EA müşterileri, Azure Marketi abonelikleri üzerinde bulabil
 Üçüncü taraf hizmetleri için erişim Azure marketi, EA Azure kayıt yöneticileri tarafından yönetilebilir. Devre dışı bırakın veya erişim 3. taraf satın alımları için hesapları yönetme ve abonelikleri Store'dan Enterprise Portal'da hesaplar bölümü altında yeniden etkinleştirin.
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Kimin sorular için hakkında faturamı ClearDB hizmetler için EA aboneliğimde başvurmam gerekir?
-İlgili kişi [Kurumsal Müşteri Destek](http://aka.ms/AzureEntSupport) kendi EA kaydı altında faturalama bakımından. EA Portal destek ekibi, sorunuzun yanıtlanması veya sorununuzu çözmenize yardımcı olması.
+İlgili kişi [Kurumsal Müşteri Destek](https://aka.ms/AzureEntSupport) kendi EA kaydı altında faturalama bakımından. EA Portal destek ekibi, sorunuzun yanıtlanması veya sorununuzu çözmenize yardımcı olması.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 [Azure Market SSS](https://azure.microsoft.com/marketplace/faq/)

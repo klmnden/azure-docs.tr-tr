@@ -1,6 +1,6 @@
 ---
-title: BizTalk Services listesinde görev yönetim ve geliştirme | Microsoft Docs
-description: Planlama ve iş Azure BizTalk Services dağıtmak için yardımcı.
+title: BizTalk hizmetleri listesinde görev yönetim ve geliştirme | Microsoft Docs
+description: Proje planlama ve Azure BizTalk Services'ı dağıtmak için yardımcı.
 services: biztalk-services
 documentationcenter: ''
 author: msftman
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 9edd7261ca62f505ffb4854e3132fae916768f67
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e762141e089b11dd0fb129f3bf758874d4ad4da8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26626595"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227646"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Yönetim ve geliştirme görev listesinde BizTalk Hizmetleri
 
@@ -28,35 +28,35 @@ ms.locfileid: "26626595"
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="getting-started"></a>Başlarken
-Microsoft Azure BizTalk Services ile çalışırken, çeşitli şirket içi ve bulut tabanlı bileşenler dikkate alınması gereken vardır. Başlamak için aşağıdaki işlem akışı göz önünde bulundurun:  
+Microsoft Azure BizTalk Services ile çalışırken, çeşitli şirket içi ve bulut tabanlı bileşenler dikkate alınması gereken vardır. Başlamak için aşağıdaki işlem akışını göz önünde bulundurun:  
 
 | Adım | Kimin sorumlu olduğunu | Görev | İlgili Bağlantılar |
 | --- | --- | --- | --- |
-| 1. |Yönetici |Bir Microsoft hesabı veya kurumsal bir hesap kullanarak Microsoft Azure aboneliği oluşturma |[Azure portal](https://portal.azure.com) |
-| 2. |Yönetici |Oluşturun veya bir BizTalk hizmeti sağlanamadı. |[BizTalk hizmeti oluşturma](https://msdn.microsoft.com/library/azure/dn232347.aspx) |
-| 3. |Yönetici |Siz veya şirketinizin BizTalk Services Dağıtımı kaydetme |[Kaydetme ve BizTalk Services portalı üzerinde bir BizTalk hizmeti dağıtımı güncelleştiriliyor](https://msdn.microsoft.com/library/azure/hh689837.aspx) |
-| 4. |Yönetici |Bir kuyruk veya konu hedef kullanır veya uygulama bir şirket içi iş kolu (LOB) sistemine bağlamak için BizTalk bağdaştırıcı hizmeti kullanıyorsa uygular.  Azure hizmet veri yolu Namespace oluşturun. Bu ad alanı, hizmet veri yolu verenin adı ve hizmet veri yolu verenin anahtarı değerlerini geliştiriciye verirsiniz. |[Nasıl yapılır: oluşturmak veya bir hizmet veri yolu hizmet Namespace değiştirmek](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) ve [alma verenin adı ve verenin anahtarı değerleri](biztalk-issuer-name-issuer-key.md) |
-| 5. |Geliştirici |SDK'sını yükleyin ve Visual Studio içindeki BizTalk hizmeti projesi oluşturun. |[Azure BizTalk Services SDK'sı yükleme](https://msdn.microsoft.com/library/azure/hh689760.aspx) ve [Azure üzerinde zengin Mesajlaşma uç noktaları oluşturma](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
-| 6. |Geliştirici |BizTalk hizmeti projesine Azure üzerinde barındırılan, BizTalk hizmetinize dağıtın. |[Dağıtma ve BizTalk Services projesi yenileme](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
-| 7. |Yönetici |EDI kullanıyorsanız geçerlidir.  İş ortakları ekleyin ve Microsoft Azure BizTalk Services Portalı'ndaki sözleşmeler oluşturun. Bir sözleşme oluşturduğunuzda Köprüsü ve/veya anlaşma ayarlarına geliştirici tarafından oluşturulan dönüşümler ekleyebilirsiniz. |[BizTalk Hizmetleri portalında EDI, AS2 ve EDIFACT yapılandırma](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |Yönetici |Kullanarak [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), performans ölçümleri de dahil olmak üzere, BizTalk hizmeti durumunu izleyin. |[BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](http://go.microsoft.com/fwlink/p/?LinkID=302281) |
-| 9. |Yönetici |Microsoft Azure BizTalk Services Portalı'nı kullanarak, köprüsü dosyaları tarafından işlenen olarak BizTalk Services ve izleme iletilerini tarafından kullanılan yapılar yönetin. |[BizTalk Services Portalı'nı kullanarak](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
-| 10. |Yönetici |BizTalk hizmeti yedeklemek için bir yedekleme planı oluşturun. |[İş devamlılığı ve olağanüstü durum kurtarma BizTalk Hizmetleri](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
+| 1. |Yönetici |Bir Microsoft hesabı veya Kurumsal hesap kullanarak Microsoft Azure aboneliği oluşturun |[Azure portal](https://portal.azure.com) |
+| 2. |Yönetici |BizTalk hizmeti sağlayın veya oluşturun. |[BizTalk Hizmeti oluşturma](https://msdn.microsoft.com/library/azure/dn232347.aspx) |
+| 3. |Yönetici |Sizin veya şirketinizin BizTalk Hizmetleri dağıtımı kaydetme |[Kaydetme ve BizTalk Hizmetleri portalında bir BizTalk hizmeti dağıtımını güncelleştirme](https://msdn.microsoft.com/library/azure/hh689837.aspx) |
+| 4. |Yönetici |Uygulama, bir şirket içi iş kolu (LOB) sistemine bağlamak için BizTalk bağdaştırıcı hizmetini kullanıyorsa geçerlidir veya bir kuyruk veya konuda hedef kullanır.  Azure Service Bus Namespace oluşturun. Bu ad alanı, Service Bus verenin adı ve hizmet veri yolu yayıncı değerleri geliştiriciye verirsiniz. |[Nasıl yapılır: oluşturma veya değiştirme bir Service Bus hizmeti Namespace](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) ve [alma verenin adı ve verenin anahtarı değerleri](biztalk-issuer-name-issuer-key.md) |
+| 5. |Geliştirici |SDK'sını yükleyin ve Visual Studio'daki BizTalk hizmeti projesini oluşturun. |[Azure BizTalk Hizmetleri SDK'sını yükleme](https://msdn.microsoft.com/library/azure/hh689760.aspx) ve [Azure'da zengin Mesajlaşma uç noktaları oluşturma](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
+| 6. |Geliştirici |Proje BizTalk hizmetiniz için Azure üzerinde barındırılan, BizTalk hizmetinize dağıtın. |[Dağıtmak ve BizTalk Hizmetleri Proje yenileniyor](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
+| 7. |Yönetici |EDI kullanıyorsanız geçerlidir.  İş ortakları ekleme ve Microsoft Azure BizTalk Hizmetleri portalında sözleşmeler oluşturun. Bir sözleşme oluşturduğunuzda Köprüsü ve/veya anlaşma ayarlarına geliştirici tarafından oluşturulan dönüşümler ekleyebilirsiniz. |[EDI, AS2 ve EDIFACT BizTalk Hizmetleri portalında yapılandırma](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
+| 8. |Yönetici |Kullanarak [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), performans ölçümleri dahil olmak üzere, BizTalk hizmeti durumunu izleyin. |[BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 9. |Yönetici |Microsoft Azure BizTalk Hizmetleri portalını kullanarak, köprü dosyaları işlendikçe BizTalk Hizmetleri ve izleme iletileri tarafından kullanılan yapılar yönetin. |[BizTalk Hizmetleri portalını kullanma](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
+| 10. |Yönetici |BizTalk hizmetini yedeklemek için yedekleme planı oluşturma. |[İş sürekliliği ve olağanüstü durum kurtarma BizTalk Services](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 [Öğreticiler ve örnekler](https://msdn.microsoft.com/library/azure/hh689895.aspx)
 
-[Visual Studio projesi oluşturma](https://msdn.microsoft.com/library/azure/hh689811.aspx)
+[Visual Studio'da proje oluşturma](https://msdn.microsoft.com/library/azure/hh689811.aspx)
 
-[Azure BizTalk Services SDK'sını yükleyin](https://msdn.microsoft.com/library/azure/hh689760.aspx)
+[Azure BizTalk Hizmetleri SDK'sını yükleme](https://msdn.microsoft.com/library/azure/hh689760.aspx)
 
 ## <a name="concepts"></a>Kavramlar
-[Visual Studio projesi oluşturma](https://msdn.microsoft.com/library/azure/hh689811.aspx)  
-[EDI, AS2 ve EDIFACT Mesajlaşma (iş için iş)](https://msdn.microsoft.com/library/azure/hh689898.aspx)  
+[Visual Studio'da proje oluşturma](https://msdn.microsoft.com/library/azure/hh689811.aspx)  
+[EDI, AS2 ve EDIFACT iletileri (işletmeler arası)](https://msdn.microsoft.com/library/azure/hh689898.aspx)  
 
 ## <a name="other-resources"></a>Diğer Kaynaklar
-[Kaynak ve hedef köprüsü Mesajlaşma uç noktaları ekleme](https://msdn.microsoft.com/library/azure/hh689877.aspx)  
-[İleti eşlemeleri ve dönüşümler oluşturmak ve bilgi edinin](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
+[Kaynak ve hedef köprüsü Mesajlaşma son noktalarını ekleyin](https://msdn.microsoft.com/library/azure/hh689877.aspx)  
+[İleti eşlemeleri ve dönüştürmeler oluşturmak ve bilgi edinin](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [BizTalk bağdaştırıcı hizmeti (BAS) kullanma](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
-[Azure BizTalk Hizmetleri](http://go.microsoft.com/fwlink/p/?LinkID=303664)
+[Azure BizTalk Hizmetleri](https://go.microsoft.com/fwlink/p/?LinkID=303664)
 

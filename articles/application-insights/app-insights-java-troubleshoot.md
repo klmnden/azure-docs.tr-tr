@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 26899ea62b8caa872b6c99b94976c87f84ba7176
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091132"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247373"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java için Application Insights Sorun Giderme, Soru ve Yanıt
 Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipuçları verilmektedir.
@@ -43,7 +43,7 @@ Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipu
 * Sürüm çakışması sorunlardan kaçınmak için Application ınsights'ı core, web, aracı ve appenders günlüğü aynı sürümünü kullanmak için lütfen emin olun.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Verileri görmek için kullandım, ancak bu durdurdu
-* Denetleme [durumu blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Denetleme [durumu blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Veri noktalarının aylık kota ulaşmış olabilirsiniz? Ayarlar/kota ve fiyatlandırma öğrenmek için açın. Bu durumda, planınızı yükseltin veya ek kapasite için ödeme yaparsınız. Bkz: [düzeni fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/).
 * En son SDK'nızı yükselttikten? Lütfen yalnızca benzersiz SDK jar dosyaları dışındaki içinde proje dizini mevcut olduğundan emin olun. İki farklı sürümlerini SDK mevcut olmamalıdır.
 * Doğru yapay ZEKA kaynak mı arıyorsunuz? Lütfen uygulamanızın telemetri burada beklediğiniz kaynağına ait iKey eşleştirin. Bunlar aynı olmalıdır.

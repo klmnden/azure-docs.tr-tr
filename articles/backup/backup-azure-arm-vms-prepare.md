@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748298"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256281"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
@@ -182,8 +182,8 @@ Azure VM'yi yedekleme konusunda sorun varsa, Azure VM Aracısı sanal makinede d
 
 | **İşlem** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM Aracısı'nı yükleme |[Aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. |<li> Son yükleme [Linux Aracısı](../virtual-machines/extensions/agent-linux.md). Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. Aracı dağıtım deponuzdan yüklemenizi öneririz. Biz **önermediğiniz** doğrudan github'dan yükleme Linux VM Aracısı.  |
-| VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili yönergeleri uygulayın. Aracı dağıtım deponuzdan güncelleştirme öneririz. Biz **önermediğiniz** doğrudan github'dan güncelleştirme Linux VM Aracısı.<br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
+| VM Aracısı'nı yükleme |[Aracı MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. |<li> Son yükleme [Linux Aracısı](../virtual-machines/extensions/agent-linux.md). Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. Aracı dağıtım deponuzdan yüklemenizi öneririz. Biz **önermediğiniz** doğrudan github'dan yükleme Linux VM Aracısı.  |
+| VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili yönergeleri uygulayın. Aracı dağıtım deponuzdan güncelleştirme öneririz. Biz **önermediğiniz** doğrudan github'dan güncelleştirme Linux VM Aracısı.<br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
 | VM Aracısı yüklemesini doğrulama |<li>Azure VM'de *C:\WindowsAzure\Packages* klasörüne gidin. <li>Mevcut WaAppAgent.exe dosyasını bulmanız gerekir.<li> Dosyaya sağ tıklayın, **Özellikler**'e gidin ve ardından **Ayrıntılar** sekmesini seçin. Ürün Sürümü alanı 2.6.1198.718 veya üzeri olmalıdır. |Yok |
 
 ### <a name="backup-extension"></a>Backup uzantısı
@@ -194,7 +194,7 @@ VM'nin çalışır durumda olup olmadığını Backup hizmeti yedekleme uzantıs
 ## <a name="establish-network-connectivity"></a>Ağ bağlantısı kurma
 VM anlık görüntülerini yönetmek için yedek Dahili hat Azure genel IP adreslerine bağlantısı gerekir. Doğru internet bağlantısı olmadan zaman aşımı sanal makinenin HTTP istekleri ve yedekleme işlemi başarısız olur. Örneğin--yerde--bir ağ güvenlik grubu (NSG) aracılığıyla erişim kısıtlamalarını dağıtımınız varsa, yedekleme trafiği için bir yol sağlamak için aşağıdaki seçeneklerden birini seçin:
 
-* [Beyaz liste Azure veri merkezi IP aralıkları](http://www.microsoft.com/download/details.aspx?id=41653).
+* [Beyaz liste Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 * Bir HTTP proxy sunucusu için trafiği yönlendirme dağıtın.
 
 Hangi seçeneğin kullanılacağını verirken, yönetilebilirlik, ayrıntılı bir denetim ve maliyet arasında tercihlerdir.
@@ -205,7 +205,7 @@ Hangi seçeneğin kullanılacağını verirken, yönetilebilirlik, ayrıntılı 
 | Bir HTTP Ara sunucusunu kullanacak |Depolama üzerinde ayrıntılı denetim proxy'sinde URL'leri izin verilir.<br><br>Vm'leri tek noktası internet erişimi.<br><br>Azure IP adresi değişiklikleri tabi değildir. |Ara yazılımla VM çalıştırmaya yönelik ek maliyet. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Beyaz liste Azure veri merkezi IP aralıkları
-Azure veri merkezi IP aralıklarını güvenilir listeye bakın [Azure Web sitesi](http://www.microsoft.com/download/details.aspx?id=41653) IP aralıkları ve yönergeleri hakkında ayrıntılı bilgi için.
+Azure veri merkezi IP aralıklarını güvenilir listeye bakın [Azure Web sitesi](https://www.microsoft.com/download/details.aspx?id=41653) IP aralıkları ve yönergeleri hakkında ayrıntılı bilgi için.
 
 Kullanarak belirli bir bölgenin depolama bağlantılara izin vermek [hizmet etiketleri](../virtual-network/security-overview.md#service-tags). Depolama hesabına erişime izin veren kuralın internet erişimini engelleyen bir kural daha yüksek önceliğe sahip olduğundan emin olun.
 
@@ -305,7 +305,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>Sorularınız mı var?
-Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
+Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 VM'yi yedekleme için ortamınızı hazırladığınız, mantıksal sonraki ilk adımınız bir yedekleme oluşturmaktır. Planlama makaleyi VM'lerin yedeklenmesi hakkında daha ayrıntılı bilgi sağlar.

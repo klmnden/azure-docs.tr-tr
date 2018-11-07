@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: be6bda4f5c420d1e631690fc648f982d4910e198
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6688432342ff08d2ca177570cc6bbbe0095ccbe0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585994"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229074"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: uçtan uca kılavuz
-Bu yönerge, Azure Data Lake veri keşfi ve NYC taksi seyahat örneği ikili sınıflandırma görevleri ve masrafları ipucu tarafından bir taksi Ücretli olup olmadığını tahmin etmek için veri kümesi için nasıl kullanılacağını gösterir. Bu adımlarında size kılavuzluk eder [Team Data Science Process](http://aka.ms/datascienceprocess), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımı için.
+Bu yönerge, Azure Data Lake veri keşfi ve NYC taksi seyahat örneği ikili sınıflandırma görevleri ve masrafları ipucu tarafından bir taksi Ücretli olup olmadığını tahmin etmek için veri kümesi için nasıl kullanılacağını gösterir. Bu adımlarında size kılavuzluk eder [Team Data Science Process](https://aka.ms/datascienceprocess), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımı için.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) veri bilimcileri kolaylaştırmak için gereken tüm özellikleri herhangi bir boyut, Şekil ve hızlı veri depolama ve veri işleme, Gelişmiş analiz ve makine öğrenimi ile yüksek modelleme yürütmek için sahip uygun maliyetli ölçeklenebilirlik.   Yalnızca veri gerçekten işlenirken bir iş başına temelinde ödeme yaparsınız. Azure Data Lake Analytics U-SQL içerir, SQL'in bildirim temelli doğasını ölçeklenebilir sağlamak için C# etkileyici gücüyle karışan bir dilde sorgu özelliği dağıtılmış. Okuma sırasında şema uygulayarak yapılandırılmamış verileri işlemek, özel mantığı ve kullanıcı tanımlı işlevler (UDF'ler) ekleme sağlar ve uygun ölçekte yürütmek nasıl üzerinde ayrıntılı denetim etkinleştirmek için gereken extensibility içerir. U-SQL arkasında tasarımı felsefesi hakkında daha fazla bilgi için bkz: [Visual Studio blog gönderisi](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
@@ -684,7 +684,7 @@ Web hizmeti panosundaki kısa bir süre içinde görüntüler:
 Bu izlenecek yolu tamamlayarak Azure Data lake'te ölçeklenebilir uçtan uca çözümler oluşturmak için bir veri bilimi ortamını oluşturdunuz. Bu ortam, veri alım modeli eğitimi aracılığıyla ve dağıtım modelinin bir web hizmeti olarak gelen Data Science Process kurallı adımları boyunca alma büyük bir genel veri kümesini, analiz etmek için kullanıldı. U-SQL işlemek için keşfetmek ve veri örnekleme için kullanıldı. Python ve Hive ile Azure Machine Learning Studio'da Tahmine dayalı modelleri oluşturma ve dağıtma için kullanıldı.
 
 ## <a name="whats-next"></a>Sırada ne var?
-Öğrenme yolu [Team Data Science işlem (TDSP)](http://aka.ms/datascienceprocess) Gelişmiş analiz işlemin her adımından açıklayan konulara bağlantılar sağlar. Bir dizi üzerinde listelenen izlenecek yollar mevcuttur [Team Data Science Process Kılavuzu](walkthroughs.md) kaynaklarını ve Hizmetleri, çeşitli Tahmine dayalı analiz senaryolarında kullanmak nasıl başlanacağını gösteren sayfa:
+Öğrenme yolu [Team Data Science işlem (TDSP)](https://aka.ms/datascienceprocess) Gelişmiş analiz işlemin her adımından açıklayan konulara bağlantılar sağlar. Bir dizi üzerinde listelenen izlenecek yollar mevcuttur [Team Data Science Process Kılavuzu](walkthroughs.md) kaynaklarını ve Hizmetleri, çeşitli Tahmine dayalı analiz senaryolarında kullanmak nasıl başlanacağını gösteren sayfa:
 
 * [Team Data Science Process'in çalışması: SQL veri ambarı kullanma](sqldw-walkthrough.md)
 * [Team Data Science Process'in çalışması: HDInsight Hadoop kümelerini kullanma](hive-walkthrough.md)

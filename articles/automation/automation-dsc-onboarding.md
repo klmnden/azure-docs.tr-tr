@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 554c575f338ebaa415ed21be8dc8b27eb79c3c0c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244534"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama
 
@@ -150,9 +150,9 @@ Amazon Web Hizmetleri sanal makine için yapılandırma yönetimi AWS DSC araç 
 
 Birkaç basit adımda üzerinden internet giden erişime sahip oldukları sürece şirket içi Windows makineleri ve Azure olmayan bulutlarda (örneğin, Amazon Web Hizmetleri) Windows makineleri Azure Otomasyon durum Yapılandırması'na eklediğinizden de olabilir:
 
-1. En son sürümünü emin [WMF 5](http://aka.ms/wmf5latest) Azure Otomasyon durum yapılandırması için eklemek istediğiniz makineleri yüklenir.
+1. En son sürümünü emin [WMF 5](https://aka.ms/wmf5latest) Azure Otomasyon durum yapılandırması için eklemek istediğiniz makineleri yüklenir.
 1. Aşağıdaki bölümde yer alan yönergeleri izleyin [ **oluşturma DSC metaconfigurations** ](#generating-dsc-metaconfigurations) gerekli DSC metaconfigurations içeren bir klasör oluşturmak için.
-1. Uzaktan PowerShell DSC metaconfiguration eklemek istediğiniz makineler için geçerlidir. **Bu komutu çalıştırmak makine en son sürümüne sahip olmanız gerekir [WMF 5](http://aka.ms/wmf5latest) yüklü**:
+1. Uzaktan PowerShell DSC metaconfiguration eklemek istediğiniz makineler için geçerlidir. **Bu komutu çalıştırmak makine en son sürümüne sahip olmanız gerekir [WMF 5](https://aka.ms/wmf5latest) yüklü**:
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -190,7 +190,7 @@ Birkaç basit adımda üzerinden internet giden erişime sahip oldukları sürec
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-Bu komutu çalıştırmak makine en son sürümüne sahip olmanız gerekir [WMF 5](http://aka.ms/wmf5latest) yüklü.
+Bu komutu çalıştırmak makine en son sürümüne sahip olmanız gerekir [WMF 5](https://aka.ms/wmf5latest) yüklü.
 
 1. PowerShell DSC metaconfigurations uzaktan kişiyle, her bir Linux makine için uyguladığınız olamaz, bu makineye Linux makineye 5. adımında klasöründen karşılık gelen metaconfiguration kopyalayın. Ardından çağırın `SetDscLocalConfigurationManager.py` yerel olarak her bir Linux makinesinde Azure Otomasyon durum yapılandırması için eklemek istediğiniz:
 
@@ -207,7 +207,7 @@ Genel ekleme için tüm Azure Otomasyon durum yapılandırması için makine bir
 
 ### <a name="using-a-dsc-configuration"></a>DSC Yapılandırması'nı kullanarak
 
-1. Yerel ortamınızda bir makinede yönetici olarak VSCode (veya tercih ettiğiniz düzenleyiciyi) açın. Makinede en son sürümüne sahip olmanız gerekir [WMF 5](http://aka.ms/wmf5latest) yüklü.
+1. Yerel ortamınızda bir makinede yönetici olarak VSCode (veya tercih ettiğiniz düzenleyiciyi) açın. Makinede en son sürümüne sahip olmanız gerekir [WMF 5](https://aka.ms/wmf5latest) yüklü.
 1. Aşağıdaki betiği yerel olarak kopyalayın. Bu betik metaconfigurations ve metaconfiguration oluşturmayı istiyorsanız, bir komut oluşturmak için PowerShell DSC yapılandırması içerir.
 
 > [!NOTE]

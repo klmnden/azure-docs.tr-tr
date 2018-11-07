@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215047"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227493"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery Aracısı ile ilgili sorunları giderme
 
@@ -64,7 +64,7 @@ VM Aracısı bozulduysa veya hizmet durdurulmuş. VM aracısını yeniden yükle
 1. Belirlemek olup olmadığını "Windows Azure Konuk Aracısı hizmeti" VM Hizmetleri (services.msc) çalışıyor. Yeniden başlatmayı deneyin "Windows Azure Konuk aracısı hizmetinin".    
 2. Windows Azure Konuk aracı hizmetini Hizmetleri'nde, Denetim Masası ' nda görünür değilse Git **programlar ve Özellikler** Windows Konuk aracısı yüklü olup olmadığını belirlemek için.
 4. Windows Azure Konuk Aracısı görünürse **programlar ve Özellikler**, Windows Konuk Aracısı'nı kaldırın.
-5. İndirme ve yükleme [Aracısı MSI en son sürümünü](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici hakları olmalıdır.
+5. İndirme ve yükleme [Aracısı MSI en son sürümünü](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici hakları olmalıdır.
 6. Windows Azure Konuk aracı hizmetleri Hizmetleri'nde göründüğünden emin olun.
 7. Koruma işi yeniden başlatın.
 

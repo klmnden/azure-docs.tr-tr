@@ -14,19 +14,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fe20cf9c9137dc1ca41d3b8e2445bac079fb33fc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7ced71f2d0a8c5d956bbdbcd8fcae485aee3fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056245"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241590"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java'dan Notification Hubs'ı kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Bu konu, yeni tam olarak desteklenen resmi Azure Notification Hub Java SDK'sı anahtar özelliklerini açıklar. Bu proje bir açık kaynak projesidir ve tüm SDK kodu görüntüleyebilirsiniz [Java SDK]. 
 
-Genel olarak, tüm Notification Hubs özellikleri bir Java/PHP/Python/Ruby MSDN konu başlığı altında açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç erişebileceğiniz [Notification Hubs REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx). Bu Java SDK'sı, Java bu REST arabirimleri üzerinde ince bir sarmalayıcı sağlar. 
+Genel olarak, tüm Notification Hubs özellikleri bir Java/PHP/Python/Ruby MSDN konu başlığı altında açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç erişebileceğiniz [Notification Hubs REST API'leri](https://msdn.microsoft.com/library/dn223264.aspx). Bu Java SDK'sı, Java bu REST arabirimleri üzerinde ince bir sarmalayıcı sağlar. 
 
 SDK'sı şu anda destekler:
 
@@ -276,7 +276,7 @@ Bildirim nesnesi bir gövde sadece üst bilgilerini, bazı yardımcı program y�
 
 Java Kodunuzu çalıştıran artık hedef Cihazınızda görünen bir bildirim üretir.
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 Bu konuda, basit bir Java REST istemci bildirim hub'ları için nasıl oluşturulacağını gösterir. Buradan şunları yapabilirsiniz:
 
 * Tam indirme [Java SDK], tüm SDK kodunu içerir. 

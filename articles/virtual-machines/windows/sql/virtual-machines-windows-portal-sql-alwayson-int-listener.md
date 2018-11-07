@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382748"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248324"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure'da bir Always On kullanılabilirlik grubu için bir yük dengeleyici yapılandırma
 Bu makalede, Azure Resource Manager ile çalışan Azure sanal makineler'de SQL Server Always On kullanılabilirlik grubu için yük dengeleyici oluşturma açıklanmaktadır. Azure sanal makinelerinde SQL Server örnekleri olan bir kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici IP adresi için kullanılabilirlik grubu dinleyicisi depolar. Bir kullanılabilirlik grubu birden çok bölgede kapsıyorsa, her bölge bir yük dengeleyicinin gerekir.
@@ -120,7 +120,7 @@ Araştırma, Azure'nın hangi SQL Server örneklerinin kullanılabilirlik grubu 
 4.  **Tamam** düğmesine tıklayın. 
 
 > [!NOTE]
-> Belirttiğiniz bağlantı noktası hem de SQL Server örneklerinin güvenlik duvarının açık olduğundan emin olun. Her iki örnekleri kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Daha fazla bilgi için [Ekle veya güvenlik duvarı kuralını Düzenle](http://technet.microsoft.com/library/cc753558.aspx). 
+> Belirttiğiniz bağlantı noktası hem de SQL Server örneklerinin güvenlik duvarının açık olduğundan emin olun. Her iki örnekleri kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Daha fazla bilgi için [Ekle veya güvenlik duvarı kuralını Düzenle](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -276,7 +276,7 @@ Kullanılabilirlik grubu yeni IP adresini kullanacak şekilde yapılandırdıkta
 Bir kullanılabilirlik grubuna dağıtılmış kullanılabilirlik grubunda yer alıyorsa, yük dengeleyicinin başka bir kural gerekir. Bu kural, dağıtılmış bir kullanılabilirlik grubu dinleyicisi tarafından kullanılan bağlantı noktası depolar.
 
 >[!IMPORTANT]
->Kullanılabilirlik grubu içinde yer alıyorsa, bu adım yalnızca geçerlidir bir [dağıtılmış kullanılabilirlik grubu](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+>Kullanılabilirlik grubu içinde yer alıyorsa, bu adım yalnızca geçerlidir bir [dağıtılmış kullanılabilirlik grubu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
 
 1. Dağıtılmış bir kullanılabilirlik grubuna katılan her sunucu üzerinde dağıtılmış kullanılabilirlik grubu dinleyicisi TCP bağlantı noktası üzerinde bir gelen kuralı oluşturun. Birçok örneklerde belgeleri 5022 kullanır. 
 
@@ -289,7 +289,7 @@ Bir kullanılabilirlik grubuna dağıtılmış kullanılabilirlik grubunda yer a
    |**Ad** |Yük Dengeleme kuralını dağıtılmış kullanılabilirlik grubu için tanımlamak için bir ad. 
    |**Ön uç IP adresi** |Aynı ön uç IP adresi kullanılabilirlik grubu olarak kullanın.
    |**Protokol** |TCP
-   |**Bağlantı Noktası** |5022 - bağlantı noktası için [dağıtılmış bir kullanılabilirlik grubunun uç noktası dinleyicisi](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Tüm kullanılabilir bağlantı noktası olabilir.  
+   |**Bağlantı Noktası** |5022 - bağlantı noktası için [dağıtılmış bir kullanılabilirlik grubunun uç noktası dinleyicisi](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Tüm kullanılabilir bağlantı noktası olabilir.  
    |**Arka uç bağlantı noktası** | 5022 - kullanımı aynı değer olarak **bağlantı noktası**.
    |**Arka uç havuzu** |SQL Server örneklerini içeren sanal makineler içeren havuz. 
    |**Durum araştırması** |Oluşturduğunuz araştırmayı seçin.

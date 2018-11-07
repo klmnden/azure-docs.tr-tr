@@ -2,19 +2,19 @@
 title: Azure HDInsight Spark kümesinde işleri göndermek için Livy Spark kullanma
 description: Bir Azure HDInsight kümesinde Spark işleri uzaktan göndermek için Apache Spark REST API'sini kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: 677c7d27d34725b75c5dfed70cc377735f5d7d61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045221"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236832"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark uzak bir HDInsight Spark kümesine göndermek için REST API kullanma
 
@@ -152,9 +152,9 @@ Aşağıdaki adımları gerçekleştirin:
    
     Çıkışının son satırında batch başarıyla silindiğini gösterir. Bir iş çalışır durumdayken silme işi sonlandırır. Bir iş, başarıyla veya aksi halde tamamlandı silerseniz iş bilgilerini tamamen siler.
 
-## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Livy Spark HDInsight 3.5 kümelerinde kullanma
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>HDInsight 3.5 sürümünden başlayarak Livy yapılandırma güncelleştirmeleri
 
-HDInsight 3.5 kümesi, varsayılan olarak, erişim örnek veri dosyalarını veya jar dosyaları dışındaki yerel dosya yolları kullanımını devre dışı bırakır. Kullanmanızı öneriyoruz `wasb://` yolu yerine jar dosyaları dışındaki erişmek veya örnek veri dosyalarını kümeden. Yerel yol kullanmak istiyorsanız, Ambari yapılandırma uygun şekilde güncelleştirmeniz gerekir. Bunu yapmak için:
+HDInsight 3.5 kümeleri ve varsayılan olarak, yukarıdaki erişim örnek veri dosyalarını veya jar dosyaları dışındaki yerel dosya yolları kullanımını devre dışı. Kullanmanızı öneriyoruz `wasb://` yolu yerine jar dosyaları dışındaki erişmek veya örnek veri dosyalarını kümeden. Yerel yol kullanmak istiyorsanız, Ambari yapılandırma uygun şekilde güncelleştirmeniz gerekir. Bunu yapmak için:
 
 1. Küme için Ambari portalına gidin. Ambari Web kullanıcı arabirimini https:// konumunda HDInsight kümenize kullanılabilir**CLUSTERNAME**. azurehdidnsight.net, burada CLUSTERNAME kümenizin adıdır.
 

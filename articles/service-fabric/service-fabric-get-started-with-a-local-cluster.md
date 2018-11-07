@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 639293a1811c35d87bd705800b8ecf62f667c0e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053372"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246727"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş
 Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları yönetme işlemlerine başlamak için kullanabileceğiniz eksiksiz bir yerel geliştirme ortamı içerir. Bu makalede, yerel bir küme oluşturup var olan bir uygulamayı kümeye dağıtır, ardından uygulamayı yeni bir sürüme yükseltirsiniz ve tüm bu işlemleri Windows PowerShell'den gerçekleştirirsiniz.
@@ -71,7 +71,7 @@ Bu öğreticide, var olan örnek bir uygulama kullanacağınızdan (WordCount ol
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. Oluşturduğunuz konuma [WordCount uygulamasını indirin](http://aka.ms/servicefabric-wordcountapp).  Not: Microsoft Edge tarayıcısı dosyayı bir *.zip* uzantısı ile kaydeder.  Dosya uzantısını *.sfpkg* olarak değiştirin.
+4. Oluşturduğunuz konuma [WordCount uygulamasını indirin](https://aka.ms/servicefabric-wordcountapp).  Not: Microsoft Edge tarayıcısı dosyayı bir *.zip* uzantısı ile kaydeder.  Dosya uzantısını *.sfpkg* olarak değiştirin.
 5. Yerel kümeye bağlanın:
    
     ```powershell
@@ -139,7 +139,7 @@ Service Fabric, kümeye gönderilirken uygulamanın durumunu izleyerek kesinti s
 
 Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcükleri sayar. Yükseltme dağıtılırken uygulamanın davranışında iki değişiklik görürüz. İlk olarak, daha az sözcük sayıldığından sayaç büyümesinin hızı azalacaktır. İkinci ise ilk bölüm iki sesli harf (A ve E) ve diğer tüm bölümler bunlardan yalnızca birini içerebileceğinden ilk bölümün sayacı sonunda diğerlerini geride bırakır.
 
-1. Sürüm 1 paketini indirdiğiniz konuma [WordCount sürüm 2 paketini indirin](http://aka.ms/servicefabric-wordcountappv2).
+1. Sürüm 1 paketini indirdiğiniz konuma [WordCount sürüm 2 paketini indirin](https://aka.ms/servicefabric-wordcountappv2).
 2. PowerShell pencerenize geri dönün ve yeni sürümü kümeye kaydetmek için SDK'nın yükseltme komutunu kullanın. Ardından fabric:/WordCount uygulamasını yükseltmeye başlayın.
    
     ```powershell

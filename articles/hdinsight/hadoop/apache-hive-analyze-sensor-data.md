@@ -3,18 +3,18 @@ title: Hive ve Hadoop - Azure HDInsight'ı kullanarak sensör verilerini çözü
 description: Hive sorgu Konsolu kullanarak HDInsight (Hadoop) ile algılayıcı verilerini çözümlemeyi öğrenin ve ardından verileri Microsoft Excel'de PowerView ile görselleştirin.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: f82bac1b478183cad41e1bb9f7dce3fed8b5417b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dfc4d930f185c36c3ba0c869494ba0e7dee64cac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048907"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249413"
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>HDInsight Hadoop Hive sorgu Konsolu kullanarak sensör verilerini çözümleme
 
@@ -41,7 +41,7 @@ Bu örnekte, Hive geçmiş verilerini işlemek ve ısıtma ve havalandırma sist
   > [!NOTE]
   > Microsoft Excel ile veri görselleştirme için kullanılan [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
-* [Microsoft Hive ODBC sürücüsü](http://www.microsoft.com/download/details.aspx?id=40886)
+* [Microsoft Hive ODBC sürücüsü](https://www.microsoft.com/download/details.aspx?id=40886)
 
 ## <a name="to-run-the-sample"></a>Örneği çalıştırmak için
 

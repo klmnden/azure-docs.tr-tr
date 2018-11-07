@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811836"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257216"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Bulut iş ortağı portalını kullanarak bir Cortana Intelligence teklifi yayımlama
 
@@ -29,7 +29,7 @@ Bu makalede bulut iş ortağı portalını kullanarak bir Cortana Intelligence t
 
 Bulut iş ortağı portalı rol tabanlı erişim sağlayan bir teklifi yayımlama üzerinde işbirliği yapmak katkıda bulunanlar portalına destekler. Daha fazla bilgi için [bulut portalı kullanıcıları Yönet](./cloud-partner-portal-manage-users.md).
 
-Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile \"sahibi\" rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft gizlilik bildirimi](http://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile \"sahibi\" rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft gizlilik bildirimi](https://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Cortana Inteligence teklif oluşturmaya başlamak için
 
@@ -216,7 +216,7 @@ Uygulamanızı Appsource'ta destekleyecek deneme türünü seçin. Aşağıdaki 
 
         - [Neal Analytics Envanter iyileştirme](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- **Deneme sürümü için istek** (**iş ortağı LED'i denemeler /. sys**) seçeneği, müşterilerin iş ortağı izleme için bir kişi bilgilerini formu doldurun gerektirir. İş ortağı izler ve sunum ya da uygulamanın deneme verir. Daha fazla bilgi için [AppSource deneme sürümü deneyimi Kılavuzu](http://aka.ms/trialexperienceforwebapps) video üst düzey bir genel bakış.
+- **Deneme sürümü için istek** (**iş ortağı LED'i denemeler /. sys**) seçeneği, müşterilerin iş ortağı izleme için bir kişi bilgilerini formu doldurun gerektirir. İş ortağı izler ve sunum ya da uygulamanın deneme verir. Daha fazla bilgi için [AppSource deneme sürümü deneyimi Kılavuzu](https://aka.ms/trialexperienceforwebapps) video üst düzey bir genel bakış.
 
 >[!Note]
 >Verileri gösteren **müşteri LED'i denemeler** daha yüksek bir müşteri adayı oluşturma daha olası sahip **iş ortağı LED'i denemeler**.

@@ -1,24 +1,24 @@
 ---
-title: Azure HDInsight'a üçüncü taraf Hadoop uygulamaları yükleme
+title: Azure HDInsight üzerinde üçüncü taraf uygulamaları yükleme
 description: Azure HDInsight'a üçüncü taraf Hadoop uygulamaları yükleme hakkında bilgi alın.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: c50bd7c314c88c0950478cc3068d9a5873b65263
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 71c371594a0ee2b2b8e976fffb7641ccb6b72c0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996975"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261800"
 ---
-# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight'a üçüncü taraf Hadoop uygulamaları yükleme
+# <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight üzerinde üçüncü taraf Apache Hadoop uygulamaları yükleme
 
-Azure HDInsight üzerinde üçüncü taraf Hadoop uygulamasını yüklemeyi öğrenin. Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Azure HDInsight üzerinde üçüncü taraf Apache Hadoop uygulamasını yüklemeyi öğrenin. Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 Bir HDInsight uygulaması kullanıcıların bir HDInsight kümesine yükleyebileceği bir uygulamadır. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir.  
 
@@ -27,13 +27,18 @@ Aşağıdaki liste, yayımlanan uygulamalara gösterir:
 * **AtScale zeka platformu** genişleme OLAP sunucusunun, HDInsight kümenizle kapatır. Uygulama sorgu etkileşimli olarak QlikView Microsoft Excel, Power BI, Tableau Software BI araçları kullanarak veri satırı milyarlarca olanak tanır.
 * **Cask CDAP HDInsight için** % 80 için veri uygulamaları ve veri göllerinin üretim süresini kısalttı büyük veriler için ilk Birleşik tümleştirme platformunu sağlar. Bu uygulama yalnızca Standart HBase 3.4 kümelerini destekler.
 * **HDInsight üzerinde DATAIKU DDS** için prototip oluşturma, veri uzmanları oluşturmanızı ve ham verileri etkili iş tahminlerine dönüştüren yüksek oranda ayrıntılı hizmetler dağıtmanızı sağlar.
+* **Datameer** hazırlama, bir Self Servis ölçeklenebilir platformu keşfetme, ve analiz için verilerinizi düzenleyen hızlandırır karmaşık çok kaynaklı veri değerli çalışma ortamına hazır bilgi, daha hızlı ve daha akıllı içgörüler sunan, oturum açma bir Kurumsal ölçekte.
 * **HDInsight (Beta) için yapay zeka H2O** H2O Sparkling Water aşağıdaki dağıtılmış algoritmaları destekler: GLM, Naïve Bayes, dağıtılmış rasgele orman, gradyan geliştirme makinesi, derin sinir ağları, derin öğrenme, K-ortalamaları PCA, Genelleştirilmiş düşük derecelendirme modelleri, Anomali algılama ve Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) Apache Kylin ve Apache Hadoop tarafından desteklenen bir kurumsal kullanıma hazır veri ambarı; saniyenin sağladığı gecikme süresi çok büyük ölçekli veri kümesinde sorgu ve veri analizi için basitleştirir İş kullanıcıları ve analistleri. 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) Apache Kylin ve Apache Hadoop tarafından desteklenen bir kurumsal kullanıma hazır veri ambarı; subsecond sağlar gecikme süresi çok büyük ölçekli veri kümesinde sorgu ve veri analizi için basitleştirir İş kullanıcıları ve analistleri. 
 * **Paxata Self Servis veri hazırlama**
 * **Spark iş sunucusu KNIME Spark Yürütücü için** KNIME Spark Yürütücü için Spark iş sunucusu KNIME analiz platformu HDInsight kümelerine bağlanmak için kullanılır.
+* **Yıldız Yağmuru Presto** Presto bir hızlı ve ölçeklenebilir dağıtılmış SQL sorgu alt yapısıdır. Depolama ve işlem ayrımı için tasarlanmış, Presto Azure Data Lake Storage, Azure Blob Depolama, SQL ve NoSQL veritabanları ve diğer veri kaynaklarından veri sorgulamak için idealdir.
 * **HDnsight için Akış Kümeleri Veri Toplayıcısı**, tam özellikli bir tümleşik geliştirme ortamı (IDE) sağlar. Bu ortam, akış ve toplu işlem verileri arasında ağ oluşturan “herhangi birinden herhangi birine” alma işlem hatlarını tasarlamanıza, test etmenize, dağıtmanıza ve yönetmenize olanak tanır. Üstelik hiçbiri için özel kod yazmanız gerekmez. 
+* **Striim** ("akış" olarak okunur) olan bir uçtan uca akış veri tümleştirme ve sürekli alımı, işleme ve analizi farklı veri akışları etkinleştirme, zeka platformu.
 * **[Trifacta](http://www.trifacta.com/)**  daha verimli bir şekilde keşfedin ve çığır açan bir kullanıcı deneyimi, iş akışı ve mimari sağlamak için makine öğrenimini kullanarak çeşitli veri günümüzün hazırlamak, veri mühendisleri ve analistleri sağlar.
+* **Unifi veri platformu** sorunsuzca tümleştirilen iş kullanıcının veri sorunuyla başa çıkmasına Bu sürücü gelirlerinizi, maliyetler veya işletim karmaşıklığını azaltmak için tasarlanan bir Self Servis veri araçları paketidir. 
 * **WANdisco Fusion HDI uygulama** bulunduğu her yerde veriler değiştikçe verileri tutarlı sürekli bağlantı sağlar. Size erişim verilerinize dilediğiniz zaman ve herhangi bir kapalı kalma süresi olmadan ve hiçbir kesinti ile sağlar.
+* **Waterline** kataloglar, düzenler ve veri iş terimlerini otomatik etiketle verilerle yapay ZEKA kullanarak yönetir. Waterline'nın iş literate Kataloğu, Self Servis analizler, uyumluluk ve idare ve BT yönetimi girişimleri için önemli bir başarı bileşenidir.
 
 Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resource Manager şablonunu dışarı aktarabilir veya satıcılardan Resource Manager şablonunun bir kopyasını edinmek ve şablonu dağıtmak için Azure PowerShell ve klasik Azure CLI'yı kullanın.  Bkz: [Hadoop kümeleri oluşturma Resource Manager şablonlarını kullanarak HDInsight üzerinde](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715024"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252981"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Azure Marketi'ndeki teklif sanal makine için üretim sonrası Kılavuzu
 Bu makalede, Azure Marketi'nde bir dinamik sanal makine teklifi güncelleştirme nasıl açıklanmaktadır. Bunu var olan bir teklif için bir veya daha fazla yeni SKU'lara ekleme işleminde size rehberlik. Bu da dinamik sanal makine teklifi veya SKU marketten kaldırma işleminde size rehberlik.
@@ -30,7 +30,7 @@ Bir teklif/SKU içinde hazırlanmış sonra [Azure portalında](http://portal.az
 * **SKU tanımlayıcısı**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **SKU'ları** > **bir SKU ekleyin**.
 * **Yayımcı Namespace**: gidin, yayımlama portalı **sanal makineler** > **izlenecek** > **söyleyin bize hakkında şirketiniz**("Adım 2 kayıt şirketiniz altında" bulunur) > **yayımcı Namespace** > **Namespace**.
 
-Teklif/SKU listelenen sonra [Market](http://azure.microsoft.com/marketplace), şu metin kutuları değiştiremezsiniz:
+Teklif/SKU listelenen sonra [Market](https://azure.microsoft.com/marketplace), şu metin kutuları değiştiremezsiniz:
 
 * **Teklif tanımlayıcısı**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **VM GÖRÜNTÜLERİ** > **teklif tanımlayıcısı**.
 * **SKU tanımlayıcısı**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **SKU'ları** > **bir SKU ekleyin**.
@@ -208,7 +208,7 @@ Yeni bir SKU'ya Canlı teklife eklemek için aşağıdaki adımları izleyin:
 1. Oturum [yayımlama portalı](https://publish.windowsazure.com).
 2. Git **sanal makineler** sekmesini ve teklifinizi seçin.
 3. Soldaki menüde **SKU'ları** sekmesi. Ardından **bir SKU ekleyin**. 
-4. İletişim kutusuna bir **SKU tanımlayıcısı** küçük. Seçin **getir (KLG) lisans kendi faturalandırma modeli** bir KLG faturalandırma modeliyle yeni SKU yayımlamak istiyorsanız kutuyu. Aksi takdirde, onay kutusunu temizleyin. Yeni bir SKU'ya oluşturmak için onay işaretine tıklayın. KLG faturalandırma modeli seçmediyseniz, faturalandırma modeli saatlik olarak otomatik olarak ayarlanır. 30 günlük ücretsiz deneme için saatlik faturalandırma modeli istiyorsanız belirleyin **bir ay** için **ücretsiz bir deneme sürümü mevcuttur?** Aksi takdirde seçin **Hayır deneme**. (**Ücretsiz bir deneme sürümü mevcuttur? ** yeni SKU oluşturulurken KLG yalnızca seçmediniz görüntülenir.)
+4. İletişim kutusuna bir **SKU tanımlayıcısı** küçük. Seçin **getir (KLG) lisans kendi faturalandırma modeli** bir KLG faturalandırma modeliyle yeni SKU yayımlamak istiyorsanız kutuyu. Aksi takdirde, onay kutusunu temizleyin. Yeni bir SKU'ya oluşturmak için onay işaretine tıklayın. KLG faturalandırma modeli seçmediyseniz, faturalandırma modeli saatlik olarak otomatik olarak ayarlanır. 30 günlük ücretsiz deneme için saatlik faturalandırma modeli istiyorsanız belirleyin **bir ay** için **ücretsiz bir deneme sürümü mevcuttur?** Aksi takdirde seçin **Hayır deneme**. (**Ücretsiz bir deneme sürümü mevcuttur?**  yeni SKU oluşturulurken KLG yalnızca seçmediniz görüntülenir.)
 
    > [!IMPORTANT]
    > **Bu her zaman bir çözüm şablonu satın alınması çünkü bu SKU Market Gizle** olmalıdır **Evet** *yalnızca* bir çözüm şablonu yayımlamak için onayından durumunda. Aksi takdirde, bu seçenek her zaman olmalıdır **Hayır**.

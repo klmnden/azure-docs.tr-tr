@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362662"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258553"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Bulut Marketi Yönetimi sağlama
 
@@ -97,7 +97,7 @@ Ayarlanan teknik yerleştirildikten sonra bu müşteri adayları geçerli satı�
 
 **Müşteri adayları ve neden önemlidir marketi'ndeki yayımcı olarak nelerdir?** 
 
-Müşteri adayları, ürünleri Market dağıtan müşterilerdir. Ürününüzü üzerinde listelenip listelenmediğini [Azure Marketi](https://azuremarketplace.microsoft.com/en-us) veya [AppSource](http://appsource.microsoft.com/), müşteri adayları, müşteri adayı hedef Kurulum teklifinizi varsa, ürününüzü ilgilenen müşterilerin almak mümkün olacaktır.  
+Müşteri adayları, ürünleri Market dağıtan müşterilerdir. Ürününüzü üzerinde listelenip listelenmediğini [Azure Marketi](https://azuremarketplace.microsoft.com/en-us) veya [AppSource](https://appsource.microsoft.com/), müşteri adayları, müşteri adayı hedef Kurulum teklifinizi varsa, ürününüzü ilgilenen müşterilerin almak mümkün olacaktır.  
 
 
 **Benim müşteri adayı hedef ayarlama konusunda Yardım nereden alabilirim?** 

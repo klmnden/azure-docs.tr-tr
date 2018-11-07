@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 91a2b112000e970b73420abaa26efc7de1caa626
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057432"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261465"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis önbelleğine ölçeklendirme
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Önbellek oluşturulduktan sonra uygulamanızın gereksinimlerini değiştirirseniz, boyutu ve fiyatlandırma katmanı önbellek ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak, önbellek ölçeklendirme gösterilmektedir.
@@ -29,9 +29,9 @@ Kullanabileceğiniz [izleme](cache-how-to-monitor.md) durumunu ve performansın�
 
 Ölçeği artırmanız gerekiyorsa belirlemeye yardımcı olması için aşağıdaki ölçümleri izleyebilirsiniz.
 
-* Redis Sunucu Yükü
+* Redis sunucu yükü
 * Bellek Kullanımı
-* Ağ Bant Genişliği
+* Ağ bant genişliği
 * CPU Kullanımı
 
 Önbelleğinizi artık uygulamanızın gereksinimlerini karşılıyor mu olduğunu belirlerseniz, uygulamanız için en uygun fiyatlandırma daha büyük veya küçük bir önbellek ölçeklendirebilirsiniz. Fiyatlandırma katmanı kullanmak için hangi önbellek belirleme hakkında daha fazla bilgi için bkz. [hangi Redis önbelleği teklifini ve boyutunu kullanmalıyım](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
@@ -81,7 +81,7 @@ Azure CLI kullanarak Azure Redis önbelleği örneklerinizin ölçeklendirmek i�
 Azure CLI ile ölçeklendirme hakkında daha fazla bilgi için bkz. [mevcut bir Redis Cache'in ayarlarını değiştir](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Aynı anda MAML kullanarak ölçek
-Azure Redis Cache ölçeklendirmek için örnekler kullanarak [Microsoft Azure yönetim kitaplıkları (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), çağrı `IRedisOperations.CreateOrUpdate` yöntemi ve yeni boyutu geçişinde `RedisProperties.SKU.Capacity`.
+Azure Redis Cache ölçeklendirmek için örnekler kullanarak [Microsoft Azure yönetim kitaplıkları (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), çağrı `IRedisOperations.CreateOrUpdate` yöntemi ve yeni boyutu geçişinde `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6154164aadd8ed508bfae8de8b6f3c8255111a73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fed1078b9a4e0ca4d0674db522f73705fa3efd0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313484"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254496"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Öğretici: geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirin
 
@@ -193,7 +193,7 @@ Artık Azure AD kiracısı oluşturun, böylece biz kullanıcılarımız için b
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Azure AD genel Yöneticisi oluşturma
 Azure AD kiracısı sahibiz, genel yönetici hesabını oluşturacağız.  Bu hesap, Azure AD Connect yüklemesi sırasında Azure AD Bağlayıcısı hesabı oluşturmak için kullanılır.  Azure AD Bağlayıcısı hesabı bilgileri Azure AD'ye yazmak için kullanılır.   Genel yönetici oluşturmak için hesabı aşağıdakileri yapın.
 
-1.  Altında **Yönet**seçin **kullanıcılar**.</br>
+1.  **Yönet** bölümünde **Kullanıcılar**’ı seçin.</br>
 ![Oluşturma](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Seçin **tüm kullanıcılar** seçip **+ yeni kullanıcı**.
 3.  Bu kullanıcı için bir ad ve kullanıcı adı sağlayın. Bu kiracının genel Yöneticisi olacaktır. Ayrıca değiştirmek isteyeceksiniz **dizin rolü** için **genel yönetici.** Geçici parolayı da gösterebilirsiniz. İşiniz bittiğinde **Oluştur**.</br>
@@ -244,12 +244,12 @@ Artık, şirket içi dizininde vardı kullanıcıları eşitlenmiştir ve artık
 
 1. Gözat [Azure portalında](https://portal.azure.com) ve bir Azure aboneliğine sahip bir hesapla oturum açın.
 2. Sol tarafta, seçin **Azure Active Directory**
-3. Altında **Yönet**seçin **kullanıcılar**.
+3. **Yönet** bölümünde **Kullanıcılar**’ı seçin.
 4. Yeni kullanıcılar kendi kiracısında gördüğünüzü doğrulayın ![eşitlemesi](media/tutorial-password-hash-sync/synch1.png)
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Kullanıcılarımızın biriyle oturum açma testi
 
-1.  Göz atın [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1.  Göz atın [http://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sunduğumuz yeni kiracıda oluşturduğunuz kullanıcı hesabı ile oturum.  Aşağıdaki biçimi kullanarak oturum açmanız gerekir: (user@domain.onmicrosoft.com). Kullanıcının oturum açmak için kullandığı aynı parolayı kullanan şirket içi.
 ![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)
 
@@ -258,6 +258,6 @@ Artık, şirket içi dizininde vardı kullanıcıları eşitlenmiştir ve artık
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 
-- [Donanım ve Önkoşullar](how-to-connect-install-prerequisites.md) 
+- [Donanım ve önkoşullar](how-to-connect-install-prerequisites.md) 
 - [Özelleştirilmiş ayarlar](how-to-connect-install-custom.md)
-- [Geçişli kimlik doğrulaması](how-to-connect-pta.md)
+- [Doğrudan kimlik doğrulama](how-to-connect-pta.md)

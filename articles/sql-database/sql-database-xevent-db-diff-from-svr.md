@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159918"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246761"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ Bu konu Azure SQL veritabanı'nda genişletilmiş olaylar uygulanmasının biraz
 
 Azure SQL veritabanı ve Microsoft SQL Server için genişletilmiş olaylar hakkında ek bilgi şuradan ulaşabilirsiniz:
 
-- [Hızlı Başlangıç: SQL Server Genişletilmiş olaylar](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Genişletilmiş olaylar](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Hızlı Başlangıç: SQL Server Genişletilmiş olaylar](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Genişletilmiş olaylar](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu konuda, biraz bilgi zaten sahip olduğunuz varsayılır:
 
 - [Azure SQL veritabanı hizmeti](https://azure.microsoft.com/services/sql-database/).
-- [Genişletilmiş olaylar](http://msdn.microsoft.com/library/bb630282.aspx) Microsoft SQL Server.
+- [Genişletilmiş olaylar](https://msdn.microsoft.com/library/bb630282.aspx) Microsoft SQL Server.
 
 - Belgelerimizi genişletilmiş olaylar hakkında toplu SQL Server ve SQL veritabanı için geçerlidir.
 
@@ -69,10 +69,10 @@ Olay dosyası olarak seçerken aşağıdaki öğeleri önceki maruz kalma riskin
 ## <a name="transact-sql-differences"></a>Transact-SQL farklılıkları
 
 
-- Yürüttüğünüzde [olay OTURUMU oluşturma](http://msdn.microsoft.com/library/bb677289.aspx) komutunu SQL Server'da kullandığınız **ON SERVER** yan tümcesi. Ancak, kullandığınız SQL veritabanı'nda **üzerinde veritabanı** yan tümcesi bunun yerine.
+- Yürüttüğünüzde [olay OTURUMU oluşturma](https://msdn.microsoft.com/library/bb677289.aspx) komutunu SQL Server'da kullandığınız **ON SERVER** yan tümcesi. Ancak, kullandığınız SQL veritabanı'nda **üzerinde veritabanı** yan tümcesi bunun yerine.
 
 
-- **Üzerinde veritabanı** yan tümcesi de uygulanır [ALTER olay OTURUMU](http://msdn.microsoft.com/library/bb630368.aspx) ve [bırakın olay oturumunu](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL komutlarını.
+- **Üzerinde veritabanı** yan tümcesi de uygulanır [ALTER olay OTURUMU](https://msdn.microsoft.com/library/bb630368.aspx) ve [bırakın olay oturumunu](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL komutlarını.
 
 
 - Olay oturumu seçeneği, dahil etmek için en iyi uygulamadır **STARTUP_STATE = ON** içinde **olay OTURUMU oluşturma** veya **ALTER olay OTURUMU** deyimleri.
@@ -80,7 +80,7 @@ Olay dosyası olarak seçerken aşağıdaki öğeleri önceki maruz kalma riskin
 
 ## <a name="new-catalog-views"></a>Yeni Katalog görünümleri
 
-Genişletilmiş olaylar özelliği birkaç tarafından desteklenen [Katalog görünümleri](http://msdn.microsoft.com/library/ms174365.aspx). Katalog görünümleri hakkında size bilgi *meta verileri veya tanımları* geçerli veritabanında kullanıcı tarafından oluşturulan olay oturumu. Görünümler, etkin olay oturumları örnekleri hakkında bilgi gitmez.
+Genişletilmiş olaylar özelliği birkaç tarafından desteklenen [Katalog görünümleri](https://msdn.microsoft.com/library/ms174365.aspx). Katalog görünümleri hakkında size bilgi *meta verileri veya tanımları* geçerli veritabanında kullanıcı tarafından oluşturulan olay oturumu. Görünümler, etkin olay oturumları örnekleri hakkında bilgi gitmez.
 
 | Adı<br/>Katalog görünümü | Açıklama |
 |:--- |:--- |
@@ -92,9 +92,9 @@ Genişletilmiş olaylar özelliği birkaç tarafından desteklenen [Katalog gör
 
 Microsoft SQL Server'da benzer Katalog görünümleri içeren adları sahip *klasöründe\_*  yerine *.database\_*. Ad deseni benzer **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Yeni dinamik yönetim görünümlerini [(Dmv'ler)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Yeni dinamik yönetim görünümlerini [(Dmv'ler)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL veritabanı olan [dinamik yönetim görünümlerini (Dmv'ler)](http://msdn.microsoft.com/library/bb677293.aspx) genişletilmiş olaylar destekler. Dmv'leri hakkında size bilgi *etkin* olay oturumları.
+Azure SQL veritabanı olan [dinamik yönetim görünümlerini (Dmv'ler)](https://msdn.microsoft.com/library/bb677293.aspx) genişletilmiş olaylar destekler. Dmv'leri hakkında size bilgi *etkin* olay oturumları.
 
 | DMV adı | Açıklama |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 SQL veritabanı, etkinlik oturumlarına sonuçlardan yakalayabilirsiniz hedefleri şunlardır:
 
-- [Halka arabelleği hedefine](http://msdn.microsoft.com/library/ff878182.aspx) -kısaca bellekte olay verileri tutar.
-- [Sayaç hedefi olay](http://msdn.microsoft.com/library/ff878025.aspx) -bir genişletilmiş olaylar oturumu sırasında gerçekleşen tüm olayları sayar.
-- [Olay dosya hedefine](http://msdn.microsoft.com/library/ff878115.aspx) -bir Azure depolama kapsayıcısı için tüm arabellekler yazar.
+- [Halka arabelleği hedefine](https://msdn.microsoft.com/library/ff878182.aspx) -kısaca bellekte olay verileri tutar.
+- [Sayaç hedefi olay](https://msdn.microsoft.com/library/ff878025.aspx) -bir genişletilmiş olaylar oturumu sırasında gerçekleşen tüm olayları sayar.
+- [Olay dosya hedefine](https://msdn.microsoft.com/library/ff878115.aspx) -bir Azure depolama kapsayıcısı için tüm arabellekler yazar.
 
-[Olay izleme için Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API SQL veritabanı'nda genişletilmiş olaylar için uygun değildir.
+[Olay izleme için Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API SQL veritabanı'nda genişletilmiş olaylar için uygun değildir.
 
 ## <a name="restrictions"></a>Kısıtlamalar
 
@@ -195,8 +195,8 @@ En fazla bellek zorlandı bildiren bir hata iletisi alırsanız, uygulayabilece�
 - [Azure depolama cmdlet'leri](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Azure PowerShell kullanarak Azure depolama ile](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
 - [Net'ten BLOB storage kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [Olay OTURUMU (Transact-SQL) oluşturma](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [Olay OTURUMU (Transact-SQL) oluşturma](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Microsoft SQL Server Genişletilmiş olaylar hakkında Jonathan Kehayias blog gönderileri](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Diğer kod örnek konuları genişletilmiş olaylar için aşağıdaki bağlant�
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

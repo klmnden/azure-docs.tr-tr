@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: f065310e3afeaf95af602e513421da6770c9583f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229756"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API'si başvurusu
 
 Aşağıdaki yollarla Azure Content Moderator API'leri ile çalışmaya başlama: (Ayrıca bkz: [kimlik bilgilerinin yönetimiyle](review-tool-user-guide/credentials.md).)
 
 - Azure portalında [Content Moderator API'sine için abone](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Kaydolun [Content Moderator İnceleme aracı](http://contentmoderator.cognitive.microsoft.com/). Bkz: [hızlı](quick-start.md).
+- Kaydolun [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/). Bkz: [hızlı](quick-start.md).
 
 ## <a name="moderation-apis"></a>Yönetim API’leri
 

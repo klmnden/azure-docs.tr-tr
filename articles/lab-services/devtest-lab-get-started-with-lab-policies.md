@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs temel Laboratuvar ilkeleri yönetme | Microsoft Docs
-description: DevTest Labs'de Laboratuvar için temel ilkeleri (ayarlar) bazıları ayarlamak öğrenin
+title: Azure DevTest labs'deki temel Laboratuvar ilkelerini yönetme | Microsoft Docs
+description: DevTest Labs'de bir laboratuvar için temel ilkeleri (ayarlar) bazıları ayarlamayı öğrenin
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40b8fb360be7b08540e25886aaebe7f911607b6d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8cc529fbf9b24335be1bec07f81c732ced7a2b72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787552"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227017"
 ---
-# <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda için temel ilkelerini yönetme
+# <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara yönelik temel ilkeleri yönetme
 
-Azure DevTest Labs, maliyet denetlemek ve ilkeleri (ayarlar) her Laboratuvar için yöneterek, ortamlarındaki atık en aza indirmenize olanak sağlar. Bu makalede, iki en kritik ilkeleri ayarlamak öğrenme - sanal oluşturduğunuz ya da tek bir kullanıcı tarafından talep makineler (VM) sayısını sınırlama ve Otomatik kapatma yapılandırma ilkeleri ile çalışmaya başlayın. Her Laboratuvar ilkesinin nasıl ayarlanacağı görüntülemek için bkz: [Azure DevTest Labs'de Laboratuvar ilkeleri tanımlar](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs, maliyet denetlemek ve her bir laboratuvar ilkelerini (ayarlar) yöneterek, Labs boşa harcamayı sağlar. Bu makalede, iki en önemli ilkeleri ayarlamak öğrenme - oluşturulan veya tek bir kullanıcı tarafından istenen sanal makinelerin (VM) sayısının sınırlanması ve Otomatik kapatma yapılandırma ilkelerini kullanmaya başlama. Her laboratuar ilkesini ayarlama görüntülemek için bkz [Azure DevTest Labs'de Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md).  
 
-## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Azure DevTest Labs Laboratuvar 's ilkelerinde erişme
-Aşağıdaki adımları ilkeleri için Azure DevTest Labs laboratuvarında kurma yol:
+## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir laboratuvar ilkelerini erişme
+Aşağıdaki adımlar, Azure DevTest labs'deki bir laboratuvara yönelik ilkeleri ayarlama işleminde size kılavuzluk:
 
-(Görüntüleyip değiştirmek için) için bir laboratuvar ilkeleri, şu adımları izleyin:
+(Görüntüleyip değiştirmek için) bir laboratuvara yönelik ilkeleri, aşağıdaki adımları izleyin:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 
 1. İstenen Laboratuvar labs listesinden seçin.   
 
-1. Seçin **yapılandırma ve ilkeleri**.
+1. Seçin **yapılandırması ve ilkelerini**.
 
     ![İlke ayarları bölmesi](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. **Yapılandırma ve ilkeleri** bölmesi belirleyebileceğiniz ayarlar menüsünü içerir. Bu makalede yalnızca ayarlarını kapsar **kullanıcı başına sanal makineler**, **otomatik kapatma**, ve **otomatik başlatma**. Kalan ayarları hakkında bilgi için bkz: [Azure DevTest Labs laboratuvarda yönelik tüm ilkeleri yönetmek](./devtest-lab-set-lab-policy.md). 
+1. **Yapılandırması ve ilkelerini** bölmesi belirtebileceğiniz ayarları içeren bir menü içerir. Bu makale yalnızca ayarlarını kapsar **kullanıcı başına sanal makine**, **otomatik kapatma**, ve **otomatik başlatma**. Kalan ayarlar hakkında bilgi edinmek için [Azure DevTest labs'deki bir laboratuvara yönelik tüm ilkeleri yönetme](./devtest-lab-set-lab-policy.md). 
    
-## <a name="set-virtual-machines-per-user"></a>Kullanıcı başına kümesi sanal makineler
-İlke için **kullanıcı başına sanal makineler** ayrı bir kullanıcı tarafından oluşturulan VM maksimum sayısını belirtmenizi sağlar. Bir kullanıcı veya Kullanıcı sınırı sağlandığında VM talep oluşturmak üzere çalışırsa, oluşturulan ve istenen VM olamaz bir hata iletisi gösterir. 
+## <a name="set-virtual-machines-per-user"></a>Kullanıcı başına sanal makineler kümesi
+İlkeyi **kullanıcı başına sanal makine** bireysel bir kullanıcı tarafından oluşturulan VM'ler en fazla sayısını belirtmenizi sağlar. Bir kullanıcı oluşturma veya Kullanıcı sınırı sağlandığında bir VM talep çalışırsa, bir VM oluşturulur ve talep olamaz bir hata iletisi gösterir. 
 
-1. Laboratuvar 's üzerinde **yapılandırma ve ilkeleri** menüsünde, select **kullanıcı başına sanal makineler**.
+1. Laboratuvar'ın **yapılandırması ve ilkelerini** menüsünde **kullanıcı başına sanal makine**.
    
     ![Kullanıcı başına sanal makineler](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Seçin **Evet** kullanıcı başına VM'ler sayısını sınırlamak için. Kullanıcı başına VM'ler sayısını sınırlamak istemiyorsanız seçin **Hayır**. Seçerseniz **Evet**, oluşturduğunuz ya da bir kullanıcı tarafından talep VM'ler maksimum sayısını gösteren sayısal bir değer girin. 
+1. Seçin **Evet** kullanıcı başına VM'lerin sayısını sınırlamak için. Kullanıcı başına VM'lerin sayısını sınırlamak istemiyorsanız seçin **Hayır**. Seçerseniz **Evet**, oluşturulan veya bir kullanıcı tarafından talep VM'ler en fazla sayısını gösteren bir sayısal değer girin. 
 
-1. Seçin **Evet** SSD (katı hal disk) kullanabilirsiniz VM'lerin sayısını sınırlamak için. SSD kullanın, seçin VM'lerin sayısını sınırlamak istemiyorsanız **Hayır**. Seçerseniz **Evet**, SSD kullanılarak oluşturulan VM maksimum sayısını belirten bir değer girin. 
+1. Seçin **Evet** SSD (katı hal disk) kullanan VM'ler sayısını sınırlamak için. SSD kullanın, seçin VM sayısını sınırlamak istemiyorsanız **Hayır**. Seçerseniz **Evet**, SSD kullanılarak oluşturulan VM'ler en fazla sayısını gösteren bir değer girin. 
 
 1. **Kaydet**’i seçin.
 
-## <a name="set-auto-shutdown"></a>Set otomatik-kapatma
-Bu Laboratuvar ait VM'ler kapatma süresi belirtmenize olanak tanıyarak Laboratuvar atık en aza indirmek için otomatik kapatma ilkesi yardımcı olur.
+## <a name="set-auto-shutdown"></a>Küme otomatik kapatma
+Bu Laboratuvar Vm'leri kapatmak süreyi belirtmenize olanak tanıyarak Laboratuvar israfı en aza indirmek için otomatik kapatmayı ilke yardımcı olur.
 
-1. Laboratuvar 's üzerinde **yapılandırma ve ilkeleri** bölmesinde, **otomatik kapatma**.
+1. Laboratuvar'ın **yapılandırması ve ilkelerini** bölmesinde **otomatik kapatma**.
    
     ![Otomatik kapatma](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Seçin **üzerinde** Bu ilkeyi etkinleştirmek için ve **kapalı** devre dışı bırakmak için.
+1. Seçin **üzerinde** Bu ilkeyi etkinleştirmek için ve **kapalı** devre dışı.
 
-1. Bu ilkeyi etkinleştirirseniz, geçerli laboratuarda tüm sanal makineleri kapatmaya saat (ve saat dilimi) belirtin.
+1. Bu ilkeyi etkinleştirmek, geçerli bir laboratuvar içindeki tüm sanal makineleri kapatmaya saat (ve saat dilimi) belirtin.
 
-1. Belirtin **Evet** veya **Hayır** belirtilen otomatik kapatma saatten önce 15 dakikada bir bildirim gönderme seçeneği için. Seçerseniz **Evet**, bir Web kancası URL'si uç noktası girin veya e-posta adresi gönderilen veya gönderilmesi bildirim istediğiniz yeri belirtme. Kullanıcı bildirimi alır ve kapatma erteleme seçeneği verilir.
+1. Belirtin **Evet** veya **Hayır** seçeneği 15 dakika önce belirtilen otomatik kapatma saatinin bildirim göndermek için. Seçerseniz **Evet**, bir Web kancası URL uç noktasını girin veya e-posta adresi, gönderilen veya gönderilmesi bildirim istediğiniz belirtme. Kullanıcı bildirimi alır ve kapatma erteleme seçeneği verilir.
 
-   Web kancası hakkında daha fazla bilgi için bkz: [bir Web kancası veya API Azure işlevi oluşturma](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   Web kancaları hakkında daha fazla bilgi için bkz: [bir Web kancası veya API Azure işlevi oluşturma](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. **Kaydet**’i seçin.
 
-Varsayılan olarak, bir kez etkinleştirildikten sonra geçerli laboratuarda tüm VM'ler için bu ilke uygulanır. Bu ayarı belirli bir sanal makineden kaldırmak için VM'ın yönetim bölmesini açın ve değiştirmek kendi **otomatik kapatma** ayarı.
+Varsayılan olarak, geçerli Laboratuvardaki tüm sanal makineler için bu ilke etkinleştirildikten sonra uygulanır. Bu ayar, belirli bir sanal makineden kaldırmak için sanal makinenin yönetim bölmesini açın ve değiştirmek, **otomatik kapatma** ayarı.
 
 ## <a name="set-auto-start"></a>Otomatik başlangıcı Ayarla
-Otomatik başlatma ilkesi geçerli laboratuvara sanal makineleri yeniden başlatıldığında belirtmenize olanak tanır.  
+Otomatik başlatma ilke geçerli Laboratuvar VM'lerin yeniden başlatıldığında belirtmenize olanak sağlar.  
 
-1. Laboratuvar 's üzerinde **yapılandırma ve ilkeleri** bölmesinde, **otomatik başlatma**.
+1. Laboratuvar'ın **yapılandırması ve ilkelerini** bölmesinde **otomatik başlatma**.
    
     ![Otomatik başlatma](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-2. Seçin **üzerinde** Bu ilkeyi etkinleştirmek için ve **kapalı** devre dışı bırakmak için.
+2. Seçin **üzerinde** Bu ilkeyi etkinleştirmek için ve **kapalı** devre dışı.
 
-3. Bu ilkeyi etkinleştirirseniz, zamanlanmış başlangıç saati, saat dilimi ve saati geçerli olduğu için haftanın günlerini belirtin. 
+3. Bu ilkeyi etkinleştirmek, zamanlanmış başlangıç saati, saat dilimi ve saati geçerli olduğu için haftanın günlerini belirtin. 
 
 4. **Kaydet**’i seçin.
 
-Etkinleştirildikten sonra bu ilkenin geçerli laboratuarda herhangi bir VM için otomatik olarak uygulanmaz. Bu ayar için mevcut bir VM'yi uygulamak için VM Yönetimi bölmesini açın ve değiştirmek kendi **otomatik başlatma** ayarı.
+Etkinleştirildikten sonra bu ilke geçerli Laboratuvardaki herhangi bir VM için otomatik olarak uygulanmaz. Bu ayar, mevcut bir VM'ye uygulamak için sanal makinenin yönetim bölmesini açın ve değiştirmek, **otomatik başlatma** ayarı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure DevTest Labs'de Laboratuvar ilkeleri tanımlar](devtest-lab-set-lab-policy.md) -diğer Laboratuvar ilkeleri değiştirmek öğrenin.
+- [Azure DevTest Labs'de Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md) -diğer Laboratuvar ilkelerini değiştirme hakkında bilgi edinin.

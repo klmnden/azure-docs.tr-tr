@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 2efaae7794cf5f12719d3d1420d9db6903592559
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a0dc515bb6a4cbf0395dc1407ca65edd5d517d15
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261608"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
 Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../log-analytics/log-analytics-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
@@ -145,7 +145,7 @@ Azure Otomasyonu, bir ortama içerir [runbook'unuzu test](../automation/automati
     ![POST çıkış](media/monitoring-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Log Analytics kayıtları doğrulayın
-Runbook testi tamamlandı ve çıkış başarıyla alındı doğrulandı sonra kayıtları kullanarak oluşturulduğunu doğrulayabilirsiniz bir [Log analytics'te günlük araması](../log-analytics/log-analytics-log-search.md).
+Runbook testi tamamlandı ve çıkış başarıyla alındı doğrulandı sonra kayıtları kullanarak oluşturulduğunu doğrulayabilirsiniz bir [Log analytics'te günlük araması](../log-analytics/log-analytics-queries.md).
 
 ![Günlük çıktısı](media/monitoring-runbook-datacollect/log-output.png)
 

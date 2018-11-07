@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818590"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257614"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan tek başına küme oluşturma
 Azure Service Fabric, tüm sanal makineleri veya Windows Server çalıştıran bilgisayarlarda, Service Fabric kümeleri oluşturmak için kullanabilirsiniz. Bu, dağıtmak ve Service Fabric uygulamaları Windows Server bilgisayarları birbirine bağlı bir dizi içeren herhangi bir ortamında çalıştırmak, şirket içinde veya tüm bulut sağlayıcıları ile de gösterir. Service Fabric, tek başına Windows Server paketi adlı Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.
@@ -27,7 +27,7 @@ Azure Service Fabric, tüm sanal makineleri veya Windows Server çalıştıran b
 Bu makalede bir Service Fabric tek başına küme oluşturma adımlarında size kılavuzluk eder.
 
 > [!NOTE]
-> Bu tek başına Windows Server paketi ticari olarak satışta olduğu ve üretim dağıtımları için kullanılabilir. Bu paket "Önizleme"aşamasında olan yeni Service Fabric özellikler içerebilir. Ekranı aşağı kaydırarak "[Önizleme özellikleri bu pakete dahil](#previewfeatures_anchor)." Önizleme özellikleri bölümüne listesi. Yapabilecekleriniz [EULA'yı bir kopyasını indirin](http://go.microsoft.com/fwlink/?LinkID=733084) şimdi.
+> Bu tek başına Windows Server paketi ticari olarak satışta olduğu ve üretim dağıtımları için kullanılabilir. Bu paket "Önizleme"aşamasında olan yeni Service Fabric özellikler içerebilir. Ekranı aşağı kaydırarak "[Önizleme özellikleri bu pakete dahil](#previewfeatures_anchor)." Önizleme özellikleri bölümüne listesi. Yapabilecekleriniz [EULA'yı bir kopyasını indirin](https://go.microsoft.com/fwlink/?LinkID=733084) şimdi.
 > 
 > 
 
@@ -35,7 +35,7 @@ Bu makalede bir Service Fabric tek başına küme oluşturma adımlarında size 
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Windows Server için Service Fabric paketi için destek alma
 * Windows Server için Service Fabric tek başına paketin hakkında topluluğa sorun [Azure Service Fabric Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* İçin bilet [Service Fabric için profesyonel destek](http://support.microsoft.com/oas/default.aspx?prid=16146).  Microsoft profesyonel destek hakkında daha fazla bilgi [burada](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* İçin bilet [Service Fabric için profesyonel destek](https://support.microsoft.com/oas/default.aspx?prid=16146).  Microsoft profesyonel destek hakkında daha fazla bilgi [burada](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Ayrıca destek bu paket için bir parçası olarak alabilirsiniz [Microsoft Premier desteği](https://support.microsoft.com/en-us/premier).
 * Daha fazla ayrıntı için lütfen bkz [Azure Service Fabric destek seçenekleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Destek amacıyla günlükleri toplamak için çalıştırma [Service Fabric tek başına günlük Toplayıcı](service-fabric-cluster-standalone-package-contents.md).
@@ -44,7 +44,7 @@ Bu makalede bir Service Fabric tek başına küme oluşturma adımlarında size 
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Windows Server paketi için Service Fabric indirme
 Kümeyi oluşturmak için Windows Server için Service Fabric paket kullanın (Windows Server 2012 R2 ve üzeri sürümlerde) burada bulunabilir: <br>
-[Bağlantı - Service Fabric tek başına paketin - Windows Server'ı indirin](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Bağlantı - Service Fabric tek başına paketin - Windows Server'ı indirin](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Paket içeriğine ayarıntılarını bulun [burada](service-fabric-cluster-standalone-package-contents.md).
 

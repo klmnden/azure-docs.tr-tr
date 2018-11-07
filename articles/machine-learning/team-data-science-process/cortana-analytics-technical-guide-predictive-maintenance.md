@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 04e0a694d3e8d978a21417e728feabf32f85299f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 28900c39e658a2a8c66b2ded6f2d70b50bf17e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394604"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231530"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence çözüm şablonu Havacılık ve diğer işletmelerden Tahmine dayalı bakım için teknik kılavuz
 
@@ -39,7 +39,7 @@ Dağıtım işlemi, çözüm kimlik bilgilerini ayarlamak için birkaç adım si
 - Çözüm şablonu değiştirme işlemini göstermektedir.  
 
 > [!TIP]
-> İndirin ve yazdırma bir [bu makalenin PDF sürümünü](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> İndirin ve yazdırma bir [bu makalenin PDF sürümünü](https://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
@@ -47,7 +47,7 @@ Dağıtım işlemi, çözüm kimlik bilgilerini ayarlamak için birkaç adım si
 ![Tahmine dayalı bakım mimarisi](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 Çözümünü dağıttığınızda, Cortana Analytics paketi (Event Hub, Stream Analytics, HDInsight, Data Factory ve Machine Learning dahil olmak üzere) içindeki Azure hizmetlerini etkinleştirir. Mimari diyagramı, Tahmine dayalı bakım için Havacılık çözüm şablonu nasıl oluşturulur gösterir. Çözüm dağıtımı (dışında ilgili işlem hattı etkinliklerinin çalıştırmak için gereklidir ve isteğe bağlı olarak sağlanan, HDInsight ile oluşturulan çözüm şablonu diyagramı tıklayarak bu hizmetleri Azure portalında araştırabilirsiniz. ardından silinir).
-İndirme bir [diyagramın tam boyutlu sürüm](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+İndirme bir [diyagramın tam boyutlu sürüm](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 Aşağıdaki bölümlerde, çözüm parçalar açıklanmaktadır.
 
@@ -67,7 +67,7 @@ Yalnızca, bilgisayarınızda yürütülürken olay oluşturma uygulamasını Az
 Kullanım [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) neredeyse giriş akışında gerçek zamanlı analizler sağlamak için [Azure olay hub'ı](#azure-event-hub) hizmeti. Ardından sonuçları yayımlamak bir [Power BI](https://powerbi.microsoft.com) Pano gelen tüm ham olayları arşiv olarak iyi [Azure depolama](https://azure.microsoft.com/services/storage/) hizmet tarafından daha sonra işlenmek [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)hizmeti.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight özel toplama
-Çalıştırma [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) betikleri (Azure Data Factory tarafından düzenlenir) Azure Stream Analytics hizmeti kullanılarak arşivlenmiş ham olaylar üzerinde toplamalar sağlamak için HDInsight'ı kullanma.
+Çalıştırma [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) betikleri (Azure Data Factory tarafından düzenlenir) Azure Stream Analytics hizmeti kullanılarak arşivlenmiş ham olaylar üzerinde toplamalar sağlamak için HDInsight'ı kullanma.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Alınan girişlerini kullanarak bir belirli uçak motorunun kalan faydalı ömrü (RUL) tahminlerde [Azure Machine Learning hizmeti](https://azure.microsoft.com/services/machine-learning/) (Azure Data Factory tarafından düzenlenir). 
@@ -122,22 +122,22 @@ Bu bölümde ele alınmaktadır gerekli [işlem hatları ve etkinlikler](../../d
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-Bu fabrikada ardışık iki içeren [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümlemek ve verileri toplamak için kullanılan komut. Not, komut dosyaları bulunur [Azure depolama](https://azure.microsoft.com/services/storage/) hesabı Kurulum sırasında oluşturulur. Kendi konumudur: maintenancesascript\\\\betik\\\\hive\\ \\ (veya https://[Your çözüm name].blob.core.windows.net/maintenancesascript).
+Bu fabrikada ardışık iki içeren [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümlemek ve verileri toplamak için kullanılan komut. Not, komut dosyaları bulunur [Azure depolama](https://azure.microsoft.com/services/storage/) hesabı Kurulum sırasında oluşturulur. Kendi konumudur: maintenancesascript\\\\betik\\\\hive\\ \\ (veya https://[Your çözüm name].blob.core.windows.net/maintenancesascript).
 
-Benzer şekilde [Azure Stream Analytics](#azure-stream-analytics-1) sorgular [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) betikleri gelen veri biçimi hakkında örtük bilgiye sahip ve veri biçiminiz tabanlı değiştirilmesi gerekir.
+Benzer şekilde [Azure Stream Analytics](#azure-stream-analytics-1) sorgular [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) betikleri gelen veri biçimi hakkında örtük bilgiye sahip ve veri biçiminiz tabanlı değiştirilmesi gerekir.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Bu [işlem hattı](../../data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştırılan bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) verileri bölümlemek için betik koymak [Azure depolama](https://azure.microsoft.com/services/storage/) sırasında [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) işi.
+Bu [işlem hattı](../../data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştırılan bir [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) verileri bölümlemek için betik koymak [Azure depolama](https://azure.microsoft.com/services/storage/) sırasında [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) işi.
 
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için betik ***AggregateFlightInfo.hql***
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için betik ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 Bu [işlem hattı](../../data-factory/concepts-pipelines-activities.md) son sonucu puanlanmış Öngörüler birkaç etkinliği içeren gelen [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) Bu çözüm şablonuyla ilişkili deneme.
 
 Etkinlikler dahil şunlardır:
 
-* [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştırılan bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) toplamalar gerçekleştirmek ve özellik Mühendisliği için gereken betik [Azure makine Öğrenme](https://azure.microsoft.com/services/machine-learning/) denemeler yapın.
-  [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için betik ***PrepareMLInput.hql***.
+* [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştırılan bir [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) toplamalar gerçekleştirmek ve özellik Mühendisliği için gereken betik [Azure makine Öğrenme](https://azure.microsoft.com/services/machine-learning/) denemeler yapın.
+  [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için betik ***PrepareMLInput.hql***.
 * [Kopyalama](https://msdn.microsoft.com/library/azure/dn835035.aspx) sonuçlardan taşıyan bir etkinlik [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) tek bir etkinlik [Azure depolama](https://azure.microsoft.com/services/storage/) blob tarafından erişilen [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) Etkinlik.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) etkinlik çağrıları [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) keşfedin, tek bir yerleştirme sonuçlarla [Azure depolama](https://azure.microsoft.com/services/storage/) blob.
 
@@ -241,5 +241,5 @@ Veri oluşturucuyu çalışan, daha yüksek maliyetlere neden şekilde aktif ç�
 Tahmine dayalı bakım için Havacılık çözüm şablonu aboneliğinizde çalıştırılan ilgili toplam maliyetleri daha iyi anlamanıza yardımcı olması aşağıdaki iki araçlar mevcuttur:
 
 * [Microsoft Azure maliyet tahmin Aracı (çevrimiçi)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure maliyet tahmin Aracı (Masaüstü)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure maliyet tahmin Aracı (Masaüstü)](https://www.microsoft.com/download/details.aspx?id=43376)
 

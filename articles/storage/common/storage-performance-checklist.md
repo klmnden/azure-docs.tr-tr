@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531855"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231797"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
@@ -90,7 +90,7 @@ Azure Depolama hizmetlerinin her biri, Kapasite (GB), işlem hızı ve bant geni
 * [Saniye başına kuyruk iletileri](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Tüm hizmetler için bant genişliği ölçeklenebilirlik hedefine
-Makalenin yazıldığı sırada, bant genişliği hedefleri coğrafi olarak yedekli depolama (GRS) hesabı için ABD'de 10 Gigabit / saniye (Gbps) (depolama hesabına gönderilen veriler) giriş ve çıkış (depolama hesabından gönderilen veriler) için 20 GB/sn içindir. Bir yerel olarak yedekli depolama (LRS) hesabı için sınırları daha yüksek – 20 GB/sn giriş ve çıkış için 30 GB/sn.  Uluslararası bant genişliği sınırlarını daha düşük olabilir ve bulunabilir bizim [ölçeklenebilirlik hedefleri sayfa](http://msdn.microsoft.com/library/azure/dn249410.aspx).  Depolama yedekliliği seçenekleri hakkında daha fazla bilgi için bkz: bağlantıları [faydalı kaynaklar](#sub1useful) aşağıda.  
+Makalenin yazıldığı sırada, bant genişliği hedefleri coğrafi olarak yedekli depolama (GRS) hesabı için ABD'de 10 Gigabit / saniye (Gbps) (depolama hesabına gönderilen veriler) giriş ve çıkış (depolama hesabından gönderilen veriler) için 20 GB/sn içindir. Bir yerel olarak yedekli depolama (LRS) hesabı için sınırları daha yüksek – 20 GB/sn giriş ve çıkış için 30 GB/sn.  Uluslararası bant genişliği sınırlarını daha düşük olabilir ve bulunabilir bizim [ölçeklenebilirlik hedefleri sayfa](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Depolama yedekliliği seçenekleri hakkında daha fazla bilgi için bkz: bağlantıları [faydalı kaynaklar](#sub1useful) aşağıda.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Ölçeklenebilirlik hedefine bölümüyle iletişime geçerken yapmanız gerekenler
 Uygulamanız için bir tek bir depolama hesabı ölçeklenebilirlik hedefleri yaklaşıyorsa, aşağıdaki yaklaşımlardan birini benimsemeyi göz önünde bulundurun:  
@@ -104,7 +104,7 @@ Uygulamanız için bir tek bir depolama hesabı ölçeklenebilirlik hedefleri ya
 Aşağıdaki bağlantılar ölçeklenebilirlik hedefleri hakkında ek ayrıntılar sağlar:
 
 * Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) ölçeklenebilirlik hedefleri hakkında bilgi için.
-* Bkz: [Azure depolama çoğaltma](storage-redundancy.md) ve blog gönderisinde [Azure depolama Yedekliliği seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) depolama yedekliliği seçenekleri hakkında bilgi için.
+* Bkz: [Azure depolama çoğaltma](storage-redundancy.md) ve blog gönderisinde [Azure depolama Yedekliliği seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) depolama yedekliliği seçenekleri hakkında bilgi için.
 * Azure Hizmetleri için fiyatlandırma hakkında güncel bilgiler için bkz [Azure fiyatlandırması](https://azure.microsoft.com/pricing/overview/).  
 
 ### <a name="subheading47"></a>Bölüm adlandırma kuralları
@@ -149,7 +149,7 @@ Bu iki teknoloji gereksiz yük (ve performans sorunlarını) web uygulamanızda 
 #### <a name="useful-resources"></a>Yararlı Kaynaklar
 SAS hakkında daha fazla bilgi için bkz: [paylaşılan erişim imzaları, bölüm 1: SAS modelini anlama](../storage-dotnet-shared-access-signature-part-1.md).  
 
-CORS hakkında daha fazla bilgi için bkz: [Azure Storage Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) desteği](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
+CORS hakkında daha fazla bilgi için bkz: [Azure Storage Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) desteği](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Önbelleğe alma
 #### <a name="subheading7"></a>Veri alma
@@ -159,7 +159,7 @@ Bazı durumlarda, uygulamanızın blob alınması sonra kısa bir süre için ge
 
 Yapılandırma, arama ve her zaman uygulama tarafından kullanılan diğer veri önbelleğe almak için iyi adaylar olan.  
 
-.NET kullanarak son değiştirilme tarihi bulmak için bir blob'un özellikleri almak nasıl bir örnek için bkz [ayarlama ve alma özellikleri ve meta verileri](../blobs/storage-properties-metadata.md). Koşullu indirmeler hakkında daha fazla bilgi için bkz: [koşullu olarak bir Blob yerel bir kopyasını yenilemek](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
+.NET kullanarak son değiştirilme tarihi bulmak için bir blob'un özellikleri almak nasıl bir örnek için bkz [ayarlama ve alma özellikleri ve meta verileri](../blobs/storage-properties-metadata.md). Koşullu indirmeler hakkında daha fazla bilgi için bkz: [koşullu olarak bir Blob yerel bir kopyasını yenilemek](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
 #### <a name="subheading8"></a>Toplu veri yükleme
 Bazı uygulama senaryolarında yerel olarak veri toplama ve sonra düzenli aralıklarla hemen her veri parçası karşıya yerine toplu karşıya yükleyin. Örneğin, bir web uygulaması etkinliklerinin bir günlük dosyası tutabilir: (birçok depolama işlemleri gerektiren) Tablo varlığı olur veya Etkinlik ayrıntıları yerel bir günlük dosyasına kaydedebilir uygulama ya da her etkinlik ayrıntılarını yükleyebilir ve ardından düzenli aralıklarla tüm etkinlik ayrıntılarını bir bloba sınırlandırılmış bir dosyanın olarak karşıya yükleyin. Her günlük girişinin, 1 KB boyutundaki ise, binlerce (64 MB'lik boyutu tek bir işlemde bir blob karşıya yükleyebilirsiniz) tek bir "yerleştirme Blob" işlemde karşıya yükleyebilirsiniz. Elbette, yerel makine karşıya yükleme öncesinde çökerse, bazı günlük verilerini potansiyel olarak kaybedersiniz: uygulama geliştiricisi tasarlamak için istemci cihaz olasılığını veya karşıya yükleme hataları.  Etkinlik verileri timespans (yalnızca tek etkinliği) için indirilmesi gerekiyorsa, BLOB'ları tablolar üzerindeki tavsiye edilir.
@@ -178,7 +178,7 @@ Tüm bağlantıları açmadan önce bağlantı üst sınırına ayarlamanız ger
 
 Diğer programlama dili için nasıl bağlantı üst sınırına ayarlanacağını belirlemek için dil belgelerine bakın.  
 
-Ek bilgi için blog gönderisine bakın [Web Hizmetleri: eş zamanlı bağlantı](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Ek bilgi için blog gönderisine bakın [Web Hizmetleri: eş zamanlı bağlantı](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>İş parçacığı havuzu en az iş parçacığı zaman uyumlu bir kod ile zaman uyumsuz görevleri kullanıyorsanız artırın
 Bu kod, iş parçacığı havuzu min iş parçacıkları artırır:  
@@ -187,12 +187,12 @@ Bu kod, iş parçacığı havuzu min iş parçacıkları artırır:
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Daha fazla bilgi için [ThreadPool.SetMinThreads yöntemi](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
+Daha fazla bilgi için [ThreadPool.SetMinThreads yöntemi](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>.NET 4.5 çöp toplama yararlanın
 .NET 4.5 veya sonraki istemci uygulaması için sunucu çöp toplamada performans iyileştirmelerinden yararlanmak için kullanın.
 
-Daha fazla bilgi için bkz [bir genel bakış, performans geliştirmeleri .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).  
+Daha fazla bilgi için bkz [bir genel bakış, performans geliştirmeleri .NET 4.5](https://msdn.microsoft.com/magazine/hh882452.aspx).  
 
 ### <a name="subheading12"></a>Sınırsız paralellik
 Paralellik performans için harika olabilir, ancak sınırsız paralellik (iş parçacıkları ve/veya paralel istekler sayısı sınır) karşıya yükleyin veya birden çok bölüme erişmek için birden fazla çalışana kullanarak verileri yüklemek için kullanırken dikkatli (kapsayıcılar, kuyruklar, veya Tablo bölümleri) aynı depolama hesabındaki veya birden çok öğe aynı bölüme erişmek için. Paralellik sınırsız ise, uygulamanızın istemci cihazın özelliklerini aşabilir miyim veya depolama hesabının ölçeklenebilirlik elde edilen uzun gecikme süreleri ve azaltma hedefler.  
@@ -210,7 +210,7 @@ Azaltma sonucu değildir ve geçici olması nedeniyle bağlantı hataları hemen
 İstemci kitaplıkları, hangi hataları yeniden deneme yapabilir ve desteklenmeyen farkındayız. Depolama REST API'sini karşı kendi kod yazıyorsanız, Bununla birlikte, yeniden bazı hatalar unutmayın: Örneğin, bir 400 (hatalı yanıt, istemci uygulama, olmadığından işlenemedi bir istek gönderdiğini gösterir istek) Beklenen bir biçimde. Hiçbir noktası, yeniden deneniyor, bu nedenle bu isteği yeniden her zaman aynı yanıtı neden olur. Depolama REST API'sini karşı kendi kod yazıyorsanız, hata kodlarını ne anlama geliyor ve (veya etkinleştirmezsiniz) yeniden denemek için en uygun yolu unutmayın her biri için.  
 
 #### <a name="useful-resources"></a>Yararlı Kaynaklar
-Depolama hata kodları hakkında daha fazla bilgi için bkz. [durumu ve hata kodları](http://msdn.microsoft.com/library/azure/dd179382.aspx) Microsoft Azure web sitesinde.  
+Depolama hata kodları hakkında daha fazla bilgi için bkz. [durumu ve hata kodları](https://msdn.microsoft.com/library/azure/dd179382.aspx) Microsoft Azure web sitesinde.  
 
 ## <a name="blobs"></a>Bloblar
 Kendini kanıtlamış yöntemleri için ek olarak [tüm hizmetleri](#allservices) daha önce açıklandığı gibi başarısı kanıtlanmış yöntemler aşağıdaki özel olarak blob hizmeti için geçerlidir.  
@@ -236,7 +236,7 @@ Bir göz önünde bulundurarak, ancak depolama hesapları arasında kopyalama ya
 
 Aynı depolama hesabında kendisini kopyaları genellikle hızla tamamlanacağını unutmayın.  
 
-Daha fazla bilgi için [kopya blob'u](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
+Daha fazla bilgi için [kopya blob'u](https://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 #### <a name="subheading18"></a>Azcopy'yi kullanma
 Azure depolama ekibi bir komut satırı aracı "AzCopy" yayınlandı birçok bloblar için gelen ve depolama hesaplarınız arasında aktarma toplu yardımcı olmak amacıyla tasarlanmıştır.  Bu araç, bu senaryo için en iyi duruma getirilmiş ve yüksek aktarım hızı elde edebilirsiniz.  Kullanımı toplu karşıya yükleme, indirme ve kopyalama senaryoları için önerilir. Hakkında daha fazla bilgi edinin ve indirmek için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).  
@@ -266,7 +266,7 @@ Hızlı bir şekilde birçok blobları karşıya yüklemek için BLOB'ları para
 ### <a name="subheading23"></a>Blob doğru türünü seçme
 Azure depolama blob iki tür destekler: *sayfa* blobları ve *blok* blobları. Belirli kullanım senaryosu için seçtiğiniz blob türü, performans ve ölçeklenebilirlik çözümünüzün etkiler. Blok blobları, büyük miktarlarda verileri verimli bir şekilde karşıya yüklemek istediğiniz zaman uygundur: Örneğin, blob depolama alanına fotoğraf veya videoyu karşıya yüklemek bir istemci uygulaması gerekebilir. Sayfa blobları, rastgele yazmaları veriler üzerinde gerçekleştirmek uygulamanın gerekiyorsa uygun: Örneğin, Azure VHD'leri sayfa blobları depolanır.  
 
-Daha fazla bilgi için [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](http://msdn.microsoft.com/library/azure/ee691964.aspx).  
+Daha fazla bilgi için [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](https://msdn.microsoft.com/library/azure/ee691964.aspx).  
 
 ## <a name="tables"></a>Tablolar
 Kendini kanıtlamış yöntemleri için ek olarak [tüm hizmetleri](#allservices) daha önce açıklandığı gibi başarısı kanıtlanmış yöntemler aşağıdaki tabloda hizmete özellikle uygulayın.  
@@ -286,12 +286,12 @@ Bu bölümde, tablo hizmetinde önemli performans geliştirmeleri yapmak için k
 #### <a name="subheading25"></a>JSON kullanın
 Depolama hizmeti sürüm 2013-08-15 ile başlayarak, tablo hizmeti JSON XML tabanlı AtomPub biçimi yerine tablo verilerini aktarmak için kullanarak destekler. Bu, yük boyutları olarak 75 oranında azaltabilir ve uygulamanızın performansını önemli ölçüde artırabilir.
 
-Daha fazla bilgi için gönderiye bakın [Microsoft Azure tabloları: Introducing JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) ve [tablo hizmeti işlemleri için yükü biçimi](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Daha fazla bilgi için gönderiye bakın [Microsoft Azure tabloları: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) ve [tablo hizmeti işlemleri için yükü biçimi](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle kapalı
 Nagle'nın algoritması, yaygın olarak TCP/IP ağları arasında ağ performansını artırmak için bir yol uygulanır. Ancak, tüm durumlarda (örneğin, yüksek oranda etkileşimli ortamları) uygun değil. Azure depolama için Nagle'nın algoritması, tablo ve kuyruk hizmetlere yönelik istekler, performans üzerinde olumsuz bir etkisi yoktur. ve mümkünse devre dışı.  
 
-Bizim blog gönderisi daha fazla bilgi için bkz. [Nagle'nın algoritmasıdır küçük istekler doğrultusunda kolay değil](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), açıklayan neden Nagle'nın algoritması kötü performans gösteren tablo ve kuyruk istekleri ile etkileşim kurar ve istemcinizde devre dışı bırakmak nasıl gösterir uygulama.  
+Bizim blog gönderisi daha fazla bilgi için bkz. [Nagle'nın algoritmasıdır küçük istekler doğrultusunda kolay değil](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), açıklayan neden Nagle'nın algoritması kötü performans gösteren tablo ve kuyruk istekleri ile etkileşim kurar ve istemcinizde devre dışı bırakmak nasıl gösterir uygulama.  
 
 ### <a name="schema"></a>Şema
 Nasıl temsil eder ve verilerinizi sorgulayın, tablo Hizmeti performansını etkileyen en büyük tek faktördür. Her uygulama farklı olsa da, bu bölümde ile ilgili bazı genel kendini kanıtlamış yöntemleri açıklar:  

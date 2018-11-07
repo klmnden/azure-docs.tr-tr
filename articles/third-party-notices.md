@@ -1,14 +1,14 @@
 # <a name="legal-notices"></a>Yasal uyarılar
 
-Microsoft ve katkı lisansı Microsoft belgeleri ve diğer içeriği altında bu depodaki vermek [Creative Commons Attribution 4.0 Uluslararası genel lisans](https://creativecommons.org/licenses/by/4.0/legalcode)ve herhangi bir kodda bir lisans verin depo altında [MIT lisansı](https://opensource.org/licenses/MIT).
+Microsoft ve katkıda bulunanların Microsoft belgelerine ve diğer içerikleri kapsamında bu depodaki bir bir lisans verirsiniz [Creative Commons Attribution 4.0 Uluslararası genel lisansı](https://creativecommons.org/licenses/by/4.0/legalcode)ve herhangi bir kod lisansı verme depo altında [MIT lisansı](https://opensource.org/licenses/MIT).
 
-Microsoft, Windows, Microsoft Azure ve/veya diğer Microsoft ürünleri ve Hizmetleri belgelerinde başvurulan ticari markaları ya da Microsoft Amerika Birleşik Devletleri ve/veya diğer ülkelerde kayıtlı ticari markaları olabilir.
-Bu proje için lisans herhangi bir Microsoft adları, logolar veya ticari kullanım hakları vermeyin.
-Microsoft'un genel ticari marka yönergeleri bulunabilir [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+Microsoft, Windows, Microsoft Azure ve/veya diğer Microsoft ürünleri ve belgelerde sözü ticari markalarınızın ya da Microsoft Amerika Birleşik Devletleri ve/veya diğer ülkelerde kayıtlı ticari markaları olabilir.
+Bu proje için bir lisans herhangi bir Microsoft adları, logo veya ticari kullanma hakkı vermeyin.
+Microsoft'un genel ticari marka yönergelerini bulunabilir [ http://go.microsoft.com/fwlink/?LinkID=254653 ](https://go.microsoft.com/fwlink/?LinkID=254653).
 
-Gizlilik bilgileri bulunabilir [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
+Gizlilik bilgileri şu adreste bulunabilir: [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
-Microsoft ve diğer tüm hakları, kendi ilgili telif hakları olup olmadığını, altındaki tüm katkıda bulunanlar ayırma patentleri veya durumlarda da olsa, olup olmadığını, ticari markalar rıza ya da aksi takdirde.
+Microsoft ve tüm katkıda bulunanlar ayırma diğer hakların tamamını, ilgili telif hakları yoksa, patentleri veya ZIMNEN, ticari markalar rıza ya da aksi takdirde.
 
-Git gopher tarafından tasarlanmıştır [Renee Fransızca](http://reneefrench.blogspot.com/).
-Tasarım altında lisanslanmıştır [Creative Commons 3.0 nitelikleri lisans](https://creativecommons.org/licenses/by/3.0/us/).
+Git gopher tarafından tasarlanan [Renee Fransızca](http://reneefrench.blogspot.com/).
+Tasarım altında lisanslanmıştır [Creative Commons 3.0 atıfları lisans](https://creativecommons.org/licenses/by/3.0/us/).

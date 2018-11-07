@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 111976cd684561f5bc63b92f09a20470fe3036d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 89ca7a5fa13696856bed108e4cbf7462b536b4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606655"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246625"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>StorSimple sanal dizisi üzerinde güncelleştirme 0.6 yükleyin
 
@@ -57,7 +57,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Güncelleştirmeyi veya düzeltmeyi indirmek için
 
-1. Internet Explorer'ı başlatın ve gidin [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Internet Explorer'ı başlatın ve gidin [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Microsoft Update Kataloğu'nu bu bilgisayarda ilk kez kullanıyorsanız, **yükleme** Microsoft Update Kataloğu eklentisini yüklemek isteyip istemediğiniz sorulduğunda.
 
@@ -74,7 +74,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
 6. Dosyalarının bulunduğu klasörü açın.
     ![Paket dosyaları](./media/storsimple-virtual-array-install-update-06/update06folder.png)
 
-    Görürsünüz:
+    Şununla karşılaşırsınız:
     -  Microsoft Update tek başına paketin dosya `WindowsTH-KB3011067-x64`. Bu dosya, cihaz yazılımı güncelleştirmek için kullanılır.
     - Geneva İzleme Aracısı paket dosyası `GenevaMonitoringAgentPackageInstaller`. Bu dosya, izleme ve Tanılama Hizmeti (MDS) aracısını güncelleştirmek için kullanılır. Cab dosyasına çift tıklayın. A _.msi_ görüntülenir. Dosyasını seçin, sağ tıklatın ve ardından **ayıklamak** dosya. Kullandığınız _.msi_ aracısını güncelleştirmek için dosya.
 

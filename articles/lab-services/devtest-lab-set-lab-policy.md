@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666848"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255191"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara yönelik tüm ilkeleri yönetme
 
@@ -27,7 +27,7 @@ Azure DevTest Labs, maliyet denetlemek ve laboratuvarlarınızı içinde boşa h
 ## <a name="set-allowed-virtual-machine-sizes"></a>Sanal makine boyutları izin kümesi
 Hangi VM boyutlarının laboratuvarda izin verildiğini belirtmek sağlayarak Laboratuvar israfı en aza indirmek için izin verilen VM boyutları ayarlama İlkesi yardımcı olur. Bu ilke etkinleştirilirse, yalnızca bu listedeki VM boyutları, sanal makineler oluşturmak için kullanılabilir.
 
-1. İçinde [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin ve ardından **yapılandırması ve ilkelerini**.
+1. İçinde [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin ve ardından **yapılandırması ve ilkelerini**.
 
     ![Laboratuvar yapılandırması ve ilkelerini erişim](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d12ca26fb2aa5abddcf44b2e634b2f08b1fb01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696259"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235709"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara iç destek deyimi ekleyin
 
@@ -31,7 +31,7 @@ Kolayca devre dışı veya artık geçerli olmadığı sonra bir destek bildirim
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Bir destek bildirimiyle var olan bir laboratuvara ekleme adımları
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**).
 1. Bir destek bildirimiyle eklemek istediğiniz Laboratuvar labs listesinden seçin.  
 1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.  
@@ -55,7 +55,7 @@ Artık Laboratuvar kullanıcılara bu destek iletisini göstermek istediğiniz z
 
 ## <a name="steps-for-users-to-view-the-support-message"></a>Kullanıcıların destek iletisini görüntülemek adımları
 
-1. Gelen [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin.
+1. Gelen [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin.
 
 1. Laboratuvar'ın **genel bakış** alanında **iç destek**.  
 

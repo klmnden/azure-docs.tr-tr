@@ -10,17 +10,17 @@ Pay attention to spacing and indents. They affect formatting.
 
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" in under the "contributor-guide" folder in your repo. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
-# <a name="use-azure-powershell-to-task"></a>[Görev] Azure PowerShell kullanma
-Bu makalede, Azure modülü ve Azure Resource Manager modülüyle komutları kullanarak [Görev], gösterilmektedir. Bu yeni komutları yanı sıra yeni komutları varolan komut dosyalarını geçirme öğrenmenize yardımcı olmak amacıyla tasarlanmıştır.
+# <a name="use-azure-powershell-to-task"></a>[Görev] için Azure PowerShell'i kullanma
+Bu makalede, Azure modülü hem Azure Resource Manager modülüyle komutları kullanarak [Görev], işlemini göstermektedir. Bu yeni komutlar yanı sıra mevcut betikleri için yeni komutlar geçirme öğrenmenize yardımcı olmak için tasarlanmıştır.
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Önkoşul: Azure PowerShell'in en son sürümünü yükleyin
-En az henüz yapmadıysanız, yerel bilgisayarınızda Azure PowerShell [sürüm numarası] sürümünü yükleyin. Önceki bir sürümünü kullanıyorsanız, bu makalede Azure Resource Manager cmdlet'lerini olmayacaktır. Ayrıntılar için bkz.
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Önkoşul: Azure PowerShell en güncel sürümünü yükleyin.
+En az henüz yapmadıysanız, yerel bilgisayarınızda Azure PowerShell [sürüm numarası] sürümü yükleyin. Önceki bir sürümünü kullanıyorsanız, bu makalede açıklanan Azure Resource Manager cmdlet'leri olmaz. Ayrıntılar için bkz.
 
-* [Azure PowerShell'i yükleme ve yapılandırma nasıl](install-configure-powershell.md) Azure PowerShell ayarlama hakkında yönergeler için.
-* [Resource Manager ile Windows PowerShell kullanarak](powershell-azure-resource-manager.md) için Kaynak Yöneticisi'ni kullanma hakkında temel bilgiler.
+* [Azure PowerShell'i yükleme ve yapılandırma işlemini](install-configure-powershell.md) Azure PowerShell ayarlama ayarlama hakkında yönergeler için.
+* [Resource Manager ile Windows PowerShell kullanarak](powershell-azure-resource-manager.md) için Resource Manager'ı kullanma hakkında temel bilgiler.
 
 > [!NOTE]
-> Çoğu görevi bir yönetici düzeyi Azure PowerShell komut isteminde kullanmanızı gerektirir.
+> Çoğu görevler, bir yönetici düzeyinde Azure PowerShell komut istemini kullanmayı gerektirir.
 > 
 > 
 
@@ -34,7 +34,7 @@ Then, use the following syntax to add a reference to the image in your article:
 
 <!--if a command string uses variables, define the variables first, using the  following construction. In some cases the variable is straightforward and doesn't need much explanation. But parameters such as location and size can benefit from brief explanation or listing all accepted values:--> 
 
-Bu komut örnekleri aşağıdaki değişkenleri kullanın:
+Bu komut örnekleri aşağıdaki değişkenleri kullanır:
 
 $FriendlyName"<Describe value>"
 
@@ -46,19 +46,19 @@ $FriendlyName"<Describe value>"
 
 <!--if it makes more sense to present this one command block after the other instead of a table, use this. Otherwise, delete-->
 
-[Kısa giriş cümle komutu hakkında. Varsa gerçekten söylemek için hiçbir şey yok sayın. Ancak yaklaşımlar böyle kullanıyorsa, bir ardışık düzen biçimde açıklayan]:
+[Komut hakkında kısa bir giriş cümle. Gerçekten çok şey yoksa söylemek atlayın. Ancak bu yaklaşımlar kullanıyorsa, bir işlem hattı biçimde açıklayan]:
 
     [command string]
 
-## <a name="script-examples"></a>Komut dosyası örnekleri
-Burada [göreve] [cmdlet adları)] kullanan bir örnek verilmiştir. Komutları içerir:
+## <a name="script-examples"></a>Betik örnekleri
+[Görev] için [cmdlet adları)] kullanan bir örnek aşağıdadır. Komutlar içerir:
 
-* [kısa fiil, kullandığı içeriyorsa, olduğundan, vb.]
-* [sonraki kısa fiil] 
+* [kısa fiil, kullandığı sahip, olduğundan, vb.]
+* [sonraki kısa fiili] 
 
-<!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
+<!--include this statement if it uses variables that weren't introduced earlier--> Aşağıdaki değişkenler içerir:
 
-* [değişken 1]
+* [1 değişkeni]
 * [2 değişkeni]
 
 <!--This shows you how a recent example was presented as well as how it was formatted. Preceding each line with one tab or four spaces to format in a code block-->
@@ -90,11 +90,11 @@ Burada [göreve] [cmdlet adları)] kullanan bir örnek verilmiştir. Komutları 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 <!--At a minimum, include a link back to the migration task list article. Use the formats shown below. See create-links-markdown.md for more info -->
 <!--use this format for links to other articles, such as the migration task list. -->
-[Kullanılabilirliğini yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Kullanılabilirliği yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
-    [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)-->
+    [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
 [Sanal makineler belgeleri](https://msdn.microsoft.com/library/azure/jj156003.aspx)

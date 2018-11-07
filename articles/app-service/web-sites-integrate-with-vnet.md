@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5eab09d5dffe16517e8c18eb0281716618ca0286
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5e7a2150757afeecb6b0b100f3259f1628f42074
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166251"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262089"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
-Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Azure sanal ağları (Vnet) ile alışkın değilseniz, bu birçok Azure kaynaklarınızın erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlayan bir özelliktir. Bu ağlar ardından çeşitli teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Azure sanal ağları hakkında daha fazla bilgi edinmek için buradaki bilgileri ile Başlat: [Azure sanal ağa genel bakış][VNETOverview]. 
+Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Azure sanal ağları (Vnet) ile alışkın değilseniz, bu birçok Azure kaynaklarınızın erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlayan bir özelliktir. Bu ağlar ardından çeşitli teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Azure sanal ağları hakkında daha fazla bilgi edinmek için buradaki bilgileri ile Başlat: [Azure sanal ağa genel bakış][VNETOverview]. 
 
 Azure App Service iki biçimi vardır. 
 
@@ -271,7 +271,7 @@ App Service, bir Azure PowerShell kullanarak sanal ağ ile tümleştirebilirsini
 ## <a name="hybrid-connections-and-app-service-environments"></a>Karma bağlantılar ve App Service ortamları
 Barındırılan bir sanal ağ kaynaklarına erişimi etkinleştirme üç özellik vardır. Bunlar:
 
-* VNet tümleştirmesi
+* Sanal Ağ Tümleştirmesi
 * Karma Bağlantılar
 * App Service ortamları
 

@@ -3,18 +3,18 @@ title: Azure Data Lake Store verileri çözümlemek için Apache Spark'ı kullan
 description: Azure Data Lake Store içinde depolanan verileri analiz için Spark işleri çalıştırma
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: aae63b06999c0b8eafa0d42608d32a4d467a900c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041070"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255259"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Data Lake Store verilerini çözümlemek için HDInsight Spark kümesi kullanın
 
@@ -34,7 +34,7 @@ Bu öğreticide, Jupyter not defteri kullanılabilir HDInsight Spark kümeleri i
 >
 >
 
-Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu olarak Data Lake Store ile HDInsight kümesi oluşturduysanız, Data Lake Store hesabı için öncelikle bazı örnek veriler üzerinde kopyalamanız gerekir. Azure depolama Blob verileri HDInsight kümesi ile ilişkili örnek kullanabilirsiniz. Kullanabileceğiniz [ADLCopy aracı](http://aka.ms/downloadadlcopy) Bunu yapmak için. İndirin ve aracı bağlantıdan yükleyin.
+Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu olarak Data Lake Store ile HDInsight kümesi oluşturduysanız, Data Lake Store hesabı için öncelikle bazı örnek veriler üzerinde kopyalamanız gerekir. Azure depolama Blob verileri HDInsight kümesi ile ilişkili örnek kullanabilirsiniz. Kullanabileceğiniz [ADLCopy aracı](https://aka.ms/downloadadlcopy) Bunu yapmak için. İndirin ve aracı bağlantıdan yükleyin.
 
 1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizine gidin `%HOMEPATH%\Documents\adlcopy`.
 

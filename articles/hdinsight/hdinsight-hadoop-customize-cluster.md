@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: af78dfd480fa972c9fc52c2a3636c3780cfa0147
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006657"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230810"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Windows tabanlı HDInsight kümelerini betik eylemi kullanarak özelleştirme
 **Betik eylemi** çağırmak için kullanılan [özel betikler](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
@@ -279,7 +279,7 @@ Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Spark'ı yükl
 5. Uygulamayı çalıştırmak için **F5**'e basın.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği
-Microsoft Azure HDInsight, Hadoop geçici olarak oluşturulmuş açık kaynak teknolojilerinin bir ekosistemi kullanarak buluttaki büyük veri uygulamaları oluşturmanıza olanak sağlayan esnek bir platform hizmetidir. Microsoft Azure içinde açıklandığı gibi bu genel bir seviyede destek açık kaynak teknolojileri için sağlar **destek kapsamı** bölümünü <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure desteği SSS Web sitesine</a>. HDInsight hizmeti, aşağıda açıklandığı gibi bir ek düzeyi bazı bileşenleri için destek sağlar.
+Microsoft Azure HDInsight, Hadoop geçici olarak oluşturulmuş açık kaynak teknolojilerinin bir ekosistemi kullanarak buluttaki büyük veri uygulamaları oluşturmanıza olanak sağlayan esnek bir platform hizmetidir. Microsoft Azure içinde açıklandığı gibi bu genel bir seviyede destek açık kaynak teknolojileri için sağlar **destek kapsamı** bölümünü <a href="https://azure.microsoft.com/support/faq/" target="_blank">Azure desteği SSS Web sitesine</a>. HDInsight hizmeti, aşağıda açıklandığı gibi bir ek düzeyi bazı bileşenleri için destek sağlar.
 
 HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır:
 

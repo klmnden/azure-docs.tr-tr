@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675974"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248257"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Kotalar ve sınırlar DevTest Labs'de ölçeklendirin
 DevTest Labs'de çalışırken, DevTest Labs hizmet etkileyebilecek bazı Azure kaynakları için bazı varsayılan limitler olduğunu fark edebilirsiniz. Bu sınırlar denir **kotalar**.
@@ -35,7 +35,7 @@ Her Azure kaynağı kotasına ulaşana kadar kullanabilirsiniz. Her abonelik ayr
 ## <a name="view-your-usage-and-quotas"></a>Kullanım ve kotalar görüntüleyin
 Bu adımlar, aboneliğinizdeki belirli Azure kaynakları için geçerli kotalar görüntülemek için ve kullandığınız her kota yüzdesini görmek için nasıl gösterir.
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **diğer hizmetler**ve ardından **faturalama** listeden.
 1. Faturalama dikey penceresinde bir abonelik seçin.
 4. Seçin **kullanım ve kotalar**.
@@ -49,7 +49,7 @@ Bu adımlar, aboneliğinizdeki belirli Azure kaynakları için geçerli kotalar 
 ## <a name="requesting-more-resources-in-your-subscription"></a>Daha fazla kaynak, aboneliğinizdeki isteme
 Bir kota üst sınırına ulaşırsanız, kaynağın bir abonelikte varsayılan sınır sınırına kadar açıklanan şekilde artırılabilir [Azure aboneliği ve hizmet sınırları](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-Bu adımlarda aracılığıyla bir kota artırım talebinde bulunmak gösterilmektedir [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Bu adımlarda aracılığıyla bir kota artırım talebinde bulunmak gösterilmektedir [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Seçin **diğer hizmetler**seçin **faturalama**ve ardından **kullanım ve kotalar**.
 1. Kullanım ve kotalar, dikey penceresinde **istek artırmak** düğmesi.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056167"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227986"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları alın.
@@ -77,7 +77,7 @@ API Management örneği için yeni bir örneği kopyalamak istiyorsanız birkaç
 Evet, kullanarak API Management programlı olarak yönetebilirsiniz:
 
 * [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
-* [Microsoft Azure ApiManagement Hizmet Yönetimi Kitaplığı SDK](http://aka.ms/apimsdk).
+* [Microsoft Azure ApiManagement Hizmet Yönetimi Kitaplığı SDK](https://aka.ms/apimsdk).
 * [Hizmet dağıtımı](https://docs.microsoft.com/powershell/module/wds) ve [Hizmet Yönetimi](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlet'leri.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Bir kullanıcı Administrators grubuna nasıl ekleyebilirim?
@@ -104,7 +104,7 @@ Birden çok ortamı, örneğin, bir test ortamı ve bir üretim ortamında, tek 
 * Farklı kiracıların aynı API'leri barındırın.
 
 ### <a name="can-i-use-soap-with-api-management"></a>SOAP API Management ile kullanabilir miyim?
-[SOAP geçişi](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) desteği kullanıma sunuldu. Yöneticiler, SOAP hizmetini WSDL içe aktarabilir ve Azure API Management SOAP ön uç oluşturur. Geliştirici portal belgeleri, test konsolunda, ilkeleri ve analiz SOAP Hizmetleri için kullanılabilir.
+[SOAP geçişi](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) desteği kullanıma sunuldu. Yöneticiler, SOAP hizmetini WSDL içe aktarabilir ve Azure API Management SOAP ön uç oluşturur. Geliştirici portal belgeleri, test konsolunda, ilkeleri ve analiz SOAP Hizmetleri için kullanılabilir.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API Management ağ geçidi IP adresi sabit mi? Güvenlik duvarı kurallarında kullanabilir miyim?
 API Management tüm katmanlarda API Management kiracının genel IP adresi (VIP) Kiracı ömrü boyunca bazı özel durumlar ile statiktir. Bu durumlarda IP adresi değişiklikleri:
@@ -126,7 +126,7 @@ Bir OAuth 2.0 yetkilendirme sunucusu ile Active Directory Federasyon Hizmetleri 
 API Management kullanan [performans trafiği yönlendirme yöntemini](../traffic-manager/traffic-manager-routing-methods.md#performance) dağıtımlarda birden fazla coğrafi konumu. Gelen trafiği en yakın API ağ geçidine yönlendirilir. Bir bölgeyi çevrimdışı olursa, gelen trafiği otomatik olarak sonraki en yakın ağ geçidine yönlendirilir. Yönlendirme yöntemleri hakkında daha fazla bilgi edinin [Traffic Manager yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>API Management hizmet örneği oluşturmak için bir Azure Resource Manager şablonu kullanabilir miyim?
-Evet. Bkz: [Azure API Management hizmeti](http://aka.ms/apimtemplate) hızlı başlangıç şablonları.
+Evet. Bkz: [Azure API Management hizmeti](https://aka.ms/apimtemplate) hızlı başlangıç şablonları.
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>Otomatik olarak imzalanan bir SSL sertifikası bir arka uç için kullanabilir miyim?
 Evet. Bu API için doğrudan göndererek veya PowerShell aracılığıyla yapılabilir. Bu sertifika zinciri doğrulamasını devre dışı bırakır ve otomatik olarak imzalanan veya özel olarak imzalanmış sertifikaların API Yönetimi'nden arka uç hizmetlerine iletişim kurarken kullanması sağlayacak.

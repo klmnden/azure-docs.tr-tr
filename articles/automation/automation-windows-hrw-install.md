@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032997"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252233"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -132,7 +132,7 @@ Yükleme hakkında ayrıntılı bilgi almak için kullandığınız **-Verbose**
 
 Runbook'lar, etkinlikler ve Azure Otomasyonu ortamınızda yüklü modülleri'nde tanımlanan cmdlet'leri herhangi birini kullanabilirsiniz. El ile yüklemeniz gerekir, böylece bu modüller, şirket içi bilgisayarlara otomatik olarak dağıtılmaz. Varsayılan olarak yüklenir ve Azure otomasyonu için tüm Azure Hizmetleri ve etkinlikleri cmdlet'leri için erişim sağlayan Azure modülü istisnadır.
 
-Karma Runbook çalışanı özelliğini birincil amacı, yerel kaynakları yönetmek için olduğundan, büyük olasılıkla bu kaynakları destekleyen modül yüklemeniz gerekir. Windows PowerShell modülleri yükleme hakkında daha fazla bilgi için bkz. [modülleri yükleme](http://msdn.microsoft.com/library/dd878350.aspx). 
+Karma Runbook çalışanı özelliğini birincil amacı, yerel kaynakları yönetmek için olduğundan, büyük olasılıkla bu kaynakları destekleyen modül yüklemeniz gerekir. Windows PowerShell modülleri yükleme hakkında daha fazla bilgi için bkz. [modülleri yükleme](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Yüklü modülleri tarafından başvurulan bir konumda olmalıdır **PSModulePath** ortam değişkeni böylece karma çalışanı bunları otomatik olarak aktarabilirsiniz. Daha fazla bilgi için [PSModulePath yükleme yolunu değiştirmek](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 

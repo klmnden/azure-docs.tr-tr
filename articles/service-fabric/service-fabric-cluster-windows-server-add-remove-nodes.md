@@ -1,6 +1,6 @@
 ---
-title: Bir tek başına Service Fabric kümesi düğümlerine ekleyip | Microsoft Docs
-description: Bir fiziksel veya şirket içi olarak Windows Server çalıştıran sanal makine veya tüm buluttaki bir Azure Service Fabric kümesi düğümlerine ekleyip öğrenin.
+title: Tek başına Service Fabric küme düğümleri Ekle Kaldır | Microsoft Docs
+description: Bir fiziksel veya sanal makine şirket içi olabilir Windows Server çalıştıran şirket içindeki veya buluttaki bir Azure Service Fabric küme düğümleri ekleyebilir veya kaldırabilirsiniz öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212553"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251028"
 ---
-# <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server'da çalışan bir tek başına Service Fabric kümesi düğümlerine Ekle Kaldır
-Sonra [Windows Server makinelerde tek başına Service Fabric kümesi oluşturulan](service-fabric-cluster-creation-for-windows-server.md)(iş) gereksinimlerinizi değiştirebilir ve, küme düğümlerine ekleyip gerekir. Bu makalede, bunu başarmak için ayrıntılı adımlar sağlanmaktadır. Lütfen Ekle/Kaldır düğümü işlevselliği yerel geliştirme kümelerinde desteklenmez unutmayın.
+# <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan bir tek başına Service Fabric küme düğümleri ekleyebilir veya kaldırabilirsiniz
+Sonra [tek başına Service Fabric kümeniz Windows Server makinelerinde oluşturulan](service-fabric-cluster-creation-for-windows-server.md)(iş) ihtiyaçlarınızı değişebilir ve kümenize düğümleri ekleyebilir veya kaldırabilirsiniz gerekecektir. Bu makalede Bunu başarmak için ayrıntılı adımlar verilmektedir. Ekle/Kaldır düğüm işlev yerel geliştirme kümelerinde desteklenmiyor unutmayın.
 
-## <a name="add-nodes-to-your-cluster"></a>İçin küme düğümleri Ekle
+## <a name="add-nodes-to-your-cluster"></a>Makinenizden küme düğümleri Ekle
 
-1. Özetlenen adımları izleyerek, kümeye eklemek istediğiniz VM/makineyi hazırlama [planlama ve Service Fabric kümesi dağıtımınızı hazırlama](service-fabric-cluster-creation-for-windows-server.md)
-2. Hangi hata etki alanı ve bu VM/makineye eklemek için kalacaklarını yükseltme etki alanını tanımlayın
+1. Özetlenen adımları izleyerek kümenize eklemek istediğiniz VM/makinesini hazırlama [planlama ve Service Fabric kümesine dağıtımınızı hazırlama](service-fabric-cluster-creation-for-windows-server.md)
+2. Hangi hata etki alanı ve yükseltme etki alanı bu VM/makineye eklemek için oluşturacağınız belirleyin
 3. Kümeye eklemek istediğiniz VM/makinede Uzak Masaüstü (RDP)
-4. Kopyalama veya [Windows Server için Service Fabric tek başına paketini karşıdan](http://go.microsoft.com/fwlink/?LinkId=730690) VM/makineye ve paketin sıkıştırmasını açın
-5. PowerShell yükseltilmiş ayrıcalıklarla çalıştırın ve sıkıştırması açılmış paket konumuna gidin
-6. Çalıştırma *AddNode.ps1* komut dosyası eklemek için yeni düğümü açıklayan parametrelere sahip. Aşağıdaki örnek VM5 olarak adlandırılan yeni bir düğüm ekler, türüyle NodeType0 ve IP 182.17.34.52, UD1 ve fd halinde adresi: / dc1/r0. *ExistingClusterConnectionEndPoint* bağlantı uç noktası için bir düğüm zaten var olan küme IP adresini olabilen *herhangi* kümedeki düğüm.
+4. Kopyalama veya [Windows Server için Service Fabric tek başına paketi indirmek](https://go.microsoft.com/fwlink/?LinkId=730690) VM/makineye ve paketin sıkıştırmasını açın
+5. PowerShell'i yükseltilmiş ayrıcalıklarla çalıştırın ve sıkıştırması açılmış paketin konuma gidin
+6. Çalıştırma *AddNode.ps1* komut dosyası eklemek için Yeni düğümün parametrelere sahip. Aşağıdaki örnekte VM5 adında yeni bir düğüm ekler, türüyle NodeType0 ve IP 182.17.34.52, UD1 ve fd adres: / dc1/r0. *ExistingClusterConnectionEndPoint* bir düğüm zaten var olan bir küme için bir bağlantı uç noktası IP adresini olabilen *herhangi* kümedeki düğüm.
 
     ```
     .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
     ```
-    Betik çalışması bittikten sonra yeni düğümü çalıştırarak eklenip eklenmediğini denetleyebilirsiniz [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet'i.
+    Betiğin çalışması tamamlandıktan sonra yeni düğümü çalıştırarak eklenip eklenmediğini denetleyebilirsiniz [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet'i.
 
-7. Kümedeki farklı düğümleri arasında tutarlılık sağlamak için bir yapılandırma yükseltme başlatması gerekir. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en son yapılandırma dosyasını alın ve yeni eklenen düğümü "Düğümleri" bölümüne ekleyin. Ayrıca, her zaman kullanılabilir durumda aynı yapılandırmaya sahip bir küme redploy için gereken en son küme yapılandırmasını sağlamak için önerilir.
+7. Farklı kümenin düğümleri arasında tutarlılık sağlamak için bir yapılandırma yükseltmeyi başlatmak gerekir. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en son yapılandırma dosyasını alın ve yeni eklenen düğümü "Düğüm" bölümüne ekleyin. Ayrıca, her zaman aynı yapılandırmaya sahip bir küme için yeniden gerektiğini durumda kullanılabilir en yeni küme yapılandırmasını sağlamak için önerilir.
 
     ```
         {
@@ -55,11 +55,11 @@ Sonra [Windows Server makinelerde tek başına Service Fabric kümesi oluşturul
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Service Fabric Explorer üzerinde yükseltmesinin ilerleme durumunu izleyebilirsiniz. Alternatif olarak, çalıştırabilirsiniz [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Service Fabric Explorer yükseltmesinin ilerleme durumunu izleyebilirsiniz. Alternatif olarak, çalıştırabileceğiniz [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Windows güvenliği kullanarak gMSA yapılandırılmış kümelerine düğümleri Ekle
-Grup yönetilen hizmet Account(gMSA) ile yapılandırılmış kümeleri için (https://technet.microsoft.com/library/hh831782.aspx), yeni bir düğüm yapılandırması yükseltme kullanılarak eklenebilir:
-1. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) herhangi bir son yapılandırma dosyasını alın ve "Düğümleri" bölümünde eklemek istediğiniz yeni düğümün ayrıntılarını eklemek için var olan düğümler. Yeni düğümü aynı yönetilen grup hesabının bir parçası olduğundan emin olun. Bu hesap tüm makinelerde yönetici olmanız gerekir.
+### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Gmsa'yı kullanarak Windows Güvenlik ile yapılandırılan kümeler için düğümleri Ekle
+Grup yönetilen hizmet Account(gMSA) ile yapılandırılan kümeler (https://technet.microsoft.com/library/hh831782.aspx), yapılandırma yükseltme kullanarak yeni bir düğüm eklenebilir:
+1. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) herhangi birinde var olan düğümlerin en son yapılandırma dosyasını alın ve "Düğüm" bölümünde eklemek istediğiniz yeni düğümün ayrıntılarını ekleyin. Yeni düğüm aynı yönetilen grup hesabı bir parçası olduğundan emin olun. Bu hesap tüm makinelerinde Yönetici olmalıdır.
 
     ```
         {
@@ -75,16 +75,16 @@ Grup yönetilen hizmet Account(gMSA) ile yapılandırılmış kümeleri için (h
     ```
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
     ```
-    Service Fabric Explorer üzerinde yükseltmesinin ilerleme durumunu izleyebilirsiniz. Alternatif olarak, çalıştırabilirsiniz [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Service Fabric Explorer yükseltmesinin ilerleme durumunu izleyebilirsiniz. Alternatif olarak, çalıştırabileceğiniz [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-### <a name="add-node-types-to-your-cluster"></a>Düğüm türleri, kümeye ekleme
-Yeni düğüm türü eklemek için "NodeTypes" bölümünde "Özellikler" altında ve bir yapılandırmaya başlamadan yeni düğüm türü içerecek şekilde yapılandırmanızı değiştirin kullanarak yükseltme [başlangıç ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Yükseltme işlemi tamamlandıktan sonra bu düğüm türü ile kümeye yeni düğümler ekleyebilirsiniz.
+### <a name="add-node-types-to-your-cluster"></a>Düğüm türleri kümenize ekleyin
+Yeni bir düğüm türü eklemek için "NodeType" altındaki "Özellikler" bölümüne ve bir yapılandırmaya başlamadan yeni bir düğüm türü eklemek için yapılandırmayı değiştirmek kullanarak yükseltme [başlangıç ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Yükseltme tamamlandıktan sonra bu düğüm türü ile kümenize yeni düğümler ekleyebilirsiniz.
 
 ## <a name="remove-nodes-from-your-cluster"></a>Kümeden düğüm kaldırma
 Aşağıdaki şekilde bir yapılandırma yükseltme kullanarak bir kümeden bir düğümü kaldırılabilir:
 
-1. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en son yapılandırma dosyasını almak için ve *kaldırmak* "Düğümleri" bölümünden düğümü.
-"NodesToBeRemoved" parametresi "Kurulumu" bölümünde "FabricSettings" bölümün içine ekleyin. "Değeri" kaldırılmaları gerekir düğümleri düğüm adlarının virgülle ayrılmış bir listesi olmalıdır.
+1. Çalıştırma [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en son yapılandırma dosyasını almak için ve *Kaldır* "Düğüm" bölümünden düğümü.
+"Kurulum" bölümüne "FabricSettings" bölümü içinde "NodesToBeRemoved" parametresini ekleyin. "value" kaldırılması gerekir düğümlerinin düğümü adlarını virgülle ayrılmış listesi olmalıdır.
 
     ```
          "fabricSettings": [
@@ -113,23 +113,23 @@ Aşağıdaki şekilde bir yapılandırma yükseltme kullanarak bir kümeden bir 
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Service Fabric Explorer üzerinde yükseltmesinin ilerleme durumunu izleyebilirsiniz. Alternatif olarak, çalıştırabilirsiniz [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Service Fabric Explorer yükseltmesinin ilerleme durumunu izleyebilirsiniz. Alternatif olarak, çalıştırabileceğiniz [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 > [!NOTE]
-> Düğümleri kaldırma birden fazla yükseltme başlatabilir. Bazı düğümler işaretlenir `IsSeedNode=”true”` etiketi ve küme sorgulayarak tanımlanabilir kullanarak bildirim `Get-ServiceFabricClusterManifest`. Çekirdek düğümleri gibi senaryolarda taşınacak gerekeceğinden bu düğümleri kaldırılmasını diğerlerinden daha uzun sürebilir. Küme en az 3 birincil düğüm türü düğümleri bulundurmanız gerekir.
+> Birden fazla yükseltme düğümleri kaldırma işlemi başlatabilir. Bazı düğümler ile işaretlenmiş `IsSeedNode=”true”` etiketi ve küme sorgulayarak tanımlanabilir kullanarak bildirim `Get-ServiceFabricClusterManifest`. Böyle senaryolarda taşınmasını çekirdek düğümleri olduğundan bu düğümleri kaldırılmasını diğerlerinden daha uzun sürebilir. Küme en az 3 birincil düğüm türü düğüm sürdürmeniz gerekir.
 > 
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Düğüm türleri, kümeden kaldırma
-Düğüm türü başvuran tüm düğümleri varsa bir düğüm türü kaldırmadan önce çift gözden geçirin. Bu düğümler, karşılık gelen düğüm türü kaldırmadan önce kaldırın. Tüm ilgili düğümleri kaldırıldıktan sonra NodeType kümesi yapılandırmasından kaldırmak ve bir yapılandırmaya başlamadan kullanarak yükseltme [başlangıç ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Başvuran düğüm türü herhangi bir düğüm varsa, bir düğüm türü kaldırmadan önce çift gözden geçirin. Bu düğümler, ilgili düğüm türü kaldırmadan önce kaldırın. Tüm ilgili düğümleri kaldırdıktan sonra küme yapılandırmasından NodeType kaldırın ve bir yapılandırmaya başlamadan kullanarak yükseltme [başlangıç ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>Birincil düğüm kümenizin değiştirin
-Birincil düğüm değiştirme ardına toplu olarak ekleme ve kaldırma yerine gerçekleştirilen bir düğüm olmalıdır.
+Birincil düğüm değiştirme ardına kaldırarak ve ardından toplu olarak ekleme yerine gerçekleştirilen bir düğüm olmalıdır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Tek başına Windows kümesi için yapılandırma ayarları](service-fabric-cluster-manifest.md)
-* [Tek başına küme X509 kullanarak Windows güvenli sertifikaları](service-fabric-windows-cluster-x509-security.md)
-* [Azure VM'ler Windows çalıştıran bir tek başına Service Fabric kümesi oluştur](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Tek başına Windows Küme yapılandırma ayarları](service-fabric-cluster-manifest.md)
+* [X509 kullanarak Windows üzerinde tek başına küme güvenliğini sağlama sertifikaları](service-fabric-windows-cluster-x509-security.md)
+* [Windows çalıştıran Azure Vm'leriyle bir tek başına Service Fabric kümesi oluşturma](service-fabric-cluster-creation-with-windows-azure-vms.md)
 

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f94a9d71dab4320e561d2de00af0e2af77ab4c3f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c3e0bd338c38165d3a372f60e12ff5ddaa05d2a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058309"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248291"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -468,7 +468,7 @@ Konsol yöntemleri, bir işlev çağrısında veya buna çıktısını **Main()*
 
 Aynı anda birçok iş işlevlerini çalışabilir ancak tek iş parçacıklı, konsolu olduğu için konsol çıktısı bir belirli yöntem çağırma için bağlanamaz. İşte bu nedenle kendi benzersiz günlük yazıcı nesnesi ile her bir işlevi çağırmayı SDK sağlar.
 
-Yazılacak [uygulama izleme günlükleri](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), kullanın **Console.Out** (bilgisi olarak işaretlenmiş günlükleri oluşturur) ve **Console.Error dosyası** (hata olarak işaretlenmiş günlükleri oluşturur). Kullanmaya alternatiftir [izleme veya TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), uyarı, ayrıntı, sağlar ve kritik bilgileri ve hata yanı sıra düzeyleri. Uygulama izleme günlükleri web uygulaması günlük dosyalarında, Azure tabloları, görünür veya Azure web uygulamanıza nasıl yapılandırdığınıza bağlı olarak Azure blobları. Tüm konsol çıkışını true olduğu gibi en son 100 uygulama günlüklerini sayfa işlevi çağırma için değil WebJob için Pano sayfasında da görünür.
+Yazılacak [uygulama izleme günlükleri](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), kullanın **Console.Out** (bilgisi olarak işaretlenmiş günlükleri oluşturur) ve **Console.Error dosyası** (hata olarak işaretlenmiş günlükleri oluşturur). Kullanmaya alternatiftir [izleme veya TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), uyarı, ayrıntı, sağlar ve kritik bilgileri ve hata yanı sıra düzeyleri. Uygulama izleme günlükleri web uygulaması günlük dosyalarında, Azure tabloları, görünür veya Azure web uygulamanıza nasıl yapılandırdığınıza bağlı olarak Azure blobları. Tüm konsol çıkışını true olduğu gibi en son 100 uygulama günlüklerini sayfa işlevi çağırma için değil WebJob için Pano sayfasında da görünür.
 
 Konsol çıktısı, programın yerel olarak çalışmıyorsa yalnızca program bir Azure WebJob içinde çalışıyorsa bu Panoda veya başka bir ortama görünür.
 
@@ -511,5 +511,5 @@ Bir Azure tablosu ve **Console.Out** ve **Console.Error dosyası** günlükleri 
 ![Tabloda hata günlüğü](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Azure kuyrukları ile çalışmaya yönelik yaygın senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure WebJobs ve WebJobs SDK'sı kullanma hakkında daha fazla bilgi için bkz. [Azure WebJobs belgeleri kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
+Bu makalede, Azure kuyrukları ile çalışmaya yönelik yaygın senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure WebJobs ve WebJobs SDK'sı kullanma hakkında daha fazla bilgi için bkz. [Azure WebJobs belgeleri kaynakları](https://go.microsoft.com/fwlink/?linkid=390226).
 

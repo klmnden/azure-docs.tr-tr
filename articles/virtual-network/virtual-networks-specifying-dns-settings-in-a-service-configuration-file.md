@@ -1,6 +1,6 @@
 ---
 title: Bir hizmet yapılandırma dosyasında DNS ayarlarını belirtme | Microsoft Docs
-description: sanal ağ için hizmet yapılandırma dosyası kullanarak özel DNS ayarlarını belirtme
+description: sanal ağ için hizmet yapılandırma dosyasını kullanarak özel DNS ayarlarını belirtme
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
-ms.openlocfilehash: 009206f1e0ba848538ed2c666032a63051d062e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790755"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247186"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Bir hizmet yapılandırma dosyasında DNS ayarlarını belirtme
 ## <a name="dns-elements"></a>DNS öğeleri
-Hizmet yapılandırma dosyası hizmetini kullanacak olan etki alanı adı sistemi (DNS) sunucuları için IPv4 adresleri listesi olan bir DnsServers öğesi içerebilir. Hizmet yapılandırma dosyası ayarlarında ayarları ağ yapılandırma dosyasında daha önceliklidir. Daha fazla bilgi için bkz: [Azure hizmet yapılandırma şeması (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
+Hizmet yapılandırma dosyasını hizmetinin kullanacağı bir etki alanı adı sistemi (DNS) sunucuları için IPv4 adreslerinden oluşan bir liste DnsServers öğeyle içerebilir. Hizmet yapılandırma dosyasında ayarları ağ yapılandırma dosyasında ayarları önceliklidir. Daha fazla bilgi için [Azure hizmet yapılandırma şemasına (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
 **NetworkConfiguration öğesi**
 
@@ -34,16 +34,16 @@ Hizmet yapılandırma dosyası hizmetini kullanacak olan etki alanı adı sistem
       </DnsServers>
 
 > [!WARNING]
-> **Adı** özniteliğini **DnsServer** öğe yalnızca bir başvuru adı kullanılır. DNS sunucusu için konak adı göstermiyor. Her **DnsServer** öznitelik değeri benzersiz olmalıdır tüm Microsoft Azure aboneliği.
+> **Adı** özniteliğini **DnsServer** öğesi yalnızca bir başvuru adı kullanılır. DNS sunucusu ana bilgisayar adını temsil etmiyor. Her **DnsServer** öznitelik değeri benzersiz olmalıdır tüm Microsoft Azure aboneliği arasında.
 > 
 > 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 [Azure hizmet yapılandırma şeması (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Azure Virtual Network yapılandırma şeması](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network yapılandırma şeması](https://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Ağ yapılandırma dosyalarını kullanarak bir sanal ağ yapılandırma](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Ağ yapılandırma dosyalarını kullanarak sanal ağ yapılandırma](https://go.microsoft.com/fwlink/?LinkId=248094)
 
-[Yönetim Portalı'nda sanal ağ ayarları hakkında](http://go.microsoft.com/fwlink/?LinkId=248092)
+[Yönetim Portalı'nda sanal ağ ayarları hakkında](https://go.microsoft.com/fwlink/?LinkId=248092)
 

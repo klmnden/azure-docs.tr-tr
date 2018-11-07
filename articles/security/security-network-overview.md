@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233812"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244602"
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 
@@ -144,7 +144,7 @@ Daha fazla bilgi edinin:
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Güvenli uzaktan erişim ve şirket içi bağlantı
 
-Kurulum, yapılandırma ve yönetim uzaktan yapılacak Azure kaynaklarını gereksinimleriniz. Ayrıca, dağıtmak isteyebilirsiniz [karma BT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) bileşenleri şirket içi çözümler ve Azure genel bulut. Bu senaryolar, güvenli uzaktan erişim gerektirir.
+Kurulum, yapılandırma ve yönetim uzaktan yapılacak Azure kaynaklarını gereksinimleriniz. Ayrıca, dağıtmak isteyebilirsiniz [karma BT](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) bileşenleri şirket içi çözümler ve Azure genel bulut. Bu senaryolar, güvenli uzaktan erişim gerektirir.
 
 Azure ağ güvenli uzaktan erişim aşağıdaki senaryoları destekler:
 

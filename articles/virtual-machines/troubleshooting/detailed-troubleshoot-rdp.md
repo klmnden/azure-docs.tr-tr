@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3b6b505be4a0084059d8c37a21099a784cacbed1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414140"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237161"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure'da Windows VM'ler Uzak Masaüstü Bağlantısı sorunlarında ayrıntılı sorun giderme adımları
 Bu makalede, Windows tabanlı Azure sanal makineleri için karmaşık Uzak Masaüstü hataları tanılayıp ayrıntılı sorun giderme adımları sağlar.
@@ -130,7 +130,7 @@ Bilgisayarınızdan bağlantıyı yeniden deneyin. Uzak Masaüstü aracılığı
 * Windows Güvenlik Duvarı veya başka bir yerel güvenlik duvarı Uzak Masaüstü trafiği engelleyen bir giden kuralı vardır.
 * Yetkisiz giriş algılama veya ağ Azure sanal makine üzerinde çalışan yazılım izleme Uzak Masaüstü bağlantıları engelliyor.
 
-Klasik dağıtım modeli kullanılarak oluşturulan VM'ler için Azure sanal makinesine yapılan uzak bir Azure PowerShell oturumu kullanabilirsiniz. İlk olarak, sanal makinenin barındırma bulut hizmeti için bir sertifika yüklemeniz gerekir. Git [yapılandırma güvenli uzaktan PowerShell erişim için Azure sanal makineler](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) ve indirme **InstallWinRMCertAzureVM.ps1** komut dosyasını yerel bilgisayarınıza.
+Klasik dağıtım modeli kullanılarak oluşturulan VM'ler için Azure sanal makinesine yapılan uzak bir Azure PowerShell oturumu kullanabilirsiniz. İlk olarak, sanal makinenin barındırma bulut hizmeti için bir sertifika yüklemeniz gerekir. Git [yapılandırma güvenli uzaktan PowerShell erişim için Azure sanal makineler](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) ve indirme **InstallWinRMCertAzureVM.ps1** komut dosyasını yerel bilgisayarınıza.
 
 Ardından, henüz yapmadıysanız Azure PowerShell'i yükleyin. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 

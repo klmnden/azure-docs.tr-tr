@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: ce1e3818edea6e0fdaedd33b6ec0c3214f475340
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258859"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları ile satır düzeyinde güvenlik
 
@@ -35,7 +35,7 @@ RLS'den faydalanmak için üç ana kavramı anlamak önemlidir; Kullanıcılar, 
 
 ### <a name="example"></a>Örnek
 
-Bu makalenin kalan bölümünde RLS yazma ve sonra katıştırılmış uygulama içinde tüketmesi örneği sunuyoruz. Örneğimizde [Retail Analysis Sample](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX dosyası.
+Bu makalenin kalan bölümünde RLS yazma ve sonra katıştırılmış uygulama içinde tüketmesi örneği sunuyoruz. Örneğimizde [Retail Analysis Sample](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX dosyası.
 
 ![Örnek satış raporu](media/row-level-security/scenario-2.png)
 
@@ -87,7 +87,7 @@ Bu gereksinim için Tamam olabilir, ancak bunlar herhangi bir vergiyi yoksa öğ
 1. **Dosya** -> **seçenekler ve ayarlar** -> **Önizleme özellikleri** -> **çapraz DirectQuery için her iki yönde de filtreleme etkinleştir** .
 2. **Dosya** -> **seçenekler ve ayarlar** -> **DirectQuery** -> **DirectQuerymodundaKısıtlanmamışölçüizin**.
 
-Çift yönlü çapraz filtreleme hakkında daha fazla bilgi için indirme [çift yönlü çapraz filtreleme SQL Server Analysis Services 2016 ve Power BI Desktop'ta](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) teknik incelemesi.
+Çift yönlü çapraz filtreleme hakkında daha fazla bilgi için indirme [çift yönlü çapraz filtreleme SQL Server Analysis Services 2016 ve Power BI Desktop'ta](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) teknik incelemesi.
 
 Bu Power BI Desktop uygulamasında yapmanız gereken tüm iş odaklı serimiz, ancak bir daha fazla parça RLS yapmak için yapılması gereken çalışmanın iş Power BI Embedded içinde tanımladığımız kuralları vardır. Kullanıcıların kimlik doğrulaması ve yetkilendirmesi uygulama tarafından gerçekleştirilir ve uygulama belirteçleri, belirli bir Power BI Embedded raporu, kullanıcı erişimi vermek için kullanılır. Power BI Embedded kullanıcınız kim belirli bilgilere sahip değil. RLS'nin çalışması için uygulama belirtecinin bir parçası bazı ek bağlam geçirmeniz gerekir:
 

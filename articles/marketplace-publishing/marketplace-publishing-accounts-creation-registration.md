@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579624"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236702"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 Bu makale gerekli hesap oluşturma ve kayıt işlemini, Azure Marketi için onaylanmış bir Microsoft Developer olmasını size.
 
-## <a name="1-create-a-microsoft-account"></a>1. Bir Microsoft hesabı oluşturun
+## <a name="1-create-a-microsoft-account"></a>1. Microsoft hesabı oluşturun
 Yayımlama işlemine başlamak için bir Microsoft hesabı oluşturmanız gerekir. Bu hesap, her ikisi de olarak kaydetmek için kullanılacak **Microsoft Developer Center** ve **Azure yayımlama portalı**. Azure Marketi Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Hizmetleri veya teklifler özgü olmamalıdır.
 
 Kullanıcı adını oluşturan adres, etki alanınız üzerinde olmalı ve BT ekibiniz tarafından denetlenir. Tüm yayımlama ilgili etkinlikleri bu hesap aracılığıyla yapılmalıdır.
@@ -69,7 +69,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
 >
 >
 
-| Geliştirici profili | Draft'ı başlatmak için | Hazırlanıyor | Ücretsiz yayımlama ve çözüm şablonu | Ticari yayımlama |
+| Geliştirici profili | Draft'ı başlatmak için | Hazırlama | Ücretsiz yayımlama ve çözüm şablonu | Ticari yayımlama |
 | --- | --- | --- | --- | --- |
 | Kayıt şirketi |Sahip olmalıdır |Sahip olmalıdır |Sahip olmalıdır |Sahip olmalıdır |
 | Vergi profili kimliği |İsteğe bağlı |İsteğe bağlı |İsteğe bağlı |Sahip olmalıdır |
@@ -98,7 +98,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **"Satış yapan" ülkeleri:** hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık onaylı "satış yapan" ülkeleri yukarıdaki biri olması gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Etkin bir şekilde arıyoruz yakın gelecekte bu ülkelerde listesini genişletin, bu nedenle Takipte kalın. Daha fazla bilgi için [Market katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **"Satış yapan" ülkeleri:** hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık onaylı "satış yapan" ülkeleri yukarıdaki biri olması gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Etkin bir şekilde arıyoruz yakın gelecekte bu ülkelerde listesini genişletin, bu nedenle Takipte kalın. Daha fazla bilgi için [Market katılım ilkeleri](https://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
 5. "Hesap türünüz" seçin **şirket** ve ardından **sonraki** düğmesi.
@@ -127,7 +127,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
 9. Hesabınız için ödeme yapmayı Ödeme bilgilerinizi girin. Kayıt maliyetini kapsar bir promosyon kodu varsa, burada da girebilirsiniz. Aksi takdirde, kredi kartı bilgileri (veya desteklenen pazarda PayPal) sağlayın. İşlemi tamamladığınızda, tıklayın **sonraki** üzerinde taşımayı **"İnceleme ekranı"**.
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Hesap bilgilerinizi gözden geçirin ve her şeyin doğru olduğunu onaylayın. Ardından, okuma ve hüküm ve koşulları kabul [Microsoft Azure Marketi yayımcı anlaşması](http://go.microsoft.com/fwlink/?LinkID=699560). Okuma ve bu koşulları kabul belirtmek için kutuyu işaretleyin.
+10. Hesap bilgilerinizi gözden geçirin ve her şeyin doğru olduğunu onaylayın. Ardından, okuma ve hüküm ve koşulları kabul [Microsoft Azure Marketi yayımcı anlaşması](https://go.microsoft.com/fwlink/?LinkID=699560). Okuma ve bu koşulları kabul belirtmek için kutuyu işaretleyin.
 11. Tıklayın **son** kaydınızı doğrulamak için. E-posta adresinize bir doğrulama iletisi göndereceğiz.
 12. Yalnızca ücretsiz teklifleri yayımlama planlıyorsanız tıklayın **Azure Marketi Yayımlama Portalı'na gidin** ve bu belgenin 3 bölümüne atlayabilirsiniz [Yayımlama Portalı'nda hesabınızı kaydedin](#3-register-your-account-in-the-publishing-portal).
 

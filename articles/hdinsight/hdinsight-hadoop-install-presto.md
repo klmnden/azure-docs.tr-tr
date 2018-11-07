@@ -2,23 +2,25 @@
 title: Azure HDInsight Linux kümeleri üzerinde presto yükleme
 description: Betik eylemlerini kullanarak Linux tabanlı HDInsight Hadoop kümelerinde presto ve Airpal yüklemeyi öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
-ms.openlocfilehash: b9ac9c49e633906e47244eedcb18a4cda4a6228d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: ea806a1004cf268fb7da75fa45013bdbaf882d86
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978970"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227510"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Yükleme ve Presto HDInsight Hadoop kümelerini kullanma
 
 Bu belgede, Script Action kullanarak HDInsight Hadoop kümelerini Presto yükleme konusunda bilgi edinin. Ayrıca var olan bir Presto HDInsight kümesinde Airpal yüklemeyi öğrenin.
+
+HDInsight için Apache Hadoop kümelerini Presto Yıldız Yağmuru uygulama de sunar. Daha fazla bilgi için [Azure HDInsight üzerinde üçüncü taraf uygulamaları yükleme](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apps-install-applications)
 
 > [!IMPORTANT]
 > Bu belgedeki adımlarda gerektiren bir **HDInsight 3.5 Hadoop kümesi** , Linux kullanır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight sürümleri](hdinsight-component-versioning.md).
@@ -42,17 +44,17 @@ Bu bölümde, örnek betik Azure portalını kullanarak yeni bir küme oluşturu
 
     * HDInsight sürümü 3.6 ile bir Hadoop kümesini olmalıdır.
 
-    * Azure depolama veri deposu olarak kullanmanız gerekir. Azure Data Lake Store depolama seçeneği olarak kullanan bir kümede presto kullanarak henüz desteklenmiyor. 
+    * Azure depolama veri deposu olarak kullanmanız gerekir. Azure Data Lake Store depolama seçeneği olarak kullanan bir kümede presto kullanarak henüz bir seçenek değildir.
 
     ![Özel seçenekleri kullanarak HDInsight küme oluşturma](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. Üzerinde **Gelişmiş ayarlar** alanında **betik eylemleri**ve aşağıdaki bilgileri sağlayın:
+2. Üzerinde **Gelişmiş ayarlar** alanında **betik eylemleri**ve aşağıdaki bilgileri sağlayın. Ayrıca, komut dosyası türü "Presto yükleme" seçeneğini de tercih edebilirsiniz.
    
    * **AD**: betik eylemi için bir kolay ad girin.
    * **Bash betiği URI’si**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
    * **HEAD**: Bu seçeneği işaretleyin
    * **ÇALIŞAN**: Bu seçeneği işaretleyin
-   * **ZOOKEEPER**: Bu onay kutusunu temizleyin
+   * **ZOOKEEPER**: Bu onay kutusunu boş bırakın
    * **PARAMETRELERİ**: Bu alanı boş bırakın
 
 

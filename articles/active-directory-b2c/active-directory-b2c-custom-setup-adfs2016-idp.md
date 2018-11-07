@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945731"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219333"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -64,6 +64,7 @@ Bir talep sağlayıcısı olarak ekleyerek bir ADFS hesap tanımlayabilirsiniz *
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ Bir tarayıcı açın ve URL'ye gidin. Doğru URL'yi yazın ve XML meta veri dos
 9. Seçin **Kuralı Ekle**.  
 10. İçinde **talep kuralı şablonu**seçin **Gönder LDAP özniteliklerini talep olarak**.
 11. Sağlayan bir **talep kuralı adı**. İçin **öznitelik deposu**seçin **seçin Active Directory**, aşağıdaki talep ekleyin ve ardından tıklayın **son** ve **Tamam**.
+
+    | LDAP attrubute | Giden talep türü |
+    | -------------- | ------------------- |
+    | Kullanıcı asıl adı | userPricipalName |
+    | Soyadı | family_name |
+    | Verilen ad | given_name |
+    | E-posta adresi | e-posta |
+    | Görünen ad | ad |
+    
 12.  Sertifika türüne bağlı olarak, KARMA algoritması ayarlamanız gerekebilir. Bağlı olan taraf güveni (B2C Demo) Özellikler penceresinde, seçin **Gelişmiş** sekmesini ve değiştirme **güvenli karma algoritması** için `SHA-1` veya `SHA-256`, tıklatıp **Tamam**.  
 13. Sunucu Yöneticisi'nde **Araçları**ve ardından **ADFS Yönetim**.
 14. Oluşturduğunuz bağlı taraf güvenini seçin, **Federasyon meta verilerini güncelleştirmesi**ve ardından **güncelleştirme**. 

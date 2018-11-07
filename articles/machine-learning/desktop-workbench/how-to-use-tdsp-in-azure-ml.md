@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e13ba0bcbd24dcc3cd08a0d2886f1da9d85de79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970933"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249923"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Team Data Science Process şablonu ile projeleri yapılandırma
 
@@ -54,7 +54,7 @@ Aşağıdaki öğeleri inceleyin *önce* yeni bir proje oluşturun:
 * ("Belgeler" klasöründe mevcut olduğunu) dışındaki içeriği boyutu 25 MB'tan küçük olması gerekir. Bu liste aşağıdaki nota bakın.
 * Örnek\_veri klasördür ile kodunuzu test veya geliştirme başlatmak yalnızca küçük veri dosyaları için (5 MB'tan az).
 * Word gibi dosyalar ve PowerPoint dosyaları depolamak, "Belgeler" klasörünün boyutunu önemli ölçüde artırabilir. Biz, öneri, işbirliğine dayalı bir Wiki bulmanızı [SharePoint](https://products.office.com/sharepoint/collaboration), veya bu tür dosyaları depolamak için işbirliğine dayalı diğer kaynak.
-* Büyük dosyaları ve çıkış Machine learning'de nasıl ele alınacağını öğrenmek için [değişiklikleri kalıcı hale getirmeniz ve büyük dosyalarla ilgili](http://aka.ms/aml-largefiles).
+* Büyük dosyaları ve çıkış Machine learning'de nasıl ele alınacağını öğrenmek için [değişiklikleri kalıcı hale getirmeniz ve büyük dosyalarla ilgili](https://aka.ms/aml-largefiles).
 
 > [!NOTE]
 > Tüm belgeleri ile ilgili içerik (metin, markdowns, resimler ve diğer belge dosyaları) *değil* proje yürütme sırasında kullanılan Benioku.MD dosyası dışında bulunmalıdır "Belgeler" (tamamı küçük harf) adlı bir klasörde. "Belgeler" klasörü, böylece bu klasördeki içeriği hedefleri gereksiz yere işlem kopyalanmasını yoksa Machine Learning yürütme tarafından göz ardı özel bir klasördür. Bu klasördeki nesneleri ayrıca 25 MB cap proje boyutu için doğru sayılmaz. "Belgeler" klasöründe, örneğin, belgelerinizde gereken büyük görüntü dosyaları depolamak için yerdir. Bu dosyalar, hala çalıştırma geçmişini Git tarafından izlenir. 

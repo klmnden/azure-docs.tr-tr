@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa82db289cd3080cc1e51027b609cc6c8aa66921
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811479"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230249"
 ---
 <a name="private-skus"></a>Özel SKU'ları
 ============
 
-Özel SKU'ları belirli müşterilere SKU kullanılabilirliğini sınırlamak etkinleştirin. Bir SKU özel olarak işaretlendiğinde, herhangi genel kataloğu dahil olmak üzere kullanılabilir değil [Azure Marketi](http://azuremarketplace.microsoft.com) ve [Azure portalında](http://portal.azure.com). Azure portalında, yalnızca SKU erişimi olan müşteriler, görebilirsiniz. Ayrıca, bunlar ayrıca özel teklifler için erişime sahip oldukları girmeniz istenirdi.
+Özel SKU'ları belirli müşterilere SKU kullanılabilirliğini sınırlamak etkinleştirin. Bir SKU özel olarak işaretlendiğinde, herhangi genel kataloğu dahil olmak üzere kullanılabilir değil [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalında](http://portal.azure.com). Azure portalında, yalnızca SKU erişimi olan müşteriler, görebilirsiniz. Ayrıca, bunlar ayrıca özel teklifler için erişime sahip oldukları girmeniz istenirdi.
 
 >[!NOTE]
 >Özel SKU'ları yeni benzersiz SKU/Plan Genel SKU'larınız ile herhangi çakışmayı önlemek için kimlikleri olması gerekir.

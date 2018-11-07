@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249060"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262208"
 ---
 # <a name="azure-database-security-overview"></a>Azure veritabanı güvenliğine genel bakış
 
@@ -35,7 +35,7 @@ Microsoft Kurumsal verileri şifrelemek için ek yol sağlar:
 
 Azure SQL veritabanı denetimi, kuruluşların Azure Depolama'da bir denetim olayları günlüğe kaydını etkinleştirir. SQL Veritabanı Denetimi ayrıca Microsoft Power BI ile tümleştirilerek ayrıntılı raporlar ve analizler oluşturulmasını sağlar.
 
-Azure SQL veritabanları sıkı bir şekilde güvenli en yasal karşılamak için veya güvenlik gereksinimleri, HIPAA, ISO 27001/27002 ve PCI DSS düzey 1 gibi. Güvenlik uyumluluk sertifikaları güncel bir listesi kullanılabilir [Microsoft Azure Trust Center site](http://azure.microsoft.com/support/trust-center/services/).
+Azure SQL veritabanları sıkı bir şekilde güvenli en yasal karşılamak için veya güvenlik gereksinimleri, HIPAA, ISO 27001/27002 ve PCI DSS düzey 1 gibi. Güvenlik uyumluluk sertifikaları güncel bir listesi kullanılabilir [Microsoft Azure Trust Center site](https://azure.microsoft.com/support/trust-center/services/).
 
 Bu makalede, Microsoft Azure SQL veritabanları için yapılandırılmış, tablo ve ilişkisel veri güvenliği temelleri gösterilmektedir. Bu makalede özellikle veri koruma, erişim denetimi ve öngörülebilir izleme kaynakları için başlangıç bilgileri sunulmaktadır.
 
@@ -44,7 +44,7 @@ Bu makalede, Microsoft Azure SQL veritabanları için yapılandırılmış, tabl
 SQL veritabanı şifreleme sağlayarak verilerinizin korunmasına yardımcı olur:
 
 - Hareket halindeki veriler için [Aktarım Katmanı Güvenliği (TLS)](https://support.microsoft.com/kb/3135244).
-- Veriler, kullanılmadıkları için [saydam veri şifrelemesi](http://go.microsoft.com/fwlink/?LinkId=526242).
+- Veriler, kullanılmadıkları için [saydam veri şifrelemesi](https://go.microsoft.com/fwlink/?LinkId=526242).
 - Aracılığıyla veri [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır:

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211426"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261885"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM'LERİNDE olağanüstü durum kurtarma için kapasite planlama 
 
@@ -43,7 +43,7 @@ Aracı iki modda çalıştırabilirsiniz:
 
 
 ## <a name="run-the-quick-planner"></a>Hızlı Planlayıcısını çalıştırın
-1. İndir ve Aç [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Makrolar çalıştırmanız gerekir. İstendiğinde, düzenlemeyi etkinleştir ve içerik seçim yapın.
+1. İndir ve Aç [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Makrolar çalıştırmanız gerekir. İstendiğinde, düzenlemeyi etkinleştir ve içerik seçim yapın.
 
 2. İçinde **bir planner türü seçin** select listesinde **hızlı Planner**.
 
@@ -81,7 +81,7 @@ Aracı iki modda çalıştırabilirsiniz:
 
 ## <a name="run-the-detailed-planner"></a>Ayrıntılı Planlayıcısını çalıştırın
 
-1. İndir ve Aç [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Makrolar çalıştırmanız gerekir. İstendiğinde, düzenlemeyi etkinleştir ve içerik seçim yapın.
+1. İndir ve Aç [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Makrolar çalıştırmanız gerekir. İstendiğinde, düzenlemeyi etkinleştir ve içerik seçim yapın.
 
 2. İçinde **bir planner türü seçin**seçin **ayrıntılı Planner** liste kutusundan.
 

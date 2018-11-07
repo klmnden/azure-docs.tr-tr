@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e0cc8759de6e204ec419053a70d263e21ca0dcf6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 75108853929ea514a6b8660388d71736e74013e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868643"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234740"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Yapılandırma ve Azure Active Directory kimlik doğrulaması SQL ile yönetme
 
@@ -202,7 +202,7 @@ CLI komutları hakkında daha fazla bilgi için bkz. [SQL - az sql](https://docs
 Tüm istemci makinelerde, uygulamalara veya kullanıcılara Azure SQL veritabanı veya Azure AD kimlikleri kullanarak Azure SQL veri ambarı bağlanmak, aşağıdaki yazılımları yüklemeniz gerekir:
 
 - .NET framework 4.6 veya sonraki bir sürümü [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- SQL Server için Azure Active Directory Authentication Library (**ADALSQL. DLL**) birden çok dilde kullanılabilir (x86 ve amd64) indirme merkezinde [Microsoft Active Directory Authentication Library Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- SQL Server için Azure Active Directory Authentication Library (**ADALSQL. DLL**) birden çok dilde kullanılabilir (x86 ve amd64) indirme merkezinde [Microsoft Active Directory Authentication Library Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
 
 Tarafından bu gereksinimleri karşılayabilirsiniz:
 
@@ -249,14 +249,14 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 > [!TIP]
 > Bir kullanıcı, Azure aboneliğinizle ilişkili Azure Active Directory dışındaki bir Azure Active Directory'den doğrudan oluşturamazsınız. Ancak, ilişkili Active Directory'de (dış kullanıcı olarak bilinir) içeri aktarılan kullanıcıları diğer Active dizinleri üyeleri, Active Directory kiracısındaki bir Active Directory grubuna eklenebilir. Bu AD grubunun bağımsız veritabanı kullanıcısı oluşturarak, dış Active Directory'den kullanıcıları SQL veritabanına erişebilir.
 
-Yer alan oluşturma hakkında daha fazla bilgi için kullanıcılar Azure Active Directory kimliği temel veritabanı, bkz: [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
+Yer alan oluşturma hakkında daha fazla bilgi için kullanıcılar Azure Active Directory kimliği temel veritabanı, bkz: [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
 > [!NOTE]
 > Azure SQL server için Azure Active Directory Yöneticisi kaldırılıyor, herhangi bir Azure AD kimlik doğrulaması kullanıcı sunucusuna bağlanmasını engeller. Gerekirse, kullanılamaz, Azure AD kullanıcıları bırakılan el ile bir SQL veritabanı yöneticisi tarafından.
 > [!NOTE]
 > Alırsanız bir **bağlantı zaman aşımı süresi doldu**, ayarlamanız gerekebilir `TransparentNetworkIPResolution` yanlış bağlantı dizesi parametresi. Daha fazla bilgi için [bağlantı zaman aşımı .NET Framework 4.6.1 - TransparentNetworkIPResolution sorun](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
-Bir veritabanı kullanıcısı oluşturduğunuzda, o kullanıcının aldığı **CONNECT** izni ve bir üyesi olarak o veritabanına bağlanabilir **genel** rol. Başlangıçta yalnızca kullanıcılar için uygun izinleri verilmiş tüm izinleri olan **genel** rol veya üyesi olduğunuz tüm Azure AD gruplarına verilen tüm izinleri. Bir Azure AD tabanlı yer alan veritabanı kullanıcısı sağladıktan sonra başka bir kullanıcı türüne izin vermesi gibi kullanıcı ek, aynı şekilde izinler verebilirsiniz. Genellikle veritabanı rollere izin verme ve rollerine kullanıcı ekleme. Daha fazla bilgi için [veritabanı altyapısı izni Temelleri](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Özel bir SQL veritabanı rolleri hakkında daha fazla bilgi için bkz. [yönetme veritabanları ve Azure SQL veritabanı'nda oturum açma bilgileri](sql-database-manage-logins.md).
+Bir veritabanı kullanıcısı oluşturduğunuzda, o kullanıcının aldığı **CONNECT** izni ve bir üyesi olarak o veritabanına bağlanabilir **genel** rol. Başlangıçta yalnızca kullanıcılar için uygun izinleri verilmiş tüm izinleri olan **genel** rol veya üyesi olduğunuz tüm Azure AD gruplarına verilen tüm izinleri. Bir Azure AD tabanlı yer alan veritabanı kullanıcısı sağladıktan sonra başka bir kullanıcı türüne izin vermesi gibi kullanıcı ek, aynı şekilde izinler verebilirsiniz. Genellikle veritabanı rollere izin verme ve rollerine kullanıcı ekleme. Daha fazla bilgi için [veritabanı altyapısı izni Temelleri](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Özel bir SQL veritabanı rolleri hakkında daha fazla bilgi için bkz. [yönetme veritabanları ve Azure SQL veritabanı'nda oturum açma bilgileri](sql-database-manage-logins.md).
 Bir dış kullanıcı olarak yönetilen bir etki alanı içeri aktarılan bir Federasyon etki alanı kullanıcı hesabı, yönetilen etki alanı kimliği kullanmalıdır.
 
 > [!NOTE]
@@ -354,7 +354,7 @@ Daha fazla bilgi için [SQL Server güvenlik Blog](https://blogs.msdn.microsoft.
 
 ### <a name="sqlcmd"></a>sqlcmd
 
-Aşağıdaki deyimleri bağlanmak edinebileceğiniz sqlcmd 13.1 sürümünü kullanarak [İndirme Merkezi](http://go.microsoft.com/fwlink/?LinkID=825643).
+Aşağıdaki deyimleri bağlanmak edinebileceğiniz sqlcmd 13.1 sürümünü kullanarak [İndirme Merkezi](https://go.microsoft.com/fwlink/?LinkID=825643).
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

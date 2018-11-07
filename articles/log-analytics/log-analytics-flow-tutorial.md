@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 224d5673b374b9b30237d25113e07aaf6dd4feaf
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960986"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259879"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Bağlayıcı ile log Analytics işlemlerini otomatikleştirmek için Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) çeşitli hizmetler için Eylemler yüzlerce kullanarak otomatik iş akışları oluşturmanıza olanak sağlar. Bir eylem çıktısını, başka farklı hizmetleri arasında tümleştirme oluşturmanızı sağlayan giriş olarak kullanılabilir.  Azure Log Analytics bağlayıcısını Microsoft Flow için Log analytics'te günlük aramaları tarafından alınan verileri içeren iş akışları oluşturmanıza olanak tanır.
@@ -29,7 +29,7 @@ Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Microsoft Flow n
 
 
 ## <a name="step-1-create-a-flow"></a>1. adım: bir akış oluşturma
-1. Oturum [Microsoft Flow](http://flow.microsoft.com)seçip **Akışlarım**.
+1. Oturum [Microsoft Flow](https://flow.microsoft.com)seçip **Akışlarım**.
 2. Tıklayın **+ boş akış Oluştur**.
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>2. adım: akışınız için bir Tetikleyici oluşturma
@@ -79,7 +79,7 @@ Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Microsoft Flow n
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [Log Analytics'te günlük aramaları](log-analytics-log-search.md).
+- Daha fazla bilgi edinin [Log Analytics'te günlük aramaları](log-analytics-queries.md).
 - Daha fazla bilgi edinin [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

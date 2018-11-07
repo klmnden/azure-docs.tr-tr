@@ -4,17 +4,17 @@ description: İstemci tarafı günlüğe kaydetme gibi kullanım özellikleri ve
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: efa2b60ccfc6af6cfb4a46e17b13a426d4e8c9fe
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958823"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238838"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullanırken sorunlarını giderme
 Bu makale ortak sorunları, geçici çözümler, tanılama adımları ve araçları kullanırken kapsar [Java zaman uyumsuz ADK](sql-api-sdk-async-java.md) ile Azure Cosmos DB SQL API hesabı.

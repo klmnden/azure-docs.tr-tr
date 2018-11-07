@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 09/24/2018
-ms.openlocfilehash: 45aa954d2f85267b2c7c9aa2a7ba04e436765433
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 11/07/2018
+ms.openlocfilehash: 212488b74ba726012966787c7b2de633414e96a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023940"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245350"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>İşlem hatları ve Azure Machine Learning
 
@@ -22,11 +22,11 @@ Bu makalede, makine öğrenimi işlem hatları için Python ve işlem hatların�
 
 ## <a name="what-are-machine-learning-pipelines"></a>Machine learning işlem hatlarını nelerdir?
 
-Machine learning (ML) işlem hatları oluşturmak, en iyi duruma getirmek ve makine öğrenimi iş akışları yönetmek için veri uzmanları tarafından kullanılır. Tipik bir işlem hattı, aşağıdaki alanları kapsar adımlar dizisini içerir:
-
+Machine learning (ML) işlem hatları, veri bilimcileri, veri mühendisleri ve BT uzmanları kullanarak içinde yer alan adımların üzerinde işbirliği yapabilirsiniz:
 + Normalizations ve dönüştürmeler gibi veri hazırlama
-+ Hyper parametresi ayarlama ve doğrulama gibi model eğitimi
-+ Model dağıtımı ve değerlendirmesi  
++ Modeli eğitimi
++ Modeli değerlendirme
++ Dağıtım 
 
 Aşağıdaki diyagramda bir örnek işlem hattı gösterilmektedir:
 
@@ -38,7 +38,7 @@ Aşağıdaki diyagramda bir örnek işlem hattı gösterilmektedir:
 
 İşlem hattı ile akışınızı Basitlik, hız, taşınabilirlik ve yeniden iyileştirebilirsiniz. İşlem hattı Azure Machine Learning ile derleme yaparken, en iyi bilgilerinize odaklanabilirsiniz &mdash; makine öğrenimi &mdash; altyapı yerine.
 
-Farklı adımları kullanarak yalnızca ihtiyacınız ince ve iş akışınızı test adımlarını yeniden çalıştıracaktır mümkün kılar. İşlem hattındaki bir hesaplama biriminde bir adımdır. Yukarıdaki diyagramda gösterildiği gibi veri hazırlama görevini de dahil olmak üzere birçok adım içerebilir, ancak normalleştirme, dönüştürme, doğrulama ve özellik kazandırma sayesinde için sınırlı değildir.
+Farklı adımları kullanarak yalnızca ihtiyacınız ince ve iş akışınızı test adımlarını yeniden çalıştıracaktır mümkün kılar. İşlem hattındaki bir hesaplama biriminde bir adımdır. Yukarıdaki diyagramda gösterildiği gibi veri hazırlama görevini de dahil olmak üzere birçok adım içerebilir, ancak normalleştirme, dönüştürme, doğrulama ve özellik kazandırma sayesinde için sınırlı değildir. Veri kaynakları ve Ara verilerin hangi kaydeder zamandan ve kaynaklardan işlem işlem hattının arasında yeniden kullanılır. 
 
 İşlem hattı tasarlanmıştır sonra genellikle işlem hattının eğitim döngüsü daha ince ayar yoktur. Ne zaman bir işlem hattı, bir güncelleştirilmiş bir eğitim betiği gibi yeniden çalıştırmanız adımları çalışma atlar yeniden çalıştırın ve hangi değişmediğinden atlar. Aynı paradigma adımının yürütülmesi için kullanılan aynı komut için geçerlidir. 
 
@@ -59,7 +59,7 @@ Başlıca avantajları işlem hatları için makine öğrenimi iş akışları o
 
 ML işlem hatlarınızı oluşturmak için Python kullanın. Azure Machine Learning SDK'sı, sıralama ve hiçbir veri bağımlılık mevcut olduğunda işlem hatlarınızı adımları paralelleştirmek için zorunlu yapıları sunar. İle Jupyter not defterlerinde veya başka bir tercih edilen IDE'de etkileşim kurabilir. 
 
-Bildirim temelli veriler bağımlılıkları kullanarak, görevlerinizi en iyi duruma getirebilirsiniz. Veri aktarımı, hedef oluşturma işlem ve yayımlama modeli gibi önceden oluşturulmuş modülleri ortak görevler için bir çerçeve SDK'sı içerir. Framework, işlem hatları üzerinde yeniden kullanılabilir özel adımları uygulayarak kendi kurallarınız modellemek için genişletilebilir.
+Bildirim temelli veriler bağımlılıkları kullanarak, görevlerinizi en iyi duruma getirebilirsiniz. Veri aktarımı ve modeli yayımlama gibi ortak görevler için önceden oluşturulmuş modüllerinin bir çerçeve SDK'sı içerir. Framework, işlem hatları üzerinde yeniden kullanılabilir özel adımları uygulayarak kendi kurallarınız modellemek için genişletilebilir. Ayrıca işlem hedefleri ve depolama kaynaklarını doğrudan SDK'dan yönetilebilir.
 
 İşlem hatları, şablon olarak kaydedilebilir ve toplu Puanlama veya yeniden eğitme işleri zamanlamak için de bir REST uç noktasına dağıtılabilir.
 

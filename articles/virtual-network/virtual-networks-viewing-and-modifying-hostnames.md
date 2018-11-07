@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4a836e0f5e47d6ef91e11fd1a0076859b54ed8e6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243036"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250195"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Görüntüleme ve ana bilgisayar adlarını değiştirme
 Ana bilgisayar adına göre başvurulmak üzere rol örneklerinizin izin vermek için hizmet yapılandırma dosyasında her rol için konak adı için bir değer ayarlamanız gerekir. İstenen konak adına ekleyerek bunu **vmName** özniteliği **rol** öğesi. Değerini **vmName** özniteliği, her bir rol örneğinin ana bilgisayar adı için bir temel olarak kullanılır. Örneğin, varsa **vmName** olduğu *webrole* ve bu rolü üç örnekleri vardır, örneklerin ana bilgisayar adları olacaktır *webrole0*, *webrole1*, ve *webrole2*. Sanal makine adına dayalı bir sanal makine için konak adı doldurulduğundan yapılandırma dosyasında sanal makineler için bir ana bilgisayar adı belirtmeniz gerekmez. Bir Microsoft Azure hizmetini yapılandırma hakkında daha fazla bilgi için bkz. [Azure hizmet yapılandırma şemasına (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -58,7 +58,7 @@ Değiştirilen hizmet yapılandırma dosyasını karşıya yükleme ya da bir Uz
 
 [Azure hizmet yapılandırma şeması (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Azure Virtual Network yapılandırma şeması](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network yapılandırma şeması](https://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Ağ yapılandırma dosyalarını kullanarak DNS ayarlarını belirleme](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 

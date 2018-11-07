@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245752"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure kimlik yönetimi ve erişim en iyi güvenlik denetimi
 
-Birçok yeni bir sınır katman bu role geleneksel ağ merkezli perspektifinden ele güvenlik, kimlik göz önünde bulundurun. Bu birincil pivot evrimi güvenlik dikkat ve yatırımlarınızı ağ duvarlar hale giderek porous ve bu çevre savunması kez olarak etkin olamaz olgu gelen için önce açılımı olan [KCG ](http://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
+Birçok yeni bir sınır katman bu role geleneksel ağ merkezli perspektifinden ele güvenlik, kimlik göz önünde bulundurun. Bu birincil pivot evrimi güvenlik dikkat ve yatırımlarınızı ağ duvarlar hale giderek porous ve bu çevre savunması kez olarak etkin olamaz olgu gelen için önce açılımı olan [KCG ](https://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
 
 Bu makalede, Azure kimlik yönetimi ve erişim denetimi en iyi güvenlik uygulamaları koleksiyonu ele alır. Bu en iyi uygulamaları ile deneyimimizi türetilmiştir [Azure AD'ye](../active-directory/fundamentals/active-directory-whatis.md) ve müşteri deneyimleri bulunun.
 
@@ -51,7 +51,7 @@ Bu makalede ele alınan azure kimlik yönetimi ve erişim denetimi güvenlik en 
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Kimlik birincil güvenlik çevresi olarak değerlendir
 
-Birçok kimlik birincil güvenlik çevresi olarak göz önünde bulundurun. Bu, gelen ağ güvenlik odaklı geleneksel bir kaydırmadır. Ağ duvarlar tutmak alma daha porous ve bu çevre savunması açılımı önce olduğu gibi etkin olamaz [KCG](http://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
+Birçok kimlik birincil güvenlik çevresi olarak göz önünde bulundurun. Bu, gelen ağ güvenlik odaklı geleneksel bir kaydırmadır. Ağ duvarlar tutmak alma daha porous ve bu çevre savunması açılımı önce olduğu gibi etkin olamaz [KCG](https://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) Azure kimlik ve erişim yönetimi çözümüdür. Azure AD bir çok kiracılı, bulut tabanlı dizin ve Kimlik Yönetimi Microsoft hizmetidir. Bu, temel Dizin Hizmetleri, uygulama erişim yönetimi ve kimlik korumasını tek bir çözüm birleştirir.
 
 Aşağıdaki bölümlerde, Azure AD kullanarak kimlik ve erişim güvenliği için en iyi yöntemler listelenmiştir.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 754a06cc8bb9cc6e660e2ac5f01ef2c40176eb05
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f483be5866715ddf253daefb197ae3dd87e02d99
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357605"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249107"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Uygulamalar listemde beklenmedik bir uygulama
 
@@ -59,13 +59,13 @@ Kiracınızdaki tüm uygulamaları görmek için kullanmanız gerekir **filtre**
 
 2.  Kaydolmak için gerekli ya da 3 için oturum açarken<sup>rd</sup> taraf uygulaması Azure Active Directory ile tümleşik. Bir örnek [Smartsheet](https://app.smartsheet.com/b/home) veya [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  Kaydolmak için gerekli ya da bir kullanıcı veya gruba bir birinci taraf uygulaması için bir lisans eklemek istediğiniz [Microsoft Office 365](http://products.office.com/)
+3.  Kaydolmak için gerekli ya da bir kullanıcı veya gruba bir birinci taraf uygulaması için bir lisans eklemek istediğiniz [Microsoft Office 365](https://products.office.com/)
 
 4.  Eklediğinizde, yeni bir uygulama kaydı kullanarak özel olarak geliştirilmiş uygulama oluşturarak [uygulama kayıt defteri](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
 5.  Eklediğinizde, yeni bir uygulama kaydı kullanarak özel olarak geliştirilmiş uygulama oluşturarak [V2.0 uygulama kayıt portalı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
 
-6.  Bir uygulama eklediğinizde Visual Studio'nun kullanarak geliştirirken [ASP.net kimlik doğrulama yöntemleri](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) veya [bağlı hizmetler](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6.  Bir uygulama eklediğinizde Visual Studio'nun kullanarak geliştirirken [ASP.net kimlik doğrulama yöntemleri](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) veya [bağlı hizmetler](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  Kullanarak bir hizmet sorumlusu nesnesi oluşturduğunuzda [Azure AD PowerShell Modülü](/powershell/azure/install-adv2?view=azureadps-2.0)
 

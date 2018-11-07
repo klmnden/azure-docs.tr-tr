@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353875"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230045"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -167,7 +167,7 @@ SQL veritabanı'nın bir iç denetim mekanizması bir pagelatch olduğu için bu
 
 Mandal Çekişme işlemek için bir yöntem ekler bir dizin aralığının arasında eşit bir şekilde dağıtmak için sıralı olmayan bir anahtara sahip bir sıralı dizin anahtarının değiştirmektir. Genellikle, önde gelen bir dizin sütunu orantılı olarak iş yükü dağıtır. Tablo bölümleme dikkate alınması gereken başka bir yöntem. Bölümleme düzeni ile bölümlenmiş bir tablodaki bir hesaplanan sütunda bir karma değer oluşturmak için aşırı Mandal çekişmeyi azaltmaya yaygın bir yaklaşımdır. Pagelatch GÇ çakışma olması durumunda, bu performans sorunu gidermek için dizinleri giriş'yardımcı olur. 
 
-Daha fazla bilgi için [Tanıla ve Çöz Mandal SQL Server üzerinde Çekişme](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (indirilebilir PDF).
+Daha fazla bilgi için [Tanıla ve Çöz Mandal SQL Server üzerinde Çekişme](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (indirilebilir PDF).
 
 ## <a name="missing-index"></a>Dizini yok
 

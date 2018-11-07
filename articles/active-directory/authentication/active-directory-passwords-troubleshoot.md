@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321810"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233635"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
 
@@ -99,7 +99,7 @@ Parola geri yazma sorunlarını gidermenize, en iyi uygulama, Azure AD Connect m
 | Kod | Adı veya ileti | Açıklama |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "bir kısıtlama parola belirtilen geçerli bir değişmesini önler." | Bu olay, parola geri yazma hizmetini parola geçerlilik süresi, geçmiş, karmaşıklığı ya da etki alanının filtreleme gereksinimleri karşılayacak değil, yerel dizin bir parola ayarlama girişiminde bulunduğunda oluşur. <br> <br> En az parola geçerlilik süresi olan ve bu zaman penceresi içinde parola kısa süre önce değiştirildi, etki alanınızda belirtilen yaş ulaşana kadar parola tekrar değiştiremezsiniz değilseniz. Test amacıyla en düşük yaş 0 olarak ayarlanması gerekir. <br> <br> Parola geçmişini gereksinimlerini etkin olması durumunda son kullanılmadığında bir parola seçmeniz gerekir *N* süreleri ve nerede *N* parola geçmişi ayardır. Son kullanılmış bir parolayı seçeneğini belirlerseniz *N* zaman sonra bu durumda bir hata görürsünüz. Test amacıyla, parola geçmişi 0 olarak ayarlanması gerekir. <br> <br> Parola karmaşıklık gereksinimleri varsa, kullanıcı parola sıfırlama veya değiştirme girişiminde bulunduğunda, bunların tümünün uygulanır. <br> <br> Parola filtreleri etkinleştirilmiş olması ve bir kullanıcı bir parola seçerse, sıfırlama filtreleme ölçütleri karşılamıyor veya değiştirme işlemi başarısız olur. |
-| 6329 | MMS(3040): admaexport.cpp(2837): sunucu LDAP parola ilkesi denetimini içermiyor. | Etki alanı denetleyicilerine LDAP_SERVER_POLICY_HINTS_OID denetimi (1.2.840.113556.1.4.2066) etkinleştirilmediyse, bu sorun oluşur. Parola geri yazma özelliğini kullanmak için denetimi etkinleştirmeniz gerekir. Bunu yapmak için DC'ler (en son SP ile) Windows Server 2008 veya üzeri olması gerekir. 2008'de (pre-R2), DC'leri olan sonra düzeltmesini uygulamanız gerekir [KB2386717](http://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): sunucu LDAP parola ilkesi denetimini içermiyor. | Etki alanı denetleyicilerine LDAP_SERVER_POLICY_HINTS_OID denetimi (1.2.840.113556.1.4.2066) etkinleştirilmediyse, bu sorun oluşur. Parola geri yazma özelliğini kullanmak için denetimi etkinleştirmeniz gerekir. Bunu yapmak için DC'ler (en son SP ile) Windows Server 2008 veya üzeri olması gerekir. 2008'de (pre-R2), DC'leri olan sonra düzeltmesini uygulamanız gerekir [KB2386717](https://support.microsoft.com/kb/2386717). |
 | İK 8023042 | Eşitleme altyapısı hata hr döndürülen = 80230402, ileti = aynı bağlantı yinelenen girişler olduğundan başarısız oldu. bir nesne alma denemesi. | Birden çok etki alanlarında aynı kullanıcı Kimliğini etkin olduğunda bu hata oluşur. Hesap ve kaynak orman eşitleniyor ve her ormanda aynı kullanıcı Kimliğini mevcut ve etkin olması, örnek verilebilir. <br> <br> Bir diğer adı veya UPN ve iki kullanıcı o aynı bağlantı özniteliği paylaşan gibi bir benzersiz olmayan bir bağlantı özniteliği kullanıyorsanız bu hata ayrıca oluşabilir. <br> <br> Bu sorunu çözmek için etki alanlarında bulunan herhangi bir yinelenen kullanıcı yok ve her kullanıcı için benzersiz bir bağlantı özniteliği kullanın emin olun. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Olay kaynağını PasswordResetService ise
@@ -215,7 +215,7 @@ Yalnızca, daha önce açıklanan ilk iki adımını denemeden sonra bu adımı 
 > Kullanıma hazır eşitleme kurallarını özelleştirdiyseniz *yükseltme işlemine devam etmeden önce yedeklemek ve işiniz bittiğinde sonra sonra el ile bunları yeniden dağıtın.*
 >
 
-1. Azure AD Connect'ten en son sürümünü indirin [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Azure AD Connect'ten en son sürümünü indirin [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Azure AD Connect'in yüklü olduğundan, Azure AD Connect yüklemenizin en son sürüme güncelleştirmek için bir yerinde yükseltme gerçekleştirmek için gerekir.
 1. İndirilen paketi yürütün ve izleyin ekrandaki yönergeleri, Azure AD Connect makinenizi.
 

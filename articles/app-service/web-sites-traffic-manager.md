@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama hizmeti trafiğini Azure Traffic Manager ile denetleme
-description: Azure App Service'e ilgili olarak bu makalede Azure trafik Yöneticisi için Özet bilgiler sağlanır.
+title: Azure Traffic Manager ile Azure App Service trafiğini denetleme
+description: Bu makalede, Azure App Service bağlamında Azure Traffic Manager için Özet bilgiler sağlanır.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,47 +15,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 5e4dfec4bdc9deaf1a57413c1cba4ceefa5195d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824049"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246353"
 ---
-# <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure uygulama hizmeti trafiğini Azure Traffic Manager ile denetleme
+# <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager ile Azure App Service trafiğini denetleme
 > [!NOTE]
-> Azure App Service'e ilgili olarak bu makalede Microsoft Azure trafik Yöneticisi için Özet bilgiler sağlanır. Daha fazla bilgi hakkında Azure Traffic Manager kendisi bu makalenin sonunda bağlantıları ziyaret ederek bulunabilir.
+> Bu makalede, Azure App Service bağlamında Microsoft Azure Traffic Manager için Özet bilgiler sağlanır. Bu makalenin sonunda bağlantıları ziyaret ederek Azure Traffic Manager hakkında kendisini daha fazla bilgi bulunabilir.
 > 
 > 
 
 ## <a name="introduction"></a>Giriş
-Azure uygulama hizmetinde uygulamalar için web istemcilerinden gelen istekleri nasıl dağıtıldığını denetlemek için Azure Traffic Manager kullanabilirsiniz. Uygulama Hizmeti uç noktaları için bir Azure Traffic Manager profili eklendiğinde, Azure trafik Yöneticisi (durdurulmuş veya silinen çalışan), uygulama hizmeti uygulamalarınız durumunu böylece bu uç hangisinin trafik alması gereken karar verebilirsiniz izler.
+Azure App Service'teki uygulamalar için web istemcilerinden gelen istekleri nasıl dağıtıldığını denetlemek için Azure Traffic Manager'ı kullanabilirsiniz. App Service uç noktaları bir Azure Traffic Manager profiline eklendiğinde Azure Traffic Manager, App Service uygulamalarının durumunu (çalışıyor, durduruldu veya silindi) izleyerek trafik gönderilecek uç noktaları belirleyebilir.
 
 ## <a name="routing-methods"></a>Yönlendirme yöntemleri
-Azure Traffic Manager dört farklı yönlendirme yöntemleri kullanır. Azure App Service'e ilgilidir gibi bu yöntemler aşağıdaki listede açıklanmaktadır.
+Azure Traffic Manager, dört farklı yönlendirme yöntemlerini kullanır. Azure App Service'e ait oldukları gibi bu yöntemler aşağıdaki listede açıklanmıştır.
 
-* **[Öncelik](../traffic-manager/traffic-manager-routing-methods.md#priority):** tüm trafiği için birincil bir uygulama kullanma ve birincil veya yedek uygulamaları kullanılamaz durumda yedeklemeler sağlar.
-* **[Ağırlıklı](../traffic-manager/traffic-manager-routing-methods.md#weighted):** eşit ya da tanımladığınız ağırlıklara göre trafiği uygulamalar, bir dizi arasında dağıtmak.
-* **[Performans](../traffic-manager/traffic-manager-routing-methods.md#performance):** uygulamaları farklı coğrafi konumlarda olduğunda en düşük ağ gecikmesini bakımından "en yakın" uygulama kullanın.
-* **[Coğrafi](../traffic-manager/traffic-manager-routing-methods.md#geographic):** göre belirli uygulamalar için doğrudan kullanıcılara kendi DNS sorgusu hangi coğrafi konum kaynaklanan. 
+* **[Öncelik](../traffic-manager/traffic-manager-routing-methods.md#priority):** tüm trafiği için birincil bir uygulama kullanın ve birincil veya yedek uygulamalar kullanılamaz durumda yedeklemeler sağlar.
+* **[Ağırlıklı](../traffic-manager/traffic-manager-routing-methods.md#weighted):** eşit ya da tanımladığınız ağırlıklara göre trafiği bir uygulamalar kümesi arasında dağıtmak.
+* **[Performans](../traffic-manager/traffic-manager-routing-methods.md#performance):** uygulamaları farklı coğrafi konumlarda olduğunda, en düşük ağ gecikme süresi açısından "en yakın" uygulamayı kullanın.
+* **[Coğrafi](../traffic-manager/traffic-manager-routing-methods.md#geographic):** belirli uygulamaları doğrudan kullanıcılara bağlı DNS sorgularını hangi coğrafi konum kaynaklanan. 
 
-Daha fazla bilgi için bkz: [Traffic Manager yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md).
+Daha fazla bilgi için [Traffic Manager yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md).
 
-## <a name="app-service-and-traffic-manager-profiles"></a>Uygulama hizmeti ve trafik Yöneticisi profilleri
-Uygulama hizmeti uygulaması trafik yapılandırmak için Azure trafik kullanır ve üç birini daha önce açıklanan karşı yöntemleri yük Yöneticisi'nde bir profil oluşturmak ve trafiği denetlemek istediğiniz uç noktaları (Bu durumda, uygulama hizmeti) ekleyin profili. Uygulama durumunu (çalışıyor, durduruldu veya silinmiş) böylece Azure Traffic Manager trafik uygun şekilde yönlendirebilirsiniz profiline düzenli olarak bildirilir.
+## <a name="app-service-and-traffic-manager-profiles"></a>App Service ve Azure Traffic Manager profilleri
+App Service uygulama trafik yapılandırmak için bir Azure Traffic kullandığı üç biri daha önce açıklanan Dengeleme yöntemi yük Manager profili oluşturun ve ardından istediğiniz trafiği denetlemek uç noktalar (Bu durumda, App Service) ekleyin profili. Uygulama durumunu (çalışıyor, durduruldu veya silindi) Azure Traffic Manager trafik buna göre yönlendirebilmesi profiline düzenli olarak iletilir.
 
 Azure Traffic Manager ile Azure kullanırken aşağıdaki noktaları göz önünde bulundurun:
 
-* Uygulama yalnızca dağıtımları için aynı bölge içinde uygulama hizmeti zaten yük devretme ve hepsini işlevselliği uygulama modu dikkate almaksızın sağlar.
-* Uygulama hizmeti başka bir Azure bulut hizmeti ile birlikte kullanan dağıtımlar için aynı bölgede, iki tür karma senaryoları etkinleştirmek için uç noktalar birleştirebilirsiniz.
-* Bu gibi durumlarda, her bölge bir uygulama Hizmeti uç noktası yalnızca bir profil belirtebilirsiniz. Bir bölge için bir uç nokta olarak bir uygulama seçtiğinizde, bu bölgedeki diğer uygulamalar bu profil için seçilmek kullanılamaz duruma gelir.
-* Bir Azure Traffic Manager profilini belirttiğiniz Uygulama Hizmeti uç noktaları altında görünür **etki alanı adları** bölümünde Yapılandır sayfasında uygulama profilinde, ancak değil için yapılandırılabilir vardır.
-* Bir profil için bir uygulama ekledikten sonra **Site URL'si** bir ayarlamış olduğunuz uygulamanın portal sayfası Panoda özel etki alanı URL'sini görüntüler. Aksi durumda, trafik Yöneticisi Profil URL'sini görüntüler (örneğin, `contoso.trafficmanager.net`). Her iki doğrudan etki alanı adını uygulama ve trafik Yöneticisi URL uygulamanın yapılandırma sayfasında altında görünür **etki alanı adları** bölümü.
-* Özel etki alanı beklendiği gibi ancak uygulamalarınıza eklemeden yanı sıra iş, DNS haritanızı trafik Yöneticisi URL'sine işaret edecek şekilde yapılandırmanız da gerekir. Bir uygulama hizmeti uygulaması için özel bir etki alanı ayarlama hakkında daha fazla bilgi için bkz: [Azure Web uygulamaları için var olan bir özel DNS ad eşleme](app-service-web-tutorial-custom-domain.md).
+* Uygulama yalnızca dağıtımları için aynı bölge içinde App Service zaten yük devretme ve hepsini bir kez deneme işlevselliği bakılmaksızın uygulama modu sağlar.
+* Başka bir Azure bulut hizmeti ile birlikte App Service kullanan dağıtımlar için aynı bölgede karma senaryoları etkinleştirmek için uç noktalar her iki türdeki birleştirebilirsiniz.
+* Bu gibi durumlarda, bir App Service uç nokta bölge başına yalnızca bir profilinde belirtebilirsiniz. Bir bölge için bir uç nokta olarak bir uygulama seçtiğinizde, bu bölgedeki diğer uygulamalar bu profil için seçimi için kullanılamaz duruma gelir.
+* Bir Azure Traffic Manager profilinde belirttiğiniz uygulama hizmet uç noktaları altında görünür **etki alanı adları** bölümünde Yapılandır sayfasında uygulama profilinde, ancak için yapılandırılabilir vardır.
+* Bir profil için bir uygulamayı ekledikten sonra **Site URL'si** bir ayarlamış olduğunuz uygulamasının özel etki alanı URL'si uygulamanın portal sayfasının panosunda görüntülenir. Aksi takdirde, Traffic Manager profil URL'sini gösterir (örneğin, `contoso.trafficmanager.net`). Hem doğrudan etki alanı adı uygulamanın ve Traffic Manager URL'si altında uygulamanın yapılandırma sayfasında görünür **etki alanı adları** bölümü.
+* Özel etki alanı adlarınızı beklendiği gibi ancak bunları uygulamalarınıza ekleyerek ek olarak iş, DNS haritanızı Traffic Manager URL'sine işaret edecek şekilde yapılandırmanız da gerekir. Bir App Service uygulaması için özel bir etki alanı ayarlama hakkında daha fazla bilgi için bkz: [mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md).
 * Yalnızca standart veya premium modunda bir Azure Traffic Manager profili için uygulamalar ekleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bir kavramsal ve teknik genel bakış Azure trafik Yöneticisi'nin için bkz: [trafik Yöneticisi'ne genel bakış](../traffic-manager/traffic-manager-overview.md).
+Bir kavramsal ve teknik genel bakış, Azure Traffic Manager için bkz: [Traffic Manager'a genel bakış](../traffic-manager/traffic-manager-overview.md).
 
-Trafik Yöneticisi App Service ile kullanma hakkında daha fazla bilgi için blog gönderilerine bakın [kullanarak Azure Traffic Manager ile Azure Web siteleri](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) ve [Azure Traffic Manager artık Azure Web siteleri ile tümleştirmek](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+Traffic Manager, App Service ile kullanma hakkında daha fazla bilgi için bkz. blog gönderilerini [kullanarak Azure Traffic Manager ile Azure Web siteleri](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) ve [Azure Traffic Manager artık Azure Web siteleri ile tümleştirin](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
 

@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f2e0c7b335b09a0d2b8b8399e807a354ec8e4282
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811419"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245095"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Dynamics 365 bulut iş ortağı portalı Operations teklifi için oluşturma
 
 Yayımlama Portalı izin vererek bir teklifi yayımlama doğru işbirliği yapmak birden çok kişiye portalında rol tabanlı erişim sağlar. Bkz: [bulut portalı kullanıcıları Yönet](./cloud-partner-portal-manage-users.md) daha fazla bilgi için.
 
-Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile \"sahibi\" rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft gizlilik bildirimi](http://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile \"sahibi\" rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft gizlilik bildirimi](https://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="how-to-create-a-new-dynamics-365-for-operations-offer"></a>İşlem teklifi için yeni bir Dynamics 365 oluşturma
 
@@ -108,7 +108,7 @@ Yeni AX seçin. Son olarak Kaydet'e tıklayın.
 
 ### <a name="listing-details"></a>Liste ayrıntıları
 
-![StoreFront Ayrıntılar ekranı](./media/publish_d365_new_offer/storefront_details.png)
+![Mağaza Ayrıntılar ekranı](./media/publish_d365_new_offer/storefront_details.png)
 
 1. **Sektörler** -en fazla iki sektörler verilen seçeneklerden denetleyin.
 2. **Kategorileri** -en fazla üç kategorilerden seçeneklerle denetleyin.

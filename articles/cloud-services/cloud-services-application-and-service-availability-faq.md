@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 617a6f4873c49877cbef48a7df3f2ab2c625445e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412525"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246370"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Uygulama ve hizmet kullanılabilirliği sorunlarını Azure Cloud Services: sık sorulan sorular (SSS)
 
@@ -33,7 +33,7 @@ Kabaca ayda bir kez Microsoft yeni bir konuk işletim sistemi sürümü Windows 
 
 En yeni konuk işletim sistemi güncelleştirmeleri hakkında tüm ayrıntılar için bkz. [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).
 
-Yeniden başlatma ve teknik ayrıntılarını Konuk ve konak işletim sistemi güncelleştirmeleri işaretçileri yararlı bilgiler için MSDN gönderisine bakın [rol örneği yeniden nedeniyle işletim sistemi yükseltmelerini](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Yeniden başlatma ve teknik ayrıntılarını Konuk ve konak işletim sistemi güncelleştirmeleri işaretçileri yararlı bilgiler için MSDN gönderisine bakın [rol örneği yeniden nedeniyle işletim sistemi yükseltmelerini](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Bulut hizmetimde hizmetini bir süredir boşta kaldıktan sonra ilk isteği neden normalden uzun sürüyor?
 Web sunucusu, ilk isteği aldığında, önce kod yeniden derler ve ardından isteği işler. İşte bu nedenle ilk istek diğerlerine göre daha uzun sürer. Varsayılan olarak, uygulama havuzu kullanıcı etkinlik durumlarda kapatıldı. Uygulama havuzu da varsayılan olarak 1,740 dakikada (29 saat) geri.

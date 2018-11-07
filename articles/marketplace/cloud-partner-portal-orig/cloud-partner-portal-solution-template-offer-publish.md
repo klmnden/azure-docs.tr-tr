@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ded952ac6418ae3d9916b3ae8b8dbacb0c9c5a84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811512"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219418"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Bir çözüm şablonu, Azure Market'te yayımlama
 
@@ -91,7 +91,9 @@ Bir SKU üst teklifi Azure Marketi bölümünde gösterilir ve Azure Portalı'nd
     - Teklif ayarları
     - SKU'lar
     - Market
-    - Destek alanları doldurmak size bir dizi her görünümü içerir. Gerekli alanları bir kırmızı yıldız gösterilir (\*)
+    - Destek
+
+Her görünüm alanlarını doldurmak size bir dizi içeriyor. Gerekli alanları bir kırmızı yıldız gösterilir (\*)
 
 ## <a name="to-configure-offer-settings"></a>Teklif ayarları yapılandırmak için
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: df48e0dbf5a6c010f659e1019e56b7670c264234
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319702"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228190"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Ayrılmış IP adresleri (Klasik dağıtım)
 
@@ -43,7 +43,7 @@ Azure'da IP adresleri hakkında daha fazla bilgi edinmek için [IP adresleri](vi
 - Kaç tane ayrılmış IP'ler sahip olabilir miyim?
     Ayrıntılar için bkz [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesi.
 - Ayrılmış IP'ler için bir ücret var?
-    Bazen. Fiyatlandırma ayrıntıları için bkz: [ayrılmış IP adresi fiyatlandırma ayrıntıları](http://go.microsoft.com/fwlink/?LinkID=398482) sayfası.
+    Bazen. Fiyatlandırma ayrıntıları için bkz: [ayrılmış IP adresi fiyatlandırma ayrıntıları](https://go.microsoft.com/fwlink/?LinkID=398482) sayfası.
 - Bir IP adresi nasıl ayırabilirim?
     PowerShell, kullanabileceğiniz [Azure Yönetimi REST API'si](https://msdn.microsoft.com/library/azure/dn722420.aspx), veya [Azure portalında](https://portal.azure.com) bir Azure bölgesindeki bir IP adresi ayırmak için. Aboneliğiniz için ayrılmış bir IP adresi ilişkilidir.
 - Ayrılmış IP benzeşim grubu tabanlı sanal ağlar ile kullanabilir miyim?
@@ -83,7 +83,7 @@ Beklenen çıktı:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->PowerShell ile ayrılmış bir IP adresi oluşturduğunuzda, ayrılmış IP ile oluşturmak için bir kaynak grubu belirtemezsiniz. Bir kaynak grubu içine adlı azure yerler *varsayılan ağ* otomatik olarak. Ayrılmış IP kullanarak oluşturursanız [Azure portalında](http://portal.azure.com), seçtiğiniz herhangi bir kaynak grubunu belirtebilirsiniz. Ayrılmış İP'si bir kaynak grubunda dışında oluşturursanız *varsayılan ağ* ancak, her başvuru ayrılmış IP ile komutları gibi `Get-AzureReservedIP` ve `Remove-AzureReservedIP`, adı başvurmalıdır  *Kaynak grubu adı ayrılmış-IP-name grup*.  Adlı bir ayrılmış IP oluşturursanız, örneğin, *myReservedIP* adlı bir kaynak grubu içinde *myResourceGroup*, ayrılmış IP adı başvurmalıdır *grubu myResourceGroup myReservedIP*.   
+>PowerShell ile ayrılmış bir IP adresi oluşturduğunuzda, ayrılmış IP ile oluşturmak için bir kaynak grubu belirtemezsiniz. Bir kaynak grubu içine adlı azure yerler *varsayılan ağ* otomatik olarak. Ayrılmış IP kullanarak oluşturursanız [Azure portalında](http://portal.azure.com), seçtiğiniz herhangi bir kaynak grubunu belirtebilirsiniz. Ayrılmış İP'si bir kaynak grubunda dışında oluşturursanız *varsayılan ağ* ancak, her başvuru ayrılmış IP ile komutları gibi `Get-AzureReservedIP` ve `Remove-AzureReservedIP`, adı başvurmalıdır  *Kaynak grubu adı ayrılmış-IP-name grup*.  Adlı bir ayrılmış IP oluşturursanız, örneğin, *myReservedIP* adlı bir kaynak grubu içinde *myResourceGroup*, ayrılmış IP adı başvurmalıdır *grubu myResourceGroup myReservedIP*.   
 
 
 Bir IP ayrılmış sonra siz silene kadar aboneliğinize ilişkili kalır. Ayrılmış IP aşağıda belirtildiği gibi silin:

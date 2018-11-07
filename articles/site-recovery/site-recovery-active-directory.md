@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211902"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232180"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory ve DNS için olağanüstü durum kurtarmayı ayarlayın
 
@@ -44,7 +44,7 @@ Etki alanı denetleyicisi veya DNS barındıran sanal makineyi korumak için Sit
 Site Recovery kullanarak yinelenen etki alanı denetleyicisi için kullanılan [yük devretme testi](#test-failover-considerations). Aşağıdaki gereksinimleri karşıladığından emin olun:
 
 1. Genel katalog sunucusu etki alanı denetleyicisidir.
-2. Etki alanı denetleyicisi, yük devretme testi sırasında gerekli olan roller için FSMO rol sahibi olmalıdır. Aksi takdirde, bu rolleri olması gerekir [ele](http://aka.ms/ad_seize_fsmo) yük devretmeden sonra.
+2. Etki alanı denetleyicisi, yük devretme testi sırasında gerekli olan roller için FSMO rol sahibi olmalıdır. Aksi takdirde, bu rolleri olması gerekir [ele](https://aka.ms/ad_seize_fsmo) yük devretmeden sonra.
 
 ### <a name="configure-vm-network-settings"></a>VM ağ ayarlarını yapılandırma
 Site recovery'de DNS veya etki alanı denetleyicisi barındıran sanal makine için ağ ayarları altında yapılandırma **işlem ve ağ** çoğaltılan sanal makinenin ayarlarını. Bu, sanal makine yük devretme sonrasında doğru ağa bağlı olmasını sağlar.
@@ -93,7 +93,7 @@ Ardından, DNS sunucusu sanal ağın DNS sunucusu Azure'da kullanmak üzere yeni
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Diğer etki alanı denetleyicilerine başvurularını Kaldır
-Yük devretme testi başlattığınızda, tüm etki alanı denetleyicileri test ağında dahil değildir. Üretim ortamınızda mevcut diğer etki alanı denetleyicilerine başvuruları kaldırmak için için ihtiyacınız olabilecek [Active Directory FSMO rollerini ele geçirmek](http://aka.ms/ad_seize_fsmo) yapıp [meta veri temizleme](https://technet.microsoft.com/library/cc816907.aspx) etki alanı denetleyicileri eksik .
+Yük devretme testi başlattığınızda, tüm etki alanı denetleyicileri test ağında dahil değildir. Üretim ortamınızda mevcut diğer etki alanı denetleyicilerine başvuruları kaldırmak için için ihtiyacınız olabilecek [Active Directory FSMO rollerini ele geçirmek](https://aka.ms/ad_seize_fsmo) yapıp [meta veri temizleme](https://technet.microsoft.com/library/cc816907.aspx) etki alanı denetleyicileri eksik .
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Sorun yaparak sanallaştırma korumalarını neden oldu
@@ -180,7 +180,7 @@ Yük devretme testinden sonra sanallaştırma korumaları tetiklenir, bir veya d
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Daha fazla bilgi için [genel katalog sunucusu kullanıcı oturum açma işlemi doğrulamak kullanılabilir gereksinimini devre dışı bırakmak](http://support.microsoft.com/kb/241789).
+    Daha fazla bilgi için [genel katalog sunucusu kullanıcı oturum açma işlemi doğrulamak kullanılabilir gereksinimini devre dışı bırakmak](https://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>Farklı makinelerde DNS ve etki alanı denetleyicisi
 

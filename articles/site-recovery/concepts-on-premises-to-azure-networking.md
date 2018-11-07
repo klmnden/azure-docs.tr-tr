@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215234"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253287"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>IP adresi yük devretmeden sonra Azure Vm'lerine bağlanmak için ayarlama
 
@@ -81,7 +81,7 @@ Ek yük devretme sonrasında vnet-vnet bağlantısı olarak siteden siteye VPN b
 
 ## <a name="assigning-new-ip-addresses"></a>Yeni IP adresleri atama
 
-Bu [blog gönderisi](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) yük devretmeden sonra IP adresleri saklamak ihtiyacınız kalmadığında, Azure ağ altyapısını ayarlamak açıklanmaktadır. Bir uygulama açıklaması ile başlayan, şirket içi ağı ayarlama ve azure'da nasıl ayarlanacağını bakar ve yük devretme işlemleri çalıştırma hakkında bilgi ile burada sona eriyor.
+Bu [blog gönderisi](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) yük devretmeden sonra IP adresleri saklamak ihtiyacınız kalmadığında, Azure ağ altyapısını ayarlamak açıklanmaktadır. Bir uygulama açıklaması ile başlayan, şirket içi ağı ayarlama ve azure'da nasıl ayarlanacağını bakar ve yük devretme işlemleri çalıştırma hakkında bilgi ile burada sona eriyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Yük devretme çalıştırma](site-recovery-failover.md)

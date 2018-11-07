@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390066"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253508"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketi için bir şirket içi sanal makine görüntüsü geliştirin
 Uzak Masaüstü Protokolü'nü kullanarak Azure sanal sabit diskleri (VHD'ler) doğrudan bulutta geliştirmeniz kesinlikle önerilir. Ancak, gerekirse, VHD indirme ve şirket içi altyapıyı kullanarak geliştirme mümkün.  
@@ -71,7 +71,7 @@ Blob URL'si bulduktan sonra VHD kullanarak indirebilirsiniz [Azure portalında](
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>PowerShell kullanarak bir VHD'yi indirin
-Azure portalını kullanmaya ek olarak kullanabilirsiniz [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet'ini işletim sistemi VHD'si indirin.
+Azure portalını kullanmaya ek olarak kullanabilirsiniz [Save-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) cmdlet'ini işletim sistemi VHD'si indirin.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -139,7 +139,7 @@ Bu depolama hesabında bir kapsayıcı kullanarak oluşturabileceğiniz daha son
 Depolama hesabı ve kapsayıcı oluşturulduktan sonra hazırlanmış Vhd'lerinizi karşıya yükleyebilirsiniz. PowerShell, Linux komut satırı aracı veya diğer Azure Depolama Yönetimi araçlarını kullanabilirsiniz.
 
 ### <a name="upload-a-vhd-via-powershell"></a>PowerShell aracılığıyla bir VHD'yi karşıya yükleme
-Kullanım [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet'i.
+Kullanım [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) cmdlet'i.
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 

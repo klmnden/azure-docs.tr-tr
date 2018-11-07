@@ -1,7 +1,7 @@
 ---
-title: 'Bilgi grafiği: Machine learning temelleri - algoritması örnekleri | Microsoft Docs'
-description: Machine learning temelleri kolay anlaşılır bir bakış algoritması örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
-keywords: Machine learning temelleri, algoritma örnekler, yeni başlayanlar, machine learning soruları, popüler algoritmalar, algoritması bilgi grafiği için makine
+title: 'Bilgi grafiği: Machine learning temel bilgileri - algoritma örnekleri | Microsoft Docs'
+description: Machine learning temel bilgileri anlaşılması kolay bir bakış algoritma örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
+keywords: machine learning yeni başlayanlar, machine learning soruları, popüler algoritmaları, algoritma bilgi grafiği Machine learning temel bilgileri, algoritma örnekleri
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -16,30 +16,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a7d2d1e46847f6126ad2905e9f2d3ce52957dad5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833402"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253865"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir Bilgi Grafiği: Algoritma örnekleri ile machine learning temel bilgileri
-Bu ortak makine öğrenimi soruları yanıtlamak için kullanılan yaygın olarak kullanılan algoritmalar hakkında bilgi edinmek için makine öğrenme temelleri kolay anlaşılır bilgi grafiği bakış indirin. Algoritma örnekler hangi algoritmaları ve kullanıldıkları anlamak machine learning başlangıç yardımcı olur.
+Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için bu bilgi grafiği anlaşılması kolay bakış indirin. Algoritma örnekleri hangi algoritmaları ve kullanıldıkları anlamak machine learning Acemi yardımcı olur.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Machine Learning Studio'da popüler algoritmaları
-[Azure Machine Learning Studio](https://studio.azureml.net/) büyük bir Tahmine dayalı analiz algoritmaları kitaplığı ile birlikte gelir. Bilgi grafiği algoritmalarının - regresyon, anomali algılama, kümeleme ve sınıflandırma - dört popüler aileleri tanımlar ve çalışma örneklerde bağlantılar sağlar [Azure AI galeri](https://gallery.cortanaintelligence.com/). Galeri örnek denemelerden ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabilir göstermek öğreticiler içerir.
+[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmaları Tahmine dayalı analiz için büyük bir kitaplık ile birlikte gelir. Bilgi grafiğini dört popüler aileleri algoritmaları - regresyon, anomali algılama, kümeleme ve sınıflandırma - tanımlar ve çalışan örnekler için bağlantılar sağlar [Azure AI Gallery](https://gallery.cortanaintelligence.com/). Galeri, örnek denemeleri ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabileceğini gösteren öğreticileri içerir.
 
-## <a name="download-the-infographic-with-algorithm-examples"></a>Algoritma örnekleriyle bilgi grafiği indirin
-**[İndirme: Machine learning temelleri algoritması örnekler (PDF) için bağlantılar ile birlikte, bilgi grafiği](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+## <a name="download-the-infographic-with-algorithm-examples"></a>Algoritma örnekleri ile bilgi Grafiği'ni indirin
+**[İndirin: Bilgi grafiği machine learning temel bilgileri algoritma örnekleri (PDF) için bağlantılarla birlikte](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
-![Bilgi grafiği: Makine öğrenme algoritmasını örneklerle temel bilgileri. Yaygın olarak kullanılan algoritma. Yeni başlayanlar için öğrenme makine.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Bilgi grafiği: algoritma örnekleri ile temellerini öğrenme makine. Yaygın algoritmalar. Yeni başlayanlar için makine.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
-## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Daha fazla ile ilgili Yardım algoritmaları yeni başlayanlar ve İleri düzey kullanıcılar
-* Machine learning algoritmaları, bunların nasıl kullanıldığı ve çözümünüz için doğru olanı seçme farklı türdeki daha ayrıntılı bir tartışma için bkz: [Microsoft Azure Machine Learning'de algoritma seçme](algorithm-choice.md).
-* Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz: [modeli Başlat] [ initialize-model] Machine Learning Studio algoritması ve modülü Yardımı'nda.
-* Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modülleri A-Z listesi] [ a-z-list] Machine Learning Studio algoritması ve modülü Yardımı'nda.
+## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Yeni başlayanlar ve İleri düzey kullanıcılar için algoritmalar ile daha fazla yardım
+* Farklı türlerdeki makine öğrenimi algoritmaları, bunların nasıl kullanıldığı ve çözümünüz için doğru olanı seçmeleri nasıl daha ayrıntılı bir açıklaması için bkz. [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md).
+* Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz [modeli Başlat] [ initialize-model] Machine Learning Studio algoritma ve modül Yardımı.
+* Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modüllerinin A-Z listesi] [ a-z-list] Machine Learning Studio algoritma ve modül Yardımı.
 * Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
-* Azure AI Galerisi ve birçok topluluk tarafından oluşturulmuş kullanılabilir kaynakları genel bakış için bkz: [paylaşımı ve Azure AI Galerisi kaynakları bulmak](gallery-how-to-use-contribute-publish.md).
+* Azure AI Gallery ve topluluk tarafından oluşturulan kaynaklara genel bir bakış için bkz: [paylaşımı ve Azure AI Gallery'de kaynakları bulmak](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

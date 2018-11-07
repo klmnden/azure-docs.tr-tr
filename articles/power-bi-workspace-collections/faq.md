@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040874"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249209"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI çalışma alanı koleksiyonları ile ilgili SSS
 
@@ -61,7 +61,7 @@ Power BI çalışma alanı koleksiyonları Hizmeti'yle nasıl Ayrıntılar için
 Evet. Mevcut Azure aboneliğinizi sağlamak ve Microsoft Power BI çalışma alanı koleksiyonları hizmeti kullanmak için kullanabilirsiniz.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>My uygulama son kullanıcı, bir Power BI lisansı gerekiyor mu?
-Hayır. Uygulamanızın son kullanıcılar ayrıca uygulama veri görselleştirmeleri erişmek için satın alma veya Power BI aboneliği için gerekli değildir. Power BI çalışma alanı koleksiyonları modelde, uygulama sağlayıcısı olarak, hizmet için Azure tüketim ölçüm faturalandırılır. Başvurmak [fiyatlandırma ve lisanslama sayfası](http://go.microsoft.com/fwlink/?LinkId=760527).
+Hayır. Uygulamanızın son kullanıcılar ayrıca uygulama veri görselleştirmeleri erişmek için satın alma veya Power BI aboneliği için gerekli değildir. Power BI çalışma alanı koleksiyonları modelde, uygulama sağlayıcısı olarak, hizmet için Azure tüketim ölçüm faturalandırılır. Başvurmak [fiyatlandırma ve lisanslama sayfası](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Kullanıcı kimlik doğrulaması, Power BI çalışma alanı koleksiyonları ile nasıl çalışır?
 Power BI çalışma alanı koleksiyonları hizmet kimlik doğrulaması ve yetkilendirme açık son kullanıcı kimlik doğrulaması yerine uygulama belirteçlerini kullanır. Uygulama belirteci modelde, uygulamanız kimlik doğrulaması ve yetkilendirme son kullanıcılarınız için yönetir. Daha sonra gerektiğinde uygulamanızı oluşturur
@@ -80,7 +80,7 @@ Geliştiriciler/çalıştığı veya uygulamanızı oluşturmaya çalışan oldu
 Ziyaret ettiğiniz [Power BI çalışma alanı koleksiyonları belgeleri sayfasını](get-started.md). Bu hizmet hakkında güncel ederek kalabileceği [Power BI blogunu](https://powerbi.microsoft.com/blog/) veya dev.powerbi.com adresindeki Power BI Geliştirici Merkezi'ni ziyaret edin. Sorular da sorabilirsiniz [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Nasıl kullanmaya başlayabilirim?
-Şimdi ücretsiz başlayabilirsiniz! Bir Azure aboneliğiniz varsa, artık Power BI çalışma alanı koleksiyonları Azure portalından doğrudan sağlayabilirsiniz. Ayrıca, [ücretsiz Azure hesabı](https://azure.microsoft.com/free/). Power BI çalışma alanı koleksiyonları hizmet sağladıktan sonra kolayca doğrudan Power BI REST API'lerini kullanın, veya Geliştirici SDK'sı kullanılabilir [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). SDK'sı Geliştirici yararlanarak nasıl örnekleri verilmiştir.
+Şimdi ücretsiz başlayabilirsiniz! Bir Azure aboneliğiniz varsa, artık Power BI çalışma alanı koleksiyonları Azure portalından doğrudan sağlayabilirsiniz. Ayrıca, [ücretsiz Azure hesabı](https://azure.microsoft.com/free/). Power BI çalışma alanı koleksiyonları hizmet sağladıktan sonra kolayca doğrudan Power BI REST API'lerini kullanın, veya Geliştirici SDK'sı kullanılabilir [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). SDK'sı Geliştirici yararlanarak nasıl örnekleri verilmiştir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

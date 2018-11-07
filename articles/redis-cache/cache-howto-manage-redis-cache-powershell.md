@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dabf3c7f98957a4b8ef0c59bdd80ca773f403912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364515"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255992"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell ile Azure Redis cache'i yönetme
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Aboneliği belirtmek için aşağıdaki komutu çalıştırın. Aşağıdaki ör
 
 Azure Resource Manager ile Windows PowerShell kullanmadan önce aşağıdakiler gerekir:
 
-* Windows PowerShell sürüm 3.0 veya 4.0. Windows PowerShell sürümünü bulmak için şunu yazın:`$PSVersionTable` ve değerini doğrulayın `PSVersion` 3.0 veya 4.0. Uyumlu bir sürümünü yüklemek için bkz: [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) veya [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell sürüm 3.0 veya 4.0. Windows PowerShell sürümünü bulmak için şunu yazın:`$PSVersionTable` ve değerini doğrulayın `PSVersion` 3.0 veya 4.0. Uyumlu bir sürümünü yüklemek için bkz: [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) veya [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 Bu öğreticide gördüğünüz herhangi bir cmdlet'in ayrıntılı yardım almak için Get-Help cmdlet'ini kullanın.
 
@@ -781,9 +781,9 @@ Aşağıdaki komut, belirtilen önbellek her iki düğüm yeniden başlatır.
 Azure ile Windows PowerShell kullanma hakkında daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
 
 * [MSDN'de Azure Redis Cache cmdlet belgeleri](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
-* [Azure Resource Manager cmdlet'leri](http://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager modüldeki cmdlet'ler kullanmayı öğrenin.
+* [Azure Resource Manager cmdlet'leri](https://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager modüldeki cmdlet'ler kullanmayı öğrenin.
 * [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure portalında kaynak gruplarını oluşturma ve yönetme hakkında bilgi edinin.
 * [Azure blogu](https://azure.microsoft.com/blog/): azure'daki yeni özellikleri hakkında bilgi edinin.
-* [Windows PowerShell Web günlüğü](http://blogs.msdn.com/powershell): Windows PowerShell'de yeni özellikler hakkında bilgi edinin.
+* [Windows PowerShell Web günlüğü](https://blogs.msdn.com/powershell): Windows PowerShell'de yeni özellikler hakkında bilgi edinin.
 * ["Hey, betik yazarı!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell Topluluğu'ndan gerçek ipuçları ve püf noktaları alın.
 

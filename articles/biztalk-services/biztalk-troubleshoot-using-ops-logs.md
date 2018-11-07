@@ -1,6 +1,6 @@
 ---
-title: BizTalk Services işlem günlükleri kullanarak sorun giderme | Microsoft Docs
-description: BizTalk Services işlem günlükleri kullanarak sorun giderin. MABS, WABS
+title: İşlem günlüklerini kullanarak BizTalk Hizmetleri sorunlarını giderme | Microsoft Docs
+description: İşlem günlüklerini kullanarak BizTalk Hizmetleri sorunlarını giderin. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102027"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256077"
 ---
-# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: işlem günlükleri kullanarak sorun giderme
+# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: işlem günlüklerini kullanarak sorun giderme
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>İşlem günlükleri nelerdir
-İşlem günlükleri, BizTalk Services de dahil olmak üzere Azure hizmetlerinizi üzerinde gerçekleştirilen işlemlerinin geçmiş günlükleri görüntülemenize olanak sağlayan bir özelliktir Yönetim Hizmetleri. Bu, BizTalk hizmeti aboneliğinizi 180 gün'a kadar yönetim işlemlerini ilgili geçmiş verileri görüntülemenize olanak sağlar.
+İşlem günlükleri, BizTalk hizmetleri de dahil olmak üzere Azure hizmetleriniz üzerinde gerçekleştirilen işlemlerin sayısına geçmiş günlükleri görüntülemenize olanak tanıyan bir Yönetim Hizmetleri özelliğidir. Bu, BizTalk hizmeti aboneliğinizi 180 gün öncesine varan yönetim işlemlerini ilgili geçmiş verileri görüntülemesine olanak sağlar.
 
 > [!NOTE]
-> Bu özellik yalnızca günlükleri hizmet başlatıldığı gibi yönetim işlemlerini BizTalk Services için desteklenen en fazla, vb. yakalar. Bu tür işlemler kullanılarak izlenen [BizTalk hizmeti REST API'leri](http://msdn.microsoft.com/library/azure/dn232347.aspx). Yönetim Hizmetleri kullanılarak izlenen operations tam bir listesi için bkz: [Operations izlenen kullanarak Azure Yönetim Hizmetleri](#bizops).<br/><br/>
-> Bu, BizTalk hizmeti çalışma zamanı (örneğin, ileti. köprüleri vb. tarafından işlenen) ilgili etkinlikleri için günlükleri yakalamaz. Bu günlükleri görüntülemek için BizTalk Services Portalı'ndan izleme görünümünü kullanın. Daha fazla bilgi için bkz: [izleme iletileri](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Bu özellik yalnızca günlükleri gibi hizmet başlatıldığı, BizTalk Hizmetleri, yönetim işlemleri için desteklenen en fazla vb. yakalar. Bu işlemler kullanılarak izlenir [BizTalk hizmeti REST API'leri](https://msdn.microsoft.com/library/azure/dn232347.aspx). Yönetim Hizmetleri kullanılarak izlenir işlemleri tam bir listesi için bkz. [Operations izlenen kullanarak Azure Yönetim Hizmetleri](#bizops).<br/><br/>
+> Bu, BizTalk hizmeti çalışma zamanı (örneğin, iletiyi. Köprüsü ve benzeri tarafından işlenen) ilgili etkinlikleri için günlüklere yakalamaz. Bu günlükleri görüntülemek için izleme görünümünden BizTalk Hizmetleri portalını kullanın. Daha fazla bilgi için [izleme iletileri](https://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
-## <a name="view-biztalk-services-operation-logs"></a>İşlem günlükleri BizTalk Services görünümü
-1. Portalı'nda seçin **Yönetim Hizmetleri**ve ardından **işlem günlükleri** sekmesi.
-2. Abonelik, tarih aralığı, hizmet türüne (örneğin, BizTalk Services), hizmet adı veya (başarılı, başarısız) işleminin durumu gibi farklı parametreler göre günlükleri filtreleyebilirsiniz.
-3. Filtrelenmiş listesini görüntülemek için onay işaretini seçin. Aşağıdaki resimde testbiztalkservice için ilgili etkinlikleri gösterir: ![işlem günlükleri görüntüleme][ViewLogs] 
-4. Belirli bir işlemi hakkında daha fazla görüntülemek için satırı seçin ve'ı tıklatın **ayrıntıları** altındaki görev çubuğunda.
+## <a name="view-biztalk-services-operation-logs"></a>BizTalk Services işlem günlükleri görüntüle
+1. Portalında **Yönetim Hizmetleri**ve ardından **işlem günlükleri** sekmesi.
+2. Abonelik, tarih aralığı, hizmet türü (örneğin, BizTalk Hizmetleri), hizmet adı veya (başarılı, başarısız) işlemin durumu gibi farklı parametreler göre günlükleri filtreleyebilirsiniz.
+3. Filtrelenmiş listeyi görüntülemek için onay işaretini seçin. Aşağıdaki görüntüde testbiztalkservice için ilgili etkinlikleri gösterir: ![işlem günlükleri görüntüleyin][ViewLogs] 
+4. Belirli bir işlemi hakkında daha fazla görüntülemek için satırı seçin ve tıklayın **ayrıntıları** altındaki görev çubuğunda.
 
-## <a name="bizops"></a>Azure Yönetim Hizmetleri'ni kullanarak izlenen işlemleri
-Aşağıdaki tabloda Azure Yönetimi hizmetlerini kullanarak izlenen işlemleri listeler:
+## <a name="bizops"></a>Azure Yönetim Hizmetleri ile izlenen işlemler
+Aşağıdaki tabloda, Azure Yönetim Hizmetleri kullanılarak izlenir işlemleri listelenmektedir:
 
-| İşlem adı | Görev |
+| İşlem Adı | Görev |
 | --- | --- |
-| CreateBizTalkService |Yeni bir BizTalk hizmeti oluşturma işlemi |
+| CreateBizTalkService |Yeni BizTalk hizmeti oluşturma işlemi |
 | DeleteBizTalkService |BizTalk hizmeti silme işlemi |
 | RestartBizTalkService |BizTalk hizmetini yeniden başlatma işlemi |
-| StartBizTalkService |İşlemin bir BizTalk hizmetini başlatmak için |
-| StopBizTalkService |İşlemin bir BizTalk hizmeti durdurmak için |
+| StartBizTalkService |BizTalk hizmeti başlatmak için işlemi |
+| StopBizTalkService |BizTalk hizmeti durdurmak için işlemi |
 | DisableBizTalkService |BizTalk hizmeti devre dışı bırakma işlemi |
-| EnableBizTalkService |İşlemin bir BizTalk hizmeti etkinleştirmek için |
-| BackupBizTalkService |BizTalk hizmeti kurma yedekleme işlemi |
+| EnableBizTalkService |BizTalk hizmeti etkinleştirme işlemi |
+| BackupBizTalkService |BizTalk hizmeti yedekleme işlemi |
 | RestoreBizTalkService |BizTalk hizmeti belirtilen yedekten geri yükleme işlemi |
 | SuspendBizTalkService |BizTalk hizmeti askıya alma işlemi |
-| ResumeBizTalkService |İşlemin bir BizTalk hizmeti sürdürmek için |
+| ResumeBizTalkService |BizTalk hizmeti sürdürmek için işlemi |
 | ScaleBizTalkService |BizTalk hizmeti yukarı veya aşağı ölçeklendirme işlemi |
-| ConfigUpdateBizTalkService |BizTalk hizmeti yapılandırmasını güncelleştirmek için güncelleştirme işlemi |
-| ServiceUpdateBizTalkService |İşlemin yükseltin veya farklı bir sürüme BizTalk hizmeti düşürmek için |
-| PurgeBackupBizTalkService |Saklama dönemi dışında BizTalk hizmeti yedeklerini temizlenecek işlemi |
+| ConfigUpdateBizTalkService |BizTalk hizmeti yapılandırmasını güncelleştirmek için işlemi |
+| ServiceUpdateBizTalkService |Yükseltme veya düşürme farklı bir sürüme BizTalk hizmeti için işlem |
+| PurgeBackupBizTalkService |BizTalk hizmeti saklama süresi dışında yedeklerini temizlemeye işlemi |
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [BizTalk hizmeti yedekleme](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [BizTalk hizmeti yedekten geri yükleyin](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: Durum Grafiğini hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: Azaltma](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk hizmeti yedekleme](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [BizTalk hizmeti yedekten geri yükleyin.](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Durum Grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Azaltma](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 

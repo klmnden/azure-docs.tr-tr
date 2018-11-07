@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233023"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>İşinizi markette büyütme 
 Teklifinizi AppSource ya da Azure Marketi'nde yayımladıktan sonra Microsoft ile birleşik pazara Git (GTM) etkinlikleri için bir başlatma çubuğu listenizi kullanabilirsiniz. Örneğin, Market teklifinizi trafiği yönlendiren ve Market müşteri adayları, ziyaretten, iş büyüme hızını harika yöntemle vardır. 
@@ -229,7 +229,7 @@ Teklif veya uygulamanızı tanıtın ve diğer avantajları ve kaynakları eriş
 
 | Avantajlar | Kaynaklar |
 |:--- |:--- |
-| Çekirdek Avantajlarınızı kullanın | Microsoft iş ortağı ağı bir parçası olarak, bir dizi zamandan ve paradan tasarruf yardımcı olabilecek temel avantajlar alırsınız. Avantajları yeteneklerinizi güçlendirebilir, daha iyi müşterilere ve işletmenizin tüm potansiyelini için bağlantılar oluşturmanıza da yardımcı olabilir.<br>Temel avantajlar hakkında daha fazla bilgi için ziyaret [temel avantajları ve gereksinimleri](http://partner.microsoft.com/membership/core-benefits). |
+| Çekirdek Avantajlarınızı kullanın | Microsoft iş ortağı ağı bir parçası olarak, bir dizi zamandan ve paradan tasarruf yardımcı olabilecek temel avantajlar alırsınız. Avantajları yeteneklerinizi güçlendirebilir, daha iyi müşterilere ve işletmenizin tüm potansiyelini için bağlantılar oluşturmanıza da yardımcı olabilir.<br>Temel avantajlar hakkında daha fazla bilgi için ziyaret [temel avantajları ve gereksinimleri](https://partner.microsoft.com/membership/core-benefits). |
 | Bulut platformu uzmanlığı'na kazanın | Bir uzmanlık kazanmaya kendiniz diğer Microsoft iş ortakları arasında ayırt etmenize yardımcı olur. Bir uzmanlık kazanmaya ayrıca teknik uzmanlığa ve müşteri başarı pazarında gösteren yardımcı olur. Uzmanlık, ortak satış gibi pek çok önemli iş ortağı programı için bir önkoşuldur.<br> Bulut platformu uzmanlığı hakkında daha fazla bilgi için ziyaret [bulut platformu uzmanlığı](https://partner.microsoft.com/membership/cloud-platform-competency). |
 | IP ortak satışa hazır olun | Doğrudan Microsoft satıcılarıyla ve hedef müşteri fırsatlarını ve hesap planlama diğer iş ortaklarıyla işbirliği olanak tanıyan IP ortak satışa hazır programı için uygun olabilir. Çözümünüzü Microsoft satıcılarıyla satıcı çözüm Kataloğu'nda görünür hale gelir. Microsoft satıcılarıyla, işbirliği ve sizinle kazanma ödülünü.<br> Uygunluk gereksinimlerini de dahil olmak üzere ortak satışa hazır program hakkında daha fazla bilgi için ziyaret [işletmenize Yükselt](https://partner.microsoft.com/reach-customers/promote-your-business). |
 

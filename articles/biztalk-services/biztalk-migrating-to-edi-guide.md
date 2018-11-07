@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856539"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253831"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a Geçirme: teknik Kılavuzu
 
@@ -77,10 +77,10 @@ Bkz: **senaryoları/ileti akışı** ileti akış düzeni için bu makaledeki.
 ## <a name="agreements"></a>Sözleşmeler
 BizTalk Server 2010 ticaret ortak EDI işleme için kullanılan sözleşmeleri biliyorsanız, BizTalk Services'ın ticari ortak sözleşmeleri bilgili arayın. Sözleşme ayarların çoğu aynıdır ve aynı bir terminoloji kullanıyor. Bazı durumlarda, anlaşma ayarları çok daha basittir BizTalk Server aynı ayarları karşılaştırılan. AS2, EDIFACT ve Microsoft Azure BizTalk Services destekler X12 taşıma.
 
-Microsoft Azure BizTalk Services de sağlar bir **TPM veri geçişi** ticaret iş ortakları ve anlaşmalar BizTalk Server ticaret iş ortağı modülünden BizTalk Hizmetleri portalında geçirmek için aracı. TPM veri geçiş aracı kullanılabilir Araçları paketinin bir parçası olarak, hangi nden indirilebilir [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Paketi ayrıca aracı ve temel sorun giderme bilgileri için Aracı'nı kullanma hakkında yönergeler sağlayan bir benioku dosyası içerir.
+Microsoft Azure BizTalk Services de sağlar bir **TPM veri geçişi** ticaret iş ortakları ve anlaşmalar BizTalk Server ticaret iş ortağı modülünden BizTalk Hizmetleri portalında geçirmek için aracı. TPM veri geçiş aracı kullanılabilir Araçları paketinin bir parçası olarak, hangi nden indirilebilir [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057). Paketi ayrıca aracı ve temel sorun giderme bilgileri için Aracı'nı kullanma hakkında yönergeler sağlayan bir benioku dosyası içerir.
 
 ## <a name="schemas"></a>Şemalar
-BizTalk Hizmetleri, BizTalk Services çözümlerinde kullanılan EDI şemaları sağlar.  Ayrıca, BizTalk hizmetlerinin yanı sıra BizTalk Server arasında EDI şemasının kök düğümü aynı olduğu için BizTalk Server EDI şemaları de BizTalk Hizmetleri ile kullanılabilir. Bu nedenle, doğrudan, BizTalk Server EDI şemaları alıp bunları BizTalk Services'ı kullanarak geliştirme EDI çözümlerini kullanmak mümkün olacaktır. Şemalardan da indirebilirsiniz [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
+BizTalk Hizmetleri, BizTalk Services çözümlerinde kullanılan EDI şemaları sağlar.  Ayrıca, BizTalk hizmetlerinin yanı sıra BizTalk Server arasında EDI şemasının kök düğümü aynı olduğu için BizTalk Server EDI şemaları de BizTalk Hizmetleri ile kullanılabilir. Bu nedenle, doğrudan, BizTalk Server EDI şemaları alıp bunları BizTalk Services'ı kullanarak geliştirme EDI çözümlerini kullanmak mümkün olacaktır. Şemalardan da indirebilirsiniz [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057).
 
 ## <a name="maps-transforms"></a>Haritalar (dönüşümler)
 BizTalk Server maps'a dönüşümler BizTalk Hizmetleri'nde çağrılır. BizTalk hizmetlerine geçirme haritalar'dan BizTalk Server (harita karmaşıklığına bağlı olarak) elde etmek için daha karmaşık görevleri biri olabilir. BizTalk Hizmetleri için kullanılan eşleme BizTalk eşleyicisinden farklı bir araçtır. Temel eşleme biçimi Eşleyici çoğunlukla aynı görünür halde farklıdır. İşlevsiler (adlı **eşleme işlemleri** BizTalk Services) kullanılabilir olan kullanıcıları da farklıdır.  Aslında, BizTalk Services hizmetinde BizTalk harita doğrudan kullanamazsınız. Ayrıca, BizTalk Server kullanılabilir tüm İşlevsiler eşleme işlemleri BizTalk Hizmetleri'nde olarak kullanılabilir.
@@ -93,23 +93,23 @@ BizTalk Hizmetleri dönüştüren yeni işlevler başka bir örnektir **döngü 
 Başka bir örnek henüz **If-Then-Else** ifade harita işlemi.  İf-then-else bir işlem yapmadan BizTalk eşleyicisinde olası, ancak birden çok İşlevsiler görünüşte basit bir görevi gerçekleştirmek için gerekli.
 
 ### <a name="migrating-biztalk-server-maps"></a>BizTalk sunucusunu taşıma eşler
-Microsoft Azure BizTalk Services, BizTalk Server'ı geçirmek için bir aracı için BizTalk Hizmetleri dönüşümler eşler sağlar. **BTMMigrationTool** olarak kullanılabilir parçası **Araçları** ile sağlanan paket [BizTalk Hizmetleri SDK'sını indirme](http://go.microsoft.com/fwlink/p/?LinkId=235057). Aracı hakkında daha fazla bilgi için bkz. [BizTalk hizmetlerini dönüştürmek için BizTalk eşleşmesi dönüştürme](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Microsoft Azure BizTalk Services, BizTalk Server'ı geçirmek için bir aracı için BizTalk Hizmetleri dönüşümler eşler sağlar. **BTMMigrationTool** olarak kullanılabilir parçası **Araçları** ile sağlanan paket [BizTalk Hizmetleri SDK'sını indirme](https://go.microsoft.com/fwlink/p/?LinkId=235057). Aracı hakkında daha fazla bilgi için bkz. [BizTalk hizmetlerini dönüştürmek için BizTalk eşleşmesi dönüştürme](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-Bir örneğe nasıl Sandro Pereira, BizTalk MVP tarafından da bakabilirsiniz [BizTalk Server haritalar için BizTalk Hizmetleri dönüşümler geçirme](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+Bir örneğe nasıl Sandro Pereira, BizTalk MVP tarafından da bakabilirsiniz [BizTalk Server haritalar için BizTalk Hizmetleri dönüşümler geçirme](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## <a name="orchestrations"></a>Düzenlemeleri
 BizTalk Server düzenleme Microsoft Azure'a işleme geçmeniz gerekiyorsa düzenlemeleri Microsoft Azure çalışan BizTalk Server düzenlemeleri desteklemediğinden yazılması gerekir.  Bir Windows Workflow Foundation 4.0 (WF4) hizmetinin düzenleme işlevleri yeniden yazabilirsiniz.  Şu anda hiçbir geçiş BizTalk Server düzenlemeleri WF4 olduğundan bu tam bir yeniden yazma olacaktır. Windows iş akışı için bazı kaynaklar aşağıda verilmiştir:
 
 * [*Bir WCF iş akışı hizmeti, hizmet veri yolu kuyrukları ve konuları ile tümleştirmek nasıl* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) Paolo Salvatori tarafından. 
-* [*Windows Workflow Foundation'ı ve Azure ile uygulama oluşturmaya* oturumu](http://go.microsoft.com/fwlink/p/?LinkId=237314) derleme 2011 konferansına ait.
-* [*Windows Workflow Foundation Geliştirici Merkezi* ](http://go.microsoft.com/fwlink/p/?LinkId=237315) MSDN'de.
+* [*Windows Workflow Foundation'ı ve Azure ile uygulama oluşturmaya* oturumu](https://go.microsoft.com/fwlink/p/?LinkId=237314) derleme 2011 konferansına ait.
+* [*Windows Workflow Foundation Geliştirici Merkezi* ](https://go.microsoft.com/fwlink/p/?LinkId=237315) MSDN'de.
 * [*Windows Workflow Foundation 4 (WF4) belgeleri* ](https://msdn.microsoft.com/library/dd489441.aspx) MSDN'de.
 
 ## <a name="other-considerations"></a>Dikkat edilecek diğer noktalar
 BizTalk Services'ı kullanırken yapmanız gereken bazı önemli noktalar aşağıda verilmiştir.
 
 ### <a name="fallback-agreements"></a>Geri dönüş sözleşmeleri
-BizTalk Server EDI işleme "Geri dönüş sözleşmeleri" kavramı vardır.  BizTalk Hizmetleri gerektirmez **değil** bir geri dönüş sözleşmesi kavramı şimdiye sahip.  BizTalk belgeleri konulara bakın [rolü, sözleşmelerde EDI işleme](http://go.microsoft.com/fwlink/p/?LinkId=237317) ve [yapılandırma genel ya da geri dönüş anlaşması özellikleri](https://msdn.microsoft.com/library/bb245981.aspx) geri dönüş anlaşmalar BizTalk nasıl kullanıldığı hakkında bilgi Sunucu.
+BizTalk Server EDI işleme "Geri dönüş sözleşmeleri" kavramı vardır.  BizTalk Hizmetleri gerektirmez **değil** bir geri dönüş sözleşmesi kavramı şimdiye sahip.  BizTalk belgeleri konulara bakın [rolü, sözleşmelerde EDI işleme](https://go.microsoft.com/fwlink/p/?LinkId=237317) ve [yapılandırma genel ya da geri dönüş anlaşması özellikleri](https://msdn.microsoft.com/library/bb245981.aspx) geri dönüş anlaşmalar BizTalk nasıl kullanıldığı hakkında bilgi Sunucu.
 
 ### <a name="routing-to-multiple-destinations"></a>Birden çok hedefe yönlendirme
 BizTalk Hizmetleri köprüleri, geçerli durumunda bir yayımlama kullanarak birden fazla hedefe yönlendirme iletileri desteklemiyor-abonelik modeli. Bunun yerine bir BizTalk Hizmetleri köprü iletilerden sonra birden fazla uç nokta ileti almak için birden fazla abonelik olabilir bir Service Bus konu başlığına yol.

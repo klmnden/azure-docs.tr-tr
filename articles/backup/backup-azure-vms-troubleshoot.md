@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8ef8241e9f0f6223b29fa29f7a5803f57f4d6203
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 90e03c66717cafc1cd33f4629e88aba8e76c2c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415007"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245757"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz.
 
 | Hata Ayrıntıları | Geçici çözüm |
 | --- | --- |
-| VM artık mevcut olmadığından işlem gerçekleştirilemiyor. -Yedekleme verilerini silmeden sanal makine korumayı durdurun. Daha fazla bilgi http://go.microsoft.com/fwlink/?LinkId=808124 |Bu, birincil sanal makine silinmiş, ancak yedekleme ilkesini sanal Makineyi yedeklemek için arama devam gerçekleşir. Bu hatayı düzeltmek için: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı [bulut hizmeti adı] yeniden oluşturun<br>(VEYA)</li><li> Sanal makine içeren veya içermeyen yedekleme verilerini silme korumayı durdurun. [Daha fazla ayrıntı](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| VM artık mevcut olmadığından işlem gerçekleştirilemiyor. -Yedekleme verilerini silmeden sanal makine korumayı durdurun. Daha fazla bilgi http://go.microsoft.com/fwlink/?LinkId=808124 |Bu, birincil sanal makine silinmiş, ancak yedekleme ilkesini sanal Makineyi yedeklemek için arama devam gerçekleşir. Bu hatayı düzeltmek için: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı [bulut hizmeti adı] yeniden oluşturun<br>(VEYA)</li><li> Sanal makine içeren veya içermeyen yedekleme verilerini silme korumayı durdurun. [Daha fazla ayrıntı](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | -Sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu. anlık görüntü işlemi, VM ağ erişimi bulunduğundan emin olun. Başarılı olması anlık görüntü için ya da güvenilir Azure veri merkezi IP aralıkları veya ağ erişimi için bir proxy sunucusu ayarlayın. Daha fazla bilgi için http://go.microsoft.com/fwlink/?LinkId=800034. Proxy sunucusu kullanıyorsanız, proxy sunucu ayarlarının doğru yapılandırıldığından emin olun. | Sanal makineye giden internet bağlantısı Reddet oluşur. VM anlık görüntü uzantısı, temel alınan diskler bir anlık görüntüsünü almak için internet bağlantısı gerektirir. [Engellenen ağ erişim nedeniyle anlık görüntü hataları düzeltmeye bakın](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine). |
 | VM Aracısı Azure Backup hizmeti ile iletişim kuramıyor. -VM'nin ağ bağlantısı olduğundan ve VM aracısını en son ve çalışıyor olduğundan emin olun. Daha fazla bilgi için makaleye bakın http://go.microsoft.com/fwlink/?LinkId=800034. |Bu hata, VM Aracısı ile ilgili bir sorun veya başka bir yolla Azure altyapısı için ağ erişimi engellendi oluşturulur. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup) sorunları VM'yi hata ayıklama hakkında anlık görüntüsünü alın.<br> VM Aracısı sorunlarına neden olmaktan değil, VM'yi yeniden başlatın. Hatalı bir VM durumu sorunlarına neden olabilir ve VM'nin yeniden başlatılmasının durumunu sıfırlar. |
 | VM başarısız sağlama durumunda - VM'yi yeniden başlatın ve VM'nin çalıştığından emin olun veya kapatın. | VM başarısız sağlama durumunda olması durumuna uzantıları hataları birini müşteri adayları bu hata oluşur. Uzantılar listesine dönün ve başarısız bir uzantısı olup olmadığını, kaldırmak ve sanal makineyi yeniden başlatmayı deneyin. Tüm uzantıları çalışır durumda olduğundan, VM aracısı hizmetinin çalışıp çalışmadığını denetleyin. Aksi durumda, VM Aracısı hizmetini yeniden başlatın. |
@@ -28,7 +28,7 @@ Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında k
 | Kopyalama - depolama hesabında yeterli boş alan sanal makinenin bir anlık görüntü depolama hesabı mevcut sanal makineye bağlı premium depolama disklerindeki verilerle eşit miktarda boş alan olduğundan emin olun | VM yedekleme yığını V1 Premium Vm'lere olması durumunda, biz anlık görüntü depolama hesabına kopyalayın. Bu anlık görüntü üzerinde çalışır, yedekleme yönetim trafiği, premium diskler kullanarak bir uygulama için kullanılabilir IOPS sayısını kısıtlamaz emin olmaktır. Azure Backup hizmeti, kasa için depolama hesabındaki kopyalanan bu konumdan, depolama hesabı ve aktarım veri anlık görüntü kopyalayabilmeniz adına Microsoft yalnızca % 50 (17,5 TB) tahsis toplam depolama hesabı alanı önerir. | 
 | VM aracısı yanıt vermediği işlemi gerçekleştirilemiyor. |Bu hata, VM Aracısı ile ilgili bir sorun veya başka bir yolla Azure altyapısı için ağ erişimi engellendi oluşturulur. Windows Vm'leri için VM aracısı hizmet durumunun services'ı ve aracıyı Denetim Masası'ndaki Programlar görüntülenip denetleyin. Program denetiminin kaldırmayı deneyin paneli ve belirtildiği gibi aracıyı yeniden yükleme [aşağıda](#vm-agent). Aracıyı yeniden yükledikten sonra doğrulamak için geçici bir yedeklemeyi tetikleyin. |
 | Kurtarma Hizmetleri Uzantısı işlemi başarısız oldu. -En son sanal makine Aracısı sanal makinede mevcut olduğundan emin ve Aracısı hizmeti çalışıyor. Yedekleme işlemini yeniden deneyin. Yedekleme işlemi başarısız olursa Microsoft desteğine başvurun. |Bu hata, VM aracısının güncel olduğunda oluşturulur. VM aracısını güncelleştirmek için aşağıdaki "VM aracısını güncelleştirme" bölümüne bakın. |
-| Sanal makine yok. - Veya olduğundan emin olun sanal makinenin var, select farklı bir sanal makine. |Birincil VM silindiği ancak yedekleme için bir VM aramak yedekleme ilkesini devam gerçekleşir. Bu hatayı düzeltmek için: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı [bulut hizmeti adı] yeniden oluşturun<br>(VEYA)<br></li><li>Yedekleme verilerini silmeden sanal makineyi korumayı durdurun. [Daha fazla ayrıntı](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Sanal makine yok. - Veya olduğundan emin olun sanal makinenin var, select farklı bir sanal makine. |Birincil VM silindiği ancak yedekleme için bir VM aramak yedekleme ilkesini devam gerçekleşir. Bu hatayı düzeltmek için: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı [bulut hizmeti adı] yeniden oluşturun<br>(VEYA)<br></li><li>Yedekleme verilerini silmeden sanal makineyi korumayı durdurun. [Daha fazla ayrıntı](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Komut yürütme başarısız oldu. -Başka bir işlem, bu öğe üzerinde şu anda sürüyor. Önceki işlemi tamamlanana kadar bekleyin ve sonra işlemi yeniden deneyin. |Var olan bir yedekleme işi çalıştığından ve geçerli iş tamamlanana kadar yeni bir iş yeniden başlatılamıyor. |
 | Recovery Services VHD kopyalama kasa zaman aşımına uğradı - işlemi birkaç dakika içinde yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun. | Depolama tarafında geçici bir hata varsa veya yedekleme hizmeti yeterli depolama hesabı zaman aşımı süresi içinde Kasası'na veri aktarmak için IOPS almazsa oluşur. Takip ettiğinizden emin olun [en iyi uygulamalar, Vm'lerinizin yapılandırırken](backup-azure-vms-introduction.md#best-practices). Yüklü değilse farklı bir depolama hesabı için sanal makinenizin taşıyın ve yedekleme işini yeniden deneyin.|
 | Yedekleme bir iç hata ile başarısız oldu - işlemi birkaç dakika içinde yeniden deneyin. Sorun devam ederse, Microsoft Support başvurun |İki nedenden dolayı bu hatayı alabilirsiniz: <ol><li> VM depolama erişmede geçici bir sorun yoktur. Denetleme [Azure durumu site](https://azure.microsoft.com/status/) bölgede bilgi işlem, depolama veya ağ sorunları olup olmadığını görmek için. Sorun çözüldükten sonra yedekleme işini yeniden deneyin. <li>Özgün VM silinmiştir ve kurtarma noktası alınamaz. Silinen bir VM için yedekleme verileri tutmak, ancak yedekleme hataları Kaldır: VM korumasını ve verileri korumak için bu seçeneği belirleyin. Bu eylem, zamanlanmış bir yedekleme işi ve yinelenen hata iletileri durdurur. |
@@ -82,18 +82,18 @@ Genellikle, VM Aracısı zaten Azure galerisinden oluşturulan VM'ler bulunur. A
 
 Windows Vm'leri için:
 
-* [Aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir.
-* Klasik sanal makineler için [VM özelliğini güncelleştirin](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) aracının yüklü olduğunu belirtmek için. Bu adım, Resource Manager sanal makineler için gerekli değildir.
+* [Aracı MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir.
+* Klasik sanal makineler için [VM özelliğini güncelleştirin](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) aracının yüklü olduğunu belirtmek için. Bu adım, Resource Manager sanal makineler için gerekli değildir.
 
 Linux Vm'leri için:
 
 * Dağıtım depodan aracının en son sürümünü yükleyin. Paket adı hakkında daha fazla bilgi için bkz: [Linux Aracısı depo](https://github.com/Azure/WALinuxAgent).
-* Klasik VM'ler için [blog girişine VM özelliğini güncelleştirin kullanmasını](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)ve aracının yüklü doğrula. Bu adım, Resource Manager sanal makineler için gerekli değildir.
+* Klasik VM'ler için [blog girişine VM özelliğini güncelleştirin kullanmasını](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)ve aracının yüklü doğrula. Bu adım, Resource Manager sanal makineler için gerekli değildir.
 
 ### <a name="updating-the-vm-agent"></a>VM Aracısı'nı güncelleştirme
 Windows Vm'leri için:
 
-* VM aracısını güncelleştirmek için yeniden [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aracıyı güncelleştirmeden önce VM Aracısı güncelleştirilirken herhangi bir yedekleme işlemleri ortaya emin olun.
+* VM aracısını güncelleştirmek için yeniden [VM Aracısı ikili dosyalarının](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aracıyı güncelleştirmeden önce VM Aracısı güncelleştirilirken herhangi bir yedekleme işlemleri ortaya emin olun.
 
 Linux Vm'leri için:
 
@@ -135,7 +135,7 @@ Tüm uzantıları gibi Backup uzantısının çalışması için genel internet 
 * (Örneğin, disk anlık görüntüsü) yedekleme işlemleri başarısız olabilir
 * Yedekleme işlemi durumunu görüntüleme başarısız olabilir
 
-Genel internet adresleri çözmek için gereken geliştirilmiştir [burada](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Sanal ağ için DNS yapılandırmalarını kontrol edin ve Azure URI'ler çözümlenebildiğinden emin olmak gerekir.
+Genel internet adresleri çözmek için gereken geliştirilmiştir [burada](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Sanal ağ için DNS yapılandırmalarını kontrol edin ve Azure URI'ler çözümlenebildiğinden emin olmak gerekir.
 
 Ad çözümlemesi doğru yaptıktan sonra Azure IP'ler için erişim de sağlanması gerekir. Azure altyapı erişim engelini kaldırmak için aşağıdaki adımlardan birini izleyin:
 

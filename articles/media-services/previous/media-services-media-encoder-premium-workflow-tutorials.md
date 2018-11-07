@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 79b2aa22307e4742d00d9422535d52c80485e2db
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249043"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257393"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Gelişmiş Media Encoder Premium iş akışı öğreticileri
 ## <a name="overview"></a>Genel Bakış
@@ -939,9 +939,9 @@ Bu noktada, biz çalıştırın ve iş kadar hiç olmadığı kadar uygulanan de
 ```
 
 ## <a name="also-see"></a>Ayrıca bkz:
-[Premium Azure medya Hizmetleri kodlama ile tanışın](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Premium Azure medya Hizmetleri kodlama ile tanışın](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[Premium Azure medya Hizmetleri kodlama kullanma](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Premium Azure medya Hizmetleri kodlama kullanma](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Azure medya Hizmetleri ile isteğe bağlı içerik kodlama](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -949,7 +949,7 @@ Bu noktada, biz çalıştırın ve iş kadar hiç olmadığı kadar uygulanan de
 
 [Örnek iş akışı dosyaları](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services Gezgin aracında](http://aka.ms/amse)
+[Azure Media Services Gezgin aracında](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

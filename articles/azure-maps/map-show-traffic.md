@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6d5c721ab84c28bae9415dceeaa09fd12cc05824
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733034"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240095"
 ---
 # <a name="show-traffic-on-the-map"></a>Harita üzerinde trafiği Göster
 
@@ -39,7 +39,7 @@ Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi e
 Tam kod örnekleri için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Kod örnek sayfası](http://aka.ms/AzureMapsSamples)
+> [Kod örnek sayfası](https://aka.ms/AzureMapsSamples)
 
 Kullanıcı deneyimlerini geliştirir:
 

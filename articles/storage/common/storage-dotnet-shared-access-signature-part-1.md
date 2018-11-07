@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1bc93b083b0f6f0d813f209c9371ce38e8a9daa6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228819"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -223,7 +223,7 @@ Paylaşılan erişim imzalarını kullanma yönelik aşağıdaki öneriler bu ri
 7. **Hesabınız ile SAS yapılan dahil olmak üzere herhangi bir kullanım için faturalandırılırsınız anlayın.** Bir bloba yazma erişimi sağlayan, bir kullanıcı, 200 GB blob karşıya yüklemek tercih edebilirsiniz. Bunları okuma erişim verdiyseniz, bunların 10 kez indirmek 2 TB çıkış içinde sizin için maliyetler tercih edebilirsiniz. Yeniden olası kötü amaçlı kullanıcıların eylemlerini azaltmaya yardımcı olmak için sınırlı izinler sağlayın. Bu tehdidi azaltmanız (ancak saatinin bitiş saat eğriltme dikkatli olmanız için) kısa süreli SAS'ı kullanın.
 8. **SAS kullanarak yazılan veri doğrulayın.** Bir istemci uygulaması, depolama hesabınıza verileri yazdığında, bu verileri ile ilgili sorunlar olabilir aklınızda bulundurun. Uygulamanızın veri doğrulanmış veya kullanıma hazır hale gelmeden önce yetkili gerektiriyorsa, bu doğrulama verileri yazıldıktan sonra ve uygulamanız tarafından kullanılmadan önce gerçekleştirmeniz gerekir. Bu uygulama ayrıca hesabınız için doğru SAS edinilen bir kullanıcı veya sızdırılan SAS kötüye bir kullanıcı tarafından yazılan bozuk ya da kötü amaçlı veri karşı korur.
 9. **Her zaman SAS kullanmayın.** Bazen, depolama hesabınıza karşı belirli bir işlemle ilişkili riskleri SAS basıyor. Bu işlemler için iş gerçekleştirdikten sonra depolama hesabınıza Yazar bir orta katman hizmet oluşturma kural doğrulama, kimlik doğrulaması ve denetim. Ayrıca, bazı durumlarda, farklı yollarla erişimi yönetmek basittir. Örneğin, tüm BLOB'ları bir kapsayıcıda genel olarak okunabilir hale getirmek istiyorsanız, genel, kapsayıcı yapabilirsiniz yerine SAS her istemci için erişim sağlama.
-10. **Depolama analizi, uygulamanızı izlemek için kullanın.** Kesinti nedeniyle kimlik doğrulama hataları herhangi bir artış SAS sağlayıcısı hizmetinizdeki ya da depolanmış erişim ilkesini yanlışlıkla kaldırılmasına gözlemlemek için günlük kaydını ve ölçümleri kullanabilirsiniz. Bkz: [Azure depolama ekibi blogu](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) ek bilgi için.
+10. **Depolama analizi, uygulamanızı izlemek için kullanın.** Kesinti nedeniyle kimlik doğrulama hataları herhangi bir artış SAS sağlayıcısı hizmetinizdeki ya da depolanmış erişim ilkesini yanlışlıkla kaldırılmasına gözlemlemek için günlük kaydını ve ölçümleri kullanabilirsiniz. Bkz: [Azure depolama ekibi blogu](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) ek bilgi için.
 
 ## <a name="sas-examples"></a>SAS örnekleri
 Aşağıda bazı örnekler paylaşılan erişim imzaları, hesap SAS her iki türdeki ve SAS hizmet.
@@ -423,5 +423,5 @@ Paylaşılan erişim imzaları, depolama hesabınıza sınırlı izinlere hesap 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Paylaşılan erişim imzaları, 2. Bölüm: Oluşturma ve bir SAS Blob Depolama ile kullanma](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md)
-* [Paylaşılan Erişim İmzası ile Erişim için Temsilci Seçme](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Tablo ve kuyruk SAS ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Paylaşılan Erişim İmzası ile Erişim için Temsilci Seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Tablo ve kuyruk SAS ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

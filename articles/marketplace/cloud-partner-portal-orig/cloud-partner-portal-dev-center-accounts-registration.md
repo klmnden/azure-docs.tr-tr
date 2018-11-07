@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bdcd1d0cc9f9979d898410180d364716b344d641
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811544"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254477"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 ====================================
 
 Bu makalede, Azure Market'te yayımlamak için onaylanmış bir Microsoft Developer haline açıklar.
 
-## <a name="create-a-microsoft-account"></a>Bir Microsoft hesabı oluşturun
+## <a name="create-a-microsoft-account"></a>Microsoft hesabı oluşturun
 
 Yayımlama işlemini başlatmak için tamamlanması gerekir **Microsoft Developer Center** kayıt. Kayıtlı hesap kullanacağınız **[bulut iş ortağı portalı](https://cloudpartner.azure.com/)** yayımlama işlemini başlatmak için.
 
@@ -77,7 +77,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
 >[!IMPORTANT]
 >Teklif oluşturulmasını ve dağıtımını çeşitli aşamaları ilerleme için aşağıdaki Geliştirici profili bileşenleri tamamlamanız gerekir.
 
-| Geliştirici profili     | Draft'ı başlatmak için    | Hazırlanıyor       | Ücretsiz yayımlama ve çözüm şablonu   | Ticari yayımlama   |
+| Geliştirici profili     | Draft'ı başlatmak için    | Hazırlama       | Ücretsiz yayımlama ve çözüm şablonu   | Ticari yayımlama   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
 | Kayıt şirketi  | Sahip olmalıdır         | Sahip olmalıdır     | Sahip olmalıdır                             | Sahip olmalıdır             |
 | Vergi profili kimliği        | İsteğe bağlı          | İsteğe bağlı      | İsteğe bağlı                              | Sahip olmalıdır             |
@@ -133,7 +133,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
 
    ![Ödeme kayıt](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
-10. Hesap bilgilerinizi gözden geçirin ve her şeyin doğru olduğundan emin olun. Okuyup hüküm ve koşulları kabul [Microsoft Azure Marketi yayımcı anlaşması](http://go.microsoft.com/fwlink/?LinkID=699560). Okuma ve bu koşulları kabul belirtmek için kutuyu işaretleyin.
+10. Hesap bilgilerinizi gözden geçirin ve her şeyin doğru olduğundan emin olun. Okuyup hüküm ve koşulları kabul [Microsoft Azure Marketi yayımcı anlaşması](https://go.microsoft.com/fwlink/?LinkID=699560). Okuma ve bu koşulları kabul belirtmek için kutuyu işaretleyin.
 
 11. Seçin **son** kaydınızı doğrulamak için. Bir onay iletisi e-posta adresinize gönderilir.
 

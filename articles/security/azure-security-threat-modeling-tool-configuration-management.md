@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249362"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Güvenlik çerçevesi: Yapılandırma yönetimi | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -210,7 +210,7 @@ veya uygulama düzeyinde
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [IE8 güvenlik bölümü V: kapsamlı koruma](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME türü](http://en.wikipedia.org/wiki/Mime_type) |
+| **Başvuruları**              | [IE8 güvenlik bölümü V: kapsamlı koruma](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME türü](http://en.wikipedia.org/wiki/Mime_type) |
 | **Adımları** | X-içerik-türü-Options üstbilgisi içeriklerini MIME sızılmasını olmamalıdır belirtmek geliştiricilerinin sağlayan bir HTTP üstbilgisi ' dir. Bu üstbilginin MIME algılaması saldırıları azaltmak için tasarlanmıştır. Kullanıcı denetlenebilir içerik içerebilen her sayfa için HTTP üst bilgisi X kullanmanız gerekir-içerik-türü-seçenekleri: nosniff. Genel olarak, uygulamadaki tüm sayfalar için gereken üst bilgi etkinleştirmek için aşağıdakilerden birini yapabilirsiniz|
 
 ### <a name="example"></a>Örnek

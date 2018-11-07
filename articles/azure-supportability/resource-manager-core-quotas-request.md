@@ -7,18 +7,18 @@ ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1be05ac7216a65922927b94d1cc4ba2a893433b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037273"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250994"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Kaynak Yöneticisi'ni vCPU kota artışı istekleri
 
 Kaynak Yöneticisi'ni vCPU kotaları bölge düzeyinde ve SKU ailesi düzeyinde uygulanır.
-Nasıl kotalar üzerinde zorlanır hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](http://aka.ms/quotalimits) sayfası.
-SKU aileleri hakkında daha fazla bilgi için maliyet ve performans üzerinde karşılaştırmak [sanal makineler fiyatlandırma](http://aka.ms/pricingcompute) sayfası.
+Nasıl kotalar üzerinde zorlanır hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](https://aka.ms/quotalimits) sayfası.
+SKU aileleri hakkında daha fazla bilgi için maliyet ve performans üzerinde karşılaştırmak [sanal makineler fiyatlandırma](https://aka.ms/pricingcompute) sayfası.
 
 Bir artış istemek için Azure'nın 'kullanımı + kota' aracılığıyla bir destek isteği oluşturmak için aşağıdaki yönergeleri izleyin. dikey penceresinde Azure Portalı'nda kullanılabilir. 
 
@@ -28,7 +28,7 @@ Bir artış istemek için Azure'nın 'kullanımı + kota' aracılığıyla bir d
 
    ![Abonelikler](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Daha fazla kotaya gereksinim duyduğu aboneliği seçin.
+2. Kotasını artırmanız gereken aboneliği seçin.
 
    ![Abonelik seçme](./media/resource-manager-core-quotas-request/select-subscription.png)
 

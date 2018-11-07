@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e91f75299dddf0ac173499a531ea959292082a9f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931387"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246557"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Uzak Masaüstü hizmetini veya Klasik dağıtım modeli kullanılarak oluşturulan bir Windows VM'de oturum açma parolasını sıfırlama
 > [!IMPORTANT]
-> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Ayrıca [Resource Manager dağıtım modeliyle oluşturulan sanal makineler için bu adımları uygulamadan](../reset-rdp.md).
+> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Ayrıca [Resource Manager dağıtım modeliyle oluşturulan sanal makineler için bu adımları uygulamadan](../reset-rdp.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 
@@ -36,7 +36,7 @@ Uzak Masaüstü Hizmetleri ve kimlik bilgilerini, gereksinimlerinize bağlı ola
 - [Azure portalını kullanarak Sıfırla](#azure-portal)
 - [Azure PowerShell kullanarak Sıfırla](#vmaccess-extension-and-powershell)
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 Kullanabileceğiniz [Azure portalında](https://portal.azure.com) Uzak Masaüstü hizmetini sıfırlama. Portal menü genişletmek için sol üst köşedeki üç çubuğa tıklayın ve ardından **sanal makineler (Klasik)**:
 
 ![Azure sanal Makineniz için Gözat](./media/reset-rdp/Portal-Select-Classic-VM.png)
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Varsa **write-host** komutunu görüntüler **True**, VM Aracısı yüklenir. Görüntüler, **False**, yönergeleri ve indirme bağlantısı [VM aracısı ve uzantıları - 2. bölüm](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog gönderisinden.
+Varsa **write-host** komutunu görüntüler **True**, VM Aracısı yüklenir. Görüntüler, **False**, yönergeleri ve indirme bağlantısı [VM aracısı ve uzantıları - 2. bölüm](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog gönderisinden.
 
 Portalı kullanarak sanal makine oluşturduğunuzda, denetleyin olmadığını `$vm.GetInstance().ProvisionGuestAgent` döndürür **True**. Aksi durumda, bu komutu kullanarak ayarlayabilirsiniz:
 
@@ -108,7 +108,7 @@ Azure VM erişimi uzantısı yanıt vermiyor ve parolanızı sıfırlayamıyoruz
 
 [Azure VM uzantıları ve özellikleri](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Bir Azure sanal makinesinde RDP veya SSH ile bağlanma](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Bir Azure sanal makinesinde RDP veya SSH ile bağlanma](https://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Windows tabanlı bir Azure sanal makinesine Uzak Masaüstü bağlantılarında sorun giderme](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

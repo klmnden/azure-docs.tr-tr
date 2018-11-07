@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: f468567aa67560eed972fb53669638a17778b307
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b99874ce87c6e161fcd62ec871c6aee277ec946e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189963"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232305"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>PowerShell kullanarak dosya yüklemeleri IOT hub'ı yapılandırma
 
@@ -22,7 +22,7 @@ Kullanılacak [dosya karşıya yükleme işlevselliği IOT Hub'ında](iot-hub-de
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
 
 * [Azure PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 

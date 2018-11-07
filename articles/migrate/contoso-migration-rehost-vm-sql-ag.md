@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 54a506b509ca1b6129a549589da3f2d18068a82f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115446"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250739"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso taşıma: Azure VM ve SQL Server AlwaysOn Kullanılabilirlik grubu üzerinde şirket içi uygulama yeniden barındırma
 
@@ -233,7 +233,7 @@ Contoso admins gibi bir depolama hesabı oluşturun:
 
 Kümeyi ayarlamadan önce Contoso yöneticiler her makinede işletim sistemi diskinin anlık görüntüsünü alın.
 
-![anlık görüntü](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
+![Anlık görüntü](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
 2. Ardından, bunlar koyarlar betik çalıştırma birlikte Windows Yük devretme kümesi oluşturun.
 
@@ -416,7 +416,7 @@ Yük devretme sonrasında Azure Vm'lerinin bağlanabilmesi Contoso istiyor. Bunu
 Ayrıca, bir yük devretme çalıştırdıklarında bunlar aşağıdakileri denetlemeniz gerekir:
 
 - Bulunmamalıdır bekleyen herhangi bir Windows güncelleştirme VM üzerinde bir yük devretme tetiklendiğinde. Varsa, kullanıcılar güncelleştirme tamamlanana kadar sanal Makinede oturum açın mümkün olmayacaktır.
-- Yük devretmeden sonra bunlar denetleyebilirsiniz **önyükleme tanılaması** VM'nin bir ekran görüntülemek için. Bu işe yaramazsa, bunlar VM çalıştıran ve bunlar gözden olduğunu doğrulamalısınız [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Yük devretmeden sonra bunlar denetleyebilirsiniz **önyükleme tanılaması** VM'nin bir ekran görüntülemek için. Bu işe yaramazsa, bunlar VM çalıştıran ve bunlar gözden olduğunu doğrulamalısınız [sorun giderme ipuçları](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 **Daha fazla yardıma mı ihtiyacınız var?**

@@ -1,6 +1,6 @@
 ---
-title: Azure üzerinde veri bilimi sanal makine öğrenme derin sağlama | Microsoft Docs
-description: Yapılandırma ve analizi için Azure üzerinde derin öğrenme veri bilimi sanal makine oluşturun ve makine.
+title: Derin öğrenme azure'da veri bilimi sanal makinesi vm'si sağlama | Microsoft Docs
+description: Yapılandırma ve analiz için Azure'da bir derin öğrenme veri bilimi sanal makinesi oluşturma ve makine öğrenimi.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -13,77 +13,77 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169951"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229671"
 ---
-# <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure üzerinde sanal makine öğrenme derin sağlama 
+# <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Derin azure'da sanal makine öğrenme vm'si sağlama 
 
-Derin öğrenme sanal makine (DLVM) bir özel yapılandırılmış popüler çeşididir [veri bilimi sanal makine](http://aka.ms/dsvm) (GPU tabanlı VM kullanmayı daha kolay yapmak için DSVM) örnekler derin öğrenme modelleri hızla eğitmek için. Temel olarak Windows 2016 ya da Ubuntu DSVM ile desteklenir. Aynı çekirdeği VM görüntüleri DLVM paylaşır ve bu nedenle tüm zengin araç takımı DSVM üzerinde kullanılabilir. 
+Ayrıntılı öğrenme sanal makinesi (DLVM) bir özel yapılandırılmış popüler çeşididir [veri bilimi sanal makinesi](https://aka.ms/dsvm) GPU tabanlı VM kullanımını kolaylaştırmak için (DSVM) örneklerinin ayrıntılı öğrenme modelleri hızla eğitim. Temel olarak Windows 2016 veya Ubuntu DSVM ile desteklenir. Aynı çekirdekli VM görüntüleri DLVM paylaşır ve bu nedenle tüm zengin araç takımı DSVM üzerinde kullanılabilir. 
 
-DLVM AI Microsoft Bilişsel araç seti, TensorFlow, Keras, Caffe2, bağlayıcı gibi popüler derin öğrenme çerçeveleri GPU sürümleri de dahil olmak üzere çeşitli araçlar içerir; almak için Araçlar ve önceden işlem görüntü metinsel veri, Microsoft R Server Geliştirici sürümü, Anaconda Python, Python için Jupyter not defterlerini ve R, Python ve R, SQL için IDE gibi veri bilimi modelleme ve geliştirme etkinlikleri için araçları veritabanları ve diğer birçok Veri bilimi ve ML araçları. 
+DLVM yapay ZEKA Microsoft Bilişsel araç seti, TensorFlow, Keras, Caffe2, bağlayıcı gibi popüler derin öğrenme çerçeveleri GPU sürümleri dahil olmak üzere çeşitli araçlar içerir; elde etmeye ve önceden işlem görüntü, metinsel veriler, Microsoft R Server Geliştirici sürümü, Anaconda Python Jupyter not defterleri için Python ve R, Python ve SQL, R IDE'ler gibi veri bilimi modelleme ve geliştirme etkinlikleri için araçları veritabanları ve diğer birçok Veri bilimi ve ML araçları. 
 
-## <a name="create-your-deep-learning-virtual-machine"></a>Sanal makine öğrenme, derin oluşturma
-Örnek, derin öğrenme sanal makine oluşturmak için adımlar şunlardır: 
+## <a name="create-your-deep-learning-virtual-machine"></a>Ayrıntılı öğrenme sanal makinesi oluşturma
+Bir örneği, ayrıntılı öğrenme sanal makinesi oluşturmak için adımlar şunlardır: 
 
-1. Sanal makine üzerinde listeleme gidin [Azure portal](https://portal.azure.com/#create/microsoft-ads.dsvm-deep-learningtoolkit
+1. Sanal makine üzerinde listeleme gidin [Azure portalında](https://portal.azure.com/#create/microsoft-ads.dsvm-deep-learningtoolkit
 ).
-2. Seçin **oluşturma** Sihirbazı'na gerçekleştirilecek altındaki düğmesini.![ oluşturma dlvm](./media/dlvm-provision-wizard.PNG)
-3. DLVM oluşturmak için kullanılan sihirbaz gerektirir **girişleri** her biri için **dört adım** Bu şekil sağ tarafta numaralandırılır. Bu adımların her biri yapılandırmak için gereken girdiler şunlardır:
+2. Seçin **Oluştur** düğmesi Sihirbazı'na alınması için alt kısımdaki.![ oluşturma dlvm](./media/dlvm-provision-wizard.PNG)
+3. DLVM oluşturmak için kullanılan sihirbaz gerektirir **girişleri** her biri için **dört adımı** bu şekilde sağ tarafındaki numaralandırılır. Bu adımların her biri yapılandırmak için gerekli girişleri şunlardır:
    
    1. **Temel Bilgiler**
       
-      1. **Ad**: oluşturduğunuz veri bilimi sunucunuzun adını yazın.
+      1. **Ad**: oluşturmakta olduğunuz veri bilimi sunucunuzun adını yazın.
       2. **Derin öğrenme VM için işletim sistemi türü seçin**: seçin, Windows veya Linux (için Windows 2016 ve Ubuntu Linux temel DSVM)
-      2. **Kullanıcı adı**: Yönetici hesap oturum açma kimliği.
-      3. **Parola**: yönetici hesabı parolası.
-      4. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu oluşturulur ve fatura için seçin.
-      5. **Kaynak grubu**: yeni bir tane oluşturabilirsiniz veya bir **boş** aboneliğinizde var olan Azure kaynak grubu.
-      6. **Konum**: en uygun olan veri merkezi seçin. Genellikle verilerinizden en iyi veya en yakın fiziksel konumunuza en hızlı ağ erişimi için veri merkezi olur. 
+      2. **Kullanıcı adı**: yönetici hesabı oturum açma kimliği.
+      3. **Parola**: yönetici hesabının parolası.
+      4. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin.
+      5. **Kaynak grubu**: yeni bir tane oluşturabilir veya bir **boş** aboneliğinizdeki mevcut bir Azure kaynak grubu.
+      6. **Konum**: en uygun veri merkezi seçin. Genellikle, verilerinizden en iyi olduğundan veya en hızlı ağ erişimi için fiziksel konumunuza en yakın veri merkezi bulunur. 
       
 > [!NOTE]
-> DLVM tüm NC ve ND serisi GPU VM örnekleri destekler. DLVM sağlamada Gpu'lara sahip Azure konumlardan birini seçmeniz gerekir. Denetleyin [Azure ürünleri bölge sayfası tarafından](https://azure.microsoft.com/regions/services/) sayfasında kullanılabilir konumlarını ve Ara **NC-serisi**, **NCv2-serisi**, **NCv3-serisi** , veya **ND-serisi** altında **işlem**. 
+> DLVM tüm NC ve ND serisi GPU sanal makine örneğini destekler. DLVM sağlanırken GPU'ları olan Azure'da konumlardan birini seçmeniz gerekir. Denetleme [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) sayfa için kullanılabilir konumların ve Ara **NC serisi**, **NCv2 serisi**, **NCv3 serisi** , veya **ND serisi** altında **işlem**. 
 
-   2. **Ayarları**: NC serisi (NC, NCv2, NCv3) veya işlev gereksinimi ve maliyet kısıtlamaları karşılayan, ND serisi GPU sanal makine boyutlarını birini seçin. VM için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Ayarları**: NC serisi (NC, NCv2 NCv3) veya maliyet kısıtlamaları ve işlevsel bir gereksinimi karşılayan, ND serisi GPU sanal makine boyutları birini seçin. Sanal Makineniz için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Özet**: girdiğiniz tüm bilgiler doğru olduğundan emin olun.
-   5. **Satın**: tıklatın **satın** sağlama başlatmak için. Bağlantı işlem koşullarını sağlanır. VM, seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok **boyutu** adım. 
+   3. **Özet**: girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
+   5. **Satın alma**: tıklayın **satın** sağlamaya başlamak için. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
 
 > [!NOTE]
-> Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumu Azure portalda görüntülenir.
+> Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
 > 
 
 
-## <a name="how-to-access-the-deep-learning-virtual-machine"></a>Derin öğrenme sanal makine erişme
+## <a name="how-to-access-the-deep-learning-virtual-machine"></a>Nasıl erişileceğini ayrıntılı öğrenme sanal makinesi
 
 ### <a name="windows-edition"></a>Windows sürümü
-VM oluşturulduktan sonra Uzak Masaüstü önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak içine yapabilecekleriniz **Temelleri** bölümü. 
+VM oluşturulduktan sonra Uzak Masaüstü uygulamasına önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak yapabilecekleriniz **Temelleri** bölümü. 
 
 ### <a name="linux-edition"></a>Linux sürümü
 
-VM oluşturulduktan sonra kendisine SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesap kimlik bilgilerini kullanan **Temelleri** adım 3 metin kabuk arabirimi için bölüm. AWindows istemcide bir SSH istemcisi aracı gibi indirebilirsiniz [Putty](http://www.putty.org). Grafik Masaüstü (X Windows sistemi) tercih ederseniz, Putty iletme X11 kullanın veya X2Go istemcisi yükleyin.
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Gibi bir SSH istemcisi aracı indirebileceğiniz aWindows istemcide [Putty](http://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
 
 > [!NOTE]
-> X2Go istemci bizim iletme X11 daha iyi gerçekleştirilir. X2Go istemci için bir grafik Masaüstü arabirimi kullanmanızı öneririz.
+> Bizim testimizde iletme X11 daha iyi X2Go istemci gerçekleştirdi. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.
 > 
 > 
 
 #### <a name="installing-and-configuring-x2go-client"></a>Yükleme ve X2Go istemci yapılandırma
-Linux DLVM X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye hazır zaten var. Linux VM grafik masaüstüne bağlanmak için istemci aşağıdaki yordamı tamamlayın:
+Linux DLVM zaten X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye hazır. Linux VM grafik masaüstüne bağlanmak için istemcinizi aşağıdaki yordamı tamamlayın:
 
-1. İstemci platformunuzu X2Go istemci yükleyip [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. X2Go istemci çalıştırmak ve seçmek **yeni oturum**. İle birden çok sekme yapılandırma penceresi açar. Aşağıdaki yapılandırma parametrelerini girin:
+1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+2. X2Go istemci çalıştırıp seçeneğini **yeni oturumu**. Bu, birden fazla sekme ile bir yapılandırma penceresi açılır. Aşağıdaki yapılandırma parametrelerini girin:
    * **Oturum sekmesini**:
-     * **Ana bilgisayar**: ana bilgisayar adı veya IP adresini, Linux veri bilimi VM.
-     * **Oturum açma**: Linux VM kullanıcı adı.
+     * **Konak**: konak adı veya IP adresini Linux veri bilimi sanal makinesi.
+     * **Oturum açma**: Linux sanal makinesi üzerinde kullanıcı adı.
      * **SSH bağlantı noktası**: 22, varsayılan değeri bırakın.
-     * **Oturum türü**: değerini değiştirin **XFCE**. Şu anda Linux DSVM yalnızca XFCE Masaüstü destekler.
-   * **Ortam sekmesini**: ses desteği ve bunları kullanmaya ihtiyaç duymuyorsanız Yazdırma İstemcisi devre dışı bırakabilir.
-   * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız bu sekmedeki VM paylaşmak istediğiniz istemci makine dizinleri ekleyin.
+     * **Oturum türü**: değere değiştirin **XFCE**. Şu anda yalnızca Linux DSVM'sini XFCE Masaüstü destekler.
+   * **Ortam sekmesini**: ses desteği ve bunları kullanmak gerekmiyorsa Yazdırma İstemcisi kapat.
+   * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız, bu sekmedeki VM ile paylaşmak istediğiniz istemci makine dizinlerine ekleyin.
 
-VM SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisinden kullanarak oturum açtıktan sonra yüklenmiş ve yapılandırılmış VM Araçları'nı kullanmaya başlamak hazırsınız. XFCE üzerinde uygulamaları menüsü kısayolları ve masaüstü simgelerini araçları çoğunu görebilirsiniz.
+VM'ye SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisi aracılığıyla kullanarak oturum açtıktan sonra yüklenmiş ve yapılandırılmış VM'de araçları kullanmaya başlamak hazırsınız. XFCE üzerinde çok sayıda araçla menüsü kısayolları uygulamalar ve masaüstü simgelerini görebilirsiniz.
 
-VM oluşturup sağlanan sonra yüklenmiş ve yapılandırılmış Araçları'nı kullanmaya başlamak hazırsınız. Başlat menüsü döşeme ve araçlarının çoğu masaüstü simgelerini vardır. 
+Sanal makinenizin oluşturup sağlanan yüklenmiş ve yapılandırılmış araçları kullanmaya başlamak hazırsınız. Başlat menüsü kutucukları ve masaüstü simgelerini birçok araç vardır. 

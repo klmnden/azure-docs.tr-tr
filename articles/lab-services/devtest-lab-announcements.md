@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259930"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir laboratuvar için bir duyuru gönderin
 
@@ -35,7 +35,7 @@ Duyuru özellik geçici bildirimler için kullanılmak üzere tasarlanmıştır.
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Mevcut bir laboratuvarda duyuru göndermek için adımları
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**).
 1. Duyuru gönderin istediğiniz Laboratuvar labs listesinden seçin.  
 1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.  
@@ -70,7 +70,7 @@ Artık Laboratuvar kullanıcılara bu duyuru göstermek istediğiniz zaman dön�
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Bir duyurunun görüntülemek kullanıcılar için adımları
 
-1. Gelen [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin.
+1. Gelen [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin.
 
 1. Laboratuvar için gönderilen bir duyuru varsa, bir bilgi uyarısı Laboratuvar genel bakış sayfasının en üstünde gösterilir. Bu bilgi uyarısı duyuruyu oluştururken belirttiğiniz Duyurunun başlığını ' dir.
 

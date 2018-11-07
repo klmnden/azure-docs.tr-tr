@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: c9d9cd9616b263ca002e6fe7ad6c875cce10289b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058318"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228972"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure tablo depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -173,7 +173,7 @@ Aşağıdaki adımlar, bir tablo oluşturma işlemini göstermektedir:
   
     ![Tablo oluştur](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Daha önce de belirtildiği **CloudTable.CreateIfNotExists** yöntemi döndürür **true** yalnızca tablo mevcut değil ve oluşturulur. Bu nedenle, tablo varsa, uygulamayı çalıştırırsanız, yöntem döndürür **false**. Uygulama birden çok kez çalıştırmak için uygulamayı yeniden çalıştırmadan önce tabloda silmeniz gerekir. Aracılığıyla tablo silme yapılabilir **CloudTable.Delete** yöntemi. Tabloyu kullanarak silebilirsiniz [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Daha önce de belirtildiği **CloudTable.CreateIfNotExists** yöntemi döndürür **true** yalnızca tablo mevcut değil ve oluşturulur. Bu nedenle, tablo varsa, uygulamayı çalıştırırsanız, yöntem döndürür **false**. Uygulama birden çok kez çalıştırmak için uygulamayı yeniden çalıştırmadan önce tabloda silmeniz gerekir. Aracılığıyla tablo silme yapılabilir **CloudTable.Delete** yöntemi. Tabloyu kullanarak silebilirsiniz [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-an-entity-to-a-table"></a>Tabloya bir varlık ekleme
 

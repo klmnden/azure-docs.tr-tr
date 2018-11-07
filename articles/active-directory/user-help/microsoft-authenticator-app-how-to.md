@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: d5ea6f18fb288711bae67b6840ddb5b8bb9942c2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393261"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245452"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması ile çalışmaya başlama
 
@@ -39,7 +39,7 @@ Bu gibi durumlarda, Microsoft Authenticator uygulamasını da Microsoft olmayan 
 
 ## <a name="install-the-app"></a>Uygulama yükleme
 
-Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir. En iyi deneyimi elde etmek için istendiğinde bildirim alma uygulama izin vermelisiniz. 
+Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir. En iyi deneyimi elde etmek için istendiğinde bildirim alma uygulama izin vermelisiniz. 
 
 ## <a name="add-accounts-to-the-app"></a>Uygulamaya hesapları ekleme
 
@@ -51,7 +51,7 @@ Kişisel Microsoft hesabı için (bir Outlook.com, Xbox, Skype, vb. için oturum
 
 ### <a name="add-a-work-or-school-account"></a>Bir iş veya Okul hesabı Ekle
 
-1. Mümkünse, Git [ek güvenlik doğrulaması](http://aka.ms/mfasetup) ekranda başka bir bilgisayar veya cihaz. Bu ekrana alma hakkında daha fazla bilgi için bkz: [güvenlik ayarlarınızı değiştirme](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) veya yöneticinize başvurun.
+1. Mümkünse, Git [ek güvenlik doğrulaması](https://aka.ms/mfasetup) ekranda başka bir bilgisayar veya cihaz. Bu ekrana alma hakkında daha fazla bilgi için bkz: [güvenlik ayarlarınızı değiştirme](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) veya yöneticinize başvurun.
 
     >[!Note]
     >Yöneticiniz güvenlik bilgisi Önizleme deneyimi kapattıysa yönergeleri izleyebilirsiniz [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlamak](security-info-setup-auth-app.md) bölümü.

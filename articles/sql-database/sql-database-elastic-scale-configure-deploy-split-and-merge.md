@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 3aca6e29f7701a09fa54e778da180a0ead55deb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 253a50f50e94888a5d764e51a4ff49cc0c1424c6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240741"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253542"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Parçalı veritabanları arasında veri taşıma için bir ayırma-birleştirme hizmetini dağıtma
 
@@ -63,7 +63,7 @@ Hizmet güvenliği yapılandırmak ayrıntılı yönergeler için başvurmak [b�
 Bu öğretici için bir basit bir test dağıtım amacı doğrultusunda, hizmet almaya gerçekleştirilir ve çalışan yapılandırma adımları en az bir dizi olacaktır. Bu adımları yalnızca bir makine/bunları hizmetiyle iletişim kurmak için yürütme hesabını etkinleştirin.
 
 ### <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
-Yeni bir dizin oluşturun ve aşağıdaki komutu kullanarak bu dizinden yürütmeniz bir [Visual Studio için geliştirici komut istemi](http://msdn.microsoft.com/library/ms229859.aspx) penceresi:
+Yeni bir dizin oluşturun ve aşağıdaki komutu kullanarak bu dizinden yürütmeniz bir [Visual Studio için geliştirici komut istemi](https://msdn.microsoft.com/library/ms229859.aspx) penceresi:
 
    ```
     makecert ^

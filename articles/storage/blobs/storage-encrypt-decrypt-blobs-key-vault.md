@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 5139f41832446add3431fc0f4e321af806342da2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296985"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233108"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifrelemek ve şifresini Azure anahtar Kasası'nı kullanarak Microsoft Azure depolama BLOB'ları
 ## <a name="introduction"></a>Giriş
@@ -225,4 +225,4 @@ Microsoft Azure depolama C# ile kullanma hakkında daha fazla bilgi için bkz. [
 
 Blob REST API'si hakkında daha fazla bilgi için bkz. [Blob hizmeti REST API'si](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Microsoft Azure depolama üzerinde en son bilgiler için Git [Microsoft Azure depolama ekibi blogu](http://blogs.msdn.com/b/windowsazurestorage/).
+Microsoft Azure depolama üzerinde en son bilgiler için Git [Microsoft Azure depolama ekibi blogu](https://blogs.msdn.com/b/windowsazurestorage/).

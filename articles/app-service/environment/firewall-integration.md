@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093629"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251585"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service ortamı kilitleme
 
@@ -28,7 +28,7 @@ Bir ASE sahip gelen bağımlılıklar vardır. Gelen yönetim trafiğinin bir g�
 
 ASE giden bağımlılık neredeyse tamamen statik adresleri arkasına olmayan FQDN ile tanımlanır. Statik adresler olmaması anlamına gelir ağ güvenlik grupları (Nsg'ler) ASE giden trafiği kilitlemek için kullanılamaz. Adresleri sıklıkta biri olamaz geçerli çözünürlüğüne göre kurallarını ayarlama ve Nsg'ler oluşturma kullanan, değiştirin. 
 
-Etki alanı adlarını temel alarak giden trafiği denetleyen bir güvenlik duvarı cihazın kullanımda giden adresleri güvenliğini sağlamak için çözüm arasındadır. Azure ağ ekibi, Azure güvenlik duvarı adlı önizlemeye yeni bir ağ Gereci getirdi. Azure güvenlik duvarı, kısıtlama çıkış HTTP ve HTTPS trafiğinin hedefi DNS adına göre yeteneğine sahiptir.  
+Etki alanı adlarını temel alarak giden trafiği denetleyen bir güvenlik duvarı cihazın kullanımda giden adresleri güvenliğini sağlamak için çözüm arasındadır. Azure güvenlik duvarı hedef FQDN'sini üzerinde giden HTTP ve HTTPS trafiğini kısıtlayabilirsiniz.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Azure güvenlik duvarı ile ASE'nizi yapılandırma 
 
@@ -36,11 +36,11 @@ Azure güvenlik duvarı ile gidenler çıkış kilitlemek için adımlar şunlar
 
 1. Bir Azure güvenlik duvarı burada ASE'nizi, veya olacaktır sanal ağda oluşturun. [Azure güvenlik duvarı platformlarının](https://docs.microsoft.com/azure/firewall/)
 2. Azure güvenlik duvarı Arabiriminden App Service ortamı FQDN etiketi seçin
-3. Yönetim adresleri ile yönlendirme tablosu oluşturma [App Service ortamı yönetim adresleri]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) bir sonraki atlama internet ile. Asimetrik yönlendirme sorunlarını önlemek için rota tablosu girdileri gerekir. 
-4. Bir sonraki atlama internet IP adresi bağımlılıklarla aşağıda belirtilen IP adresi bağımlılıklar için yollar ekleyin. 
-5. Azure güvenlik duvarı ağ aletiniz olan sonraki atlama ile yol tablonuz 0.0.0.0/0 için bir rota ekleyin
-6. ASE alt ağınız Azure SQL ve Azure depolama için hizmet uç noktaları oluşturma
-7. ASE alt ağınız için oluşturduğunuz yol tablosu atayın  
+3. Yönetim adresleri ile yönlendirme tablosu oluşturma [App Service ortamı yönetim adresleri]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) bir sonraki atlama internet ile. Asimetrik yönlendirme sorunlarını önlemek için rota tablosu girdileri gerekir.
+4. Bir sonraki atlama internet IP adresi bağımlılıklarla aşağıda belirtilen IP adresi bağımlılıklar için yollar ekleyin.
+5. Bir rota, 0.0.0.0/0 için rota tablosu, Azure güvenlik duvarı olan sonraki atlama ile ekleyin.
+6. ASE alt ağınız Azure SQL ve Azure depolama için hizmet uç noktaları oluşturun.
+7. ASE alt ağınız için oluşturduğunuz yol tablosu atayın.
 
 ## <a name="application-traffic"></a>Uygulama trafiği 
 

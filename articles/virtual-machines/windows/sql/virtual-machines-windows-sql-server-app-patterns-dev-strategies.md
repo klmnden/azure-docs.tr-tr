@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722138"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253185"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler'de SQL Server için Uygulama Desenleri ve Geliştirme Stratejileri
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -236,7 +236,7 @@ Azure'da Active Directory tek başına bulut dizini olarak kuruluşunuz için ku
 
 N katmanlı karma uygulama düzeni aşağıdaki iş akışında belirtilen sırada uygulayabilirsiniz:
 
-1. Kullanarak buluta taşınması gereken Kurumsal veritabanı uygulamaları belirlemek [Microsoft Assessment ve planlama (eşleme) Araç Seti](http://microsoft.com/map). MAP Araç Kiti, sanallaştırma için değerlendiriyorsanız bilgisayarlardan Envanter ve performans verilerini toplar ve kapasitesini ve değerlendirmesini planlama önerileri sağlar.
+1. Kullanarak buluta taşınması gereken Kurumsal veritabanı uygulamaları belirlemek [Microsoft Assessment ve planlama (eşleme) Araç Seti](https://microsoft.com/map). MAP Araç Kiti, sanallaştırma için değerlendiriyorsanız bilgisayarlardan Envanter ve performans verilerini toplar ve kapasitesini ve değerlendirmesini planlama önerileri sağlar.
 2. Kaynaklar ve mimariler gerekli depolama hesapları ve sanal makineler gibi Azure platformunda planlayın.
 3. Şirket ağı şirket içi arasında ağ bağlantısı ayarlayın ve [Azure sanal ağı](../../../virtual-network/virtual-networks-overview.md). Kurumsal ağa şirket içinde ve Azure'da bir sanal makine arasındaki bağlantıyı ayarlamak için aşağıdaki iki yöntemden birini kullanın:
    

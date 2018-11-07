@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945986"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234469"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM ile Azure Backup’a Exchange sunucusu yedekleme
 Bu makalede, Azure Backup için bir Microsoft Exchange sunucusunu yedeklemek için System Center 2012 R2 Data Protection Manager (DPM) sunucusunun nasıl yapılandırılacağı açıklanır.  
 
 ## <a name="updates"></a>Güncelleştirmeler
-DPM sunucusu Azure yedekleme ile başarıyla kaydetmek için System Center 2012 R2 DPM ve Azure yedekleme Aracısı'nın en son sürümü için en son güncelleştirme paketini yüklemeniz gerekir. En son güncelleştirme paketi Al [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+DPM sunucusu Azure yedekleme ile başarıyla kaydetmek için System Center 2012 R2 DPM ve Azure yedekleme Aracısı'nın en son sürümü için en son güncelleştirme paketini yüklemeniz gerekir. En son güncelleştirme paketi Al [Microsoft Catalog](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
 > Bu makaledeki örnekler, Azure Backup Aracısı 2.0.8719.0 sürümü yüklü ve güncelleştirme paketi 6 System Center 2012 R2 DPM üzerinde yüklenir.

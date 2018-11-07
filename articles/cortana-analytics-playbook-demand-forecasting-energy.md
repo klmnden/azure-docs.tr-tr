@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 43a75c31c0f094bdcb7008a39140226815bda163
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390304"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231541"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Talep tahmini enerji için Cortana Intelligence çözüm şablonu kitabı
-## <a name="executive-summary"></a>Yönetim Özeti
+## <a name="executive-summary"></a>Yönetici Özeti
 Son birkaç yılda, nesnelerin interneti (IOT), alternatif enerji kaynakları ve büyük veri yardımcı programı ve enerji etki alanında geniş fırsatları oluşturmak için birleştirilmiş. Aynı zamanda, yardımcı program ve tüm enerji sektörü tüketim enerji kullanımını denetlemek için daha iyi yollarını zorlu tüketicileriyle düzleştirme gördünüz. Bu nedenle, akıllı şebeke şirketler ve yardımcı programı yenilik yapın ve kendilerini yenilemek için harika ihtiyacı olan. Ayrıca, birçok güç ve yardımcı kılavuzlar, güncel ve korumak ve yönetmek çok yüksek maliyetli hale gelmektedir. Geçen yıl içinde takım enerji etki alanı içinde yaşadığımız sayıda üzerinde çalışmaktadır. Çoğu durumda, ISV (bağımsız yazılım satıcıları) ve yardımcı programlar için gelecekteki enerji talebini tahmin içine mı arıyorsunuz bu bildirimi sırasında karşılaştık. Bu tahminler, şimdiki ve gelecekteki iş önemli bir rol oynar ve çeşitli kullanım örnekleri için temel haline geldi. Bunlar kısa ve uzun süreli power yük tahmin, ticaret, Yük Dengeleme, kılavuz iyileştirme vb. içerir. Büyük veri ve Gelişmiş analiz (AA) yöntemleri Machine Learning (ML) gibi anahtar etkinleştiricilerden doğru ve güvenilir tahminler üretmek için olan.  
 
 Playbook'u, iş ve başarılı bir geliştirme için gereken analitik yönergeleri araya ve çözüm dağıtımı enerji talebini tahmin. Bu önerilen yönergeler, yardımcı programlar, veri uzmanları ve tam olarak çalışır hale getirilen, bulut tabanlı, Talep tahmini çözümleri oluşturma, veri mühendisleri yardımcı olabilir. Yalnızca kendi büyük veri ve Gelişmiş analiz yolculuğunun başlangıç şirketler için böyle bir çözümü, uzun vadeli bir akıllı şebeke stratejisi, ilk çekirdek temsil edebilir.
@@ -43,7 +43,7 @@ Ana içerik için herhangi bir makine öğrenimi çözümünüzü verilerdir. **
 
 Ayrıca, belgeyi başka bir etki alanı ve teknoloji anlamak için kullanabileceğiniz bir başvuru malzemesi içerir.
 
-Biz bu belgede daha ayrıntılı veri bilimi işlemi kapsayacak şekilde düşünmüyorsanız dikkat edin önemlidir, matematiksel ve teknik yönden. Bu ayrıntıları bulunabilir [Azure ML belgeleri](http://azure.microsoft.com/services/machine-learning/) ve [blogları](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Biz bu belgede daha ayrıntılı veri bilimi işlemi kapsayacak şekilde düşünmüyorsanız dikkat edin önemlidir, matematiksel ve teknik yönden. Bu ayrıntıları bulunabilir [Azure ML belgeleri](https://azure.microsoft.com/services/machine-learning/) ve [blogları](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Hedef kitle
 Bu belgenin hedef kitlesi, işletme ve teknik bilgi elde etmek için istediğiniz personeli olduğundan ve çözümleri ve özellikle enerji tahmini etki alanında bunlar nasıl kullanıldığını anlama Machine Learning tabanlı.
@@ -176,7 +176,7 @@ Buluta, geçiş yeni başlayan bir şirket için yüksek oranda bulut geçişi y
 
 Cortana Intelligence Suite, Kullandıkça Öde fiyatlandırma modeli sağlar olduğundan, bu formülü bir sabit maliyete bileşenine yansıtılmasını için gerek yoktur. Bu formül günlük, aylık veya yıllık olarak hesaplanabilir.
 
-Geçerli Cortana Intelligence Suite ve Azure ML fiyatlandırma planları bulunabilir [burada](http://azure.microsoft.com/pricing/details/machine-learning/).
+Geçerli Cortana Intelligence Suite ve Azure ML fiyatlandırma planları bulunabilir [burada](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### <a name="solution-development-process"></a>Çözüm geliştirme işlemi
 Geliştirme döngüsü bir enerji talebini tahmin çözümü genellikle her biri vermiyoruz 4 aşamaya içerir, bulut tabanlı teknolojiler ve Cortana Intelligence Suite Hizmetleri kullanın.
@@ -187,7 +187,7 @@ Bu, aşağıdaki diyagramda gösterilmiştir:
 
 Aşağıdaki paragrafta bu 4 adım işlemi açıklanmaktadır:
 
-1. **Veri toplama** – daha gelişmiş veri dayalı bir analiz çözümü kullanır (bkz **veri anlama**). Özellikle, Tahmine dayalı analiz ve tahmin için söz konusu olduğunda, biz üzerinde sürekli olarak dinamik akış veri kullanır. Enerji Talep tahmini, söz konusu olduğunda bu verileri doğrudan akıllı ölçüm cihazlarından kaynaklanan veya zaten bir şirket içi veritabanı üzerinde bir araya getirilebilir. Ayrıca diğer dış hava durumu ve sıcaklık gibi veri kaynaklarının bağımlı olduğumuz. Devam eden bu veri akışını düzenlenmiş, zamanlanmış depolanan ve gerekir. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF), bu görevi yerine ana bizim workhorse olduğu.
+1. **Veri toplama** – daha gelişmiş veri dayalı bir analiz çözümü kullanır (bkz **veri anlama**). Özellikle, Tahmine dayalı analiz ve tahmin için söz konusu olduğunda, biz üzerinde sürekli olarak dinamik akış veri kullanır. Enerji Talep tahmini, söz konusu olduğunda bu verileri doğrudan akıllı ölçüm cihazlarından kaynaklanan veya zaten bir şirket içi veritabanı üzerinde bir araya getirilebilir. Ayrıca diğer dış hava durumu ve sıcaklık gibi veri kaynaklarının bağımlı olduğumuz. Devam eden bu veri akışını düzenlenmiş, zamanlanmış depolanan ve gerekir. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF), bu görevi yerine ana bizim workhorse olduğu.
 2. **Modelleme** – doğru ve güvenilir enerji tahminleri, bir gerekir (eğitme) geliştirme ve bakımını yaptığı geçmiş verilerini kullanın ve verileri anlamlı ve Tahmine dayalı modelleri ayıklar harika bir model. Machine Learning (ML) alanında düzenli olarak geliştirilen daha gelişmiş algoritmalar ile hızla büyüyen. Azure ML Studio, bir tam iş akışı içinde en gelişmiş ML algoritmaları kullanmasına yardımcı olacak harika bir deneyim sağlar. Bu iş akışı, sezgisel bir akış diyagramda gösterilmiştir ve veri hazırlama, özellik ayıklama, modelleme ve model değerlendirme içerir. Kullanıcı, bu ortamda bulunan çeşitli modelleri yüzlerce çekebilirsiniz. Bu aşama sonunda bir veri Bilimcisi tamamen değerlendirilir ve dağıtım için hazır olan bir çalışma modeli gerekir.
    
    Aşağıdaki diyagram tipik bir iş akışı bir örnektir:
@@ -387,7 +387,7 @@ Enerji talebi tahmin döngüsünün bir parçası gerçekleşmesi adımlar şunl
 7. Tahmin edilen veriler son tüketim istemci tarafından erişilebilen bir veritabanında depolanır.
 8. Tüketim istemci tahminleri alır, ızgaranın içine uygular ve uygun şekilde gerekli kullanım örneğini kullanır.
 
-Tüm bu döngü tam olarak otomatik değildir ve bir zamanlamaya göre çalışan unutulmaması önemlidir. Bu veri döngüsünün tamamını düzenleme gibi araçları kullanarak yapılabilir [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+Tüm bu döngü tam olarak otomatik değildir ve bir zamanlamaya göre çalışan unutulmaması önemlidir. Bu veri döngüsünün tamamını düzenleme gibi araçları kullanarak yapılabilir [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
 
 ### <a name="end-to-end-deployment-architecture"></a>Uçtan uca dağıtım mimarisi
 Pratikte bir enerji talebi tahmin çözümü Cortana Intelligence'ı dağıtmak için gerekli bileşenleri kurulan ve doğru yapılandırıldığından emin olmak gerekiyor.

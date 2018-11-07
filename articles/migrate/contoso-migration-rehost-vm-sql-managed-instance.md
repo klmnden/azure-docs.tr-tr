@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116151"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231830"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçiş: şirket içi uygulama bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma
 
@@ -366,7 +366,7 @@ Azure'a yük devretme sonrasında Contoso çoğaltılmış Azure vm'lere bağlan
 Contoso yöneticilerinin Ayrıca, bir yük devretme çalıştırdığınızda şu öğeleri kontrol gerekir:
 
 - Bulunmamalıdır bekleyen herhangi bir Windows güncelleştirme VM üzerinde bir yük devretme tetiklendiğinde. Windows güncellemesi askıda değilse, güncelleştirme tamamlanana kadar kullanıcılar Contoso sanal makineye oturum açamazsınız.
-- Yük devretme sonrasında Yöneticiler denetlemelisiniz **önyükleme tanılaması** VM'nin bir ekran görüntülemek için. Önyükleme tanılaması göremiyorsanız, VM çalıştıran ve daha sonra gözden olduğunu denetlemelisiniz [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Yük devretme sonrasında Yöneticiler denetlemelisiniz **önyükleme tanılaması** VM'nin bir ekran görüntülemek için. Önyükleme tanılaması göremiyorsanız, VM çalıştıran ve daha sonra gözden olduğunu denetlemelisiniz [sorun giderme ipuçları](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>5. adım: şirket içi Vm'leri Azure'a çoğaltma
 

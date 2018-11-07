@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318546"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260389"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -150,7 +150,7 @@ Blob günlükleri denetleme görüntülemek için kullanabileceğiniz birkaç y�
 ### <a name="database-level-policy-audit-logs"></a>Veritabanı düzeyinde İlkesi denetim günlükleri
 Veritabanı düzeyinde denetim günlüklerini toplu Store tablolarla koleksiyonundaki bir **SQLDBAuditLogs** Kurulum sırasında seçtiğiniz Azure depolama hesabı ön eki. Günlük dosyaları gibi bir araç kullanarak görüntüleyebileceğiniz [Azure Depolama Gezgini](http://azurestorageexplorer.codeplex.com).
 
-Önceden yapılandırılmış Pano rapor şablonu olarak kullanılabilir bir [indirilebilir Excel elektronik tablosu](http://go.microsoft.com/fwlink/?LinkId=403540) günlük verilerinin hızla analiz etmenize yardımcı olmak için. Denetim günlüklerinizi şablonu kullanmak için Excel 2013 veya üzeri ile yapabilecekleriniz Power Query ihtiyacınız [buradan indirin](http://www.microsoft.com/download/details.aspx?id=39379).
+Önceden yapılandırılmış Pano rapor şablonu olarak kullanılabilir bir [indirilebilir Excel elektronik tablosu](https://go.microsoft.com/fwlink/?LinkId=403540) günlük verilerinin hızla analiz etmenize yardımcı olmak için. Denetim günlüklerinizi şablonu kullanmak için Excel 2013 veya üzeri ile yapabilecekleriniz Power Query ihtiyacınız [buradan indirin](https://www.microsoft.com/download/details.aspx?id=39379).
 
 Şablon kurgusal örnek verileri içerdiğinden ve denetim günlüğünüzün doğrudan Azure depolama hesabınızdan içeri aktarmak için Power Query ' ayarlayabilirsiniz.
 

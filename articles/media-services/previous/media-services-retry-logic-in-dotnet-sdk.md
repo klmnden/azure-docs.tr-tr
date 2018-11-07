@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 0a4c9db8da046e901241bc383098013b2acc6bb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a5171484bb4377e0f9cd84dc0a517f4ea84123e7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242271"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228326"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET için Media Services SDK'sı mantığı yeniden deneyin
 Microsoft Azure Hizmetleri ile çalışırken, geçici hatalar oluşabilir. Geçici bir hata oluşursa, çoğu durumda, birkaç denemeden sonra işlemi başarılı olur. .NET için Media Services SDK'sı, sorgular, değişiklikler ve depolama işlemleri kaydediliyor yürütme özel durumları ve web istekleri, oluşan hataları ile ilgili geçici hataları işlemek için yeniden deneme mantığını uygular.  Varsayılan olarak, .NET için Media Services SDK'sını uygulamanıza özel durumu yeniden atamadan önce dört yeniden denemenin yürütür. Uygulamanızdaki kod bu özel durumun ardından düzgün şekilde işlemelidir.  
@@ -49,7 +49,7 @@ Aşağıdaki tablo, .NET için Media Services SDK'sı, işleyen veya geçici hat
 | Ioexception |Hayır |Evet |Hayır |Hayır |
 
 ### <a name="WebExceptionStatus"></a> WebException durum kodları
-Aşağıdaki tablo, hangi WebException hata kodları için yeniden deneme mantığı uygulanır gösterir. [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) durum kodları sabit listesi tanımlar.  
+Aşağıdaki tablo, hangi WebException hata kodları için yeniden deneme mantığı uygulanır gösterir. [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) durum kodları sabit listesi tanımlar.  
 
 | Durum | Web isteği | Depolama | Sorgu | SaveChanges |
 | --- | --- | --- | --- | --- |

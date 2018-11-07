@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 555bf95367ab0d3e6c4afe09edb6777899400dd8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344677"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227833"
 ---
 # <a name="asdk-administration-basics"></a>ASDK yönetim temel bilgileri 
 Azure Stack geliştirme Seti'ni (ASDK) yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz değerlendirme ortamında Azure Stack operatörü olarak sizin rolünüze genel bir bakış sağlar ve test kullanıcılarınızın emin olmak nasıl hızlı şekilde üretken hale gelebilir.
@@ -43,7 +43,7 @@ Azure Stack yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak no
 ## <a name="what-tools-do-i-use-to-manage"></a>Yönetmek için hangi araçları kullanabilir?
 Kullanabileceğiniz [Azure Stack Yönetici portalı](https://adminportal.local.azurestack.external) veya Azure Stack yönetmek için PowerShell'i. Temel kavramları öğrenmenin en kolay yolu portalı kullanmaktır. PowerShell kullanmak istiyorsanız, yüklemeniz gerekir [Azure Stack için PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) ve [Azure Stack araçları Github'dan indirin](asdk-post-deploy.md#download-the-azure-stack-tools).
 
-Azure Stack, Azure Resource Manager, temel alınan dağıtımı, yönetimi ve kuruluş mekanizması olarak kullanır. Azure Stack yönetmek ve kullanıcıların desteklemeye yardımcı olmak için kullanacaksanız, Azure Resource Manager hakkında bilgi edinin. Okuyarak daha fazla bilgi [Azure Resource Manager Teknik İnceleme ile çalışmaya başlama](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
+Azure Stack, Azure Resource Manager, temel alınan dağıtımı, yönetimi ve kuruluş mekanizması olarak kullanır. Azure Stack yönetmek ve kullanıcıların desteklemeye yardımcı olmak için kullanacaksanız, Azure Resource Manager hakkında bilgi edinin. Okuyarak daha fazla bilgi [Azure Resource Manager Teknik İnceleme ile çalışmaya başlama](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
 ## <a name="your-typical-responsibilities"></a>Tipik sizin Sorumluluklarınız
 Kullanıcıların hizmetleri kullanmak istiyorsunuz. Kendi bakış açısına ana rolünüz hizmetlerin kullanılabilir olmasını sağlamaktır. ASDK kullanarak hangi hizmetlerin sunduğu bilgi edinin ve tarafından kullanılabilir hale getirmeniz nasıl Hizmetleri [planlar, teklifler ve kotaları oluşturmaya](asdk-offer-services.md). Sanal makine görüntüleri gibi Market öğeleri eklemek gerekir. En kolay yolu [Market öğelerini indirme](asdk-marketplace-item.md) Azure Stack için azure'dan.

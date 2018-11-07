@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ae212bebf5a34e9a80f49a750735137d7a8814be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213376"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232673"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure geçişten sonra Azure Vm'leri için olağanüstü durum kurtarmayı ayarlayın 
+# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure'a geçişten sonra Azure VM'leri için olağanüstü durumdan kurtarmayı ayarlama 
 
 
 Sonra bu makaleyi kullanın [şirket içi makinelerin Azure Vm'lerine taşıdınız](tutorial-migrate-on-premises-to-azure.md) kullanarak [Site Recovery](site-recovery-overview.md) hizmeti. Bu makalede, Azure sanal makinelerini Site Recovery ile ikincil bir Azure bölgesine olağanüstü durum kurtarmayı ayarlama hazırlamanıza yardımcı olur.
@@ -32,7 +32,7 @@ Olağanüstü durum kurtarma işlemini ayarladığınız önce geçiş beklendi�
 Azure [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Site Recovery çoğaltma, sanal makinede yüklü olmalıdır.
 
 
-1. Windows çalıştıran Vm'lerde VM aracısı yüklemek için indirme ve çalıştırma [Aracısı yükleyicisi](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için VM üzerinde yönetici ayrıcalıkları gerekir.
+1. Windows çalıştıran Vm'lerde VM aracısı yüklemek için indirme ve çalıştırma [Aracısı yükleyicisi](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için VM üzerinde yönetici ayrıcalıkları gerekir.
 2. Linux çalıştıran Vm'leri üzerinde VM aracısı yüklemek için en son yükleme [Linux Aracısı](../virtual-machines/extensions/agent-linux.md). Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. Dağıtım deponuzdan yüklemeniz önerilir. Linux VM Aracısı, doğrudan Github'dan yükleme önerilmemektedir. 
 
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044446"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246693"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma alanı koleksiyonları örnek ile kullanmaya başlama
 
@@ -26,9 +26,9 @@ ms.locfileid: "43044446"
 
 Aşağıdaki kaynaklar kaydetmek istediğiniz tüm daha fazla ayrıntıya önce: örnek uygulama ve kendi uygulamalarınızı halinde Power BI raporlarını çok tümleştirmesi yardımcı olurlar.
 
-* [Örnek çalışma web uygulaması](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Örnek çalışma web uygulaması](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI çalışma alanı koleksiyonları API Başvurusu](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK'sını ](http://go.microsoft.com/fwlink/?LinkId=746472) (NuGet aracılığıyla kullanılabilir)
+* [Power BI .NET SDK'sını ](https://go.microsoft.com/fwlink/?LinkId=746472) (NuGet aracılığıyla kullanılabilir)
 * [JavaScript rapor ekleme örneği](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Aşağıdaki kaynaklar kaydetmek istediğiniz tüm daha fazla ayrıntıya önce:
 
 Şimdi Visual Studio geliştirme ortamınızı ayarlama örnek uygulama çalıştırmak için gerekli bileşenleri erişmek için nasıl ayarlanacağı gösterilmektedir.
 
-1. İndirip sıkıştırmasını [Power BI çalışma alanı koleksiyonları - bir raporu web uygulamasıyla tümleştirmek](http://go.microsoft.com/fwlink/?LinkId=761493) GitHub üzerinde örnek.
+1. İndirip sıkıştırmasını [Power BI çalışma alanı koleksiyonları - bir raporu web uygulamasıyla tümleştirmek](https://go.microsoft.com/fwlink/?LinkId=761493) GitHub üzerinde örnek.
 2. Açık **Powerbı embedded.sln** Visual Studio'da. Yürütme gerekebilir **Update-Package** bu çözümde kullanılan paketler güncelleştirmek için NuGet Paket Yöneticisi konsolunda komutu.
 3. Çözümü derleyin.
 4. Çalıştırma **ProvisionSample** konsol uygulaması. Örnek konsol uygulamasında, bir çalışma alanı sağlama ve PBIX dosyasını içeri aktarın.
@@ -51,7 +51,7 @@ Aşağıdaki kaynaklar kaydetmek istediğiniz tüm daha fazla ayrıntıya önce:
 8. Kopyalayıp yeni oluşturulan kaydedin **çalışma alanı kimliği** bu makalenin sonraki bölümlerinde kullanılacak. Sonra **çalışma alanı kimliği** olan oluşturuldu, bunu bulabilirsiniz **Azure portalında**.
 
     ![Azure portalındaki çalışma alanı kimliği](media/get-started-sample/workspace-id.png)
-9. Bir PBIX dosyasına aktarmak için **çalışma**, seçenek belirleyin **6. Mevcut bir çalışma Import PBIX Desktop dosyasına**. Bir PBIX kullanışlı dosya yoksa, indirebileceğiniz [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Bir PBIX dosyasına aktarmak için **çalışma**, seçenek belirleyin **6. Mevcut bir çalışma Import PBIX Desktop dosyasına**. Bir PBIX kullanışlı dosya yoksa, indirebileceğiniz [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. İstenirse, için kolay bir ad girin, **veri kümesi**.
 
 Benzer bir yanıt görmeniz gerekir:
@@ -83,7 +83,7 @@ Web uygulaması örneği içeri aktarılan raporlar işleyen bir örnek uygulama
     ```
 3. Çalıştırma **EmbedSample** web uygulaması.
 
-Bir kez çalıştırdığınız **EmbedSample** web uygulaması, sol gezinti bölmesinin içermelidir bir **raporları** menüsü. İçeri aktardığınız rapor görüntülemek için genişletin **raporları**ve bir raporu tıklatın. İçeri aktardığınız varsa [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), örnek web uygulamasını şu şekilde görünür:
+Bir kez çalıştırdığınız **EmbedSample** web uygulaması, sol gezinti bölmesinin içermelidir bir **raporları** menüsü. İçeri aktardığınız rapor görüntülemek için genişletin **raporları**ve bir raporu tıklatın. İçeri aktardığınız varsa [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547), örnek web uygulamasını şu şekilde görünür:
 
 ![Örnek uygulama içinde örnek sol gezinti](media/get-started-sample/sample-left-nav.png)
 

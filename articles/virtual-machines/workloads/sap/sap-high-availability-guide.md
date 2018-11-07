@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 353caf2bca68513a1153fe7b569c85606f72e753
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 55c8d3ff394fcf2df92bc80886bc86d29441e547
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631047"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254698"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -220,7 +220,7 @@ Azure Resource Manager, her Azure kaynağı bir Azure kaynak grubuna yerleştiri
 
 Azure Resource Manager'da birden çok SAP sistem tanımlayıcısı (SID) ASCS/SCS örneği bir kümede yükleyebilirsiniz. Çoklu SID örnekleri, her bir Azure iç yük dengeleyici için birden çok IP adresi için destek nedeniyle mümkündür.
 
-Azure Klasik dağıtım modelini kullanmak için açıklanan yordamları izleyin [azure'da SAP NetWeaver: SAP ASCS/SCS kümeleme örneklerini azure'da SIOS DataKeeper ile Windows Server Yük Devretme Kümelemesi kullanarak](http://go.microsoft.com/fwlink/?LinkId=613056).
+Azure Klasik dağıtım modelini kullanmak için açıklanan yordamları izleyin [azure'da SAP NetWeaver: SAP ASCS/SCS kümeleme örneklerini azure'da SIOS DataKeeper ile Windows Server Yük Devretme Kümelemesi kullanarak](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure hakkında daha fazla bilgi [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm].   

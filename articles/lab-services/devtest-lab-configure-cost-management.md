@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573820"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259760"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Azure DevTest Labs'de aylık tahmini Laboratuvar maliyeti eğilimini görüntüleyin
 Maliyet yönetimi özelliği DevTest Labs Laboratuvarınızı maliyetini izlemenize yardımcı olur. Bu makalede nasıl kullanılacağı gösterilmektedir **aylık tahmini maliyet eğilimi** geçerli Takvim ayı boyunca geçerli Takvim ayki tahmini maliyet başından bu yana ve tahmini aylık son maliyet görüntülemek için grafik. Bu makalede ayrıca harcama hedeflere ve eşiklere, erişildiğinde, tetikleyici sonuçları size bildirmek için DevTest Labs ayarlayarak Laboratuvar maliyetlerini daha iyi yönetmek nasıl gösterir.
@@ -27,7 +27,7 @@ Maliyet yönetimi özelliği DevTest Labs Laboratuvarınızı maliyetini izlemen
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Aylık tahmini maliyet eğilimi grafiği görüntüleme
 Aylık tahmini maliyet eğilimi grafiği görüntülemek için aşağıdaki adımları izleyin: 
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**).
 1. İstenen Laboratuvar labs listesinden seçin.  
 1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.   

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025643"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244041"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 
@@ -309,7 +309,7 @@ Veri boyutu disk boyutundan daha büyükse WAImportExport aracı disklerde veri 
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>WAImportExport Aracı'nın önceki bir sürümü nereden edinebilirim?
 
-WAImportExport aracı WAImportExport V1 aracı olan tüm işlevleri içerir. Kullanıcıların birden çok kaynaktan belirtin ve birden çok sürücülerine yazma WAImportExport aracı sağlar. Ayrıca, bir kolayca içinden verileri tek bir CSV dosyası olarak kopyalanması gereken birden çok kaynak konumları yönetebilirsiniz. Ancak, SAS desteği veya tek bir disk için tek kaynak kopyalamak istediğiniz gerektiği durumlarda, yapabilecekleriniz [WAImportExport V1 Aracı'nı indirme](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) başvurun [WAImportExport V1 başvuru](storage-import-export-tool-how-to-v1.md) WAImportExport V1 kullanımı ile ilgili Yardım için .
+WAImportExport aracı WAImportExport V1 aracı olan tüm işlevleri içerir. Kullanıcıların birden çok kaynaktan belirtin ve birden çok sürücülerine yazma WAImportExport aracı sağlar. Ayrıca, bir kolayca içinden verileri tek bir CSV dosyası olarak kopyalanması gereken birden çok kaynak konumları yönetebilirsiniz. Ancak, SAS desteği veya tek bir disk için tek kaynak kopyalamak istediğiniz gerektiği durumlarda, yapabilecekleriniz [WAImportExport V1 Aracı'nı indirme](https://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) başvurun [WAImportExport V1 başvuru](storage-import-export-tool-how-to-v1.md) WAImportExport V1 kullanımı ile ilgili Yardım için .
 
 #### <a name="what-is-a-session-id"></a>Oturum Kimliği nedir?
 

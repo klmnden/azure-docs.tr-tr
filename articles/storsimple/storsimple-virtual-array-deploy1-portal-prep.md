@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2126ff7ffd503e1d7b30997f3f32f30429cffefb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059769"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257274"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple sanal Dizini'ni dağıtma - Azure portal'ı hazırlama
 
@@ -29,7 +29,7 @@ ms.locfileid: "42059769"
 
 Serideki ilk makaleyi dağıtım öğretici tamamen sanal dizininiz bir dosya sunucusu veya Resource Manager modelini kullanarak bir iSCSI sunucusu olarak dağıtmak için gereken budur. Bu makalede, oluşturma ve bir sanal dizin sağlama önce StorSimple cihaz Yöneticisi hizmetinize yapılandırmak için gereken hazırlık açıklanır. Bu makalede ayrıca kullanıma bir dağıtım yapılandırma denetim listesi ve yapılandırma için önkoşulları bağlantılarını içerir.
 
-Kurulum ve yapılandırma işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Başlamadan önce dağıtım yapılandırma denetim listesini gözden geçirmenizi öneririz. Portalı hazırlama, 10 dakikadan kısa sürer.
+Kurulum ve yapılandırma işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Başlamadan önce dağıtım yapılandırma denetim listesini gözden geçirmenizi öneririz. Portal hazırlığı 10 dakikadan kısa sürer.
 
 Bu makalede yayımlanmış bilgiler, StorSimple sanal dizisi dağıtıma Azure portalı ve Microsoft Azure kamu Bulutu geçerlidir.
 
@@ -44,16 +44,16 @@ StorSimple Virtual Array'iniz dağıtmak için önceden belirlenmiş bir sırada
 | --- | --- | --- | --- |
 | 1. |**Azure portal'ı ayarlama** |Oluşturun ve StorSimple sanal dizisi sağlama önce StorSimple cihaz Yöneticisi hizmetinize yapılandırın. |[Portalı hazırlama](storsimple-virtual-array-deploy1-portal-prep.md) |
 | 2. |**Sanal dizin sağlayın** |Hyper-v, sağlama ve StorSimple sanal dizisi Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde bağlanın. <br></br> <br></br> VMware için sağlayın ve VMware ESXi 5.0, 5.5 ve 6.0 çalıştıran bir konak sisteminde bir StorSimple Virtual Array için bağlanın.<br></br> |[Hyper-V'de bir sanal dizin sağlayın](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Bir sanal dizin vmware'de sağlama](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**Sanal dizi Kurulumu ayarlayın** |Dosya sunucunuz için ilk kurulum gerçekleştirmek, StorSimple dosya sunucunuzu kaydedin ve cihaz kurulumunu tamamlayın. Ardından, SMB paylaşımları sağlayabilirsiniz. <br></br> <br></br> İSCSI sunucunuz için ilk kurulum gerçekleştirmek, StorSimple iSCSI sunucunuzu kaydedin ve cihaz kurulumunu tamamlayın. Ardından, iSCSI birimleri sağlayabilirsiniz. |[Sanal dizi Kurulumu dosya sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Sanal dizi Kurulumu iSCSI sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 3. |**Sanal dizi Kurulumu ayarlayın** |Dosya sunucunuz için ilk kurulum gerçekleştirmek, StorSimple dosya sunucunuzu kaydedin ve cihaz kurulumunu tamamlayın. Ardından SMB paylaşımlarını sağlayabilirsiniz. <br></br> <br></br> İSCSI sunucunuz için ilk kurulum gerçekleştirmek, StorSimple iSCSI sunucunuzu kaydedin ve cihaz kurulumunu tamamlayın. Ardından, iSCSI birimleri sağlayabilirsiniz. |[Sanal dizi Kurulumu dosya sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Sanal dizi Kurulumu iSCSI sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
-Ayrıca, Azure portal'ı ayarlama şimdi başlayabilirsiniz.
+Artık Azure portalını ayarlamaya başlayabilirsiniz.
 
 ## <a name="configuration-checklist"></a>Yapılandırma denetim listesi
 
 Yapılandırma denetim listesi, StorSimple sanal dizisi yazılım yapılandırmadan önce toplamak için gereken bilgileri açıklar. Bu bilgileri önceden hazırlama, ortamınızda StorSimple cihazını dağıtma işlemini kolaylaştırmaya yardımcı olur. StorSimple Virtual Array'iniz bir dosya sunucusu veya bir iSCSI sunucusu dağıtılmış temel bağlı olarak, aşağıdaki denetim listelerini biri gerekir.
 
-* İndirme [StorSimple sanal dizisi dosya sunucusu yapılandırma denetim listesini](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
-* İndirme [StorSimple Virtual Array iSCSI sunucusunu yapılandırma denetim listesi](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
+* İndirme [StorSimple sanal dizisi dosya sunucusu yapılandırma denetim listesini](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
+* İndirme [StorSimple Virtual Array iSCSI sunucusunu yapılandırma denetim listesi](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -79,12 +79,12 @@ Sanal dizi dağıtmadan önce emin olun:
   * Bir ağ arabirimi.
   * Sistem verileri için 500 GB sanal disk.
 
-### <a name="for-the-datacenter-network"></a>İçin veri merkezi ağı
+### <a name="for-the-datacenter-network"></a>Veri merkezi ağı için
 
 Başlamadan önce aşağıdakilerden emin olun:
 
 * Veri Merkezi ağında StorSimple cihazınız için ağ gereksinimlerine uygun olarak yapılandırılır. Daha fazla bilgi için [StorSimple sanal dizini sistem gereksinimleri](storsimple-ova-system-requirements.md).
-* StorSimple Virtual Array'iniz ayrılmış 5 MB/sn Internet bant genişliği (veya daha fazla) olduğundan her zaman kullanılabilir. Bu bant genişliği ile diğer uygulamaları Paylaşılmaması gereken.
+* StorSimple Virtual Array'iniz ayrılmış 5 MB/sn Internet bant genişliği (veya daha fazla) olduğundan her zaman kullanılabilir. Bu bant genişliği başka hiçbir uygulamayla paylaşılmamalıdır.
 
 ## <a name="step-by-step-preparation"></a>Adım adım hazırlama
 
@@ -108,7 +108,7 @@ Birden çok StorSimple sanal dizisi, StorSimple cihaz Yöneticisi hizmetinin tek
 
 StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar StorSimple cihazınızı kaydetmek ve hizmete bağlamak için kullanılır.
 
-Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://portal.azure.com/).
+[Azure portalında](https://portal.azure.com/) aşağıdaki adımları izleyin.
 
 [!INCLUDE [storsimple-virtual-array-get-service-registration-key](../../includes/storsimple-virtual-array-get-service-registration-key.md)]
 
@@ -126,19 +126,19 @@ Hizmet kayıt anahtarını aldıktan sonra ana bilgisayar sisteminizin üzerinde
 > 
 > 
 
-Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://portal.azure.com/).
+[Azure portalında](https://portal.azure.com/) aşağıdaki adımları izleyin.
 
 #### <a name="to-get-the-virtual-array-image"></a>Sanal dizi görüntüsünü almak için
 
 1. [Azure portal](https://portal.azure.com/) oturum açın. 
 2. Azure portalında **Gözat > StorSimple cihaz yöneticileri**.
 3. StorSimple cihaz Yöneticisi hizmetini seçin. İçinde **StorSimple cihaz Yöneticisi** dikey penceresinde tıklayın **Hızlı Başlangıç**. 
-4. Microsoft Download Center'dan gelen indirmek istediğiniz görüntüyü karşılık gelen bağlantıya tıklayın. Görüntü, yaklaşık 4,8 GB dosyalarıdır.
+4. Microsoft Download Center'dan gelen indirmek istediğiniz görüntüyü karşılık gelen bağlantıya tıklayın. Görüntü dosyaları yaklaşık 4,8 GB'tır.
    
    * Hyper-V Windows Server 2012 ve üzeri için VHDX
    * Hyper-V Windows Server 2008 R2 ve üzeri için VHD
    * VMWare ESXi 5.0, 5.5 veya 6.0 için VMDK
-5. İndirin ve sıkıştırması açılmış dosyasının bulunduğu Not yapmadan bir yerel sürücüye dosyanın sıkıştırmasını açın.
+5. Dosyayı yerel sürücüye indirin ve sıkıştırmasını açın. Sıkıştırması açılan dosyanın konumunu not alın.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>İsteğe bağlı adım: hizmet için yeni bir depolama hesabı yapılandırın
 
@@ -167,7 +167,7 @@ Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://ms.portal.
 
 ## <a name="next-step"></a>Sonraki adım
 
-StorSimple Virtual Array'iniz için bir sanal makine sağlamak için sonraki adımdır bakın. Konak işletim sistemine bağlı olarak ayrıntılı yönergelere bakın:
+StorSimple Virtual Array'iniz için bir sanal makine sağlamak için sonraki adımdır bakın. Konak işletim sisteminize bağlı olarak, şuradaki ayrıntılı yönergelere bakın:
 
 * [StorSimple sanal dizisi Hyper-V'de sağlama](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [StorSimple sanal dizisi vmware'de sağlama](storsimple-virtual-array-deploy2-provision-vmware.md)

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: dae987957763c532ee12e43aa591bf5f4fb57b0a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008139"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248325"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight bellek hatası dışında bir Hive Düzelt
 
@@ -99,7 +99,7 @@ Yetersiz bellek hatası neden sorunlardan biri olan desteğimiz ve mühendislik 
         </description>
       </property>
 
-Büyük olasılıkla harita birleşimi olan Java yığın alanı nedenini bizim bellek hatası. Blog gönderisinde açıklandığı gibi [HDInsight Hadoop Yarn bellek ayarlarını](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), Tez yürütme altyapısı, yığın kullanıldığında kullanılan alanı gerçekte Tez kapsayıcıya ait. Tez kapsayıcı bellek açıklayan aşağıdaki resme bakın.
+Büyük olasılıkla harita birleşimi olan Java yığın alanı nedenini bizim bellek hatası. Blog gönderisinde açıklandığı gibi [HDInsight Hadoop Yarn bellek ayarlarını](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), Tez yürütme altyapısı, yığın kullanıldığında kullanılan alanı gerçekte Tez kapsayıcıya ait. Tez kapsayıcı bellek açıklayan aşağıdaki resme bakın.
 
 ![Tez kapsayıcı bellek diyagramı: Hive yetersiz bellek hatası](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

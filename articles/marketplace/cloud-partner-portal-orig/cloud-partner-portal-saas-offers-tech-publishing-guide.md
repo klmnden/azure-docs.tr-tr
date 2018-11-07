@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811315"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228904"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS uygulaması teknik yayımlama Kılavuzu
 ===========================================
@@ -34,7 +34,7 @@ Diğer tüm Market teklifleri genel bakış için bkz [Market yayımcı rehberi]
 
 Yayımlama Portalı izin vererek bir teklifi yayımlama doğru işbirliği yapmak birden çok kişiye portalında rol tabanlı erişim sağlar. Daha fazla bilgi için [Kullanıcıları Yönet](./cloud-partner-portal-manage-users.md). 
 
-Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile *sahibi* rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](http://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikalı ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile *sahibi* rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikalı ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Teklif oluşturma
@@ -198,7 +198,7 @@ Bu bölümde, müşteriler bu tekliften yararlanmaya desteklemek için sorumlu o
 | **lgili kişi**         | **Açıklama**                                                                                                                          |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Mühendislik birimi ilgili kişisi | Ad, e-posta ve Microsoft, tüm destek ve iş sorunlarını başvurabilirsiniz bir mühendislik iletişim telefon numarası sağlayın. |
-| Destek ekibiyle iletişime geçin     | Ad, e-posta, telefon numarası sağlayın ve Destek, destek istekleri varsa, müşterilerinizin başvurabilirsiniz URL'si.                  |
+| Destek İlgili Kişisi     | Ad, e-posta, telefon numarası sağlayın ve Destek, destek istekleri varsa, müşterilerinizin başvurabilirsiniz URL'si.                  |
 |  |  |
 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4f1e0c14d3a835b9f6d739511186bdcc19917a7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628350"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231006"
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup Sunucusu'nu v2 yükleyin
 
@@ -103,7 +103,7 @@ Yönetici konsolunda bir birim eklemek için:
 
   Disk, bir disk eklemek istiyorsanız, eski depolama alanına sahip bir koruma grubuna ait olmalıdır. Bu diskler yalnızca bu koruma grupları için kullanabilirsiniz. Disk yedekleme sunucusu eski koruması olan kaynaklar yoksa, listede yok.
 
-  Disk ekleme hakkında daha fazla bilgi için bkz. [eski depolama alanını artırmak için disk ekleme](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Bir diski bir kolay ad veremezsiniz.
+  Disk ekleme hakkında daha fazla bilgi için bkz. [eski depolama alanını artırmak için disk ekleme](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Bir diski bir kolay ad veremezsiniz.
 
 
 ### <a name="assign-workloads-to-volumes"></a>Birimlere iş yükleri atama
@@ -160,7 +160,7 @@ Bir koruma grubu oluşturmak için:
 
   ![Disk Depolama ayırmayı İncele sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  Depolama birimleri iş yükü birimi ayırma işlemi (PowerShell kullanarak ayarlama) ve kullanılabilir depolama alanına bağlıdır. Depolama birimlerini, açılır menüden diğer birimleri seçerek değiştirebilirsiniz. Değerini değiştirirseniz **hedef depolama**, değeri **kullanılabilir disk depolama** altında değerleri yansıtacak şekilde dinamik olarak değişir **boş alan** ve ** Eksik sağlanmış alan**.
+  Depolama birimleri iş yükü birimi ayırma işlemi (PowerShell kullanarak ayarlama) ve kullanılabilir depolama alanına bağlıdır. Depolama birimlerini, açılır menüden diğer birimleri seçerek değiştirebilirsiniz. Değerini değiştirirseniz **hedef depolama**, değeri **kullanılabilir disk depolama** altında değerleri yansıtacak şekilde dinamik olarak değişir **boş alan** ve  **Eksik sağlanmış alan**.
 
   Veri kaynakları için değer planlandığı gibi büyümesi durumunda **eksik sağlanmış alan** sütununda **kullanılabilir disk depolama** gerekli olan ek depolama alanı miktarını gösterir. Kesintisiz yedeklemeleri için depolama ihtiyaçlarınızı planlamanıza yardımcı olacak bu değeri kullanın. Değer sıfır ise, öngörülebilir gelecekte depolama ile herhangi bir olası sorun vardır. Değer sıfır dışındaki bir sayı ise, ayrılmış yeterli depolama yoksa (koruma ilkenize ve korumalı üyelerinizin veri boyutuna göre).
 
@@ -175,13 +175,13 @@ Modern yedekleme depolama alanı kullanmak için koruma gruplarını güncelleş
 
 1. System Center 2016 DPM Yönetici Konsolu'nda seçin **koruma** özelliği. İçinde **koruma grubu üyesi** listesinde üyeye sağ tıklayın ve ardından **üyenin korumasını Durdur**.
 
-  ![Üyenin korumasını Durdur](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![Üyenin korumasını Durdur](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. İçinde **grubundan** iletişim kutusunda, kullanılan disk alanı ve depolama havuzu için kullanılabilir boş alanı gözden geçirin. Diskte kurtarma noktalarını bırakmak ve kendi ilişkilendirildikleri bekletme ilkesine göre sürelerinin dolmasına izin vermek için varsayılandır. **Tamam**’ı seçin.
 
   Kullanılan disk alanını hemen boş depolama havuzuna döndürülecek istiyorsanız belirleyin **diskteki çoğaltmayı Sil** yedekleme verileri (ve kurtarma noktalarını) silmek için onay kutusunu, bu üye ile ilişkili.
 
-  ![Grup iletişim kutusundan kaldırma](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Grup iletişim kutusundan kaldırma](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Modern yedekleme depolama alanı kullanan bir koruma grubu oluşturun. Korumasız veri kaynaklarını içerir.
 
@@ -194,7 +194,7 @@ Disk depolama eklemek için:
 
 1. System Center 2016 DPM Yönetici Konsolu'nda seçin **Yönetim** > **Disk Depolama** > **Ekle**.
 
-  ![Disk depolama alanı iletişim kutusu Ekle](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Disk depolama alanı iletişim kutusu Ekle](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. İçinde **Disk Depolama Ekle** iletişim kutusunda **disk Ekle**.
 

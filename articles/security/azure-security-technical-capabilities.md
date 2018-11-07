@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405574"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249039"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -238,7 +238,7 @@ Azure Disk şifrelemesi, PaaS v1 üzerinde şu anda desteklenmiyor. Bu nedenle, 
 
 Hizmetlerin çoğu, bir depolama kaynak sağlayıcısı şifreleme yararlanmak denemelidir. Bazı hizmetler, açık şifreleme yapmak zorunda, örneğin, tüm anahtar malzemesi kalıcı (Sertifikalar, kök / ana anahtarları) anahtar Kasası'nda depolanması gerekir.
 
-Müşteri tarafından yönetilen anahtarlarla Hizmet tarafı şifreleme destekliyorsa var. bize anahtarını almak müşteri için bir yol olması gerekir. Azure Key Vault (AKV) ile tümleştirerek Bunu yapmak için desteklenen ve önerilen yolu. Bu durumda müşterilerin ekleyebilir ve Azure Key vault'ta kendi anahtarlarınızı yönetme. Bir müşteri AKV üzerinden kullanmayı öğrenebilirsiniz [anahtar kasası ile çalışmaya başlama](http://go.microsoft.com/fwlink/?linkid=521402).
+Müşteri tarafından yönetilen anahtarlarla Hizmet tarafı şifreleme destekliyorsa var. bize anahtarını almak müşteri için bir yol olması gerekir. Azure Key Vault (AKV) ile tümleştirerek Bunu yapmak için desteklenen ve önerilen yolu. Bu durumda müşterilerin ekleyebilir ve Azure Key vault'ta kendi anahtarlarınızı yönetme. Bir müşteri AKV üzerinden kullanmayı öğrenebilirsiniz [anahtar kasası ile çalışmaya başlama](https://go.microsoft.com/fwlink/?linkid=521402).
 
 Azure anahtar kasası ile tümleştirmek için bir anahtar şifre çözme için gerektiğinde AKV istek için kod eklersiniz.
 
@@ -283,7 +283,7 @@ Azure RMS benimseme için planlama yaparken aşağıdakileri öneririz:
 
 - Oluşturma [özel şablonlar](https://technet.microsoft.com/library/dn642472.aspx) iş gereksinimlerinizi yansıtır. Örneğin: tüm üst gizli dizisinde uygulanması gereken en çok gizli veriler için bir şablon ilgili e-postaları.
 
-Zayıf üzerinde kuruluşlar [veri sınıflandırması](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) ve dosya koruması veri sızıntısını aşılmasına daha açıktır. Uygun dosya koruma, kuruluşların iş öngörüleri edinmek, kötüye kullanımı izlemek ve dosyaları kötü amaçlı erişimi engellemek mümkün olmayacaktır.
+Zayıf üzerinde kuruluşlar [veri sınıflandırması](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) ve dosya koruması veri sızıntısını aşılmasına daha açıktır. Uygun dosya koruma, kuruluşların iş öngörüleri edinmek, kötüye kullanımı izlemek ve dosyaları kötü amaçlı erişimi engellemek mümkün olmayacaktır.
 
 > [!Note]
 > Makaleyi okuyarak Azure RMS hakkında daha fazla bilgi edinebilirsiniz [Azure Rights Management ile çalışmaya başlama](https://technet.microsoft.com/library/jj585016.aspx).
@@ -408,7 +408,7 @@ Log Analytics ile rekabet çözümlerine göre daha düşük bir maliyetle, şir
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
@@ -452,7 +452,7 @@ Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uyg
 
 Ağ güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT güvenlik ve Mevzuat idare modeli ile uyumluluk sağlamak için önemlidir. Güvenlik grubu görünümü ile yapılandırılan ağ güvenlik grubu ve güvenlik kurallarının yanı sıra, geçerli güvenlik kuralları alabilirsiniz. Uygulanacak kurallar listesiyle açık olan bağlantı noktalarını ve ss güvenlik açığı ağ belirleyebilirsiniz.
 
-### <a name="network-watcher"></a>Ağ izleyicisi
+### <a name="network-watcher"></a>Ağ İzleyicisi
 
 [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) koşulları içinde azure'a veya azure'dan ağ düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme araçları Ağ İzleyicisi ile kullanılabilen anlamanıza, tanılamanıza ve ağınıza azure'da Öngörüler elde etmeye yardımcı olur. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 

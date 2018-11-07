@@ -8,12 +8,12 @@ ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409193"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231473"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure veri Kataloğu hakkında sık sorulan sorular
 Bu makalede, Azure veri Kataloğu hizmeti ile ilgili sık sorulan soruların yanıtlarını sağlar.
@@ -99,7 +99,7 @@ Portalda nesneyi seçip, ardından tıklayarak veri Kataloğu'ndan bir nesne sil
 Uzman veri nesnesi hakkında bilgiye dayalı bir perspektif olan bir kişi anlamına gelir. Bir nesne birden çok uzmanlar olabilir. Uzman bir nesne için "sahip" olması gerekmez, ancak verilerin nasıl olabilir ve kullanılması gereken bilen birisi teknolojidir.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Ben bir sorunla karşılaşırsanız nasıl bilgileri veri Kataloğu ekiple paylaşırım?
-Sorunları bildirmek için bilgi paylaşmak ve soru sorun, Git [Azure veri Kataloğu Forumunda](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Sorunları bildirmek için bilgi paylaşmak ve soru sorun, Git [Azure veri Kataloğu Forumunda](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Katalog, şunlarla ilgileniyorum başka bir veri kaynağı ile çalışır mı?
 Etkin bir şekilde daha fazla veri kaynakları veri Kataloğu'na ekleme üzerinde çalışıyoruz. Desteklenen belirli bir veri kaynağına bakın, bunu önerir (veya zaten önerilen değilse, desteği ses) giderek isterseniz [Azure geri bildirim forumları veri Kataloğu](https://feedback.azure.com/forums/906052-data-catalog).
@@ -127,4 +127,4 @@ Veri Kataloğu'nda veri varlıklarını seçin ve ardından **Sahipliği Al** d�
 Katalogda zaten kayıtlı veri varlıklarını meta verilerini güncelleştirmek için basitçe varlıkları içeren veri kaynağını yeniden kaydedin. Veri kaynağında herhangi bir değişiklik Kataloğu'nda sütunları eklenmesi veya tabloları veya görünümleri kaldırılması gibi güncelleştirilir ancak kullanıcı tarafından sağlanan ek açıklamaları korunur.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Sorumun cevabı burada bulamadığınız. Yanıtlar için nereye gidebilirim?
-Git [Azure veri Kataloğu Forumunda](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Burada sorulan sorular aşamalarından burada bulabilirsiniz.
+Git [Azure veri Kataloğu Forumunda](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Burada sorulan sorular aşamalarından burada bulabilirsiniz.

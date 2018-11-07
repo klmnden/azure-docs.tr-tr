@@ -1,25 +1,25 @@
 ---
-title: HDInsight'ta Hadoop işleri için veri yükleme
-description: Karşıya yükleme ve Azure Klasik CLI, Azure Depolama Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak bir HDInsight Hadoop işleri için veri erişim hakkında bilgi edinin.
+title: HDInsight, Apache Hadoop işleri için veri yükleme
+description: Klasik Azure CLI, Azure Depolama Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak HDInsight, Apache Hadoop işleri için erişim verileri ve nasıl yükleneceğini öğrenin.
 keywords: etl hadoop, hadoop, hadoop veri yükleme ile veri alma
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.openlocfilehash: 50e9162da5fda98d73ccfeea0776dc89ddd25dac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985988"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256927"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight'ta Hadoop işleri için veri yükleme
 
-Azure HDInsight, Azure depolama ve Azure Data Lake Store üzerinde tam özellikli Hadoop dağıtılmış dosya sistemi (HDFS) sağlar. Azure depolama ve Data lake Store HDFS uzantı olarak müşterilere sorunsuz bir deneyim sağlamak için tasarlanmıştır. Bunlar Hadoop ekosistemindeki doğrudan yönettiği veriler üzerinde çalışılacak bileşenler kümesinin etkinleştirin. Azure depolama ve Data Lake Store depolama verilerinin ve bu verileri hesaplamaları için optimize edilmiş farklı dosya sistemleridir. Azure depolama kullanmanın avantajları hakkında bilgi için [HDInsight ile Azure depolama kullanma] [ hdinsight-storage] ve [kullanım Data Lake Store ile HDInsight](hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight, Azure depolama ve Azure Data Lake Storage (Gen1 ve 2. nesil) üzerinden bir tam özellikli Hadoop dağıtılmış dosya sistemi (HDFS) sağlar. Azure depolama ve Data lake Storage Gen1 ve 2. nesil HDFS uzantıları müşterilere sorunsuz bir deneyim sağlamak için tasarlanmıştır. Bunlar Hadoop ekosistemindeki doğrudan yönettiği veriler üzerinde çalışılacak bileşenler kümesinin etkinleştirin. Azure depolama, Data Lake depolama Gen1 ve 2. nesil depolama verilerinin ve bu verileri hesaplamaları için optimize edilmiş farklı dosya sistemleridir. Azure depolama kullanmanın avantajları hakkında bilgi için [HDInsight ile Azure depolama kullanma][hdinsight-storage], [kullanım Data Lake depolama Gen1 HDInsight ile](hdinsight-hadoop-use-data-lake-store.md) ve [ HDInsight ile Data Lake depolama Gen2 kullanın](../storage/data-lake-storage/use-hdi-cluster.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,14 +29,15 @@ Başlamadan önce aşağıdaki gereksinimleri dikkate alın:
 * Aşağıdaki iki makalelerdeki bilgi:
 
     - [HDInsight ile Azure Depolama'yı kullanma][hdinsight-storage]
-    - [Kullanım Data Lake Store ile HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Data Lake depolama Gen1 HDInsight ile kullanma](hdinsight-hadoop-use-data-lake-store.md)
+    - [Data Lake depolama Gen2 HDInsight ile kullanma](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## <a name="upload-data-to-azure-storage"></a>Verileri Azure Depolama'ya yükleme
 
 ### <a name="command-line-utilities"></a>Komut satırı yardımcı programları
 Microsoft Azure depolama ile çalışmak için aşağıdaki yardımcı programlarını sağlar:
 
-| Araç | Linux | OS X | Windows |
+| Aracı | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Klasik Azure CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
@@ -213,7 +214,7 @@ Aracı'nı kullanmadan önce Azure depolama hesabı adını ve hesap anahtarın�
     Dosyayı karşıya yükleme tamamlandıktan sonra HDInsight kümesinde işleri kullanabilirsiniz.
 
 ### <a name="mount-azure-storage-as-local-drive"></a>Azure depolama yerel sürücü olarak takmak
-Bkz: [yerel sürücü olarak bağlama Azure Depolama'ya](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Bkz: [yerel sürücü olarak bağlama Azure Depolama'ya](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ### <a name="upload-using-services"></a>Hizmetleri kullanarak karşıya yükle
 #### <a name="azure-data-factory"></a>Azure Data Factory
@@ -304,6 +305,8 @@ HDInsight ile verileri alma anladığınıza göre Analiz gerçekleştirme hakk�
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
+[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

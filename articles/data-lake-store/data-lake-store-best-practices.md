@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391904"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255157"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 kullanmak için en iyi uygulamalar
 
@@ -27,7 +27,7 @@ Bu makalede, en iyi uygulamalar ve Azure Data Lake depolama Gen1 ile çalışma 
 
 Azure Data Lake depolama Gen1 teklifler POSIX erişim kontrolü ve Azure Active Directory (Azure AD) kullanıcıları, grupları ve hizmet sorumluları için ayrıntılı. Bu erişim denetimleri, mevcut dosya ve klasörler için ayarlanabilir. Erişim denetimleri, yeni dosyalar veya klasörler için uygulanan varsayılan değerleri oluşturmak için de kullanılabilir. Var olan klasörler ve alt nesneleri için ayarlanmış olan izinlere, izinleri yayılan yinelemeli olarak her nesne üzerinde olmanız gerekir. Çok sayıda dosya varsa, izinleri yayılması uzun sürebilir. Geçen süre, saniye başına işlenen 30-50 nesneler arasında değişebilir. Bu nedenle, klasör yapısını ve kullanıcı gruplarını uygun şekilde planlayın. Verilerinizle çalışırken Aksi takdirde, beklenmedik gecikmeler ve sorunları neden olabilir. 
 
-100.000 alt nesneleri içeren bir klasör olduğunu kabul edelim. Saniye başına işlenen 30 nesnelerin alt sınır alırsa, tüm klasörün izinlerini güncelleştirmek için bir saat sürebilir. Data Lake depolama Gen1 ACL'ler hakkında daha fazla ayrıntı kullanılabilir [erişim denetimi, Azure Data Lake depolama Gen1](data-lake-store-access-control.md). ACL'ler yinelemeli olarak atama hakkında daha iyi performans için Azure Data Lake komut satırı aracını kullanabilirsiniz. Aracı, birden çok iş parçacığı ve hızlı bir şekilde milyonlarca dosyaya ACL uygulamak için özyinelemeli Gezinti mantığı oluşturur. Araç, Linux ve Windows, kullanılabilir ve [belgeleri](https://github.com/Azure/data-lake-adlstool) ve [indirir](http://aka.ms/adlstool-download) bu araç, Github'da bulunabilir. Bu aynı performans geliştirmeleri ile Data Lake depolama Gen1 yazılan kendi araçları tarafından etkinleştirilebilir [.NET](data-lake-store-data-operations-net-sdk.md) ve [Java](data-lake-store-get-started-java-sdk.md) SDK'ları.
+100.000 alt nesneleri içeren bir klasör olduğunu kabul edelim. Saniye başına işlenen 30 nesnelerin alt sınır alırsa, tüm klasörün izinlerini güncelleştirmek için bir saat sürebilir. Data Lake depolama Gen1 ACL'ler hakkında daha fazla ayrıntı kullanılabilir [erişim denetimi, Azure Data Lake depolama Gen1](data-lake-store-access-control.md). ACL'ler yinelemeli olarak atama hakkında daha iyi performans için Azure Data Lake komut satırı aracını kullanabilirsiniz. Aracı, birden çok iş parçacığı ve hızlı bir şekilde milyonlarca dosyaya ACL uygulamak için özyinelemeli Gezinti mantığı oluşturur. Araç, Linux ve Windows, kullanılabilir ve [belgeleri](https://github.com/Azure/data-lake-adlstool) ve [indirir](https://aka.ms/adlstool-download) bu araç, Github'da bulunabilir. Bu aynı performans geliştirmeleri ile Data Lake depolama Gen1 yazılan kendi araçları tarafından etkinleştirilebilir [.NET](data-lake-store-data-operations-net-sdk.md) ve [Java](data-lake-store-get-started-java-sdk.md) SDK'ları.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Bireysel kullanıcılar ve güvenlik grupları kullanın 
 

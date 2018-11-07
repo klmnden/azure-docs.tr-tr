@@ -2,16 +2,16 @@
 title: Azure Application Gateway için web uygulaması Güvenlik Duvarı (WAF) giriş
 description: Bu makalede, Application Gateway için web uygulaması Güvenlik Duvarı (WAF) genel bir bakış sağlanmaktadır
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068460"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219537"
 ---
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
@@ -39,7 +39,7 @@ Application Gateway ve web uygulaması güvenlik duvarının sunduğu temel avan
 
 * Gerçek zamanlı bir WAF günlüğü kullanarak web uygulamanızı saldırılara karşı izleyin. Bu günlük, WAF uyarılarını ve günlüklerini takip edip eğilimleri daha kolay izlemek için [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) ile tümleştirilmiştir.
 
-* WAF yakında Azure Güvenlik Merkezi ile tümleştirilecektir. Azure Güvenlik Merkezi, tüm Azure kaynaklarınızın güvenlik durumuna ilişkin genel bir görünüm sağlar.
+* WAF, Azure Güvenlik Merkezi ile tümleşiktir. Azure Güvenlik Merkezi, tüm Azure kaynaklarınızın güvenlik durumuna ilişkin genel bir görünüm sağlar.
 
 ### <a name="customization"></a>Özelleştirme
 
@@ -48,10 +48,10 @@ Application Gateway ve web uygulaması güvenlik duvarının sunduğu temel avan
 ## <a name="features"></a>Özellikler
 
 - SQL ekleme koruması
-- Siteler arası komut dosyası koruması
-- Komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi Yaygın Web Saldırıları Koruması
+- Arası komut dosyası site koruması
+- Yaygın Web saldırıları koruması komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi
 - HTTP protokolü ihlallerine karşı koruma
-- Eksik konak kullanıcısı-aracısı ve kabul üst bilgileri gibi HTTP protokolü anormalliklerine karşı koruma
+- Eksik gibi HTTP protokolü anormalliklerine karşı koruma konak kullanıcısı-aracısı ve kabul üst bilgileri
 - Robotlar, gezginler ve tarayıcıları önleme
 - Yaygın yanlış uygulama yapılandırmalarını (diğer bir deyişle, Apache, IIS, vb.) algılama
 
@@ -75,12 +75,12 @@ Application Gateway CRS 3.0 ve CRS 2.2.9 şeklinde iki kural kümesini destekler
 Web uygulaması güvenlik duvarı, CRS 3.0 ile varsayılan olarak önceden yapılandırılmış halde gelir veya 2.2.9’u kullanmayı seçebilirsiniz. CRS 3.0, 2.2.9 sürümüne göre daha az hatalı pozitif sonuç verir. [Kuralları gereksinimlerinize göre özelleştirme olanağı](application-gateway-customize-waf-rules-portal.md) sağlanır. Web uygulaması güvenlik duvarının koruma sağladığı bazı yaygın web güvenlik açıkları şunlardır:
 
 - SQL ekleme koruması
-- Siteler arası komut dosyası koruması
-- Komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi Yaygın Web Saldırıları Koruması
+- Arası komut dosyası site koruması
+- Yaygın Web saldırıları koruması komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi
 - HTTP protokolü ihlallerine karşı koruma
-- Eksik konak kullanıcısı-aracısı ve kabul üst bilgileri gibi HTTP protokolü anormalliklerine karşı koruma
+- Eksik gibi HTTP protokolü anormalliklerine karşı koruma konak kullanıcısı-aracısı ve kabul üst bilgileri
 - Robotlar, gezginler ve tarayıcıları önleme
-- Yaygın yanlış uygulama yapılandırmalarını (i.e. Apache, IIS vb.) algılama
+- Yaygın yanlış uygulama yapılandırmalarını (yani Apache, IIS, vb.) algılama
 
 Kurallar ve korumalarını içeren daha ayrıntılı bir listesi için bkz. [çekirdek kural kümeleri](#core-rule-sets).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301563"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247390"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçeve: İletişim güvenliği | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -113,7 +113,7 @@ ms.locfileid: "43301563"
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | EnvironmentType - Azure |
 | **Başvuruları**              | [Azure App Service'te HTTPS'yi zorunlu kılma](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **Adımları** | <p>Azure, HTTPS etki alanının joker nitelikli bir sertifikası ile Azure uygulama hizmetleri için zaten sağlar ancak *. azurewebsites.net, onu zorla HTTPS. Ziyaretçiler uygulamanın güvenliği tehlikeye atabilir, HTTP kullanarak uygulama erişmeye devam ve bu nedenle açıkça yürütülebilmesi HTTPS sahiptir. ASP.NET MVC uygulamaları kullanması gereken [RequireHttps filtre](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) HTTPS üzerinden yeniden gönderilmesini güvenli olmayan bir HTTP isteği zorlar.</p><p>Alternatif olarak, Azure App Service ile birlikte URL yeniden yazma modülü HTTPS zorlama için kullanılabilir. URL yeniden yazma modülü, geliştiricilerin istekleri uygulamanıza edilmeden önce gelen isteklere uygulanan kuralları tanımlamak olanak tanır. URL yeniden yazma kuralları, uygulama kök dizininde depolanmış bir web.config dosyasında tanımlanan</p>|
+| **Adımları** | <p>Azure, HTTPS etki alanının joker nitelikli bir sertifikası ile Azure uygulama hizmetleri için zaten sağlar ancak *. azurewebsites.net, onu zorla HTTPS. Ziyaretçiler uygulamanın güvenliği tehlikeye atabilir, HTTP kullanarak uygulama erişmeye devam ve bu nedenle açıkça yürütülebilmesi HTTPS sahiptir. ASP.NET MVC uygulamaları kullanması gereken [RequireHttps filtre](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) HTTPS üzerinden yeniden gönderilmesini güvenli olmayan bir HTTP isteği zorlar.</p><p>Alternatif olarak, Azure App Service ile birlikte URL yeniden yazma modülü HTTPS zorlama için kullanılabilir. URL yeniden yazma modülü, geliştiricilerin istekleri uygulamanıza edilmeden önce gelen isteklere uygulanan kuralları tanımlamak olanak tanır. URL yeniden yazma kuralları, uygulama kök dizininde depolanmış bir web.config dosyasında tanımlanan</p>|
 
 ### <a name="example"></a>Örnek
 Aşağıdaki örnek, HTTPS kullanmak üzere tüm gelen trafiği zorlayan bir temel URL yeniden yazma kuralı içerir.
@@ -156,7 +156,7 @@ Bu kural, bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek �
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | SQL Azure  |
 | **Öznitelikleri**              | SQL sürümü - V12 |
-| **Başvuruları**              | [En iyi yöntemler üzerinde yazma, SQL veritabanı için bağlantı dizelerini güvenli](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **Başvuruları**              | [En iyi yöntemler üzerinde yazma, SQL veritabanı için bağlantı dizelerini güvenli](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **Adımları** | <p>Her zaman Güvenli Yuva Katmanı (SSL) kullanarak SQL veritabanı ve bir istemci uygulama arasındaki tüm iletişimler şifrelenir. SQL veritabanı, şifrelenmemiş bağlantılarını desteklemiyor. Uygulama kodu veya araçları ile sertifikalarını doğrulamak için açıkça şifreli bir bağlantı isteği ve sunucu sertifikaları güveniyor musunuz. Uygulama kodu veya araçları şifreli bir bağlantı isteme, bunlar şifrelenmiş bağlantılar hala alırsınız</p><p>Ancak, sunucu sertifikaları doğrulamamasına ve bu nedenle "ortadaki adam" saldırılarına açık olacaktır. ADO.NET uygulama kodu ile sertifikalarını doğrulamak için ayarlandı. `Encrypt=True` ve `TrustServerCertificate=False` veritabanı bağlantı dizesi içinde. SQL Server Management Studio aracılığıyla sertifika doğrulamak için Bağlan sunucusu iletişim kutusunu açın. Bağlantı Özellikleri sekmesinde şifrele bağlantısı</p>|
 
 ## <a id="encrypted-sqlserver"></a>SQL sunucusuna şifreli iletişim zorla

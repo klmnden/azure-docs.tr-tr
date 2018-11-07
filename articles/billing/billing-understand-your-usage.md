@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394446"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230470"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure ayrıntılı Kullanım ücretlerinizi ilgili koşulları anlama 
 
@@ -77,7 +77,7 @@ CSV dosyasının günlük kullanım bölümüne faturalandırma ücretleri etkil
 |Kullanılan Hizmet |Kullandığınız bir Azure platform hizmetini |
 |Kaynak Grubu |Kaynak grubu içinde dağıtılan ölçüm çalıştığı. <br/><br/>Daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |Örnek Kimliği | Ölçüm tanımlayıcısı. <br/><br/> Tanımlayıcı oluşturulduğunda, ölçüm için belirttiğiniz adı içerir. Kaynağın adını veya tam kaynak kimliği olan Daha fazla bilgi için [Azure Resource Manager API'si](https://docs.microsoft.com/rest/api/resources/resources). |
-|Etiketler | Etiket için ölçüm atayın. Fatura kayıtların gruplandırılması için etiketleri kullanın.<br/><br/>Örneğin, ölçüm kullanan departmana göre maliyetleri dağıtmak için etiketleri kullanabilirsiniz. Etiket göstermeyi destekleyen hizmetleri, sanal makineler, depolama ve Ağ Hizmetleri kullanılarak sağlanan [Azure Resource Manager API'si](https://docs.microsoft.com/rest/api/resources/resources). Daha fazla bilgi için [etiketlerle Azure kaynaklarınızı düzenleme](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Etiketler | Etiket için ölçüm atayın. Fatura kayıtların gruplandırılması için etiketleri kullanın.<br/><br/>Örneğin, ölçüm kullanan departmana göre maliyetleri dağıtmak için etiketleri kullanabilirsiniz. Etiket göstermeyi destekleyen hizmetleri, sanal makineler, depolama ve Ağ Hizmetleri kullanılarak sağlanan [Azure Resource Manager API'si](https://docs.microsoft.com/rest/api/resources/resources). Daha fazla bilgi için [etiketlerle Azure kaynaklarınızı düzenleme](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Ek Bilgi |Hizmete özgü meta veriler. Örneğin, bir sanal makine için görüntü türü. |
 |Hizmet Bilgisi 1 |Aboneliğinizdeki hizmetin ait olduğu proje adı |
 |Hizmet Bilgisi 2 |İsteğe bağlı hizmete özgü meta veriler yakalanır eski alan |

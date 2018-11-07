@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 988f77dd0f8f31f6e31e5371ed263d4c4195c105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ca19ce2cca314950adc40bbf065dec80e7fa3e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984882"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227935"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'ları ve modüller oluşturmak yerine, çeşitli Microsoft ve topluluk tarafından zaten oluşturulduğundan senaryoları erişebilirsiniz.  Bu senaryolar yapmadan ya da kullanabilirsiniz veya bunları bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -22,7 +22,7 @@ Azure Automation'da kendi runbook'ları ve modüller oluşturmak yerine, çeşit
 Runbook'ları alabilirsiniz [Runbook Galerisi](#runbooks-in-runbook-gallery) ve modüllerden [PowerShell Galerisi](#modules-in-powerShell-gallery).  Ayrıca katkıda bulunabilir bakın topluluğa geliştirme senaryoları paylaşabilir, [runbook Galerisine ekleme](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbook'ları Runbook Galerisi
-[Runbook Galerisi](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) runbook'ları çeşitli Microsoft ve Azure Automation'a aktarabilirsiniz topluluk sağlar. Barındırılan Galeriden runbook indirebilirsiniz [TechNet Komut Merkezi](https://gallery.technet.microsoft.com/scriptcenter/site/upload), ya da Azure portalında Galeriden runbook'ları doğrudan aktarabilirsiniz.
+[Runbook Galerisi](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) runbook'ları çeşitli Microsoft ve Azure Automation'a aktarabilirsiniz topluluk sağlar. Barındırılan Galeriden runbook indirebilirsiniz [TechNet Komut Merkezi](https://gallery.technet.microsoft.com/scriptcenter/site/upload), ya da Azure portalında Galeriden runbook'ları doğrudan aktarabilirsiniz.
 
 Yalnızca Azure portalını kullanarak doğrudan Runbook'u Galeriden içeri aktarabilirsiniz. Windows PowerShell kullanarak bu işlevi yerine getiremez.
 
@@ -37,7 +37,7 @@ Yalnızca Azure portalını kullanarak doğrudan Runbook'u Galeriden içeri akta
 3. Ayrıntılarını görüntülemek için seçin ve istediğiniz galeri öğesini bulun. Sol tarafta yayımcı ve türü için ek arama parametrelerini girebilirsiniz.
    
     ![Galerisi'ne göz atın](media/automation-runbook-gallery/browse-gallery.png)
-5. Tıklayarak **kaynak projeyi görüntüle** öğeyi görüntülemek için [TechNet Komut Merkezi](http://gallery.technet.microsoft.com/).
+5. Tıklayarak **kaynak projeyi görüntüle** öğeyi görüntülemek için [TechNet Komut Merkezi](https://gallery.technet.microsoft.com/).
 6. Bir öğe almak için ayrıntılarını görüntülemek ve ardından ona tıklayın **alma** düğmesi.
    
     ![İçeri Aktar düğmesi](media/automation-runbook-gallery/gallery-item-detail.png)
@@ -45,7 +45,7 @@ Yalnızca Azure portalını kullanarak doğrudan Runbook'u Galeriden içeri akta
 8. Runbook görünür **runbook'ları** Otomasyon hesabı için sekmesinde.
 
 ### <a name="adding-a-runbook-to-the-runbook-gallery"></a>Bir runbook için runbook Galerisi ekleme
-Microsoft, runbook'ları diğer müşteriler için yararlı olabilecek düşündüğünüz Runbook Galerisi eklemenizi önerir.  Bir runbook tarafından ekleyebilirsiniz [betik Merkezi'ne karşıya](http://gallery.technet.microsoft.com/site/upload) dikkate alarak aşağıdaki ayrıntıları.
+Microsoft, runbook'ları diğer müşteriler için yararlı olabilecek düşündüğünüz Runbook Galerisi eklemenizi önerir.  Bir runbook tarafından ekleyebilirsiniz [betik Merkezi'ne karşıya](https://gallery.technet.microsoft.com/site/upload) dikkate alarak aşağıdaki ayrıntıları.
 
 * Belirtmelisiniz *Windows Azure* için **kategori** ve *Otomasyon* için **Subcategory** görüntülenecek runbook Sihirbaz.  
 * Karşıya yükleme, tek bir .ps1 veya .graphrunbook dosyası olmalıdır.  Runbook, tüm modüller, alt runbook'ları veya varlıklar gerektiriyorsa, gönderim açıklaması ve runbook'un yorumlar bölümünde listelemelisiniz.  Birden çok runbook gerektiren bir senaryo varsa, her birini ayrı olarak karşıya yüklemek ve ilgili runbook'ların her birindeki açıklamalarının adlarını listeler. Bunlar aynı kategoride gösterilir böylece aynı etiketleri kullandığınızdan emin olun. Bir kullanıcı diğer runbook'ların gerekli olduğunu bildiren bir açıklama okuyun gerekecektir çalışmak için bir senaryo.
@@ -100,7 +100,7 @@ PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azu
 Python runbook'ları kullanılabilir [Komut Merkezi Galerisi](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Python runbook'ları betik merkezi Galeriye katkıda bulunabilir. Ne zaman olun etiket ekleme **Python** katkılarınız karşıya yüklenirken.
 
 ## <a name="requesting-a-runbook-or-module"></a>Bir runbook veya modül isteme
-İstekleri gönderebilirsiniz [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Bir runbook yazma Yardım ihtiyaç veya PowerShell ile ilgili sorularınız varsa soru gönderin bizim [Forumu](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+İstekleri gönderebilirsiniz [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Bir runbook yazma Yardım ihtiyaç veya PowerShell ile ilgili sorularınız varsa soru gönderin bizim [Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Runbook'larını kullanmaya başlamak için bkz: [oluşturma veya Azure automation'da bir runbook içeri aktarma](automation-creating-importing-runbook.md)

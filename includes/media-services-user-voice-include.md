@@ -1,4 +1,4 @@
-Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında önerilerde bulunmak için [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) forumunu kullanın. Doğrudan aşağıdaki kategorilerden birine de gidebilirsiniz:
+Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında önerilerde bulunmak için [User Voice](https://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) forumunu kullanın. Doğrudan aşağıdaki kategorilerden birine de gidebilirsiniz:
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [İstemci SDK kitaplıkları](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)

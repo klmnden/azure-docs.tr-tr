@@ -9,19 +9,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: da92f59c4e25ec012cd9ad389c9afac410ba28e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650001"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219316"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
 Azure Machine Learning hizmetinde denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Bu makalede, günlük eğitim betiğinizi eklemek için farklı yollar hakkında bilgi edineceksiniz ile deneme gönderme **start_logging** ve **ScriptRunConfig**, ilerleme durumunu denetlemek nasıl bir çalışan iş ve çalıştırmanın sonuçlarını görüntüleme. 
 
 >[!NOTE]
-> Bu makalede kod Azure Machine Learning SDK sürüm 0.168 ile test edilmiştir 
+> Bu makalede kod Azure Machine Learning SDK sürüm 0.1.74 ile test edilmiştir 
 
 ## <a name="list-of-training-metrics"></a>Eğitim ölçümlerin listesi 
 
@@ -67,7 +67,6 @@ Günlüğe kaydetme ve deneme gönderme eklemeden önce çalışma ve deneme aya
 
   # make up an arbitrary name
   experiment_name = 'train-in-notebook'
-  exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
 ## <a name="option-1-use-startlogging"></a>1. seçenek: start_logging kullanma
@@ -103,7 +102,8 @@ Aşağıdaki örnek, yerel Jupyter not defterini yerel olarak basit bir sklearn 
 2. Azure Machine Learning hizmeti SDK'sını kullanarak deneme izleme ekleyebilir ve kalıcı bir modeli çalıştırma kaydı denemesine yükleme. Aşağıdaki kod, etiketler, günlükleri, ekler ve denemeyi çalıştırmak için bir model dosyası yükler.
 
   ```python
-  run = Run.start_logging(experiment = exp)
+  experiment = Experiment(workspace = ws, name = experiment_name)
+  run = experiment.start_logging()
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
   reg = Ridge(alpha = 0.03)
@@ -209,8 +209,8 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
   ```python
   from azureml.core import ScriptRunConfig
 
-  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-  run = exp.submit(src)
+  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+  run = experiment.submit(src)
   ```
   
 ## <a name="view-run-details"></a>Çalıştırma Ayrıntıları görünümü
@@ -248,11 +248,22 @@ Farklı Çalıştır bağlantısını çalıştırma ayrıntıları sayfasına d
   ![Azure portalında çalıştırma ayrıntılarını, ekran görüntüsü](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 Ayrıca, herhangi bir çıkış veya çalıştırma için günlükleri görüntüleyin veya anlık görüntüsünü ve böylelikle deneme klasörü başkalarıyla paylaşabilirsiniz gönderdiğiniz denemeyi indirin.
+### <a name="viewing-charts-in-run-details"></a>Grafikler çalıştırma ayrıntılarını görüntüleme
+
+Bir çalıştırma sırasında günlük kaydı ölçümleri farklı kayıt türleri için API'leri kullanma ve bunları Azure portalındaki grafikleri olarak görüntülemek için çeşitli yollar vardır. 
+
+|Günlüğe kaydedilen değeri|Örnek kod| Portalda görüntüle|
+|----|----|----|
+|Günlük sayısal değerler dizisi| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Tek değişkenli çizgi grafik|
+|Sürekli olarak kullanılan aynı Ölçüm adı tek bir sayısal değer oturum (içinden benzer bir for döngüsü)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Tek değişkenli çizgi grafik|
+|Bir satır ile 2 sayısal sütunlara tekrar tekrar oturum|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|İki değişken çizgi grafik|
+|2 sayısal sütunlara sahip günlüğü tablosu|`run.log_table(name='Sine Wave', value=sines)`|İki değişken çizgi grafik|
 
 ## <a name="example-notebooks"></a>Örnek Not Defterleri
 Aşağıdaki not defterleri, bu makaledeki kavramları göstermektedir:
 * [01.Getting-Started/01.Train-within-Notebook/01.Train-within-Notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
 * [01.Getting-Started/02.Train-on-Local/02.Train-on-Local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.Getting-Started/06.Logging-api/06.Logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
 Bu not defterlerini alın: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

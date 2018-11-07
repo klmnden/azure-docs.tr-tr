@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 43aaddc224403f69f90452c024f24eab8c5bdcd2
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311125"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251772"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Karma kimlik yaşam döngüsü benimseme stratejisi belirleme
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için Kimlik Yönetimi stratejisi tanımlarsınız [karma kimlik yönetimi görevleri belirlemek](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -94,7 +94,7 @@ Eşitleme seçeneklerini karşılaştırmak için aşağıdaki tabloyu gözden g
 | Eşitleme yönetim seçeneği | Avantajları | Dezavantajları |
 | --- | --- | --- |
 | Eşitleme tabanlı (üzerinden eşitleme veya DirSync) |Kullanıcıları ve grupları şirket içi ve bulut eşitlendi <br>  **İlke denetimi**: hesap ilkeleri yönetici parola ilkeleri, iş istasyonu, kısıtlamalar, kilitleme denetim olanağı sağlar, Active Directory aracılığıyla ve daha fazlasını kalmadan ek görevleri gerçekleştirmek ayarlanabilir bulut.  <br>  **Erişim denetimi**: Hizmetleri aracılığıyla çevrimiçi sunucular veya her ikisi de kurumsal ortam aracılığıyla erişilebilir böylece bulut hizmetine erişimi kısıtlayabilirsiniz. <br>  Destek çağrılarının sayısını azalttık: kullanıcıların hatırlamak zorunda olduğunuz şifre varsa, bunlar unutmanız olasılığı daha düşüktür. <br>  Güvenlik: Kullanıcı kimlik bilgileri tüm sunucuları ve çoklu oturum açma içinde kullanılan hizmetlere yönetilen çünkü korumalı ve şirket içi denetlenebilir. <br>  Güçlü kimlik doğrulaması için destek: Bulut hizmeti ile güçlü kimlik doğrulaması (iki öğeli kimlik doğrulama olarak da bilinir) kullanabilirsiniz. Ancak, güçlü kimlik doğrulaması kullanıyorsanız, çoklu oturum açma kullanmanız gerekir. | |
-| Federasyon tabanlı (AD FS) aracılığıyla |Güvenlik belirteci hizmeti (STS) tarafından etkin. Bir Microsoft bulut hizmeti ile çoklu oturum açma erişimi sağlamak için bir STS'ye yapılandırırken, federasyon güveni, şirket içi STS'LERİNE ve Azure AD kiracınızda belirttiniz. Federasyon etki alanı arasında oluşturacağınız. <br> Son birden çok kaynağa erişim sağlamak için aynı kimlik bilgileri kümesi kullanmasına olanak tanır <br>Son kullanıcılar birden çok kimlik bilgileri kümesi sürdürmenize gerek yoktur. Kullanıcıların henüz katılımcı kaynaklar., her biri için kimlik bilgilerini sağlamanız gereken B2B ve B2C senaryolar desteklenir. |Dağıtımı ve bakımı adanmış şirket için personele özel yetki verilmesini gerektirir. AD FS sunucuları. AD FS için STS kullanmayı planlıyorsanız, güçlü kimlik doğrulaması kullanılması ile ilgili kısıtlamalar vardır. Daha fazla bilgi için [AD FS 2.0 için Gelişmiş Seçenekleri yapılandırma](http://go.microsoft.com/fwlink/?linkid=235649). |
+| Federasyon tabanlı (AD FS) aracılığıyla |Güvenlik belirteci hizmeti (STS) tarafından etkin. Bir Microsoft bulut hizmeti ile çoklu oturum açma erişimi sağlamak için bir STS'ye yapılandırırken, federasyon güveni, şirket içi STS'LERİNE ve Azure AD kiracınızda belirttiniz. Federasyon etki alanı arasında oluşturacağınız. <br> Son birden çok kaynağa erişim sağlamak için aynı kimlik bilgileri kümesi kullanmasına olanak tanır <br>Son kullanıcılar birden çok kimlik bilgileri kümesi sürdürmenize gerek yoktur. Kullanıcıların henüz katılımcı kaynaklar., her biri için kimlik bilgilerini sağlamanız gereken B2B ve B2C senaryolar desteklenir. |Dağıtımı ve bakımı adanmış şirket için personele özel yetki verilmesini gerektirir. AD FS sunucuları. AD FS için STS kullanmayı planlıyorsanız, güçlü kimlik doğrulaması kullanılması ile ilgili kısıtlamalar vardır. Daha fazla bilgi için [AD FS 2.0 için Gelişmiş Seçenekleri yapılandırma](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]
 > Daha fazla bilgi edinmek, [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md).

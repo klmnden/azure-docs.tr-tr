@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095817"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229364"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için Excel Eklentisi
 Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağırmak kolaylaştırır.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Çalışma kitabında mevcut bir web hizmetini kullanma adımları
 
-1. Açık [örnek Excel dosyasını](http://aka.ms/amlexcel-sample-2), Excel eklentisi ve Yolcuların Kurtulacağını üzerinde hakkındaki verileri içerir. 
+1. Açık [örnek Excel dosyasını](https://aka.ms/amlexcel-sample-2), Excel eklentisi ve Yolcuların Kurtulacağını üzerinde hakkındaki verileri içerir. 
  
 > [!NOTE]
 > Web Hizmetleri listesi dosyasına ve altındaki bir onay kutusu "Otomatik-tahmin etmek için" ilgili görürsünüz. Etkinleştirirseniz, otomatik-tahminler tahmin **tüm** hizmetlerinizi güncelleştirilmiş her olacaktır girişleri bir değişiklik yoktur. İşaretli değilse, "Tahmin"'ye tıklayın yenileme için gerekir. Etkinleştirmek için otomatik-6. adım bir hizmet düzeyi gidin, tahmin edin.
@@ -85,7 +85,7 @@ Web hizmetiniz için API anahtarını alın. Gerçekleştirdiğiniz durumlarda b
 ## <a name="sharing-your-workbook"></a>Çalışma kitabınızı paylaşma
 Çalışma kitabınızı kaydederseniz, eklediğiniz web hizmetleri için API/birincil anahtar da kaydedilir. Bu çalışma kitabını yalnızca güvendiğiniz kişilerle paylaşması gerekir anlamına gelir.
 
-Aşağıdaki yorum bölümünde veya herhangi bir soru sorun bizim [Forumu](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Aşağıdaki yorum bölümünde veya herhangi bir soru sorun bizim [Forumu](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

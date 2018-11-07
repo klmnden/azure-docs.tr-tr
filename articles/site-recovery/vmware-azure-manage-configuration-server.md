@@ -1,18 +1,18 @@
 ---
 title: VMware ve fiziksel sunucuya Azure Site Recovery ile olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme | Microsoft Docs
-description: Bu makalede VMware vm'lerinin olağanüstü durum kurtarma için mevcut yapılandırma sunucusu ve fiziksel sunucuları azure'a Azure Site RecoveryS ile nasıl yönetileceği açıklanır.
+description: Bu makalede VMware vm'lerinin olağanüstü durum kurtarma için mevcut yapılandırma sunucusu ve fiziksel sunucuları Azure Site Recovery ile azure'a nasıl yönetileceği açıklanır.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215149"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219502"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusunu yönetme
 
@@ -137,10 +137,10 @@ Yapılandırma sunucusunu güncelleştirmek için güncelleştirme paketleri ça
 - 9.7, 9.8, 9.9 veya 9.10 çalıştırırsanız, doğrudan 9.11 için yükseltebilirsiniz.
 - 9.6 veya önceki bir sürümünü çalıştırın ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9.11 önce.
 
-Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [wiki güncelleştirmeleri sayfası](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [Azure güncelleştirmeleri sayfası](https://azure.microsoft.com/updates/?product=site-recovery).
 
 > [!IMPORTANT]
-> Her yeni sürümü ile yayınlanan, bir Azure Site Recovery componenet 'N-4 altındaki tüm sürümleri 'N'' destek kapsamı dışında olarak kabul edilir. Her zaman kullanılabilir en son sürümlerine yükseltmek için önerilir.
+> Her yeni sürümü ile yayınlanan, bir Azure Site Recovery bileşeni 'N-4 altındaki tüm sürümleri 'N'' destek kapsamı dışında olarak kabul edilir. Her zaman kullanılabilir en son sürümlerine yükseltmek için önerilir.
 
 Sunucuyu aşağıdaki gibi yükseltin:
 
@@ -226,7 +226,7 @@ Mayıs 2016 önce yapılandırma sunucusu dağıtımları için sertifika süre 
 
 OVF şablonu ile sağlanan lisans bir deneme lisans 180 gün boyunca geçerli olur. Kesintisiz olarak kullanım için bir tedarik edilen lisans ile Windows etkinleştirmeniz gerekir.
 
-## <a name="failback-requirements"></a>Yeniden çalışma gereksinimi
+## <a name="failback-requirements"></a>Yeniden çalışma gereksinimleri
 
 Yeniden koruma ve yeniden çalışma sırasında şirket içi yapılandırma sunucusunun çalıştığından ve bağlı durumda olması gerekir. Başarıyla yeniden çalışma için geri başarısız sanal makine yapılandırma sunucusu veritabanında mevcut olmalıdır.
 

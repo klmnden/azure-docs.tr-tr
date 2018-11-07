@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091739"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228445"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs ve Node.js ile anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ Aşağıdaki platformlarda uygulamalarına anında iletme bildirimleri gönderme
 Bildirim hub'ları hakkında daha fazla bilgi için bkz. [sonraki adımlar](#next) bölümü.
 
 ## <a name="what-are-notification-hubs"></a>Bildirim Hub'ları nedir?
-Azure Notification Hubs, mobil cihazlara anında iletme bildirimleri göndermek için kullanımı kolay, çok platformlu, ölçeklenebilir bir altyapı sağlar. Hizmet altyapısı hakkında daha fazla bilgi için bkz: [Azure Notification hubs'ı](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) sayfası.
+Azure Notification Hubs, mobil cihazlara anında iletme bildirimleri göndermek için kullanımı kolay, çok platformlu, ölçeklenebilir bir altyapı sağlar. Hizmet altyapısı hakkında daha fazla bilgi için bkz: [Azure Notification hubs'ı](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) sayfası.
 
 ## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 Bu öğreticide ilk adım, yeni ve boş bir Node.js uygulaması oluşturmaktır. Bir Node.js uygulaması oluşturma ile ilgili yönergeler için bkz: [oluşturun ve bir Node.js uygulamasını Azure Web sitesini dağıtma][nodejswebsite], [Node.js bulut hizmeti] [ Node.js Cloud Service] Windows PowerShell kullanarak veya [WebMatrix ile Web sitesi][webmatrix].
@@ -141,11 +141,11 @@ Aşağıdaki kod **ApnsService** örneği tarafından açığa çıkarılan **No
 * **Etiketleri** -etiket tanımlayıcısı. Hiçbir etiket sağlanırsa, tüm istemciler için bildirim gönderilir.
 * **Yükü** -ileti XML yükü.
 * **TargetName**  -  `toast` kutlama bildirimleri için. `token` kutucuk bildirimleri için.
-* **NotificationClass** -bildirim önceliğini. Bkz: **HTTP üstbilgi öğelerini** bölümünü [anında iletme bildirimleri bir sunucudan](http://msdn.microsoft.com/library/hh221551.aspx) belge için geçerli değerler.
+* **NotificationClass** -bildirim önceliğini. Bkz: **HTTP üstbilgi öğelerini** bölümünü [anında iletme bildirimleri bir sunucudan](https://msdn.microsoft.com/library/hh221551.aspx) belge için geçerli değerler.
 * **Seçenekleri** : isteğe bağlı istek üst.
 * **Geri çağırma** -geri çağırma işlevi.
 
-Geçerli bir listesi için **TargetName**, **NotificationClass** ve üst bilgi seçeneklerini kullanıma [anında iletme bildirimleri bir sunucudan](http://msdn.microsoft.com/library/hh221551.aspx) sayfası.
+Geçerli bir listesi için **TargetName**, **NotificationClass** ve üst bilgi seçeneklerini kullanıma [anında iletme bildirimleri bir sunucudan](https://msdn.microsoft.com/library/hh221551.aspx) sayfası.
 
 Aşağıdaki örnek kod kullandığı **MpnsService** örneği tarafından açığa çıkarılan **NotificationHubService** bir anında iletme bildirimi göndermek için:
 
@@ -165,7 +165,7 @@ Aşağıdaki örnek kod kullandığı **MpnsService** örneği tarafından açı
 * **Seçenekleri** : isteğe bağlı istek üst.
 * **Geri çağırma** -geri çağırma işlevi.
 
-Geçerli türler ve istek üstbilgileri listesi için bkz: [anında iletme bildirimi hizmeti istek ve yanıt üstbilgileri](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Geçerli türler ve istek üstbilgileri listesi için bkz: [anında iletme bildirimi hizmeti istek ve yanıt üstbilgileri](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 Aşağıdaki kod **WnsService** örneği tarafından açığa çıkarılan **NotificationHubService** bir UWP uygulamasına bir anında iletme bildirimi göndermek için:
 

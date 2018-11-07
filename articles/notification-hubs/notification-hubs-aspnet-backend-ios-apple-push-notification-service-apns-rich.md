@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8aad769da4d1c831dc0222c39daf86801a4f850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232521"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244296"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs zengin gönderme
 ## <a name="overview"></a>Genel Bakış
@@ -94,7 +94,7 @@ Yüksek düzeyde:
         }
    
    > [!NOTE]
-   > (isteğe bağlı) Başvurmak [ekleme ve görsel kullanarak kaynaklara nasıl C# ](http://support.microsoft.com/kb/319292) ekleyin ve proje kaynaklarını edinme hakkında daha fazla bilgi için.
+   > (isteğe bağlı) Başvurmak [ekleme ve görsel kullanarak kaynaklara nasıl C# ](https://support.microsoft.com/kb/319292) ekleyin ve proje kaynaklarını edinme hakkında daha fazla bilgi için.
    > 
    > 
 7. İçinde **NotificationsController.cs**, bulunabileceğini **NotificationsController** aşağıdaki kod parçacıkları ile. Bu ilk sessiz zengin bildirim kimliği cihaza gönderir ve istemci tarafı görüntüsü alınmasını sağlar:

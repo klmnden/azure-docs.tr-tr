@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385643"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235199"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
@@ -56,7 +56,7 @@ Sertifikalar, anahtar kasası sertifikası olarak birbirine bağlı üç birbiri
         -   Sağlayıcı  
         -   Kimlik bilgileri – CA hesabı kimlik bilgileri. Her CA'ın kendi belirli veri vardır.  
 
-     CA sağlayıcılarıyla hesapları oluşturma hakkında daha fazla bilgi için ilgili gönderiye bakın [Key Vault blog](http://aka.ms/kvcertsblog).  
+     CA sağlayıcılarıyla hesapları oluşturma hakkında daha fazla bilgi için ilgili gönderiye bakın [Key Vault blog](https://aka.ms/kvcertsblog).  
 
 **Adım 3.1** - ayarlayın [sertifika kişileri](/rest/api/keyvault/setcertificatecontacts) bildirimleri. Key Vault kullanıcı sorumlu budur. Key Vault, bu adımı uygulamaz.  
 
