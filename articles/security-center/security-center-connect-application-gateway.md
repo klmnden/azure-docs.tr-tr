@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5638b71147592ae71c741ca86da68ddfec668af5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: acb010b0169fd876bf540f7a4115dbabfeda923a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299075"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227204"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Azure Güvenlik Merkezi Microsoft Azure uygulama ağ geçidine bağlanma
 Bu belge, Güvenlik Merkezi ile Application Gateway web uygulaması Güvenlik Duvarı (WAF) ile tümleştirmeyi yapılandırmak için yardımcı olur.
@@ -61,4 +61,4 @@ Bu makalede, Güvenlik Merkezi'nde Application Gateway WAF tümleştirmeyi öğr
 * [Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md).
 * [Güvenlik Merkezi’yle iş ortağı çözümlerini izleme](security-center-partner-solutions.md).
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md).
-* [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/).
+* [Azure Güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/).

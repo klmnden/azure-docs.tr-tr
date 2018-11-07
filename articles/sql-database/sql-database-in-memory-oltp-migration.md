@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8c683e86cd78f4c4ebe7a537c469c875b8ca07fe
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159848"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228054"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>SQL veritabanı'nda, uygulama performansını artırmak için kullanım bellek içi OLTP
 [Bellek içi OLTP](sql-database-in-memory.md) içinde geçici veri senaryoları, işlem ve veri alımı performansını geliştirmek için kullanılan [Premium ve iş açısından kritik katmanında](sql-database-service-tiers-vcore.md) fiyatlandırma katmanını artırma olmadan veritabanları. 
@@ -47,7 +47,7 @@ SSMS'de, raporu oluşturmak için şunu yazın:
 * İçinde **Nesne Gezgini**, veritabanı düğümü.
 * Tıklayın **raporları** > **standart raporlar** > **işlem Performans Analizi genel bakış**.
 
-Daha fazla bilgi için [belirleme bir tablo veya saklı yordam gereken olması Unity'nin bellek içi OLTP için](http://msdn.microsoft.com/library/dn205133.aspx).
+Daha fazla bilgi için [belirleme bir tablo veya saklı yordam gereken olması Unity'nin bellek içi OLTP için](https://msdn.microsoft.com/library/dn205133.aspx).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>3. adım: bir karşılaştırılabilir test veritabanı oluşturma
 Veritabanı bellek için iyileştirilmiş bir tabloya dönüştürülür avantaj elde edecektir tablolu raporu gösterir varsayalım. İlk test ederek göstergesi onaylamak için test etmenizi öneririz.
@@ -80,9 +80,9 @@ Bu geçiş seçeneği kullanmak için:
    * **Tablo bellek iyileştirici Advisor** Sihirbazı görüntülenir.
 3. Sihirbazı'nda tıklatın **geçiş doğrulama** (veya **sonraki** düğmesi) tablosu bellek için iyileştirilmiş tablolarda desteklenmeyen desteklenmeyen özellikler olup olmadığını belirlemek için. Daha fazla bilgi için bkz.
    
-   * *Bellek iyileştirme denetim* içinde [bellek iyileştirme Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
-   * [Bellek içi OLTP tarafından desteklenmeyen transact-SQL yapıları](http://msdn.microsoft.com/library/dn246937.aspx).
-   * [Bellek içi OLTP geçirme](http://msdn.microsoft.com/library/dn247639.aspx).
+   * *Bellek iyileştirme denetim* içinde [bellek iyileştirme Advisor](https://msdn.microsoft.com/library/dn284308.aspx).
+   * [Bellek içi OLTP tarafından desteklenmeyen transact-SQL yapıları](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Bellek içi OLTP geçirme](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Tabloda hiç desteklenmeyen özellikler varsa, advisor gerçek şema ve veri geçişi sizin için gerçekleştirebilirsiniz.
 
 #### <a name="manual-t-sql"></a>El ile T-SQL
@@ -114,7 +114,7 @@ Yerel koda derlenmiş bir saklı yordam, aşağıdaki seçenekler, T-SQL WITH ya
 * NATIVE_COMPILATION
 * SCHEMABINDING: anlamı tablolar saklı yordamı saklı yordamı bırak sürece saklı yordamı etkileyecek herhangi bir yolla değiştirilen sütun tanımlarını sahip olamaz.
 
-Yerel bir modül bir büyük kullanmanız gerekir [ATOMİK bloklar](http://msdn.microsoft.com/library/dn452281.aspx) işlem yönetimi için. Herhangi bir rol veya geri alma işlemi için açık bir BEGIN TRANSACTION yok. Kodunuzu bir iş kuralı ihlal algılarsa, atomik blok ile sonlandırabilirsiniz bir [THROW](http://msdn.microsoft.com/library/ee677615.aspx) deyimi.
+Yerel bir modül bir büyük kullanmanız gerekir [ATOMİK bloklar](https://msdn.microsoft.com/library/dn452281.aspx) işlem yönetimi için. Herhangi bir rol veya geri alma işlemi için açık bir BEGIN TRANSACTION yok. Kodunuzu bir iş kuralı ihlal algılarsa, atomik blok ile sonlandırabilirsiniz bir [THROW](https://msdn.microsoft.com/library/ee677615.aspx) deyimi.
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>Tipik oluşturma yordamı için doğal olarak derlenen
 Genellikle aşağıdaki şablonu için yerel koda derlenmiş bir saklı yordam oluşturmak için T-SQL benzer:
@@ -145,7 +145,7 @@ Geçiş adımları şunlardır:
 2. Kendi üst bilgisi önceki şablon eşleşecek şekilde yeniden yazın.
 3. T-SQL kodunu saklı yordamı yerel koda derlenmiş saklı yordamlar için desteklenmeyen özellikleri kullanıp kullanmadığını belirlemek. Geçici Çözümler gerekirse uygulayın.
    
-   * Ayrıntılar için bkz. [geçiş sorunları için yerel olarak depolanan yordamları derlenmiş](http://msdn.microsoft.com/library/dn296678.aspx).
+   * Ayrıntılar için bkz. [geçiş sorunları için yerel olarak depolanan yordamları derlenmiş](https://msdn.microsoft.com/library/dn296678.aspx).
 4. Eski bir saklı yordam sp_rename seçeneğini kullanarak yeniden adlandırın. Veya yalnızca sürükleyip bırakın.
 5. Düzenlenen oluşturma yordamı T-SQL betiğinizi çalıştırmak.
 
@@ -168,7 +168,7 @@ Ağ gecikmesini en aza indirmek için veritabanının mevcut olduğu aynı Azure
 * [Dinamik yönetim görünümlerini kullanarak Azure SQL Database’i izleme](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>İlgili bağlantılar
-* [Bellek içi OLTP (bellek içi iyileştirme)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [Yerel koda derlenmiş saklı yordamlar giriş](http://msdn.microsoft.com/library/dn133184.aspx)
-* [Belleği en iyi duruma getirme Danışmanı](http://msdn.microsoft.com/library/dn284308.aspx)
+* [Bellek içi OLTP (bellek içi iyileştirme)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [Yerel koda derlenmiş saklı yordamlar giriş](https://msdn.microsoft.com/library/dn133184.aspx)
+* [Belleği en iyi duruma getirme Danışmanı](https://msdn.microsoft.com/library/dn284308.aspx)
 

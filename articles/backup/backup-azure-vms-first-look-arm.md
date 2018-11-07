@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: yedeklemeleri; VM yedeklemesi
-ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985904"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233550"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Azure sanal makinelerini kurtarma Hizmetleri kasasına yedekleme
 
@@ -324,8 +324,8 @@ Aşağıdaki tabloda, Windows ve Linux VM'ler için VM Aracısı ile ilgili ek b
 
 | **İşlem** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM Aracısı'nı yükleme |<li>[Aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. <li>Aracının yüklü olduğunu belirtmek üzere [VM özelliğini güncelleştirin](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx). |<li> En son [Linux aracısını](https://github.com/Azure/WALinuxAgent) GitHub'dan yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. <li> Aracının yüklü olduğunu belirtmek üzere [VM özelliğini güncelleştirin](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx). |
-| VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili yönergeleri uygulayın. <br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
+| VM Aracısı'nı yükleme |<li>[Aracı MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. <li>Aracının yüklü olduğunu belirtmek üzere [VM özelliğini güncelleştirin](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx). |<li> En son [Linux aracısını](https://github.com/Azure/WALinuxAgent) GitHub'dan yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. <li> Aracının yüklü olduğunu belirtmek üzere [VM özelliğini güncelleştirin](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx). |
+| VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili yönergeleri uygulayın. <br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
 | VM Aracısı yüklemesini doğrulama |<li>Azure VM'de *C:\WindowsAzure\Packages* klasörüne gidin. <li>Mevcut WaAppAgent.exe dosyasını bulmanız gerekir.<li> Dosyaya sağ tıklayın, **Özellikler**'e gidin ve ardından **Ayrıntılar** sekmesini seçin. Ürün Sürümü alanı 2.6.1198.718 veya üzeri olmalıdır. |Yok |
 
 ### <a name="backup-extension"></a>Backup uzantısı
@@ -340,4 +340,4 @@ Bu makaledeki bazı görevleri yerine getirirken sorun yaşıyorsanız lütfen [
 Azure VM'lerin yedeklenmesi maliyeti, korumalı örneklerinin sayısını temel alır. Korumalı bir örneğin tanımı için, bkz: [Korumalı örnek nedir](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Bir sanal makineyi yedeklemenin maliyetini hesaplamaya ilişkin bir örnek için, bkz: [Korumalı örnekler nasıl hesaplanır](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). [Yedekleme Fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/) hakkında bilgi için Azure Backup Fiyatlandırma sayfasına bakın.
 
 ## <a name="questions"></a>Sorularınız mı var?
-Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
+Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](https://aka.ms/azurebackup_feedback).

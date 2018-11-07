@@ -1,6 +1,6 @@
 ---
 title: Video oynatıcı uygulamaları geliştirme
-description: Konu oynatıcı çerçevelerine ve Media Services akış medyadan tüketebileceği kendi istemci uygulamalarınızı geliştirmek için kullanabileceğiniz eklentileri bağlantılar sağlar.
+description: Konu, oynatıcı çerçeveleri ve Media Services akış medyadan kullanabilecek kendi istemci uygulamalarınızı geliştirmek için kullanabileceğiniz eklentileri için bağlantılar sağlar.
 author: Juliako
 manager: cfowler
 editor: ''
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 71d8b020fe96094c15965fd82615e3182e333990
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788693"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237052"
 ---
 # <a name="develop-video-player-applications"></a>Video oynatıcı uygulamaları geliştirme
 ## <a name="overview"></a>Genel Bakış
-Azure Media Services, şunlar dahil olmak üzere çoğu platform için zengin ve dinamik istemci oynatıcı uygulamaları oluştururken ihtiyacınız olan araçları sağlar: iOS Cihazları, Android Cihazları, Windows, Windows Phone, Xbox ve Alıcı kutuları. Bu konu aynı zamanda SDK'ları ve Azure Media Services akış medyadan tüketebileceği kendi istemci uygulamalarınızı geliştirmek için kullanabileceğiniz oynatıcı çerçevelerine bağlantılar sağlar.
+Azure Media Services, şunlar dahil olmak üzere çoğu platform için zengin ve dinamik istemci oynatıcı uygulamaları oluştururken ihtiyacınız olan araçları sağlar: iOS Cihazları, Android Cihazları, Windows, Windows Phone, Xbox ve Alıcı kutuları. Bu konuda ayrıca SDK'lar ve oynatıcı çerçeveleri, Azure Media Services akış medyadan kullanabilecek kendi istemci uygulamalarınızı geliştirmek için kullanabileceğiniz bağlantılar sağlar.
 
 >[!NOTE]
 >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
  
 ## <a name="azure-media-player"></a>Azure Media Player
-[Azure Media Player](http://aka.ms/ampinfo) olan medya içeriği çok çeşitli tarayıcılar ve cihazlar üzerinde Microsoft Azure Media Services'den çalmak için yerleşik bir web video oynatıcı. Azure Media Player, HTML5, medya kaynağı Uzantıları (MSE) ve şifrelenmiş medya Uzantıları (EME) bir zenginleştirilmiş Uyarlamalı akış deneyim sağlamak üzere gibi endüstri standartları kullanır. Bu standartlar bir aygıt veya bir tarayıcıda kullanılabilir olmadığında, Azure Media Player, Flash ve Silverlight temel teknoloji olarak kullanır. Kullanılan kayıttan yürütme teknolojiye bakılmaksızın, geliştiricilerin API'lere erişim için birleşik bir JavaScript arabirim sahip olur. Bu Azure Media Services tarafından sunulan içeriğin geniş aralık cihazların ve herhangi bir ek çaba olmayan tarayıcılar arasında çalınacak sağlar.
+[Azure Media Player](https://aka.ms/ampinfo) olan medya içeriği çok çeşitli tarayıcılar ve cihazlar üzerinde Microsoft Azure Media Services'den kayıttan yürütmek için yerleşik bir web video oynatıcı. Azure Media Player, zenginleştirilmiş bir Uyarlamalı akış deneyimi sağlamak için HTML5, medya kaynağı Uzantıları (MSE) ve şifreli medya Uzantıları (EME) gibi endüstri standartlarından yararlanır. Bu standartlar, bir cihazda veya tarayıcıda mevcut olmadığı durumlarda, Azure Media Player, Flash ve Silverlight'a geri dönüş teknolojisi olarak kullanır. Kullanılan oynatma teknolojisinden bağımsız olarak geliştiriciler, API'lere birleştirilmiş bir JavaScript arabirimi gerekir. Bu Azure Media Services tarafından sunulan içerik için geniş aralığında cihazlar ve tarayıcılar herhangi ek bir çaba olmadan, yürütülecek sağlar.
 
-Microsoft Azure Media Services DASH, kesintisiz akış ve HLS akış biçimlerine ile sunulacak içerik için içerik yürütürken sağlar. Azure Media Player bu çeşitli biçimler dikkate alır ve platform/tarayıcı yetenekleri göre en iyi bağlantıyı otomatik olarak yürütülür. Microsoft Azure Media Services da dinamik varlıklar şifrelemeyle PlayReady şifreleme sağlar veya Zarf şifreleme AES-128 bit. PlayReady şifre çözme için Azure Media Player verir ve uygun şekilde yapılandırıldığında şifrelenmiş içerik AES-128 bit. 
+İçerik yürütürken içerik DASH, kesintisiz akış ve HLS akış biçimlerinde sunulacak için Microsoft Azure Media Services sağlar. Azure Media Player, aşağıdaki biçimlerde hesaba katar ve platformuna/tarayıcı özelliklerine en iyi bağlantıyı otomatik olarak yürütülür. Microsoft Azure Media Services PlayReady şifrelemesi ile varlıkları dinamik şifreleme için de sağlar. veya Zarf şifreleme AES-128 bit. Azure Media Player PlayReady şifre çözme için izin verir ve uygun şekilde yapılandırıldığında şifrelenmiş içerik AES 128 bit. 
 
 Daha fazla bilgi için:
 
-* [Azure Media Player](http://aka.ms/ampinfo)
-* [Azure Media Player belgeleri](http://aka.ms/ampdocs) 
-* [Blog azure Media Player alma başlatıldı](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
-* [Azure Media Player en son bilgilerle güncel kalmak kaydolun](http://aka.ms/ampsignup)
-* [Yeni özellik istekleri, fikirleri, geri bildirim ekleme](http://aka.ms/ampuservoice) 
+* [Azure Media Player](https://aka.ms/ampinfo)
+* [Azure Media Player belgeleri](https://aka.ms/ampdocs) 
+* [Azure Media Player alma Blog başlatıldı](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
+* [En son Azure Media Player ile güncel kalmak kaydolun](https://aka.ms/ampsignup)
+* [Yeni özellik talebi, fikirleri, geri bildirim Ekle](https://aka.ms/ampuservoice) 
 
-## <a name="other-tools-for-creating-player-applications"></a>Oynatıcı uygulamaları oluşturmak için diğer araçları
+## <a name="other-tools-for-creating-player-applications"></a>Oynatıcı uygulamaları oluşturmaya yönelik diğer araçlar
 Aşağıdaki Sdk'lardan birini kullanabilirsiniz:
 
 * [Kesintisiz akış istemci SDK'sı](http://www.iis.net/downloads/microsoft/smooth-streaming) 
-* [Kesintisiz akış Windows mağazası uygulaması](media-services-build-smooth-streaming-apps.md)
-* [Microsoft ortam platformu: Player Framework](http://playerframework.codeplex.com/) 
-* [HTML5 Oynatıcısının Framework belgelerine bakın](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-* [Microsoft için OSMF eklentisi akış kesintisiz](https://www.microsoft.com/download/details.aspx?id=36057) 
-* [Kit taşıma lisanslama Microsoft® kesintisiz akış istemcisi](http://aka.ms/sspk) 
-* [XBOX Video uygulama geliştirme](http://xbox.create.msdn.com/) 
+* [Kesintisiz akış Windows Store uygulaması](media-services-build-smooth-streaming-apps.md)
+* [Microsoft Media platformu: Player çerçevesi](http://playerframework.codeplex.com/) 
+* [HTML5 Player Framework belgeleri](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Microsoft eklentisi akış OSMF için kesintisiz](https://www.microsoft.com/download/details.aspx?id=36057) 
+* [Lisans Microsoft® kesintisiz akış istemci taşıma kitini](https://aka.ms/sspk) 
+* [XBOX Video uygulaması geliştirme](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Reklam
-Azure Media Services, Windows ortam platformu aracılığıyla ad ekleme için destek sağlar: oynatıcı çerçevelerine. Ad desteğiyle oynatıcı çerçevelerine Windows 8, Silverlight, Windows Phone 8 ve iOS cihazları için kullanılabilir. Her player framework oynatıcı uygulaması uygulamak nasıl oluşturulduğunu gösteren örnek kodunu içerir. Medyanızı ekleyebilirsiniz ads üç farklı türde bulunmaktadır:
+Azure Media Services, Windows Media platformu aracılığıyla reklam ekleme için destek sağlar: oynatıcı çerçeveleri. Ad desteğiyle oynatıcı çerçeveleri, Windows 8, Silverlight, Windows Phone 8 ve iOS cihazlar için kullanılabilir. Her player çerçevesi player uygulamasının nasıl uygulanacağını gösteren örnek kodunu içerir. Medyanızı ekleyebileceğiniz reklam üç farklı tür vardır:
 
-Doğrusal – ana videoyu duraklatmak tam çerçeve ads
+Doğrusal – ana videoyu Duraklat tam çerçeve reklamları
 
-Doğrusal – ana video yürütme gibi görüntülenen katmana reklam, genellikle bir logo veya player içinde yerleştirilen diğer statik görüntü
+Doğrusal – ana videoyu oynatmaya olarak görüntülenen katmana reklam, genellikle bir logo veya player içinde yerleştirilen diğer statik görüntü
 
-Yardımcı – dışında player görüntülenen reklamları
+Yardımcısı – dışında player görüntülenen reklamları
 
-Reklam ana videonun Zaman Çizelgesi herhangi bir noktada yerleştirilebilir. Ad yürütmek ne zaman ve hangi ads yürütmek için player bildirmeniz gerekir. Bu yapılır bir dizi standart XML tabanlı dosyaları kullanılarak: Video Ad Hizmeti şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya soyut sıralama şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID). BÜYÜK dosyaları görüntülemek için hangi ads belirtin. VMAP dosyaları çeşitli reklam oynatın ve büyük XML içeren zamanı belirtin. A dosyaları da büyük XML içerebilen dizisi reklam için başka bir yoludur. VPAID dosyaları video oynatıcı ve ad veya ad sunucusu arasında bir arabirim tanımlar. Daha fazla bilgi için bkz: [ekleme Ads](https://msdn.microsoft.com/library/dn387398.aspx).
+Reklam ana video zaman çizelgesi içinde herhangi bir noktada yerleştirilebilir. Ad yürütmek ne zaman ve hangi reklam yürütmek için player söylemeniz gerekir. Bu işlemi standart XML tabanlı dosyalar kümesi kullanılarak: Video Ad hizmet şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya soyut sıralaması şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID). BÜYÜK dosyaları görüntülemek için hangi reklam belirtin. VMAP dosyaları çeşitli reklam yürütmek ve geniş XML içeren ne zaman belirtin. A dosyaları büyük XML de içerebilen dizisi reklam için başka bir yoludur. VPAID dosyaları, video oynatıcı ad veya ad sunucusu arasında bir arabirim tanımlar. Daha fazla bilgi için [reklam ekleme](https://msdn.microsoft.com/library/dn387398.aspx).
 
-Kapalı açıklamalı alt yazı ve canlı akış videoları ads desteği hakkında daha fazla bilgi için bkz: [desteklenen alanında Kapalı açıklamalı alt yazı ve Ad ekleme standartları](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
+Kapalı Açıklamalı Altyazı ve canlı akış video de reklam desteği hakkında daha fazla bilgi için bkz: [desteklenen Kapalı Açıklamalı Altyazı ve Ad ekleme standartları](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

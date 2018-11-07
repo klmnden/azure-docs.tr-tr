@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239857"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps portalında nedir?
 
@@ -70,7 +70,7 @@ MyApps portal uzantısı şu anda kullanılabilir:
 - **26,0 veya üzeri Firefox**: Windows XP SP2 veya sonraki sürümlerde ve Mac OS X 10.6 veya daha sonra.
 - **Internet Explorer 11**: Windows 7 veya üzeri (sınırlı destek).
 
-## <a name="my-apps-secure-sign-in-extension"></a>Uygulamalarım güvenli oturum açma uzantısı
+## <a name="my-apps-secure-sign-in-extension"></a>My Apps Güvenli Oturum Açma Uzantısı
 Parola tabanlı çoklu oturum açma için oturum açmak için uzantı kullanmanız gerekir. Uzantıyı yükledikten sonra ona ek özellikleri seçerek etkinleştirmek üzere oturum açabilmesi **kullanmaya başlamak oturum**. 
 
 - Uygulamanın doğrudan kullanarak bir uygulamaya oturum açabilir **oturum açma URL'si**. Uygulamanın URL'si kullandığınızda, uzantı işlemleri algılar ve uzantı oturum açma seçeneği sunar.
@@ -137,7 +137,7 @@ Azure Yöneticisi olduğunuz ve Azure portalında dizinde bir hesap kullanarak o
 Test bir *farklı* kullanıcı hesabı, aşağıdakileri yapın:
 
 1. Sağ üst köşesinde Azure portalında veya MyApps sırasında seçin **oturum kapatma**. 
-2. Git [MyApps portalında](http://myapps.microsoft.com).
+2. Git [MyApps portalında](https://myapps.microsoft.com).
 3. Oturum açma sayfasında, dizininizde test etmek istediğiniz kullanıcı adını ve parolasını yazın.
 
 

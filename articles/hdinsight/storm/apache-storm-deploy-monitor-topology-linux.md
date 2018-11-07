@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: f01b55cefab98cdcd4711a7ccb7c1b1f4c2993ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009479"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259063"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 
@@ -38,7 +38,7 @@ Bu belgede, yönetmeye ve izlemeye üzerinde Storm, HDInsight kümelerinde çal�
 
   * Visual Studio 2012 güncelleştirme 4
 
-  * Güncelleştirme 4 ile Visual Studio 2013 veya [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Güncelleştirme 4 ile Visual Studio 2013 veya [Visual Studio 2013 Community](https://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (herhangi bir sürümü)

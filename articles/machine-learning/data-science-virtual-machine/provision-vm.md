@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298218"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240894"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makinesi sağlama
 Microsoft Veri bilimi sanal makinesi (DSVM), bir Windows Azure sanal makine (VM) görüntüsüdür. Bu önceden yüklenmiş ve veri analizi ve makine öğrenimi için kullanılan çeşitli araçlar ile yapılandırılmış. Aşağıdaki araçları dahil edilir:
@@ -186,7 +186,7 @@ Sunucu Yöneticisi oturum açtıktan sonra veritabanı içi analiz SQL Machine L
 * **Microsoft Azure PowerShell** PowerShell komut dosyası dili Azure kaynaklarınızı yönetmek için kullanılan bir araçtır. Ayrıca, sanal makinenizde de yüklenir. 
 
 ### <a name="power-bi"></a>Power BI
-**Power BI Desktop** panolar ve görselleştirmeler oluşturmanıza yardımcı olmak için yüklenir. Bu aracı panolarınızı ve raporlarınızı yazmak ve bunları buluta yayımlama için farklı kaynaklardan veri çekmek için kullanın. Daha fazla bilgi için [Power BI](http://powerbi.microsoft.com) site. Power BI desktop bulabilirsiniz **Başlat** menüsü. 
+**Power BI Desktop** panolar ve görselleştirmeler oluşturmanıza yardımcı olmak için yüklenir. Bu aracı panolarınızı ve raporlarınızı yazmak ve bunları buluta yayımlama için farklı kaynaklardan veri çekmek için kullanın. Daha fazla bilgi için [Power BI](https://powerbi.microsoft.com) site. Power BI desktop bulabilirsiniz **Başlat** menüsü. 
 
 > [!NOTE]
 > Power BI hizmetine erişmek için bir Microsoft Office 365 hesabınız olması. 
@@ -228,7 +228,7 @@ Workbench, her bir kullanıcı, tek seferlik bir eylem gerçekleştirmeniz gerek
 * Veri bilimi VM'si seçerek keşfedin **Başlat** menüsü.
 * Ürün ziyaret ederek Azure Machine Learning Hizmetleri ve Workbench hakkında bilgi [hızlı başlangıç ve öğreticilerle sayfa](../service/index.yml). 
 * Gidin **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** r ile veri analizi Kurumsal ölçekte destekleyen RevoScaleR kitaplığı kullanma örnekleri için.  
-* Makaleyi okuyun [veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem](http://aka.ms/dsvmtenthings).
+* Makaleyi okuyun [veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem](https://aka.ms/dsvmtenthings).
 * Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](../team-data-science-process/index.yml).
 * Ziyaret [Azure AI Gallery](http://gallery.cortanaintelligence.com) Azure'da Azure Machine Learning ve ilgili verileri kullanan makine öğrenimi ve veri analizi için örnekleri Hizmetleri. Ayrıca bir simge için Bu galeri üzerinde sağladık **Başlat** menüsünde ve masaüstünde sanal makinenin.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386697"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242034"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux üzerinde AzCopy ile veri aktarma
 
@@ -357,7 +357,7 @@ azcopy \
     --dest-key <key>
 ```
 
---Eşitleme kopyalama seçeneği olmadan bir blob kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
+--Eşitleme kopyalama seçeneği olmadan bir blob kopyalarken bir [sunucu tarafı kopyalama](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
 ### <a name="copy-single-blob-across-storage-accounts"></a>Tek bir blob depolama hesabı arasında kopyalayın
 
@@ -369,7 +369,7 @@ azcopy \
     --dest-key <key2>
 ```
 
---Eşitleme kopyalama seçeneği olmadan bir blob kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
+--Eşitleme kopyalama seçeneği olmadan bir blob kopyalarken bir [sunucu tarafı kopyalama](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
 ### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Tek bir blob ikincil bölgesinden birincil bölgeye kopyalayın.
 
@@ -488,7 +488,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Dosya paylaşımları arasında dosya kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
+Dosya paylaşımları arasında dosya kopyalarken bir [sunucu tarafı kopyalama](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
 ### <a name="copy-from-file-share-to-blob"></a>BLOB, dosya paylaşımından kopyalayın
 
@@ -500,7 +500,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Bir dosyayı blob için dosya paylaşımından kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
+Bir dosyayı blob için dosya paylaşımından kopyalarken bir [sunucu tarafı kopyalama](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
 ### <a name="copy-from-blob-to-file-share"></a>BLOB'dan dosya paylaşımına kopyalayın.
 
@@ -512,7 +512,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-BLOB'dan dosya paylaşımı için bir dosya kopyaladığınızda, bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
+BLOB'dan dosya paylaşımı için bir dosya kopyaladığınızda, bir [sunucu tarafı kopyalama](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
 ### <a name="synchronously-copy-files"></a>Dosyaları eşzamanlı olarak Kopyala
 Belirtebileceğiniz `--sync-copy` veri dosya depolama'yı dosya depolama, Blob depolamaya dosya depolama ve Blob depolama biriminden dosya depolama için zaman uyumlu olarak kopyalamak için seçenek. AzCopy, bu işlem yerel bellek için kaynak verileri indirip hedefe karşıya yükleme çalıştırır. Bu durumda, standart çıkış ücreti uygulanır.
@@ -715,10 +715,10 @@ Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklar
 ### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderilerini:
 * [AzCopy üzerinde Linux Önizleme Duyurusu](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Azure depolama veri taşıma kitaplığı Önizleme Tanıtımı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: zaman uyumlu kopya ve özelleştirilmiş içerik türü ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 yanı sıra tablo ve dosya desteği Önizleme sürümü AzCopy 4.0, Duyurusu](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Büyük ölçekli kopyalama senaryoları için iyileştirilmiş](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Okuma erişimli coğrafi olarak yedekli depolama desteği](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: hesap arası kopyalama Blob kullanma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Azure BLOB'ları karşıya yükleme/indirme dosyaları](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: zaman uyumlu kopya ve özelleştirilmiş içerik türü ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 yanı sıra tablo ve dosya desteği Önizleme sürümü AzCopy 4.0, Duyurusu](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Büyük ölçekli kopyalama senaryoları için iyileştirilmiş](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Okuma erişimli coğrafi olarak yedekli depolama desteği](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: hesap arası kopyalama Blob kullanma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Azure BLOB'ları karşıya yükleme/indirme dosyaları](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

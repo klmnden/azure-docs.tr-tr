@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e339d50a379015d7aebe19b25127e9804d8efc52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044824"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237256"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
 Azure bulut hizmeti oluşturma zaman, bir alt etki alanı için atar **cloudapp.net**. Bulut hizmetinizin "contoso" ise, örneğin, kullanıcılarınız gibi bir URL uygulamanıza erişmek mümkün olacaktır http://contoso.cloudapp.net. Azure Ayrıca, sanal bir IP adresi atar.
@@ -36,7 +36,7 @@ CNAME ve A kayıtları ne olduğunu zaten biliyor musunuz? [Açıklama son atlam
 <p/>
 
 > [!TIP]
-> Daha hızlı bir şekilde--başlayın yeni Azure kullanın [adım adım destekli çözüm](http://support.microsoft.com/kb/2990804)!  Özel etki alanı adı (SSL) ve güvenliğini sağlama iletişim ilişkilendirme Azure Cloud Services veya Azure Web siteleri bir ek kolaylaştırır.
+> Daha hızlı bir şekilde--başlayın yeni Azure kullanın [adım adım destekli çözüm](https://support.microsoft.com/kb/2990804)!  Özel etki alanı adı (SSL) ve güvenliğini sağlama iletişim ilişkilendirme Azure Cloud Services veya Azure Web siteleri bir ek kolaylaştırır.
 > 
 > 
 

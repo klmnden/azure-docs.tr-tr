@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 90d810916599db50249a3e2ec677046c5af42a09
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005858"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238191"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Bulut hizmeti modeli ve nasıl paketi nedir?
 Bir bulut hizmeti, üç bileşenlerini hizmet tanımı oluşturulur *(.csdef)*, hizmet yapılandırma *(.cscfg)* ve bir hizmet paketi *(.cspkg)*. Her iki **ServiceDefinition.csdef** ve **ServiceConfig.cscfg** dosyaları XML tabanlı ve topluca model adlı bulut hizmeti ve nasıl yapılandırıldığını; yapısını açıklar. **ServicePackage.cspkg** oluşturulduğu bir zip dosyası **ServiceDefinition.csdef** ve diğerlerinin yanı sıra ikili tabanlı tüm gerekli bağımlılıkları içerir. Azure hem de bulut hizmeti oluşturur **ServicePackage.cspkg** ve **ServiceConfig.cscfg**.
@@ -144,7 +144,7 @@ Hizmet yapılandırma dosyası uygulama ile birlikte paketlenmiştir değil, anc
 Başvurabilirsiniz [hizmet yapılandırma şeması](https://msdn.microsoft.com/library/azure/ee758710.aspx) burada kullanılan XML şemasını anlama daha iyi, ancak öğeleri hızlı bir açıklaması aşağıda verilmiştir:
 
 **Örnekleri**  
-Çalışan rolü örneklerinin sayısını yapılandırır. Bulut hizmetinizin potansiyel olarak yükseltmeler sırasında kullanılamaz hale gelmesini önlemek için web'e yönelik rollerinizin birden fazla örneğini dağıtmanız önerilir. Birden fazla örneğine dağıtarak, yönergeleri için karşıladığınızdan [Azure işlem hizmet düzeyi sözleşmesi (SLA)](http://azure.microsoft.com/support/legal/sla/), Internet'e yönelik rolleri, iki için % 99,95 harici bağlantı garanti eder veya daha fazla rol örnekleri bir hizmet için dağıtıldı.
+Çalışan rolü örneklerinin sayısını yapılandırır. Bulut hizmetinizin potansiyel olarak yükseltmeler sırasında kullanılamaz hale gelmesini önlemek için web'e yönelik rollerinizin birden fazla örneğini dağıtmanız önerilir. Birden fazla örneğine dağıtarak, yönergeleri için karşıladığınızdan [Azure işlem hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/), Internet'e yönelik rolleri, iki için % 99,95 harici bağlantı garanti eder veya daha fazla rol örnekleri bir hizmet için dağıtıldı.
 
 **ConfigurationSettings**  
 Bir rolün çalışan örneklerini ayarlarını yapılandırır. Adını `<Setting>` öğeleri Hizmet tanım dosyası ayarı tanımlarının eşleşmesi gerekir.

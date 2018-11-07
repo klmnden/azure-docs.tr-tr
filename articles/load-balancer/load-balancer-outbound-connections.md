@@ -4,9 +4,6 @@ description: Bu makalede, Azure VM'ler, ortak Internet Hizmetleri ile iletişim 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-editor: ''
-ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 1d851b60909d548a0735e3827cdfc7746fd8121d
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249137"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219724"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -45,7 +42,7 @@ Azure Load Balancer ve ilgili kaynakları açıkça tanımlanmış kullanırken 
 | --- | --- | --- | --- |
 | [1. (İle veya olmadan bir yük dengeleyici) bir örnek düzeyinde ortak IP adresine sahip VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP VE ICMP, ESP | Azure, örneğin NIC IP yapılandırması için atanan genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. |
 | [2. Genel Load Balancer (örneğinde örnek düzeyinde ortak IP adresi yok) bir VM ile ilişkili](#lb) | Yük Dengeleyici ön uç bağlantı noktası (PAT) maskelemeyi ile SNAT kullanma | TCP, UDP |Azure genel IP adresi genel yük dengeleyici ön uçlar, birden çok özel IP adresi ile paylaşır. Azure, ön uçlar için PAT kısa ömürlü bağlantı noktaları kullanır. |
-| [3. Tek başına VM (yük dengeleyici, örnek düzeyinde ortak IP adresi yok)](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP, UDP | Azure otomatik olarak SNAT için genel bir IP adresi atar, bu genel IP adresi birden çok özel IP adresi kullanılabilirlik kümesinin ile paylaşır ve bu genel IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bu, önceki senaryolar için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu önermiyoruz. |
+| [3. Tek başına VM (yük dengeleyici, örnek düzeyinde ortak IP adresi yok)](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP, UDP | Azure otomatik olarak SNAT için genel bir IP adresi atar, bu genel IP adresi birden çok özel IP adresi kullanılabilirlik kümesinin ile paylaşır ve bu genel IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bir geri dönüş için yukarıdaki senaryoların senaryodur. Görünürlük ve denetim gerekiyorsa bunu önermiyoruz. |
 
 Azure'da genel IP adresi alanı dışında uç noktaları ile iletişim kurmak için bir VM istemiyorsanız, gerektiğinde erişimi engellemek için ağ güvenlik grupları (Nsg'ler) kullanabilirsiniz. Bölüm [giden bağlantıyı engelliyor](#preventoutbound) Nsg'ler daha ayrıntılı olarak ele alınmaktadır. Tasarım Kılavuzu, uygulama ve tüm giden erişimi olmayan bir sanal ağ yönetme, bu makalenin kapsamı dışında olan.
 
@@ -53,7 +50,7 @@ Azure'da genel IP adresi alanı dışında uç noktaları ile iletişim kurmak i
 
 Bu senaryoda, sanal makine bir örnek düzeyi genel IP (atanmış ILPIP) içeriyor. Giden bağlantılar endişe kadar VM veya yük dengeli olup önemi yoktur. Bu senaryo diğer önceliklidir. Bir ILPIP kullanıldığında, VM ILPIP tüm giden akışlar için kullanır.  
 
-Genel bir VM'ye atanan IP bir 1:1 ilişki (yerine 1:many) ve bir durum bilgisi olmayan 1:1 NAT uygulanan  Kendini gizleyen bağlantı noktası (PAT) kullanılmaz ve tüm kısa ömürlü bağlantı noktaları kullanılabilir sanal makine içeriyor.
+Bir VM'ye atanmış bir genel IP, 1:1 ilişki olduğunu (1 yerine: birçok) ve bir durum bilgisi olmayan 1:1 NAT uygulanan  Kendini gizleyen bağlantı noktası (PAT) kullanılmaz ve tüm kısa ömürlü bağlantı noktaları kullanılabilir sanal makine içeriyor.
 
 Uygulamanız çok sayıda giden akışlar başlatır ve SNAT bağlantı noktası tükenmesi deneyimi, atamayı göz önünde bulundurun bir [SNAT kısıtlamalarını azaltmak için ILPIP](#assignilpip). Gözden geçirme [yönetme SNAT tükenmesi](#snatexhaust) oluşmaz.
 
@@ -75,7 +72,7 @@ Temel yük dengeleyici giden bağlantı durumunu izlemek için kullanabileceğin
 
 ### <a name="defaultsnat"></a>Senaryo 3: Tek başına VM örnek düzeyinde ortak IP adresi olmadan
 
-Bu senaryoda, VM'ye bir genel yük dengeleyici havuzu (ve bir iç Load Balancer standart havuz parçası olmayan) bir parçası değil ve kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz. Bu genel IP adresi, size ait değilse ve ayrılmış olamaz. VM veya kullanılabilirlik kümesi veya VMSS dağıtmanız durumunda, bu genel IP adresi serbest bırakılacak ve yeni bir genel IP adresi isteniyor. Bu senaryo için IP adreslerini beyaz listeye ekleme özelliğini kullanmayın. Bunun yerine, diğer iki senaryolardan biri, burada açıkça giden senaryo ve giden bağlantı için kullanılacak genel IP adresi bildirdiğiniz kullanın.
+Bu senaryoda, VM'ye bir genel yük dengeleyici havuzu (ve bir iç Load Balancer standart havuz parçası olmayan) bir parçası değil ve kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz. Bu genel IP adresi, size ait değilse ve ayrılmış olamaz. VM veya kullanılabilirlik kümesi veya sanal makine ölçek kümesi dağıtmanız durumunda, bu genel IP adresi serbest bırakılacak ve yeni bir genel IP adresi isteniyor. Bu senaryo için IP adreslerini beyaz listeye ekleme özelliğini kullanmayın. Bunun yerine, diğer iki senaryolardan biri, burada açıkça giden senaryo ve giden bağlantı için kullanılacak genel IP adresi bildirdiğiniz kullanın.
 
 >[!IMPORTANT] 
 >Bu senaryo ayrıca olduğunda geçerlidir __yalnızca__ bir iç temel yük dengeleyici olarak eklenir. Senaryo 3 __kullanılamıyor__ iç bir Standard Load Balancer bir VM'ye bağlı olduğunda.  Açıkça oluşturmalısınız [Senaryo 1](#ilpip) veya [Senaryo 2](#lb) iç bir Standard Load Balancer'ı kullanmanın yanı sıra.
@@ -106,7 +103,7 @@ Bir ön uç IP adresi ile yeni bir Yük Dengeleme kuralı seçenek giden bağlan
       ]
 ```
 
-Normalde, bu seçenek, varsayılan olarak _false_ ve bu kural için arka uç havuzundaki Yük Dengeleme kuralını, ilişkili sanal makinelerin giden SNAT programları gösterir.  Bu şekilde değiştirilebilir _true_ Load Balancer, VM'nin giden bağlantılar için ilişkili ön uç IP adresini kullanmasını önlemek için bu Yük Dengeleme kuralı arka uç havuzunda kullanıcının.  Ve yine de açıklandığı gibi giden akışlar için belirli bir IP adresi atayabilirsiniz [birden fazla birleştirilmiş senaryoları](#combinations) de.
+Normalde, `disableOutboundSnat` seçeneği varsayılan olarak _false_ ve bu kural için arka uç havuzundaki Yük Dengeleme kuralını, ilişkili sanal makinelerin giden SNAT programları gösterir. `disableOutboundSnat` Değiştirilebilir _true_ Load Balancer, bu Yük Dengeleme kuralı, arka uç havuzundaki sanal makinelerin giden bağlantılar için ilişkili ön uç IP adresini kullanmasını önlemek için.  Ve yine de açıklandığı gibi giden akışlar için belirli bir IP adresi atayabilirsiniz [birden fazla birleştirilmiş senaryoları](#combinations) de.
 
 #### <a name="load-balancer-basic"></a>Yük Dengeleyici temel
 
@@ -187,7 +184,7 @@ SNAT bağlantı noktaları ayırmaları olan belirli IP Aktarım Protokolü (TCP
 
 ## <a name="problemsolving"></a> Sorun giderme 
 
-Bu bölümde SNAT tükenmesi ve azure'da giden bağlantıları ortaya çıkabilir diğer senaryolarının azaltmaya yardımcı olmak için tasarlanmıştır.
+Bu bölümde SNAT tükenmesi azaltmaya yardımcı olmak için tasarlanmıştır ve azure'da giden bağlantıları ile ortaya çıkabilir.
 
 ### <a name="snatexhaust"></a> SNAT (PAT) bağlantı noktası tükenmesi yönetme
 [Kısa ömürlü bağlantı noktaları](#preallocatedports) için kullanılan [PAT](#pat) açıklandığı bir exhaustible kaynağı olan [örnek düzeyinde ortak IP adresi olmadan tek başına VM](#defaultsnat) ve [VM yük dengeli olmayan bir Örnek düzeyi genel IP adresi](#lb).
@@ -219,7 +216,7 @@ Senaryonuz için değişiklikleri bir ILPIP atama [örnek düzeyinde ortak IP, b
 
 #### <a name="multifesnat"></a>Birden çok ön uç kullanın
 
-Genel Standard Load Balancer kullanırken, atadığınız [giden bağlantılar için birden çok ön uç IP adresi](#multife) ve [SNAT bağlantı noktalarının kullanılabilir Çarp](#preallocatedports).  Bir ön uç IP yapılandırması, kural ve ön uç genel IP için SNAT programlamasını tetiklemek için arka uç havuzu oluşturmanız gerekir.  Kural çalışması gerekmez ve bir durum araştırması başarılı olması gerekmez.  Birden çok ön uç için kullanıyorsanız de gelen (yalnızca giden), kullanmanız gereken özel sistem durumu araştırmaları iyi güvenilirlik sağlamak için.
+Genel Standard Load Balancer kullanırken, atadığınız [giden bağlantılar için birden çok ön uç IP adresi](#multife) ve [SNAT bağlantı noktalarının kullanılabilir Çarp](#preallocatedports).  Ön uç IP yapılandırması, kural ve ön uç genel IP için SNAT programlamasını tetiklemek için arka uç havuzu oluşturun.  Kural çalışması gerekmez ve bir durum araştırması başarılı olması gerekmez.  Birden çok ön uç için kullanıyorsanız de gelen (yalnızca giden), kullanmanız gereken özel sistem durumu araştırmaları iyi güvenilirlik sağlamak için.
 
 >[!NOTE]
 >Çoğu durumda, SNAT bağlantı noktası tükenmesi hatalı tasarımının bir yer işaretidir.  Neden SNAT bağlantı noktaları eklemek için daha fazla ön uçlar kullanmadan önce tükettiğini bağlantı noktaları olduğunu anladığınızdan emin olun.  Daha sonra başarısız olmasına neden olabilecek bir sorunu maskeleme.
@@ -228,7 +225,7 @@ Genel Standard Load Balancer kullanırken, atadığınız [giden bağlantılar i
 
 [Bağlantı noktaları önceden ayrılmış](#preallocatedports) arka uç havuzu boyutuna bağlı olarak ve bağlantı noktalarından bazılarını sonraki daha büyük arka uç havuzu boyut katmanını karşılamak için ayrılabilecek gerektiğinde uğramasını azaltmak için katmanları halinde gruplandırılmış atanır.  Belirli bir katman boyutu üst sınırı için arka uç havuzu ölçeklendirme tarafından verilen bir ön uç bağlantı noktası kullanımı SNAT yoğunluğunu artırmak için bir seçeneğiniz olabilir.  Bu uygulama için verimli bir şekilde ölçeklendirmek gerektirir.
 
-Örneğin, arka uç havuzundaki sanal makinelerin 2 1024 SNAT bağlantı noktası başına dağıtım için bağlantı noktalarını 2048 SNAT toplam izin vererek, IP yapılandırması olur.  Dağıtım 50 sanal artırılacak olsaydı makinelerin sayısı SNAT bağlantı noktalarını bağlantı noktalarının kalır sabiti 51,200 (50 x 1024) toplam sanal makine başına önceden ayrılmış olsa bile dağıtım tarafından kullanılabilir.  Dağıtımınızı genişletmek istiyorsanız, sayısını denetleyin [bağlantı noktaları önceden ayrılmış](#preallocatedports) emin olmak için katman, ölçeği genişletme ilgili katman için en fazla şekil.  Ölçeği, 50 örneğe yerine 51 için seçtiyseniz önceki örnekte, uç ve bir sonraki katmana yukarı toplam olduğu gibi de VM başına daha az SNAT bağlantı durumu.
+Örneğin, iki arka uç havuzundaki sanal makinelerin 1024 SNAT bağlantı noktası başına dağıtım için bağlantı noktalarını 2048 SNAT toplam izin vererek, IP yapılandırması gerekir.  Dağıtım 50 sanal artırılacak olsaydı makinelerin sayısı SNAT bağlantı noktalarını bağlantı noktalarının kalır sabiti 51,200 (50 x 1024) toplam sanal makine başına önceden ayrılmış olsa bile dağıtım tarafından kullanılabilir.  Dağıtımınızı genişletmek istiyorsanız, sayısını denetleyin [bağlantı noktaları önceden ayrılmış](#preallocatedports) emin olmak için katman, ölçeği genişletme ilgili katman için en fazla şekil.  Ölçeği, 50 örneğe yerine 51 için seçtiyseniz önceki örnekte, uç ve bir sonraki katmana yukarı toplam olduğu gibi de VM başına daha az SNAT bağlantı durumu.
 
 Sonraki daha büyük arka uç havuzu boyutu katmana ölçeği genişletme, varsa bazı zaman aşımına giden bağlantılar için olası ayrılabilecek ayrılmış bağlantı noktaları gerekir.  Yalnızca, SNAT bağlantı noktalarından bazılarını kullanıyorsanız, arasında sonraki daha büyük arka uç havuz boyutunu genişletme önemsizdir.  Yarı var olan bağlantı noktaları her zaman bir sonraki arka uç havuzu katmana taşıdığınız ayrılacaktır.  Bunun gerçekleşmesi için istemiyorsanız, katman boyutu dağıtımınıza şekil gerekir.  Veya gerektiğinde uygulamanızı algılamak ve yeniden deneyin emin olun.  TCP canlı tutma nasıl yardımcı olabileceğine içinde SNAT önceliksiz nedeniyle işlevi artık bağlantı noktalarının ne zaman gerçekleştiğini algılayın.
 
@@ -254,7 +251,7 @@ Bir NSG AZURE_LOADBALANCER varsayılan etiket gelen sistem durumu araştırması
 
 ## <a name="limitations"></a>Sınırlamalar
 - DisableOutboundSnat Yük Dengeleme kuralı portalında yapılandırırken bir seçenek olarak kullanılamaz.  REST, şablonu veya istemci araçları kullanın.
-- Web çalışanı rolü bir sanal ağ ve diğer Microsoft platform Hizmetleri olmadan pre-sanal ağ hizmetleri ve platform hizmetleri nasıl işlevi gelen bir yan etkisi nedeniyle yalnızca bir iç standart yük dengeleyici kullanıldığında erişilebilir. İlgili hizmet kendisini veya temel olarak, bu yan etkisi dayanması gerekir değil platform uyarı değişebilir. Her zaman, bir iç standart yük dengeleyici yalnızca kullanırken isterseniz açıkça giden bağlantı oluşturmak için ihtiyacınız varsaymalısınız. [SNAT varsayılan](#defaultsnat) senaryo bu makalede açıklanan 3 kullanılabilir değil.
+- Web çalışanı rolü bir sanal ağ ve diğer Microsoft platform Hizmetleri olmadan pre-sanal ağ hizmetleri ve platform hizmetleri nasıl işlevi gelen bir yan etkisi nedeniyle yalnızca bir iç standart yük dengeleyici kullanıldığında erişilebilir. Bu yan etkisi ilgili hizmet güvenmeyin veya temel platform değiştirilebilir. Her zaman, bir iç standart yük dengeleyici yalnızca kullanırken isterseniz açıkça giden bağlantı oluşturmak için ihtiyacınız varsaymalısınız. [SNAT varsayılan](#defaultsnat) senaryo bu makalede açıklanan 3 kullanılabilir değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

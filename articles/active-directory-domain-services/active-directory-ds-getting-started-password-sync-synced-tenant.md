@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234213"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme
 Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulaması için gereken kimlik bilgisi karmalarının Azure AD Domain Services ile eşitlemesini etkinleştirmektir. Kimlik bilgisi eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.
@@ -50,7 +50,7 @@ Eşitlenen bir Azure AD kiracısı, Azure AD Connect kullanarak kuruluşunuzun �
 ### <a name="install-or-update-azure-ad-connect"></a>Azure AD Connect'i yükleme veya güncelleştirme 
 Etki alanına katılan bir bilgisayara, Azure AD Connect'in önerilen en son sürümünü yükleyin. Azure AD Connect kurulumunun var olan bir örneğine sahipseniz, bu örneği Azure AD Connect’in en yeni sürümünü kullanacak şekilde güncelleştirmelisiniz. Düzeltilmiş olabilecek bilinen sorunlardan/hatalardan kaçınmak için her zaman Azure AD Connect'in en yeni sürümünü kullanın.
 
-**[Azure AD Connect'i indirme](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Azure AD Connect'i indirme](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Önerilen sürüm: **1.1.614.0** - 5 Eylül 2017'de yayımlanmıştır.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421365"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237868"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Azure'da Node.js ile Linux üzerinde bir Cassandra kümesi çalıştırın
 
@@ -49,7 +49,7 @@ Cassandra, tek bir Azure bölgesinde veya birden çok bölgeye temel iş yükü 
 ### <a name="single-region-deployment"></a>Tek bölge dağıtımı
 Şimdi tek bölge dağıtımı ile başlayın ve çok bölgeli modeli oluşturma dersleri toplar. Azure sanal ağı, böylece yukarıda belirtilen ağ güvenliği gereksinimleri karşılanmadığı yalıtılmış alt ağlar oluşturmak için kullanılır.  Ubuntu 14.04 LTS ve Cassandra 2.08 tek bölge dağıtımı oluştururken açıklanan işlemi kullanır. Ancak, işlem diğer Linux çeşitleri kolayca önemsenmeksizin devralınabilir. Tek bölge dağıtımı sistemle ilgili özellikleri bazıları aşağıda verilmiştir.  
 
-**Yüksek Kullanılabilirlik:** böylece yüksek kullanılabilirlik için birden çok hata etki alanları arasında düğümlere yayılır mı Şekil 1'de gösterilen Cassandra düğümleri için iki kullanılabilirlik kümesi dağıtılır. Her kullanılabilirlik kümesi ile açıklanan Vm'leri 2 hata etki alanı için eşlenmiş. Azure hata etki alanı kavramını süresini (örneğin, donanım veya yazılım hatası) planlanmamış yönetmek için kullanır. Yükseltme etki alanı (örneğin, konak veya konuk işletim sistemi düzeltme eki uygulama/yükseltme işlemleri, uygulama yükseltmeleri) kavramı, zamanlanan saati yönetmek için kullanılır. Lütfen [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](http://msdn.microsoft.com/library/dn251004.aspx) rolünü yüksek kullanılabilirlik'ı modemle hızlı bağlantılar sağlama, hata ve yükseltme etki alanları için.
+**Yüksek Kullanılabilirlik:** böylece yüksek kullanılabilirlik için birden çok hata etki alanları arasında düğümlere yayılır mı Şekil 1'de gösterilen Cassandra düğümleri için iki kullanılabilirlik kümesi dağıtılır. Her kullanılabilirlik kümesi ile açıklanan Vm'leri 2 hata etki alanı için eşlenmiş. Azure hata etki alanı kavramını süresini (örneğin, donanım veya yazılım hatası) planlanmamış yönetmek için kullanır. Yükseltme etki alanı (örneğin, konak veya konuk işletim sistemi düzeltme eki uygulama/yükseltme işlemleri, uygulama yükseltmeleri) kavramı, zamanlanan saati yönetmek için kullanılır. Lütfen [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](https://msdn.microsoft.com/library/dn251004.aspx) rolünü yüksek kullanılabilirlik'ı modemle hızlı bağlantılar sağlama, hata ve yükseltme etki alanları için.
 
 ![Tek bölge dağıtımı](./media/cassandra-nodejs/cassandra-linux1.png)
 

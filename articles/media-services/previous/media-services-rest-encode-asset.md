@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 34652400acaf2efca3648bb4c7cde795861c3101
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247938"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254443"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard kullanarak bir varlığı kodlama
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "50247938"
 ## <a name="overview"></a>Genel Bakış
 Internet üzerinden dijital video teslim etmek için medyayı sıkıştırmanız gerekir. Dijital video dosyaları büyük ve Internet üzerinden veya müşterilerinizin cihazlar düzgün görüntülenmesi sunmak için çok büyük olabilir. Kodlama, müşterilerinizin ortamınızı görüntülemek için video ve ses sıkıştırma işlemidir.
 
-Kodlama işleri, Azure Media Services'da en sık gerçekleştirilen işlemler biridir. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, yerleşik medya Hizmetleri Kodlayıcı (Media Encoder Standard) kullanabilirsiniz. Bir Media Services iş ortağı tarafından verilen bir kodlayıcı de kullanabilirsiniz. Üçüncü taraf Kodlayıcı Azure Marketi aracılığıyla kullanılabilir. Kodlayıcınız için tanımlanan Önayar dizeleri kullanarak veya önceden belirlenmiş yapılandırma dosyalarını kullanarak kodlama görevlerine ilişkin ayrıntılar belirtebilirsiniz. Kullanıma hazır türlerini görmek için bkz: [Media Encoder Standard için görev ön ayarları](http://msdn.microsoft.com/library/mt269960).
+Kodlama işleri, Azure Media Services'da en sık gerçekleştirilen işlemler biridir. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, yerleşik medya Hizmetleri Kodlayıcı (Media Encoder Standard) kullanabilirsiniz. Bir Media Services iş ortağı tarafından verilen bir kodlayıcı de kullanabilirsiniz. Üçüncü taraf Kodlayıcı Azure Marketi aracılığıyla kullanılabilir. Kodlayıcınız için tanımlanan Önayar dizeleri kullanarak veya önceden belirlenmiş yapılandırma dosyalarını kullanarak kodlama görevlerine ilişkin ayrıntılar belirtebilirsiniz. Kullanıma hazır türlerini görmek için bkz: [Media Encoder Standard için görev ön ayarları](https://msdn.microsoft.com/library/mt269960).
 
 Bir veya daha fazla görevi gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işlerini ve görevlerini ilgili iki yoldan biriyle oluşturabilirsiniz:
 
@@ -63,7 +63,7 @@ AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğ
 >
 >
 
-Aşağıdaki örnek nasıl oluşturulacağı ve belirli bir çözümleme ve kaliteli video kodlamak için ayarlanmış bir görev içeren bir iş gönderin. gösterir. Medya Kodlayıcısı standart ile kodlamak, belirtilen görev yapılandırması hazır kullanabileceğiniz [burada](http://msdn.microsoft.com/library/mt269960).
+Aşağıdaki örnek nasıl oluşturulacağı ve belirli bir çözümleme ve kaliteli video kodlamak için ayarlanmış bir görev içeren bir iş gönderin. gösterir. Medya Kodlayıcısı standart ile kodlamak, belirtilen görev yapılandırması hazır kullanabileceğiniz [burada](https://msdn.microsoft.com/library/mt269960).
 
 İstek:
 

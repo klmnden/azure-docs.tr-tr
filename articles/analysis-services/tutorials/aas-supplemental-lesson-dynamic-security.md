@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a62440b9fe44dfed14cfd9887d4d3cc2e4dbb92
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430247"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235936"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Ek ders - Dinamik güvenlik
 
@@ -21,7 +21,7 @@ Bu ek derste dinamik güvenlik uygulayan bir ek rol oluşturacaksınız. Dinamik
   
 Dinamik güvenliği uygulamak için modelinize ona bağlanabilecek ve model nesneleriyle verilere göz atabilecek kullanıcıların kullanıcı adlarını içeren bir tablo eklersiniz. Bu öğreticiyi kullanarak oluşturduğunuz model, Adventure Works kapsamındadır ancak bu dersi tamamlamak için kendi etki alanınızdaki kullanıcıları içeren bir tablo eklemeniz gerekir. Eklediğiniz kullanıcı adlarının parolalarına ihtiyaç yoktur. Kendi etki alanınızdaki birkaç örnek kullanıcıyla bir EmployeeSecurity tablosu oluşturmak için Yapıştır özelliğini kullanarak bir Excel çalışma sayfasında yer alan çalışan verilerini yapıştırmanız gerekir. Gerçek hayatta kullanıcı adlarını içeren tablo genelde gerçek bir DimEmployee tablosu gibi gerçek bir veri kaynağından alınan bir tablo olacaktır.  
   
-Dinamik güvenliği uygulamak için iki DAX işlevini kullanırsınız: [USERNAME İşlevi (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) ve [LOOKUPVALUE İşlevi (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Bu işlevler bir satır filtresi formülüne uygulanır ve yeni bir rolde tanımlanır. Formül, LOOKUPVALUE işlevini kullanarak EmployeeSecurity tablosundan bir değer belirtir. Formül ardından bu değeri bu role ait olan oturum açmış kullanıcının kullanıcı adını belirten USERNAME işlevine iletir. Bunun ardından kullanıcı yalnızca rolün satır filtreleri tarafından belirtilen verilere erişebilir. Bu senaryoda satış elemanlarının yalnızca üyesi oldukları satış bölgelerine ait İnternet satış verilerine bakabilmelerini sağlıyorsunuz.  
+Dinamik güvenliği uygulamak için iki DAX işlevini kullanırsınız: [USERNAME İşlevi (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) ve [LOOKUPVALUE İşlevi (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Bu işlevler bir satır filtresi formülüne uygulanır ve yeni bir rolde tanımlanır. Formül, LOOKUPVALUE işlevini kullanarak EmployeeSecurity tablosundan bir değer belirtir. Formül ardından bu değeri bu role ait olan oturum açmış kullanıcının kullanıcı adını belirten USERNAME işlevine iletir. Bunun ardından kullanıcı yalnızca rolün satır filtreleri tarafından belirtilen verilere erişebilir. Bu senaryoda satış elemanlarının yalnızca üyesi oldukları satış bölgelerine ait İnternet satış verilerine bakabilmelerini sağlıyorsunuz.  
   
 Bu görevler bu Adventure Works tablosal model senaryosuna özgü ancak gerçek dünyadaki senaryolar için geçerli olmayabilir. Her görevde görevin amacını belirten ek bilgiler yer alır.  
   

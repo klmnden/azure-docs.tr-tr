@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6c1bcf9471ef67d279f2a86f085db9f91e1449fc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6227b9517da3dacb18b4f9653a7012ef9ab5a4a7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016276"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232282"
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>HDInsight içinde kullanım Python kullanıcı tanımlı işlevler (UDF) Hive ve Pig ile
 
@@ -379,7 +379,7 @@ Hata (STDERR) bilgilerini ve (STDOUT) işin sonucunu da HDInsight depolama günl
 
 ## <a name="next"></a>Sonraki adımlar
 
-Varsayılan olarak sağlanmayan Python modüllerini yüklemek ihtiyacınız varsa bkz [Azure HDInsight için bir modül dağıtma](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Varsayılan olarak sağlanmayan Python modüllerini yüklemek ihtiyacınız varsa bkz [Azure HDInsight için bir modül dağıtma](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
 
 Kullanılacak diğer yolları için Pig, Hive ve MapReduce kullanma hakkında bilgi edinmek için aşağıdaki belgelere bakın:
 

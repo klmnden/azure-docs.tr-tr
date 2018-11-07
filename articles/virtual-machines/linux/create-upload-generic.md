@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638226"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235981"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Dağıtımlarla için bilgi
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ VHD görüntüleri azure'da bir sanal Boyut 1 MB ile hizalı olmalıdır.  Genel
 
 * VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd 21475270656 bayt desteklenmeyen sanal boyutuna sahiptir. Boyut (MB) cinsinden bir tam sayı olmalıdır.
 
-Bu durumda, Hyper-V Yöneticisi konsolunu kullanarak VM'yi yeniden boyutlandırın veya [boyutlandırma VHD](http://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet'i.  Bir Windows ortamında çalışıyorsa olmayan kullanmanızı öneririz `qemu-img` (gerekirse) dönüştürme ve VHD'yi yeniden boyutlandırmak için.
+Bu durumda, Hyper-V Yöneticisi konsolunu kullanarak VM'yi yeniden boyutlandırın veya [boyutlandırma VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet'i.  Bir Windows ortamında çalışıyorsa olmayan kullanmanızı öneririz `qemu-img` (gerekirse) dönüştürme ve VHD'yi yeniden boyutlandırmak için.
 
 > [!NOTE]
 > Var olan bir [qemu img bilinen hata](https://bugs.launchpad.net/qemu/+bug/1490611) sürümleri > düzgün şekilde biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 içinde düzeltilmiştir. Kullanmanızı öneririz `qemu-img` 2.2.0 veya alt, veya 2.6 ya da daha yüksek.
@@ -125,7 +125,7 @@ Bu durumda, Hyper-V Yöneticisi konsolunu kullanarak VM'yi yeniden boyutlandır�
 
 Hyper-V ve Azure Linux Integration Services (LIS) sürücülerini Yukarı Akış Linux çekirdeğinin doğrudan katkıda. (Örneğin, 3.x) yeni bir Linux çekirdek sürümü dahil birçok dağıtımları bu sürücüleri kullanılabilir zaten var veya aksi halde bu sürücüleri backported sürümleri ile kendi defterleri sağlayın.  Mümkün olduğunda çalışmasını öneririz. Bu nedenle bu sürücüleri sürekli yeni düzeltmeler ve özellikler, Yukarı Akış çekirdek güncelleştirilen bir [dağıtım onaylı](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Bu düzeltmeler ve güncelleştirmeler içerir.
 
-Bir değişken 6.0 için 6.3 Red Hat Enterprise Linux sürümleri çalıştırıyorsanız, ardından yüklemeniz gerekir, [Hyper-V için son LIS sürücüleri](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). RHEL 6.4 + (ve türevleri) ile başlayan LIS sürücüleri ile çekirdek zaten dahildir ve bu nedenle hiçbir ek yükleme paketleri gereklidir.
+Bir değişken 6.0 için 6.3 Red Hat Enterprise Linux sürümleri çalıştırıyorsanız, ardından yüklemeniz gerekir, [Hyper-V için son LIS sürücüleri](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). RHEL 6.4 + (ve türevleri) ile başlayan LIS sürücüleri ile çekirdek zaten dahildir ve bu nedenle hiçbir ek yükleme paketleri gereklidir.
 
 Özel bir çekirdek gerekiyorsa, yeni bir çekirdek sürümü (örneğin 3.8 +) öneririz. Dağıtımları veya kendi çekirdek bakımını yapan satıcılar için backport için düzenli olarak LIS sürücüleri Yukarı Akış çekirdekten, özel çekirdeğe ihtiyacınız olacak.  Nispeten yeni bir çekirdek sürümü zaten çalıştırmakta olduğunuz olsa bile, Yukarı Akış hiçbirini izlememektedir LIS sürücüleri ve backport bunları gerektiği şekilde giderir önerilir. İçinde belirtilen konumlar LIS sürücü kaynak dosyalarının [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) Linux çekirdek kaynak ağacının dosyasında:
 ```

@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b32af29a123ce4d070e1bb68b5a43ba6d0d2c5e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501976"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218483"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
 Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir. Bu makalede sık sorulan soruların yanıtları bulunur.
@@ -27,24 +27,50 @@ Soru sorun, Microsoft mühendisinin cevaplar ve raporlayın [service-fabric-kafe
 
 **Önizlemede katılım maliyeti nedir?**
 
-Kafes Önizleme uygulamalar veya kapsayıcıları dağıtmak için ücretlendirme yoktur. Etkin bir şekilde sınamakta olduğunuz sürece ancak dağıtın ve bunları bırakmamaya kaynakları silmeniz önerilir, çalışıyor.
+Şu anda uygulamaları dağıtma veya kapsayıcılar ağı Önizleme için ücretlendirme yoktur. Dağıtma ve bunları bırakmamaya kaynakları silmeniz etmenizi öneririz ancak bunları test etkin bir şekilde ettiğiniz sürece çalışıyor.
 
 **Çekirdek sayısını ve RAM'i kota sınırı var mı?**
 
-Evet, her abonelik için kotalar şunlardır:
+Evet, her abonelik için kotaları şu şekilde ayarlayın:
 
 - Uygulamalar - 5 sayısı 
-- Uygulama – 12 başına çekirdek sayısı 
+- Uygulama – 12 başına çekirdek 
 - Uygulama - 48 GB başına toplam RAM 
-- Ağ ve giriş uç noktalarının sayısı – 5  
-- Azure ekleyebileceğiniz - birim sayısı 10 
+- Ağ ve giriş uç noktaları – 5  
+- Ekleyebileceğiniz - azure birimler 10 
 - Hizmet çoğaltma – 3 sayısı 
 - 4 çekirdek, 16 GB RAM dağıtabileceğiniz en büyük kapsayıcı sınırlıdır.
 - En çok 6 çekirdek 0,5 çekirdek artışlarla kapsayıcılarınızı kısmi çekirdek ayırabilirsiniz.
 
-**Uygulamamın gece çalıştıran bildirebilirim?**
+**Uygulamam için dağıtılan ne kadar süreyle bildirebilirim?**
 
-Evet, kullanabilirsiniz, ancak dağıtın ve bunları bırakmamaya kaynakları silmek için kullanmaları çalışan etkin bir şekilde sınamakta olduğunuz sürece. Bu ilke gelecekte değişebilir ve bunlar yanlış kaynakları silinmiş.
+Biz, şu anda iki gün için bir uygulamanın ömrü sınırladınız. Önizleme için ayrılan serbest çekirdeğe kullanımını en üst düzeye çıkarmak budur. Sonuç olarak, yalnızca belirli bir dağıtım 48 saat için sürekli olarak çalışmasına izin verilen sonra hangi zaman sistem tarafından silinir. Bunu görürseniz, sistem çalıştırarak kapatabilirler olduğunu doğrulamak için bir `az mesh app show` döndürürse komutunu Azure CLI ve denetleme `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+Örneğin: 
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
 
 ## <a name="supported-container-os-images"></a>Desteklenen kapsayıcı işletim sistemi görüntüleri
 Aşağıdaki kapsayıcı işletim sistemi görüntüleri, Hizmetleri dağıtım yaparken kullanılabilir.

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 75d2bae0b6980fdd206e68806e994c7fa7b530c8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8cde172207717aca2af5dfa706f7d9c6d290c36e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037082"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239211"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -76,7 +76,7 @@ ExpressRoute destekler [üç yönlendirme etki alanı](expressroute-circuit-peer
 
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
 
-* [Office 365](http://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
@@ -283,7 +283,7 @@ Evet. ExpressRoute bağlantı hattı bağlantı sağlayıcı tarafından gerekli
 
 1. Gözden geçirme [ExpressRoute ön koşullar sayfasında](expressroute-prerequisites.md) gereksinimleri karşıladığından emin olmak için.
 2. Bağlantı gereksinimlerinizi karşılandığından emin olmak için hizmet sağlayıcıları ve konumları olarak listesini gözden geçirin. [ExpressRoute iş ortakları ve konumları](expressroute-locations.md) makalesi.
-3. Gözden geçirerek kapasite gereksinimlerinizi planlayın [ağ planlama ve Office 365 için performans ayarlama](http://aka.ms/tune/).
+3. Gözden geçirerek kapasite gereksinimlerinizi planlayın [ağ planlama ve Office 365 için performans ayarlama](https://aka.ms/tune/).
 4. Bağlantı kurmak için iş akışlarında listelenen adımları takip [bağlantı hattı sağlama ve devre durumları için ExpressRoute iş akışları](expressroute-workflows.md).
 
 > [!IMPORTANT]
@@ -293,11 +293,11 @@ Evet. ExpressRoute bağlantı hattı bağlantı sağlayıcı tarafından gerekli
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Uygulamam var olan ExpressRoute bağlantı hatları, Office 365 Hizmetleri ve Dynamics 365 bağlantısı destekleyebilir mi?
 
-Evet. Office 365 hizmetlerine bağlantıyı desteklemek için mevcut bir ExpressRoute bağlantı hattınızı yapılandırılabilir. Premium eklenti etkin ve Office 365 hizmetlerine bağlanmak için yeterli kapasiteleri olduğundan emin olun. [Ağ planlama ve Office 365 için performans ayarlama](http://aka.ms/tune/) bağlantınızı planladığınız yardımcı gerekir. Ayrıca bkz [oluşturun ve bir ExpressRoute bağlantı hattını değiştirme](expressroute-howto-circuit-classic.md).
+Evet. Office 365 hizmetlerine bağlantıyı desteklemek için mevcut bir ExpressRoute bağlantı hattınızı yapılandırılabilir. Premium eklenti etkin ve Office 365 hizmetlerine bağlanmak için yeterli kapasiteleri olduğundan emin olun. [Ağ planlama ve Office 365 için performans ayarlama](https://aka.ms/tune/) bağlantınızı planladığınız yardımcı gerekir. Ayrıca bkz [oluşturun ve bir ExpressRoute bağlantı hattını değiştirme](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Hangi Office 365 Hizmetleri, bir ExpressRoute bağlantısı üzerinden erişilebilir?
 
-Başvurmak [Office 365 URL'leri ve IP adresi aralıkları](http://aka.ms/o365endpoints) sayfa ExpressRoute üzerinde desteklenen hizmetlerin güncel bir listesi.
+Başvurmak [Office 365 URL'leri ve IP adresi aralıkları](https://aka.ms/o365endpoints) sayfa ExpressRoute üzerinde desteklenen hizmetlerin güncel bir listesi.
 
 ### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Ne kadar ExpressRoute için Office 365 Hizmetleri maliyeti?
 

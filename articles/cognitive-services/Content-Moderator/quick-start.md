@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0c67ee20ee73edb5eb6c6c806d7e5960f3719de6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008785"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260015"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Hızlı Başlangıç: Content Moderator ile tanıdık Al
 
@@ -26,7 +26,7 @@ Bu hızlı başlangıçta, herhangi bir kod yazmak zorunda kalmadan Content Mode
 - Bir web tarayıcısı
 
 ## <a name="set-up-the-review-tool"></a>Gözden geçirme Aracı'nı ayarlama
-Content Moderator İnceleme aracını İnsan gözden geçirenlerin bilişsel hizmet kararları yapılmasına izin veren bir web tabanlı bir araçtır. Bu kılavuzda, Content Moderator Service'in nasıl çalıştığını görebilmeniz için gözden geçirme Aracı'nı ayarlama kısa sürecinde yönlendirilir. Git [Content Moderator İnceleme aracı](http://contentmoderator.cognitive.microsoft.com/) site ve kaydolun.
+Content Moderator İnceleme aracını İnsan gözden geçirenlerin bilişsel hizmet kararları yapılmasına izin veren bir web tabanlı bir araçtır. Bu kılavuzda, Content Moderator Service'in nasıl çalıştığını görebilmeniz için gözden geçirme Aracı'nı ayarlama kısa sürecinde yönlendirilir. Git [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/) site ve kaydolun.
 
 ![İçerik Moderator giriş sayfası](images/homepage.PNG)
 

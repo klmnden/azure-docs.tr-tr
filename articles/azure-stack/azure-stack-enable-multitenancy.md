@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026169"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240180"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack'te çok kiracılılık
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026169"
 
 Azure Stack, Azure Stack'te hizmetler kullanmak için Azure Active Directory (Azure AD) birden çok kiracıdan gelen kullanıcıların destekleyecek şekilde yapılandırabilirsiniz. Örneğin, aşağıdaki senaryoyu göz önünde bulundurun:
 
- - Azure Stack yüklendiği contoso.onmicrosoft.com adresinin, Hizmet Yöneticisi olursunuz.
- - Mary Directory Fabrikam.onmicrosoft.com adresli, konuk kullanıcıların bulunduğu yere yöneticisidir. 
- - Mary'nin şirket Iaas ve PaaS Hizmetleri, şirketten alır ve Azure Stack kaynaklarına contoso.onmicrosoft.com olarak oturum açın ve kullanıcıların Konuk dizininden (Fabrikam.onmicrosoft.com adresli) gerekir.
+- Azure Stack yüklendiği contoso.onmicrosoft.com adresinin, Hizmet Yöneticisi olduğunuz.
+- Mary Directory Fabrikam.onmicrosoft.com adresli, konuk kullanıcıların bulunduğu yere yöneticisidir.
+- Mary'nin şirket Iaas ve PaaS Hizmetleri, şirketten alır ve Azure Stack kaynaklarına contoso.onmicrosoft.com olarak oturum açın ve kullanıcıların Konuk dizininden (Fabrikam.onmicrosoft.com adresli) gerekir.
 
 Bu kılavuz, çok kiracılı Azure Stack'te yapılandırmak için bu senaryo bağlamında gerekli adımları sağlar. Bu senaryoda ve birincil kullanıcılar oturum açabilir ve Azure Stack dağıtım contoso'da servislerini Fabrikam etkinleştirme adımları tamamlamanız gerekir.  
 
@@ -50,6 +51,8 @@ Azure Stack'te çok kiracılı yapılandırmadan önce hesaba birkaç önkoşul 
 Bu bölümde, Azure Stack, oturum açma Fabrikam Azure AD directory kiracılardan izin verecek şekilde yapılandırın.
 
 Yerleşik yapılandırarak Azure Resource Manager'ı, kullanıcıların kabul etmesi ve hizmet sorumluları Konuk dizin kiracısında Azure Stack için konuk dizin Kiracı (Fabrikam).
+
+Hizmet Yöneticisi contoso.onmicrosoft.com adresinin aşağıdaki komutları çalıştırır.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Konuk dizininden yapılandırın
 
-Azure Stack dizinde adımları tamamladıktan sonra Mary Konuk dizine Azure Stack için rıza sağlamanın ve Azure Stack ile Konuk dizine kaydedin. 
+Bir kez Azure Stack yönetici / işleci, Azure Stack ile kullanılacak Fabrikam dizini etkinleştirilmiş, Gamze Azure Stack Fabrikam'ın directory kiracısı ile kaydetmeniz gerekir.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>Azure Stack ile Konuk dizininden kaydediliyor
 
-Mary Konuk dizin Yöneticisi Fabrikam'ın dizine erişmek Azure Stack için bir onay vermediği sonra Azure Stack Fabrikam'ın directory kiracısı ile kaydetmeniz gerekir.
+Mary Fabrikam dizin Yöneticisi aşağıdaki komutları Konuk dizin Fabrikam.onmicrosoft.com adresli içinde çalışır.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Azure Stack yöneticinize yeni hizmetlerin veya güncelleştirmelerin gelecekte yüklerse, bu komut dosyasını yeniden çalıştırmanız gerekebilir.
 >
 > Bu betik dizininizdeki Azure Stack uygulamalarının durumunu denetlemek için dilediğiniz zaman yeniden çalıştırın.
-> 
+>
 > Yeni bir yönetilen disklerde (1808 güncelleştirmeyle getirilen), VM'ler oluşturma konusunda sorun fark etmiş varsa **Disk kaynak sağlayıcısı** , tekrar çalıştırmak için bu betiği gerektiren eklendi.
 
 ### <a name="direct-users-to-sign-in"></a>Doğrudan kullanıcılar oturum açabilir
 
 Mary, Fabrikam kullanıcılar oturum açabilir ve Mary ekleme Mary'nin dizinine adımları tamamladığınıza göre yönlendirebilir.  Fabrikam kullanıcıların (diğer bir deyişle, Fabrikam.onmicrosoft.com adresli sonekini taşıyan kullanıcılar) ziyaret ederek oturum https://portal.local.azurestack.external.  
 
-Mary herhangi doğrudan [yabancı sorumlu](../role-based-access-control/rbac-and-directory-admin-roles.md) Fabrikam dizininde (diğer bir deyişle, Fabrikam.onmicrosoft.com adresli soneki olmadan Fabrikam dizinindeki kullanıcı) kullanarak oturum açmanız https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Bu URL'yi kullanmayın, varsayılan dizini (Fabrikam) için gönderilen ve bunların yönetici olmayan onay verdi diyen bir hata alırsınız.
+Mary herhangi doğrudan [yabancı sorumlu](../role-based-access-control/rbac-and-directory-admin-roles.md) Fabrikam dizininde (diğer bir deyişle, Fabrikam.onmicrosoft.com adresli soneki olmadan Fabrikam dizinindeki kullanıcı) kullanarak oturum açmanız https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Bu URL'yi kullanmıyorsanız, varsayılan dizini (Fabrikam) gönderildiniz ve bunların yönetici tarafından onaylanan taşınmadığından diyen bir hata alırsınız.
 
 ## <a name="disable-multi-tenancy"></a>Çok kiracılılık devre dışı bırak
 

@@ -10,18 +10,18 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 71d79ac34c4797cceb8374d65afb6fd7662f1c21
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 053e571b6285cd405ea17f43fec1d3ea99732070
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456202"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235590"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti nedir?
 Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi (çevrimiçi geçiş) Azure Data platformlarına sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Veritabanları, alışık olduğunuz araçları ile Azure'a geçirme
-Azure veritabanı geçiş hizmeti mevcut araç ve Hizmetleri işlevlerinden bazıları tümleştirir. Bu müşteriler ile kapsamlı, yüksek oranda kullanılabilir bir çözüm sağlar. Hizmeti kullandığı [Data Migration Yardımcısı](http://aka.ms/dma) geçiş işlemi gerçekleştirmeden önce gerekli değişiklikler size yol gösterecek öneriler sağlayan değerlendirme raporları oluşturmak için. Bu gerekli herhangi bir düzeltme gerçekleştirmek için size aittir. Azure veritabanı geçiş hizmeti, geçiş işlemine başlamak hazır olduğunuzda, gerekli tüm adımları gerçekleştirir. Harekete ve işlem yararlanır Microsoft tarafından belirlenen şekilde en iyi yöntemler bilerek rahat, geçiş projelerinizi unutmayın.
+Azure veritabanı geçiş hizmeti mevcut araç ve Hizmetleri işlevlerinden bazıları tümleştirir. Bu müşteriler ile kapsamlı, yüksek oranda kullanılabilir bir çözüm sağlar. Hizmeti kullandığı [Data Migration Yardımcısı](https://aka.ms/dma) geçiş işlemi gerçekleştirmeden önce gerekli değişiklikler size yol gösterecek öneriler sağlayan değerlendirme raporları oluşturmak için. Bu gerekli herhangi bir düzeltme gerçekleştirmek için size aittir. Azure veritabanı geçiş hizmeti, geçiş işlemine başlamak hazır olduğunuzda, gerekli tüm adımları gerçekleştirir. Harekete ve işlem yararlanır Microsoft tarafından belirlenen şekilde en iyi yöntemler bilerek rahat, geçiş projelerinizi unutmayın.
 
 > [!NOTE]
 > Çevrimiçi bir geçiş gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanarak, iş fiyatlandırma katmanı kritik (Önizleme) bağlı olarak bir örnek oluşturmak gerekir.

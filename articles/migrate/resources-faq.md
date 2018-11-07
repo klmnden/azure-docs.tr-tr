@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407070"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256384"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
-Bu makale, Azure geçişi hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra başka sorgular varsa, gönderin [Azure geçişi Forumu](http://aka.ms/AzureMigrateForum).
+Bu makale, Azure geçişi hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra başka sorgular varsa, gönderin [Azure geçişi Forumu](https://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Genel
 
@@ -54,9 +54,9 @@ Azure geçişi şu anda Doğu ABD ve Batı Orta ABD geçiş projesi konumları d
 
 Bağlantı ortak eşleme ExpressRoute kullanabilir veya internet üzerinden olabilir.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Ayarlama VM sağlamlaştırmak. OVA şablon?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Ben OVA şablonu ile ayarlanmış bir VM sağlamlaştırmak?
 
-Ek bileşenler (örneğin, virüsten koruma) içine eklenebilir. OVA şablonu çalışmak Azure geçişi Gereci için gerekli iletişim ve güvenlik duvarı kuralları olarak bırakılır sürece içindir.   
+İletişim ve güvenlik duvarı kuralları çalışmak Azure geçişi Gereci için gerekli olduğu gibi bırakılır sürece ek bileşenler (örneğin, virüsten koruma) OVA şablonlarına eklenebilir.   
 
 ## <a name="discovery"></a>Bulma
 
@@ -114,7 +114,7 @@ Toplayıcı Gereci vCenter Server'a (bağlantı noktası 443) bağlanan gereç k
 
 Evet, bir tek Toplayıcı gerecini birden fazla vCenter sunucularını bulmak için kullanılabilir ancak aynı anda değil. Bulmaları birbiri ardına çalıştırmanız gerekir.
 
-### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Olduğu. Site Recovery tarafından kullanılan OVA şablonu ile tümleştirilmiştir. Azure geçişi tarafından kullanılan OVA?
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery tarafından kullanılan OVA şablonu, Azure geçişi tarafından kullanılan OVA tümleşiktir?
 
 Şu anda hiçbir tümleştirme yoktur. . OVA şablonu Site recovery'de VMware VM'LERİNİ/fiziksel sunucu çoğaltma için bir Site Recovery yapılandırma sunucusu kurmak için kullanılır. . Azure geçişi tarafından kullanılan OVA VMware vCenter sunucusu tarafından yönetilen geçiş Değerlendirme amacıyla Vm'leri bulmak için kullanılır.
 
@@ -141,9 +141,23 @@ Azure geçişi şu anda desteklemediği için maliyet tahmini [Kurumsal Anlaşma
 
 ## <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
+### <a name="what-is-dependency-visualization"></a>Bağımlılık görselleştirmesi nedir?
+
+Bağımlılık görselleştirmesi kapsamında bir değerlendirmeyi çalıştırmadan önce makine bağımlılıklarını arası denetimi tarafından daha büyük bir güvenle geçiş için VM grupları değerlendirmek sağlar. Bağımlılık görselleştirmesi hiçbir şey arkasında, Azure'a geçiş yaptığınızda, beklenmeyen kesintilerin önleme bırakılır emin olmak için yardımcı olur. Azure geçişi, bağımlılık görselleştirmesi etkinleştirmek için Log analytics'te hizmet eşlemesi çözümü yararlanır.
+
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Bağımlılık görselleştirmesi özelliğini kullanmak için ücret ödemem gerekiyor mu?
 
-Azure Geçişi ek ücret ödenmeden kullanılabilir. Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](https://azure.microsoft.com/pricing/details/azure-migrate/) bulabilirsiniz.
+Hayır. Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](https://azure.microsoft.com/pricing/details/azure-migrate/) bulabilirsiniz.
+
+### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için herhangi bir şey yüklemeniz gerekiyor mu?
+
+Bağımlılık görselleştirmesi kullanmak için indirip değerlendirmek istediğiniz her bir şirket içi makineye aracılar yüklemeniz gerekir. 
+
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) her makinede yüklü olması gerekir.
+- [Bağımlılık aracısını](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) her makinede yüklü olması gerekir.
+- Ayrıca, internet bağlantısı olmayan makineleriniz varsa, indirmek ve Log Analytics gateway yükler gerekir.
+
+Bu aracılar, bağımlılık görselleştirmesi kullanmıyorsanız değerlendirmek istediğiniz makinelerde gerekmez.
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için mevcut bir çalışma alanını kullanabilir miyim?
 

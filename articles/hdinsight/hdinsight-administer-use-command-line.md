@@ -1,25 +1,25 @@
 ---
-title: Azure Klasik CLI - Azure HDInsight'ı kullanarak Hadoop kümelerini yönetme
-description: Azure HDInsight Hadoop kümelerini yönetmek için Azure Klasik CLI'yı kullanmayı öğrenin.
+title: Azure Klasik CLI - Azure HDInsight'ı kullanarak Apache Hadoop kümelerini yönetme
+description: Azure HDInsight, Apache Hadoop kümelerini yönetmek için Azure Klasik CLI'yı kullanmayı öğrenin.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 2586b9219eb145b2033fe2d8fc64b8ae72f34eda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: tyfox
+ms.openlocfilehash: d5d4c951bb104159730814f9b1b5820cb17f9f1a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958297"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234791"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak bir HDInsight Hadoop kümelerini yönetme
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Nasıl kullanacağınızı öğrenin [Klasik Azure CLI'yı](../cli-install-nodejs.md) Azure HDInsight Hadoop kümelerini yönetmek için. Klasik CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir.
+Nasıl kullanacağınızı öğrenin [Klasik Azure CLI'yı](../cli-install-nodejs.md) Azure HDInsight, Apache Hadoop kümelerini yönetmek için. Klasik CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -86,13 +86,6 @@ azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 ```cli
 azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
 azure hdinsight cluster disable-http-access [options] <Cluster Name>
-```
-
-## <a name="enabledisable-rdp-access-for-a-cluster"></a>Bir kümenin RDP erişimini etkinleştir/devre dışı bırak
-
-```cli
-azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

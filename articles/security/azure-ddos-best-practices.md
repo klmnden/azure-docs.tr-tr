@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986859"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231643"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS koruması: en iyi uygulamalar ve başvuru mimarileri
 
@@ -28,7 +28,7 @@ Dağıtılmış engelleme (DDoS) hizmeti için tasarlama, planlama ve tasarlama 
 
 ## <a name="types-of-attacks"></a>Tür saldırılar
 
-DDoS, uygulama kaynaklarını tüketebilir dener saldırı türüdür. Uygulama kullanılabilirliği ve meşru istekler işleyebilme etkileyen olmaktır. Saldırıları, daha karmaşık ve daha büyük boyuta ve etkisi gelmektedir. DDoS saldırıları, internet üzerinden genel olarak erişilebilen herhangi bir uç noktada hedefleyebilir.
+DDoS, uygulama kaynaklarını tüketebilir dener saldırı türüdür. Uygulama kullanılabilirliği ve meşru istekler işleyebilme etkileyen olmaktır. Saldırıları, daha karmaşık ve daha büyük boyuta ve etkisi gelmektedir. DDoS saldırıları internet üzerinden genel olarak erişilebilen herhangi bir uç noktasını hedefleyebilir.
 
 Azure DDoS saldırılarına karşı sürekli koruma sağlar. Bu koruma, varsayılan ve olmaksızın Azure platformuyla doğrudan tümleşik olduğu ek bir maliyet. 
 
@@ -75,7 +75,7 @@ Güvenlik, tasarım ve uygulamadan dağıtım ve işletime kadar uygulamanın t�
 Microsoft Azure'da çalışan bir hizmetin korumaya yardımcı olmak için uygulama mimarinizin iyi anlamış olmanız ve gerekir odaklanmak [, yazılım kalitesinin beş yapı taşına](https://docs.microsoft.com/azure/architecture/guide/pillars).
 Normal trafik birimler, uygulama ve diğer uygulamalar ve genel internet'e bağlı hizmet uç noktaları arasında bağlantı modeli bilmeniz gerekir.
 
-Uygulamanın bir uygulama tarafından hedeflenen hizmet reddi işlemek için dayanıklı olduğundan emin olmanın en çok önemlidir. Güvenlik ve gizlilik yerleşik olarak Azure platformu ile başlayarak, [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL her geliştirme aşaması sırasında güvenlik yöneliktir ve Azure sürekli daha güvenli hale getirmek için güncelleştirilmesini sağlar.
+Uygulamanın bir uygulama tarafından hedeflenen hizmet reddi işlemek için dayanıklı olduğundan emin olmanın en çok önemlidir. Güvenlik ve gizlilik yerleşik olarak Azure platformu ile başlayarak, [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL her geliştirme aşaması sırasında güvenlik yöneliktir ve Azure sürekli daha güvenli hale getirmek için güncelleştirilmesini sağlar.
 
 ### <a name="design-for-scalability"></a>Ölçeklenebilirlik için tasarlama
 
@@ -182,7 +182,7 @@ Siber güvenlik savunma sürekli yeniliğe gerektirir. Azure DDoS standart bir d
 
 Azure kaynaklarını genellikle hedefleyen bir DDoS saldırısının kullanıcı açısından en az müdahale gerektirir. Yine de ekleme DDoS azaltma bir olay yanıtı stratejisinin bir parçası olarak iş sürekliliği etkisini en aza yardımcı olur.
 
-### <a name="microsoft-threat-intelligence"></a>Microsoft tehdit bilgileri
+### <a name="microsoft-threat-intelligence"></a>Microsoft Tehdit Bilgileri
 
 Microsoft, bir geniş tehdit zekası ağ sahiptir. Bu ağ, Microsoft Çevrimiçi Hizmetleri, Microsoft iş ortakları ve ilişkiler Internet güvenlik topluluğu içinde destekleyen bir genişletilmiş güvenlik topluluğunun kolektif bilgi kullanır. 
 
@@ -265,7 +265,7 @@ Bu mimaride, DDoS koruması standart sanal ağ üzerinde etkindir. Tüm genel IP
 
 #### <a name="paas-web-application"></a>PaaS web uygulaması
 
-Bu başvuru mimarisinde, tek bir bölgede bir Azure App Service uygulamasını çalıştıran gösterilmektedir. Bu mimari kullanan bir web uygulaması için kendini kanıtlamış bir dizi gösterir [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) ve [Azure SQL veritabanı](https://azure.microsoft.com/documentation/services/sql-database/).
+Bu başvuru mimarisinde, tek bir bölgede bir Azure App Service uygulamasını çalıştıran gösterilmektedir. Bu mimari kullanan bir web uygulaması için kendini kanıtlamış bir dizi gösterir [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) ve [Azure SQL veritabanı](https://azure.microsoft.com/documentation/services/sql-database/).
 Yedek bir bölgeye yük devretme senaryoları için ayarlanır.
 
 ![PaaS web uygulaması için başvuru mimarisi diyagramı](media/azure-ddos-best-practices/image11.png)
@@ -300,6 +300,6 @@ Bu başvuru mimarisi hakkında daha fazla bilgi için bkz. [Azure HDInsight kull
 
 * [Azure DDoS koruması ürün sayfası](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS koruması blogu](http://aka.ms/ddosblog)
+* [Azure DDoS koruması blogu](https://aka.ms/ddosblog)
 
 * [Azure DDoS koruması belgeleri](../virtual-network/ddos-protection-overview.md)

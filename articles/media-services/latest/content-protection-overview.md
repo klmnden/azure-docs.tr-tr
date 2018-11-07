@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394295"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238358"
 ---
 # <a name="content-protection-overview"></a>Content protection genel bakış
 
@@ -59,7 +59,7 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
 
     Test AES veya şifrelenmiş CENC (Widevine ve/veya PlayReady) için içerik, kullanabileceğiniz [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). "Gelişmiş Seçenekler" seçeneğini tıklatın ve denetimi, şifreleme seçenekleri emin olun.
 
-    FairPlay şifreli içeriği test etmek istediğiniz kullanırsanız [bu test yürütücünün](http://aka.ms/amtest). Player, Widevine, PlayReady, destekler ve benzeri FairPlay DRM ve bunun yanı sıra AES-128 şifresiz anahtar şifrelemesiyle koruyun. Farklı benzeri DRM test etmek için doğru tarayıcı seçmeniz gerekebilir: Chrome/Opera/Firefox'ta Widevine, MS Edge/ıe11 PlayReady için Safari macOS FairPlay için.
+    FairPlay şifreli içeriği test etmek istediğiniz kullanırsanız [bu test yürütücünün](https://aka.ms/amtest). Player, Widevine, PlayReady, destekler ve benzeri FairPlay DRM ve bunun yanı sıra AES-128 şifresiz anahtar şifrelemesiyle koruyun. Farklı benzeri DRM test etmek için doğru tarayıcı seçmeniz gerekebilir: Chrome/Opera/Firefox'ta Widevine, MS Edge/ıe11 PlayReady için Safari macOS FairPlay için.
 
 3. Belirteç Hizmeti (JSON Web Token (JWT) olarak arka uç kaynağına erişim için erişim belirteci verir STS), güvenli hale getirin. AMS lisans teslim hizmetleri arka uç kaynağı olarak kullanabilirsiniz. STS sahip aşağıdaki tanımlamak:
 
@@ -149,7 +149,7 @@ Uçtan uca senaryo için bkz [aşağıdaki kod örneğine](https://github.com/Az
 
 2. Akış şifrelenmiş bir varlık için yapılandırılmış bir StreamingLocator oluşturun. 
 
-  Örneğin, "Predefined_MultiDrmCencStreaming" ilkeye StreamingLocator.StreamingPolicyName ayarlayabilirsiniz. Bu ilke, bulucuda iki içerik anahtarı (zarf ve CENC) oluşturulmasını ve ayarlanmasını istediğinizi belirtir. Bu nedenle zarf, PlayReady ve Widevine şifrelemeleri uygulanır (anahtar, yapılandırılan DRM lisanslarına göre kayıttan yürütme istemcisine teslim edilir). Akışınız CBCS (FairPlay) ile şifrelemek istiyorsanız, "Predefined_MultiDrmStreaming" kullanın.
+  Örneğin, "Predefined_MultiDrmCencStreaming" ilkeye StreamingLocator.StreamingPolicyName ayarlayabilirsiniz. Bu ilke, bulucuda iki içerik anahtarı (zarf ve CENC) oluşturulmasını ve ayarlanmasını istediğinizi belirtir. Bu nedenle zarf, PlayReady ve Widevine şifrelemeleri uygulanır (anahtar, yapılandırılan DRM lisanslarına göre kayıttan yürütme istemcisine teslim edilir). Akışınızı CBCS (FairPlay) ile de şifrelemek isterseniz "Predefined_MultiDrmStreaming" öğesini kullanın.
 
 3. Bir test belirteci oluşturun.
 
@@ -168,8 +168,8 @@ Nasıl ve nereye isteği lisans veya anahtar için kullanmadan önce JWT belirte
 1. Üretim için bir güvenli belirteç Hizmetleri (bir HTTPS isteği sonra JWT belirtecini verir STS) (web hizmeti) olması gerekir. Test için gösterilen kod kullanabileceğinizi **GetTokenAsync** içinde tanımlanan yöntem [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Oynatıcı bir kullanıcı sts'ye böyle bir belirteç için doğrulandıktan sonra istekte bulunmak ve belirteç değeri olarak atamanız gerekir. Kullanabileceğiniz [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/).
 
-* STS, hem simetrik hem de asimetrik anahtar ile çalışan bir örnek için bkz. Lütfen [ http://aka.ms/jwt ](http://aka.ms/jwt). 
-* Böyle JWT belirteci kullanarak Azure Media Player temel bir yürütücü örneği için bkz [ http://aka.ms/amtest ](http://aka.ms/amtest) (belirteç giriş görmek için "player_settings" bağlantıyı genişletme).
+* STS, hem simetrik hem de asimetrik anahtar ile çalışan bir örnek için bkz. Lütfen [ http://aka.ms/jwt ](https://aka.ms/jwt). 
+* Böyle JWT belirteci kullanarak Azure Media Player temel bir yürütücü örneği için bkz [ http://aka.ms/amtest ](https://aka.ms/amtest) (belirteç giriş görmek için "player_settings" bağlantıyı genişletme).
 
 ### <a name="question"></a>Soru
 

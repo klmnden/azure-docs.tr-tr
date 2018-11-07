@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a99375ae961e9239e5e8ea86db8b1b9b002b10c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231024"
 ---
 # <a name="storage-analytics"></a>Depolama Analizi
 
@@ -77,7 +77,7 @@ Aşağıdaki tabloda günlük adı içindeki her bir öznitelik açıklanmaktad�
 | --- | --- |
 | < hizmet-adı > |Depolama hizmeti adı. Örneğin: blob, tablo ve kuyruk. |
 | YYYY |Günlüğü için dört basamaklı yıl. Örneğin: 2011. |
-| AA |İki haneli ay günlüğü. Örneğin: 07. |
+| MM |İki haneli ay günlüğü. Örneğin: 07. |
 | DD |İki haneli ay günlüğü. Örneğin: 07. |
 | hh |İki basamaklı bir saat, 24 saat UTC biçiminde günlükleri için başlangıç saati gösterir. Örneğin: 18. |
 | aa |Günlükleri başlangıç dakika gösteren iki basamaklı bir sayı. Bu değer, depolama analizi geçerli sürümde desteklenmiyor ve değeri her zaman 00 olur. |
@@ -169,7 +169,7 @@ Depolama analizi tarafından gerçekleştirilen aşağıdaki eylemler Faturalana
 Veri bekletme ilkesi yapılandırdıysanız, depolama analizi, eski günlük ve ölçüm verileri sildiğinde silme işlemler için ücretlendirilmez. Ancak, bir istemciden silme işlemleri Faturalanabilir niteliktedir. Bekletme ilkeleri hakkında daha fazla bilgi için bkz: [depolama Analytics veri saklama ilkesini belirlemeden](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Faturalandırılabilir isteklerin anlama
-Bir hesabın depolama hizmetine yapılan her isteği Faturalanabilir ya da Faturalanamayan değil. Depolama analizi yapılan bir hizmete istek nasıl işlendiğini belirten bir durum iletisi de dahil olmak üzere, tek tek her isteği günlüğe kaydeder. Benzer şekilde, Storage Analytics ölçümleri hem hizmet hem de hizmet yüzdeleri ve belirli durum iletilerinin sayısı dahil olmak üzere, API işlemleri için depolar. Birlikte, bu özellikler, Faturalanabilir isteklerinizi çözümleme, uygulamanız üzerinde geliştirmeler yapmak ve hizmetlerinizi istekleri ile ilgili sorunları tanılamanıza yardımcı olabilir. Faturalama hakkında daha fazla bilgi için bkz. [anlama Azure depolama Faturalaması - bant genişliği, işlemler ve kapasite](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Bir hesabın depolama hizmetine yapılan her isteği Faturalanabilir ya da Faturalanamayan değil. Depolama analizi yapılan bir hizmete istek nasıl işlendiğini belirten bir durum iletisi de dahil olmak üzere, tek tek her isteği günlüğe kaydeder. Benzer şekilde, Storage Analytics ölçümleri hem hizmet hem de hizmet yüzdeleri ve belirli durum iletilerinin sayısı dahil olmak üzere, API işlemleri için depolar. Birlikte, bu özellikler, Faturalanabilir isteklerinizi çözümleme, uygulamanız üzerinde geliştirmeler yapmak ve hizmetlerinizi istekleri ile ilgili sorunları tanılamanıza yardımcı olabilir. Faturalama hakkında daha fazla bilgi için bkz. [anlama Azure depolama Faturalaması - bant genişliği, işlemler ve kapasite](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 Depolama analizi verilere baktığımızda, tablolardaki kullanabileceğiniz [depolama analizi günlüğe yazılan işlemler ve durum iletileri](https://msdn.microsoft.com/library/azure/hh343260.aspx) hangi istekleri Faturalanabilir belirlemek için. Ardından, günlükleri ve ölçüm verileri belirli bir istek için ücret olmadığını görmek için durum iletilerine karşılaştırabilirsiniz. Depolama hizmeti veya tek tek API işlemi için kullanılabilirlik araştırmak için önceki konu başlığında tabloları da kullanabilirsiniz.
 

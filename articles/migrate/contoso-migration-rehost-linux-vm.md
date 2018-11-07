@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 54daea1108b98b316e1ead3b9035c1b65745dd19
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4845fdbbfa4dfabf53b1f7e747668cf7f5108eb7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114133"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232717"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso geçiş: şirket içi Linux uygulama Azure vm'lerine yeniden barındırma
 
@@ -196,7 +196,7 @@ Azure'a yük devretme sonrasında Contoso çoğaltılmış Azure vm'lere bağlan
 
 - Azure sanal makineleri internet üzerinden erişmek için geçiş işleminden önce şirket içi Linux VM üzerinde SSH bunlar etkinleştirin.  Ubuntu için bu aşağıdaki komutu kullanarak tamamlayabilirsiniz: **Sudo yüklemeyi apt-get ssh -y**.
 - Bunlar geçiş (yük devretme) çalıştırdıktan sonra kontrol edebilirsiniz **önyükleme tanılaması** VM'nin bir ekran görüntülemek için.
-- Bu işe yaramazsa, bunlar VM çalıştıran ve bunları gözden geçirin, denetlenecek gerekir [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Bu işe yaramazsa, bunlar VM çalıştıran ve bunları gözden geçirin, denetlenecek gerekir [sorun giderme ipuçları](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 **Daha fazla yardıma mı ihtiyacınız var?**

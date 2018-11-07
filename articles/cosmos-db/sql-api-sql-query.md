@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 766a2a9a2b71d9cd013f26b843d413d7603ab1fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 22b31e7df4e11f8f98877a8497b533203dcc26b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051366"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233312"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Azure Cosmos DB verileri içeren SQL sorguları sorgulama
 
@@ -2405,13 +2405,13 @@ Aşağıdaki örnek queryDocuments JavaScript Sunucusu API sorgularından yapmak
 
 ## <a id="References"></a>Başvuruları
 1. [Azure Cosmos DB'ye giriş][introduction]
-2. [Azure Cosmos DB SQL belirtimi](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Azure Cosmos DB SQL belirtimi](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET örnekleri](https://github.com/Azure/azure-documentdb-net)
 4. [Azure Cosmos DB tutarlılık düzeyleri][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
 7. JavaScript belirtimi [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
+8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
 9. Değerlendirme tekniklerini büyük veritabanları için sorgu [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayarda topluluğu Press, işleme
 11. Lu, Ooi, Bronz, sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayarda topluluğu Press, işleme.

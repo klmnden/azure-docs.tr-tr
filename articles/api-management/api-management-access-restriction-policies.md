@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092550"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240860"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management erişim kısıtlama ilkeleri
-Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Erişimi kısıtlama ilkeleri  
   
@@ -71,7 +71,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Yoksay örneği|TRUE veya False olarak ayarlanabilir. Üst bilgi değeri kabul edilebilir değerler kümesini karşı karşılaştırıldığında kümesi doğru çalışması için göz ardı edilip.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen, giden  
   
@@ -126,7 +126,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |yenileme dönemi|Kota sonra sıfırlayan saniye cinsinden süre.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
   
@@ -181,7 +181,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |yenileme dönemi|Kota sonra sıfırlayan saniye cinsinden süre.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
   
@@ -224,7 +224,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |IP Filtresi eylem = "izin ver &#124; yasaklayabilme"|Çağrıları verilip verilmeyeceğini veya belirtilen IP adresleri ve aralıkları için belirtir.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
 -   **İlke kapsamları:** genel, ürün, API, işlemi  
@@ -279,7 +279,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |yenileme dönemi|Kota sonra sıfırlayan saniye cinsinden süre.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
 -   **İlke kapsamları:** ürün  
@@ -336,7 +336,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |yenileme dönemi|Kota sonra sıfırlayan saniye cinsinden süre.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
 -   **İlke kapsamları:** genel, ürün, API, işlemi  
@@ -506,7 +506,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |url|Kimliği yapılandırma uç nokta URL'si nerede Open ID yapılandırma meta verilerini elde edilebilir gelen açın. Yanıt özellikleri için URL'de tanımlandığı gibi uygun:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` dizin Kiracı adınızın, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümler:** gelen  
 -   **İlke kapsamları:** genel, ürün, API, işlemi  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: b06f5a66566c250eef608ddccc551aaebe24ef74
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522807"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238905"
 ---
 # <a name="table-design-patterns"></a>Tablo tasarımı desenleri
 Bu makalede, tablo hizmeti çözümleri ile kullanım için uygun olan bazı desenleri açıklar. Ayrıca, nasıl, pratikte bazı sorunlar ve dezavantajlarına diğer tablo depolama tasarım makalelerinde açıklanan ele görürsünüz. Aşağıdaki diyagramda, farklı düzenlerinin arasındaki ilişkileri özetlenmektedir:  
@@ -48,7 +48,7 @@ Bir dizi çalışan varlıklar için sorgu, çalışan kimliği sırasına koyul
 * Satış departmanındaki tüm çalışanlar ile çalışan bulmak için kullanmak için 000100 000199 aralığında kimliği: $filter = (PartitionKey eq 'Satış') ve (RowKey ge 'empid_000100') ve (RowKey le 'empid_000199')  
 * Satış departmanındaki tüm çalışanlar ' bir ' harfi ile başlayan bir e-posta adresiyle bulunacak: $filter = (PartitionKey eq 'Satış') ve (RowKey ge 'email_a') ve (RowKey lt 'email_b')  
   
-  Daha fazla bilgi için tablo hizmeti REST API, Yukarıdaki örneklerde kullanılan filtre söz dizimi olduğuna dikkat edin [varlıkları sorgulayın](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Daha fazla bilgi için tablo hizmeti REST API, Yukarıdaki örneklerde kullanılan filtre söz dizimi olduğuna dikkat edin [varlıkları sorgulayın](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Sorunlar ve dikkat edilmesi gerekenler
 Bu düzenin nasıl uygulanacağına karar verirken aşağıdaki noktaları göz önünde bulundurun:  
@@ -104,7 +104,7 @@ Bir dizi çalışan varlıklar için sorgu, çalışan kimliği sırasına koyul
 * Bir aralıkta çalışan kimliği ile Satış departmanındaki tüm çalışanlar bulunacak **000100** için **000199** çalışan kimliği kullanmak sıralanır: $filter = (PartitionKey eq ' empid_Sales') ve (RowKey ge '000100') ve (RowKey le '000199')  
 * E-posta adresi kullanmak sıralanmış 'a' ile başlayan bir e-posta adresiyle Satış departmanındaki tüm çalışanlar bulmak için: $filter = (PartitionKey eq ' email_Sales') ve (RowKey ge 'bir') ve (RowKey lt 'b')  
 
-Daha fazla bilgi için tablo hizmeti REST API, Yukarıdaki örneklerde kullanılan filtre söz dizimi olduğuna dikkat edin [varlıkları sorgulayın](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Daha fazla bilgi için tablo hizmeti REST API, Yukarıdaki örneklerde kullanılan filtre söz dizimi olduğuna dikkat edin [varlıkları sorgulayın](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Sorunlar ve dikkat edilmesi gerekenler
 Bu düzenin nasıl uygulanacağına karar verirken aşağıdaki noktaları göz önünde bulundurun:  
@@ -617,7 +617,7 @@ En iyi bir sorgu dayalı tek bir varlık döndüren bir **PartitionKey** değer 
 
 Böyle senaryolarda, uygulamanızın performansını her zaman tam olarak test etmeniz gerekir.  
 
-Tablo hizmetinde bir sorgu en fazla 1.000 varlıkları tek seferde döndürebilir ve en fazla beş saniye için yürütür. Sorgu beş saniye içinde tamamlanmadı, 1. 000'den fazla varlıklar, sonuç kümesini içerir ya da sorgu bölüm sınırının aşması durumunda, tablo hizmeti, sonraki dizi varlık istemek istemci uygulamasını etkinleştirmek için bir devamlılık belirteci döndürür. Nasıl iş devamlılığı belirteçleri hakkında daha fazla bilgi için bkz. [sorgu zaman aşımı ve sayfalandırma](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Tablo hizmetinde bir sorgu en fazla 1.000 varlıkları tek seferde döndürebilir ve en fazla beş saniye için yürütür. Sorgu beş saniye içinde tamamlanmadı, 1. 000'den fazla varlıklar, sonuç kümesini içerir ya da sorgu bölüm sınırının aşması durumunda, tablo hizmeti, sonraki dizi varlık istemek istemci uygulamasını etkinleştirmek için bir devamlılık belirteci döndürür. Nasıl iş devamlılığı belirteçleri hakkında daha fazla bilgi için bkz. [sorgu zaman aşımı ve sayfalandırma](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Depolama istemci kitaplığı kullanıyorsanız, tablo hizmetinden varlıklar döndürüyor gibi otomatik olarak devamlılık belirteçleri için işleyebilirsiniz. Depolama istemci kitaplığı kullanılarak otomatik olarak aşağıdaki C# kod örneği, tablo hizmeti bunları bir yanıt döndürürse devamlılık belirteçlerini işler:  
 

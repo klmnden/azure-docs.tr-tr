@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: dfa9da5102c2a47b14cbd70380b70b4561c3191d
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231456"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
@@ -591,7 +591,7 @@ Bu not defterlerini alın: [!INCLUDE [aml-clone-in-azure-notebook](../../../incl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Machine Learning SDK başvurusu](http://aka.ms/aml-sdk)
+* [Azure Machine Learning SDK başvurusu](https://aka.ms/aml-sdk)
 * [Öğretici: Modeli eğitme](tutorial-train-models-with-aml.md)
 * [Modelleri dağıtılacağı yeri](how-to-deploy-and-where.md)
 * [Machine learning işlem hatlarını Azure Machine Learning hizmeti ile derleme](concept-ml-pipelines.md)

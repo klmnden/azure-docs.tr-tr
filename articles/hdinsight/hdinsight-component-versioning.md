@@ -1,6 +1,6 @@
 ---
-title: Hadoop bileşenleri ve sürümleri - Azure HDInsight
-description: Hadoop bileşenleri ve sürümleri HDInsight ve bu Hortonworks Data Platform bulut dağıtımlarında kullanılabilir hizmet düzeyleri öğrenin.
+title: Apache Hadoop bileşenlerinin ve sürümlerinin - Azure HDInsight
+description: Apache Hadoop bileşenleri ve sürümleri HDInsight ve bu Hortonworks Data Platform bulut dağıtımlarında kullanılabilir hizmet düzeyleri öğrenin.
 keywords: hadoop sürümlerini, hadoop ekosistemi bileşenleri, hadoop bileşenleri, hadoop sürüm denetimi yapma
 services: hdinsight
 ms.reviewer: jasonh
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 0e14ca31d51887626f773fb05b02b41c4325fef3
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: fca83090e6713e4360bd19d49c7fd6b9147fd6ea
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914796"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219741"
 ---
-# <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
+# <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
 Microsoft Azure HDInsight yanı sıra Kurumsal güvenlik paketi sürümleri ve Apache Hadoop ekosistemi bileşenleri hakkında bilgi edinin. Ayrıca, HDInsight Hadoop bileşeni sürümlerinde denetleme konusunda bilgi edinin. 
 
 Her bir HDInsight sürüm, Hortonworks Data Platform (HDP) sürümünün bir bulut dağıtımıdır.
 
-## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Farklı HDInsight sürümlerle kullanılabilir Hadoop bileşenleri
+## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Apache Hadoop bileşenleri farklı HDInsight sürümleri ile kullanılabilir
 Azure HDInsight, herhangi bir zamanda dağıtılabilir birden çok Hadoop küme sürümleri destekler. Her sürüm seçimi HDP dağıtım belirli bir sürümünü ve dağıtımı içinde bulunan bileşenler kümesi oluşturur. 4 Nisan 2017'den itibaren Azure HDInsight tarafından kullanılan varsayılan küme sürümü 3.6 olduğu ve HDP 2.6 üzerinde temel alır.
 
 HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tabloda listelenmiştir: 
@@ -247,7 +247,7 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
   | Sınırı: Önerilen VM boyut | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brezilya Güney ve yalnızca Japonya Batı (v2 boyutları):
 
-  | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | ML Service |
+  | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: varsayılan VM boyutu |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | HEAD: Önerilen VM boyutları |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

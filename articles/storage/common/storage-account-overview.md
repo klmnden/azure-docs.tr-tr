@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638435"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255771"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -107,7 +107,7 @@ Azure depolama, kullanım düzenlerini esas alarak blok blob verilerine erişmek
 Kullanılabilir erişim katmanları şunlardır:
 
 > [!NOTE]
-> [Premium erişim katmanı](../blobs/storage-blob-storage-tiers.md#premium-access-tier) Kuzey Avrupa, Doğu ABD 2, ABD Orta ve ABD Batı bölgelerinde yerel olarak yedekli depolama (LRS) hesabı olarak sınırlı önizlemede kullanılabilir. Önizlemeye kaydolmak öğrenmek için bkz: [Azure Premium Blob Depolama ile tanışın](http://aka.ms/premiumblob).
+> [Premium erişim katmanı](../blobs/storage-blob-storage-tiers.md#premium-access-tier) Kuzey Avrupa, Doğu ABD 2, ABD Orta ve ABD Batı bölgelerinde yerel olarak yedekli depolama (LRS) hesabı olarak sınırlı önizlemede kullanılabilir. Önizlemeye kaydolmak öğrenmek için bkz: [Azure Premium Blob Depolama ile tanışın](https://aka.ms/premiumblob).
 
 * **Etkin** erişim katmanı, sık sık depolama hesabındaki nesnelere erişimi için optimize edilmiştir. Sık erişimli katmanı veri erişimi maliyetlerini biraz daha yüksek olsa en uygun maliyetli. Yeni depolama hesaplarında sık erişimli oluşturulan varsayılan olarak katman.
 * **Seyrek erişimli** erişim katmanı, büyük miktarlarda az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Veri depolama seyrek erişim katmanında daha uygun maliyetlidir, ancak bu verilere erişme biraz daha sık erişimli katmanı veri erişimi daha pahalı olabilir.

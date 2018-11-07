@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 69a4364c1d110ae78370fbf0ba1b4a92e033a862
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c2fb3ae20ea2b6ba71408a734c1e0c82cbeb699c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241573"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233584"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Yükleme esnek veritabanı işlerine genel bakış
 
@@ -31,7 +31,7 @@ Zaten yüklediyseniz **elastik veritabanı işleri** mevcut bir Portal üzerinde
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. En son sürümünü kullanarak yüklemeniz [Web Platformu yükleyicisi](http://go.microsoft.com/fwlink/p/?linkid=320376). Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
+* Azure PowerShell. En son sürümünü kullanarak yüklemeniz [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/p/?linkid=320376). Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 * [NuGet komut satırı yardımcı programı](https://nuget.org/nuget.exe) elastik veritabanı işleri paketini yüklemek için kullanılır. Daha fazla bilgi için http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>İndirme ve elastik veritabanı işleri PowerShell paketi içeri aktarma

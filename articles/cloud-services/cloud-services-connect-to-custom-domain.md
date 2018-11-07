@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232656"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
 İlk sanal ağ (VNet) Azure'da ayarlayacağız. Ardından bir Active Directory etki alanı (bir Azure sanal makinesinde barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rolleri önceden oluşturulmuş bir sanal ağa ekleyin, sonra bunları etki alanı denetleyicisine bağlanma.
@@ -95,7 +95,7 @@ VM'de oturum açmak için PowerShell üzerinden RDP dosyası alma, aşağıdaki 
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-VM'de oturum açtıktan sonra sanal makineyi bir AD etki alanı denetleyicisi olarak adım adım kılavuzu izleyerek ayarlayın. [müşterinizi AD etki alanı denetleyicisini ayarlama](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+VM'de oturum açtıktan sonra sanal makineyi bir AD etki alanı denetleyicisi olarak adım adım kılavuzu izleyerek ayarlayın. [müşterinizi AD etki alanı denetleyicisini ayarlama](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## <a name="add-your-cloud-service-to-the-virtual-network"></a>Bulut hizmetinizin sanal ağa ekleyin.
 Ardından, bulut hizmeti dağıtımınız yeni bir sanal ağa eklemeniz gerekir. Bunu yapmak için Visual Studio veya tercih ettiğiniz düzenleyiciyi kullanarak, cscfg için ilgili bölümlerine ekleyerek, bulut hizmeti cscfg değiştirin.

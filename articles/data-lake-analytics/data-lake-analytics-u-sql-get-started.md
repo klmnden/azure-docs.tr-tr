@@ -9,20 +9,20 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: daef00bc7b39326b79e5f56bf803dc6aad1ac0ff
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221954"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233365"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics U-SQL ile çalışmaya başlama
 U-SQL sorgu dili gibi kesinlik temelli izin için C# ile birleştiren bir dil olan verileri dilediğiniz ölçekte işleyin. U-SQL'nin ölçeklenebilir, dağıtılmış sorgu özelliği, Azure SQL veritabanı gibi ilişkisel depoları arasında veri verimli bir şekilde çözümleyebilirsiniz. U-SQL ile yapılandırılmamış verileri okuma sırasında şema uygulama ve Özel mantık ve UDF'ler eklemeden işleyebilir. Ayrıca, U-SQL, uygun ölçekte yürütmek nasıl üzerinde ayrıntılı denetim sağlar genişletilebilirlik içerir. 
 
 ## <a name="learning-resources"></a>Öğrenme kaynakları
 
-* [U-SQL öğretici](http://aka.ms/usqltutorial) U-SQL dili çoğunu destekli bir kılavuz sağlar. Bu belge, U-SQL öğrenmek isteyen tüm geliştiriciler için okuma önerilir.
-* İlgili ayrıntılı bilgi için **U-SQL dili sözdizimini**, bkz: [U-SQL dil başvurusu](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* [U-SQL öğretici](https://aka.ms/usqltutorial) U-SQL dili çoğunu destekli bir kılavuz sağlar. Bu belge, U-SQL öğrenmek isteyen tüm geliştiriciler için okuma önerilir.
+* İlgili ayrıntılı bilgi için **U-SQL dili sözdizimini**, bkz: [U-SQL dil başvurusu](https://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Anlamak için **U-SQL tasarımı felsefesi**, Visual Studio blog gönderisini inceleyin [Karşınızda U-SQL – büyük veri işleme kolay oluşturan bir dille](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Önkoşullar

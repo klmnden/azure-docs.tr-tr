@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 860d28aa37f37ed24346e2fba635b9436684114c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353791"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231660"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -35,7 +35,7 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 | --- | --- |
 | Birçok ortak HTTP üst bilgilerini REST API'SİNDE sağlanmayan. |REST API kullanarak Media Services uygulamalar geliştiriyorsanız, bazı ortak HTTP üst bilgi alanları bulabilirsiniz (dahil CLIENT-REQUEST-ID REQUEST-ID yanı sıra, RETURN-CLIENT-REQUEST-ID) desteklenmez. Üst bilgiler, gelecek güncelleştirmelerden birinde eklenecektir. |
 | Yüzde kodlama izin verilmiyor. |Media Services akış içeriğini URL'ler oluşturulurken IAssetFile.Name özelliğinin değeri kullanır (örneğin, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Bu nedenle, yüzde kodlama izin verilmiyor. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir "." dosya adı uzantısı için. |
-| Azure depolama SDK'sı sürüm 3.x başarısız parçasıdır ListBlobs yöntem. |Media Services oluşturur göre tüm SAS URL'lerini [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) sürümü. Bir blob kapsayıcı içindeki blobları listeleme için depolama SDK'sını kullanmak istiyorsanız, kullanın [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) depolama SDK'sı sürüm parçası olan yöntemin 2.x. |
+| Azure depolama SDK'sı sürüm 3.x başarısız parçasıdır ListBlobs yöntem. |Media Services oluşturur göre tüm SAS URL'lerini [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) sürümü. Bir blob kapsayıcı içindeki blobları listeleme için depolama SDK'sını kullanmak istiyorsanız, kullanın [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) depolama SDK'sı sürüm parçası olan yöntemin 2.x. |
 | Azaltma mekanizması Media Services, hizmete aşırı isteklerde uygulamalar için kaynak kullanımını kısıtlıyor. Hizmet, "Hizmet kullanılamıyor" 503 HTTP durum kodunu döndürebilir. |Daha fazla bilgi için bkz: 503 HTTP durum kodu açıklamasını [Media Services hata kodları](media-services-encoding-error-codes.md). |
 | Varlıkları sorgulama yaptığında, sürüm 2 genel REST sorgu sonuçlarını 1.000 sonuçları sınırladığı için 1000 varlıkların bir sınır aynı anda döndürülür. |Atla ve Al (.NET) / açıklandığı (REST) üst [bu .NET örnek](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) ve [bu REST API örnek](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Bazı istemciler, kesintisiz akış bildiriminde bir yineleme etiketi sorunu arasında gelebilir. |Daha fazla bilgi için [Bu bölümde](media-services-deliver-content-overview.md#known-issues). |
@@ -44,6 +44,16 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API Sürüm Geçmişi
 Media Services REST API sürüm geçmişi hakkında daha fazla bilgi için bkz. [Azure Media Services REST API'si başvurusu].
+
+## <a name="october-2018"></a>Ekim 2018
+
+### <a name="cmaf-support"></a>CMAF desteği
+
+(İOS 11 +) Apple HLS ve MPEG-DASH için CMAF ve 'cbcs' şifreleme desteği CMAF destekleyen oynatıcılar.
+
+### <a name="web-vtt-thumbnail-sprites"></a>Web VTT küçük resim zıplamasını sağlayın
+
+Media Services şimdi v2 Apı'lerimizi kullanarak Web VTT küçük resim hareketli grafikler oluşturmak için de kullanabilirsiniz. Daha fazla bilgi için [bir küçük resim sprite oluşturmak](generate-thumbnail-sprite.md).
 
 ## <a name="july-2018"></a>Temmuz 2018
 
@@ -217,7 +227,7 @@ Daha fazla bilgi için [bu blog](https://azure.microsoft.com/blog/azure-media-se
 ## <a id="july_changes_15"></a>Temmuz 2015 sürümü
 * Media Encoder Standard genel kullanılabilirliğini Duyuruldu. Daha fazla bilgi için [bu blog gönderisini](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard kullandığı hazır açıklandığı [Bu bölümde](http://go.microsoft.com/fwlink/?LinkId=618336). 4 K için önceden ayarlanmış kullanırken kodlar, Premium ayrılmış birim türünü Al. Daha fazla bilgi için [ölçek kodlama](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard kullandığı hazır açıklandığı [Bu bölümde](https://go.microsoft.com/fwlink/?LinkId=618336). 4 K için önceden ayarlanmış kullanırken kodlar, Premium ayrılmış birim türünü Al. Daha fazla bilgi için [ölçek kodlama](media-services-scale-media-processing-overview.md).
 * Canlı gerçek zamanlı açıklamalı alt yazılar, Media Services Media Player ile kullanıldı. Daha fazla bilgi için [bu blog gönderisini](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK'sını güncelleştirme
@@ -293,7 +303,7 @@ Bu sürüm, varsayılan Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAu
 * Anahtar teslim hizmeti için CORS desteği eklendi.
 * Yetkilendirme İlkesi seçenekleri sorgulama için performans geliştirmeleri yapıldı.
 * Çin veri merkezindeki [anahtar teslim URL](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) müşteri başına sunulmuştur (diğer veri merkezlerinde olduğu gibi).
-* HLS otomatik hedef süresi eklendi. Canlı akış yaparken HLS her zaman dinamik olarak paketlenir. Media Services, varsayılan olarak, ana kare aralığına (KeyFrameInterval) dayalı HLS segment paketleme oranı (FragmentsPerSegment) otomatik olarak hesaplar. Bu yöntem aynı zamanda gerçek zamanlı Kodlayıcı alınan bir grubu (GOP) resimlerin verilir. Daha fazla bilgi için [iş Media Services ile canlı akış](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+* HLS otomatik hedef süresi eklendi. Canlı akış yaparken HLS her zaman dinamik olarak paketlenir. Media Services, varsayılan olarak, ana kare aralığına (KeyFrameInterval) dayalı HLS segment paketleme oranı (FragmentsPerSegment) otomatik olarak hesaplar. Bu yöntem aynı zamanda gerçek zamanlı Kodlayıcı alınan bir grubu (GOP) resimlerin verilir. Daha fazla bilgi için [iş Media Services ile canlı akış](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK'sını güncelleştirme
 [Media Services .NET SDK'sı](http://www.nuget.org/packages/windowsazure.mediaservices/) artık 3.1.0.0 sürümüdür. Aşağıdaki güncelleştirmeler yapılmıştır:
@@ -304,7 +314,7 @@ Bu sürüm, varsayılan Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAu
 * PlayReady lisans şablonu BeginDate ve ExpirationDate göreli farklarını eklendi.
 
 ## <a id="november_changes_14"></a>Kasım 2014 sürümü
-* Media Services şimdi bir SSL bağlantısı üzerinden Canlı kesintisiz akış (fMP4) içerik almak için de kullanabilirsiniz. SSL üzerinden alımı için alma URL'si için HTTPS güncelleştirdiğinizden emin olun. Şu anda, Media Services, SSL ile özel etki alanlarını desteklemiyor. Canlı akış hakkında daha fazla bilgi için bkz. [iş Azure Media Services canlı akış ile](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Media Services şimdi bir SSL bağlantısı üzerinden Canlı kesintisiz akış (fMP4) içerik almak için de kullanabilirsiniz. SSL üzerinden alımı için alma URL'si için HTTPS güncelleştirdiğinizden emin olun. Şu anda, Media Services, SSL ile özel etki alanlarını desteklemiyor. Canlı akış hakkında daha fazla bilgi için bkz. [iş Azure Media Services canlı akış ile](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Şu anda bir SSL bağlantısı üzerinden RTMP canlı akış içe olamaz.
 * İçeriğinizi teslim etmek istediğiniz akış uç noktası 10 Eylül 2014'ten sonra yalnızca oluşturulduysa, SSL üzerinden akışını yapabilirsiniz. URL "streaming.mediaservices.windows.net" (yeni biçimde) varsa, akış URL'leri 10 Eylül 2014'ten sonra oluşturulan akış uç noktalarını dayanır. "Origin.mediaservices.windows.net" (eski biçimde) içeren akış URL'leri SSL desteklemez. URL'NİZİN biçimi eski olduğundan ve SSL üzerinden akışla aktarmak istiyorsanız [yeni bir akış uç noktası oluşturma](media-services-portal-manage-streaming-endpoints.md). SSL üzerinden içeriğinizin akışını sağlamak için yeni akış uç noktasına göre URL'leri kullanın.
 
@@ -336,7 +346,7 @@ Media Services REST meta verileri sürüm 2.7 sunulmuştur. KALAN güncelleştir
 * Kodlamak ve ardından yayımlama MP4 dosyaları için Azure portalını kullanırken varsayılan davranış bir değişiklik yapılmıştır.
 
 ### <a id="sept_14_GA_changes"></a>Yeni özellikler/genel kullanım sürümünde parçası olan senaryoları
-* Media Indexer medya işleyicisini kullanıma sunulmuştur. Daha fazla bilgi için [Media Indexer ile medya dosyalarının dizinini](http://msdn.microsoft.com/library/azure/dn783455.aspx).
+* Media Indexer medya işleyicisini kullanıma sunulmuştur. Daha fazla bilgi için [Media Indexer ile medya dosyalarının dizinini](https://msdn.microsoft.com/library/azure/dn783455.aspx).
 * Kullanabileceğiniz [StreamingEndpoint] (ana) özel etki alanı adlarını eklenecek varlık.
   
     Media Services akış uç noktası adı bir özel etki alanını kullanmak için akış uç noktanızı özel konak adlarını ekleyin. Özel ana bilgisayar adları eklemek için Media Services REST API'leri veya .NET SDK'sını kullanın.
@@ -347,16 +357,16 @@ Media Services REST meta verileri sürüm 2.7 sunulmuştur. KALAN güncelleştir
   * Etki alanı sahipliğini Media Services tarafından doğrulanması gerekir. Etki alanını doğrulamak için DNS mediaservices dns bölgesi doğrulamak için MediaServicesAccountId üst etki alanına eşleyen bir CName oluşturun.
   * Medya Hizmetleri StreamingEndpoint ana bilgisayar adı (örneğin, amstest.streaming.mediaservices.windows.net) özel bir ana bilgisayar adı (örneğin, sports.contoso.com) eşleşen başka bir CName oluşturmanız gerekir.
 
-    Daha fazla bilgi için bkz: CustomHostNames özelliğinde [StreamingEndpoint](http://msdn.microsoft.com/library/azure/dn783468.aspx) makalesi.
+    Daha fazla bilgi için bkz: CustomHostNames özelliğinde [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx) makalesi.
 
 ### <a id="sept_14_preview_changes"></a>Yeni özellikler/genel Önizleme sürümü parçası olan senaryoları
-* Canlı akış Önizleme. Daha fazla bilgi için [iş Media Services ile canlı akış](http://msdn.microsoft.com/library/azure/dn783466.aspx).
-* Anahtar teslim hizmeti. Daha fazla bilgi için [kullanım AES-128 dinamik şifreleme ve anahtar dağıtımı hizmetiyle](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* AES dinamik şifreleme. Daha fazla bilgi için [kullanım AES-128 dinamik şifreleme ve anahtar dağıtımı hizmetiyle](http://msdn.microsoft.com/library/azure/dn783457.aspx).
+* Canlı akış Önizleme. Daha fazla bilgi için [iş Media Services ile canlı akış](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Anahtar teslim hizmeti. Daha fazla bilgi için [kullanım AES-128 dinamik şifreleme ve anahtar dağıtımı hizmetiyle](https://msdn.microsoft.com/library/azure/dn783457.aspx).
+* AES dinamik şifreleme. Daha fazla bilgi için [kullanım AES-128 dinamik şifreleme ve anahtar dağıtımı hizmetiyle](https://msdn.microsoft.com/library/azure/dn783457.aspx).
 * PlayReady lisans teslimat hizmeti. 
 * PlayReady dinamik şifreleme. 
 * Media Services PlayReady lisans şablonu. Daha fazla bilgi için [Media Services PlayReady lisans şablonuna genel bakış].
-* Stream varlıklar depolama şifrelenir. Daha fazla bilgi için [Stream depolama ile şifrelenmiş içeriklerin](http://msdn.microsoft.com/library/azure/dn783451.aspx).
+* Stream varlıklar depolama şifrelenir. Daha fazla bilgi için [Stream depolama ile şifrelenmiş içeriklerin](https://msdn.microsoft.com/library/azure/dn783451.aspx).
 
 ## <a id="august_changes_14"></a>Ağustos 2014 sürümü
 Bir varlığı kodlama, kodlama işi tamamlandığında, çıktı varlık oluşturulur. Bu sürüm kadar medya Hizmetleri Kodlayıcı çıktı varlığı hakkındaki meta verileri oluşturdu. Bu sürüm ile başlayarak, kodlayıcı giriş varlıklar hakkındaki meta verileri de oluşturur. Daha fazla bilgi için [giriş meta verileri] ve [çıkış meta verileri].
@@ -371,7 +381,7 @@ Azure Media Services Paketleyici ve Şifreleyici için aşağıdaki hata düzelt
 ### <a id="may_14_changes"></a>Genel medya Hizmetleri güncelleştirmeleri
 Artık [dinamik paketleme] akışına HLS sürüm 3. Akış HLS sürüm 3 için aşağıdaki biçimi için Kaynak Konum Belirleyicisi yolu ekleyin: * .ism/manifest(format=m3u8-aapl-v3). Daha fazla bilgi için [bu Forumu](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
-Dinamik paketleme şimdi de statik olarak PlayReady şifreli kesintisiz akış göre PlayReady ile şifrelenmiş HLS (sürüm 3 ve sürüm 4) destekler. Kesintisiz akış PlayReady ile şifreleme hakkında daha fazla bilgi için bkz: [PlayReady ile kesintisiz akış korumak](http://msdn.microsoft.com/library/azure/dn189154.aspx).
+Dinamik paketleme şimdi de statik olarak PlayReady şifreli kesintisiz akış göre PlayReady ile şifrelenmiş HLS (sürüm 3 ve sürüm 4) destekler. Kesintisiz akış PlayReady ile şifreleme hakkında daha fazla bilgi için bkz: [PlayReady ile kesintisiz akış korumak](https://msdn.microsoft.com/library/azure/dn189154.aspx).
 
 ### <a name="may_14_donnet_changes"></a>Media Services .NET SDK'sını güncelleştirme
 Media Services .NET SDK'sı sürüm 3.0.0.5 sunulmuştur. Aşağıdaki güncelleştirmeler yapılmıştır:
@@ -387,9 +397,9 @@ Daha fazla bilgi için [.NET için Media Services SDK'sı mantığı yeniden den
 ## <a id="april_changes_14"></a>Nisan 2014 Kodlayıcı sürüm
 ### <a name="april_14_enocer_changes"></a>Medya Hizmetleri Kodlayıcı güncelleştirmeleri
 * Çim vadisi EDIUS doğrusal Düzenleyicisi'ni kullanarak yazılan AVI dosyalarında almak için destek eklendi. Bu işlemde Çim vadisi HQ/HQX codec kullanarak video hafifçe sıkıştırılır. Daha fazla bilgi için [Çim vadisi EDIUS bulut üzerinden akış 7 duyurdu].
-*  Medya Hizmetleri Kodlayıcı tarafından üretilen dosyaları için adlandırma kuralı belirtmek için destek eklendi. Daha fazla bilgi için [denetim medya Hizmetleri Kodlayıcı çıktı dosyası adları](http://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Video ve/veya ses katmanları için destek eklendi. Daha fazla bilgi için [yer paylaşımları oluşturma](http://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Birden fazla video segmentlerini birleştirmek için destek eklendi. Daha fazla bilgi için [kullanabileceğimizi video segmentlerini](http://msdn.microsoft.com/library/azure/dn640504.aspx).
+*  Medya Hizmetleri Kodlayıcı tarafından üretilen dosyaları için adlandırma kuralı belirtmek için destek eklendi. Daha fazla bilgi için [denetim medya Hizmetleri Kodlayıcı çıktı dosyası adları](https://msdn.microsoft.com/library/azure/dn303341.aspx).
+*  Video ve/veya ses katmanları için destek eklendi. Daha fazla bilgi için [yer paylaşımları oluşturma](https://msdn.microsoft.com/library/azure/dn640496.aspx).
+*  Birden fazla video segmentlerini birleştirmek için destek eklendi. Daha fazla bilgi için [kullanabileceğimizi video segmentlerini](https://msdn.microsoft.com/library/azure/dn640504.aspx).
 * Bir hatanın nerede ses kodlanan MP4 MPEG-1 Ses Katmanı 3 (MP3 olarak da bilinir) ile kodlama dönüştürme için ilgili düzeltildi.
 
 ## <a id="jan_feb_changes_14"></a>Ocak/Şubat 2014 sürümleri
@@ -415,7 +425,7 @@ Değişiklikler hakkında daha fazla bilgi için bkz. [3.0.0.1 ve 3.0.0.2 Media 
 
 Media Services SDK'sını en son sürümünü 3.0.0.0 sunulmuştur. Nuget'ten en son paketini indirin veya bitten alma [GitHub].
 
-Media Services SDK sürüm 3.0.0.0 başlatma, yeniden kullanabileceğiniz [Azure AD Access Control Service](http://msdn.microsoft.com/library/hh147631.aspx) belirteçleri. Daha fazla bilgi için bkz: "Yeniden Access Control Service belirteçler" bölümünde [.NET için Media Services SDK'sı ile Media Services'e bağlanma](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Media Services SDK sürüm 3.0.0.0 başlatma, yeniden kullanabileceğiniz [Azure AD Access Control Service](https://msdn.microsoft.com/library/hh147631.aspx) belirteçleri. Daha fazla bilgi için bkz: "Yeniden Access Control Service belirteçler" bölümünde [.NET için Media Services SDK'sı ile Media Services'e bağlanma](https://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 ### <a name="dec_13_donnet_ext_changes"></a>Media Services .NET SDK uzantıları 2.0.0.0
  Media Services .NET SDK uzantıları, genişletme yöntemleri ve kodunuzu basitleştirin ve Media Services ile geliştirmek daha kolay hale getirmek için yardımcı işlevleri kümesidir. En son bitten alabilirsiniz [Media Services .NET SDK uzantıları](https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev).
@@ -466,8 +476,8 @@ Aşağıdaki değişiklikleri dahil edilen Haziran 2013'te, Media Services SDK's
     * Depolama hesabı özelliği
     * StorageAccountName özelliği
   
-    Daha fazla bilgi için [birden çok depolama hesapları arasında Media Services'ı Yönet varlıklar](http://msdn.microsoft.com/library/azure/dn271889.aspx).
-* Bildirim ile ilgili API'ler. 2.2.0.0 sürümünden itibaren Azure kuyruk depolama bildirimleri dinleyebilirsiniz. Daha fazla bilgi için [işleyecek medya Hizmetleri iş bildirimleri](http://msdn.microsoft.com/library/azure/dn261241.aspx).
+    Daha fazla bilgi için [birden çok depolama hesapları arasında Media Services'ı Yönet varlıklar](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+* Bildirim ile ilgili API'ler. 2.2.0.0 sürümünden itibaren Azure kuyruk depolama bildirimleri dinleyebilirsiniz. Daha fazla bilgi için [işleyecek medya Hizmetleri iş bildirimleri](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
     * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type

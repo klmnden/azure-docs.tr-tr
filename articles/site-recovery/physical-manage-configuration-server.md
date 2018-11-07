@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0e8dbf47c40339c90a0e28c3ef497a8da963e481
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213262"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231031"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -42,7 +42,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için önkoşullar
 
 ## <a name="download-the-latest-installation-file"></a>Son yükleme dosyasını indirin
 
-Site Recovery portalında yapılandırma sunucusu yükleme dosyasının en son sürümü kullanılabilir. Ayrıca, bunu doğrudan indirilebilir [Microsoft Download Center](http://aka.ms/unifiedsetup).
+Site Recovery portalında yapılandırma sunucusu yükleme dosyasının en son sürümü kullanılabilir. Ayrıca, bunu doğrudan indirilebilir [Microsoft Download Center](https://aka.ms/unifiedsetup).
 
 1. Azure portalında oturum açın ve kurtarma Hizmetleri kasanıza göz atın.
 2. Gözat **Site Recovery altyapısı** > **yapılandırma sunucusu** (altında VMware ve fiziksel makineler için).

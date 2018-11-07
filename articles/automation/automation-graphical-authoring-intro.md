@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056248"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233686"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Otomasyonu'nda yazma grafik
 
@@ -48,7 +48,7 @@ Seçtiğiniz kitaplık denetimidir [etkinlikleri](#activities) runbook uygulaman
 |:--- |:--- |
 | Cmdlet'leri |Runbook'ta kullanılabilecek tüm cmdlet'leri içerir. Cmdlet modülü tarafından düzenlenir. Tüm otomasyon hesabınızda yüklü modülleri mevcuttur. |
 | Runbook'lar |Runbook'ları, Otomasyon hesabınızda içerir. Bu runbook'ları, tuvalin alt runbook'lar olarak kullanılacak eklenebilir. Yalnızca düzenlenmekte olan runbook olarak aynı temel türündeki runbook'lar gösterilir. Grafik PowerShell iş akışı runbook'ları için yalnızca PowerShell iş akışı tabanlı runbook'ları gösterilmekte iken için grafik runbook'ları yalnızca PowerShell tabanlı runbook'ları gösterilir. |
-| Varlıklar |İçerir [Otomasyon varlıklarından](http://msdn.microsoft.com/library/dn939988.aspx) Otomasyon hesabınızda, bir runbook'ta kullanılabilir. Bir varlığı bir runbook'a eklediğinizde, seçili varlığı alır bir iş akışı etkinlik ekler. Değişken varlıklar söz konusu olduğunda, bir değişkeni almak veya değişkeni ayarlamak için bir etkinlik eklenip eklenmeyeceğini seçebilirsiniz. |
+| Varlıklar |İçerir [Otomasyon varlıklarından](https://msdn.microsoft.com/library/dn939988.aspx) Otomasyon hesabınızda, bir runbook'ta kullanılabilir. Bir varlığı bir runbook'a eklediğinizde, seçili varlığı alır bir iş akışı etkinlik ekler. Değişken varlıklar söz konusu olduğunda, bir değişkeni almak veya değişkeni ayarlamak için bir etkinlik eklenip eklenmeyeceğini seçebilirsiniz. |
 | Runbook denetimi |Geçerli bir runbook'ta kullanılabilir runbook denetimi etkinlikleri içerir. A *birleşim* birden çok girdiyi alır ve iş akışı devam etmeden önce tüm tamamlanana kadar bekler. A *kod* etkinlik çalıştırmalarını PowerShell ya da PowerShell iş akışı kodu grafik runbook türüne bağlı olarak bir veya daha fazla satır. Bu etkinlik diğer etkinlikler ile elde etmek zor işlevleri veya özel kod için kullanabilirsiniz. |
 
 ### <a name="configuration-control"></a>Yapılandırma denetimi
@@ -67,7 +67,7 @@ Yalnızca bir grafik runbook yayımlanmış sürümü dışarı aktarabilirsiniz
 
 Seçerek bir grafik veya grafik PowerShell iş akışı runbook dosyası içeri aktarabilirsiniz **alma** runbook eklerken seçenek. İçeri aktarılacak dosyasını seçtiğinizde, aynı tutabilirsiniz **adı** veya yeni bir tane sağlayın. Runbook türü alan runbook türü seçilen dosyanın değerlendirir ve doğru değil, farklı bir tür seçmek çalışırsanız, bir ileti olası çakışmaları vardır ve dönüştürme sırasında olabilir söz dizimi hatalarının ayıklanabileceğini sunulacak sonra görüntüler hataları.
 
-![Runbook'u içeri aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
+![Runbook'u İçeri Aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
 ### <a name="testing-a-graphical-runbook"></a>Grafik runbook'u test etme
 
@@ -245,7 +245,7 @@ Aşağıdaki örnek, bir sanal makine kümesi, bu makinelere uygulanacak düzelt
 
 ![Birleşim](media/automation-graphical-authoring-intro/runbook-junction.png)
 
-### <a name="cycles"></a>Döngüler
+### <a name="cycles"></a>Döngüleri
 
 Hedef etkinlik bağlantıları geri kendi kaynak etkinliği veya sonunda kaynağına bağlantıları geri başka bir etkinlik olduğunda bir döngüsü elde edilir. Döngüleri grafik yazma şu anda izin verilmiyor. Bir döngü runbook'unuz varsa düzgün şekilde kaydeder ancak çalıştığında bir hata alır.
 
@@ -272,7 +272,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 Ayarlayabileceğiniz [kontrol noktaları](automation-powershell-workflow.md#checkpoints) seçerek bir grafik PowerShell iş akışı runbook'ta *denetim noktası runbook'u* herhangi bir etkinlik. Bu etkinliğin çalıştıktan sonra ayarlamak bir denetim noktası neden olur.
 
-![Kontrol noktası](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Denetim noktası](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Kontrol noktaları, grafik PowerShell iş akışı runbook'ları yalnızca etkinleştirilen, grafik runbook'larında kullanılamaz. Runbook, Azure cmdlet'lerini kullanıyorsa, runbook'u askıya alındı ve yeniden durumunda Connect-AzureRmAccount belirttiğinizde herhangi bir etkinliği izlemelidir farklı bir çalışan üzerinde bu kontrol noktasından.
 
@@ -328,7 +328,7 @@ Her giriş parametresi, aşağıdaki tabloda özellikleri tarafından tanımlan�
 | Açıklama |Giriş parametresi için isteğe bağlı bir açıklama. |
 | Tür |Veri türü için parametre değeri bekleniyor. Azure portalında uygun bir denetim için her parametresinin veri türü için giriş isterken sağlar. |
 | Zorunlu |Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Tanımlanan varsayılan değeri olmayan zorunlu her parametre için bir değer belirtmezseniz, runbook başlatılamıyor. |
-| Varsayılan Değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir. Bu Null ya da belirli bir değer olabilir. |
+| Varsayılan değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir. Bu Null ya da belirli bir değer olabilir. |
 
 ### <a name="runbook-output"></a>Runbook çıkışı
 
@@ -336,7 +336,7 @@ Giden bir bağlantıya sahip olmayan herhangi bir etkinliği tarafından oluştu
 
 ## <a name="powershell-expressions"></a>PowerShell ifadeleri
 
-Grafik yazma avantajlarından biri, PowerShell ilişkin minimum bilgi ile bir runbook oluşturma olanağı sunuyor. Şu anda, ancak belirli doldurmak için biraz PowerShell bilmeniz gerekmez [parametre değerlerini](#activities) ve ayarın [bağlantı koşulları](#links-and-workflow). Bu bölümde PowerShell ifadeleri ile tanıdık olmayabilir kullanıcılar için hızlı bir giriş sağlar. PowerShell tam ayrıntıları şurada bulunabilir [Windows PowerShell ile betik oluşturma](http://technet.microsoft.com/library/bb978526.aspx).
+Grafik yazma avantajlarından biri, PowerShell ilişkin minimum bilgi ile bir runbook oluşturma olanağı sunuyor. Şu anda, ancak belirli doldurmak için biraz PowerShell bilmeniz gerekmez [parametre değerlerini](#activities) ve ayarın [bağlantı koşulları](#links-and-workflow). Bu bölümde PowerShell ifadeleri ile tanıdık olmayabilir kullanıcılar için hızlı bir giriş sağlar. PowerShell tam ayrıntıları şurada bulunabilir [Windows PowerShell ile betik oluşturma](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### <a name="powershell-expression-data-source"></a>PowerShell ifadesi veri kaynağı
 Değerini doldurmak için veri kaynağı olarak bir PowerShell ifadesi kullanabilirsiniz bir [Etkinlik parametresi](#activities) sonuçlarıyla ilgili bazı PowerShell kodu. Bu, tek satırlık bir bazı basit bir işlevi veya karmaşık bir mantık gerçekleştiren çok satırlı gerçekleştiren kod olabilir. Herhangi bir değişkene atanmış bir komutun çıktısını parametre değeri çıkışı yapılır.
@@ -414,7 +414,7 @@ Birden çok koşulu kullanarak katılabilirsiniz bir [mantıksal işleç](https:
 
 ### <a name="hashtables"></a>Hashtable'da
 
-[Hashtable'da](http://technet.microsoft.com/library/hh847780.aspx) , bir dizi döndürmek için yararlı olan ad/değer çiftleridir. Özellik belirli etkinlikler için basit bir değer yerine bir hashtable bekleyebilir. Bir sözlük olarak başvurulan bir karma tablosu olarak görebilirsiniz.
+[Hashtable'da](https://technet.microsoft.com/library/hh847780.aspx) , bir dizi döndürmek için yararlı olan ad/değer çiftleridir. Özellik belirli etkinlikler için basit bir değer yerine bir hashtable bekleyebilir. Bir sözlük olarak başvurulan bir karma tablosu olarak görebilirsiniz.
 
 Aşağıdaki sözdizimi ile karma tablosu oluşturun. Bir karma tablo girişleri herhangi bir sayıda içerebilir, ancak her bir ad ve değer tarafından tanımlanır.
 

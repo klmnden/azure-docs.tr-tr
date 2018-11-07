@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 5ff9d1cf76188ff38f59e8b74d4bfd380c8c88e1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408719"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233805"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -86,7 +86,7 @@ Daha fazla bilgi için bkz. [Şirket içi kimliklerinizi Azure Active Directory 
 - - -
 **S: Azure AD, kuruluşumdaki kullanıcılar için bir self servis portal sağlar mı?**
 
-**Y:** Evet, AD size kullanıcı self servis ve uygulama erişimi için [Azure AD Erişim Paneli](http://myapps.microsoft.com)'ni sağlar. Office 365 müşterisiyseniz aynı işlevlerin birçoğunu Office 365 portalında da bulabilirsiniz.
+**Y:** Evet, AD size kullanıcı self servis ve uygulama erişimi için [Azure AD Erişim Paneli](https://myapps.microsoft.com)'ni sağlar. Office 365 müşterisiyseniz aynı işlevlerin birçoğunu Office 365 portalında da bulabilirsiniz.
 
 Daha fazla bilgi için bkz. [Erişim Paneli'ne Giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 

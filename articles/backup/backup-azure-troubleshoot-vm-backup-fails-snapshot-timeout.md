@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 25c9cbcaf852aa07bcbe4f71bf69de366d4dbb87
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754044"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260508"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: aracı veya uzantı ile ilgili sorunlar
 
@@ -153,7 +153,7 @@ VM Aracısı bozulduysa veya hizmet durdurulmuş. VM aracısını yeniden yükle
 1. VM Hizmetleri (services.msc) Windows Konuk aracısı hizmetinin çalışıp çalışmadığını belirleyin. Windows Konuk Aracısı hizmetini yeniden başlatın ve yedeklemeyi başlatın deneyin.    
 2. Windows Konuk Aracısı hizmetleri, Denetim Masası ' nda görünür değilse Git **programlar ve Özellikler** Windows Konuk aracısı yüklü olup olmadığını belirlemek için.
 4. Windows Konuk Aracısı görünürse **programlar ve Özellikler**, Windows Konuk Aracısı'nı kaldırın.
-5. İndirme ve yükleme [Aracısı MSI en son sürümünü](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici hakları olmalıdır.
+5. İndirme ve yükleme [Aracısı MSI en son sürümünü](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici hakları olmalıdır.
 6. Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde göründüğünü doğrulayın.
 7. Bir talep üzerine yedekleme gerçekleştirin:
     * Portalında **Şimdi Yedekle**.

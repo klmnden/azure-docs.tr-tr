@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6dddbdbc781869ef6a3c1a0a707eeb83941b92a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634872"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239330"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -504,7 +504,7 @@ Azure Resource Manager'da Azure Load Balancer'ı kullanmak için bir Azure kayna
 
 Azure Resource Manager'da birden çok SAP sistem tanımlayıcısı (SID) ASCS/SCS örneği bir kümede yükleyebilirsiniz. Çoklu SID örnekleri, her bir Azure iç yük dengeleyici için birden çok IP adresi için destek nedeniyle mümkündür.
 
-Azure Klasik dağıtım modelini kullanmak için açıklanan yordamları izleyin [azure'da SAP NetWeaver: SAP ASCS/SCS kümeleme örneklerini azure'da SIOS DataKeeper ile Windows Server Yük Devretme Kümelemesi kullanarak](http://go.microsoft.com/fwlink/?LinkId=613056).
+Azure Klasik dağıtım modelini kullanmak için açıklanan yordamları izleyin [azure'da SAP NetWeaver: SAP ASCS/SCS kümeleme örneklerini azure'da SIOS DataKeeper ile Windows Server Yük Devretme Kümelemesi kullanarak](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure hakkında daha fazla bilgi [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm].   

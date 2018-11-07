@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: e2388c887f4a96883aa64a0a6fec3a5a9df5b8cc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 71cb39465bd6c180861325ab451aa11be14a80e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231678"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme
 
@@ -35,7 +35,7 @@ Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.Android hızlı](ap
 
 Bu öğretici, Kurulum gerektirir:
 
-* Etkin bir Google hesabı. Bir Google hesabı için kaydolabilirsiniz [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+* Etkin bir Google hesabı. Bir Google hesabı için kaydolabilirsiniz [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging istemci bileşeni](http://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Bildirim hub'ı yapılandırma

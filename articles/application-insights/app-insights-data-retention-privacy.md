@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86b7b87c8cc11be5c4f2c8892905bb6e6800e729
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958891"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245707"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -108,9 +108,9 @@ Microsoft, yalnızca hizmet olanak sağlamak için verileri kullanır.
 * Hayır. Uygulamanızı her yerden, kendi şirket içi ana bilgisayarlarına içinde veya bulutta çalıştırabilirsiniz.
 
 ## <a name="how-secure-is-my-data"></a>Verilerim ne kadar güvenli mi?
-Application Insights, bir Azure hizmetidir. Güvenlik ilkelerinin [Azure güvenlik, gizlilik ve uyumluluk teknik incelemesi](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights, bir Azure hizmetidir. Güvenlik ilkelerinin [Azure güvenlik, gizlilik ve uyumluluk teknik incelemesi](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Veriler, Microsoft Azure sunucularda depolanır. Hesap kısıtlamaları açıklanan Azure Portalı'nda hesaplar için [belge Azure güvenlik, gizlilik ve Uyumluluk](http://go.microsoft.com/fwlink/?linkid=392408).
+Veriler, Microsoft Azure sunucularda depolanır. Hesap kısıtlamaları açıklanan Azure Portalı'nda hesaplar için [belge Azure güvenlik, gizlilik ve Uyumluluk](https://go.microsoft.com/fwlink/?linkid=392408).
 
 Microsoft personeli tarafından verilerinize erişimi sınırlıdır. Biz verilerinizi yalnızca sizin izninizle erişmek ve Application Insights kullanımını desteklemek için gerekli olup olmadığını. 
 

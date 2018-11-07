@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: f744a1126e12766980727e31d5c50ce4aa17934c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3d15e747c129d2591f4cc70030d1cf858bcee49e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408787"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237663"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure güvenlik ve uyumluluk planı: GDPR için analiz
 
 ## <a name="overview"></a>Genel Bakış
 Genel veri koruma yönetmeliği (GDPR) birçok gereksinimleri hakkında toplamak, depolamak ve nasıl kuruluşların tanımlamak ve kişisel verilerin güvenliğini sağlama, saydamlık gereksinimlerini karşılamak, algılamak ve rapor dahil olmak üzere, kişisel bilgileri kullanarak içerir kişisel veri ihlallerine ve eğitme gizlilik personeli ve diğer çalışanlarla. GDPR, kişilere kişisel verileri üzerinde daha fazla denetim verir ve birçok yeni yükümlülükler ile toplamak, tanıtıcı veya kişisel verileri analiz kuruluşlar uygular. GDPR mal teklif kuruluşlara yeni kurallarını uygular ve Hizmetleri kişilere Avrupa Birliği (AB) veya AB vatandaşlar için bağlı verileri toplayıp analiz. GDPR, kuruluşun bulunduğu yeri bağımsız olarak geçerlidir.
 
-Microsoft Azure ile sektör lideri güvenlik önlemleri ve gizlilik ilkeleri, kişisel verilerin GDPR ile tanımlanan kategoriler dahil olmak üzere buluttaki verileri korumak için tasarlanmıştır. Microsoft'un [sözleşme koşullarını](http://aka.ms/Online-Services-Terms) Microsoft işlemci gereksinimleri için sözleşme temelli taahhüt.
+Microsoft Azure ile sektör lideri güvenlik önlemleri ve gizlilik ilkeleri, kişisel verilerin GDPR ile tanımlanan kategoriler dahil olmak üzere buluttaki verileri korumak için tasarlanmıştır. Microsoft'un [sözleşme koşullarını](https://aka.ms/Online-Services-Terms) Microsoft işlemci gereksinimleri için sözleşme temelli taahhüt.
 
 Azure güvenlik ve uyumluluk planı GDPR gereksinimlerine yardımcı olur. Azure veri analizi mimaride dağıtma konusunda rehberlik sağlar. Bu çözüm, müşterilerin belirli güvenlik ve uyumluluk gereksinimlerini karşılayabilecek bir yolunu gösterir ve müşterilerin oluşturmak ve Azure'da kendi veri analizi çözümleri yapılandırmak bir temel olarak görev yapar. Müşteriler, bu başvuru mimarisinde yazılımınız ve Microsoft'un izleyin [dört adım işlemi](https://aka.ms/gdprebook) YOLCULUĞUNA GDPR uyumluluğuna içinde:
 1. Keşfetme: kişisel verilerin var ve yer aldığı belirleyin.

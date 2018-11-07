@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 04e2e32de90283da2563395f8b24dbb4b1dab888
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782286"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241768"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 önizlemesi Azure HDInsight kümeleri ile kullanma
 
@@ -49,13 +49,13 @@ HDInsight kümeleri ile bir Azure depolama hesabını kullanırken bazı noktala
 * **Bir kümeye bağlı olmayan depolama hesaplarındaki genel dosyaları** dosya sistemindeki dosyaları salt okunur izni kullanıma sunar.
   
   > [!NOTE]
-  > Genel dosya sistemleri, dosya sisteminde kullanılabilir tüm dosyaların listesini almak ve meta verilerine erişim sağlar. Genel dosya sistemleri, yalnızca tam URL'yi biliyorsanız dosyalara erişmesine izin verin. Daha fazla bilgi için [erişimi kapsayıcılara ve blob'lara erişimi kısıtlama](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (kapsayıcılar ve bloblar için kuralları aynı ön çalışma dosyalarını ve dosya sistemi).
+  > Genel dosya sistemleri, dosya sisteminde kullanılabilir tüm dosyaların listesini almak ve meta verilerine erişim sağlar. Genel dosya sistemleri, yalnızca tam URL'yi biliyorsanız dosyalara erişmesine izin verin. Daha fazla bilgi için [erişimi kapsayıcılara ve blob'lara erişimi kısıtlama](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (kapsayıcılar ve bloblar için kuralları aynı ön çalışma dosyalarını ve dosya sistemi).
  
 * **Bir kümeye bağlı olmayan depolama hesaplarındaki özel dosya sistemleri** WebHCat işleri gönderdiğinizde depolama hesabını tanımlamadığınız sürece access dosyalarını dosya sisteminde izin verme. Bu kısıtlama nedeniyle, bu makalenin sonraki bölümlerinde açıklanmıştır.
 
 Oluşturma işlemi ve bunların anahtarların tanımlanan depolama hesaplarını depolanan *%HADOOP_HOME%/conf/core-site.xml* küme düğümlerinde. HDInsight'ın varsayılan davranışı, tanımlanan depolama hesaplarını kullanmaktır *core-site.xml* dosya. [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md) kullanarak bu ayarı değiştirebilirsiniz.
 
-Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat işleri kendileriyle birlikte depolama hesapları açıklaması ve meta veriler taşıyabilir. (Bu yaklaşım şu anda Pig depolama hesapları ile ancak meta verilerle çalışmamaktadır.) Daha fazla bilgi için bkz. [Alternatif Depolama Hesapları ve Meta Depolarla HDInsight Kümesi kullanma](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat işleri kendileriyle birlikte depolama hesapları açıklaması ve meta veriler taşıyabilir. (Bu yaklaşım şu anda Pig depolama hesapları ile ancak meta verilerle çalışmamaktadır.) Daha fazla bilgi için bkz. [Alternatif Depolama Hesapları ve Meta Depolarla HDInsight Kümesi kullanma](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 ## <a id="benefits"></a>Azure Depolamanın yararları
 

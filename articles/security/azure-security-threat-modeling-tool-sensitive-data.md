@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301470"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262378"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Güvenlik çerçevesi: Hassas verileri | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -28,7 +28,7 @@ ms.locfileid: "43301470"
 | **Web uygulaması** | <ul><li>[Tarayıcıda hassas içerik önbelleğe alınmamış emin olun.](#cache-browser)</li><li>[Hassas veriler içeren Web uygulamanın yapılandırma dosyalarının bölümleri şifrelemek](#encrypt-data)</li><li>[Gizli formlar ve girişleri otomatik tamamlama HTML öznitelik açıkça devre dışı](#autocomplete-input)</li><li>[Kullanıcının ekranda görüntülenen hassas veriler maskelenir emin olun.](#data-mask)</li></ul> | 
 | **Veritabanı** | <ul><li>[Uygulama dinamik veri maskeleme, hassas verilerin açığa ayrıcalıklı olmayan kullanıcıları sınırlamak için](#dynamic-users)</li><li>[Parolaları karma salted biçiminde depolandığından emin olun](#salted-hash)</li><li>[ Veritabanı sütunları hassas verilerin şifrelendiğinden emin olun](#db-encrypted)</li><li>[Bu veritabanı düzeyinde şifrelemeyi (TDE) etkin olduğundan emin olun](#tde-enabled)</li><li>[Veritabanı Yedeklemeleri şifrelendiğinden emin olun](#backup)</li></ul> | 
 | **Web API** | <ul><li>[Hassas verileri Web API'sine ilgili tarayıcının depolamada depolanmaz emin olun.](#api-browser)</li></ul> | 
-| Azure Belge Veritabanı | <ul><li>[Azure Cosmos DB'de depolanan hassas verileri şifrele](#encrypt-docdb)</li></ul> | 
+| Azure belge veritabanı | <ul><li>[Azure Cosmos DB'de depolanan hassas verileri şifrele](#encrypt-docdb)</li></ul> | 
 | **Azure Iaas VM güven sınırı** | <ul><li>[Sanal makineler tarafından kullanılan diskleri şifreleme için Azure Disk Şifrelemesi'ni kullanın](#disk-vm)</li></ul> | 
 | **Service Fabric güven sınırı** | <ul><li>[Service Fabric uygulamaları gizli dizileri şifrelemek](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Güvenlik modelleme gerçekleştirebilir ve iş birimleri/ekiplerin gerekli olduğu durumlarda](#modeling-teams)</li><li>[Kritik varlıkları özelliğini paylaşmak için erişim simge durumuna küçült](#entities)</li><li>[İyi güvenlik uygulamaları ve Dynamics CRM Paylaşımı özelliği ile ilişkili riskleri kullanıcıları eğitme](#good-practices)</li><li>[Özel durum yönetimi, yapılandırma ayrıntıları gösteren proscribing geliştirme standartları Kuralı Ekle](#exception-mgmt)</li></ul> | 
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN: otomatik tamamlama özniteliği](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [kullanarak otomatik tamamlama HTML](http://msdn.microsoft.com/library/ms533032.aspx), [HTML temizleme Güvenlik Açığı](http://technet.microsoft.com/security/bulletin/MS10-071), [otomatik tamamlama. yeniden?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Başvuruları**              | [MSDN: otomatik tamamlama özniteliği](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [kullanarak otomatik tamamlama HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML temizleme Güvenlik Açığı](https://technet.microsoft.com/security/bulletin/MS10-071), [otomatik tamamlama. yeniden?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Adımları** | Otomatik Tamamlama öznitelik, bir form otomatik tamamlama açıp olup olmayacağını belirtir. Otomatik Tamamlama açık olduğunda, tarayıcının otomatik tamamlanacak önce kullanıcının girdiği değerlerini temel alan değerleri. Örneğin, bir yeni adı ve parola bir formda girilir ve form gönderildiğinde, tarayıcı parola kaydedilen ister. Bundan sonra form görüntülendiğinde, adını ve parolasını adı girildiğinde tamamlanmış veya otomatik olarak doldurulur. Yerel erişimine sahip bir saldırgan, düz metin parolası tarayıcı önbelleğinden edinebilir. Otomatik Tamamlama varsayılan olarak etkindir ve onu açıkça devre dışı bırakılmalıdır. |
 
 ### <a name="example"></a>Örnek
@@ -246,7 +246,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Belge Veritabanı | 
+| **Bileşen**               | Azure belge veritabanı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |

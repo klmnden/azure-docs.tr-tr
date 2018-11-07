@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 96b449e372417298ee3517d6a45c245d440a01c2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fc732065f328f653082286508db74cc29107854e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047400"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232017"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics'i .NET uygulaması yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -24,7 +24,7 @@ Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıc
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Visual Studio 2015, Visual Studio 2013 Güncelleştirme 4 veya Visual C++ Yüklü Visual Studio 2012**.
-* **.NET sürüm 2.5 veya üzeri için Microsoft Azure SDK**.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
+* **.NET sürüm 2.5 veya üzeri için Microsoft Azure SDK**.  [Web platformu yükleyicisini](https://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
 * **Gerekli NuGet paketleri**
 
 ### <a name="install-nuget-packages"></a>NuGet paketlerini yükleme
@@ -218,7 +218,7 @@ if (adlaClient.Account.Exists(rg, adla))
 Data Lake Analytics, şu anda aşağıdaki veri kaynaklarını destekler:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure depolama hesabı](../storage/common/storage-introduction.md)
+* [Azure Depolama Hesabı](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Bir Azure depolama hesabına bağlama
 

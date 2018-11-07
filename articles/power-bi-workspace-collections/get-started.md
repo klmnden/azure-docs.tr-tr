@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: b565955abaae44efe20291a6e46b57a5fec941d1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046567"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233414"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI Çalışma Alanı Koleksiyonları'nı kullanmaya başlama
 
@@ -79,7 +79,7 @@ Artık uygulamanız için bir Power BI örneğine ve **Erişim Anahtarları**’
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Power BI Desktop kullanarak bir uygulamaya eklemek için Power BI veri kümeleri ve raporları oluşturma
 
-Artık, uygulamanız için Power BI örneğini oluşturduğunuza ve**Erişim Anahtarları**'na sahip olduğunuza göre, eklemek istediğiniz Power BI veri kümelerini ve raporlarını oluşturmanız gerekir. Veri kümeleri ve raporlar **Power BI Desktop** kullanarak oluşturulabilir. [Power BI Desktop’u ücretsiz olarak](https://go.microsoft.com/fwlink/?LinkId=521662) indirebilirsiniz. Hızlı bir şekilde kullanmaya başlamak için [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)’i de indirebilirsiniz.
+Artık, uygulamanız için Power BI örneğini oluşturduğunuza ve**Erişim Anahtarları**'na sahip olduğunuza göre, eklemek istediğiniz Power BI veri kümelerini ve raporlarını oluşturmanız gerekir. Veri kümeleri ve raporlar **Power BI Desktop** kullanarak oluşturulabilir. [Power BI Desktop’u ücretsiz olarak](https://go.microsoft.com/fwlink/?LinkId=521662) indirebilirsiniz. Hızlı bir şekilde kullanmaya başlamak için [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)’i de indirebilirsiniz.
 
 > [!NOTE]
 > **Power BI Desktop** kullanma hakkında daha fazla bilgi için bkz. [Power BI Desktop kullanmaya başlama](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).

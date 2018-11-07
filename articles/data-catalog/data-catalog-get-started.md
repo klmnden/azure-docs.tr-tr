@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406320"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238497"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure Veri Kataloğu ile çalışmaya başlama
 Azure Veri Kataloğu kurumsal veri varlıkları için bir kayıt sistemi ve bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Ayrıntılı bir genel bakış için bkz. [Azure Veri Kataloğu nedir](data-catalog-what-is-data-catalog.md).
@@ -96,7 +96,7 @@ Adventure Works veritabanı; ürünler, satış ve satın almayı içeren kurgus
 Adventure Works örnek veritabanını yüklemek için:
 
 1. CodePlex üzerinde [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) dosyasını indirin.
-2. Veritabanını makinenize geri yüklemek için [SQL Server Management Studio Kullanarak Veritabanı Yedeğini Geri Yükleme](http://msdn.microsoft.com/library/ms177429.aspx) içindeki yönergeleri izleyin veya aşağıdaki adımları izleyin:
+2. Veritabanını makinenize geri yüklemek için [SQL Server Management Studio Kullanarak Veritabanı Yedeğini Geri Yükleme](https://msdn.microsoft.com/library/ms177429.aspx) içindeki yönergeleri izleyin veya aşağıdaki adımları izleyin:
    1. SQL Server Management Studio’yu açın ve SQL Server Database Engine’e bağlanın.
    2. **Veritabanları**’na sağ tıklayın ve **Veritabanını Geri Yükle**’ye tıklayın.
    3. **Veritabanını Geri Yükle** altında **Kaynak** için **Cihaz** seçeneğine ve **Gözat**’a tıklayın.

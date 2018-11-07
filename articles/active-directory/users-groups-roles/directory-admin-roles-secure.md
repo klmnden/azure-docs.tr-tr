@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240112"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama
 
@@ -388,7 +388,7 @@ Değiştirmeniz gerekip gerekmediğini belirlemek [bir Azure aboneliğinin sahip
 
 8. Olası legal ve adli araştırma için ilgili günlük yedeklerini kaydettiğinizden emin olun.
 
-Microsoft Office 365 güvenlik olaylarına nasıl işlediği hakkında daha fazla bilgi için bkz. [Microsoft Office 365'te güvenlik olay Yönetimi](http://aka.ms/Office365SIM).
+Microsoft Office 365 güvenlik olaylarına nasıl işlediği hakkında daha fazla bilgi için bkz. [Microsoft Office 365'te güvenlik olay Yönetimi](https://aka.ms/Office365SIM).
 
 ## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>SSS: Sık sorulan sorular güvenliğini sağlama ayrıcalıklı erişim ile ilgili aldığımız  
 

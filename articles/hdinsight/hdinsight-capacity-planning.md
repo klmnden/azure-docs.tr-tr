@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108004"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230436"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite için HDInsight kümeleri planlama
 
@@ -38,7 +38,7 @@ HDInsight, Azure bölgelerinde kullanılabilir. En yakın bölgeyi bulmak için 
 
 ### <a name="location-of-default-storage"></a>Varsayılan depolama konumu
 
-Bir Azure depolama hesabına veya Azure Data Lake Store, varsayılan depolama kümeniz ile aynı konumda olmalıdır. Azure depolama tüm konumlarda kullanılabilir. Data Lake Store bazı bölgelerde kullanılabilir: geçerli bir Data Lake Store kullanılabilirlik seçeneğinin altında bkz *depolama* içinde [bölgeye göre Azure ürünleri kullanılabilir](https://azure.microsoft.com/regions/services/).
+Bir Azure depolama hesabına veya Azure Data Lake Store, varsayılan depolama kümeniz ile aynı konumda olmalıdır. Azure depolama tüm konumlarda kullanılabilir. Data Lake Store Gen1 bazı bölgelerde kullanılabilir: geçerli bir Data Lake Store kullanılabilirlik seçeneğinin altında bkz *depolama* içinde [bölgeye göre Azure ürünleri kullanılabilir](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Mevcut veri konumu
 
@@ -48,7 +48,7 @@ Zaten bir depolama hesabı veya Data Lake Store, verilerinizi içeren varsa ve b
 
 Dağıtılmış bir HDInsight kümesine sonra ek Azure depolama hesapları ekleme ya da diğer Data Lake Store erişim. Tüm depolama hesapları, kümeniz ile aynı konumda bulunmalıdır. Bu, bazı veri okuma/yazma gecikmelere neden olabilir ancak bir Data Lake Store farklı bir konumda olabilir.
 
-Azure depolama alanına sahip bazı [kapasite sınırları](../azure-subscription-service-limits.md#storage-limits), Data Lake Store neredeyse sınırsızdır.
+Azure depolama alanına sahip bazı [kapasite sınırları](../azure-subscription-service-limits.md#storage-limits), Data Lake Store Gen1 neredeyse sınırsızdır.
 
 Bir küme farklı depolama hesaplarında birleşimi erişebilirsiniz. Tipik örnekleri şunlardır:
 

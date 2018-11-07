@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 13ce074f8ec22bc80ee5c56f2127b3a5b4d788bf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4f4a61ad0c1b1fcab4773dcc16c5e22053c4158d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215404"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230895"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarmayı ayarlama
 
@@ -23,7 +23,7 @@ Bu öğreticide, şirket içi fiziksel Windows ve Linux sunucularını azure'a o
 
 > [!div class="checklist"]
 > * Azure ve şirket içi önkoşulları ayarlama
-> * Site Recovery için bir kurtarma Hizmetleri kasası oluşturma 
+> * Site Recovery için Kurtarma Hizmetleri kasası oluşturma 
 > * Hedef çoğaltma ortamları ve kaynağını Ayarla
 > * Çoğaltma ilkesi oluşturma
 > * Bir sunucu için çoğaltmayı etkinleştirme
@@ -51,7 +51,7 @@ Başlamadan önce dikkat edin:
 
 ### <a name="set-up-an-azure-account"></a>Bir Azure hesabı ayarlama
 
-Bir Microsoft alma [Azure hesabı](http://azure.microsoft.com/).
+Bir Microsoft alma [Azure hesabı](https://azure.microsoft.com/).
 
 - [Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz.
 - Hakkında bilgi edinin [Site Recovery fiyatlandırma](site-recovery-faq.md#pricing)ve [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -157,10 +157,10 @@ Hedef kaynaklarını seçin ve doğrulayın.
 
 ## <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
-1. Yeni bir çoğaltma ilkesi oluşturmak için tıklayın **Site Recovery altyapısı** > **çoğaltma ilkeleri** > **+ Çoğaltma İlkesi**.
-2. İçinde **çoğaltma ilkesi oluşturma**, bir ilke adı belirtin.
-3. İçinde **RPO eşiği**, kurtarma noktası hedefi (RPO) sınırı belirtin. Bu değer, ne sıklıkta belirtir veri kurtarma noktaları oluşturulur. Devamlı çoğaltma bu sınırı aşarsa bir uyarı oluşturulur.
-4. İçinde **kurtarma noktası bekletme**, (saat) cinsinden ne kadar saklama aralığı için her bir kurtarma noktası belirtin. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir. 24 saat bekletme için premium depolama ve standart depolama için 72 saat çoğaltılan makineler için desteklenir.
+1. Yeni bir çoğaltma ilkesi oluşturmak için **Site Recovery altyapısı** > **Çoğaltma İlkeleri** > **+Çoğaltma İlkesi**’ne tıklayın.
+2. **Çoğaltma ilkesi oluştur** bölümünde bir ilke adı belirtin.
+3. **RPO eşiği** bölümünde kurtarma noktası hedefi (RPO) sınırını belirtin. Bu değer, ne sıklıkta belirtir veri kurtarma noktaları oluşturulur. Devamlı çoğaltma bu sınırı aşarsa bir uyarı oluşturulur.
+4. **Kurtarma noktası bekletme** bölümünde, her kurtarma noktası için bekletme süresinin ne kadar olacağını (saat) belirtin. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir. Premium depolama alanına çoğaltılan makineler için 24 saate, standart depolama için de 72 saate kadar bekletme desteklenir.
 5. İçinde **uygulamayla tutarlı anlık görüntü sıklığı**, belirtin uygulamayla tutarlı anlık görüntüleri içeren kurtarma noktalarının ne sıklıkta (dakika cinsinden) oluşturulur. İlkeyi oluşturmak için **Tamam**’a tıklayın.
 
     ![Çoğaltma ilkesi](./media/physical-azure-disaster-recovery/replication-policy.png)

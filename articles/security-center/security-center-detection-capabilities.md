@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 5f0f6a6d2c3e919c59f030e3cf47fc208f14caea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161043"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233431"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Güvenlik Merkezi algılama özellikleri
 Bu belge, Microsoft Azure kaynaklarınızı hedefleyen etkin tehditleri belirlemenize yardımcı olan ve hızlı yanıt vermek için gereken bilgileri sağlayan Azure Güvenlik Merkezi’nin gelişmiş algılama özelliklerini ele almaktadır.
@@ -89,5 +89,5 @@ Bu belgede, Azure Güvenlik Merkezi algılama özelliklerinin nasıl çalıştı
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
+* [Azure Güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 

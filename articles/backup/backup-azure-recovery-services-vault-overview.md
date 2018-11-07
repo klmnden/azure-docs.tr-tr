@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: 697245a6465fc15c943acefa4b820982fbaecb55
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 38190cc613ea9d3723cc3f0f563842e8416689aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887607"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241353"
 ---
 # <a name="recovery-services-vaults-overview"></a>Kurtarma Hizmetleri kasalarına genel bakış
 
@@ -29,13 +29,13 @@ Kurtarma Hizmetleri kasaları, yedekleme kasaları Azure Service Manager modele 
 
 - **Gelişmiş Özellikler yedek verilerin korunmasına yardımcı olun**: ile kurtarma Hizmetleri kasaları, Azure Backup bulut yedeklemelerini korumak için güvenlik özellikleri sağlar. Üretim ve yedekleme sunucuları tehlikede olsa bile güvenlik özelliklerine yedeklerinizi güvenli ve güvenli bir şekilde verileri kurtarmak emin olun. [Daha fazla bilgi](backup-azure-security-feature.md)
 
-- **Karma BT ortamındaki Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilmeniz için yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [şirket varlıkları](backup-azure-manage-windows-server.md#manage-backup-items) merkezi bir portaldan. [Daha fazla bilgi](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Karma BT ortamındaki Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilmeniz için yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [şirket varlıkları](backup-azure-manage-windows-server.md#manage-backup-items) merkezi bir portaldan. [Daha fazla bilgi](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
 - **Rol tabanlı erişim denetimi (RBAC)**: RBAC, azure'da ayrıntılı erişim yönetimi denetim sağlar. [Azure, çeşitli yerleşik rol sağlar](../role-based-access-control/built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları, yedekleme kısıtlayan RBAC ile uyumludur ve tanımlanan kullanıcı rollerini kümesine erişimi geri yüklemek. [Daha fazla bilgi](backup-rbac-rs-vault.md)
 
-- **Tüm yapılandırmalar Azure sanal makinelerinin korunmasına**: Resource Manager tabanlı Vm'leri Premium diskler, yönetilen diskler ve şifrelenmiş VM'ler dahil olmak üzere Kurtarma Hizmetleri kasaları şunları korur. Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme, Resource Manager tabanlı sanal makinelere Service Manager tabanlı sanal makinelerinize yükseltme olanağı sunar. Kasa yükseltme yapılırken, Service Manager tabanlı VM kurtarma noktalarını Beklet ve yükseltilen (Resource Manager özellikli) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Tüm yapılandırmalar Azure sanal makinelerinin korunmasına**: Resource Manager tabanlı Vm'leri Premium diskler, yönetilen diskler ve şifrelenmiş VM'ler dahil olmak üzere Kurtarma Hizmetleri kasaları şunları korur. Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme, Resource Manager tabanlı sanal makinelere Service Manager tabanlı sanal makinelerinize yükseltme olanağı sunar. Kasa yükseltme yapılırken, Service Manager tabanlı VM kurtarma noktalarını Beklet ve yükseltilen (Resource Manager özellikli) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Iaas Vm'leri için anında geri yükleme**: kullanarak bir kurtarma Hizmetleri kasaları, dosya ve klasörleri bir Iaas VM'den daha hızlı geri yükleme süreleri sağlayan tüm VM'yi geri yüklemeden geri yükleyebilirsiniz. Iaas Vm'leri için anında geri yükleme, hem Windows hem de Linux Vm'leri için kullanılabilir. [Daha fazla bilgi](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Iaas Vm'leri için anında geri yükleme**: kullanarak bir kurtarma Hizmetleri kasaları, dosya ve klasörleri bir Iaas VM'den daha hızlı geri yükleme süreleri sağlayan tüm VM'yi geri yüklemeden geri yükleyebilirsiniz. Iaas Vm'leri için anında geri yükleme, hem Windows hem de Linux Vm'leri için kullanılabilir. [Daha fazla bilgi](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Portalı'nda, Kurtarma Hizmetleri kasalarını yönetme
 Oluşturulmasını ve yönetimini Azure portalında kurtarma Hizmetleri kasaları olduğundan kolay yedekleme hizmeti diğer Azure Hizmetleri ile tümleşir. Bu tümleştirme oluşturabilir veya bir kurtarma Hizmetleri kasası yönetme anlamına gelir *hedef hizmet bağlamında*. Örneğin, bir VM için kurtarma noktalarını görüntülemek için VM'nizi seçin ve tıklayın **yedekleme** işlemler menüsünde.

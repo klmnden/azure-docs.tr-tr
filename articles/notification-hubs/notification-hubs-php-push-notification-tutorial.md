@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b812d60363ffebf1f4374b6fd44dff5e67497e08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf7dd8b111683a3b5b2f0a9f371c08ffb788fe58
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42059659"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241081"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Php'den Notification hubs'ı kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Bir Java/PHP/Ruby MSDN konu başlığı altında açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm Notification Hubs özellikleri erişebileceğiniz [Notification Hubs REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx).
+Bir Java/PHP/Ruby MSDN konu başlığı altında açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm Notification Hubs özellikleri erişebileceğiniz [Notification Hubs REST API'leri](https://msdn.microsoft.com/library/dn223264.aspx).
 
 Bu konudaki göstereceğiz nasıl yapılır:
 
@@ -32,7 +32,7 @@ Bu konudaki göstereceğiz nasıl yapılır:
 * İzleyin [başlangıç Öğreticisi](notification-hubs-ios-apple-push-notification-apns-get-started.md) için seçtiğiniz mobil platformda, arka uç bölümü PHP'de uygulama.
 
 ## <a name="client-interface"></a>İstemci arabirimi
-Ana istemci arabirimi kullanılabilir yöntemleri aynı sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx), öğreticileri ve örnekleri şu anda bu sitedeki tüm doğrudan çevrilecek sağlar ve katkıda bulunan internet üzerindeki bir topluluk.
+Ana istemci arabirimi kullanılabilir yöntemleri aynı sağlayabilir [.NET Notification Hubs SDK'sı](https://msdn.microsoft.com/library/jj933431.aspx), öğreticileri ve örnekleri şu anda bu sitedeki tüm doğrudan çevrilecek sağlar ve katkıda bulunan internet üzerindeki bir topluluk.
 
 Kullanılabilir tüm kod bulabilirsiniz [PHP REST sarmalayıcı örneği].
 
@@ -49,7 +49,7 @@ Bir iOS yerel bildirimi göndermek için:
 Henüz oluşturmadıysanız, izleyin [Başlangıç eğitmeni] arka ucunuzu uygulamak için sahip olduğu bölümü en son yukarı.
 Ayrıca isterseniz kodu kullanabilirsiniz [PHP REST sarmalayıcı örneği] ve doğrudan [öğreticiye](#complete-tutorial) bölümü.
 
-Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde, biz PHP uygulaması bildirim hub'ları REST uç noktalarına erişmesi için gereken ana adımlar açıklanmaktadır:
+Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde, biz PHP uygulaması bildirim hub'ları REST uç noktalarına erişmesi için gereken ana adımlar açıklanmaktadır:
 
 1. Bağlantı dizesini ayrıştırma
 2. Yetkilendirme belirteci oluştur
@@ -92,7 +92,7 @@ Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN
 
 
 ### <a name="create-security-token"></a>Güvenlik belirteci oluşturma
-Güvenlik belirteci oluşturma ayrıntılarını kullanılabilir [burada](http://msdn.microsoft.com/library/dn495627.aspx).
+Güvenlik belirteci oluşturma ayrıntılarını kullanılabilir [burada](https://msdn.microsoft.com/library/dn495627.aspx).
 Aşağıdaki yöntemi eklenmesi gereken **NotificationHub** geçerli istek ve kimlik bilgileri bağlantı dizesinden ayıklanan URI'sini temel belirteci oluşturmak için sınıf.
 
     private function generateSasToken($uri) {
@@ -135,7 +135,7 @@ Aşağıdaki yöntemi eklenmesi gereken **NotificationHub** geçerli istek ve ki
 
 Bu sınıf, bir yerel bildirimi gövdesi veya kümesi üzerinde çalışması şablon bildirim özelliklerini ve format (yerel platform veya şablonu) ve (Apple sona erme özelliğini ve WNS gibi platforma özgü özellikler içeren üst bilgiler, bir dizi için bir kapsayıcı üst bilgiler).
 
-Başvurmak [Notification Hubs REST API belgeleri](http://msdn.microsoft.com/library/dn495827.aspx) ve tüm seçenekler için belirli bildirim platformları biçimleri.
+Başvurmak [Notification Hubs REST API belgeleri](https://msdn.microsoft.com/library/dn495827.aspx) ve tüm seçenekler için belirli bildirim platformları biçimleri.
 
 Bu sınıf ile kullanarak Şimdi Gönder içinde bildirim yöntemlerini yazabiliriz **NotificationHub** sınıfı.
 

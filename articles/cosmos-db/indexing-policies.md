@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054681"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237596"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -323,7 +323,7 @@ Tüm belgelerin otomatik olarak dizinini koleksiyonu isteyip istemediğinizi se�
 
 Otomatik kapalı dizin oluşturma ile yalnızca belirli belgeler dizine seçmeli olarak yine de ekleyebilirsiniz. Buna karşılık, dizin oluşturmayı otomatik bırakın ve belirli belgelere dışlanacak seçerek. Açık/kapalı yapılandırmaları dizin yararlı belgelerin sorgulanmasını gereken yalnızca bir alt sahip olduğunuzda.
 
-Aşağıdaki örnek bir belge kullanarak açıkça içerecek şekilde gösterilmektedir [SQL API .NET SDK'sı](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
+Aşağıdaki örnek bir belge kullanarak açıkça içerecek şekilde gösterilmektedir [SQL API .NET SDK'sı](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) ve [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Dizin oluşturma ilkesi değişiklikleri, Azure Cosmos DB koleksiyonlarına yapt
 ## <a name="performance-tuning"></a>Performans ayarı
 SQL API'leri, kullanılan dizin depolaması ve her işlem için aktarım hızı maliyeti (istek birimleri) gibi performans ölçümlerini hakkında bilgi sağlar. Çeşitli dizin oluşturma ilkeleri karşılaştırmak için bu bilgileri kullanın ve performans ayarlama.
 
-Çalıştırma depolama kotası ve bir koleksiyon kullanımını denetlemek için bir **baş** veya **alma** koleksiyonu kaynağı isteği. Daha sonra incelemek **x-ms-isteği-quota** ve **x-ms-istek kullanım** üstbilgileri. .NET SDK'sındaki [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) ve [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) özelliklerinde [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) bu karşılık gelen değerleri içerir.
+Çalıştırma depolama kotası ve bir koleksiyon kullanımını denetlemek için bir **baş** veya **alma** koleksiyonu kaynağı isteği. Daha sonra incelemek **x-ms-isteği-quota** ve **x-ms-istek kullanım** üstbilgileri. .NET SDK'sındaki [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) ve [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) özelliklerinde [ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) bu karşılık gelen değerleri içerir.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ SQL API'leri, kullanılan dizin depolaması ve her işlem için aktarım hızı 
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Her yazma işlemi dizin oluşturma ek yükü ölçmek için (oluşturma, güncelleştirme veya silme) İnceleme **x-ms-istek-ücretsiz olarak** üst bilgisi (veya eşdeğer [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) özelliğinde [ ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) .NET SDK'sındaki) bu işlemleri tarafından kullanılan istek birimleri sayısını ölçmek için.
+Her yazma işlemi dizin oluşturma ek yükü ölçmek için (oluşturma, güncelleştirme veya silme) İnceleme **x-ms-istek-ücretsiz olarak** üst bilgisi (veya eşdeğer [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) özelliğinde [ ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) .NET SDK'sındaki) bu işlemleri tarafından kullanılan istek birimleri sayısını ölçmek için.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

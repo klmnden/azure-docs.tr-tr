@@ -1,6 +1,6 @@
 ---
-title: Oluşturma ve Azure DevTest Labs laboratuvarda claimable Vm'lerde yönetme | Microsoft Docs
-description: Azure DevTest Labs laboratuvarda claimable bir sanal makineye eklemeyi öğrenin
+title: Azure DevTest labs'deki bir laboratuvara içinde talep edilebilir VM'ler oluşturma ve yönetme | Microsoft Docs
+description: Talep edilebilir bir sanal makine, Azure DevTest labs'deki bir laboratuvara ekleme hakkında bilgi edinin
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 669dfab75f34a0d1f997dc34f600402d3c10669b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3bfb674fa66f0701a099d237f4e760453c7b6a6e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232136"
 ---
-# <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Oluşturma ve Azure DevTest Labs claimable Vm'lerde yönetme
-Benzer şekilde nasıl laboratuvara claimable VM ekleme, [standart VM eklemek](devtest-lab-add-vm.md) – bir *temel* ya da başka bir deyişle bir [özel görüntü](devtest-lab-create-template.md), [formülü](devtest-lab-manage-formulas.md), veya [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Bu öğretici DevTest Labs laboratuvarda claimable VM eklemek için Azure portalını kullanarak size yol gösterir ve bir kullanıcı talebi ve VM unclaim için aşağıdaki işlemleri gösterir.
+# <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest labs'deki talep edilebilir VM'ler oluşturma ve yönetme
+Benzer şekilde nasıl bir laboratuvara talep edilebilir VM ekleme, [standart VM ekleme](devtest-lab-add-vm.md) – bir *temel* ya da diğer bir deyişle bir [özel görüntü](devtest-lab-create-template.md), [formül](devtest-lab-manage-formulas.md) , veya [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Bu öğreticide, Azure portalını kullanarak bir talep edilebilir VM DevTest labs'deki bir laboratuvara ekleme adımları gösterilmektedir ve bir kullanıcı talebi ve VM etmesini takip işlemlerini gösterir.
 
-## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda claimable VM eklemek için adımları
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Talep edilebilir VM için Azure DevTest labs'deki bir laboratuvara ekleme adımları
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
-1. Labs listesinden claimable VM oluşturmak istediğiniz Laboratuvar seçin.  
-1. Laboratuvar 's üzerinde **genel bakış** bölmesinde, **+ Ekle**.  
+1. Talep edilebilir VM oluşturmak istediğiniz Laboratuvar labs listesinden seçin.  
+1. Laboratuvar'ın **genel bakış** bölmesinde **+ Ekle**.  
 
-    ![VM düğme ekleme](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
+    ![VM düğmesi ekleme](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Üzerinde **bir temel seçin** alanı, temel bir VM için seçin.
+1. Üzerinde **temel seçin** alanında, sanal makine için temel bir seçin.
 1. İçinde **sanal makine** bölmesinde, yeni sanal makine için bir ad girin **sanal makine adı** metin kutusu.
 
     ![Laboratuvar VM bölmesi](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Girin bir **kullanıcı adı** sanal makinede yönetici ayrıcalıkları verilmiş.  
-1. Depolanmış bir parola kullanmak istiyorsanız, [gizli deposu](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)seçin **kaydedilmiş gizliliği kullanın**ve parolanızı (parola) karşılık gelen bir anahtar değeri belirtin. Aksi halde, bir parola etiketli metin alanına girin **bir değer yazın**.
-1. **Sanal makine disk türü** hangi depolama disk türü laboratuvara sanal makineler için izin verilen belirler.
-1. Seçin **sanal makine boyutu** ve işlemci çekirdeği, RAM boyutu ve sabit sürücü boyutu oluşturmak için VM belirtin önceden tanımlanmış öğelerden birini seçin.
-1. Seçin **yapıları** yapılarının listesinden seçin ve temel görüntü eklemek istediğiniz yapıları yapılandırın. DevTest Labs yeni veya yapıları yapılandırma başvurmak [bir VM'ye var artifact ekleyin](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) bölümünde ve ardından bitirdikten sonra buraya dönün.
-1. Seçin **Gelişmiş ayarları** VM ağ seçeneklerini ve sona erme seçeneklerini yapılandırmak için. Altında **talep seçenekleri**, seçin **Evet** makine claimable yapma.
+1. Girin bir **kullanıcı adı** sanal makinede yönetici ayrıcalıkları verildi.  
+1. Depolanan bir parola kullanmak istiyorsanız, [gizli dizi deposu](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)seçin **kaydedilmiş bir gizli diziyi kullanın**ve, gizli dizisini (parola) karşılık gelen bir anahtar değeri belirtin. Aksi takdirde etiketli metin alanına bir parola girin **bir değer yazın**.
+1. **Sanal makine diski türünü** Laboratuvar sanal makineler için hangi depolama disk türüne izin belirler.
+1. Seçin **sanal makine boyutu** ve işlemci çekirdeği ve RAM boyutu oluşturmak için sanal sabit sürücü boyutu belirtin önceden tanımlanmış öğelerden birini seçin.
+1. Seçin **Yapıtları** ve yapıtları listesinden seçin ve temel görüntüye eklemek istediğiniz yapıtları yapılandırın. DevTest Labs kullanarak yeni veya yapıtları, yapılandırma başvurmak [var olan bir yapıyı bir VM'ye ekleme](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) bölümüne ve ardından tamamladığınızda buraya dönün.
+1. Seçin **Gelişmiş ayarlar** sanal makinenin ağ seçeneklerini ve sona erme seçeneklerini yapılandırmak için. Altında **talep seçenekleri**, seçin **Evet** makineyi talep edilebilir yapma.
 
-  ![VM claimable yapmak seçin.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
+  ![Talep edilebilir VM yapmak bu seçeneği seçin.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
 
-1. Görüntülemek veya Azure Resource Manager şablonu kopyalamak istediğiniz oluştuysa, [Kaydet Azure Resource Manager şablonu](devtest-lab-add-vm.md#save-azure-resource-manager-template) bölümünde ve bittiğinde buraya dönün.
-1. Seçin **oluşturma** Laboratuvar için belirtilen VM eklemek için.
+1. Görüntülemek veya Azure Resource Manager şablonu kopyalamak istiyorsanız, başvurmak [Kaydet Azure Resource Manager şablonu](devtest-lab-add-vm.md#save-azure-resource-manager-template) bölümünde ve bitirdikten sonra buraya dönün.
+1. Seçin **Oluştur** belirtilen VM'yi laboratuvara ekleme için.
 
-   VM oluşturma durumu görüntülenir, ilk olarak **oluşturma**, ardından olarak **çalıştıran** VM başlatıldıktan sonra.
+   Sanal makinenin oluşturma durumu görüntülenir, ilk olarak **oluşturma**, ardından olarak **çalıştıran** VM başlatıldıktan sonra.
 
 > [!NOTE]
-> Laboratuvar VM'ler aracılığıyla dağıtırsanız [Azure Resource Manager şablonları](devtest-lab-create-environment-from-arm.md), ayarlayarak claimable VM'ler oluşturabilirsiniz **allowClaim** özelliğinin özellikleri bölümündeki true.
+> Laboratuvar Vm'leri aracılığıyla dağıtırsanız [Azure Resource Manager şablonları](devtest-lab-create-environment-from-arm.md), ayarlayarak talep edilebilir VM'ler oluşturabilirsiniz **allowClaim** özelliği true olarak özellikler bölümü.
 >
 >
 
-## <a name="using-a-claimable-vm"></a>Claimable VM kullanma
+## <a name="using-a-claimable-vm"></a>Talep edilebilir VM kullanma
 
-Bir kullanıcı, aşağıdaki adımlardan birini yaparak "Claimable sanal makineler" listesinden herhangi bir VM talep:
+Bir kullanıcı, "Talep edilebilir sanal makineler" listesinden herhangi bir VM, aşağıdaki adımlardan birini yaparak alabilir:
 
-* "Claimable sanal makineleri" Laboratuvar 's "Genel bakış" bölmesinin listesinden listesinde VM'ler birine sağ tıklayın ve seçin **talep makine**.
+* "Talep edilebilir sanal makineler" Laboratuvar'ın "Genel bakış" bölmesinin alt kısmındaki listesinden listedeki Vm'lerden birinin sağ tıklayın ve seçin **talep makine**.
 
- ![Belirli bir claimable VM'yi isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
-
-
-* "Genel bakış" bölmenin en üstünde seçin **herhangi bir talep**. Rastgele bir sanal makine claimable VM'ler listesinden atanır.
-
- ![Tüm claimable VM isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+ ![Belirli bir talep edilebilir VM isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
-Bir kullanıcı bir VM talep sonra kendi "Benim sanal makineler" listesine taşınır ve artık herhangi bir kullanıcı tarafından claimable değil.
+* "Genel bakış" bölmesinin en üstünde **herhangi talep**. Talep edilebilir VM'ler listesinden rastgele bir sanal makineye atanır.
 
-## <a name="unclaim-a-vm"></a>Bir VM unclaim
+ ![Herhangi bir talep edilebilir VM isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
-Bir kullanıcı bir talep edilen VM kullanarak tamamlandı ve başka birine hale istediği zaman aşağıdaki adımlardan birini yaparak bunlar talep edilen VM claimable sanal makinelerin listesini döndürebilirsiniz:
 
-- "Benim sanal makineler" listesinden listesinde – VM'ler birini sağ tıklayın veya üç nokta (...) – seçin ve seçin **Unclaim**.
+Bir sanal makine bir kullanıcı talepleri, sonra "Sanal makinelerim" kendi listesine taşınır ve artık herhangi bir kullanıcı tarafından talep edilebilir değil.
 
-  ![VM VM listesine unclaim.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM2.png)
+## <a name="unclaim-a-vm"></a>Bir VM talebi kaldırır
 
-- "Benim sanal makineler" listesinde Yönetimi bölmesini açın ve ardından seçmek için bir VM seçin **Unclaim** üst menü çubuğundan.
+Bir kullanıcı kullanarak bir talep edilen sanal tamamlandı ve kullanılabilir başka birine hale getirmek istediği, aşağıdaki adımlardan birini yaparak bunların talep edilen VM talep edilebilir sanal makineler listesine döndürebilirsiniz:
 
-  ![VM VM'ın yönetim bölmesinde unclaim.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
+- "Sanal makinelerim" listesinden – listedeki Vm'lerden birinin sağ tıklayın veya üç nokta işaretine (...) – seçip **Unclaim**.
 
-Bir kullanıcı bir VM unclaims, bunlar artık bu belirli Laboratuvar VM için herhangi bir iznine sahip.
+  ![VM listesinde üzerinde VM talebi kaldırır.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM2.png)
+
+- "Sanal makinelerim" listesinde, kendi yönetim bölmesini açın ve ardından sanal Makineyi seçin **Unclaim** üst menü çubuğundan.
+
+  ![Yönetim bölmesinde sanal makinenin bir VM'de talebi kaldırır.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
+
+Bir kullanıcı bir VM unclaims, bunlar artık o belirli Laboratuvar sanal makinesi için herhangi bir izni yoktur.
 
 ### <a name="transferring-the-data-disk"></a>Veri diski aktarma
-Claimable VM varsa, bunu ve bir kullanıcının bağlı bir veri diski unclaims, veri diski VM'ye kalır. Ne zaman başka bir kullanıcı daha sonra VM, bu yeni kullanıcı verileri diskin yanı sıra VM Talep veren talep.
+Talep edilebilir VM varsa, onu ve bir kullanıcının bağlı veri diski unclaims, VM veri diski kalır. Ne zaman başka bir kullanıcı daha sonra bu yeni kullanıcı VM veri diski, hem de VM Talep veren talep.
 
-Bu, "veri diski aktarma" olarak bilinir. Veri diski daha sonra yeni kullanıcının listesinde kullanılabilir **veri disklerim** bunları yönetmek.
+Bu, "veri diski aktarma olarak" adı verilir. Veri diski daha sonra yeni kullanıcının listesinde kullanılabilir **veri disklerim** bunları yönetmek.
 
-![Veri diskleri unclaim.](./media/devtest-lab-add-vm/devtestlab-unclaim-datadisks.png)
+![Veri diskleri talebi kaldırır.](./media/devtest-lab-add-vm/devtestlab-unclaim-datadisks.png)
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir kez oluşturulduktan sonra seçerek VM'ye bağlanabilir **Bağlan** kendi yönetim bölmesinde.
-* Araştır [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Oluşturulduktan sonra seçerek VM'ye bağlanabilir **Connect** , yönetim bölmesinde.
+* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

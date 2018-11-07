@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: d8d05335b62d292bf61dbd3f3d565093b21f9253
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c6c63b7b66114a8c35986b443bda78442b8edd7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574853"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237749"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB ve Java için performans ipuçları
 
@@ -25,7 +25,7 @@ ms.locfileid: "45574853"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB garantili gecikme süresi ve aktarım hızı ile sorunsuz bir şekilde ölçeklenen bir hızlı ve esnek dağıtılmış bir veritabanıdır. Azure Cosmos DB ile veritabanınızı ölçeklendirmek için karmaşık kodlar yazmanıza ya da büyük mimari değişiklikler yapmak gerekmez. Yukarı ve aşağı ölçeklendirme, tek bir API çağrısı yapma olarak kolayca veya [SDK yöntem çağrısının](set-throughput.md#set-throughput-java). Ancak, Azure Cosmos DB ağ çağrıları erişilir vardır kullanırken en yüksek performans elde etmek için olun istemci-tarafı iyileştirmeleri [SQL Java SDK'sı](documentdb-sdk-java.md).
+Azure Cosmos DB garantili gecikme süresi ve aktarım hızı ile sorunsuz bir şekilde ölçeklenen bir hızlı ve esnek dağıtılmış bir veritabanıdır. Azure Cosmos DB ile veritabanınızı ölçeklendirmek için karmaşık kodlar yazmanıza ya da büyük mimari değişiklikler yapmak gerekmez. Yukarı ve aşağı ölçeklendirme olarak tek bir API çağrısı yapmak oldukça kolaydır. Daha fazla bilgi için bkz. [kapsayıcının aktarım hızını sağlamak nasıl](how-to-provision-container-throughput.md) veya [veritabanı aktarım hızını sağlamak nasıl](how-to-provision-database-throughput.md). Ancak, Azure Cosmos DB ağ çağrıları erişilir vardır kullanırken en yüksek performans elde etmek için olun istemci-tarafı iyileştirmeleri [SQL Java SDK'sı](documentdb-sdk-java.md).
 
 Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şekilde?" Aşağıdaki seçenekleri göz önünde bulundurun:
 
@@ -93,7 +93,8 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
 5. **Geri alma getRetryAfterInMilliseconds aralıklarla uygulayın**
 
-    Performans testi sırasında istekleri küçük bir oranını kısıtlanan kadar yük yükseltmeniz gerekir. Kısıtlanmış, istemci uygulama kısıtlama üzerinde geri alma için sunucu tarafından belirtilen yeniden deneme aralığı gerekir. Geri alma uyarak bekleme süresi yeniden denemeler arasındaki en az miktarda harcama sağlar. Yeniden deneme ilkesi desteği dahildir sürümünde 1.8.0 ve üstü, [Java SDK'sı](documentdb-sdk-java.md). Daha fazla bilgi için [düğümün aşılması ayrılmış aktarım hızı sınırlarını](request-units.md#RequestRateTooLarge) ve [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Performans testi sırasında istekleri küçük bir oranını kısıtlanan kadar yük yükseltmeniz gerekir. Kısıtlanmış, istemci uygulama kısıtlama üzerinde geri alma için sunucu tarafından belirtilen yeniden deneme aralığı gerekir. Geri alma uyarak bekleme süresi yeniden denemeler arasındaki en az miktarda harcama sağlar. Yeniden deneme ilkesi desteği dahildir sürümünde 1.8.0 ve üstü, [Java SDK'sı](documentdb-sdk-java.md). Daha fazla bilgi için [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+
 6. **İstemci iş yükü ölçeklendirin**
 
     Yüksek performans düzeylerinde sınıyorsanız (> 50.000 RU/sn), istemci uygulama makine kullanıma CPU veya ağ kullanımı capping nedeniyle performans sorunu hale gelebilir. Bu noktaya ulaşın, istemci uygulamalarınızı birden çok sunucu arasında ölçeklendirme gerçekleştirerek Azure Cosmos DB hesabı daha fazla göndermeye devam edebilirsiniz.

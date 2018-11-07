@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628656"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238718"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Verenin Adı ve Verenin Anahtarı
 
@@ -77,24 +77,24 @@ Daha açık [yeni AzureSBNamespace](https://docs.microsoft.com/powershell/module
 Hizmet veri yolu yayıncı adı ve verenin anahtarı BizTalk bağdaştırıcı Hizmetleri tarafından kullanılır. BizTalk Services projenizde Visual Studio, bir şirket içi iş kolu (LOB) sistemine bağlamak için BizTalk bağdaştırıcı Hizmetleri kullanın. Bağlanmak için LOB geçişi oluşturmak ve LOB sistemi ayrıntılarınızı girin. Bunu yaparken Service Bus verenin adı ve verenin anahtarı da girin.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Service Bus verenin adı ve verenin anahtarı almak için
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+1. [Azure Portal](http://portal.azure.com) oturum açın.
 2. Arama **Service Bus**, ad alanınızı seçin. 
 3. Açık **paylaşılan erişim ilkeleri** özellikler, ilkenizi seçin ve görüntüleme **bağlantı dizesi** adını ve anahtar değerlerini için.  
 
 ## <a name="next"></a>Sonraki
 Ek Azure BizTalk Services konular:
 
-* [Azure BizTalk Hizmetleri SDK'sını yükleme](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Öğretici: Azure BizTalk Hizmetleri](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Hizmetleri](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Azure BizTalk Hizmetleri SDK'sını yükleme](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Öğretici: Azure BizTalk Hizmetleri](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Hizmetleri](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Nasıl yapılır: hizmet kimlikleri yapılandırmak için ACS yönetim hizmeti kullanın](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk Services: Durum Grafiğini hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: Yedekleme ve Geri Yükleme](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk Services: Azaltma](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Nasıl yapılır: hizmet kimlikleri yapılandırmak için ACS yönetim hizmeti kullanın](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: Durum Grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Yedekleme ve Geri Yükleme](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: Azaltma](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

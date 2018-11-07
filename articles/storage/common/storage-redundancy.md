@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240979"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -39,7 +39,7 @@ Aşağıdaki tabloda, dayanıklılık ve kullanılabilirlik her çoğaltma strat
 | Bir bölge çapında kesinti                                                                                     | Hayır                              | Hayır                               | Evet                                  | Evet                                  |
 | Bölge genelinde kullanım dışı kalması durumunda (bir bölgede uzaktan, coğrafi olarak çoğaltılmış) verilerinize okuma erişimi | Hayır                              | Hayır                               | Hayır                                   | Evet                                  |
 | Sağlamak üzere tasarlanmış \_ \_ belirli bir yıl boyunca nesnelerin dayanıklılık                                          | en az % 99,999999999 (11 9) | en az % 99,9999999999 (12 9) | en az % 99,99999999999999 (16 9) | en az % 99,99999999999999 (16 9) |
-| Desteklenen depolama hesabı türleri                                                                   | GPv1, GPv2 ve Blob                | GPv2, GPv1 (aracılığıyla, PowerShell, Azure CLI veya kaynak sağlayıcısı API'si)                             | GPv1, GPv2 ve Blob                     | GPv1, GPv2 ve Blob                     |
+| Desteklenen depolama hesabı türleri                                                                   | GPv1, GPv2 ve Blob                | GPv2                             | GPv1, GPv2 ve Blob                     | GPv1, GPv2 ve Blob                     |
 | Okuma istekleri için kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,99 oranında (seyrek erişimli katman için % 99,9) |
 | Yazma isteklerine ilişkin kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) |
 
@@ -68,5 +68,5 @@ LRS için GRS değiştirirseniz, hiçbir ek ücret yoktur, ancak ikincil konumda
 - [Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma](storage-redundancy-grs.md)
 - [Azure depolama ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md)
 - [RA-GRS depolama kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](../storage-designing-ha-apps-with-ragrs.md)
-- [Microsoft Azure depolama yedekliliği seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP belgesi - Azure Depolama: Yüksek oranda kullanılabilir depolama ile bulut hizmeti güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Microsoft Azure depolama yedekliliği seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [SOSP belgesi - Azure Depolama: Yüksek oranda kullanılabilir depolama ile bulut hizmeti güçlü tutarlılık](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

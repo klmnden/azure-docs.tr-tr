@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dcf31bd6b128115962e30dd6653364c4cd65047d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243289"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235998"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench ile tümleştirme Mesajlaşma
 
 REST API yanı sıra, Azure Blockchain Workbench de ileti tabanlı bir tümleştirme sağlar. Workbench, muhasebe merkezli olayları Azure Event Grid, veri alma veya bu olaylara göre eylemde bulunmak aşağı akış tüketiciler etkinleştirme aracılığıyla yayımlar. Güvenilir Mesajlaşma gerekli istemcilerinin Azure Blockchain Workbench iletileri bir Azure Service Bus uç noktası için de sunar.
 
-Geliştiriciler Ayrıca dış sistemler kullanıcıları oluşturun, sözleşmeler oluşturun ve bir kayıt defteri sözleşmelerinde güncelleştirmek için başlatma işlemleri iletişim yeteneğini gösterdiğiniz ilgi belirtmiş. Bu işlevsellik şu anda genel önizlemede gösterilmez, ancak söz konusu özellik sunan bir örnek bulabilirsiniz [ http://aka.ms/blockchain-workbench-integration-sample ](http://aka.ms/blockchain-workbench-integration-sample).
+Geliştiriciler Ayrıca dış sistemler kullanıcıları oluşturun, sözleşmeler oluşturun ve bir kayıt defteri sözleşmelerinde güncelleştirmek için başlatma işlemleri iletişim yeteneğini gösterdiğiniz ilgi belirtmiş. Bu işlevsellik şu anda genel önizlemede gösterilmez, ancak söz konusu özellik sunan bir örnek bulabilirsiniz [ http://aka.ms/blockchain-workbench-integration-sample ](https://aka.ms/blockchain-workbench-integration-sample).
 
 ## <a name="event-notifications"></a>Olay bildirimleri
 

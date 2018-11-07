@@ -3,19 +3,19 @@ title: SQL veri ambarı önerileri - kavramları | Microsoft Docs
 description: SQL veri ambarı öneriler ve nasıl oluşturulacağını öğrenin
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/27/2018
+ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 712eed36f3a68ee02668849207835e3c8bdb8238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380123"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232163"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL veri ambarı önerileri
 
@@ -40,3 +40,27 @@ Yetersiz sorgu planlarına oluşturmak SQL veri ambarı sorgu iyileştiricisi ne
 - [Tablo istatistikleri oluşturma ve güncelleştirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
 Bu öneri tarafından etkilenen tabloların listesini görmek için aşağıdaki komutu çalıştırın. [T-SQL betiği](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Danışman, sürekli olarak bu önerileri oluşturmak için aynı T-SQL betiği çalıştırır.
+
+## <a name="replicate-tables"></a>Tablo çoğaltma
+
+Çoğaltılmış tablo önerileri için aşağıdaki fiziksel özelliklerine göre tablo adayları Advisor algılar:
+
+- Çoğaltılmış tablo boyutu
+- Sütun sayısı
+- Tablo dağıtım türü
+- Bölüm sayısı
+
+Boyutu ve yüksek kaliteli önerileri oluşturulan emin olmak için etkinlik eşikleri geçici veri ambarı ve sürekli olarak Advisor satırları ortalama olarak, döndürülen tablo erişim sıklığı gibi iş yükü tabanlı buluşsal yararlanır. 
+
+İş yükü tabanlı buluşsal yöntemler her çoğaltılmış tablo öneri için Azure portalında bulabilirsiniz aşağıda açıklanmıştır:
+
+- Tarama ortalama-son yedi gün içindeki tablodaki her tablo erişim için döndürülen satırları ortalama yüzdesi
+- Sık gerçekleştirilen okuma, güncelleştirme - tablonun son yedi erişim etkinliğini gösteren sırasında günde güncelleştirilmemiş olduğunu gösterir.
+- Okuma/güncelleştirme oranı - nasıl sık tablonun son yedi gün içindeki ne zaman güncelleştirildiğini göre erişildi oranı
+- Etkinliği - erişim etkinliklere göre kullanımını ölçer. Bu tablo erişim etkinliğini göre ortalama tablo erişim etkinliğini son yedi gün içindeki veri ambarı arasında karşılaştırır. 
+
+Şu anda Advisor yalnızca en fazla dört çoğaltılmış tablo adayları aynı anda en yüksek etkinlik öncelik kümelenmiş columnstore dizinleri ile birlikte gösterilir.
+
+> [!IMPORTANT]
+> Çoğaltılmış tablo öneri tam kavram değil ve hesabı veri taşıma işlemleri almaz. Bu bir buluşsal yöntem eklemek için çalışıyoruz ancak bu sırada, her zaman iş yükünüz öneri uygulandıktan sonra doğrulamalıdır. Lütfen başvurun sqldwadvisor@service.microsoft.com ilerletmek için İş yükünüzün neden çoğaltılmış tablo önerileri fark ederseniz. Aşağıdaki çoğaltılmış tablolar hakkında daha fazla bilgi için ziyaret [belgeleri](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
+>

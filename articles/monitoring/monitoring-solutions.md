@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: fb1a05a92244743ac8b5f980ff912c9e839d0609
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 53020eeb96927143b2fb7394aee64f9b7ea55df9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913011"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248971"
 ---
 # <a name="management-solutions-in-azure"></a>Azure'da yönetim çözümleri
 Yönetim çözümleri belirli bir uygulama veya hizmet işlemi ek Öngörüler sağlar, Azure hizmetlerinde yararlanın. Bu makalede, kullanarak ve bunları yükleme yönetim çözümlerini Azure'da ve ayrıntıları kısa bir genel bakış sağlar.
@@ -104,5 +104,5 @@ Yüklü çözümünü kaldırmak için bulmak [yüklü çözümlerinin listesini
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Alma bir [Microsoft gelen yönetim çözümlerinin listesini](monitoring-solutions-inventory.md).
-* Bilgi nasıl [sorguları oluşturma](../log-analytics/log-analytics-log-search.md) yönetim çözümleri tarafından toplanan verileri analiz etmek için.
+* Bilgi nasıl [sorguları oluşturma](../log-analytics/log-analytics-queries.md) yönetim çözümleri tarafından toplanan verileri analiz etmek için.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 61a7d31dcba538e80b09e927dd8f5aa5c81cf130
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f70faff478da9840a6c40b2f1360aec2cf3aecda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007765"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235658"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ güvenlik gruplarını etkinleştirme
 Azure Güvenlik Merkezi bir zaten etkin değilse, bir ağ güvenlik grubu (NSG) etkinleştirmenizi önerir. Nsg'ler izin veren veya bir sanal ağ, sanal makine örneklerine trafiği reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir NSG'yi doğrudan bu VM ile ilişkilendirme tarafından daha fazla. Daha fazla bilgi edinmek için [bir ağ güvenlik grubu (NSG) nedir?](../virtual-network/security-overview.md)
@@ -59,7 +59,7 @@ Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) --en son Azure güvenlik haberlerini ve bilgilerini edinin.
+* [Azure güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/) --en son Azure güvenlik haberlerini ve bilgilerini edinin.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.component: common
-ms.openlocfilehash: c6256fc209a4ffa5308dc3b24794f8295c57f4ef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4ec0d4058c512ce420cd6e1bdc393b8043dbf1b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521787"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232571"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -54,10 +54,10 @@ Azure VM boyutu belirtimleri listelenen [sanal makine boyutları](../../virtual-
 #### <a name="disk-sizes"></a>Disk boyutları
 VM'nizi ile kullanılabilen diskler beş türde vardır ve her belirli IOPS ve aktarım hızı sahip sınırları. Bu limitler kapasite, performans, ölçeklenebilirlik açısından uygulamanızın ihtiyaçlarını temel VM'niz için disk türünü seçme ve en yüksek yükler yaparken dikkate.
 
-| Premium disk türü  | P10   | P20   | P30            | P40            | P50            | 
+| Premium disk türü  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Disk boyutu           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-| Disk başına IOPS       | 500   | 2300  | 5000           | 7500           | 7500           | 
+| Disk boyutu           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Disk başına IOPS       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Disk başına aktarım hızı | Saniye başına 100 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB |
 
 İş yükünüze bağlı olarak, ek veri diskleri sanal Makineniz için gerekli olup olmadığını belirler. Sanal makinenizde birden fazla kalıcı veri diskleri ekleyebilirsiniz. Gerekirse, kapasite ve birimin performansını artırmak için disklerde stripe. (Disk bölümleme türüyle neler olacağıyla [burada](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) Premium depolama diskleri kullanarak stripe varsa [depolama alanları][4], kullanılan her disk için tek bir sütunu yapılandırmanız gerekir. Aksi takdirde, disklerde şeritli birim genel performansını trafiği düzensiz şekilde dağıtılmasının nedeni beklenenden daha düşük olabilir. Linux Vm'leri için kullanabileceğiniz *mdadm* aynı şeyi elde etmek için yardımcı program. Makalesine bakın [Linux'ta yazılım RAID yapılandırma](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Ayrıntılar için.
@@ -94,14 +94,14 @@ VHD'ler geçişe hazırlamak için gerekir:
 
 * Bir Azure aboneliği, bir depolama hesabı ve VHD'nizi kopyalamak bu depolama hesabında bir kapsayıcı. Hedef depolama hesabını gereksinimlerinize bağlı olarak standart veya Premium depolama hesabı olabileceğini unutmayın.
 * Birden fazla VM örneği oluşturmayı planlıyorsanız, VHD'ye genelleştirmek için bir araç. Örneğin, sysprep Windows veya Ubuntu için vırt-sysprep.
-* Depolama hesabına VHD dosyası yüklemek için bir araç. Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) veya bir [Azure Depolama Gezgini](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Bu kılavuzda, AzCopy Aracı'nı kullanarak VHD'nizi kopyalama açıklanır.
+* Depolama hesabına VHD dosyası yüklemek için bir araç. Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) veya bir [Azure Depolama Gezgini](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Bu kılavuzda, AzCopy Aracı'nı kullanarak VHD'nizi kopyalama açıklanır.
 
 > [!NOTE]
 > AzCopy, zaman uyumlu kopyası seçeneği seçerseniz, en iyi performans için hedef depolama hesabıyla aynı bölgede olan bir Azure VM'den Bu araçlardan birini çalıştırarak VHD'nizi kopyalayın. Farklı bir bölgede bir Azure VM'den bir VHD kopyalıyorsanız performans daha yavaş olabilir.
 >
 > Sınırlı bant genişliği üzerinde büyük miktarda veri kopyalamak için göz önünde bulundurun [Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmetini kullanarak](../storage-import-export-service.md); bu bir Azure veri merkezine sabit disk sürücüleri sevkiyat tarafından verilerinizi aktarmanıza izin veriyor. Azure içeri/dışarı aktarma hizmeti yalnızca standart depolama hesabı için veri kopyalamak için kullanabilirsiniz. Standart depolama hesabınızdaki verilerin hale geldikten sonra kullanabilirsiniz [kopyalama Blob API'sine](https://msdn.microsoft.com/library/azure/dd894037.aspx) veya premium depolama hesabınıza veri aktarmak için AzCopy.
 >
-> Microsoft Azure yalnızca sabit boyutlu VHD dosyalarını desteklediğini unutmayın. VHDX dosyası veya dinamik VHD'ler desteklenmez. Dinamik VHD'yi varsa, bunu sabit boyutlu kullanarak dönüştürebilirsiniz [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet'i.
+> Microsoft Azure yalnızca sabit boyutlu VHD dosyalarını desteklediğini unutmayın. VHDX dosyası veya dinamik VHD'ler desteklenmez. Dinamik VHD'yi varsa, bunu sabit boyutlu kullanarak dönüştürebilirsiniz [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) cmdlet'i.
 >
 >
 
@@ -123,7 +123,7 @@ Aşağıda VHD'nizi hazırlamaya için 3 şu senaryonun üzerinden inceleyeceği
 Birden çok genel Azure VM örnekleri oluşturmak için kullanılan VHD yüklüyorsanız, önce sysprep yardımcı programını kullanarak VHD generalize gerekir. Bu, bulutta veya şirket içi bir VHD için geçerlidir. Sysprep tüm makineye özgü bilgileri VHD'den kaldırır.
 
 > [!IMPORTANT]
-> Bir anlık görüntüsünü alın veya genelleştiriliyor önce sanal Makineyi yedekleyin. Çalışan sysprep durdurun ve sanal makine örneği serbest bırakın. Sysprep Windows işletim sistemi VHD'si için aşağıdaki adımları izleyin. Sysprep komutu çalıştırılıyor sanal makineyi kapatmanız gerekir olduğunu unutmayın. Sysprep hakkında daha fazla bilgi için bkz. [Sysprep genel bakış](http://technet.microsoft.com/library/hh825209.aspx) veya [Sysprep teknik başvuru](http://technet.microsoft.com/library/cc766049.aspx).
+> Bir anlık görüntüsünü alın veya genelleştiriliyor önce sanal Makineyi yedekleyin. Çalışan sysprep durdurun ve sanal makine örneği serbest bırakın. Sysprep Windows işletim sistemi VHD'si için aşağıdaki adımları izleyin. Sysprep komutu çalıştırılıyor sanal makineyi kapatmanız gerekir olduğunu unutmayın. Sysprep hakkında daha fazla bilgi için bkz. [Sysprep genel bakış](https://technet.microsoft.com/library/hh825209.aspx) veya [Sysprep teknik başvuru](https://technet.microsoft.com/library/cc766049.aspx).
 >
 >
 
@@ -163,7 +163,7 @@ Bu iki seçeneği işlemek için kapsayıcı yolu ve depolama hesabı anahtarın
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>1. seçenek: VHD ile AzCopy (zaman uyumsuz kopya) kopyalayın.
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'ler boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları iade etmeyi unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.
 
-1. AzCopy buradan indirip: [en güncel AzCopy sürümünü](http://aka.ms/downloadazcopy)
+1. AzCopy buradan indirip: [en güncel AzCopy sürümünü](https://aka.ms/downloadazcopy)
 2. Azure PowerShell'i açın ve AzCopy yüklü olduğu klasöre gidin.
 3. "Hedef" için "Kaynak" VHD dosyasından kopyalamak için aşağıdaki komutu kullanın.
 
@@ -257,7 +257,7 @@ Bir örnek <Uri> olabilir ***"https://storagesample.blob.core.windows.net/mycont
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>2. seçenek: .vhd dosyasını karşıya yüklemek için AzCopy kullanarak.
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'ler boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları iade etmeyi unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.
 
-1. AzCopy buradan indirip: [en güncel AzCopy sürümünü](http://aka.ms/downloadazcopy)
+1. AzCopy buradan indirip: [en güncel AzCopy sürümünü](https://aka.ms/downloadazcopy)
 2. Azure PowerShell'i açın ve AzCopy yüklü olduğu klasöre gidin.
 3. "Hedef" için "Kaynak" VHD dosyasından kopyalamak için aşağıdaki komutu kullanın.
 
@@ -735,7 +735,7 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
 #### <a name="optimization"></a>En iyi duruma getirme
 Geçerli VM yapılandırmanızı, özellikle de standart diskler ile çalışacak şekilde özelleştirilebilir. Örneğin, şeritli birim içinde birçok diskleri kullanarak performansını artırmak için. Örneğin, 4 disk ayrı olarak Premium depolama kullanmak yerine, tek bir disk sağlayarak maliyetini en iyi duruma getirmek mümkün olabilir. En iyi duruma getirme, geçişten sonra özel adımlar gerekir ve bir olay bazında ele alınması için bu gereksinimi ister. Ayrıca, bu işlem veritabanları ve ayarları'nda tanımlanan disk düzeni kullanan uygulamalar için de çalışmayabilir unutmayın.
 
-##### <a name="preparation"></a>Hazırlama
+##### <a name="preparation"></a>Hazırlık
 1. Basit bir geçiş önceki bölümde açıklandığı gibi tamamlayın. En iyi duruma getirme, geçişten sonra yeni VM üzerinde gerçekleştirilir.
 2. Yeni disk boyutu için en iyi duruma getirilmiş gerekli tanımlayın.
 3. Yeni disk belirtimlerine geçerli diskler/birimler eşleme belirleyin.

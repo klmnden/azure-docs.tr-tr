@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: d199c86f936a4a4a9e574041e87e47075f82e825
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 70aa49cf15b095697eb00cc2a0b8e6dfd2e07546
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648267"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240487"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure’da Ubuntu sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -35,7 +35,7 @@ Ubuntu, artık yükleme için resmi Azure VHD'leri yayımlar [ http://cloud-imag
 * Ubuntu 18.10/Cosmic: [Kozmik-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, bir sanal sabit diske bir Ubuntu Linux işletim sistemi zaten yüklediğinizi varsayar. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için [Hyper-V rolünü yükleme ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
+Bu makalede, bir sanal sabit diske bir Ubuntu Linux işletim sistemi zaten yüklediğinizi varsayar. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için [Hyper-V rolünü yükleme ve sanal makine yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Ubuntu yükleme notları**
 

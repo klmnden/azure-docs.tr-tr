@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339959"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254528"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack yönetim temel bilgileri
 Azure Stack Yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz, Azure Stack operatörü olarak sizin rolünüze genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
@@ -81,7 +81,7 @@ Azure Stack yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak no
  
 Kullanabileceğiniz [Yönetici portalı](azure-stack-manage-portals.md) veya Azure Stack yönetmek için PowerShell'i. Temel kavramları öğrenmenin en kolay yolu portalı kullanmaktır. PowerShell kullanmak istiyorsanız, hazırlık adımları vardır. Gerekir [yükleme](azure-stack-powershell-install.md) PowerShell [indirme](azure-stack-powershell-download.md) ek modüller ve [yapılandırma](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure Stack, Azure Resource Manager, temel alınan dağıtımı, yönetimi ve kuruluş mekanizması olarak kullanır. Azure Stack yönetmek ve kullanıcıların desteklemeye yardımcı olmak için kullanacaksanız, Resource Manager hakkında bilgi edinin. Bkz: [Azure Resource Manager ile Başlarken](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) teknik incelemesi.
+Azure Stack, Azure Resource Manager, temel alınan dağıtımı, yönetimi ve kuruluş mekanizması olarak kullanır. Azure Stack yönetmek ve kullanıcıların desteklemeye yardımcı olmak için kullanacaksanız, Resource Manager hakkında bilgi edinin. Bkz: [Azure Resource Manager ile Başlarken](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) teknik incelemesi.
 
 ## <a name="your-typical-responsibilities"></a>Tipik sizin Sorumluluklarınız
 
