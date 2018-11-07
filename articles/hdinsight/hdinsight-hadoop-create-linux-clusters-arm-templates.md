@@ -1,22 +1,22 @@
 ---
-title: Şablonlar - Azure HDInsight'ı kullanarak Hadoop kümeleri oluşturma
+title: Şablonlar - Azure HDInsight'ı kullanarak Apache Hadoop kümeleri oluşturma
 description: Resource Manager şablonları kullanarak için HDInsight kümeleri oluşturmayı öğrenin
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241625"
 ---
-# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Hadoop kümeleri oluşturma
+# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Bu makalede, Azure Resource Manager şablonları kullanarak Azure HDInsight kümeleri oluşturmak için birkaç yol öğreneceksiniz. Daha fazla bilgi için [Azure Resource Manager şablonu ile uygulama dağıtma](../azure-resource-manager/resource-group-template-deploy.md). Diğer küme oluşturma araçları ve özellikleri hakkında bilgi edinmek için bu sayfanın üst kısmındaki sekme seçicisini tıklayın veya bakın [küme oluşturma yöntemleri](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).

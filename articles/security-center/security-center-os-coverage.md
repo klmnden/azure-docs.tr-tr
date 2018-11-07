@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319991"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240435"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
 
@@ -80,16 +80,16 @@ Bir bulut hizmetinde çalışan sanal makineler de desteklenir. Yuva izlenen ür
 |Güvenlik yapılandırmaları|✔|✔|✔|✔|
 |Kötü amaçlı yazılımdan koruma|✔|✔|X|X|
 |JIT VM erişimi|✔|X|✔|X|
-|Uyarlamalı uygulama denetimleri|✔ (yalnızca Azure)|X|X|X|
+|Uyarlamalı uygulama denetimleri|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Disk şifrelemesi|✔|X|✔|X|
 |Üçüncü taraf dağıtım|✔|X|✔|X|
 |NSG'ler|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Filess tehdit algılama|✔|✔|X|X|
 |Ağ eşlemesi|✔|X|✔|X|
-|Uyarlamalı ağ sağlamlaştırma|✔|X|✔|X|
+|Uyarlamalı ağ denetimleri|✔|X|✔|X|
 
-* Bu özellikler şu anda genel önizlemede desteklenmektedir.
+\* Bu özellikler şu anda genel önizlemede desteklenmektedir.
 
 
 ## <a name="supported-paas-features"></a>Desteklenen PaaS özellikleri
@@ -103,26 +103,17 @@ Bir bulut hizmetinde çalışan sanal makineler de desteklenir. Yuva izlenen ür
 |BLOB Depolama hesapları *|✔| ✔|
 |Uygulama hizmetleri|✔| ✔|
 |Bulut hizmetleri|✔| X|
-|Redis önbelleği|✔| X|
-|Service fabric|✔| X|
-|Azure otomasyonu|✔| X|
-|Data Lake |✔| X|
-|Key Vault|✔| X|
-|Hizmet veri yolu|✔| X|
-|Stream analytics|✔| X|
-|Batch|✔| X|
-|Mantıksal uygulamalar|✔| X|
 |Sanal ağlar|✔| NA|
 |Alt ağlar|✔| NA|
 |NIC’ler|✔| ✔|
 |NSG'ler|✔| NA|
 |Abonelik|✔| ✔|
 
-* Bu özellikler şu anda genel önizlemede desteklenmektedir.
+\* Bu özellikler şu anda genel önizlemede desteklenmektedir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure Güvenlik Merkezi planlama ve işlemler Kılavuzu](security-center-planning-and-operations-guide.md) — planlama ve anlama Azure Güvenlik Merkezi'ni benimsemek için tasarım konuları hakkında bilgi edinin
 - [Azure Güvenlik Merkezi'nde türe göre güvenlik uyarıları](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - sanal makine davranış analizi hakkında daha fazla bilgi edinin ve kilitlenme dökümü Güvenlik Merkezi'nde bellek analizi
 - [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
-- [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) — Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz
+- [Azure güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/) — Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz

@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967617"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260559"
 ---
 # <a name="aerial-image-classification"></a>Havadan görünüm sınıflandırması
 
@@ -154,7 +154,7 @@ Artık konakları HDInsight Spark tarafından erişilen dosyalar proje depolama 
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. Sık kullandığınız metin düzenleyicinizde yük `settings.cfg` Azure Machine Learning Workbench projenin "Code" alt dizinden dosya ve depolama hesabı adını ve anahtarını gösterildiği gibi ekleyin. Kaydet ve Kapat `settings.cfg` dosya.
-1. Zaten yapmadıysanız, indirme ve yükleme [AzCopy](http://aka.ms/downloadazcopy) yardımcı programı. AzCopy yürütülebilir "AzCopy" yazmaya ve belgelerini göstermek için Enter tuşuna basarak sistem yolunuzda olduğundan emin olun.
+1. Zaten yapmadıysanız, indirme ve yükleme [AzCopy](https://aka.ms/downloadazcopy) yardımcı programı. AzCopy yürütülebilir "AzCopy" yazmaya ve belgelerini göstermek için Enter tuşuna basarak sistem yolunuzda olduğundan emin olun.
 1. Örnek veri modelleri kullanan ve model eğitim betikleriniz, depolama hesabınıza uygun yerlere kopyalamak için aşağıdaki komutları yürütün:
 
     ```
@@ -255,7 +255,7 @@ Eğitim verilerinizi bir ağ dosya sunucusunda, Batch AI kümesi erişir. Veri e
 
 İstenirse, veri aktarımı gibi en sevdiğiniz SSH aracı ile dosya sunucusu için oturum açmayı ve denetimi planlanmış proceeded onaylayabilirsiniz `/mnt/data` dizin içeriği. İki klasör training_images ve validation_images bulmanız gerekir, her göre land adlı alt klasörler ile içeren kategorileri kullanın.  Eğitim ve doğrulama kümeleri ~ 44 içermelidir k ve ~ 11 k görüntüleri, sırasıyla.
 
-#### <a name="create-a-batch-ai-cluster"></a>Bir Batch AI kümesi oluşturun
+#### <a name="create-a-batch-ai-cluster"></a>Batch AI kümesi oluşturma
 
 1. Aşağıdaki komutu gönderdikten tarafından küme oluşturun:
 

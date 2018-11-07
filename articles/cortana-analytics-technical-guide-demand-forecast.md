@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 8ff5c52b324c95bb48de0f9bbb1011ede737efb0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387676"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238871"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Cortana Intelligence çözüm şablonu enerji tahmini talebi teknik Kılavuzu
 ## <a name="overview"></a>**Genel Bakış**
@@ -47,7 +47,7 @@ Yalnızca, bilgisayarınızda yürütülürken olay oluşturma uygulamasını Az
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) neredeyse giriş akışında gerçek zamanlı analizler sağlamak için kullanılan hizmet [Azure olay hub'ı](#azure-event-hub) hizmet ve sonuçları yayımlama bir [Power BI](https://powerbi.microsoft.com)Pano yanı sıra için gelen tüm ham etkinlikleri arşivleme [Azure depolama](https://azure.microsoft.com/services/storage/) hizmet tarafından daha sonra işlenmek [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) hizmeti.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight özel toplama
-Azure HDInsight hizmeti çalıştırmak için kullanılan [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) betikleri (Azure Data Factory tarafından düzenlenir) Azure Stream Analytics hizmeti kullanılarak arşivlenmiş ham olaylar üzerinde toplamalar sağlamak için.
+Azure HDInsight hizmeti çalıştırmak için kullanılan [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) betikleri (Azure Data Factory tarafından düzenlenir) Azure Stream Analytics hizmeti kullanılarak arşivlenmiş ham olaylar üzerinde toplamalar sağlamak için.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) hizmeti (Azure Data Factory tarafından düzenlenir) kullanılan alınan girişlere belirli bir bölgenin gelecekteki enerji tüketimini tahmin oluşturmak için.
@@ -102,14 +102,14 @@ Bu bölümde ele alınmaktadır gerekli [işlem hatları](data-factory/concepts-
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-Bu fabrikada ardışık düzen beş içeren [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümlemek ve verileri toplamak için kullanılan betikleri. Not, komut dosyaları bulunur [Azure depolama](https://azure.microsoft.com/services/storage/) hesabı Kurulum sırasında oluşturulur. Kendi konumudur: demandforecasting\\\\betik\\\\hive\\ \\ (veya https://[Your çözüm name].blob.core.windows.net/demandforecasting).
+Bu fabrikada ardışık düzen beş içeren [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümlemek ve verileri toplamak için kullanılan betikleri. Not, komut dosyaları bulunur [Azure depolama](https://azure.microsoft.com/services/storage/) hesabı Kurulum sırasında oluşturulur. Kendi konumudur: demandforecasting\\\\betik\\\\hive\\ \\ (veya https://[Your çözüm name].blob.core.windows.net/demandforecasting).
 
-Benzer şekilde [Azure Stream Analytics](#azure-stream-analytics-1) sorgular [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) gelen veri biçimi hakkında örtük bilgiye sahip değildir komut dosyaları, değiştirilmesi bu sorgular veri biçimi ve göregerekir[özellik Mühendisliği](machine-learning/team-data-science-process/create-features.md) gereksinimleri.
+Benzer şekilde [Azure Stream Analytics](#azure-stream-analytics-1) sorgular [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) gelen veri biçimi hakkında örtük bilgiye sahip değildir komut dosyaları, değiştirilmesi bu sorgular veri biçimi ve göregerekir[özellik Mühendisliği](machine-learning/team-data-science-process/create-features.md) gereksinimleri.
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştırılan bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) komut dosyası için toplam akış içinde talep verilerini 10 saniyede saatlik bölge düzeyi için alt istasyon düzeyi ve koymak [Azure depolama](https://azure.microsoft.com/services/storage/) Azure Stream Analytics işi.
+Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştırılan bir [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) komut dosyası için toplam akış içinde talep verilerini 10 saniyede saatlik bölge düzeyi için alt istasyon düzeyi ve koymak [Azure depolama](https://azure.microsoft.com/services/storage/) Azure Stream Analytics işi.
 
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için betik ***AggregateDemandRegion1Hr.hql***
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için betik ***AggregateDemandRegion1Hr.hql***
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) iki etkinlik içerir:
@@ -117,7 +117,7 @@ Bu [işlem hattı](data-factory/concepts-pipelines-activities.md) iki etkinlik i
 * [Hdınsighthive](data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) saatlik bölge düzeyi için alt istasyon düzeyi saatlik geçmiş talep verilerini toplamak ve Azure Stream sırasında Azure Depolama'da koymak için bir Hive betiği çalıştırır Analytics işi
 * [Kopyalama](https://msdn.microsoft.com/library/azure/dn835035.aspx) çözüm şablonu yüklemesinin bir parçası sağlanan Azure SQL veritabanı, Azure Storage blobundan toplanmış veri taşıyan bir etkinlik.
 
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bu görev için betik ***AggregateDemandHistoryRegion.hql***.
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bu görev için betik ***AggregateDemandHistoryRegion.hql***.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 Bunlar [işlem hatları](data-factory/concepts-pipelines-activities.md) çeşitli etkinlikleri içerir ve son sonucu olan bu çözüm şablonuyla ilişkili Azure Machine Learning denemesi puanlanmış tahminleri. Bunlar, her biri farklı RegionID ADF işlem hattı ve hive betiğinin her bölge için geçirilen tarafından gerçekleştirilen farklı bölgede yalnızca işler dışında neredeyse aynıdır.  
@@ -231,7 +231,7 @@ Veri oluşturucuyu çalışan yüksek maliyetler doğurur gibi aktif çözümü 
 İlgili enerji için çözüm şablonu aboneliğinizde çalıştırılan Talep tahmini toplam maliyetleri daha iyi anlamanıza yardımcı olması aşağıdaki iki araçlar mevcuttur:
 
 * [Microsoft Azure maliyet tahmin Aracı (çevrimiçi)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure maliyet tahmin Aracı (Masaüstü)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure maliyet tahmin Aracı (Masaüstü)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**Onayları**
 Bu makalede, veri uzmanı Yijing Chen ve Microsoft'ta Qiu Min yazılım mühendisi tarafından yazıldı.

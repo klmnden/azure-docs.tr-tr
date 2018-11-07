@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 9fb955b6bce5b3d40def095180326fdc9aed33b1
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747907"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241268"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -75,7 +75,7 @@ Vmware'den/Hyper-V koruması için lisanslama ayrı yoktur.
 
 ### <a name="which-dpm-versions-are-supported"></a>DPM hangi sürümleri destekleniyor?
 
-Desteklenen DPM sürümleri özetlenir [destek matrisi](backup-azure-dpm-introduction.md#prerequisites-and-limitations). En son DPM güncelleştirmelerini yükleme ve çalıştırma öneririz [en son sürümü](http://aka.ms/azurebackup_agent) Azure Backup aracısının DPM sunucusunda.
+Desteklenen DPM sürümleri özetlenir [destek matrisi](backup-azure-dpm-introduction.md#prerequisites-and-limitations). En son DPM güncelleştirmelerini yükleme ve çalıştırma öneririz [en son sürümü](https://aka.ms/azurebackup_agent) Azure Backup aracısının DPM sunucusunda.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Sunucunun birden fazla kasaya kaydedebilir miyim?
 

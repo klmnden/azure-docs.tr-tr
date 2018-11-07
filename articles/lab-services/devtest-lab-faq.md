@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983959"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262038"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -100,7 +100,7 @@ Aşağıdaki blog teklif rehberlik ve Azure DevOps Hizmetleri Uzantısı kullanm
 * [Azure DevOps Services'dan bir DevTest Labs Laboratuvardaki yeni VM dağıtma](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [DevTest Labs'de sürekli dağıtımlar için Azure DevOps Services sürüm Yönetimi'ni kullanma](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-Diğer sürekli tümleştirme (CI) için / sürekli teslim (CD) araç zincirlerinden, aynı senaryoları elde edebileceğiniz dağıtma [Azure Resource Manager şablonları](https://aka.ms/dtlquickstarttemplate) kullanarak [Azure PowerShell cmdlet'lerini](../azure-resource-manager/resource-group-template-deploy.md) ve [.NET SDK'ları](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Ayrıca [için DevTest Labs REST API'leri](http://aka.ms/dtlrestapis) araç zincirinizi ile tümleştirmek için.  
+Diğer sürekli tümleştirme (CI) için / sürekli teslim (CD) araç zincirlerinden, aynı senaryoları elde edebileceğiniz dağıtma [Azure Resource Manager şablonları](https://aka.ms/dtlquickstarttemplate) kullanarak [Azure PowerShell cmdlet'lerini](../azure-resource-manager/resource-group-template-deploy.md) ve [.NET SDK'ları](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Ayrıca [için DevTest Labs REST API'leri](https://aka.ms/dtlrestapis) araç zincirinizi ile tümleştirmek için.  
 
 
 **Sanal makineler**
@@ -141,7 +141,7 @@ Her MSDN teklifi için Azure KREDİLERİ hakkında daha fazla bilgi için bkz. [
 
 Laboratuvarınızı ile ilişkili hedef depolama hesabını bulmak için:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 2. Sol menüden **kaynak grupları**.
 3. Bulun ve Laboratuvarınızı ile ilişkili kaynak grubunu seçin.
 4. Altında **genel bakış**, depolama hesaplarından birini seçin.
@@ -208,7 +208,7 @@ Laboratuvar oluşturulan VM'ler sayısı belirli bir sınır yoktur. Ancak, abon
 >
 >
 
-## <a name="what-is-a-microsoft-account"></a>Bir Microsoft hesabı nedir?
+## <a name="what-is-a-microsoft-account"></a>Microsoft hesabı nedir?
 Bir Microsoft hesabı olan neredeyse her şey Microsoft cihazlar ve hizmetler ile yapmak için kullandığınız hesaptır. Bir e-posta adresi ve Skype, Outlook.com, OneDrive, oturum açmak için kullandığınız parola olan Windows phone ve Xbox Live. Tek bir hesap, dosyaları, fotoğraflar, kişiler ve ayarları, tüm cihazlardan izleyebilirsiniz anlamına gelir.
 
 > [!NOTE]

@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 695da176d2bc86fd67608cc28d14cf15a7728980
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161497"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261936"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Entity Framework ile esnek veritabanı istemci kitaplığı
-Bu belge, Entity Framework uygulamada tümleştirmek için gereken değişiklikleri gösterir. [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md). Buradaki odak noktası olan [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md) ve [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) Entity Framework ile **Code First** yaklaşım. [İlk - yeni veritabanı kod](http://msdn.microsoft.com/data/jj193542.aspx) öğretici EF için bu belge boyunca çalışan bir örnek olarak hizmet verir. Bu belge eşlik eden örnek kod, Visual Studio kod örneklerindeki örnekleri kümesi esnek veritabanı araçlarını bir parçası olur.
+Bu belge, Entity Framework uygulamada tümleştirmek için gereken değişiklikleri gösterir. [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md). Buradaki odak noktası olan [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md) ve [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) Entity Framework ile **Code First** yaklaşım. [İlk - yeni veritabanı kod](https://msdn.microsoft.com/data/jj193542.aspx) öğretici EF için bu belge boyunca çalışan bir örnek olarak hizmet verir. Bu belge eşlik eden örnek kod, Visual Studio kod örneklerindeki örnekleri kümesi esnek veritabanı araçlarını bir parçası olur.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Yükleme ve örnek kodu çalıştırma
 Bu makalede kodu indirmek için:
@@ -169,9 +169,9 @@ Aşağıdaki kod örneği nasıl bir SQL yeniden deneme ilkesi yeni geçici olar
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** Yukarıdaki kod olarak tanımlanan bir **SqlDatabaseTransientErrorDetectionStrategy** 10 ve 5 saniye ile bir yeniden deneme sayısı, yeniden denemeler arasındaki süre bekleyin. Bu yaklaşım EF ve kullanıcı tarafından başlatılan işlemler için yönergeler benzer (bkz [sınırlamalar (EF6 sonrası) yeniden deneme yürütme stratejileri ile](http://msdn.microsoft.com/data/dn307226). Her iki durumda uygulama programı geçici özel durum döndüren kapsamı denetimleri gerektirir: esnek veritabanı istemci kitaplığı kullanan işlem yeniden veya uygun Oluşturucusu bağlamdan (görüldüğü gibi) yeniden oluşturun.
+**SqlDatabaseUtils.SqlRetryPolicy** Yukarıdaki kod olarak tanımlanan bir **SqlDatabaseTransientErrorDetectionStrategy** 10 ve 5 saniye ile bir yeniden deneme sayısı, yeniden denemeler arasındaki süre bekleyin. Bu yaklaşım EF ve kullanıcı tarafından başlatılan işlemler için yönergeler benzer (bkz [sınırlamalar (EF6 sonrası) yeniden deneme yürütme stratejileri ile](https://msdn.microsoft.com/data/dn307226). Her iki durumda uygulama programı geçici özel durum döndüren kapsamı denetimleri gerektirir: esnek veritabanı istemci kitaplığı kullanan işlem yeniden veya uygun Oluşturucusu bağlamdan (görüldüğü gibi) yeniden oluşturun.
 
-Burada geçici özel durumlar bize kapsam içinde olması denetleme ihtiyacı yerleşik kullanımını da ışığının **SqlAzureExecutionStrategy** EF ile birlikte gelir. **SqlAzureExecutionStrategy** ancak bir bağlantıyı yeniden kullanma **OpenConnectionForKey** ve bu nedenle bir parçası olarak gerçekleştirilen tüm doğrulama atlama **OpenConnectionForKey**çağırın. Bunun yerine, kod örneği, yerleşik kullanır **DefaultExecutionStrategy** EF ile de sunulur. Başlangıcı yerine sonundan **SqlAzureExecutionStrategy**, düzgün şekilde geçici hata işleme yeniden deneme ilkesi ile birlikte çalışır. Yürütme ilkesini ayarlama **ElasticScaleDbConfiguration** sınıfı. Unutmayın, biz kullanmamaya karar **DefaultSqlExecutionStrategy** kullanılması öneriliyor beri **SqlAzureExecutionStrategy** geçici özel durumlar oluşursa - hangi neden yanlış davranışa açıklandığı gibi. EF ve farklı yeniden deneme ilkeleri hakkında daha fazla bilgi için bkz. [bağlantı dayanıklılığı EF içinde](http://msdn.microsoft.com/data/dn456835.aspx).     
+Burada geçici özel durumlar bize kapsam içinde olması denetleme ihtiyacı yerleşik kullanımını da ışığının **SqlAzureExecutionStrategy** EF ile birlikte gelir. **SqlAzureExecutionStrategy** ancak bir bağlantıyı yeniden kullanma **OpenConnectionForKey** ve bu nedenle bir parçası olarak gerçekleştirilen tüm doğrulama atlama **OpenConnectionForKey**çağırın. Bunun yerine, kod örneği, yerleşik kullanır **DefaultExecutionStrategy** EF ile de sunulur. Başlangıcı yerine sonundan **SqlAzureExecutionStrategy**, düzgün şekilde geçici hata işleme yeniden deneme ilkesi ile birlikte çalışır. Yürütme ilkesini ayarlama **ElasticScaleDbConfiguration** sınıfı. Unutmayın, biz kullanmamaya karar **DefaultSqlExecutionStrategy** kullanılması öneriliyor beri **SqlAzureExecutionStrategy** geçici özel durumlar oluşursa - hangi neden yanlış davranışa açıklandığı gibi. EF ve farklı yeniden deneme ilkeleri hakkında daha fazla bilgi için bkz. [bağlantı dayanıklılığı EF içinde](https://msdn.microsoft.com/data/dn456835.aspx).     
 
 #### <a name="constructor-rewrites"></a>Oluşturucu taşıyabilmenizi sağlar
 Yukarıdaki kod örnekleri, Entity Framework ile verilere bağımlı yönlendirme kullanmak için uygulamanız için gereken varsayılan oluşturucu yeniden yazar göstermektedir. Aşağıdaki tabloda, bu yaklaşım diğer oluşturucular genelleştirir. 

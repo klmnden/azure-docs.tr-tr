@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604000"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237545"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure anahtar kasası Geliştirici Kılavuzu
 
@@ -48,8 +48,8 @@ Bu videoda, anahtar kasanızı oluşturmak nasıl ve 'Hello anahtar Kasası' ör
 
 Yukarıdaki videoda belirtilen kaynaklar:
 
-- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure anahtar kasası örnek kod](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Azure anahtar kasası örnek kod](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Oluşturma ve anahtar kasalarını yönetme
 
@@ -151,8 +151,8 @@ Bu makaleler diğer senaryolar ve kullanabilir veya Key Vault ile tümleştirme 
 
 ## <a name="social"></a>Sosyal
 
-- [Anahtar kasası blogu](http://aka.ms/kvblog)
-- [Anahtar kasası Forumu](http://aka.ms/kvforum)
+- [Anahtar kasası blogu](https://aka.ms/kvblog)
+- [Anahtar kasası Forumu](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>Destek kitaplıkları
 

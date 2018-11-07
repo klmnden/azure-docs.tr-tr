@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d84df3e5e0b961b8a53044102f99205ee0fe9896
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235641"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IOT Edge cihazları, modülleri ve alt cihazlar (Önizleme) genişletilmiş çevrimdışı özelliklerini anlama
 
@@ -46,7 +46,7 @@ Aşağıdaki örnek, bir IOT Edge senaryo çevrimdışı modda nasıl çalışt�
 
 ## <a name="restrictions-and-limits"></a>Kısıtlamaları ve sınırlar
 
-Bu makalede açıklanan genişletilmiş çevrimdışı özellikleri kullanılabilir [IOT Edge sürüm 1.0.2 veya üzeri](https://github.com/Azure/azure-iotedge/releases). Önceki sürümlerde çevrimdışı özelliklerinin bir alt kümesi. IOT Edge mevcut genişletilmiş çevrimdışı özellikleri olmayan cihazlar, çalışma zamanı sürümü değiştirerek yükseltilemez ancak bu özellikler sağlamak için yeni bir IOT Edge cihaz kimliği ile yapılandırılması gerekir. 
+Bu makalede açıklanan genişletilmiş çevrimdışı özellikleri kullanılabilir [IOT Edge 1.0.4 sürümü veya üzeri](https://github.com/Azure/azure-iotedge/releases). Önceki sürümlerde çevrimdışı özelliklerinin bir alt kümesi. IOT Edge mevcut genişletilmiş çevrimdışı özellikleri olmayan cihazlar, çalışma zamanı sürümü değiştirerek yükseltilemez ancak bu özellikler sağlamak için yeni bir IOT Edge cihaz kimliği ile yapılandırılması gerekir. 
 
 Genişletilmiş çevrimdışı desteği, IOT hub'ı kullanılabildiği, Doğu ABD ve Batı Avrupa tüm bölgelerde kullanılabilir. 
 
@@ -56,34 +56,7 @@ IOT Edge cihazları ve atanan alt cihazlarını çalışabilmesi ilk, tek seferl
 
 ## <a name="set-up-an-edge-device"></a>Bir Edge cihazı ayarlama
 
-Genişletilmiş çevrimdışı dönemleri sırasında gerçekleştirmek istediğiniz tüm IOT Edge cihaz MQTT iletişim kurmak için IOT Edge çalışma zamanı yapılandırın. 
-
 Bir IOT Edge cihazı alt IOT cihazları, genişletilmiş çevrimdışı yeteneklerini genişletmek Azure portalında üst-alt ilişkileri bildirmeniz gerekir.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>Yukarı Akış Protokolü için MQTT ayarlayın
-
-Edge hub'ı hem Yukarı Akış Protokolü olarak MQTT ile iletişim kurmak için Edge Aracısı'nı yapılandırın. Bu protokol, dağıtım bildiriminde ortam değişkenlerini kullanarak bildirilir. 
-
-Azure portalında, Edge Aracısı modül tanımları ve Edge hub'ı seçerek erişebilirsiniz **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** modülleri bir dağıtım için ayarlarken düğmesi. Her iki modüller için adlı bir ortam değişkeni oluşturma **UpstreamProtocol** ve değerini ayarlamak **MQTT**. 
-
-Dağıtım şablonu JSON'da, ortam değişkenleri, aşağıdaki örnekte gösterildiği gibi bildirilir: 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Alt cihaz atama
 

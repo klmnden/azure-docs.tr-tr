@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: c9c3383719ed8001167a6dce42d2df3e58b6ca74
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0da4626943a7223b24baac80121b5da0062c0d73
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237086"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Halka arabelleği hedef kodu için SQL veritabanı'nda genişletilmiş olaylar
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Bir kod örneği için bir genişletilmiş olay yakalama ve rapor bilgilerini bir test sırasında kolay hızlı şekilde istersiniz. Genişletilmiş olay verileri için kolay bir hedeftir [halka arabelleği hedef](http://msdn.microsoft.com/library/ff878182.aspx).
+Bir kod örneği için bir genişletilmiş olay yakalama ve rapor bilgilerini bir test sırasında kolay hızlı şekilde istersiniz. Genişletilmiş olay verileri için kolay bir hedeftir [halka arabelleği hedef](https://msdn.microsoft.com/library/ff878182.aspx).
 
 Bu konuda, bir Transact-SQL kod örneği sunar:
 
@@ -50,8 +50,8 @@ Bu konuda, bir Transact-SQL kod örneği sunar:
 * SQL Server Management Studio (ssms.exe), ideal olarak en son aylık güncelleştirme sürümü. 
   Gelen son ssms.exe indirebilirsiniz:
   
-  * Başlıklı konusuna [SQL Server Management Studio'yu indirme](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [İndirme için doğrudan bir bağlantı.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Başlıklı konusuna [SQL Server Management Studio'yu indirme](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [İndirme için doğrudan bir bağlantı.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Kod örneği
 
@@ -353,6 +353,6 @@ Diğer kod örnek konuları genişletilmiş olaylar için aşağıdaki bağlant�
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

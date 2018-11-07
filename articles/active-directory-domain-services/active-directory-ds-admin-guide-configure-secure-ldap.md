@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9188e7a8dc5364592772b95c302c59a16bfad2be
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754078"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236962"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) bir Azure AD Domain Services yönetilen etki alanı için yapılandırma
 Bu makalede, Azure AD Domain Services yönetilen etki alanınıza Güvenli Basit Dizin Erişim Protokolü (LDAPS) nasıl olanak sağlayabileceğiniz açıklanmaktadır. Güvenli LDAP olan olarak da bilinen ' Basit Dizin Erişim Protokolü (LDAP) Güvenli Yuva Katmanı (SSL) üzerinden / Aktarım Katmanı Güvenliği (TLS)'.
@@ -45,7 +45,7 @@ Güvenli LDAP etkinleştirmeden önce aşağıdakilere başına geçerli bir ser
 
 1. **Güvenilen veren** -sertifika güvenli LDAP kullanarak yönetilen etki alanına bağlanma bilgisayarlar tarafından güvenilen bir yetkili tarafından verilmiş olması gerekir. Bu yetki, bir ortak sertifika yetkilisi (CA) veya bu bilgisayar tarafından güvenilen bir kuruluş CA olabilir.
 2. **Yaşam süresi** -en az bir sonraki 3-6 ay boyunca sertifika geçerli olmalıdır. Sertifikanın süresi dolduğunda, yönetilen etki alanınıza güvenli LDAP erişimini bozulur.
-3. **Konu adı** -sertifika üzerindeki konu adı, yönetilen etki alanı adı olmalıdır. Örneğin, 'contoso100.com' etki alanınızı adlandırılmışsa, sertifikanın konu adı 'contoso100.com' olmalıdır. 
+3. **Konu adı** -sertifika üzerindeki konu adı, yönetilen etki alanınız olmalıdır. Örneğin, 'contoso100.com' etki alanınızı adlandırılmışsa, sertifikanın konu adı 'contoso100.com' olmalıdır. DNS adı (konu alternatif adı), yönetilen etki alanınız için bir joker karakter adına ayarlayın.
 4. **Anahtar kullanımı** -için aşağıdakileri kullanır - dijital imzalar ve anahtar şifreleme sertifikası yapılandırılmalıdır.
 5. **Sertifika amacı** -sertifikayı SSL sunucu kimlik doğrulaması için geçerli olmalıdır.
 
@@ -83,7 +83,7 @@ Windows bilgisayarınızda olarak yeni bir PowerShell penceresi açın **yöneti
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 Yukarıdaki örnekte, 'contoso100.com' yönetilen etki alanınızın DNS etki alanı adıyla değiştirin. Örneğin, 'contoso100.onmicrosoft.com' adında yönetilen bir etki alanı oluşturduysanız, konu özniteliğinde ' contoso100.com' 'contoso100.onmicrosoft.com' ile değiştirin ve '*. contoso100.com' ile DnsName özniteliğindeki '*. contoso100.onmicrosoft.com').

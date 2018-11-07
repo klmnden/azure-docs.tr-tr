@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 11/6/2018
-ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: b95b62ab2c51fec93870e3f5593d53a599f3dad2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238339"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218959"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -98,19 +98,11 @@ Azure Machine Learning hizmeti ile Azure not defterleri kullanma örneği için 
   - PyCharm ve RStudio gibi tümleşik geliştirme ortamlarından (IDE'ler)
   - Jupyter Not defterlerinden ve Tensorflow gibi paketleri
 
-DSVM yüklü birden çok Anaconda ortamı ile birlikte gelir. Azure Machine Learning Python SDK'sını olmadan herhangi bir paket yüklemesi için bir komut istemi/kabuğunu açın ve ortamı etkinleştirmek için aşağıdaki komutlardan birini kullanın:
+DSVM yüklü birden çok Anaconda ortamı ile birlikte gelir. Azure Machine Learning Python SDK'sını olmadan herhangi bir paket yüklemesi için bir komut istemi penceresi açın ve şu ortam etkinleştirin.
 
-* Üzerinde __Ubuntu__ DSVM, bu komutu kullanın:
-
-    ```shell
-    conda activate py36
-    ```
-
-* Üzerinde __Windows__ DSVM, bu komutu kullanın:
-
-    ```shell
-    conda activate AzureML
-    ```
+```shell
+conda activate AzureML
+```
 
 Bir kez bu ortamda, hemen kendi seçtiğiniz derleme aracı Azure Machine Learning SDK'sı paketi yüklemeden içe aktarabilirsiniz.
 

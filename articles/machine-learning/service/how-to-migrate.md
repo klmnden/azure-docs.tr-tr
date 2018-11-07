@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236593"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253457"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Azure Machine Learning hizmetinin en son sürüme geçirme 
 
@@ -38,7 +38,7 @@ Aşağıdaki tablo ve makale, mevcut varlıklarınızı ve kaynakları önce vey
 |Kayıtlı görüntüleri|Hayır|Yeni bir çalışma alanı altında dağıtım Docker görüntüsünü yeniden oluştur.|
 |Dağıtılan web Hizmetleri|Hayır|Yok. Bunlar olarak çalışmaya devam-olduğu <br/>veya [en son sürümünü kullanarak yeniden dağıtmadan](#services).|
 |Deneme ve <br/>Model Yönetimi hesapları|Hayır|[Çalışma alanı oluşturma](#resources) yerine.|
-|Makine CLI & SDK öğrenme|Hayır|Yeni [CLI](reference-azure-machine-learning-cli.md) ve [SDK](http://aka.ms/aml-sdk) yeni çalışma.|
+|Makine CLI & SDK öğrenme|Hayır|Yeni [CLI](reference-azure-machine-learning-cli.md) ve [SDK](https://aka.ms/aml-sdk) yeni çalışma.|
 
 
 Daha fazla bilgi edinin [bu sürümdeki değişiklikler](overview-what-happened-to-workbench.md)?
@@ -52,7 +52,7 @@ Daha fazla bilgi edinin [bu sürümdeki değişiklikler](overview-what-happened-
 
 İşlem kaynakları, deneme hesapları, model yönetim hesapları ve machine learning gibi ortamları üzerinden Azure Machine Learning hizmetinin en son sürüme geçirilemez. Bkz: [zaman çizelgesi](overview-what-happened-to-workbench.md#timeline) üzerinde ne kadar süreyle varlıklarınızı çalışmaya devam eder.
 
-En son sürüm ile bir Azure Machine Learning hizmeti çalışma alanında oluşturmaya başlama [Azure portalında](quickstart-get-started.md). Portal'ın çalışma Pano yalnızca Edge, Chrome ve Firefox tarayıcılarda desteklenir.
+En son sürüm ile bir Azure Machine Learning hizmeti çalışma alanında oluşturmaya başlama [Azure portalında](quickstart-get-started.md). Portalın çalışma alanı panosu yalnızca Edge, Chrome ve Firefox tarayıcılarında desteklenir.
 
 Bu yeni çalışma alanı, üst düzey hizmet kaynak ve Azure Machine Learning hizmetinin en son özelliklerin tümünü kullanmanıza olanak tanır. Bu konu hakkında daha fazla bilgi edinin [çalışma ve mimari](concept-azure-machine-learning-architecture.md).
 
@@ -62,7 +62,7 @@ Bu yeni çalışma alanı, üst düzey hizmet kaynak ve Azure Machine Learning h
 
 Projelerinizi bulutta bir çalışma alanında olması yerine projeleri artık en son sürümü yerel makinenizde dizinlerdir. Bir diyagramı bkz [son mimarisi](concept-azure-machine-learning-architecture.md). 
 
-Dosyaları ve komut dosyalarını içeren yerel dizine kullanmaya devam etmek için dizinin adını belirtin. ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python komutunu ya da 'az ml proje ekleme' CLI komutunu kullanarak.
+Dosyaları ve komut dosyalarını içeren yerel dizine kullanmaya devam etmek için dizinin adını belirtin. ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python komutunu ya da 'az ml proje ekleme' CLI komutunu kullanarak.
 
 Örneğin:
 ```python

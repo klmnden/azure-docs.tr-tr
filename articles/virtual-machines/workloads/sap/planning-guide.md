@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430349"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262412"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -1259,7 +1259,7 @@ SAP dağıtımları son iki yılda bir deneyim bize olarak özetlenebilir bazı 
 >
 > * [Linux'ta yazılım RAID yapılandırma][virtual-machines-linux-configure-raid]
 > * [Azure'da Linux sanal makinesi üzerinde LVM'yi yapılandırma][virtual-machines-linux-configure-lvm]
-> * [Azure depolama gizli dizileri ve Linux g/ç en iyi duruma getirme](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Azure depolama gizli dizileri ve Linux g/ç en iyi duruma getirme](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
 >
 
@@ -1316,7 +1316,7 @@ Azure coğrafi çoğaltma, her VHD bir sanal makinede yerel olarak çalışır v
 > Otomatik bağlama ayarlamak için buraya komut satırı yürütülebilir diskpart.exe belgelerine bakın:
 >
 > * [DiskPart komut satırı seçenekleri](https://technet.microsoft.com/library/bb490893.aspx)
-> * [Otomatik bağlama](http://technet.microsoft.com/library/cc753703.aspx)
+> * [Otomatik bağlama](https://technet.microsoft.com/library/cc753703.aspx)
 >
 > Windows komut satırı penceresini yönetici olarak açılması gerekir.
 >

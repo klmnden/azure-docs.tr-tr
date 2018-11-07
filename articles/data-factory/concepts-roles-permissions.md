@@ -4,7 +4,7 @@ description: Veri fabrikaları oluşturmak ve alt kaynak ile çalışmak için g
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10/08/2018
+ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: 10f325f3b7c93b91180b6a170c8b7accb75eb03b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 82c0ec4d114ec198ecba475b247a3c9952a6069a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883780"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218772"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rolleri ve izinleri için Azure Data Factory
 
@@ -25,13 +25,13 @@ Bu makalede, Azure Data Factory kaynaklarını oluşturmak ve yönetmek için ge
 
 ## <a name="roles-and-requirements"></a>Rolleri ve gereksinimleri
 
-Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, *katkıda bulunan*, *sahip* veya *yönetici* rollerinin üyesi ya da bir Azure aboneliğinin yöneticisi olmalıdır. Azure portalında, bir abonelikte sahip olduğunuz izinleri görüntülemek için sağ üst köşeden kullanıcı adınızı seçin ve ardından **izinleri**. Birden çok aboneliğe erişiminiz varsa uygun aboneliği seçin. 
+Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, *katkıda bulunan*, *sahip* veya *yönetici* rollerinin üyesi ya da bir Azure aboneliğinin yöneticisi olmalıdır. Abonelikte sahip olduğunuz izinleri görüntülemek için Azure portalına gidin, sağ üst köşeden kullanıcı adınızı ve sonra **İzinler**’i seçin. Birden çok aboneliğe erişiminiz varsa uygun aboneliği seçin. 
 
-Oluşturmak ve Data Factory'deki veri kümelerini dahil olmak üzere - alt kaynakları yönetmek için bağlı hizmetler, işlem hatlarını, tetikleyiciler ve tümleştirme çalışma zamanları - aşağıdaki gereksinimler geçerlidir:
-- Azure portalında alt kaynakları oluşturup yönetmek için ait olmalısınız **Data Factory Katılımcısı** kaynak grubu düzeyinde veya üzerinde rol.
-- PowerShell veya SDK'sı ile alt kaynakları oluşturup yönetmek için **katkıda bulunan** kaynak düzeyinde veya üzerinde rol yeterli.
+Data Factory için veri kümeleri, bağlı hizmetler, işlem hatları, tetikleyiciler ve tümleştirme çalışma zamanları gibi alt kaynaklar oluşturup yönetmek için aşağıdaki gereksinimlerin karşılanması gerekir:
+- Azure portalda alt öğe oluşturup yönetebilmek için kaynak grubu düzeyinde **Data Factory Katılımcısı** rolüne veya daha üst düzey bir role sahip olmanız gerekir.
+- PowerShell veya SDK ile alt öğe oluşturup yönetebilmek için kaynak düzeyinde **katkıda bulunan** rolü veya daha üst düzey bir rol yeterli olacaktır.
 
-Örnek bir role kullanıcı ekleme hakkında yönergeler için [rolleri ekleme](../billing/billing-add-change-azure-subscription-administrator.md) makalesi.
+Kullanıcı rolü eklemeye ilişkin örnek yönergeler için [Rol ekleme](../billing/billing-add-change-azure-subscription-administrator.md) makalesine bakın.
 
 ## <a name="set-up-permissions"></a>İzinleri ayarlama
 
@@ -50,6 +50,8 @@ Bu rol hakkında daha fazla bilgi için bkz. [Data Factory Katılımcısı rolü
 ### <a name="resource-manager-template-deployment"></a>Resource Manager şablon dağıtımı
 
 **Data Factory Katılımcısı** rol, kaynak grubu düzeyinde veya bu düzeyin üstünde, Resource Manager şablonlarını dağıtma kullanıcılar olanak tanır. Sonuç olarak, rolünün üyeleri, hem veri fabrikaları ve veri kümeleri, bağlı hizmetler, işlem hatlarını, tetikleyiciler ve tümleştirme çalışma zamanları dahil olmak üzere, kendi alt kaynakları dağıtmak için Resource Manager şablonlarını kullanabilirsiniz. Bu rolün üyeliğini diğer kaynaklar, ancak oluşturmalarına izin vermez.
+
+Data Factory izinleri Azure depoları ve GitHub üzerindeki izinleri bağımsızdır. Sonuç olarak, yalnızca okuyucu rolünün bir üyesi olan bir kullanıcı deposu izinlerle Data Factory alt kaynakları düzenleyebilir ve işleme depoya değiştirir, ancak bu değişiklikler yayımlanamaz.
 
 > [!IMPORTANT]
 > Resource Manager şablon dağıtımı ile **Data Factory Katılımcısı** rol izinlerinizi yükseltmesine değil. Örneğin, bir Azure sanal makine oluşturan bir şablonu dağıtmak ve sanal makineler oluşturmak için izniniz yoksa, dağıtım bir Yetkilendirme hatası ile başarısız olur.
@@ -77,7 +79,7 @@ Bazı durumlarda farklı bir veri fabrikası kullanıcılar için farklı erişi
   Bu senaryo, iki rol atamalarını gerektirir.
 
   1. Yerleşik atama **katkıda bulunan** data factory düzeyde rolü.
-  2. Özel bir rol izniyle oluşturun *Microsoft.Resources/deployments/*\*. Kaynak grubu düzeyinde kullanıcı bu özel bir rol atayın.
+  2. Özel bir rol izniyle oluşturun * Microsoft.Resources/deployments/**. Kaynak grubu düzeyinde kullanıcı bu özel bir rol atayın.
 
 - Bir kullanıcı ya da Powershell'den SDK'sı, ancak Azure Portalı'nda bir veri fabrikası güncelleştirmesi olanak tanır.
 

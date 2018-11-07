@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869321"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240401"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Çoğaltma ile SQL veritabanı yönetilen örneği
 
@@ -77,7 +77,7 @@ Desteklediği Özel Uygulamalar:
 ## <a name="configure-publishing-and-distribution-example"></a>Yayımlama ve dağıtım örneği yapılandırma
 
 1. [Bir Azure SQL veritabanı yönetilen örneği oluşturma](sql-database-managed-instance-create-tutorial-portal.md) portalında.
-2. [Bir Azure depolama hesabı oluşturma](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) için çalışma dizini.
+2. [Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) için çalışma dizini.
 
    Depolama anahtarlarını kopyaladığınızdan emin olun. Bkz: [depolama erişim anahtarlarını görüntüleme ve kopyalama](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Desteklediği Özel Uygulamalar:
 
    Aşağıdaki örnek betiklerde değiştirin `<Publishing_DB>` ile bu veritabanının adı.
 
-4. Bir veritabanı kullanıcısı için dağıtıcı SQL kimlik doğrulaması ile oluşturun. Bkz, [veritabanı kullanıcıları oluşturma](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Güvenli bir parola kullanın.
+4. Bir veritabanı kullanıcısı için dağıtıcı SQL kimlik doğrulaması ile oluşturun. Bkz, [veritabanı kullanıcıları oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Güvenli bir parola kullanın.
 
    Aşağıdaki örnek komut dosyalarında `<SQL_USER>` ve `<PASSWORD>` bu SQL Server hesabı ile veritabanı kullanıcı adı ve parola.
 
-5. [SQL veritabanı yönetilen örneğine bağlanın](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [SQL veritabanı yönetilen örneğine bağlanın](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Dağıtıcı ve dağıtım veritabanı eklemek için aşağıdaki sorguyu çalıştırın.
 
@@ -197,4 +197,4 @@ Aşağıdaki özellikler desteklenmez:
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-- [Yönetilen örnek nedir?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Yönetilen örnek nedir?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

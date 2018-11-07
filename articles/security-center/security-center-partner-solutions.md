@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 3174f2d6562030702b14ef1fa3708a1a4e8e373b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 103e0e353efeaf493fb1d72f03eb6ce6469cd683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235675"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Azure Güvenlik Merkezi ile bağlı iş ortağı çözümlerini yönetme
 Bu makalede, yönetme ve bağlı güvenlik çözümlerini Azure Güvenlik Merkezi'nde izleme konusunda yol göstermektedir.
@@ -65,7 +65,7 @@ Bu makalede, yönetme ve izleme Güvenlik Merkezi'nde bağlı güvenlik çözüm
 * [İş ortağı ve çözüm tümleştirmesi](security-center-partner-integration.md) -diğer güvenlik çözümlerini tümleştirme genel bakış edinin.
 * [Yönetme ve güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
+* [Azure Güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png

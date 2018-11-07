@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397681"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262004"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>BLOB depolama alanından iOS kullanma
 
@@ -382,8 +382,8 @@ Blob Depolama iOS kullanma öğrendiniz, iOS kitaplığı ve depolama hizmeti ha
 * [İOS için Azure depolama istemci kitaplığı](https://github.com/azure/azure-storage-ios)
 * [Azure depolama iOS başvuru belgeleri](http://azure.github.io/azure-storage-ios/)
 * [Azure Depolama Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Depolama Ekibi Blog’u](http://blogs.msdn.com/b/windowsazurestorage)
+* [Azure Depolama Ekibi Blog’u](https://blogs.msdn.com/b/windowsazurestorage)
 
-Bu kitaplığı ile ilgili sorularınız varsa şuraya gönder: çekinmeyin bizim [Azure MSDN Forumu](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) veya [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Bu kitaplığı ile ilgili sorularınız varsa şuraya gönder: çekinmeyin bizim [Azure MSDN Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) veya [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Azure depolama için özellik önerileriniz varsa, lütfen deftere [Azure depolama geri bildirim](https://feedback.azure.com/forums/217298-storage/).
 
