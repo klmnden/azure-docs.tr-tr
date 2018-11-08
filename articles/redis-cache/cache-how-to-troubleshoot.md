@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: b41fc5c41b2e0d1e5d5ba3e39c7f6063cf57c6c2
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ff2076d678b16f4de421a2634d751d26956a400d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205791"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228870"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Azure Redis Cache sorunlarını giderme
 Bu makalede, Azure Redis Cache sorunlar aşağıdaki kategorileri sorun giderme kılavuzu sağlar.
@@ -193,7 +193,7 @@ Bu hata iletisi sorunun nedenini ve olası çözümü noktası yardımcı olabil
 | qs |devam eden işlemlerin 67 sunucuya gönderildikten ancak yanıt henüz kullanıma sunulmamıştır. Yanıt olabilir `Not yet sent by the server` veya `sent by the server but not yet processed by the client.` |
 | QC |devam eden işlemlerin 0 yanıtları gördünüz ancak henüz tamamlandı, tamamlanma döngü üzerinde bekleyen nedeniyle silinmek üzere işaretlenen değil |
 | wr |(6 gönderilmemiş istekleri yok sayılan anlamına gelir) etkin yazan bayt/activewriters yoktur |
-| içinde |Hiçbir etkin okuyucular vardır ve sıfır bayt NIC bayt/activereaders okumak kullanılabilir |
+| in |Hiçbir etkin okuyucular vardır ve sıfır bayt NIC bayt/activereaders okumak kullanılabilir |
 
 ### <a name="steps-to-investigate"></a>Araştırmak için adımları
 1. En iyi uygulama emin yaparken, StackExchange.Redis istemcisi kullanılırken bağlanmak için şu desene kullanıyorsunuz.
@@ -229,7 +229,7 @@ Bu hata iletisi sorunun nedenini ve olası çözümü noktası yardımcı olabil
    * CPU alıyorsanız denetleyin izlenerek sunucuda bağlı `CPU` [performans ölçümü önbelleğe](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Redis CPU'ya bağlıdır, ancak gelen istekler, bu istekleri zaman aşımına neden olabilir. Bu durumu çözmek için yükü premium önbellekteki birden fazla parçaya dağıtmak veya bir büyük veya fiyatlandırma katmanına yükseltin. Daha fazla bilgi için [sunucu tarafı bant genişliği aşıldı](#server-side-bandwidth-exceeded).
 5. Sunucu üzerinde işlem için uzun süren komutları var mı? Redis sunucu üzerinde işlem için uzun sürüp komutları uzun süre çalışan zaman aşımı neden olabilir. Uzun süre çalışan komutlar bazı örnekleri şunlardır `mget` anahtarları, çok sayıda ile `keys *` kötü, lua komut yazılamaz veya okunamaz. Redis-cli istemcisini kullanarak Azure Redis Cache Örneğinize bağlanmak veya kullanın [Redis Konsolu](cache-configure.md#redis-console) çalıştırıp [Slowlog'u](http://redis.io/commands/slowlog) beklenenden daha uzun süren istekleri olup olmadığını görmek için komutu. Redis sunucusu ve StackExchange.Redis daha az büyük istekleri yerine çok sayıda küçük isteği için iyileştirilmiştir. Verilerinizi daha küçük öbeklere ayırma şeyleri burada artırabilir. 
    
-    Redis-cli ve stunnel kullanarak Azure Redis Cache SSL uç noktaya bağlanma hakkında daha fazla bilgi için bkz. [Redis Önizleme sürümü için ASP.NET oturum durumu sağlayıcısı ile tanışın](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi. Daha fazla bilgi için [Slowlog'u](http://redis.io/commands/slowlog).
+    Redis-cli ve stunnel kullanarak Azure Redis Cache SSL uç noktaya bağlanma hakkında daha fazla bilgi için bkz. [Redis Önizleme sürümü için ASP.NET oturum durumu sağlayıcısı ile tanışın](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi. Daha fazla bilgi için [Slowlog'u](http://redis.io/commands/slowlog).
 6. Yüksek Redis sunucu yükü, zaman aşımı neden olabilir. Sunucu iş yükü izleyerek izleyebilirsiniz `Redis Server Load` [performans ölçümü önbelleğe](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Bir sunucu yükü 100 (en yüksek değer), redis sunucusunun istekleri işleme boş kalma süresi ile meşgul olduğunu gösterir. Belirli isteklerini tüm sunucu özelliğine sürüyor durumunda görmek için önceki paragrafta açıklandığı gibi Slowlog'u komutu çalıştırın. Daha fazla bilgi için [yüksek CPU kullanımı / sunucu yükü](#high-cpu-usage-server-load).
 7. İstemci tarafında ağ blip neden olan herhangi bir olay oluştu? (Web, çalışan rolü veya bir Iaas VM) istemcide istemci örneklerinin sayısını artırma veya azaltma gibi bir olay oluştu veya yeni bir otomatik ölçeklendirme ve istemci sürümünü dağıtmaya etkin kontrol? Test işlemlerimizi, bu otomatik ölçeklendirme veya büyütme bulduk/aşağı neden giden ağ bağlantısını için birkaç saniye kaybolabilir. StackExchange.Redis kod böyle olaylara esnektir ve yeniden bağlanır. Yeniden bağlama bu süre boyunca sırasındaki tüm istekler zaman aşımı olabilir.
 8. Birçok küçük istek zaman aşımına uğradı Redis cache'e önceki büyük bir istek vardı? Parametre `qs` hata iletisi, kaç istek istemciden sunucuya gönderilen, ancak bir yanıt henüz işlenmemiş bildirir. StackExchange.Redis tek bir TCP bağlantısını kullanır ve bir yanıt aynı anda yalnızca okuyabilir çünkü bu değer büyüyen tutun. İlk işlem zaman aşımına uğradı olsa da, sunucunun içine/dışına gönderilen veri durdurmaz ve büyük isteği tamamlanmadan zaman aşımı neden diğer istekleri engellenir. Önbelleğinizi yükünüz için yeterince büyük olduğundan emin olmanın ve büyük değerler daha küçük öbeklere ayırma zaman aşımları olasılığını en aza indirmek bir çözümdür. Başka bir olası çözümü havuzu kullanmaktır `ConnectionMultiplexer` istemcinizde nesneleri ve az yüklenen seçin `ConnectionMultiplexer` yeni bir isteği gönderirken. Bu tek bir zaman aşımı da zaman aşımı giden diğer isteklerin neden olmasını engeller.

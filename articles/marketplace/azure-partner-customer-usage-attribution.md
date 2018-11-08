@@ -16,7 +16,7 @@ ms.date: 10/15/2018
 ms.author: yijenj
 ms.openlocfilehash: 2b0377b8eb980fa07cbd8bad4a6a34a85f26464a
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51256757"
