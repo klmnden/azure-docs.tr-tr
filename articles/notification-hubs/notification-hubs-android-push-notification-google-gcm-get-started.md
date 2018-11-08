@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: 1e9ed9d3500b112f98492e6a85d02a1f1843c7c3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ab47db7629c92b0e6a5b268c9d233135485a37a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365586"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237731"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -46,7 +46,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 
 - **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. 
-- [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+- [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Google Cloud Messaging'i destekleyen bir proje oluşturma
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
@@ -524,7 +524,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Bildirim hub’ınıza ileti göndermek amacıyla bir POST isteğinin kimlik doğrulamasını yapmak için bir Yazılım Erişim İmzası (SaS) belirteci oluşturun. Anahtar verilerini bağlantı dizesinden ayrıştırıp ardından [Ortak Kavramlar](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API’si başvurusunda belirtildiği gibi SaS belirtecini oluşturun. Aşağıdaki kod örnek bir uygulamadır.
+6. Bildirim hub’ınıza ileti göndermek amacıyla bir POST isteğinin kimlik doğrulamasını yapmak için bir Yazılım Erişim İmzası (SaS) belirteci oluşturun. Anahtar verilerini bağlantı dizesinden ayrıştırıp ardından [Ortak Kavramlar](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API’si başvurusunda belirtildiği gibi SaS belirtecini oluşturun. Aşağıdaki kod örnek bir uygulamadır.
    
     Bağlantı dizenizi ayrıştırmak için `MainActivity.java` öğesinde aşağıdaki yöntemi `MainActivity` sınıfına ekleyin.
    

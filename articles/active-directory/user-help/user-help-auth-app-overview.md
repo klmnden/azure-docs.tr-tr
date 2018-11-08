@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 6de1f6dfac028255a1cb49931e959c79b5fc4f40
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e0fe2ade2e50ff549cb18f84a3c15830255ca0fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022442"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249600"
 ---
 # <a name="microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması
 
@@ -27,6 +27,6 @@ Microsoft Authenticator uygulaması, iki aşamalı doğrulama ile parolanızı g
 
 |Makale |Açıklama |
 |------|------------|
-|[Microsoft Authenticator uygulamasını kullanmaya başlama](microsoft-authenticator-app-how-to.md)|[Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilen Microsoft Authenticator uygulamasını edinme ve yükleme adımlarını anlatır.|
+|[Microsoft Authenticator uygulamasını kullanmaya başlama](microsoft-authenticator-app-how-to.md)|[Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilen Microsoft Authenticator uygulamasını edinme ve yükleme adımlarını anlatır.|
 |[Microsoft Authenticator uygulamasıyla hesap kimlik bilgilerini yedekleme ve kurtarma](microsoft-authenticator-app-backup-and-recovery.md)| Microsoft Authenticator uygulamasını kullanarak hesap kimlik bilgilerinizi yedekleme ve kurtarma hakkında bilgi sağlar.|
 |[Microsoft Authenticator uygulaması hakkında SSS](microsoft-authenticator-app-faq.md)|Uygulamayla ilgili sık sorulan soruların yanıtlarını sunar.|

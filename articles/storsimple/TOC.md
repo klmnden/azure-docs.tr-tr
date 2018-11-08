@@ -61,6 +61,7 @@
 
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-overview.md)
+### [Veri aktarımı seçeneklerini karşılaştırma](storsimple-8000-choose-storage-solution.md)
 ### [StorSimple öğrenme haritası](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](storsimple-8000-security.md)
 ### [Bölge kullanılabilirliği](storsimple-regions.md)
@@ -183,7 +184,7 @@
 #### [5000/7000 serisi cihazlar](storsimple-8000-migration-options.md)
 ##### [StorSimple 8000 serisi cihazlara](storsimple-8000-migrate-from-5000-7000.md)
 ##### [Azure Dosya Eşitleme'ye](storsimple-5000-7000-afs-migration.md)
-#### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Diğer depolama cihazlarından](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Güncelleştirme
 #### [Güncelleştirme 5'i yükleme - geçerli](storsimple-8000-install-update-5.md)
@@ -248,8 +249,8 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storsimple)
-## [Destek blogu](http://blogs.msdn.com/b/storsimple/)
-## [Üçüncü taraf bildirimleri](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Destek blogu](https://blogs.msdn.com/b/storsimple/)
+## [Üçüncü taraf bildirimleri](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

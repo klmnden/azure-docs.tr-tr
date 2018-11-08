@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9f76b38139cccedb97c6026f0e0efa14d0dbc8c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 596a9e4e3e1d24bdcab561a7238548d418ac0581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061133"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243582"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Öğretici: verileri Blob depolamadan Data Factory kullanarak SQL veritabanına kopyalama
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
 ## <a name="prerequisites-for-the-tutorial"></a>Öğreticisi için Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
 
-* **Azure aboneliği**.  Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Bkz: [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/) makale Ayrıntılar için.
+* **Azure aboneliği**.  Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Bkz: [ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/) makale Ayrıntılar için.
 * **Azure depolama hesabı**. Blob depolama alanı olarak kullanabilmeniz bir **kaynak** Bu öğreticide verileri depolayın. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md) makalesine bakın.
 * **Azure SQL Veritabanı**. Bir Azure SQL veritabanı olarak kullandığınız bir **hedef** Bu öğreticide verileri depolayın. Bakın öğreticide kullandığınız bir Azure SQL veritabanınız yoksa [oluşturma ve bir Azure SQL veritabanı yapılandırma](../../sql-database/sql-database-get-started.md) oluşturmak için.
 * **SQL Server 2012/2014 veya Visual Studio 2013**. SQL Server Management Studio veya Visual Studio örnek bir veritabanı oluşturun ve sonuç verilerini veritabanında görüntülemek için kullanın.  

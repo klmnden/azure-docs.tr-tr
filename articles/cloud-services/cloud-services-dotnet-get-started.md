@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003122"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242135"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
+Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
 
 Öğreticide, uygulamayı yerel olarak oluşturup çalıştırma, Azure’a dağıtma ve bulutta çalıştırmanın yanı sıra sıfırdan oluşturma işlemleri de gösterilmektedir. Tercih ederseniz sıfırdan oluşturmaya başlayabilir ve ardından test ve dağıtım adımlarını gerçekleştirebilirsiniz.
 
@@ -36,7 +36,7 @@ Uygulama bir reklam bülteni panosudur. Kullanıcılar metin girerek ve görünt
 Uygulama bir arka uç işleminde küçük resim oluşturmaya yönelik CPU yoğunluklu iş yükünü azaltmak üzere [kuyruk merkezli çalışma deseni](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır.
 
 ## <a name="alternative-architecture-web-apps-and-webjobs"></a>Alternatif mimari: Web Apps ve WebJobs
-Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Alternatif yöntem bir [Azure Web Apps](/azure/app-service/)’te ön uç çalıştırılması ve arka uç için [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) özelliğinin kullanılmasıdır. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında bilgi için bkz. [Azure Web Siteleri, Cloud Services ve sanal makineler karşılaştırması](../app-service/choose-web-site-cloud-service-vm.md).
+Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Alternatif yöntem bir [Azure Web Apps](/azure/app-service/)’te ön uç çalıştırılması ve arka uç için [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) özelliğinin kullanılmasıdır. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında bilgi için bkz. [Azure Web Siteleri, Cloud Services ve sanal makineler karşılaştırması](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz
 * Azure SDK’sını yükleyerek Azure dağıtımı için makinenizi etkinleştirme.
@@ -71,7 +71,7 @@ Bir kullanıcı görüntü yüklediğinde bir web rolünde çalışan ön uç g�
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>Tamamlanan çözümü indirme ve çalıştırma
-1. [Tamamlanan çözümü](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirip sıkıştırmasını açın.
+1. [Tamamlanan çözümü](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirip sıkıştırmasını açın.
 2. Visual Studio’yu çalıştırın.
 3. **Dosya** menüsünden **Proje Aç**’ı seçin, çözümü indirdiğiniz yere gidin ve ardından çözüm dosyasını açın.
 4. Çözümü derlemek için CTRL+SHIFT+B'ye basın.
@@ -81,7 +81,7 @@ Bir kullanıcı görüntü yüklediğinde bir web rolünde çalışan ön uç g�
 6. Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız ContosoAdsWeb projesinin uygulama *Web.config* dosyasında SQL Server bağlantı dizesini ve ContosoAdsCloudService projesinin *ServiceConfiguration.Local.cscfg* dosyasını değiştirin. Her iki örnekte de "(localdb)\v11.0" seçeneğini "(localdb)\MSSQLLocalDB" olarak değiştirin.
 7. Uygulamayı çalıştırmak için CTRL+F5'e basın.
 
-    Bir bulut hizmeti projesini yerel olarak çalıştırdığınızda Visual Studio, Azure *işlem öykünücüsü* ve Azure *depolama öykünücüsünü* otomatik olarak çağırır. İşlem öykünücüsü, web rolü ve çalışan rolü ortamlarını benzetmek için bilgisayarınızın kaynaklarını kullanır. Depolama öykünücüsü Azure bulut depolamayı benzetmek için bir [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) veritabanı kullanır.
+    Bir bulut hizmeti projesini yerel olarak çalıştırdığınızda Visual Studio, Azure *işlem öykünücüsü* ve Azure *depolama öykünücüsünü* otomatik olarak çağırır. İşlem öykünücüsü, web rolü ve çalışan rolü ortamlarını benzetmek için bilgisayarınızın kaynaklarını kullanır. Depolama öykünücüsü Azure bulut depolamayı benzetmek için bir [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) veritabanı kullanır.
 
     Bir bulut hizmeti projesini ilk kez çalıştırdığınızda öykünücülerin başlatılması yaklaşık bir dakika sürer. Öykünücü başlatma tamamlandığında varsayılan tarayıcıda uygulama giriş sayfası açılır.
 
@@ -232,7 +232,7 @@ Hem web rolü projesinin hem de çalışan rolü projesinin Azure Storage hesab�
 1. **Çözüm Gezgini**’nde **ContosoAdsCloudService** projesindeki **Roller** altında **ContosoAdsWeb**’e sağ tıklayın ve ardından **Özellikler**’e tıklayın.
 
     ![Rol özellikleri](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. **Ayarlar** sekmesine tıklayın. **Hizmet Yapılandırma** açılır kutusunda **Bulut**’u seçin.
+2. **Ayarlar** sekmesine tıklayın. Hizmet Yapılandırma açılır kutusunda **Bulut**’u seçin.
 
     ![Bulut yapılandırması](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. **StorageConnectionString** girdisini seçtiğinizde satırın sağ uç kısmında bir üç nokta (**...**) göreceksiniz. **Depolama Hesabı Bağlantı Dizesi Oluştur** iletişim kutusunu açmak için üç nokta düğmesine tıklayın.
@@ -311,7 +311,7 @@ Visual Studio kullanıcı arabirimini kullanılarak yapılandırdığınız rol 
 >
 
 ## <a name="create-the-application-from-scratch"></a>Uygulamayı sıfırdan oluşturma
-[Tamamlanmış uygulamayı](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) daha önce yüklemediyseniz şimdi yapın. İndirilen projedeki dosyaları yeni projeye kopyalayın.
+[Tamamlanmış uygulamayı](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) daha önce yüklemediyseniz şimdi yapın. İndirilen projedeki dosyaları yeni projeye kopyalayın.
 
 Contoso Ads uygulamasının oluşturulması aşağıdaki adımları içerir:
 
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-Denetleyici kodlarının birçoğu bir DbContext sınıfı kullanarak Entity Framework veri modeli ile çalışmak için tipiktir. Dosyayı karşıya yükleyen ve blob depolama alanına kaydeden HttpPost `Create` yöntemi bunun bir istisnasıdır. Model bağlayıcı, yönteme bir [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) nesnesi sağlar.
+Denetleyici kodlarının birçoğu bir DbContext sınıfı kullanarak Entity Framework veri modeli ile çalışmak için tipiktir. Dosyayı karşıya yükleyen ve blob depolama alanına kaydeden HttpPost `Create` yöntemi bunun bir istisnasıdır. Model bağlayıcı, yönteme bir [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) nesnesi sağlar.
 
 ```csharp
 [HttpPost]
@@ -766,8 +766,8 @@ Contoso Ads uygulaması bir başlangıç öğreticisi için kasıtlı olarak bas
 
 Daha gerçek kodlama uygulamalarını gösteren bazı bulut hizmeti örnek uygulamaları en az karmaşık olandan en karmaşığa doğru aşağıda listelenmiştir:
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Contoso Ads uygulamasıyla kavram olarak benzerdir, ancak daha fazla özellik ve daha gerçek kodlama uygulamaları kullanır.
-* [Tablolar, Kuyruklar ve Blob’lar ile Azure Cloud Service Çok Katmanlı Uygulaması](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Azure Storage tablolarının yanı sıra blob’ları ve kuyrukları tanıtır. .NET için daha eski bir Azure SDK sürümünü temel alır ve geçerli sürümle çalışmak için bazı değişiklikler gerektirir.
+* [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Contoso Ads uygulamasıyla kavram olarak benzerdir, ancak daha fazla özellik ve daha gerçek kodlama uygulamaları kullanır.
+* [Tablolar, Kuyruklar ve Blob’lar ile Azure Cloud Service Çok Katmanlı Uygulaması](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Azure Storage tablolarının yanı sıra blob’ları ve kuyrukları tanıtır. .NET için daha eski bir Azure SDK sürümünü temel alır ve geçerli sürümle çalışmak için bazı değişiklikler gerektirir.
 
 Bulut için geliştirme hakkında genel bilgi için bkz. [Azure ile Gerçek Bulut Uygulamaları Derleme](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 

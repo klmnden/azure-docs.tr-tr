@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307429"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251568"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -156,7 +156,7 @@ ms.locfileid: "43307429"
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Şirket içi, SQL Azure |
 | **Öznitelikleri**              | SQL - MSSQL2012, SQL sürüm - sürüm V12 |
-| **Başvuruları**              | [Kapsanan veritabanları ile en iyi güvenlik uygulamaları](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **Başvuruları**              | [Kapsanan veritabanları ile en iyi güvenlik uygulamaları](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Adımları** | Bir uygulanan parola ilkesine olmaması kapsanan bir veritabanında kurulmasını zayıf bir kimlik bilgisi olasılığını artırabilir. Windows kimlik doğrulaması yararlanın. |
 
 ## <a id="authn-sas-tokens"></a>SaS belirteçleri kullanarak cihaz kimlik doğrulama bilgilerini kullanın

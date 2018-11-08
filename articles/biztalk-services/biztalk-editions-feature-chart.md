@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22706657"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240520"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: Sürümler grafiği
 
@@ -63,7 +63,7 @@ Aşağıdaki tabloda farklar listelenmektedir:
 
 <tr>
 <td><strong>Başlangıç fiyatı</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Fiyatlandırması</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure Fiyatlandırma Hesaplayıcısı</a></td>
+<td colspan="5"><a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Fiyatlandırması</a> <br/><br/> <a HREF="https://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure Fiyatlandırma Hesaplayıcısı</a></td>
 </tr>
 <tr>
 <td><strong>Varsayılan en düşük yapılandırma</strong></td>
@@ -153,7 +153,7 @@ TPM sözleşmeleri dahil</td>
 <tr>
 <td><strong>Yüksek düzey kullanılabilirlik</strong>
 <br/><br/>
-Hizmet Düzeyi Sözleşmesi (SLA) için bkz. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Fiyatlandırması</a>.
+Hizmet Düzeyi Sözleşmesi (SLA) için bkz. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Fiyatlandırması</a>.
 </td>
 <td>Dahil değil</td>
 <td>Dahil değil</td>
@@ -242,10 +242,10 @@ Yeni köprüleri dağıtamaz veya yeni sözleşmeler oluşturamazsınız. Daha f
 Diğer sürümler için, bir katmandan diğerine yapıtları geçirmek için geçiş için yedeklemeyi ve geri yüklemeyi kullanın. Örneğin, standart katmanındaki yapıtlarınızı yedekleyin, sonra da bunları Premium katmanına geri yükleyin. [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md) desteklenen geçiş yollarını açıklar ve hangi yapıtların yedeklendiğini listeler. Karma Bağlantıların yedeklenmediğini unutmayın. Yeni katmana yedekleyip geri yükledikten sonra karma bağlantıları yeniden oluşturun.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>BizTalk Bağdaştırıcı Hizmeti hizmette mi? Yazılım nasıl alırım?
-Evet, BizTalk Bağdaştırıcı Paketi bulunan BizTalk Bağdaştırıcısı Hizmeti Azure BizTalk Services SDK [indirmede](http://www.microsoft.com/download/details.aspx?id=39087) bulunur.
+Evet, BizTalk Bağdaştırıcı Paketi bulunan BizTalk Bağdaştırıcısı Hizmeti Azure BizTalk Services SDK [indirmede](https://www.microsoft.com/download/details.aspx?id=39087) bulunur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)’ya gidin. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
+Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)’ya gidin. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)<br/>
@@ -254,5 +254,5 @@ Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: 
 * [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
-* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

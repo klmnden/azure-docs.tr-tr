@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: b71ba12f6c533d67b04366f05b9334e1993823fa
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 2c0c8b49d3f7122b71a08bc57ac615ba9e0c0108
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382037"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239449"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerinde ile tanışın #
 
 Bu makalede, SQL Server kullanılabilirlik gruplarını Azure sanal Makineler'de tanıtılmaktadır. 
 
-Always On kullanılabilirlik gruplarının Azure sanal makinelerinde Always On kullanılabilirlik grupları şirket içi benzerdir. Daha fazla bilgi için [Always On kullanılabilirlik grupları (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
+Always On kullanılabilirlik gruplarının Azure sanal makinelerinde Always On kullanılabilirlik grupları şirket içi benzerdir. Daha fazla bilgi için [Always On kullanılabilirlik grupları (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
 
 Diyagram, tam SQL Server kullanılabilirlik grubu Azure sanal Makineler'de parçalarını gösterir.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345280"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260593"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -94,7 +94,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 - **VM oluşturma zamanı geliştirilmiş** görüntüleri Azure Market'te indir ile oluşturulan sanal makineleri için.
 
 <!-- TBD | IS, ASDK -->  
-- **Azure Stack Capacity Planner kullanılabilirlik geliştirmeleri**. Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) artık S2D önbelleğini ve S2D kapasite SKU'ları çözüm tanımlarken, girişini yaparak için basitleştirilmiş bir deneyim sunar. 1000 VM sınırı kaldırıldı.
+- **Azure Stack Capacity Planner kullanılabilirlik geliştirmeleri**. Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) artık S2D önbelleğini ve S2D kapasite SKU'ları çözüm tanımlarken, girişini yaparak için basitleştirilmiş bir deneyim sunar. 1000 VM sınırı kaldırıldı.
 
 
 ### <a name="fixed-issues"></a>Düzeltilen sorunlar
