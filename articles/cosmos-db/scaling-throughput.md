@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c30c233fb1d413c6a55c7ec0af8c63ca60284b86
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960285"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282388"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB'de ölçeklendirme aktarım hızı
 
@@ -25,7 +25,7 @@ RUs Cosmos kapsayıcı veya Cosmos veritabanı sağlayabilirsiniz. Bir kapsayıc
 
 Esnek ölçeklendirme aktarım hızı için artırabilir veya sağlanan RU/sn istediğiniz zaman azaltabilirsiniz. Daha fazla bilgi için [yapılır sağlama aktarım hızı](set-throughput.md) ve Cosmos kapsayıcılar ve veritabanlarını esnek biçimde ölçeklendirin. Aktarım hızı ölçeklendirme için genel olarak, ekleme veya bölgeler, Cosmos hesabınızda herhangi bir zamanda kaldırın. Daha fazla bilgi için [nasıl yapılır Cosmos hesabınıza bölgeleri ekleyip](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Bir Cosmos hesabıyla birden çok bölgede ilişkilendirme, düşük gecikme süresi elde etmek için pek çok senaryoda önemlidir ve [yüksek kullanılabilirlik](high-availability.md) dünyanın dört bir yanındaki.
 
-## <a name="how-throughput-scaling-works"></a>Aktarım hızı ölçeklendirme nasıl çalışır
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>sağlanan aktarım hızı bölgede dağıtılır nasıl
 
 Cosmos kapsayıcı (veya veritabanı) 'R' RU sağlarsanız, Cosmos DB, 'R' RU kullanılabilir olmasını sağlar *her* Cosmos hesabınızla ilişkili bölge. Cosmos DB, yeni bir bölgeye hesabınıza eklediğiniz her zaman 'R' RU yeni eklenen bölgede otomatik olarak sağlar. Cosmos kapsayıcınızı karşı gerçekleştirilen işlemleri, her bölgede 'R' RU'ları almak için garanti edilir. Belirli bir bölgede RU seçmeli olarak atanamaz. Bir Cosmos kapsayıcı (veya veritabanı) RU, Cosmos hesabınızla ilişkili tüm bölgeler için sağlanır.
 

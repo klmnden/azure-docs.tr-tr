@@ -1,32 +1,32 @@
 ---
-title: Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanma
-description: Hive sorguları çalıştırmak için Zeppelin'i kullanmayı öğrenin.
+title: Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma
+description: Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanmayı öğrenin.
 keywords: hdınsight, hadoop, hive, LLAP etkileşimli sorgu
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 3064c9cd141458307891f666bd5af9aa738cc021
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: 75ec0e17e9866d2cd3420ff6ecf648bf22a8ae8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093177"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277962"
 ---
-# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanma 
+# <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma 
 
-HDInsight etkileşimli sorgu kümelerine etkileşimli Hive sorguları çalıştırmak için kullanabileceğiniz Zeppelin not defterlerini içerir. Bu makalede Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanmayı öğrenin. 
+HDInsight etkileşimli sorgu kümelerine etkileşimli Hive sorguları çalıştırmak için kullanabileceğiniz Apache Zeppelin not defterlerini içerir. Bu makalede, Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanmayı öğrenin. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede geçmeden önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **HDInsight etkileşimli sorgu kümesi**. Bkz: [küme oluştur](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) bir HDInsight kümesi oluşturmak için.  Etkileşimli sorgu türünü seçtiğinizden emin olun. 
 
-## <a name="create-a-zeppelin-note"></a>Zeppelin Not oluşturun
+## <a name="create-a-apache-zeppelin-note"></a>Apache Zeppelin Not oluşturun
 
 1. Aşağıdaki URL'ye gidin:
 

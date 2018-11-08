@@ -10,23 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bc31c7ebec7c1f7a02be65b15805fb48b1ef275d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239891"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260321"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 İçinde bir yüksek düzeyde birbirine society yaşayan anlamına gelir hayatta belirli bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar arkadaşlarınız, iş arkadaşlarınızın, ailesi sürdürebilecek tutmak veya bazen Tutkunuzu ortak ilgi alanlarına kişilerle paylaşmak için kullanın.
 
 Mühendislerin veya geliştiriciler olarak, bu ağlar depolamak ve nasıl bağlantı verilerinizi merak etmiş olabilirsiniz veya bile oluşturmak veya belirli sayıda pazar için yeni bir sosyal ağ yourselves mimari görevli. Bu durumda önemli soruyu ortaya çıkar: nasıl tüm bu veriler depolanır?
 
-Kullanıcılarınız gibi resimler, videolar veya hatta müzik ilgili medya makalelerle gönderebileceği bir yeni ve shiny sosyal ağ, oluşturmakta olduğunuz varsayalım. Kullanıcılar gönderilerine yorum ve derecelendirmeleri puan verin. Kullanıcıların göreceği gönderilerin bir akış olacaktır ve ana Web sitesinin giriş sayfasında ile etkileşemeyebilirsiniz. Bu karmaşık ses değil (başlangıçta), ancak basitleştirmek amacıyla, şimdi burada Durdur (ilişkileri tarafından etkilenen özel kullanıcı akışları ile delve, ancak bu makalenin hedefi aşıyor).
+Kullanıcılarınız gibi resimler, videolar veya hatta müzik ilgili medya makalelerle gönderebileceği bir yeni ve shiny sosyal ağ, oluşturmakta olduğunuz varsayalım. Kullanıcılar gönderilerine yorum ve derecelendirmeleri puan verin. Kullanıcıların göreceği gönderilerin bir akış olacaktır ve ana Web sitesinin giriş sayfasında ile etkileşemeyebilirsiniz. Bu yöntem karmaşık ses değil (başlangıçta), ancak basitleştirmek amacıyla, şimdi burada Durdur (ilişkileri tarafından etkilenen özel kullanıcı akışları ile delve, ancak bu makalenin hedefi aşıyor).
 
 Bu nedenle, nasıl depoladığınız bu ve nerede?
 
-Birçoğunuzun SQL veritabanlarında deneyimine sahip veya en az kavramı vardır [ilişkisel verileri modelleme](https://en.wikipedia.org/wiki/Relational_model) ve şunun gibi çizim başlatmak için fikri size cazip olabilir:
+SQL veritabanlarında deneyimine sahip veya bir kavramı sahip [ilişkisel verileri modelleme](https://en.wikipedia.org/wiki/Relational_model) ve bir şey gibi çizim başlatılabilir:
 
 ![Göreli bir ilişkisel modeli gösteren diyagram](./media/social-media-apps/social-media-apps-sql.png) 
 
@@ -34,9 +34,9 @@ Mükemmel normalleştirilmiş ve asıl veri yapısı... Bu biçimde ölçeklendi
 
 Benim Hayatımı tüm SQL veritabanları ile çalıştım, harika olduklarından, ancak her desen, uygulama ve yazılım platformu gibi her senaryo için mükemmel değil yanlış elde etmezsiniz.
 
-Neden bu senaryoda en iyi seçenek SQL değil mi? Bir sorgu ile yapmanız gerekir, bu postayı bir Web sitesi veya uygulaması göstermek istiyorsanız tek bir gönderi yapısını bakalım... Bir tek gönderi, şimdi dinamik olarak yükleme ve ekran ve, görünen gönderileri akışı göstereceğim burada görebilirsiniz resim göstermek için sekiz tablo birleştirmelerde (!) tam.
+Neden bu senaryoda en iyi seçenek SQL değil mi? Bir sorgu ile yapmanız gerekir, bu postayı bir Web sitesi veya uygulaması göstermek istiyorsanız tek bir gönderi yapısını bakalım... yalnızca tek bir gönderi göstermek için sekiz tables(!) katılarak, burada yapacağım resmi bir akış, dinamik olarak yükleme ve ekran ve, görünen gönderilerin şimdi görebilirsiniz.
 
-Elbette, devasa bir SQL örneği yeterli gücüyle binlerce sorgusu bu sayıda birleştirme içeriğinizi ancak gerçek anlamda, daha basit bir çözüm varsa, neden olduğu hizmet ile çözmeyi kullanabilirsiniz?
+Binlerce sorgusu birçok birleştirmeler içeriğinizi ancak gerçek anlamda, daha basit bir çözüm varsa, neden olduğu hizmet ile çözmek için yeterli güç ile devasa bir SQL örneği kullanabilirsiniz?
 
 ## <a name="the-nosql-road"></a>NoSQL yol
 Bu makalede Azure'nın NoSQL veritabanı ile sosyal platformun veri modelleme içine yönlendirecektir [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) gibi özellikler diğer Azure Cosmos DB kullanırken uygun maliyetli bir şekilde [Gremlin API](../cosmos-db/graph-introduction.md). Kullanarak bir [NoSQL](https://en.wikipedia.org/wiki/NoSQL) yaklaşım, verileri JSON biçiminde depolamak ve uygulama [normalleştirilmişlikten çıkarma](https://en.wikipedia.org/wiki/Denormalization), daha önce karmaşık post tek bir dönüştürülebilir [belge](https://en.wikipedia.org/wiki/Document-oriented_database):
@@ -59,7 +59,7 @@ Bu makalede Azure'nın NoSQL veritabanı ile sosyal platformun veri modelleme i�
         ]
     }
 
-Ve tek bir sorgu ile hiçbir birleştirmeleri alınabilir. Bu çok daha basit ve kolay anlaşılan ve budget-wise, daha iyi bir sonuç elde etmek için daha az kaynak gerektirir.
+Ve tek bir sorgu ile hiçbir birleştirmeleri alınabilir. Bu sorgu çok basit ve kolay anlaşılan ve budget-wise, daha iyi bir sonuç elde etmek için daha az kaynak gerektirir.
 
 Azure Cosmos DB tüm özellikleri, otomatik dizin oluşturma ile hatta olabilen dizinlenir emin emin yapar [özelleştirilmiş](indexing-policies.md). Şemadan bağımsız bir yaklaşım bize gönderilerin listesi kategorileri veya diyez etiketlerini ilişkili olmasını istediğiniz farklı ve dinamik yapıları, hatta yarın ile belgelerini depolamanıza olanak tanır, Cosmos DB, yeni eklenen öznitelikler hiçbir ek iş belgelerle işleyecek Bizim tarafımızdan gereklidir.
 
@@ -165,7 +165,7 @@ En küçük adım bir UserChunk en az bir kullanıcıyı tanımlayan bilgileri p
 
 İkinci adım, kullanıcı adı verilir, Cosmos DB, en çok erişilen ve kritik performans bağımlı sorguların çoğu kullanılacak tam veri. Bir UserChunk tarafından temsil edilen bilgiler içerir.
 
-Genişletilmiş Kullanıcı büyüktür. Tüm kritik kullanıcı bilgilerini artı gerçekten hızlı bir şekilde okunacak gerektirmeyen diğer veri içerir veya onun kullanımı (oturum açma işlemi gibi) nihai. Bu veriler, Cosmos DB, Azure SQL veritabanı veya Azure depolama tabloları dışında depolanabilir.
+Genişletilmiş Kullanıcı büyüktür. Yanı sıra hızlı bir şekilde okunacak gerçekten gerektirmeyen diğer veri veya kullanımını (oturum açma işlemi gibi) nihai tüm kritik kullanıcı bilgilerini içerir. Bu veriler, Cosmos DB, Azure SQL veritabanı veya Azure depolama tabloları dışında depolanabilir.
 
 Neden, kullanıcı bölme ve hatta farklı yerlerde bu bilgileri depolamak? Çünkü bir performans açısından, daha büyük belgelere, costlier sorgular. Belgeleri, sosyal ağ için tüm performans bağlı sorgular yapmak için ve diğer ek bilgileri gibi tam bir profil düzenleme, oturum açma bilgileri nihai senaryoları depolamak, kullanım analizi ve büyük veriler için veri madenciliği bile doğru bilgilerle ince koru girişim. Azure SQL veritabanı'nda çalıştığından veri madenciliği için veri toplama yavaş olması durumunda, gerçekten İlgilenmiyor, size sahip ilgilendiriyor ancak kullanıcılarınız hızlı ve ince bir deneyimi vardır. Cosmos DB'de depolanan kullanıcı, şöyle görünür:
 
@@ -216,12 +216,12 @@ Büyük olasılıkla, kancalandı aldım, bu desenleri ve basit veritabanları v
 
 Bu makine öğrenimi senaryoların herhangi birini elde etmek için kullanabileceğiniz [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) farklı kaynaklardan bilgi alma ve [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) bilgi işlem ve için bir çıktı oluşturmak için Azure Machine Learning tarafından işlenmesi.
 
-Başka bir seçenek kullanmaktır [Microsoft Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services) kullanıcılarınız yalnızca anlamanız bunları daha iyi içerik; analiz etmek için (ile bunların yazma analiz aracılığıyla [metin analizi API'si](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), ancak Ayrıca istenmeyen veya yetişkin içeriği Algıla ve buna göre hareket ile [görüntü işleme API'si](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Bilişsel hizmetler kullanmak için Machine Learning bilgi herhangi bir türden gerektirmeyen çok sayıda kullanıma hazır çözümler sunar.
+Başka bir seçenek kullanmaktır [Azure Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services) kullanıcılarınız yalnızca anlamanız bunları daha iyi içerik; analiz etmek için (ile bunların yazma analiz aracılığıyla [metin analizi API'si](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), ancak Ayrıca istenmeyen veya yetişkin içeriği Algıla ve buna göre hareket ile [görüntü işleme API'si](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Bilişsel hizmetler kullanmak için Machine Learning bilgi herhangi bir türden gerektirmeyen çok sayıda kullanıma hazır çözümler sunar.
 
 ## <a name="a-planet-scale-social-experience"></a>Çok büyük ölçekli bir sosyal deneyimi
 Son yoktur, ancak önemli bir makale miyim, ele almalıdır: **ölçeklenebilirlik**. Daha fazla veri işleme gerektiği için her bileşen kendi başına, ya da ölçeklendirebileceğinizi önemlidir bir mimari tasarlarken veya daha büyük bir coğrafi kapsamı (veya her ikisi de!) sahip olmak istememiz. Karmaşık bir görevi gerçekleştirmekten ne olduğunu bir **yapmanız** Cosmos DB ile.
 
-Cosmos DB destekleyen [dinamik bölümlemeyi](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) ,-hazır bölümlere göre otomatik olarak oluşturarak bir verilen **bölüm anahtarı** (belgelerinizde özniteliklerinden biri olarak tanımlanır). Tasarım zamanında doğru bölüm anahtarının bitti tanımlama ve göz önünde bulundurarak [en iyi uygulamalar](../cosmos-db/partition-data.md#designing-for-partitioning) kullanılabilir; sosyal bir deneyimle karşılaşacak (okuma aynı sorgu yolunu bölümleme stratejisinde hizalanması gerekir Bölüm arzu) ve yazma ("etkin nokta" birden çok bölüm üzerinde yazma yayarak kaçının). Bazı seçenekler şunlardır: zamana bağlı bir anahtar (gün/ay/hafta); kullanıcı tarafından coğrafi bölgeye göre içerik kategoriye göre bölüm Tüm gerçekten nasıl, verileri sorgulamak ve sosyal deneyiminizi Göster bağlıdır. 
+Cosmos DB destekleyen [dinamik bölümlemeyi](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) ,-hazır bölümlere göre otomatik olarak oluşturarak bir verilen **bölüm anahtarı** (belgelerinizde özniteliklerinden biri olarak tanımlanır). Tanımlama için doğru bölüm anahtarının yapılmalıdır tasarım zamanında, daha fazla bilgi için bkz: [doğru bölüm anahtarı seçin](partitioning-overview.md#choose-partitionkey) makalesi. Yol, sorgu sosyal deneyimi olması durumunda, bölümleme stratejisinde hizalanması gerekir (aynı bölüm içindeki okuma arzu) ve yazma ("etkin nokta" birden çok bölüm üzerinde yazma yayarak kaçının). Bazı seçenekler şunlardır: zamana bağlı bir anahtar (gün/ay/hafta); kullanıcı tarafından coğrafi bölgeye göre içerik kategoriye göre bölüm Tüm gerçekten nasıl, verileri sorgulamak ve sosyal deneyiminizi Göster bağlıdır. 
 
 Bir değer bahseden ilgi çekici nokta Cosmos DB sorgularınız çalışabilmesini (dahil olmak üzere [toplamalar](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) tüm bölümler arasında saydam bir şekilde, verileriniz arttıkça herhangi bir mantık eklemeniz gerekmez.
 

@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059953"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259828"
 ---
 # <a name="use-case---customer-profiling"></a>Kullanım Örneği - Müşteri Profili Oluşturma
-Azure Data Factory Çözüm Hızlandırıcıları, Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Cortana Intelligence hakkında daha fazla bilgi için ziyaret [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Bu belgede, Azure Data Factory ortak analytics sorunlarını nasıl çözebilirsiniz anlama ile çalışmaya başlamanıza yardımcı olmak için basit bir kullanım örneği açıklanmaktadır.
+Azure Data Factory Çözüm Hızlandırıcıları, Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Cortana Intelligence hakkında daha fazla bilgi için ziyaret [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Bu belgede, Azure Data Factory ortak analytics sorunlarını nasıl çözebilirsiniz anlama ile çalışmaya başlamanıza yardımcı olmak için basit bir kullanım örneği açıklanmaktadır.
 
 ## <a name="scenario"></a>Senaryo
 Contoso olan bir oyun şirketi, oyunlar için eksiksiz bir çözüm oluşturur: oyun konsolları, elde tutulan cihazları ve kişisel bilgisayarlara (bilgisayarlar). Oyuncuların bu oyunları oynarken, yüksek hacimli verilerin günlük kullanım düzenlerini, oyun stil ve kullanıcı tercihleriyle izleyen oluşturulur.  Demografik, bölge ile birlikte kullanıldığında ve ürün verileri Contoso oyuncuların deneyimini geliştirmek hakkında kılavuza analiz gerçekleştirebilir ve hedef için yükseltmeleri ve oyun içi satın alma. 
@@ -53,7 +53,7 @@ Erişmek ve bu basit bir kullanım örneği denemek için ihtiyacınız olan bir
 
     ![Data Factory dikey penceresi](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Çözüme Genel Bakış
+## <a name="solution-overview"></a>Çözüme genel bakış
 Bu basit bir kullanım örneği içe alma, hazırlama, dönüştürme, analiz ve veri yayımlama için Azure Data Factory nasıl kullanabileceğinize bir örnek olarak kullanılabilir.
 
 ![Uçtan uca iş akışı](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)

@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13da68f826f7077acec9a64d1aa0ea18c66be6ff
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914252"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278217"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure'da (Önizleme) bir yönetim çözümü dosyası oluşturma
 > [!NOTE]
 > Şu anda Önizleme aşamasında olan Azure yönetim çözümleri oluşturmak için başlangıç belgeleri budur. Aşağıda açıklanan herhangi bir şema tabi bir değişikliktir.  
 
-Azure yönetim çözümlerine olarak gerçekleştirilen [Resource Manager şablonları](../azure-resource-manager/resource-manager-template-walkthrough.md).  Yönetim çözümleri Yazar öğrenmek, ana görevin öğrenme nasıl [şablon yazma](../azure-resource-manager/resource-group-authoring-templates.md).  Bu makale, çözümler ve tipik bir çözüm kaynaklarını nasıl yapılandıracağınızı öğrenmek için kullanılan şablonları benzersiz ayrıntılarını sağlar.
+Azure yönetim çözümlerine olarak gerçekleştirilen [Resource Manager şablonları](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Yönetim çözümleri Yazar öğrenmek, ana görevin öğrenme nasıl [şablon yazma](../azure-resource-manager/resource-group-authoring-templates.md).  Bu makale, çözümler ve tipik bir çözüm kaynaklarını nasıl yapılandıracağınızı öğrenmek için kullanılan şablonları benzersiz ayrıntılarını sağlar.
 
 
 ## <a name="tools"></a>Araçlar

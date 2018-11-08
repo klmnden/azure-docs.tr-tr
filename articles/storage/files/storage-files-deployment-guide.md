@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d2e09c837597dfd15e6258cbd0100762b098eedf
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b9a98cea8ee19846afc30b322c3fdacb21f2bf44
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523494"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242464"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Dosyaları’nı dağıtma
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı SMB protokolünü erişilebilen bulutta sunar. Bu makale pratikte, kuruluşunuzda Azure dosyaları dağıtmak nasıl gösterir.
@@ -108,7 +108,7 @@ Robocopy Windows ve Windows Server ile birlikte gelen bilinen kopya bir araçtı
 ### <a name="azcopy"></a>AzCopy
 AzCopy, en iyi performansı sunan basit komutlar kullanılarak Azure dosyaları yanı sıra, Azure Blob Depolama, gelen ve giden veri kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. AzCopy kullanarak kolaydır:
 
-1. İndirme [en son sürümünü Windows üzerinde AzCopy](http://aka.ms/downloadazcopy) veya [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. İndirme [en son sürümünü Windows üzerinde AzCopy](https://aka.ms/downloadazcopy) veya [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
 2. Kullanım `azcopy` verileri Azure dosya paylaşımına taşımak için komut satırına. Windows üzerinde sözdizimi aşağıdaki gibidir: 
 
     ```

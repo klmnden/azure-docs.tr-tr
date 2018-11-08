@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7d4b4a98c38757eb33c3f8713f662ed52a686924
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f02fa8ff80915c23f70db09a1dee393010795132
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978664"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277453"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Service Bus ölçümleri
 
@@ -29,7 +29,7 @@ Azure İzleyici, çeşitli Azure Hizmetleri genelinde izleme için birleştirilm
 
 Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ölçümleri ile yapabilecekleriniz [Azure portalında](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve Log Analytics ve Event Hubs gibi analiz çözümleri kullanın. Daha fazla bilgi için [İzleme verilerine Azure İzleyicisi tarafından toplanan](../monitoring/monitoring-data-collection.md).
 
-Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) Azure İzleyici'de.
+Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu değeri yapılandırılan [tanılama ayarları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) Azure İzleyici'de.
 
 ## <a name="access-metrics-in-the-portal"></a>Portalda erişim ölçümlerini
 
@@ -108,6 +108,54 @@ Azure Service Bus, Azure İzleyicisi'nde ölçümler için aşağıdaki boyutlar
 |Boyut adı|Açıklama|
 | ------------------- | ----------------- |
 |EntityName| Service Bus ad alanı altında Mesajlaşma varlıkları destekler.|
+
+## <a name="set-up-alerts-on-metrics"></a>Ölçümler ile ilgili uyarılar ayarlayın
+
+1. Üzerinde **ölçümleri** sekmesinde **Service Bus Namespace** sayfasında **uyarılarını yapılandırma**. 
+
+    ![Ölçümleri sayfasında - uyarılar menüsünde yapılandırma](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. Seçin **hedefi seçme**, ve aşağıdaki işlemleri yapmak **bir kaynak seçin** sayfası: 
+    1. Seçin **Service Bus ad alanları** için **kaynak türüne göre filtre** alan. 
+    2. Aboneliğinizi seçin **aboneliğe göre filtrele** alan.
+    3. Seçin **service bus ad alanı** listeden. 
+    4. **Done** (Bitti) öğesini seçin. 
+    
+        ![Ad alanı seçin](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. Seçin **Ölçüt Ekle**, ve aşağıdaki işlemleri yapmak **sinyal mantığını yapılandırma** sayfası:
+    1. Seçin **ölçümleri** için **sinyal türü**. 
+    2. Bir sinyal seçin. Örneğin: **hataları (Önizleme) hizmet**. 
+
+        ![Sunucu hataları seçin](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
+    1. Seçin **büyüktür** için **koşul**.
+    2. Seçin **toplam** için **zaman toplama**. 
+    3. Girin **5** için **eşiği**. 
+    4. **Done** (Bitti) öğesini seçin.    
+
+        ![Koşulu belirtin](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
+1. Üzerinde **oluşturma kuralı** sayfasında **uyarı ayrıntılarını tanımlama**, ve aşağıdaki eylemleri gerçekleştirin:
+    1. Girin bir **adı** uyarı. 
+    2. Girin bir **açıklama** uyarı.
+    3. Seçin **önem derecesi** uyarı. 
+
+        ![Uyarı ayrıntıları](./media/service-bus-metrics-azure-monitor/alert-details.png)
+1. Üzerinde **oluşturma kuralı** sayfasında **tanımla eylem grubu**seçin **yeni eylem grubu**, ve aşağıdaki işlemleri yapmak **Ekle eylem grubu sayfasını**. 
+    1. Eylem grubu için bir ad girin.
+    2. Eylem grubu için kısa bir ad girin. 
+    3. Aboneliğinizi seçin. 
+    4. Kaynak grubu seçin. 
+    5. Bu kılavuz için girin **e-posta Gönder** için **eylem adı**.
+    6. Seçin **e-posta/SMS/anında iletme/ses** için **eylem türü**. 
+    7. Seçin **Ayrıntıları Düzenle**. 
+    8. Üzerinde **e-posta/SMS/anında iletme/ses** sayfasında, aşağıdaki eylemleri gerçekleştirin:
+        1. Seçin **e-posta**. 
+        2. Tür **e-posta adresi**. 
+        3. **Tamam**’ı seçin.
+
+            ![Uyarı ayrıntıları](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+        4. Üzerinde **eylem grubu Ekle** sayfasında **Tamam**. 
+1. Üzerinde **oluşturma kuralı** sayfasında **uyarı kuralı oluştur**. 
+
+    ![Uyarı kuralı düğme oluşturma](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

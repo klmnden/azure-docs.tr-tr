@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391056"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259097"
 ---
 <a id="preparemachines"></a>
 
@@ -74,7 +74,7 @@ Kümeye eklemek istediğiniz her makine için önerilen bazı özellikleri şunl
 Dağıtma ve yapılandırma kümenin Küme Yöneticisi olmalıdır [yönetici ayrıcalıkları](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) her makine. Service Fabric’i bir etki alanı denetleyicisine yükleyemezsiniz.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Windows Server için Service Fabric tek başına paketin indirin
-[Bağlantı - Service Fabric tek başına paketin - Windows Server'ı indirin](http://go.microsoft.com/fwlink/?LinkId=730690) ve kümenin parçası olmayan bir dağıtım makinesine veya kümenizin parçası olan makinelerden biri için paketin sıkıştırmasını açın.
+[Bağlantı - Service Fabric tek başına paketin - Windows Server'ı indirin](https://go.microsoft.com/fwlink/?LinkId=730690) ve kümenin parçası olmayan bir dağıtım makinesine veya kümenizin parçası olan makinelerden biri için paketin sıkıştırmasını açın.
 
 ## <a name="modify-cluster-configuration"></a>Küme yapılandırmasını Değiştir
 Tek başına küme oluşturma için küme belirtimi açıklayan bir tek başına küme yapılandırma ClusterConfig.json dosyası oluşturmanız gerekir. Bulunan şablonlar yapılandırma dosyası dayandırabilirsiniz aşağıdaki bağlantıda verilmiştir. <br>

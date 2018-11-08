@@ -2,19 +2,19 @@
 title: Okumak ve Azure SQL veritabanına veri yazmak için Apache Spark'ı kullanma
 description: HDInsight Spark kümesi ve veri okuma, verileri ve veri akışı, bir SQL veritabanı'na yazmak için bir Azure SQL veritabanı arasında bir bağlantı kurmayı öğrenin
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 2aec894da6b4e5ffd59fee12bc8476b25955c991
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045805"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277299"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark kümesi okumak ve Azure SQL veritabanına veri yazmak için kullanın
 
@@ -234,7 +234,7 @@ Bu bölümde, biz halinde veri akışı **hvactable** zaten Azure SQL veritaban�
         
          var streamingQuery = WriteToSQLQuery.start()
 
-1. Verileri içine akıtılan olduğunu doğrulayın **hvactable** aşağıdaki sorguyu çalıştırarak SQL Server Management Studio (SSMS). Her sorgu çalıştırın, tablo artan düzende satır sayısını gösterir.
+1. Verileri içine akıtılan olduğunu doğrulayın **hvactable** aşağıdaki sorguyu çalıştırarak SQL Server Management Studio (SSMS). Sorguyu her çalıştırdığınızda tablo artan düzende satır sayısını gösterir.
 
         SELECT COUNT(*) FROM hvactable
 

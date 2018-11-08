@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c79a44422944fd2049c47a6729a86d063dbcd15e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963923"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232350"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -158,7 +158,7 @@ A. Hayır, rastgele bir tablo veya Azure depolamadaki kapsayıcılar okumak şu 
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>S. Hangi IP adresleri Log Analytics hizmeti tarafından kullanılır? Güvenlik duvarımı yalnızca Log Analytics hizmetine trafiğine izin verir nasıl emin olabilirim?
 
-A. Log Analytics hizmeti, Azure üzerinde oluşturulmuştur. Log Analytics IP adresleridir içinde [Microsoft Azure veri merkezi IP aralıkları](http://www.microsoft.com/download/details.aspx?id=41653).
+A. Log Analytics hizmeti, Azure üzerinde oluşturulmuştur. Log Analytics IP adresleridir içinde [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
 Hizmet dağıtımları yaptığınız gibi Log Analytics hizmetine gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin bölümünde belgelendirilen [ağ gereksinimleri](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -170,7 +170,7 @@ Log analytics'e trafiği, genel eşleme ExpressRoute bağlantı hattı kullanır
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>S. Mevcut bir Log Analytics çalışma alanını başka bir Log Analytics çalışma alanı/Azure aboneliğine taşımak için basit ve kolay bir yolu var mı?
 
-A. `Move-AzureRmResource` Cmdlet'i bir Log Analytics çalışma alanı ve Otomasyon hesabı bir Azure aboneliğine ait taşıma olanak tanır. Daha fazla bilgi için [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+A. `Move-AzureRmResource` Cmdlet'i bir Log Analytics çalışma alanı ve Otomasyon hesabı bir Azure aboneliğine ait taşıma olanak tanır. Daha fazla bilgi için [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Bu değişiklik, ayrıca Azure portalında yapılabilir.
 

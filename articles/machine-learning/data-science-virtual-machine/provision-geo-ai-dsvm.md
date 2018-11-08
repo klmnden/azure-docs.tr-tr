@@ -1,7 +1,7 @@
 ---
-title: Azure - bir coğrafi yapay zeka sanal makinede sağlamak Azure | Microsoft Docs
-description: Azure coğrafi AI sanal makinede sağlamasını yapma.
-keywords: derin öğrenme, AI, veri bilimi araçları, veri bilimi sanal makine, Jeo-uzamsal analizi
+title: -Azure'da bir coğrafi yapay zeka sanal makinesi sağlama Azure | Microsoft Docs
+description: Coğrafi AI sanal makine azure'da sağlamasını yapma.
+keywords: derin öğrenme yapay ZEKA, veri bilimi araçları, veri bilimi sanal makinesi, Jeo-uzamsal analiz
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,83 +15,83 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408617"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239806"
 ---
-# <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure üzerinde bir coğrafi yapay zeka sanal makine sağlama 
+# <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure'da bir coğrafi yapay zeka sanal makinesi sağlama 
 
-Coğrafi AI veri bilimi sanal makine (coğrafi-DSVM) popüler uzantısıdır [Azure veri bilimi sanal makine](http://aka.ms/dsvm) özel AI ve Jeo-uzamsal analytics birleştirmek üzere yapılandırılmış. VM Jeo-uzamsal analytics'te tarafından sağlanmıştır [ArcGIS Pro](https://www.arcgis.com/features/index.html). Veri bilimi VM öğrenimi modellerinin oluşturulmasına ve modellerinde coğrafi bilgilerle Zenginleştirilmiş veri bile derin öğrenme makinenin hızlı eğitim sağlar. Yalnızca Windows 2016 DSVM üzerinde desteklenmiyor. 
+Coğrafi AI veri bilimi sanal makinesi (DSVM coğrafi) popüler uzantısıdır [Azure veri bilimi sanal makinesi](https://aka.ms/dsvm) özel yapay ZEKA ve Jeo-uzamsal analiz birleştirmek üzere yapılandırılmış. VM'de Jeo-uzamsal analiz tarafından desteklenen [Arcgıs Pro](https://www.arcgis.com/features/index.html). Veri bilimi sanal makine öğrenme modellerini ve hatta derin öğrenme modellerini, coğrafi bilgileri ile zenginleştirilmiş verileri hızlı eğitim sağlar. Yalnızca Windows 2016 DSVM üzerinde desteklenir. 
 
-Coğrafi DSVM AI dahil etmek için çeşitli araçlar içerir:
+Coğrafi-DSVM AI dahil olmak üzere çeşitli araçlar içerir:
 
-- Popüler derin öğrenme çerçeveleri GPU sürümleri Microsoft Bilişsel araç seti, TensorFlow, Keras, Caffe2, bağlayıcı ister; 
-- edinmeye araçları ve önceden işlem resmi, metin verileri 
-- Microsoft R Server Geliştirici sürümü, Anaconda Python, Python için Jupyter not defterlerini ve R, Python ve R, SQL için IDE gibi geliştirme etkinlikleri için veritabanı araçları
-- AI uygulamalarınızı Jeo-uzamsal verilerle çalışabilirsiniz Python ve R arabirimleri birlikte ESRI'ın ArcGIS Pro masaüstü yazılımı. 
-
-
-## <a name="create-your-geo-ai-data-science-vm"></a>Coğrafi AI veri bilimi VM oluşturma
-
-Coğrafi AI veri bilimi VM örneği oluşturmak için gereken adımlar şunlardır: 
+- Microsoft Bilişsel araç seti, TensorFlow, Keras, Caffe2, bağlayıcı popüler derin öğrenme çerçeveleri GPU sürümleri ister; 
+- elde etmeye ve metinsel verileri önceden işleme görüntüsü 
+- Microsoft R Server Geliştirici sürümü, Anaconda Python Jupyter not defterleri için Python ve R, Python ve SQL, R IDE'ler gibi geliştirme etkinlikleri için veritabanı araçları
+- Esri tarafından sağlanan Arcgıs Pro masaüstü yazılımı birlikte, yapay ZEKA uygulamaları Jeo-uzamsal verilerle çalışabilirsiniz Python ve R arabirimleri. 
 
 
-1. Sanal makine üzerinde listeleme gidin [Azure portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
-2. Seçin **oluşturma** Sihirbazı'na gerçekleştirilecek altındaki düğmesini.
+## <a name="create-your-geo-ai-data-science-vm"></a>Coğrafi AI veri bilimi VM'si oluşturma
+
+Coğrafi AI veri bilimi sanal makinesi örneğini oluşturmak için bir yordam şöyledir: 
+
+
+1. Sanal makine üzerinde listeleme gidin [Azure portalında](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
+2. Seçin **Oluştur** Sihirbazı'na alınması için alt kısımdaki düğmesi.
 ![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
-3. Coğrafi DSVM oluşturmak için kullanılan sihirbaz gerektirir **girişleri** her biri için **dört adım** Bu şekil sağ tarafta numaralandırılır. Bu adımların her biri yapılandırmak için gereken girdiler şunlardır:
+3. Coğrafi-DSVM oluşturma için kullanılan sihirbaz gerektirir **girişleri** her biri için **dört adımı** bu şekilde sağ tarafındaki numaralandırılır. Bu adımların her biri yapılandırmak için gerekli girişleri şunlardır:
 
 
 
    - **Temel Bilgiler**
 
-      1. **Ad**: oluşturduğunuz veri bilimi sunucusunun adı.
+      1. **Ad**: oluşturmakta olduğunuz veri bilimi sunucusunun adı.
 
-      2. **Kullanıcı adı**: Yönetici hesap oturum açma kimliği.
+      2. **Kullanıcı adı**: yönetici hesabı oturum açma kimliği.
 
-      3. **Parola**: yönetici hesabı parolası.
+      3. **Parola**: yönetici hesabının parolası.
 
-      4. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu oluşturulur ve fatura için seçin.
+      4. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin.
 
-      5. **Kaynak grubu**: yeni bir tane oluşturabilirsiniz veya bir **boş** aboneliğinizde var olan Azure kaynak grubu.
+      5. **Kaynak grubu**: yeni bir tane oluşturabilir veya bir **boş** aboneliğinizdeki mevcut bir Azure kaynak grubu.
 
-      6. **Konum**: en uygun olan veri merkezi seçin. Genellikle verilerinizden en iyi veya en yakın fiziksel konumunuza en hızlı ağ erişimi için veri merkezi olur. GPU derin öğrenmeyi gerçekleştirmeniz gerekiyorsa, NC-serisi GPU VM örnekleri olan Azure konumlardan birini seçmeniz gerekir. Şu anda GPU VM'ye sahip konumlardır: **Doğu ABD, Kuzey Orta ABD, Orta Güney ABD, Batı ABD 2, Kuzey Avrupa, Batı Avrupa**. En son listesi için denetleme [Azure ürünleri bölge sayfası tarafından](https://azure.microsoft.com/regions/services/) ve Ara **NC-serisi** altında **işlem**. 
+      6. **Konum**: en uygun veri merkezi seçin. Genellikle, verilerinizden en iyi olduğundan veya en hızlı ağ erişimi için fiziksel konumunuza en yakın veri merkezi bulunur. GPU üzerinde derin öğrenme yapmanız gerekiyorsa, NC serisi GPU sanal makine örneklerine sahip Azure'da konumlardan birini seçmeniz gerekir. Şu anda GPU Vm'lerine sahip konumlardır: **Doğu ABD, Kuzey Orta ABD, Güney Orta ABD, Batı ABD 2, Kuzey Avrupa, Batı Avrupa**. En son liste için [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) ve Ara **NC serisi** altında **işlem**. 
 
 
-   - **Ayarları**: derin öğrenme GPU coğrafi DSVM üzerinde çalıştırmayı planlıyorsanız NC-serisi GPU sanal makine boyutu birini seçin. Aksi takdirde, örnek tabanlı CPU birini seçebilirsiniz.  VM için bir depolama hesabı oluşturun. 
+   - **Ayarları**: coğrafi DSVM üzerinde GPU üzerinde derin öğrenme çalıştırmayı planlıyorsanız NC serisi GPU sanal makine boyutu seçin. Aksi takdirde, örnek tabanlı CPU birini seçebilirsiniz.  Sanal Makineniz için bir depolama hesabı oluşturun. 
    
-   - **Özet**: girdiğiniz tüm bilgiler doğru olduğundan emin olun.
+   - **Özet**: girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
 
-   - **Satın**: tıklatın **satın** sağlama başlatmak için. Bir bağlantı hizmet koşulları sağlanır. VM, seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok **boyutu** adım. 
+   - **Satın alma**: tıklayın **satın** sağlamaya başlamak için. Hizmet koşulları için bir bağlantı sağlanır. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
 
 >[!NOTE]
-> Sağlama yaklaşık 20-30 dakika sürer. Sağlama durumu Azure portalda görüntülenir.
+> Sağlama yaklaşık 20-30 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
 
 
-## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Coğrafi AI veri bilimi sanal makine erişme
+## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Coğrafi AI veri bilimi sanal makinesi erişme
 
-VM oluşturulduktan sonra üzerinde yüklü ve önceden yapılandırılmış araçları kullanmaya başlamak hazırsınız. Başlat menüsü döşeme ve araçlarının çoğu masaüstü simgelerini vardır. Önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak içine Uzak Masaüstü için **Temelleri** bölümü. 
+Sanal makinenizin oluşturulduktan sonra yüklenmiş ve önceden yapılandırılmış araçları kullanmaya başlamak hazırsınız. Başlat menüsü kutucukları ve masaüstü simgelerini birçok araç vardır. Uzak Masaüstü uygulamasına önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak yapabilecekleriniz **Temelleri** bölümü. 
 
 
-## <a name="using-arcgis-pro-installed-in-the-vm"></a>VM'yi ArcGIS Pro kullanarak yüklü
+## <a name="using-arcgis-pro-installed-in-the-vm"></a>Arcgıs Pro kullanarak sanal Makineye yüklenen
 
-Coğrafi DSVM ArcGIS Pro Masaüstü önceden yüklenmiş ve DSVM tüm araçlar çalışmak için önceden yapılandırılmış ortam zaten içeriyor. ArcGIS başlattığınızda oturum açma ArcGIS hesabınıza ister. Zaten bir ArcGIS hesabı varsa ve yazılım lisansları, var olan kimlik bilgilerinizi kullanabilirsiniz.  
+Coğrafi-DSVM Arcgıs Pro Masaüstü önceden yüklenmiş ve DSVM tüm araçlar ile çalışmak için önceden yapılandırılmış ortam zaten sahip. Arcgıs başlattığınızda sizden Arcgıs hesabınıza bir oturum açma için ister. Zaten bir Arcgıs hesabınız ve yazılım lisansları varsa, var olan kimlik bilgilerinizi kullanabilirsiniz.  
 
-![Yay CBS oturum](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
+![Yay GIS oturum](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
 
-Aksi takdirde, yeni ArcGIS hesabı ve lisans için kaydolun veya alın bir [ücretsiz deneme sürümü](https://www.arcgis.com/features/free-trial.html). 
+Aksi takdirde, yeni Arcgıs hesabı ve lisans için kaydolun veya alma bir [ücretsiz deneme sürümü](https://www.arcgis.com/features/free-trial.html). 
 
-![ArcGIS ücretsiz deneme](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
+![Arcgıs ücretsiz deneme](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Kaydolma bir ya da için ücretli veya ücretsiz bir deneme ArcGIS hesabı bulduktan sonra siz ArcGIS Pro hesabınız için yönergeleri takip ederek yetkilendirebilir [ArcGIS Uzmanı Belgeleri ile çalışmaya başlama](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Kayıt bir herhangi bir ücretli veya ücretsiz bir deneme Arcgıs hesabı oluşturduktan sonra Arcgıs Pro hesabınız için yönergeleri izleyerek yetkilendirebilirsiniz [Arcgıs Pro belgeleri ile çalışmaya başlama](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
-ArcGIS Pro masaüstüne ArcGIS hesabınızla oturum açtıktan sonra yüklü olan ve VM Jeo-uzamsal analizi ve makine öğrenimi projeleri için yapılandırılan veri bilimi Araçlar'ı kullanmaya başlamak hazırsınız.
+Arcgıs Pro masaüstüne Arcgıs hesabınızla oturum açtıktan sonra yüklü olan ve VM Jeo-uzamsal analiz ve makine öğrenimi projeleri için yapılandırılan veri bilimi araçlarını kullanmaya başlamak hazırsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki konular rehberliğinde coğrafi AI veri bilimi VM kullanarak başlayın:
+Coğrafi AI veri bilimi sanal makinesi ile aşağıdaki konular Kılavuzu kullanmaya başlayın:
 
-* [Coğrafi AI veri bilimi VM kullanın](use-geo-ai-dsvm.md)
+* [Coğrafi AI veri bilimi VM'si kullanma](use-geo-ai-dsvm.md)

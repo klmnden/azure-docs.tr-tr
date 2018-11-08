@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c57e6d3e35994bea99e15f37ed0fb6aa2d108f74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 337537e5f34eb823f7ca92a2b1f200c9c0c10428
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303936"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247475"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -37,7 +37,7 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 | Giden trafik için SSL İncelemesi filtrelenmiş ya da devre dışı | Ağ katmanında giden trafik için SSL incelemesi veya sonlandırması mevcutsa aracı kaydı adımı veya veri yükleme işlemleri başarısız olabilir. [SSL denetimi kurulumu](https://technet.microsoft.com/library/ee796230.aspx) hakkında daha fazla bilgi edinin |
 | Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları |Aracının Azure AD Health hizmet uç noktaları ile iletişim kurabilmesi için aşağıdaki güvenlik duvarı bağlantı noktalarının açık olması gerekir.</br></br><li>TCP bağlantı noktası 443</li><li>TCP bağlantı noktası 5671</li> </br>[güvenlik duvarı bağlantı noktalarını etkinleştirme](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) hakkında daha fazla bilgi edinin |
 | IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örneğin: https:\//sts.contoso.com</li> [IE’yi yapılandırma](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) hakkında daha fazla bilgi edinin |
-| PowerShell v4.0 veya üzerinin yüklü olduğundan emin olun | <li>Windows Server 2008 R2, aracı için yeterli olmayan PowerShell v2.0 sürümüne sahiptir.  PowerShell'i [Windows Server 2008 R2 Sunucularında aracı yüklemesi](#agent-installation-on-windows-server-2008-r2-servers) belgesine göre güncelleştirin.</li><li>Windows Server 2012, aracı için yeterli olmayan PowerShell v3.0 sürümüne sahiptir.  Windows Management Framework'ü [güncelleştirin](http://www.microsoft.com/download/details.aspx?id=40855).</li><li>Windows Server 2012 R2 ve üzeri ile gelen PowerShell sürümü yeterli olacaktır.</li>|
+| PowerShell v4.0 veya üzerinin yüklü olduğundan emin olun | <li>Windows Server 2008 R2, aracı için yeterli olmayan PowerShell v2.0 sürümüne sahiptir.  PowerShell'i [Windows Server 2008 R2 Sunucularında aracı yüklemesi](#agent-installation-on-windows-server-2008-r2-servers) belgesine göre güncelleştirin.</li><li>Windows Server 2012, aracı için yeterli olmayan PowerShell v3.0 sürümüne sahiptir.  Windows Management Framework'ü [güncelleştirin](https://www.microsoft.com/download/details.aspx?id=40855).</li><li>Windows Server 2012 R2 ve üzeri ile gelen PowerShell sürümü yeterli olacaktır.</li>|
 |FIPS’yi devre dışı bırakma|FIPS, Azure AD Connect Health aracıları tarafından desteklenmez.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure hizmet uç noktalarına giden bağlantı
@@ -53,12 +53,12 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Azure AD Connect Health Aracısını indirme ve yükleme
 * Azure AD Connect Health [gereksinimlerini yerine getirdiğinizden](how-to-connect-health-agent-install.md#requirements) emin olun.
 * AD FS için Azure AD Connect Health kullanmaya başlama
-    * [AD FS için Azure AD Connect Health Aracısını indirin.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [AD FS için Azure AD Connect Health Aracısını indirin.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Yükleme talimatlarına bakın](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Eşitleme için Azure AD Connect Health kullanmaya başlama
-    * [Azure AD Connect'in en son sürümünü indirip yükleyin](http://go.microsoft.com/fwlink/?linkid=615771). Eşitleme için Durum Aracısı, Azure AD Connect yüklemesinin bir parçası olarak yüklenir (sürüm 1.0.9125.0 veya daha yeni bir sürüm).
+    * [Azure AD Connect'in en son sürümünü indirip yükleyin](https://go.microsoft.com/fwlink/?linkid=615771). Eşitleme için Durum Aracısı, Azure AD Connect yüklemesinin bir parçası olarak yüklenir (sürüm 1.0.9125.0 veya daha yeni bir sürüm).
 * AD DS için Azure AD Connect Health kullanmaya başlama
-    * [AD DS için Azure AD Connect Health Aracısını indirin](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [AD DS için Azure AD Connect Health Aracısını indirin](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Yükleme talimatlarına bakın](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>AD FS için Azure AD Connect Health Aracısını yükleme
@@ -105,7 +105,7 @@ Windows Server 2008 R2 sunucuları için adımlar:
    * PowerShell ISE'yi yükleme (Windows Özelliklerinden)
    * [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) sürümünü yükleyin.
    * Sunucuda Internet Explorer 10 veya sonraki bir sürümünü yükleyin. (Sistem Sağlığı Hizmeti tarafından Azure Yönetici kimlik bilgileriniz kullanılarak kimliğinizin doğrulanması için gereklidir.)
-4. Windows Server 2008 R2'ye Windows PowerShell 4.0 sürümünü yüklemek üzere daha fazla bilgi almak için [buradaki](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx) wiki makalesine bakın.
+4. Windows Server 2008 R2'ye Windows PowerShell 4.0 sürümünü yüklemek üzere daha fazla bilgi almak için [buradaki](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx) wiki makalesine bakın.
 
 ### <a name="enable-auditing-for-ad-fs"></a>AD FS için Denetimi Etkinleştirme
 > [!NOTE]
@@ -175,7 +175,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 > Eşitleme sunucusunun AD FS sunucunuzdan farklı olması gerekir. Eşitleme aracısını AD FS sunucunuza yüklemeyin.
 >
 
-Eşitleme için Azure AD Connect Health aracısı, Azure AD Connect'in en son derlemesinde otomatik olarak yüklenir. Azure AD Connect'i eşitleme için kullanmak üzere, Azure AD Connect'in en son sürümünü indirip yüklemeniz gerekir. En son sürümü [buradan](http://www.microsoft.com/download/details.aspx?id=47594) indirebilirsiniz.
+Eşitleme için Azure AD Connect Health aracısı, Azure AD Connect'in en son derlemesinde otomatik olarak yüklenir. Azure AD Connect'i eşitleme için kullanmak üzere, Azure AD Connect'in en son sürümünü indirip yüklemeniz gerekir. En son sürümü [buradan](https://www.microsoft.com/download/details.aspx?id=47594) indirebilirsiniz.
 
 Aracının yüklü olduğunu doğrulamak için sunucuda aşağıdaki hizmetleri arayın. Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması gerekir. Aksi halde bu hizmetler yapılandırma tamamlanıncaya kadar durdurulur.
 

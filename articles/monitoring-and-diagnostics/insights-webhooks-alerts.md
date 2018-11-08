@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0f08e63d6cbf5be8667b1fd61556e3f33e31d06f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f2f96faf6bd8132422aeb3484547e4b6a1195a7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957667"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255549"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Web kancası kullanarak bir Azure sistem bilgisini Klasik ölçüm uyarısı sahip
 İşlem Sonrası veya özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yönlendirmek için Web kancaları kullanabilirsiniz. Sohbet veya Mesajlaşma Hizmetleri aracılığıyla veya diğer çeşitli eylemler için bir takıma bildirin hataları oturum, SMS iletileri göndermek Hizmetleri yönlendirmek için bir uyarısında Web kancası kullanabilirsiniz. 
@@ -101,8 +101,8 @@ GÖNDERME işlemi, tüm ölçüm tabanlı uyarılar için şema ve aşağıdaki 
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure uyarıları ve Web kancaları videoda hakkında daha fazla bilgi [PagerDuty ile tümleştirerek Azure uyarıları](http://go.microsoft.com/fwlink/?LinkId=627080).
-* Bilgi edinmek için nasıl [Azure uyarılarda Azure Otomasyon betikleri (runbook'lar) yürütmek](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Azure uyarıları ve Web kancaları videoda hakkında daha fazla bilgi [PagerDuty ile tümleştirerek Azure uyarıları](https://go.microsoft.com/fwlink/?LinkId=627080).
+* Bilgi edinmek için nasıl [Azure uyarılarda Azure Otomasyon betikleri (runbook'lar) yürütmek](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Bilgi nasıl [Azure uyarıdan Twilio aracılığıyla SMS iletisi göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Bilgi edinmek için nasıl [Azure uyarıdan bir Slack iletisi göndermek için bir mantıksal uygulama kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Bilgi edinmek için nasıl [Azure uyarıdan bir Azure kuyruğuna bir ileti göndermek için bir mantıksal uygulama kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).

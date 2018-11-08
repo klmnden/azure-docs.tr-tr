@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery ile AWS’den Azure’a sanal makineleri geçirme | Microsoft Docs
+title: Azure Site Recovery hizmetiyle AWS VM'lerini Azure'a geçirme | Microsoft Docs
 description: Bu makalede, Azure Site Recovery kullanılarak, Amazon Web Services’te (AWS) çalıştırılan Windows sanal makinelerinin Azure’a nasıl geçirileceği açıklanmaktadır.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078945"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252148"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -119,7 +119,7 @@ Azure portalda kasanızın sayfasında, **Başlarken** bölümünden **Site Reco
 
 1. Yapılandırma sunucusu oluşturmak ve kurtarma kasası ile kaydetmek için Windows Server 2012 R2 çalıştıran bir EC2 örneği kullanın.
 2. [Hizmet URL’lerine](site-recovery-support-matrix-to-azure.md) erişebilmesi için yapılandırma sunucusu olarak kullandığınız EC2 örneği sanal makinesindeki ara sunucuyu yapılandırın.
-3. [Microsoft Azure Site Recovery Birleşik Kurulumu](http://aka.ms/unifiedinstaller_wus)’nu indirin. Yerel makinenize indirebilir ve yapılandırma sunucusu olarak kullandığınız sanal makineye kopyalayabilirsiniz.
+3. [Microsoft Azure Site Recovery Birleşik Kurulumu](https://aka.ms/unifiedinstaller_wus)’nu indirin. Yerel makinenize indirebilir ve yapılandırma sunucusu olarak kullandığınız sanal makineye kopyalayabilirsiniz.
 4. Kasa kayıt anahtarını indirmek için **İndir** düğmesini seçin. İndirilen dosyayı, yapılandırma sunucusu olarak kullandığınız sanal makineye kopyalayın.
 5. Sanal makinede, Microsoft Azure Site Recovery Birleşik Kurulumu için indirdiğiniz yükleyiciye sağ tıklayın ve **Yönetici olarak çalıştır**’ı seçin.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
-ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251551"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak belirli kullanıcılara bildirim gönderme
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -222,7 +222,7 @@ Bu bölümde, [Öğretici: Azure Notification Hubs kullanarak Evrensel Windows P
     ```
 1. **WindowsApp** projesine sağ tıklayın, **Ekle**’ye ve sonra **Sınıf**’a tıklayın. **RegisterClient.cs** sınıfını adlandırın, ardından **Tamam**’a tıklayarak sınıfı oluşturun.
    
-   Bu sınıf, anında iletme bildirimlerine kaydolmak için uygulama arka ucuyla iletişim kurmak üzere gereken REST çağrılarını sarmalar. [Uygulama arka ucunuzdan kaydetme](http://msdn.microsoft.com/library/dn743807.aspx) bölümünde açıklandığı gibi Bildirim Hub’ı tarafından oluşturulan *registrationId*’leri de yerel olarak depolar. **Oturum aç ve kaydet** düğmesine tıkladığınızda yerel depolama alanında depolanan bir yetkilendirme belirtecini kullanır.
+   Bu sınıf, anında iletme bildirimlerine kaydolmak için uygulama arka ucuyla iletişim kurmak üzere gereken REST çağrılarını sarmalar. [Uygulama arka ucunuzdan kaydetme](https://msdn.microsoft.com/library/dn743807.aspx) bölümünde açıklandığı gibi Bildirim Hub’ı tarafından oluşturulan *registrationId*’leri de yerel olarak depolar. **Oturum aç ve kaydet** düğmesine tıkladığınızda yerel depolama alanında depolanan bir yetkilendirme belirtecini kullanır.
 2. Aşağıdaki `using` deyimlerini RegisterClient.cs dosyasının en üst kısmına ekleyin:
 
     ```csharp   

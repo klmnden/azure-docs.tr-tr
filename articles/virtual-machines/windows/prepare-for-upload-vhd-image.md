@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388184"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258468"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -48,7 +48,7 @@ Disk dönüştürdüğünüzde, dönüştürülen disk kullanan bir VM oluşturu
 >Bu makalede komutları yükseltilmiş bir PowerShell oturumunda çalıştırmanız gerekir.
 
 ### <a name="convert-disk-by-using-powershell"></a>PowerShell kullanarak diski Dönüştür
-Bir sanal disk kullanarak da dönüştürebilirsiniz [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) Windows PowerShell komutu. Seçin **yönetici olarak çalıştır** PowerShell başlattığınızda. 
+Bir sanal disk kullanarak da dönüştürebilirsiniz [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) Windows PowerShell komutu. Seçin **yönetici olarak çalıştır** PowerShell başlattığınızda. 
 
 Aşağıdaki örnek komut, VHD'ye VHDX ve sabit boyutlu dinamik olarak genişleyen bir diske dönüştürür:
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 Bu değeri komutta "-yolu" dönüştürmek istediğiniz sanal sabit diski ve değeri yoluyla "-DestinationPath" Yeni yol ve dönüştürülen disk adı.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>VMware VMDK disk biçimden Dönüştür
-Bir Windows VM görüntüsü varsa [VMDK dosya biçimi](https://en.wikipedia.org/wiki/VMDK), kullanarak bir VHD'ye dönüştürme [Microsoft sanal makine dönüştürücüsü](https://www.microsoft.com/download/details.aspx?id=42497). Daha fazla bilgi için bkz. blog makalesi [Hyper-V VHD için bir VMware VMDK dönüştürme](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
+Bir Windows VM görüntüsü varsa [VMDK dosya biçimi](https://en.wikipedia.org/wiki/VMDK), kullanarak bir VHD'ye dönüştürme [Microsoft sanal makine dönüştürücüsü](https://www.microsoft.com/download/details.aspx?id=42497). Daha fazla bilgi için bkz. blog makalesi [Hyper-V VHD için bir VMware VMDK dönüştürme](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Azure için Windows yapılandırmalarını ayarlama
 
@@ -377,7 +377,7 @@ Bunun yerine, yalnızca bir diskten bir VM oluşturmak istiyorsanız sysprep kul
 - [Özelleştirilmiş diskten VM oluşturma](create-vm-specialized.md)
 - [Özel bir VHD diskten VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Genelleştirilmiş görüntü oluşturmak istiyorsanız, sysprep'nı çalıştırmanız gerekir. Sysprep hakkında daha fazla bilgi için bkz. [Sysprep işlemini kullanma: Giriş](http://technet.microsoft.com/library/bb457073.aspx). 
+Genelleştirilmiş görüntü oluşturmak istiyorsanız, sysprep'nı çalıştırmanız gerekir. Sysprep hakkında daha fazla bilgi için bkz. [Sysprep işlemini kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Bu Genelleştirme, her rol ya da Windows tabanlı bir bilgisayarda yüklü uygulama destekler. Bu yordamı çalıştırmadan önce bu nedenle bu bilgisayar rolü sysprep tarafından desteklendiğinden emin olmak için aşağıdaki makaleye bakın. Daha fazla bilgi için [sunucu rolleri için Sysprep Destek](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -401,7 +401,7 @@ Bu Genelleştirme, her rol ya da Windows tabanlı bir bilgisayarda yüklü uygul
 ## <a name="complete-recommended-configurations"></a>Önerilen yapılandırmaları tamamlayın
 Aşağıdaki ayarlar, VHD'yi karşıya etkilemez. Ancak, bunları yapılandırılmış önerilir.
 
-* Yükleme [Azure VM Aracısı](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ardından, VM uzantılarını etkinleştirebilirsiniz. VM uzantıları, RDP yapılandırma, parola sıfırlama gibi Vm'leriniz ile kullanmak istediğiniz ve benzeri önemli işlevselliğinin büyük kısmını uygulayın. Daha fazla bilgi için bkz.
+* Yükleme [Azure VM Aracısı](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ardından, VM uzantılarını etkinleştirebilirsiniz. VM uzantıları, RDP yapılandırma, parola sıfırlama gibi Vm'leriniz ile kullanmak istediğiniz ve benzeri önemli işlevselliğinin büyük kısmını uygulayın. Daha fazla bilgi için bkz.
 
     - [VM aracısı ve uzantılar – bölüm 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [VM aracısı ve uzantılar – 2. Bölüm](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

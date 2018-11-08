@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 99c7e73bb133349ef1c14295a49f278d64a15226
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041739"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257968"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL veritabanı bağlantı sorunlarını giderme
 Azure SQL veritabanı bağlantısı başarısız olduğunda, aldığınız [hata iletileri](sql-database-develop-error-messages.md). Bu makalede, Azure SQL veritabanı bağlantısı sorunları gidermenize yardımcı olan merkezi bir konudur. Tanıttığı [yaygın nedenleri](#cause) bağlantı sorunları, önerir [sorun giderme aracını](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) kimlik sorun yardımcı olur ve çözmek için sorun giderme adımlarını sağlar [geçici hataları](#troubleshoot-transient-errors) ve [kalıcı veya geçici olmayan hatalar](#troubleshoot-persistent-errors). 
@@ -79,8 +79,8 @@ Azure SQL veritabanı'na bağlanmak uygulamayı kalıcı olarak başarısız olu
 4. Hizmet durumu Panosu denetleyin. Bölgesel bir kesinti olduğunu düşünüyorsanız, bkz. [kesintiden kurtarma](sql-database-disaster-recovery.md) için yeni bir bölgeye kurtarmak için adımlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Microsoft Azure ile ilgili belgelerde arama](http://azure.microsoft.com/search/documentation/)
-* [Azure SQL veritabanı hizmeti için en son güncelleştirmeleri görüntüleyin](http://azure.microsoft.com/updates/?service=sql-database)
+* [Microsoft Azure ile ilgili belgelerde arama](https://azure.microsoft.com/search/documentation/)
+* [Azure SQL veritabanı hizmeti için en son güncelleştirmeleri görüntüleyin](https://azure.microsoft.com/updates/?service=sql-database)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [SQL veritabanı geliştirmeye genel bakış](sql-database-develop-overview.md)

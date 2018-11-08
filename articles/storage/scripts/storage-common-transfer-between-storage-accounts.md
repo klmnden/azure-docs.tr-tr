@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 970315c5d597d691454f9dea0a76f2c0dc4a40ec
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "29360726"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253270"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows üzerinde AzCopy kullanarak blobları depolama hesapları arasında geçirme
 
@@ -30,7 +30,7 @@ Bu örnek için Azure PowerShell Depolama modülünün **4.0.2** veya daha sonra
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Bu örnek ayrıca en son [Windows üzerinde AzCopy](http://aka.ms/downloadazcopy) sürümünü gerektirir. Varsayılan yükleme dizini: `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
+Bu örnek ayrıca en son [Windows üzerinde AzCopy](https://aka.ms/downloadazcopy) sürümünü gerektirir. Varsayılan yükleme dizini: `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
 
 Bu örnek bir kaynak depolama hesabının adı ve anahtarını, bir hedef depolama hesabının adı ve anahtarını ve AzCopy.exe dosyasının tam dosya yolunu (varsayılan dizinde yüklü değilse) alır.
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 271141f24ff729fc99210af67ad769a5ef83a65c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170880"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242730"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Konuşma Öğrenici ile bir "Merhaba Dünya" modeli oluşturma
 
@@ -23,7 +23,7 @@ Bu öğreticide, konuşma Eylemler oluşturma gibi etkileşimli olarak öğretim
 
 ## <a name="video"></a>Video
 
-[![Öğretici 1 Preview](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+[![Öğretici 1 Preview](https://aka.ms/cl-tutorial-01-preview)](https://aka.ms/blis-tutorial-01)
 
 
 ## <a name="requirements"></a>Gereksinimler

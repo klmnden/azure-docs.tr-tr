@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979337"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258723"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Azure Klasik CLI ile Azure depolama kullanma
 
@@ -122,7 +122,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ```
 
 ## <a name="create-and-manage-blobs"></a>Oluşturma ve BLOB'ları yönetme
-Azure Blob Depolama, büyük miktarlarda herhangi bir HTTP veya HTTPS aracılığıyla dünyanın erişilebilen metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için kullanılan bir hizmettir. Bu bölümde, zaten ile Azure Blob Depolama kavramları hakkında bilgi sahibi olduğunuz varsayılır. Ayrıntılı bilgi için bkz. [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) ve [Blob hizmeti kavramları](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Azure Blob Depolama, büyük miktarlarda herhangi bir HTTP veya HTTPS aracılığıyla dünyanın erişilebilen metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için kullanılan bir hizmettir. Bu bölümde, zaten ile Azure Blob Depolama kavramları hakkında bilgi sahibi olduğunuz varsayılır. Ayrıntılı bilgi için bkz. [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) ve [Blob hizmeti kavramları](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 Her blob Azure depolamadaki bir kapsayıcıda olmalıdır. Kullanarak bir özel kapsayıcı oluşturabilirsiniz `azure storage container create` komutu:
@@ -137,7 +137,7 @@ azure storage container create mycontainer
 >
 
 ### <a name="upload-a-blob-into-a-container"></a>Bir kapsayıcıya bir blob yükleme
-Azure Blob Storage blok blobları ve sayfa bloblarını destekler. Daha fazla bilgi için [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Azure Blob Storage blok blobları ve sayfa bloblarını destekler. Daha fazla bilgi için [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Bir kapsayıcıya BLOB'ları karşıya yüklemek için kullanabileceğiniz `azure storage blob upload`. Varsayılan olarak, bu komut, bir blok blobuna yerel dosyaları karşıya yükler. Blob türü belirtmek için kullanabileceğiniz `--blobtype` parametresi.
 

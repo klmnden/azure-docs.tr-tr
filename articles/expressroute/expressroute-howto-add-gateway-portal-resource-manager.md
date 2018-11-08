@@ -1,6 +1,6 @@
 ---
-title: 'ExpressRoute için bir sanal ağa bir sanal ağ geçidi eklemek: Portal: Azure | Microsoft Docs'
-description: Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i ExpressRoute için bir sanal ağ geçidine eklerken size yol gösterilir.
+title: 'ExpressRoute için sanal ağ geçidi bir sanal ağa ekleyin: portalı: Azure | Microsoft Docs'
+description: Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i expressroute için sanal ağ geçidi eklerken size yol gösterir.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23850871"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255702"
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Bir sanal ağ geçidi Azure portalını kullanarak ExpressRoute için yapılandırma
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure portalını kullanarak ExpressRoute için sanal ağ geçidi yapılandırma
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portalı](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Klasik - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Video - Azure portalı](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [Video - Azure portalı](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
-Bu makalede, önceden var olan bir VNet için bir sanal ağ geçidi eklemek için adım adım anlatılmaktadır. Bu makalede, eklemek, yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidini kaldırmak için adım adım anlatılmaktadır. Bu yapılandırma için özellikle bir expressroute bağlantı yapılandırmasında kullanılacak Resource Manager dağıtım modeli kullanılarak oluşturulan sanal ağlar için adımlardır. Sanal ağ geçitleri ve ExpressRoute ağ geçidi yapılandırma ayarları hakkında daha fazla bilgi için bkz: [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md). 
+Bu makalede önceden var olan bir VNet için sanal ağ geçidi eklemek için adımlarında size kılavuzluk eder. Bu makalede ekleme, yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidini kaldırmak için adımlarında size kılavuzluk eder. Bu yapılandırma için özel bir ExpressRoute yapılandırmasında kullanılan Resource Manager dağıtım modeli kullanılarak oluşturulan sanal ağlar için aynıdır. Sanal ağ geçidi ve ExpressRoute için ağ geçidi yapılandırma ayarları hakkında daha fazla bilgi için bkz: [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md). 
 
 
 ## <a name="before-beginning"></a>Başlamadan önce
 
-Bu görev için adımlar aşağıdaki yapılandırma başvuru listesinde değerlere dayalı bir sanal ağ kullanın. Biz bizim örnek adımlarda bu listeyi kullanın. Değerleri kendinizinkilerle değiştirerek bir başvuru olarak kullanılacak listesini kopyalayabilirsiniz.
+Bu görev için adımları aşağıdaki yapılandırma başvuru listesinde değerlere göre sanal ağ kullanın. Bizim örnek adımlarda bu listeyi kullanırız. Bir başvuru olarak kullanmak için listedeki değerleri kendi değerlerinizle değiştirerek kopyalayabilirsiniz.
 
 **Yapılandırma başvuru listesi**
 
 * Sanal ağ adı "TestVNet" =
 * Sanal ağ adres alanı 192.168.0.0/16 =
-* Alt ağ adı "Ön uç" = 
-    * Alt ağ adres alanının "192.168.1.0/24" =
+* Alt ağ adı "FrontEnd" = 
+    * Alt ağ adres alanı = "192.168.1.0/24"
 * Kaynak grubu "TestRG" =
-* Konum, "Doğu ABD" =
-* Ağ geçidi alt ağ adı: "GatewaySubnet gerekir her zaman adını bir ağ geçidi alt ağı" *GatewaySubnet*.
-    * Ağ geçidi alt ağ adres alanının "192.168.200.0/26" =
+* Konum "Doğu ABD" =
+* Ağ geçidi alt ağ adı: gereken her zaman adını bir ağ geçidi alt ağı "GatewaySubnet" *GatewaySubnet*.
+    * Ağ geçidi alt ağ adres alanı = "192.168.200.0/26"
 * Ağ geçidi adı "ERGW" =
 * Ağ geçidi IP adı "MyERGWVIP" =
 * Ağ geçidi türü = "ExpressRoute" Bu tür bir ExpressRoute yapılandırma için gereklidir.
 * Ağ geçidi genel IP adı "MyERGWVIP" =
 
-Görüntüleyebileceğiniz bir [Video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) yapılandırmanıza başlamadan önce bu adımları.
+Görüntüleyebileceğiniz bir [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) yapılandırmanıza başlamadan önce bu adımları.
 
 ## <a name="create-the-gateway-subnet"></a>Ağ geçidi alt ağını oluşturma
 
@@ -64,7 +64,7 @@ Görüntüleyebileceğiniz bir [Video](http://azure.microsoft.com/documentation/
     ![Ağ geçidi alt ağını ekleme](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Ağ geçidi alt ağını ekleme")
 
 
-4. Alt ağınız için **Ad** alanı otomatik olarak ‘GatewaySubnet’ değeriyle doldurulur. Alt ağın Azure tarafından ağ geçidi alt ağı olarak tanınması için bu değer gereklidir. Otomatik olarak doldurulmuş **Adres aralığı** değerlerini, yapılandırma gereksinimlerinize uyacak şekilde ayarlayın. / 27 veya daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 26, / 25 vb..). Ardından **Tamam** değerleri kaydetmek ve ağ geçidi alt ağı oluşturmak için.
+4. Alt ağınız için **Ad** alanı otomatik olarak ‘GatewaySubnet’ değeriyle doldurulur. Alt ağın Azure tarafından ağ geçidi alt ağı olarak tanınması için bu değer gereklidir. Otomatik olarak doldurulmuş **Adres aralığı** değerlerini, yapılandırma gereksinimlerinize uyacak şekilde ayarlayın. / 27 veya daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 26, / 25 vb..). ' A tıklayarak **Tamam** değerleri kaydedin ve ağ geçidi alt ağı oluşturun.
 
     ![Alt ağı ekleme](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Alt ağı ekleme")
 
@@ -84,7 +84,7 @@ Görüntüleyebileceğiniz bir [Video](http://azure.microsoft.com/documentation/
 11. **Kaynak grubu**: Bu ayar, seçtiğiniz Sanal Ağ tarafından belirlenir.
 12. Önceki ayarları belirttikten sonra **Konum**'u ayarlamayın.
 13. Ayarları doğrulayın. Ağ geçidinizin panoda görünmesini istiyorsanız dikey pencerenin altında yer alan **Panoya sabitle** seçeneğini belirleyebilirsiniz.
-14. Ağ geçidi oluşturmaya başlamak için **Oluştur**’a tıklayın. Ayarlar doğrulanır ve ağ geçidi dağıtılır. Sanal ağ geçidi oluşturma tamamlamak 45 dakika kadar sürebilir.
+14. Ağ geçidi oluşturmaya başlamak için **Oluştur**’a tıklayın. Ayarlar doğrulanır ve ağ geçidi dağıtılır. Sanal ağ geçidi oluşturma, tamamlanması 45 dakika sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-VNet ağ geçidini oluşturduktan sonra bir expressroute bağlantı hattı ağınıza bağlayabilirsiniz. Bkz: [bir expressroute bağlantı hattı için bir sanal ağ bağlantı](expressroute-howto-linkvnet-portal-resource-manager.md).
+VNet ağ geçidinin oluşturduktan sonra ağınız bir ExpressRoute bağlantı hattına bağlayabilirsiniz. Bkz: [bir sanal ağı ExpressRoute devresine bağlama](expressroute-howto-linkvnet-portal-resource-manager.md).
