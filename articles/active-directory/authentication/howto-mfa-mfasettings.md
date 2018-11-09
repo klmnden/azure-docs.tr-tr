@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: bae31b245cb83821490564c60f67e88898af06b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115003"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233295"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -363,8 +363,8 @@ Kullanıcılarınız için Azure multi-Factor Authentication, hesaplarını kayd
 |:--- |:--- |
 | Telefonu arama |Otomatik bir sesli çağrıyla yerleştirir. Kullanıcı telefonu yanıtladığında ve telefon tuş kimliğini doğrulamak için # tuşuna basar. Telefon numarası şirket içi Active Directory ile eşitlenmez. |
 | Telefona kısa mesaj |Bir doğrulama kodu içeren bir kısa mesaj gönderir. Kullanıcı doğrulama kodunu oturum açma arabirimine girmesi istenir. Bu işlem, tek yönlü SMS çağrılır. İki yönlü SMS, belirli bir kodu metnin geri gerektiğini anlamına gelir. İki yönlü SMS kullanım dışı ve 14 Kasım 2018'den sonra desteklenmiyor. İki yönlü SMS otomatik olarak ayarlı için yapılandırılmış kullanıcılar _telefon_ doğrulama o zaman.|
-| Mobil uygulama üzerinden bildirim |Telefonunuza veya kayıtlı cihazınıza anında iletme bildirimi gönderir. Kullanıcı bildirimi görünümleri ve seçer **doğrulama** doğrulamayı tamamlamak için. Microsoft Authenticator uygulamasını kullanılabilir [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Mobil uygulamadan alınan doğrulama kodu |Microsoft Authenticator uygulamasını her 30 saniyede yeni bir OATH doğrulama kodu oluşturur. Kullanıcı oturum açma arabirimine doğrulama kodunu girer. Microsoft Authenticator uygulamasını kullanılabilir [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Mobil uygulama üzerinden bildirim |Telefonunuza veya kayıtlı cihazınıza anında iletme bildirimi gönderir. Kullanıcı bildirimi görünümleri ve seçer **doğrulama** doğrulamayı tamamlamak için. Microsoft Authenticator uygulamasını kullanılabilir [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Mobil uygulamadan alınan doğrulama kodu |Microsoft Authenticator uygulamasını her 30 saniyede yeni bir OATH doğrulama kodu oluşturur. Kullanıcı oturum açma arabirimine doğrulama kodunu girer. Microsoft Authenticator uygulamasını kullanılabilir [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Etkinleştirme ve doğrulama yöntemlerini devre dışı
 

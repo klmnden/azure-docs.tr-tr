@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391690"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242203"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri çevrimdışı kopyalama için Azure içeri/dışarı aktarma hizmetini kullanma
 Bu makalede, büyük veri kümelerini kopyalama hakkında bilgi edineceksiniz (> 200 GB) gibi çevrimdışı kopya yöntemleri kullanarak Azure Data Lake depolama Gen1 içine [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md). Özellikle, bu makaledeki örnek olarak kullanılan 339,420,860,416 bayt veya yaklaşık 319 GB disk üzerinde dosyasıdır. Bu dosya 319GB.tsv adlandıralım.
@@ -52,7 +52,7 @@ Bölümündeki yönergeleri [Azure içeri/dışarı aktarma hizmetini kullanarak
 
 1. Azure içeri/dışarı aktarma hizmeti için kullanılacak gereksinimini karşılayan bir sabit disk edinin.
 2. Verileri Azure veri merkezi IP'sine sevk edildikten sonra kopyalanacağı bir Azure depolama hesabını belirleyin.
-3. Kullanım [Azure içeri/dışarı aktarma aracı](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), bir komut satırı yardımcı programı. Aracının nasıl kullanılacağını gösteren bir örnek kod parçacığı aşağıda verilmiştir.
+3. Kullanım [Azure içeri/dışarı aktarma aracı](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), bir komut satırı yardımcı programı. Aracının nasıl kullanılacağını gösteren bir örnek kod parçacığı aşağıda verilmiştir.
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/

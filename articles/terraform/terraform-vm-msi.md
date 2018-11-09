@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343835"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242101"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Market görüntüsü kullanarak Azure kaynakları için yönetilen kimliğe sahip bir Terraform Linux sanal makinesi oluşturma
 
@@ -97,9 +97,9 @@ Yukarıdaki betikte [AZ CLI v 2.0 etkileşimli oturum açma](https://docs.micros
 Bu makalede Azure'da bir Terraform Linux sanal makinesi oluşturmayı öğrendiniz. Aşağıdaki kaynaklardan Azure'da Terraform kullanımı hakkında daha fazla bilgi edinebilirsiniz: 
 
  [Microsoft.com Terraform Hub'ı](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure sağlayıcı belgeleri](http://aka.ms/terraform)  
- [Terraform Azure sağlayıcı kaynağı](http://aka.ms/tfgit)  
- [Terraform Azure modülleri](http://aka.ms/tfmodules)
+ [Terraform Azure sağlayıcı belgeleri](https://aka.ms/terraform)  
+ [Terraform Azure sağlayıcı kaynağı](https://aka.ms/tfgit)  
+ [Terraform Azure modülleri](https://aka.ms/tfmodules)
  
 
 

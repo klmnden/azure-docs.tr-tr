@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: c478c2c4af12ecaa02e6700ec7faffc5b9862a00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 90837092390cd2550805658471ff7aa884773371
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958194"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239602"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Raspberry Pi'yi bağlanmak, Azure IOT Central uygulamasına (Python)
 
@@ -64,11 +64,11 @@ Aşağıdaki adımlar, indirme ve örnek Python uygulamasını github'dan yapıl
 * Telemetri ve özellik değerleri, Azure IOT Central uygulamasına gönderir.
 * Azure IOT Central yapılan değişiklikleri ayarını yanıtlar.
 
-Cihaz yapılandırma [GitHub üzerinde adım adım yönergeleri izleyin.](http://aka.ms/iotcentral-docs-Raspi-releases)
+Cihaz yapılandırma [GitHub üzerinde adım adım yönergeleri izleyin.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
 
 > [!NOTE]
-> Raspberry Pi Python örneği hakkında daha fazla bilgi için bkz: [Benioku](http://aka.ms/iotcentral-docs-Raspi-releases) github'da dosya.
+> Raspberry Pi Python örneği hakkında daha fazla bilgi için bkz: [Benioku](https://aka.ms/iotcentral-docs-Raspi-releases) github'da dosya.
 
 
 1. Cihaz yapılandırıldıktan sonra Cihazınızı veriler kısa bir süre içinde Azure IOT Central için gönderme başlamanız gerekir.

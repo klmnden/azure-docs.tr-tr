@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: 047d23184ccf640dd6510faca9f508eef0dc50cb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e007b23b6e4a55e2a939994e8f95d01fc24cc529
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050822"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241591"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis Önbelleği için ASP.NET Oturum Durumu Sağlayıcısı
 Azure Redis Cache, oturum durumu bellek içi Redis Cache ile bir SQL Server veritabanı yerine depolamak için kullanabileceğiniz bir oturum durumu sağlayıcısı sağlar. Önbelleğe alma oturum durumu sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından ASP.NET uygulamanız için Redis Cache oturum durumu NuGet paketini kullanarak önbelleğini yapılandırın.
@@ -94,11 +94,11 @@ Microsoft Azure Portal'da önbellek dikey pencerenize değerlerle öznitelikleri
 * **retryTimeoutInMilliseconds** – başarısız işlemleri yeniden denenir. milisaniye cinsinden belirtilen bu aralık sırasında. İlk yeniden deneme 20 milisaniye sonra gerçekleşir ve saniyede retryTimeoutInMilliseconds aralığı süresi dolana kadar yeniden denemeler meydana gelir. Bu aralık hemen sonra işlemi son bir kez yeniden denendi. İşlem yine başarısız olursa, özel durum throwOnError ayara bağlı olarak, çağırana geri oluşturulur. Varsayılan değer, yeniden deneme yok anlamına gelen 0 ' dır.
 * **Databaseıd** – önbelleği için çıktı verilerini kullanmak için hangi veritabanını belirtir. Belirtilmezse, varsayılan değer olan 0 kullanılır.
 * **applicationName** – anahtarları redis depolanır `{<Application Name>_<Session ID>}_Data`. Bu adlandırma şeması aynı Redis örneği paylaşmak birden çok uygulama sağlar. Bu parametre isteğe bağlıdır ve onu belirtmezseniz varsayılan değer kullanılır.
-* **connectionTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi connectTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse, varsayılan connectTimeout ayar 5000 kullanılır. Daha fazla bilgi için [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi syncTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse varsayılan syncTimeout olarak 1000 kullanılır. Daha fazla bilgi için [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **connectionTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi connectTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse, varsayılan connectTimeout ayar 5000 kullanılır. Daha fazla bilgi için [StackExchange.Redis yapılandırma modeli](https://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi syncTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse varsayılan syncTimeout olarak 1000 kullanılır. Daha fazla bilgi için [StackExchange.Redis yapılandırma modeli](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** -Bu ayar özel serileştirme Redis'e gönderilen oturum içeriğinin belirtmenizi sağlar. Belirtilen tür uygulamalıdır `Microsoft.Web.Redis.ISerializer` ve genel parametresiz oluşturucusu bildirmeniz gerekir. Varsayılan olarak `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` kullanılır.
 
-Bu özellikler hakkında daha fazla bilgi için özgün blog gönderisi duyurusuna bakın [Redis için ASP.NET oturum durumu sağlayıcısı ile tanışın](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Bu özellikler hakkında daha fazla bilgi için özgün blog gönderisi duyurusuna bakın [Redis için ASP.NET oturum durumu sağlayıcısı ile tanışın](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 
 Standart InProc oturum durumu sağlayıcısını web.config dosyasındaki bölümünü, açıklama unutmayın.
 

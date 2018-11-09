@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023194"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241779"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure'da AlwaysOn Kullanılabilirlik grupları için dış dinleyici yapılandırma
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ Sanal ağ dışındaki dinleyicisinden erişmek için (Bu konuda açıklanan) d�
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Çağıran, Internet üzerinden windows kimlik doğrulaması kullanamadığından önceki örnekte farklı olarak, SQL kimlik doğrulaması, kullanılmalıdır. Daha fazla bilgi için [Always On kullanılabilirlik grubu Azure VM içinde: istemci bağlantı senaryoları](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). SQL kimlik doğrulaması kullanırken, hem çoğaltmalarda aynı oturum açma oluşturduğunuzdan emin olun. Kullanılabilirlik grupları ile oturum açma sorunlarını giderme hakkında daha fazla bilgi için bkz. [diğer yinelemeler için bağlanmak ve kullanılabilirlik veritabanlarına eşlemek için SQL veritabanı kullanıcı oturumlarını eşleştirmek veya kullanmak nasıl bulunan](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Çağıran, Internet üzerinden windows kimlik doğrulaması kullanamadığından önceki örnekte farklı olarak, SQL kimlik doğrulaması, kullanılmalıdır. Daha fazla bilgi için [Always On kullanılabilirlik grubu Azure VM içinde: istemci bağlantı senaryoları](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). SQL kimlik doğrulaması kullanırken, hem çoğaltmalarda aynı oturum açma oluşturduğunuzdan emin olun. Kullanılabilirlik grupları ile oturum açma sorunlarını giderme hakkında daha fazla bilgi için bkz. [diğer yinelemeler için bağlanmak ve kullanılabilirlik veritabanlarına eşlemek için SQL veritabanı kullanıcı oturumlarını eşleştirmek veya kullanmak nasıl bulunan](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 İstemciler her zaman açık çoğaltma farklı alt ağlarda olup olmadığını belirtmeniz **MultisubnetFailover = True** bağlantı dizesindeki. Bu, paralel bağlantı denemelerinde de çoğaltmaları, farklı alt ağlarda sonuçlanır. Bu senaryo bölgeler arası Always On kullanılabilirlik grubu dağıtım içerdiğine dikkat edin.
 

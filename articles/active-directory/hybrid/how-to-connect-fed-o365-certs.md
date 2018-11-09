@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0205552c073bf03c40da4d108256fa09e71fbbe3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314758"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237104"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 ve Azure Active Directory için Federasyon sertifikalarını yenileme
 ## <a name="overview"></a>Genel Bakış
@@ -51,9 +51,9 @@ Azure AD Federasyon meta verilerini izleme ve belirteç imzalama sertifikaları 
 > [!IMPORTANT]
 > İş sürekliliğinin sağlanması için AD FS kullanıyorsanız, lütfen bilinen sorunlara yönelik kimlik doğrulama hatalarının meydana gelmediğinden, sunucularınızı aşağıdaki güncelleştirmeleri sahip olduğunuzu doğrulayın. Bu, bu yenileme ve gelecekteki yenileme dönemleri için bilinen AD FS proxy sunucusu sorunlarını hafifletir:
 >
-> Server 2012 R2 - [Windows Server Mayıs 2014 paketi](http://support.microsoft.com/kb/2955164)
+> Server 2012 R2 - [Windows Server Mayıs 2014 paketi](https://support.microsoft.com/kb/2955164)
 >
-> Server 2008 R2 ve 2012 - [proxy üzerinden kimlik doğrulaması başarısız Windows Server 2012 veya Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
+> Server 2008 R2 ve 2012 - [proxy üzerinden kimlik doğrulaması başarısız Windows Server 2012 veya Windows 2008 R2 SP1](https://support.microsoft.com/kb/3094446)
 >
 >
 

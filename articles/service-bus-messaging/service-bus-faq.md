@@ -10,7 +10,7 @@ ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: b8102c4f98c2627f85946b71a69e88eb02f92bc4
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51257791"

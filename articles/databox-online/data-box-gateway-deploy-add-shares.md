@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6220a794c10f43d562155adbad910694a233ec88
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166035"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249889"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Öğretici: Azure Data Box Gateway (Önizleme) ile verileri aktarma
 
@@ -146,6 +146,6 @@ Bu öğreticide, aşağıdaki Data Box Gateway konularını öğrendiniz:
 Data Box Gateway'inizi yönetmeyi öğrenmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Data Box Gateway'i yönetmek için yerel web kullanıcı arabirimini kullanma](http://aka.ms/dbg-docs)
+> [Data Box Gateway'i yönetmek için yerel web kullanıcı arabirimini kullanma](https://aka.ms/dbg-docs)
 
 

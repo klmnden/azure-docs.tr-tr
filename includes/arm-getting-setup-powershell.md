@@ -1,8 +1,8 @@
-## <a name="setting-up-powershell-for-resource-manager-templates"></a>Resource Manager şablonları için PowerShell ayarlayan
-Resource Manager ile Azure PowerShell kullanabilmeniz için önce sağ Windows PowerShell ve Azure PowerShell sürümleri gerekir.
+## <a name="setting-up-powershell-for-resource-manager-templates"></a>PowerShell Resource Manager şablonları için ayarlama
+Azure PowerShell Resource Manager ile kullanabilmeniz için önce sağ Windows PowerShell ve Azure PowerShell sürümlerine sahip gerekecektir.
 
-### <a name="verify-powershell-versions"></a>PowerShell sürümlerini doğrulama
-Windows PowerShell sürüm 3.0 veya 4.0 doğrulayın. Windows PowerShell sürümü bulmak için Windows PowerShell komut isteminde bu komutu yazın.
+### <a name="verify-powershell-versions"></a>PowerShell sürümleri doğrulayın
+Windows PowerShell sürüm 3.0 veya 4.0 yüklü olmadığını doğrulayın. Windows PowerShell sürümünü bulmak için Windows PowerShell komut isteminde bu komutu yazın.
 
     $PSVersionTable
 
@@ -19,16 +19,16 @@ Aşağıdaki türde bilgiler alırsınız:
     PSRemotingProtocolVersion      2.2
 
 
-Doğrulayın değerini **PSVersion** 3.0 veya 4.0. Aksi takdirde bkz [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) veya [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Doğrulayın değerini **PSVersion** 3.0 veya 4.0. Aksi takdirde bkz [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) veya [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 ### <a name="set-your-azure-account-and-subscription"></a>Azure hesabınızı ve aboneliğinizi ayarlama
-Bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
+Azure aboneliğiniz yoksa, etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 Bir Azure PowerShell komut istemi açın ve bu komutla Azure'da oturum açın.
 
     Connect-AzureRmAccount
 
-Birden çok Azure aboneliğiniz varsa, bu komutla, Azure aboneliklerinize listeleyebilirsiniz.
+Birden çok Azure aboneliğiniz varsa, bu komut Azure aboneliklerinizle listeleyebilirsiniz.
 
     Get-AzureRmSubscription
 
@@ -45,10 +45,10 @@ Aşağıdaki türde bilgiler alırsınız:
     CurrentStorageAccountName :
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Azure PowerShell komut isteminde şu komutları çalıştırarak geçerli Azure aboneliği ayarlayabilirsiniz. Dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri doğru ada sahip.
+Azure PowerShell komut isteminde şu komutları çalıştırarak geçerli Azure aboneliğinizi ayarlayabilirsiniz. Dahil olmak üzere, tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri, doğru ada sahip.
 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Azure abonelikleri ve hesapları hakkında daha fazla bilgi için bkz: [nasıl yapılır: aboneliğinize bağlanma](/powershell/azureps-cmdlets-docs#step-3-connect).
+Azure aboneliklerini ve hesaplarını hakkında daha fazla bilgi için bkz: [nasıl yapılır: aboneliğinize bağlanma](/powershell/azureps-cmdlets-docs#step-3-connect).
 

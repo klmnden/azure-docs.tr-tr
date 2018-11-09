@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974145"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255294"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin ve Azure Cosmos DB ile mobil uygulamalar derleme
 
@@ -85,7 +85,7 @@ Yapılacaklar listesi uygulamasını çok kullanıcılı bir yapılacaklar liste
 
   4. Uygulamayı Kaynak Belirteç Aracısının Facebook ile kimlik doğrulama yapacağı ve oturum açmış Facebook kullanıcıları için kaynak belirteçleri isteyeceği şekilde değiştirin. Ardından UserItems koleksiyonundaki verilere erişebilirsiniz.  
 
-Bu öğreticinin tam kod örneğini [GitHub'da Kaynak Belirteç Aracısı](http://aka.ms/documentdb-xamarin-todouser)’nda bulabilirsiniz. Bu diyagramda çözüm gösterilir:
+Bu öğreticinin tam kod örneğini [GitHub'da Kaynak Belirteç Aracısı](https://aka.ms/documentdb-xamarin-todouser)’nda bulabilirsiniz. Bu diyagramda çözüm gösterilir:
 
 ![Azure Cosmos DB kullanıcılar ve izinler aracısı](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

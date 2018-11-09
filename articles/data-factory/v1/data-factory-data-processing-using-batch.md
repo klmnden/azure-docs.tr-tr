@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238531"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -61,9 +61,9 @@ Veri Fabrikası yerleşik etkinlikler içerir. Örneğin, kopyalama etkinliği, 
 ## <a name="architecture-of-a-sample-solution"></a>Örnek bir çözüm mimarisi
   Bu makalede açıklanan mimarisi için basit bir çözümdür. Finansal Hizmetler, görüntü işleme ve işleme ve genetik analiz modelleme risk gibi karmaşık senaryolar için de geçerlidir.
 
-Data Factory veri taşıma ve işleme nasıl düzenler diyagramda gösterilmektedir. Ayrıca, toplu verileri paralel bir şekilde nasıl işleyeceğini gösterir. Karşıdan yükleyip diyagramı (11 x 17 inç veya A3 boyutu) bir kolayca başvurmak için yazdırın. Böylece, yazdırabilirsiniz diyagram erişmek için bkz [Batch ve Data Factory kullanarak HPC ve veri düzenleme](http://go.microsoft.com/fwlink/?LinkId=717686).
+Data Factory veri taşıma ve işleme nasıl düzenler diyagramda gösterilmektedir. Ayrıca, toplu verileri paralel bir şekilde nasıl işleyeceğini gösterir. Karşıdan yükleyip diyagramı (11 x 17 inç veya A3 boyutu) bir kolayca başvurmak için yazdırın. Böylece, yazdırabilirsiniz diyagram erişmek için bkz [Batch ve Data Factory kullanarak HPC ve veri düzenleme](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Büyük ölçekli veri işleme diyagramı](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Büyük ölçekli veri işleme diyagramı](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 Aşağıdaki listede işleminin temel adımları sağlar. Çözüm, kod ve uçtan uca çözümü derlemek için açıklamaları içerir.
 

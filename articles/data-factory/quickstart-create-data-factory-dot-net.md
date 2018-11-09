@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 25a1913fba3e66e65b3c785eb6ce1738c5f00a26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954802"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247934"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 Bu makaledeki kılavuzda Visual Studio 2017 kullanılır. Visual Studio 2013 veya 2015 de kullanabilirsiniz.
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK’sı
-[Azure .NET SDK’sını](http://azure.microsoft.com/downloads/) indirip makinenize yükleyin.
+[Azure .NET SDK’sını](https://azure.microsoft.com/downloads/) indirip makinenize yükleyin.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
 Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) bölümlerde yer alan yönergeleri izleyin: 

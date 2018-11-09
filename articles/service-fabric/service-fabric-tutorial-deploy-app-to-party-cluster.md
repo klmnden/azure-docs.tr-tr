@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388237"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249090"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric uygulamasını kümeye dağıtma
 
@@ -87,7 +87,7 @@ Azure aboneliğiniz için, Azure'da [PowerShell betiği](./scripts/service-fabri
 
 Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleri olup Service Fabric ekibi tarafından çalıştırılır. Uygulama dağıtma ve platform hakkında bilgi edinme işlemleri herkes tarafından gerçekleştirilebilir. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır.
 
-Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). PFX sertifikasını bilgisayarınıza indirmek için **PFX** bağlantısını seçin. **Güvenli Grup kümesine bağlanma** bağlantısını seçin ve sertifika parolasını kopyalayın. Aşağıdaki adımlarda sertifika, sertifika parolası ve **Bağlantı uç noktası** değeri kullanılır.
+Oturum açın ve [bir Windows kümesine katılın](https://aka.ms/tryservicefabric). PFX sertifikasını bilgisayarınıza indirmek için **PFX** bağlantısını seçin. **Güvenli Grup kümesine bağlanma** bağlantısını seçin ve sertifika parolasını kopyalayın. Aşağıdaki adımlarda sertifika, sertifika parolası ve **Bağlantı uç noktası** değeri kullanılır.
 
 ![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

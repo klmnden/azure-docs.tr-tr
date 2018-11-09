@@ -2,18 +2,18 @@
 title: Sanal ağ - Azure HDInsight'ı genişletin
 description: HDInsight, diğer bulut kaynaklarını veya, veri merkezinizdeki kaynaklarına bağlanmak için Azure sanal ağ kullanmayı öğrenin
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 11/06/2018
+ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945765"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238990"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -25,7 +25,7 @@ HDInsight ile kullanmayı öğrenin bir [Azure sanal ağı](../virtual-network/v
 
 * HDInsight verilerine bağlantı kurma, bir Azure sanal ağında depolar.
 
-* Doğrudan genel internet üzerinden kullanılabilir olmayan Hadoop hizmetlerine erişme. Örneğin, Kafka API'lerin veya HBase Java API'si.
+* Doğrudan genel internet üzerinden kullanılabilir olmayan Apache Hadoop hizmetlerine erişme. Örneğin, Kafka API'lerin veya HBase Java API'si.
 
 > [!WARNING]
 > Bu belgedeki bilgiler, TCP/IP ağ'ın bilinmesini gerektirir. TCP/IP ağ bağlantısı ile ilgili bilgi sahibi değilseniz, üretim ağları için değişiklik yapmadan önce olan bir kullanıcıyla ortak.
@@ -64,7 +64,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
 
     Birleştirilmiş sonra Resource Manager ağında yüklü HDInsight Klasik ağ içindeki kaynaklarla etkileşim kurabilir.
 
-2. Zorlamalı tünel kullanıyor musunuz? Zorlamalı tünel, giden Internet trafiği İnceleme için bir cihaz için zorlayan bir alt ağ ayarı ve günlük kaydı değildir. HDInsight, zorlamalı tünel desteklemez. Zorlamalı tünel bir alt ağa HDInsight'ı yüklemeden önce kaldırın veya HDInsight için yeni bir alt ağ oluşturun.
+2. Zorlamalı tünel kullanıyor musunuz? Zorlamalı tünel, giden Internet trafiği İnceleme için bir cihaz için zorlayan bir alt ağ ayarı ve günlük kaydı değildir. HDInsight, zorlamalı tünel desteklemez. HDInsight, var olan bir alt ağa dağıtmadan önce bir zorlamalı tünel kaldırın veya hiçbir zorlamalı tünel için HDInsight ile yeni bir alt ağ oluşturun.
 
 3. İçine veya dışına sanal ağ trafiği kısıtlamak için ağ güvenlik grupları, kullanıcı tanımlı yollar ve ağ sanal Gereçleri kullanıyorsunuz?
 
@@ -121,7 +121,7 @@ En büyük güçlük birden çok ağ yapılandırmasına sahip ağlar arasında 
 
 Azure sanal ağında yüklü olan Azure Hizmetleri için ad çözümleme sağlar. HDInsight, tam etki alanı adını (FQDN) kullanarak aşağıdaki kaynaklara bağlanmak bu yerleşik ad çözümlemesi sağlar:
 
-* İnternet üzerinde kullanılabilir olan herhangi bir kaynaktır. Örneğin, microsoft.com, google.com.
+* İnternet üzerinde kullanılabilir olan herhangi bir kaynaktır. Örneğin, microsoft.com, windowsupdate.com.
 
 * Aynı Azure sanal ağında, kullanarak herhangi bir kaynağa __iç DNS ad__ kaynak. Örneğin, varsayılan ad çözümlemesi kullanırken, örnek HDInsight çalışan düğümlerine atanan iç DNS adları şunlardır:
 
@@ -173,7 +173,7 @@ Daha fazla bilgi için [VM'ler ve rol örnekleri için ad çözümlemesi](../vir
 
 ## <a name="directly-connect-to-hadoop-services"></a>Hadoop Hizmetleri doğrudan bağlanın
 
-Konumundaki kümeye bağlanabilirsiniz https://CLUSTERNAME.azurehdinsight.net. Bu adres, internet'ten gelen trafiği kısıtlamak için Nsg veya Udr'ler kullandıysanız, erişilebilir olmayabilir genel bir IP kullanır. Bir sanal ağda küme dağıttığınızda ek olarak, özel uç nokta kullanarak erişebileceğiniz https://CLUSTERNAME-int.azurehdinsight.net. Bu uç nokta kümesi erişim için sanal ağ içinde bir özel IP çözümler.
+Konumundaki kümeye bağlanabilirsiniz https://CLUSTERNAME.azurehdinsight.net. Bu adres, internet'ten gelen trafiği kısıtlamak için Nsg kullandıysanız erişilebilir olmayabilir genel bir IP kullanır. Bir sanal ağda küme dağıttığınızda ek olarak, özel uç nokta kullanarak erişebileceğiniz https://CLUSTERNAME-int.azurehdinsight.net. Bu uç nokta kümesi erişim için sanal ağ içinde bir özel IP çözümler.
 
 Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağıdaki adımları kullanın:
 
@@ -213,13 +213,13 @@ Aşağıdaki yöntemleri kullanarak bir Azure sanal ağlarda ağ trafiğini dene
 * **Ağ güvenlik grupları** (NSG) ağa gelen ve giden trafiği filtrelemenize olanak tanır. Daha fazla bilgi için [ağ güvenlik grupları ile ağ trafiğini filtreleme](../virtual-network/security-overview.md) belge.
 
     > [!WARNING]
-    > HDInsight, giden trafiği kısıtlama desteklemez.
+    > HDInsight, giden trafiği kısıtlama desteklemez. Tüm giden trafiğe izin verilmesi.
 
 * **Kullanıcı tanımlı yollar** (UDR) ağdaki kaynakları arasındaki trafiğin nasıl akacağını tanımlayın. Daha fazla bilgi için [kullanıcı tanımlı yollar ve IP iletme](../virtual-network/virtual-networks-udr-overview.md) belge.
 
 * **Ağ sanal Gereçleri** cihazların güvenlik duvarları ve yönlendiriciler gibi çoğaltın. Daha fazla bilgi için [ağ Gereçleri](https://azure.microsoft.com/solutions/network-appliances) belge.
 
-Yönetilen bir hizmet olarak HDInsight, Azure sistem durumu ve Yönetim Hizmetleri Azure bulutunda sınırsız erişim gerektirir. Nsg'leri ve Udr kullanırken HDInsight hizmetlerin hala HDInsight ile iletişim kurabildiğinden emin olmanız gerekir.
+Yönetilen bir hizmet olarak HDInsight, Hdınsight sistem sınırsız erişim gerektirir ve sanal ağdan gelen ve giden trafiği için hem de Yönetim Hizmetleri. Nsg'leri ve Udr kullanırken, bu hizmetler HDInsight kümesiyle iletişim kurabildiğinden emin olmanız gerekir.
 
 HDInsight, çeşitli bağlantı noktaları üzerinde hizmetleri sunar. Güvenlik Duvarı sanal Gereci kullanırken, bu hizmetler için kullanılan bağlantı noktalarında trafiğe izin vermeniz gerekir. Daha fazla bilgi için [gerekli bağlantı noktaları] bölümüne bakın.
 
@@ -233,8 +233,8 @@ Kullanmayı planlıyorsanız **ağ güvenlik grupları** veya **kullanıcı tan�
 
 3. Oluşturun veya ağ güvenlik grupları veya kullanıcı tanımlı yollar ile HDInsight'ı yüklemeyi planladığınız alt ağ için değiştirin.
 
-    * __Ağ güvenlik grupları__: izin __gelen__ bağlantı noktası üzerinde trafiğe __443__ IP adresleri.
-    * __Kullanıcı tanımlı yollar__: her IP adresi için bir yol oluşturmak ve ayarlamak __sonraki atlama türü__ için __Internet__.
+    * __Ağ güvenlik grupları__: izin __gelen__ bağlantı noktası üzerinde trafiğe __443__ IP adresleri. Bu durum, HDI Yönetim Hizmetleri, dış sanal ağdan küme erişebildiğini garanti eder.
+    * __Kullanıcı tanımlı yollar__: Udr'ler kullanmayı planlıyorsanız, her IP adresi için yönlendirme oluşturma ve ayarlama __sonraki atlama türü__ için __Internet__. Ayrıca, hiçbir kısıtlama olmaksızın sanal ağdan herhangi bir giden trafiğe izin vermelidir. Örneğin, izleme amacıyla (Azure'da barındırılan), Azure güvenlik duvarı veya ağ sanal Gereci için diğer tüm trafiği yönlendirebilirsiniz ancak giden trafiği engellenmemesi gerekir.
 
 Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
@@ -242,9 +242,9 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla b
 
 * [Kullanıcı tanımlı yollar](../virtual-network/virtual-networks-udr-overview.md)
 
-#### <a name="forced-tunneling"></a>Zorlamalı tünel oluşturma
+#### <a name="forced-tunneling-to-on-premise"></a>Şirket içi zorlamalı
 
-Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin bir alt ağdan belirli ağ veya şirket içi ağınız gibi konuma zorlanır yapılandırmadır. HDInsight mu __değil__ destek zorlamalı tünel oluşturma.
+Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin bir alt ağdan belirli ağ veya şirket içi ağınız gibi konuma zorlanır yapılandırmadır. HDInsight mu __değil__ destek zorlamalı tünel şirket içi ağlara. Azure güvenlik duvarı veya Azure'da barındırılan bir ağ sanal Gereci kullanıyorsanız, trafiği için izleme amacıyla yönlendirmek ve tüm giden trafiğe izin vermek için Udr'ler kullanabilirsiniz.
 
 ## <a id="hdinsight-ip"></a> Gerekli IP adresleri
 

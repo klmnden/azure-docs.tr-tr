@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387456"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247798"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 
@@ -201,7 +201,7 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 ### <a name="tools-and-utilities"></a>Araçlar ve Yardımcı Programlar
 * [Depolama için Azure PowerShell Cmdlet'leri](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Depolama için Azure CLI Cmdlet'leri](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy Komut Satırı Yardımcı Programı](http://aka.ms/downloadazcopy)
+* [AzCopy Komut Satırı Yardımcı Programı](https://aka.ms/downloadazcopy)
 * [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 * [Azure Depolama İstemcisi Araçları](../storage-explorers.md)
 * [Azure Geliştirici Araçları](https://azure.microsoft.com/tools/)

@@ -1,6 +1,6 @@
 ---
-title: 'ExpressRoute için bir sanal ağa bir sanal ağ geçidi eklemek: PowerShell: Azure | Microsoft Docs'
-description: Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i ExpressRoute için sanal ağ geçidine eklerken size yol gösterilir.
+title: 'ExpressRoute için sanal ağ geçidi bir sanal ağa ekleyin: PowerShell: Azure | Microsoft Docs'
+description: Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i ExpressRoute için bir VNet ağ geçidinin eklerken size yol gösterir.
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: charwen
-ms.openlocfilehash: 3aeddd03e0be548933775164ae790ba208fc13ae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 32e49a11b02afedf69e5aa61ca2f626ffe5a125e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23850626"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239585"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>PowerShell kullanarak ExpressRoute için sanal ağ geçidi yapılandırma
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portalı](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Klasik - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Video - Azure portalı](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [Video - Azure portalı](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
-Bu makalede, eklemek, yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidini kaldırmak için adım adım anlatılmaktadır. Bu yapılandırma için özellikle bir expressroute bağlantı yapılandırmasında kullanılacak Resource Manager dağıtım modeli kullanılarak oluşturulan sanal ağlar için adımlardır. Sanal ağ geçitleri ve ExpressRoute ağ geçidi yapılandırma ayarları hakkında daha fazla bilgi için bkz: [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md). 
+Bu makalede ekleme, yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidini kaldırmak için adımlarında size kılavuzluk eder. Bu yapılandırma için özel bir ExpressRoute yapılandırmasında kullanılan Resource Manager dağıtım modeli kullanılarak oluşturulan sanal ağlar için aynıdır. Sanal ağ geçidi ve ExpressRoute için ağ geçidi yapılandırma ayarları hakkında daha fazla bilgi için bkz: [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md). 
 
 
 ## <a name="before-beginning"></a>Başlamadan önce
-En son Azure PowerShell cmdlet'lerini yüklü olduğunu doğrulayın. En son cmdlet'leri yüklemediyseniz yapılandırma adımlarına başlamadan önce bunu yapmanız gerekir. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
+En son Azure PowerShell cmdlet'lerini yüklediğinizden emin olun. En son cmdlet'leri yüklemediyseniz, bunu yapılandırma adımlarına başlamadan önce yapmanız gerekir. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-VNet ağ geçidini oluşturduktan sonra bir expressroute bağlantı hattı ağınıza bağlayabilirsiniz. Bkz: [bir expressroute bağlantı hattı için bir sanal ağ bağlantı](expressroute-howto-linkvnet-arm.md).
+VNet ağ geçidinin oluşturduktan sonra ağınız bir ExpressRoute bağlantı hattına bağlayabilirsiniz. Bkz: [bir sanal ağı ExpressRoute devresine bağlama](expressroute-howto-linkvnet-arm.md).
 

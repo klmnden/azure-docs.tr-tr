@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055875"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237973"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
 
-Bu makalede Resource Manager modeli Azure sanal makinelerinde bir SQL Server Yük devretme kümesi örneği (FCI) oluşturmayı açıklar. Bu çözümü kullanan [depolama alanları doğrudan Windows Server 2016 Datacenter edition \(S2D\) ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) (veri diskleri) depolama (Azure Vm'leri) düğümler arasında eşitlenen bir yazılım tabanlı sanal SAN olarak bir Windows Küme. S2d'yi, Windows Server 2016'da yenidir.
+Bu makalede Resource Manager modeli Azure sanal makinelerinde bir SQL Server Yük devretme kümesi örneği (FCI) oluşturmayı açıklar. Bu çözümü kullanan [depolama alanları doğrudan Windows Server 2016 Datacenter edition \(S2D\) ](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) (veri diskleri) depolama (Azure Vm'leri) düğümler arasında eşitlenen bir yazılım tabanlı sanal SAN olarak bir Windows Küme. S2d'yi, Windows Server 2016'da yenidir.
 
 Aşağıdaki diyagramda, Azure sanal makinelerinde tam çözümünü gösterilmektedir:
 
@@ -44,7 +44,7 @@ Yukarıdaki diyagramda gösterilmektedir:
    >[!NOTE]
    >Tüm Azure kaynaklarını diyagramda olan aynı kaynak grubundaysa.
 
-S2D hakkında daha fazla ayrıntı için bkz: [depolama alanları doğrudan Windows Server 2016 Datacenter edition \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+S2D hakkında daha fazla ayrıntı için bkz: [depolama alanları doğrudan Windows Server 2016 Datacenter edition \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 İki tür mimarileri - yakınsanmış ve hiper yakınsama s2d'yi destekler. Bu belgedeki hiper yakınsanmış bir mimaridir. Bir hiper yakınsama altyapısı, kümelenmiş uygulamanızı barındıran sunucularda depolama yerleştirir. Bu mimaride, her bir SQL Server FCI düğümde depolamadır.
 
@@ -52,13 +52,13 @@ S2D hakkında daha fazla ayrıntı için bkz: [depolama alanları doğrudan Wind
 
 Azure sanal Makineler'de Kullandıkça Öde (PAYG) kullanarak SQL Server Lisansı veya kendi lisansını getir (KLG) VM görüntüleri. Seçtiğiniz görüntü türünü nasıl ücretlendirilir etkiler.
 
-PAYG lisansı ile Azure Virtual Machines'de SQL Server Yük devretme kümesi örneği (FCI) FCI pasif düğümler dahil olmak üzere, tüm düğümlerinin ücreti alınmaz. Daha fazla bilgi için [SQL Server Enterprise sanal makineleri fiyatlandırması](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+PAYG lisansı ile Azure Virtual Machines'de SQL Server Yük devretme kümesi örneği (FCI) FCI pasif düğümler dahil olmak üzere, tüm düğümlerinin ücreti alınmaz. Daha fazla bilgi için [SQL Server Enterprise sanal makineleri fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Kurumsal Anlaşma Yazılım Güvencesi olan müşteriler ücretsiz pasif FCI düğüm etkin her düğüm için kullanılacak doğru olması. Azure bu Avantajdan yararlanmak için KLG VM görüntülerini kullanmak ve ardından her iki etkin ve Pasif düğümde FCI'ın aynı lisans'ı kullanın. Daha fazla bilgi için [Kurumsal Anlaşma](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Kurumsal Anlaşma Yazılım Güvencesi olan müşteriler ücretsiz pasif FCI düğüm etkin her düğüm için kullanılacak doğru olması. Azure bu Avantajdan yararlanmak için KLG VM görüntülerini kullanmak ve ardından her iki etkin ve Pasif düğümde FCI'ın aynı lisans'ı kullanın. Daha fazla bilgi için [Kurumsal Anlaşma](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
 
 Azure Virtual Machines'de SQL Server için lisanslama PAYG ve KLG Karşılaştırılacak bakın [SQL Vm'lerini kullanmaya başlayın](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
-SQL Server lisanslama hakkında tam bilgi için bkz. [fiyatlandırma](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
+SQL Server lisanslama hakkında tam bilgi için bkz. [fiyatlandırma](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Örnek Azure şablonu
 
@@ -71,12 +71,12 @@ Bilmeniz gereken bazı noktalar ve birkaç yerde, önce devam şey vardır.
 ### <a name="what-to-know"></a>Bilinmesi gerekenler
 Aşağıdaki teknolojileri işletimsel bir anlayışa sahip olmalıdır:
 
-- [Windows Küme teknolojilerini](http://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server Yük devretme kümesi örnekleri](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows Küme teknolojilerini](https://technet.microsoft.com/library/hh831579.aspx)
+- [SQL Server Yük devretme kümesi örnekleri](https://msdn.microsoft.com/library/ms189134.aspx).
 
 Ayrıca, aşağıdaki teknolojileri genel bir anlayışa sahip olmalıdır:
 
-- [Windows Server 2016'da depolama alanları doğrudan kullanan hiper yakınsama çözümü](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Windows Server 2016'da depolama alanları doğrudan kullanan hiper yakınsama çözümü](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure kaynak grupları](../../../azure-resource-manager/resource-group-portal.md)
 
 > [!IMPORTANT]
@@ -225,11 +225,11 @@ Sonraki adım, yük devretme kümesi ile S2D yapılandırmaktır. Bu adımda, a�
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Başvuru için sonraki adımlara adım 3 / yönergeleri uygulayın. [Windows Server 2016'da depolama alanları doğrudan kullanan hiper yakınsama çözümü](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Başvuru için sonraki adımlara adım 3 / yönergeleri uygulayın. [Windows Server 2016'da depolama alanları doğrudan kullanan hiper yakınsama çözümü](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### <a name="validate-the-cluster"></a>Kümeyi doğrula
 
-Altında yönergeler bu kılavuzda başvurduğu [kümesi doğrulama](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+Altında yönergeler bu kılavuzda başvurduğu [kümesi doğrulama](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
 Küme kullanıcı arabirimini veya PowerShell ile doğrulayın.
 
@@ -259,7 +259,7 @@ Küme doğruladıktan sonra Yük devretme kümesi oluşturun.
 
 ### <a name="create-the-failover-cluster"></a>Yük devretme kümesi oluşturma
 
-Bu kılavuzda başvurduğu [yük devretme kümesi oluşturma](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Bu kılavuzda başvurduğu [yük devretme kümesi oluşturma](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 Yük devretme kümesi oluşturmak için ihtiyacınız vardır:
 - Küme düğümleri duruma sanal makinelerin adları.
@@ -276,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Bulut tanığı yeni bir Azure depolama Blobu'nda depolanan küme çekirdek tanığı türüdür. Bu, bir Tanık paylaşımı barındıran ayrı bir sanal makinenin ihtiyacını ortadan kaldırır.
 
-1. [Yük devretme kümesi için bulut tanığı oluşturma](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Yük devretme kümesi için bulut tanığı oluşturma](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
 1. Bir blob kapsayıcı oluşturun.
 
 1. Erişim anahtarları ve kapsayıcı URL'si kaydedin.
 
-1. Yük devretme kümesi çekirdek tanığı yapılandırın. Bkz, [çekirdek tanığı yapılandırma kullanıcı arabiriminde](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) kullanıcı arabiriminde.
+1. Yük devretme kümesi çekirdek tanığı yapılandırın. Bkz, [çekirdek tanığı yapılandırma kullanıcı arabiriminde](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) kullanıcı arabiriminde.
 
 ### <a name="add-storage"></a>Depolama ekleme
 
-S2D için diskler boş ve bölümler veya başka veri içermemesi gerekir. Temizlemek için diskleri izleyin [bu kılavuzdaki adımları](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+S2D için diskler boş ve bölümler veya başka veri içermemesi gerekir. Temizlemek için diskleri izleyin [bu kılavuzdaki adımları](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Alanları doğrudan etkinleştir Store \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Alanları doğrudan etkinleştir Store \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Aşağıdaki PowerShell depolama alanları doğrudan'ı etkinleştirir.  
 
@@ -298,7 +298,7 @@ S2D için diskler boş ve bölümler veya başka veri içermemesi gerekir. Temiz
 
    İçinde **yük devretme kümesi Yöneticisi**, artık depolama havuzu görebilirsiniz.
 
-1. [Birim oluşturma](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Birim oluşturma](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    S2D özelliklerden biri, etkinleştirdiğinizde, otomatik olarak bir depolama havuzu oluşturmasıdır. Birim oluşturmak artık hazırsınız. PowerShell komutu `New-Volume` biçimlendirme, kümeye ekleme ve Küme Paylaşılan birimi (CSV) oluşturma gibi birim oluşturma işlemini otomatikleştirir. Aşağıdaki örnek, bir 800 gigabayt (GB) CSV oluşturur.
 
@@ -343,7 +343,7 @@ Yük devretme kümesi ve depolama da dahil olmak üzere tüm küme bileşenleri 
 1. Tıklayın **bir SQL Server Yük devretme kümesine Ekle düğüm**. SQL server yükleyin ve FCI için bu sunucuyu eklemek için sihirbazdaki yönergeleri izleyin.
 
    >[!NOTE]
-   >SQL Server ile Azure Market Galerisi görüntüye kullandıysanız, SQL Server araçları görüntüsüne dahil. Bu görüntü kullanmadıysanız, SQL Server araçlarını ayrı olarak yükleyin. Bkz: [SQL Server Management Studio'yu (SSMS) indirme](http://msdn.microsoft.com/library/mt238290.aspx).
+   >SQL Server ile Azure Market Galerisi görüntüye kullandıysanız, SQL Server araçları görüntüsüne dahil. Bu görüntü kullanmadıysanız, SQL Server araçlarını ayrı olarak yükleyin. Bkz: [SQL Server Management Studio'yu (SSMS) indirme](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="step-5-create-azure-load-balancer"></a>5. adım: Azure yük dengeleyici oluşturma
 
@@ -478,7 +478,7 @@ Yük devretme küme işlevselliğini doğrulamak için FCI testi. Aşağıdaki a
 Bağlantıyı test etmek için aynı sanal ağdaki başka bir sanal makinede oturum açın. Açık **SQL Server Management Studio** ve SQL Server FCI adına bağlanın.
 
 >[!NOTE]
->Gerekirse, yapabilecekleriniz ise [SQL Server Management Studio'yu indirme](http://msdn.microsoft.com/library/mt238290.aspx).
+>Gerekirse, yapabilecekleriniz ise [SQL Server Management Studio'yu indirme](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Sınırlamalar
 
@@ -491,10 +491,10 @@ Azure sanal makinelerinde MSDTC Windows Server 2016 ve önceki sürümleri için
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-[Kurulum s2d'yi Uzak Masaüstü (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[Kurulum s2d'yi Uzak Masaüstü (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Depolama alanları doğrudan ile hiper yakınsama çözümü](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Depolama alanları doğrudan ile hiper yakınsama çözümü](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Depolama alanına doğrudan genel bakış](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Depolama alanına doğrudan genel bakış](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [S2d'yi SQL Server desteği](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

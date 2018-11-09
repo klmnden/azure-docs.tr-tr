@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434764"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238157"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için veri koruma stratejisini tanımlayın
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için veri koruma stratejisi tanımlarsınız:
@@ -74,7 +74,7 @@ Hangi kaynak kimin erişmekte olduğunu anlamak için içerik yönetiminin önem
 * Ekleme veya kaldırma lisansları
 
 > [!NOTE]
-> Okuma [Microsoft Azure güvenlik ve Denetim Günlüğü Yönetimi](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) azure'da günlüğe kaydetme özellikleri hakkında daha fazla bilgi edinmek için.
+> Okuma [Microsoft Azure güvenlik ve Denetim Günlüğü Yönetimi](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) azure'da günlüğe kaydetme özellikleri hakkında daha fazla bilgi edinmek için.
 > Nasıl sorulara verdiğiniz yanıtlara bağlı olarak [içerik yönetimi gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), karma kimlik çözümünüzde yönetilecek içeriği istediğiniz belirlemek mümkün olması gerekir. Tüm seçenekleri Tablo 6'da sunulan Azure AD ile tümleştirilebilen olsa da, iş gereksinimlerinize daha uygun olduğu tanımlamak önemlidir.
 >
 >

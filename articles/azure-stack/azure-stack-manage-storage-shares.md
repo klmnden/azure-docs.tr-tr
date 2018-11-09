@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452335"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249906"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack için depolama kapasitesi yönetme 
 
@@ -77,7 +77,7 @@ Ekli bir kapsayıcısı üzerinde alan boşaltmak için seçenekleri [sınırlı
 ## <a name="monitor-shares"></a>İzleyici paylaşımları
 Boş alan sınırlı olduğunda anlayabilmeniz paylaşımları izlemek için PowerShell veya Yönetim Portalı'nı kullanın. Portalı kullandığınızda, alan düşük paylaşımlar hakkında uyarılar alırsınız.    
 
-### <a name="use-powershell"></a>PowerShell kullanma
+### <a name="use-powershell"></a>PowerShell'i kullanma
 Bulut operatörü olarak, PowerShell kullanarak bir paylaşım depolama kapasitesini izleyebilirsiniz **Get-AzsStorageShare** cmdlet'i. Get-AzsStorageShare cmdlet toplam, ayrılmış ve boş alan bayt cinsinden her paylaşımları döndürür.   
 ![Örnek: paylaşımları için boş alan döndürür](media/azure-stack-manage-storage-shares/free-space.png)
 
@@ -138,7 +138,7 @@ Geçiş tüm kapsayıcıları blob üzerinde yeni bir paylaşım birleştirir.
 > BLOB kapsayıcı için geçiş PowerShell kullanılmasını gerektiren bir çevrimdışı bir işlemdir. Geçiş işlemi tamamlanana kadar tüm bloblar için geçirdiğiniz kapsayıcı çevrimdışı kalır ve kullanılamaz. Ayrıca, tüm devam eden Geçiş tamamlanana kadar Azure Stack yükseltme kaçınmanız gerekir.
 
 #### <a name="to-migrate-containers-using-powershell"></a>PowerShell kullanarak kapsayıcıları geçirmek için
-1. Sahip olduğunuzu onaylamak [Azure PowerShell yüklenmiş ve yapılandırılmış](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Daha fazla bilgi için bkz. [Azure PowerShell'i Azure Resource Manager ile kullanma](http://go.microsoft.com/fwlink/?LinkId=394767).
+1. Sahip olduğunuzu onaylamak [Azure PowerShell yüklenmiş ve yapılandırılmış](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Daha fazla bilgi için bkz. [Azure PowerShell'i Azure Resource Manager ile kullanma](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Geçirmeyi planladığınız paylaşımında verilerin ne olduğunu anlamak için kapsayıcı inceleyin. Bir birimi geçiş için en iyi aday kapsayıcıları tanımlamak için kullanmak **Get-AzsStorageContainer** cmdlet:
 
     ````PowerShell  

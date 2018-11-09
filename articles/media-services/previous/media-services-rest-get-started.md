@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: fbfb52b758089acf65f89c62f716d46d62b0f289
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233829"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237613"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST kullanarak isteğe bağlı içerik göndermeye başlama
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -460,7 +460,7 @@ Aşağıdaki kod Kodlayıcısı'nın kimliği ister.
 ### <a name="create-a-job"></a>Bir iş oluşturma
 Bir veya daha fazla görevi gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işlerini ve görevlerini ilgili iki yoldan biriyle oluşturabilirsiniz: görevleri tanımlı satır içi OData toplu işlem veya iş varlıkları görevleri gezinti özelliği aracılığıyla olabilir. Media Services SDK'sı, toplu işlem kullanır. Ancak, bu makaledeki kod örnekleri okunabilirlik açısından, satır içi olarak tanımlanan görevlerdir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-Aşağıdaki örnek nasıl oluşturulacağı ve bir görev belirli bir çözümleme ve kaliteli video kodlamak için ayarlama işlemiyle sonrası gösterir. Aşağıdaki bir belge bölümü tüm listesini içeren [görev ön ayarları](http://msdn.microsoft.com/library/mt269960) Media Encoder Standard işlemcisi tarafından desteklenir.  
+Aşağıdaki örnek nasıl oluşturulacağı ve bir görev belirli bir çözümleme ve kaliteli video kodlamak için ayarlama işlemiyle sonrası gösterir. Aşağıdaki bir belge bölümü tüm listesini içeren [görev ön ayarları](https://msdn.microsoft.com/library/mt269960) Media Encoder Standard işlemcisi tarafından desteklenir.  
 
 **HTTP isteği**
 
