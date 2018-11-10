@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365243"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245078"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Data Box Disk'i dağıtma (Önizleme)
 
@@ -31,11 +31,11 @@ Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free
 
 Başlamadan önce:
 
-- Aboneliğinizde Azure Data Box hizmetinin etkinleştirildiğinden emin olun. Bu hizmeti aboneliğinizde etkinleştirmek için bkz. [Hizmete kaydolma](http://aka.ms/azuredataboxfromdiskdocs).
+- Aboneliğinizde Azure Data Box hizmetinin etkinleştirildiğinden emin olun. Bu hizmeti aboneliğinizde etkinleştirmek için bkz. [Hizmete kaydolma](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs) adresinden Azure portalında oturum açın.
+[http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs) adresinden Azure portalında oturum açın.
 
 ## <a name="order"></a>Sipariş verme
 
@@ -70,11 +70,11 @@ Bu adım yaklaşık 5 dakika sürer.
     3. Data Box Disk kilit açma aracını çalıştırın ve destek anahtarını sağlayın. Yeniden takılan tüm diskler için kilit açma aracını tekrar çalıştırın ve destek anahtarını sağlayın. **Disk kilidini açmak için BitLocker iletişim kutusunu veya BitLocker anahtarını kullanmayın.** Disk kilitlerinin açılması hakkında daha fazla bilgi için, [Windows istemcisinde disk kilidi açma]()'ya veya [Linux istemcisinde disk kilidi açma]()'ya gidin.
     4. Diske araç tarafından atanan sürücü harfi görüntülenir. Disk sürücü harfini not edin. Bu harf sonraki adımlarda kullanılacaktır.
 
-## <a name="copy-data-and-verify"></a>Verileri kopyalama ve doğrulama
+## <a name="copy-data-and-validate"></a>Verileri kopyalama ve doğrulama
 
 Bu işlemi tamamlamak için gereken süre verilerinizin boyutuna göre değişir. 
 
-1. Sürücüde *PageBlob*, *BlockBlob* ve *AzureImportExport* klasörleri bulunur. Blok blobu olarak içeri aktarılması gereken verileri sürükleyip *BlockBlob* klasörüne bırakın. Benzer şekilde VHD/VHDX gibi verileri de sürükleyip *PageBlob* klasörüne bırakın.
+1. Sürücüde *PageBlob*, *BlockBlob* ve *DataBoxDiskImport* klasörleri bulunur. Blok blobu olarak içeri aktarılması gereken verileri sürükleyip *BlockBlob* klasörüne bırakın. Benzer şekilde VHD/VHDX gibi verileri de sürükleyip *PageBlob* klasörüne bırakın.
 
     *BlockBlob* ve *PageBlob* klasörlerinin altındaki her klasör için Azure depolama hesabında bir kapsayıcı oluşturulur. *BlockBlob* ve *PageBlob* klasörlerinin altındaki tüm dosyalar Azure Depolama hesabındaki varsayılan `$root` kapsayıcısına kopyalanır.
 
@@ -82,7 +82,7 @@ Bu işlemi tamamlamak için gereken süre verilerinizin boyutuna göre değişir
     > - Tüm kapsayıcıların ve blobların [Azure adlandırma kurallarına](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions) uygun olması gerekir. Bu kurallara uyulmaması halinde veriler Azure'a yüklenemez.
     > - Dosya boyutlarının blok blobları için en fazla ~4,75 TiB, sayfa blobları için ise en fazla ~8 TiB olduğundan emin olun.
 
-2. (İsteğe bağlı) Kopyalama işlemini tamamladıktan sonra *AzureImportExport* klasöründe bulunan `DataBoxDiskValidation.cmd` uygulamasını çalıştırarak doğrulama için sağlama toplamı oluşturmanız önerilir. Bu adım verilerinizin boyutuna bağlı olarak uzun sürebilir. 
+2. (İsteğe bağlı) Kopyalama işlemini tamamladıktan sonra *DataBoxDiskImport* klasöründe bulunan `DataBoxDiskValidation.cmd` uygulamasını çalıştırarak doğrulama için sağlama toplamı oluşturmanız önerilir. Bu adım verilerinizin boyutuna bağlı olarak uzun sürebilir. 
 3. Sürücüyü çıkarın. 
 
 

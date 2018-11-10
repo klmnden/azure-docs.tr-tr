@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466163"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244109"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -92,7 +92,7 @@ Aşağıdaki yönergeleri kullanarak gizli döndürmeye çalışıyor, bu uyarı
 5.  Bir geri dönüş güvenli yedekleme konumu için kullanılan sertifikaları kadar Store. Döndürme çalıştırır ve ardından başarısız olursa, dönüş yeniden çalıştırmadan önce dosya paylaşımında sertifika yedek kopyaları değiştirin. Unutmayın, yedek kopyaları güvenli yedekleme yerde saklayın.
 6.  ERCS Vm'lerden erişebileceğiniz bir dosya paylaşımı oluşturun. Dosya Paylaşımı okunabilir ve yazılabilir için **CloudAdmin** kimlik.
 7.  PowerShell ISE konsolunda paylaşımına erişimine sahip olduğu bir bilgisayardan açın. Dosya paylaşımına gidin. 
-8.  Çalıştırma **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** , dış sertifikalar için gerekli dizini oluşturmak için.
+8.  Çalıştırma **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** , dış sertifikalar için gerekli dizini oluşturmak için.
 
 ## <a name="rotating-external-and-internal-secrets"></a>İç ve dış gizli anahtarları döndürme
 
@@ -165,7 +165,7 @@ Başlangıç SecretRotation cmdlet'i, bir Azure Stack sisteminin altyapı gizli 
  
 ### <a name="parameters"></a>Parametreler
 
-| Parametre | Tür | Gerekli | Konum | Varsayılan | Açıklama |
+| Parametre | Tür | Gerekli | Konumu | Varsayılan | Açıklama |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Dize  | False  | adlı  | None  | Fileshare yolu **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları veya tüm gizli dizilerin döndürürken gereklidir. Son dizin olmalıdır **\Certificates**. |
 | CertificatePassword | SecureString | False  | adlı  | None  | -PfXFilesPath sağlanan tüm sertifikalar için parola. İç ve dış gizli anahtarları Döndürülmüş PfxFilesPath sağlanır değeri gereklidir. |

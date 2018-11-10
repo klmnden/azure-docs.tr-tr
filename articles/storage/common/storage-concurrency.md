@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 25de4f28d7516f5c7830b24e4c999ceb855a7759
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025329"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242985"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Depolama'da Eşzamanlılığı Yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -45,7 +45,7 @@ Bu işlem ana hat aşağıdaki gibidir:
 4. Blob geçerli ETag değeri ETag sürümünden farklı bir sürüm ise **IF-Match** hizmet isteği koşullu üstbilgisinde istemciye 412 hata döndürür. Bu, istemci için başka bir işlem olduğundan, istemci alınan blob güncelleştirdi gösterir.
 5. Blob geçerli ETag değeri ETag aynı sürüme ise **IF-Match** koşullu üstbilgisinde isteği, hizmet istenen işlemi gerçekleştirir ve bunu oluşturduğunu göstermek için blob geçerli ETag değeri güncelleştirir Yeni bir sürümü.  
 
-(İstemci depolama kitaplığı 4.2.0 kullanılarak) aşağıdaki C# kod parçacığı oluşturmak nasıl basit bir örneği gösterir. bir **IF-Match AccessCondition** ya da önceden bir blobun özelliklerinden erişilen ETag değere göre Alınan ya da eklenir. Ardından kullanır **AccessCondition** nesne blob güncelleştirdiğinde: **AccessCondition** nesnesi ekler **IF-Match** isteği üstbilgisi. Başka bir işlem blob güncelleştirdi, blob hizmeti bir HTTP 412 (önkoşul başarısız) durum iletisi döndürür. Tam örnek burada indirebilirsiniz: [Azure depolama kullanarak eşzamanlılığı yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+(İstemci depolama kitaplığı 4.2.0 kullanılarak) aşağıdaki C# kod parçacığı oluşturmak nasıl basit bir örneği gösterir. bir **IF-Match AccessCondition** ya da önceden bir blobun özelliklerinden erişilen ETag değere göre Alınan ya da eklenir. Ardından kullanır **AccessCondition** nesne blob güncelleştirdiğinde: **AccessCondition** nesnesi ekler **IF-Match** isteği üstbilgisi. Başka bir işlem blob güncelleştirdi, blob hizmeti bir HTTP 412 (önkoşul başarısız) durum iletisi döndürür. Tam örnek burada indirebilirsiniz: [Azure depolama kullanarak eşzamanlılığı yönetme](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -80,7 +80,7 @@ catch (StorageException ex)
 }  
 ```
 
-Depolama hizmeti için de destek koşullu ek üst bilgilere gibi içerir **If-Modified-Since**, **IF-değiştirilmemiş-Since** ve **If-None-Match** yanı bilgilerin birleşimleri. Daha fazla bilgi için [belirtme koşullu üstbilgileri Blob hizmeti işlemleri için](http://msdn.microsoft.com/library/azure/dd179371.aspx) MSDN'de.  
+Depolama hizmeti için de destek koşullu ek üst bilgilere gibi içerir **If-Modified-Since**, **IF-değiştirilmemiş-Since** ve **If-None-Match** yanı bilgilerin birleşimleri. Daha fazla bilgi için [belirtme koşullu üstbilgileri Blob hizmeti işlemleri için](https://msdn.microsoft.com/library/azure/dd179371.aspx) MSDN'de.  
 
 Aşağıdaki tabloda özetlenmiştir koşullu üst bilgileri gibi kabul kapsayıcısı işlemleri **IF-Match** istek ve yanıtta bir ETag değeri döndürür.  
 
@@ -122,11 +122,11 @@ Aşağıdaki tabloda özetlenmiştir koşullu üst bilgileri gibi kabul blob iş
 (*) ETag bir blob üzerinde kiralama Blob değiştirmez.  
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Bloblar için kötümser eşzamanlılık
-Özel kullanım için bir blob kilitlemek için edinebileceğinizi bir [kira](http://msdn.microsoft.com/library/azure/ee691972.aspx) üzerindeki. Bir kira, kiralama ne kadar süreyle ihtiyacınız belirtin: 15 ila 60 saniye veya özel bir kilit tutarları sonsuz, arasında bu için olabilir. Genişletmek için sınırlı bir kira yenileme yapabilir ve onunla tamamlandığında, herhangi bir kira serbest bırakabilirsiniz. Bu süre dolduğunda blob hizmetine otomatik olarak sınırlı kira serbest bırakır.  
+Özel kullanım için bir blob kilitlemek için edinebileceğinizi bir [kira](https://msdn.microsoft.com/library/azure/ee691972.aspx) üzerindeki. Bir kira, kiralama ne kadar süreyle ihtiyacınız belirtin: 15 ila 60 saniye veya özel bir kilit tutarları sonsuz, arasında bu için olabilir. Genişletmek için sınırlı bir kira yenileme yapabilir ve onunla tamamlandığında, herhangi bir kira serbest bırakabilirsiniz. Bu süre dolduğunda blob hizmetine otomatik olarak sınırlı kira serbest bırakır.  
 
 Kira bir yazma kilididir dahil olmak üzere desteklenmek, farklı eşitleme stratejileri etkinleştirme / yazma, okuma, özel paylaşılan / özel okuma ve yazma paylaşılan / özel okuyun. Bir kira var. burada depolama hizmeti özel yazma işlemlerini (put, ayarlama ve silme işlemleri) uygular. okuma işlemleri için özel kullanım olanağını sağlar ancak bir kira kimliği tüm istemci uygulamaları kullanır ve aynı anda yalnızca bir istemci olduğundan emin olmak Geliştirici gerektiren bir Geçerli bir kira kimliği Okuma işlemleri bir kira kimliği sonuç paylaşılan okumalar içermez.  
 
-Aşağıdaki C# kod parçacığı, 30 saniye olarak bir blob için bir özel kira alınıyor, blobun içeriğini güncelleştirme ve ardından kira serbest bir örnek gösterilmektedir. Blob hizmeti, zaten varsa geçerli bir kira blob üzerinde yeni bir kira çalıştığınızda, bir "HTTP (409) çakışma" durumu sonucunu döndürür. Aşağıdaki kod parçacığında bir **AccessCondition** depolama hizmeti blob güncelleştirmek için bir istek yaptığında kiralama bilgilerini kapsülleyen nesne.  Tam örnek burada indirebilirsiniz: [Azure depolama kullanarak eşzamanlılığı yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+Aşağıdaki C# kod parçacığı, 30 saniye olarak bir blob için bir özel kira alınıyor, blobun içeriğini güncelleştirme ve ardından kira serbest bir örnek gösterilmektedir. Blob hizmeti, zaten varsa geçerli bir kira blob üzerinde yeni bir kira çalıştığınızda, bir "HTTP (409) çakışma" durumu sonucunu döndürür. Aşağıdaki kod parçacığında bir **AccessCondition** depolama hizmeti blob güncelleştirmek için bir istek yaptığında kiralama bilgilerini kapsülleyen nesne.  Tam örnek burada indirebilirsiniz: [Azure depolama kullanarak eşzamanlılığı yönetme](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -155,7 +155,7 @@ catch (StorageException ex)
 }  
 ```
 
-Bir yazma işlemi kiralanmış blob kiralama kimliği geçmeden çalışırsanız, istek 412 bir hata ile başarısız olur. Çağırmadan önce kiralama süresi gerçekleştiriyorsanız **UploadText** yöntem, ancak yine de kira Kimliğini sağlamanız geçmek için istek ile de başarısız bir **412** hata. Kiralama bitiş süreleri ve kira kimliklerini yönetme hakkında daha fazla bilgi için bkz. [kira blob'u](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST belgeleri.  
+Bir yazma işlemi kiralanmış blob kiralama kimliği geçmeden çalışırsanız, istek 412 bir hata ile başarısız olur. Çağırmadan önce kiralama süresi gerçekleştiriyorsanız **UploadText** yöntem, ancak yine de kira Kimliğini sağlamanız geçmek için istek ile de başarısız bir **412** hata. Kiralama bitiş süreleri ve kira kimliklerini yönetme hakkında daha fazla bilgi için bkz. [kira blob'u](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST belgeleri.  
 
 Aşağıdaki blob işlemleri kiraları kötümser eşzamanlılık yönetmek için kullanabilirsiniz:  
 
@@ -191,9 +191,9 @@ Aşağıdaki kapsayıcı işlemleri kiraları kötümser eşzamanlılık yönetm
 
 Daha fazla bilgi için bkz.  
 
-* [Blob hizmeti işlemleri için koşullu üst bilgilerini belirtme](http://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Kira kapsayıcı](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Kira blob'u ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Blob hizmeti işlemleri için koşullu üst bilgilerini belirtme](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [Kira kapsayıcı](https://msdn.microsoft.com/library/azure/jj159103.aspx)
+* [Kira blob'u ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Tablo hizmetinde eşzamanlılığı yönetme
 Tablo hizmeti, iyimser eşzamanlılık varlıklar, açıkça iyimser eşzamanlılık denetimlerinin gerçekleştirmek için seçtiğiniz gerekir blob hizmeti farklı olarak çalıştığınız varsayılan davranış olarak denetler kullanır. Tablo ve blob hizmetleri arasında herhangi bir fark ile blob hizmeti kapsayıcıları ve blobları eşzamanlılık yönetebilirsiniz ise varlıkları eşzamanlılık davranışını yalnızca yönetebileceğiniz bir yerdir.  
@@ -208,7 +208,7 @@ Tablo hizmetinde bir varlık döndürür aldığınızda ETag değeri, iyimser e
 
 Blob hizmeti, tablo hizmeti eklemek istemci gerektiğini unutmayın bir **IF-Match** güncelleştirme isteği başlığı. Ancak, bir koşulsuz kullanmaya zorlamak mümkün müdür (son yazıcı WINS stratejisini) güncelleştirmek ve istemci ayarlarsa eşzamanlılık denetimlerinin atlama **IF-Match** joker karakter (*) istekteki üstbilgi.  
 
-Aşağıdaki C# kod parçacığı ya da önceden oluşturulmuş veya güncelleştirilmiş e-posta adresi olan alınan bir müşteri varlığı gösterir. İlk ekleme veya müşteri nesnesi ETag değeri işlemi depoları alma ve değiştirme işlemini yürütüldüğünde örnek aynı nesne örneği kullandığından, otomatik olarak ETag değeri etkinleştirme hizmete geri tablo hizmetine gönderir Eşzamanlılık ihlalleri için denetleyin. Tablo depolama varlıkta güncelleştirmiştir. başka bir işlem hizmeti bir HTTP 412 (önkoşul başarısız) durum iletisi döndürür.  Tam örnek burada indirebilirsiniz: [Azure depolama kullanarak eşzamanlılığı yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+Aşağıdaki C# kod parçacığı ya da önceden oluşturulmuş veya güncelleştirilmiş e-posta adresi olan alınan bir müşteri varlığı gösterir. İlk ekleme veya müşteri nesnesi ETag değeri işlemi depoları alma ve değiştirme işlemini yürütüldüğünde örnek aynı nesne örneği kullandığından, otomatik olarak ETag değeri etkinleştirme hizmete geri tablo hizmetine gönderir Eşzamanlılık ihlalleri için denetleyin. Tablo depolama varlıkta güncelleştirmiştir. başka bir işlem hizmeti bir HTTP 412 (önkoşul başarısız) durum iletisi döndürür.  Tam örnek burada indirebilirsiniz: [Azure depolama kullanarak eşzamanlılığı yönetme](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -251,7 +251,7 @@ Genel tablolar kullanan geliştiricilerin ölçeklenebilir uygulamalar geliştir
 
 Daha fazla bilgi için bkz.  
 
-* [Varlıklar üzerinde işlemler](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
+* [Varlıklar üzerinde işlemler](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Kuyruk hizmetindeki eşzamanlılığı yönetme
 Burada birden çok istemciye iletileri kuyruktan alıyor, hangi eşzamanlılık kuyruğa alma hizmeti, bir konudur bir senaryodur. Kuyruktan bir ileti alındığında, yanıt iletisi ve ileti silmek için gerekli bir üstten alma girişi değer içeriyor. Kuyruktan ileti otomatik olarak silinmez, ancak bunu alındıktan sonra visibilitytimeout parametresi tarafından belirtilen zaman aralığı boyunca diğer istemcilere görünür durumda. İletiyi alır istemci ileti işlendikten sonra TimeNextVisible tarafından belirtilen süreden önce öğenin hesaplanan yanıtın visibilitytimeout parametre değerine göre silmesi beklenir. Visibilitytimeout değerini TimeNextVisible değerini belirlemek için ileti alınır zaman eklenir.  
@@ -260,8 +260,8 @@ Kuyruk hizmeti için iyimser veya kötümser eşzamanlılık desteğine sahip de
 
 Daha fazla bilgi için bkz.  
 
-* [Kuyruk hizmeti REST API'si](http://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [İletileri alma](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
+* [Kuyruk hizmeti REST API'si](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [İletileri alma](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-the-file-service"></a>Dosya hizmeti içinde eşzamanlılığı yönetme
 Dosya hizmeti, iki farklı protokol uç noktası – SMB ve REST kullanılarak erişilebilir. REST hizmeti İyimser kilitleme veya kötümser kilitleme desteği yoktur ve son yazıcı WINS strateji tüm güncelleştirmeleri takip eder. Dosya sistemi kilitleme mekanizmaları kötümser kilitleme gerçekleştirme olanağı dahil olmak üzere paylaşılan dosyaları – erişimi yönetmek için dosya paylaşımlarına bağlama SMB istemcileri yararlanabilirsiniz. Bir SMB istemcisinden bir dosyayı açtığında dosya erişim ve Paylaşım bu belirtir modu. "Yazma" veya "Okuma/yazma" bir dosya paylaşımı modu yanı sıra, "None" dosya erişimi ayar dosyası kapatılana kadar bir SMB istemcisinden tarafından kilitlenen dosyasında neden olur. Bir SMB istemcisinden dosya kilitli olduğu bir dosya REST işlem denenirse REST hizmeti SharingViolation hata koduyla, 409 (Çakışma) durum kodu döndürür.  
@@ -270,19 +270,19 @@ Bir SMB istemcisinden Sil için'bir dosya açıldığında, bu dosyada açık ta
 
 Daha fazla bilgi için bkz.  
 
-* [Dosya Yönetimi kilitler](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
+* [Dosya Yönetimi kilitler](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## <a name="summary-and-next-steps"></a>Summary ve sonraki adımlar
 Microsoft Azure depolama hizmeti geliştiricilerin tehlikeye veya eşzamanlılık ve bunlar için uygulanacak gelmiş veri tutarlılığı gibi temel tasarım varsayımları yeniden başlatılmasına gerek kalmadan en karmaşık çevrimiçi uygulamalar ihtiyaçlarını karşılamak için tasarlanan verildi.  
 
 Bu blogda başvurulan tam bir örnek uygulama için:  
 
-* [Azure depolama - örnek uygulaması kullanarak eşzamanlılığı yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [Azure depolama - örnek uygulaması kullanarak eşzamanlılığı yönetme](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 Bkz. Azure depolama hakkında daha fazla bilgi için:  
 
 * [Microsoft Azure depolama giriş sayfası](https://azure.microsoft.com/services/storage/)
 * [Azure Depolama’ya giriş](storage-introduction.md)
 * Başlarken depolama [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [tablo](../../cosmos-db/table-storage-how-to-use-dotnet.md), [kuyrukları](../storage-dotnet-how-to-use-queues.md), ve [dosyaları](../storage-dotnet-how-to-use-files.md)
-* Depolama mimarisi – [Azure Storage: güçlü tutarlılık ile yüksek oranda kullanılabilir bulut depolama hizmeti](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Depolama mimarisi – [Azure Storage: güçlü tutarlılık ile yüksek oranda kullanılabilir bulut depolama hizmeti](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

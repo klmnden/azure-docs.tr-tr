@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 5f4234bd4170e98b50fa025e680bbca1ff46d5ea
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035280"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243820"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell kullanarak ExpressRoute ve siteden siteye arada var olabilen bağlantılar yapılandırma
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırma
 * ExpressRoute için güvenli bir yük devretme yolu olarak siteden siteye bir VPN yapılandırın. 
 * Alternatif olarak ExpressRoute aracılığıyla bağlı olmayan sitelere bağlanmak için Siteden Siteye VPN’ler kullanabilirsiniz. 
 
-İki senaryo için de yapılandırma adımları bu makalede verilmektedir. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır. Belgeleri henüz mevcut olmasa da bu senaryolar Azure portalını kullanarak yapılandırabilirsiniz. Her iki ağ geçidi yapılandırabilirsiniz. Genellikle, kapalı kalma süresi olmadan yeni ağ geçidi veya ağ geçidi bağlantısı eklerken neden olur.
+İki senaryo için de yapılandırma adımları bu makalede verilmektedir. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır. Azure portalını kullanarak bu senaryolar, belgeleri henüz mevcut olmasa da yapılandırabilirsiniz. Her iki ağ geçidi yapılandırabilirsiniz. Genellikle, kapalı kalma süresi olmadan yeni ağ geçidi veya ağ geçidi bağlantısı eklerken neden olur.
 
 
 
@@ -211,7 +211,7 @@ Yalnızca bir sanal ağ geçidine (Siteden Siteye VPN ağ geçidi gibi) sahip ol
 5. Bu noktada, hiçbir ağ geçidi olmayan bir sanal ağa sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantıları ayarlamak için önceki bölümde belirtilen adımları izleyin.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN ağ geçidine noktadan siteye yapılandırması eklemek için
-Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırması eklemek için aşağıdaki adımları izleyebilirsiniz.
+Bir arada bulunma kurulumda VPN ağ geçidinize noktadan siteye yapılandırması eklemek için aşağıdaki adımları izleyebilirsiniz.
 
 1. VPN İstemcisi adres havuzunu ekleyin.
 
@@ -226,7 +226,8 @@ Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırmas
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 Noktadan Siteye VPN hakkında daha fazla bilgi içini bkz. [Noktadan Siteye bağlantı yapılandırma](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
