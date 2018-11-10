@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301492"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228989"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında işlev uygulaması yönetme 
 
@@ -50,7 +50,7 @@ Bazen kaynaklarınızı zor olabilir [Azure portal]. Oluşturduğunuz işlev uyg
 
 **Ayarları** sekmedir burada işlev uygulamanız tarafından kullanılan işlevler çalışma zamanı sürümünü güncelleştirebilirsiniz. Ayrıca, işlev uygulaması tarafından barındırılan tüm işlevleri HTTP erişimi kısıtlamak için kullanılan ana bilgisayar anahtarlarını yönettiğiniz bir hizmettir.
 
-Tüketim barındırma ve App Service planları barındırma işlevleri destekler. Daha fazla bilgi için [Azure işlevleri için doğru hizmet planını seçme](functions-scale.md). Tüketim planı, daha iyi öngörülebilirlik için işlevler sağlar platform kullanımını gigabayt-saniye içinde bir günlük kullanım kotası ayarlayarak sınırla. İşlev uygulaması günlük kullanım kotasına ulaşıldıktan sonra durdurulur. Harcama kotası ulaşması nedeniyle durduruldu bir işlev uygulaması, aynı bağlamından varlık oluşturma harcama kotası günlük olarak yeniden etkinleştirilebilir. Bkz: [Azure fiyatlandırma sayfasını işlevleri](http://azure.microsoft.com/pricing/details/functions/) faturalandırma hakkında ayrıntılı bilgi için.   
+Tüketim barındırma ve App Service planları barındırma işlevleri destekler. Daha fazla bilgi için [Azure işlevleri için doğru hizmet planını seçme](functions-scale.md). Tüketim planı, daha iyi öngörülebilirlik için işlevler sağlar platform kullanımını gigabayt-saniye içinde bir günlük kullanım kotası ayarlayarak sınırla. İşlev uygulaması günlük kullanım kotasına ulaşıldıktan sonra durdurulur. Harcama kotası ulaşması nedeniyle durduruldu bir işlev uygulaması, aynı bağlamından varlık oluşturma harcama kotası günlük olarak yeniden etkinleştirilebilir. Bkz: [Azure fiyatlandırma sayfasını işlevleri](https://azure.microsoft.com/pricing/details/functions/) faturalandırma hakkında ayrıntılı bilgi için.   
 
 ## <a name="platform-features-tab"></a>Platform Özellikleri sekmesi
 

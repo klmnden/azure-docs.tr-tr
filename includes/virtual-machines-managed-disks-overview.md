@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40396462cc568a4ad7dea798fc30d72dcd75fd07
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264060"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51209681"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure yönetilen disklere genel bakış
 
@@ -67,21 +67,21 @@ Bu seçenekler daha yakın bir göz atalım.
 
 **Disk boyutu**: yönetilen diskler için faturalandırma, sağlanan disk boyutuna bağlıdır. Azure aşağıdaki tablolarda belirtildiği gibi en yakın yönetilen diskler seçeneğini (yuvarlanır) sağlanan boyut eşlenir. Her yönetilen disk desteklenen sağlanan boyutları birine eşlenir ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GB sağlanan boyutlu belirtin, S15 Disk türünü fiyatlandırmasına göre faturalandırılır.
 
-Premium yönetilen disk için kullanılabilir disk boyutları İşte, yıldız işareti ile gösterilen boyutları şu anda Önizleme aşamasındadır:
+Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Yönetilen premium SSD <br>Disk türü** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
+| **Yönetilen premium SSD <br>Disk türü** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
-İşte yönetilen disk için bir standart SSD disk boyutu, bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır:
+Standart SSD yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Standart SSD yönetilen <br>Disk türü** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
+| **Standart SSD yönetilen <br>Disk türü** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Boyutu        | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
-İşte yönetilen disk için standart bir HDD kullanılabilir disk boyutu, bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır:
+HDD standart yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
+| **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
