@@ -4,17 +4,17 @@ description: Azure Kaynak Grafiği, büyük ölçekteki kaynaklarda karmaşık s
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d68183f4d0a928ac72f3f73ea5225ad174820cb7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e78b525e1e08a05b8de6071f9ddba0dfb29ff672
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162109"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087293"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Kaynak Grafiği nedir
 
@@ -31,7 +31,7 @@ Bu belgede her özelliği ayrıntılı olarak inceleyeceksiniz.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Kaynak Grafiği, Azure Resource Manager'ı nasıl tamamlar
 
-Azure Resource Manager şu anda verileri, özellikle kaynak adı, Kimlik, Tür, Kaynak Grubu, Abonelikler ve Konum olmak üzere bazı kaynak alanlarını kullanıma sunan sınırlı bir kaynak önbelleğine gönderir. Bugün, daha fazla kaynak özelliğiyle çalışmak isteseydiniz, her kaynak sağlayıcısına çağrı yapmanız ve her kaynağın özellik ayrıntılarını istemeniz gerekirdi.
+Azure Resource Manager şu anda verileri, özellikle kaynak adı, Kimlik, Tür, Kaynak Grubu, Abonelikler ve Konum olmak üzere bazı kaynak alanlarını kullanıma sunan sınırlı bir kaynak önbelleğine gönderir. Eskiden farklı kaynak özellikleriyle çalışmak isteseydiniz, her kaynak sağlayıcısına çağrı yapmanız ve her kaynağın özellik ayrıntılarını istemeniz gerekirdi.
 
 Azure Kaynak Grafiği ile, her kaynak sağlayıcısına tek tek çağrı yapmanıza gerek kalmadan, kaynak sağlayıcılarının geri döndürdüğü bu özelliklere erişebilirsiniz.
 
@@ -45,12 +45,11 @@ Azure Kaynak Grafiği’nin sorgu dilinin [Azure Veri Gezgini Sorgu Dili](../../
 
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Kaynak Grafiği’nde izinler
 
-Kaynak Grafiği’ni kullanmak için, sorgulamak istediğiniz kaynaklara en az okuma erişimi olan [Rol tabanlı erişim denetimi](../../role-based-access-control/overview.md) (RBAC) yoluyla yetkilendirilmiş olmanız gerekir. Yönetim grubu, abonelik, kaynak grubu veya tek tek kaynaklar üzerinde `read` izinleriniz yoksa, bir Kaynak Grafiği sorgusunun sonuçlarında geri döndürülmez.
+Kaynak Grafı’nı kullanmak için, sorgulamak istediğiniz kaynaklara en az okuma erişimi olan [Rol tabanlı erişim denetimi](../../role-based-access-control/overview.md) (RBAC) kapsamında uygun izinlere sahip olmanız gerekir. Sonuç döndürülmesi için Azure nesnesinde veya nesne grubunda en azından `read` iznine sahip olmanız gerekir.
 
 ## <a name="running-your-first-query"></a>İlk sorgunuzu çalıştırma
 
-Kaynak Grafiği hem Azure CLI’yi hem de Azure PowerShell’i destekler. Hangi dil kullanılmış olursa olsun, sorgu bileşeni aynı şekilde yapılandırılır. Azure Kaynak Grafiği desteği her iki SDK'da da varsayılan olarak henüz kullanılabilir değildir, bu nedenle gerekli komutların sağlanması için bir uzantı veya modül yüklenmelidir.
-[Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)’de Kaynak Grafiği’ni nasıl etkinleştireceğinizi öğrenin.
+Kaynak Grafiği hem Azure CLI’yi hem de Azure PowerShell’i destekler. Sorgu, iki dil için de aynı şekilde yapılandırılır. [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)’de Kaynak Grafiği’ni nasıl etkinleştireceğinizi öğrenin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

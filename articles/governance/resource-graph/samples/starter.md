@@ -4,21 +4,21 @@ description: Bazı başlangıç sorgularını çalıştırmak için Azure Kaynak
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646637"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084539"
 ---
 # <a name="starter-resource-graph-queries"></a>Başlangıç Kaynak Grafiği sorguları
 
-Azure Kaynak Grafiği ile sorguları anlamanın il adımı, [Sorgu Dili](../concepts/query-language.md)’nin temel bir anlayışıdır. [ Azure Veri Gezgini](../../../data-explorer/data-explorer-overview.md)’ne önceden aşina değilseniz, aradığınız kaynaklar için isteklerin nasıl oluşturulacağını anlamak üzere temelleri gözden geçirmeniz önerilir.
+Azure Kaynak Grafiği ile sorguları anlamanın il adımı, [Sorgu Dili](../concepts/query-language.md)’nin temel bir anlayışıdır. [Azure Veri Gezgini](../../../data-explorer/data-explorer-overview.md)’ne önceden aşina değilseniz, aradığınız kaynaklar için isteklerin nasıl oluşturulacağını anlamak üzere temelleri gözden geçirmeniz önerilir.
 
 Aşağıdaki başlangıç sorgularını inceleyeceğiz:
 
@@ -38,11 +38,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="language-support"></a>Dil desteği
 
-Azure CLI (bir uzantı yoluyla) ve Azure PowerShell (bir modül yoluyla), Azure Kaynak Grafiği’ni destekler. Aşağıdaki sorgulardan herhangi birini gerçekleştirmeden önce ortamınızın hazır olduğunu kontrol edin. Seçtiğiniz kabuk ortamını yükleme ve doğrulama adımları için, bkz. [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module).
+Azure CLI (bir uzantı yoluyla) ve Azure PowerShell (bir modül yoluyla), Azure Kaynak Grafiği’ni destekler. Aşağıdaki sorgulardan herhangi birini çalıştırmadan önce ortamınızın hazır olduğundan emin olun. Seçtiğiniz kabuk ortamını yükleme ve doğrulama adımları için, bkz. [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module).
 
 ## <a name="count-resources"></a>Azure kaynaklarını sayma
 
-Bu sorgu, erişiminiz bulunan aboneliklerde var olan Azure kaynaklarının sayısını döndürür. Ayrıca, seçtiğiniz kabukta uygun Azure Kaynak Grafiği bileşenlerinin yüklü ve çalışma düzeninde olduğunu doğrulamak üzere kullanmak için iyi bir sorgudur.
+Bu sorgu, erişiminiz bulunan aboneliklerde var olan Azure kaynaklarının sayısını döndürür. Ayrıca, seçtiğiniz kabukta uygun Azure Kaynak Grafı bileşenlerinin yüklü ve çalışma düzeninde olduğunu doğrulamak için iyi bir sorgudur.
 
 ```Query
 summarize count()
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>Ada göre sıralanmış kaynakları listeleme
 
-Herhangi bir kaynak türüyle veya belirli eşleme özelliğiyle sınırlı kalmaksızın, bu sorgu Azure kaynaklarının yalnızca **adını**, **türünü** ve **konumunu** döndürür ancak bunları **ad** özelliğine göre artan düzende (`asc`) sıralamak için `order by` kullanır.
+Bu sorgu herhangi bir türdeki kaynakların yalnızca **name**, **type** ve **location** özelliklerini döndürür. `order by` kullanarak özellikleri **name** özelliğine göre artan (`asc`) düzende sıralar.
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>İsme göre sıralanmış tüm sanal makineleri azalan düzende göster
 
-Tüm Azure kaynaklarını edinmek yerine, yalnızca sanal makinelerin listesini istersek (`Microsoft.Compute/virtualMachines` türü olan), sonuçlarda **tür** özelliğini eşleştirebiliriz.
-Önceki sorguya benzer şekilde `desc`, `order by`’yi azalan olması için değiştirir. Eşleme türündeki `=~`, Kaynak Grafiği’nin büyük/küçük harfe duyarlı olmadığını bildirir.
+Yalnızca sanal makineleri (`Microsoft.Compute/virtualMachines` türündeki) listelemek için sonuçlarda **type** özelliğini eşleştirebiliriz. Önceki sorguya benzer şekilde `desc`, `order by`’yi azalan olması için değiştirir. Eşleme türündeki `=~`, Kaynak Grafiği’nin büyük/küçük harfe duyarlı olmadığını bildirir.
 
 ```Query
 project name, location, type
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>Tüm genel IP adreslerini listele
 
-Önceki sorguya benzer şekilde, **publicIPAddresses** sözcüğünü içeren bir tür olan her şeyi bulun. Bu sorgu, **properties.ipAddress**’in null olduğu sonuçları hariç tutmak, yalnızca **properties.ipAddress** döndürmek ve sonuçları en üst 100’e göre `limit` yapmak için o desende genişler. Seçtiğiniz kabuğa bağlı olarak tırnak işaretlerinin dışına çıkmanız gerekebilir.
+Önceki sorguya benzer şekilde, **publicIPAddresses** sözcüğünü içeren bir tür olan her şeyi bulun.
+Bu sorgu, **properties.ipAddress**’in null olduğu sonuçları hariç tutmak, yalnızca **properties.ipAddress** döndürmek ve sonuçları en üst 100’e göre `limit` yapmak için o desende genişler. Seçtiğiniz kabuğa bağlı olarak tırnak işaretlerinin dışına çıkmanız gerekebilir.
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-Kaynakların hangi değerlere sahip olduğunu ve değerlerini sağlamak da gerekliyse, **etiketler** özelliği `project` anahtar sözcüğüne eklenerek bu örnek genişletilebilir.
+Kaynağın sahip olduğu etiketleri ve değerlerini de sağlamak için `project` sözcüğüne **tags** özelliğini ekleyin.
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>Belirli bir değerine sahip tüm depolama hesaplarını listeleme
 
-Önceki örneğe ait filtre özelliğini, **tür** özelliğine göre, Azure kaynak türüyle filtreleme kullanımıyla birleştirerek, belirli bir etiket adı ve değerine sahip belirli Azure kaynak türleri aramamızı sınırlandırabiliriz.
+Önceki örneğin filtre işleviyle birleştirerek Azure kaynak türünü **type** özelliğine göre filtreleyin. Bu sorgu da aramayı belirli bir etiket adına ve değerine sahip olan belirli Azure kaynağı türleriyle sınırlar.
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

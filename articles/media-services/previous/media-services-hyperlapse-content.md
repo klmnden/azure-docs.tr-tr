@@ -1,6 +1,6 @@
 ---
 title: Azure medya Hyperlapse ile medya dosyalarını | Microsoft Docs
-description: Azure medya Hyperlapse kesintisiz zaman onlara videolar ilk kişi veya eylem kamera içeriğini oluşturur. Bu konu, Media Indexer kullanmayı gösterir.
+description: Azure medya Hyperlapse kesintisiz zaman aralıklı videoları birinci kişi veya eylem kamera içeriği oluşturur. Bu konu, Media Indexer'ı kullanmayı gösterir.
 services: media-services
 documentationcenter: ''
 author: asolanki
@@ -14,36 +14,36 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: ed64a616538ed4699abc03225a2dcf27d164521f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788490"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242594"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Azure medya Hyperlapse ile medya dosyalarını
-Azure medya Hyperlapse bir medya işlemci (ilk kişi veya eylem kamera içerikten kesintisiz zaman onlara videolar oluşturan MP) olur.  Bulut tabanlı eşdüzeyi [Microsoft Research'ın masaüstü Hyperlapse Pro ve telefon tabanlı Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse yatay ölçeklendirmenizi ve paralel hale Azure Media Services medya işleme platform yoğun ölçeğini Azure Media Services yararlanan için Hyperlapse toplu işleme.
+Azure medya Hyperlapse bir medya işlemci (ilk kişi veya eylem kamera içerikten kesintisiz zaman aralıklı videoları oluşturan MP) olur.  Bulut tabanlı eşdüzeye [Microsoft Research'ün telefon tabanlı Hyperlapse mobil ve Hyperlapse Pro Masaüstü](https://aka.ms/hyperlapse), Azure Media Services için Microsoft Hyperlapse yararlanan ölçekleri Azure Media Services medya işleme platform yatay ölçeklendirme ve paralel hale getirmek için Hyperlapse işleme toplu.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse en iyi ilk kişinin içeriğine taşıma kamera ile çalışmak üzere tasarlanmıştır. Halen kamera görüntülerinin çalışmaya devam ancak performansına ve kalitesine Azure medya Hyperlapse medya işlemcisi diğer içerik türleri için garanti edilemez.
+> Microsoft Hyperlapse birinci kişi içeriği taşıma kamera ile en iyi çalışacak şekilde tasarlanmıştır. Hala kamerası kayıtları çalışmaya devam ancak diğer içerik türleri için Azure medya Hyperlapse medya işleyicisini kalitesini ve performansını garanti edilemez.
 > 
 > 
 
-İş geçen olarak bir Azure medya Hyperlapse Giriş bir MP4, MOV veya WMV varlık dosyası videonun hangi çerçeveler zaman onlara olmalıdır belirten bir yapılandırma dosyası ile birlikte ve hangi hızı (örn. ilk 10.000 çerçeve 2 x).  Çıktı, sabit ve zaman onlara yorumlama video giriş şeklindedir.
+İşin Sürüyor olarak bir Azure medya Hyperlapse Giriş bir MP4, MOV veya WMV varlık dosyası kareler video zaman aralıklı olmalıdır belirten bir yapılandırma dosyası ile birlikte ve hangi hızı (örneğin ilk 10.000 çerçeve 2 x).  Titreşimsiz ve zaman aralıklı bir işleme giriş video çıktıdır.
 
-## <a name="hyperlapse-an-asset"></a>Hyperlapse bir varlığı
-İlk Azure Media Services için istenen giriş dosyanızı karşıya yüklemek gerekir.  Karşıya yükleme ve içeriği yönetme ile ilgili kavramları hakkında daha fazla bilgi için okuma [içerik yönetimi makale](media-services-portal-vod-get-started.md).
+## <a name="hyperlapse-an-asset"></a>Hyperlapse bir varlık
+İlk Azure Media Services için istenen giriş dosyanız karşıya gerekecektir.  Karşıya yükleme ve içeriği yönetme ile ilgili kavramları hakkında daha fazla bilgi edinmek için [içerik yönetimi makale](media-services-portal-vod-get-started.md).
 
-### <a id="configuration"></a>Hyperlapse yapılandırma hazır
-İçeriğinizi Media Services hesabınızı eklendiğinde, yapılandırma hazır oluşturmak gerekir.  Aşağıdaki tabloda, kullanıcı tanımlı alanlar açıklanmaktadır:
+### <a id="configuration"></a>Hyperlapse için yapılandırma hazır
+İçeriğinizi Media Services hesabınızı olduktan sonra yapılandırma Önayarı oluşturmak gerekir.  Aşağıdaki tabloda, kullanıcı tanımlı alanlar açıklanmaktadır:
 
 | Alan | Açıklama |
 | --- | --- |
-| StartFrame |Bağlı Microsoft Hyperlapse işleme başlaması gereken çerçeve. |
-| NumFrames |İşlenecek çerçeve sayısı |
-| Hız |Hangi giriş video hızlandırmak faktörü. |
+| StartFrame |Microsoft Hyperlapse işleme başlatılması gereken çerçeve. |
+| NumFrames |İşlemek için çerçeve sayısı |
+| Hız |Hangi giriş videosunu hızlandırma katsayısını faktörü. |
 
-XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
+Bir uyumlu yapılandırma dosyasında XML ve JSON örneği verilmiştir:
 
 **XML hazır:**
 ```xml
@@ -75,14 +75,14 @@ XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
     }
 ```
 
-### <a id="sample_code"></a> Microsoft Hyperlapse AMS .NET SDK'sı
-Aşağıdaki yöntem Azure medya Hyperlapse medya işlemcisi bir işi oluşturur ve bir medya dosyası bir varlık olarak yükler.
+### <a id="sample_code"></a> AMS .NET SDK ile Microsoft Hyperlapse
+Aşağıdaki yöntem bir varlık olarak bir medya dosyasını yükler ve bir iş ile Azure medya Hyperlapse medya işleyicisini oluşturur.
 
 > [!NOTE]
-> Bu kodun çalışması "context" adı ile kapsamda zaten bir CloudMediaContext yüklü olmalıdır.  Bunun hakkında daha fazla bilgi edinmek için okuma [içerik yönetimi makale](media-services-dotnet-get-started.md).
+> Kapsamdaki bu kodun çalışması "içerik" adı ile bir CloudMediaContext olmanız gerekir.  Bunun hakkında daha fazla bilgi edinmek için [içerik yönetimi makale](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
-> Dize bağımsız değişkeni "hyperConfig" JSON veya XML yukarıda açıklandığı gibi önceden belirlenmiş bir uyumluluğunu yapılandırma olması beklenir.
+> Dize bağımsız değişkeni "hyperConfig", JSON veya XML yukarıda açıklandığı gibi önceden uyumluluğunu yapılandırma olması beklenir.
 > 
 > 
 
@@ -213,7 +213,7 @@ Aşağıdaki yöntem Azure medya Hyperlapse medya işlemcisi bir işi oluşturur
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>İlgili bağlantılar
-[Azure Media Services Analytics a genel bakış](media-services-analytics-overview.md)
+[Azure Media Services Analizi'ne genel bakış](media-services-analytics-overview.md)
 
-[Azure medya analizi gösterileri](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure medya analizi tanıtımları](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

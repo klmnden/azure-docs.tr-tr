@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5ffe7b4c7830500e5eeeeb61c57730d9a0d9df47
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918949"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414191"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti’nde (AKS) uygulamaları ölçeklendirme
 
@@ -71,7 +71,13 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Pod’ları otomatik ölçeklendirme
 
-Kubernetes, bir dağıtımdaki pod’ların sayısını CPU kullanımı ve diğer seçili ölçümleri temel alarak ayarlamak için [yatay pod otomatik ölçeklendirmeyi][kubernetes-hpa] destekler. [Ölçüm Sunucusu][metrics-server], Kubernetes'e kaynak kullanımı sağlamak için kullanılır. Ölçüm Sunucusu'nu yüklemek için, `metrics-server` GitHub deposunu kopyalayın ve örnek kaynak tanımlarını yükleyin. Bu YAML tanımlarının içeriğini görüntülemek için bkz. [Kuberenetes 1.8+ için Ölçüm Sunucusu][metrics-server-github].
+Kubernetes, bir dağıtımdaki pod’ların sayısını CPU kullanımı ve diğer seçili ölçümleri temel alarak ayarlamak için [yatay pod otomatik ölçeklendirmeyi][kubernetes-hpa] destekler. [Ölçüm Sunucusu][metrics-server], Kubernetes'e kaynak kullanımı sağlamak için kullanılır ve AKS kümesi 1.10 ve üzeri sürümlerde otomatik olarak dağıtılır. AKS kümenizin sürümünü görmek için aşağıdaki örnekte gösterildiği gibi [az aks show][az-aks-show] komutunu kullanın:
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+```
+
+AKS kümesi *1.10* sürümünden eskiyse Ölçüm Sunucusu'nu yükleyin. Aksi takdirde bu adımı atlayın. `metrics-server` GitHub deposunu kopyalayın ve örnek kaynak tanımlarını yükleyin. Bu YAML tanımlarının içeriğini görüntülemek için bkz. [Kuberenetes 1.8+ için Ölçüm Sunucusu][metrics-server-github].
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
@@ -112,7 +118,7 @@ Birkaç dakika sonra Azure Vote uygulamasında en az yük ile, pod çoğaltmalar
 Aşağıdaki örnek, *myAKSCluster* adlı Kubernetes kümesinde düğümlerin sayısını üçe yükseltir. Komutun tamamlanması birkaç dakika sürer.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
 Çıktı şuna benzer olacaktır:
@@ -160,3 +166,4 @@ Kubernetes’te uygulama güncelleştirmeyi öğrenmek için sonraki öğreticiy
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show

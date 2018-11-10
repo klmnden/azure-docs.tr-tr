@@ -10,27 +10,28 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 79572a364c2346ffd567cab7d3633ae398715210
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945799"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239962"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Öğretici: Şifrelenmiş depolama hesabı dağıtmak için bir Azure Resource Manager şablonu oluşturma
+# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Öğretici: Resource Manager şablonuyla şifrelenmiş Azure Depolama hesabı dağıtma
 
-Azure Resource Manager şablonunu tamamlamak için kullanmanız gereken bilgileri nasıl bulacağınızı öğrenin.
+Şablon şema bilgilerini bulmayı ve bu bilgileri kullanarak Azure Resource Manager şablonu oluşturmayı öğrenin.
 
-Bu öğreticide temel bir Azure Hızlı başlangıç şablonunu kullanarak bir Azure Depolama hesabı oluşturacaksınız.  Şablon başvuru belgelerini kullanarak temel şablonu özelleştirecek ve şifrelenmiş bir depolama hesabı kullanmasını sağlayacaksınız.
+Bu öğreticide Azure Hızlı Başlangıç şablonları arasından temel bir şablon kullanırsınız. Şablon başvuru belgelerini kullanarak şablonu özelleştirecek ve şifrelenmiş bir Depolama hesabı kullanmasını sağlayacaksınız.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Hızlı başlangıç şablonunu açma
 > * Şablon biçimini anlama
+> * Şablon başvurusunu bulma
 > * Şablonu düzenleme
 > * Şablonu dağıtma
 
@@ -44,7 +45,7 @@ Bu makaleyi tamamlamak için gerekenler:
 
 ## <a name="open-a-quickstart-template"></a>Hızlı başlangıç şablonunu açma
 
-Bu hızlı başlangıçta kullanılan şablon [Standart depolama hesabı oluşturma](https://azure.microsoft.com/resources/templates/101-storage-account-create/) olarak adlandırılır. Şablon, Azure Depolama hesabı kaynağını tanımlar.
+[Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/), Resource Manager şablonları için bir depolama alanıdır. Sıfırdan bir şablon oluşturmak yerine örnek bir şablon bulabilir ve bunu özelleştirebilirsiniz. Bu hızlı başlangıçta kullanılan şablon [Standart depolama hesabı oluşturma](https://azure.microsoft.com/resources/templates/101-storage-account-create/) olarak adlandırılır. Şablon, Azure Depolama hesabı kaynağını tanımlar.
 
 1. Visual Studio Code’dan **Dosya**>**Dosya Aç**’ı seçin.
 2. **Dosya adı**’na şu URL’yi yapıştırın:
@@ -57,58 +58,22 @@ Bu hızlı başlangıçta kullanılan şablon [Standart depolama hesabı oluştu
 
 ## <a name="understand-the-schema"></a>Şemayı anlama
 
-VS Code'da şablonu kök düzeye daraltın. Aşağıdaki öğelere sahip çok basit bir yapı görürsünüz:
+1. VS Code'da şablonu kök düzeye daraltın. Aşağıdaki öğelere sahip çok basit bir yapı görürsünüz:
 
-![Resource Manager şablonu basit yapısı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
+    ![Resource Manager şablonu basit yapısı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-* **$schema**: Şablon dilinin sürümünü tanımlayan JSON şema dosyasının konumunu belirtin.
-* **contentVersion**: Şablonunuzdaki önemli değişiklikleri belirtmek için bu öğeye istediğiniz değeri verebilirsiniz.
-* **parameters**: Dağıtım, kaynak dağıtımını özelleştirme amacıyla yürütüldüğünde sağlanan değerleri belirtin.
-* **variables**: Şablon dili ifadelerini basitleştirmek için şablonda JSON parçaları olarak kullanılan değerleri belirtin.
-* **resources**: Kaynak grubunda dağıtılan veya güncelleştirilen kaynak türlerini belirtin.
-* **outputs**: Dağıtım sonrasında döndürülen değerleri belirtin.
+    * **$schema**: Şablon dilinin sürümünü tanımlayan JSON şema dosyasının konumunu belirtin.
+    * **contentVersion**: Şablonunuzdaki önemli değişiklikleri belirtmek için bu öğeye istediğiniz değeri verebilirsiniz.
+    * **parameters**: Dağıtım, kaynak dağıtımını özelleştirme amacıyla yürütüldüğünde sağlanan değerleri belirtin.
+    * **variables**: Şablon dili ifadelerini basitleştirmek için şablonda JSON parçaları olarak kullanılan değerleri belirtin.
+    * **resources**: Kaynak grubunda dağıtılan veya güncelleştirilen kaynak türlerini belirtin.
+    * **outputs**: Dağıtım sonrasında döndürülen değerleri belirtin.
 
-## <a name="use-parameters"></a>Parametre kullanma
+2. **resources** bölümünü genişletin. Tanımlı bir `Microsoft.Storage/storageAccounts` kaynağı olduğunu göreceksiniz. Şablon, şifrelenmemiş bir Depolama hesabı oluşturur.
 
-Parametreler, belirli bir ortam için tasarlanmış değerler kullanarak dağıtımı özelleştirmenizi sağlar. Depolama hesabı için gerekli değerleri ayarlarken şablonda tanımlanmış olan parametreleri kullanırsınız.
+    ![Resource Manager şablonu depolama hesabı tanımı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-![Resource Manager şablonu parametreleri](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
-
-Bu şablonda iki parametre tanımlanmıştır. location.defaultValue içinde bir şablon işlevi kullanıldığına dikkat edin:
-
-```json
-"defaultValue": "[resourceGroup().location]",
-```
-
-resourceGroup() işlevi, geçerli kaynak grubunu temsil eden bir nesne döndürür. Şablon işlevlerinin listesi için bkz. [Azure Resource Manager şablonu işlevleri](./resource-group-template-functions.md).
-
-Şablonda tanımlanan parametreleri kullanmak için:
-
-```json
-"location": "[parameters('location')]",
-"name": "[parameters('storageAccountType')]"
-```
-
-## <a name="use-variables"></a>Değişken kullanma
-
-Değişkenler, şablonun tamamında kullanılabilecek değerler oluşturmanızı sağlar. Değişkenler, şablonların karmaşıklığının azaltılmasına yardımcı olur.
-
-![Resource Manager şablonu değişkenleri](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-variables.png)
-
-Bu şablonda bir değişken tanımlanır: *storageAccountName*. Tanımda iki şablon işlevi kullanılır:
-
-- **concat()**: Dizeleri birleştirir. Daha fazla bilgi için bkz. [concat](./resource-group-template-functions-string.md#concat).
-- **uniqueString()**: Parametre olarak sağlanan değerleri temel alarak belirlenimci bir karma dize oluşturur. Her bir Azure depolama hesabı, tüm Azure genelinde benzersiz bir ada sahip olmalıdır. Bu işlev, benzersiz bir dize sağlar. Diğer dize işlevleri için bkz. [Dize işlevleri](./resource-group-template-functions-string.md).
-
-Şablonda tanımlanan değişkeni kullanmak için:
-
-```json
-"name": "[variables('storageAccountName')]"
-```
-
-## <a name="edit-the-template"></a>Şablonu düzenleme
-
-Bu öğreticinin hedefi, şifrelenmiş bir depolama hesabı oluşturmak üzere şablon tanımlamaktır.  Örnek şablon, yalnızca temel şifrelenmemiş depolama hesabı oluşturur. Şifreleme ile ilgili yapılandırmayı bulmak için, Azure Depolama hesabının şablon başvurusunu kullanabilirsiniz.
+## <a name="find-the-template-reference"></a>Şablon başvurusunu bulma
 
 1. [Azure Şablonları](https://docs.microsoft.com/azure/templates/)'na gidin.
 2. **Başlığa göre filtrele**’ye, **depolama hesapları** girin.
@@ -120,17 +85,52 @@ Bu öğreticinin hedefi, şifrelenmiş bir depolama hesabı oluşturmak üzere �
 
     ```json
     "encryption": {
-        "keySource": "Microsoft.Storage",
+      "services": {
+        "blob": {
+          "enabled": boolean
+        },
+        "file": {
+          "enabled": boolean
+        }
+      },
+      "keySource": "string",
+      "keyvaultproperties": {
+        "keyname": "string",
+        "keyversion": "string",
+        "keyvaulturi": "string"
+      }
+    },
+    ```
+
+    Aynı web sayfasında bulunan aşağıdaki açıklama, `encryption` nesnesinin şifrelenmiş depolama hesabı oluşturmak için kullanıldığını doğrulamaktadır.
+
+    ![Resource Manager şablon başvurusu depolama hesabı şifreleme](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
+
+    Şifreleme anahtarını yönetmek için kullanabileceğiniz iki yöntem vardır. Depolama Hizmeti Şifrelemesi ile Microsoft tarafından yönetilen şifreleme anahtarlarını veya kendi şifreleme anahtarlarınızı kullanabilirsiniz. Bu öğreticinin basit olmasını sağlamak için `Microsoft.Storage` seçeneğini kullanabilir, Azure Key Vault oluşturmadan devam edebilirsiniz.
+
+    ![Resource Manager şablon başvurusu depolama hesabı şifreleme nesnesi](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
+
+    Şifreleme nesneniz şu şekilde görünmelidir:
+
+    ```json
+    "encryption": {
         "services": {
             "blob": {
                 "enabled": true
+            },
+            "file": {
+              "enabled": true
             }
-        }
+        },
+        "keySource": "Microsoft.Storage"
     }
     ```
-5. Son kaynaklar öğesinin aşağıdaki şekilde görünmesi için Visual Studio Code'dan şablonu değiştirin:
-    
-    ![Resource Manager şablonu şifrelenmiş depolama hesabı kaynakları](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+
+## <a name="edit-the-template"></a>Şablonu düzenleme
+
+resources öğesinin aşağıdaki şekilde görünmesi için Visual Studio Code'dan şablonu değiştirin:
+
+![Resource Manager şablonu şifrelenmiş depolama hesabı kaynakları](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 

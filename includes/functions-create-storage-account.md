@@ -1,8 +1,21 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: cf8c6f07eb38487dd29624b15be3637536be92fc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132753"
+---
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
-İşlevler durumu ve işlevlerinizi ilgili diğer bilgileri korumak için Azure depolama alanında genel amaçlı bir hesabı kullanır. Genel amaçlı depolama hesabı kullanılarak oluşturulan kaynak grubunda oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create) komutu.
+İşlevler, işlevlerinizin durumunu ve diğer bilgilerini korumak için genel amaçlı bir Azure Depolama hesabı kullanır. Oluşturduğunuz kaynak grubunda [az storage account create](/cli/azure/storage/account#create) komutunu kullanarak genel amaçlı depolama hesabı oluşturun.
 
-Aşağıdaki komutta, gördüğünüz bir genel benzersiz depolama hesabı adı yerine `<storage_name>` yer tutucu. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
+Aşağıdaki komutta `<storage_name>` yer tutucusunu gördüğünüz yere genel olarak benzersiz bir depolama hesabı adı yazın. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS

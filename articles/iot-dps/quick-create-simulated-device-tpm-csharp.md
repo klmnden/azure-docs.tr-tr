@@ -1,6 +1,6 @@
 ---
 title: C# kullanarak Azure IOT Hub'a sanal bir TPM cihazı sağlama | Microsoft Docs
-description: Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
+description: Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama. Bu hızlı başlangıçta bireysel kayıtlar kullanılmaktadır.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fd16defdcd3c3cb0c78994e9259b55f3d687163b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 812b707b9711d61d0a1326a86644e57ecbe84513
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032657"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157905"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -23,6 +23,12 @@ ms.locfileid: "47032657"
 Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde Azure IoT Hub C# SDK'sı sanal TPM cihazı örneğini derlemeyi ve sanal cihazı Cihaz Sağlama Hizmeti ve IoT hub'ınızla bağlamayı gösterir. Örnek kodda cihazın [Donanım Güvenlik Modülü (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) olarak Windows TPM simülatörü kullanılmaktadır. 
 
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
+
+Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
+
+Bu makalede bireysel kayıtlar gösterilmektedir.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -42,7 +48,7 @@ Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](c
 ## <a name="provision-the-simulated-device"></a>Sanal cihazı sağlama
 
 
-1. Azure portalında oturum açın. Sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve Cihaz Sağlama hizmetinizi açın. **Genel Bakış** dikey penceresine gidin. **_Kimlik Kapsamı_** değerini not edin.
+1. Azure Portal’da oturum açın. Sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve Cihaz Sağlama hizmetinizi açın. **Genel bakış** dikey penceresinde bulunan **_Kimlik Kapsamı_** değerini not edin.
 
     ![Portal dikey penceresindeki sağlama hizmeti Kapsam Kimliğini kopyalama](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 

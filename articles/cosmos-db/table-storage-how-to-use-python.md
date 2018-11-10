@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 4e9d1742401e30d451282ea8dc22a56c0347dbf9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0fca20f4f714e586281a32e57fe6129b262f5fa5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41917775"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248498"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 
@@ -57,7 +57,7 @@ Bir Depolama hesabı oluşturduktan sonraki adımınız [Python için Microsoft 
 
 ## <a name="import-the-tableservice-and-entity-classes"></a>TableService ve Entity sınıflarını içeri aktarma
 
-Python'da Azure Tablo Depolama’daki varlıklarla çalışmak için [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) ve [Entity][py_Entity] sınıflarını kullanırsınız. Bunların ikisini de içeri aktarmak için şu kodu Python dosyanızın başına ekleyin:
+Python'da Azure Tablo Depolama’daki varlıklarla çalışmak için [TableService][py_TableService] ve [Entity][py_Entity] sınıflarını kullanırsınız. Bunların ikisini de içeri aktarmak için şu kodu Python dosyanızın başına ekleyin:
 
 ```python
 from azure.cosmosdb.table.tableservice import TableService
@@ -66,7 +66,7 @@ from azure.cosmosdb.table.models import Entity
 
 ## <a name="connect-to-azure-table-service"></a>Azure Tablo Depolama hizmetine bağlanma
 
-Azure Depolama Tablo hizmetine bağlanmak için, bir [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) nesnesi oluşturun ve Depolama hesabınızın adını ve hesap anahtarını geçin. `myaccount` ve `mykey` ifadelerini hesap adınız ve anahtarınız ile değiştirin.
+Azure Depolama Tablo hizmetine bağlanmak için, bir [TableService][py_TableService] nesnesi oluşturun ve Depolama hesabınızın adını ve hesap anahtarını geçin. `myaccount` ve `mykey` ifadelerini hesap adınız ve anahtarınız ile değiştirin.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
@@ -74,7 +74,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 
 ## <a name="connect-to-azure-cosmos-db"></a>Azure Cosmos DB’ye bağlanma
 
-Azure Cosmos DB'ye bağlanmak için, Azure portalından birincil bağlantı dizenizi kopyalayın ve kopyaladığınız bağlantı dizesini kullanarak bir [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) nesnesi oluşturun:
+Azure Cosmos DB'ye bağlanmak için, Azure portaldan birincil bağlantı dizenizi kopyalayın ve kopyaladığınız bağlantı dizesini kullanarak bir [TableService][py_TableService] nesnesi oluşturun:
 
 ```python
 table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
@@ -227,15 +227,16 @@ table_service.delete_table('tasktable')
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md): Windows'da, macOS'te ve Linux'ta Azure Depolama verileriyle görsel olarak çalışmak için ücretsiz, platformlar arası bir uygulama.
 * [Visual Studio'da (Windows) Python ile çalışma](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
-[py_commit_batch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_create_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_delete_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_delete_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_Entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.models.html
-[py_get_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_insert_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_insert_or_replace_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_TableService]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_TableBatch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tablebatch.html
-[py_merge_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
-[py_update_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+
+[py_commit_batch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#commit-batch
+[py_create_table]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#create-table
+[py_delete_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#delete-entity
+[py_get_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#get-entity
+[py_insert_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#insert-entity
+[py_insert_or_replace_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#insert-or-replace-entity
+[py_Entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.models.entity?view=azure-python
+[py_merge_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#merge-entity
+[py_update_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#update-entity
+[py_delete_table]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#delete-table
+[py_TableService]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
+[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python#commit-batch

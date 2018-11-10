@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fda234b882cbf4a155881895bbf8401fe3ff3aca
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b6ce89d141af434d4f40e9079b39e4d7eed114df
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645100"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420923"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak ilgi çekici noktaya yönlendirme
 
@@ -40,15 +40,26 @@ Aşağıdaki adımlarda, Harita Denetimi API’sinin tümleşik olduğu statik b
 
     ```HTML
     <!DOCTYPE html>
-    <html lang="en">
-
+    <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
+
+        <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        
+        <script>
+            var map, datasource, client;
+
+            function GetMap() {
+                //Add Map Control JavaScript code here.
+            }
+        </script>
         <style>
             html,
             body {
@@ -64,77 +75,101 @@ Aşağıdaki adımlarda, Harita Denetimi API’sinin tümleşik olduğu statik b
             }
         </style>
     </head>
-
-    <body>
-        <div id="map"></div>
-        <script>
-            // Embed Map Control JavaScript code here
-        </script>
+    <body onload="GetMap()">
+        <div id="myMap"></div>
     </body>
-
     </html>
     ```
-    HTML üst bilgisi, Azure Haritalar kitaplığı için CSS ve JavaScript dosyalarına yönelik kaynak konumlarını ekler. HTML dosyasının gövdesindeki *betik* segmenti, Azure Haritalar API’lerine erişmeye yönelik satır içi JavaScript kodunu içerir.
+    
+    HTML üst bilgisinin Azure Harita Denetimi kitaplığı tarafından barındırılan CSS ve JavaScript kaynak dosyalarını içerdiğine dikkat edin. Sayfanın gövdesinde bulunan ve sayfa yüklendiğinde `GetMap` işlevini çağıracak olan `onload` olayına dikkat edin. Bu işlev, Azure Haritalar API’lerine erişime yönelik satır içi JavaScript kodunu içerir. 
 
-3. HTML dosyasının *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. **\<Hesap anahtarınız\>** dizesini, Haritalar hesabınızdan kopyaladığınız birincil anahtarla değiştirin.
+3. `GetMap` işlevine aşağıdaki JavaScript kodunu ekleyin. **\<Azure Haritalar Anahtarınız\>** dizesini, Haritalar hesabınızdan kopyaladığınız birincil anahtarla değiştirin.
 
     ```JavaScript
-    // Instantiate map to the div with id "map"
-    atlas.setSubscriptionKey("<your account key>");
-    var map = new atlas.Map("map");
+    //Add your Azure Maps subscription key to the map SDK. 
+    atlas.setSubscriptionKey('<Your Azure Maps Key>');
+
+    //Initialize a map instance.
+    map = new atlas.Map('myMap');
     ```
 
-    Azure Harita Denetimi API’sinin bir bileşeni olan **atlas.Map**, görsel ve etkileşimli bir web haritası için denetim olanağı sunar.
+    Azure Harita Denetimi API’sinin bir bileşeni olan `atlas.Map`, görsel ve etkileşimli bir web haritası için denetim olanağı sunar.
 
 4. Dosyayı kaydedin ve tarayıcınızda açın. Bu noktada, daha fazla geliştirebileceğiniz temel bir haritanız olur.
 
    ![Temel haritayı görüntüleme](./media/tutorial-route-location/basic-map.png)
 
-## <a name="set-start-and-end-points"></a>Başlangıç ve bitiş noktalarını ayarlama
+## <a name="define-how-the-route-will-be-rendered"></a>Rotanın nasıl işleneceğini tanımlama
 
-Bu öğretici için başlangıç noktası olarak Microsoft’u ve hedef nokta olarak Seattle’da bir benzin istasyonunu ayarlayın.
+Bu öğreticide rota başlangıcı ve bitişi için bir simge ve rota yolu için bir çizgi kullanılarak basit bir rota işlenecektir.
 
-1. **MapRoute.html** dosyasının aynı *betik* bloğuna aşağıdaki JavaScript kodunu ekleyerek yolun başlangıç ve bitiş noktalarını oluşturun:
-
-    ```JavaScript
-    // Create the GeoJSON objects which represent the start and end point of the route
-    var startPoint = new atlas.data.Point([-122.130137, 47.644702]);
-    var startPin = new atlas.data.Feature(startPoint, {
-        title: "Microsoft",
-        icon: "pin-round-blue"
-    });
-
-    var destinationPoint = new atlas.data.Point([-122.3352, 47.61397]);
-    var destinationPin = new atlas.data.Feature(destinationPoint, {
-        title: "Contoso Oil & Gas",
-        icon: "pin-blue"
-    });
-    ```
-    Bu kod, yolun başlangıç ve bitiş noktalarını temsil eden iki [GeoJSON nesnesi](https://en.wikipedia.org/wiki/GeoJSON) oluşturur.
-
-2. Haritaya başlangıç ve bitiş noktalarını sabitlemek için aşağıdaki JavaScript kodunu ekleyin:
+1. GetMap işlevinde haritanın başlatıldığı bölümün altına aşağıdaki JavaScript kodunu ekleyin.
 
     ```JavaScript
-    // Fit the map window to the bounding box defined by the start and destination points
-    var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-    var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-    var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-    var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-    map.setCameraBounds({
-        bounds: [swLon, swLat, neLon, neLat],
-        padding: 50
-    });
+    //Wait until the map resources have fully loaded.
+    map.events.add('load', function () {
 
-    map.events.add("load", function () { 
-        // Add pins to the map for the start and end point of the route
-        map.addPins([startPin, destinationPin], {
-            name: "route-pins",
-            textFont: "SegoeUi-Regular",
-            textOffset: [0, -20]
-        });
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
+
+        //Add a layer for rendering the route lines and have it render under the map labels.
+        map.layers.add(new atlas.layer.LineLayer(datasource, null, {
+            strokeColor: '#2272B9',
+            strokeWidth: 5,
+            lineJoin: 'round',
+            lineCap: 'round',
+            filter: ['==', '$type', 'LineString']
+        }), 'labels');
+
+        //Add a layer for rendering point data.
+        map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+            iconOptions: {
+                image: ['get', 'icon'],
+                allowOverlap: true
+           },
+            textOptions: {
+                textField: ['get', 'title'],
+                offset: [0, 1.2]
+            },
+            filter: ['==', '$type', 'Point']
+        }));
     });
     ```
-    **map.setCameraBounds**, harita penceresini başlangıç ve bitiş noktalarının koordinatlarına göre ayarlar. **map.events.add**, harita tamamen yüklendikten sonra haritaya eklenmiş olan tüm harita işlevlerinin yüklenmesini sağlar. Olay dinleyicisi içindeki **map.addPins** API’si, Harita denetimine görsel bileşen olarak nokta ekler.
+    
+    Haritaya, harita kaynakları tamamen yüklendikten sonra harekete geçirilecek bir yükleme olayı eklenir. Harita yükleme olayı işleyicisinde rota çizgisine ek olarak başlangıç ve bitiş noktalarını depolamak için bir veri kaynağı oluşturulur. Bir çizgi katmanı oluşturulup veri kaynağına eklenir ve rota çizgisinin nasıl işleneceği tanımlanır. Rota çizgisi mavi renkli olarak 5 piksel genişliğinde işlenecek ve birleşim yerleri ile bitiş uçları yuvarlatılacaktır. Bu katmanın yalnızca GeoJSON LineString verilerini işlemesini sağlamak için bir filtre eklenir. Katman haritaya eklenirken bu katmanın harita etiketlerinin altında işlenmesi gerektiğini belirten `'labels'` değerine sahip ikinci bir parametre geçirilir. Bu parametre, rota çizgisinin yol etiketlerini kapatmamasını sağlar. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, başlangıç ve bitiş noktalarının nasıl işleneceğini belirtir. Bu durumda her bir nokta nesnesinin özelliklerinden simge görüntüsünü ve metin etiketi bilgilerini almak için ifadeler eklenmiştir. 
+    
+2. Bu öğretici için başlangıç noktası olarak Microsoft’u ve bitiş noktası olarak Seattle’da bir benzin istasyonunu ayarlayın. Harita yükleme olayı işleyicisinde aşağıdaki kodu ekleyin.
+
+    ```JavaScript
+    //Create the GeoJSON objects which represent the start and end point of the route.
+    var startPoint = new atlas.data.Feature(new atlas.data.Point([-122.130137, 47.644702]), {
+        title: 'Microsoft',
+        icon: 'pin-round-blue'
+    });
+
+    var endPoint = new atlas.data.Feature(new atlas.data.Point([-122.3352, 47.61397]), {
+        title: 'Contoso Oil & Gas',
+        icon: 'pin-blue'
+    });    
+    ```
+
+    Bu kod, yolun başlangıç ve bitiş noktalarını temsil eden iki [GeoJSON noktası nesnesi](https://en.wikipedia.org/wiki/GeoJSON) oluşturur. Her noktaya `title` ve `icon` özelliği eklenir.
+    
+3. Ardından haritaya başlangıç ve bitiş noktalarını sabitlemek için aşağıdaki JavaScript kodunu ekleyin:
+
+    ```JavaScript
+    //Add the data to the data source.
+    datasource.add([startPoint, endPoint]);
+    
+    //Fit the map window to the bounding box defined by the start and end positions.
+    map.setCamera({
+        bounds: atlas.data.BoundingBox.fromData([startPoint, endPoint]),
+        padding: 100
+    });
+    ```
+    
+    Başlangıç ve bitiş noktaları veri kaynağına eklenir. Başlangıç ve bitiş noktaları için sınırlayıcı kutu, `atlas.data.BoundingBox.fromData` işlevi kullanılarak hesaplanır. Bu sınırlayıcı kutu, **map.setCamera** işlevi ile harita kameraları görünümünü başlangıç ve bitiş noktası üzerinde ayarlamak için kullanılır. Simgelerin piksel boyutlarını telafi etmek için iç boşluk eklenir.
 
 3. **MapRoute.html** dosyasını kaydedin ve tarayıcınızı yenileyin. Şimdi harita, Seattle üzerinde ortalanır ve başlangıç noktasının yuvarlak mavi raptiyeyle ve bitiş noktasının mavi raptiyeyle işaretlendiğini görebilirsiniz.
 
@@ -146,50 +181,37 @@ Bu öğretici için başlangıç noktası olarak Microsoft’u ve hedef nokta ol
 
 Bu bölümde, belirtilen bir başlangıç noktasından bir hedefe giden yolu bulmak için Haritalar yönlendirme hizmeti API’sinin nasıl kullanılacağı gösterilmektedir. Yönlendirme hizmeti, iki konum arasındaki *en hızlı*, *en kısa*, *ekonomik* veya *heyecan verici* yolları planlamak için API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. Daha fazla bilgi için bkz. [Yol tariflerini alma](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Aşağıdaki işlevlerin harita tamamen yüklendikten sonra yüklendiğinden emin olmak için tümü **map load eventListener** içine eklenmelidir.
 
-1. İlk olarak, rota yolunu veya *linestring*’i görüntülemek için haritaya yeni bir katman ekleyin. *Betik* bloğuna aşağıdaki JavaScript kodunu ekleyin.
+1. Harita yükleme olayı işleyicisine aşağıdaki Javascript kodunu ekleyerek hizmet istemcisini başlatın.
 
     ```JavaScript
-    // Initialize the linestring layer for routes on the map
-    var routeLinesLayerName = "routes";
-    map.addLinestrings([], {
-        name: routeLinesLayerName,
-        color: "#2272B9",
-        width: 5,
-        cap: "round",
-        join: "round",
-        before: "labels"
-    });
+    //If the service client hasn't already been created, create an instance.
+    if (!client) {
+        client = new atlas.service.Client(atlas.getSubscriptionKey());
+    }
     ```
 
-2. Betik bloğuna aşağıdaki JavaScript kodunu ekleyerek istemci hizmeti örneği oluşturun.
+2. Yol sorgu dizesi oluşturmak için aşağıdaki kod bloğunu ekleyin.
     ```JavaScript
-    var client = new atlas.service.Client(MapsAccountKey);
+    //Create the route request with the query being the start and end point in the format 'startLongitude,startLatitude:endLongitude,endLatitude'.
+    var routeQuery = startPoint.geometry.coordinates[1] +
+        ',' +
+        startPoint.geometry.coordinates[0] +
+        ':' +
+        endPoint.geometry.coordinates[1] +
+        ',' +
+        endPoint.geometry.coordinates[0];
     ```
 
-3. Yol sorgu dizesi oluşturmak için aşağıdaki kod bloğunu ekleyin.
-    ```JavaScript
-    // Construct the route query string
-    var routeQuery = startPoint.coordinates[1] +
-        "," +
-        startPoint.coordinates[0] +
-        ":" +
-        destinationPoint.coordinates[1] +
-        "," +
-        destinationPoint.coordinates[0];
-    ```
-
-4. Yolu almak için betiğe aşağıdaki kod bloğunu ekleyin. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Ardından yolu işlemek için tüm yanıt satırlarını haritaya ekler. Daha fazla bilgi için [haritaya satır ekleme](./map-add-shape.md#addALine) konusuna bakabilirsiniz.
+3. Yolu almak için betiğe aşağıdaki kod bloğunu ekleyin. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Ardından veri kaynağı yanıtına rota çizgisi eklenerek haritada otomatik olarak işlenmesi sağlanır.
 
     ```JavaScript
-    // Execute the query then add the route to the map once a response is received  
-    client.route.getRouteDirections(routeQuery).then(response => {
-         // Parse the response into GeoJSON
-         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
+    //Execute the car route query then add the route to the map once a response is received.
+    client.route.getRouteDirections(routeQuery).then(function (response) {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
 
-         // Get the first in the array of routes and add it to the map
-         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
-             name: routeLinesLayerName
-         });
+        //Add the route line to the data source.
+        datasource.add(geoJsonResponse.getGeoJsonRoutes().features[0]);
     });
     ```
 
@@ -208,7 +230,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
 
-> [Azure Haritalar ile yol bulma](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
+> [Azure Haritalar ile yol bulma](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
+
+[Burada canlı örneği inceleyin](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 Sonraki öğreticide, seyahat modu veya kargo türü gibi kısıtlamalarla bir yol sorgusu oluşturma ve aynı harita üzerinde birden fazla yolu görüntüleme işlemleri gösterilmektedir.
 

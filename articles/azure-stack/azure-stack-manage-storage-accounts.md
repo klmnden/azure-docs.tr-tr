@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452284"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240724"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure stack'teki depolama hesapları yönetme
 Bulma, kurtarma ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için Azure stack'teki depolama hesapları'nı yönetmeyi öğrenin.
@@ -45,7 +45,7 @@ Bölgede depolama hesaplarının listesi Azure yığını tarafından görüntü
 
 Varsayılan olarak, ilk 10 hesapları görüntülenir. Daha fazla bilgi almak seçebileceğiniz tıklayarak **daha fazla Yükle** listenin altındaki bağlantıyı.
 
-OR
+VEYA
 
 Belirli bir depolama hesabında – ilgileniyorsanız yapabilecekleriniz **filtrelemek ve ilgili hesapları fetch** yalnızca.
 
@@ -80,7 +80,7 @@ Azure Stack'te Bunu yapmak için basit bir yolu yoktur:
 3. Denetleme *durumu* hesabının. Söyleyin **silinmiş**.
 4. Hesap ayrıntıları bölmesi açılır hesabı seçin.
 5. Bu bölmede üzerinde bulun **kurtarmak** düğmesini tıklatın ve seçin.
-6. Onaylamak için **Evet**'i seçin.
+6. Onaylamak için **Evet**’i seçin.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. Yer artık kurtarma *bekleyin... işlem* için başarılı olduğunu göstergesidir.
@@ -136,8 +136,8 @@ Ayrıca Bekletme dönemi açıkça geçersiz kılmak için PowerShell kullanın 
 **Kapasiteyi geri kazanmak için PowerShell'i kullanma:**   
 
 1. Azure PowerShell sürümünün yüklü ve yapılandırılmış olduğunu doğrulayın. Aksi durumda, aşağıdaki yönergeleri kullanın: 
-   * En son Azure PowerShell sürümünü yükleyin ve Azure aboneliğinizle ilişkilendirmek için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Azure Resource Manager cmdlet'leri hakkında daha fazla bilgi için bkz: [Azure PowerShell'i Azure Resource Manager ile kullanma](http://go.microsoft.com/fwlink/?LinkId=394767)
+   * En son Azure PowerShell sürümünü yükleyin ve Azure aboneliğinizle ilişkilendirmek için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Azure Resource Manager cmdlet'leri hakkında daha fazla bilgi için bkz: [Azure PowerShell'i Azure Resource Manager ile kullanma](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. Aşağıdaki cmdlet'leri çalıştırın:
 
 > [!NOTE]  

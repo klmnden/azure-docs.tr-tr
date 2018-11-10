@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394230"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214826"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Hızlı başlangıç: Azure Veri Gezgini kümesi ve veritabanı oluşturma
 
@@ -31,11 +31,11 @@ Azure Veri Gezgini kümesini işlem ve depolama kaynakları belirlenmiş olan bi
 
 1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin.
 
-1. *Azure Veri Gezgini*'ni aratın ve sonuçlardan **Azure Veri Gezgini**'ni seçin.
+1. *Azure Veri Gezgini* için arama yapın.
 
    ![Kaynak arama](media/create-cluster-database-portal/search-resources.png)
 
-1. Sağ alt köşede **Oluştur**’u seçin.
+1. **Azure Veri Gezgini**'nin altında, ekranın en alt bölümünde **Oluştur**'u seçin.
 
 1. Kümeniz için benzersiz bir ad girin, aboneliğinizi seçin ve *test-resource-group* adlı bir kaynak grubu oluşturun.
 
@@ -51,10 +51,12 @@ Azure Veri Gezgini kümesini işlem ve depolama kaynakları belirlenmiş olan bi
     | Abonelik | Aboneliğiniz | Kümeniz için kullanmak istediğiniz Azure aboneliğini seçin.|
     | Kaynak grubu | *test-resource-group* | Yeni bir kaynak grubu oluşturun. |
     | Konum | *Batı ABD* | Bu hızlı başlangıç için *Batı ABD* değerini seçin. Üretim sisteminde ihtiyaçlarınıza en uygun bölgeyi seçmeniz gerekir.
-    | İşlem özelliği | *D13_v2* | Bu hızlı başlangıç için en düşük fiyatlı özelliği seçin. Üretim sisteminde ihtiyaçlarınıza en uygun özelliği seçmeniz gerekir.
+    | İşlem belirtimleri | *D13_v2* | Bu hızlı başlangıç için en düşük fiyatlı özelliği seçin. Üretim sisteminde ihtiyaçlarınıza en uygun özelliği seçmeniz gerekir.
     | | |
 
-1. Kümeyi sağlamak için **Oluştur**’u seçin. Sağlama işlemi genellikle on dakika kadar sürer. Araç çubuğunda **Bildirimler**’i (zil simgesi) seçip sağlama işlemini izleyin.
+1. Kümeyi sağlamak için **Oluştur**’u seçin. Sağlama işlemi genellikle on dakika kadar sürer. Araç çubuğunda **Bildirimler**’i seçip sağlama işlemini izleyin.
+
+    ![Bildirimler](media/create-cluster-database-portal/notifications.png)
 
 1. İşlem tamamlandığında **Bildirimler**'i ve ardından **Kaynağa git**'i seçin.
 

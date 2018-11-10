@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2b8cc34e5ace5e252acae94a16858a69edc63a1c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646322"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240248"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Öğretici: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma
 
@@ -29,10 +29,8 @@ Bu öğreticide bir depolama hesabı, bir sanal makine, bir sanal ağ ve ek birk
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Güvenli bir ortam ayarlama
 > * Hızlı başlangıç şablonunu açma
 > * Şablonu keşfetme
-> * Parametre dosyasını düzenleme
 > * Şablonu dağıtma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
@@ -41,8 +39,8 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bu makaleyi tamamlamak için gerekenler:
 
-* [Visual Studio Code](https://code.visualstudio.com/) ve Resource Manager Araçları uzantısı.  Bkz. [Uzantıyı yükleme](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* Parola spreyi saldırılarını önlemek için sanal makine yönetici hesabı için bir parola oluşturun. Örneği aşağıda verilmiştir:
+* [Visual Studio Code](https://code.visualstudio.com/) ve Resource Manager Araçları uzantısı.  Bkz. [Uzantıyı yükleme](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Güvenliği artırmak istiyorsanız sanal makine yönetici hesabı için oluşturulmuş bir parola kullanın. Parola oluşturma örneği aşağıda verilmiştir:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -66,37 +64,45 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
 
 Bu bölümdeki şablonu inceledikten sonra şu soruları yanıtlamaya çalışın:
 
-- Bu şablonda kaç adet Azure kaynağı tanımlanmıştır?
-- Kaynaklardan biri bir Azure depolama hesabıdır.  Tanım, son öğreticide kullanılan tanıma benziyor mu?
-- Bu şablonda tanımlanan kaynaklara ilişkin şablon başvurularını bulabilir misiniz?
-- Kaynakların bağımlılıklarını bulabilir misiniz?
+* Bu şablonda kaç adet Azure kaynağı tanımlanmıştır?
+* Kaynaklardan biri bir Azure depolama hesabıdır.  Tanım, son öğreticide kullanılan tanıma benziyor mu?
+* Bu şablonda tanımlanan kaynaklara ilişkin şablon başvurularını bulabilir misiniz?
+* Kaynakların bağımlılıklarını bulabilir misiniz?
 
 1. Visual Studio Code'da birinci düzeydeki öğeleri ve **resources** içindeki ikinci düzey öğeleri görene kadar öğeleri daraltın:
 
     ![Visual Studio Code Azure Resource Manager şablonları](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    Şablonun tanımladığı beş kaynak vardır.
-2. İlk kaynağı genişletin. Bir depolama hesabıdır. Tanım, son öğreticinin başında kullanılan tanımla aynı olacaktır.
+    Şablonun tanımladığı beş kaynak vardır:
+
+    * `Microsoft.Storage/storageAccounts`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Şablonu özelleştirmeden önce temel noktaları kavramak faydalı olacaktır.
+
+2. İlk kaynağı genişletin. Bir depolama hesabıdır. Kaynak tanımını [şablon başvurusu](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts) ile karşılaştırın.
 
     ![Visual Studio Code Azure Resource Manager şablonları depolama hesabı tanımı](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. İkinci kaynağı genişletin. Kaynak türü: **Microsoft.Network/publicIPAddresses**. Şablon başvurusunu bulmak için, [şablon referansı](https://docs.microsoft.com/azure/templates/) bölümüne göz atın, **Başlığa göre filtrele** alanına **genel IP adresi** veya **genel IP adresleri** girin. Kaynak tanımını şablon başvurusu ile karşılaştırın.
+3. İkinci kaynağı genişletin. Kaynak türü `Microsoft.Network/publicIPAddresses` şeklindedir. Kaynak tanımını [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses) ile karşılaştırın.
 
     ![Visual Studio Code Azure Resource Manager şablonları genel IP adresi tanımı](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Bu şablonda tanımlanan diğer kaynaklara ilişkin şablon başvurularını bulmak için son adımı yineleyin.  Kaynak tanımlarını başvurular ile karşılaştırın.
-5. Dördüncü kaynağı genişletin:
+4. Dördüncü kaynağı genişletin. Kaynak türü `Microsoft.Network/networkInterfaces` şeklindedir:  
 
     ![Visual Studio Code Azure Resource Manager şablonları dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
-    dependsOn öğesi, kaynaklardan birini diğer kaynaklardan birine veya daha fazlasına bağımlı olarak tanımlamanızı sağlar. Bu örnekte bu kaynak networkInterface olmuştur.  İki farklı kaynağa bağımlıdır:
+    dependsOn öğesi, kaynaklardan birini diğer kaynaklardan birine veya daha fazlasına bağımlı olarak tanımlamanızı sağlar. Kaynak, iki farklı kaynağa bağımlıdır:
 
-    * publicIPAddress
-    * virtualNetwork
+    * `Microsoft.Network/publicIPAddresses`
+    * `Microsoft.Network/virtualNetworks`
 
-6. Beşinci kaynağı genişletin. Bu kaynak bir sanal makinedir. İki farklı kaynağa bağımlıdır:
+5. Beşinci kaynağı genişletin. Bu kaynak bir sanal makinedir. İki farklı kaynağa bağımlıdır:
 
-    * storageAccount
-    * networkInterface
+    * `Microsoft.Storage/storageAccounts`
+    * `Microsoft.Network/networkInterfaces`
 
 Aşağıdaki diyagramda bu şablondaki kaynaklar ve bağımlılık bilgileri gösterilmiştir:
 
@@ -129,22 +135,23 @@ Bağımlılıkların belirtilmesi, Resource Manager'ın çözümü verimli bir �
     ```bash
     cat azuredeploy.json
     ```
-7. Cloud Shell'de aşağıdaki PowerShell komutlarını çalıştırın. Güvenliği iyileştirmek için sanal makine yönetici hesabı için oluşturulmuş bir parola kullanın. [Ön koşullara](#prerequisites) bakın.
+7. Cloud Shell'de aşağıdaki PowerShell komutlarını çalıştırın. Güvenliği artırmak istiyorsanız sanal makine yönetici hesabı için oluşturulmuş bir parola kullanın. [Ön koşullara](#prerequisites) bakın.
 
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
-    $adminPassword = Read-Host -Prompt "Enter the admin password"
-    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -adminUsername = $adminUsername `
-        -adminPassword = $adminPassword `
-        -dnsLabelPrefix = $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json 
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json
     ```
 8. Yeni oluşturulan sanal makineyi listelemek için aşağıdaki PowerShell komutunu çalıştırın:
 
@@ -155,7 +162,7 @@ Bağımlılıkların belirtilmesi, Resource Manager'ın çözümü verimli bir �
 
     Sanal makine adı şablon içinde **SimpleWinVM** olarak kodlanmıştır ve değiştirilemez.
 
-9. Yönetici kimlik bilgilerini test etmek için sanal makinede oturum açın. 
+9. Sanal makinenin başarıyla oluşturulduğunu doğrulamak için RDP bağlantısı kurun.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -170,7 +177,5 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 Bu öğreticide sanal makine, sanal ağ ve bağımlı kaynaklar oluşturmak için bir şablon geliştirdiniz ve dağıttınız. Azure kaynaklarını koşullara bağlı olarak dağıtmayı öğrenin:
 
-
 > [!div class="nextstepaction"]
 > [Koşulları kullanma](./resource-manager-tutorial-use-conditions.md)
-

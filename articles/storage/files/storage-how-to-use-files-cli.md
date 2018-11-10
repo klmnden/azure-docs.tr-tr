@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945027"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158984"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak Azure dosya paylaşımları oluşturma ve yönetme
 Bu kılavuzda, Azure CLI kullanarak [Azure dosya paylaşımları](storage-files-introduction.md) ile çalışmanın temel kuralları gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -185,6 +185,80 @@ az storage file list \
 ```
 
 `az storage file copy start` komutu Azure dosya paylaşımları ile Azure Blob depolama kapsayıcıları arasında dosya taşıma işlemleri için kullanışlı olsa da, daha büyük taşıma işlemlerinde AzCopy kullanmanız önerilir. (Taşınan dosyaların sayısı veya boyutu bakımından daha büyük.) [Linux için AzCopy](../common/storage-use-azcopy-linux.md) ve [Windows için AzCopy](../common/storage-use-azcopy.md) hakkında daha fazla bilgi edinin. AzCopy yerel olarak yüklü olmalıdır. AzCopy, Cloud Shell’de kullanılamaz. 
+
+## <a name="create-and-manage-share-snapshots"></a>Paylaşım anlık görüntülerini oluşturma ve yönetme
+Azure dosya paylaşımıyla yerine getirebileceğiniz bir diğer yararlı görev ise paylaşım anlık görüntüleri oluşturmaktır. Anlık görüntü, Azure dosya paylaşımının zamanın bir noktasındaki kopyasını saklar. Paylaşım anlık görüntüleri, zaten tanıyor olabileceğiniz bazı işletim sistemi teknolojilerine benzerdir:
+
+- Linux sistemleri için [Mantıksal Birim Yöneticisi (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) anlık görüntüleri
+- macOS için [Apple Dosya Sistemi (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) anlık görüntüleri
+- NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal). [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) komutunu kullanarak bir paylaşım anlık görüntüsü oluşturabilirsiniz:
+
+```azurecli-interactive
+SNAPSHOT=$(az storage share snapshot \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --query "snapshot" | tr -d '"')
+```
+
+### <a name="browse-share-snapshot-contents"></a>Paylaşım anlık görüntüsünün içeriğine göz atma
+`$SNAPSHOT` değişkeninde yakaladığınız paylaşım anlık görüntüsünün zaman damgasını `az storage file list` komutuna geçirerek, paylaşım anlık görüntüsünün içeriğine göz atabilirsiniz:
+
+```azurecli-interactive
+az storage file list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --snapshot $SNAPSHOT \
+    --output table
+```
+
+### <a name="list-share-snapshots"></a>Paylaşım anlık görüntülerini listeleme
+Paylaşımınız için aldığınız anlık görüntülerin listesini görmek için aşağıdaki komutu kullanın:
+
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --include-snapshot \
+    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
+```
+
+### <a name="restore-from-a-share-snapshot"></a>Paylaşım anlık görüntüsünden geri yükleme
+Daha önce kullandığınız `az storage file copy start` komutunu kullanarak dosyayı geri yükleyebilirsiniz. İlk olarak, anlık görüntüden geri yükleyebilmek için, karşıya yüklediğiniz SampleUpload.txt dosyasını silin:
+
+```azurecli-interactive
+# Delete SampleUpload.txt
+az storage file delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --path "myDirectory/SampleUpload.txt"
+ # Build the source URI for a snapshot restore
+URI=$(az storage account show \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT \
+    --query "primaryEndpoints.file" | tr -d '"')
+ URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+ # Restore SampleUpload.txt from the share snapshot
+az storage file copy start \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --source-uri $URI \
+    --destination-share "myshare" \
+    --destination-path "myDirectory/SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>Paylaşım anlık görüntüsünü silme
+[`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete) komutunu kullanarak bir paylaşım anlık görüntüsünü silebilirsiniz. `--snapshot` parametresine `$SNAPSHOT` başvurusunu içeren değişkeni kullanın:
+
+```azurecli-interactive
+az storage share delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --snapshot $SNAPSHOT
+```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İşiniz bittiğinde, [`az group delete`](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu ve tüm ilgili kaynakları kaldırabilirsiniz: 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d8ece15e7e8fa3b74fbefc78aea65683229712ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38700909"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246778"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ Google Play ve FCM (Firebase Cloud Messaging) Çin'de mevcut değildir ve farkl�
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
-* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Android Studio kullanacağınız varsayılır)
+* <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Android Studio kullanacağınız varsayılır)
 * [Baidu Anında İletme Android SDK’sı]
 
 > [!NOTE]
@@ -475,7 +475,7 @@ Anında iletme bildirimleri normalde, uyumlu bir kitaplık kullanılarak Mobile 
 Bu öğreticide kolaylık sağlamak için .NET SDK ile bildirim göndermenin gösterilmesi amacıyla konsol uygulaması kullanılmaktadır. Ancak bir ASP.NET arka ucundan bildirim göndermek için sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs'ı kullanma](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) öğreticisini öneririz. 
 
 Bildirim göndermeye yönelik farklı yaklaşımlar aşağıda listelenmiştir:
-* **REST Arabirimi**: [REST arabirimini](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kullanarak herhangi bir arka uç platformunda bildirimi destekleyebilirsiniz.
+* **REST Arabirimi**: [REST arabirimini](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kullanarak herhangi bir arka uç platformunda bildirimi destekleyebilirsiniz.
 * **Microsoft Azure Notification Hubs .NET SDK'sı**: Visual Studio için Nuget Paket Yöneticisi'nde [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) komutunu çalıştırın.
 * **Node.js**: [Node.js'den Notification Hubs'ı kullanma](notification-hubs-nodejs-push-notification-tutorial.md).
 * **Mobile Apps**: Notification Hubs ile tümleştirilmiş Azure Uygulama Hizmeti Mobile Apps arka ucundan nasıl bildirim gönderildiğinin bir örneği için bkz. [Mobil uygulamalarınıza anında iletme bildirimleri ekleme](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).

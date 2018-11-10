@@ -1,6 +1,6 @@
 ---
 title: C# kullanarak Azure IOT Hub'a sanal bir X.509 cihazı sağlama | Microsoft Docs
-description: Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
+description: Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama. Bu hızlı başlangıçta bireysel kayıtlar kullanılmaktadır.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/18
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d42280935c406a7af0e632434749b2b082ea8b8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039676"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156468"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -23,6 +23,12 @@ ms.locfileid: "47039676"
 Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde [Azure IoT Hub C# SDK'sı](https://github.com/Azure/azure-iot-sdk-csharp) sanal X.509 cihazı örneğini derlemeyi ve sanal cihazı Cihaz Sağlama Hizmeti ve IoT hub'ınızla bağlamayı gösterir.
 
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
+
+Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
+
+Bu makalede bireysel kayıtlar gösterilmektedir.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -44,7 +50,7 @@ Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](c
 Bu bölümde, otomatik olarak imzalanan X.509 sertifikası kullanacaksınız. Aşağıdaki konuları göz önünde bulundurmak önemlidir:
 
 * Otomatik olarak imzalanan sertifikalar yalnızca test amaçlıdır ve üretimde kullanılmamalıdır.
-* Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi 1 yıldır.
+* Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi bir yıldır.
 
 Simülasyon cihazının tek kayıt girdisiyle kullanılacak sertifikayı oluşturmak için [.NET için Azure IoT SDK'sından](https://github.com/Azure/azure-iot-sdk-csharp.git) örnek kodu kullanacaksınız.
 
@@ -66,7 +72,7 @@ Simülasyon cihazının tek kayıt girdisiyle kullanılacak sertifikayı oluştu
     ![ PFX parolasını girme](./media/quick-create-simulated-device-x509-csharp/generate-certificate.png)  
 
 
-4. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve sağlama hizmetinizi açın.
+4. Azure portala giriş yapın, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve sağlama hizmetinizi açın.
 
 5. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Bireysel Kayıtlar** sekmesini seçin ve en üstteki **Bireysel kayıt ekle** düğmesine tıklayın. 
 

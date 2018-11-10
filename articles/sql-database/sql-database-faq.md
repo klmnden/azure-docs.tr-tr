@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232214"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242832"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL veritabanı sık sorulan sorular (SSS)
 
@@ -27,7 +27,7 @@ Geçerli sürümü, SQL veritabanı V12 ' dir. Sürüm V11 kullanımdan kaldır�
 
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL veritabanı SLA'sı nedir
 
-Süre en az % 99,99 oranında kullanılabilir olacağına garanti veriyoruz, Microsoft Azure SQL veritabanı ile Internet ağ geçidimizle arasında hizmet katmanınızın bağımsız olarak bağlantınız. %0,01 düzeltme ekleri, yükseltmeleri ve yük devretme işlemleri için ayrılmıştır. Daha fazla bilgi için [SLA](http://azure.microsoft.com/support/legal/sla/). Azure SQL veritabanı kullanılabilirlik mimarisi hakkında daha fazla bilgi için bkz. [yüksek kullanılabilirlik ve Azure SQL veritabanı](sql-database-high-availability.md).
+Süre en az % 99,99 oranında kullanılabilir olacağına garanti veriyoruz, Microsoft Azure SQL veritabanı ile Internet ağ geçidimizle arasında hizmet katmanınızın bağımsız olarak bağlantınız. %0,01 düzeltme ekleri, yükseltmeleri ve yük devretme işlemleri için ayrılmıştır. Daha fazla bilgi için [SLA](https://azure.microsoft.com/support/legal/sla/). Azure SQL veritabanı kullanılabilirlik mimarisi hakkında daha fazla bilgi için bkz. [yüksek kullanılabilirlik ve Azure SQL veritabanı](sql-database-high-availability.md).
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>Kapalı kalma süresi düzeltme eki uygulama oluştuğunda denetleyebilirim
 

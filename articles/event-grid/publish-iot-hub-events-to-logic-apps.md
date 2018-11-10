@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 43b317cd9d1c9384a58e9d525fdd15d18eb63968
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246645"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242528"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Logic Apps kullanarak Azure IoT Hub olayları hakkında e-posta bildirimleri gönderme
 
@@ -28,7 +28,7 @@ Bu makale IoT Hub ve Event Grid kullanan örnek bir yapılandırmada size yol g�
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Azure Logic Apps tarafından desteklenen Office 365 Outlook, Outlook.com veya Gmail gibi bir e-posta sağlayıcısından alınmış e-posta hesabı. Bu e-posta hesabı olay bildirimlerini göndermek için kullanılır. Desteklenen Logic App bağlayıcılarının tam listesi için bkz. [Bağlayıcılara genel bakış](https://docs.microsoft.com/connectors/)
-* Etkin bir Azure hesabı. Hesabınız yoksa [ücretsiz bir hesap oluşturabilirsiniz](http://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Hesabınız yoksa [ücretsiz bir hesap oluşturabilirsiniz](https://azure.microsoft.com/pricing/free-trial/).
 * Azure'da bir IoT Hub'ı. Henüz oluşturmadıysanız, yönergeler için bkz. [IoT Hub'ı kullanmaya başlama](../iot-hub/iot-hub-csharp-csharp-getstarted.md). 
 
 ## <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma

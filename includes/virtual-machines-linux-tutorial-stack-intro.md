@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: b922b5ea225c61948240e40903ac43f56fde3fb5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226593"
+---
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
@@ -12,7 +25,7 @@ az group create --name myResourceGroup --location eastus
 
 [az vm create](/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. 
 
-Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur ve varsayılan anahtar konumunda henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. Komut ayrıca ayarlar *azureuser* bir yönetici kullanıcı adı olarak. Bu adı daha sonra VM'e bağlanmak için kullandığınız. 
+Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur ve varsayılan anahtar konumunda henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. Komut ayrıca *azureuser* yönetici kullanıcı adını belirler. Bu adı daha sonra VM'ye bağlanmak için kullanacaksınız. 
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +36,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir. `publicIpAddress` değerini not edin. Bu adres, daha sonraki adımlarda VM erişmek için kullanılır.
+VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir. `publicIpAddress` değerini not edin. Sonraki adımlarda bu adres, VM’ye erişmek için kullanılır.
 
 ```azurecli-interactive 
 {
@@ -42,7 +55,7 @@ VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir
 
 ## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın 
 
-Varsayılan olarak, Linux Azure üzerinde dağıtılan VM'ler içine yalnızca SSH bağlantılara izin verilir. Bir web sunucusu olacak şekilde bu VM olacağından, internet'ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#az_vm_open_port) komutunu kullanın.  
+Varsayılan olarak, Azure’a dağıtılmış Linux VM'lerde yalnızca SSH bağlantılarına izin verilir. Bu VM bir web sunucusu olacağı için, İnternet’ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#az_vm_open_port) komutunu kullanın.  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -50,14 +63,14 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>VM’ye SSH uygulama
 
 
-VM genel IP adresi zaten bilmiyorsanız, çalıştırmak [az ağ ortak IP listesi](/cli/azure/network/public-ip#list) komutu. Bu IP adresi için sonraki birkaç adım gerekir.
+VM’nizin genel IP adresini bilmiyorsanız, [az network public-ip list](/cli/azure/network/public-ip#list) komutunu çalıştırın. Bu IP adresine sonraki adımlarda ihtiyacınız olacak.
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Sanal makineniz doğru ortak IP adresini değiştirin. Bu örnekte IP adresidir *40.68.254.142*. *azureuser* VM oluşturduğunuz sırada yönetici kullanıcı adına ayarlanır.
+Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Sanal makinenizin doğru genel IP adresi ile değiştirdiğinizden emin olun. Bu örnekte IP adresi *40.68.254.142*’dir. *azureuser*, VM'yi oluşturduğunuzda belirlenen yönetici kullanıcı adıdır.
 
 ```bash
 ssh azureuser@40.68.254.142

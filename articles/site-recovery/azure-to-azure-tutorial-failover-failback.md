@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere yük devretme veya VM’leri geri döndürme
-description: Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere nasıl yük devredeceğinizi veya bu VM’leri nasıl geri döndüreceğinizi öğrenin
+title: Olağanüstü durum kurtarma için Azure Site Recovery hizmeti ile ikincil bir Azure bölgesine çoğaltılmış Azure IaaS VM'lerinde yük devretme ve yeniden çalışma.
+description: Olağanüstü durum kurtarma için Azure Site Recovery hizmeti ile ikincil bir Azure bölgesine çoğaltılmış Azure VM'lerinde yük devretme ve yeniden çalışma işlemlerini gerçekleştirmeyi öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9917656a3bc8fd8cfe7d71786dc39d296a2449c1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456516"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239296"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure VM yük devretme ve ilk duruma döndürme
 
@@ -34,7 +34,7 @@ Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük d
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Her şeyin beklenildiği gibi çalışıp çalışmadığını denetlemek için bir [olağanüstü durum kurtarma tatbikatını](azure-to-azure-tutorial-dr-drill.md) tamamladığınızdan emin olun.
-- Yük devretme testini çalıştırmadan önce VM özelliklerini doğrulayın. VM, [Azure gereksinimlerine](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) uymalıdır.
+- Yük devretme testini çalıştırmadan önce VM özelliklerini doğrulayın. VM, [Azure gereksinimlerine](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) uymalıdır.
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>İkincil bölgeye yük devretme çalıştırma
 

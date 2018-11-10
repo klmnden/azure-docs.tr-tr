@@ -1,12 +1,25 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227210"
+---
 ## <a name="install-wordpress"></a>WordPress yükleme
 
-Yığın denemek istiyorsanız, örnek bir uygulama yükleyin. Örnek olarak, aşağıdaki adımları açık kaynak yüklemek [WordPress](https://wordpress.org/) Web siteleri ve Web günlükleri oluşturmak için platform. Denemek için diğer iş yükleri içerir [Drupal](http://www.drupal.org) ve [Moodle](https://moodle.org/). 
+Yığınınızı denemek istiyorsanız örnek bir uygulama yükleyin. Örneğin aşağıdaki adımları izleyerek açık kaynak web sitesi ve blog oluşturma platformu olan [WordPress](https://wordpress.org/)'i yükleyebilirsiniz. [Drupal](http://www.drupal.org) ve [Moodle](https://moodle.org/) iş yüklerini de deneyebilirsiniz. 
 
-Yalnızca kavram kanıtı bu WordPress kurulur. Önerilen güvenlik ayarlarıyla üretimde son WordPress yüklemek için bkz [WordPress belgelerine](https://codex.wordpress.org/Main_Page). 
+Bu WordPress kurulumu yalnızca kavram kanıtı amaçlıdır. En güncel WordPress sürümünü önerilen güvenlik ayarlarıyla üretim ortamına yüklemek için bkz. [WordPress belgeleri](https://codex.wordpress.org/Main_Page). 
 
 
 
-### <a name="install-the-wordpress-package"></a>WordPress paketini yükle
+### <a name="install-the-wordpress-package"></a>WordPress paketi yükleme
 
 Şu komutu çalıştırın:
 
@@ -16,15 +29,15 @@ sudo apt install wordpress
 
 ### <a name="configure-wordpress"></a>WordPress’i yapılandırma
 
-WordPress MySQL ve PHP kullanacak şekilde yapılandırın.
+WordPress'i MySQL ve PHP kullanacak şekilde yapılandırın.
 
-Bir çalışma dizini içinde bir metin dosyası oluşturun `wordpress.sql` MySQL veritabanı için WordPress yapılandırmak için: 
+Çalışma dizininde WordPress için MySQL veritabanını yapılandırmak için kullanacağınız `wordpress.sql` adlı bir metin dosyası oluşturun: 
 
 ```bash
 sudo sensible-editor wordpress.sql
 ```
 
-Bir veritabanı parolası için tercih ettiğiniz değiştirerek aşağıdaki komutları ekleme *yourPassword* (diğer değerleri değiştirmeden bırakın). Parola gücünü doğrulamak için daha önce bir MySQL güvenlik ilkesini ayarlayın, parola gücü gereksinimlerini karşıladığından emin olun. Dosyayı kaydedin.
+Aşağıdaki komutları ekleyin ve *yourPassword* yerine istediğiniz veritabanı parolasını yazın (diğer değerleri değiştirmeyin). Daha önceden parola gücünü doğrulama amacıyla bir MySQL güvenlik ilkesi oluşturduysanız parolanın gereksinimlere uygun olduğundan emin olun. Dosyayı kaydedin.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -41,18 +54,18 @@ Veritabanını oluşturmak için aşağıdaki komutu çalıştırın:
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
 
-Çünkü dosya `wordpress.sql` veritabanı kimlik bilgileri, kullandıktan sonra silin içerir:
+`wordpress.sql` dosyasında veritabanı kimlik bilgileri bulunduğu için kullandıktan sonra silin:
 
 ```bash
 sudo rm wordpress.sql
 ```
 
-PHP yapılandırmak için tercih ettiğiniz bir metin düzenleyicisinde açın ve dosyayı oluşturmak için aşağıdaki komutu çalıştırın `/etc/wordpress/config-localhost.php`:
+PHP'yi yapılandırmak için aşağıdaki komutu çalıştırarak istediğiniz bir metin düzenleyiciyi açın ve `/etc/wordpress/config-localhost.php` dosyasını oluşturun:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-WordPress veritabanı parolasını değiştirme dosyası aşağıdaki satırları kopyalamak *yourPassword* (diğer değerleri değiştirmeden bırakın). Ardından dosyayı kaydedin.
+Aşağıdaki satırları dosyaya kopyalayın ve *yourPassword* yerine WordPress veritabanı parolanızı yazın (diğer değerleri değiştirmeyin). Ardından dosyayı kaydedin.
 
 ```php
 <?php
@@ -65,7 +78,7 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ```
 
 
-WordPress yükleme için web sunucusu belge kökü Taşı:
+WordPress yüklemesini web sunucusunun belge kök dizinine taşıyın:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
@@ -73,6 +86,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Şimdi WordPress Kurulumu tamamlamak ve platformda yayımlayın. Bir tarayıcı açın ve gidin `http://yourPublicIPAddress/wordpress`. VM ortak IP adresini değiştirin. Bu görüntüsüne benzer görünmelidir.
+Şimdi WordPress kurulumunu tamamlayabilir ve platformda içerik yayımlayabilirsiniz. Bir tarayıcı açın ve `http://yourPublicIPAddress/wordpress` adresine gidin. Sanal makinenizin genel IP adresini değiştirin. Şu görüntüye benzemelidir.
 
 ![WordPress yükleme sayfası](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

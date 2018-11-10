@@ -1,22 +1,22 @@
 ---
-title: Bir Azure VM’yi başka bir Azure bölgesine çoğaltma
-description: Bu hızlı başlangıç, bir Azure bölgesindeki Azure VM’yi başka bir bölgeye çoğaltmak için gerekli olan adımları sağlar.
+title: Bir Azure IaaS VM’si için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
+description: Bu hızlı başlangıçta Azure Site Recovery hizmetini kullanarak farklı Azure bölgeleri arasında Azure IaaS VM olağanüstü durum kurtarma gerçekleştirmek için gerekli adımlar gösterilmektedir.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456206"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212939"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Bir Azure VM’yi başka bir Azure bölgesine çoğaltma
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Bir Azure VM’si için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama 
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti, planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 

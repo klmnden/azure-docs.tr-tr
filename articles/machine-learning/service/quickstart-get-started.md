@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456822"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159018"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning'i kullanmaya başlama
 
-Bu hızlı başlangıçta Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. 
+Bu hızlı başlangıçta Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta bulut kaynakları kullanılmaktadır ve bu nedenle herhangi bir yükleme yapmanıza gerek yoktur. Kendi Jupyter notebook sunucunuzu yapılandırmak istiyorsanız [Hızlı başlangıç: Machine Learning hizmetini kullanmaya başlamak için Python'ı kullanma](quickstart-create-workspace-with-python.md) sayfasına bakın.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi 
 
 Not defterini açmak için `01.run-experiment.ipynb` öğesini seçin.
 
-Hücreleri teker teker çalıştırmak için `Shift`+`Enter` kısayolunu kullanın. Dilerseniz `Cells` > `Run All` menüsünü kullanarak not defterinin tamamını da çalıştırabilirsiniz. Yıldız [*], ilgili hücrenin çalıştığını gösterir. Hücredeki kodun çalışması tamamlandığında bir sayı görünür.
+Hücreleri teker teker çalıştırmak için `Shift`+`Enter` kısayolunu kullanın. Dilerseniz `Cells` > `Run All` menüsünü kullanarak not defterinin tamamını da çalıştırabilirsiniz. Yıldız [*], ilgili hücrenin çalıştığını gösterir. Hücredeki kodun çalışması tamamlandığında bir sayı görünür. 
 
-Oturum açmanız istenebilir. İletideki kodu kopyalayın. Ardından bağlantıyı seçin ve kodu yeni pencereye yapıştırın. Kodun başında veya sonunda boşluk kopyalamamaya dikkat edin. Azure portalda kullandığınız hesapla oturum açın.
-
- ![Oturum açma](./media/quickstart-get-started/login.png)
-
-Not defterinde, ikinci hücre çalışma alanınıza bağlanmak için `config.json` dosyasından alınır.
-```
-ws = Workspace.from_config()
-```
-
-Üçüncü kod hücresi "my-first-experiment" adlı bir deneme başlatır. Çalışma alanınıza dönüp çalıştırma hakkındaki bilgileri aramak için bu adı kullanın.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-Not defterinin son hücresindeki değerlerin bir günlük dosyasına yazıldığına dikkat edin.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-Kod çalıştırıldıktan sonra bu değerleri çalışma alanınızda görüntüleyebilirsiniz.
+Not defterindeki tüm hücreleri çalıştırmayı tamamladıktan sonra günlüğe alınan değerleri çalışma alanınızda görüntüleyebilirsiniz.
 
 ## <a name="view-logged-values"></a>Günlüğe kaydedilen değerleri görüntüleme
 
@@ -121,11 +98,11 @@ Az önce gerçekleştirdiğiniz çalışma hakkındaki bilgilere bakın. Sayfay�
 
  ![Çalıştırma geçmişi bağlantısı](./media/quickstart-get-started/report.png)
 
-Günlüğe kaydedilen verilerden otomatik olarak oluşturulan çizimlere bakın.  
+Günlüğe kaydedilen verilerden otomatik olarak oluşturulan çizimlere bakın. Aynı ad parametresine sahip birden fazla değeri günlüğe kaydettiğinizde otomatik olarak bir çizim oluşturulur.
 
    ![Geçmişi görüntüleme](./media/quickstart-get-started/plots.png)
 
-Yaklaşık pi değerini belirleme kodu rastgele değerler kullandığından çizimlerinizde farklı değerler görünecektir.
+Yaklaşık pi değerini belirleme kodu rastgele değerler kullandığından çizimlerinizde farklı değerler görünecektir.  
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 

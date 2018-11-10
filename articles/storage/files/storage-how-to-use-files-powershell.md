@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 16f557d48f8056d438d55fdd066395e7e36ed8a5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945493"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157386"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile Azure dosya paylaşımını oluşturma ve yönetme 
 Bu kılavuzda, PowerShell kullanarak [Azure dosya paylaşımlarıyla](storage-files-introduction.md) çalışmanın temel bilgileri gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -165,6 +165,57 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 ```
 
 `Start-AzureStorageFileCopy` cmdlet’i Azure dosya paylaşımları ve Azure Blob depolama kapsayıcıları arasında plansız dosya taşıma işlemlerinde kullanışlı olsa da, daha büyük taşıma işlemleri (taşınan dosyaların sayısı ve boyutu açısından) için AzCopy kullanılmasını öneririz. [Windows için AzCopy](../common/storage-use-azcopy.md) ve [Linux için AzCopy](../common/storage-use-azcopy-linux.md) hakkında daha fazla bilgi edinin. AzCopy yerel olarak yüklenmelidir; Cloud Shell'de kullanılamaz. 
+
+## <a name="create-and-manage-share-snapshots"></a>Paylaşım anlık görüntülerini oluşturma ve yönetme
+Azure dosya paylaşımıyla yerine getirebileceğiniz kullanışlı bir diğer görev de paylaşım anlık görüntüleri oluşturmaktır. Anlık görüntü, Azure dosya paylaşımının zamanın bir noktasındaki durumunu saklar. Paylaşım anlık görüntüleri, aşağıdakiler gibi zaten tanıyor olabileceğiniz işletim sistemi teknolojilerine benzer:
+- NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
+- Linux sistemleri için [Mantıksal Birim Yöneticisi (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) anlık görüntüleri
+- macOS için [Apple Dosya Sistemi (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) anlık görüntüleri. 
+ [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare) cmdlet’iyle alınan bir dosya paylaşımı için PowerShell nesnesinde `Snapshot` yöntemini kullanarak bir paylaşım için paylaşım anlık görüntüsü oluşturabilirsiniz. 
+
+```azurepowershell-interactive
+$share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
+$snapshot = $share.Snapshot()
+```
+
+### <a name="browse-share-snapshots"></a>Paylaşım anlık görüntülerine göz atma
+`Get-AzureStorageFile` cmdlet’inin `-Share` parametresine anlık görüntü başvurusunu (`$snapshot`) geçirerek paylaşım anlık görüntüsünün içeriklerine göz atabilirsiniz.
+
+```azurepowershell-interactive
+Get-AzureStorageFile -Share $snapshot
+```
+
+### <a name="list-share-snapshots"></a>Paylaşım anlık görüntülerini listeleme
+Paylaşımınız için aldığınız anlık görüntülerin listesini aşağıdaki komutla görebilirsiniz.
+
+```azurepowershell-interactive
+Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
+```
+
+### <a name="restore-from-a-share-snapshot"></a>Paylaşım anlık görüntüsünden geri yükleme
+Daha önce kullandığımız `Start-AzureStorageFileCopy` komutu kullanarak dosyayı geri yükleyebilirsiniz. Bu hızlı başlangıçta ilk olarak önceden karşıya yüklediğimiz `SampleUpload.txt` dosyamızı silerek anlık görüntüden bu dosyayı geri yükleyeceğiz.
+
+```azurepowershell-interactive
+# Delete SampleUpload.txt
+Remove-AzureStorageFile `
+    -Context $storageAcct.Context `
+    -ShareName "myshare" `
+    -Path "myDirectory\SampleUpload.txt"
+ # Restore SampleUpload.txt from the share snapshot
+Start-AzureStorageFileCopy `
+    -SrcShare $snapshot `
+    -SrcFilePath "myDirectory\SampleUpload.txt" `
+    -DestContext $storageAcct.Context `
+    -DestShareName "myshare" `
+    -DestFilePath "myDirectory\SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>Paylaşım anlık görüntüsünü silme
+`-Share` parametresine yönelik `$snapshot` başvurusunu içeren değişken ile [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare) cmdlet’ini kullanarak bir paylaşım anlık görüntüsünü silebilirsiniz.
+
+```azurepowershell-interactive
+Remove-AzureStorageShare -Share $snapshot
+```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İşlem bittiğinde, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet’ini kullanarak kaynak grubunu ve tüm ilgili kaynakları kaldırabilirsiniz. 

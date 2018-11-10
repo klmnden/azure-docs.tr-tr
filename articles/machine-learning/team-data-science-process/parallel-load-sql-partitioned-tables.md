@@ -17,7 +17,7 @@ ms.date: 11/09/2017
 ms.author: deguhath
 ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51243429"

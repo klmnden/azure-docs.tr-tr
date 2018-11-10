@@ -4,21 +4,21 @@ description: Yapıt oluşturmak, tanımlamak ve dağıtmak için Azure Blueprint
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647281"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092136"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Portalda Azure Blueprint Tanımlama ve Atama
 
-Azure'da şema oluşturma ve atama süreçlerini anlamak kuruluşların ortak tutarlılık desenleri tanımlamalarını ve Resource Manager şablonlarını, ilkelerini, güvenlik düzeyini ve daha fazlasını temel alan yeniden kullanılabilir ve hızla dağıtılabilir yapılandırmalar geliştirmesini sağlar. Bu öğreticide kuruluşunuzda aşağıdakiler gibi şema oluşturma, yayımlama ve atama konusundaki yaygın görevlerin bazılarını yerine getirmek için Azure Blueprints'i kullanmayı öğreneceksiniz:
+Şema oluşturma ve atama süreçlerini anlamak, ortak tutarlılık desenlerini tanımlamanızı ve Resource Manager şablonlarını, ilkelerini, güvenlik düzeyini ve daha fazlasını temel alan yeniden kullanılabilir ve hızla dağıtılabilir yapılandırmalar geliştirmenizi sağlar. Bu öğreticide kuruluşunuzda aşağıdakiler gibi şema oluşturma, yayımlama ve atama konusundaki yaygın görevlerin bazılarını yerine getirmek için Azure Blueprints'i kullanmayı öğreneceksiniz:
 
 > [!div class="checklist"]
 > - Yeni bir şema oluşturma ve çeşitli desteklenen yapıtlar ekleme
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumdaki kaynaklardan bir şema oluşturmaktır. Bu örnekte abonelik için rol ve ilke atamalarını yapılandırmak amacıyla 'MyBlueprint' adlı yeni bir şema oluşturacak, yeni bir kaynak grubu ekleyecek ve yeni kaynak grubunda Resource Manager şablonu ve rol ataması oluşturacaksınız.
 
-1. Azure portalda **Tüm hizmetler**’e tıklayarak ve sol bölmede **İlke**'yi arayıp seçerek Azure Blueprints hizmetini başlatın. **İlke** sayfasında **Şemalar**’a tıklayın.
+1. **Tüm hizmetler**'e tıklayın ve **İlke** araması yapıp sol taraftaki bölmeden seçin. **İlke** sayfasında **Şemalar**’a tıklayın.
 
 1. Soldaki sayfadan **Şema Tanımları**’nı seçin ve sayfanın üst kısmındaki **+ Şema Oluştur** düğmesine tıklayın.
 
@@ -58,7 +58,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 1. Abonelikte ilke ataması ekleme: **Abonelik** öğesinin hemen altındaki **+ Yapıt ekle...** seçeneğine sol tıklayın. _Yapıt türü_ olarak 'İlke Ataması' seçeneğini belirleyin. _Tür_’ü 'Yerleşik' olarak değiştirin ve _Ara_ alanına 'etiket' ifadesini girin. Filtrelemenin yapılması için _Ara_’ya tıklayın. 'Etiket ve varsayılan değerini kaynak gruplara uygula' öğesine tıklayarak seçin. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
-1. 'Etiket ve varsayılan değerini kaynak gruplara uygula' ilke ataması satırına tıklayın. Şema tanımı kapsamında yapıta parametreleri sağlayacak pencere açılır ve atama sırasında parametre ayarlamak (**dinamik parametreler**) yerine bu şemaya göre tüm atamalar için parametreleri ayarlamaya (**statik parametreler**) olanak tanır. Bu örnekte şema ataması sırasında **dinamik parametreler**’in kullanılması istenir. Bu nedenle varsayılan değerleri değiştirmeden **İptal**’e tıklayın.
+1. 'Etiket ve varsayılan değerini kaynak gruplara uygula' ilke ataması satırına tıklayın. Şema tanımı kapsamında yapıta parametreleri sağlayacak pencere açılır ve atama sırasında parametre ayarlamak (**dinamik parametreler**) yerine bu şemaya göre tüm atamalar için parametreleri ayarlamaya (**statik parametreler**) olanak tanır. Bu örnekte şema ataması sırasında **dinamik parametreler** kullanılmaktadır. Bu nedenle varsayılan değerleri değiştirmeden **İptal**’e tıklayın.
 
 1. Abonelikte kaynak grubu ekleme: **Abonelik** altındaki **+ Yapıt ekle...** satırına sol tıklayın. _Yapıt türü_ olarak 'Kaynak Grubu'nu seçin. _Kaynak Grubu Adı_ ve _Konum_ alanlarını boş bırakın, diğer yandan **dinamik parametre** yapmak için her bir özelliğin onay kutusunun işaretli olduğundan emin olun. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
@@ -119,7 +119,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 ## <a name="edit-a-blueprint"></a>Şema düzenleme
 
-[Şema oluştur](#create-a-blueprint) menüsünde bir Açıklama belirtilmemiştir ve rol ataması yeni kaynak grubuna eklenmemiştir. Her iki durum da aşağıdaki adımlar izlenerek düzeltilebilir:
+[Şema oluştur](#create-a-blueprint) menüsünde bir Açıklama belirtilmemiştir ve rol ataması yeni kaynak grubuna eklenmemiştir. İki durum da aşağıdaki adımlarla düzeltilebilir:
 
 1. Soldaki sayfadan **Şema Tanımları**’nı seçin.
 
@@ -129,7 +129,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
 1. Sayfanın altındaki **İleri: Yapıtlar**’a veya sayfanın üstündeki **Yapıtlar** sekmesine tıklayın.
 
-1. Kaynak grubu altında rol ataması ekleme: **ResourceGroup** girişinin hemen altındaki **+ Yapıt ekle...** satırına sol tıklayın. _Yapıt türü_ olarak 'Rol Ataması' seçeneğini belirleyin. _Rol_ altında 'Sahip' öğesini seçin ve _Kullanıcı, Uygulama veya Grup Ekle_ alanının işaretini kaldırdıktan sonra eklenecek bir kullanıcı, uygulama veya grup arayıp seçin. Bu bir **statik parametredir** ve bu şemanın her atamasında kullanılır. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
+1. Kaynak grubu altında rol ataması ekleme: **ResourceGroup** girişinin hemen altındaki **+ Yapıt ekle...** satırına sol tıklayın. _Yapıt türü_ olarak 'Rol Ataması' seçeneğini belirleyin. _Rol_ altında 'Sahip' öğesini seçin ve _Kullanıcı, Uygulama veya Grup Ekle_ alanının işaretini kaldırdıktan sonra eklenecek bir kullanıcı, uygulama veya grup arayıp seçin. Yapıt, bu şemanın tüm atamalarında aynı **statik parametreyi** kullanır. Bu yapıtı şemaya eklemek için **Ekle**’ye tıklayın.
 
    ![Yapıt - Rol Ataması 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -205,7 +205,7 @@ Bir şema bir veya daha fazla aboneliğe atandığında iki şey gerçekleşir:
 
 ## <a name="unassign-a-blueprint"></a>Şema atamasını kaldırma
 
-Artık gerekli olmayan veya güncel desenlere, ilkelere ve tasarımlara sahip olan daha yeni şemalarla değiştirilen şemalar abonelikten kaldırılabilir. Bir şema kaldırıldığında o şemanın bir parçası olarak atanan yapıtlar geride kalır. Şema atamasını kaldırmak için aşağıdaki adımları izleyin:
+Gerekli değilse şema atamasını abonelikten kaldırabilirsiniz. Şema, güncel desenlere, ilkelere ve tasarımlara sahip daha yeni bir şema ile değiştirilmiş olabilir. Bir şema kaldırıldığında o şemanın bir parçası olarak atanan yapıtlar geride kalır. Şema atamasını kaldırmak için aşağıdaki adımları izleyin:
 
 1. Soldaki sayfadan **Atanan Şemalar** öğesini seçin.
 

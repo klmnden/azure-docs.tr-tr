@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2d22e995f489a6379a2f134b461b8bb17160919e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b85fe520bf29d10bb3dac1246349abbdadaf6df3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113844"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158746"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Öğretici: Azure Stream Analytics’i bir IoT Edge modülüne dağıtma (önizleme)
 
-Çoğu IoT çözümünde, IoT cihazlarından buluta ulaşan veriler hakkında içgörü edinmek için analiz hizmetleri kullanılır. Azure IoT Edge ile [Azure Stream Analytics][azure-stream] mantığını alıp cihazın kendisine aktarabilirsiniz. Telemetri akışlarını uç cihazlarda işleyerek yüklenen veri miktarını ve eyleme dönüştürülebilir içgörülere tepki verme süresini azaltabilirsiniz.
+Çoğu IoT çözümünde, IoT cihazlarından buluta ulaşan veriler hakkında içgörü edinmek için analiz hizmetleri kullanılır. Azure IoT Edge ile [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) mantığını alıp cihazın kendisine aktarabilirsiniz. Telemetri akışlarını uç cihazlarda işleyerek yüklenen veri miktarını ve eyleme dönüştürülebilir içgörülere tepki verme süresini azaltabilirsiniz.
 
 Azure IoT Edge ve Azure Stream Analytics tümleşik olduğundan Azure portalında bir Azure Stream Analytics işi oluşturup ek kod yazmadan IoT Edge modülü olarak dağıtabilirsiniz.  
 
@@ -207,7 +207,7 @@ Bu öğreticide iki modül dağıtacaksınız. Birinci, sıcaklık ve nem sensö
 
     Yeni Stream Analytics modülü ve IoT Edge aracı modülü ile birlikte çalışan yeni IoT Edge hub'ını görürsünüz.
 
-    ![Modül çıkışı][7]
+    ![Modül çıkışı](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Verileri görüntüleme
 
@@ -219,7 +219,7 @@ Artık IoT Edge cihazınıza giderek Azure Stream Analytics modülüyle tempSens
    iotedge list  
    ```
 <!--
-   ![Docker output][8]
+   ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
 -->
 1. Tüm sistem günlüklerini ve ölçüm verilerini görüntüleyin. Stream Analytics modülünün adını kullanın:
 
@@ -229,7 +229,7 @@ Artık IoT Edge cihazınıza giderek Azure Stream Analytics modülüyle tempSens
 
 Makine sıcaklığını kademeli olarak 30 saniye boyunca 70 dereceye ulaşana kadar izleyebiliyor olmanız gerekir. Bu noktada Stream Analytics modülü bir sıfırlama işlemini tetikler ve makine sıcaklığı 21'e düşer. 
 
-   ![Docker günlüğü][9]
+   ![Docker günlüğü](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
@@ -247,29 +247,4 @@ Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınız
 Bu öğreticide IoT Edge cihazınızdan gelen verileri analiz etmek için bir Azure Streaming Analytics işi yapılandırdınız. Ardından bu Azure Stream Analytics modülünü IoT Edge cihazınıza yükleyerek yerel ortamdaki sıcaklık artışını izleme ve buna tepki göstermeye ek olarak toplanan veri akışının buluta gönderilmesini sağladınız. Azure IoT Edge sisteminin işletmeniz için oluşturabileceği ek çözümleri görmek için diğer öğreticilere geçin.
 
 > [!div class="nextstepaction"] 
-> [Bir Azure Machine Learning modelini modül olarak dağıtma][lnk-ml-tutorial]
-
-<!-- Images. -->
-[4]: ./media/tutorial-deploy-stream-analytics/add_device.png
-[5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
-[6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/module_output2.png
-[8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
-[9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
-[10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
-[11]: ./media/tutorial-deploy-stream-analytics/temp_module.png
-
-
-<!-- Links -->
-[lnk-what-is-iot-edge]: what-is-iot-edge.md
-[lnk-module-dev]: module-development.md
-[iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/azure/storage/
-[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-[lnk-module-tutorial]: tutorial-csharp-module.md
-[lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
-
+> [Bir Azure Machine Learning modelini modül olarak dağıtma](tutorial-deploy-machine-learning.md)

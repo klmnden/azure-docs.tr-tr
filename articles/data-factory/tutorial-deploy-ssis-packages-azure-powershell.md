@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: tutorial
-ms.date: 09/23/2018
+ms.date: 10/28/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 478bb44e0018a7d6c00df5e0944c86cdd6785e36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 956924714ba265cb14515208be0ebab3c5a458c1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386950"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214520"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Azure Data Factory'de PowerShell ile Azure-SSIS Tümleştirme Çalışma Zamanı Sağlama
 Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma zamanı (IR) sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio'yu (SSMS) kullanarak Azure'da bu çalışma zamanında SQL Server Integration Services (SSIS) paketleri dağıtabilir ve çalıştırabilirsiniz. Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
@@ -39,13 +39,12 @@ Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma z
     - Seçilen veritabanı sunucusuna göre SSISDB sizin adınıza tek veritabanı, elastik havuzun bir parçası veya Yönetilen Örnek biçiminde oluşturulabilir ve genel ağ üzerinden veya sanal ağa eklenerek erişilebilir. SSISDB hizmetini barındıracak veritabanı sunucusu türünü seçme konusunda yardım almak için bkz. [SQL Veritabanı mantıksal sunucusu ile Yönetilen Örneği Karşılaştırma](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile kullanırsanız veya şirket içi verilere erişmeniz gerekiyorsa Azure-SSIS IR örneğinizi bir sanal ağa eklemeniz gerekir, bkz. [Sanal ağda Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Veritabanı sunucusunda "**Azure hizmetlerine erişime izin ver**" ayarının **AÇIK** olduğundan emin olun. Bu ayar SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile birlikte kullandığınızda geçerli değildir. Daha fazla bilgi için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Bu ayarı PowerShell kullanarak etkinleştirmek için bkz. [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
     - Veritabanı sunucusunun güvenlik duvarı ayarlarındaki istemci IP adresi listesine istemci makinenin IP adresini veya istemci makinenin IP adresini içeren IP adresi aralığını ekleyin. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma](../sql-database/sql-database-firewall-configure.md). 
-    - Veritabanı sunucusuna bağlanmak için sunucu yöneticisi kimlik bilgilerinizle SQL kimlik doğrulamasını veya Azure Data Factory Azure kaynakları için yönetilen kimlik bilgilerinizle Azure Active Directory (AAD) kimlik doğrulamasını kullanabilirsiniz.  İkinci seçenek için Data Factory MSI bilgilerinizi veritabanı sunucusuna erişim izni olan bir AAD grubuna eklemeniz gerekir, bkz. [AAD kimlik doğrulaması ile Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
+    - Veritabanı sunucusuna bağlanmak için sunucu yöneticisi kimlik bilgilerinizle SQL kimlik doğrulamasını veya Azure Data Factory için yönetilen kimliğinizle Azure Active Directory (AAD) kimlik doğrulamasını kullanabilirsiniz.  İkinci seçenekte ADF için yönetilen kimliğinizi veritabanı sunucusuna erişim izni olan bir AAD grubuna eklemeniz gerekir, bkz. [AAD kimlik doğrulaması ile Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Azure SQL Veritabanı sunucunuzun SSIS Kataloğuna (SSISDB veritabanı) sahip olmadığını doğrulayın. Azure-SSIS IR’nin sağlanması, mevcut bir SSIS Kataloğunun kullanılmasını desteklemez. 
 - **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin. Bulutta SSIS paketleri çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı sağlamak üzere betik çalıştırmak için PowerShell kullanıyorsanız. 
 
 > [!NOTE]
-> - Data Factory'nin kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun. 
-> - Azure SSIS Tümleştirme Çalışma Zamanı'nın kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **SSIS Tümleştirme Çalışma Zamanı**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun.
+> - Data Factory ve Azure-SSIS Integration Runtime hizmetlerinin kullanılabildiği Azure bölgelerinin listesi için bkz. [Bölgelere göre ADF + SSIS IR kullanılabilirliği](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
 ## <a name="launch-windows-powershell-ise"></a>Windows PowerShell ISE’yi başlatma
 **Windows PowerShell ISE**’yi yönetici ayrıcalıklarıyla başlatın. 
@@ -55,26 +54,26 @@ Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma z
 
 ```powershell
 # Azure Data Factory information 
-# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$"
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
 $DataFactoryLocation = "EastUS"
 
-# Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
+# Azure-SSIS integration runtime information - This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[Specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[Specify a description for your Azure-SSIS IR]"
 $AzureSSISLocation = "EastUS"
-# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_D4_v2"
-# In public preview, only 1-10 nodes are supported.
+# For supported node sizes, see https://azure.microsoft.com/pricing/details/data-factory/ssis/
+$AzureSSISNodeSize = "Standard_D8_v3"
+# 1-10 nodes are currently supported
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
-$AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
+$AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license to earn cost savings from Azure Hybrid Benefit (AHB) option
-# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license to earn cost savings from Azure Hybrid Benefit (AHB) option
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported, but for other nodes, 1-8 are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
@@ -83,7 +82,7 @@ $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container
 $SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
-# For the basic pricing tier, specify "Basic", not "B". For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc.
+# For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>)]"
 ```
 
@@ -116,12 +115,12 @@ Betiğin bir parçası olarak bir Azure SQL veritabanı oluşturmak için aşağ
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
-    -Location $DataFactoryLocation `
+    -Location $DataFactoryLocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SSISDBServerAdminUserName, $(ConvertTo-SecureString -String $SSISDBServerAdminPassword -AsPlainText -Force))    
 
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
-    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
+    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
 
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SSISDBServerName -AllowAllAzureIPs
 ```
@@ -170,10 +169,17 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
                                            -Edition $AzureSSISEdition `
                                            -LicenseType $AzureSSISLicenseType `
                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -SetupScriptContainerSasUri $SetupScriptContainerSasUri `
                                            -CatalogServerEndpoint $SSISDBServerEndpoint `
                                            -CatalogAdminCredential $serverCreds `
                                            -CatalogPricingTier $SSISDBPricingTier
+
+if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
+{
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                               -DataFactoryName $DataFactoryName `
+                                               -Name $AzureSSISName `
+                                               -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+}
 ```
 
 ## <a name="start-integration-runtime"></a>Tümleştirme çalışma zamanını başlatma
@@ -220,30 +226,30 @@ Bu bölümdeki PowerShell betiği, bulutta SSIS paketlerini çalıştıran bir A
 
 Azure SQL Veritabanında desteklenen **fiyatlandırma katmanı** listesi için bkz. [SQL Veritabanı kaynak sınırları](../sql-database/sql-database-resource-limits.md). 
 
-Azure Data Factory V2 ve Azure-SSIS Integration Runtime tarafından desteklenen tüm bölgelerin listesi için bkz. [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/). **Veri ve Analiz**’i genişleterek **Data Factory V2** ve **SSIS Integration Runtime** seçeneklerini görün.
+Data Factory ve Azure-SSIS Integration Runtime hizmetlerinin kullanılabildiği Azure bölgelerinin listesi için bkz. [Bölgelere göre ADF + SSIS IR kullanılabilirliği](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
 ```powershell
 # Azure Data Factory information 
-# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$"
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
 $DataFactoryLocation = "EastUS"
 
-# Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
+# Azure-SSIS integration runtime information - This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[Specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[Specify a description for your Azure-SSIS IR]"
 $AzureSSISLocation = "EastUS"
-# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_D4_v2"
-# In public preview, only 1-10 nodes are supported.
+# For supported node sizes, see https://azure.microsoft.com/pricing/details/data-factory/ssis/
+$AzureSSISNodeSize = "Standard_D8_v3"
+# 1-10 nodes are currently supported
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
-$AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
+$AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license to earn cost savings from Azure Hybrid Benefit (AHB) option
-# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license to earn cost savings from Azure Hybrid Benefit (AHB) option
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported, but for other nodes, 1-8 are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
@@ -252,7 +258,7 @@ $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container
 $SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
-# For the basic pricing tier, specify "Basic", not "B". For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc.
+# For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>)]"
 
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=" + $SSISDBServerAdminPassword    
@@ -293,10 +299,17 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
                                            -Edition $AzureSSISEdition `
                                            -LicenseType $AzureSSISLicenseType `
                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -SetupScriptContainerSasUri $SetupScriptContainerSasUri `
                                            -CatalogServerEndpoint $SSISDBServerEndpoint `
                                            -CatalogAdminCredential $serverCreds `
                                            -CatalogPricingTier $SSISDBPricingTier
+
+if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
+{
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                               -DataFactoryName $DataFactoryName `
+                                               -Name $AzureSSISName `
+                                               -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+}
 
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
 Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -329,7 +342,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * SSIS paketlerini dağıtma
 > * Tam betiği gözden geçirme
 
-Şirket içinden buluta veri kopyalama hakkında bilgi edinmek için aşağıdaki öğreticiye geçin: 
+Azure-SSIS tümleştirme çalışma zamanınızı özelleştirme hakkında bilgi edinmek için şu makaleye bakın:
 
 > [!div class="nextstepaction"]
->[Buluttaki verileri kopyalama](tutorial-copy-data-dot-net.md)
+>[Azure-SSIS IR hizmetini özelleştirme](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057336"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415891"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>İstek izleme özelliğini kullanarak API’lerinizdeki hataları ayıklama
 
@@ -34,18 +34,19 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
++ [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 + Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Çağrı izleme
 
+![API izleme](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. **API’ler** seçeneğini belirleyin.
 2. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
-3. **GetSpeakers** işlemini seçin.
-4. **Test** sekmesine geçin.
+3. **Test** sekmesine geçin.
+4. **GetSpeakers** işlemini seçin.
 5. Değer **true** olarak ayarlanmış şekilde, **Ocp-Apim-Trace** adlı bir HTTP üst bilgisini eklediğinizden emin olun.
-
-    ![API izleme üst bilgisi](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > Ocp-Apim-Subscription-Key otomatik olarak doldurulmazsa, Geliştirici Portalına gidip profil sayfasında anahtarları görüntüleyerek bu değeri alabilirsiniz.
@@ -57,9 +58,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
     **Gelen** bölümünde, çağırandan alınan özgün istek API Yönetimini ve 2. adımda eklediğimiz hız sınırı ve üst bilgi ayarlama ilkeleri de dahil isteğe uygulanan tüm ilkeleri görürsünüz.
 
     **Arka uç** bölümünde, API arka ucuna gönderilen isteklerin API Yönetimini ve aldığı yanıtı görürsünüz.
-    
+
     **Giden** bölümünde, çağırana geri gönderilmeden önce yanıta uygulanan tüm ilkeleri görürsünüz.
- 
+
     > [!TIP]
     > Her bir adım, isteğin API Yönetimi tarafından alınmasından bu yana geçen süreyi de gösterir.
 

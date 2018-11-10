@@ -4,21 +4,21 @@ description: Bazı gelişmiş sorguları çalıştırmak için Azure Kaynak Graf
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647842"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085385"
 ---
 # <a name="advanced-resource-graph-queries"></a>Gelişmiş Kaynak Grafiği sorguları
 
-Azure Kaynak Grafiği ile sorguları anlamanın il adımı, [Sorgu Dili](../concepts/query-language.md)’nin temel bir anlayışıdır. [ Azure Veri Gezgini](../../../data-explorer/data-explorer-overview.md)’ne önceden aşina değilseniz, aradığınız kaynaklar için isteklerin nasıl oluşturulacağını anlamak üzere temelleri gözden geçirmeniz önerilir.
+Azure Kaynak Grafiği ile sorguları anlamanın il adımı, [Sorgu Dili](../concepts/query-language.md)’nin temel bir anlayışıdır. [Azure Veri Gezgini](../../../data-explorer/data-explorer-overview.md)’ne önceden aşina değilseniz, aradığınız kaynaklar için isteklerin nasıl oluşturulacağını anlamak üzere temelleri gözden geçirmeniz önerilir.
 
 Aşağıdaki gelişmiş sorguları inceleyeceğiz:
 
@@ -31,11 +31,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="language-support"></a>Dil desteği
 
-Azure CLI (bir uzantı yoluyla) ve Azure PowerShell (bir modül yoluyla), Azure Kaynak Grafiği’ni destekler. Aşağıdaki sorgulardan herhangi birini gerçekleştirmeden önce ortamınızın hazır olduğunu kontrol edin. Seçtiğiniz kabuk ortamını yükleme ve doğrulama adımları için, bkz. [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module).
+Azure CLI (bir uzantı yoluyla) ve Azure PowerShell (bir modül yoluyla), Azure Kaynak Grafiği’ni destekler. Aşağıdaki sorgulardan herhangi birini çalıştırmadan önce ortamınızın hazır olduğundan emin olun. Seçtiğiniz kabuk ortamını yükleme ve doğrulama adımları için, bkz. [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) ve [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module).
 
-## <a name="vmss-capacity"></a>VMSS kapasite ve boyutunu alma
+## <a name="vmss-capacity"></a>Sanal makine ölçek kümesi kapasitesini ve boyutunu alma
 
-Bu sorgu, sanal makine ölçek kümesi (VMSS) kaynaklarını arar ve sanal makine boyutu ve ölçek kümesinin kapasitesini içeren çeşitli ayrıntıları alır. Bu bilgi, sıralanabilmesi için, kapasiteyi bir sayıya dönüştürmek amacıyla `toint()` işlevini kullanır. Bu, ayrıca özel adlandırılmış özelliklere döndürülen değerleri yeniden adlandırır.
+Bu sorgu, sanal makine ölçek kümesi kaynaklarını arar ve sanal makine boyutu ve ölçek kümesinin kapasitesini içeren çeşitli ayrıntıları alır. Sorgu, sıralanabilmesi için ve kapasiteyi bir sayıya dönüştürmek amacıyla `toint()` işlevini kullanır. Son olarak sütunlar, özel olarak adlandırılmış özellikler kullanılarak yeniden adlandırılır.
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,7 +75,7 @@ Bu sorgu, [normal ifadeyle](/dotnet/standard/base-types/regular-expression-langu
 **Eşleşir normal ifade @**, eşleşecek normal ifadeyi, yani **^Contoso(.*)[0-9]+$** ifadesini tanımlamamızı sağlar. Bu normal ifade tanımı şöyle açıklanmıştır:
 
 - `^` - Eşleşme dizenin başında başlamalıdır.
-- `Contoso` - Eşleştirdiğimiz çekirdek dize (büyük/küçük harfe duyarlı).
+- `Contoso` - Büyük/küçük harfe duyarlı dize.
 - `(.*)` - Bir alt ifade eşleşmesi:
   - `.` - Herhangi bir tek karakterle eşleşir (yeni bir satır hariç).
   - `*` - Önceki öğeyle sıfır veya daha fazla kez eşleşir.

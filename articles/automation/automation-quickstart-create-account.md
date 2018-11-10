@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6d473d8874208297e905a5d90a08ffd870ffa8a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426201"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091833"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Otomasyonu hesabı oluşturma
 
@@ -35,6 +35,9 @@ https://portal.azure.com adresinden Azure'da oturum açın
 1. Hesap bilgilerini girin. **Azure Farklı Çalıştır hesabı oluştur** alanında **Evet**'i seçerek Azure kimlik doğrulamasını kolaylaştıran yapıtların otomatik olarak etkinleştirilmesini sağlayın. Otomasyon Hesabını oluştururken adın daha sonra değiştirilemeyeceğini unutmayın. Bir Otomasyon Hesabı belirli bir kiracı için kaynakları tüm bölgelerde ve aboneliklerde yönetebilir. İşlemi tamamladığınızda Otomasyon hesabı dağıtımını başlatmak için **Oluştur**'a tıklayın.
 
     ![Otomasyon hesabınız hakkındaki bilgileri sayfaya girin](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
+
+    > [!NOTE]
+    > Otomasyon Hesabı dağıtabileceğiniz konumların güncel listesi için bkz. [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
 
 1. Dağıtım tamamlandıktan sonra ** **Tüm Hizmetler**'e tıklayın **Otomasyon Hesapları**'nı seçin ve oluşturduğunuz Otomasyon Hesabını belirleyin.
 

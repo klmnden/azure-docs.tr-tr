@@ -4,9 +4,6 @@ description: Ağ ve uygulama güvenlik grupları hakkında bilgi edinin. Güvenl
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987025"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159086"
 ---
 # <a name="security-groups"></a>Güvenlik grupları
 <a name="network-security-groups"></a>
@@ -60,9 +57,9 @@ Genişletilmiş güvenlik kuralları, sanal ağlar için güvenlik tanımını d
  Güvenlik kuralı tanımlarken aşağıdaki hizmet etiketlerinden faydalanabilirsiniz. Farklı [Azure dağıtım modellerindeki](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) etiket adları arasında küçük farklar vardır.
 
 * **VirtualNetwork** (Kaynak Yöneticisi) (klasik için **VIRTUAL_NETWORK**): Bu etiket sanal ağ adres alanını (sanal ağ için tanımlanmış olan tüm CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve [eşlenmiş](virtual-network-peering-overview.md) sanal ağları ya da bir [sanal ağ geçidine](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bağlı olan sanal ağı içerir.
-* **AzureLoadBalancer** (Kaynak Yöneticisi) (Klasik için **AZURE_LOADBALANCER**): Bu etiket, Azure’ın altyapı yük dengeleyicisini belirtir. Bu etiket, Azure’ın sistem durumu araştırmalarının kaynağı olan bir [Azure veri merkezi IP adresine](https://www.microsoft.com/download/details.aspx?id=41653) çevrilir. Azure yük dengeleyiciyi kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
+* **AzureLoadBalancer** (Kaynak Yöneticisi) (Klasik için **AZURE_LOADBALANCER**): Bu etiket, Azure’ın altyapı yük dengeleyicisini belirtir. Bu etiket, Azure’ın sistem durumu araştırmalarının kaynağı olan [Ana bilgisayar sanal IP adresine](security-overview.md##azure-platform-considerations) (168.63.129.16) çevrilir. Azure yük dengeleyiciyi kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
 * **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Adres aralığı [Azure'a ait genel IP adresi alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
-* **AzureCloud** (yalnızca Resource Manager): Bu etiket tüm veri merkezi genel IP adresleri dahil olmak üzere Azure IP adresi alanını belirtir. *AzureCloud* değerini belirtirseniz Azure genel IP adreslerine giden trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) AzureCloud erişimine izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure AzureCloud hizmetine erişim izni vermek istiyorsanız *AzureCloud.EastUS* hizmet etiketini kullanabilirsiniz. 
+* **AzureCloud** (yalnızca Resource Manager): Bu etiket [tüm veri merkezi genel IP adresleri](https://www.microsoft.com/download/details.aspx?id=41653) dahil olmak üzere Azure IP adresi alanını belirtir. *AzureCloud* değerini belirtirseniz Azure genel IP adreslerine giden trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) AzureCloud erişimine izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure AzureCloud hizmetine erişim izni vermek istiyorsanız *AzureCloud.EastUS* hizmet etiketini kullanabilirsiniz. 
 * **AzureTrafficManager** (yalnızca Resource Manager): Bu etiket Azure Traffic Manager yoklaması IP adresleri için IP adresi alanını belirtir. Traffic Manager yoklama IP adresleri hakkında daha fazla bilgi için [Azure Traffic Manager hakkında SSS](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs) sayfasına göz atın. 
 * **Storage** (yalnızca Resource Manager): Bu etiket Azure Storage hizmeti için IP adresi alanını belirtir. *Depolama* değerini belirtirseniz depolama alanına gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgedeki](https://azure.microsoft.com/regions) depolama alanına erişime izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure Depolama hizmetine erişim izni vermek istiyorsanız *Storage.EastUS* hizmet etiketini kullanabilirsiniz. Bu etiket hizmetin belirli örneklerini değil yalnızca hizmetin kendisini temsil eder. Örneğin etiket belirli bir Azure Depolama hesabını değil Azure Depolama hizmetini temsil eder. Bu etiketle temsil edilen tüm adres ön ekleri **Internet** etiketi tarafından da temsil edilir. 
 * **Sql** (yalnızca Resource Manager): Bu etiket Azure SQL Veritabanı ve Azure SQL Veri Ambarı hizmetlerinin adres ön eklerini belirtir. *Sql* değerini belirtirseniz Sql’e gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgedeki](https://azure.microsoft.com/regions) Sql’e erişime izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure SQL Veritabanı hizmetine erişim izni vermek istiyorsanız *Sql.EastUS* hizmet etiketini kullanabilirsiniz. Bu etiket hizmetin belirli örneklerini değil yalnızca hizmetin kendisini temsil eder. Örneğin etiket belirli bir SQL veritabanını veya sunucusunu değil Azure SQL Veritabanı hizmetini temsil eder. Bu etiketle temsil edilen tüm adres ön ekleri **Internet** etiketi tarafından da temsil edilir. 
@@ -79,7 +76,6 @@ Genişletilmiş güvenlik kuralları, sanal ağlar için güvenlik tanımını d
 * **GatewayManager** (yalnızca Resource Manager): Bu etiket Azure Gateway Manager hizmetinin adres ön eklerini belirtir. *GatewayManager* değerini belirtirseniz GatewayManager’a gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) GatewayManager’a erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: GatewayManager.[bölge adı]. 
 * **AzureDataLake** (yalnızca Resource Manager): Bu etiket Azure Data Lake hizmetinin adres ön eklerini belirtir. *AzureDataLake* değerini belirtirseniz AzureDataLake’e gelen trafiğe izin verilir veya trafik reddedilir. 
 * **AzureActiveDirectory** (yalnızca Resource Manager): Bu etiket AzureActiveDirectory hizmetinin adres ön eklerini belirtir. *AzureActiveDirectory* değerini belirtirseniz AzureActiveDirectory’ye gelen trafiğe izin verilir veya trafik reddedilir.  
-* **CorpNetSAW** (yalnızca Resource Manager): Bu etiket Azure tarafından çalıştırılan [CorpNetSAW cihazlarının](../security/azure-security-iaas.md) adres ön eklerini belirtir. Bazı durumlarda Azure hizmetleri destek özelliklerini geliştirmek için müşteri tarafından yönetilen örneklere erişim isteğinde bulunmak için bu hizmet etiketini kullanabilir. *CorpNetSAW* değerini belirtirseniz CorpNetSAW’a gelen trafiğe izin verilir veya trafik reddedilir. 
 
 > [!NOTE]
 > Azure hizmetlerinin hizmet etiketleri, kullanılmakta olan buluttan alınan adres ön eklerini belirtir. Bölgesel hizmet etiketleri ulusal bulutlarda desteklenmez, yalnızca küresel biçimde desteklenir. Örneğin, *Depolama* ve *Sql*.

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 92dde19e42c1adb6d83e1708106f844f228e8989
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239362"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247564"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerindeki App Service’te Java web uygulaması oluşturma
 
@@ -77,26 +77,7 @@ Sonra `pom.xml` dosyasının `<build>` öğesinin içine aşağıdaki eklenti ta
 
 
 > [!NOTE] 
-> Bu makalede yalnızca WAR dosyalarıyla paketlenmiş Java uygulamalarıyla çalışacağız. Eklenti ayrıca JAR web uygulamalarını da destekler. Bu uygulamalar için aşağıdaki alternatif eklenti tanımını kullanın. Bu yapılandırma Maven ile derlenmiş bir JAR dosyasını yerel dosya sisteminizde `${project.build.directory}/${project.build.finalName}.jar` konumuna dağıtır.
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> Bu makalede yalnızca WAR dosyalarıyla paketlenmiş Java uygulamalarıyla çalışacağız. Eklenti ayrıca JAR web uygulamalarını da destekler. Denemek için [Linux'ta App Service'e Java SE JAR dosyası dağıtma](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 
 Eklenti yapılandırmasında aşağıdaki yer tutucuları güncelleştirin:
@@ -127,8 +108,8 @@ Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta bir Java uygulaması oluşturmak için Maven kullandınız, [Azure Web Apps için Maven Eklentisi (Önizleme)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşenini yapılandırdınız, ardından Web arşiviyle paketlenmiş bir Java Web uygulamasını Linux üzerinde App Service'e dağıttınız. Azure ile Java kullanma hakkında daha fazla bilgi almak için aşağıdaki bağlantıyı izleyin.
+Bu hızlı başlangıçta bir Java web uygulaması oluşturmak için Maven kullandınız, [Azure Web Apps için Maven Eklentisi](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşenini yapılandırdınız, ardından Web arşiviyle paketlenmiş bir Java uygulamasını Linux üzerinde App Service'e dağıttınız. Veritabanlarına bağlanma, günlüğe kaydetme ve izleme ayarlarını yapma, güvenlik ayarlarını yapılandırma ve çalışma zamanı seçeneklerini ayarlama hakkında bilgi edinmek için Linux'ta App Service için Java Geliştirici Kılavuzu'na geçin.
 
 > [!div class="nextstepaction"]
-> [Java Geliştiricileri için Azure](https://docs.microsoft.com/java/azure/)
+> [Linux'ta App Service için Java Geliştirici Kılavuzu](app-service-linux-java.md)
 

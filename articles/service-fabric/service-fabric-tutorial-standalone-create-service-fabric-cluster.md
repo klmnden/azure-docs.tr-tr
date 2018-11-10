@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 36d65abb26435581f3e6c9c4a9fc46bb3dd538ce
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362796"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240350"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Öğretici: Service Fabric kümesi yükleme ve oluşturma
 
@@ -37,7 +37,7 @@ Serinin ikinci bölümünde şunları öğrenirsiniz:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Windows Server paketi için Service Fabric indirme
 
-Service Fabric, tek başına Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.  Yerel bilgisayarınıza [kurulum paketini indirin](http://go.microsoft.com/fwlink/?LinkId=730690).  Başarıyla indirildikten sonra EC2 örneğinizin RDP bağlantısında kopyalayın ve masaüstüne yapıştırın.
+Service Fabric, tek başına Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.  Yerel bilgisayarınıza [kurulum paketini indirin](https://go.microsoft.com/fwlink/?LinkId=730690).  Başarıyla indirildikten sonra EC2 örneğinizin RDP bağlantısında kopyalayın ve masaüstüne yapıştırın.
 
 Zip dosyasını seçip bağlam menüsünü açın ve **Tümünü Ayıkla** > **Ayıkla**’yı seçin.  Dosyaları ayıkladığınızda, masaüstünde zip dosya adı ile aynı olan bir klasör oluşturursunuz.
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62d201e608864949c86e52d8ac8fbf9ce8538f11
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: aa543ad119716b25b7f3ab00d49efb9fe6fb6c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631472"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244245"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Azure Otomasyonu durum yapılandırması raporlama verilerini Log Analytics'e iletme
 
@@ -44,14 +44,14 @@ Verileri Log Analytics'e Azure Automation DSC almaya başlamak için aşağıdak
 
   ```powershell
   # Find the ResourceId for the Automation Account
-  Find-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
   ```
 
 1. Alma _ResourceId_ aşağıdaki PowerShell komutunu çalıştırarak bir Log Analytics çalışma alanınızın: (birden fazla çalışma alanı varsa, seçin _ResourceId_ yapılandırmak istediğiniz çalışma alanı için).
 
   ```powershell
   # Find the ResourceId for the Log Analytics workspace
-  Find-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
   ```
 
 1. Aşağıdaki PowerShell komutunu çalıştırın değiştirerek `<AutomationResourceId>` ve `<WorkspaceResourceId>` ile _ResourceId_ değerleri önceki adımların her biri:

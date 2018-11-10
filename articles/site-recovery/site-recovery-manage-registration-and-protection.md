@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214095"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244347"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -34,7 +34,7 @@ VMware Vm'leri veya Windows/Linux fiziksel sunucuları Azure'a çoğaltmak, şu 
 3. VMM sunucusu Kimliğini not alın.
 4. Çoğaltma İlkeleri'nden kaldırmak istediğiniz VMM sunucusundaki Bulutlar arasındaki ilişki kaldırılamıyor.  İçinde **Site Recovery altyapısı** > **için System Center VMM** >  **çoğaltma ilkeleri**, ilişkili İlkesi'ne çift tıklayın. Buluta sağ tıklayın > **ilişkisini**.
 5. VMM sunucusunun veya etkin düğüm silin. İçinde **Site Recovery altyapısı** > **için System Center VMM** > **VMM sunucuları**, sunucuya sağ tıklayın > **Sil** .
-6. Bağlantısı kesilmiş durumda VMM sunucunuz varsa, sonra da indirin ve çalıştırın [temizleme betiği](http://aka.ms/asr-cleanup-script-vmm) VMM sunucusunda. PowerShell ile açın **yönetici olarak çalıştır** seçeneği, varsayılan (LocalMachine) kapsam için yürütme ilkesini değiştirmek için. Betikte, kaldırmak istediğiniz VMM sunucusunun Kimliğini belirtin. Betik, kayıt ve bulut eşleştirme bilgilerini sunucusundan kaldırır.
+6. Bağlantısı kesilmiş durumda VMM sunucunuz varsa, sonra da indirin ve çalıştırın [temizleme betiği](https://aka.ms/asr-cleanup-script-vmm) VMM sunucusunda. PowerShell ile açın **yönetici olarak çalıştır** seçeneği, varsayılan (LocalMachine) kapsam için yürütme ilkesini değiştirmek için. Betikte, kaldırmak istediğiniz VMM sunucusunun Kimliğini belirtin. Betik, kayıt ve bulut eşleştirme bilgilerini sunucusundan kaldırır.
 5. Temizleme betiği, tüm ikincil VMM sunucusunda çalıştırın.
 6. Temizleme betiği sağlayıcısı yüklü olan tüm diğer edilgen VMM küme düğümleri üzerinde çalıştırın.
 7. Sağlayıcı VMM sunucusunda el ile kaldırın. Bir kümeniz varsa, tüm düğümlerden kaldırın.

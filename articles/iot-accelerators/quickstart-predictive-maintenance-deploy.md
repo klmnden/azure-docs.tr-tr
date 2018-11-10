@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144321"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139848"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Hızlı başlangıç: Bağlı cihazlarımda tahmine dayalı bakım analizi çalıştırmak için bulut tabanlı bir çözüm deneme
 
@@ -22,7 +22,7 @@ Bu hızlı başlangıçta Azure IoT Tahmine Dayalı Bakım çözümü hızlandı
 
 Simülasyonda fabrikam, rekabetçi fiyatlarıyla büyük müşteri deneyimine odaklanan bölgesel bir havayoludur. Uçuş rötarlarının bir nedeni bakım sorunlarıdır ve uçak motorunun bakımı özellikle zordur. Fabrikam’ın ne olursa olsun uçuş sırasında motor arızasını önlemesi gerekmektedir; bu nedenle düzenli olarak motorları muayene eder ve bakım işlemlerini bir plana göre zamanlar. Ancak, uçak motorları her zaman aynı şekilde yıpranmaz. Motorlarda bazı gereksiz bakımlar gerçekleştirilir. Daha da önemlisi, bakım yapılana kadar çıkan sorunlar nedeniyle uçağın yerde kalmasıdır. Uçak, doğru teknisyenlerin ve yedek parçaların olmadığı bir yerdeyse bu sorunlar yüksek maliyetli gecikmelere neden olabilir.
 
-Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleyen algılayıcılarla donatılmıştır. Motor çalışması ve arızaları verilerini yıllarca biriktirdikten sonra, Fabrikam’ın veri bilim insanları uçak motorunun Kalan Kullanım Ömrü’nü (RUL) tahmin etmek için bir model geliştirmiştir. Bu model, dört motor algılayıcısından alınan veriler ve arızalara neden olan motor yıpranmaları arasındaki bağıntıyı kullanmaktadır. Fabrikam güvenliği sağlamak için normal muayeneleri yapmaya devam ederken, her uçuştan sonra her motor için RUL hesaplayacak modelleri kullanmaktadır. Fabrikam, bir yandan yolcuların ve personelin güvenliğini sağlayarak bir yandan da uçağın yerde kalma süresini en aza indirmesini ve çalıştırma maliyetini düşürmesini sağlamak için gelecekteki arıza noktalarını öngörüp bakım planlayabilir.
+Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleyen algılayıcılarla donatılmıştır. Fabrikam, yıllar boyunca bu sensörlerden alınan motor çalışma ve arıza verilerine sahiptir. Fabrikam'ın veri bilimcileri bu verileri kullanarak bir uçak motorunun Kalan Kullanım Ömrünü (RUL) tahmin eden bir model geliştirmiştir. Bu model, dört motor algılayıcısından alınan veriler ve arızalara neden olan motor yıpranmaları arasındaki bağıntıyı kullanmaktadır. Fabrikam düzenli güvenlik denetimleri yapmaya devam ederken, her uçuştan sonra her motor için RUL hesaplayacak modelleri kullanmaktadır. Fabrikam artık arızanın ve bakım planının ileri tarihli noktalarını tahmin edebilmekte ve uçağın yerde geçirdiği süreyi en aza indirebilmektedir. Bu işlem operasyon giderlerini azaltırken yolcuların ve personelin güvende olmasını sağlamaktadır.
 
 Bu hızlı başlangıcı tamamlamak etkin bir Azure aboneliğinizin olması gerekir.
 
@@ -32,11 +32,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Çözüm hızlandırıcısını Azure aboneliğinize dağıttığınızda ayarlamanız gereken yapılandırma seçenekleri vardır.
 
-Azure hesabınızın kimlik bilgilerini kullanarak [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) adresinden oturum açın.
+[Microsoft Azure IoT çözüm hızlandırıcıları](https://www.azureiotsolutions.com) sayfasına gidip Azure hesabı kimlik bilgilerinizle oturum açın.
 
-**Tahmine Dayalı Bakım** kutucuğundaki **Şimdi Deneyin** öğesine tıklayın.
+**Tahmine Dayalı Bakım** kutucuğunu seçin. **Tahmine Dayalı Bakım** sayfasındaki **Hemen deneyin** öğesine tıklayın:
 
-![Tahmine Dayalı Bakım seçme](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
+![Hemen deneyin](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
 **Tahmine Dayalı Bakım çözümü oluştur** sayfasında Tahmine Dayalı Bakım çözümü hızlandırıcınıza benzersiz bir **Çözüm adı** girin. Bu hızlı başlangıçta **MyPredictiveMaintenance** kullanıyoruz.
 

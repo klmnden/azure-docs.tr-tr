@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714437"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241728"
 ---
-# <a name="security-alerts-map-and-threat-intelligence"></a>Güvenlik Uyarıları Haritası ve tehdit bilgileri
+# <a name="security-alerts-map-and-threat-intelligence"></a>Güvenlik uyarıları haritası ve tehdit bilgileri
 Bu makalede Azure Güvenlik Merkezi'nde güvenlik uyarıları harita ve güvenlik olay-tabanlı tehdit bilgileri Haritası güvenlikle ilgili sorunları gidermek üzere kullanmanıza yardımcı olur.
 
 ## <a name="how-the-security-alerts-map-works"></a>Güvenlik uyarıları nasıl eşleştiği çalışır
@@ -106,4 +106,4 @@ Bu makalede Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak şüpheli etki
 * [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Farklı güvenlik uyarısı türleri hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi sorun giderme kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını bulun.
-* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
+* [Azure güvenlik blogu](https://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.

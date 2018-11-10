@@ -1,6 +1,6 @@
 
 # Azure’da Dayanıklılık
-## [Azure’da Dayanıklılık özellik sayfası](http://azure.microsoft.com/features/resiliency)
+## [Azure’da Dayanıklılık özellik sayfası](https://azure.microsoft.com/features/resiliency)
 ## [Azure için dayanıklı uygulamalar tasarlama](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # Yüksek Kullanılabilirlik
@@ -50,10 +50,10 @@
 #### [Service Bus coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
 
 ### VPN Gateway
-#### [Bölgesel olarak yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+#### [Alanlar arası yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 ### ExpressRoute
-#### [Bölgesel olarak yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+#### [Alanlar arası yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Olağanüstü Durum Kurtarma
 ## [Azure Site Recovery’yi kullanma](https://docs.microsoft.com/azure/site-recovery/)

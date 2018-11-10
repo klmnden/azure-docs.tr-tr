@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: c10aa28dc83d96a99da40b7d95d8e7051108d4c0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 916d34a0af1490404cb9f7851b3117f1967c54d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240911"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Hızlı Başlangıç: Microsoft kimlik platformuna kaydedilmiş bir uygulamayı kaldırma (Önizleme)
 
@@ -58,7 +58,7 @@ Kendiniz veya kuruluşunuz tarafından kaydedilmiş uygulamalar gerek bir uygula
 
 Bir kiracı bağlamında **Uygulama kayıtlarını** görüntülüyorsanız, **Tüm uygulamalar** sekmesinin altında görünen uygulamaların bir alt kümesi başka bir kiracıdandır ve kiracınıza onay işlemi sırasında kaydedilmiştir. Daha açık söylersek, bunlar kiracınızda yalnızca bir hizmet sorumlusu nesnesi tarafından ve karşılık gelen herhangi bir uygulama nesnesi olmadan temsil edilir. Uygulama ve hizmet sorumlusu nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz. [Azure AD'de uygulama ve hizmet sorumlusu nesneleri](active-directory-application-objects.md).
 
-Bir uygulamanın dizininize olan daha önce onay verdiğiniz erişimini kaldırmak için şirket yöneticisinin uygulamanın hizmet sorumlusunu kaldırması gerekir. Yöneticinin genel yönetim erişimi olması gerekir ve uygulamayı Azure portalı aracılığıyla kaldırabilir veya erişimi kaldırmak için [Azure AD PowerShell Cmdlet'lerini](http://go.microsoft.com/fwlink/?LinkId=294151) kullanabilir.
+Bir uygulamanın dizininize olan daha önce onay verdiğiniz erişimini kaldırmak için şirket yöneticisinin uygulamanın hizmet sorumlusunu kaldırması gerekir. Yöneticinin genel yönetim erişimi olması gerekir ve uygulamayı Azure portalı aracılığıyla kaldırabilir veya erişimi kaldırmak için [Azure AD PowerShell Cmdlet'lerini](https://go.microsoft.com/fwlink/?LinkId=294151) kullanabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
 title: Bu hızlı başlangıçta Java kullanarak X.509 cihazlarını Azure Cihaz Sağlama Hizmeti'ne kaydetme adımları gösterilmektedir | Microsoft Docs
-description: Bu hızlı başlangıçta Java kullanarak X.509 cihazlarını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydedeceksiniz
+description: Bu hızlı başlangıçta hem grup kayıtları hem de bireysel kayıtlar kullanılmaktadır. Bu hızlı başlangıçta Java kullanarak X.509 cihazlarını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydedeceksiniz.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205774"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412780"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Hızlı başlangıç: Java kullanarak X.509 cihazlarını Cihaz Sağlama Hizmeti'ne kaydetme
 
@@ -31,7 +31,7 @@ Java Hizmeti SDK'sı hem Windows hem de Linux makinelerinde çalışır, ancak b
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)'i yükleyin.
+* [Java SE Development Kit 8](https://aka.ms/azure-jdks)'i yükleyin.
 * [Maven 3](https://maven.apache.org/download.cgi)'ü yükleyin. Geçerli Maven sürümünüzü doğrulamak için şu komutu çalıştırabilirsiniz:
 
     ```cmd/sh

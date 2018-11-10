@@ -5,17 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/2/2018
+ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856080"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158967"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
-
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -49,6 +48,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="declare-the-variables"></a>Değişkenleri tanımlama
+
 Aşağıdaki örnekte bu öğreticiye yönelik değerleri kullanan değişkenler bildirilmektedir. Çoğu durumda değerleri kendi değerlerinizle değiştirmeniz gerekir. Ancak, bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Gerekirse değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
 
 ```azurepowershell
@@ -91,6 +91,7 @@ $SNnameGW = "GatewaySubnet"
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+
 Bu öğreticide gereken tüm kaynakları içerecek bir kaynak grubu oluşturun:
 
 ```azurepowershell
@@ -112,12 +113,14 @@ $GWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $S
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
+
 Sanal ağınız için oluşturacağınız VPN ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, VPN ağ geçidinize dinamik olarak ayrılır. 
 
   ```azurepowershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
+
 ## <a name="create-and-configure-the-spoke-vnet"></a>Uç sanal ağı oluşturma ve yapılandırma
 
 Uç sanal ağa eklenecek alt ağları tanımlayın:
@@ -149,6 +152,7 @@ $GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPre
 $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
+
 Sanal ağ için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır. 
 
   ```azurepowershell
@@ -176,32 +180,20 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Ağ kurallarını yapılandırma
 
-<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+<!--- $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
 
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
 
-$Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
+$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
 $NetRuleCollection = New-AzureRmFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
-   -Rule $Rule1,$Rule2,$Rule3 -ActionType "Allow"
+   -Rule $Rule1,$Rule2 -ActionType "Allow"
 $Azfw.NetworkRuleCollections = $NetRuleCollection
 Set-AzureRmFirewall -AzureFirewall $Azfw
-```
-### <a name="configure-an-application-rule"></a>Uygulama kuralı yapılandırma
-
-```azurepowershell
-$Rule4 = New-AzureRmFirewallApplicationRule -Name "AllowBing" -Protocol "Http:80","Https:443" `
-   -SourceAddress $SNOnpremPrefix -TargetFqdn "bing.com"
-
-$AppRuleCollection = New-AzureRmFirewallApplicationRuleCollection -Name RCApp01 -Priority 100 `
-   -Rule $Rule4 -ActionType "Allow"
-$Azfw.ApplicationRuleCollections = $AppRuleCollection
-Set-AzureRmFirewall -AzureFirewall $Azfw
-
 ```
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>VPN ağ geçitlerini oluşturma ve bağlama
@@ -245,10 +237,13 @@ New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
 -Location $Location1 -IpConfigurations $gwipconf2 -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku basic
 ```
+
 ### <a name="create-the-vpn-connections"></a>VPN bağlantılarını oluşturma
+
 Şimdi hub ile OnPrem ağ geçitleri arasında VPN bağlantılarını oluşturabilirsiniz
 
 #### <a name="get-the-vpn-gateways"></a>VPN ağ geçitlerini alma
+
 ```azurepowershell
 $vnetHubgw = Get-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
 $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
@@ -270,8 +265,9 @@ OnPrem sanal ağından hub sanal ağına bağlantı oluşturun. Bu adım bir ön
   -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
+
 #### <a name="verify-the-connection"></a>Bağlantıyı doğrulama
- 
+
 *Get-AzureRmVirtualNetworkGatewayConnection* cmdlet’ini *-Debug* ile veya bu parametre olmadan kullanarak başarılı bir bağlantıyı doğrulayabilirsiniz. Aşağıdaki cmdlet örneğini kullanın ve değerleri, kendi değerlerinizle eşleşecek şekilde yapılandırın. İstendiğinde, **Tümü**'nü çalıştırmak için **A** seçin. Örnekte bulunan *-Name*, test etmek istediğiniz bağlantının adıdır.
 
 ```azurepowershell
@@ -286,8 +282,6 @@ Cmdlet tamamlandıktan sonra değerleri görüntüleyin. Aşağıdaki örnekte, 
 "egressBytesTransferred": 4142431
 ```
 
-
-
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Hub ve uç sanal ağlarını eşleme
 
 Artık uç ve hub sanal ağlarını eşleyin.
@@ -299,9 +293,11 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 # Peer spoke to hub
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
+
 ## <a name="create-routes"></a>Yolları oluşturma
 
-Şimdi birkaç yol oluşturun: 
+Şimdi birkaç yol oluşturun:
+
 - Güvenlik duvarı IP adresi üzerinden hub ağ geçidi alt ağından uç alt ağına giden bir yol
 - Güvenlik duvarı IP adresi üzerinden uç alt ağından gelen varsayılan yol
 
@@ -364,16 +360,18 @@ Set-AzureRmVirtualNetworkSubnetConfig `
   -RouteTable $routeTableSpokeDG | `
 Set-AzureRmVirtualNetwork
 ```
+
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
 Şimdi uç iş yükü ve OnPrem sanal makinelerini oluşturup bunları uygun alt ağlara yerleştirin.
 
 ### <a name="create-the-workload-virtual-machine"></a>İş yükü sanal makinesi oluşturma
+
 Uç sanal ağda IIS çalıştıran, genel IP adresi olmayan ve içeri ping işlemlerine izin veren bir sanal makine oluşturun.
 İstendiğinde, sanal makine için bir kullanıcı adı ve parola yazın.
 
 ```azurepowershell
-# Create an inbound network security group rule for port 3389
+# Create an inbound network security group rule for ports 3389 and 80
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name Allow-RDP  -Protocol Tcp `
   -Direction Inbound -Priority 200 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix $SNSpokePrefix -DestinationPortRange 3389 -Access Allow
 $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name Allow-web  -Protocol Tcp `
@@ -417,9 +415,10 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-
 ### <a name="create-the-onprem-virtual-machine"></a>OnPrem sanal makinesi oluşturma
+
 Bu, Uzak Masaüstü kullanarak genel IP adresine bağlanmak için kullanılabilecek basit bir sanal makinedir. Buradan, güvenlik duvarı aracılığıyla OnPrem sunucusuna bağlanabilirsiniz. İstendiğinde, sanal makine için bir kullanıcı adı ve parola yazın.
+
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
@@ -432,6 +431,7 @@ New-AzureRmVm `
 ```
 
 ## <a name="test-the-firewall"></a>Güvenlik duvarını test etme
+
 İlk olarak, **VM-spoke-01** sanal makinesi için özel IP adresini alın ve not edin.
 
 ```azurepowershell
@@ -456,23 +456,20 @@ Güvenlik duvarı kurallarının çalıştığını doğruladığınıza göre:
 - Uç sanal ağda web sunucusuna göz atabilirsiniz.
 - RDP kullanarak uç sanal ağda sunucuya bağlanabilirsiniz.
 
-Ardından, güvenlik duvarı kurallarının beklendiği gibi çalıştığını doğrulamak için güvenlik duvarı ağ kuralı koleksiyonu eylemini **Reddet** olarak değiştirin. Kural koleksiyonları eylemini **Reddet** olarak değiştirmek için aşağıdaki betiği çalıştırın.
+Ardından, güvenlik duvarı kurallarının beklendiği gibi çalıştığını doğrulamak için güvenlik duvarı ağ kuralı koleksiyonu eylemini **Reddet** olarak değiştirin. Kural koleksiyonu eylemini **Reddet** olarak değiştirmek için aşağıdaki betiği çalıştırın.
 
 ```azurepowershell
 $rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
 $rcNet.action.type = "Deny"
 
-$rcApp = $azfw.GetApplicationRuleCollectionByName("RCApp01")
-$rcApp.action.type = "Deny"
-
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
+
 Şimdi testleri yeniden çalıştırın. Bu kez tümü başarısız olmalıdır. Değişen kuralları test etmeden önce var olan tüm uzak masaüstlerini kapatın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Güvenlik duvarı kaynaklarını bir sonraki öğretici için tutabilirsiniz veya artık gerekli değilse **FW-Hybrid-Test** kaynak grubunu silerek güvenlik duvarıyla ilgili tüm kaynakları silebilirsiniz.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

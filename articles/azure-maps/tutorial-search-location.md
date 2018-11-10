@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645824"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412729"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktaları arama
 
@@ -72,59 +72,96 @@ Harita Denetimi API’si, Haritalar’ı web uygulamanızla kolayca tümleştirm
 1. Yerel makinenizde yeni bir dosya oluşturun ve bu dosyayı **MapSearch.html** olarak adlandırın.
 2. Aşağıdaki HTML bileşenlerini dosyaya ekleyin:
 
-    ```HTML
-    <!DOCTYPE html>
-    <html lang="en">
+   ```HTML
+   <!DOCTYPE html>
+   <html>
+   <head>
+      <title>Map Search</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <title>Map Search</title>
+      <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+      <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
+      <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+      <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
 
-        <style>
-            html,
-            body {
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                margin: 0;
-            }
+      <script>      
+         var map, datasource, client, popup;
 
-            #map {
-                width: 100%;
-                height: 100%;
-            }
-        </style>
-    </head>
+         function GetMap(){
+            //Add Map Control JavaScript code here.
+         }
+      </script>
+      <style>
+      html,
+      body {
+         width: 100%;
+         height: 100%;
+         padding: 0;
+         margin: 0;
+      }
 
-    <body>
-        <div id="map"></div>
-        <script>
-            // Embed Map Control JavaScript code here
-        </script>
-    </body>
+      #map {
+         width: 100%;
+         height: 100%;
+      }
+      </style>
+   </head>
+   <body onload="GetMap()">
+      <div id="myMap"></div>
+   </body>
+   </html>
+   ```
 
-    </html>
-    ```
-    HTML üst bilgisinin Azure Harita Denetimi kitaplığı tarafından barındırılan CSS ve JavaScript kaynak dosyalarını içerdiğine dikkat edin. HTML dosyasının *gövdesine* *Betik* segmentinin eklendiğine dikkat edin. Bu segment, Azure Haritalar API’lerine erişime yönelik satır içi JavaScript kodunu içerir.
+   HTML üst bilgisinin Azure Harita Denetimi kitaplığı tarafından barındırılan CSS ve JavaScript kaynak dosyalarını içerdiğine dikkat edin. Sayfanın gövdesinde bulunan ve sayfa yüklendiğinde `GetMap` işlevini çağıracak olan `onload` olayına dikkat edin. Bu işlev, Azure Haritalar API’lerine erişime yönelik satır içi JavaScript kodunu içerir.
 
-3. HTML dosyasının *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. **\<Hesap anahtarınız\>** dizesini, Haritalar hesabınızdan kopyaladığınız birincil anahtarla değiştirin.
+3. HTML dosyasının `GetMap` işlevine aşağıdaki JavaScript kodunu ekleyin. **\<Azure Haritalar Anahtarınız\>** dizesini, Haritalar hesabınızdan kopyaladığınız birincil anahtarla değiştirin.
 
-    ```JavaScript
-    // Instantiate map to the div with id "map"
-    atlas.setSubscriptionKey("<your account key>");
-    var map = new atlas.Map("map");
-    ```
+   ```JavaScript
+   //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+   atlas.setSubscriptionKey('<Your Azure Maps Key>');
 
-    Bu segment, Azure Haritalar hesap anahtarınız için Harita Denetimi API’sini başlatır. **Atlas**, API ve ilgili görsel bileşenleri içeren ad alanıdır. **Atlas.Map**, görsel ve etkileşimli bir web haritası için gerekli denetimi sağlar.
+   //Initialize a map instance.
+   map = new atlas.Map('myMap');
+   ```
+
+   Bu segment, Azure Haritalar hesap anahtarınız için Harita Denetimi API’sini başlatır. **atlas**, API ve ilgili görsel bileşenleri içeren ad alanıdır. **atlas.Map**, görsel ve etkileşimli bir web haritası için gerekli denetimi sağlar. 
 
 4. Değişikliklerinizi dosyaya kaydedin ve HTML sayfasını bir tarayıcıda açın. Bu, **atlas.map** komutunu çağırıp hesap anahtarınızı kullanarak oluşturabileceğiniz en temel haritadır.
 
    ![Haritayı görüntüleme](./media/tutorial-search-location/basic-map.png)
+
+5. `GetMap` işlevinde haritanın başlatıldığı bölümün altına aşağıdaki JavaScript kodunu ekleyin. 
+
+   ```JavaScript
+   //Wait until the map resources have fully loaded.
+   map.events.add('load', function () {
+
+      //Create a data source and add it to the map.
+      datasource = new atlas.source.DataSource();
+      map.sources.add(datasource);
+
+      //Add a layer for rendering point data.
+      var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
+         iconOptions: {
+            iconImage: 'pin-round-darkblue',
+            anchor: 'center',
+            allowOverlap: true
+         }
+      });
+      map.layers.add(resultLayer);
+
+      //Create a popup but leave it closed so we can update it and display it later.
+      popup = new atlas.Popup();
+
+      //Add a mouse over event to the result layer and display a popup when this event fires.
+      map.events.add('mouseover', resultLayer, showPopup);
+   });
+   ```
+
+   Haritaya, harita kaynakları tamamen yüklendikten sonra harekete geçirilecek bir yükleme olayı eklenir. Harita yükleme olayı işleyicisinde sonuç verilerin depolanacağı bir veri kaynağı oluşturulur. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, veri kaynağındaki sonuç verilerin nasıl işleneceğini belirtir. Bu örnekte sonuç koordinatlarının üzerinde ortalanmış olan ve diğer simgelerin çakışmasına izin verilen koyu mavi yuvarlak raptiye simgesi şeklindedir. 
 
 <a id="usesearch"></a>
 
@@ -134,110 +171,88 @@ Bu bölümde, Haritalar Arama API’sini kullanarak haritanızda ilgi çekici bi
 
 ### <a name="service-module"></a>Hizmet Modülü
 
-1. Arama sonuçlarını görüntülemek için haritanıza yeni bir katman ekleyin. Aşağıdaki JavaScript kodunu betik bloğunda, haritayı başlatan kodun arkasına ekleyin.
+1. Harita yükleme olayı işleyicisine aşağıdaki Javascript kodunu ekleyerek istemci hizmetini başlatın.
 
     ```JavaScript
-    // Initialize the pin layer for search results to the map
-    var searchLayerName = "search-results";
+    //Create an instance of the services client.
+     client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. İstemci hizmetini başlatmak için aşağıdaki Javascript kodunu betik bloğunda, haritayı başlatan kodun arkasına ekleyin.
+2. Ardından arama sorgusunu oluşturmak için aşağıdaki betik bloğunu ekleyin. Bu, Arama Hizmetinin temel arama API'si olan Belirsiz Arama Hizmetini kullanır. Belirsiz Arama Hizmeti adres, yer ve ilgi çekici nokta (POI) gibi çoğu belirsiz girişi işler. Bu kod, belirtilen yarıçap içinde olup yakında bulunan Benzin İstasyonlarını arar. Yanıt GeoJSON biçiminde ayrıştırılıp veri kaynağına eklenir ve bunun sonucunda veriler otomatik olarak simge katmanı aracılığıyla harita üzerinde işlenir. Betiğin son bölümü haritanın [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliğini kullanarak sonuçların sınırlayıcı kutusuna göre harita kamera görünümünü ayarlar. Sınırlayıcı kutu koordinatlara göre hesaplandığından simgelerin piksel boyutlarını telafi eden bir iç boşluk eklenir. 
+ 
+   ```JavaScript
+   //Execute a POI search query then add the results to the map.
+    client.search.getSearchPOI('gasoline station', {
+        lat: 47.6292,
+        lon: -122.2337,
+        radius: 100000
+    }).then(response => {
+        //Parse the response into GeoJSON so that the map can understand.
+        var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response);
+        var results = geojsonResponse.getGeoJsonResults();
 
-    ```JavaScript
-    var client = new atlas.service.Client(MapsAccountKey);
-    ```
+        //Add the results to the data source so they can be rendered. 
+        datasource.add(results);
 
-3. Tüm harita işlevleri, harita yüklendikten sonra yüklenmelidir. Bunu sağlamak için tüm harita işlevlerini harita eventListener bloğunun içine yerleştirebilirsiniz. Aşağıdaki kod satırlarını haritanın [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) bloğuna ekleyerek işlevler eklenmeden önce haritanın tamamen yüklendiğinden emin olabilirsiniz.
-    
-    ```JavaScript
-         map.events.add("load", function() {
-         });
-    ```
-
-4. Sorguyu oluşturmak için **harita yükleme olayları** bloğunun içine aşağıdaki betik bloğunu ekleyin. Bu, Arama Hizmetinin temel arama API'si olan Belirsiz Arama Hizmetini kullanır. Belirsiz Arama Hizmeti, adres ve ilgi çekici nokta (POI) belirteci kombinasyonları gibi belirsiz girişlerin çoğunu işler. Belirtilen yarıçap içinde olup yakında bulunan Benzin İstasyonlarını arar. Ardından yanıt GeoJSON biçimine ayrıştırılır, nokta özelliğine dönüştürülür ve bunlar haritaya iğne olarak eklenir. Betiğin son kısmı, Harita'nın [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliğini kullanarak harita için kamera sınırları ekler.
-
-    ```JavaScript
-
-            // Execute a POI search query then add pins to the map for each result once a response is received
-            client.search.getSearchFuzzy("gasoline station", {
-            lat: 47.6292,
-            lon: -122.2337,
-            radius: 100000
-            }).then(response => {
-       
-            // Parse the response into GeoJSON 
-            var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response);
-
-            // Create the point features that will be added to the map as pins
-            var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => {
-               var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat];
-               return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                name: poiResult.properties.poi.name,
-                address: poiResult.properties.address.freeformAddress,
-                position: poiPosition[1] + ", " + poiPosition[0]
-               });
-            });
-
-            // Add pins to the map for each POI
-            map.addPins(searchPins, {
-               name: searchLayerName,
-               cluster: false, 
-               icon: "pin-round-darkblue" 
-            });
-
-            // Set the camera bounds
-            map.setCameraBounds({
-               bounds: geojsonResponse.getGeoJsonResults().bbox,
-               padding: 50
-            });
+        // Set the camera bounds
+        map.setCamera({
+            bounds: results.bbox,
+            padding: 50
+        });
     });
-    ```
-5. **MapSearch.html** dosyasını kaydedin ve tarayıcınızı yenileyin. Şimdi haritanın Seattle’da ortalandığını ve bölgedeki benzin istasyonu konumlarının mavi raptiyelerle işaretlendiğini görmeniz gerekir.
+   ```
+ 
+3. **MapSearch.html** dosyasını kaydedin ve tarayıcınızı yenileyin. Şimdi haritanın Seattle’da ortalandığını ve bölgedeki benzin istasyonu konumlarının mavi raptiyelerle işaretlendiğini görmeniz gerekir.
 
    ![Arama sonuçlarıyla haritayı görüntüleme](./media/tutorial-search-location/pins-map.png)
 
-6. Tarayıcınıza aşağıdaki HTTP İsteğini girerek, haritanın işlediği ham verileri görebilirsiniz. \<Hesap anahtarınızı\> birincil anahtarınızla değiştirin.
+4. Tarayıcınıza aşağıdaki HTTP İsteğini girerek, haritanın işlediği ham verileri görebilirsiniz. \<Azure Haritalar Anahtarınız\> değerini birincil anahtarınızla değiştirin.
 
    ```http
-   https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<Your Azure Maps Key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 Bu noktada MapSearch sayfası, belirsiz arama sorgusundan döndürülen ilgi çekici noktaların konumlarını görüntüleyebilir. Şimdi bazı etkileşimli özellikler ve konumlar hakkında daha fazla bilgi ekleyelim.
 
 ## <a name="add-interactive-data"></a>Etkileşimli veri ekleme
 
-Şu ana kadar oluşturduğumuz harita, arama sonuçları için yalnızca enlem/boylam verilerine bakar. Ancak Haritalar Arama hizmetinin döndürdüğü işlenmemiş JSON’a bakarsanız, bunun ad ve açık adres de dahil olmak üzere her bir benzin istasyonuyla ilgili ek bilgiler içerdiğini görürsünüz. Etkileşimli açılır kutularla haritada bu verilere yer verebilirsiniz.
+Şu ana kadar oluşturduğumuz harita, arama sonuçları için yalnızca boylam/enlem verilerine bakar. Ancak Haritalar Arama hizmetinin döndürdüğü işlenmemiş JSON’a bakarsanız, bunun ad ve açık adres de dahil olmak üzere her bir benzin istasyonuyla ilgili ek bilgiler içerdiğini görürsünüz. Etkileşimli açılır kutularla haritada bu verilere yer verebilirsiniz.
 
-1. Arama Hizmeti tarafından döndürülen istenen noktalara yönelik açılan pencereler oluşturmak için *betik* bloğuna aşağıdaki satırları ekleyin:
+1. Belirsiz arama hizmetini sorgulamak için harita yükleme olayı işleyicisinde kodun sonrasına aşağıdaki kod satırlarını ekleyin. Bu kod bir açılır pencere örneği oluşturur ve simge katmanına fare ile üzerine gelindiğinde gerçekleştirilecek bir olay ekler.
 
     ```JavaScript
-    // Add a popup to the map which will display some basic information about a search result on hover over a pin
-    var popup = new atlas.Popup();
-    map.addEventListener("mouseover", searchLayerName, (e) => {
-        var popupContentElement = document.createElement("div");
-        popupContentElement.style.padding = "5px";
+   //Create a popup but leave it closed so we can update it and display it later.
+    popup = new atlas.Popup();
 
-        var popupNameElement = document.createElement("div");
-        popupNameElement.innerText = e.features[0].properties.name;
-        popupContentElement.appendChild(popupNameElement);
+    //Add a mouse over event to the result layer and display a popup when this event fires.
+    map.events.add('mouseover', resultLayer, showPopup);
+    ```
+    
+    **atlas.Popup** API’si, haritada gerekli konuma sabitlenmiş bir bilgi penceresi sağlar. 
+      
+2. *script* etiketinde `GetMap` işlevinin sonrasına aşağıdaki kodu ekleyerek fareyle üzerine gelinen sonuç bilgilerinin açılan pencerede görünmesini sağlayın. 
 
-        var popupAddressElement = document.createElement("div");
-        popupAddressElement.innerText = e.features[0].properties.address;
-        popupContentElement.appendChild(popupAddressElement);
+   ```JavaScript
+   function showPopup(e) {
+        //Get the properties and coordinates of the first shape that the event occured on.
+        var p = e.shapes[0].getProperties();
+        var position = e.shapes[0].getCoordinates();
 
-        var popupPositionElement = document.createElement("div");
-        popupPositionElement.innerText = e.features[0].properties.position;
-        popupContentElement.appendChild(popupPositionElement);
+        //Create HTML from properties of the selected result.
+        var html = ['<div style="padding:5px"><div><b>', p.poi.name,
+            '</b></div><div>', p.address.freeformAddress,
+            '</div><div>', position[1], ', ', position[0], '</div></div>'];
 
+        //Update the content and position of the popup.
         popup.setPopupOptions({
-            position: e.features[0].geometry.coordinates,
-            content: popupContentElement
+            content: html.join(''),
+            position: position
         });
 
+        //Open the popup.
         popup.open(map);
-    });
-    ```
-    **atlas.Popup** API’si, haritada gerekli konuma sabitlenmiş bir bilgi penceresi sağlar. Bu kod parçacığı, açılan pencerenin içeriğini ve konumunu belirler. Ayrıca `map` denetimine _farenin_ üzerine geldiğinde açılmasını sağlayacak bir olay dinleyicisi ekler.
+   }
+   ```
 
 2. Dosyayı kaydedin ve tarayıcınızı yenileyin. Şimdi tarayıcıdaki haritada, herhangi bir arama raptiyesinin üzerine gelip beklediğinizde bilgi açılan pencereleri gösterilir.
 
@@ -255,7 +270,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
 
-> [Azure Haritalar ile konum arama](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/search.html)
+> [Azure Haritalar ile konum arama](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
+
+[Burada canlı örneği inceleyin](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Sonraki öğreticide, iki konum arasındaki bir yolun nasıl görüntüleneceği gösterilmektedir.
 

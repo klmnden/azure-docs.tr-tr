@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144522"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139037"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Hızlı başlangıç: Endüstriyel IoT cihazlarını yönetmek için bulut tabanlı bir çözümü deneme
 
@@ -32,13 +32,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Çözüm hızlandırıcısını Azure aboneliğinize dağıttığınızda ayarlamanız gereken yapılandırma seçenekleri vardır.
 
-Azure hesabınızın kimlik bilgilerini kullanarak [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) adresinden oturum açın.
+[Microsoft Azure IoT çözüm hızlandırıcıları](https://www.azureiotsolutions.com) sayfasına gidip Azure hesabı kimlik bilgilerinizle oturum açın.
 
-**Bağlı Fabrika** kutucuğunda **Şimdi Deneyin**’e tıklayın.
+**Bağlı Fabrika** kutucuğuna tıklayın. **Bağlı Fabrika** sayfasında **Hemen deneyin**’e tıklayın:
 
-![Bağlı Fabrika'yı seçme](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Hemen deneyin](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-**Bağlı Fabrika çözümü oluştur** sayfasında Bağlı Fabrika çözüm hızlandırıcınız için benzersiz bir **Çözüm adı** girin. Bu ad tüm çözüm hızlandırıcısı kaynaklarını içeren Azure kaynak grubunun adıdır. Bu hızlı başlangıçta **MyDemoConnectedFactory** adını verdik.
+**Bağlı Fabrika çözümü oluştur** sayfasında Bağlı Fabrika çözüm hızlandırıcınız için benzersiz bir **Çözüm adı** girin. Bu ad tüm çözüm hızlandırıcısı kaynaklarını içeren Azure kaynak grubunun adıdır. Bu hızlı başlangıçta **MyDemoConnectedFactory** adı kullanılmıştır.
 
 Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Doğu ABD** kullanıyoruz. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
 
@@ -66,7 +66,7 @@ Varsayılan görünüm, *pano* şeklindedir. Portalın diğer alanlarına gitmek
 
 [![Çözüm panosu](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-Endüstriyel IoT cihazlarınızı yönetmek için panoyu kullanırsınız. Bağlı Fabrika, global fabrika yapılandırmasını göstermek için bir hiyerarşi kullanır. Hiyerarşinin en üst düzeyinde bir veya daha fazla fabrikaya sahip olan kuruluş, her fabrikanın altında üretim hatları, her üretim hattının altında ise istasyonlar bulunur. Her düzeyde OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve alarmlara yanıt verebilirsiniz.
+Endüstriyel IoT cihazlarınızı yönetmek için panoyu kullanırsınız. Bağlı Fabrika, global fabrika yapılandırmasını göstermek için bir hiyerarşi kullanır. Hiyerarşinin en üst düzeyinde, bir veya daha fazla fabrika içeren kuruluş bulunur. Her fabrika üretim hatlarından ve her üretim hattı da istasyonlardan oluşur. Her düzeyde OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve alarmlara yanıt verebilirsiniz.
 
 Panoda şunları görebilirsiniz:
 
@@ -137,7 +137,7 @@ Alarmlardan birine tıklayın, **Eylem seçin** açılan menüsünde **Uyarıyı
 
 Alarm verilerini daha fazla çözümlemek için, alarm panelindeki grafiğe tıklayın.
 
-Bu alarmlar, çözüm hızlandırıcısındaki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında alarmlar oluşturur.
+Bu alarmlar, çözüm hızlandırıcısındaki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında alarmlar oluşturur. Bu eşik değerini ayarlayabilirsiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

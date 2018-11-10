@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604187"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230940"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıçta, bir Azure web uygulamasının Azure kaynakları için
 > * Anahtar kasasına bir gizli dizi depolama.
 > * Anahtar kasasından bir gizli dizi alma.
 > * Azure web uygulaması oluşturma.
-> * Web uygulaması için [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) etkinleştirme.
+> * Web uygulaması için [yönetilen hizmet kimliğini](../active-directory/managed-identities-azure-resources/overview.md) etkinleştirin.
 > * Web uygulamasının anahtar kasasından verileri okuması için gereken izinleri verme.
 
 İlerlemeden önce lütfen [temel kavramları](key-vault-whatis.md#basic-concepts) okuyun.
@@ -33,7 +33,7 @@ Bu hızlı başlangıçta, bir Azure web uygulamasının Azure kaynakları için
 >[!NOTE]
 >Key Vault, gizli dizilerin program aracılığıyla depolandığı merkezi bir depodur. Ancak bunun için uygulamaların ve kullanıcıların bir Key Vault'a kimlik doğrulaması yapması, yani gizli dizi sunması gerekir. Güvenlikle ilgili en iyi yöntemlerin uygulanması için bu ilk gizli dizinin düzenli olarak döndürülmesi gerekir. 
 >
->[Azure kaynakları için yönetilen kimlikler](../active-directory/managed-identities-azure-resources/overview.md) ile, Azure’da çalıştırılan uygulamalara otomatik olarak Azure’un yönettiği bir kimlik verilir. Bu, *gizli dizi belirleme sorununu* çözerek kullanıcıların ve uygulamaların en iyi yöntemleri uygulayabilmesini ve ilk gizli diziyi döndürme konusunda endişelenmemesini sağlar.
+>[Azure kaynakları için yönetilen hizmet kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) ile, Azure’da çalıştırılan uygulamalara otomatik olarak Azure’ın yönettiği bir kimlik verilir. Bu, *gizli dizi belirleme sorununu* çözerek kullanıcıların ve uygulamaların en iyi yöntemleri uygulayabilmesini ve ilk gizli diziyi döndürme konusunda endişelenmemesini sağlar.
 
 ## <a name="prerequisites"></a>Ön koşullar
 

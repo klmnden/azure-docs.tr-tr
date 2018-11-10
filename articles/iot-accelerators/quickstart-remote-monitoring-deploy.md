@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144503"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140866"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı başlangıç: Bulut tabanlı uzaktan izleme çözümünü deneme
 
-Bu hızlı başlangıçta Azure IoT Uzaktan İzleme çözümü hızlandırıcısını dağıtarak bulut tabanlı uzaktan izleme çözümü simülasyonu çalıştırmayı öğreneceksiniz. Çözüm hızlandırıcısını dağıttıktan sonra çözümün **Dashboard** (Pano) sayfasını kullanarak sanal cihazları harita üzerinde görselleştirecek ve **Maintenance** (Bakım) sayfasını kullanarak sanal bir soğutucu cihazından gelen basınç uyarısına müdahale edeceksiniz. Bu çözüm hızlandırıcısını, kendi uygulamanızın başlangıç noktası veya bir öğrenme aracı olarak kullanabilirsiniz.
+Bu hızlı başlangıçta Azure IoT Uzaktan İzleme çözümü hızlandırıcısını dağıtmayı öğreneceksiniz. Bu bulut tabanlı çözümde **Dashboard** (Pano) sayfasını kullanarak sanal cihazları harita üzerinde görselleştirecek ve **Maintenance** (Bakım) sayfasını kullanarak sanal bir soğutucu cihazından gelen basınç uyarısına müdahale edeceksiniz. Bu çözüm hızlandırıcısını, kendi uygulamanızın başlangıç noktası veya bir öğrenme aracı olarak kullanabilirsiniz.
 
-İlk dağıtımda, Contoso adlı bir şirket için Uzaktan İzleme çözümü hızlandırıcısı yapılandırılır. Contoso, farklı fiziksel ortamlara dağıtılmış olan soğutucular gibi farklı türdeki cihazları yönetmektedir. Soğutucu cihazı Uzaktan İzleme çözümü hızlandırıcısına sıcaklık, nem ve basınç telemetri verilerini göndermektedir.
+İlk dağıtımda, Contoso adlı bir şirket için bir çözüm hızlandırıcısı yapılandırılır. Contoso'da çalışan bir operatör olarak, farklı fiziksel ortamlara dağıtılmış olan soğutucular gibi farklı türdeki cihazları yönetiyorsunuz. Soğutucu cihazı Uzaktan İzleme çözümü hızlandırıcısına sıcaklık, nem ve basınç telemetri verilerini göndermektedir.
 
 Bu hızlı başlangıcı tamamlamak etkin bir Azure aboneliğinizin olması gerekir.
 
@@ -44,7 +44,7 @@ Uzaktan İzleme çözümü hızlandırıcınız için benzersiz bir **Solution n
 
 Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Batı Avrupa** kullanıyoruz. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
 
-Dağıtımı başlatmak için **Create Solution** (Çözüm Oluştur) öğesine tıklayın. Bu işlemin çalışması en az beş dakika sürer:
+Dağıtımınızı başlatmak için **Çözüm Oluştur**'a tıklayın. Bu işlemin çalışması en az beş dakika sürer:
 
 ![Uzaktan İzleme çözümünün ayrıntıları](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -68,15 +68,15 @@ Açılan panelden Uzaktan İzleme çözümü hızlandırıcınızla ilgili bilgi
 
 Çözüm panosu Contoso'nun simülasyon cihazlarıyla ilgili aşağıdaki bilgileri görüntüler:
 
-* **Device statistics** (Cihaz istatistikleri) bölümünde uyarıların özeti ve toplam cihaz sayısı gösterilir. Varsayılan dağıtımda Contoso farklı türlerde 10 sanal cihaza sahiptir.
+* **Device statistics** (Cihaz istatistikleri) panelinde uyarıların özeti ve toplam cihaz sayısı gösterilir. Varsayılan dağıtımda Contoso farklı türlerde 10 sanal cihaza sahiptir.
 
-* **Device locations** (Cihaz konumları) bölümünde cihazların bulunduğu fiziksel konumlar gösterilir. Cihazda uyarılar olduğunda raptiyenin rengi değişir.
+* **Device locations** (Cihaz konumları) panelinde cihazların bulunduğu fiziksel konumlar gösterilir. Cihazda uyarılar olduğunda raptiyenin rengi değişir.
 
-* **Alerts** (Uyarılar) bölümünde cihazlarınızdan gelen uyarılar gösterilir.
+* **Alerts** (Uyarılar) panelinde cihazlarınızdan gelen uyarılar gösterilir.
 
-* **Telemetry** (Telemetri) bölümünde cihazlarınızdan gelen telemetri verileri gösterilir. Üstteki telemetri türlerine tıklayarak farklı telemetri akışlarını görüntüleyebilirsiniz.
+* **Telemetry** (Telemetri) panelinde cihazlarınızdan gelen telemetri verileri gösterilir. Üstteki telemetri türlerine tıklayarak farklı telemetri akışlarını görüntüleyebilirsiniz.
 
-* **Analytics** (Analiz) bölümünde cihazlarınızdaki uyarılar hakkında toplu bilgiler gösterilir.
+* **Analytics** (Analiz) panelinde cihazlarınızdaki uyarılar hakkında toplu bilgiler gösterilir.
 
 ## <a name="respond-to-an-alert"></a>Uyarıya yanıt verme
 
@@ -108,7 +108,7 @@ Soğutucu üzerinde işlem yapmak için **Related information** (İlgili bilgile
 
 [![Cihazı seçme ve eylem zamanlama](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-**İşler** panelinde **Çalıştırma yöntemi**’ni ve ardından **EmergencyValveRelease** yöntemini seçin. **ChillerPressureRelease** iş adını ekleyin ve **Uygula**’ya tıklayın. Bu ayarlar hemen yürütülen bir iş oluşturur.
+**İşler** panelinde **Çalıştırma yöntemi**’ni ve ardından **EmergencyValveRelease** yöntemini seçin. **ChillerPressureRelease** iş adını ekleyin ve **Uygula**’ya tıklayın. Bu ayarlar sizin için hemen yürütülen bir iş oluşturur.
 
 İş durumunu görüntülemek için **Maintenance** (Bakım) sayfasına dönün ve **Jobs** (İşler) görünümünde iş listesini görüntüleyin. Birkaç saniye bekledikten sonra soğutucu üzerindeki basınç valfinin açılması işinin çalıştırıldığını görebilirsiniz:
 

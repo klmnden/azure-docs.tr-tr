@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: b0f1ba7f0799fb9f8f58370a39758416eab43dc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2dffc178a017d8b16ea7a36407d8bbf62c6d642
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195813"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242152"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Öğretici: ASP.NET üzerinde edilgen önbellekli puan tablosu oluşturma
 
@@ -150,7 +150,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
     }
     ```
 
-1. **Çözüm Gezgini**’nde, **web.config**’i açmak için sağ tıklayın.
+1. **Çözüm Gezgini**’nde, **Web.config**’i açmak için çift tıklayın.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 

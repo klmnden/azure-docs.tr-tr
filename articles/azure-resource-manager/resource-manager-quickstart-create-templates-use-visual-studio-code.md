@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 092b6f2c3267a2c2cd2cc6304133134825bb7261
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458148"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230165"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı başlangıç: Visual Studio Code kullanılarak Azure Resource Manager şablonları oluşturma
 
@@ -83,13 +83,13 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
 
     Kodu kopyalayıp Visual Studio Code'un içine yapıştırdıysanız, Resource Manager Araçları uzantısının IntelliSense özelliğini denemek için **value** öğesini bir kez daha yazmayı deneyin.
 
-    ![Resource Manager şablonu visual studio code intelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![Resource Manager şablonu Visual Studio Code IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Dosyayı kaydetmek için **Dosya**>**Kaydet**’e tıklayın.
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-Şablonları dağıtmak için birçok yöntem vardır.  Bu hızlı başlangıçta, Azure Cloud Shell'i kullanacaksınız. Cloud Shell hem Azure CLI'yi hem de Azure PowerShell'i destekler. 
+Şablonları dağıtmak için birçok yöntem vardır.  Bu hızlı başlangıçta, Azure Cloud Shell'i kullanacaksınız. Cloud Shell hem Azure CLI'yi hem de Azure PowerShell'i destekler.
 
 1. [Azure Cloud Shell](https://shell.azure.com)'de oturum açın.
 

@@ -10,20 +10,20 @@ ms.component: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 6f79416c28631a47209558fd0c415ae79cff93bc
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c19fa95bd5529f18a65ad466e9c6352b1be80657
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831407"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421127"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Hızlı başlangıç: Java ile Bing Otomatik Öneri API'si
 
-Bu makalede [Bing Otomatik Öneri API'sinin](https://azure.microsoft.com/services/cognitive-services/autosuggest/) Java ile nasıl kullanılacağı göstermektedir. Bing Otomatik Öneri API’si, kullanıcının arama kutusuna girdiği kısmi sorgu dizesine göre önerilen sorguların bir listesini döndürür. Genellikle bu API'yi kullanıcı arama kutusuna yeni bir karakter yazdığında çağırır ve önerileri arama kutusunun açılan listesinde görüntülersiniz. Bu makalede *sail* için önerilen sorgu dizelerini döndüren bir isteğin nasıl gönderileceği gösterilmektedir.
+Bu makalede [Bing Otomatik Öneri API'sinin](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  Java ile nasıl kullanılacağı göstermektedir. Bing Otomatik Öneri API’si, kullanıcının arama kutusuna girdiği kısmi sorgu dizesine göre önerilen sorguların bir listesini döndürür. Genellikle bu API'yi kullanıcı arama kutusuna yeni bir karakter yazdığında çağırır ve önerileri arama kutusunun açılan listesinde görüntülersiniz. Bu makalede *sail* için önerilen sorgu dizelerini döndüren bir isteğin nasıl gönderileceği gösterilmektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
 **Bing Otomatik Öneri API'si v7** sürümüne sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/#search) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 

@@ -1,6 +1,6 @@
 ---
 title: Bu hızlı başlangıçta Python kullanarak X.509 cihazlarını Azure Cihaz Sağlama Hizmeti'ne kaydetme adımları gösterilmektedir | Microsoft Docs
-description: Bu hızlı başlangıçta Python kullanarak X.509 cihazlarını Azure IoT Hub Cihazı Sağlama Hizmeti'ne kaydedeceksiniz
+description: Bu hızlı başlangıçta grup kayıtları kullanılmaktadır. Bu hızlı başlangıçta Python kullanarak X.509 cihazlarını Azure IoT Hub Cihazı Sağlama Hizmeti'ne kaydedeceksiniz
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
@@ -10,18 +10,18 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 84ec165a78f873f6378e840d7f339cb7590dc098
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1eae992785eac18727c138b4e31369f1cf57f93e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227393"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157250"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Hızlı başlangıç: Python kullanarak X.509 cihazlarını Cihaz Sağlama Hizmeti'ne kaydetme
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Cihazlar sağlama hizmeti örneğine [Kayıt grubu](concepts-service.md#enrollment-group) veya [Bireysel kayıt](concepts-service.md#individual-enrollment) oluşturularak kaydedilir. Bu hızlı başlangıçta Python programlama özelliklerini kullanarak ara veya kök CA X.509 sertifikalarını kullanan bir [Kayıt grubu](concepts-service.md#enrollment-group) oluşturmayı öğreneceksiniz. Kayıt grubu, sertifika zincirlerinde ortak imzalama sertifikasını paylaşan cihazlar için sağlama hizmetine erişimi denetler. Kayıt grubu [Python Sağlama Hizmeti SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)'sı ve örnek Python uygulaması kullanılarak oluşturulur. *Python Sağlama Hizmeti SDK*'sı ile Bireysel kayıt oluşturma özelliği yapım aşamasındadır. Daha fazla bilgi edinmek için bkz. [X.509 sertifikalarıyla sağlama hizmetine cihaz erişimini denetleme](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Azure IoT Hub ve Cihaz Sağlama Hizmeti ile X.509 sertifikası tabanlı Ortak Anahtar Altyapısı'nı (PKI) kullanma hakkında daha fazla bilgi için bkz. [X.509 CA sertifikası güvenliğine genel bakış](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+Cihazlar sağlama hizmeti örneğine [Kayıt grubu](concepts-service.md#enrollment-group) veya [Bireysel kayıt](concepts-service.md#individual-enrollment) oluşturularak kaydedilir. Bu hızlı başlangıçta Python programlama özelliklerini kullanarak ara veya kök CA X.509 sertifikalarını kullanan bir [Kayıt grubu](concepts-service.md#enrollment-group) oluşturmayı öğreneceksiniz. Kayıt grubu, sertifika zincirlerinde ortak imzalama sertifikasını paylaşan cihazlar için sağlama hizmetine erişimi denetler. Kayıt grubu [Python Sağlama Hizmeti SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)'sı ve örnek Python uygulaması kullanılarak oluşturulur. *Python Sağlama Hizmeti SDK*'sı ile Bireysel kayıt oluşturma özelliği yapım aşamasındadır. Daha fazla bilgi edinmek için bkz. [X.509 sertifikalarıyla sağlama hizmetine cihaz erişimini denetleme](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Azure IoT Hub ve Cihaz Sağlama Hizmeti ile X.509 sertifikası tabanlı Ortak Anahtar Altyapısı'nı (PKI) kullanma hakkında daha fazla bilgi için bkz. [X.509 CA sertifikası güvenliğine genel bakış](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 Bu hızlı başlangıçta önceden bir IoT hub'ı ve Cihaz Sağlama Hizmeti örneği oluşturduğunuz kabul edilir. Bu kaynakları oluşturmadıysanız bu makaleye devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portal ile ayarlama](./quick-setup-auto-provision.md) hızlı başlangıcını tamamlayın.
 
@@ -65,7 +65,7 @@ Bu bölümde örnek koda X.509 cihazınızın sağlama ayrıntılarını nasıl 
 
 1. Metin düzenleyicisi kullanarak yeni bir **EnrollmentGroup.py** dosyası oluşturun.
 
-1. Aşağıdaki `import` deyimlerini ve değişkenlerini **EnrollmentGroup.py** dosyasının başlangıcına ekleyin. `dpsConnectionString` öğesini, **Azure Portal** üzerinde **Cihaz Sağlama Hizmeti**’nizdeki **Paylaşılan erişim ilkeleri** altında bulunan bağlantı dizenizle değiştirin. Sertifika yer tutucusunu, daha önce [Test sertifikalarını hazırlama](quick-enroll-device-x509-python.md#prepare-test-certificates) konusunda oluşturulan sertifika ile değiştirin. Son olarak, benzersiz bir `registrationid` oluşturun ve yalnızca küçük harf alfasayısal karakterler ve kısa çizgiler içerdiğinden emin olun.  
+1. Aşağıdaki `import` deyimlerini ve değişkenlerini **EnrollmentGroup.py** dosyasının başlangıcına ekleyin. `dpsConnectionString` öğesini, **Azure portal** üzerinde **Cihaz Sağlama Hizmeti**’nizdeki **Paylaşılan erişim ilkeleri** altında bulunan bağlantı dizenizle değiştirin. Sertifika yer tutucusunu, daha önce [Test sertifikalarını hazırlama](quick-enroll-device-x509-python.md#prepare-test-certificates) konusunda oluşturulan sertifika ile değiştirin. Son olarak, benzersiz bir `registrationid` oluşturun ve yalnızca küçük harf alfasayısal karakterler ve kısa çizgiler içerdiğinden emin olun.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient

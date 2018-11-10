@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 9/26/2018
 ms.author: victorh
-ms.openlocfilehash: 1527ed9c0a83577da9a231cb91a93ad7f182061c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 868c20e6f0244794299678214902adf3e6e95f14
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392712"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241421"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -65,7 +65,7 @@ Azure Güvenlik Duvarındaki bilinen sorunlar şunlardır:
 |Sorun  |Açıklama  |Risk azaltma  |
 |---------|---------|---------|
 |Azure Güvenlik Merkezi (ASC) Tam Zamanında (JIT) özelliği çakışması|Sanal makineye JIT kullanılarak erişilirse ve bu sanal makine varsayılan ağ geçidi olarak Azure Güvenlik Duvarı'na işaret eden kullanıcı tanımlı bir yola sahip bir alt ağ içindeyse, ASC JIT çalışmaz. Bu, asimetrik yönlendirmenin bir sonucudur; paket, sanal makine genel IP'si yoluyla gelir (JIT erişimi açmıştır) ama dönüş yolu güvenlik duvarı üzerindendir ve güvenlik duvarında hiçbir oturum oluşturulmadığından güvenlik duvarı paketi bırakır.|Bu soruna geçici bir çözüm olarak, JIT sanal makinelerini güvenlik duvarına kullanıcı tanımlı bir yolu olmayan ayrı bir alt ağa yerleştirin.|
-|Global eşlemeli merkez ve uç çalışmıyor|Merkezle güvenlik duvarının bir Azure bölgesinde dağıtıldığı ve uçların başka Azure bölgesinde yer aldığı merkez ve uç modelinde, merkeze Global Sanal Ağ eşlemesi üzerinden bağlanma desteklenmez.|Daha fazla bilgi için bkz. [Sanal ağ eşlemeyi oluşturma, değiştirme veya silme](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+|Global eşlemeli merkez ve uç desteklenmiyor|Merkezle güvenlik duvarının bir Azure bölgesinde dağıtıldığı ve uçların başka Azure bölgesinde yer aldığı merkez ve uç modeli desteklenmez. Merkeze Global Sanal Ağ eşlemesi üzerinden bağlanma desteklenmez.|Bu tasarım gereğidir. Daha fazla bilgi için bkz. [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md#azure-firewall-limits)|
 TCP/UDP dışı protokollere (örneğin ICMP) yönelik ağ filtreleme kuralları İnternet'e bağlı trafik için çalışmaz|TCP/UDP dışı protokollere yönelik ağ filtreleme kuralları genel IP adresinize SNAT ile çalışmaz. TCP/UDP dışı protokoller, uç alt ağlarla sanal ağlar arasında desteklenir.|Azure Güvenlik Duvarı, [bugün IP protokolleri için SNAT desteği olmayan](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations) Standart Load Balancer kullanır. Gelecek sürümlerden birinde bu senaryoyu destekleme seçeneklerini gözden geçiriyoruz.|
 |Hedef NAT’ı (DNAT) 80 ve 22 numaralı bağlantı noktaları için çalışmaz.|NAT kural koleksiyonundaki Hedef Bağlantı Noktası alanı 80 veya 22 bağlantı noktalarını içeremez.|Yakın gelecekte bu sorunu düzeltmek için çalışıyoruz. Bu sırada NAT kurallarında hedef bağlantı noktası olarak başka bir bağlantı noktası kullanın. Bağlantı noktası 80 veya 22 hala çevrilmiş bağlantı noktası olarak kullanılabilir. (Örneğin, genel ip:81 ile özel ip:80’i eşleyebilirsiniz).|
 |ICMP için eksik PowerShell ve CLI desteği|Azure PowerShell ve CLI ağ kurallarında geçerli bir protokol olarak ICMP'yi desteklemez.|Ancak ICMP'yi portal ve REST API aracılığıyla bir protokol olarak kullanmak mümkündür. ICMP'yi yakında PowerShell ve CLI'ye eklemek üzere çalışıyoruz.|

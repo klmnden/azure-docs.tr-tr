@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Metin çevirisi yapmak için Python kullanma - Translator Metin Çevirisi'
+title: "Hızlı Başlangıç: Metin çevirme, Python - Translator Metin Çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, 10 dakikadan daha kısa bir sürede Python ile Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945358"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085997"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Hızlı Başlangıç: Python kullanarak bir dizeyi çevirmek için Translator Metin Çevirisi API'sini kullanma
 
@@ -102,7 +102,7 @@ body = [{
 }]
 ```
 
-Ardından, `requests` modülünü kullanarak bir post isteği oluşturacağız. Üç bağımsız değişken kabul eder: Birleştirilmiş URL, istek üst bilgileri ve istek gövdesi:
+Ardından, `requests` modülünü kullanarak bir POST isteği oluşturacağız. Üç bağımsız değişken kabul eder: Birleştirilmiş URL, istek üst bilgileri ve istek gövdesi:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -114,7 +114,7 @@ response = request.json()
 Son adım sonuçları yazdırmaktır. Bu kod parçacığı anahtarları sıralayarak, girintiyi ayarlayarak ve öğe ve anahtar ayırıcıları bildirerek sonuçların daha iyi görünmesini sağlar.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Hepsini bir araya getirin

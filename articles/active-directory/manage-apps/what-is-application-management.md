@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 577be6669442befec0c14a275505e2eebed72611
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716202"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418101"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory ile uygulama yönetimi
 
-Azure Active Directory (Azure AD), bulut ve şirket içi uygulamalara güvenli ve sorunsuz erişim sağlar. Kullanıcılar, Office 365’e ve Microsoft’un diğer iş uygulamalarına, binlerce hizmet olarak yazılım (SaaS) uygulamasına, şirket içi uygulamaya ve iş kolu (LOB) uygulamasına erişmek için bir kez oturum açabilir. Kullanıcı sağlamayı otomatikleştirerek yönetim maliyetlerini azaltın. Güvenli uygulama erişimi sağlamak için çok faktörlü kimlik doğrulaması ve koşullu erişim ilkelerini kullanın.
+Azure Active Directory (Azure AD), bulut ve şirket içi uygulamalara güvenli ve sorunsuz erişim sağlar. Kullanıcılar, Office 365’e ve Microsoft’un diğer iş uygulamalarına, hizmet olarak yazılım (SaaS) uygulamalarına, şirket içi uygulamalara ve iş kolu (LOB) uygulamalarına erişmek için bir kez oturum açabilir. Kullanıcı sağlamayı otomatikleştirerek yönetim maliyetlerini azaltın. Güvenli uygulama erişimi sağlamak için çok faktörlü kimlik doğrulaması ve koşullu erişim ilkelerini kullanın.
 
-![Azure AD yoluyla federasyon oluşturan uygulamalar](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Azure AD yoluyla federasyon oluşturan uygulamalar](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>Neden bir bulut çözümüyle uygulamalar yönetilmelidir?
 
@@ -40,5 +40,5 @@ SSO, güvenliği artırır. *Çoklu oturum açma olmadan* yöneticilerin her bir
 Azure AD ile, Güvenlik Bilgileri ve Olay Yönetimi (SIEM) araçlarından yararlanan raporlar aracılığıyla uygulama oturum açma işlemlerini izleyebilirsiniz. Portaldan veya API’lerden raporlara erişebilirsiniz. Uygulamalarınıza kimlerin erişiminin olduğunu programlama yoluyla denetleyin ve erişim gözden geçirmeleri yoluyla etkin olmayan kullanıcılara erişimi kaldırın.
 
 ## <a name="manage-costs"></a>Maliyetleri yönetme
-Azure AD’ye geçirerek maliyet tasarrufu yapabilir ve şirket içi altyapınızı yönetme zahmetini ortadan kaldırabilirsiniz. Azure AD, uygulamalara self servis erişimi de sağlar; böylece hem yöneticiler hem de kullanıcılar için zaman tasarrufu sağlanır. Çoklu oturum açma, uygulamaya özgü parolaları ortadan kaldırarak, uygulamalar için parola sıfırlama ve parolalar alınırken oluşan üretkenlik kaybı ile ilgili maliyetlerden tasarruf sağlar.
+Azure AD’ye geçirerek maliyet tasarrufu yapabilir ve şirket içi altyapınızı yönetme zahmetini ortadan kaldırabilirsiniz. Azure AD, uygulamalara self servis erişimi de sağlar; böylece hem yöneticiler hem de kullanıcılar için zaman tasarrufu sağlanır. Çoklu oturum açma, uygulamaya özgü parolaları ortadan kaldırır. Bir kez oturum açma, uygulamalar için parola sıfırlama ve parolalar alınırken oluşan üretkenlik kaybı ile ilgili maliyetlerden tasarruf sağlar.
 

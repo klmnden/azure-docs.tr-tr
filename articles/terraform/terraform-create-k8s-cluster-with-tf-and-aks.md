@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/08/2018
-ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960252"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232333"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service ve Terraform ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
@@ -372,6 +372,6 @@ Yeni oluşturulan kümeyi doğrulamak için Kubernetes araçlarını kullanabili
 Bu makalede Terraform ve AKS ile Kubernetes kümesi oluşturmayı öğrendiniz. Aşağıdaki kaynaklardan Azure'da Terraform kullanımı hakkında daha fazla bilgi edinebilirsiniz: 
 
  [Microsoft.com Terraform Hub'ı](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure sağlayıcı belgeleri](http://aka.ms/terraform)  
- [Terraform Azure sağlayıcı kaynağı](http://aka.ms/tfgit)  
- [Terraform Azure modülleri](http://aka.ms/tfmodules)
+ [Terraform Azure sağlayıcı belgeleri](https://aka.ms/terraform)  
+ [Terraform Azure sağlayıcı kaynağı](https://aka.ms/tfgit)  
+ [Terraform Azure modülleri](https://aka.ms/tfmodules)

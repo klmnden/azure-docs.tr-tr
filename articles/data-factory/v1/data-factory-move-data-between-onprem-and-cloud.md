@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240477"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242849"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -47,7 +47,7 @@ Bu kılavuzda aşağıdaki adımları uygulayın:
 ## <a name="prerequisites-for-the-tutorial"></a>Öğreticisi için Önkoşullar
 Bu kılavuzda başlamadan önce aşağıdaki önkoşullara sahip olmalıdır:
 
-* **Azure aboneliği**.  Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Bkz: [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/) makale Ayrıntılar için.
+* **Azure aboneliği**.  Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Bkz: [ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/) makale Ayrıntılar için.
 * **Azure depolama hesabı**. Blob depolama alanı olarak kullandığınız bir **hedef/havuz** Bu öğreticide verileri depolayın. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md) makalesine bakın.
 * **SQL Server**. Bu öğreticide şirket içi SQL Server veritabanını bir **kaynak** veri deposu olarak kullanırsınız. 
 

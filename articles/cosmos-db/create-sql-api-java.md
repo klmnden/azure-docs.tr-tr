@@ -9,16 +9,16 @@ ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
-ms.author: sngun
-ms.openlocfilehash: 85a7a6f5b1224c732f5a385789aef13e1d7bd1db
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/24/2018
+ms.author: moderakh
+ms.openlocfilehash: 399db2d7ed5d1c94fe359cb55e9b90df3d99e003
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961255"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421297"
 ---
-# <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir belge veritabanı oluşturma
+# <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Java uygulaması kullanarak bir Azure Cosmos DB SQL API'si hesabının kaynaklarını oluşturma ve yönetme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -26,11 +26,8 @@ ms.locfileid: "46961255"
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB’yi kullanarak hızlıca yönetilen belgeler, tablolar ve grafik veritabanları oluşturabilir ve bunları sorgulayabilirsiniz.
-
-Bu hızlı başlangıç Azure Cosmos DB [SQL API](sql-api-introduction.md) için Azure portal araçlarını kullanarak bir belge veritabanı oluşturur. Bu hızlı başlangıçta ayrıca bir Java konsol uygulamasını [SQL Java API](sql-api-sdk-java.md) kullanarak nasıl hızlı bir şekilde oluşturabileceğiniz gösterilmektedir. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıcı tamamladığınızda, tercihinize bağlı olarak Kullanıcı Arabiriminde veya programlama arabiriminde belge veritabanı kaynaklarını oluşturma ve değiştirme hakkında bilgi sahibi olacaksınız.
+Bu hızlı başlangıçta Java uygulaması kullanarak bir Azure Cosmos DB [SQL API'si](sql-api-introduction.md) hesabının kaynaklarını oluşturma ve yönetme adımları gösterilmektedir. İlk olarak Azure portalı kullanarak bir Azure Cosmos DB SQL API'si hesabı oluşturacak, ardından [SQL Java SDK'sını](sql-api-sdk-async-java.md) kullanarak bir Java uygulaması oluşturacak ve son adımda Java uygulamasını kullanarak Cosmos DB hesabınıza kaynak ekleyeceksiniz. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıcı tamamladıktan sonra, tercihinize bağlı olarak Kullanıcı Arabiriminde veya programlama arabiriminde Cosmos DB veritabanlarını ve koleksiyonlarını oluşturma ve değiştirme hakkında bilgi sahibi olacaksınız.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -39,7 +36,7 @@ Bu hızlı başlangıç Azure Cosmos DB [SQL API](sql-api-introduction.md) için
 
 Buna ek olarak: 
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
     * Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.
     * JAVA_HOME ortam değişkenini JDK’nin yüklü olduğu klasöre işaret edecek şekilde ayarladığınızdan emin olun.
 * Bir [Maven](http://maven.apache.org/) ikili arşivi [indirin](http://maven.apache.org/download.cgi) ve [yükleyin](http://maven.apache.org/install.html)
@@ -70,151 +67,133 @@ Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile bir SQL API hesab�
 
 Şimdi kod ile çalışmaya geçelim. GitHub'dan bir SQL API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-1. Bir komut istemini açın, git-samples adlı yeni bir klasör oluşturun ve komut istemini kapatın.
+1. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur.
 
     ```bash
-    md "C:\git-samples"
-    ```
-
-2. Git Bash gibi bir Git terminal penceresi açın ve örnek uygulamayı yüklemek üzere yeni bir klasör olarak değiştirmek için `cd` komutunu kullanın. 
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
-3. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur.
-
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
     ```
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
+Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi takdirde, [Uygulamayı çalıştırma](#run-the-app) konusuna atlayabilirsiniz. 
 
-Aşağıdaki kod parçacıklarının tümü C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java dosyasından alınmıştır.
-
-* `DocumentClient` başlatma. [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client), Azure Cosmos DB veritabanı hizmeti için istemci tarafı mantıksal gösterim sağlar. Bu istemci, istekleri hizmete göre yapılandırmak ve çalıştırmak için kullanılır. Bu kodun `FILLME` kısımları, hızlı başlangıcın ilerleyen kısmında güncelleştirilecektir.
+* `AsyncDocumentClient` başlatma. [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client), Azure Cosmos DB veritabanı hizmeti için istemci tarafı mantıksal gösterim sağlar. Bu istemci, istekleri hizmete göre yapılandırmak ve çalıştırmak için kullanılır.
 
     ```java
-    this.client = new DocumentClient("https://FILLME.documents.azure.com",
-            "FILLME", 
-            new ConnectionPolicy(),
-            ConsistencyLevel.Session);
+    client = new AsyncDocumentClient.Builder()
+             .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
+             .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
+             .withConnectionPolicy(ConnectionPolicy.GetDefault())
+             .withConsistencyLevel(ConsistencyLevel.Eventual)
+             .build();
     ```
 
-* [Veritabanı](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database) oluşturma.
+* [Veritabanı](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database) oluşturma.
 
     ```java
-    Database database = new Database();
-    database.setId(databaseName);
+    Database databaseDefinition = new Database();
+    databaseDefinition.setId(databaseName);
     
-    this.client.createDatabase(database, null);
+    client.createDatabase(databaseDefinition, null)
+            .toCompletable()
+            .await();
     ```
 
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection) oluşturma.
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection) oluşturma.
 
     ```java
-    DocumentCollection collectionInfo = new DocumentCollection();
-    collectionInfo.setId(collectionName);
+    DocumentCollection collectionDefinition = new DocumentCollection();
+    collectionDefinition.setId(collectionName);
 
-    ...
+    //...
 
-    this.client.createCollection(databaseLink, collectionInfo, requestOptions);
+    client.createCollection(databaseLink, collectionDefinition, requestOptions)
+            .toCompletable()
+            .await();
     ```
 
-* [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) metodunu kullanarak belge oluşturma.
+* [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document) metodunu kullanarak belge oluşturma.
 
     ```java
-    // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
+    // Any Java object within your code
+    // can be serialized into JSON and written to Azure Cosmos DB
     Family andersenFamily = new Family();
     andersenFamily.setId("Andersen.1");
     andersenFamily.setLastName("Andersen");
     // More properties
 
     String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    this.client.createDocument(collectionLink, family, new RequestOptions(), true);
+    client.createDocument(collectionLink, family, null, true)
+            .toCompletable()
+            .await();
+
     ```
 
-* JSON üzerindeki SQL sorguları, [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) metoduyla yapılır.
+* JSON üzerindeki SQL sorguları, [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable) metoduyla yapılır.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
     queryOptions.setPageSize(-1);
     queryOptions.setEnableCrossPartitionQuery(true);
+    queryOptions.setMaxDegreeOfParallelism(-1);
 
-    String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    FeedResponse<Document> queryResults = this.client.queryDocuments(
-        collectionLink,
-        "SELECT * FROM Family WHERE Family.lastName = 'Andersen'", queryOptions);
+    String collectionLink = String.format("/dbs/%s/colls/%s",
+            databaseName,
+            collectionName);
+    Iterator<FeedResponse<Document>> it = client.queryDocuments(
+            collectionLink,
+            "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+            queryOptions).toBlocking().getIterator();
 
     System.out.println("Running SQL query...");
-    for (Document family : queryResults.getQueryIterable()) {
-        System.out.println(String.format("\tRead %s", family));
+    while (it.hasNext()) {
+        FeedResponse<Document> page = it.next();
+        System.out.println(
+                String.format("\tRead a page of results with %d items",
+                        page.getResults().size()));
+        for (Document doc : page.getResults()) {
+            System.out.println(String.format("\t doc %s", doc));
+        }
     }
     ```    
 
-## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
-
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
-
-1. [Azure portalında](http://portal.azure.com/), **Anahtarlar**’a tıklayın. 
-
-    En üstte yer alan değer olan URI’yi kopyalamak için, ekranın sağ tarafındaki kopyalama düğmelerini kullanın.
-
-    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar sayfası](./media/create-sql-api-java/keys.png)
-
-2. C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted klasöründeki `Program.java` dosyasını açın. 
-
-3. Portaldan URI değerini 45. satırda `https://FILLME.documents.azure.com` üzerine yapıştırın.
-
-4. Portala geri dönün ve ekran görüntüsünde gösterildiği gibi PRIMARY KEY değerini kopyalayın. Portaldan PRIMARY KEY değerini 46. satırda `FILLME` üzerine yapıştırın.
-
-    getStartedDemo metodu artık şuna benzer şekilde görünmelidir: 
-    
-    ```java
-    private void getStartedDemo() throws DocumentClientException, IOException {
-        this.client = new DocumentClient("https://youraccountname.documents.azure.com:443/",
-                "your-primary-key...RJhQrqQ5QQ==", 
-                new ConnectionPolicy(),
-                ConsistencyLevel.Session);
-    ```
-
-5. Program.java dosyasını kaydedin.
-
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-1. Git terminal penceresinde `cd` komutuyla azure-cosmos-db-documentdb-java-getting-started klasörüne ulaşın.
+Bu adımda Azure portala dönerek bağlantı dizesi bilgilerinizi alın ve uç nokta bilgileriyle uygulamayı çalıştırın. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-    ```git
-    cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
+
+1. git terminal penceresinde `cd` komutuyla örnek kod klasörüne gidin.
+
+    ```bash
+    cd azure-cosmos-db-sql-api-async-java-getting-started/azure-cosmosdb-get-started
     ```
 
 2. Git terminal penceresinde aşağıdaki komutu kullanarak gerekli Java paketlerini yükleyin.
 
-    ```
+    ```bash
     mvn package
     ```
 
-3. Git terminal penceresinde, Java uygulamasını başlatmak için aşağıdaki komutları kullanın.
+3. git terminal penceresinde aşağıdaki komutu kullanarak Java uygulamasını başlatın (YOUR_COSMOS_DB_HOSTNAME yerine portaldan aldığınız URI değerini, YOUR_COSMOS_DB_MASTER_KEY yerine de portaldan aldığınız birincil anahtar değerini yazın)
 
-    ```
-    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```bash
+    mvn exec:java -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
+
     ```
 
     Terminal penceresinde, FamilyDB veritabanının oluşturulduğunu belirten bir bildirim görüntülenir. 
     
 4. Veritabanını oluşturmak için bir tuşa basın ve sonra koleksiyonu oluşturmak için başka bir tuşa basın. 
 
-    Programın sonunda tüm kaynaklar silinir; bu nedenle tarayıcınızda Veri Gezgini’ne geri dönerek bir FamilyDB veritabanı ve FamilyCollection koleksiyonu içerdiğini doğrulayın.
+    Tarayıcınızda Veri Gezgini’ne geri dönerek bir FamilyDB veritabanı ve FamilyCollection koleksiyonu içerdiğini doğrulayın.
 
 5. Konsol penceresine geçin ve birinci belgeyi oluşturmak için bir tuşa ve ikinci belgeyi oluşturmak için başka bir tuşa basın. Daha sonra Veri Gezgini’ne geri dönerek bunları görüntüleyin. 
 
 6. Bir sorgu çalıştırmak ve konsol penceresinde çıktıyı görmek için bir tuşa basın. 
 
-7. Bastığınız sonraki tuş, kaynakları siler. Kaynakları tutmak istiyorsanız, konsol penceresinde CTRL+C tuşlarına basarak programı sonlandırabilirsiniz. Aksi takdirde, ücret oluşmaması için herhangi bir tuşa basarak hesabınızdan kaynakları silin. 
+7. Uygulama, oluşturulan kaynakları silmez. [Kaynakları temizlemek](#clean-up-resources) için portala dönün.  Ücret oluşmaması için kaynakları hesabınızdan silin.
 
-    ![Konsol çıktısı](./media/create-sql-api-java/console-output.png)
+    ![Konsol çıktısı](./media/create-sql-api-java/rxjava-console-output.png)
 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
@@ -231,5 +210,3 @@ Bu hızlı başlangıçta Azure Cosmos DB hesabını ve belge veritabanını olu
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)
-
-

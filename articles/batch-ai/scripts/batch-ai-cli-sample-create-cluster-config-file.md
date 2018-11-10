@@ -14,12 +14,12 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: a1e472d237977d1948c69828d8ec391522896774
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058211"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232809"
 ---
 # <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI örneği: Bir küme yapılandırma dosyası kullanarak Batch AI kümesi oluşturun
 
@@ -27,7 +27,7 @@ Bu betik, Batch AI kümesinin ayarlarını belirtmek için JSON yapılandırma d
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.38 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmaya karar verirseniz bu kılavuz için Azure CLI 2.0.38 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü belirlemek için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Örnek betik
 

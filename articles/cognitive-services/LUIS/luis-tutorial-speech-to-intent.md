@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883933"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139115"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmetini tümleştirme
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
@@ -39,7 +39,7 @@ Bu uygulamada İnsan Kaynakları alanıyla ilgili amaçlar, varlıklar ve konuş
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Önceden oluşturulan KeyPhrase varlığını ekleme
-Uygulamayı içeri aktardıktan sonra **Entities** (Varlıklar) ve ardından **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) öğesini seçin. **KeyPhrase** varlığını ekleyin. KeyPhrase varlığı konuşmadaki önemli konuları ayıklar.
+Uygulamayı içeri aktardıktan sonra **Entities** (Varlıklar) ve ardından **Add prebuilt entities** (Önceden oluşturulan varlık ekle) öğesini seçin. **KeyPhrase** varlığını ekleyin. KeyPhrase varlığı konuşmadaki önemli konuları ayıklar.
 
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
 1. Yukarıda, sağ taraftaki gezinti çubuğunda bulunan **Train** (Eğit) düğmesini seçerek LUIS uygulamasını eğitin.

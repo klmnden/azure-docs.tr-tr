@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466095"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215251"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 
@@ -53,7 +53,7 @@ Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bö
 * Veri kümesindeki tüm ses dosyaları WAV (RIFF) biçiminde depolanmalıdır.
 * Sesin örnekleme hızı 8 kilohertz (KHz) veya 16 KHz olmalı ve örnek değerler sıkıştırılmamış, darbe kod modülasyonu (PCM) 16 bit işaretli tamsayılar (kısa değerler) olarak depolanmalıdır.
 * Yalnızca tek kanallı (mono) ses dosyaları desteklenir.
-* Ses dosyalarının uzunluğunun 100 mikro saniye ile 1 dakika arasında olması gerekir. İdeal olarak her ses dosyası en az 100 mikro saniye sessizlikle başlayıp bitmelidir ve genelde bu süre 500 mikro saniye ile 1 saniye arasında tutulur.
+* Ses dosyalarının uzunluğu 100 mikro saniye ile 1 dakika arasında değişebilir ancak ideal süre 10-12 saniyedir. İdeal olarak her ses dosyası en az 100 mikro saniye sessizlikle başlayıp bitmelidir ve genelde bu süre 500 mikro saniye ile 1 saniye arasında tutulur.
 * Verilerinizde arka plan gürültüsü varsa daha uzun sessizlik sürelerine sahip örnekler de kullanmanızı öneririz. Bu durumda verilerinizde konuşma içeriğinin öncesinde ve/veya sonrasında birkaç saniyelik sessizlik süresi olabilir.
 * Her ses dosyasında tek bir konuşma, başka bir deyişle tek bir cümle, tek bir sorgu veya bir diyaloğun tek bir tarafını içermelidir.
 * Veri kümesindeki her ses dosyası benzersiz bir dosya adına ve .wav uzantısına sahip olmalıdır.
@@ -69,7 +69,7 @@ Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bö
 | Örnekleme Oranı | 8000 Hertz (Hz) veya 16.000 Hz |
 | Kanallar | 1 (mono) |
 | Örnek Biçimi | PCM, 16 bit tamsayılar |
-| Dosya Süresi | 0,1 saniye < süre < 60 saniye |
+| Dosya Süresi | 0,1 saniye < süre < 12 saniye | 
 | Sessizlik Payı | > 0,1 saniye |
 | Arşiv Biçimi | .zip |
 | Maksimum Arşiv Boyutu | 2 GB |

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465959"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417302"
 ---
 # <a name="create-and-publish-a-product"></a>Ürün oluşturma ve yayımlama  
 
@@ -35,6 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
++ [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 + Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
 
@@ -83,6 +84,9 @@ Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması g
 2. **API'ler** sekmesine gidin.
 3. **+ Ekle**'ye tıklayın.
 4. Bir API seçip **Seç**’e tıklayın.
+
+> [!TIP]
+> [REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) veya PowerShell komutu aracılığıyla özel abonelik anahtarları kullanarak kullanıcının *Ürün* aboneliğini oluşturabilir veya güncelleştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

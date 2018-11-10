@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639036"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093049"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak iki sanal makine arasındaki ağ iletişimini izleme
 
@@ -30,6 +30,7 @@ Bir sanal makine (VM) ve başka bir sanal makine gibi bir uç nokta arasındaki 
 > [!div class="checklist"]
 > * İki sanal makine oluşturma
 > * Ağ İzleyicisi’nin bağlantı izleme özelliği ile sanal makineler arasındaki iletişimi izleme
+> * Bağlantı İzleyicisi ölçümlerine göre uyarı oluşturma
 > * İki sanal makine arasındaki bir iletişim sorununu tanılama ve nasıl çözümleyebileceğinizi öğrenme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -120,6 +121,19 @@ Sanal makinenin dağıtılması birkaç dakika sürer. Kalan adımlara devam etm
     | AVG. ROUND-TRIP          | Bağlantıyı kurmak için milisaniye cinsinden gidiş dönüş süresini bilmenizi sağlar. Bağlantı izleyicisi 60 saniyede bir bağlantıyı araştırır; böylece zaman içindeki gecikmeyi izleyebilirsiniz.                                         |
     | Atlamalar                     | Bağlantı izleyicisi, iki uç nokta arasındaki atlamaları bilmenizi sağlar. Bu örnekte bağlantı, aynı sanal ağ üzerindeki iki sanal makine arasındadır, bu nedenle 10.0.0.5 IP adresine yalnızca bir atlama vardır. Örneğin, mevcut bir sistem veya özel rota, VPN ağ geçidi ya da ağ sanal gereci aracılığıyla sanal makineler arasında trafiği yönlendiriyorsa, ek atlamalar listelenir.                                                                                                                         |
     | DURUM                   | Her uç nokta için yeşil onay işareti, her uç noktanın iyi durumda olduğunu bilmenizi sağlar.    ||
+
+## <a name="generate-alerts"></a>Uyarı oluşturma
+
+Uyarılar, Azure İzleyici'deki uyarı kuralları tarafından oluşturulur ve kaydedilmiş sorguları veya özel günlük aramalarını düzenli aralıklarla otomatik olarak çalıştırabilir. Oluşturulan uyarı, başka birini bilgilendirmek veya başka bir işlem başlatmak gibi bir veya daha fazla eylemi otomatik olarak çalıştırabilir. Uyarı kuralı ayarlarken kullanabileceğiniz ölçümlerin listesi hedeflediğiniz kaynağa göre belirlenir.
+
+1. Azure portalda **İzleyici** hizmetini ve ardından **Uyarılar** > **Yeni uyarı kuralı**'nı seçin.
+2. **Hedef seçin**'e tıklayıp hedeflemek istediğiniz kaynakları seçin. **Abonelik** öğesini seçin ve **Kaynak türü**'nü kullanmak istediğiniz Bağlantı İzleyicisine göre ayarlayın.
+
+    ![hedef seçili uyarı ekranı](./media/connection-monitor/set-alert-rule.png)
+1. Hedeflemek üzere bir kaynak seçtikten sonra **Ölçüt ekle**'yi seçin. Ağ İzleyicisi, [uyarı oluşturabileceğiniz ölçümlere sahiptir](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). **Kullanılabilir sinyaller** bölümünü ProbesFailedPercent ve AverageRoundtripMs ölçümleri olarak ayarlayın:
+
+    ![sinyaller seçili uyarı sayfası](./media/connection-monitor/set-alert-signals.png)
+1. Uyarı kuralı adı, açıklaması ve önem derecesi gibi uyarı ayrıntılarını girin. Uyarı yanıtını otomatikleştirmek ve özelleştirmek için uyarıya bir eylem grubu da ekleyebilirsiniz.
 
 ## <a name="view-a-problem"></a>Sorunu görüntüleme
 

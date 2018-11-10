@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962139"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245367"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'den uygulama kaldırma
 
@@ -69,7 +69,7 @@ Kiracınızın ana **Uygulama kayıtları** sayfasındaki **Tüm uygulamalar** f
 
 Teknik olarak bu çok kiracılı uygulamalar başka bir kiracınındır ve sizin kiracınıza onay işlemi sırasında kaydedilmiştir. Daha açık söylersek, bunlar kiracınızda yalnızca bir hizmet sorumlusu nesnesi tarafından ve karşılık gelen herhangi bir uygulama nesnesi olmadan temsil edilir. Uygulama ve hizmet sorumlusu nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz. [Azure AD'de uygulama ve hizmet sorumlusu nesneleri](app-objects-and-service-principals.md).
 
-Çok kiracılı bir uygulamanın dizininize olan ve daha önce onay verdiğiniz erişimini kaldırmak için, şirket yöneticisinin uygulamanın hizmet sorumlusunu kaldırması gerekir. Yöneticinin genel yönetim erişimi olması gerekir ve sorumluyu Azure portalı aracılığıyla veya [Azure AD PowerShell Cmdlet'lerini](http://go.microsoft.com/fwlink/?LinkId=294151) kullanarak kaldırabilir.
+Çok kiracılı bir uygulamanın dizininize olan ve daha önce onay verdiğiniz erişimini kaldırmak için, şirket yöneticisinin uygulamanın hizmet sorumlusunu kaldırması gerekir. Yöneticinin genel yönetim erişimi olması gerekir ve sorumluyu Azure portalı aracılığıyla veya [Azure AD PowerShell Cmdlet'lerini](https://go.microsoft.com/fwlink/?LinkId=294151) kullanarak kaldırabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391479"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414004"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama dağıtma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Uygulamalarınızı Azure'a dağıtmak için Ansible kullanabilirsiniz. Bu makalede bir Azure sanal makine ölçek kümesine (VMSS) bir Java uygulamasının nasıl dağıtılacağı gösterilmektedir.  
@@ -23,7 +23,7 @@ Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Sanal makine ölçek kümesi** - Sanal makine ölçek kümeniz yoksa, [Ansible kullanarak bir sanal makine ölçek kümesi oluşturabilirsiniz](ansible-create-configure-vmss.md). 
 - **Git** - Bu öğreticide Java örneği indirmek için [git](https://git-scm.com) kullanılmaktadır.
-- **Java SE Development Kit (JDK)** - Örnek Java projesini derlemek için JDK kullanılır.
+- **Java SE Development Kit (JDK)** - Örnek Java projesini derlemek için [JDK](https://aka.ms/azure-jdks) kullanılır.
 - **Apache Maven derleme araçları** - Örnek Java projesini derlemek için [Apache Maven derleme araçları](https://maven.apache.org/download.cgi) kullanılır.
 
 > [!Note]

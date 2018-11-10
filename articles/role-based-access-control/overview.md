@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956515"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210423"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) nedir?
 
@@ -54,7 +54,7 @@ RBAC özelliğini kullanarak kaynaklara erişimi denetlemek için rol ataması o
 
 ![Rol ataması için güvenlik sorumlusu](./media/overview/rbac-security-principal.png)
 
-- Kullanıcı: Azure Active Directory'de bir profile sahip olan kişidir. Diğer kiracılardaki kullanıcılara da rol atayabilirsiniz. Diğer kuruluşlardaki kullanıcılar hakkında bilgi almak için bkz. [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Kullanıcı: Azure Active Directory'de bir profile sahip olan kişidir. Diğer kiracılardaki kullanıcılara da rol atayabilirsiniz. Diğer kuruluşlardaki kullanıcılar hakkında bilgi almak için bkz. [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grup: Azure Active Directory'de oluşturulan kullanıcı kümesidir. Bir gruba rol atadığınızda ilgili gruptaki tüm kullanıcılar o role sahip olur. 
 - Hizmet sorumlusu: Uygulamalar veya hizmetler tarafından belirli Azure kaynaklarına erişmek için kullanılan güvenlik kimliğidir. Bunu bir uygulamanın *kullanıcı kimliği* (kullanıcı adı ve parola veya sertifika) olarak düşünebilirsiniz.
 
@@ -130,3 +130,4 @@ Aşağıdakiler, RBAC'nin yönetim düzleminde bir kaynağa erişiminizin olup o
 - [Hızlı başlangıç: RBAC ve Azure portalı kullanarak bir kullanıcıya erişim izni verme](quickstart-assign-role-user-portal.md)
 - [RBAC ve Azure portalı kullanarak erişimi yönetme](role-assignments-portal.md)
 - [Azure'daki farklı rolleri anlama](rbac-and-directory-admin-roles.md)
+- [Kurumsal Bulut Benimsemesi: Azure'da kaynak erişimi yönetimi](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

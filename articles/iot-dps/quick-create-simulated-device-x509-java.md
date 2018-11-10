@@ -1,6 +1,6 @@
 ---
 title: Java kullanarak Azure IOT Hub'a sanal bir X.509 cihazı sağlama | Microsoft Belgeleri
-description: Azure Hızlı Başlangıcı - IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
+description: Azure Hızlı Başlangıcı - IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama. Bu hızlı başlangıçta bireysel kayıtlar kullanılmaktadır.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040746"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418237"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,9 +24,15 @@ Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde X.5
 
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
+Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
+
+Bu makalede bireysel kayıtlar gösterilmektedir.
+
 ## <a name="prepare-the-environment"></a>Ortamı hazırlama 
 
-1. Makinenizde [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) uygulamasının yüklü olduğundan emin olun.
+1. Makinenizde [Java SE Development Kit 8](https://aka.ms/azure-jdks) uygulamasının yüklü olduğundan emin olun.
 
 2. [Maven](https://maven.apache.org/install.html)'ı indirip yükleyin.
 
@@ -55,7 +61,7 @@ Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](c
 Bu bölümde, otomatik olarak imzalanan X.509 sertifikası kullanacaksınız. Aşağıdaki konuları göz önünde bulundurmak önemlidir:
 
 * Otomatik olarak imzalanan sertifikalar yalnızca test amaçlıdır ve üretimde kullanılmamalıdır.
-* Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi 1 yıldır.
+* Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi bir yıldır.
 
 Simülasyon cihazının tek kayıt girdisiyle kullanılacak sertifikayı oluşturmak için [Java için Azure IoT SDK'sından](https://github.com/Azure/azure-iot-sdk-java.git) örnek kodu kullanacaksınız.
 

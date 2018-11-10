@@ -1,29 +1,29 @@
 ---
-title: Site Recovery ile Azure'da çoğaltılan Hyper-V VM'lerinde yük devretme ve yeniden çalışma | Microsoft Docs
-description: Azure Site Recovery ile Hyper-V VM'lerinde Azure'a yük devretmeyi ve şirket içi sitede yeniden çalışmayı öğrenin
+title: Azure Site Recovery ile olağanüstü durum kurtarma sırasında Hyper-V VM'lerinde yük devretme ve yeniden çalışma | Microsoft Docs
+description: Azure Site Recovery hizmetini kullanarak olağanüstü durum kurtarma sırasında Hyper-V VM'lerinde yük devretme ve yeniden çalışma gerçekleştirmeyi öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076992"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210527"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Azure'da çoğaltılan Hyper-V VM'leri için yük devretme ve yeniden çalışma
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Azure'da çoğaltılan Hyper-V VM'lerinde yük devretme ve yeniden çalışma
 
 Bu öğreticide, bir Hyper-V VM’de Azure’a nasıl yük devredileceği açıklanmaktadır. Yük devrettikten sonra şirket içi siteniz kullanılabilir olduğunda yeniden çalıştırabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure gereksinimleriyle uyumlu olup olmadığını denetlemek için Hyper-V VM özelliklerini doğrulama
 > * Azure'a yük devretme işlemini çalıştırma
-> * Yeniden çalışma (Azure'dan şirket içine)
+> * Azure’dan şirket içine yeniden çalışma
 > * Tekrar Azure’a çoğaltmaya başlamak için şirket içi VM’leri tersine çoğaltma
 
 Bu öğretici, serideki beşinci öğreticidir. Önceki öğreticilerdeki adımları zaten tamamladığınız varsayılır.    

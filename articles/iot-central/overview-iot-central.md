@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628785"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158151"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central nedir?
 
-Microsoft Azure IoT Central, fiziksel ve dijital dünyaları bağlayan ürünler oluşturmayı kolaylaştıran, tam yönetilen bir IoT Hizmet Olarak Yazılım çözümüdür. Aşağıdakileri yaparak bağlı ürününüzün vizyonunu hayata geçirebilirsiniz:
+Azure IoT Central, fiziksel ve dijital dünyaları bağlayan ürünler oluşturmayı kolaylaştıran, tam yönetilen bir IoT Hizmet Olarak Yazılım çözümüdür. Aşağıdakileri yaparak bağlı ürününüzün vizyonunu hayata geçirebilirsiniz:
 
 - Müşterileriniz için daha iyi ürün ve deneyimleri etkinleştirmek amacıyla bağlı cihazlardan yeni içgörüler edinme.
 - Kuruluşunuz için yeni iş fırsatları oluşturma.
@@ -65,7 +65,7 @@ Oluşturucu olarak Azure IoT Central’ı, kuruluşunuz için özel, bulutta bar
 - Cihazlarınızdan telemetri alan ve bu cihazları yönetmenizi sağlayan bulut tabanlı bir uygulama.
 - Bulut tabanlı uygulamanıza bağlı özel kod çalıştıran birden fazla cihaz.
 
-Yeni bir Azure IoT Central uygulamasını hızlıca dağıtabilir ve sonra tarayıcınızdan size özel gereksinimlere göre kişiselleştirebilirsiniz. Azure IoT Central oluşturucusu olarak, uygulamanıza bağlanan cihazlar için bir _cihaz şablonu_ oluşturmak üzere web tabanlı araçları kullanabilirsiniz. Cihaz şablonu, tüm cihazların cihaz şablonu paylaşımından oluşturduğu bir cihaz modelinin şemasıdır. Cihaz şablonu, bir cihaz türünün aşağıdaki gibi özellik ve davranışlarını tanımlar:
+Yeni bir Azure IoT Central uygulamasını hızlıca dağıtabilir ve sonra tarayıcınızdan size özel gereksinimlere göre kişiselleştirebilirsiniz. Azure IoT Central oluşturucusu olarak, uygulamanıza bağlanan cihazlar için bir _cihaz şablonu_ oluşturmak üzere web tabanlı araçları kullanabilirsiniz. Cihaz şablonu bir cihaz modelinin şemasıdır. Aynı cihaz şablonundan oluşturulan tüm cihazlar şablonu ortak olarak kullanır. Cihaz şablonu, bir cihaz türünün aşağıdaki gibi özellik ve davranışlarını tanımlar:
 
 - Gönderdiği telemetri.
 - Bir operatörün değiştirebileceği iş özellikleri.

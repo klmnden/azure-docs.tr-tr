@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f4de10c29364ab96f54e5d07e9c416a2beb038f6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380217"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420379"
 ---
 # <a name="start-monitoring-your-website"></a>Web sitenizi izlemeye başlama
 
 Azure İzleyici Application Insights ile web sitenizi kullanılabilirlik, performans ve kullanım bakımından kolayca izleyebilirsiniz. Ayrıca, bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları hızlıca tanımlayıp tespit edebilirsiniz. Application Insights hem sunucu tarafı izleme hem de istemci/tarayıcı tarafı izleme özellikleri sunar.
 
-Bu hızlı başlangıçta web sitenizin ziyaretçileri için istemci/tarayıcı tarafı deneyimi anlamanızı sağlayan [açık kaynak Application Insight JavaScript SDK'sını](https://github.com/Microsoft/ApplicationInsights-JS) ekleme yönergeleri gösterilmektedir.
+Bu hızlı başlangıçta web sitenizin ziyaretçileri için istemci/tarayıcı tarafı deneyimi anlamanızı sağlayan [açık kaynak Application Insights JavaScript SDK'sını](https://github.com/Microsoft/ApplicationInsights-JS) ekleme yönergeleri gösterilmektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -74,7 +74,7 @@ Application Insights, şirket içinde veya bulutta çalışan İnternet’e bağ
 
 1. **Genel Bakış** > **Temel Bilgiler**’i seçin > Uygulamanızın **İzleme Anahtarı**’nı kopyalayın.
 
-   ![Yeni App Insights kaynağı formu](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![Yeni App Insights kaynağı formu](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. Aşağıdaki betiği ``hello_world.html`` dosyanıza, ``</head>`` kapanış etiketinin öncesine ekleyin:
 
@@ -98,7 +98,7 @@ Application Insights, şirket içinde veya bulutta çalışan İnternet’e bağ
 
 1. Artık izleme anahtarınızı aldığınız Application Insights **Genel Bakış** sayfasını yeniden açarak o anda çalışan uygulamanıza ilişkin ayrıntıları görüntüleyebilirsiniz. Genel bakış sayfasındaki dört varsayılan grafik, sunucu tarafı uygulama verilerini kapsar. JavaScript SDK ile istemci/tarayıcı tarafı etkileşimleri izlediğimiz için sunucu tarafı SDK'sı yüklü olmadığı sürece bu görünüm işimize yaramayacaktır.
 
-2. ![Uygulama Haritası simgesi](./media/app-insights-nodejs-quick-start/006.png) **Analiz** öğesine tıklayın.  Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Analiz** sayfasını açar. İstemci tarafı tarayıcı istekleriyle ilgili verileri görüntülemek için aşağıdaki sorguyu çalıştırın:
+2. ![Uygulama Haritası simgesi](media/app-insights-website-monitoring/006.png) **Analiz** öğesine tıklayın.  Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Analiz** sayfasını açar. İstemci tarafı tarayıcı istekleriyle ilgili verileri görüntülemek için aşağıdaki sorguyu çalıştırın:
 
     ```kusto
     // average pageView duration by name

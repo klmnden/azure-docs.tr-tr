@@ -1,6 +1,6 @@
 ---
 title: Bu hızlı başlangıçta C kullanarak Azure IOT Hub'a bir simülasyon X.509 cihazı sağlama işlemi gösterilir | Microsoft Docs
-description: Bu hızlı başlangıçta, Azure IoT Hub Cihazı Sağlama Hizmeti için C cihaz SDK'sını kullanarak bir simülasyon X.509 cihazı oluşturur ve sağlarsınız
+description: Bu hızlı başlangıçta bireysel kayıtlar kullanılmaktadır. Bu hızlı başlangıçta, Azure IoT Hub Cihazı Sağlama Hizmeti için C cihaz SDK'sını kullanarak bir simülasyon X.509 cihazı oluşturur ve sağlarsınız.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/16/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9eb80b085f979208999b6764d6e4014cdbcfd2a0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8b7848392ebd8ec44dcf646b13911aaafe905ae3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159134"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158933"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Hızlı başlangıç: Azure IoT C SDK'sını kullanarak simülasyon X.509 cihazı sağlama
 
@@ -23,6 +23,12 @@ ms.locfileid: "47159134"
 Bu hızlı başlangıçta bir Windows geliştirme makinesi üzerinde bir X.509 cihazı simülatörü oluşturmayı ve çalıştırmayı öğreneceksiniz. Cihaz Sağlama Hizmeti örneği ile bir kayıt kullanarak bir IoT hub'ına atanacak bu simülasyon cihazını yapılandıracaksınız. Cihaz için önyükleme sırası simülasyonu yapmak için [Azure IoT C SDK'sından](https://github.com/Azure/azure-iot-sdk-c) alınan örnek kod kullanılacaktır. Cihaz, sağlama hizmeti ile kayıt durumuna göre tanınacak ve IoT hub'ına atanacaktır.
 
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirin. Ayrıca, bu hızlı başlangıçla devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
+
+Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
+
+Bu makalede bireysel kayıtlar gösterilmektedir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +79,7 @@ Bu bölümde, X.509 önyükleme sırası için örnek kodu içeren [Azure IoT C 
     cd cmake
     ```
 
-4. Kod örneği, X.509 kimlik doğrulaması aracılığıyla kanıtlama sağlamak için bir X.509 sertifikası kullanır. SDK'nın geliştirme istemci platformunuza ve özgü bir sürümünü derlemek için aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
+4. Kod örneği, X.509 kimlik doğrulaması aracılığıyla kanıtlama sağlamak için bir X.509 sertifikası kullanır. SDK’nın geliştirme istemci platformunuza ve özgü bir sürümünü oluşturmak için aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
