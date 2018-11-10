@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3fa41f894e3228310bae6a9407cfcc426c27bfdc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963727"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228547"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -141,7 +141,7 @@ Düzeltme:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * İçinde [Microsoft Azure giriş Panosu](https://portal.azure.com), hizmet durumu eşlemeyi bakın. Bazı uyarı göstergelerden varsa, bunlar için Tamam döndürmüş ve ardından kapatın ve, Application Insights uygulama dikey pencereyi yeniden açın kadar bekleyin.
-* Ayrıca [durumu blogumuzu](http://blogs.msdn.com/b/applicationinsights-status/).
+* Ayrıca [durumu blogumuzu](https://blogs.msdn.com/b/applicationinsights-status/).
 * Herhangi bir kod yazdınız [sunucu tarafı SDK](app-insights-api-custom-events-metrics.md) izleme anahtarını değişebilir `TelemetryClient` örnekleri veya `TelemetryContext`? Veya, yazdınız bir [filtre veya örnekleme yapılandırma](app-insights-api-filtering-sampling.md) filtrelemesi çok fazla kullanıma?
 * Applicationınsights.config dosyasını düzenlediyseniz, dikkatli bir şekilde yapılandırmasını denetleyin [TelemetryInitializers ve TelemetryProcessors](app-insights-api-filtering-sampling.md). Veri göndermek SDK'sı bir yanlış adlandırılan türü veya parametresi neden olabilir.
 
@@ -167,7 +167,7 @@ Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmet
 * Windows Server 2008: aşağıdaki güncelleştirmeleri yüklediğinizden emin olun: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Verileri görmek için kullandım, ancak bu durdurdu
-* Denetleme [durumu blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Denetleme [durumu blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Veri noktalarının aylık kota ulaşmış olabilirsiniz? Ayarlar/kota ve fiyatlandırma öğrenmek için açın. Bu durumda, planınızı yükseltin veya ek kapasite için ödeme yaparsınız. Bkz: [düzeni fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Bekleniyor verilerini göremiyorum
