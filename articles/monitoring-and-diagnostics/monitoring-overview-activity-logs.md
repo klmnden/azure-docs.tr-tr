@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 40d1f73f4aed3f3f35f3f5c9de951e9b9fd271bc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963328"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006031"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -34,9 +34,6 @@ Azure portalı, CLI, PowerShell cmdlet'lerini kullanarak, etkinlik günlüğünd
 
 > [!NOTE]
 >  [Yeni uyarılarda](monitoring-overview-unified-alerts.md) uyarı kuralları oluşturma ve yönetme etkinlik oturum açtığınızda Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](alert-activity-log.md).
-
-Etkinlik günlüğü Tanıtımı aşağıdaki videoyu izleyin.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 
 ## <a name="categories-in-the-activity-log"></a>Etkinlik günlüğünde kategorileri
@@ -70,7 +67,7 @@ Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 Azure portalının içinde çeşitli yerlerde, etkinlik günlüğü görüntüleyebilirsiniz:
 * **Etkinlik günlüğü** etkinlik günlüğü altında arayarak erişebileceğiniz **tüm hizmetleri** sol taraftaki gezinti bölmesinde.
 * **İzleyici** varsayılan sol taraftaki gezinti bölmesinde görünür. Etkinlik günlüğü Azure İzleyici bölümüdür.
-* Herhangi bir kaynağın **kaynak**, örneğin, bir sanal makine yapılandırma dikey. Etkinlik günlüğü, bu kaynak dikey pencerelerinin çoğunu bölümleri, biri ve bu belirli o kaynakla ilgili olayları otomatik olarak üzerine tıklayarak filtreler ' dir.
+* Çoğu **kaynakları**, örneğin, bir sanal makine yapılandırma dikey. Etkinlik günlüğü çoğu kaynak dikey pencerelerinin üzerinde bir bölümdür ve bu belirli o kaynakla ilgili olayları otomatik olarak üzerine tıklayarak filtreler.
 
 Azure portalında etkinlik günlüğünüz bu alanlara göre filtreleyebilirsiniz:
 * TimeSpan - olaylar için başlangıç ve bitiş zamanı.
@@ -84,11 +81,9 @@ Azure portalında etkinlik günlüğünüz bu alanlara göre filtreleyebilirsini
 * 'Arayan' ya da işlemi gerçekleştiren kullanıcı - tarafından başlatılan olay.
 * Açık arama - tüm olaylarda tüm alanlar boyunca o dize için arama bir açık metin arama kutusu budur.
 
-Bir filtre kümesi tanımladıktan sonra her zamankinden daha sonra yeniden uygulanması bu filtreleri ile aynı sorgu gerçekleştirmek gerekiyorsa farklı oturumlarda kalıcı bir sorgu olarak kaydedebilirsiniz. Ayrıca, bir sorgu her zaman belirli olayları takip etmek için Azure panonuza sabitleyebilirsiniz.
+Bir filtre kümesi tanımlandıktan sonra bir sorgu her zaman belirli olayları takip etmek için Azure panonuza sabitleyebilirsiniz.
 
-"Uygula" tıklayarak sorguyu çalıştırır ve tüm eşleşen olayları göster. Listedeki herhangi bir olay tıklayarak yanı sıra tam ham JSON'ın bu olay, olay özetini gösterir.
-
-Daha fazla güç için tıklayabilirsiniz **günlük araması** etkinlik günlüğü verilerinizi gösteren bir simge [Log Analytics Activity Log Analytics çözümünü](../log-analytics/log-analytics-activity.md). Etkinlik günlüğü dikey günlükleri bir temel filtre/göz atma deneyimini sunar, ancak Log Analytics, Özet, sorgu ve daha güçlü şekilde verilerinizi görselleştirmek sağlar.
+Daha fazla güç için tıklayabilirsiniz **günlükleri** etkinlik günlüğü verilerinizi gösteren bir simge [Log Analytics Activity Log Analytics çözümünü](../log-analytics/log-analytics-activity.md). Etkinlik günlüğü dikey günlükleri bir temel filtre/göz atma deneyimini sunar, ancak Log Analytics, Özet, sorgu ve daha güçlü şekilde verilerinizi görselleştirmek sağlar.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Günlük profilini ile Etkinlik günlüğünü dışarı aktarma
 A **günlük profilini** etkinlik günlüğünüzü nasıl verilir denetimleri. Günlük profilini kullanarak, aşağıdakileri yapılandırabilirsiniz:
@@ -114,14 +109,14 @@ Günlükleri yayan bir aynı abonelikte değil bir depolama hesabına veya olay 
 Bu ayarlar, portalda etkinlik günlüğü dikey penceresindeki "Export" seçeneği aracılığıyla yapılandırılabilir. Bunlar aynı zamanda program aracılığıyla yapılandırılabilir [Azure İzleyici REST API'sini kullanarak](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet'leri veya CLI. Bir abonelikte yalnızca tek bir günlük profili olabilir.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure portalını kullanarak günlük profillerini yapılandırma
-Etkinlik günlüğü olay Hub'ına akış ya da Azure portalında "Export" seçeneğini kullanarak bir depolama hesabında depolayın.
+Etkinlik günlüğü olay Hub'ına akış ya da Azure portalında "Dışarı aktarmak için Event Hub" seçeneğini kullanarak bir depolama hesabında depolayın.
 
 1. Gidin **etkinlik günlüğü** portalın sol tarafındaki menüyü kullanarak.
 
-    ![Portalda etkinlik günlüğüne gidin](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Tıklayın **dışarı** dikey penceresinin üstünde düğme.
+    ![Portalda etkinlik günlüğüne gidin](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Tıklayın **dışarı aktarma, olay Hub'ına** dikey penceresinin üstünde düğme.
 
-    ![Portal, Dışarı Aktar](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Portal, Dışarı Aktar](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. Görüntülenen dikey penceresinde şunları seçebilirsiniz:  
   * olayları dışarı aktarmak istediğiniz bölgeleri
   * olayları kaydetmek istediğiniz depolama hesabı

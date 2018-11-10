@@ -1,6 +1,6 @@
 ---
-title: Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme
-description: Yönergeler ve destek bilgileri için bir kurtarma Hizmetleri kasası, Azure yedekleme kasası yükseltmek için.
+title: Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme
+description: Azure yedekleme kasanıza bir kurtarma Hizmetleri kasasına yükseltme yönergeleri ve destek bilgileri.
 services: backup
 author: markgalioto
 manager: carmonm
@@ -8,147 +8,147 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 551bc2aa4ff80feb3f28b5698e25dfd1b03dc870
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 431ca75a653b93342b61a9b39dc42a93270519f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228530"
 ---
-# <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme
+# <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme
 
-Bu makalede, bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme açıklanmaktadır. Yükseltme işlemi herhangi bir çalışan yedekleme işi etkilemez ve hiçbir yedekleme verileri kaybolur. Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltmek için en önemli nedenlerinden:
-- Tüm özellikleri bir Backup kasasının kurtarma Hizmetleri kasasına korunur.
-- Kurtarma Hizmetleri kasaları dahil olmak üzere, yedekleme kasaları daha fazla özelliğe sahip: izleme, tümleşik daha iyi güvenlik, daha hızlı geri yükler ve öğe düzeyinde geri yüklemeler.
-- Yedekleme öğeleri geliştirilmiş, Basitleştirilmiş portalından yönetin.
+Bu makalede, bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme açıklanmaktadır. Yükseltme işlemi, tüm çalışan yedekleme işleri etkilemez ve yedekleme veri kaybedilmez. Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme birincil nedeni:
+- Tüm özellikleri bir Backup kasasının kurtarma Hizmetleri kasasında korunur.
+- Kurtarma Hizmetleri kasaları, yedekleme kasaları, dahil olmak üzere daha fazla özelliğe sahip: izleme, tümleşik daha iyi güvenlik, daha hızlı geri yüklemeler ve öğe düzeyinde geri yüklemeler.
+- Yedekleme öğeleri, geliştirilmiş ve Basitleştirilmiş portalından yönetin.
 - Yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerlidir.
 
-## <a name="impact-to-operations-during-upgrade"></a>Yükseltme sırasında operations etkisi
+## <a name="impact-to-operations-during-upgrade"></a>İşlem yükseltme sırasında bir etkisi
 
-Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltirken veri düzlemi işlemlerinizin hiçbir etkisi yoktur. Tüm yedekleme işleri normal olarak devam etmek ve kesinti olmadan herhangi bir etkin geri yükleme işi devam. Yükseltme sırasında kısa bir kapalı kalma süresi yönetim işlemlerini uygulanır ve yeni öğelerinizi koruyun veya geçici yedekleme işleri oluşturun. Iaas VM'ler için geri yükleme işleri, yükseltme sırasında çalıştırmayın. Kasa yükseltme tamamlamak için altında bir saat sürer. İşlemi tamamladıktan sonra kurtarma Hizmetleri kasasına yedekleme kasası yerini alır.
+Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltirken, veri düzlemi işlemleri için herhangi bir etkisi yoktur. Tüm yedekleme işleri normal olarak devam etmek ve kesinti olmadan herhangi bir etkin geri yükleme işi devam. Yükseltme sırasında yönetim işlemlerini kısa bir kapalı kalma süresi uygulanır ve yeni öğelerinizi koruyun veya geçici yedekleme işleri oluşturun. Iaas Vm'leri için geri yükleme işleri, yükseltme sırasında çalışmaz. Kasa yükseltmesi tamamlanması altında bir saat sürer. İşleminizi tamamladıktan sonra bir kurtarma Hizmetleri kasasına yedekleme kasasına değiştirir.
 
-## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Otomasyon ve aracı yükseltme yaptıktan sonra yapılan değişiklikler
+## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Otomasyon ve aracı yükselttikten sonra yapılan değişiklikler
 
-Altyapınızı kasası yükseltme için hazırlık yaparken, var olan Otomasyon veya yükseltmeden sonra çalışmaya devam ettiğinden emin olmak için araç güncelleştirmeniz gerekir.
-PowerShell cmdlet'leri başvurularını başvurun [Resource Manager dağıtım modeli](backup-client-automation.md).
+Kasa yükseltmesi için altyapınızı hazırlanırken, var olan Otomasyon veya yükseltmeden sonra çalışmaya devam etmesini sağlamak için araçları güncelleştirmeniz gerekir.
+PowerShell cmdlet'leri başvurusu başvurun [Resource Manager dağıtım modeli](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Yükseltmeden önce
 
-Kurtarma hizmeti kasaları, yedekleme kasaları yükseltmeden önce aşağıdaki sorunları kontrol edin.
+Backup kasalarınızı kurtarma Hizmetleri kasalarına yükseltmeden önce aşağıdaki sorunları inceleyin.
 
-- **En düşük aracı sürümü**: kasanızı yükseltmek için Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nı en az olduğundan emin olun sürüm 2.0.9083.0. MARS Aracısı'nı 2.0.9083.0 eskiyse, aracı yükseltme işlemini başlatmadan önce güncelleştirin.
-- **Örnek tabanlı faturalama modeli**: kurtarma hizmeti kasalarını yalnızca örnek tabanlı fatura modelini destekler. Eski depolama tabanlı fatura modelini kullanarak bir yedekleme kasası varsa, fatura modelini yükseltme sırasında dönüştürün.
-- **Yedekleme yapılandırması devam eden işlem yok**: yükseltme sırasında yönetim düzeyi erişimi sınırlıdır. Tüm yönetim düzlemi eylemleri tamamlayın ve ardından yükseltme işlemini başlatmak.
+- **En düşük aracı sürümü**: kasanızı yükseltme için Microsoft Azure kurtarma Hizmetleri (MARS) aracısı en az olduğundan emin olun 2.0.9083.0 sürümü. MARS Aracısı 2.0.9083.0 eskiyse, yükseltme işlemini başlatmadan önce aracıyı güncelleştirin.
+- **Örnek tabanlı faturalandırma modeli**: kurtarma hizmeti kasası yalnızca örnek tabanlı faturalandırma modeli destekler. Faturalandırma modeli, eski depolama tabanlı faturalandırma modeli kullanarak bir yedekleme kasası varsa, yükseltme sırasında dönüştürün.
+- **Yedekleme yapılandırması devam eden bir işlem**: yükseltme sırasında yönetim düzlemine erişimi sınırlıdır. Tüm yönetim düzlemi işlemleri tamamlayın ve ardından yükseltmeyi başlatın.
 
-## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>Kasa yükseltmek için PowerShell betiklerini kullanma
+## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>Kasalarınızı yükseltmek için PowerShell betiklerini kullanma
 
-Kurtarma Hizmetleri kasalarının, yedekleme kasaları yükseltmek için PowerShell komut dosyalarını kullanabilirsiniz. Kasa yükseltilmesini sağlamak için gerekli PowerShell bileşenleri olup olmadığını denetleyin. Yedekleme kasaları için PowerShell komut dosyaları için kurtarma Hizmetleri kasalarını çalışmaz. Kasa yükseltmek için ortamınızı hazırlayın:
+Backup kasalarınızı kurtarma Hizmetleri kasalarına yükseltmenizi PowerShell komut dosyalarını kullanabilirsiniz. Kasa yükseltmesi tetiklemek için gerekli PowerShell bileşenlerine sahip olduğunu denetleyin. PowerShell betikleri için Backup kasaları kurtarma Hizmetleri kasaları için çalışmaz. Kasa yükseltme için ortamınızı hazırlama:
 
-1. Yükleme veya yükseltme [Windows Management Framework (WMF) sürüm 5](https://www.microsoft.com/download/details.aspx?id=50395) veya üstü.
-2. [Azure PowerShell MSI yükleme](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi).
-3. Karşıdan [PowerShell Betiği](https://aka.ms/vaultupgradescript2) , kasa yükseltmek için.
+1. Yüklemeniz veya yükseltmeniz [Windows Management Framework (WMF) 5 sürümüne](https://www.microsoft.com/download/details.aspx?id=50395) veya üzeri.
+2. [Azure PowerShell'i MSI yükleme](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi).
+3. İndirme [PowerShell Betiği](https://aka.ms/vaultupgradescript2) kasalarınızı yükseltmek için.
 
 ### <a name="run-the-powershell-script"></a>PowerShell betiğini çalıştırma
 
-Kasa yükseltmek için aşağıdaki komut dosyasını kullanın. Aşağıdaki örnek komut dosyası parametrelerinin açıklamaları vardır.
+Kasalarınızı yükseltmek için aşağıdaki betiği kullanın. Aşağıdaki örnek betik, parametre açıklamalarını sahiptir.
 
 RecoveryServicesVaultUpgrade 1.0.2.ps1 **- Subscriptionıd** `<subscriptionID>` **- VaultName** `<vaultname>` **-konum** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName** `<rgname>`
 
 **Subscriptionıd** -yükseltiliyor kasa abonelik kimliği sayısı.<br/>
 **VaultName** -yükseltiliyor yedekleme kasasının adını.<br/>
-**Konum** -yükseltilen kasasının konumu.<br/>
+**Konum** -yükseltilmekte olan kasasının konumu.<br/>
 **ResourceType** -BackupVault kullanın.<br/>
-**TargetResourceGroupName** - Resource Manager tabanlı bir dağıtım için bir kaynak grubu belirtin kasa yükseltiyorsanız bu yana. Varolan bir kaynak grubunu kullanın veya yeni bir ad sağlayarak oluşturabilirsiniz. Bir kaynak grubu adını yazarsanız, yeni bir kaynak grubu oluşturabilir. Kaynak grupları hakkında daha fazla bilgi için bu okuma [kaynak grupları hakkında genel bakış](../azure-resource-manager/resource-group-overview.md#resource-groups).
+**TargetResourceGroupName** - kasası Resource Manager tabanlı bir dağıtım için bir kaynak grubu belirtin yükselttiğiniz olduğundan. Mevcut bir kaynak grubunu kullanın veya yeni bir ad girerek oluşturabilirsiniz. Bir kaynak grubu adını yazarsanız, yeni bir kaynak grubu oluşturabilir. Kaynak grupları hakkında daha fazla bilgi için bu okuma [kaynak grupları hakkında genel bakış](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
-> Kaynak grubu adları kısıtlamaları vardır. Yönergeleri izlediğinizden emin olun; Bunun Sağlanamaması kasası yükseltme başarısız olmasına neden olabilir.
+> Kaynak grubu adları kısıtlamalar vardır. Kılavuzu takip ettiğinizden emin olun; Bunun yapılmaması, kasa yükseltme başarısız olmasına neden olabilir.
 >
->**Azure ABD devlet kurumları** "AzureUSGovernment" ortamına ayarlamak gereken betik çalıştırılırken müşteriler.
->**Azure Çin** "AzureChinaCloud" ortamına ayarlamak gereken betik çalıştırılırken müşteriler.
+>**Azure ABD kamu** "AzureUSGovernment" ortamı ayarlamak gereken betik çalıştırılırken müşteriler.
+>**Azure Çin** "AzureChinaCloud" ortamı ayarlamak gereken betik çalıştırılırken müşteriler.
 
-Aşağıdaki kod parçacığını hangi PowerShell komutu gibi görünmelidir bir örnektir:
+Aşağıdaki kod parçacığı, PowerShell komut şöyle görünmelidir, bir örnek verilmiştir:
 
 ```
 RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5ebefe -VaultName "TestVault" -Location "Australia East" -ResourceType BackupVault -TargetResourceGroupName "ContosoRG"
 ```
 
-Komut dosyası hiçbir parametre olmadan da çalıştırabilirsiniz ve girişleri için gerekli tüm parametreleri vermeniz istenir.
+Betik parametre olmadan da çalıştırabilirsiniz ve girişleri için gerekli tüm parametreleri sağlamanız istenir.
 
-PowerShell Betiği kimlik bilgilerinizi girmenizi ister. Kimlik bilgilerinizi iki kez girin: Service Manager hesabı ve kaynak yöneticisi hesabı için ikinci kez için bir kez.
+PowerShell Betiği, kimlik bilgilerinizi girmenizi ister. Kimlik bilgilerinizi iki kez girin: Resource Manager hesabı için ikinci bir kez ve Service Manager hesabı için bir kez.
 
-### <a name="pre-requisites-checking"></a>Ön koşul denetimi
-Azure kimlik bilgilerinizi girdikten sonra Azure ortamınıza aşağıdaki önkoşulları karşıladığını denetler:
+### <a name="pre-requisites-checking"></a>Önkoşullar denetleniyor
+Azure kimlik bilgilerinizi girdikten sonra Azure ortamınızın aşağıdaki önkoşulları karşıladığını denetler:
 
-- **En düşük aracı sürümü** -yedekleme kasaları kurtarma Hizmetleri kasalarının yükseltme gerektirir en az olacak şekilde MARS Aracısı sürümü 2.0.9083.0. Bir aracı ile 2.0.9083.0'den önceki bir yedekleme Kasası'na kayıtlı öğeler varsa, önkoşul denetimi başarısız olur. Önkoşul denetimi başarısız olursa aracıyı güncelleştirin ve kasa yükseltmeyi yeniden deneyin. Aracısı'ndan en son sürümünü indirebilirsiniz [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
-- **Devam eden yapılandırma işleri**: birisi işi yükseltilmesi için ayarlanmış bir yedekleme kasası için yapılandırma ya da bir öğe kayıt, önkoşul denetimi başarısız olur. Yapılandırmayı tamamlamak veya öğeyi kaydolma işlemini tamamlamak ve kasa yükseltme işlemi başlatın.
-- **Depolama tabanlı faturalama modeli**: Kurtarma Hizmetleri kasalarının örnek tabanlı fatura modelini destekler. Depolama tabanlı fatura modelini kullanan bir yedekleme kasası kasası yükseltme çalıştırırsanız, faturalama modelinizi Kasayla birlikte yükseltmeniz istenir. Faturalama modelinizi ilk olarak, aksi takdirde, güncelleştirebilir ve kasa yükseltme çalıştırın.
-- Kurtarma Hizmetleri kasası için bir kaynak grubu tanımlayın. Resource Manager dağıtım özelliklerden yararlanmak için bir kaynak grubu bir kurtarma Hizmetleri kasası konulmalıdır. Varsa kullanın, bir ad sağlamak için hangi kaynak grubu tanımadığınız ve yükseltme işlemi kaynak grubu oluşturur. Yükseltme işlemi kasası ayrıca yeni kaynak grubu ile ilişkilendirir.
+- **En düşük aracı sürümü** -Backup kasaları kurtarma Hizmetleri kasalarına yükseltme gerektirir MARS aracısının en az sürüm 2.0.9083.0. Bir aracıyla, 2.0.9083.0'den önceki bir Backup kasasına kayıtlı öğeler varsa, önkoşul denetimi başarısız olur. Önkoşul denetimi başarısız olursa aracıyı güncelleştirin ve kasa yükseltme işlemini yeniden deneyin. Aracısı'ndan en son sürümünü indirebilirsiniz [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Devam eden yapılandırma işleri**: biri iş yükseltilmek üzere ayarlanmış bir yedekleme kasası için yapılandırma ya da bir öğe kayıt, önkoşul denetimi başarısız olur. Yapılandırmayı tamamlamak veya öğesi kaydetme tamamlayın ve sonra kasa yükseltme işlemini başlatın.
+- **Depolama tabanlı faturalandırma modeli**: Kurtarma Hizmetleri kasaları örnek tabanlı faturalandırma modeli destekler. Depolama tabanlı faturalandırma modeli kullanan bir Backup kasasının kasa yükseltmesi çalıştırırsanız, faturalandırma modelinizin Kasayla birlikte yükseltme istenir. Faturalandırma modelinizin ilk olarak, aksi takdirde, güncelleştirebilir ve kasa yükseltmesini çalıştırın.
+- Kurtarma Hizmetleri kasası için bir kaynak grubu belirleyin. Resource Manager dağıtım özelliklerden yararlanmak için bir kaynak grubunda bir kurtarma Hizmetleri kasası yerleştirmeniz gerekir. Varsa tanımadığınız kaynak grubunu kullanmak için bir ad sağlayın ve yükseltme işlemi, kaynak grubu oluşturulur. Yükseltme işlemi, yeni kaynak grubu ile kasayı de ilişkilendirir.
 
-Ön koşul denetimi yükseltme işlemi tamamlandıktan sonra işlemi kasası yükseltmeyi başlatmak ister. Siz onayladıktan sonra yükseltme işlemi genellikle, tamamlanması kasanızı boyutuna bağlı olarak yaklaşık 15-20 dakika sürer. Büyük bir kasa varsa, yükseltme 90 dakikaya kadar sürebilir.
+Önkoşullar denetleniyor yükseltme işlemi tamamlandıktan sonra işlem kasa yükseltmesini başlatmak isteyip istemediğinizi sorar. Siz onayladıktan sonra yükseltme işlemi genellikle, kasanız boyutuna bağlı olarak tamamlanması yaklaşık 15-20 dakika sürer. Büyük bir kasası varsa, yükseltme 90 dakikaya kadar sürebilir.
 
-## <a name="managing-your-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarını yönetme
+## <a name="managing-your-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarınızı yönetmek
 
-Aşağıdaki ekranlarını Azure portalında yedekleme Kasası'ndan yükseltme yeni bir kurtarma Hizmetleri kasası göster. İlk ekranda kasa için anahtar varlıkları görüntüler kasa Panosu gösterilir.
+Aşağıdaki ekranlarda yeni bir kurtarma Hizmetleri kasası, yedekleme kasası, Azure portalında uygulamasından yükseltilen gösterir. Kasa için anahtar varlıklar görüntüler kasa panosunda ilk ekran gösterilmektedir.
 
-![Kurtarma Hizmetleri kasasına yedekleme Kasası'nı yükseltme örneği](./media/backup-azure-upgrade-backup-to-recovery-services/upgraded-rs-vault-in-dashboard.png)
+![Kurtarma Hizmetleri kasasına yedekleme kasasından yükseltme örneği](./media/backup-azure-upgrade-backup-to-recovery-services/upgraded-rs-vault-in-dashboard.png)
 
-İkinci ekranı bağlantılar yardımcı olmak kullanılabilir kurtarma Hizmetleri kasası kullanmaya başlamanıza yardım gösterir.
+İkinci ekranında Yardım bağlantıları yardımcı olması kullanılabilir kurtarma Hizmetleri kasası ile çalışmaya başlamak gösterir.
 
 ![Hızlı Başlangıç dikey penceresinde Yardım bağlantıları](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>Yükseltme sonrası adımlar
-Kurtarma Hizmetleri kasasına yedekleme ilkesine belirten saat dilimi bilgilerini destekler. Kasa başarıyla yükseltildikten sonra kasa ayarları menüsünden yedekleme ilkeleri gidin ve her bir kasaya yapılandırılmış ilkeler için saat dilimi bilgilerini güncelleştirin. Bu ekran zaten kullanıldığında yerel saat dilimi ilke oluşturuldu olarak belirtilen yedekleme zamanlaması saati gösterir. 
+Kurtarma Hizmetleri kasası, yedekleme ilkesinde belirten saat dilimi bilgilerini destekler. Kasa başarıyla yükseltildikten sonra yedekleme İlkeleri Kasa ayarları menüsünden gidin ve her bir kasa içinde yapılandırılmış ilkeler için saat dilimi bilgilerini güncelleştirin. Bu ekran zaten ilkesi oluşturduğunuzda kullanıldığında yerel saat dilimi olarak belirtilen yedekleme zamanlaması saati gösterir. 
 
 ## <a name="enhanced-security"></a>Geliştirilmiş güvenlik
 
-Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltildiğinde, kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman güvenlik ayarlarını, yedeklemeler silme gibi bazı işlemleri bulunan veya bir parola değiştirilmesini gerektiren bir [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) PIN. Gelişmiş Güvenlik ile ilgili daha fazla bilgi için bkz: [karma yedekleri korumak için güvenlik özellikleri](backup-azure-security-feature.md). 
+Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltildiğinde bu kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman yedeklemeler silme gibi belirli işlemleri üzerindeki güvenlik ayarlarını olan veya bir parolayı değiştirmeniz bir [Azure multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN. Gelişmiş güvenlik hakkında daha fazla bilgi için bkz [karma yedeklemeler korumak için güvenlik özellikleri](backup-azure-security-feature.md). 
 
-Gelişmiş Güvenlik etkinleştirildiğinde, veri yedekleme kurtarma noktası bilgilerini kasadan silindikten sonra 14 gün için tutulur. Müşteriler bu güvenlik veri depolama için faturalandırılır. Güvenlik veri saklama Azure Yedekleme aracısı, Azure yedekleme sunucusu ve System Center Data Protection Manager için alınan kurtarma noktaları için geçerlidir. 
+Gelişmiş Güvenlik etkinleştirildiğinde, veri yedekleme kurtarma noktası bilgilerini kasadan silindikten sonra 14 gün için saklanır. Müşteriler, bu güvenlik verilerinin depolanması için faturalandırılır. Güvenlik veri saklama, Azure Yedekleme aracısı, Azure Backup sunucusu ve System Center Data Protection Manager için gerçekleştirilen kurtarma noktaları için geçerlidir. 
 
-## <a name="gather-data-on-your-vault"></a>Kasanızda verileri toplayın
+## <a name="gather-data-on-your-vault"></a>Kasanızı üzerinde veri toplayın
 
-Bir kurtarma Hizmetleri Kasası'na yükseltme yaptıktan sonra (Iaas Vm'leri ve Microsoft Azure kurtarma Hizmetleri (MARS)) raporları için Azure yedeklemeyi yapılandırma ve Power BI raporlarına erişmek için kullanın. Makale veri toplamayı hakkında ek bilgi için bkz: [Azure Yedekleme'yi yapılandırma raporları](backup-azure-configure-reports.md).
+Bir kurtarma Hizmetleri kasasına yükseltme sonra (Iaas Vm'leri ve Microsoft Azure kurtarma Hizmetleri (MARS)) için Azure Backup raporlarını yapılandırma ve raporlara erişmek için Power BI'ı kullanın. Veri toplamayı hakkında ek bilgi için bkz [yapılandırma Azure Backup raporları](backup-azure-configure-reports.md).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**Yükseltme planı devam eden yedeklerim etkiliyor mu?**</br>
-Hayır. Devam eden Yedeklemelerinizin kesintisiz sırasında ve yükseltmeden sonra devam eder.
+**Planınızı yükseltin, devam eden yedekleme İşlemlerim etkiliyor mu?**</br>
+Hayır. Devam eden yedeklemeler kesintisiz sırasında ve yükseltme sonrasında devam eder.
 
-**En kısa sürede yükseltmeyi düşünüyorsanız yok, my kasalarını ne olur?**</br>
-Tüm yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerli olduğundan, biz, kasa yükseltmenizi yönlendirmeye. 1 Eylül 2017 başlangıç Microsoft Kurtarma Hizmetleri kasaları için yedekleme kasalarını otomatik yükseltme işlemini başlatacak. Kasım sonra 30,2017, PowerShell kullanarak yedekleme kasaları artık oluşturabilirsiniz. Kasanızı dilediğiniz zaman arasında otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
+**En kısa sürede yükseltme planlama yoktur, my kasalarına ne olacak?**</br>
+Tüm yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerli olduğundan, biz kasalarınızı yükseltmek rica. 1 Eylül 2017 tarihinden itibaren Microsoft, yedekleme kasaları kurtarma Hizmetleri kasalarına otomatik olarak yükseltme başlar. Kasım sonra 30,2017, PowerShell kullanarak Backup kasalarını artık oluşturabilirsiniz. Kasanız arasında istediğiniz zaman otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
 
-**Bu yükseltme ortalaması my varolan araçları için nedir?**</br>
-Resource Manager dağıtım modeli için araç güncelleştirin. Kurtarma Hizmetleri kasaları için oluşturulan Resource Manager dağıtım modelinde kullanın. Resource Manager dağıtım modeli için planlama ve, kasa fark Hesap önemlidir. 
+**Bu yükseltme ortalaması mevcut araçlarım için ne?**</br>
+Resource Manager dağıtım modeli için araçlarınızı güncelleştirin. Kurtarma Hizmetleri kasaları için oluşturulan Resource Manager dağıtım modelinde kullanın. Resource Manager dağıtım modeli için planlama ve kasalarınızı fark hesap büyük/küçük harf önemlidir. 
 
 **Yükseltme sırasında kadar kapalı kalma süresi var mı?**</br>
-Yükseltilen kaynakları sayısına bağlıdır. (Korumalı örnekler birkaç onlarca) daha küçük dağıtımlar için tüm yükseltme 20 dakikadan kısa sürer. Büyük ölçekli dağıtımlarda, en çok bir saat sürer.
+Bu, yükseltilmekte olan kaynakların sayısına bağlıdır. (Korumalı örnekler birkaç düzine) daha küçük dağıtımlar için 20 dakikadan kısa bir sürede tam yükseltme almalıdır. Daha büyük dağıtımlar için bu en fazla bir saat sürer.
 
-**I yükselttikten sonra geri alabilirsiniz?**</br>
-Hayır. Kaynakları başarılı bir şekilde yükselttikten sonra geri alma desteklenmiyor.
+**Geri yükselttikten sonra geri alabilir miyim?**</br>
+Hayır. Kaynakları başarıyla güncellendikten sonra geri alma desteklenmiyor.
 
-**My abonelik ya da bunlar yükseltmesini yeteneğine sahip olup olmadığınızı görmek için kaynakları doğrulamak için?**</br>
-Evet. Yükseltme ilk adımda kaynakları yükseltmesini yeteneğine sahip olduğunu doğrular. Ön koşul doğrulama başarısız olursa, yükseltme tamamlanamıyor tüm nedenlerle iletilerini alır.
+**Aboneliğimi ya yükseltmesini özelliğine sahip olup olmadıklarını görmek için kaynakları doğrulayabilir miyim?**</br>
+Evet. Yükseltme ilk adımı kaynakları yükseltmesini yeteneğine sahip olduğunu doğrular. Önkoşulları doğrulama başarısız olursa, yükseltme işleminin neden tamamlanamadığına dair tüm nedenlerle mesajlar alır.
 
-**My CSP tabanlı bir yedekleme kasası yükseltebilir miyim?**</br>
-Hayır. Şu anda, CSP tabanlı Yedekleme kasalarını yükseltemezsiniz. Sonraki sürümlerde CSP tabanlı Yedekleme kasaları yükseltmek için destek ekleyeceğiz.
+**My CSP tabanlı bir yedekleme kasası yükseltebilirim?**</br>
+Hayır. Şu anda, CSP tabanlı Yedekleme kasaları yükseltemezsiniz. Sonraki sürümlerde CSP tabanlı Yedekleme kasaları yükseltme için destek ekleyeceğiz.
 
-**Yükseltme sonrası my Klasik kasası görüntüleyebilir miyim?**</br>
-Hayır. Görüntüleyemez veya Klasik kasanızı yükseltme sonrası yönetin. Yalnızca yeni Azure portalına kasa tüm yönetim eylemlerini kullanmak mümkün olacaktır.
+**Yükseltme sonrası my Klasik kasa görüntüleyebilirim?**</br>
+Hayır. Görüntüleyemez veya Klasik kasanızı yükseltme sonrası yönetin. Yalnızca yeni Azure portalına kasasındaki tüm yönetim eylemleri için kullanmanız mümkün olacaktır.
 
-**My yükseltmesi başarısız oldu, ancak gerektiren Aracısı tutulan makine güncelleştiriliyor, artık mevcut değil. Böyle bir durumda ne yapmalıyım?**</br>
-Mağaza kullanmanız gerekiyorsa, bu makine için uzun vadeli bekletme olduktan sonra yedekleme kasası yükseltmeniz mümkün olmaz. Bu tür bir kasa yükseltmek için destek gelecek sürümlerde ekleyeceğiz.
-Artık bu makine yedeklemelerini depolamak gerekmez, lütfen bu makineden kasa kaydı ve yükseltmeyi yeniden deneyin.
+**My yükseltme başarısız oldu, ancak aracının gerektiren tutulan makine güncelleştiriliyor, artık mevcut değil. Böyle bir durumda ne yapmalıyım?**</br>
+Deponun kullanmanız gerekiyorsa, uzun süreli saklama ve ardından bu makine yedeklerini kasa yükseltmek mümkün olmayacaktır. Gelecek sürümlerde bu tür bir kasa yükseltme için destek ekleyeceğiz.
+Artık bu makine yedeklerini depolamak gerekmez, lütfen bu makineden kasa kaydı ve yükseltmeyi yeniden deneyin.
 
-**Neden işleri bilgi Kaynaklarım için yükseltme sonrasında göremiyorum?**</br>
-(MARS aracısı ve Iaas) yedeklemeler için izleme kurtarma Hizmetleri kasasına yedekleme kasası yükselttiğinizde aldığınız yeni bir özelliktir. İzleme bilgilerini hizmetiyle eşitleme 12 saat sürer.
+**Neden iş bilgileri Kaynaklarım için yükseltme sonrasında göremiyorum?**</br>
+(MARS aracısı ve Iaas) yedeklemeler için izleme, yedekleme kasası kurtarma Hizmetleri kasasına yükseltme yaptığınızda, size yeni bir özelliktir. İzleme bilgileri, eşitleme hizmeti ile 12 saat sürer.
 
 **Bir sorunu nasıl bildirebilirim?**</br>
-Herhangi bir kısmının kasası yükseltme başarısız olursa hata Operationıd listelenen not edin. Microsoft Support sorunu çözmek için proaktif olarak çalışır. Desteği'ne ulaşmak ya da adresinden bize e-posta rsvaultupgrade@service.microsoft.com abonelik kimliği, kasa adı ve Operationıd. Sorunu çözmek mümkün olan en kısa sürede dener. Açıkça Bunu yapmak için Microsoft tarafından belirtilmedikçe işlemi yeniden denemeyin.
+Herhangi bir bölümünü kasa yükseltmesi başarısız olursa, hatayı Operationıd listelenen unutmayın. Microsoft Support, sorunu çözmek için proaktif olarak çalışır. Desteğine ulaşın veya adresinden bize e-posta rsvaultupgrade@service.microsoft.com , abonelik kimliği, kasa adınız ve Operationıd. Mümkün olan en kısa sürede sorunu dener. İşlem, bunu yapmak için Microsoft tarafından açıkça belirtilmediği sürece yeniden denemeyin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki makaleyi kullanın:</br>
-[Bir Iaas VM'yi yedeklemek](backup-azure-arm-vms-prepare.md)</br>
-[Bir Azure yedekleme sunucuyu yedekleme](backup-azure-microsoft-azure-backup.md)</br>
+Şu makaleyi kullanın:</br>
+[Bir Iaas VM'yi yedekleme](backup-azure-arm-vms-prepare.md)</br>
+[Bir Azure Backup sunucusu yedekleme](backup-azure-microsoft-azure-backup.md)</br>
 [Windows Server Yedekleme](backup-configure-vault.md).

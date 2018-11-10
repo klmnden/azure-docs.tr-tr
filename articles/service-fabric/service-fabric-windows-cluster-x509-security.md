@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228581"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 sertifikaları kullanarak Windows üzerinde tek başına küme güvenliğini sağlama
 Bu makalede, çeşitli, tek başına Windows küme düğümleri arasındaki iletişimin güvenliğini sağlamak açıklar. Ayrıca, bu kümeye X.509 sertifikaları kullanarak bağlanan istemcilerin kimliğini doğrulamak nasıl açıklar. Kimlik doğrulaması, yalnızca yetkili kullanıcıların küme ve dağıtılan uygulamalar erişim ve yönetim görevlerini gerçekleştirme sağlar. Küme oluşturulduğunda, sertifika güvenliği kümede etkinleştirilmelidir.  
@@ -257,7 +257,7 @@ Veren depoları kullanıyorsanız, yapılandırma yükseltme, veren sertifika ge
 ## <a name="acquire-the-x509-certificates"></a>X.509 sertifikaları alma
 Küme içindeki iletişimin güvenliğini sağlamak için önce küme düğümleri için X.509 sertifikaları edinmeniz gerekir. Buna ek olarak, yetkili makineleri/kullanıcıların bu kümeye bağlantı sınırlamak için edinilir ve istemci makineleri için sertifikalar gerekir.
 
-Üretim iş yükleri çalıştıran kümeleri kullanan bir [sertifika yetkilisi (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-otomatik olarak imzalanan X.509 Sertifika, kümenizin güvenliğini sağlamak için. Bu sertifikaları edinme hakkında daha fazla bilgi için bkz. [bir sertifikanın nasıl alınacağı](http://msdn.microsoft.com/library/aa702761.aspx).
+Üretim iş yükleri çalıştıran kümeleri kullanan bir [sertifika yetkilisi (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-otomatik olarak imzalanan X.509 Sertifika, kümenizin güvenliğini sağlamak için. Bu sertifikaları edinme hakkında daha fazla bilgi için bkz. [bir sertifikanın nasıl alınacağı](https://msdn.microsoft.com/library/aa702761.aspx).
 
 Test amaçları için kullandığınız kümeler için otomatik olarak imzalanan bir sertifika kullanmayı seçebilirsiniz.
 

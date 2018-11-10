@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: eaa44b4fff47f8e3385e86f5c86a090ff84a6bf8
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261511"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218897"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Genel temel Load Balancer için log analytics
 
@@ -143,7 +143,7 @@ Depolama hesabınıza bağlanın ve olay ve sistem durumu araştırma günlükle
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Power BI ile Azure denetim günlüklerinizi görselleştirin](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog gönderisi.
+* [Power BI ile Azure denetim günlüklerinizi görselleştirin](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog gönderisi.
 * [Görüntüleme ve Power BI ve Azure denetim günlükleri analiz](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog gönderisi.
 
 ## <a name="next-steps"></a>Sonraki adımlar

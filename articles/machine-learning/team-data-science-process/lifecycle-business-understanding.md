@@ -1,6 +1,6 @@
 ---
-title: İş anlama takım veri bilimi işlemi yaşam döngüsü - Azure aşaması | Microsoft Docs
-description: Hedefler, görevler ve veri bilimi projelerinizi iş anlama aşaması için teslim edilebilir
+title: 'Team Data Science Process yaşam döngüsü: Azure iş anlama aşamasına | Microsoft Docs'
+description: Hedefleri, görevleri ve veri bilimi projelerinizi iş anlama aşamasına ait sonuçlara
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,86 +15,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 6d8eedbbf4a682443e73ecb9cf9496f3cdd1cd9d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 00dc359fc171afe470b1dfe8f38d0951085ec580
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837210"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228309"
 ---
 # <a name="business-understanding"></a>Kurumsal yaklaşım
 
-Bu makalede hedefleri, görevleri ve iş anlama aşama takım veri bilimi işlem (TDSP) ile ilgili sonuçlara özetlenmektedir. Bu işlem, veri bilimi projelerinizi yapısı için kullanabileceğiniz önerilen bir yaşam döngüsü sunar. Yaşam döngüsü projeleri genellikle genellikle tekrarlayarak yürütme, önemli aşamaları ana hatlarıyla gösterilir:
+Bu makalede, hedeflerinizi, görevleri ve teslim edilebilirler ile Team Data Science işlem (TDSP) iş anlama aşama ilişkili özetlenmektedir. Bu işlem, veri bilimi projelerinizi yapısı için kullanabileceğiniz önerilen bir yaşam döngüsü sağlar. Yaşam döngüsü projeleri genellikle genellikle yinelemeli olarak yürütme, önemli aşamalar açıklanmaktadır:
 
-   1. **İş anlama**
-   2. **Veri alımı ve anlama**
+   1. **İşin gereksinimlerini anlama**
+   2. **Veri edinme ve anlama**
    3. **Modelleme**
    4. **Dağıtım**
    5. **Müşteri kabulü**
 
-Görsel bir TDSP yaşam döngüsü şöyledir: 
+TDSP yaşam döngüsü görsel bir temsilini şu şekildedir: 
 
 ![TDSP yaşam döngüsü](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Hedefleri
-* Model hedefleri olarak hizmet verecek olan ve, ilgili ölçümleri kullanılan anahtar değişkenleri proje başarısını belirlemek belirtin.
-* İş erişimi veya almak gereken ilgili veri kaynaklarını tanımlayın.
+* Model hedefler olarak görev yapacak olan ve, ilgili ölçümleri kullanılan anahtar değişkenleri projenin başarısını belirlemek belirtin.
+* İş erişimi olduğundan veya almak gereken ilgili veri kaynaklarını tanımlar.
 
-## <a name="how-to-do-it"></a>Bunu nasıl
-Bu aşamada ele iki ana görevleri şunlardır: 
+## <a name="how-to-do-it"></a>Nasıl yapılır
+Bu aşamada ele iki ana görevi vardır: 
 
-   * **Hedefleri tanımlayın**: anlamak ve iş sorunlarını belirlemek için müşteri ve diğer Paydaşlar ile çalışır. Veri bilimi teknikleri hedefleyebilirsiniz iş hedeflerini tanımlayın soruları oluşturmak.
-   * **Veri kaynaklarını tanımlama**: Bul yardımcı olan ilgili verilerin proje amaçlarını tanımlama soruları yanıtlayın.
+   * **Hedefleri tanımlamanıza**: anlamak ve iş sorunlarını belirlemek için müşteri ve diğer proje katılımcıları ile çalışma. Veri bilimi teknikleri hedefleyebilen iş hedeflerinizi sorular düzenleyin.
+   * **Veri kaynaklarını tanımlama**: yardımcı olan ilgili verileri projenin hedefleri tanımlamanıza ve sorulara yanıt bulun.
 
-### <a name="define-objectives"></a>Hedefleri tanımlayın
-1. Bu adımın merkezi bir hedefi tahmin etmek için analiz gereken önemli iş değişkenleri belirlemektir. Biz bu değişkenleri olarak başvurmak *model hedefleri*, ve bunlarla ilişkilendirilmiş ölçümleri proje başarısını belirlemek için kullanırız. İki tür hedefleri satış tahminleri veya sahte olan bir sırayı olasılığını gösterilebilir.
+### <a name="define-objectives"></a>Hedeflerini belirleyin
+1. Bu adımın merkezi bir hedefi tahmin analizi ihtiyaçlarınızın önemli iş değişkenleri belirlemektir. Bu değişkenler diyoruz *model hedefleri*, ve onlarla ilişkili ölçümleri projenin başarısını belirlemek için kullanıyoruz. İki tür hedeflerle satış tahminlerini veya bir sipariş edilen sahte olasılığını örnekleridir.
 
-2. Proje hedefleri soran ve ilgili, belirli ve anlaşılır "diyez" soruları daraltmayı tanımlayın. Veri bilimi adları ve numaraları gibi soruları yanıtlamak için kullandığı bir işlemdir. Sharp sorular sormak daha fazla bilgi için bkz: [veri bilimi nasıl](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogu. Genellikle veri bilimi veya machine learning beş tür soruları yanıtlamak kullanılır:
+2. Proje hedefleri isteyen ve ilgili, belirli ve anlaşılır "sharp" sorularını iyileştirme tanımlayın. Veri bilimi adları ve sayı gibi soruları yanıtlamak için kullandığı bir işlemdir. Diyez soru sormaya ilişkin daha fazla bilgi için [veri bilimi yapmak nasıl](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogu. Genellikle veri bilimi veya beş türde soruları yanıtlamak için makine öğrenimini kullanır:
  
-   * Ne kadar veya kaç tane? (regresyon)
-   * Hangi kategori? (sınıflandırma)
-   * Hangi Grup? (kümeleme)
+   * Ne kadar nasıl? (gerileme)
+   * Kategori? (sınıflandırma)
+   * Hangi grubun? (küme)
    * Bu tuhaf mi? (anomali algılama)
-   * Hangi seçeneği yapılması gerekir? (öneri)
+   * Hangi seçeneğin alınıp? (öneri)
 
-   Hangi soruları soran ve nasıl yanıtlama, iş hedeflerinize başarır belirler.
+   Hangi soruları sormaya ve nasıl yanıtlama, iş hedeflerinizi başarır belirler.
 
-3. Proje ekibi, roller ve sorumluluklar üyeleri belirterek tanımlayın. Daha fazla bilgi bulmak gibi üzerinde yinelemek bir üst düzey kilometre taşı planı geliştirin. 
+3. Proje ekibi, roller ve sorumluluklar üyelerinin belirterek tanımlarsınız. Daha fazla bilgi bulmak gibi üzerinde yineleme bir üst düzey kilometre planı geliştirin. 
 
-4. Başarı ölçütleri tanımlayın. Örneğin, bir müşteri karmaşası öngörü elde etmek isteyebilirsiniz. Bu üç aylık proje sonuna "x" yüzde bir doğruluk oranını gerekir. Bu verilerle azaltmak için müşteri promosyonlar karmaşıklığı sunabilir. Ölçümleri olmalıdır **akıllı**: 
+4. Başarı ölçütleri tanımlayın. Örneğin, bir müşteri karmaşıklığı tahmini elde etmek isteyebilirsiniz. Bu üç aylık Proje sonunda bir doğruluk oranı "x" yüzde ihtiyacınız var. Bu verilerle azaltmak için promosyon müşteri karmaşıklığı sunabilir. Ölçümler olmalıdır **akıllı**: 
 
-   * **S**elirli 
+   * **S**b & elirli 
    * **M**easurable
    * **A**chievable 
    * **R**elevant 
-   * **T**IME bağlama 
+   * **T**IME bağlı 
 
 ### <a name="identify-data-sources"></a>Veri kaynaklarını tanımlama
-Sharp sorularınıza bilinen örnekleri içeren veri kaynakları belirleyin. Aşağıdaki veriler için bakın:
+Diyez sorularınızın yanıtlarını bilinen örneklerini içeren veri kaynakları belirleyin. Aşağıdaki veriler için bakın:
 
-* Sorunun ilgili veriler. Hedef ve hedef ilgili özelliklerin ölçüleri var mı?
-* Model hedef doğru ölçü ve ilgi özelliklerini verileri.
+* Soruyu ilgili veriler. Ölçümleri hedefle ilgili özellikler ve hedef var mı?
+* Doğru bir modeli hedef ölçü ve ilgi çekici özellik verileri.
 
-Örneğin, varolan sistemler toplamak ve sorun gidermek ve proje hedeflerinize ulaşmak için veri ek türlerini oturum gerektiğini fark edebilirsiniz. Bu durumda, dış veri kaynakları için konum veya yeni verileri toplamak için sistemlerinizi güncelleştirme isteyebilirsiniz.
+Örneğin, var olan sistemler toplamak ve sorunu çözmek ve proje hedeflere ulaşmak için veri ek türleri oturum gerektiğini fark edebilirsiniz. Bu durumda, dış veri kaynakları için aramak veya yeni veriler toplamak için sistemlerinizi update isteyebilirsiniz.
 
 ## <a name="artifacts"></a>Yapıtlar
 Bu aşamada teslim edilebilir öğeler şunlardır:
 
-   * [Kurucu belge](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): standart şablon TDSP Proje yapısı tanımında sağlanır. Kurucu belge yaşam belgesidir. Şablonu proje boyunca yeni bulmaları yaptığınız ve iş gereksinimleri değiştikçe güncelleştirin. Daha fazla ayrıntı, bulma işlemi ilerlemeyi olarak ekleme, bu belgedeki bağlı yinelemek için kullanılan anahtardır. Müşteri tutmak ve diğer Paydaşlar değişiklikler yaparken söz konusu ve bunları değişiklikler nedeniyle açık bir şekilde iletir.  
-   * [Veri kaynakları](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): **ham veri kaynakları** bölümünü **veri tanımlarını** TDSP projesinde bulunan rapor **veri raporu** klasörü verileri içerir kaynakları. Bu bölümde ham verileri için özgün ve hedef konumları belirtir. Sonraki aşamalarda, analitik ortamınız için verileri taşımak için komut dosyaları gibi ek ayrıntıları doldurun.  
-   * [Veri sözlükler](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Bu belgede istemci tarafından sağlanan veri açıklamalarını sağlar. Bu açıklamalar varsa şemanın (veri türleri ve varsa doğrulama kuralları hakkında bilgi) ve varlık ilişkisi diyagramları hakkındaki bilgileri içerir.
+   * [Kurucu belge](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): standart şablonunu TDSP projesi yapı tanımında sağlanır. Kurucu, oturma belge belgesidir. Şablon proje boyunca yeni bulmalar yaptığınız ve iş gereksinimleri değiştikçe güncelleştirin. Bulma işlemi ilerlemeyi olarak daha fazla ayrıntı ekleme, bu belge üzerinde yineleme yapmak için kullanılan anahtardır. Bir müşteriye ve diğer proje katılımcıları söz konusu değişiklikler yaparken ve açıkça bunları değişiklikleri nedenlerle iletişim.  
+   * [Veri kaynakları](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): **ham veri kaynakları** bölümünü **veri tanımlarını** TDSP projesinde bulunan rapor **veri raporu** klasör verileri içerir kaynakları. Bu bölümde, ham veriler için özgün ve hedef konumları belirtir. Daha sonraki aşamalarda, analitik ortamınıza verileri taşımak için komut dosyaları gibi ek ayrıntıları doldurun.  
+   * [Veri sözlükleri](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Bu belgede istemci tarafından sağlanan veri açıklamaları sağlanır. Bu açıklamalar varsa şema (veri türleri ve varsa doğrulama kuralları bilgi) ve varlık ilişkisi diyagramları hakkında bilgi içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıda, her adımda TDSP yaşam döngüsü bağlantıları verilmiştir:
+TDSP yaşam döngüsü içinde her adım için bağlantılar şunlardır:
 
-   1. [İş anlama](lifecycle-business-understanding.md)
-   2. [Veri alımı ve anlama](lifecycle-data.md)
+   1. [İşin gereksinimlerini anlama](lifecycle-business-understanding.md)
+   2. [Veri edinme ve anlama](lifecycle-data.md)
    3. [Modelleme](lifecycle-modeling.md)
    4. [Dağıtım](lifecycle-deployment.md)
    5. [Müşteri kabulü](lifecycle-acceptance.md)
 
-Belirli senaryolar için işlemdeki tüm adımlar gösteren baştan sona tam talimatlara sunuyoruz. [Örnek izlenecek yollar](walkthroughs.md) makale bağlantılar ve küçük resim açıklamaları senaryolarla listesini sağlar. İzlenecek yollar bulut, şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl gösterilmektedir. 
+İşlemin belirli senaryolar için tüm adımları gösteren uçtan uca tam talimatlara sunuyoruz. [Örnek izlenecek yollar](walkthroughs.md) makale bağlantıları ve küçük resim açıklamaları senaryolarıyla bir listesini sağlar. İzlenecek bir iş akışı veya işlem hattı akıllı bir uygulama oluşturmak için bulut, şirket içi araçları ve Hizmetleri birleştirme işlemini göstermektedir. 
 
-Azure Machine Learning Studio kullanan TDSPs adımları yürütmek nasıl örnekleri için bkz: [TDSP Azure Machine Learning ile kullanmak](http://aka.ms/datascienceprocess).
+Adımlar Azure Machine Learning Studio'nun TDSPs yürütmek nasıl bir örnekleri için bkz: [Azure Machine Learning ile TDSP kullanma](https://aka.ms/datascienceprocess).

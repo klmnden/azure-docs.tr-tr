@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5247edc02a62f67755ce818645f66f616c5266ce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 132935371a1b4f52892ae2fb956407079906e79a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962410"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004911"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog Log analytics'te veri kaynakları
 Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için OMS aracısı yüklü olduğunda, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı bu durumda OMS deposunda karşılık gelen bir kaydın oluşturulduğu Log Analytics ileti gönderir.  
@@ -207,6 +207,6 @@ Aşağıdaki tabloda, Syslog kayıtları almak günlük sorguları farklı örne
 | Syslog &#124; Summarize aggregatedvalue = count() tesis tarafından |Syslog kayıtlarını Say tesis tarafından. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
 * Kullanım [özel alanlar](log-analytics-custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
 * [Linux aracıları yapılandırma](log-analytics-quick-collect-linux-computer.md) diğer veri türlerini, toplanacak.

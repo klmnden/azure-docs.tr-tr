@@ -3,21 +3,21 @@ title: Görüntüleri karşıya yüklemek için Azure IOT Central uygulamasına 
 description: Bir oluşturucu hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme hakkında bilgi edinin.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 18c44a3d91a4964d054c8e142394da7d69772ed0
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960710"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005147"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme
 
-Bu makalede, nasıl bir oluşturucu, Microsoft Azure IOT Central uygulamasına özel görüntüleri karşıya yükleyerek özelleştirebileceğiniz açıklanmaktadır. Örneğin, cihazın resmi bir cihaz panosunu özelleştirebilirsiniz.
+Bu makalede, nasıl bir oluşturucu, Azure IOT Central uygulamasına özel görüntüleri karşıya yükleyerek özelleştirebileceğiniz açıklanmaktadır. Örneğin, cihazın resmi bir cihaz panosunu özelleştirebilirsiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -58,7 +58,7 @@ Aşağıdaki tabloda kullanabileceğiniz resim boyutları özetlenmektedir:
 
 | Konum | Boyutlar |
 | -------- | ------ |
-| **Uygulama Yöneticisi** | 268 x 160 piksel |
+| Uygulama Yöneticisi | 268 x 160 piksel |
 | Cihaz şablonu | 64 x 64 piksel |
 | Giriş sayfası ve Pano kutucukları | En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px |
 
@@ -66,53 +66,53 @@ Uygulamada en iyi görüntü için yukarıdaki tabloda gösterilen boyutları e�
 
 ## <a name="upload-the-images"></a>Görüntüleri karşıya yükleme
 
-Aşağıdaki bölümlerde farklı konumlarda kullanmak üzere istediğiniz görüntüyü karşıya yükleme açıklanmaktadır:
+Aşağıdaki bölümlerde farklı konumlarda görüntüleri karşıya yükleme açıklanmaktadır:
 
 ### <a name="application-manager"></a>Uygulama Yöneticisi
 
-Üzerinde kullanılacak bir görüntü karşıya yüklemek için **Uygulama Yöneticisi**, gitmek **uygulama ayarları** sayfasını **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
+Bir görüntüyü karşıya yükleme için **Uygulama Yöneticisi**, gitmek **uygulama ayarları** sayfasını **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
 
 ![Uygulama görüntüsünü karşıya yükleme](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Hazırlanan görüntünüzü karşıya yüklemek için uygulama görüntüsü kutucuğa tıklayın (268 x 160 piksel) yerel makinenizden.
 
 ### <a name="home-page"></a>Giriş sayfası
 
-Giriş sayfasında kullanılacak bir görüntü karşıya yüklemek için gidin **giriş sayfası** uygulamanızın ve üzerinde Tasarım modunu değiştir. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Giriş sayfasında bir görüntüyü karşıya yükleme için gidin **giriş sayfası** uygulamanızın ve tıklayarak **Düzenle**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
 ![Giriş sayfası görüntüsünü karşıya yükleme](media/howto-prepare-images/uploadhomepage.png)
 
-Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Resim kutucuğunda hazırlanmış görüntünüzü yerel makinenizden karşıya yüklenecek yapılandırma görüntü altında tıklayın. En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px.
 
-Görüntüyü karşıya yükler, sonra Tasarım modu açık durumdayken yeniden boyutlandırabilirsiniz.
+**Kaydet** karşıya yüklenen görüntüyü. Düzenleme modundayken yeniden boyutlandırabilirsiniz. Tıklayın **Bitti** bittiğinde. 
 
 ### <a name="device-template"></a>Cihaz şablonu
 
-Bir cihaz şablonunda kullanılacak bir görüntü karşıya yüklemek için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin ve tasarım moduna geçin. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Bir cihaz şablonu bir görüntüyü karşıya yükleme için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
 ![Cihaz şablon görüntüsünü karşıya yükleme](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Hazırlanan görüntünüzü karşıya resim kutucuğa tıklayın (64 x 64 piksel) yerel makinenizden. 
 
 ### <a name="device-dashboard"></a>Cihaz panosu
 
-Cihaz panosunda kullanılacak bir görüntü karşıya yüklemek için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin. Ardından **Pano** sayfası ve anahtar tasarım modu. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Cihaz panosunda bir görüntüyü karşıya yükleme için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin. Ardından **Pano** sayfasında ve tıklayarak **şablonu Düzen**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
 ![Cihaz Pano görüntüsünü karşıya yükleme](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Görüntü, yapılandırma altında görüntü kutucuğuna ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin. En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px.
 
-Görüntü yükledikten sonra yeniden boyutlandırabilir ve sırasında yeniden konumlandırdığınız **tasarım modu** açık.
+**Kaydet** karşıya yüklenen görüntüyü. Yeniden boyutlandırma ve düzenleme modunda yeniden konumlandırdığınız. Tıklayın **Bitti** bittiğinde.
 
 ### <a name="device-set-dashboard"></a>Cihaz Pano Ayarla
 
-Bir cihaz kümesi Panoda kullanılacak bir görüntü karşıya yüklemek için gidin **cihaz kümeleri** cihaz kümesi ve bir cihaz seçin. Ardından **Pano** sayfası ve anahtar **tasarım modu** üzerinde:
+Bir cihaz kümesi Panoda bir görüntüyü karşıya yükleme için gidin **cihaz kümeleri** cihaz kümesi ve bir cihaz seçin. Ardından **Pano** sayfasında ve tıklayarak **Düzenle**:
 
 ![Cihaz kümesi Panosu resmi karşıya yükle](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Karşıya yükleme görüntüsüne tıklayın ve sonra yerel makinenizden karşıya yüklenecek dosyayı seçin.
+Resim kutucuğunda hazırlanmış görüntünüzü yerel makinenizden karşıya yüklenecek yapılandırma görüntü altında tıklayın. En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px.
 
-Görüntü yükledikten sonra yeniden boyutlandırabilir ve tasarım modu açık durumdayken yeniden konumlandırma.
+**Kaydet** karşıya yüklenen görüntüyü. Yeniden boyutlandırma ve düzenleme modunda yeniden konumlandırdığınız. Tıklayın **Bitti** bittiğinde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

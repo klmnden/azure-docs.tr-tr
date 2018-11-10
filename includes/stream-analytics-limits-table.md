@@ -7,5 +7,5 @@
 | İş başına en fazla işlev sayısı |60 |Stream Analytics işi başına 60 işlevlik sabit bir sınır vardır. |
 | İş başına en fazla akış birimi sayısı |120 |Stream Analytics işi başına 120 akış birimleri sabit bir sınır yoktur. |
 | Bölge başına en fazla işi sayısı |1500 |Her abonelik bir coğrafi bölgede en fazla 1500 iş içerebilir. |
-| MB cinsinden başvuru veri blob’u | 100 | Başvuru veri blob’larının her biri en fazla 100 MB olabilir. |
+| MB cinsinden başvuru veri blob’u | 300 | Başvuru veri BLOB 300 MB daha büyük olamaz. |
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985820"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978012"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
 
@@ -196,6 +196,13 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
    Bu komut, belirtilen anahtarın değerini yazdırmalıdır:
 
    ![Azure Redis Cache çıktısının ekran görüntüsü](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## <a name="error-handling-and-retries"></a>Hata işleme ve yeniden deneme
+Azure İşlevleri'ne olay gönderme sırasında hatayla karşılaşılması halinde Stream Analytics işlemi başarıyla tamamlamayı dener. Ancak aşağıda belirtilen hatalarda yeniden deneme girişiminde bulunulmaz:
+
+ 1. HttpRequestExceptions
+ 2. İstek Varlığı Çok Büyük (Http hata kodu 413)
+ 3. ApplicationExceptions
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 

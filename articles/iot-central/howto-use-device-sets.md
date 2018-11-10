@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731999"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004128"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızda cihaz kümelerini kullanma
 
-Bu makalede, nasıl bir operatör olarak, cihazı kullanmak için Microsoft Azure IOT Central uygulamanızda ayarlar açıklanır.
+Bu makalede, nasıl bir operatör olarak, cihazı kullanmak için Azure IOT Central uygulamanızda ayarlar açıklanır.
 
-Bunların tümü bazı belirtilen ölçütlerle eşleşen çünkü birlikte gruplanır cihazların listesini cihaz kümesidir. Cihaz yönetme, görselleştirin ve cihazları daha küçük, mantıksal gruplar halinde gruplayarak cihazları uygun ölçekte çözümleme Yardım ayarlar. Örneğin, Seattle kendisi sorumlu olduğu tüm cihazları bulmak Seattle teknisyen etkinleştirmek için tüm klima cihazların bir listesini oluşturun. Bu makalede oluşturma ve cihaz kümeleri yapılandırma gösterilmektedir.
+Bunların tümü bazı belirtilen ölçütlerle eşleşen çünkü birlikte gruplanır cihazların listesini cihaz kümesidir. Cihaz yönetme, görselleştirin ve cihazları daha küçük, mantıksal gruplar halinde gruplayarak cihazları uygun ölçekte çözümleme Yardım ayarlar. Örneğin, Seattle teknisyen sorumlu olduğu tüm cihazları bulmak Seattle teknisyen etkinleştirmek için tüm klima cihazların bir listesini oluşturun. Bu makalede oluşturma ve cihaz kümeleri yapılandırma gösterilmektedir.
 
 ## <a name="create-a-device-set"></a>Bir cihaz kümesi oluşturma
 
@@ -73,7 +73,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
         ![Kılavuz seçin](media/howto-use-device-sets/image8.png)
 
     1. Kılavuzunuzun vermek bir **başlık**.
-    1. Ayarlar düğmesini seçerek gösterilecek sütunları seçin. Açılan bölmede seçin sağ oku seçin ve gösterilen istediğiniz sütunu seçin.
+    1. Seçim yaparak gösterilecek sütunları seçin **Ekle/Kaldır**. Açılan bölmede seçin sağ oku seçin ve gösterilen istediğiniz sütunu seçin.
     1. **Tamam**’ı seçin.
     1. **Kaydet**'i seçin.
 
@@ -101,9 +101,10 @@ Cihaz için bir konum eşleme cihaz şablonunuzda yapılandırılan konum özell
 
 2. Bir başlık verin ve location özelliği, cihaz özelliği bir parçası olarak daha önce yapılandırdığınız seçin.
 3. Kaydet ve cihaz kümesinde cihazlarınızı konumunu görüntüleme kutucuğuna harita görürsünüz.
-4. Operatörün cihaz kümeleri panoyu görüntülediğinde tüm kutucukları görebiliyor artık bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere yapılandırdınız! 
+4. Şimdi Pano cihazın ayarlar bir işleç görünümleri işleci yapılandırdığınız tüm kutucukları görebildiğinden, bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere! 
     
-[!NOTE] İstenen boyutunuz haritaya yeniden boyutlandırabilirsiniz olacaktır. Eşlem içindeki bir PIN tıklayarak cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan tıklayabilirsiniz.  
+> [!NOTE] 
+> İstenen boyutunuz haritaya yeniden boyutlandırabilirsiniz olacaktır. Eşlem içindeki bir PIN tıklayarak cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan tıklayabilirsiniz.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Listenin, cihaz kümesi için yapılandırın

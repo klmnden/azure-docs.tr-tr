@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471150"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218602"
 ---
 # <a name="release-notes"></a>Sürüm notları
+
+## <a name="speech-service-sdk-110"></a>Konuşma hizmeti SDK'sını 1.1.0
+
+**Yeni Özellikler**
+
+* Android x86 x64 desteği.
+* Proxy desteği: SpeechConfig nesnesinde artık proxy bilgilerini (ana bilgisayar adı, bağlantı noktası, kullanıcı adı ve parola) ayarlamak için bir işlevi çağırabilirsiniz. Bu özellik henüz İos'ta kullanılabilir değil.
+* Geliştirilmiş hata kodu ve iletileri. Bir tanıma bir hata döndürülürse, bu zaten ayarlanmış `Reason` (içinde iptal edilen olay için) veya `CancellationDetails` (tanıma işleminin sonucu içinde) için `Error`. İptal edilen olay şimdi iki ek üyeleri içeren `ErrorCode` ve `ErrorDetails`. Sunucu ek hata bilgileri ile bildirilen hata döndürdüyse, artık yeni üyeleri kullanılabilir olacaktır.
+
+**Geliştirmeleri**
+
+* Eklenen ek doğrulama tanıyıcı yapılandırma ve eklenen ek hata iletisi.
+* Uzun süreli sessizlik ortasında bir ses dosyasının işlenmesinde'yi tıklatın.
+* NuGet paketi: .NET Framework projeleri AnyCPU yapılandırmayla yapı engellemek.
+
+**Hata düzeltmeleri**
+
+* Tanıyıcılar işlem bulunan birkaç özel durum düzeltildi. Ayrıca özel durum yakalandı ve iptal edildi olaya dönüştürülür.
+* Özellik Yönetimi'nde bir bellek sızıntısı düzeltin.
+* Ses giriş dosyası tanıyıcı kilitlenebiliyordu hata düzeltildi.
+* Olayları sonra oturumu durdurulduğunda burada alınan bir hata düzeltildi.
+* İş parçacığı içinde bazı yarış durumları düzeltildi.
+* Bir iOS bir çökmesine neden neden olabilecek bir uyumluluk sorunu düzeltildi.
+* Android mikrofon desteği kararlılık geliştirmeleri.
+* Javascript'teki bir tanıyıcı tanıma dil yok burada bir hata düzeltildi.
+* (Bazı durumlarda) EndpointId ayarlama engelleyen bir hatayı JavaScript'te düzeltildi.
+* JavaScript ve eklenen eksik AddIntent JavaScript imza AddIntent sırayla değiştirilen bir parametre.
+
+**Örnekler**
+
+* Çekme ve itme kullanımı akış için C++ örnek eklenen bizim [örnek depoyu](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-service-sdk-101"></a>Konuşma hizmeti SDK'sını 1.0.1
 

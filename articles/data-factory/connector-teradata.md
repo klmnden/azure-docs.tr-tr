@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak Teradata veri kopyalama | Microsoft Docs
-description: Olanak sağlayan Data Factory hizmetinin Teradata Bağlayıcısı hakkında bilgi edinin verilerini Teradata veritabanından veri depolarına havuzlarını Data Factory ile desteklenen.
+title: Teradata Azure Data Factory kullanarak verileri kopyalama | Microsoft Docs
+description: Data Factory hizmetinin sağlayan Teradata Connector hakkında havuz Data Factory tarafından desteklenen veri depolarının Teradata veritabanından veri kopyalayın öğrenin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,54 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a2928b202f56674c69e6431201db6d846a9feb9a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 37e7281af87a8cfc57aae95411eb2d4cce9eef65
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045764"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228071"
 ---
-# <a name="copy-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata verilerini
+# <a name="copy-data-from-teradata-using-azure-data-factory"></a>Teradata, Azure Data Factory kullanarak verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Geçerli sürüm](connector-teradata.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de bir Teradata veritabanından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de bir Teradata veritabanından veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna Teradata veritabanından veri kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Teradata veritabanından veri tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu Teradata bağlayıcı destekler:
+Özellikle, bu Teradata bağlayıcı'yı destekler:
 
 - Teradata **sürüm 12 ve yukarıdaki**.
-- Verileri kullanarak kopyalama **temel** veya **Windows** kimlik doğrulaması.
+- Kullanarak verileri kopyalama **temel** veya **Windows** kimlik doğrulaması.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu Teradata bağlayıcıyı kullanmak için aktarmanız gerekir:
+Bu Teradata bağlayıcıyı kullanmak için yapmanız:
 
-- Self-hosted tümleştirme çalışma zamanı ayarlayın. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) Ayrıntılar için makale.
-- Yükleme [Teradata için .NET veri sağlayıcısı](http://go.microsoft.com/fwlink/?LinkId=278886) sürüm 14 veya yukarıdaki tümleştirme çalışma zamanı makinede.
+- Şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan ayarlayın. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makale Ayrıntılar için.
+- Yükleme [Teradata için .NET veri sağlayıcısı](https://go.microsoft.com/fwlink/?LinkId=278886) 14 sürümü veya üzeri tümleştirme çalışma zamanı makinesinde.
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, belirli Data Factory varlıklarını Teradata bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Data Factory varlıklarını belirli Teradata bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikler Teradata bağlantılı hizmeti için desteklenir:
+Bağlı Teradata hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Teradata** | Evet |
-| sunucu | Teradata sunucunun adıdır. | Evet |
-| authenticationType | Teradata veritabanına bağlanmak için kullanılan kimlik doğrulama türü.<br/>İzin verilen değerler: **temel**, ve **Windows**. | Evet |
-| kullanıcı adı | Teradata veritabanına bağlanmak için kullanıcı adını belirtin. | Evet |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
+| sunucu | Teradata sunucusunun adı. | Evet |
+| authenticationType | Teradata veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler: **temel**, ve **Windows**. | Evet |
+| kullanıcı adı | Teradata veritabanına bağlanmak için kullanıcı adı belirtin. | Evet |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
 
 **Örnek:**
 
@@ -88,14 +88,14 @@ Aşağıdaki özellikler Teradata bağlantılı hizmeti için desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde Teradata veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, Teradata veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Teradata verileri kopyalamak için kümesine tür özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
+Teradata verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **RelationalTable** | Evet |
-| tableName | Teradata veritabanına tablo adı. | ("Sorgu" etkinliği kaynağındaki belirtilmişse) yok |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **RelationalTable** | Evet |
+| tableName | Teradata veritabanı tablosunun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek:**
 
@@ -115,16 +115,16 @@ Teradata verileri kopyalamak için kümesine tür özelliği ayarlamak **Relatio
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Teradata kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Teradata kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="teradata-as-source"></a>Kaynak olarak Teradata
+### <a name="teradata-as-source"></a>Teradata kaynağı olarak
 
-Teradata verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **RelationalSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Teradata verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **RelationalSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **RelationalSource** | Evet |
-| sorgu | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | (Veri kümesinde "tableName" belirtilmişse) yok |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
@@ -160,50 +160,50 @@ Teradata verileri kopyalamak için kopyalama etkinliği için kaynak türünü a
 
 ## <a name="data-type-mapping-for-teradata"></a>Teradata için eşleme veri türü
 
-Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
+Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemeler Teradata veri türlerinden Azure veri fabrikası geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) eşlemelerini nasıl yapar? kopyalama etkinliği kaynak şema ve veri türü için havuz hakkında bilgi edinmek için.
 
 | Teradata veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |Byte] |
-| Bayt |Byte] |
+| Blob |Bayt] |
+| Bayt |Bayt] |
 | ByteInt |Int16 |
-| char |Dize |
+| Char |Dize |
 | CLOB |Dize |
 | Tarih |DateTime |
 | Ondalık |Ondalık |
 | çift |çift |
 | Grafiği |Dize |
 | Tamsayı |Int32 |
-| Aralık gün |TimeSpan |
-| Saat gün aralığı |TimeSpan |
-| Dakika gün aralığı |TimeSpan |
-| İkinci gün aralığı |TimeSpan |
-| Aralık saat |TimeSpan |
-| Aralık saat dakika |TimeSpan |
-| İkinci aralığı saate |TimeSpan |
-| Aralık dakika |TimeSpan |
-| İkinci için aralığı dakika |TimeSpan |
+| Gün aralığı |Zaman aralığı |
+| Saat gün aralığı |Zaman aralığı |
+| Dakika gün aralığı |Zaman aralığı |
+| İkinci gün aralığı |Zaman aralığı |
+| Saat aralığı |Zaman aralığı |
+| Aralığı saat dakika |Zaman aralığı |
+| İkinci saat aralığı |Zaman aralığı |
+| Aralık dakika |Zaman aralığı |
+| İkinci aralık dakika |Zaman aralığı |
 | Aralık ayı |Dize |
-| Aralığı ikinci |TimeSpan |
+| Aralık ikinci |Zaman aralığı |
 | Aralığı yıl |Dize |
-| Aralığı yıl ay için |Dize |
+| Yıl ay aralığı |Dize |
 | Sayı |çift |
 | Period(Date) |Dize |
 | Period(Time) |Dize |
-| Süresi (saat dilimi ile) |Dize |
+| Süresi (saat dilimiyle birlikte) |Dize |
 | Period(timestamp) |Dize |
-| Süre (saat dilimi damgasıyla) |Dize |
+| Süre (saat dilimi ile zaman damgası) |Dize |
 | Tamsayı |Int16 |
-| Zaman |TimeSpan |
-| Saat dilimi süresiyle |Dize |
+| Zaman |Zaman aralığı |
+| Saat dilimi ile zaman |Dize |
 | Zaman damgası |DateTime |
-| Saat dilimi zaman damgası |DateTimeOffset |
-| VarByte |Byte] |
+| Saat dilimi ile zaman damgası |DateTimeOffset |
+| VarByte |Bayt] |
 | VarChar |Dize |
 | VarGraphic |Dize |
 | Xml |Dize |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -16,7 +16,7 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.openlocfilehash: 53c50ba75a16c58d7936a6f06de87218f67f5951
 ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2018
 ms.locfileid: "51219605"

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 425aa26c07675d57de6892adb5792eb5573f94b1
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747992"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005607"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure'da iç içe sanallaştırma kullanarak Azure VM ilgili bir sorun giderme
 
@@ -101,7 +101,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 11. Seçin **daha sonra bir sanal sabit disk ekleme**.
 
-    ![bir sonraki Sanal Sabit Disk seçeneği ekleme hakkında görüntü](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![bir sonraki Sanal Sabit Disk seçeneği ekleme hakkında görüntü](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Seçin **son** VM oluşturulduğunda.
 
@@ -109,11 +109,11 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 14. Seçin **IDE Denetleyicisi 0**seçin **sabit sürücüsü**ve ardından **Ekle**.
 
-    ![Yeni sabit sürücü görüntüsü hakkında ekler](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![Yeni sabit sürücü görüntüsü hakkında ekler](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. İçinde **fiziksel sabit Disk**, sorunun, Azure VM'ye VM diski seçin. Listelenen tüm diskleri görmüyorsanız, diskin Disk Yönetimi'ni kullanarak çevrimdışı ayarlanırsa denetleyin.
 
-    ![görüntünün hakkında diskini bağlar](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![görüntünün hakkında diskini bağlar](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. **Uygula**’yı ve sonra **Tamam**’ı seçin.
@@ -130,11 +130,11 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 3.  Git **tüm kaynakları**, disk adını arayın ve ardından diski seçin.
 
-     ![disk görüntüsü hakkında arar](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![disk görüntüsü hakkında arar](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Tıklayın **VM oluşturma**.
 
-     ![görüntünün hakkında diskten vm oluşturur.](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![görüntünün hakkında diskten vm oluşturur.](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Diskten VM oluşturmak için Azure PowerShell'i de kullanabilirsiniz. Daha fazla bilgi için [PowerShell kullanarak var olan bir diskten yeni bir VM oluşturma](../windows/create-vm-specialized.md#create-the-new-vm). 
 

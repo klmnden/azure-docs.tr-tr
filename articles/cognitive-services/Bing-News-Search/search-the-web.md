@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023211"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227867"
 ---
 # <a name="what-is-bing-news-search"></a>Bing Haber Arama nedir?
 
@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 
 Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
 
-Belirli bir etki alanındaki haberleri almak için [site:](http://msdn.microsoft.com/library/ff795613.aspx) sorgu işlecini kullanın.
+Belirli bir etki alanındaki haberleri almak için [site:](https://msdn.microsoft.com/library/ff795613.aspx) sorgu işlecini kullanın.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1

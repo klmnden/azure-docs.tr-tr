@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7d11d238b921c63d1d2317371da07d8e49e8ac9d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301981"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228632"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync'ten yükseltme
 Azure AD Connect, DirSync'in yerini almıştır. Bu konu başlığı altında DirSync'ten yükseltme yöntemlerini bulabilirsiniz. Bu adımlar, Azure AD Connect'in başka bir sürümünden veya Azure AD Eşitleme'den yapılacak yükseltmeler için geçerli değildir.
 
-Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](http://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](how-to-connect-install-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun. Bu alanlar DirSync’ten farklı olduğu için özellikle aşağıdakiler hakkında bilgi edinmek isteyebilirsiniz:
+Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](https://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](how-to-connect-install-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun. Bu alanlar DirSync’ten farklı olduğu için özellikle aşağıdakiler hakkında bilgi edinmek isteyebilirsiniz:
 
 * Gerekli .Net ve PowerShell sürümü. Sunucuda, DirSync’in gerektirdiğinden daha yeni sürümlerin bulunması gerekir.
 * Ara sunucu yapılandırması. İnternet’e erişmek için bir ara sunucu kullanıyorsanız yükseltmeden önce bu ayarın yapılandırılması gerekir. DirSync her zaman programı yükleyen kullanıcı için yapılandırılan ara sunucuyu kullanıyordu, ancak Azure AD Connect bunun yerine makine ayarlarını kullanır.

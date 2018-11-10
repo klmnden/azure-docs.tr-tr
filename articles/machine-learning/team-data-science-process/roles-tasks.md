@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c245a844ae594f5d78b47a168ad5870f8aea10e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296712"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227782"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process roller ve görevler
 
@@ -66,7 +66,7 @@ Bu şema ve her TDSP rolüne atanmış olan görevleri aşağıdaki, ayrıntıl�
 > [!NOTE]
 > Aşağıdaki yönergeler, nasıl bir TDSP ortamı ayarlayın ve diğer Azure DevOps veri bilimi görevleri tamamlamak adımları göstermektedir. Biz ne Microsoft'ta TDSP uygulamak için kullanıyoruz olduğu için Azure DevOps ile bu görevleri gerçekleştirmek üzere nasıl belirtin. Azure DevOps, yönetim görevlerini izleme iş öğelerinin tümleştirerek işbirliği yapılmasını kolaylaştırır ve yardımcı programlar, paylaşmak için kullanılan bir kod barındırma hizmeti sürümleri düzenlemek ve rol tabanlı güvenlik sağlar. TDSP tarafından özetlenen görevleri uygulamak için tercih ederseniz, diğer platformları seçebilirsiniz. Ancak, platforma bağlı olarak, Azure DevOps ' yararlanılarak bazı özellikleri kullanılamayabilir. 
 >
->Buradaki yönergeleri de [veri bilimi sanal makinesi (DSVM)](http://aka.ms/dsvm) Azure bulut analizi Masaüstü gibi çeşitli Microsoft yazılım ve Azure ile tümleşik ve önceden yapılandırılmış çeşitli popüler veri bilimi araçları ile Hizmetler. TDSP uygulamak için DSVM veya herhangi bir geliştirme ortamı'nı kullanabilirsiniz. 
+>Buradaki yönergeleri de [veri bilimi sanal makinesi (DSVM)](https://aka.ms/dsvm) Azure bulut analizi Masaüstü gibi çeşitli Microsoft yazılım ve Azure ile tümleşik ve önceden yapılandırılmış çeşitli popüler veri bilimi araçları ile Hizmetler. TDSP uygulamak için DSVM veya herhangi bir geliştirme ortamı'nı kullanabilirsiniz. 
 
 
 ## <a name="group-manager-tasks"></a>Grup yöneticisi görevleri

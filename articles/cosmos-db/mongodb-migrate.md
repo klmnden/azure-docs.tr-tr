@@ -4,93 +4,39 @@ description: MongoDB hesabı için bir API’ye verileri içeri aktarmak için m
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: SnehaGunda
-manager: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: sclyon
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 56d885fa4a52c907ef2b7eab10899191a1ac3acd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248540"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741037"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Verilerinizi Azure Cosmos DB MongoDB API hesabına geçirme
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Öğretici: Verilerinizi Azure Cosmos DB MongoDB API hesabına geçirme
 
-MongoDB’deki verileri, MongoDB’ye yönelik bir API ile kullanılacak bir Azure Cosmos DB hesabına geçirmek için şunları yapmalısınız:
-
-* [MongoDB İndirme Merkezi](https://www.mongodb.com/download-center)’nden topluluk sürücüsünü indirip yükleyin.
-* "Yükleme klasörü/bin" dizinindeki mongoimport.exe veya mongorestore.exe dosyasını kullanın. 
-* [MongoDB için API bağlantı dizenizi](connect-mongodb-account.md) alın.
-
-MongoDB’den verileri içeri aktarıyor ve bunları Azure Cosmos DB SQL API’siyle kullanmayı planlıyorsanız, verileri içeri aktarmak için [Veri Geçiş aracını](import-data.md) kullanmanız gerekir.
+Bu öğreticide MongoDB'de depolanan verileri Azure Cosmos DB MongoDB API'si hesabına geçirme adımları açıklanmaktadır. MongoDB’den verileri içeri aktarıyor ve bunları Azure Cosmos DB SQL API’siyle kullanmayı planlıyorsanız, verileri içeri aktarmak için [Veri Geçiş aracını](import-data.md) kullanmanız gerekir.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Bağlantı dizenizi alma
-> * Mongoimport kullanarak MongoDB verilerini içeri aktarma
-> * Mongorestore kullanarak MongoDB verilerini içeri aktarma
+> * Geçiş planlaması
+> * Geçiş önkoşulları
+> * mongoimport'u kullanarak veri geçirme
+> * mongorestore'u kullanarak veri geçirme
 
-## <a name="prerequisites"></a>Ön koşullar
+Verileri MongoDB API'si hesabına geçirmeden önce örnek MongoDB verilerine sahip olduğunuzdan emin olun. Örnek MongoDB veritabanınız yoksa [MongoDB community server](https://www.mongodb.com/download-center) sürümünü indirip yükleyebilir, örnek bir veritabanı oluşturabilir ve örnek verileri mongoimport.exe veya mongorestore.exe ile karşıya yükleyebilirsiniz. 
 
-* **Aktarım hızını artırma:** Veri geçişinizin süresi, tek bir koleksiyon veya bir koleksiyon kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. [Azure portalında](https://portal.azure.com) aktarım hızını artırma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları](performance-levels.md).
-
-* **SSL’yi etkinleştirme:** Azure Cosmos DB sıkı güvenlik gereksinimleri ve standartlarına sahiptir. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. Makalenin devamındaki yordamlar mongoimport ve mongorestore için SSL’yi etkinleştirmeyi içerir.
-
-* **Azure Cosmos DB kaynaklarını oluşturma:** Veri geçişini başlatmadan önce Azure portaldan tüm koleksiyonlarınızı oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB koleksiyonlarını oluştururken bölüm anahtarı girdiğinizden emin olun.
-
-## <a name="get-your-connection-string"></a>Bağlantı dizenizi alma 
-
-1. [Azure portalında](https://portal.azure.com), sol bölmeden **Azure Cosmos DB** girdisine tıklayın.
-1. **Abonelikler** bölmesinde, hesabınızın adını seçin.
-1. **Bağlantı Dizesi** dikey penceresinde **Bağlantı Dizesi**’ne tıklayın.
-
-   Sağ bölme, hesabınıza başarıyla bağlanmak için gereken tüm bilgileri içerir.
-
-   ![Bağlantı Dizesi dikey penceresi](./media/mongodb-migrate/ConnectionStringBlade.png)
-
-## <a name="migrate-data-by-using-mongoimport"></a>mongoimport'u kullanarak veri geçirme
-
-Azure Cosmos DB hesabınıza verileri içeri aktarmak için, aşağıdaki şablonu kullanın. *Konak*, *kullanıcı adı* ve *parola* alanlarını hesabınıza özgü değerlerle doldurun.  
-
-Şablon:
-
-```bash
-    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
-```
-
-Örnek:  
-
-```bash
-    mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
-```
-
-## <a name="migrate-data-by-using-mongorestore"></a>mongorestore'u kullanarak veri geçirme
-
-MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmayı yürütmek üzere aşağıdaki şablonu kullanın. *Konak*, *kullanıcı adı* ve *parola* alanlarını hesabınıza özgü değerlerle doldurun.
-
-Şablon:
-
-```bash
-    mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
-```
-
-Örnek:
-
-```bash
-    mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
-```
-    
-## <a name="steps-for-a-successful-migration"></a>Başarılı geçiş adımları
+## <a name="plan-for-migration"></a>Geçiş planlaması
 
 1. Koleksiyonlarınızı önceden oluşturup ölçeklendirin:
         
-    * Varsayılan olarak, Azure Cosmos DB yeni bir MongoDB koleksiyonun saniyede 1.000 istek birimiyle (RU/sn) sağlar. Mongoimport veya mongorestore'u kullanarak geçişi başlatmadan önce, [Azure portal](https://portal.azure.com)'dan veya MongoDB sürücülerinden ve araçlarından tüm koleksiyonlarınızı önceden oluşturun. Veri boyutu 10 GB'ın üzerindeyse uygun bir parça anahtarıyla [parçalı/bölümlenmiş koleksiyon](partition-data.md) oluşturduğunuzdan emin olun.
+    * Varsayılan olarak, Azure Cosmos DB yeni bir MongoDB koleksiyonun saniyede 1.000 istek birimiyle (RU/sn) sağlar. Mongoimport veya mongorestore'u kullanarak geçişi başlatmadan önce, [Azure portal](https://portal.azure.com)'dan veya MongoDB sürücülerinden ve araçlarından tüm koleksiyonlarınızı önceden oluşturun. Veri boyutu 10 GB'ın üzerindeyse uygun bir parça anahtarıyla [bölümlenmiş koleksiyon](partition-data.md) oluşturduğunuzdan emin olun.
 
     * [Azure portal](https://portal.azure.com)'dan, yalnızca geçiş için, koleksiyonunuzun aktarım hızını tek bir bölüm koleksiyonu için 1.000 RU/sn üzeri, parçalı koleksiyon için 2.500 RU/sn üzeri olacak şekilde artırın. Daha yüksek aktarım hızı ile, hız sınırlamayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Maliyetlerden tasarruf etmek için geçişten hemen sonra aktarım hızını düşürebilirsiniz.
 
@@ -143,9 +89,9 @@ MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmay�
     
     b. Veritabanına karşı basit bir sorgu çalıştırma: ```db.coll.find().limit(1)```. Aşağıdaki gibi bir yanıt alırsınız:
 
-        ```
-        Fetched 1 record(s) in 100(ms)
-        ```
+       ```bash
+       Fetched 1 record(s) in 100(ms)
+       ```
         
 1. Yinelenen belgeler olmadığından emin olmak için geçişten önce eklenen belgeyi kaldırın. Bu komutu kullanarak belgeleri kaldırabilirsiniz: ```db.coll.remove({})```
 
@@ -169,16 +115,66 @@ MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmay�
     
     *numInsertionWorkers = (10000 RU x 0,1 s) / (24 x 10 RU) = 4,1666*
 
-1. Son geçiş komutunu çalıştırın:
+1. Geçiş komutunu çalıştırın. Veri geçirme seçenekleri aşağıdaki bölümlerde açıklanmıştır.
 
    ```bash
-   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
    ```
-   Alternatif olarak mongorestore kullanabilirsiniz (tüm koleksiyonlarda aktarım hızının önceki hesaplamalarda kullanılan miktarda veya daha fazla RU olarak ayarlandığından emin olun):
+   Alternatif olarak mongorestore kullanabilirsiniz (tüm koleksiyonlarda aktarım hızının önceki hesaplamalarda kullanılan sayıda veya daha fazla RU olarak ayarlandığından emin olun):
    
    ```bash
-   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
+   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
    ```
+
+## <a name="prerequisites-for-migration"></a>Geçiş önkoşulları
+
+* **Aktarım hızını artırma:** Veri geçişinizin süresi, tek bir koleksiyon veya bir koleksiyon kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. [Azure portalında](https://portal.azure.com) aktarım hızını artırma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları](performance-levels.md).
+
+* **SSL’yi etkinleştirme:** Azure Cosmos DB sıkı güvenlik gereksinimleri ve standartlarına sahiptir. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. Makalenin devamındaki yordamlar mongoimport ve mongorestore için SSL’yi etkinleştirmeyi içerir.
+
+* **Azure Cosmos DB kaynaklarını oluşturma:** Veri geçişini başlatmadan önce Azure portaldan tüm koleksiyonlarınızı oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB koleksiyonlarını oluştururken bölüm anahtarı girdiğinizden emin olun.
+
+## <a name="get-your-connection-string"></a>Bağlantı dizenizi alma 
+
+1. [Azure portalında](https://portal.azure.com), sol bölmeden **Azure Cosmos DB** girdisine tıklayın.
+1. **Abonelikler** bölmesinde, hesabınızın adını seçin.
+1. **Bağlantı Dizesi** dikey penceresinde **Bağlantı Dizesi**’ne tıklayın.
+
+   Sağ bölme, hesabınıza başarıyla bağlanmak için gereken tüm bilgileri içerir.
+
+   ![Bağlantı Dizesi dikey penceresi](./media/mongodb-migrate/ConnectionStringBlade.png)
+
+## <a name="migrate-data-by-using-mongoimport"></a>mongoimport'u kullanarak veri geçirme
+
+Azure Cosmos DB hesabınıza verileri içeri aktarmak için, aşağıdaki şablonu kullanın. *Konak*, *kullanıcı adı* ve *parola* alanlarını hesabınıza özgü değerlerle doldurun.  
+
+Şablon:
+
+```bash
+mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
+```
+
+Örnek:  
+
+```bash
+mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
+```
+
+## <a name="migrate-data-by-using-mongorestore"></a>mongorestore'u kullanarak veri geçirme
+
+MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmayı yürütmek üzere aşağıdaki şablonu kullanın. *Konak*, *kullanıcı adı* ve *parola* alanlarını hesabınıza özgü değerlerle doldurun.
+
+Şablon:
+
+```bash
+mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
+```
+
+Örnek:
+
+```bash
+mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406526"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006203"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C'de kullanılabilir uygulama türleri
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) B2C, çeşitli modern uygulama mimarilerinin i
 Azure AD B2C'yi kullanan her uygulamanın kayıtlı olması gerekir, [Azure AD B2C kiracısı](active-directory-b2c-get-started.md) kullanarak [Azure portalı](https://portal.azure.com/). Uygulama kayıt işlemi toplar ve değerleri gibi atar:
 
 * Bir **uygulama kimliği** , uygulamanızın benzersiz olarak tanımlar.
-* A **yeniden yönlendirme URI'si** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir.
+* A **yanıt URL'si** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir.
 
 Azure AD B2C'ye gönderilen her istek bir **ilke** belirtir. Bir ilke Azure AD davranışını denetler. Bu uç noktaları, yüksek oranda ölçeklenebilir kullanıcı deneyimi kümesi oluşturmak için de kullanabilirsiniz. Ortak ilkelere kaydolma, oturum açma ve profil düzenleme ilkeleri dahildir. İlkeler hakkında bilginiz yoksa devam etmeden önce Azure AD B2C [genişletilebilir ilke çerçevesini](active-directory-b2c-reference-policies.md) okumanız gerekir.
 
@@ -112,9 +112,9 @@ Bu akışta uygulama yürütür [ilkeleri](active-directory-b2c-reference-polici
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
-Azure AD B2C şu anda aşağıdaki uygulama türlerini desteklememektedir, ancak hizmetin bunları daha sonra desteklemesi planlanmaktadır. 
+### <a name="application-not-supported"></a>Uygulama desteklenmiyor 
 
-### <a name="daemonsserver-side-applications"></a>Daemon'lar/sunucu tarafı uygulamalar
+#### <a name="daemonsserver-side-applications"></a>Daemon'lar/sunucu tarafı uygulamalar
 
 Uzun süre çalışan işlemler içeren veya bir kullanıcı varlığı çalışan uygulamalar da web API'leri gibi güvenli kaynaklara erişmek için bir yol gerekir. Bu uygulamalar, kimlik doğrulaması ve kimlik bilgileri akışı uygulamanın kimliğini (bir kullanıcının Devredilmiş kimliği yerine) kullanarak ve OAuth 2.0 istemci kullanarak belirteçleri alın. Sunucudan sunucuya kimlik doğrulaması için şirket adına-akış ve şirket adına-akış kullanılmamalıdır istemci kimlik bilgileri akışı aynı değildir.
 
@@ -122,9 +122,60 @@ Uzun süre çalışan işlemler içeren veya bir kullanıcı varlığı çalış
 
 İstemci kimlik bilgileri akışı ayarlamak için bkz [Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Azure AD tarafından açıklandığı gibi kullanılabilir olacak şekilde biçimlendirilmiş bir belirteç kaydınızda başarılı bir kimlik doğrulaması sonuçlanır [Azure AD belirteç başvurusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
-### <a name="web-api-chains-on-behalf-of-flow"></a>Web API'si zincirleri (temsili akış)
+#### <a name="web-api-chains-on-behalf-of-flow"></a>Web API'si zincirleri (temsili akış)
 
 Çoğu mimari başka bir aşağı akış web API'si çağırmayı gerektiren bir web API'si içerir; her iki API de Azure AD B2C tarafından güvence altına alınır. Bu senaryo, Web API'si arka ucuna sahip yerel istemcilerde yaygındır. Bu, ardından Azure AD Graph API'si gibi bir Microsoft çevrimiçi hizmetini çağırır.
 
 Bu zincirli web API'si senaryosu, temsili akış olarak da bilinen OAuth 2.0 JWT taşıyıcı kimlik bilgisi yetkisi kullanılarak desteklenebilir.  Ancak temsili akış şu anda Azure AD B2C’de uygulanmamıştır.
+
+### <a name="reply-url-values"></a>Yanıt URL'si değeri
+
+Şu anda Azure AD B2C’ye kayıtlı uygulamalar sınırlı sayıda yanıt URL'si değeri ile kısıtlıdır. Web uygulamaları ve hizmetlerine yönelik yanıt URL’si, `https` şemasıyla başlamalı ve tüm yanıt URL’si değerleri tek bir DNS etki alanını paylaşmalıdır. Örneğin, şu yanıt URL'lerinden birine sahip bir web uygulamasını kaydedemezsiniz:
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Kayıt sistemi mevcut yanıt URL'sinin tam DNS adını, eklemekte olduğunuz yanıt URL'sinin DNS adı ile karşılaştırır. Aşağıdaki koşullardan biri geçerli olduğunda DNS adı ekleme isteği başarısız olur:
+
+- Yeni yanıt URL'sinin tam DNS adı, mevcut yanıt URL'sinin DNS adı ile eşleşmiyorsa.
+- Yeni yanıt URL'sinin tam DNS adı, mevcut yanıt URL'sinin alt etki alanı değilse.
+
+Örneğin, uygulamanın yanıt URL'si şu ise:
+
+`https://login.contoso.com`
+
+Aşağıdaki gibi ekleme yapabilirsiniz:
+
+`https://login.contoso.com/new`
+
+Bu durumda, DNS adı tam olarak eşleşir. Ya da şunu yapabilirsiniz:
+
+`https://new.login.contoso.com`
+
+Bu durumda, login.contoso.com DNS alt etki alanına başvurursunuz. Yanıt URL’leri login-east.contoso.com ve login-west.contoso.com olan bir uygulamanızın olmasını istiyorsanız, bu yanıt URL’lerini şu sırayla eklemeniz gerekir:
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Sonraki iki yanıt URL’si, ilk yanıt URL'si olan contoso.com’un alt etki alanları olduğu için bunları ekleyebilirsiniz. 
+
+Mobil/yerel uygulamalar oluştururken, tanımladığınız bir **yeniden yönlendirme URI'si** yerine bir **yeniden yürütme URL'si**. Bir yeniden yönlendirme URI'si seçerken iki önemli noktalar vardır:
+
+- **Benzersiz**: Yeniden yönlendirme URI’si şeması her uygulama için benzersiz olmalıdır. Örnekte `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` düzenidir. Bu düzen gelmelidir. İki uygulama aynı şemayı paylaşıyorsa, kullanıcının gördüğü bir **uygulamayı seçin** iletişim. Kullanıcı yanlış seçim yaparsa, oturum açma başarısız olur.
+- **Tam**: Yeniden yönlendirme URI’sinin bir şeması ve yolu olmalıdır. Yol, etki alanından sonra en az bir eğik çizgi içermelidir. Örneğin, `//contoso/` çalışır ve `//contoso` başarısız olur. Yeniden yönlendirme URI'si, alt çizgi gibi özel karakterler olmadığından emin olun.
+
+### <a name="faulted-apps"></a>Hatalı uygulamalar
+
+Azure AD B2C uygulamaları düzenlenmemelidir:
+
+- Diğer uygulama yanıt portallarında gibi [uygulama kayıt portalı](https://apps.dev.microsoft.com/).
+- Graph API'si veya PowerShell kullanarak.
+
+Azure portalında dışında Azure AD B2C uygulamasını düzenlerseniz, hatalı bir uygulama haline gelir ve Azure AD B2C ile artık kullanılamaz. Uygulamayı silip yeniden oluşturmanız gerekir.
+
+Uygulamayı silmek için Git [uygulama kayıt portalı](https://apps.dev.microsoft.com/) ve uygulamayı silin. Uygulamanın görünür olması için uygulamanın sahibi olmanız (ve yalnızca kiracının yöneticisi olmamanız) gerekir.
+

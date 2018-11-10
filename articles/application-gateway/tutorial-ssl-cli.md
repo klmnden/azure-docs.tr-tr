@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7fa581610e007c583dfbad512f74ad335dc21a1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3364df360926f2065af8650076e129de75934c1a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974451"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741024"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak SSL sonlandırma ile bir uygulama ağ geçidi oluşturma
 
@@ -155,15 +155,17 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
+Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) komutunu kullanın.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
 ```
+
+Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Bu örnekte URL: **https://52.170.203.149**.
 
 ![Güvenli uyarı](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -180,14 +182,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Otomatik olarak imzalanan sertifika oluşturma
-> * Ağ ayarlama
-> * Sertifikalı bir uygulama ağ geçidi oluşturma
-> * Varsayılan arka uç havuzuyla bir sanal makine ölçek kümesi oluşturma
 
 > [!div class="nextstepaction"]
 > [Birden çok web sitesi barındıran bir uygulama ağ geçidi oluşturma](./tutorial-multiple-sites-cli.md)

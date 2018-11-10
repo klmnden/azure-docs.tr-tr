@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1fa31b23aa8df73b13e73da80096596bf1ce2db3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093311"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005759"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi
 Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek için Azure depolama ile yüksek düzeyde paralel işleme (MPP) nasıl birleştirir öğrenin. 
@@ -23,7 +23,7 @@ Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek içi
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="mpp-architecture-components"></a>MPP mimarisi bileşenleri
-SQL veri ambarı mimarisi, birden fazla düğümde hesaplama verilerinin işlenmesini dağıtmak için bir genişleme yararlanır. Ölçek birimi, bir veri ambarı birimi bilinen işlem gücü için kullanılan bir soyutlamadır. Hangi etkinleştirir, ölçeklendirmek için bağımsız olarak sisteminizdeki işlem verileri depolama alanından SQL veri ambarı ayırır işlem.
+SQL veri ambarı mimarisi, birden fazla düğümde hesaplama verilerinin işlenmesini dağıtmak için bir genişleme yararlanır. Ölçek birimi olarak bilinen işlem gücü bir soyutlamadır bir [veri ambarı birimi](what-is-a-data-warehouse-unit-dwu-cdwu.md). Hangi etkinleştirir, ölçeklendirmek için bağımsız olarak sisteminizdeki işlem verileri depolama alanından SQL veri ambarı ayırır işlem.
 
 ![SQL Data Warehouse Mimarisi](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

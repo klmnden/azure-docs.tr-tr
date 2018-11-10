@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/12/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b1f7120b3758e35d818aedbcc3b85feca44f8c33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129667"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006167"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ kaynaklarınızı koruma
 Azure Güvenlik Merkezi, ağ güvenliği için en iyi uygulamalar, Azure kaynaklarınızın güvenlik durumunu sürekli olarak analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde sağlamlaştırmak ve kaynaklarınızı korumak için gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.
@@ -126,6 +126,20 @@ Bu topoloji görünümünde ilk düzeyde sanal ağlar görüntüler. İkinci gö
 
 Üçüncü düzey daha önce açıklanana için benzer sanal makineler, görüntülenir. Daha fazla bilgi edinmek veya gerekli güvenlik denetimini veya yapılandırmasını uygulamak için herhangi bir kaynağa tıklayabilirsiniz.
 
+## <a name="network-recommendations"></a>Ağ önerileri
+
+|Kaynak türü|Güvenlik puanı|Öneri|Açıklama|
+|----|----|----|----|
+|Makine|40|Sanal makinelerde Ağ Güvenlik Gruplarını etkinleştirme|Ağ güvenlik grupları, sanal makinelerinizin ağ erişimini denetlemenize imkan sağlar.|
+|Alt ağ|35|Alt ağlardaki ağ güvenlik gruplarını etkinleştirme |Ağ güvenlik grupları, alt ağlara dağıtılan kaynakların ağ erişimini denetlemenize imkan sağlar.|
+|Makine|30|Anlık ağ erişim denetimi uygulama|Seçili bağlantı noktalarına erişim kalıcı olarak kilitlemek için yalnızca zaman VM erişimi denetimi uygulayın ve aynı mekanizması aracılığıyla ve sınırlı bir süre için açmak yetkili kullanıcıların etkinleştirin.|
+|Makine|20|İnternet'e yönelik uç nokta ile erişimi kısıtlama|Ağ güvenlik gruplarını, Vm'leri varolan erişimi kısıtlayarak, Internet sağlamlaştırmak kuralları sağlar.|
+|Makine|10|Yeni nesil güvenlik duvarı ekleme|VM'ler, Internet'e daha iyi korunması için bir sonraki Generation Firewall (NGFW) çözüme ekleyin.|
+|Makine|5|Ağ geçidi sadece güvenlik duvarı aracılığıyla trafiği yönlendirme|Sonraki nesil güvenlik duvarı çözümünüzün dağıtımını tamamlamak için korumalı internet'e yönelik Vm'leri trafiği yalnızca ileri nesil güvenlik duvarı çözüm yönlendirileceğini.|
+|Sanal ağ|5|DDoS koruma standardını etkinleştir|Bu sanal ağlardaki genel IP'ler uygulamalarla, DDOS koruması hizmeti standart korunmaz. Ağ volumetric Protokolü saldırıları ve azaltma olanağı sağlamak için önerilir.|
+|Makine|10|Yeni nesil güvenlik duvarı ekleme|dd Vm'leri, Internet'e daha iyi korunması için bir sonraki Generation Firewall (NGFW) çözümü.|
+|Makine|5|Ağ geçidi sadece güvenlik duvarı aracılığıyla trafiği yönlendirme|Sonraki nesil güvenlik duvarı çözümünüzün dağıtımını tamamlamak için korumalı Internet'e yönelik Vm'leri trafiği yalnızca ileri nesil güvenlik duvarı çözüm yönlendirileceğini.|
+Vnet|5|DDoS koruma standardını etkinleştir|DDOS koruması hizmeti standart genel IP adresleri, bu sanal ağlardaki uygulamalarla korunmaz. Ağ volumetric Protokolü saldırıları ve azaltma olanağı sağlamak için önerilir.|
 ## <a name="see-also"></a>Ayrıca bkz.
 Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi için aşağıdakilere bakın:
 

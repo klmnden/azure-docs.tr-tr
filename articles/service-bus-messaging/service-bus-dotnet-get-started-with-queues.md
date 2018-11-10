@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 0d3cbc83c5d2558d7eba3de897477814df81893c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1dd47dea86478c76ed5bf6f8b393964f97231908
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242441"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226966"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
 
@@ -34,7 +34,7 @@ Bu öğreticide aşağıdaki adımlar yer almaktadır:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-1. [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](http://www.visualstudio.com/vs) veya sonraki sürümler.
+1. [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](https://www.visualstudio.com/vs) veya sonraki sürümler.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya sonraki sürümler.
 2. Azure aboneliği.
 

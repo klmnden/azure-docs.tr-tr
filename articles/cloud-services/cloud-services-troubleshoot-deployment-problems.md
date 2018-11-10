@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095006"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226949"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Cloud service dağıtım sorunlarını giderme
 Azure'a bir bulut hizmeti uygulama paketini dağıttığınızda, dağıtımdan hakkında bilgi edinebilirsiniz **özellikleri** bölmesinde Azure portalında. Bulut hizmeti sorunları gidermenize yardımcı olması için bu bölmede ayrıntılarını kullanabilirsiniz ve, bu bilgiler Azure desteği için yeni bir destek isteği açma sağlayabilirsiniz.
@@ -50,7 +50,7 @@ Azure sorun düğümleri algılar ve bu nedenle rol örnekleri için yeni düğ�
 2. İçinde **özellikleri** Azure portal'ın bölmesinde bilgileri gözden geçirin ve hizmet onarımı olanaklarından yararlanarak rollerinin geri dönüşüme uğramasının gözlemlenen süre boyunca oluşup oluşmadığını belirleyin.
 
 Roller ayrıca kabaca ayda bir kez ana bilgisayar işletim sistemi ve konuk işletim sistemi güncelleştirmeleri sırasında geri dönüşüm.  
-Daha fazla bilgi için bkz. blog gönderisine [rol örneği yeniden nedeniyle işletim sistemi yükseltmeleri](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Daha fazla bilgi için bkz. blog gönderisine [rol örneği yeniden nedeniyle işletim sistemi yükseltmeleri](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Sorun: Ben olamaz bir VIP takası yapmak ve bir hata alıyorum
 Dağıtım güncelleştirme devam ediyor durumunda bir VIP takası izin verilmez. Dağıtım güncelleştirmeleri otomatik olarak gerçekleşebilir olduğunda:
@@ -68,14 +68,14 @@ Bir otomatik güncelleştirme yapmasını bir VIP takası engellemediğini öğr
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Sorun: Bir rol örneği başlatıldı, başlatılıyor, meşgul ve durduruldu arasında döngü
 Bu durum, uygulama kodunuz, paketiniz veya yapılandırma dosyanızla ilgili bir sorundan kaynaklanıyor olabilir. Bu durumda, birkaç dakikada değiştirme durum görmeye olmalı ve Azure portalı gibi gözükebilir **geri dönüştürme**, **meşgul**, veya **başlatılıyor**. Bu olduğunu bir şey yanlış bir rol örneği çalışmasını engelliyor uygulamayla gösterir.
 
-Bu sorunu gidermeye ilişkin daha fazla bilgi için blog gönderisine bakın [Azure PaaS işlem Tanılama verileri](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) ve [rollerin geri dönüştürülmesine neden olan yaygın sorunlar](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Bu sorunu gidermeye ilişkin daha fazla bilgi için blog gönderisine bakın [Azure PaaS işlem Tanılama verileri](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) ve [rollerin geri dönüştürülmesine neden olan yaygın sorunlar](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## <a name="problem-my-application-stopped-working"></a>Sorun: Uygulamam çalışmıyor
 1. Azure portalında rol örneğine tıklayın.
 2. İçinde **özellikleri** bölmesinde Azure portal'ın, sorununuzu çözmek için aşağıdaki koşulları göz önünde bulundurun:
    * Rol örneği yakın zamanda durursa (değerini kontrol edebilirsiniz **durdurma sayısı**), dağıtım güncelleştiriliyor. Rol örneği kendi üzerinde çalışmayı sürdürür, görmek için bekleyin.
    * Rol örneği ise **meşgul**, uygulama kodunuz için denetleyin [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) olayı işlenir. Ekleme veya bu olayı işleyen kod düzeltme gerekebilir.
-   * Tanılama verilerine gidin ve sorun giderme senaryoları blog gönderisinde [Azure PaaS işlem Tanılama verileri](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+   * Tanılama verilerine gidin ve sorun giderme senaryoları blog gönderisinde [Azure PaaS işlem Tanılama verileri](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]
 > Bulut hizmetinize Geri Dönüşüm, özelliklerini dağıtımı için etkili bir şekilde özgün sorun bilgilerini silme sıfırlayın.
@@ -85,4 +85,4 @@ Bu sorunu gidermeye ilişkin daha fazla bilgi için blog gönderisine bakın [Az
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazlasını görüntüle [sorun giderme makaleleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) bulut Hizmetleri için.
 
-Azure PaaS bilgisayar tanılama verilerini kullanarak bulut hizmeti rolü sorunlarını giderme konusunda bilgi almak için bkz: [Kevin Williamson'ın blog dizisini](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Azure PaaS bilgisayar tanılama verilerini kullanarak bulut hizmeti rolü sorunlarını giderme konusunda bilgi almak için bkz: [Kevin Williamson'ın blog dizisini](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

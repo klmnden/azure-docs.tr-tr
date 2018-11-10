@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 36265685b9bc43e95c6d7bc1e7a9ad3c52835b36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 506d21589ee8c5d284bd9ffc430d8b1d40afb910
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978004"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741734"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Hızlı başlangıç: SQL API’sini ve Azure portalını kullanarak Azure Cosmos DB ile .NET web uygulaması derleme
 
@@ -120,7 +120,7 @@ Aşağıdaki kod parçacıklarının tamamı, DocumentDBRepository.cs dosyasınd
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda web.config dosyasına yapıştırın.
+1. [Azure portalda](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'ı ve ardından **Okuma/Yazma Anahtarları**'nı seçin. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda web.config dosyasına yapıştırın.
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-sql-api-dotnet/keys.png)
 
@@ -139,15 +139,15 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
     `<add key="database" value="Tasks" />`    
     
 ## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
-1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
+1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'i seçin. 
 
 2. NuGet **Gözat** kutusuna *DocumentDB* yazın.
 
 3. Sonuçlardan **Microsoft.Azure.DocumentDB** kitaplığını yükleyin. Bunu yaptığınızda Microsoft.Azure.DocumentDB paketi ve tüm bağımlılıklar yüklenir.
 
-4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın. Uygulamanız tarayıcınızda görüntülenir. 
+4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarını seçin. Uygulamanız tarayıcınızda görüntülenir. 
 
-5. Tarayıcıda **Create New** (Yeni Oluştur) düğmesine tıklayın ve yapılacaklar listesi uygulamanızda birkaç yeni görev oluşturun.
+5. Tarayıcıda **Create New** (Yeni Oluştur) düğmesini seçin ve yapılacaklar listesi uygulamanızda birkaç yeni görev oluşturun.
 
    ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 

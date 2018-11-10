@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/01/2018
 ms.custom: mvc
-ms.openlocfilehash: c5d76141de6f5d256c7591da928c1395e83a8362
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6e6a22d450aa9b51aa16ebf5e712d65e924b7869
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406031"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958398"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI aracını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
 Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir Azure kaynak grubunda yaklaşık beş dakikada nasıl MySQL için Azure Veritabanı sunucusu oluşturabileceğiniz açıklanır. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır.
@@ -136,12 +136,12 @@ Sonuç JSON biçimindedir. **fullyQualifiedDomainName** ve **administratorLogin*
 ```
 
 ## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>mysql.exe komut satırı aracını kullanarak sunucuya bağlanma
-**mysql.exe** komut satırı aracını kullanarak sunucunuza bağlanın. MySQL'i [buradan](https://dev.mysql.com/downloads/) indirerek bilgisayarınıza yükleyebilirsiniz. Bunun yerine kod örneklerindeki **Deneyin** düğmesine veya Azure portalında sağ üstte bulunan `>_` düğmesine tıklayabilir ve **Azure Cloud Shell**'i başlatabilirsiniz.
+**mysql.exe** komut satırı aracını kullanarak sunucunuza bağlanın. MySQL'i [buradan](https://dev.mysql.com/downloads/) indirerek bilgisayarınıza yükleyebilirsiniz. 
 
 Aşağıdaki komutları yazın: 
 
 1. **mysql** komut satırı aracını kullanarak sunucuya bağlanın:
-```azurecli-interactive
+```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 

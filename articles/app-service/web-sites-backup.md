@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227850"
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](app-service-web-overview.md) uygulama yedeklerini el ile veya bir zamanlamaya göre kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine yazarak veya başka bir uygulamaya geri önceki bir durumun anlık görüntüye geri yükleyebilirsiniz. 
@@ -36,7 +36,7 @@ App Service aşağıdaki bilgileri, bir Azure depolama hesabı ve kullanmak içi
 * Uygulamanıza bağlı veritabanı
 
 Aşağıdaki veritabanı çözümleri ile yedekleme özelliği desteklenir: 
-   - [SQL Database](https://azure.microsoft.com/services/sql-database/)
+   - [SQL Veritabanı](https://azure.microsoft.com/services/sql-database/)
    - [MySQL için Azure Veritabanı](https://azure.microsoft.com/services/mysql)
    - [PostgreSQL için Azure Veritabanı](https://azure.microsoft.com/services/postgresql)
    - [Uygulama içi MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
@@ -155,7 +155,7 @@ Aynı şekilde, normalde yaptığınız, yedeklemeleri çalıştırma [el ile](#
 ## <a name="how-backups-are-stored"></a>Yedeklemeler nasıl depolanır
 Uygulamanız için bir veya daha fazla yedekleme yaptıktan sonra yedeklemeleri görünür **kapsayıcıları** sayfasında, depolama hesabınızı ve uygulamanızı. Her yedekleme oluşur depolama hesabında bir`.zip` yedekleme verilerini içeren dosyanın ve `.xml` içeren bir bildirimi dosyası `.zip` dosya içeriği. Sıkıştırmasını açın ve bir uygulamayı geri yükleme işlemi yapmadan yedeklemeleriniz erişmek istiyorsanız, bu dosyalara göz atın.
 
-Uygulama için bir veritabanı yedeği .zip dosyasının kök dizininde depolanır. Bir SQL veritabanı için bir BACPAC dosyası (dosya uzantısı) ve bu içeri aktarılabilir. Bir SQL veritabanının BACPAC dışarı aktarma üzerinde oluşturmak için bkz [yeni bir kullanıcı veritabanı oluşturmak için bir BACPAC dosyasını içeri](http://technet.microsoft.com/library/hh710052.aspx).
+Uygulama için bir veritabanı yedeği .zip dosyasının kök dizininde depolanır. Bir SQL veritabanı için bir BACPAC dosyası (dosya uzantısı) ve bu içeri aktarılabilir. Bir SQL veritabanının BACPAC dışarı aktarma üzerinde oluşturmak için bkz [yeni bir kullanıcı veritabanı oluşturmak için bir BACPAC dosyasını içeri](https://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
 > Tüm dosyaların değiştirilmesi, **websitebackups** kapsayıcı geçersiz ve bu nedenle olmayan-geri yüklenebilen olmak yedekleme neden olabilir.

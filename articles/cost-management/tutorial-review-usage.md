@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56e6a26803ed5257f1cc303b293615a5ea85a866
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987722"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740051"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -39,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Azure hesabınız olmalıdır.
-- Cloudyn için bir deneme kaydı veya ücretli aboneliğe sahip olmanız gerekir.
+- Cloudyn için bir deneme kaydına veya ücretli aboneliğe sahip olmanız gerekir.
 
 ## <a name="open-the-cloudyn-portal"></a>Cloudyn portalını açın
 
@@ -57,11 +57,11 @@ Raporda son 30 gün içinde yapılan tüm harcamalar gösterilir. Yalnızca Azur
 
 ![filtrelenmiş hizmetler](./media/tutorial-review-usage/actual-cost02.png)
 
-Yukarıdaki örnekte, 31.08.2017 tarihinden sonra, önceki döneme göre daha az para harcanmıştır. Bu maliyet eğilimi, yaklaşık dokuz gün boyunca çeşitli hizmetler için devam etmektedir. Sonra, ek harcamalar önceki gibi devam etmektedir. Ancak, çok fazla sayıda sütun kullanılması, belirgin bir eğilimi belirsiz hale getirebilir. Diğer görünümlerde gösterilen verileri görmek için rapor görünümünü bir satır veya alan grafiği ile değiştirebilirsiniz. Aşağıdaki resimde eğilim daha net bir şekilde gösterilmektedir.
+Yukarıdaki örnekte 29.10.2018 tarihinden itibaren, önceki döneme göre daha az para harcanmıştır. Ancak, çok fazla sayıda sütun kullanılması, belirgin bir eğilimi belirsiz hale getirebilir. Diğer görünümlerde gösterilen verileri görmek için rapor görünümünü bir satır veya alan grafiği ile değiştirebilirsiniz. Aşağıdaki resimde eğilim daha net bir şekilde gösterilmektedir.
 
 ![raporda eğilim](./media/tutorial-review-usage/actual-cost03.png)
 
-Örnekte, Azure Depolama maliyetinin 31.08.2017’den sonra düştüğü, diğer Azure hizmetlerine yapılan harcamaların ise sabit kaldığı açıkça görülmektedir. Öyleyse, harcamadaki bu azalmanın nedeni nedir? Bu örnekte bazı çalışanlar, işten izin alarak tatile çıkmıştır ve Depolama hizmetini kullanmamıştır.
+Bu örnek üzerinden devam edecek olursak Azure VM maliyetlerinin düştüğünü görebilirsiniz. Ayrıca diğer Azure hizmetlerinin maliyetleri de aynı günde düşmeye başlamıştır. Öyleyse, harcamadaki bu azalmanın nedeni nedir? Bu örnekte büyük çaplı bir proje tamamlandığı için çoğu Azure hizmetinin kullanım oranı düşmüştür.
 
 Kullanım ve maliyet eğilimlerini izleme hakkında öğretici bir video izlemek için bkz. [Cloudyn ile bulut faturalama verilerinizi zamanla karşılaştırmalı olarak çözümleme](https://youtu.be/7LsVPHglM0g).
 
@@ -75,11 +75,11 @@ Sorun, mevcut altyapı için zaten ödeme yapılmış olmasıdır. Kullanıcıla
 
 Uygun Maliyetli Boyutlandırma Önerileri raporu, VM örnek türü kapasitesini geçmiş CPU ve bellek kullanım verileri ile karşılaştırarak olası yıllık tasarrufları belirler.  
 
-Portalın üst kısmındaki menüde **İyileştirici** > **Boyutlandırma İyileştirmesi** > **Uygun Maliyetli Boyutlandırma Önerileri**’ne tıklayın. Yalnızca Azure VM’lerine bakmak için sağlayıcıya Azure filtresi uygulayın. Örnek bir görüntü aşağıda verilmiştir.
+Portalın üst kısmındaki menüde **İyileştirici** > **Boyutlandırma İyileştirmesi** > **Uygun Maliyetli Boyutlandırma Önerileri**’ne tıklayın. Gerekirse bir filtre uygulayarak sonuç sayısını azaltabilirsiniz. Örnek bir görüntü aşağıda verilmiştir.
 
 ![Azure VM’leri](./media/tutorial-review-usage/sizing01.png)
 
-Bu örnekte, VM örnek türlerini değiştirme önerilerine uyularak 3.114$ tasarruf edilebilirdi. İlk öneri için **Ayrıntılar** altındaki artı sembolüne (+) tıklayın. Burada, ilk öneriye ilişkin ayrıntılar verilmiştir.
+Bu örnekte, VM örnek türlerini değiştirme önerilerine uyularak 2.382 ABD doları tasarruf edilebilirdi. İlk öneri için **Ayrıntılar** altındaki artı sembolüne (+) tıklayın. Burada, ilk öneriye ilişkin ayrıntılar verilmiştir.
 
 ![öneri ayrıntıları](./media/tutorial-review-usage/sizing02.png)
 
@@ -89,13 +89,15 @@ Bu örnekte, VM örnek türlerini değiştirme önerilerine uyularak 3.114$ tasa
 
 Kullanım verimsizliklerini algılama hakkında bir öğretici videosu izlemek için bkz. [Cloudyn’de VM Boyutunu İyileştirme](https://youtu.be/1xaZBNmV704).
 
+Azure Maliyet Yönetimi, Azure hizmetleri için maliyet tasarrufu önerileri de sunar. Daha fazla bilgi için bkz. [Öğretici: Önerileri kullanarak maliyetleri iyileştirme](tutorial-acm-opt-recommendations.md).
+
 ## <a name="create-alerts-for-unusual-spending"></a>Olağan dışı harcama uyarıları oluşturma
 
 Anormal harcama durumları ve fazla harcama riskleri konusunda paydaşları otomatik olarak uyarabilirsiniz. Bütçe ve maliyet eşiklerine göre uyarıları destekleyen raporları kullanarak hızlı ve kolay bir şekilde uyarılar oluşturabilirsiniz.
 
 Herhangi bir Maliyet raporunu kullanarak herhangi bir harcamaya ilişkin uyarı oluşturabilirsiniz. Bu örnekte, Azure VM harcaması toplam bütçenize yaklaştığında bildirim almak için Zaman İçinde Gerçek Maliyet raporunu kullanın. Uyarının oluşturulması için aşağıdaki adımların tümü gereklidir. Portalın üst kısmındaki menüde **Maliyet** > **Maliyet Analizi** > **Zaman İçinde Gerçek Maliyet**’e tıklayın. **Gruplar** seçeneğini **Hizmet** olarak, **Hizmet filtreleme** seçeneğini **Azure/VM** olarak ayarlayın. Raporun sağ üst kısmında **Eylemler**’e tıklayın ve ardından **Rapor zamanla**’yı seçin.
 
-Bu raporu kaydet veya zamanla kutusunda, istediğiniz sıklığı kullanarak kendinize raporu e-posta ile göndermek için **Zamanlama** sekmesini kullanın. **E-posta ile gönder**’i seçtiğinizden emin olun. Kullandığınız tüm etiketler, gruplar ve filtreler, e-posta ile gönderilen rapora dahil edilir. **Eşik** sekmesine tıklayın ve **Gerçek Maliyet ve Eşik** öğesini seçin. 500.000$ toplam bütçeye sahipseniz ve maliyetler bu tutarın yarısına yaklaştığında bildirim almak istediyseniz, 250.000$ değerinde **Kırmızı uyarı** ve 240.000$ değerinde **Sarı uyarı** oluşturun. Girdiğiniz değerlere virgül eklemeyin. Ardından, ardışık olarak verilecek uyarı sayısını seçin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilmez. Zamanlanmış raporu kaydedin.
+Bu raporu kaydet veya zamanla kutusunda, istediğiniz sıklığı kullanarak kendinize raporu e-posta ile göndermek için **Zamanlama** sekmesini kullanın. **E-posta ile gönder**’i seçtiğinizden emin olun. Kullandığınız tüm etiketler, gruplar ve filtreler, e-posta ile gönderilen rapora dahil edilir. **Eşik** sekmesine tıklayın ve **Gerçek Maliyet ve Eşik** öğesini seçin. Toplam 20.000 ABD doları bütçeye sahipseniz ve maliyetler bu tutarın yarısına yaklaştığında bildirim almak istediyseniz, 10.000 ABD doları seviyesinde **Kırmızı uyarı**, 9.000 ABD doları seviyesinde de **Sarı uyarı** oluşturun. Girdiğiniz değerlere virgül eklemeyin. Ardından, ardışık olarak verilecek uyarı sayısını seçin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilmez. Zamanlanmış raporu kaydedin.
 
 ![örnek rapor](./media/tutorial-review-usage/schedule-alert01.png)
 

@@ -3,18 +3,18 @@ title: Etkileşimli olmayan kimlik doğrulaması, Azure HDInsight .NET uygulamal
 description: Etkileşimli olmayan kimlik doğrulaması, Azure HDInsight Microsoft .NET uygulamaları oluşturmayı öğrenin.
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 01ff5faa130bf1d6d5b89ac42d5664b13306c203
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 495806d47839d471976cd8dff112a1db0b072db9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956162"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006116"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Etkileşimli olmayan kimlik doğrulaması .NET HDInsight uygulaması oluşturma
 Microsoft .NET Azure HDInsight uygulamanızın (etkileşimli olmayan) bir uygulamanın kendi kimlik altında ya da uygulamanızın (etkileşimli) oturum açmış kullanıcının kimliği altında çalıştırabilirsiniz. Bu makalede, etkileşimli olmayan kimlik doğrulaması Azure'a bağlanmak ve HDInsight'ı yönetmek için .NET uygulaması oluşturma işlemini gösterir. Etkileşimli bir uygulama örneği için bkz. [Azure HDInsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/17/2018
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: a1705913e1656901d0a87a3cebb2eb69a6c7ad63
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698596"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740579"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Angular ve Azure Cosmos DB ile MongoDB uygulaması oluşturma - 6. Bölüm: Uygulamaya Post, Put ve Delete işlevleri ekleme
 
@@ -88,13 +88,13 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     });
     ```
 
-5. Uygulamayı çalıştırarak her şeyin çalıştığından emin olun. Visual Studio Code’da tüm değişikliklerinizi kaydedin, sol taraftaki **Hata ayıkla** düğmesine ![Visual Studio Code’da hata ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) tıklayın, ardından **Hata Ayıklamayı Başlat** düğmesine ![ Visual Studio Code’da Hata ayıklamayı başlat simgesi](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png) tıklayın.
+5. Uygulamayı çalıştırarak her şeyin çalıştığından emin olun. Visual Studio Code’da tüm değişikliklerinizi kaydedin, sol taraftaki **Hata ayıkla** düğmesini ![Visual Studio Code’da hata ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) seçin, ardından **Hata Ayıklamayı Başlat** düğmesini ![ Visual Studio Code’da Hata ayıklamayı başlat simgesi](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png) seçin.
 
 6. Şimdi İnternet tarayıcınıza dönün ve çoğu makinede F12 tuşuna basarak açılan Geliştirici Araçları Ağı sekmesini açın. Ağ üzerinden yapılan çağrıları izlemek için [http://localhost:3000](http://localhost:3000) adresine gidin.
 
     ![Chrome’da ağ etkinliğini gösteren ağ sekmesi](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. **Yeni Hero Ekle** düğmesine tıklayarak yeni bir hero ekleyin. "999" kimliğini, "Fred" adını ve "Hello" ifadesini girin, ardından **Kaydet**’e tıklayın. Ağ sekmesinde yeni bir hero için POST isteği gönderdiğinizi görmeniz gerekir. 
+7. **Yeni Hero Ekle** düğmesini seçerek yeni bir hero ekleyin. "999" kimliğini, "Fred" adını ve "Hello" ifadesini girin, ardından **Kaydet**’i seçin. Ağ sekmesinde yeni bir hero için POST isteği gönderdiğinizi görmeniz gerekir. 
 
     ![Get ve Post işlevleri için ağ etkinliğini gösteren Chrome ağ sekmesi](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -173,17 +173,17 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     };
     ```
 
-4. Kodu güncelleştirdikten sonra Visual Studio Code’da **Yeniden başlat** düğmesine ![Visual Studio Code’da Yeniden Başlat düğmesi](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) tıklayın.
+4. Kodu güncelleştirdikten sonra Visual Studio Code’da **Yeniden başlat** düğmesini ![Visual Studio Code’da Yeniden Başlat düğmesi](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) seçin.
 
-5. İnternet tarayıcınızda sayfayı yenileyin ve **Yeni Hero Ekle** düğmesine tıklayın. "9" kimliğine, "Starlord" adına ve "Hi" metnine sahip bir hero ekleyin. Yeni heroyu kaydetmek için **Kaydet** düğmesine tıklayın.
+5. İnternet tarayıcınızda sayfayı yenileyin ve **Yeni Hero Ekle** düğmesini seçin. "9" kimliğine, "Starlord" adına ve "Hi" metnine sahip bir hero ekleyin. Yeni heroyu kaydetmek için **Kaydet** düğmesini seçin.
 
-6. Şimdi **Starlord** adlı heroyu seçin ve "Hi" ifadesini "Bye" ifadesiyle değiştirip **Kaydet** düğmesine tıklayın. 
+6. Şimdi **Starlord** adlı heroyu seçin ve "Hi" ifadesini "Bye" ifadesiyle değiştirip **Kaydet** düğmesini seçin. 
 
     Artık yükü görmek için ağ sekmesinde kimliği seçebilirsiniz. Yükte ifadenin "Bye" olarak ayarlandığını görebilirsiniz.
 
     ![Heroes uygulaması ve yükü gösteren Ağ sekmesi](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    Kullanıcı arabiriminde herolardan birini silin ve silme işlemini tamamlamak için gereken süreye bakın. Bunu "Fred" adlı hero için "Sil" düğmesine tıklayarak deneyebilirsiniz.
+    Kullanıcı arabiriminde herolardan birini silin ve silme işlemini tamamlamak için gereken süreye bakın. Bunu "Fred" adlı hero için "Sil" düğmesini seçerek deneyebilirsiniz.
 
     ![Heroes uygulaması ve işlevleri tamamlamak için gereken zamanı gösteren Ağ sekmesi](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

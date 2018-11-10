@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 88537c8579a3acb2fd89a43bfcfa50be89cac5cc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e10c80f658a7297a6642e34d8f5d0abe13b0881d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114099"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748196"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uç cihazlarda veri depolama
 
@@ -356,4 +356,4 @@ Bu öğreticide, IoT Edge cihazınız tarafından oluşturulan ham verileri filt
 Azure IoT Edge'in verileri iş içgörüsüne çevirmenize yardımcı olabilecek diğer yollar hakkında bilgi edinmek için bir sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics'te kayan pencere kullanarak ortalamaları bulma](tutorial-deploy-stream-analytics.md)
+> [C# kodunu kullanarak sensör verilerini filtreleme](tutorial-csharp-module.md)

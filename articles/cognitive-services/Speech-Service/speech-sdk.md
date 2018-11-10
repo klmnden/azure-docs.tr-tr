@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: f071c15ea586f7b146b82a6201adf16dadc65add
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b946428f7d3962b2ac4b34fe6524c2079327f1c9
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464820"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218670"
 ---
 # <a name="about-the-speech-service-sdk"></a>Konuşma hizmeti SDK'sı hakkında
 
@@ -33,7 +33,7 @@ Windows için aşağıdaki dilleri destekliyoruz:
 
 * C# (UWP ve .NET), C++: başvuru ve bizim konuşma SDK'sı NuGet paketi en son sürümünü kullanın. Paket, 32-bit ve 64 bit istemci kitaplıkları ve yönetilen (.NET) kitaplıkları içerir. SDK, Visual Studio'da NuGet kullanarak yüklenebilir. Arama **Microsoft.CognitiveServices.Speech**.
 
-* Java: Başvurabilir ve yalnızca Windows x64 destekleyen bizim konuşma SDK Maven paketini en son sürümünü kullanın. Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1` bağımlılık olarak. 
+* Java: Başvurabilir ve yalnızca Windows x64 destekleyen bizim konuşma SDK Maven paketini en son sürümünü kullanın. Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` bağımlılık olarak. 
 
 ### <a name="linux"></a>Linux
 
@@ -50,10 +50,10 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 * C# ' ta: Başvuru ve bizim konuşma SDK'sı NuGet paketi en son sürümünü kullanın. SDK'ya başvurmak için şu paket başvuruyu projenize ekleyin:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.1" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.1.0" />
   ```
 
-* Java: Başvurabilir ve bizim konuşma SDK Maven paketini en son sürümünü kullanın. Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1` bağımlılık olarak. 
+* Java: Başvurabilir ve bizim konuşma SDK Maven paketini en son sürümünü kullanın. Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` bağımlılık olarak. 
 
 * C++: SDK'yı indirin bir [.tar paketinin](https://aka.ms/csspeech/linuxbinary) ve tercih ettiğiniz bir dizindeki dosyaları paket. Aşağıdaki tablo, SDK'sı klasör yapısını gösterir:
 
@@ -69,7 +69,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 ### <a name="android"></a>Android
 
-Android için Java SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkların yanı sıra kullanım Android gerekli izinleri içerir. Maven deponun barındırılan `https://csspeechstorage.blob.core.windows.net/maven/` paketi olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`.
+Android için Java SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkların yanı sıra kullanım Android gerekli izinleri içerir. Maven deponun barındırılan `https://csspeechstorage.blob.core.windows.net/maven/` paketi olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`.
 
 Android Studio projenizden paketi kullanmak için aşağıdaki değişiklikleri yapın:
 
@@ -82,7 +82,7 @@ Android Studio projenizden paketi kullanmak için aşağıdaki değişiklikleri 
 * Modül düzeyi build.gradle dosyasına ekleyin `dependencies` bölümü:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.1'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.1.0'
   ```
 
 Java SDK'sını da olan parçası [konuşma cihaz SDK'sı](speech-devices-sdk.md).

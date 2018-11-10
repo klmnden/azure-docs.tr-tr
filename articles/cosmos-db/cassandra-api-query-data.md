@@ -9,14 +9,14 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c1fb4c27f897e3c0952ed6419e167613ac8204f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223500"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739218"
 ---
-# <a name="query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Bir Azure Cosmos DB Cassandra API hesabından veri sorgulama
+# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Öğretici: Bir Azure Cosmos DB Cassandra API hesabından veri sorgulama
 
 Bu öğreticide bir Java uygulaması kullanarak Azure Cosmos DB Cassandra API hesabından kullanıcı verileri sorgulama gösterilmektedir. Java uygulaması [Java sürücüsünü](https://github.com/datastax/java-driver) kullanır ve ID, user name, user city gibi kullanıcı verilerini sorgular. 
 
@@ -28,59 +28,65 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bu makale çok bölümlü bir öğreticiye aittir. Başlamadan önce [Cassandra API hesabını, anahtar alanını ve tablosunu oluşturmak](create-cassandra-api-account-java.md) ve [tabloya örnek veriler yüklemek](cassandra-api-load-data.md) için önceki adımları tamamladığınızdan emin olun. 
+* Bu makale çok bölümlü bir öğreticiye aittir. Başlamadan önce Cassandra API hesabını, anahtar alanını ve tablosunu oluşturmak ve [tabloya örnek veriler yüklemek](cassandra-api-load-data.md) için önceki adımları tamamladığınızdan emin olun. 
 
 ## <a name="query-data"></a>Verileri sorgulama
 
-`src\main\java\com\azure\cosmosdb\cassandra` klasöründeki `UserRepository.java` dosyasını açın. Aşağıdaki kod bloğunu ekleyin. Bu kod üç işlev sağlar: veritabanındaki tüm kullanıcıları sorgulama, user ID ile filtrelenen belirli bir kullanıcıyı sorgulama ve bir tabloyu silme. 
+Cassandra API hesabınızdan veri sorgulaması yapmak için aşağıdaki adımları kullanın:
 
-```java
-/**
-* Select all rows from user table
-*/
-public void selectAllUsers() {
+1. `src\main\java\com\azure\cosmosdb\cassandra` klasöründeki `UserRepository.java` dosyasını açın. Aşağıdaki kod bloğunu ekleyin. Bu kod üç yöntem sunar: 
 
-    final String query = "SELECT * FROM uprofile.user";
-    List<Row> rows = session.execute(query).all();
+   * Veritabanındaki tüm kullanıcıları sorgulama
+   * Kullanıcı kimliğine göre filtreleyerek belirli bir kullanıcıyı sorgulama
+   * Bir tabloyu silme.
 
-    for (Row row : rows) {
-       LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-}
+   ```java
+   /**
+   * Select all rows from user table
+   */
+   public void selectAllUsers() {
 
-/**
-* Select a row from user table
-*
-* @param id user_id
-*/
-public void selectUser(int id) {
-    final String query = "SELECT * FROM uprofile.user where user_id = 3";
-    Row row = session.execute(query).one();
+     final String query = "SELECT * FROM uprofile.user";
+     List<Row> rows = session.execute(query).all();
 
-    LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-}
+     for (Row row : rows) {
+        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+     }
+   }
 
-/**
-* Delete user table.
-*/
-public void deleteTable() {
-   final String query = "DROP TABLE IF EXISTS uprofile.user";
-   session.execute(query);
-}
-```
+   /**
+   * Select a row from user table
+   *
+   * @param id user_id
+   */
+   public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-`src\main\java\com\azure\cosmosdb\cassandra` klasöründeki `UserProfile.java` dosyasını açın. Bu sınıf, daha önce tanımladığınız createKeyspace ve createTable veri ekleme yöntemlerini çağıran main yöntemini içerir. Şimdi tüm kullanıcıları veya belirli bir kullanıcıyı sorgulayan aşağıdaki kodu ekleyin:
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+   }
 
-```java
-LOGGER.info("Select all users");
-repository.selectAllUsers();
+   /**
+   * Delete user table.
+   */
+   public void deleteTable() {
+     final String query = "DROP TABLE IF EXISTS uprofile.user";
+     session.execute(query);
+   }
+   ```
 
-LOGGER.info("Select a user by id (3)");
-repository.selectUser(3);
+2. `src\main\java\com\azure\cosmosdb\cassandra` klasöründeki `UserProfile.java` dosyasını açın. Bu sınıf, daha önce tanımladığınız createKeyspace ve createTable veri ekleme yöntemlerini çağıran main yöntemini içerir. Şimdi tüm kullanıcıları veya belirli bir kullanıcıyı sorgulayan aşağıdaki kodu ekleyin:
 
-LOGGER.info("Delete the users profile table");
-repository.deleteTable();
-```
+   ```java
+   LOGGER.info("Select all users");
+   repository.selectAllUsers();
+
+   LOGGER.info("Select a user by id (3)");
+   repository.selectUser(3);
+
+   LOGGER.info("Delete the users profile table");
+   repository.deleteTable();
+   ```
 
 ## <a name="run-the-java-app"></a>Java uygulamasını çalıştırma
 1. Bir komut istemi veya terminal penceresi açın. Aşağıdaki kod bloğunu yapıştırın. 

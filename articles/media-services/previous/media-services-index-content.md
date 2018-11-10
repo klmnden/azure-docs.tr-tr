@@ -1,6 +1,6 @@
 ---
-title: Azure Media Indexer ortam dosyalarıyla dizin oluşturma
-description: Azure Media Indexer medya dosyalarınızı içeriğini aranabilir yapmanıza ve kapalı açıklamalı alt yazı ve anahtar sözcükler için tam metin dökümü oluşturmak üzere sağlar. Bu konu, Media Indexer kullanmayı gösterir.
+title: Azure Media Indexer ile medya dosyalarının dizinini oluşturarak
+description: Azure Media Indexer, medya dosyalarınızın içeriklerini aranabilir yapmanıza ve Kapalı Açıklamalı Altyazı veya anahtar sözcükler için bir tam metin dökümü oluşturmak için sağlar. Bu konu, Media Indexer'ı kullanmayı gösterir.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -14,46 +14,46 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: 320d8cfa21c36e0f0d751d29d461a0023ab563e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7366ab573360e046ae112a32c32b292ebaeb8178
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788910"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228564"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer ortam dosyalarıyla dizin oluşturma
-Azure Media Indexer medya dosyalarınızı içeriğini aranabilir yapmanıza ve kapalı açıklamalı alt yazı ve anahtar sözcükler için tam metin dökümü oluşturmak üzere sağlar. Tek bir medya dosyasını işleyebileceğiniz gibi, birden çok medya dosyasını toplu olarak da işleyebilirsiniz.  
+# <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer ile medya dosyalarının dizinini oluşturarak
+Azure Media Indexer, medya dosyalarınızın içeriklerini aranabilir yapmanıza ve Kapalı Açıklamalı Altyazı veya anahtar sözcükler için bir tam metin dökümü oluşturmak için sağlar. Tek bir medya dosyasını işleyebileceğiniz gibi, birden çok medya dosyasını toplu olarak da işleyebilirsiniz.  
 
 > [!IMPORTANT]
-> İçerik dizin oluştururken Temizle konuşma (olmadan, arka plan müzik, parazit, efektleri veya mikrofon hiss) sahip medya dosyalarını kullandığınızdan emin olun. Uygun içeriğin bazı örnekleri şunlardır: kaydedilen toplantılar, dersleri veya sunuları. Aşağıdaki içerik dizin oluşturma işlemi için uygun olmayabilir: filmler, TV programları karma ses ve ses efekti ile herhangi bir şey kötü içeriği arka plan gürültü (hiss) ile kaydedilmiş.
+> İçerik dizinleme, NET konuşma (olmadan, arka plan müzik, parazit, etkileri veya mikrofon hiss) sahip medya dosyalarını kullanan emin olun. Uygun içerik bazı örnekleri şunlardır: kaydedilen toplantılar, dersler ve sunumlar. Aşağıdaki içerik dizinleme için uygun olmayabilir: filmler, TV programları, sonraki her şey karma ses ve ses efektleri ile kötü içeriği (hiss) arka plan gürültüsü ile kaydedilmiş.
 > 
 > 
 
 Bir dizin oluşturma işi aşağıdaki çıktıları oluşturabilirsiniz:
 
-* Kapalı açıklamalı alt yazı dosyaları aşağıdaki biçimlerde: **SAMI**, **TTML**, ve **WebVTT**.
+* Kapalı açıklamalı alt yazı dosyaları şu biçimde: **LAPONCA**, **TTML**, ve **WebVTT**.
   
-    Kapalı açıklamalı alt yazı dosyaları Recognizability, bir dizin oluşturma işini nasıl tanınabilir kaynak videoda konuşma açıktır hangi puanları adlı bir etiket içerir.  Kullanılabilirlik için ekran çıktı dosyaları için Recognizability değerini kullanabilirsiniz. Düşük bir puan ses kalitesi nedeniyle kötü dizin sonuçlar anlamına gelir.
-* Anahtar dosyası (XML).
-* Ses BLOB dosya (AIB) SQL server ile kullanmak için dizin oluşturma.
+    Kapalı açıklamalı alt yazı dosyaları Recognizability, bir dizin oluşturma işi nasıl tanınabilir kaynak videoda konuşma olduğuna bağlı olarak hangi puanları adlı bir etiket ekleyin.  Ekran çıktı dosyalarını kullanılabilirlik Recognizability değerini kullanabilirsiniz. Düşük bir puan ses kalitesi nedeniyle düşük dizin sonuçları anlamına gelir.
+* Anahtar sözcük dosyası (XML).
+* Ses BLOB dosyası (AIB) SQL server ile kullanmak için dizin oluşturma.
   
-    Daha fazla bilgi için bkz: [kullanarak AIB dosyaları Azure Media Indexer ve SQL Server ile](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+    Daha fazla bilgi için [kullanarak AIB dosyaları Azure Media Indexer'ın ve SQL Server ile](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
-Bu makalede, dizin oluşturma işleri oluşturmak gösterilmiştir **bir varlık dizin** ve **birden çok dosya dizin**.
+Bu makalede, dizinleme işleri için oluşturma işlemi gösterilmektedir **bir varlık dizin** ve **birden çok dosya dizini**.
 
-En son Azure Media Indexer güncelleştirmeler için bkz: [Media Services bloglar](#preset).
+En yeni Azure Media Indexer'ın güncelleştirmeler için bkz: [medya Hizmetleri blog](#preset).
 
-## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Dizin oluşturma görevlerini yapılandırması ve bildirim dosyalarını kullanma
-Görev yapılandırmayı kullanarak, daha fazla ayrıntı için dizin oluşturma görevleri belirtebilirsiniz. Örneğin, ortam dosyası için kullanılacak hangi meta verilerin belirtebilirsiniz. Bu meta veriler dil altyapısı tarafından sözlük genişletmek için kullanılır ve konuşma tanıma doğruluğunu önemli ölçüde artırır.  Ayrıca, istenen çıkış dosyalarını belirtmek üzere kullanabilirsiniz.
+## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Görevleri dizin oluşturma için yapılandırması ve bildirim dosyalarını kullanma
+Görev yapılandırması kullanarak daha fazla ayrıntı için dizin oluşturma görevlerinizi belirtebilirsiniz. Örneğin, medya dosyanızı kullanmak için hangi meta verileri belirtebilirsiniz. Bu meta veriler dil altyapısı tarafından sözlük genişletmek için kullanılır ve konuşma tanıma doğruluğu büyük ölçüde artırır.  Ayrıca, istenen çıkış dosyaları belirtebilirsiniz.
 
-Bildirim dosyası kullanarak birden çok medya dosyaları aynı anda aynı zamanda işleyebilir.
+Bir bildirim dosyası kullanarak birden çok medya dosyasını tek seferde de işleyebilirsiniz.
 
-Daha fazla bilgi için bkz: [görev Önayar Azure Media Indexer için](https://msdn.microsoft.com/library/dn783454.aspx).
+Daha fazla bilgi için [Azure Media Indexer'ın için görev Önayar](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ## <a name="index-an-asset"></a>Bir varlık dizin
-Aşağıdaki yöntem bir medya dosyası bir varlık olarak yükler ve varlık dizini oluşturmak için bir iş oluşturur.
+Aşağıdaki yöntem bir varlık olarak bir medya dosyasını yükler ve varlık dizin için bir iş oluşturur.
 
-Medya dosyası, herhangi bir yapılandırma dosyası belirtilmişse, tüm varsayılan ayarlarla dizine alınır.
+Medya dosyasını, herhangi bir yapılandırma dosyası belirtilmezse, tüm varsayılan ayarlarla dizine alınır.
 
 ```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
@@ -145,24 +145,24 @@ Medya dosyası, herhangi bir yapılandırma dosyası belirtilmişse, tüm varsay
 ```
 
 <!-- __ -->
-### <a id="output_files"></a>Çıkış dosyaları
-Varsayılan olarak, bir dizin oluşturma işi aşağıdaki çıkış dosyalarını oluşturur. Dosyaları ilk çıkış varlığına depolanır.
+### <a id="output_files"></a>Çıktı dosyaları
+Varsayılan olarak, bir dizin oluşturma işi aşağıdaki çıkış dosyalarını oluşturur. Dosyaları ilk çıktı varlık içinde depolanır.
 
-Birden fazla giriş medya dosyası olduğunda, Dizin Oluşturucu 'JobResult.txt' adlı iş çıktısı için bir bildirim dosyası oluşturur. Her giriş medya dosyası için sonuçta elde edilen AIB, SAMI, TTML, WebVTT anahtar sözcüğü dosyaları sıralı olarak numaralı ve adlandırılmış "Diğer adı." kullanma
+Birden fazla girdi medya dosyası olduğunda, Dizin Oluşturucu 'JobResult.txt' adlı iş çıktıları için bir bildirim dosyası oluşturur. Medya dosyası her giriş için elde edilen AIB, LAPONCA, TTML, WebVTT anahtar sözcüğü dosyaları sıralı olarak numaralı ve "diğer." kullanarak adlı
 
 | Dosya adı | Açıklama |
 | --- | --- |
-| **InputFileName.aib** |Ses dizin blob dosyası. <br/><br/> Ses dizin Blob (AIB) dosyası Microsoft SQL server tam metin araması kullanılarak aranabilecek bir ikili dosyadır.  Çok daha zengin bir arama deneyimi sağlayan her sözcüğün alternatifleri içerdiğinden AIB basit açıklamalı alt yazı dosyaları, daha güçlü dosyasıdır. <br/> <br/>Dizin Oluşturucu SQL eklenti makine çalışan Microsoft SQL server 2008 veya sonraki sürümünü üzerinde yüklenmesini gerektirir. Microsoft SQL kullanarak AIB arama server tam metin araması WAMI tarafından oluşturulan kapalı açıklamalı alt yazı dosyaları arama değerinden daha doğru arama sonuçları sağlar. AIB kapalı açıklamalı alt yazı dosyaları her ses parçası için yüksek güvenilirlik word içerirken, benzer ses word alternatifleri içermesidir. Konuşma sözcükler aranıyor upmost önemini ise, Microsoft SQL Server ile AIB içinde birlikte kullanmak için önerilir.<br/><br/> Eklentiyi karşıdan yüklemek için tıklatın <a href="http://aka.ms/indexersql">Azure Media Indexer SQL eklenti</a>. <br/><br/>Diğer arama motorları gibi Apache Lucene/yalnızca kapalı açıklamalı alt yazı ve anahtar sözcüğü XML dosyaları göre video dizine Solr kullanmak da mümkündür, ancak bu daha az doğru arama sonuçlarında neden olur. |
-| **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |SAMI, TTML ve WebVTT biçimleri kapalı açıklamalı alt yazı (CC) dosyalar.<br/><br/>Ses ve video dosyaları işitme engelli kişiler için erişilebilir hale getirmek için kullanılabilir.<br/><br/>Kapalı açıklamalı alt yazı dosyaları dahil etme adlı bir etiket <b>Recognizability</b> kaynak videoda konuşma nasıl tanınabilir olduğuna bağlı olarak bir dizin oluşturma işi puanlar.  Değerini kullanabilirsiniz <b>Recognizability</b> için kullanılabilirlik ekran çıktı dosyaları. Düşük bir puan ses kalitesi nedeniyle kötü dizin sonuçlar anlamına gelir. |
-| **InputFileName.kw.xml<br/>InputFileName.info** |Anahtar sözcüğü ve bilgi dosyaları. <br/><br/>Anahtar sözcük dosyasını sıklığı ve uzaklık bilgileri konuşma içerikten ayıklanan anahtar sözcükler içeren bir XML dosyasıdır. <br/><br/>Bilgi dosyası tanınan her terim hakkında ayrıntılı bilgi içeren bir düz metin dosyasıdır. İlk satırı özeldir ve Recognizability puan içerir. Sonraki her satırı aşağıdaki veriler sekmeyle ayrılmış bir listesi verilmiştir: başlangıç zamanı, bitiş zamanı, sözcük/tümcecik, güven. Saniye cinsinden kez verilir ve güven 0-1'den bir sayı olarak verilir. <br/><br/>Örnek satırı: "1.20 1.45 word 0.67" <br/><br/>Bu dosyalar amaçlar için bir sayı gibi konuşma analiz gerçekleştirmek için kullanılan veya daha çok ilgili reklam sunmak için kullanılan medya dosyalarını daha bulunabilir veya hatta yapmak için Bing, Google veya Microsoft SharePoint gibi arama motorları için kullanıma sunulan. |
-| **JobResult.txt** |Çıktı bildirimi, yalnızca aşağıdaki bilgileri içeren birden çok dosya dizin oluştururken mevcut:<br/><br/><table border="1"><tr><th>InputFile</th><th>Diğer ad</th><th>MediaLength</th><th>Hata</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **InputFileName.aib** |Ses dizini oluşturma blob dosyası. <br/><br/> Ses dizini oluşturma Blob (AIB) dosyası Microsoft SQL server tam metin arama ile aranabilir bir ikili dosyadır.  Alternatifleri için çok daha zengin bir arama deneyimi sağlayan, her bir sözcüğün içerdiği için AIB dosyası basit bir açıklamalı alt yazı dosyaları, daha güçlüdür. <br/> <br/>Dizin Oluşturucu SQL eklentiye bir makine Microsoft SQL server 2008 veya üzeri yüklenmesini gerektiriyor. Arama AIB kullanarak Microsoft SQL server tam metin araması WAMI tarafından oluşturulan kapalı açıklamalı alt yazı dosyaları arama değerinden daha doğru arama sonuçlarını sağlar. AIB kapalı açıklamalı alt yazı dosyaları ses her bir kesim için en yüksek güvenilirlik word içerirken, benzer ses alternatifleri word içerdiğinden budur. Konuşulan kelimeleri için arama upmost önemini ise, Microsoft SQL Server ile AIB içinde birlikte kullanmak için önerilir.<br/><br/> Eklentiyi yüklemek için tıklatın <a href="https://aka.ms/indexersql">Azure Media Indexer SQL eklenti</a>. <br/><br/>Diğer arama motorları gibi Apache Lucene/yeterlidir kapalı açıklamalı alt yazı ve anahtar sözcük XML dosyaları göre video dizini oluşturmak için Solr kullanmak da mümkündür, ancak bu daha az doğru arama sonuçlarında neden olur. |
+| **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |LAPONCA, TTML ve WebVTT biçimindeki kapalı açıklamalı alt yazı (CC) dosyaları.<br/><br/>Ses ve video dosyaları işitme engelli kişiler için erişilebilir hale getirmek için kullanılabilir.<br/><br/>Kapalı açıklamalı alt yazı dosyaları dahil adlı bir etiket <b>Recognizability</b> nasıl tanınabilir kaynak videoda konuşma olduğuna göre bir dizin oluşturma işi puanlar.  Değerini kullanabilir <b>Recognizability</b> kullanılabilirlik için ekran çıktı dosyaları için. Düşük bir puan ses kalitesi nedeniyle düşük dizin sonuçları anlamına gelir. |
+| **InputFileName.kw.xml<br/>InputFileName.info** |Anahtar sözcüğü ve bilgi dosyaları. <br/><br/>Anahtar sözcük dosyası sıklık ve uzaklık bilgilerini konuşma içeriğinden ayıklanan anahtar sözcükleri içeren bir XML dosyasıdır. <br/><br/>Bilgi dosyası tanınan her terim hakkında ayrıntılı bilgi içeren bir düz metin dosyasıdır. İlk satırı özeldir ve Recognizability puanı içerir. Sonraki her satırı aşağıdaki veriler sekmeyle ayrılmış bir listesi verilmiştir: başlangıç zamanı, bitiş zamanı, sözcüğün/tümceciğin, güvenilirlik. Saniyeler içinde bir kez verilir ve güvenle bir sayı olarak 0-1'den verilir. <br/><br/>Örnek satırı: "1.20 1.45 word 0.67" <br/><br/>Bu dosyalar amacıyla, bir dizi için gibi konuşma analizi yapmak için kullanılan veya daha fazla ilgili reklam sunmak için Bing, Google veya Microsoft SharePoint daha bulunabilir, ya da medya dosyalarını yapmak için kullanılan gibi arama motorları için kullanıma sunulan. |
+| **JobResult.txt** |Çıkış bildirimi, aşağıdaki bilgileri içeren birden çok dosya yalnızca dizin oluşturulurken mevcut:<br/><br/><table border="1"><tr><th>InputFile</th><th>Diğer ad</th><th>MediaLength</th><th>Hata</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
-Aksi takdirde tüm giriş medya dosyalarını başarıyla dizini, dizin oluşturma işi 4000 hata koduyla başarısız. Daha fazla bilgi için bkz: [hata kodları](#error_codes).
+Aksi takdirde tüm giriş medya dosyalarını başarıyla dizin, dizin oluşturma işi 4000 hata koduyla başarısız oluyor. Daha fazla bilgi için [hata kodları](#error_codes).
 
-## <a name="index-multiple-files"></a>Birden çok dosya dizin
-Aşağıdaki yöntem bir varlık birden çok medya dosyalarını yükler ve bu dosyaların toplu dizinini oluşturmak için bir iş oluşturur.
+## <a name="index-multiple-files"></a>Birden çok dosya dizini
+Aşağıdaki yöntemi, bir varlık birden çok medya dosyalarını yükler ve bu dosyaları toplu dizin için bir iş oluşturur.
 
-Bir bildirim dosyası ".lst" uzantısı ile oluşturulan ve varlık içine karşıya yükleme. Bildirim dosyası tüm varlık dosyaların listesini içerir. Daha fazla bilgi için bkz: [görev Önayar Azure Media Indexer için](https://msdn.microsoft.com/library/dn783454.aspx).
+".Lst" uzantısına sahip bir bildirim dosyası, oluşturulur ve varlık içinde karşıya yükleniyor. Bildirim dosyası, tüm varlık dosyalarının listesini içerir. Daha fazla bilgi için [Azure Media Indexer'ın için görev Önayar](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -239,38 +239,38 @@ Bir bildirim dosyası ".lst" uzantısı ile oluşturulan ve varlık içine karş
     }
 ```
 
-### <a name="partially-succeeded-job"></a>Kısmen başarılı oldu işi
-Aksi takdirde tüm giriş medya dosyalarını başarıyla dizini, dizin oluşturma işi 4000 hata koduyla başarısız olur. Daha fazla bilgi için bkz: [hata kodları](#error_codes).
+### <a name="partially-succeeded-job"></a>Kısmen başarılı işi
+Aksi takdirde tüm giriş medya dosyalarını başarıyla dizin, dizin oluşturma işi 4000 hata koduyla başarısız olur. Daha fazla bilgi için [hata kodları](#error_codes).
 
-Aynı çıkışları (başarılı işler) olarak üretilir. Giriş dosyaları, hata sütun değerlerini göre başarısız anlamak için çıktı bildirim dosyası başvurabilirsiniz. Başarısız oldu, girdi dosyaları için sonuçta elde edilen AIB, SAMI, TTML, WebVTT ve anahtar sözcüğü dosyaları üretilmez.
+Aynı çıkışları (olarak başarılı işler için) oluşturulur. Giriş dosyaları, hata sütun değerlerine göre başarısız bulmak için çıkış bildirimi dosyası başvurabilirsiniz. Başarısız oldu, giriş dosyaları için ortaya çıkan AIB, LAPONCA, TTML, WebVTT ve anahtar sözcüğü dosyaları üretilmez.
 
-### <a id="preset"></a> Azure Media Indexer için görev Önayar
-Azure Media Indexer işlenmesini görev Önayar bir isteğe bağlı görev sağlayarak özelleştirilebilir.  Bu yapılandırma xml biçimi açıklar.
+### <a id="preset"></a> Azure Media Indexer için hazır görev
+Azure Media Indexer'ın işlenmesini yanı sıra görev Önayar isteğe bağlı bir görev sağlayarak özelleştirilebilir.  Bu yapılandırma xml biçimini açıklar.
 
 | Ad | Gerektirme | Açıklama |
 | --- | --- | --- |
-| **Giriş** |false |Dizin istediğiniz varlık dosyaları.</p><p>Azure Media Indexer aşağıdaki ortam dosya biçimleri destekler: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Dosya adı (s) belirleyebilirsiniz **adı** veya **listesi** özniteliği **giriş** (aşağıda gösterildiği gibi) öğesi. Hangi dizin varlık dosyasına belirtmezseniz, birincil dosya çekilir. Herhangi bir birincil varlık dosyası ayarlarsanız, ilk giriş varlık dosyasında dizine alınır.</p><p>Varlık dosya adı açıkça belirtmek için aşağıdakileri yapın:<br/>`<input name="TestFile.wmv">`<br/><br/>Ayrıca, birden çok varlık aynı anda (dosyaları en fazla 10) dizin oluşturabilirsiniz. Bunu yapmak için:<br/><br/><ol class="ordered"><li><p>Bir metin dosyası (bildirim dosyası) oluşturun ve bir .lst uzantısı verin. </p></li><li><p>Tüm varlık dosya adlarının bir listesini giriş Varlığınızı bildirim bu dosyaya ekleyin. </p></li><li><p>(Karşıya yükleme) thanifest dosyasını varlık için ekleyin.  </p></li><li><p>Bildirim dosyasının adı girdinin liste özniteliğinde belirtin.<br/>`<input list="input.lst">`</li></ol><br/><br/>Not: bildirim dosyası 10'dan fazla dosyaları eklerseniz, dizin oluşturma işi 2006 hata koduyla başarısız olur. |
-| **Meta veriler** |false |Sözlük uyarlama için kullanılan belirli varlık dosyaları için meta veriler.  Uygun isimleri gibi standart olmayan sözlük sözcükler tanımak için dizin oluşturucu hazırlamak kullanışlıdır.<br/>`<metadata key="..." value="..."/>` <br/><br/>Size sağlayabilir **değerleri** önceden tanımlanmış **anahtarları**. Şu anda aşağıdaki anahtarları desteklenir:<br/><br/>"title" ve "Açıklama" dil ince ayar için Sözlük uyarlama için kullanılan - işiniz için model ve konuşma tanıma doğruluğunu artırmak.  Değerleri, iç sözlük dizin göreviniz süresince büyütmek üzere içeriği kullanarak bağlam ilgili metin belgeleri bulmak için Internet arama Çekirdek değer.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Özellikleri** <br/><br/> Sürüm 1.2 eklendi. Şu anda, yalnızca desteklenen konuşma tanıma ("ASR") özelliğidir. |false |Konuşma tanıma özelliği şu ayarları anahtarlarını sahiptir:<table><tr><th><p>Anahtar</p></th>        <th><p>Açıklama</p></th><th><p>Örnek değer</p></th></tr><tr><td><p>Dil</p></td><td><p>Multimedya dosyasında tanınması için doğal dil.</p></td><td><p>İngilizce, İspanyolca</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>noktalı virgülle ayrılmış listesini istenen çıkış resim yazısı biçimleri (varsa)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Bir AIB dosyası (kullanmak için SQL Server ve müşteri dizin oluşturucu IFilter ile) gerekli olup olmadığını belirten bir Boole bayrağı.  Daha fazla bilgi için bkz: <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">kullanarak AIB dosyaları Azure Media Indexer ve SQL Server ile</a>.</p></td><td><p>TRUE; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Bir anahtar sözcük XML dosyasını gerekli olup olmadığını belirten bir Boole bayrağı.</p></td><td><p>TRUE; FALSE. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Tam resim yazıları (bağımsız olarak anlamlılık düzeyi) zorla gerekip gerekmediğini belirten bir Boole bayrağı.  </p><p>Varsayılan; bu durumda sözcükleri ve % 50 anlamlılık düzeyi'den az olan tümcecikleri son resim yazısı çıkışlarından atlanmış ve üç nokta tarafından değiştirildi ("...") false değeridir.  Üç nokta resim yazısı kalite denetimi ve denetim için faydalıdır.</p></td><td><p>TRUE; FALSE. </p></td></tr></table> |
+| **Giriş** |false |Dizine eklemek istediğiniz varlık dosyaları.</p><p>Azure Media Indexer, aşağıdaki ortam dosya biçimlerini destekler: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Dosya adı (s) belirleyebilirsiniz **adı** veya **listesi** özniteliği **giriş** (aşağıda gösterildiği gibi) öğesi. Birincil dosya dizini için hangi varlık dosyası belirtmezseniz çekilir. Hiçbir birincil varlık dosyası olarak ayarlanırsa ilk giriş varlığı dosyasında dizine alınır.</p><p>Varlık dosyası adı açıkça belirtmek için aşağıdakileri yapın:<br/>`<input name="TestFile.wmv">`<br/><br/>Ayrıca, birden çok varlık dosyaları aynı anda (en fazla 10) de dizine ekleyebilir. Bunu yapmak için:<br/><br/><ol class="ordered"><li><p>Bir metin dosyası (bildirim dosyasını) oluşturun ve .lst uzantısı verin. </p></li><li><p>Tüm varlık dosya adlarının bir listesini giriş varlığınız bu bildirim dosyasına ekleyin. </p></li><li><p>Varlık için (yükleme) thanifest dosyası ekleyin.  </p></li><li><p>Bildirim dosyasının adını girdinin listesi özniteliğini belirtin.<br/>`<input list="input.lst">`</li></ol><br/><br/>Not: bildirim dosyası için 10'dan fazla dosyaları eklerseniz, dizin oluşturma işi 2006 hata kodu ile başarısız olur. |
+| **Meta verileri** |false |Sözlük uyarlaması için kullanılan belirli varlık dosyaları için meta veriler.  Dizin Oluşturucu'nun standart sözlük sözcükleri uygun isimleri gibi tanı hazırlamak kullanışlıdır.<br/>`<metadata key="..." value="..."/>` <br/><br/>Verebilirsiniz **değerleri** önceden tanımlanmış **anahtarları**. Şu anda aşağıdaki anahtarları desteklenmektedir:<br/><br/>"title" ve "description" dil ince ayar için Sözlük uyarlaması için kullanılan - işiniz için model ve konuşma tanıma doğruluğunu artırın.  Değerleri, iç sözlük dizin göreviniz süresince artırmak için içeriği kullanma, bağlamsal ilgili metin belgeleri bulmak için Internet arama temel.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **Özellikleri** <br/><br/> Sürüm 1.2 eklendi. Şu anda, yalnızca desteklenen konuşma tanıma ("ASR") özelliğidir. |false |Konuşma tanıma özelliği, aşağıdaki ayarları anahtarlarını sahiptir:<table><tr><th><p>Anahtar</p></th>        <th><p>Açıklama</p></th><th><p>Örnek değer</p></th></tr><tr><td><p>Dil</p></td><td><p>Multimedya dosyasında tanınacak doğal dili.</p></td><td><p>İngilizce, İspanyolca</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>istenen çıkış alt yazı biçimleri (varsa) noktalı virgülle ayrılmış listesi</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>AIB dosyası (SQL Server ve müşteri dizin oluşturucu IFilter ile kullanın için) gerekli olup olmadığını belirten bir Boole bayrağı.  Daha fazla bilgi için <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">kullanarak AIB dosyaları Azure Media Indexer'ın ve SQL Server ile</a>.</p></td><td><p>TRUE; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Bir anahtar sözcük XML dosyası gerekli olup olmadığını belirten bir Boole bayrağı.</p></td><td><p>TRUE; FALSE. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>(Güven düzeyi) bağımsız olarak tam açıklamalı alt yazılar zorla gerekip gerekmediğini belirten bir Boole bayrağı.  </p><p>Bu durumda sözcük ve tümcecikleri % 50 güvenilirlik düzeyi küçüktür olan son açıklamalı alt yazı çıkışları atlanmış ve elipsler tarafından değiştirildi ("..."), varsayılan false değeridir.  Üç nokta simgesini, açıklamalı alt yazı kalite kontrol ve denetim için kullanışlıdır.</p></td><td><p>TRUE; FALSE. </p></td></tr></table> |
 
 ### <a id="error_codes"></a>Hata kodları
-Bir hata olması durumunda, Azure Media Indexer bildirmelisiniz aşağıdaki hata kodlarından birini yedekleyin:
+Bir hata olması durumunda, Azure Media Indexer'ın bildirmelisiniz aşağıdaki hata kodları birini yedekleyin:
 
 | Kod | Ad | Olası nedenler |
 | --- | --- | --- |
 | 2000 |Geçersiz yapılandırma |Geçersiz yapılandırma |
 | 2001 |Geçersiz giriş varlıklar |Giriş varlıklar veya boş varlık eksik. |
-| 2002 |Geçersiz bildirim |Bildirim boş veya geçersiz öğeleri bildirimi içerir. |
-| 2003 |Medya dosyası karşıdan yüklenemedi |Bildirim dosyasında geçersiz URL. |
-| 2004 |Desteklenmeyen protokol |Medya URL'nin protokolü desteklenmiyor. |
-| 2005 |Desteklenmeyen dosya türü |Giriş medya dosya türü desteklenmiyor. |
-| 2006 |Çok fazla giriş dosyaları |Giriş bildiriminde 10'dan fazla dosyası yok. |
-| 3000 |Medya dosyası çözülemedi |Desteklenmeyen medya codec <br/>or<br/> Bozuk medya dosyası <br/>or<br/> Giriş medya ses akış yok. |
-| 4000 |Toplu dizin oluşturma kısmen başarılı oldu |Bazı giriş medya dosyaları dizine başarısız. Daha fazla bilgi için bkz: <a href="#output_files">çıkış dosyaları</a>. |
-| diğer |İç hata |Lütfen destek ekibi ile iletişime geçin. indexer@microsoft.com |
+| 2002 |Geçersiz bildirim |Bildirimi boş veya geçersiz bir öğe bildirimi içeriyor. |
+| 2003 |Medya dosyası indirilemedi. |Bildirim dosyasında geçersiz URL. |
+| 2004 |Desteklenmeyen Protokolü |Ortam URL'si protokolü desteklenmiyor. |
+| 2005 |Desteklenmeyen dosya türü |Girdi medya dosya türü desteklenmiyor. |
+| 2006 |Çok fazla giriş dosyaları |Giriş bildiriminde 10'dan fazla dosyası vardır. |
+| 3000 |Medya dosyası kod çözülemedi |Desteklenmeyen ortam codec bileşeni <br/>or<br/> Bozuk bir medya dosyası <br/>or<br/> Giriş medya ses akışı yok. |
+| 4000 |Toplu dizin oluşturma kısmen başarılı oldu |Bazı giriş medya dosyaları dizine getirilir. Daha fazla bilgi için <a href="#output_files">Çıkış dosyalarını</a>. |
+| diğer |İç hata |Lütfen Destek ekibiyle iletişime geçin. indexer@microsoft.com |
 
 ## <a id="supported_languages"></a>Desteklenen diller
-Şu anda İngilizce ve İspanyolca dil desteklenir. Daha fazla bilgi için bkz: [1.2 sürümü yayın blog yayını](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Şu anda İngilizce ve İspanyolca dil desteklenir. Daha fazla bilgi için [v1.2 sürüm blog gönderisini](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -279,9 +279,9 @@ Bir hata olması durumunda, Azure Media Indexer bildirmelisiniz aşağıdaki hat
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>İlgili bağlantılar
-[Azure Media Services Analytics a genel bakış](media-services-analytics-overview.md)
+[Azure Media Services Analizi'ne genel bakış](media-services-analytics-overview.md)
 
-[Azure Media Indexer ve SQL Server ile AIB dosyalarını kullanma](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[SQL Server ve Azure Media Indexer ile AIB dosyalarını kullanma](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
-[Azure Media Indexer 2 Önizleme ile medya dosyalarını dizin oluşturma](media-services-process-content-with-indexer2.md)
+[Azure Media Indexer 2 Önizleme ile medya dosyalarının dizinini oluşturarak](media-services-process-content-with-indexer2.md)
 

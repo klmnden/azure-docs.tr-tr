@@ -3,23 +3,23 @@ title: Azure IOT Central uygulamanızdaki cihazları yönetme | Microsoft Docs
 description: Bir operatör olarak, Azure IOT Central uygulamanızdaki cihazların nasıl yönetileceğini öğrenin.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4b4ded86075e49277bca84f5261b6762b0f4fcae
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737320"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004893"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızdaki cihazları yönetme
 
-Bu makalede, Microsoft Azure IOT Central uygulamanızdaki cihazları yönetmek için bir işleç olarak nasıl. Bir operatör olarak, şunları yapabilirsiniz:
+Bu makalede, Azure IOT Central uygulamanızdaki cihazları yönetmek için bir işleç olarak nasıl. Bir operatör olarak, şunları yapabilirsiniz:
 
-- Kullanım **Gezgini** sayfa görüntüleme, ekleme ve Azure IOT Central uygulamanıza bağlı cihazları silin.
+- Kullanım **Device Explorer** sayfa görüntüleme, ekleme ve Azure IOT Central uygulamanıza bağlı cihazları silin.
 - Cihazlarınızı güncel envanterini korur.
 - Cihaz meta verilerinizi güncel cihaz özelliklerinde depolanan değerleri değiştirerek tutun.
 - Belirli bir CİHAZDAN bir ayar güncelleştirerek cihazlarınızı davranışını denetleyen **ayarları** sayfası.
@@ -28,11 +28,11 @@ Bu makalede, Microsoft Azure IOT Central uygulamanızdaki cihazları yönetmek i
 
 Tek bir cihaza görüntülemek için:
 
-1. Seçin **Gezgini** sol gezinti menüsünde. Burada, bir listesini görürsünüz, [cihaz şablonları](howto-set-up-template.md).
+1. Seçin **Device Explorer** sol gezinti menüsünde. Burada, bir listesini görürsünüz, [cihaz şablonları](howto-set-up-template.md).
 
-1. Seçin bir **cihaz şablonu** soldaki bölmede.
+1. Bir cihaz şablon Şablonları altındaki sol bölmede seçin.
 
-1. Sağ bölmede, bu cihaz şablondan oluşturulmuş cihazların bir listesini görürsünüz. Görmek için tek bir cihaz seçin **cihaz ayrıntıları** sayfası bu cihaz için:
+1. Device Explorer sayfanın sağ bölmede, aşağıda gösterildiği gibi bu cihaz şablondan oluşturulan cihazların bir listesini görürsünüz. Bu cihaz için cihaz ayrıntıları sayfasına görmek için tek bir cihaz seçin:
 
     [![Cihaz ayrıntıları sayfasına](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
@@ -40,7 +40,7 @@ Tek bir cihaza görüntülemek için:
 
 Azure IOT Central uygulamanız için bir cihaz eklemek için:
 
-1. Seçin **Gezgini** sol gezinti menüsünde.
+1. Seçin **Device Explorer** sol gezinti menüsünde.
 
 1. Bir cihaz oluşturmak istediğiniz cihaz şablonu seçin.
 
@@ -58,7 +58,7 @@ Uygulamanızı, Azure IOT Central sayıda cihaza bağlanmak için bir CSV dosyas
 
 Toplu kaydı uygulamanızdaki cihazlar için:
 
-1. Seçin **Gezgini** sol gezinti menüsünde.
+1. Seçin **Device Explorer** sol gezinti menüsünde.
 
 1. Sol panelde, toplu olarak istediğiniz cihaz şablonu oluşturma cihazları seçin.
 
@@ -83,7 +83,7 @@ Aygıt alma işlemi başarısız olursa cihaz Kılavuzu'nun bir hata iletisi gö
 **Cihazlar bir şablon ile ilişkilendirme**
 
 Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil, cihazları**, cihazları cihaz şablonu ilişkilere oluşturulmuştur. Cihaz verileri ve cihaz hakkında diğer ayrıntıları keşfetmek için bir şablonu ile ilişkili olmalıdır. Cihazlar bir şablon ile ilişkilendirmek için aşağıdaki adımları izleyin:
-1. Seçin **Gezgini** sol gezinti menüsünde.
+1. Seçin **Device Explorer** sol gezinti menüsünde.
 1. Sol panelde seçin **ilişkili değil, cihazları**.
     [![İlişkilendirilmemiş cihazlar](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Şablon ile ilişkilendirmek istediğiniz cihazları seçin.
@@ -100,7 +100,7 @@ Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil,
 IOT Central bağlanmak için cihazları sağlamak için IOT Central tarafından üretilen cihaz bağlantı dizesi gerekir. Bağlantı dizelerini ve diğer özellikleri cihazların toplu olarak uygulamanızdan almak için dışarı aktarma özelliğini kullanabilirsiniz. Dışarı aktarma, tüm seçili cihazlar için bir CSV dosyası cihaz kimliği, cihaz adı ve birincil bağlantı dizesi oluşturur.
 
 Uygulamanızdan dışarı aktarma cihazları toplu olarak:
-1. Seçin **Gezgini** sol gezinti menüsünde.
+1. Seçin **Device Explorer** sol gezinti menüsünde.
 
 1. Sol panelde, cihazları vermek istediğiniz cihaz şablonu seçin.
 
@@ -128,7 +128,7 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 
 Azure IOT Central uygulamanızdan ya da bir gerçek veya sanal cihazı silmek için:
 
-1. Seçin **Gezgini** Gezinti menüsünde.
+1. Seçin **Device Explorer** Gezinti menüsünde.
 
 1. Cihaz şablonu silmek istediğiniz cihazı seçin.
 
@@ -140,7 +140,7 @@ Azure IOT Central uygulamanızdan ya da bir gerçek veya sanal cihazı silmek i�
 
 Ayarları bir cihaz davranışını denetler. Diğer bir deyişle, cihazınıza girişleri sağlıyor. Görüntüleyebilir ve cihaz ayarları güncelleştirme **cihaz ayrıntıları** sayfası.
 
-1. Seçin **Gezgini** Gezinti menüsünde.
+1. Seçin **Device Explorer** Gezinti menüsünde.
 
 1. Cihaz şablonu ayarlarını değiştirmek istediğiniz cihazı seçin.
 
@@ -154,15 +154,13 @@ Ayarları bir cihaz davranışını denetler. Diğer bir deyişle, cihazınıza 
 
 Şehir ve seri numarası gibi cihaz ile ilişkili cihaz meta verilerini özelliklerdir. Görüntüleyin ve güncelleştirme özellikleri **cihaz ayrıntıları** sayfası.
 
-1. Seçin **Gezgini** Gezinti menüsünde.
+1. Seçin **Device Explorer** Gezinti menüsünde.
 
 1. Cihaz şablonu özelliklerini değiştirmek istediğiniz cihazı seçin.
 
 1. Seçin **özellikleri** sekmesi, gördüğünüz tüm özellikleri.
 
-1. İstenen kendi değerlerinize özelliklerini değiştirin. Aynı anda birden çok özellik değiştirme ve tümünü aynı anda güncelleştirebilirsiniz.
-
-1. Seçin **güncelleştirme**.
+1. Uygulama özelliklerini, istenen değerleri değiştirin. Aynı anda birden çok özellik değiştirme ve tümünü aynı anda güncelleştirebilirsiniz. Seçin **güncelleştirme**.
 
 > [!NOTE]
 > Değerini değiştiremezsiniz _cihaz özelliklerini_. Cihaz özellikleri cihaz tarafından belirlenir ve Azure IOT Central uygulamada salt okunurdur.
