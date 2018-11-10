@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9b0a9b8c976ce5ef9fb57a6f8bcfd076f370bb10
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964008"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005232"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
 
@@ -131,7 +131,7 @@ VMware kutucuk, Log Analytics çalışma alanınızda görünür. Bu, hataları 
 
 Ayrıntılı bilgi dikey belirli gösteren Log Analytics arama bölmesini açmak için istediğiniz dikey pencereye tıklayın.
 
-Buradan, belirli bir şey değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te günlük aramaları kullanarak verileri bulmak](log-analytics-log-search.md).
+Buradan, belirli bir şey değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te günlük aramaları kullanarak verileri bulmak](log-analytics-queries.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi ana etkinlik bulun
 Tek bir ESXi ana bilgisayarı, kendi işlemleri temel alan birden fazla günlük oluşturur. VMware izleme çözümü, bunları merkezileştirir ve de olay sayılarını özetler. Bu merkezi görünüm hangi ESXi ana bilgisayarına fazla miktarda olay varsa ve hangi olayların ortamınızda en sık gerçekleşen anlamanıza yardımcı olur.
@@ -206,6 +206,6 @@ Birden çok nedeni olabilir:
     d. Dosya yok veya kullanıcı ve grup ayarı yanlış tarafından düzeltici varsa [bir Linux sunucusu hazırlama](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük aramaları](log-analytics-log-search.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.
+* Kullanım [günlük aramaları](log-analytics-queries.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.
 * [Kendi panolarınızı oluşturun](log-analytics-dashboards.md) VMware konak veriler gösteriliyor.
 * [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) belirli VMware konak olaylar gerçekleştiğinde.

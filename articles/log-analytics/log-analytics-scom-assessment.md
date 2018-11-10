@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f5bfe6c730f569f0cc902b0e0a132bfca645a45
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961696"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006524"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -238,7 +238,7 @@ Yok saymak için istediğiniz önerilerini varsa, öneriler, değerlendirme sonu
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-queries.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Yok saymak için istediğiniz önerilerini varsa, öneriler, değerlendirme sonu
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-queries.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Yok saymak için istediğiniz önerilerini varsa, öneriler, değerlendirme sonu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Arama günlüklerini](log-analytics-log-search.md) ayrıntılı verileri System Center Operations Manager sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+- [Arama günlüklerini](log-analytics-queries.md) ayrıntılı verileri System Center Operations Manager sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.

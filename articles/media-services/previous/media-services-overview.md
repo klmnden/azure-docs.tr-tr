@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cc6cb768e9403a09ea09309e0ffd85ce9012cb41
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c3d9b0660ab7803fc0c2696ded7bbffa90e07a5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352095"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211613"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services’a genel bakış 
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Sürüm 2 - Genel Kullanım](media-services-overview.md)
-> * [Sürüm 3 - Önizleme](../latest/media-services-overview.md)
+> * [Sürüm 2](media-services-overview.md)
+> * [Sürüm 3](../latest/media-services-overview.md)
 
 Microsoft Azure Media Services (AMS), geliştiricilerin ölçeklenebilir medya yönetimi ve teslimi uygulamaları oluşturmalarına olanak tanıyan genişletilebilir bir bulut tabanlı platformdur. Media Services, çeşitli istemcilere (TV, PC ve mobil cihazlar gibi) isteğe bağlı olarak veya canlı akış halinde teslim amacıyla video ve ses içeriklerini güvenli bir şekilde yüklemenizi, depolamanızı, kodlamanızı ve paketlemenizi sağlayan REST API'lerini temel alır.
 

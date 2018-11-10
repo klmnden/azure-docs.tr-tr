@@ -12,27 +12,29 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 5bb1aeadeb31728dcc2d9ac5fa0aeade31857169
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e9a1b7951d111606d84e235864e3649a742e874e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41919609"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741513"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Angular ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma - 5. Bölüm: Azure Cosmos DB’ye bağlanmak için Mongoose kullanma
 
-Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanınız ile Node.js kullanılarak yazılmış yeni bir [MongoDB API](mongodb-introduction.md) uygulamasının nasıl oluşturulacağını gösterir.
+Bu çok bölümlü öğreticide Express ve Angular ile Node.js uygulaması oluşturma ve bunu bir [Azure Cosmos DB MongoDB API](mongodb-introduction.md) hesabına bağlama adımları gösterilmektedir.
 
 Öğreticinin 5. bölümünde [4. bölümdeki](tutorial-develop-mongodb-nodejs-part4.md) konular genişletilir ve aşağıdaki görevler yer alır:
 
 > [!div class="checklist"]
 > * Azure Cosmos DB’ye bağlanmak için Mongoose kullanma
-> * Azure Cosmos DB'den bağlantı dizesi bilgilerini alma
+> * Cosmos DB bağlantı dizesi bilgilerinizi alma
 > * Hero modelini oluşturma
 > * Hero verilerini almak için hero hizmetini oluşturma
 > * Uygulamayı yerel olarak çalıştırma
 
 ## <a name="video-walkthrough"></a>Görüntülü kılavuz
+
+Bu belgede anlatılan adımları hızla öğrenmek için şu videoya göz atabilirsiniz: 
 
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
@@ -46,19 +48,24 @@ Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanın�
 
 ## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Azure Cosmos DB’ye bağlanmak için Mongoose kullanma
 
-1. mongoose npm modülünü yükleyin. Bu modül normalde MongoDB ile anlaşmak için kullanılan bir API'dir.
+1. mongoose npm modülünü yükleyin. Bu modül MongoDB ile anlaşmak için kullanılan bir API'dir.
 
     ```bash
     npm i mongoose --save
     ```
 
-2. Şimdi **server** klasörünüzde **mongo.js** adlı yeni bir dosya oluşturun. Bu dosyada, tüm Azure Cosmos DB veritabanı bağlantısı bilgilerinizi eklersiniz.
+2. Şimdi **server** klasöründe **mongo.js** adlı yeni bir dosya oluşturun. Cosmos DB hesabınızın bağlantı bilgilerini bu dosyaya ekleyeceksiniz.
 
 3. **mongo.js**’ye aşağıdaki kodları kopyalayın: Bu kod:
+
     * Mongoose gerektirir.
-    * Mongo’daki promise yaklaşımını ES6/ES2015 ve sonrasında yerleşik olarak bulunan temel promise yaklaşımıyla değiştirir.
-    * Hazırlama, üretim veya geliştirme aşamalarında olmanıza bağlı olarak belirli seçenekleri ayarlamanızı sağlayan bir env dosyası çağırır. Bu dosyayı yakında oluşturacağız.
-    * Env dosyasında ayarlanacak MongoDB bağlantı dizemizi içerir.
+
+    * Mongo’daki promise yaklaşımını ES6/ES2015 ve üzeri sürümlerde yerleşik olarak bulunan temel promise yaklaşımıyla değiştirir.
+
+    * Hazırlama, üretim veya geliştirme aşamalarında olmanıza bağlı olarak belirli seçenekleri ayarlamanızı sağlayan bir env dosyası çağırır. Bir sonraki bölümde bu dosyayı oluşturacaksınız.
+
+    * env dosyasında ayarlanan MongoDB bağlantı dizemizi içerir.
+
     * Mongoose’u çağıran bir bağlanma işlevi oluşturur.
 
     ```javascript
@@ -101,7 +108,7 @@ Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanın�
 
 ## <a name="get-the-connection-string-information"></a>Bağlantı dizesi bilgilerini alın
 
-1. **environment.js** içinde `port` değerini 10255 olarak değiştirin. (Cosmos DB bağlantı noktanızı Azure Portalında bulabilirsiniz)
+1. **environment.js** içinde `port` değerini 10255 olarak değiştirin. (Cosmos DB bağlantı noktanızı Azure portalda bulabilirsiniz)
 
     ```javascript
     const port = 10255;
@@ -123,9 +130,10 @@ Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanın�
 
 ## <a name="create-a-hero-model"></a>Hero modeli oluşturma
 
-1.  Explorer bölmesinde **server** altında **hero.model.js** dosyasını oluşturun.
+1. Explorer bölmesinde **server** altında **hero.model.js** dosyasını oluşturun.
 
-2. **hero.model.js**’ye aşağıdaki kodları kopyalayın: Bu kod:
+2. **hero.model.js**’ye aşağıdaki kodları kopyalayın: Bu kod aşağıdaki işlevleri sunar:
+
    * Mongoose gerektirir.
    * Bir kimliği, adı ve deyişi olan yeni bir şema oluşturur.
    * Şemayı kullanarak bir model oluşturur.
@@ -155,15 +163,16 @@ Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanın�
 
 ## <a name="create-a-hero-service"></a>Hero hizmeti oluşturma
 
-1.  Explorer bölmesinde **server** altında **hero.service.js** dosyasını oluşturun.
+1. Explorer bölmesinde **server** altında **hero.service.js** dosyasını oluşturun.
 
 2. **hero.service.js**’ye aşağıdaki kodları kopyalayın: Bu kod:
+
    * Yeni oluşturduğunuz modeli alır
    * Veritabanına bağlar
    * Tüm hero'ları döndüren bir sorgu tanımlamak için hero.find yöntemini kullanan bir docquery değişkeni oluşturur.
    * docquery.exec ile tüm hero'ları alma promise yaklaşımına sahip, yanıt durumu 200 olan bir sorgu çalıştırır. 
    * Durum 500 ise, hata iletisini geri gönderir
-   * Modüller kullandığımızdan, tüm heroları alır. 
+   * Modülleri kullandığımızdan, heroları alır. 
 
    ```javascript
    const Hero = require('./hero.model');
@@ -213,7 +222,7 @@ Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanın�
     function getHeroes(req, res) {
     ```
 
-    Bu aşamada çağrı zincirini gözden geçirip hazırlayalım. İlk olarak `index.js` dosyasına geliyoruz, burada node sunucusu ayarlanıyor. Rotalarımızı ayarlayıp tanımladığına dikkat edin. routes.js dosyamız bundan sonra hero hizmetiyle etkileşimde bulunur ve getHeroes gibi işlevlerimizi almasını, isteği ve yanıtı geçirmesini belirtir. Burada her.service.js modeli alacak ve Mongo’ya bağlanacaktır. Ardından çağırdığımızda getHeroes’u başlatıp 200 yanıtını döndürür. Sonrasında da zincirden çıkar. 
+    Bu aşamada çağrı zincirini gözden geçirip hazırlayalım. İlk olarak düğüm sunucusu ayarlarının bulunduğu `index.js` dosyasına bakalım. Burada rotaların ayarlandığını ve tanımlandığını görebilirsiniz. routes.js dosyanız bundan sonra hero hizmetiyle etkileşimde bulunur ve getHeroes gibi işlevlerimizi almasını, isteği ve yanıtı geçirmesini belirtir. Burada her.service.js modeli alacak ve Mongo’ya bağlanacaktır. Ardından çağırdığımızda getHeroes’u başlatıp 200 yanıtını döndürür. Sonrasında da zincirden çıkar. 
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
@@ -227,7 +236,7 @@ Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanın�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğreticinin bu bölümünde aşağıdakileri yaptınız:
+Öğreticinin bu bölümünde şu görevleri tamamladınız:
 
 > [!div class="checklist"]
 > * Heroes uygulamanızı Azure Cosmos DB’ye bağlamak için Mongoose API'lerini kullandınız. 

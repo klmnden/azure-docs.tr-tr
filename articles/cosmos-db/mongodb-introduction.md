@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: b0fba3cee298e55702629815da4649d9af315b25
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1f21065414fec6bbe943014e954ecb45af2bb6b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283035"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227884"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB'ye giriş: MongoDB API'si
 
@@ -66,5 +66,4 @@ Azure Cosmos DB MongoDB API'si hakkında bilgiler, genel Azure Cosmos DB belgele
 * Studio 3T'de Azure Cosmos DB veritabanınız ve MongoDB uygulamanız arasında bağlantı oluşturmayı öğrenmek için [Azure Cosmos DB ile Studio 3T (MongoChef) kullanma](mongodb-mongochef.md) öğreticisini izleyin.
 * Verilerinizi bir MongoDB için API veritabanına içeri aktarmak için [MongoDB için protokol destekli Azure Cosmos DB'ye veri taşıma](mongodb-migrate.md) öğreticisini izleyin.
 * [Robomongo](mongodb-robomongo.md) kullanarak bir MongoDB için API hesabına bağlanın.
-* [GetLastRequestStatistics komutu ve Azure portalı ölçümleri](set-throughput.md#GetLastRequestStatistics) ile işlemlerinizin kaç RU kullandığını öğrenin.
 * [Küresel olarak dağıtılmış uygulamalar için okuma tercihlerini yapılandırmayı](../cosmos-db/tutorial-global-distribution-mongodb.md) öğrenin.

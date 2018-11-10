@@ -1,20 +1,19 @@
 ---
-title: VMware VM’lerde ve çoğaltılmış fiziksel sunucularda Azure Site Recovery’ye yük devretme ve yeniden çalışma | Microsoft Docs
-description: Azure Site Recovery ile VMware VM’lerde ve fiziksel sunucularda Azure’a yük devretme ve şirket içi sitede yeniden çalışma hakkında bilgi edinin
-services: site-recovery
+title: Olağanüstü durum kurtarma sırasında VMware VM’lerde ve fiziksel sunucularda Azure Site Recovery’ye yük devretme ve yeniden çalışma | Microsoft Docs
+description: Olağanüstü durum kurtarma sırasında Azure Site Recovery ile VMware VM’lerde ve fiziksel sunucularda Azure’a yük devretme ve şirket içi sitede yeniden çalışma hakkında bilgi edinin
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457104"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215353"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>VMware VM’lerde ve çoğaltılmış fiziksel sunucularda Azure Site Recovery’ye yük devretme ve yeniden çalışma
 

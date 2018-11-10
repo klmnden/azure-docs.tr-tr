@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409499"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961526"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Depolama’yı kullanarak Azure ölçümlerini ve günlük verilerini arşivleme
 
@@ -42,7 +42,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-İlk olarak izleme verilerinin arşivleneceği bir depolama hesabı ayarlamanız gerekir. Bunu yapmak için [buradaki adımları izleyin](../storage/common/storage-create-storage-account.md).
+İlk olarak izleme verilerinin arşivleneceği bir depolama hesabı ayarlamanız gerekir. Bunu yapmak için [buradaki adımları izleyin](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Abonelik günlüklerini depolama hesabına yönlendirme
 
@@ -198,4 +198,4 @@ Bu öğreticide, Azure ortamınızdan bir depolama hesabında arşivlenecek izle
 Verilerinizden daha iyi şekilde yararlanmak ve ek bilgiler edinmek için verilerinizi Log Analytics’e de gönderin.
 
 > [!div class="nextstepaction"]
-> [Log Analytics'i kullanmaya başlama](../log-analytics/log-analytics-get-started.md)
+> [Log Analytics'i kullanmaya başlama](../log-analytics/log-analytics-queries.md)
