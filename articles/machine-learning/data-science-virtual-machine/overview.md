@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 8b2180b09267a10479bf5b16be9b43d6cb6310a2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 10a63768550182309f3193b39c2d00992398d190
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428853"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244568"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
 
@@ -76,7 +76,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | JupyterHub (Çok kullanıcılı not defteri sunucusu)| N | E |
 | JupyterLab (Çok kullanıcılı not defteri sunucusu) | N | Y (sadece Ubuntu) |
 | **Geliştirme araçları, IDE ve Kod düzenleyiciler**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) ve Git Eklentisi, Azure HDInsight (Hadoop), Data Lake, SQL Server Veri araçları, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) ve [Visual Studio için R Araçları (RTVS)](http://microsoft.github.io/RTVS-docs/) | E | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) ve Git Eklentisi, Azure HDInsight (Hadoop), Data Lake, SQL Server Veri araçları, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) ve [Visual Studio için R Araçları (RTVS)](http://microsoft.github.io/RTVS-docs/) | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | E |
