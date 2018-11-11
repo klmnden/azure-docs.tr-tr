@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8cca69109f07cbcffe2a5d796262e51fc9233cc5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914697"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283384"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
 Bu makalede, Azure sanal makinelerinizin işletim sistemi durumunu izleyin ve keşfedin ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme VM'ler için Azure İzleyici'kurmak açıklar.  
@@ -337,7 +337,7 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
     ```
 
 ### <a name="enable-using-azure-policy"></a>Azure İlkesi'ni kullanarak etkinleştirme
-Tutarlı uyumluluk ve sağlanan, yeni sanal makineler için Otomatik etkinleştirme sağlar ölçekte VM'ler için Azure İzleyicisi'ni etkinleştirmek için [Azure İlkesi](../azure-policy/azure-policy-introduction.md) önerilir. Bu ilkeler:
+Tutarlı uyumluluk ve sağlanan, yeni sanal makineler için Otomatik etkinleştirme sağlar ölçekte VM'ler için Azure İzleyicisi'ni etkinleştirmek için [Azure İlkesi](../governance/policy/overview.md) önerilir. Bu ilkeler:
 
 * Log Analytics aracısını ve bağımlılık aracısını dağıtma 
 * Uyumluluk sonuçları raporu 

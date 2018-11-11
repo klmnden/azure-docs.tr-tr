@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 11/06/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a16230b6f51f0ce93f4a9bf53591abbcd6b4bd3b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412967"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283691"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
@@ -98,7 +98,7 @@ Aşağıdaki tabloda, Automation DSC kullanılarak dağıtıldığında dahil ol
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Otomasyonu DSC kullanarak aracı yükleme
 
-Aşağıdaki kod örneği, Azure Automation DSC kullanarak aracıyı yüklemek için kullanabilirsiniz.   Bir Otomasyon hesabı yoksa bkz [Azure Otomasyonu ile çalışmaya başlama](../automation/automation-offering-get-started.md) gereksinimleri ve Automation DSC kullanmadan önce gerekli bir Otomasyon hesabı oluşturma adımları anlamak için.  Automation DSC ile ilgili bilgi sahibi değilseniz, gözden [Automation DSC ile çalışmaya başlama](../automation/automation-dsc-getting-started.md).
+Aşağıdaki kod örneği, Azure Automation DSC kullanarak aracıyı yüklemek için kullanabilirsiniz.   Bir Otomasyon hesabı yoksa bkz [Azure Otomasyonu ile çalışmaya başlama](/azure/automation/) gereksinimleri ve Automation DSC kullanmadan önce gerekli bir Otomasyon hesabı oluşturma adımları anlamak için.  Automation DSC ile ilgili bilgi sahibi değilseniz, gözden [Automation DSC ile çalışmaya başlama](../automation/automation-dsc-getting-started.md).
 
 Aşağıdaki örnek tarafından tanımlanmış 64 bit aracı yükler `URI` değeri. URI değerini değiştirerek, 32 bit sürümü de kullanabilirsiniz. Bir URI'leri iki sürümü vardır:
 
@@ -109,13 +109,13 @@ Aşağıdaki örnek tarafından tanımlanmış 64 bit aracı yükler `URI` değe
 >[!NOTE]
 >Bu yordam ve betik örnek, zaten bir Windows bilgisayara dağıtılan aracı yükseltmeyi desteklemez.
 
-Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlanan yeni sürümleri de benzersiz bir değere sahiptir.  Ürün kodu, bir uygulama veya ürün asıl kimliği ve Windows Installer tarafından temsil edilen bir GUID'dir **ProductCode** özelliği.  `ProductId value` İçinde **MMAgent.ps1** betik, 32 bit veya 64 bit aracı Yükleyici paketini ürün kodu eşleşmelidir.
+Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlanan yeni sürümleri de benzersiz bir değere sahiptir.  Ürün kodu, bir uygulama veya ürün asıl kimliği ve Windows Installer tarafından temsil edilen bir GUID'dir **ProductCode** özelliği.  `ProductId` Değerini **MMAgent.ps1** betik, 32 bit veya 64 bit aracı Yükleyici paketini ürün kodu eşleşmelidir.
 
 Ürün kodu aracı yükleme paketinden doğrudan almak için gelen Orca.exe'yi kullanabilirsiniz [Windows Installer geliştiriciler için Windows SDK Bileşenleri](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) diğer bir deyişle bir bileşeni olan Windows Yazılım Geliştirme Seti veya kullanma PowerShell aşağıdaki bir [örnek betiği](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) bir Microsoft Valuable Professional (MVP) tarafından yazılmış.  Her iki yaklaşım için önce ayıklamak ihtiyacınız **MOMagent.msi** MMASetup yükleme paketinden dosya.  Bu bölümünde daha önce ilk adımda gösterilen [komut satırını kullanarak aracı yükleme](#install-the-agent-using-the-command-line).  
 
 1. İçeri aktarma xPSDesiredStateConfiguration DSC modülünden [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) Azure Otomasyonu ile.  
 2.  Azure Otomasyonu değişken varlıkları için oluşturma *OPSINSIGHTS_WS_ID* ve *OPSINSIGHTS_WS_KEY*. Ayarlama *OPSINSIGHTS_WS_ID* Log Analytics çalışma alanı kimliği ve kümesi *OPSINSIGHTS_WS_KEY* çalışma alanınızın birincil anahtarı.
-3.  Betiği kopyalayın ve MMAgent.ps1 Kaydet
+3.  Betiği kopyalayın ve MMAgent.ps1 kaydedin.
 
     ```PowerShell
     Configuration MMAgent
@@ -153,7 +153,8 @@ Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlana
 
     ```
 
-4. [MMAgent.ps1 yapılandırma betiğini alma](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) Otomasyon hesabınızda. 
+4. Güncelleştirme `ProductId` Aracısı'nın en son sürümü ayıklanan ürün kodu betiğiyle değeri, daha önce önerilen yöntemleri kullanarak paketini yükleyin. 
+5. [MMAgent.ps1 yapılandırma betiğini alma](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) Otomasyon hesabınızda. 
 5. [Bir Windows bilgisayarına veya düğüm atama](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) yapılandırması. 15 dakika içinde düğüm yapılandırmasını denetler ve aracının düğüme gönderilir.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Log Analytics aracısını bağlantısını doğrulayın

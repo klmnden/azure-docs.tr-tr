@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a759aad346e25fa42f16d9ccfdb42d9fd5b1cd38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a76b22feee84820f3acc963af70ec24669a216d7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413494"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251977"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
-Azure performans tanılama VM uzantısı, Windows sanal makinelerinden performans tanılama verilerini toplama yardımcı olur. Uzantı analiz gerçekleştirir ve bulguları ve öneriler belirlemek ve sanal makine üzerindeki performans sorunlarını çözmek için bir rapor sağlar. Bir sorun giderme aracı olarak adlandırılan bu uzantıyı yükler [Perfınsights](http://aka.ms/perfinsights).
+Azure performans tanılama VM uzantısı, Windows sanal makinelerinden performans tanılama verilerini toplama yardımcı olur. Uzantı analiz gerçekleştirir ve bulguları ve öneriler belirlemek ve sanal makine üzerindeki performans sorunlarını çözmek için bir rapor sağlar. Bir sorun giderme aracı olarak adlandırılan bu uzantıyı yükler [Perfınsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
     > Tanılama sanal makinenizde Azure portalında Klasik olmayan VM'ler için çalıştırmak istiyorsanız, yeni deneyimi kullanmak için önerilir. Daha fazla bilgi için [Azure sanal makineler için performans tanılama](performance-diagnostics.md) 
@@ -230,7 +230,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Yakalanan veriler hakkında bilgi
-Perfınsights araç çeşitli günlükler, yapılandırma ve seçilen senaryoya bağlı olarak, tanılama verilerini toplar. Daha fazla bilgi için [Perfınsights belgeleri](http://aka.ms/perfinsights).
+Perfınsights araç çeşitli günlükler, yapılandırma ve seçilen senaryoya bağlı olarak, tanılama verilerini toplar. Daha fazla bilgi için [Perfınsights belgeleri](https://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Görüntüleyebilir ve sonuçları paylaşın
 

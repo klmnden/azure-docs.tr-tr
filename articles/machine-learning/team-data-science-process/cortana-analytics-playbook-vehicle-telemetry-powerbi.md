@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f86d1d74f5139458999a8c91ac35ec76ac278c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262293"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300940"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Araç Telemetri analizi çözüm şablonu Power BI Panosu kurulum yönergeleri
-Playbook'u bölümlerde bu menü bağlantılar: 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 Araba bayileri, otomobil üreticileri ve sigorta şirketlerinin yapabildiğinizi nasıl araç Telemetri analizi çözüm nu tanıtarak Cortana Intelligence yeteneklerini kullanın. Bunlar, araç durumu ve sürüş alışkanlıkları müşteri deneyimi, araştırma ve geliştirme ve pazarlama kampanyaları gerçek zamanlı ve Tahmine dayalı Öngörüler elde edebilirsiniz. Bu adım adım yönergeleri, aboneliğinizde çözümü dağıttıktan sonra Power BI raporları ve panoyu yapılandırma gösterilmektedir. 
+
+Bu çözüm özeti açıklamasını gözden geçirmek için bkz. [araç Telemetri analizi çözüm kitabı](cortana-analytics-playbook-vehicle-telemetry.md).
+Bu çözüm bile daha ayrıntılı incelemek için bkz [araç Telemetri analizi çözüm kitabı: çözümün içine yakından](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Dağıtma [araç Telemetri analizi](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) çözüm. 

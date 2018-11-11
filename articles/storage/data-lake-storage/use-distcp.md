@@ -8,22 +8,22 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 065c4c4315bda209484cc1b2449980e55d4ac798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09703e203370a524b24f552c93161e4cb64d803d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522705"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281685"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>Azure depolama Blobları ile Data Lake depolama Gen2 önizlemesi arasında veri kopyalamak için Distcp kullanma
 
-Azure Data Lake depolama Gen2 önizlemesi için erişimi olan bir HDInsight kümeniz varsa, Hadoop ekosistemi araçları gibi kullanabileceğiniz [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) veri kopyalamak için **kitaplıklarından** HDInsight küme depolama (WASB) veri alanına Lake depolama Gen2 özellikli hesabı. Bu makalede, yönergeler Distcp aracını sağlar.
+Bir HDInsight kümesine sahip olursunuz ve Azure Data Lake depolama Gen2'ın Önizleme kaydedilen, Hadoop ekosistemi araçları gibi kullanabileceğiniz [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) veri kopyalamak için **kitaplıklarından** HDInsight küme depolama (WASB) Depolama hesabı içinde ve Data Lake depolama Gen2'ye etkin. Bu makalede, yönergeler Distcp aracını sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Data Lake Storage (Önizleme) özelliği etkin bir Azure depolama hesabıyla**. Bir oluşturma hakkında yönergeler için bkz: [bir Azure Data Lake depolama Gen2 önizlemesi depolama hesabı oluşturma](quickstart-create-account.md)
-* **Azure HDInsight kümesinde** bir Data Lake Store hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](use-hdi-cluster.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
+* **Data Lake depolama Gen2 ile'bir Azure depolama hesabı (Önizleme) özelliği etkinleştirilmiş**. Bir oluşturma hakkında yönergeler için bkz: [bir Azure Data Lake depolama Gen2 önizlemesi depolama hesabı oluşturma](quickstart-create-account.md)
+* **Azure HDInsight kümesinde** Data Lake depolama Gen2'ye etkin olan bir depolama hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](use-hdi-cluster.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Bir HDInsight Linux kümesinden Distcp kullanma
 
@@ -97,4 +97,4 @@ Taşınacak veri kümesi boyutu olduğunda büyük (örneğin, > 1 TB) veya bir�
 
 * DistCp dosya başına yalnızca bir Eşleyici sınırlıdır. Bu nedenle, dosyaları olandan daha fazla azaltıcının olmamalıdır. DistCp bir dosyaya yalnızca bir Eşleyici atayabilirsiniz olduğundan, bu büyük dosyaları kopyalamak için kullanılan eşzamanlılık miktarını sınırlar.
 
-* Büyük dosyaların küçük bir sayı varsa, bunları size daha fazla olası eşzamanlılık 256 MB dosya öbeklere bölünmesi. 
+* Büyük dosyaların küçük bir sayı varsa, bunları size daha fazla olası eşzamanlılık 256 MB dosya öbeklere bölünmesi.

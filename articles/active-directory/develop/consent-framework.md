@@ -16,22 +16,22 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: b01cd43d1c38a9db50937a6cff9b416b8c6acd0e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946485"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288484"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory onay çerçevesine
 
 Azure Active Directory (Azure AD) onay çerçevesine, çok kiracılı web ve yerel istemci uygulamaları geliştirmeyi kolaylaştırır. Bu uygulamaları burada uygulamanın kayıtlı olandan farklı bir Azure AD kiracısı oturum açma ana kadar kullanıcı hesapları tarafından sağlar. Web API'leri gibi Microsoft Graph API'ye (Azure AD erişim, Intune ve Office 365 Hizmetleri) ve web API'leri yanı sıra diğer Microsoft Hizmetleri API'leri erişmek de gerekebilir.
 
-Bir kullanıcı veya yönetici içerebilir directory verilerine erişme, dizinde kayıtlı ister bir uygulamaya onay vermiş framework dayanır. Örneğin, web istemci uygulaması, Office 365'ten Takvim kullanıcı hakkındaki bilgileri okumak gerekiyorsa kullanıcı istemci uygulama ilk onayı gerekli. İzin verilen sonra istemci uygulaması kullanıcı adına Microsoft Graph API'sini çağırmak ve Takvim bilgileri gerektiğinde mümkün olacaktır. [Microsoft Graph API](https://graph.microsoft.io) (takvimler ve Exchange, siteler ve SharePoint, OneDrive, OneNote Not defterlerinden, Planner görevleri ve çalışma kitaplarından belgelerden listelerinden iletileri gibi Office 365'te verilere erişim sağlar. , Kullanıcılar ve grupları Azure ad ve diğer veri nesneleri daha fazla Microsoft bulut hizmetlerinden yanı sıra excel).
+Bir kullanıcı veya yönetici içerebilir directory verilerine erişme, dizinde kayıtlı ister bir uygulamaya onay vermiş framework dayanır. Örneğin, web istemci uygulaması, Office 365'ten Takvim kullanıcı hakkındaki bilgileri okumak gerekiyorsa kullanıcı istemci uygulama ilk onayı gerekli. İzin verilen sonra istemci uygulaması kullanıcı adına Microsoft Graph API'sini çağırmak ve Takvim bilgileri gerektiğinde mümkün olacaktır. [Microsoft Graph API](https://developer.microsoft.com/graph) (takvimler ve Exchange, siteler ve SharePoint, OneDrive, OneNote Not defterlerinden, Planner görevleri ve çalışma kitaplarından belgelerden listelerinden iletileri gibi Office 365'te verilere erişim sağlar. , Kullanıcılar ve grupları Azure ad ve diğer veri nesneleri daha fazla Microsoft bulut hizmetlerinden yanı sıra excel).
 
 Genel ya da gizli istemciler kullanarak Yetkilendirme kodu verme ve istemci kimlik bilgileri verin gibi onay çerçevesine OAuth 2.0 ve kendi çeşitli akışlar üzerinde oluşturulmuştur. OAuth 2.0 kullanarak Azure AD, telefon, tablet, sunucu veya bir web uygulaması--gibi farklı türlerde istemci uygulamaları oluşturmak ve gerekli kaynaklara erişmesini mümkün kılar.
 
-Onay çerçevesine OAuth2.0 yetkilendirme vermeleri ile kullanma hakkında daha fazla bilgi için bkz. [OAuth 2.0 ve Azure AD kullanarak web uygulamalarına erişim yetkisi verme](v1-protocols-oauth-code.md) ve [Azure AD için kimlik doğrulama senaryoları](authentication-scenarios.md). Microsoft Graph Office 365 için yetkili erişim sağlama hakkında daha fazla bilgi için bkz. [Microsoft Graph ile uygulama kimlik doğrulamasını](https://graph.microsoft.io/docs/authorization/auth_overview).
+Onay çerçevesine OAuth2.0 yetkilendirme vermeleri ile kullanma hakkında daha fazla bilgi için bkz. [OAuth 2.0 ve Azure AD kullanarak web uygulamalarına erişim yetkisi verme](v1-protocols-oauth-code.md) ve [Azure AD için kimlik doğrulama senaryoları](authentication-scenarios.md). Microsoft Graph Office 365 için yetkili erişim sağlama hakkında daha fazla bilgi için bkz. [Microsoft Graph ile uygulama kimlik doğrulamasını](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Onay deneyiminde - örneği
 

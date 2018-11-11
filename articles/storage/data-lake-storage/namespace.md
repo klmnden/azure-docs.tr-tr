@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b5d3a735bd490468e989ac29c9f082475cc7eab3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528706"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283385"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake depolama Gen2 önizlemesi hiyerarşik ad alanı
 
-Nesne depolama ölçek ve Fiyatlar, dosya sistem performansını sağlamak Azure Data Lake depolama Gen2 önizlemesi izin veren bir anahtar eklenmesi mekanizmasıdır bir **hiyerarşik ad alanı**. Bu koleksiyonu nesneleri/dosyaları içinde bir hesap ve iç içe geçmiş alt dizinlerin bir hiyerarşiye bilgisayarınızdaki dosya sistemi düzenlenir aynı şekilde düzenlenmesine olanak sağlar. Etkin hiyerarşik ad alanı ile Data Lake depolama Gen2 ölçeklendirilebilirliğin ve nesne depolama, analiz altyapıları ve çerçeveleri için tanıdık dosya sistemi sematiğini sağlar.
+Nesne depolama ölçek ve Fiyatlar, dosya sistem performansını sağlamak Azure Data Lake depolama Gen2 önizlemesi izin veren bir anahtar eklenmesi mekanizmasıdır bir **hiyerarşik ad alanı**. Bu koleksiyonu nesneleri/dosyaları içinde bir hesap ve iç içe geçmiş alt dizinlerin bir hiyerarşiye bilgisayarınızdaki dosya sistemi düzenlenir aynı şekilde düzenlenmesine olanak sağlar. Etkin hiyerarşik ad alanı ile bir depolama hesabı ölçeklenebilirlik ve maliyet açısından uygunluğunu nesne depolama, analiz altyapıları ve çerçeveleri için tanıdık dosya sistemi sematiğini ile sağlayabilen haline gelir.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Hiyerarşik ad alanı avantajları
 
@@ -26,7 +26,7 @@ Nesne depolama ölçek ve Fiyatlar, dosya sistem performansını sağlamak Azure
 
 Hiyerarşik ad alanı blob verilerinde uygulamak dosya sistemleri ile ilişkili aşağıdaki faydaları şunlardır:
 
-- **Atomik Directory işleme:** yol kesimleri göstermek için nesne adlarında eğik çizgi (/) ekleme bir kuralı benimseyen dizin sıradüzeni yaklaşık nesne depolar. Bu kural nesnelerini düzenleme için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemler için hiçbir Yardım sağlar. Gerçek dizin uygulamaları dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca potansiyel olarak işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler. 
+- **Atomik bir dizini düzenleme:** yol kesimleri göstermek için nesne adlarında eğik çizgi (/) ekleme bir kuralı benimseyen dizin sıradüzeni yaklaşık nesne depolar. Bu kural nesnelerini düzenleme için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemler için hiçbir Yardım sağlar. Gerçek dizin uygulamaları dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca potansiyel olarak işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler.
 
     Çarpıcı Bu iyileştirme, çok büyük veri analizi çerçeveleri için özellikle önemlidir. Hive, Spark vb. gibi araçlar genellikle geçici bir konuma çıkışını yazmak ve sonuç projenin konumu yeniden adlandırın. Hiyerarşik ad alanı bu yeniden adlandırma genellikle kendi analiz işlem daha uzun sürebilir. Daha düşük işlem gecikme süresi maliyetinizi (TCO) analizi iş yükleri için düşük maliyetli eşittir.
 

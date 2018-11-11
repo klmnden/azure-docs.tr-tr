@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395857"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013335"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -225,7 +225,7 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 | ileti kimliği |Bu ileti için uygulama tanımlı, serbest biçimli tanımlayıcı. Yinelenen algılama için kullanılır. |[MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | Kullanıcı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı kullanıcı tanımlayıcısı. |Service Bus API'sini aracılığıyla erişilebilir değil. |
 | - |Service Bus tarafından yorumlanır değil, hedef uygulama tanımlı tanımlayıcısı. |[Alıcı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| Konu |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| konu |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Yanıtla |Uygulama tanımlı yanıt yolu göstergesi, Service Bus tarafından yorumlanır değil. |[replyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | Bağıntı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı bağıntı tanımlayıcısı. |[Bağıntı Kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
 | içerik türü |İçerik türü, Service Bus tarafından yorumlanır değil gövdesi için uygulama tanımlı göstergesi. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
@@ -391,7 +391,7 @@ Anonim mekanizması, bu nedenle seçilen bir AMQP 1.0 istemcisi tarafından dest
 
 Oturumu ve bağlantı kurulduğunda sonra bağlantılar ekleme *$cbs* düğüm ve gönderme *put belirteci* yalnızca verilen işlem isteği. Geçerli bir belirteç kullanılarak başarılı bir şekilde ayarlanmalıdır. bir *put belirteci* istek bağlantı kurulduktan sonra bazı varlık düğümünün 20 saniye içinde aksi halde bağlantı tüketicisi Service Bus tarafından düşer.
 
-Belirteç sona erme izlemek için daha sonra istemci sorumludur. Bir belirtecin süresi dolduğunda, Service Bus tüm bağlantıları ilgili varlık bağlantı en kısa sürede bırakır. Sorun gerçekleşmesini önlemek için istemci düğümü için belirteç sanal aracılığıyla herhangi bir zamanda yeni bir tane değiştirebilirsiniz *$cbs* aynı yönetim düğümü *put belirteci* hareket ve olmadan alma akıştaki şekilde farklı bağlantılarda bu akışlar trafiği.
+Belirteç sona erme izlemek için daha sonra istemci sorumludur. Bir belirtecin süresi dolduğunda, Service Bus tüm bağlantıları ilgili varlık bağlantı en kısa sürede bırakır. Sorunun oluşmasını önlemek için istemci düğümü için belirteç sanal aracılığıyla herhangi bir zamanda yeni bir tane değiştirebilirsiniz *$cbs* aynı yönetim düğümü *put belirteci* hareket ve olmadan alma akıştaki şekilde farklı bağlantılarda bu akışlar trafiği.
 
 ### <a name="send-via-functionality"></a>Gönderme aracılığıyla işlevi
 

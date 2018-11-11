@@ -3,18 +3,18 @@ title: Azure HDInsight, Apache Storm topolojilerini örneği
 description: Örnek Storm topolojileri listesi oluşturulur ve temel C# ve Java topolojileri de dahil olmak üzere ve olay hub'larıyla çalışma HDInsight üzerinde Apache Storm ile test.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 6f88011bcc3d3c7a97e12a7c96da0b5e3280ad05
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 067065c887ecdac05fa15d897958d521ceb336cc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044935"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007034"
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Örnek Storm topolojileri ve HDInsight üzerinde Apache Storm bileşenleri
 

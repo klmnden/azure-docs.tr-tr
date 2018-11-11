@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418016"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008190"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Azure HDInsight - mimari en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -113,7 +113,7 @@ HDInsight Hive meta veri deposu en iyi yöntemlerden bazıları aşağıda veril
 - Impala tabanlı sorgular LLAP sorguları ile değiştirmeyi göz önüne alın.
 - Spark işlerinde MapReduce işleri değiştirmeyi göz önüne alın.
 - Düşük gecikme süreli Spark toplu işlerini kullanarak Spark yapılandırılmış akış işleri değiştirmeyi göz önüne alın.
-- Azure Data Factory (ADF) 2.0 kullanarak veri düzenlemesi için kullanmayı düşünün.
+- Azure Data Factory (ADF) 2.0 kullanarak veri düzenlemesi için göz önünde bulundurun.
 - Ambari küme yönetimi için göz önünde bulundurun.
 - Veri depolama için betikleri işleniyor WASB veya ADLS ya da AD FS şirket içi HDFS değiştirin.
 - Hive tablolarına Ranger RBAC kullanarak ve denetlemeyi düşünün.

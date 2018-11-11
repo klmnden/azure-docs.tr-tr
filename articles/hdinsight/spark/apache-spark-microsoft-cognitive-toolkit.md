@@ -2,19 +2,19 @@
 title: Microsoft Bilişsel araç seti ile ayrıntılı öğrenme için Azure HDInsight Spark
 description: Bir Azure HDInsight Spark kümesinde Spark Python API'si kullanarak bir veri kümesi için Microsoft Bilişsel araç seti, ayrıntılı öğrenme eğitilen bir modelin nasıl uygulanabileceğini öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: jasonh
-ms.openlocfilehash: cc36c68f4867b9b450703c881a13a65f17ebad4b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 4bcf6df37e7341baf227b9c77b718a955526823d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049460"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010942"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Bilişsel Araç Seti derin öğrenme modeli Azure HDInsight Spark kümesi ile kullanma
 

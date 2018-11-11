@@ -1,23 +1,27 @@
 ---
-title: Yerel olarak - uzaktan izleme çözümünü Azure'da dağıtma | Microsoft Docs
-description: Bu nasıl yapılır kılavuzunda test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtmayı gösterir.
-author: asdonald
-manager: timlt
-ms.author: asdonald
+title: Yerel olarak (aracılığıyla Visual Studio IDE) - uzaktan izleme çözümünü Azure'da dağıtma | Microsoft Docs
+description: Bu nasıl yapılır kılavuzunda test ve geliştirme için Visual Studio kullanarak yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtmayı gösterir.
+author: avneet723
+manager: hegate
+ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/26/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: d967112fc1e3630148a419c980813159e9334eb3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243547"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287617"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak dağıtma
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio dağıtma
 
-Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Bu makalede açıklanan yaklaşımı, mikro hizmetler için yerel bir Docker kapsayıcısı dağıtır ve bulutta IOT Hub, Cosmos DB ve Azure Time Series Insights Hizmetleri kullanır. Uzaktan izleme çözüm Hızlandırıcısını IDE içinde yerel makinenizde çalıştırma hakkında bilgi edinmek için bkz: [başlangıç mikro hizmetler yerel ortamda](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) GitHub üzerinde.
+[!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
+
+Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Mikro hizmetler, Visual Studio'da çalıştırmayı öğrenin. Yerel mikro hizmetlerin dağıtımı aşağıdaki bulut hizmetlerini kullanır: bulutta IOT Hub, Cosmos DB, Azure akış analizi ve Azure Time Series Insights Hizmetleri.
+
+Uzaktan izleme çözüm Hızlandırıcısını Docker'da yerel makinenizde çalıştırmak istiyorsanız, bkz. [Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Docker dağıtma](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -25,94 +29,90 @@ Uzaktan izleme çözüm Hızlandırıcısını tarafından kullanılan Azure Hiz
 
 Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
+### <a name="machine-setup"></a>Makine Kurulumu
+
 Yerel dağıtımını tamamlamak için aşağıdaki araçları, yerel geliştirme makinenizde yüklü gerekir:
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Docker compose](https://docs.docker.com/compose/install/)
+* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Nginx](http://nginx.org/en/download.html)
 * [Node.js v8](https://nodejs.org/) -bu yazılımları Azure kaynaklarını oluşturmayı betiklerini kullanan bilgisayarları CLI önkoşuldur. Node.js v10 kullanmayın.
 
 > [!NOTE]
-> Bu araçlar, Windows, Linux ve iOS gibi birçok platformda kullanılabilir.
+> Windows ve Mac için Visual Studio kullanılabilir
 
-### <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
+[!INCLUDE [iot-accelerators-local-setup](../../includes/iot-accelerators-local-setup.md)]
 
-Uzaktan izleme kaynak kodu GitHub deposu indirin, yapılandırma ve mikro hizmetleri içeren Docker görüntülerini çalıştırmak için ihtiyaç duyduğunuz Docker yapılandırma dosyalarını içerir. Kopyalamak ve depoya yerel bir sürümünü oluşturmak için yerel makinenizde uygun bir klasöre gidin ve ardından aşağıdaki komutlardan birini çalıştırın, komut satırı ortamı kullanın:
+## <a name="run-the-microservices"></a>Mikro Hizmetleri çalıştırın
 
-Java mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
+Bu bölümde, Uzaktan izleme mikro Hizmetleri çalıştırın. Web kullanıcı Arabirimi yerel olarak çalıştırdığınızda Docker cihaz benzetimi hizmetinde ve Visual Studio'da mikro hizmetler.
 
-```cmd/sh
-git clone https://github.com/Azure/remote-monitoring-services-java.git
+### <a name="run-the-web-ui"></a>Web kullanıcı arabirimini çalıştırma
+
+Bu adımda, web kullanıcı Arabirimi başlatın. Gidin **webui** yerel klasöründe depoyu kopyalayın ve aşağıdaki komutları çalıştırın:
+
+```cmd
+npm install
+npm start
 ```
 
-.NET mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
+### <a name="run-the-device-simulation-service"></a>Cihaz benzetimi hizmet çalıştırma
 
-```cmd\sh
-git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
+Cihaz benzetimi hizmeti için Docker kapsayıcısı başlatmak için aşağıdaki komutu çalıştırın. Hizmeti cihazları için Uzaktan izleme çözümü benzetimini yapar.
+
+```cmd
+<path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
 ```
 
-> [!NOTE]
-> Bu komutlar, mikro Hizmetleri yerel olarak çalıştırmak için kullandığınız komut dosyalarının yanı sıra tüm mikro hizmetler için kaynak kodunu indirebilir. Kaynak kodu, mikro hizmetler Docker'da çalıştırma için kaynak kodu gerekmez ancak daha sonra çözüm Hızlandırıcısını değiştirin ve değişikliklerinizi yerel olarak test etmeyi planlıyorsanız yararlı olur.
+### <a name="deploy-all-other-microservices-on-local-machine"></a>Yerel makinede diğer mikro hizmetlerin dağıtımı
 
-## <a name="deploy-the-azure-services"></a>Azure hizmetlerini dağıtma
+Aşağıdaki adımlar Visual Studio 2017'de Uzaktan izleme mikro hizmetleri çalıştırma işlemini gösterir:
 
-Bu makalede, mikro Hizmetleri yerel olarak çalıştırmak nasıl gösterir, ancak bunlar bulutta çalışan Azure Hizmetleri bağlıdır. Bu Azure hizmetlerini dağıtabileceğiniz [Azure Portalı aracılığıyla el ile](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), ya sağlanan komut dosyasını kullanın. Aşağıdaki betik örnekleri, bir Windows makinede .NET deposu kullanmakta olduğunuz varsayılır. Başka bir ortamda çalışıyorsanız, yol, dosya uzantılarını ve yol ayırıcıları uygun şekilde ayarlayın. Sağlanan betikleri için kullanılacak:
+1. Visual Studio 2017'yi başlatın
+1. Açık **uzaktan monitoring.sln** çözümde **Hizmetleri** deposunun yerel kopyasında bir klasör.
+1. İçinde **Çözüm Gezgini**, çözüm ve ardından sağ **özellikleri**.
+1. Seçin **Ortak Özellikler > başlangıç projesi**.
+1. Seçin **birden fazla başlangıç projesi** ayarlayıp **eylem** için **Başlat** aşağıdaki projeler için:
+    * Web hizmeti (manager\WebService asa)
+    * Web hizmeti (auth\WebService)
+    * Web hizmeti (config\WebService)
+    * Web hizmeti (telemetry\WebService cihaz)
+    * Web hizmeti (iothub-manager\WebService)
+    * Web hizmeti (adapter\WebService depolama)
+1. Tıklayın **Tamam** seçimlerinizi kaydetmek için.
+1. Tıklayın **hata ayıklama > hata ayıklamayı Başlat** oluşturun ve web hizmetleri yerel makinede çalıştırın.
 
-### <a name="create-new-azure-resources"></a>Yeni Azure kaynakları oluşturma
+Her web hizmeti, bir komut istemi'ni ve web tarayıcı penceresi açılır. Komut isteminde çalışan hizmetin çıktısını görürsünüz ve tarayıcının durumunu izlemenize olanak tanır. Komut istemleri veya web sayfaları kapatmayın, bu eylem web hizmetini durdurur.
 
-Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
+### <a name="start-the-stream-analytics-job"></a>Stream Analytics işini başlatın
 
-1. Komut satırı ortamınızda gidin **Uzaktan izleme hizmetleri dotnet\scripts\local\launch** kopyaladığınız deponun klasöründe.
+Stream Analytics işi başlatmak için aşağıdaki adımları izleyin:
 
-2. Çalıştırma **start.cmd** betiği ve yönergeleri izleyin. Betik, Azure hesabınızda oturum açın ve komut dosyasını yeniden ister. Betik daha sonra aşağıdaki bilgileri ister:
-    * Bir çözüm adı.
-    * Kullanılacak Azure aboneliği.
-    * Kullanmak için Azure veri merkezi konumu.
+1. [Azure portalına](https://portal.azure.com) gidin.
+1. Gidin **kaynak grubu** çözümünüz için oluşturulur. Kaynak grubunun adı çalıştırdığınızda çözümünüz için seçtiğiniz addır **start.cmd** betik **.
+1. Tıklayarak **Stream Analytics işi** kaynakları listesinde.
+1. Stream Analytics işinde **genel bakış** sayfasında **Başlat** düğmesi. Ardından **Başlat** işini şimdi başlatmak için.
 
-    Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir.
+### <a name="configure-and-run-nginx"></a>Yapılandırma ve NGINX çalıştırma
 
-3. Betik tamamlandığında ortam değişkenlerinin bir listesini görüntüler. Bu değişkenlere kaydetmek için komuttan Çıkış'ndaki yönergeleri izleyin **Uzaktan izleme hizmetleri dotnet\\betikleri\\yerel\\.env** dosya.
+Yerel makinenizde çalışan mikro hizmetler ve web uygulaması bağlamak için bir ters proxy sunucuyu ayarlayın:
 
-### <a name="use-existing-azure-resources"></a>Mevcut Azure kaynakları
+* Kopyalama **nginx.conf** dosya **webui\scripts\localhost** klasörüne **nginx\conf** yükleme dizini.
+* Çalıştırma **ngınx**.
 
-Zaten oluşturduysanız, gerekli Azure kaynakları ortam değişkeni tanımlarında Düzenle **Uzaktan izleme hizmetleri dotnet\\betikleri\\yerel\\.env** ile dosya Gerekli değerler. **.Env** dosyası gerekli değerleri nerede bulunacağı hakkında ayrıntılı bilgi içerir.
+Çalıştırma hakkında daha fazla bilgi için **ngınx**, bkz: [nginx Windows için](http://nginx.org/en/docs/windows.html).
 
-## <a name="run-the-microservices-in-docker"></a>Mikro hizmetler Docker'da çalıştırma
+### <a name="connect-to-the-dashboard"></a>Panoya bağlanma
 
-Yerel Docker kapsayıcılarda çalıştırılan mikro hizmetler, Azure'da çalışan hizmetleri erişmeniz gerekebilir. Küçük bir kapsayıcı başlayıp internet adresine ping atmayı çalıştığında aşağıdaki komutu kullanarak Docker ortamınızın internet bağlantısını test edebilirsiniz:
-
-```cmd/sh
-docker run --rm -ti library/alpine ping google.com
-```
-
-Çözüm Hızlandırıcısını çalıştırma için gidin **Uzaktan izleme hizmetleri dotnet\\betikleri\\yerel** klasöründe komut satırı ortamı ve şu komutu çalıştırın:
-
-```cmd\sh
-docker-compose up
-```
-
-İlk defa bu komutu çalıştırdığınızda Docker kapsayıcıları yerel olarak oluşturmak için Docker hub'ından mikro hizmet görüntüleri yükler. Sonraki çalıştırmaları üzerinde Docker kapsayıcıları hemen çalıştırılır.
-
-Kapsayıcı günlüklerini görüntülemek için ayrı bir kabuk kullanabilirsiniz. Kimliği kullanarak kapsayıcıdaki ilk bulma `docker ps -a` komutu. Ardından `docker logs {container-id} --tail 1000` belirtilen kapsayıcı için son 1000 günlük girişlerini görüntülemek için.
-
-Uzaktan izleme çözümü panosuna erişmek için gidin [ http://localhost:8080 ](http://localhost:8080) tarayıcınızda.
+Uzaktan izleme çözümü panosuna erişmek için gidin [ http://localhost:9000 ](http://localhost:9000) tarayıcınızda.
 
 ## <a name="clean-up"></a>Temizleme
 
-Gereksiz önlemek için test bittiğinde ücretleri, bulut Hizmetleri Azure aboneliğinizden kaldırın. Gidilecek hizmetlerini kaldırmak için en kolay yolu olan [Azure portalında](https://ms.portal.azure.com) ve çalıştırdığınızda oluşturduğunuz kaynak grubunu silin **start.cmd** betiği.
+Gereksiz önlemek için bulut Hizmetleri ücretleri sınamanızı tamamladığınızda, Azure aboneliğinizden kaldırın. Hizmetlerini kaldırmak için gidin [Azure portalında](https://ms.portal.azure.com) ve delete kaynak grubunda **start.cmd** oluşturulan komut dosyası.
 
-Kullanım `docker-compose down --rmi all` Docker görüntülerini kaldırmak ve yerel makinenizde alan boşaltmak için komutu. Ayrıca, kaynak kodunu github'dan kopyaladığınız oluşturulan uzaktan izleme depo yerel kopyasını silebilirsiniz.
+Ayrıca, kaynak kodunu github'dan kopyaladığınız oluşturulan uzaktan izleme depo yerel kopyasını silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Bir yerel geliştirme ortamını ayarlama
-> * Çözüm hızlandırıcısını yapılandırma
-> * Çözüm Hızlandırıcısını dağıtma
-> * Çözüm Hızlandırıcısını için oturum açın
-
-Uzaktan izleme çözümü dağıttıktan sonra sonraki adım olarak [çözüm panosunun özelliklerini keşfedin](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->
+Uzaktan izleme çözüm dağıttığınıza göre sonraki adım olarak [çözüm panosunun özelliklerini keşfedin](quickstart-remote-monitoring-deploy.md).

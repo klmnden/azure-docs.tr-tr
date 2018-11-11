@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433761"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288263"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service ortamı ağ konuları #
 
@@ -33,7 +33,7 @@ App Service ortamının iki sürümü vardır: ASEv1 ve ASEv2. ASEv1 hakkında d
 
 Bir ASE'yi internet'e gitmesini tüm çağrıları ASE için atanmış bir VIP arasında VNet bırakın. Bu VIP genel IP, kaynak IP ASE'yi internet'e gitmesini tüm çağrıları için gerçekleştirilir. Kaynak IP, ase'deki uygulamalar, VNet veya VPN kaynaklarına çağrıları yaparsanız, ASE'nizi tarafından kullanılan alt ağ IP'ler biridir. ASE sanal ağ içinde olduğundan, ek yapılandırma olmadan sanal ağ içindeki kaynaklara da erişebilirsiniz. Sanal ağ, şirket içi ağınıza bağlıysa, ase'deki uygulamalar var. ek yapılandırma olmadan kaynaklara erişim de.
 
-![Dış ASE][1] 
+![Dış ASE][1] 
 
 Dış ASE varsa, genel VIP de ASE uygulamalarınız için çözümlenmesi uç noktadır:
 
@@ -52,7 +52,7 @@ Normal uygulama erişim bağlantı noktaları şunlardır:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kullanıcı tarafından yapılandırılabilir |  80, 443 |
 |  FTP/FTPS    | Kullanıcı tarafından yapılandırılabilir |  21, 990, 10001-10020 |
-|  Visual Studio uzaktan hata ayıklama  |  Kullanıcı tarafından yapılandırılabilir |  4016, 4018, 4020, 4022 |
+|  Visual Studio uzaktan hata ayıklama  |  Kullanıcı tarafından yapılandırılabilir |  4020, 4022, 4024 |
 
 Bu, dış ASE veya ILB ASE kullanıyorsanız geçerlidir. Bir dış ASE'de kullanıyorsanız bu bağlantı noktaları genel VIP basın. ILB ASE'de kullanıyorsanız bu bağlantı noktalarına ILB basın. 443 numaralı bağlantı noktasından kilitlerseniz, portalda kullanıma sunulan bazı özellikler üzerinde bir etkisi olabilir. Daha fazla bilgi için [portalı bağımlılıkları](#portaldep).
 
@@ -170,7 +170,7 @@ Bu örnekte, listenin üst kısmındaki ASE işlevi için ilk iki gelen gereksin
 
 Varsayılan kural, ASE alt ağına konuşmaya sanal IP'ler sağlar. Başka bir varsayılan kural, ASE ile iletişim kurmak için genel VIP olarak da bilinen yük dengeleyici sağlar. Varsayılan kuralları görmek için seçin **varsayılan kuralları** yanındaki **Ekle** simgesi. Diğer her şey kural gösterilen NSG kuralları sonra reddetme yerleştirirseniz, VIP ve ASE arasındaki trafiği engeller. Sanal ağ içinde gelen trafiği engellemek için izin veren kendi gelen kuralı ekleyin. Azureloadbalancer'a eşit olan bir kaynak hedefi ile kullanmak **herhangi** ve bir bağlantı noktası aralığını **\***. ASE alt ağa bir NSG kuralı uygulandığından, hedefte belirli olması gerekmez.
 
-Uygulamanız için bir IP adresi atanmışsa, bağlantı noktalarının açık tutulması emin olun. Bağlantı noktalarını görmek için seçin **App Service ortamı** > **IP adresleri**.  
+Uygulamanız için bir IP adresi atanmışsa, bağlantı noktalarının açık tutulması emin olun. Bağlantı noktalarını görmek için seçin **App Service ortamı** > **IP adresleri**.  
 
 Aşağıdaki giden kurallar gösterilen tüm öğeler dışında son öğe gereklidir. Bunlar, bu makalenin önceki bölümlerinde belirtilenlerle ASE bağımlılıkları ağ erişimini etkinleştirin. Bunların hiçbirine engellerseniz ASE'niz çalışmayı durduruyor. Listedeki son öğeyi ASE'NİZİN sanal ağınızdaki diğer kaynaklarla iletişim sağlar.
 

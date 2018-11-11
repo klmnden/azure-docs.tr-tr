@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577239"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241506"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Uygulamaları Azure AD'ye neden ve nasıl eklenir
 
@@ -69,7 +69,7 @@ Uygulama nesneleri gibi hizmet sorumluları dahil olmak üzere birden çok yolla
 
 * Ne zaman bir üçüncü taraf uygulama için oturum açan kullanıcılar, Azure AD ile tümleşik
   * Oturum açma sırasında kullanıcıların profillerini erişmek için uygulamayı izni ve diğer izinler vermeniz istenir. İlk izin verene kişiye dizine eklenmesi için uygulamayı temsil eden bir hizmet sorumlusu neden olur.
-* Microsoft online services kullanıcılar oturum açtığında ister [Office 365](http://products.office.com/)
+* Microsoft online services kullanıcılar oturum açtığında ister [Office 365](https://products.office.com/)
   * Office 365'e abone veya bir deneme sürümünü başlatmak, dizindeki tüm Office 365 ile ilişkili işlevselliği sunmak için kullanılan çeşitli Hizmetleri temsil eden bir veya daha fazla hizmet sorumluları oluşturulur.
   * SharePoint gibi bazı Office 365 hizmetlerine, iş akışları dahil olmak üzere bileşenleri arasında güvenli iletişim sağlamak için düzenli olarak hizmet sorumluları oluşturma.
 * Ne zaman bir yönetici (Bu da uygulama nesnesini oluşturur) uygulama galerisinden bir uygulama ekler.

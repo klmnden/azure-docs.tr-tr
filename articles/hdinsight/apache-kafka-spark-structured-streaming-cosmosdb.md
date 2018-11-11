@@ -1,5 +1,5 @@
 ---
-title: Yapılandırılmış Kafka'dan Azure Cosmos DB'ye - Azure HDInsight ve akış Apache Spark
+title: Yapılandırılmış Apache Kafka'dan Azure Cosmos DB'ye - Azure HDInsight ve akış Apache Spark
 description: Apache Kafka'dan veri okumak ve ardından Azure Cosmos DB'ye depolamak için Apache Spark yapılandırılmış akış'ı kullanmayı öğrenin. Bu örnekte, HDInsight üzerinde Spark’tan bir Jupyter not defterini kullanarak verilerinizi akışla aktaracaksınız.
 services: hdinsight
 author: hrasheed-msft
@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8ecf336eea40891af8bd9f32c88268d336f3316a
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036743"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287991"
 ---
 # <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Kullanım Apache Spark, Kafka ve Azure Cosmos DB ile akış yapılandırılmış
 
@@ -22,7 +22,7 @@ Azure HDInsight üzerinde Apache kafka'dan veri okumak ve ardından Azure Cosmos
 
 Azure Cosmos DB Global olarak dağıtılmış, çok modelli bir veritabanıdır. Bu örnek, bir SQL API'si veritabanı modeli kullanır. Daha fazla bilgi için [Azure Cosmos DB'ye Hoş Geldiniz](../cosmos-db/introduction.md) belge.
 
-Spark yapılandırılmış akışı, Spark SQL üzerinde yerleşik bir akış işleme altyapısıdır. Bu altyapıyı kullanarak, statik veriler üzerinde toplu hesaplamayla aynı şekilde akış hesaplamalarını ifade edebilirsiniz. Yapılandırılmış Akış hakkında daha fazla bilgi için Apache.org sitesindeki [Yapılandırılmış Akış Programlama Kılavuzu [Alfa]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) bölümüne bakın.
+Spark yapılandırılmış akışı, Spark SQL üzerinde yerleşik bir akış işleme altyapısıdır. Bu altyapıyı kullanarak, statik veriler üzerinde toplu hesaplamayla aynı şekilde akış hesaplamalarını ifade edebilirsiniz. Yapılandırılmış akış hakkında daha fazla bilgi için bkz: [yapılandırılmış akış Programlama Kılavuzu](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) Apache.org.
 
 > [!IMPORTANT]
 > Bu örnekte, HDInsight 3.6 üzerinde Spark 2.2 kullanılır.
@@ -95,7 +95,7 @@ Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, a
 
 3. **Hüküm ve Koşullar**’ı okuyun ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**’u seçin.
 
-4. Son olarak, **Panoya sabitle**’yi işaretleyin ve **Satın Al**’ı seçin. Kümelerin oluşturulması yaklaşık 20 dakika sürer.
+4. Son olarak, seçin **satın alma**. Kümelerin oluşturulması yaklaşık 20 dakika sürer.
 
 > [!IMPORTANT]
 > Bu kümeler, sanal ağ ve Cosmos DB hesabı oluşturma 45 dakika kadar sürebilir.

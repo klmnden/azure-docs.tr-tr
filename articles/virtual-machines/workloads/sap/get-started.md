@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2deacb7d15f370c9182c3239493ed60f735d738c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6fbb09d41535bf811a42b204f4e3d38b87c2846c
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736844"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287957"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 
@@ -35,6 +35,11 @@ Benzersiz SAP HANA için Azure, Azure dışında yarışma ayarlar benzersiz bir
 Azure'da SAP iş yükü senaryoları barındırma kimlik tümleştirmesi ve çoklu oturum açma Azure Activity Directory farklı SAP bileşenleri ile SAP SaaS gereksinimlerini de oluşturabilir veya PaaS sunar. Söz konusu tümleştirmesi ve çoklu oturum açma senaryoları ile Azure Active Directory (AAD) ve SAP varlık listesini açıklanmış ve bölümünde belgelenen "AAD SAP kimlik tümleştirmesi ve çoklu oturum açma."
 
 ## <a name="latest-changes"></a>En son değişiklikleri
+
+Kullanım ve yapılandırmasını geçici olarak açıklama [Azure ağ sanal Gereçleri](https://azure.microsoft.com/solutions/network-appliances/) SAP sistemlerinde kritik iletişim yollarını gecikme süresi içinde:
+
+- [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Azure'da SAP HANA altyapısı yapılandırmaları ve işlemleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 SAP HANA dinamik Azure Vm'leri için katmanlama etrafında belgeleri
 
@@ -64,9 +69,9 @@ Sonraki adımlar:
 
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>Azure Sanal Makinelerde SAP HANA
-Belgelerinin bu bölümü, SAP HANA farklı yönlerini kapsar. Bir önkoşul olarak Azure Iaas, çoğunlukla Azure işlem, depolama ve ağ bilgisini temel hizmetleri sağlayan asıl hizmetlerini Azure ile ilgili bilgi sahibi olması gerekir. Çok sayıda Bu konular, SAP NetWeaver ilgili işlenir [Azure Planlama Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
+Belgelerinin bu bölümü, SAP HANA farklı yönlerini kapsar. Bir önkoşul olarak Azure Iaas, çoğunlukla Azure işlem, depolama ve ağ bilgisini temel hizmetleri sağlayan asıl hizmetlerini Azure ile ilgili bilgi sahibi olması gerekir. Bu konular birçoğu SAP NetWeaver ilgili işlenir [Azure Planlama Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
 
-Azure'da HANA için özel belgelere Bu makaleler ve onların alt makaleleri listesinden oluşur:
+Azure'da HANA için özel belgelere Bu makaleler ve bunların subarticles listesinden oluşur:
 
 - [Hızlı Başlangıç: Azure sanal makinelerinde tek örnek SAP hana el ile yükleme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [SAP S/4HANA veya BW/4hana'yı azure'da dağıtın](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
@@ -82,7 +87,7 @@ Azure'da HANA için özel belgelere Bu makaleler ve onların alt makaleleri list
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Dağıtılan Azure sanal Makineler'de SAP NetWeaver
-Bu bölümde, SAP NetWeaver ve azure'da bir iş planlama ve dağıtım belgelerini bulabilirsiniz. Bu bölümdeki belgelere, Azure'da temel bilgileri ve iş yüküyle SAP HANA veritabanlarının kullanım etrafında çoğunlukla odaklanmıştır. Ha makaleler ve belgeler foundation HANA yüksek kullanılabilirlik için azure'da da ise. makale listesi gibi:
+Bu bölümde, SAP NetWeaver ve azure'da bir iş planlama ve dağıtım belgelerini bulun. Bu bölümdeki belgelere, Azure'da temel bilgileri ve iş yüküyle SAP HANA veritabanlarının kullanım etrafında çoğunlukla odaklanmıştır. Ha makaleler ve belgeler foundation HANA yüksek kullanılabilirlik için azure'da da ise. makale listesi gibi:
 
 - [Azure Sanal Makineler üzerinde SAP Business One](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
 - [Azure'da SAP ERP 6.0 için SAP IDES EHP7 SP3'ı dağıtma](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)

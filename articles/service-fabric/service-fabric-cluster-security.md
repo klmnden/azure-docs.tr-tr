@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541913"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240605"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kümesi güvenlik senaryoları
 Bir Azure Service Fabric kümesine sahip olduğunuz bir kaynaktır. Yetkisiz kullanıcıların bunlara bağlanmasını önlemeye yardımcı olmak için kümeleri güvenli hale getirmek için sizin sorumluluğunuzdur. Üretim iş yükleri küme üzerinde çalışan, güvenli bir kümeye özellikle önemlidir. Kümenin yönetim uç noktalarını genel İnternet'e sunarsa, güvenli olmayan bir kümeye oluşturmak mümkün olsa da, anonim kullanıcılar için bağlanabilir. Güvenli olmayan kümelerini üretim iş yükleri için desteklenmez. 
@@ -85,7 +85,7 @@ Yönetici rolüne atanan kullanıcıların, okuma ve yazma özellikleri dahil ol
 Kümeyi oluşturduğunuzda, yönetici ve kullanıcı istemci rolleri ayarlayın. Rolleri ayrı kimlikleri (örneğin, sertifikalar veya Azure AD kullanarak) için her rol türü sağlayarak atayın. Varsayılan erişim denetimi ayarları ve varsayılan ayarlarının nasıl değiştirileceği hakkında daha fazla bilgi için bkz. [rol tabanlı Access Control Service Fabric istemciler için](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 sertifikaları ve Service Fabric
-X.509 dijital sertifikalar, istemciler ve sunucular kimliğini doğrulamak için yaygın olarak kullanılır. Bunlar iletileri dijital olarak imzalamak ve şifrelemek için kullanılır. Service Fabric küme güvenliğini sağlama ve uygulama güvenlik özellikler sağlamak için X.509 sertifikaları kullanır. X.509 dijital sertifikalar hakkında daha fazla bilgi için bkz. [Working with certificates](http://msdn.microsoft.com/library/ms731899.aspx). Kullandığınız [Key Vault](../key-vault/key-vault-get-started.md) azure'da Service Fabric kümelerine ait sertifikaları yönetmek için.
+X.509 dijital sertifikalar, istemciler ve sunucular kimliğini doğrulamak için yaygın olarak kullanılır. Bunlar iletileri dijital olarak imzalamak ve şifrelemek için kullanılır. Service Fabric küme güvenliğini sağlama ve uygulama güvenlik özellikler sağlamak için X.509 sertifikaları kullanır. X.509 dijital sertifikalar hakkında daha fazla bilgi için bkz. [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). Kullandığınız [Key Vault](../key-vault/key-vault-get-started.md) azure'da Service Fabric kümelerine ait sertifikaları yönetmek için.
 
 Dikkate alınması gereken bazı önemli noktalar:
 
@@ -109,7 +109,7 @@ Dikkate alınması gereken diğer işlemlerden bazıları:
 
 * **Konu** alan birden çok değere sahip olabilir. Her değer, değer türü belirtmek için bir başlatma ile önekidir. Genellikle, başlatma, **CN** (için *ortak ad*); Örneğin, **CN = www.contoso.com**. 
 * **Konu** alanı boş olabilir. 
-* İsteğe bağlı **konu alternatif adı** alanın doldurulduğundan, sertifika ve SAN başına bir girişe ortak adı olması gerekir. Bunlar olarak girilir **DNS adı** değerleri. SAN'lara sahip bir sertifika oluşturma konusunda bilgi almak için bkz: [konu alternatif adı için bir güvenli LDAP sertifikası ekleme](http://support.microsoft.com/kb/931351).
+* İsteğe bağlı **konu alternatif adı** alanın doldurulduğundan, sertifika ve SAN başına bir girişe ortak adı olması gerekir. Bunlar olarak girilir **DNS adı** değerleri. SAN'lara sahip bir sertifika oluşturma konusunda bilgi almak için bkz: [konu alternatif adı için bir güvenli LDAP sertifikası ekleme](https://support.microsoft.com/kb/931351).
 * Değerini **Hedeflenen amaçlar** sertifikasının alanı içermelidir uygun bir değer gibi **sunucu kimlik doğrulaması** veya **istemci kimlik doğrulaması**.
 
 ### <a name="application-certificates-optional"></a>Uygulama sertifikaları (isteğe bağlı)
