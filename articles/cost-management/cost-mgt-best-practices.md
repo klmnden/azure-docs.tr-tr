@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968083"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515361"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure maliyet yönetimi ile bulut yatırımınızdan en iyi duruma getirme
 
@@ -186,10 +186,6 @@ Daha fazla bilgi için [Azure ayırmaları nelerdir?](../billing/billing-save-co
 Windows Server veya SQL Server lisansları, şirket içi dağıtımlarında zaten varsa Azure'da kaydetmek için Azure hibrit avantajı programı'nı kullanabilirsiniz. Windows Server avantajı, her lisans (iki adede kadar sanal makineler) işletim sistemi maliyetini kapsar ve yalnızca temel işlem maliyetleri için ödeme yaparsınız. Mevcut SQL Server lisanslarını sanal çekirdek tabanlı SQL veritabanı seçenekleri 55 yüzde kaydetmek için kullanabilirsiniz. seçenekleri SQL Server, SQL Server Integration Services ve Azure sanal makineler de içerir.
 
 Daha fazla bilgi için [Azure hibrit avantajı Tasarruf hesaplayıcısı](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Parasal taahhüt
-
-Kurumsal Sözleşme imzalayan müşteriler, Microsoft'a ön bir parasal taahhütte oluşturabilirsiniz. Bulut kaynaklarını bütçelerini ayırmak için basit bir yol sağlamanın yanı sıra, parasal taahhüt, Azure fiyatları tüketildikleri olanak tanır. Fiyat indirimleri, kuruluşunuz için önemli maliyet tasarrufları neden olabilir.
 
 ### <a name="other-resources"></a>Diğer kaynaklar
 

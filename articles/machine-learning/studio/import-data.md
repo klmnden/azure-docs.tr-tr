@@ -16,31 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 575e17f214561bde06b70bf87c4895ae379659f2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837472"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344731"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Eğitim verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio’ya alma
-Geliştirmek ve Tahmine dayalı analiz çözümü eğitmek için Machine Learning Studio'da kendi verilerinizi kullanmak için şunları yapabilirsiniz: 
 
-* Verileri yüklemek bir **yerel dosya** çalışma alanınızda bir veri kümesi modülü oluşturmak için sabit sürücünüzden önceden
-* verilere erişen bir birkaç **çevrimiçi veri kaynakları** denemenizi kullanarak çalışırken [verileri içeri aktarma] [ import-data] Modülü 
-* verileri başka bir Azure Machine learning kullanarak **deneme** bir veri kümesi olarak kaydedildi
-* Şirket içi verileri kullanan **SQL Server veritabanı**
+Geliştirmek ve Tahmine dayalı analiz çözümü eğitmek için Machine Learning Studio'da kendi verilerinizi kullanmak için veri kullanabilirsiniz: 
 
-Bu seçeneklerin her birinin konulardan birine menüsünde açıklanmıştır. Bu konular, Machine Learning Studio'da kullanmak için bu çeşitli veri kaynaklarından veri içeri aktarma gösterir. 
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+* A [ **yerel dosya** ](import-data-from-local-file.md) -çalışma alanınızda bir veri kümesi modülü oluşturmak için sabit sürücünüzden önceden yerel veri yükleme
+* [**Çevrimiçi veri kaynakları** ](import-data-from-online-sources.md) -kullanım [verileri içeri aktarma] [ import-data] denemenizi çalışırken çeşitli çevrimiçi kaynaklardan birinden modülü verilere erişme
+* [**Machine Learning Studio denemesine** ](import-data-from-an-experiment.md) -Machine Learning Studio'da bir veri kümesi olarak kaydedilmiş olan veri kullanın
+* [**Şirket içi SQL Server veritabanı** ](use-data-from-an-on-premises-sql-server.md) -verileri el ile kopyalamak zorunda kalmadan bir şirket içi SQL Server veritabanından veri kullanan
 
 > [!NOTE]
 > Kullanılabilir Machine Learning Studio'da eğitim verilerini için kullanabileceğiniz birçok örnek veri kümesi yok. Bunlar hakkında daha fazla bilgi için bkz: [Azure Machine Learning Studio'da örnek veri kümelerini kullanan](use-sample-datasets.md)).
 > 
 > 
 
-Giriş niteliğindeki bu konuda ayrıca Machine Learning Studio'da kullanıma hazır veri almak nasıl ele alınmaktadır ve hangi veri biçimleri ve veri türleri desteklenir açıklar. 
+Giriş niteliğindeki bu makalede, aynı zamanda Machine Learning Studio'da kullanıma hazır verileri alma açıklar ve hangi veri biçimleri ve veri türleri desteklenir açıklar.
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 

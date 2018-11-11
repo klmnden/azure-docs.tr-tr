@@ -1,7 +1,7 @@
 ---
-title: Veri içeri aktarma bir dosyadan Azure Machine Learning Studio'ya | Microsoft Docs
-description: Sabit eğitim veri dosyasından Azure Machine Learning Studio'ya karşıya nasıl yükleneceğini öğrenin. Bu çalışma alanında bir veri kümesi modül oluşturur.
-keywords: veriler, veri biçimi, veri türleri, veri kaynakları, eğitim verilerini içeri aktarma
+title: Verileri içeri aktarma bir dosyadan Azure Machine Learning Studio'ya | Microsoft Docs
+description: Azure Machine Learning Studio'da eğitim veri dosyasına sabit sürücünüzden karşıya yüklemeyi öğrenin. Bu çalışma alanında bir veri kümesi modülü oluşturur.
+keywords: verileri, veri biçimi, veri türleri, veri kaynakları, eğitim verilerini içeri aktarma
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -16,32 +16,31 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 0365492b2814d686dd0bfa099e94717137b51725
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 70e159e7b7b2b5934cc584e9eb2e511d2b0ce0db
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834779"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346219"
 ---
-# <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Eğitim verileri sabit sürücünüze Machine Learning Studio üzerindeki bir dosyadan içeri aktarma
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+# <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Machine Learning Studio'ya sabit sürücünüzde bir dosyadan eğitim verilerini içeri aktarma
 
-Azure Machine Learning Studio'da eğitim verilerini olarak kullanılacak sabit sürücünüzden veri dosyasını karşıya yükle öğrenin. Veri dosyasını içeri aktararak, çalışma alanınızda kullanıma hazır bir veri kümesi modülü vardır.
+Azure Machine Learning Studio'da eğitim verilerini olarak kullanılacak sabit sürücünüzden bir veri dosyası karşıya yüklemeyi öğrenin. Veri dosyasını içeri aktararak, çalışma alanınızda kullanıma hazır bir veri kümesi modülü vardır.
 
-## <a name="steps-to-import-data-from-a-local-file"></a>Yerel bir dosyadan veri almak için adımlar
-Yerel bir sabit sürücüden veri almak için aşağıdakileri yapın:
+## <a name="steps-to-import-data-from-a-local-file"></a>Yerel bir dosyadan veri içeri aktarma adımları
+Bir yerel sabit sürücünüzden verileri içeri aktarmak için aşağıdakileri yapın:
 
-1. Tıklatın **+ yeni** Machine Learning Studio penceresinin alt.
-2. Seçin **DATASET** ve **yerel DOSYADAN**.
-3. İçinde **yeni bir veri kümesi karşıya** iletişim kutusunda, karşıya yüklemek istediğiniz dosyasına gidin
-4. Bir ad girin, veri türünü tanımlayın ve isteğe bağlı olarak bir açıklama girin. Bir açıklama önerilen - verileri gelecekte kullanırken anımsamak istediğiniz verileri hakkında hiçbir özellikleri kaydetmenize olanak sağlar.
-5. Onay kutusunu **bu var olan bir dataset yeni sürümüdür** , var olan bir dataset yeni verilerle güncelleştirmenizi sağlar. Bu onay kutusuna tıklayın ve ardından var olan bir veri kümesinin adını girin.
+1. Tıklayın **+ yeni** Machine Learning Studio penceresinin alt kısmındaki.
+2. Seçin **veri KÜMESİ** ve **yerel DOSYADAN**.
+3. İçinde **yeni bir veri kümesi karşıya** iletişim kutusunda, karşıya yüklemek istediğiniz dosyaya göz atın
+4. Bir ad girin, veri türünü tanımlar ve isteğe bağlı olarak bir açıklama girin. Bir açıklama önerilen - veri gelecekte kullanırken unutmayın istediğiniz veriler hakkında herhangi bir özelliği kaydetmenize olanak sağlar.
+5. Onay kutusunu **bu var olan bir dataset yeni sürümüdür** , var olan bir dataset yeni veriler ile güncelleştirmenizi sağlar. Bu onay kutusuna tıklayın ve ardından var olan bir veri kümesinin adını girin.
 
-![Yeni bir veri kümesi karşıya yükle](./media/import-data-from-local-file/upload-dataset.png)
+![Yeni bir veri kümesi karşıya yükleme](./media/import-data-from-local-file/upload-dataset.png)
 
-Karşıya yükleme sırasında dosyanızı karşıya yüklenen bir ileti görürsünüz. Karşıya yükleme zamanı bağlıdır, verilerin boyutunu ve bağlantınızın hızına hizmet. Dosya uzun sürmesi biliyorsanız, beklerken Machine Learning Studio içinde başka şeyler yapabilirsiniz. Ancak, tarayıcının kapanması verileri karşıya yükleme başarısız olmasına neden olur.
+Karşıya yükleme sırasında dosyanız karşıya yükleniyor bir ileti görürsünüz. Karşıya yükleme, veri boyutu ve hizmete bağlantınızın hızına bağlı zaman. Dosya uzun sürmesi biliyorsanız beklerken Machine Learning Studio içinde başka şeyler yapabilirsiniz. Ancak, tarayıcının kapanması verileri karşıya yükleme başarısız olmasına neden olur.
 
-## <a name="dataset-module-is-ready-for-use"></a>Kullanıma hazır olduğundan veri kümesi Modülü
-Verileriniz yüklendikten sonra bir veri kümesi modülünde depolanır ve tüm deneme çalışma alanınızdaki kullanılabilir.
+## <a name="dataset-module-is-ready-for-use"></a>Veri kümesi modülü kullanıma hazırdır
+Verilerinizi karşıya yüklendikten sonra bir veri kümesi modülde depolanır ve çalışma alanınızdaki tüm deneme sunulur.
 
-Bir deneme düzenlerken, oluşturduğunuz veri kümeleri bulabilirsiniz **My veri kümeleri** altında listesinde **kaydedilen veri kümeleri** modül paletindeki listesi. Daha fazla analizi ve makine öğrenme için veri kümesini kullanmak istediğinizde veri kümesini deneme tuvale sürükleyip bırakabilirsiniz.
+Bir deney düzenlerken, oluşturduğunuz veri kümeleri bulabilirsiniz **My veri kümeleri** altında listesinde **kaydedilmiş veri kümeleri** modül paletindeki listesi. Daha fazla analiz ve makine öğrenimi için veri kümesini kullanmak istediğinizde veri kümesini deneme tuvaline sürükleyip bırakabilirsiniz.

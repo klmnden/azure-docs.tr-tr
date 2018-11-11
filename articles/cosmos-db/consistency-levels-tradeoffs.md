@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963056"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514783"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'de çeşitli tutarlılık düzeyleri için kullanılabilirlik ve performans seçenekleri
 
@@ -33,20 +33,6 @@ ms.locfileid: "50963056"
 - Aynı istek birimleri sayısı için güçlü ve sınırlanmış eskime durumu ile karşılaştırıldığında aktarım hızı yaklaşık 2 X okuma oturum, tutarlı ön ek ve nihai tutarlılık düzeyleri sağlar.
 
 - Yazma işlemi ekleme, değiştirme, upsert, silme, vb. gibi belirli bir tür için tüm tutarlılık düzeyleri için yazma üretimi için istek birimi aynıdır.
-
-## <a name="consistency-levels-and-durability"></a>Tutarlılık düzeyleri ve dayanıklılık
-
-Bir yazma işlemi, istemci için Onaylandı önce veri yazma işlemleri kabul eden bir bölgedeki bir çekirdeği tarafından depolanmasına kararlıdır. Ayrıca, kapsayıcı ile tutarlı dizin oluşturma ilkesi yapılandırdıysanız, dizini ayrıca eş zamanlı olarak güncelleştirilen çoğaltılan ve yazma işlemini onaylanmasını istemciye gönderilmeden önce çekirdeği dizinlendiğini.
-
-Aşağıdaki tabloda, çeşitli bölgeleri kapsayan Cosmos hesapları için bölgesel bir olağanüstü durum olması halinde olası veri kaybı penceresini özetlenmektedir.
-
-| **Tutarlılık düzeyi** | **Bölgesel bir olağanüstü durum olması halinde olası veri kaybı penceresini** |
-| - | - |
-| Güçlü | Sıfır |
-| Sınırlanmış Eskime Durumu | "Cosmos hesapta yapılandırma eskime penceresine" sınırlı. |
-| Oturum | En fazla 5 saniye |
-| Tutarlı Ön Ek | En fazla 5 saniye |
-| Nihai | En fazla 5 saniye |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

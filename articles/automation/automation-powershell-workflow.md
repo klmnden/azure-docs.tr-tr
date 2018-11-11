@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436370"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239432"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme
 
@@ -22,7 +22,7 @@ Azure automation'daki Runbook'lar Windows PowerShell iş akışları olarak uygu
 
 Bir iş akışı, uzun süre çalışan görevleri gerçekleştiren veya birden çok aygıttaki veya yönetilen düğümlerdeki birden çok adımın koordinasyonu programlanmış, bağlantılı adımlardan dizisidir. Bir iş akışının normal betiğe aynı anda birden çok cihaz üzerinde eylem gerçekleştirmenize olanak ve hatadan otomatik olarak kurtarma becerisi avantajına sahip olur. Bir Windows PowerShell iş akışı Windows Workflow Foundation kullanan bir Windows PowerShell betiğidir. İş akışı Windows PowerShell sözdizimi kullanılarak yazılsa ve Windows PowerShell tarafından başlatılsa karşın, Windows Workflow Foundation tarafından işlenir.
 
-Bu makaledeki konular hakkında tüm ayrıntılar için bkz. [Windows PowerShell iş akışı ile çalışmaya başlama](http://technet.microsoft.com/library/jj134242.aspx).
+Bu makaledeki konular hakkında tüm ayrıntılar için bkz. [Windows PowerShell iş akışı ile çalışmaya başlama](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Bir iş akışı temel yapısı
 
@@ -45,9 +45,9 @@ PowerShell iş akışı kod PowerShell komut dosyası kodu dışında birkaç ö
 
 ### <a name="activities"></a>Etkinlikler
 
-Bir etkinlik bir iş akışındaki belirli bir görevdir. Yalnızca bir betik, bir veya daha çok komuttan oluşmasına benzer şekilde, bir iş akışı bir sırayla yürütülen bir veya daha fazla etkinlik oluşur. Bir iş akışı çalıştığında Windows PowerShell Workflow birçok Windows PowerShell cmdlet'leri otomatik olarak etkinliklere dönüştürür. Biri, bu cmdlet'leri runbook'unuza belirttiğinizde, Windows Workflow Foundation tarafından karşılık gelen etkinlik çalıştırılır. Karşılık gelen bir etkinliği olmayan cmdlet'ler için Windows PowerShell iş akışı cmdlet'i otomatik olarak çalışan bir [Inlinescript](#inlinescript) etkinlik. Hariç tutulan ve bir iş akışında açıkça bunları bir Inlinescript bloğunda eklemediğiniz sürece kullanılamaz cmdlet'ler kümesi yok. Bu kavramlarla ilgili daha fazla bilgi için bkz. [betik iş akışlarındaki aktiviteler kullanarak](http://technet.microsoft.com/library/jj574194.aspx).
+Bir etkinlik bir iş akışındaki belirli bir görevdir. Yalnızca bir betik, bir veya daha çok komuttan oluşmasına benzer şekilde, bir iş akışı bir sırayla yürütülen bir veya daha fazla etkinlik oluşur. Bir iş akışı çalıştığında Windows PowerShell Workflow birçok Windows PowerShell cmdlet'leri otomatik olarak etkinliklere dönüştürür. Biri, bu cmdlet'leri runbook'unuza belirttiğinizde, Windows Workflow Foundation tarafından karşılık gelen etkinlik çalıştırılır. Karşılık gelen bir etkinliği olmayan cmdlet'ler için Windows PowerShell iş akışı cmdlet'i otomatik olarak çalışan bir [Inlinescript](#inlinescript) etkinlik. Hariç tutulan ve bir iş akışında açıkça bunları bir Inlinescript bloğunda eklemediğiniz sürece kullanılamaz cmdlet'ler kümesi yok. Bu kavramlarla ilgili daha fazla bilgi için bkz. [betik iş akışlarındaki aktiviteler kullanarak](https://technet.microsoft.com/library/jj574194.aspx).
 
-İş akışı etkinlikleri çalışmalarını yapılandıran ortak parametreler kümesini paylaşır. İş akışı ortak parametreleri hakkında daha fazla ayrıntı için bkz: [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+İş akışı etkinlikleri çalışmalarını yapılandıran ortak parametreler kümesini paylaşır. İş akışı ortak parametreleri hakkında daha fazla ayrıntı için bkz: [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Konumsal Parametreler
 
@@ -152,7 +152,7 @@ Inlinescript etkinlikleri belirli iş akışlarında kritik olabilir, ancak iş 
 * Kullanamazsınız [Paralel yürütme](#parallel-processing) bir InlineScriptBlock içinde.
 * Inlinescript bloğunun tüm uzunluğu için Windows PowerShell oturumunu tuttuğu Inlinescript iş akışı'nın ölçeklenebilirliğini etkiler.
 
-Inlinescript kullanma hakkında daha fazla bilgi için bkz. [bir iş akışında Windows PowerShell komutlarını çalıştırma](http://technet.microsoft.com/library/jj574197.aspx) ve [about_ınlinescript](http://technet.microsoft.com/library/jj649082.aspx).
+Inlinescript kullanma hakkında daha fazla bilgi için bkz. [bir iş akışında Windows PowerShell komutlarını çalıştırma](https://technet.microsoft.com/library/jj574197.aspx) ve [about_ınlinescript](https://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Paralel işleme
 
@@ -291,7 +291,7 @@ workflow CreateTestVms
 
 Hizmet sorumlusuyla yapılandırılmış bir farklı çalıştır hesabını kullanarak kimlik doğrulama yapıyorsunuz, bu gerekli değildir.
 
-Denetim noktalarıyla ilgili daha fazla bilgi için bkz. [betik iş akışına denetim noktaları ekleme](http://technet.microsoft.com/library/jj574114.aspx).
+Denetim noktalarıyla ilgili daha fazla bilgi için bkz. [betik iş akışına denetim noktaları ekleme](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242577"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242917"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Esnek veritabanı araçlarını ve satır düzeyi güvenlik ile çok kiracılı uygulamalar
 
@@ -41,7 +41,7 @@ Elastik veritabanı istemci kitaplığını kullanma olmaktır [verilere bağım
 
 - Visual Studio (2012 veya üzeri) kullanın
 - Üç Azure SQL veritabanı oluşturma
-- Örnek projeyi indirin: [Azure SQL - çok Kiracılı parça için elastik veritabanı araçları](http://go.microsoft.com/?linkid=9888163)
+- Örnek projeyi indirin: [Azure SQL - çok Kiracılı parça için elastik veritabanı araçları](https://go.microsoft.com/?linkid=9888163)
   - Veritabanlarınızı başındaki bilgileri doldurun **Program.cs** 
 
 Bu proje bir genişletir [Azure SQL - Entity Framework tümleştirmesi için elastik veritabanı araçları](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) çok kiracılı parça veritabanlarına yönelik destek ekleyerek. Blog ve gönderi oluşturmaya yönelik basit bir konsol uygulaması projesi oluşturur. Proje, dört Kiracı yanı sıra, iki çok kiracılı parça veritabanı içerir. Bu yapılandırma, önceki şemada gösterilmiştir. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> Koşul tabloları yüzlerce üzerinde eklemeniz gerekebilir karmaşık bir projede, can sıkıcı olabilir. Otomatik olarak bir güvenlik ilkesi oluşturur ve bir koşul, bir şema tüm tablolarda ekler Yardımcısı depolanan yordam yoktur. Daha fazla bilgi için blog gönderisine bakın [geçerli satır düzeyi güvenlik tüm tablolara - yardımcı betik (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> Koşul tabloları yüzlerce üzerinde eklemeniz gerekebilir karmaşık bir projede, can sıkıcı olabilir. Otomatik olarak bir güvenlik ilkesi oluşturur ve bir koşul, bir şema tüm tablolarda ekler Yardımcısı depolanan yordam yoktur. Daha fazla bilgi için blog gönderisine bakın [geçerli satır düzeyi güvenlik tüm tablolara - yardımcı betik (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Artık örnek uygulamayı yeniden çalıştırırsanız, kiracılar yalnızca kendisine ait satırları görebilirsiniz. Ayrıca, uygulama şu anda parça veritabanına bağlı diğer kiracılara ait satır eklenemiyor. Ayrıca, uygulamayı görmek herhangi bir satır içinde Tenantıd güncelleştirilemiyor. Uygulamanın aşağıdakilerden çalışırsa, bir DbUpdateException ortaya çıkar.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Bakım
 
 - **Yeni parça ekleme**: RLS herhangi bir yeni parçalar üzerinde etkinleştirmek için T-SQL betiği yürütün, aksi takdirde bu parçalardaki sorgular olan tablolarda filtreleme yapılmaz.
-- **Yeni tablo ekleme**: yeni bir tablo oluşturulduğunda bir FİLTRE ve BLOK koşul tüm parçalar güvenlik ilkesine ekleyin. Aksi halde yeni bir tablo sorguları olan tablolarda filtreleme yapılmaz. Bu ekleme bir DDL tetikleyicisi kullanarak açıklandığı gibi otomatikleştirilebilir [yeni oluşturulan tablolar (blog) otomatik olarak satır düzeyi güvenlik uygulamak](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Yeni tablo ekleme**: yeni bir tablo oluşturulduğunda bir FİLTRE ve BLOK koşul tüm parçalar güvenlik ilkesine ekleyin. Aksi halde yeni bir tablo sorguları olan tablolarda filtreleme yapılmaz. Bu ekleme bir DDL tetikleyicisi kullanarak açıklandığı gibi otomatikleştirilebilir [yeni oluşturulan tablolar (blog) otomatik olarak satır düzeyi güvenlik uygulamak](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Özet
 
@@ -358,7 +358,7 @@ Esnek veritabanı araçlarını ve satır düzeyi güvenlik için ölçek geniş
 
 ## <a name="questions-and-feature-requests"></a>Sorular ve özellik istekleri
 
-Sorular için bize ulaşın [SQL veritabanının Forumu](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Tüm özellik isteklerini ekleyin [SQL veritabanı geri bildirim Forumu](https://feedback.azure.com/forums/217321-sql-database/).
+Sorular için bize ulaşın [SQL veritabanının Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Tüm özellik isteklerini ekleyin [SQL veritabanı geri bildirim Forumu](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: Azure AI galeri sektöre özgü çözümleri | Microsoft Docs
-description: Azure AI galerideki endüstri çözümleri keşfedin.
+title: Azure AI Gallery sektöre özgü çözümler | Microsoft Docs
+description: Azure AI Gallery'de sektör çözümleri keşfedin.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -15,40 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d64395314f73c5d359b30c15ef11bfd3078e068f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062106"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346312"
 ---
-# <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI galerideki sektöre özgü çözümleri Bul
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI Gallery'de sektöre özgü çözümler keşfedin
 
-## <a name="industry-specific-cortana-intelligence-solutions"></a>Sektöre özgü Cortana Intelligence çözümleri
-**[Sektörlerde](https://gallery.azure.ai/industries)** Bölümü Galerisi getirir birlikte böyle sektörlerde özgü çeşitli kaynaklar
+**[Sektörler](https://gallery.azure.ai/industries)** bölümünü [Azure AI Gallery](http://gallery.cortanaintelligence.com) böyle sektörler özgü çeşitli kaynakları bir araya getirir
 
-* [Perakende](https://gallery.azure.ai/industries/retail) -tahmin, müşteri karmaşası tahmin etmeye ve fiyatlandırma modelleriyle geliştirme satış gibi perakende çözümleri bulun.
-* [Üretim](https://gallery.azure.ai/industries/manufacturing) - ekipman bakım bekleme ve enerji fiyatları tahmin gibi çözümleri üretim bulun.
-* [Bankacılık](https://gallery.azure.ai/industries/banking) - kredi tahmin etmeye gibi çözümleri bankacılık Bul risk ve Çevrimiçi sahtekarlık için izleme.
-* [Sağlık](https://gallery.azure.ai/industries/healthcare) -Hastalık algılama ve tahmin etmeye Hastanenin readmissions gibi sağlık çözümleri bulun.
+* [Perakende](https://gallery.azure.ai/industries/retail) -fiyatlandırma modelleriyle geliştirme tahmin ve müşteri karmaşıklığı tahmini satış gibi perakende çözümleri bulun.
+* [Üretim](https://gallery.azure.ai/industries/manufacturing) - üretim ekipmanı bakımına öngörerek ve enerji fiyatlarını tahmin etme özelliği gibi çözümleri bulun.
+* [Bankacılık](https://gallery.azure.ai/industries/banking) - kredi tahmin etme gibi çözümler bankacılık Bul risk ve için Çevrimiçi sahtekarlık izlemeden yararlanın.
+* [Sağlık Hizmetleri](https://gallery.azure.ai/industries/healthcare) -Hastalık algılama ve hastanede hastaneye tahmin etme gibi sağlık çözümleri bulun.
 
-Bu kaynaklar denemeler, özel modüller, API'leri, koleksiyonlar ve çözümleri çalıştığınız sektör belirli geliştirmenize yardımcı olabilir herhangi bir galeri öğesini içerir.
+Bu kaynaklar, denemeleri, özel modüller, API'ler, koleksiyonlar ve çalıştığınız sektöre özgü çözümler geliştirmeye yardımcı olabilecek herhangi bir galeri öğelerini içerir.
 
 ## <a name="discover"></a>Keşif
- Galerideki sektöre özgü çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com), farenizi adresindeki noktası **sektörlerde** galeri giriş sayfasının üstündeki belirli endüstri kesimi seçin ya da seçin **Tümünü görüntüle** bir genel bakış sayfasında tüm endüstriler görmek için.
+ Sektöre özgü çözümler galeride göz atmak için açık [galeri](http://gallery.cortanaintelligence.com), farenizi adresindeki noktası **sektörler** galeri giriş sayfasının üstündeki belirli sektör segmentine veya seçin **Görünümü tüm** tüm sektörler için bir genel bakış sayfasını görmek için.
 
- Her endüstri sayfası, endüstri ile ilişkili en popüler galeri öğeleri listesini görüntüler.
-Tıklatın **tümünü görmek** galeride tüm sektöre özgü kaynakları görüntülemek için.
-Bu sayfadan galerisinde tüm kaynaklara göz atabilirsiniz. Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.
+ Bu sektör ile ilişkili en popüler galeri öğelerinin listesini her sektör sayfası görüntüler.
+Tıklayın **tümünü gör** galerideki tüm sektöre özgü kaynakları görüntülemek için.
+Bu sayfada, galerideki tüm kaynaklara göz atabilirsiniz. Filtre ölçütü sol üst girme arama terimlerini ve sayfa seçerek arama da yapabilirsiniz.
 
 ![Bu öğe arkadaşlarınızla paylaşın](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Kendi açıklamaları ekleme](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Kendi açıklamalar ekleme](./media/gallery-how-to-use-contribute-publish/comments.png)
 
- Daha fazla bilgi öğesi'nin ayrıntılar sayfasını açmak için herhangi bir galeri öğesini tıklatın.
+ Öğenin daha fazla bilgi için Ayrıntılar sayfasını açmak için herhangi bir galeri öğesini tıklayın.
 
-**[BANA GALERİSİNE ELE &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[BENİ GALERİSİNE GÖTÜR &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

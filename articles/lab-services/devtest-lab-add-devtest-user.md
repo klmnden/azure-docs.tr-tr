@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243718"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahibini ve kullanıcıları ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ Aşağıdaki tabloda, bu rollerin her birini kullanıcılar tarafından gerçekl
 Azure portal aracılığıyla Laboratuvar düzeyinde sahibini ve kullanıcıları eklenebilir. Kullanıcı, geçerli bir dış kullanıcıyla olabilir [Microsoft hesabı (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 Aşağıdaki adımlar bir sahibi veya kullanıcı Azure DevTest labs'deki bir laboratuvara ekleme işleminde size kılavuzluk eder:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.
 4. Laboratuvar dikey penceresinde seçin **yapılandırması ve ilkelerini**. 
@@ -116,11 +116,11 @@ Alabileceğiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portal�
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Abonelik düzeyinde sahibi veya kullanıcı ekleme
 Azure izinleri Azure alt kapsamda için üst kapsamlardan yayılır. Bu nedenle, laboratuvarlar içeren bir Azure aboneliği sahiplerine otomatik olarak bu laboratuvarlar sahipleri altındadır. Vm'leri ve Laboratuvar kullanıcıları ve Azure DevTest Labs hizmeti tarafından oluşturulan diğer kaynaklar da sahip. 
 
-Bir laboratuvar Laboratuvar dikey penceresi aracılığıyla ek sahipleri ekleyebileceğiniz [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040). Ancak eklenen sahibinin yönetim kapsamını daha fazla abonelik sahibinin kapsamı dar olabilir. Örneğin, eklenen sahipleri tam abonelikte DevTest Labs hizmeti tarafından oluşturulan kaynakların bazıları için erişiminiz yok. 
+Bir laboratuvar Laboratuvar dikey penceresi aracılığıyla ek sahipleri ekleyebileceğiniz [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040). Ancak eklenen sahibinin yönetim kapsamını daha fazla abonelik sahibinin kapsamı dar olabilir. Örneğin, eklenen sahipleri tam abonelikte DevTest Labs hizmeti tarafından oluşturulan kaynakların bazıları için erişiminiz yok. 
 
 Bir Azure aboneliğine sahip eklemek için aşağıdaki adımları izleyin:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 2. Seçin **tüm hizmetleri**ve ardından **abonelikleri** listeden.
 3. İstediğiniz aboneliği seçin.
 4. Seçin **erişim** simgesi. 

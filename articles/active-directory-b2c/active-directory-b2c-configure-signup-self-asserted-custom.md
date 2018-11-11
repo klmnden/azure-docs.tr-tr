@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336864"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345009"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: yeni talep ekleyin ve kullanıcı girişi yapılandırmak için yukarı oturum değiştirin.
 
@@ -277,8 +277,8 @@ E-posta, varsayılan olarak etkindir doğrulandı `<TechnicalProfile Id="LocalAc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yeni akışlar Talep'i sosyal hesap oturum açma bilgileri için aşağıda listelenen TechnicalProfiles değiştirerek ekleyin. Bulucu alternativeSecurityId kullanarak kullanıcı verilerini okuyup yazmak için bu hesabı sosyal ve Federasyon oturum açma bilgileri tarafından kullanılır.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+İlkeniz, sosyal medya hesaplarını destekliyorsa, yeni akışlar Talep'i sosyal hesap oturum açma bilgileri için aşağıdaki teknik profil değiştirerek ekleyin. Bu talep, toplamak ve kullanıcıdan veri yazmak için sosyal hesap oturum açma bilgileri tarafından kullanılır.
+
+1. Teknik profilini bulun **SelfAsserted sosyal** ve çıkış talep ekleyin. Taleplerde sırasını **OutputClaims** Azure AD B2C ekranında talepleri işler sırasını denetler. Örneğin, `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Teknik profilini bulun **AAD UserWriteUsingAlternativeSecurityId** ve kalan talebi ekler. Örneğin, `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Teknik profilini bulun **AAD UserReadUsingAlternativeSecurityId** ve çıkış talep ekleyin. Örneğin, `<OutputClaim ClaimTypeReferenceId="city" />`.

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056728"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345972"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure Data Lake depolama Gen2 önizlemesi için veya veri kopyalama
 
@@ -34,6 +34,9 @@ Data Lake depolama 2. nesil için herhangi bir desteklenen kaynak veri deposunda
 
 >[!TIP]
 >Hiyerarşik ad alanı etkinleştirirseniz, şu anda yoktur arasında Blob ve ADLS Gen2 API işlemlerinin hiçbir birlikte çalışabilirlik. Hatayı isabet durumunda "hata kodu FilesystemNotFound =" ayrıntılı bir ileti ile "Belirtilen dosya yok.", belirtilen havuz kaynaklanır dosya sistemi oluşturulduğu ADLS Gen2 API yerine Blob API aracılığıyla başka bir yerde. Bu sorunu düzeltmek için lütfen bir Blob kapsayıcısı adı olarak var olmayan bir ada sahip yeni bir dosya sistemi belirtin ve ADF otomatik olarak veri kopyalama sırasında o dosya sistemi oluşturur.
+
+>[!NOTE]
+>Etkinleştirirse _"İzin ver güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin"_ Azure depolama Güvenlik Duvarı ayarları, Azure Integration Runtime'ı kullanarak Data Lake depolama 2. nesil bağlanma seçeneği olarak ADF Yasak hatası ile başarısız olur Güvenilen Microsoft hizmet olarak kabul edilmediği. Lütfen bunun yerine aracılığıyla bağlanma gibi şirket içinde barındırılan Integration Runtime'ı kullanın.
 
 ## <a name="get-started"></a>başlarken
 
@@ -84,7 +87,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır **AzureBlobFSFile**. |Evet |
-| folderPath | Data Lake depolama Gen2'ye klasöründe yolu. Joker karakter filtresi desteklenmez. Örnek: rootfolder/alt /. |Evet |
+| folderPath | Data Lake depolama Gen2'ye klasöründe yolu. Joker karakter filtresi desteklenmez. Belirtilmezse, kök dizinine işaret eder. Örnek: rootfolder/alt /. |Hayır |
 | fileName | **Adı veya joker karakter filtresi** belirtilen "folderPath" altında dosyaları için. Bu özellik için bir değer belirtmezseniz, klasördeki tüm dosyaları için veri kümesini işaret eder. <br/><br/>Filtre için joker karakterlere izin verilir: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"`<br/>Kullanım `^` joker karakter veya içinde bu kaçış karakteri, gerçek dosya adı varsa, kaçış için.<br/><br/>Dosya adı değil belirtildiği zaman için bir çıktı veri kümesi ve **preserveHierarchy** belirtilmediyse etkinliği havuz kopyalama etkinliği, dosya adı şu deseni ile otomatik olarak oluşturur: "*veri. [ Etkinlik çalıştırma kimliği GUID]. [GUID, FlattenHierarchy]. [biçim] yapılandırılmışsa. [yapılandırdıysanız sıkıştırma]* ". "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz" buna bir örnektir. |Hayır |
 | Biçim | (İkili kopya) depoları arasında dosya tabanlı olduğu gibi dosyaları kopyalamak girdi ve çıktı veri kümesi tanımları biçimi bölümüne atlayın.<br/><br/>Ayrıştırma veya belirli bir biçime sahip dosyaları oluşturmak istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Ayarlama **türü** özelliği altında **biçimi** şu değerlerden biri olarak. Daha fazla bilgi için [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi ](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopya senaryosu için) |
 | Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyleri **Optimal** ve **en hızlı**. |Hayır |

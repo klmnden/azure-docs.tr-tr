@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0bb870b54099fce9f7f6cfd1666be1b6393c5d07
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a921a717445df93c83518c89970050e63a51ddf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391445"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345213"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Event Hubs verilerini yakalama için Azure Data Lake depolama Gen1 kullanın
 
@@ -58,7 +58,7 @@ Bu bölümde, Event Hubs verilerini yakalama için istediğiniz bir klasörü he
     c. Altında **atama izinleri**, tıklayın **Select izinleri**. Ayarlama **izinleri** için **yürütme**. Ayarlama **eklemek** için **bu klasör ve tüm alt öğeleri**. Ayarlama **eklemek** için **erişim izni girdisi ve varsayılan izin girdisi**.
 
     > [!IMPORTANT]
-    > Azure Event hubs'ı tarafından alınan verileri yakalamak için yeni bir klasör hiyerarşisi oluştururken, hedef klasöre erişim sağlamak için kolay bir yol budur.  Ancak, çok sayıda alt dosyalar ve klasörlerle en üst düzey klasöre tüm alt öğelere izinler eklemek uzun sürebilir.  Kök klasörünüzde çok sayıda dosya ve klasörleri varsa, bunu daha hızlı bir şekilde eklemek için olabilir **yürütme** izinlerini `Microsoft.EventHubs` ayrı olarak her bir klasörü, nihai hedef klasörün yolu. 
+    > Azure Event hubs'ı tarafından alınan verileri yakalamak için yeni bir klasör hiyerarşisi oluşturma, hedef klasöre erişim sağlamak için kolay bir yolu budur.  Ancak, çok sayıda alt dosyalar ve klasörlerle en üst düzey klasöre tüm alt öğelere izinler eklemek uzun sürebilir.  Kök klasörünüzde çok sayıda dosya ve klasörleri varsa, bunu daha hızlı bir şekilde eklemek için olabilir **yürütme** izinlerini `Microsoft.EventHubs` ayrı olarak her bir klasörü, nihai hedef klasörün yolu. 
 
     ![Data Lake depolama Gen1 kök izinleri atamanız](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake depolama Gen1 kök için izin atama")
 

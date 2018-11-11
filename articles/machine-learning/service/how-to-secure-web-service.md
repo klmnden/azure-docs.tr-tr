@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801021"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344493"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Azure Machine Learning web hizmetleri SSL ile güvenli hale getirme
 
@@ -53,9 +53,8 @@ Sertifika isterken, web hizmeti için kullanmayı planladığınız adresinin ta
 > [!TIP]
 > Sertifika yetkilisi sertifika ve anahtarı sağlayamazsa ve PEM kodlu dosyaları olarak gibi bir yardımcı programını kullanın [OpenSSL](https://www.openssl.org/) biçimini değiştirmek için.
 
-> [!IMPORTANT]
-> Otomatik olarak imzalanan sertifikalar yalnızca geliştirme için kullanılması gerekir. Bunlar üretim ortamında kullanılmamalıdır. Kendinden imzalı bir sertifika kullanıyorsanız bkz [otomatik olarak imzalanan sertifikalara sahip web hizmetlerini kullanma](#self-signed) bölümüne ilişkin özel yönergeler.
-
+> [!WARNING]
+> Otomatik olarak imzalanan sertifikalar yalnızca geliştirme için kullanılması gerekir. Bunlar üretim ortamında kullanılmamalıdır. Otomatik olarak imzalanan sertifikaları, uygulamaları istemcinizde sorunlara neden olabilir. Daha fazla bilgi için istemci uygulamanızda kullanılan ağ kitaplıkları için belgelere bakın.
 
 ## <a name="enable-ssl-and-deploy"></a>SSL etkinleştirmek ve dağıtmak
 
@@ -119,91 +118,8 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
 
   "Genel IP adresi" görüntüde gösterildiği gibi AKS kümesi "Yapılandırma" sekmesi altındaki DNS güncelleştirin. AKS aracı düğümleri ve diğer ağ kaynakları içeren kaynak grubu altında oluşturulan kaynak türlerini biri olarak genel IP adresini bulabilirsiniz.
 
-  ![Azure Machine Learning hizmeti: web hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning hizmeti: web hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)Self-
 
-## <a name="consume-authenticated-services"></a>Kimliği doğrulanmış hizmetlerini kullanma
+## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="how-to-consume"></a>Kullanma 
-+ **ACI ve AKS için**: 
-
-  ACI ve AKS web hizmetleri için bu makaleler, web hizmetlerini kullanma hakkında bilgi edinin:
-  + [ACI'ya dağıtma](how-to-deploy-to-aci.md)
-
-  + [AKS'ye dağıtma](how-to-deploy-to-aks.md)
-
-+ **FPGA için**:  
-
-  Aşağıdaki örnekler, Python ve C# ' deki bir kimliği doğrulanmış FPGA hizmetinin nasıl kullanılacağı hakkında göstermektedir.
-  Değiştirin `authkey` hizmetini dağıttığınızda, döndürülen birincil veya ikincil anahtarı.
-
-  Python örnek:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  C# örneği:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>Yetkilendirme üst bilgisini ayarlayın
-Diğer gRPC istemciler bir yetkilendirme üst bilgisi ayarlayarak isteklerinin kimliğini doğrulayabilir. Genel yaklaşım oluşturmaktır bir `ChannelCredentials` birleştiren nesne `SslCredentials` ile `CallCredentials`. Bu isteğin yetkilendirme üst bilgisi eklenir. Belirli üstbilgilerinizin desteği uygulama konusunda daha fazla bilgi için bkz. [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
-
-Aşağıdaki örnekler, C# ve Git üst bilgi ayarlama işlemini göstermektedir:
-
-+ C# ayarlamak için kullanın:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Ayarlamak için Git kullanın:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Otomatik olarak imzalanan sertifikalarla hizmetlerini kullanma
-
-Otomatik olarak imzalanan bir sertifika ile güvenli bir sunucu kimlik doğrulaması istemci etkinleştirmek için iki yolu vardır:
-
-* İstemci sisteminde `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` sertifika dosyasına işaret edecek şekilde İstemci sisteminde ortam değişkeni.
-
-* Oluştururken bir `SslCredentials` nesnesine, yapıcısına sertifika dosyasının içeriğini geçirin.
-
-Her iki yöntemi kullanarak sertifikayı kök sertifika kullanmak üzere gRPC neden olur.
-
-> [!IMPORTANT]
-> gRPC güvenilmeyen sertifikaları kabul etmiyor. Güvenilmeyen bir sertifika kullanarak başarısız olacak olan bir `Unavailable` durum kodu. Hata ayrıntılarını içeren `Connection Failed`.
+Bilgi edinmek için nasıl [ML Model dağıtılan web hizmeti olarak Tüket](how-to-consume-web-service.md).

@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: f67bab33413b0048fc93d5f62e88984acaa25fd6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa8d92aaa60cd70f378595054506c8e9f7daee
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393244"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344697"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
-Bu konuda, Azure Data Factory (ADF) kullanarak verileri şirket içi SQL Server veritabanından Azure Blob Depolama ile bir SQL Azure veritabanına taşıma gösterilmektedir.
+
+Bu makalede, Azure Data Factory (ADF) kullanarak verileri şirket içi SQL Server veritabanından Azure Blob Depolama ile bir SQL Azure veritabanına taşıma gösterilmektedir.
 
 Bir Azure SQL veritabanı'na veri taşımak için çeşitli seçenekler özetlenmektedir bir tablo için bkz: [veri taşıma için bir Azure SQL veritabanı için Azure Machine Learning](move-sql-azure.md).
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa7d0f98f8119ad34e0764423e99af4564f20387
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311930"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243002"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
 Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
@@ -30,7 +30,7 @@ Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
 
 Bu konu açıklar nasıl özelliklerini aşağıdaki **Azure AD Connect eşitleme hizmeti** iş ve nasıl Windows PowerShell kullanarak yapılandırmak için.
 
-Bu ayarları tarafından yapılandırılan [Azure Active Directory için Windows PowerShell Modülü](https://aka.ms/aadposh). İndirin ve ayrı ayrı Azure AD Connect'ten yükleyin. Bu konudaki belgelenen cmdlet'leri sunulan [2016 Mart sürüm (derleme 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Bu konudaki belgelenen cmdlet'leri izniniz yok veya aynı sonucu üretir değil, en son sürümü çalıştırdığınızdan emin olun.
+Bu ayarları tarafından yapılandırılan [Azure Active Directory için Windows PowerShell Modülü](https://aka.ms/aadposh). İndirin ve ayrı ayrı Azure AD Connect'ten yükleyin. Bu konudaki belgelenen cmdlet'leri sunulan [2016 Mart sürüm (derleme 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Bu konudaki belgelenen cmdlet'leri izniniz yok veya aynı sonucu üretir değil, en son sürümü çalıştırdığınızdan emin olun.
 
 Azure AD dizininizi yapılandırmada görmek için şunu çalıştırın `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures sonucu](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -59,7 +59,7 @@ Aşağıdaki ayarlar, Azure AD Connect tarafından yapılandırılır ve tarafı
 | DirectoryExtensions |[Azure AD Connect eşitleme: dizin genişletmeleri](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Bir öznitelik bir kopyasını başka bir nesne yerine, tüm nesne dışarı aktarma sırasında başarısız olduğunda karantinaya sağlar. |
 | Parola Karması Eşitleme |[Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama](how-to-connect-password-hash-synchronization.md) |
-|Doğrudan Kimlik Doğrulama|[Kullanıcı oturum açma ile Azure Active Directory geçişli kimlik doğrulaması](how-to-connect-pta.md)|
+|Doğrudan Kimlik Doğrulama|[Azure Active Directory Geçişli Kimlik Doğrulaması ile kullanıcı oturumu açma](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Önizleme: Grup geri yazma](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Şu anda desteklenmiyor. |
 

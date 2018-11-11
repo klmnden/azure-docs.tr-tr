@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 11/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 68c58c16d7083182d412adb6ed0d243a3291cc42
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b4d4471d9c77b5d13dfd5f8c2e9394b1c2d2a87
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431842"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242562"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>IOT Edge modülü teklifi yayımlama genel bakış
 
-Bu makalede, yayımlama işlemi ve bir IOT Edge modülü teklif anahtar bölümlerini açıklar. Bu makalede yayımlama için teklifinizi yayımlamaya yönelik bir başlangıç noktası olarak kullanın. [Azure Marketi](https://azuremarketplace.microsoft.com).
+<table> <tr> <td>Bu bölümde, Microsoft yeni bir Azure IOT Edge modülü teklif yayımlamak açıklanmaktadır <a href="https://azuremarketplace.microsoft.com">Azure Marketi</a>. IOT Edge modülü bir IOT Edge Cihazınızda çalıştırmak için yaptığı Docker ile uyumlu bir kapsayıcıdır. Azure IOT Edge modülleri, IOT Edge tarafından yönetilen bir hesaplama birimi en küçük olan ve Azure hizmetlerine veya özel bir çözüm kod içerebilir. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 
 ## <a name="publishing-process"></a>Yayımlama işlemi
 
@@ -44,7 +44,7 @@ Aşağıdaki makaleleri bir IOT Edge modülü teklif anahtar bölümleri kapsar.
 - [Önkoşullar](./cpp-prerequisites.md) <br>Bu makalede, teknik listelenir ve oluşturabilir veya bir IOT Edge modülü yayımlama önce iş gereksinimleri sunar.
 - [IOT Edge modülü teknik varlıkları hazırlama](./cpp-create-technical-assets.md) <br>Bu makalede bir IOT Edge modülü için teknik varlıkları hazırlamayı öğrenin. Bu varlıklar, IOT Edge modülü, Azure Marketi'nde yayımlanmadan önce tüm gerekli teknik ölçütlerini karşılamalıdır.
 - [IoT Edge modülü teklifi oluşturma](./cpp-create-offer.md) <br>Bu makalede kullanarak yeni bir IOT Edge modülü Teklif girişi oluşturmak için gerekli adımları listeleyen [bulut iş ortağı portalı](https://cloudpartner.azure.com).
-- [IOT Edge modülü teklifi yayımlama](./cpp-publish-offer.md)<br> Bu makalede, Azure Market'te yayımlamak için bir teklif göndermek açıklar.
+- [IoT Edge modülü teklifi yayınlama](./cpp-publish-offer.md)<br> Bu makalede, Azure Market'te yayımlamak için bir teklif göndermek açıklar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

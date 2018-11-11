@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: c5a18a2e8d58553e49797da418f76fc3f251e003
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 21b5050996428328bfda314b2f2242ed2a766e74
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026050"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239772"
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis Cache için sık sorulan sorular, desenleri ve en iyi soruların yanıtlarını öğrenin.
@@ -250,7 +250,7 @@ Konusunda listelenen komutlardan herhangi birini kullanabilirsiniz [Redis komutl
 * `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Redis komut satırı araçlarını SSL bağlantı noktası ile çalışmaz, ancak gibi bir yardımcı programını kullanabilirsiniz `stunnel` güvenli bir şekilde Araçları'ndaki yönergeleri takip ederek SSL bağlantı noktasına bağlanmak için [Redis Önizleme için ASP.NET oturum durumu sağlayıcısı ile tanışın Yayın](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi.
+> Redis komut satırı araçlarını SSL bağlantı noktası ile çalışmaz, ancak gibi bir yardımcı programını kullanabilirsiniz `stunnel` güvenli bir şekilde Araçları'ndaki yönergeleri takip ederek SSL bağlantı noktasına bağlanmak için [Redis Önizleme için ASP.NET oturum durumu sağlayıcısı ile tanışın Yayın](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi.
 >
 >
 
@@ -295,7 +295,7 @@ Redis sunucu SSL yerel olarak desteklemez, ancak Azure Redis Cache yapar. Azure 
 >
 >
 
-Araçları gibi redis `redis-cli` SSL bağlantı noktası ile çalışmaz, ancak gibi bir yardımcı programını kullanabilirsiniz `stunnel` güvenli bir şekilde Araçları'ndaki yönergeleri takip ederek SSL bağlantı noktasına bağlanmak için [Redis için ASP.NET oturum durumu sağlayıcısı ile tanışın Önizleme sürümü](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi.
+Araçları gibi redis `redis-cli` SSL bağlantı noktası ile çalışmaz, ancak gibi bir yardımcı programını kullanabilirsiniz `stunnel` güvenli bir şekilde Araçları'ndaki yönergeleri takip ederek SSL bağlantı noktasına bağlanmak için [Redis için ASP.NET oturum durumu sağlayıcısı ile tanışın Önizleme sürümü](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi.
 
 Redis Araçları'nı yükleme hakkında yönergeler için bkz. [Redis komutları nasıl çalıştırırım?](#cache-commands) bölümü.
 

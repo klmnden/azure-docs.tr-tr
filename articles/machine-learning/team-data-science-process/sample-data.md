@@ -1,5 +1,5 @@
 ---
-title: Örnek verileri Azure blob kapsayıcılar, SQL Server'ı ve tabloları Hive | Microsoft Docs
+title: Örnek verileri Azure blob kapsayıcıları, SQL Server ve Hive tabloları | Microsoft Docs
 description: Çeşitli Azure enviromnents içinde depolanan verileri araştırmak nasıl.
 services: machine-learning
 documentationcenter: ''
@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 0efd754936b67611a747c6c5756de92443a937e4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 60431578ba8b5c740fe5e1124dcdad32c3cb2ede
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838016"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344101"
 ---
-# <a name="heading"></a>Örnek verileri Azure blob kapsayıcılar, SQL Server'ı ve tabloları Hive
-Bu belge bağlantılar üç farklı Azure konumlardan birinde depolanan verileri örnek konularını makaleler için:
+# <a name="heading"></a>Örnek verileri Azure blob kapsayıcıları, SQL Server ve Hive tablolarındaki
 
-* **Azure blob kapsayıcı verileri** programlı olarak karşıdan yükleyip örnek Python kodu ile örnekleme örneklenen.
-* **SQL Server verilerini** SQL ve Python programlama dili kullanılarak örneklenen. 
-* **Tablo verisi hive** Hive sorgularını kullanarak örneklenen.
+Aşağıdaki makaleler üç farklı Azure konumlardan birinde depolanan verileri örnek açıklar:
 
-Aşağıdaki **menü** her bu Azure depolama ortamlarının veri örneği açıklayan konulara ait bağlantılar. 
+* [**Azure blob kapsayıcısı veri** ](sample-data-blob.md) program aracılığıyla indiriliyor ve ardından örnek Python kodu ile örnekleme tarafından örneklenir.
+* [**SQL Server verilerini** ](sample-data-sql-server.md) hem SQL hem de Python programlama dili kullanarak örneklenir. 
+* [**Tablo verilerini hive** ](sample-data-hive.md) Hive sorgularını kullanarak örneklenir.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
-
-Bir adımda bu örnekleme görevdir [takım veri bilimi işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Bir adımda bu örnekleme görevdir [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 **Neden veri örneği?**
 
-Analiz etmek için planlama dataset büyükse, genellikle aşağı örnek için daha küçük, ancak temsili ve daha kolay yönetilebilir bir boyutunu azaltmak için veri için iyi bir fikir değil. Bu, veri anlama, keşfi ve özellik Mühendisliği kolaylaştırır. Cortana Analytics işleminde rolü hızlı prototipi oluşturulurken veri işleme işlevleri ve makine öğrenimi modellerinin oluşturulmasına etkinleştirmektir.
+Veri kümesini analiz etmek için planlama büyükse, genellikle aşağı örnek veriler için daha küçük ancak temsilcisi ve daha kolay yönetilebilir bir boyutunu azaltmak için iyi bir fikir olduğunu. Bu, özellik Mühendisliği veri anlama ve keşfetme kolaylaştırır. Kendi Cortana Analytics süreci rolünde hızlı prototip oluşturma veri işleme işlevleri ve makine öğrenimi modellerini etkinleştirmektir.
 

@@ -1,6 +1,6 @@
 ---
-title: Örnek Azure Hdınsight Hive tablolarındaki verileri | Microsoft Docs
-description: Azure Hdınsight (Hadopop) Hive tablolarındaki verileri örnekleme aşağı
+title: Örnek verileri Azure HDInsight Hive tablolarındaki | Microsoft Docs
+description: Örnekleme (Hadopop) Azure HDInsight Hive tablolarındaki verileri aşağı
 services: machine-learning,hdinsight
 documentationcenter: ''
 author: deguhath
@@ -15,34 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 558f7d684453c8b5040f586820bd2a8a9ac0f9c8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8a1fd001980efbff27f10cfb4be1502cd2f9f402
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838441"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345938"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive tablolarındaki örnek veriler
-Bu makalede aşağı örnekli analiz için daha kolay yönetilebilir bir boyutunu küçültmek için Hive sorguları kullanarak Azure Hdınsight Hive tabloları depolanan verileri açıklar. Bu üç özellik kullanılan örnekleme yöntemleri kapsar:
+Bu makalede, aşağı örnek bunu analiz için daha kolay yönetilebilir bir boyuta indirmeyi Hive sorgularını kullanarak Azure HDInsight Hive tablolarında depolanan veriler açıklar. Üç bu özellik kullanılan örnekleme yöntemleri kapsar:
 
 * Tekdüzen rastgele örnekleme
 * Gruplara göre rastgele örnekleme
 * Stratified örnekleme
 
-Aşağıdaki **menü** çeşitli depolama ortamlarından veri örneği nasıl açıklayan konulara bağlantılar.
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
-
 **Neden verilerinizi örnek?**
-Analiz etmek için planlama dataset büyükse, genellikle aşağı örnek için daha küçük, ancak temsili ve daha kolay yönetilebilir bir boyutunu azaltmak için veri için iyi bir fikir değil. Aşağı örnekleme veri anlama, keşfi ve özellik Mühendisliği kolaylaştırır. Takım veri bilimi işleminde rolü hızlı prototipi oluşturulurken veri işleme işlevleri ve makine öğrenimi modellerinin oluşturulmasına etkinleştirmektir.
+Veri kümesini analiz etmek için planlama büyükse, genellikle aşağı örnek veriler için daha küçük ancak temsilcisi ve daha kolay yönetilebilir bir boyutunu azaltmak için iyi bir fikir olduğunu. Aşağı örnekleme, özellik Mühendisliği veri anlama ve keşfetme kolaylaştırır. Team Data Science Process içinde rolünü hızlı prototip oluşturma veri işleme işlevleri ve makine öğrenimi modellerini etkinleştirmektir.
 
-Bir adımda bu örnekleme görevdir [takım veri bilimi işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Bir adımda bu örnekleme görevdir [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="how-to-submit-hive-queries"></a>Hive sorguları gönderme
-Hive sorguları, Hadoop küme baş düğümü üzerinde Hadoop komut satırı konsolundan gönderilebilir. Bunu yapmak için Hadoop küme baş düğümüne oturum, Hadoop komut satırı konsolunu açın ve buradan Hive sorguları göndermek. Hadoop komut satırı konsolunda Hive sorguları gönderme ile ilgili yönergeler için bkz: [Hive sorguları göndermek için nasıl](move-hive-tables.md#submit).
+## <a name="how-to-submit-hive-queries"></a>Hive sorguları göndermek nasıl
+Hive sorguları, Hadoop küme baş düğümü üzerinde Hadoop komut satırı konsolundan gönderilebilir. Bunu yapmak için Hadoop küme baş düğümüne oturum, Hadoop komut satırı konsolu açın ve buradan Hive sorguları göndermek. Hadoop komut satırı konsolunda Hive sorguları gönderme ile ilgili yönergeler için bkz: [Hive sorguları göndermek için nasıl](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Tekdüzen rastgele örnekleme
-Tekdüzen rastgele örnekleme veri kümesindeki her satır örneklenen şansı eşittir sahip olduğu anlamına gelir. Bir ek alan rand() veri kümesine iç sorgu "Seç" ve "Seç" dış sorgu bu koşul, rastgele alan üzerinde ekleyerek uygulanabilir.
+Tekdüzen rastgele örnekleme, her satırda bir veri kümesi örnekleniyor eşit bir olasılığını olduğunu gösterir. Ek alan rand() veri kümesine iç sorgu "Seç" ve "seçin" dış sorgu bu koşul, rastgele alan ekleyerek uygulanabilir.
 
 Örnek bir sorgu aşağıda verilmiştir:
 
@@ -60,9 +56,9 @@ Tekdüzen rastgele örnekleme veri kümesindeki her satır örneklenen şansı e
 Burada, `<sample rate, 0-1>` kullanıcıları örneklemek istediğiniz kayıtları oranını belirtir.
 
 ## <a name="group"></a> Gruplara göre rastgele örnekleme
-Örnekleme kategorik verileri dahil etmek veya hariç tüm örnekleri için bazı değişkenin değeri olarak kategorik istediğinizde. Bu tür bir örnekleme "grubu tarafından örnekleme" adı verilir. Kategorik bir değişken varsa, örneğin, "*durumu*" NY, MA, CA, NJ ve PA gibi değerler vardır, kayıtların her durumundan veya örneklenen birlikte olmasını istediğiniz.
+Örnekleme kategorik veriler, dahil etmek veya hariç tüm örnekleri için bazı kategorik değişkenin değerini istediğinizde. Bu tür bir örnekleme "grubu tarafından örnekleme" adı verilir. Örneğin, Kategorik bir değişken varsa "*durumu*" kayıtların her durumundan veya Örneklendi ve birlikte olmasını istediğiniz, NY, MA, CA, NJ ve PA gibi değerler vardır.
 
-Grup tarafından bu örnekleri örnek bir sorgu şöyledir:
+Gruplandırma ölçütü bu örnekleri örnek bir sorgu aşağıdadır:
 
     SET sampleRate=<sample rate, 0-1>;
     select
@@ -89,7 +85,7 @@ Grup tarafından bu örnekleri örnek bir sorgu şöyledir:
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Stratified örnekleme
-Elde edilen örnekleri üst popülasyonun oldukları gibi aynı oranı var olan kategorik değerlere sahip olduğunda rastgele örnekleme göre Kategorik bir değişken stratified. Yukarıdaki, aynı örneği kullanarak varsayalım verilerinizi durumları tarafından aşağıdaki gözlemleri vardır: NJ 100 gözlemleri, NY sahip 60 gözlemleri ve WA varsa 300 gözlemleri. 0,5 olarak stratified örnekleme oranını belirtirseniz, ardından elde örnek yaklaşık 50, 30 ve 150 gözlemleri NJ, NY ve WA sırasıyla olmalıdır.
+Elde edilen örnekler üst popülasyon oldukları gibi aynı oranı mevcut olan kategorik değerlere sahip olduğunda rastgele örnekleme Kategorik bir değişkene göre stratified. Yukarıdaki olarak aynı örneği kullanarak verilerinizi durumlara göre aşağıdaki gözlemlere sahip olduğunu varsayalım: NJ varsa 100 gözlemleri, NY olan 60 gözlemleri ve WA 300 gözlemler. 0,5 olmasını stratified örnekleme oranını belirtin, ardından alınan örnek yaklaşık 50, 30 ve 150 gözlemleri NJ, NY ve WA sırasıyla olmalıdır.
 
 Örnek bir sorgu aşağıda verilmiştir:
 
@@ -107,5 +103,5 @@ Elde edilen örnekleri üst popülasyonun oldukları gibi aynı oranı var olan 
     where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
-Kovanında kullanılabilir daha gelişmiş örnekleme yöntemleri hakkında daha fazla bilgi için bkz: [LanguageManual örnekleme](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
+Hive kullanılabilir daha gelişmiş örnekleme yöntemler hakkında daha fazla bilgi için bkz: [LanguageManual örnekleme](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
 

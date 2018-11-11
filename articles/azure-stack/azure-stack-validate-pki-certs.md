@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 51c76c552ef3a79f48637598a12f7a7be1823996
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961135"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515837"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI sertifikalarını doğrulama
 
@@ -244,6 +244,22 @@ SQL/MySQL veya uygulama hizmetleri dağıtımları planlı hazırlayıp hizmet (
         Key Usage: OK
         Key Size: OK
     ```
+
+## <a name="certificates"></a>Sertifikalar
+
+| Dizin | Sertifika |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< bölge >\< externalFQDN > |
+| ACSQueue  |  wildcard_queue\< bölge >\< externalFQDN > |
+| ACSTable  |  wildcard_table\< bölge >\< externalFQDN > |
+| Yönetici uzantısı konağı  |  wildcard_adminhosting\< bölge >\< externalFQDN > |
+| Yönetici portalı  |  adminportal\< bölge >\< externalFQDN > |
+| ARM yönetici  |  adminmanagement\< bölge >\< externalFQDN > |
+| ARM genel  |  Yönetim\< bölge >\< externalFQDN > |
+| KeyVault  |  wildcard_vault\< bölge >\< externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault\< bölge >\< externalFQDN > |
+| Genel uzantı konak  |  wildcard_hosting\< bölge >\< externalFQDN > |
+| Genel kullanıma açık portala  |  Portal\< bölge > _\< externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Doğrulanmış bir sertifika kullanma
 
