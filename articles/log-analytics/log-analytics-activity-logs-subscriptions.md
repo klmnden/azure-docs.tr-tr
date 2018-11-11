@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 41e627d895f0276d372ee42df3e0a43fdadc4051
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042870"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016072"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Abonelikler arasında Azure Etkinlik Günlüklerini Log Analytics'e toplama
 
@@ -29,7 +29,7 @@ Log Analytics çalışma alanı aynı Azure aboneliğindeyse veya farklı bir ab
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu senaryoda kullanılan strateji, Azure Etkinlik Günlüğü'nün olayları bir [Olay Hub'ına](../event-hubs/event-hubs-what-is-event-hubs.md) göndermesini sağlamaktır ve burada bir [Mantıksal Uygulama](../logic-apps/logic-apps-overview.md) bunları Log Analytics çalışma alanınıza gönderir. 
+Bu senaryoda kullanılan strateji, Azure Etkinlik Günlüğü'nün olayları bir [Olay Hub'ına](../event-hubs/event-hubs-about.md) göndermesini sağlamaktır ve burada bir [Mantıksal Uygulama](../logic-apps/logic-apps-overview.md) bunları Log Analytics çalışma alanınıza gönderir. 
 
 ![etkinlik günlüğünden log analytics'e veri akışının resmi](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 

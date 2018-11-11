@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/5/2018
+ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9100722042bfdcbee48af1fc44e294df046c828e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044085"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007221"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Microsoft Monitoring Agent, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -87,7 +87,7 @@ Güvenlik Merkezi tarafından oluşturulan bir çalışma alanı seçmek için:
 -   Güvenlik Merkezi bir Güvenlik Merkezi çözüm çalışma alanının fiyatlandırma katmanını ayarlamak için abonelik başına otomatik olarak etkinleştirir. 
 
 > [!NOTE]
-> Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Log Analytics ücretlerine tabi değildir. Log Analytics fiyatlandırma katmanında, Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Güvenlik Merkezi faturalandırma etkilemez. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır. Güvenlik Merkezi'nin ücretsiz katmanı için etkinleştirir *SecurityCenterFree* çözüm için varsayılan çalışma alanı. Güvenlik Merkezi standart katmanı için etkinleştirir *güvenlik* çözüm için varsayılan çalışma alanı.
+> Log Analytics fiyatlandırma katmanında, Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Güvenlik Merkezi faturalandırma etkilemez. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır. Güvenlik Merkezi'nin ücretsiz katmanı için etkinleştirir *SecurityCenterFree* çözüm için varsayılan çalışma alanı. Güvenlik Merkezi standart katmanı için etkinleştirir *güvenlik* çözüm için varsayılan çalışma alanı.
 
 Fiyatlandırma hakkında daha fazla bilgi için bkz. [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/).
 

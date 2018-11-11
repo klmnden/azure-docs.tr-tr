@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
 ms.comopnent: ''
-ms.openlocfilehash: 6670b6648a0f38879b57b05cb3c6c6e15ca832b4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 52d81e4f4070d8d8e13497ad39d5adf1b99470de
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958228"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007748"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log Analytics'te IIS günlükleri
 Internet Information Services (IIS) kullanıcı etkinliği Log Analytics tarafından toplanan günlük dosyalarını depolar.  
@@ -80,5 +80,5 @@ Aşağıdaki tabloda IIS günlük kayıtları almak günlük sorguları farklı 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](log-analytics-data-sources.md) analiz.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
 * Log analytics'te, IIS günlükleri bulunan önemli koşulları proaktif olarak bildirmek için uyarıları yapılandırın.

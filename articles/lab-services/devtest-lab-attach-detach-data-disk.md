@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 193b66cf8bdaaefed5f073bec3ecb9050d076f19
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2e168867ed342fb0b0545b5fdc330ba790f78de0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299083"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243564"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Ekleyebilir veya Azure DevTest Labs'de sanal makinesine veri diski çıkarma
 [Azure yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sanal makine diskleri ile ilişkilendirilmiş depolama hesaplarını yönetir. Yeni bir veri diski bir VM için bir kullanıcı ekler, gerekli olan disk boyutunu ve türünü belirtir ve Azure oluşturur ve disk otomatik olarak yönetir. Veri diski sanal makineden ardından ayrılabilir ve daha sonra aynı VM'e ya da aynı kullanıcıya ait farklı bir VM ekli ya da eklenemeyeceği.
@@ -35,7 +35,7 @@ Bir VM'ye veri diski ekleme önce bu ipuçlarını gözden geçirin:
 ### <a name="attach-a-new-disk"></a>Yeni bir disk ekleme
 Azure DevTest labs'deki bir VM için yeni yönetilen veri diski ekleme ve oluşturmak için aşağıdaki adımları izleyin.
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin. 
 1. Listesinden **sanal makinelerim**, çalışan bir VM seçin.

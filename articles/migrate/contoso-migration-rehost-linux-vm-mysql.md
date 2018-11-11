@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: d4197effff48c23147799cd1fc3778521c42a19e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a7e7f13b68f06bb6c0e9be4730c7346e43e8e5b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256774"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346584"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso geçiş: şirket içi Linux uygulama Azure Vm'leri ve Azure MySQL yeniden barındırma
 
@@ -399,7 +399,7 @@ Yük devretme testi çalıştırma yardımcı her şeyi geçiş işleminden önc
 
 ### <a name="migrate-the-vm"></a>VM'yi geçirme
 
-VM, Contoso yöneticileri creats VM içeren bir kurtarma planı geçiş planı azure'a yük devretme için.
+Sanal Makineyi geçirmek için Contoso yöneticileri VM içeren bir kurtarma planı oluşturur ve planı azure'a yük devretme.
 
 1. Bir plan oluşturur ve ekleme **OSTICKETWEB** ona.
 

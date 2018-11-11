@@ -14,15 +14,15 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 34c041bf96ecc8ce7f4440d7afaa64de775baef7
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ee0b9fad15653c9315a8bdaad9a76d8355912863
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576945"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248852"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Ortamlarına giriş #
- 
+ 
 ## <a name="overview"></a>Genel Bakış ##
 
 Azure App Service Ortamı, App Service uygulamalarını yüksek ölçekte güvenli olarak çalıştırmak için tamamen ayrı ve özel bir ortam sağlayan, bir Azure App Service özelliğidir. Bu özellik aşağıdaki öğelerinizi barındırabilir:
@@ -73,7 +73,7 @@ ASE bir genel IP adresi ile İnternet’e yönelik veya sadece bir Azure iç yü
 
 [Ağ Güvenlik Grupları][NSGs], bir ASE’nin bulunduğu alt ağa gelen ağ iletişimini kısıtlar. WAF’ler ve ağ SaaS sağlayıcıları gibi yukarı akış cihazlarının ve hizmetlerinin arkasında uygulamaları çalıştırmak için NSG’leri kullanabilirsiniz.
 
-Uygulamalar, iç veritabanları ve web hizmetleri gibi şirket kaynaklarına da sıklıkla erişmelidir. ASE’yi şirket içi ağınızla VPN bağlantısı olan bir sanal ağa dağıtırsanız, ASE’deki uygulamalar şirket içi kaynaklara erişebilir. Bu özellik, VPN’nin [siteden siteye](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) veya [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN olmasından bağımsız olarak geçerli olabilir.
+Uygulamalar, iç veritabanları ve web hizmetleri gibi şirket kaynaklarına da sıklıkla erişmelidir. ASE’yi şirket içi ağınızla VPN bağlantısı olan bir sanal ağa dağıtırsanız, ASE’deki uygulamalar şirket içi kaynaklara erişebilir. Bu özellik, VPN’nin [siteden siteye](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) veya [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) VPN olmasından bağımsız olarak geçerli olabilir.
 
 ASE’lerin sanal ağlar ve şirket ağlarla nasıl çalıştığı hakkında daha fazla bilgi için bkz. [App Service Ortamı ağ konuları][ASENetwork].
 

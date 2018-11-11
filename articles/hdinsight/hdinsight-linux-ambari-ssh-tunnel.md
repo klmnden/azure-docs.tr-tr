@@ -2,19 +2,19 @@
 title: Azure HDInsight erişim için tünel SSH kullanma
 description: Linux tabanlı HDInsight düğümlerinizi üzerinde barındırılan web kaynaklarına güvenli bir şekilde göz atmak için bir SSH tüneli kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: jasonh
-ms.openlocfilehash: 0722a366c374bd69fd9cf97279416a60d7133428
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 0be2895bf08cc7d6aa0b2e55b62b2d6705b27725
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107678"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007305"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 930f5dc0369c998039b9cc0c089f60de17993be0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1481c32512266f494c03f9ffdc1ce67ef503b4a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435179"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255209"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Öğretici: Azure PowerShell ile bir Azure VM'nin özel görüntüsünü oluşturma
 
@@ -50,7 +50,7 @@ Sanal makinenin görüntüsünü oluşturmak için, VM'yi genelleştirerek, serb
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep kullanarak Windows VM'sini genelleştirme
 
-Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldırır ve makineyi bir görüntü olarak kullanılacak şekilde hazırlar. Sysprep hakkındaki ayrıntılar için bkz. [Sysprep İşlemini Kullanma: Giriş](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldırır ve makineyi bir görüntü olarak kullanılacak şekilde hazırlar. Sysprep hakkındaki ayrıntılar için bkz. [Sysprep İşlemini Kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
 
 
 1. Sanal makineye bağlanın.

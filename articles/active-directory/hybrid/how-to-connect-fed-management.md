@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5a36c239e296d6f393c49932f1a369d8aae80b83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311111"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244466"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme ve yönetme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak Active Directory Federasyon Hizmetleri (AD FS) özelleştirme ve yönetme işlemini açıklamaktadır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak bir AD FS görevler içerir.
@@ -81,7 +81,7 @@ AD FS'yi alternatif oturum açma Kimliğini yapılandırma iki ana adımdan olu�
 
     ![Uyarı KB 2012R2 üzerinde eksik](./media/how-to-connect-fed-management/kbwarning.png)
 
-    Eksik KB durumunda yapılandırmayı düzeltmek için gerekli yükleme [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) ve güven kullanarak onarın [onarım AAD ve AD FS güvenini](#repairthetrust).
+    Eksik KB durumunda yapılandırmayı düzeltmek için gerekli yükleme [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) ve güven kullanarak onarın [onarım AAD ve AD FS güvenini](#repairthetrust).
 
 > [!NOTE]
 > AlternateID ve el ile yapılandırma adımları hakkında daha fazla bilgi için okuma [alternatif oturum açma Kimliğini yapılandırma](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)

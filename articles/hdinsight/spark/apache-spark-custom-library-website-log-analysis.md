@@ -2,19 +2,19 @@
 title: Python kitaplıkları Spark - Azure ile Web sitesi günlüklerini çözümleme
 description: Bu Not, Azure HDInsight üzerinde Spark ile özel bir kitaplık kullanarak günlük verilerini nasıl çözümleyeceğinizi gösterir.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: jasonh
-ms.openlocfilehash: a22e1f90c01b6b0e871516816815286a4f6671a2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 9aca0e7e6f8d8a0d93ee8a0074c288452061e0a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045725"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008853"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>HDInsight üzerinde Spark kümesi ile özel bir Python kitaplığı kullanarak Web sitesi günlüklerini çözümleme
 

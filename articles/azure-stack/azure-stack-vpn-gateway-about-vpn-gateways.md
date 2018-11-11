@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8f45535b0e75c3f95a56148ea92a343bb0d8a9f5
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079268"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300158"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack için VPN gateway hakkında
 
@@ -33,7 +33,7 @@ Bir sanal ağ geçidi oluştururken, oluşturmak istediğiniz ağ geçidi türü
 
 Bir sanal ağın her ağ geçidi türünden yalnızca bir sanal ağ geçidi olabilir. Seçtiğiniz ayarlara bağlı olarak, tek bir VPN ağ geçidi ile birden fazla bağlantı oluşturabilirsiniz. Çok siteli bağlantı yapılandırması buna bir örnektir.
 
-Oluşturma ve Azure Stack için VPN ağ geçitleri'ı yapılandırmadan önce gözden [Azure Stack ağ iletişimi için Değerlendirmeler](/articles/azure-stack/user/azure-stack-network-differences.md) yapılandırmaları Azure Stack için Azure'dan farkı öğrenin.
+Oluşturma ve Azure Stack için VPN ağ geçitleri'ı yapılandırmadan önce gözden [Azure Stack ağ iletişimi için Değerlendirmeler](user/azure-stack-network-differences.md) yapılandırmaları Azure Stack için Azure'dan farkı öğrenin.
 
 >[!NOTE]
 >Azure'da ağ geçidine bağlı olan tüm bağlantılar üzerinden bir VPN ağ geçidi seçtiğiniz SKU için bant genişliği performansını ayrılmalıdır. Ancak Azure Stack'te VPN ağ geçidi SKU'su bant genişliği değeri gateway'e bağlı her bir bağlantı kaynak uygulanır.

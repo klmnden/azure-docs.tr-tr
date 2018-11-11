@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4ea0a247116db521e03d7092be0bb86a6528f44d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934734"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346397"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Şirket içi SQL Server veritabanındaki verileri kullanarak Azure Machine Learning ile gelişmiş analiz gerçekleştirme
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning artık bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama destekler. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
 

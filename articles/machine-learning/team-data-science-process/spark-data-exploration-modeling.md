@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 34b5d052a31eb0185a54d3f54a5af8ba90d857eb
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
-ms.translationtype: MT
+ms.openlocfilehash: f6f0393fa3c7a1c0851c18ebd4e48f2ef426f893
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346686"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248495"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Spark ile veri keşfi ve modelleme
+[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 Bu kılavuzda HDInsight Spark veri araştırma yapmak için kullanır ve ikili sınıflandırma ve regresyon görevleri NYC örneği üzerinde modelleme seyahat taksi 2013 dataset masrafları.  Bu adımlarında size kılavuzluk eder [Data Science Process](https://aka.ms/datascienceprocess), uçtan uca, verilere ve modelleri depolamak için işleme ve Azure BLOB'ları için bir HDInsight Spark kümesi kullanarak. İşlem inceler ve bir Azure Storage Blobundan getirildi verileri görselleştiren ve ardından Tahmine dayalı modeller oluşturmak için verileri hazırlar. Bu ikili sınıflandırma ve regresyon modelleme görevleri gerçekleştirmek için Spark MLlib araç setini kullanarak derleme modelleridir.
 

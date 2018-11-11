@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887573"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282790"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -45,17 +45,27 @@ Batch'de üretim iş yükleri çalıştırmayı planlıyorsanız, bir veya daha 
 
 Havuz ayırma modu ayarlamak bir Batch hesabı oluşturduysanız **kullanıcı aboneliği**, kotalar farklı şekilde uygulanır. Bu modda, bir havuz oluşturulduğunda Batch Vm'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur. Azure Batch çekirdek kotaları bu modda oluşturulan bir hesap için geçerli değildir. Bunun yerine, kotalar bölge için aboneliğinizdeki çekirdek işlem ve diğer kaynaklara uygulanır. Bu kotaları hakkında daha fazla bilgi [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>Havuz boyutu sınırları
+
+| **Kaynak** | **Üst Sınır** |
+| --- | --- |
+| **İşlem düğümleri, [etkin düğümler arası iletişimin havuzu](batch-mpi.md)**  ||
+| Batch hizmeti Havuz ayırma modu | 100 |
+| Batch aboneliği Havuz ayırma modu | 80 |
+| **İşlem düğümleri, [havuzu ile özel VM görüntüsü oluşturulan](batch-custom-images.md)**<sup>1</sup> ||
+| Ayrılmış düğümler | 2000 |
+| Düşük öncelikli düğümler | 1000 |
+
+<sup>1</sup> Not düğümler arası iletişim etkinleştirildi havuzlar için.
+
 ## <a name="other-limits"></a>Diğer sınırlamaları
 
 | **Kaynak** | **Üst Sınır** |
 | --- | --- |
-| [Eş zamanlı görevleri](batch-parallel-node-tasks.md) işlem düğüm başına |düğümüne çekirdek 4 x sayısı |
-| [Uygulamaları](batch-application-packages.md) Batch hesabı başına |20 |
-| Uygulama başına uygulama paketleri |40 |
+| [Eş zamanlı görevleri](batch-parallel-node-tasks.md) işlem düğüm başına | düğümüne çekirdek 4 x sayısı |
+| [Uygulamaları](batch-application-packages.md) Batch hesabı başına | 20 |
+| Uygulama başına uygulama paketleri | 40 |
 | En fazla görev ömrü | 7 gün<sup>1</sup> |
-| İşlem düğümleri, [etkin düğümler arası iletişimin havuzu](batch-mpi.md) | 100 |
-| Adanmış işlem düğümleri [havuzu ile özel VM görüntüsü oluşturuldu](batch-custom-images.md) | 2500 |
-| Düşük öncelikli işlem düğümlerini [havuzu ile özel VM görüntüsü oluşturuldu](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> tamamlandığında, gelen ne zaman işe eklenir, görevin en fazla yaşam süresi 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
 
@@ -115,7 +125,7 @@ Bir Azure sanal ağında otomatik olarak dağıtılan sanal makine yapılandırm
 * 1 [genel IP adresi](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * 1 [yük dengeleyici](../load-balancer/load-balancer-overview.md)
 
-Bu kaynaklar, Batch havuzu oluştururken, sağlanan sanal ağ'ı içeren aboneliği ayrılır. Bu kaynaklar, aboneliğin tarafından sınırlandırılmıştır [kaynak kotaları](../azure-subscription-service-limits.md). Bir sanal ağdaki dağıtımlar büyük havuz planlıyorsanız, bu kaynaklar için kotalar abonelik denetleyin. Gerekirse, Azure portalında bir artış seçerek istek **Yardım + Destek**.
+Bu kaynaklar, Batch havuzu oluştururken, sağlanan sanal ağ'ı içeren aboneliği ayrılır. Bu kaynaklar, aboneliğin [kaynak kotalarıyla](../azure-subscription-service-limits.md) sınırlıdır. Bir sanal ağdaki dağıtımlar büyük havuz planlıyorsanız, bu kaynaklar için kotalar abonelik denetleyin. Gerekirse, Azure portalında bir artış seçerek istek **Yardım + Destek**.
 
 
 ## <a name="related-topics"></a>İlgili konular

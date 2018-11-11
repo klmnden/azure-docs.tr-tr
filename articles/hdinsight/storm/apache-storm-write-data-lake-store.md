@@ -3,18 +3,18 @@ title: Depolama/Data Lake Store - Azure HDInsight için Apache Storm yazma
 description: Apache Storm, HDInsight için HDFS uyumlu depolama alanına yazılacak kullanmayı öğrenin.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 4e99ed88eb6a58308ecd972931ca877493504fea
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e2dd9b1d6031d8c8695ff6821e9af4e464ef270a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419845"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009360"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDFS'ye HDInsight üzerinde Apache Storm yazma
 

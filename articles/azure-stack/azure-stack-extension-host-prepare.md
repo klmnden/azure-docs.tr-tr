@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 4376b9e89aeef32987f7a3bb29ca6815e941ba00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960251"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514375"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack için uzantısı konağı için hazırlama
 
@@ -84,8 +84,7 @@ Sonraki adımlar için Azure Stack ayrıcalıklı uç noktasına bağlanabilir b
 
 1. Sonraki adımlar için Azure Stack ayrıcalıklı uç noktasına bağlanabilir bir bilgisayar kullanın. Yeni sertifika dosyaları için bu bilgisayara erişmek emin olun.
 2. Sonraki komut dosyası blokları yürütmek için PowerShell ISE'yi açın
-3. Uç nokta barındırmak için sertifika alın. Betik ortamınızla eşleşecek şekilde ayarlayın.
-4. Uç noktayı barındıran yönetim sertifikası alın.
+3. Uç noktayı barındıran yönetim sertifikası alın.
 
     ```PowerShell  
 
@@ -104,7 +103,7 @@ Sonraki adımlar için Azure Stack ayrıcalıklı uç noktasına bağlanabilir b
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-5. Barındırma uç noktası için sertifika alın.
+4. Barındırma uç noktası için sertifika alın.
     ```PowerShell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 

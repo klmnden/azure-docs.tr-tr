@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 62edeb36fcd56733630edc6fa27c9963f20b0186
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 81db6720422de111cc5b390c58e9020d7c19f90a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913555"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282042"
 ---
 # <a name="overview-of-the-azure-agents-to-monitor-azure-virtual-machines"></a>Azure sanal makinelerini izlemek için Azure aracıları genel bakış
 Microsoft Azure, Azure'da veya Microsoft Windows ve Linux çalıştıran diğer bulut sağlayıcılarında barındırılan sanal makinelerden farklı türde veri toplamak için birden çok yol sağlar.  Bu makalede farklar ve sırayla, hangi hizmet yönetim destekleyecek belirlemek her bir aracı ile kullanılabilir veya genel gereksinimleri izleme özellikleri açıklayan yardımcı olur.  
@@ -27,7 +27,7 @@ Microsoft Azure, Azure'da veya Microsoft Windows ve Linux çalıştıran diğer 
 ## <a name="comparing-azure-diagnostic-and-log-analytics-agent"></a>Azure tanılama ve Log Analytics aracısını karşılaştırma
 Bugün Azure'da aracılar - Azure VM'deki izlemek için kullanılabilen Azure tanılama uzantısı ve Linux ve Windows için Log Analytics aracısını iki tür vardır.  Temelde, bu aracıları ölçümlerini ve günlüklerini toplamak ve iletmek için bir depo için tasarlanmıştır. Bununla birlikte, burada benzerlikleri son olmasıdır.  
 
-[Azure tanılama uzantısını](../monitoring-and-diagnostics/azure-diagnostics.md), 2010'da genel kullanıma sunulan duyurulduğu, Azure bulut Hizmetleri için sağlanmış olan basit bir tanılama veri koleksiyonunu bir VM gibi bir Azure Iaas kaynak sunar ve bir aracı ve Azure depolama için kalıcı.  Depolama alanında birkaç kullanılabilir araç biriyle gibi görüntülemek için seçtiğiniz sonra [Visual Studio sunucu Gezgini'ndeki](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) ve [Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+[Azure tanılama uzantısını](../monitoring-and-diagnostics/azure-diagnostics.md), 2010'da genel kullanıma sunulan duyurulduğu, Azure bulut Hizmetleri için sağlanmış olan basit bir tanılama veri koleksiyonunu bir VM gibi bir Azure Iaas kaynak sunar ve bir aracı ve Azure depolama için kalıcı.  Depolama alanında birkaç kullanılabilir araç biriyle gibi görüntülemek için seçtiğiniz sonra [Visual Studio sunucu Gezgini'ndeki](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) ve [Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Toplanacak seçebilirsiniz:
 
@@ -38,7 +38,7 @@ Toplanacak seçebilirsiniz:
 * Syslog günlüğü olaylarını Topla  
 * Kilitlenme bilgi dökümleri 
 
-Veri alternatif olarak iletilmesi için [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-overview.md), veya kullanan Azure dışı hizmetlerine [olay hub'ı](../event-hubs/event-hubs-about.md). 
+Veri alternatif olarak iletilmesi için [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-queries.md), veya kullanan Azure dışı hizmetlerine [olay hub'ı](../event-hubs/event-hubs-about.md). 
 
 Gelişmiş birden fazla toplama ölçüm ve günlükleri kümesini gerek duyduğunuz izleme için Windows ve Linux için Log Analytics aracısını gereklidir.  Bu aracı ile otomasyon ve Log Analytics, Azure vm'lerinizi yaşam döngüleri boyunca kapsamlı yönetim sunmak için sundukları özellik kümesini de dahil olmak üzere, gibi Azure hizmetlerini kullanmaya başlayabilirsiniz. Buna aşağıdakiler dahildir:
 

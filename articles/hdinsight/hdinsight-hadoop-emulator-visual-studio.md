@@ -2,19 +2,19 @@
 title: Hortonworks korumalı alanı - Azure HDInsight ile Visual Studio için Data Lake araçları
 description: Azure Data Lake araçları, yerel bir VM'de çalışan Hortonworks korumalı alanı ile Visual Studio için kullanmayı öğrenin. Bu araçlarla oluşturun ve korumalı alan ve görünüm iş çıktısının ve geçmiş Hive ve Pig işleri çalıştırma.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: c657048d22ca3bee6b41b7351d8fdc5bacdb44be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: e6a3fab0e6b3b092ddb55043882c4d284268abfc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106303"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006864"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Visual Studio için Azure Data Lake Araçları'nı kullanın
 

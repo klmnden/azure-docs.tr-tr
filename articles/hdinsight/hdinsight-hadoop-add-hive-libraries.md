@@ -1,24 +1,24 @@
 ---
-title: HDInsight kümesi oluşturma - Azure sırasında Hive kitaplıkları ekleme
-description: Küme oluşturma sırasında bir HDInsight kümesine (jar dosyaları) Hive kitaplıkları ekleme konusunda bilgi edinin.
+title: HDInsight kümesi oluşturma - Azure sırasında Apache Hive kitaplıkları ekleme
+description: Apache Hive kitaplıkları (jar dosyaları) eklemek bir HDInsight kümesine küme oluşturma sırasında öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 40650c813efc8fe7389b0445c72007dbd97e3ce8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108695"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035314"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight kümenizi oluştururken özel Hive kitaplıkları ekleme
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme
 
-HDInsight üzerinde Hive kitaplıklarını önceden yükleme hakkında bilgi edinin. Bu belge, betik eylemi kullanarak küme oluşturma sırasında kitaplıklarını önceden yükleme hakkında bilgi içerir. Bu belgedeki adımları kullanarak eklenen kitaplıkları vardır ve küresel olarak kullanılabilir kovanında - kullanmaya gerek yoktur [ekleme JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) bunları yüklenemedi.
+HDInsight üzerinde Apache Hive kitaplıklarını önceden yükleme hakkında bilgi edinin. Bu belge, betik eylemi kullanarak küme oluşturma sırasında kitaplıklarını önceden yükleme hakkında bilgi içerir. Bu belgedeki adımları kullanarak eklenen kitaplıkları vardır ve küresel olarak kullanılabilir kovanında - kullanmaya gerek yoktur [ekleme JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) bunları yüklenemedi.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 

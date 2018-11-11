@@ -2,19 +2,18 @@
 title: Azure işlevleri'nde bağlantılarını yönetme
 description: Statik bağlantı istemcileri kullanarak Azure işlevleri'nde performans sorunlarını önlemek öğrenin.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/02/2018
 ms.author: glenga
-ms.openlocfilehash: 6a877bb7f21b129522b9ffeab22eb77d7a556d53
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eb5c302c807f85f24f53fa1ba32ef4cd7b52274a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094808"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036470"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Azure işlevleri'nde bağlantılarını yönetme
 
@@ -37,9 +36,13 @@ Azure işlevleri uygulamada bir hizmete özgü istemcisi kullanarak izlenmesi ge
 - **YAPMAK** her işlev çağrısı tarafından kullanılabilen statik, tek bir istemci oluşturabilir.
 - **Göz önünde bulundurun** aynı hizmetin farklı işlevlere kullanırsanız, paylaşılan bir yardımcı sınıfta statik, tek bir istemci oluşturma.
 
-## <a name="httpclient-code-example"></a>HttpClient kod örneği
+## <a name="client-code-examples"></a>İstemci kod örnekleri
 
-İşte bir örnek bir statik oluşturur ve işlev kodunu [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
+Bu bölüm, oluşturma ve işlev kodunuzu istemcilerden kullanmak için en iyi uygulamaları gösterir.
+
+### <a name="httpclient-example-c"></a>HttpClient örneği (C#)
+
+İşte bir örnek C# işlevini statik oluşturan kodu [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
 
 ```cs
 // Create a single, static HttpClient
@@ -54,7 +57,27 @@ public static async Task Run(string input)
 
 .NET ile ilgili karşılaşılan bir soru [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) olan "miyim olması disposing istemcim?" Genel olarak, size uygulayan nesneler dispose `IDisposable` bitirdiğinizde bunları kullanarak. Ancak bitti değildir çünkü statik istemci dispose yoksa işlev sona erdiğinde, kullanarak. Uygulamanızın süresi boyunca Canlı statik istemci kullanmanız gerekir.
 
-## <a name="documentclient-code-example"></a>DocumentClient kod örneği
+### <a name="http-agent-examples-nodejs"></a>HTTP Aracısı örnekleri (Node.js)
+
+Yerel yönetim seçenekleri, daha iyi bağlantıyı sağladığından, kullanmanız gereken [ `http.agent` ](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) yerel olmayan yöntemler yerine gibi sınıf `node-fetch` modülü. Bağlantı parametrelerini seçenekleri kullanarak yapılandırılmış `http.agent` sınıfı. Bkz: [yeni aracı (\[seçenekleri\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) HTTP aracısıyla kullanılabilir ayrıntılı seçenekler.
+
+Genel `http.globalAgent` tarafından kullanılan `http.request()` tüm ilgili değerlerinde bu değerleri vardır. Bağlantı sınırları işlevleri yapılandırmak için önerilen yöntem en fazla küresel olarak ayarlamaktır. Aşağıdaki örnek, işlev uygulaması için yuva sayısı ayarlar:
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ Aşağıdaki örnek, yalnızca bu istek için özel bir HTTP Aracısı ile yeni bir HTTP isteği oluşturur.
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
+
+### <a name="documentclient-code-example-c"></a>DocumentClient kod örneği (C#)
 
 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ) Azure Cosmos DB örneğine bağlanır. Azure Cosmos DB belgeleri önerir, [tekil Azure Cosmos DB istemci uygulama ömrü boyunca kullanma](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). Aşağıdaki örnek, bir işlevde yapmak için bir desen gösterir:

@@ -2,19 +2,19 @@
 title: 'Hızlı Başlangıç: Azure portalı kullanarak HDInsight’ta Spark kümesi oluşturma'
 description: Bu hızlı başlangıçta, Azure portalını kullanarak Azure HDInsight’ta bir Apache Spark kümesi oluşturma ve bir Spark SQL çalıştırma işlemi gösterilmektedir.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 912cbf77c4e2beb32238708a704405fad1582705
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 4bb37032f2ecdfecf08adec3f32aa00d5ad12897
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785723"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255532"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak HDInsight’ta Spark kümesi oluşturma
 Azure HDInsight’ta Apache Spark kümesinin nasıl oluşturulacağını ve Spark SQL sorgularının Hive tablolarına karşı nasıl çalıştırılacağını öğrenin. Apache Spark, bellek içi işleme kullanarak hızlı veri analizi ve küme hesaplama sağlar. HDInsight’ta Spark hakkında daha fazla bilgi için bkz. [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md).

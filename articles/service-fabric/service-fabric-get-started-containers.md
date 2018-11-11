@@ -3,7 +3,7 @@ title: Azure Service Fabric kapsayıcı uygulaması oluşturma | Microsoft Docs
 description: Azure Service Fabric üzerinde ilk Windows kapsayıcı uygulamanızı oluşturun. Python uygulamasıyla bir Docker görüntüsü oluşturun, görüntüyü bir kapsayıcı kayıt defterine iletin, bir Service Fabric kapsayıcı uygulaması oluşturup dağıtın.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: vturecek
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: ryanwi
-ms.openlocfilehash: 12a2ff3f96fa86ac1b52a3138d9a9b2a30b867db
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: twhitney
+ms.openlocfilehash: 587ba52a1a30d187268119567b84d2dd8e471b8d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803792"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300600"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
