@@ -3,18 +3,18 @@ title: 'Öğretici: Azure HDInsight, Apache Spark ile Azure Event Hubs verilerin
 description: Azure HDInsight, Apache Spark Azure Event Hubs'a bağlanın ve akış verilerini işleme.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.openlocfilehash: 9cdb5ae31e2743b5ebe877ddd8d6680423e3d9b2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046261"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283419"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Öğretici: Azure Event Hubs ve Spark HDInsight'ı kullanarak bir işlem tweet
 
@@ -73,18 +73,14 @@ Tweetleri depolamak için bu olay hub'ı kullanın.
     ![Belirtin Spark akış örneği için bir olay hub'ı adı](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "belirtin Spark akış örneği için bir olay hub'ı adı")
 5. Seçin **Oluştur** ad alanı oluşturmak için.
 
-6. Aşağıdaki yönergeleri kullanarak olay hub'ı ad alanını açın:
+7. Aşağıdaki yönergeleri kullanarak olay hub'ı ad alanını açın:
 
     1. Portaldan seçin **tüm hizmetleri**.
     2. Filtre kutusuna **olay hub'ları**.
-    3. Oluşturduğunuz ad alanına çift tıklayın.
+    3. Yeni oluşturulan ad alanı seçin.
     4. Seçin **+ olay hub'ı**.
 
-6. Event Hubs ad alanı listesinde yeni oluşturulan ad alanı seçin.      
-5. Seçin **Event Hubs**ve ardından **+ olay hub'ı** yeni bir olay hub'ı oluşturmak için.
-  
-
-6. Aşağıdaki değerleri girin:
+8. Aşağıdaki değerleri girin:
 
     - Ad: olay Hub'ınız için bir ad verin.
     - Bölüm sayısı: 10
@@ -92,12 +88,12 @@ Tweetleri depolamak için bu olay hub'ı kullanın.
    
     ![Olay hub'ı ayrıntılarını belirtin Spark akış örneği için](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Spark akış örneği için olay hub'ı ayrıntılarını sağlayın")
 
-7. **Oluştur**’u seçin.
-8. Seçin **paylaşılan erişim ilkeleri** ad alanı (olay hub'ı paylaşılan erişim ilkeleri değil. Not) ve ardından **RootManageSharedAccessKey**.
+9. **Oluştur**’u seçin.
+10. Seçin **paylaşılan erişim ilkeleri** ad alanı (olay hub'ı paylaşılan erişim ilkeleri değil. Not) ve ardından **RootManageSharedAccessKey**.
     
      ![Spark akış örneği için olay hub'ı ilkeler ayarlama](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "örnek akış Spark için Event Hub'ı ayarlama ilkeleri")
 
-9. Değerlerini kaydetmek **birincil anahtar** ve **bağlantı dizesi-birincil anahtar** öğreticinin ilerleyen bölümlerinde kullanmak için.
+11. Değerlerini kaydetmek **birincil anahtar** ve **bağlantı dizesi-birincil anahtar** öğreticinin ilerleyen bölümlerinde kullanmak için.
 
      ![Olay hub'ı ilke anahtarları görüntülemek için örnek akış Spark](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "görünümü olay hub'ı ilke anahtarları için Spark akış örneği")
 
@@ -222,7 +218,7 @@ Başka bir Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğ
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-HDInsight ile verileriniz, Azure Depolama’da veya Azure Data Lake Store’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Sonraki öğretici üzerinde hemen çalışmayı planlıyorsanız, kümeyi tutmak isteyebilirsiniz.
+HDInsight ile verileriniz, Azure Depolama’da veya Azure Data Lake Store’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Sonraki öğretici hemen işe planlıyorsanız, küme tutar, aksi takdirde devam edin ve kümeyi silmek isteyebilirsiniz.
 
 Azure portalında kümeyi açıp **Sil**’i seçin.
 

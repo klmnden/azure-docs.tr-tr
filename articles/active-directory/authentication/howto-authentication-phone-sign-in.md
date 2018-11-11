@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804336"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287192"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Parola olmadan telefonla oturum açma ile Microsoft Authenticator uygulamasını (genel Önizleme)
 
@@ -37,11 +37,16 @@ Bir yönetici, genel Önizleme için önce bu kiracıda kimlik bilgileri kullan�
 
 ### <a name="steps-to-enable"></a>Etkinleştirme adımları
 
-1. Yükleme [genel Önizleme sürümü, Azure Active Directory V2 PowerShell Modülü](https://www.powershellgallery.com/packages/AzureADPreview/).  
-2. PowerShell'de, iki komutu çalıştırın:
-   1. `Connect-AzureAD`
-      1. Kimlik doğrulama iletişim kutusunda kiracıda bir hesapla oturum açın. Hesap ya da bir güvenlik yöneticisi veya genel yönetici olması gerekir.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Azure Active Directory V2 PowerShell modülü genel önizleme sürümünü en son sürümüne sahip olun. Aşağıdaki komutları çalıştırarak bunu doğrulamak için kaldırıp yükleyin isteyebilirsiniz:
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+Aşağıdaki PowerShell komutlarını kullanarak parola olmadan telefon oturum Önizleme etkinleştirebilirsiniz:
+
+1. `Connect-AzureAD`
+   1. Kimlik doğrulama iletişim kutusunda kiracıda bir hesapla oturum açın. Hesap ya da bir güvenlik yöneticisi veya genel yönetici olması gerekir.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Telefonla oturum açma son Kullanıcılarım hizmetini nasıl?
 
@@ -61,13 +66,13 @@ Kullanıcı, anında iletme bildirimleri Microsoft Authenticator uygulamasını 
 
 ### <a name="ad-fs-integration"></a>AD FS tümleştirmesi
 
-Bir kullanıcı Microsoft Authenticator parola olmadan kimlik bilgisi etkin olduğundan, bu kullanıcı için kimlik doğrulaması her zaman bir onay bildirimi göndermeyi varsayılan olacaktır. Bu mantık için ADFS oturum açma doğrulama için ek bir adım kullanıcıya sorulmadan "Bunun yerine parolanızı kullanın."'ye yönlendirilmesini karma kiracısındaki kullanıcılar engeller. Bu işlem, ayrıca tüm şirket içi koşullu erişim ilkeleri ve geçişli kimlik doğrulaması akışları atlayacaktır. Bu işlem bir login_hint ise belirtilen bir kullanıcı AD FS için otomatik olarak iletilir ve parola olmadan kimlik bilgilerini kullanma seçeneğini atlama istisnadır.
+Bir kullanıcı Microsoft Authenticator parola olmadan kimlik bilgisi etkin olduğundan, bu kullanıcı için kimlik doğrulaması her zaman bir onay bildirimi göndermeyi varsayılan olacaktır. Bu mantık için ADFS oturum açma doğrulama için ek bir adım kullanıcıya sorulmadan "Bunun yerine parolanızı kullanın."'ye yönlendirilmesini karma kiracısındaki kullanıcılar engeller. Bu işlem, ayrıca tüm şirket içi koşullu erişim ilkeleri ve geçişli kimlik doğrulaması akışları atlayacaktır. Bu işlem bir login_hint ise, belirtilen bir kullanıcı AD FS'ye autoforwarded ve parola olmadan kimlik bilgilerini kullanma seçeneğini atlama istisnadır.
 
 ### <a name="azure-mfa-server"></a>Azure MFA sunucusu
 
 Bir kuruluşun şirket içi Azure MFA sunucusu ile MFA için etkinleştirilen son kullanıcılar yine de oluşturabilir ve oturum açma tek bir parola olmadan telefon kimlik bilgilerini kullanın. Bu değişiklik, kullanıcı kimlik bilgileriyle Microsoft Authenticator'ın birden çok yükleme (5 +) yükseltmek çalışırsa, bir hataya neden olabilir.  
 
-### <a name="device-registration"></a>Cihaz kaydı
+### <a name="device-registration"></a>Cihaz Kaydı
 
 Bu yeni ve güçlü kimlik bilgisi oluşturmak için gereken önkoşullar biri olan tek bir kullanıcıya Azure AD kiracısı içinde bulunduğu cihaz kaydedilir. Cihaz kayıt kısıtlamaları nedeniyle, bir cihazın yalnızca tek bir kiracıda kaydedilebilir. Bu sınır, telefonla oturum açma için yalnızca bir iş veya Okul hesabı Microsoft Authenticator uygulamasını etkinleştirilebilir anlamına gelir.
 

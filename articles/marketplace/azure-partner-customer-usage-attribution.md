@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 2b0377b8eb980fa07cbd8bad4a6a34a85f26464a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256757"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280682"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -66,7 +66,7 @@ Kaynak olarak eklenmesi gerekir **mainTemplate.json** veya **azuredeploy.json** 
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",

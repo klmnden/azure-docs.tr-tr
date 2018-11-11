@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24337863d4e3f8e093c2e33afbb39364ec37516d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252190"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281957"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Olay filtreleme için Event Grid abonelikleri anlama
 
@@ -57,9 +57,9 @@ Olay türüne göre filtrelemek için JSON söz dizimi şu şekildedir:
 
 Veri alanlardaki değerlere göre filtrelemek ve karşılaştırma işleci belirtmek için Gelişmiş filtreleme seçeneğini kullanın. İçinde belirttiğiniz Gelişmiş filtreleme:
 
-* operator - karşılaştırma türü.
+* işleç türü - karşılaştırma türü.
 * anahtarı - alanda filtreleme için kullanmakta olduğunuz olay verileri. Bir sayı, Boole veya dize olabilir.
-* değerleri - anahtar Karşılaştırılacak değerler.
+* değeri veya değerleri - değer veya anahtar Karşılaştırılacak değerler.
 
 Gelişmiş filtreler kullanmak için JSON söz dizimi şu şekildedir:
 
@@ -67,14 +67,14 @@ Gelişmiş filtreler kullanmak için JSON söz dizimi şu şekildedir:
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -122,7 +122,7 @@ Bulut olayları şemasında olayları için anahtar için aşağıdaki değerler
 * eventTypeVersion
 * Olay verilerini (gibi Data.key1)
 
-Özel giriş şeması için olay veri alanlarını (gibi Data.key1 Data.key1.key2) kullanın.
+Özel giriş şeması için olay veri alanlarını (gibi Data.key1) kullanın.
 
 ### <a name="values"></a>Değerler
 
@@ -140,7 +140,7 @@ Gelişmiş filtreleme aşağıdaki sınırlamalara sahiptir:
 * Event grid aboneliği başına beş Gelişmiş Filtreler
 * dize değeri başına 512 karakter
 * Beş değerleri **içinde** ve **değil** işleçleri
-* Bu anahtar yalnızca iki iç içe geçen düzeye (gibi data.key1.key2) olabilir
+* Anahtarı yalnızca bir düzey iç içe geçme (gibi data.key1) olabilir
 
 Birden fazla filtreye aynı anahtar kullanılır.
 

@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: 4fe2eb9e55415f76cbbce0ee69c92ccac29c4627
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016650"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277367"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store’u Azure HDInsight kümeleriyle kullanma
 
@@ -40,16 +40,17 @@ HDInsight kümeleri Data Lake Store’u iki şekilde kullanabilir:
 
 | HDInsight küme türü | Varsayılan depolama alanı olarak Azure Data Lake Store | Ek depolama alanı olarak Azure Data Lake Store| Notlar |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight sürümü 3.6 | Evet | Evet | |
+| HDInsight sürümü 3.6 | Evet | Evet | HBase dışında|
 | HDInsight sürümü 3.5 | Evet | Evet | HBase dışında|
 | HDInsight sürümü 3.4 | Hayır | Evet | |
 | HDInsight sürümü 3.3 | Hayır | Hayır | |
 | HDInsight sürümü 3.2 | Hayır | Evet | |
 | Storm | | |Data Lake Store’u kullanarak bir Storm topolojisinden veri yazabilirsiniz. Data Lake Store’u daha sonra bir Storm topolojisinden okunabilecek başvuru verileri için de kullanabilirsiniz.|
 
+[!WARNING]
+> HDInsight HBase, Azure Data Lake depolama Gen 1 ile desteklenmiyor
+
 Data Lake Store’un ek depolama hesabı olarak kullanılması, kümeden Azure depolamaya yazma veya buradan okuma performansını ya da bu özelliğin kullanılabilirliğini etkilemez.
-
-
 ## <a name="use-data-lake-store-as-default-storage"></a>Azure Data Lake Store’u varsayılan depolama alanı olarak kullanma
 
 HDInsight ile varsayılan depolama alanı olarak Data Lake Store dağıtıldığında, kümeyle ilişkili dosyalar Data Lake Store içindeki şu konumda depolanır:

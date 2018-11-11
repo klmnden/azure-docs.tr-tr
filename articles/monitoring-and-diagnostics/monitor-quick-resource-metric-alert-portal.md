@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 965a35eb4cf33abe78ca802e8d59f13a649dec0a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982870"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279237"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ölçüm değeri bir koşula uyduğunda bildirim alma
 
 Azure İzleyici birçok Azure kaynağı için ölçümler sağlar. Bu ölçümler söz konusu kaynakların performansını ve durumunu gösterir. Birçok durumda, ölçüm değerleri kaynakta sorunlu bir noktaya işaret edebilir. Anormal davranışları izlemek için ölçüm uyarıları oluşturabilir ve böyle bir durumla karşılaşıldığında bildirim alabilirsiniz. Bu Hızlı Başlangıçta Mantıksal Uygulama oluşturma, iş oluşturma ve Mantıksal Uygulamanın ölçümlerini görselleştirme işlemlerinin adımları gösterilir. Ardından uyarı oluşturmaya ve Mantıksal Uygulama kaynağının ölçümüyle ilgili bildirim almaya geçilir.
 
-Ölçümler ve ölçüm uyarıları hakkında daha fazla bilgi için bkz. [Azure İzleyici ölçümlerine genel bakış](./monitoring-overview-metrics.md) ve [Azure İzleyici uyarılarına genel bakış](./monitoring-overview-alerts.md). 
+Ölçümler ve ölçüm uyarıları hakkında daha fazla bilgi için bkz. [Azure İzleyici ölçümlerine genel bakış](../monitoring/monitoring-data-collection.md) ve [Azure İzleyici uyarılarına genel bakış](./monitoring-overview-alerts.md). 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 

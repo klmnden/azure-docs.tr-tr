@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ecdc6ae6c7e0c8a89d97611f41146d168bc74741
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243429"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344119"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL Bölüm Tabloları Kullanarak Paralel Toplu Veri Alma
-Bu belge, bölümlenmiş tablolar, hızlı paralel toplu veri bir SQL Server veritabanına içeri aktarmak için nasıl oluşturulduğu açıklanır. Büyük veri yükleme/aktarım için bir SQL veritabanı, SQL DB ve sonraki sorgular için veri alma kullanılarak geliştirilebilir *bölümlenmiş tabloları ve görünümleri*. 
+
+Bu makalede, derleme hızlı paralel toplu veri bir SQL Server veritabanına içeri aktarmak için bölümlenmiş tabloları açıklar. Büyük veri yükleme/aktarım için bir SQL veritabanı, SQL DB ve sonraki sorgular için veri alma kullanılarak geliştirilebilir *bölümlenmiş tabloları ve görünümleri*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Yeni bir veritabanı ve dosya grupları kümesi oluşturma
 * [Yeni veritabanı oluştur](https://technet.microsoft.com/library/ms176061.aspx), zaten yoksa.

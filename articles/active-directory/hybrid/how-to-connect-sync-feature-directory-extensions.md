@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c40cfd9b15f2ae6398b70effc4f4d38111cfe1e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886074"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288314"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect eşitleme: dizin genişletmeleri
-Dizin genişletmeleri kendi şirket içi Active Directory öznitelikleri ile Azure Active Directory'de (Azure AD) şemayı genişletmek için kullanabilirsiniz. Bu özellik, şirket içi yönetmeye devam öznitelikleri kullanma tarafından LOB uygulamaları oluşturmanıza olanak sağlar. Bu öznitelikler aracılığıyla tüketilebilir [Azure AD Graph API'si dizin genişletmeleri](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) veya [Microsoft Graph](https://graph.microsoft.io/). Kullanılabilir öznitelikler kullanarak gördüğünüz [Azure AD Graph Gezgini](https://graphexplorer.azurewebsites.net/) ve [Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer)sırasıyla.
+Dizin genişletmeleri kendi şirket içi Active Directory öznitelikleri ile Azure Active Directory'de (Azure AD) şemayı genişletmek için kullanabilirsiniz. Bu özellik, şirket içi yönetmeye devam öznitelikleri kullanma tarafından LOB uygulamaları oluşturmanıza olanak sağlar. Bu öznitelikler aracılığıyla tüketilebilir [Azure AD Graph API'si dizin genişletmeleri](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) veya [Microsoft Graph](https://developer.microsoft.com/graph/). Kullanılabilir öznitelikler kullanarak gördüğünüz [Azure AD Graph Gezgini](https://graphexplorer.azurewebsites.net/) ve [Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer)sırasıyla.
 
 Şu anda hiçbir Office 365 iş yükü bu öznitelikleri kullanır.
 

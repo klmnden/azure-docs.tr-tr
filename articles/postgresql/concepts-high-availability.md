@@ -1,6 +1,6 @@
 ---
-title: Azure veritabanı PostgreSQL için yüksek kullanılabilirlik kavramlar
-description: Bu makalede, Azure veritabanı için PostgreSQL kullanırken yüksek kullanılabilirlik bilgi verilmektedir.
+title: PostgreSQL için Azure veritabanı'nda yüksek kullanılabilirlik kavramları
+description: Bu makalede, PostgreSQL için Azure veritabanı kullanırken, yüksek kullanılabilirlik bilgiler sağlar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,30 +9,31 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c39cfdd3bfe244296290c4083644ea7e1b35672
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687091"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299002"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için yüksek kullanılabilirlik kavramlar
-Azure veritabanı PostgreSQL hizmeti için bir garanti edilen yüksek düzeyde kullanılabilirlik sağlar. Mali yedeklenmiş hizmet düzeyi sözleşmesi (SLA) genel kullanılabilirliğine bağlı % 99,99 ' dir. Uygulama yok neredeyse kesinti işbu hizmeti kullanırken.
+# <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda yüksek kullanılabilirlik kavramları
+Hizmet PostgreSQL için Azure veritabanı, garantili yüksek düzeyde kullanılabilirlik sağlar. Finansal destekli bir hizmet düzeyi sözleşmesi (SLA), genel kullanım sonrasında % 99,99 değerindedir. Neredeyse hiçbir uygulama kesinti işbu hizmeti kullanırken.
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
-Yüksek kullanılabilirlik (HA) modeli, bir düğüm düzeyi kesinti oluştuğunda yerleşik yük devretme mekanizmalarına temel alır. Bir düğüm düzeyi kesintisi bir donanım hatası nedeniyle veya bir hizmet dağıtım için yanıt oluşabilir.
+Yüksek kullanılabilirlik (HA) modeli, bir düğüm düzeyinde kesinti oluştuğunda yerleşik yük devretme mekanizmalarına temel alır. Bir düğüm düzeyinde kesinti nedeniyle bir donanım hatası veya hizmet dağıtımı yanıt oluşabilir.
 
-Her zaman bir işlem bağlamında PostgreSQL veritabanı sunucusu için bir Azure veritabanına yapılan değişiklikleri oluşur. İşlem tamamlandığında değişiklikler Azure depolama alanında eşzamanlı olarak kaydedilir. Bir düğüm düzeyi kesinti oluşursa, veritabanı sunucusu, otomatik olarak yeni bir düğüm oluşturur ve veri depolama yeni düğüme iliştirir. Tüm etkin bağlantılar kesilir ve ınflight işlemler iletilmez.
+Her zaman bir işlem bağlamında PostgreSQL veritabanı sunucusu için Azure veritabanı yapılan değişiklikler oluşur. İşlem tamamlandığında değişiklikler Azure depolama alanında eşzamanlı olarak kaydedilir. Nodu düzeyinde kesinti oluşursa, veritabanı sunucusu, otomatik olarak yeni bir düğüm oluşturur ve veri depolama için yeni düğüm ekler. Tüm etkin bağlantılar kesilir ve Hareket halindeki işlemler iletilmez.
 
 ## <a name="application-retry-logic-is-essential"></a>Uygulama yeniden deneme mantığı gereklidir
-Veritabanı uygulamaları algılamak ve yeniden denemek için oluşturulan PostgreSQL bağlantıları bırakılan ve işlemleri başarısız önemlidir. Uygulama yinelerken, uygulamanın bağlantısı saydam başarısız örneğinin devreye girer yeni oluşturulan örneği yeniden yönlendirilir.
+PostgreSQL veritabanı uygulamaları algılayıp yeniden denemek için yerleşik bağlantıları bırakılan ve işlem başarısız oldu, önemlidir. Uygulamayı yeniden denediğinde uygulamanın bağlantı şeffaf bir şekilde için başarısız örneğini devreye yeni oluşturulan örneğine yönlendirilir.
 
-Dahili olarak Azure içinde bir ağ geçidi bağlantıları için yeni örnek yönlendirmek için kullanılır. Bir kesinti tüm yük devretme işlemi genellikle on saniye sürer. Yeniden yönlendirme ağ geçidi tarafından dahili olarak işlenir olduğundan, dış bağlantı dizesi istemci uygulamaları için aynı kalır.
+Dahili olarak, Azure'da bir ağ geçidi bağlantıları yeni örneğine yeniden yönlendirmek için kullanılır. Bir kesinti sırasında tüm yük devretme işlemi genellikle onlarca saniye sürer. Dış bağlantı dizesi, yeniden yönlendirme ağ geçidi tarafından dahili olarak yönetilir olduğundan, istemci uygulamaları için aynı kalır.
 
-## <a name="scaling-up-or-down"></a>Yukarı veya aşağı Ölçeklendirmesi
-Azure veritabanı PostgreSQL için yukarı veya aşağı ölçeklendirilir zaman HA modeline benzer, belirtilen boyutta yeni bir sunucu örneği oluşturulur. Mevcut veri depolama, özgün örneğinden ayrılmış ve yeni örneğine bağlı.
+## <a name="scaling-up-or-down"></a>Artırma veya azaltma
+PostgreSQL için Azure veritabanı yukarı veya aşağı ölçeklendirildiğinde HA modeline benzer yeni bir sunucu örneği belirtilen boyut ile oluşturulur. Mevcut veri depolama, özgün örneğinden kullanımdan çıkarıldı ve yeni örneğine bağlı.
 
-Veritabanı bağlantıları için bir kesinti ölçeklendirme işlemi sırasında oluşur. İstemci uygulamaları kesilir ve açık kaydedilmemiş işlemleri iptal edilir. İstemci uygulaması bağlantı yeniden dener veya yeni bir bağlantı yaptıktan sonra ağ geçidi bağlantısı yeni boyutlandırılmış örneğe yönlendirir. 
+Ölçeklendirme işlemi sırasında veritabanı bağlantıları için bir kesinti oluşur. İstemci uygulamalarını kesilir ve açık kaydedilmemiş işlemleri iptal edilir. İstemci uygulama, bağlantı yeniden dener veya yeni bir bağlantı kurar sonra yeni boyutlu örnek bağlantı ağ geçidi yönlendirir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hizmeti genel bakış için bkz: [Azure veritabanı PostgreSQL genel bakış](overview.md)
+- Hizmetine genel bakış için bkz. [PostgreSQL genel bakış için Azure veritabanı](overview.md)
+- Yeniden deneme mantığı üzerinde bir genel bakış için bkz [geçici bağlantı hatalarının için PostgreSQL için Azure veritabanı işleme](concepts-connectivity.md)

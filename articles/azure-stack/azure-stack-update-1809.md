@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257199"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515616"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -70,6 +70,17 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 - <!-- 2702741 -  IS, ASDK --> Dinamik Ayırma kullanılarak dağıtılan hangi genel IP'ler, yöntemi değildi neden olan sorun düzeltildi durdurun-serbest verildiği sonra korunması garanti. Bunlar artık korunur.
 
 - <!-- 3078022 - IS, ASDK --> Bir VM 1808 önce durdu-serbest olduysa, 1808 güncelleştirmeden sonra yeniden tahsis bulunamadı.  Bu sorun 1809 içinde düzeltilmiştir. Bu düzeltmeyle 1809 içinde başlatılamadı ve bu durumda örnek başlatılabilir. Düzeltme aynı zamanda bu sorunu yeniden oluşmasını engeller.
+
+<!-- 3090289 – IS, ASDK --> 
+- Burada 1808 güncelleştirmeyi uyguladıktan sonra aşağıdaki sorunlar yönetilen disklere sahip VM'ler dağıtırken karşılaşabileceğiniz neden olan sorun düzeltildi:
+
+   1. Aboneliği, yönetilen diskler ile VM dağıtma 1808 güncelleştirmeden önce oluşturulduysa, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
+      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
+      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
+   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
+      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4471992).
+      2. Bağlantısındaki [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
+
 
 ### <a name="changes"></a>Değişiklikler
 
@@ -128,7 +139,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-- En son Azure Stack düzeltmeyi 1809 uygulamadan önce 1808 için yükleyin. Daha fazla bilgi için [KB 4468920 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- En son Azure Stack düzeltmeyi 1809 uygulamadan önce 1808 için yükleyin. Daha fazla bilgi için [KB 4471992 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Aşağıdaki abone olmak *RRS* veya *Atom* Azure Stack düzeltmelerle birlikte kalmasını sağlamak için akışları:
@@ -157,9 +168,8 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 > [!Important]  
 > Azure Stack dağıtımınıza, sonraki güncelleştirme paketi tarafından etkinleştirilen uzantısı konağı için hazırlanın. Aşağıdaki yönergeleri kullanarak sisteminizi hazırlama [hazırlamak için Azure Stack için uzantısı konağı](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
+- [KB 4471993 – Azure Stack düzeltme Azure Stack düzeltme 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 

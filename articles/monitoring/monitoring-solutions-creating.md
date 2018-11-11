@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a942e1c783b460f07626e398f91f980db7634581
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259657"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282059"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarım ve azure'da (Önizleme) bir yönetim çözümü oluşturun
 > [!NOTE]
@@ -54,11 +54,11 @@ Tüm kullanılabilir veri kaynakları erişilebilir değil veri gerektiren sonra
 Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıcıya yardımcı olacağını düşündüğünüz tüm sorguları tanımlamanız gerekir.  Bunlar Portalı'nda kayıtlı aramalar kullanabilecekleri olacaktır ve bunları de içerebilir bir [, liste sorguları görselleştirme bölümü](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) özel görünümünüzdeki.
 
 ### <a name="alerts"></a>Uyarılar
-[Log analytics'teki uyarılar](../log-analytics/log-analytics-alerts.md) ile ilgili sorunları belirlemenize [günlük aramaları](#log-searches) karşı depodaki verileri.  Bunlar kullanıcıya bildir ya da otomatik olarak yanıtta bir eylem çalıştırın. Uygulamanızın farklı uyarı koşullarını tanımlamak ve karşılık gelen bir uyarı kuralları, çözüm dosyasına eklenecek gerekir.
+[Log analytics'teki uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) ile ilgili sorunları belirlemenize [günlük aramaları](#log-searches) karşı depodaki verileri.  Bunlar kullanıcıya bildir ya da otomatik olarak yanıtta bir eylem çalıştırın. Uygulamanızın farklı uyarı koşullarını tanımlamak ve karşılık gelen bir uyarı kuralları, çözüm dosyasına eklenecek gerekir.
 
 Ardından sorun büyük olasılıkla otomatik bir işlem ile düzeltilebilir, bu düzeltmesi yapmak için Azure Automation'da bir runbook genellikle oluşturacaksınız.  Çoğu Azure hizmeti ile yönetilebilir [cmdlet'leri](/powershell/azure/overview) , bu tür işlevleri gerçekleştirmek için runbook yararlanarak.
 
-Dış işlevler bir uyarıya yanıt olarak çözümünüzün gerektirdiği sonra kullanabileceğiniz bir [Web kancası yanıtı](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  Bu, uyarıyı bilgi gönderirken bir dış web hizmetini çağırmak sağlar.
+Dış işlevler bir uyarıya yanıt olarak çözümünüzün gerektirdiği sonra kullanabileceğiniz bir [Web kancası yanıtı](../monitoring-and-diagnostics/alert-metric.md).  Bu, uyarıyı bilgi gönderirken bir dış web hizmetini çağırmak sağlar.
 
 ### <a name="views"></a>Görünümler
 Log Analytics'teki görünümler, Log Analytics deposuna verilerini görselleştirmek için kullanılır.  Her çözüm, genellikle tek bir görünümle içerecek bir [döşeme](../log-analytics/log-analytics-view-designer-tiles.md) kullanıcının ana panosunda görüntülenir.  Görünüm herhangi bir sayıda içerebilir [görselleştirme bölümleri](../log-analytics/log-analytics-view-designer-parts.md) kullanıcıya toplanan verilerin farklı görselleştirmeler sağlamak için.

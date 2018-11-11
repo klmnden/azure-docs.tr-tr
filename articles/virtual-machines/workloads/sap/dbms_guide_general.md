@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 11/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429904"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289130"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -64,7 +64,7 @@ Belgede aşağıdaki terimler kullanılır:
 * SAP bileşeni: Tek bir SAP uygulamayı ECC, BW, çözüm Yöneticisi veya EP'deki gibi  SAP bileşenleri geleneksel ABAP veya Java teknolojileri ya da bir olmayan-NetWeaver tabanlı uygulama iş nesneleri gibi temel alabilir.
 * SAP ortamı: bir veya daha fazla SAP bileşenleri geliştirme, QAS, eğitim, DR veya üretim gibi bir iş işlevi gerçekleştirmek için mantıksal olarak gruplandırılır.
 * SAP ortamı: Bir müşterinin tamamı SAP varlıkları bu terim başvurduğu BT yatay. SAP ortamı, tüm üretim ve üretim dışı ortamlar içerir.
-* SAP sistemine: DBMS katmanı ve uygulama katmanı, örneğin, bir SAP ERP geliştirme sisteminin, SAP BW test sistemi, SAP CRM üretim sistemine vb. bileşimi. Azure dağıtımında, bu iki katmanı şirket içi ile Azure arasında bölmek için desteklenmiyor. Şirket içi SAP sistemine ya da bu anlamına gelir dağıtılan veya Azure'da dağıtılır. Ancak, Azure'da veya şirket içi bir SAP ortamının farklı sistemleri dağıtabilirsiniz. Örneğin, SAP CRM geliştirme dağıtma ve Azure ancak SAP CRM üretim sistemi şirket içi sistemleri test edin.
+* SAP sistemine: DBMS katmanı ve uygulama katmanı, örneğin, bir SAP ERP geliştirme sisteminin, SAP BW test sistemi, SAP CRM üretim sistemine vb. bileşimi. Azure dağıtımında, bu iki katmanı şirket içi ile Azure arasında bölmek için desteklenmiyor. Sonuç olarak, bir SAP sistemiyle dağıtılan şirket içinde olduğu veya Azure'da dağıtılır. Ancak, Azure'da veya şirket içi bir SAP ortamının farklı sistemleri dağıtabilirsiniz. Örneğin, SAP CRM geliştirme dağıtma ve Azure ancak SAP CRM üretim sistemi şirket içi sistemleri test edin.
 * Şirket içi: siteden siteye, çok siteli veya ExpressRoute bağlantısı şirket içi datacenter(s) ve Azure arasında olan bir Azure aboneliğine VM'ler dağıtıldığı bir senaryo açıklanmaktadır. Azure ortak belgeler, bu tür dağıtımlar şirketler arası senaryoları açıklanmıştır. Bağlantı için şirket içi etki alanları, şirket içi Active Directory ve şirket içi DNS Azure'a genişletmek için nedenidir. Şirket içi yatay aboneliğin Azure varlıkları için genişletilir. Bu uzantı, sanal makineleri şirket içi etki alanının parçası olabilir. Şirket içi etki alanının etki alanı kullanıcıları sunucularına erişebilir ve Hizmetleri (gibi hizmetleri DBMS) bu sanal makineler üzerinde çalıştırabilir. Sanal makineler arasında iletişim ve ad çözümlemesi, şirket içi dağıtılan ve Azure'da dağıtılan Vm'leri mümkündür. Bu senaryo, Azure üzerinde SAP varlıklarını dağıtmak için en yaygın bir senaryodur. Daha fazla bilgi için [planlama ve tasarım VPN ağ geçidi için](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
@@ -161,7 +161,7 @@ IOPS ihtiyacınıza ne tek bir VHD sağlayabilir, aşarsa önceden belirtildiği
 >
 
 ### <a name="managed-or-non-managed-disks"></a>Yönetilen veya yönetilmeyen diskler
-Bir Azure depolama hesabı yalnızca bir yönetim yapısı, aynı zamanda bir konu sınırlamalar ' dir. Sınırlamalar, Azure standart depolama Accounst ile Azure Premium depolama hesapları arasında farklılık gösterir. Tam özelliklerini ve sınırlamalarını makalesinde listelenen [Azure Storage ölçeklenebilirlik ve performans hedefleri](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
+Bir Azure depolama hesabı yalnızca bir yönetim yapısı, aynı zamanda bir konu sınırlamalar ' dir. Sınırlamalar, Azure standart depolama hesabı ve Azure Premium depolama hesapları arasında farklılık gösterir. Tam özelliklerini ve sınırlamalarını makalesinde listelenen [Azure Storage ölçeklenebilirlik ve performans hedefleri](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
 
 Azure standart depolama olduğunu bir sınır üzerindeki depolama hesabı başına IOPS çağırmak önemli olduğunu (satır içeren **toplam istek oranı** makaledeki [Azure depolama ölçeklenebilirlik ve performans hedefleri](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)). Ayrıca, ilk bir Azure aboneliği başına depolama hesaplarının sayısı sınırı yoktur. Bu nedenle, VHD daha büyük SAP ortamı için bu depolama hesabı sınırları ulaşmaktan kaçınmak için farklı bir depolama hesabı arasında dengelemeniz gerekir. Birden fazla bin VHD'ler ile birkaç yüz sanal makineler hakkında konuşurken yorucu bir iş. 
 
@@ -276,7 +276,10 @@ Müşteri dağıtımları yüzlerce dışında sonuçlandı birkaç en iyi uygul
 > [!NOTE]
 > Azure yol aracılığıyla statik IP adresleri atamasını bireysel Vnıc'ler için. Konuk işletim sistemi içinde statik IP adresleri için bir Vnıc atamanız gerekir değil. Olgu üzerinde bazı Azure Hizmetleri gibi Azure Backup hizmeti kullanan, en azından birincil Vnıc DHCP ve statik IP adresleri için ayarlanır. Ayrıca bkz [sanal makine yedekleme sorunlarını giderme Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Bir VM'ye birden fazla statik IP adresleri atamak gerekiyorsa, bir VM'ye çoklu Vnıcs atamanız gerekir.
 >
->
+
+
+> [!IMPORTANT]
+> İşlevsellik, ancak daha fazla dışında önemli performans nedeniyle dışında yapılandırmak için desteklenmez [Azure ağ sanal Gereçleri](https://azure.microsoft.com/solutions/network-appliances/) DBMS katmanı bir SAP NetWeaver SAP uygulama arasındaki iletişim yolunun içinde Hybris veya S/4HANA, SAP sistemine bağlı. Burada nva'ları desteklenmez başka senaryolar şunlardır açıklandığı gibi Linux Pacemaker küme düğümlerini ve SBD cihazları temsil eden bir Azure VM'ler arasında iletişimi yollarda [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik SAP uygulamaları için](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Veya iletişim yollarını arasında Azure VM ve Windows Server SOFS açıklandığı kadar ayarlamak [SAP ASCS/SCS örneği ile Azure dosya paylaşımı kullanarak bir Windows Yük devretme kümesinde Küme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). İletişim yolları can nva'larını kolayca ağ gecikme süresi iki iletişim iş ortakları arasında çift, aktarım hızı SAP uygulama katmanı ve DBMS katman arasında kritik yollarda kısıtlayabilirsiniz. Müşterilerle gözlemlenen bazı senaryolarda, nva'ları Pacemaker Linux kümeleri SBD cihazını bir NVA aracılığıyla iletişim kurmak için Linux Pacemaker düğümler arasındaki iletişimler gerektiğinde başarısız olmasına neden olabilir.   
 
 DBMS dağıtım yanı sıra SAP uygulama katmanı ve iki DBMS VM yönetimi ve işlemleri trafiği için ayrı yönlendirme Azure kullanılabilirlik kümesi içinde üretim için iki VM kullanarak kaba diyagramı aşağıdaki gibidir:
 
@@ -324,7 +327,7 @@ Daha fazla Azure sanal makineler arasındaki ağ gecikmesini azaltmak amacıyla 
 ## <a name="deployment-of-host-monitoring"></a>İzleme ana bilgisayarı dağıtımı
 Azure sanal Makineler'de SAP uygulamaları üretim kullanımı için SAP, Azure sanal makineleri çalıştıran fiziksel ana bilgisayarlardan verilerin izleme ana bilgisayarı alma olanağı gerektirir. Belirli bir SAP konak Aracısı düzeltme eki düzeyi gereklidir, SAPOSCOL ve SAP konak Aracısı bu yeteneği sağlar. Tam düzeltme eki düzeyi SAP Not belgelenen [1409604].
 
-Ana verileri SAPOSCOL ve SAP konak Aracısı teslim bileşenlerin dağıtımına ilişkin ve bu bileşenler yaşam döngüsü yönetimi ile ilgili ayrıntılar için başvurmak [Dağıtım Kılavuzu][deployment-guide]
+Ana verileri SAPOSCOL ve SAP konak Aracısı teslim bileşenlerin dağıtımına ilişkin ve bu bileşenlerden birini yaşam döngüsü yönetimi ile ilgili ayrıntılar için başvurmak [Dağıtım Kılavuzu][deployment-guide]
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 4da90cf636ab2010d7c369f4c13e45190dc6b2db
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
-ms.translationtype: MT
+ms.openlocfilehash: 2453cee167df3da9bf524fc446953b4304686564
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020798"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293187"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Desteklenen işletim sistemleri ve sürücüler
 
@@ -33,7 +33,7 @@ NC, NCv2 NCv3 ve ND serisi VM'ler (NV serisi için isteğe bağlı) için NVIDIA
 
 ### <a name="nvidia-grid-drivers"></a>NVIDIA GRID sürücüleri
 
-Microsoft, sanal uygulamaları veya NV amd sanal çalışma İstasyonlarınızı kullanılan NVv2 serisi VM'ler için NVIDIA GRID sürücü yükleyiciler yeniden dağıtır. Bu kılavuz sürücüleri yalnızca Azure NV Vm'lerinde yalnızca aşağıdaki tabloda listelenen işletim sistemlerinden yükleyin. Bu sürücüleri kılavuz Azure'da sanal GPU yazılımı için lisans içerir.
+Microsoft, sanal uygulamaları veya NV ve sanal çalışma İstasyonlarınızı kullanılan NVv2 serisi VM'ler için NVIDIA GRID sürücü yükleyiciler yeniden dağıtır. Bu kılavuz sürücüleri yalnızca Azure NV Vm'lerinde yalnızca aşağıdaki tabloda listelenen işletim sistemlerinden yükleyin. Bu sürücüleri kılavuz Azure'da sanal GPU yazılımı için lisans içerir.
 
 | İşletim Sistemi | Sürücü |
 | -------- |------------- |

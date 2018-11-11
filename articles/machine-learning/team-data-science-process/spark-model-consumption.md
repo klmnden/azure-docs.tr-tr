@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 95403e71367f111877c6f317c63811333bd054dd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 76b67112ade2d160f281533c4be7d41c98087398
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395199"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345547"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark'a yerleşik machine learning modelleri kullanıma hazır hale getirme
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 Bu konu Python kullanarak HDInsight Spark kümelerinde kaydedilmiş machine learning modeli (ML) kullanıma hazır hale getirmeye nasıl gösterir. Bu, Spark MLlib kullanarak yerleşik makine öğrenimi modelleri yükleme işlemini açıklar ve Azure Blob Storage (WASB) ve bunları da WASB içinde depolanan veri kümeleriyle puanlamak nasıl depolanır. Bu, giriş verilerini önceden işleyebilir, MLlib araç setindeki dizin oluşturma ve kodlama işlevleri kullanarak özellik dönüştürme yapmayı ve ML modelleriyle Puanlama için giriş olarak kullanılabilecek bir etiketli noktası veri nesnesinin nasıl oluşturulacağını gösterir. Puanlama için kullanılan model, doğrusal regresyon, lojistik regresyon, rastgele orman modelleri ve gradyan artırma ağaç modeli içerir.
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914660"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345496"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
 
@@ -42,7 +42,7 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 | Hesap türü | V1.0 uç noktası | V2.0 uç noktası  |
 |--------------|---------------|----------------|
 | Kişisel Microsoft hesabı  | Yok - RPS biletleri yerine kullanılır | Destek yakında |
-| Azure AD hesabı          | Desteklenen                          | Uyarılar ile desteklenen      |
+| Azure AD hesabı          | Desteklenen                          | Uyarılar ile desteklenen |
 
 > [!IMPORTANT]
 > Hem kişisel hesapları hem de Azure AD destekleyen uygulamaları (aracılığıyla kaydedilen [uygulama kayıt portalı](https://apps.dev.microsoft.com)) isteğe bağlı bir talep kullanamazsınız. Ancak, yalnızca Azure AD v2.0 uç noktası kullanmak için kayıtlı uygulamalar bildiriminde talep isteğe bağlı bir talep elde edebilirsiniz. Azure portalında mevcut uygulama bildirim düzenleyicisini kullanabilirsiniz **uygulama kayıtları** , isteğe bağlı bir talep düzenleme deneyimi. Ancak, bu işlevleri henüz yeni uygulama bildirim düzenleyicisini kullanarak kullanılamıyor **uygulama kayıtları (Önizleme)** karşılaşırsınız.
@@ -60,8 +60,6 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Zaman zaman son kullanıcı kimlik doğrulaması. Bkz: Openıd Connect belirtimi.| JWT        |           |  |
 | `tenant_region_scope`      | Kaynak Kiracı bölgesi | JWT        |           | |
-| `signin_state`             | Oturum durumu talebi   | JWT        |           | dönüş değerleri bayrakları 6:<br> "dvc_mngd": cihaz yönetilir<br> "dvc_cmp": cihaz uyumlu<br> "dvc_dmjd": cihaz etki alanına katılmış olan<br> "dvc_mngd_app": cihaz MDM yönetilir<br> "inknownntwk": bilinen ağ içinde cihazdır.<br> "kmsı": Canlı bana imzalı olarak kullanıldı. <br> |
-| `controls`                 | Birden çok değerli talep koşullu erişim ilkeleri tarafından zorlanan oturum denetimleri içeren. | JWT        |           | 3 değeri:<br> "app_res": uygulamanın daha ayrıntılı sınırlamalar zorlamak için gerekir. <br> "ca_enf": koşullu erişim zorlama ertelendi ve yine de gereklidir. <br> "no_cookie": Bu tarayıcıda tanımlama bilgisi için değişimi yetersiz bir belirteçtir. <br>  |
 | `home_oid`                 | Konuk kullanıcılar için kullanıcının giriş kiracısında kullanıcının nesne kimliği.| JWT        |           | |
 | `sid`                      | Oturum başına kullanıcı signout için kullanılan oturum kimliği. | JWT        |           |         |
 | `platf`                    | Cihaz platformu    | JWT        |           | Cihaz türü doğrulayabilirsiniz yönetilen cihazlar için kısıtlı.|
@@ -76,6 +74,7 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 | `xms_pl`                   | Kullanıcı tercih edilen dil  | JWT ||Kullanıcının, uygulamanın tercih edilen dil, ayarlayın. Konuk erişimi senaryoları kendi giriş kiracısında kaynağı. Tümünü CC biçimlendirilmiş ("en-us"). |
 | `xms_tpl`                  | Kiracı tercih edilen dil| JWT | | Kaynak Kiracı kişinin tercih ettiği dili, ayarlayın. Biçimlendirilmiş LL ("tr"). |
 | `ztdid`                    | Sıfır dokunma dağıtım kimliği | JWT | | Cihaz kimliği için kullanılan [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | Adreslenebilir e-posta kullanıcı varsa, bu kullanıcı için.  | JWT, SAML | | Kullanıcı kiracıda bir konuk ise bu değer varsayılan olarak dahil edilir.  Yönetilen kullanıcılar için (Bu Kiracı içindeki), bu isteğe bağlı bir talep aracılığıyla veya yalnızca v2.0 OpenID kapsamı ile istenmesi gerekir.  Yönetilen kullanıcılar için e-posta adresi olarak [Office Yönetim Portalı](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Kiracıdaki kullanıcıların hesap durumu. | JWT, SAML | | Kullanıcı, kiracısının üyesi ise, değer `0`. Bir konuk olmaları durumunda değerdir `1`. |
 | `upn`                      | UserPrincipalName talep. | JWT, SAML  |           | Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz. <br> Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

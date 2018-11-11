@@ -15,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: a87d02732196af7471636346fa802f9a58869c95
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: a71ee9246ae21ad76be66c022dac9fe3f00ecbb5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393582"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345241"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Bir Azure sanal makinesinde SQL Server’a veri taşıma
-Bu konuda verileri düz dosyaları (CSV ya da TSV biçimi) veya bir şirket içi SQL Server'dan SQL Server için Azure sanal makinesinde taşımak için seçenekleri açıklanmaktadır. Verileri buluta taşımak için bu görevleri Team Data Science Process bir parçasıdır.
+
+Bu makalede, verileri düz dosyaları (CSV veya TSV biçimleri) veya bir şirket içi SQL Server'dan SQL Server için Azure sanal makinesinde taşımak için seçenekler özetlenmektedir. Verileri buluta taşımak için bu görevleri Team Data Science Process bir parçasıdır.
 
 Machine Learning için Azure SQL veritabanı'na veri taşımak için seçenekler özetlenmektedir bir konuya bakın [veri taşıma için bir Azure SQL veritabanı için Azure Machine Learning](move-sql-azure.md).
-
-**Menü** nerede veriler depolanan ve işlenen Team Data Science işlem (TDSP) sırasında diğer hedef ortamlara veri almak nasıl açıklayan konulara bağlantılar aşağıda.
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 Aşağıdaki tabloda, verileri bir Azure sanal makinesinde SQL Server'a taşımak için seçenekler özetlenmektedir.
 

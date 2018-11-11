@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348778"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515327"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulaması yükseltme
 > [!div class="op_single_selector"]
@@ -79,13 +79,13 @@ Artık, seçerek proje oluşturun. yalnızca **ActorService** proje ve ardından
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3. adım: sistem durumu ilkeleri hakkında karar verin ve yükseltme parametreleri
 İle kendinizi alıştırın [uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) ve [yükseltme işlemi](service-fabric-application-upgrade.md) çeşitli yükseltme parametreleri, zaman aşımları ve sistem durumu ölçütü uygulanan iyi bir anlayış edinmek için. Bu kılavuz için hizmet sistem durumu değerlendirme ölçütü Varsayılana Ayarla (ve önerilen) tüm hizmetlerin ve örnek gerektiği anlamına gelir değerleri *sağlıklı* yükseltmeden sonra.  
 
-Bununla birlikte, şimdi artırmak *HealthCheckStableDuration* 60 saniye (Hizmetleri sonraki güncelleştirme etki alanına yükseltmeye devam etmeden önce en az 20 saniye için iyi durumda olacak şekilde).  Ayrıca ayarlayalım *UpgradeDomainTimeout* 1200 saniye olacak şekilde ve *UpgradeTimeout* 3000 saniye olacak şekilde.
+Bununla birlikte, şimdi artırmak *HealthCheckStableDuration* 180 saniye (Hizmetleri sonraki güncelleştirme etki alanına yükseltmeye devam etmeden önce en az 120 saniye için iyi durumda olacak şekilde).  Ayrıca ayarlayalım *UpgradeDomainTimeout* 1200 saniye olacak şekilde ve *UpgradeTimeout* 3000 saniye olacak şekilde.
 
 Son olarak, aynı zamanda ayarlayalım *UpgradeFailureAction* geri alınacak. Bu seçenek, yükseltme sırasında herhangi bir sorun karşılaşırsa, uygulamayı önceki sürüme geri almak Service Fabric gerektirir. Bu nedenle, aşağıdaki parametreleri yükseltmesinde (4. adım) başlatma sırasında belirtilir:
 
 FailureAction geri alma =
 
-HealthCheckStableDurationSec 60 =
+HealthCheckStableDurationSec 180 =
 
 UpgradeDomainTimeoutSec 1200 =
 

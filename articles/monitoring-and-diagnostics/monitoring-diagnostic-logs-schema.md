@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 17efbfffde68208b76120d449f4e1d70e843fc7d
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914354"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280536"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -47,7 +47,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 
 | Hizmet | Şema ve belgeler |
 | --- | --- |
-| Azure Active Directory | [Genel Bakış](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [denetim günlüğü şeması](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) ve [oturumların şeması](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Genel Bakış](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [denetim günlüğü şeması](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) ve [oturumların şeması](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management tanılama günlükleri](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Uygulama Ağ Geçitleri |[Uygulama ağ geçidi için tanılama günlüğünü](../application-gateway/application-gateway-diagnostics.md) |

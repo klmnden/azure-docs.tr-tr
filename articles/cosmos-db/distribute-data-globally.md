@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7f2c242d7040413598864222efdf06843eddc7d9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4aa5e4ff46eeaa4e8d8c723f626dd1f1193fd12a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959503"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281617"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Azure Cosmos DB ile verileri küresel dağıtım
 
 Günümüzde uygulamaların birçoğu, dünya ölçeğinde çalıştırın. Bu uygulamalar her zaman açık ve tüm dünya genelinde kullanıcılar tarafından erişilebilir. Yüksek performanslı ve yüksek kullanılabilirlik sağlarken bu uygulamaları tarafından kullanılan verileri genel dağıtımını yönetmek bir sabit bir sorundur. Azure Cosmos DB, yüksek performanslı ve yüksek kullanılabilirlik sağlamak üzere tasarlanmış bir Global olarak dağıtılmış veritabanı hizmetidir. Bu nedenlerle, Azure Cosmos DB Bu gerçek zamanlı uygulamalar için idealdir.
 
-Cosmos DB, temel Azure hizmet aşamasındadır ve tüm kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/) varsayılan olarak. Microsoft, 50'den fazla bölgede dünyanın dört bir yanındaki Azure veri merkezleri işletmektedir ve müşterilerin büyüyen ihtiyaçlarını karşılamak üzere genişletmeye devam ediyor. Bir Cosmos DB hesabı oluşturduğunuzda, hangi bölgelerin içinde dağıtılmalıdır karar verin. Microsoft, Cosmos DB çalıştırır 7/24, hizmet, uygulamalarınız üzerinde odaklanabilirsiniz.
+Cosmos DB, temel Azure hizmet aşamasındadır ve tüm kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/) varsayılan olarak. Microsoft 54 fazla bölgenin dünyanın dört bir yanındaki Azure veri merkezlerinde çalışır ve müşterilerin büyüyen ihtiyaçlarını karşılamak üzere genişletmeye devam ediyor. Bir Cosmos DB hesabı oluşturduğunuzda, hangi bölgelerin içinde dağıtılmalıdır karar verin. Microsoft, Cosmos DB çalıştırır 7/24, hizmet, uygulamalarınız üzerinde odaklanabilirsiniz.
 
 50'den fazla Azure bölgelerinden birini Global olarak dağıtılmış ve kullanılabilir olmasını veritabanlarınızı yapılandırabilirsiniz. Daha düşük gecikme süresi için daha yakın veriler kullanıcının bulunduğu yere yerleştirmeniz gerekir. Gerekli bölgelerini seçme çaplı uygulamanız ve kullanıcılarınızın bulunduğu yere bağlıdır. Cosmos DB hesabınızdaki verilerin yapılandırılmış tüm bölgelere şeffaf biçimde çoğaltır. Bu, Cosmos veritabanı ve tarafından uygulamanızı okuyabilir ve yerel olarak yazabilirsiniz kapsayıcıları tek bir sistem görüntüsü sağlar. Cosmos DB ile ekleyebilir veya herhangi bir zamanda hesabınızla ilişkili bölgelerle kaldırın. Uygulamanızı duraklatıldı ya da eklemek veya bir bölgeyi kaldırmak için yeniden gerekmez. Her zaman hizmet sunan çok girişli özellikleri nedeniyle yüksek düzeyde kullanılabilir olmaya devam eder.
 
@@ -48,5 +48,5 @@ Hakkında daha fazla küresel dağıtım için aşağıdaki makalelere bakın:
 
 * [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
 * [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Nasıl bölge veritabanınızdan Ekle/Kaldır](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Nasıl bölge Cosmos hesabınızdan Ekle/Kaldır](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [SQL API hesabı için bir özel çakışma çözüm ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

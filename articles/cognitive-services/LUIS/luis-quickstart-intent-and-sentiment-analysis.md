@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031467"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277486"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Öğretici 9: Genel konuşmanın yaklaşımını ayıklama
 Bu öğreticide konuşmalardaki pozitif, negatif ve nötr yaklaşımları ayıklamayı gösteren bir uygulama oluşturacaksınız. Yaklaşım konuşmanın tamamından belirlenir.
@@ -49,18 +49,18 @@ Yayımlama ayarı olduğu için amaçlar veya varlıklar sayfalarında görmezsi
 
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
 1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `sentiment` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez.
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `sentiment` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
 
 ## <a name="employeefeedback-intent"></a>EmployeeFeedback'in amacı 
 Şirket üyelerinin çalışanlar hakkındaki geri bildirimini yakalamak için yeni bir amaç ekleyin. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **Create new intent** (Yeni amaç oluştur) öğesini seçin.
 

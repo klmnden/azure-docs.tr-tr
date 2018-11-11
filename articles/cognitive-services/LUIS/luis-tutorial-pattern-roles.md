@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886169"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277845"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici 4: Bağlamsal olarak ilişkili desenleri ayıklama
 
@@ -49,7 +49,7 @@ Ad veya şehir olması nedeniyle basit varlık algılama konusunda zorluk yaşı
 > * Şehirleri içeren tümcecik listesi oluşturma
 > * Uç noktadan amaçları ve varlıkları alma
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
@@ -64,7 +64,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 ## <a name="create-new-entities"></a>Yeni varlıklar oluşturma
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sol gezinti panelinden **Entities** (Varlıklar) öğesini seçin. 
 
@@ -254,7 +254,7 @@ Kişi adları gibi şehir adları da farklı sözcükler ve noktalama işaretler
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Move wayne berry from miami to mount vernon` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
@@ -380,6 +380,8 @@ Bu öğreticide İnsan Kaynakları uygulaması yeni çalışanların bir şehird
 |--|--|--|
 |[Hiyerarşik (rol yok)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |Bu öğretici (roller)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
+Daha fazla bilgi için bkz. [Rollerle hiyerarşik varlıkların karşılaştırması](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

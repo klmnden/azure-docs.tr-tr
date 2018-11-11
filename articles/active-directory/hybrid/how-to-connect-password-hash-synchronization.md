@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d289dee6770b0fc70edb0ed5fecf8a39402c6fa
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311993"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282008"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
 Bu makalede, şirket içi Active Directory örneğinden bulut tabanlı bir Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -54,7 +54,7 @@ Daha ayrıntılı bilgi için bkz. [Şirket içi kimliklerinizi Azure Active Dir
 >
 
 ## <a name="how-password-hash-synchronization-works"></a>Parola Karması eşitleme nasıl çalışır?
-Active Directory etki alanı hizmeti parolaları gerçek kullanıcı parolasının bir karma değer gösterimini biçiminde depolar. Bir karma değer, tek yönlü bir matematiksel işlev sonucudur ( *karma algoritması*). Parola düz metin sürümüne bir tek yönlü işlevin sonucu geri almak için bir yöntem yoktur. Şirket içi ağınızda oturum açmak için parola karması kullanamazsınız.
+Active Directory etki alanı hizmeti parolaları gerçek kullanıcı parolasının bir karma değer gösterimini biçiminde depolar. Bir karma değer, tek yönlü bir matematiksel işlev sonucudur ( *karma algoritması*). Tek yönlü işlevin sonucunu, parolanın düz metin sürümüne döndürmek mümkün değildir. Parola karması kullanarak şirket içi ağınızda oturum açamazsınız.
 
 Parolanızı eşitlemek için şirket içi Active Directory örneğinden, parola karmasını Azure AD Connect eşitleme ayıklar. Azure Active Directory kimlik doğrulama hizmeti eşitlenmeden önce ek güvenlik işleme için parola karması uygulanır. Parolalar, kullanıcı başına temelinde ve kronolojik sırayla eşitlenir.
 
@@ -136,7 +136,7 @@ Parola Eşitleme, oturum açmış kullanıcının Azure üzerinde hiçbir etkisi
 ## <a name="enable-password-hash-synchronization"></a>Parola karma eşitlemesini etkinleştirme
 
 >[!IMPORTANT]
->Parola Karması eşitleme için AD FS (veya diğer Federasyon teknolojileri) geçiriyorsanız, yayımlanan ayrıntılı dağıtım kılavuzunu izleyin öneririz [burada](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+>Parola Karması eşitleme için AD FS (veya diğer Federasyon teknolojileri) geçiriyorsanız, yayımlanan ayrıntılı dağıtım kılavuzunu izleyin öneririz [burada](https://aka.ms/adfstophsdpdownload).
 
 Kullanarak Azure AD Connect yüklerken **hızlı ayarlar** seçeneği, parola karması eşitleme otomatik olarak etkinleştirilir. Daha fazla ayrıntı için [hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama](how-to-connect-install-express.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AI galeri öğreticileri | Microsoft Docs
-description: Bul ve öğreticiler Azure AI Galerisi'nde paylaşın.
+title: Azure AI Gallery öğreticiler | Microsoft Docs
+description: Bul ve öğreticiler Azure AI Gallery'de paylaşın.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,58 +15,56 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 3ca7897455f763237533aa15680fbfcf805cdaf9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4ef653a603bccc001a5bbbb4c2af97e5ca0b20a8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834735"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344442"
 ---
-# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Bul ve öğreticiler Azure AI Galerisi'nde paylaşma
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Bul ve öğreticiler Azure AI Gallery'de paylaşın
 
-## <a name="tutorials"></a>Öğreticiler
-Azure AI Galerisi sunar birkaç [öğreticileri](https://gallery.cortanaintelligence.com/tutorials) , yol, machine learning teknolojileri ve kavramları. Öğreticiler da makine öğrenme sorunlarını çözme için gelişmiş yöntemler açıklayabilir.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) birkaç farklı [öğreticiler](https://gallery.cortanaintelligence.com/tutorials) , yol, kavramlar ve machine learning teknolojileri ile. Öğreticiler, machine learning sorunları çözmek için gelişmiş yöntemleri de açıklayabilir.
 
 ## <a name="discover"></a>Keşif
-Öğreticiler göz atmak için [galerisinde](http://gallery.cortanaintelligence.com)altında **daha fazla**seçin **öğreticileri**.
+Öğreticiler göz atmak için [galerideki](http://gallery.cortanaintelligence.com)altında **daha fazla**seçin **öğreticiler**.
 
-![Galeri giriş sayfasında öğreticileri seçin](./media/gallery-tutorials/select-tutorials-in-gallery.png)
+![Öğreticiler galeri giriş sayfasında seçin](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
-**[Öğreticileri](https://gallery.cortanaintelligence.com/tutorials)** sayfasında yakın zamanda eklenen ve popüler öğreticilerin bir listesi görüntülenir. Tüm öğreticileri görmek için seçin **tümünü görmek** düğmesi. Belirli bir öğretici için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+**[Öğreticiler](https://gallery.cortanaintelligence.com/tutorials)** sayfasında en son eklenen ve popüler öğreticilerin bir listesi görüntülenir. Tüm öğreticileri görmek için seçin **tümünü gör** düğmesi. Belirli bir öğretici için aranacak seçin **tümünü gör**ve ardından filtre ölçütleri. Arama terimlerini de girebilirsiniz **arama** Galerisi'nde sayfanın üst kısmındaki kutusu.
 
-Eğitmen Ayrıntıları sayfasında bir öğretici hakkında daha fazla bilgi edinebilirsiniz. Eğitmen Ayrıntılar sayfasını açmak için öğretici seçin. İçinde **açıklamaları** bölümünde bir öğretici Ayrıntıları sayfasında, yorum yapabileceği geribildirim sağlamak veya öğretici hakkında soru sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn öğretici bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek öğretici ayrıntıları sayfasına bir bağlantı e-posta gönderebilirsiniz.
+Öğretici ayrıntıları sayfasındaki bir öğretici hakkında daha fazla bilgi alabilirsiniz. Bir öğretici Ayrıntılar sayfasını açmak için öğreticiyi seçin. İçinde **açıklamaları** bölümünde öğretici Ayrıntıları sayfasında yorum yapabilir, geri bildirim sağlamak veya soru sorun hakkında bir öğretici. Arkadaş veya iş arkadaşlarınıza Twitter veya LinkedIn ile öğreticiyi bile paylaşabilirsiniz. Ayrıca diğer sayfasını görüntülemek için davet öğretici ayrıntıları sayfasına bağlantı e-posta gönderebilirsiniz.
 
 ![Bu öğe arkadaşlarınızla paylaşın](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Kendi açıklamaları ekleme](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Kendi açıklamalar ekleme](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="contribute"></a>Katkıda bulunan
-Bir sorunu çözümlemek ya da bir kavram öğrenin diğer kullanıcılara yardımcı olmak için Galeriye bir öğretici ekleyebilirsiniz.
+## <a name="contribute"></a>Katkıda bulunma
+Galeride bir sorunu çözümlemek ya da bir kavram öğrenin, diğer kullanıcılara yardımcı olmak için bir öğretici ekleyebilirsiniz.
 
 ### <a name="create-a-tutorial"></a>Bir öğretici oluşturma
 
-1. Galeriye Microsoft hesabınızı kullanarak oturum açın.
+1. Galeride Microsoft hesabınızı kullanarak oturum açın.
 
-2. Görüntünüzü sayfanın üst kısmındaki seçin ve ardından adınızı seçin.
+2. Sayfanın üstündeki görüntünüzü seçin ve ardından adınızı seçin.
   
-    ![Hesap adınızı seçin](./media/gallery-tutorials/click-account-name.png)
+    ![Hesabınızın adını seçin](./media/gallery-tutorials/click-account-name.png)
 
 3. **Yeni Öğe**’yi seçin.
   
-    !["Yeni öğesi" seçin](./media/gallery-collections/click-new-item.png)
+    !["Yeni öğe" seçin](./media/gallery-collections/click-new-item.png)
 
-4. Üzerinde **açıklama** sayfası için **öğesi türü**seçin **Öğreticisi**. Öğreticinizi, kısa bir özeti, ayrıntılı bir açıklama ve diğer kullanıcıların öğreticinizi bulmasına yardımcı olabilecek herhangi bir etiket için bir ad girin.
+4. Üzerinde **açıklama** sayfası için **öğesi türü**seçin **öğretici**. Öğretici, kısa bir özeti, ayrıntılı bir açıklaması ve diğer kullanıcıların öğreticinizi bulmasına yardımcı olabilecek herhangi bir etiket için bir ad girin.
   
-    ![Yeni öğretici için bilgileri girin](./media/gallery-tutorials/create-tutorial-page-1.png)
-5. Üzerinde **görüntü seçimi** sayfasında, koleksiyonuyla görüntülenen bir görüntü seçin. Kendi görüntü dosyasını karşıya yükleyebilir veya stok görüntüsünü seçin. Kullanıcılar yardımcı olabilecek bir görüntü tanımlamak içerik ve öğreticinizi amacı seçin.
+    ![Yeni bir öğretici için bilgileri girin](./media/gallery-tutorials/create-tutorial-page-1.png)
+5. Üzerinde **görüntü seçimi** sayfasında, görüntülenen koleksiyonuyla bir görüntü seçin. Kendi görüntü dosyanızı karşıya yükleyin veya stok görüntüsünü seçin. Kullanıcılara yardımcı olabilecek bir görüntüsünü belirleyin, öğretici amacı ve içerik seçin.
   
-    ![Yeni öğretici için bilgileri girin](./media/gallery-tutorials/create-tutorial-page-2.png)
+    ![Yeni bir öğretici için bilgileri girin](./media/gallery-tutorials/create-tutorial-page-2.png)
 
-6. Üzerinde **ayarları** sayfasında, için **görünürlük**koleksiyonu olup olmadığını seçin **ortak** (herkesin öğretici görüntüleyebileceği) veya **Unlisted** () öğretici doğrudan bağlantı yalnızca bir kişilerle görebileceği).
+6. Üzerinde **ayarları** sayfası için **görünürlük**koleksiyon olup olmadığını seçin **genel** (Herkes, öğreticiyi görüntüleyebilir) veya **Unlisted** ( doğrudan bağlantısını içeren bir öğretici için yalnızca kişilerin görebileceği).
   
     > [!IMPORTANT]
-    > Bir öğretici kümesine sonra **ortak** ve ardından **oluşturma**, Öğretici için daha sonra değiştiremezsiniz **Unlisted**.
+    > Bir öğretici ayarladıktan sonra **genel** seçip **Oluştur**, Öğretici için daha sonra değiştiremezsiniz **Unlisted**.
     > 
     > 
   
@@ -74,9 +72,9 @@ Bir sorunu çözümlemek ya da bir kavram öğrenin diğer kullanıcılara yard�
 
 7. **Oluştur**’u seçin.
 
-Öğreticinizi Azure AI Galerisi'nde sunulmuştur. Hesap sayfanıza listelenir, öğreticiler **öğeleri** sekmesi.
+Artık Azure AI Gallery'de öğreticidir. Hesap sayfanızda listelenir, öğreticiler **öğeleri** sekmesi.
 
-**[Galerisine gidin](http://gallery.cortanaintelligence.com)**
+**[Galeriye Dön](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

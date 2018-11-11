@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: dae75d118ec46c5023f0bb347fe5fbefafb84c4a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961524"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279798"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure İzleyici ölçüm uyarılarını kaynakları desteklenir
 
-Azure İzleyici, önemli avantajlar eski üzerinde olan yeni ölçüm uyarı türü artık destekliyor [Klasik ölçüm uyarıları](insights-alerts-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
+Azure İzleyici, önemli avantajlar eski üzerinde olan yeni ölçüm uyarı türü artık destekliyor [Klasik ölçüm uyarıları](alert-metric-classic.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
 
 Yeni ölçüm uyarılarının, ölçümler olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz. Daha fazla bilgi için görüntüleme [günlükleri için ölçüm uyarıları](monitoring-metric-alerts-logs.md).
 

@@ -7,13 +7,13 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: 8fcb5e8371d6c813eb7f0ab4d23a5aac5c41fb3b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/07/2018
+ms.openlocfilehash: b482a43236885f4b5574a9ba3319f74b083df33a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404648"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281269"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>PostgreSQL için Azure Veritabanı sunucuları
 Bu makalede, PostgreSQL sunucuları için Azure veritabanı ile çalışmaya yönelik kurallar ve dikkat edilecek noktalar sunulmaktadır.
@@ -28,7 +28,7 @@ PostgreSQL sunucusu için Azure veritabanı:
 - Veritabanları için bir ad alanı sağlar.
 - Bir kapsayıcı güçlü kullanım ömrü semantiğine sahip - bir sunucu silme ve kapsanan veritabanları siler.
 - Bir bölgedeki kaynakları birlikte bulundurur.
-- Sunucu ve veritabanına erişim için bir bağlantı uç noktası sağlar (. postgresql.database.azure.com).
+- Bir bağlantı uç noktası sunucusu ve veritabanı erişimi sağlar 
 - Veritabanlarını için uygulama yönetimi ilkeleri için kapsam sağlar: oturum açma, güvenlik duvarı, kullanıcılar, roller, yapılandırmaları, vb.
 - Birden çok sürümlerinde kullanılabilir. Daha fazla bilgi için [desteklenen PostgreSQL veritabanı sürümleri](concepts-supported-versions.md).
 - Kullanıcı tarafından Genişletilebilir olur. Daha fazla bilgi için [PostgreSQL uzantıları](concepts-extensions.md).
@@ -43,7 +43,7 @@ Aşağıdaki öğeleri veritabanınıza güvenli erişimi yardımcı olur:
 | **Kimlik doğrulama ve yetkilendirme** | PostgreSQL sunucusu için Azure veritabanı, yerel PostgreSQL kimlik doğrulamasını destekler. Bağlanın ve Sunucu Yöneticisi oturum açma sunucusuyla kimlik doğrulaması. |
 | **Protokol** | Hizmet PostgreSQL kullanılan ileti tabanlı bir protokol destekler. |
 | **TCP/IP** | Protokol, TCP/IP'yi üzerinden ve UNIX etki alanı Yuva üzerinden desteklenir. |
-| **Güvenlik duvarı** | Hangi bilgisayarların izinli olduğunu belirtmenize kadar verilerinizi korumak için bir güvenlik duvarı kuralı tüm erişim sunucunuza ve veritabanlarına, engeller. Bkz: [PostgreSQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](concepts-firewall-rules.md). |
+| **Güvenlik duvarı** | Hangi bilgisayarların izinli olduğunu belirtmenize kadar verilerinizi korumak için bir güvenlik duvarı kuralı tüm erişim sunucunuza ve veritabanlarına, engeller. Bkz: [PostgreSQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](concepts-firewall-rules.md). |
 
 ## <a name="managing-your-server"></a>Sunucunuzu Yönetme
 PostgreSQL sunucuları için Azure veritabanı kullanarak yönetebilirsiniz [Azure portalında](https://portal.azure.com) veya [Azure CLI](/cli/azure/postgres).
@@ -52,7 +52,7 @@ Bir sunucu oluşturulurken, yönetici kullanıcı için kimlik bilgilerini ayarl
 
 PostgreSQL süper kullanıcı özniteliği yönetilen hizmete ait azure_superuser atanır. Bu rol erişiminiz yok.
 
-PostgreSQL sunucusu için Azure veritabanı, iki adet varsayılan veritabanı vardır: 
+PostgreSQL sunucusu için Azure veritabanı, varsayılan veritabanı vardır: 
 - **postgres** -bir kez sunucunuza bağlanabilir, varsayılan bir veritabanı oluşturulur.
 - **azure_maintenance** -bu veritabanı, kullanıcı eylemlerine yönetilen hizmet sağlayan işlemlerin ayırmak için kullanılır. Bu veritabanına erişimi yok.
 - **azure_sys** -bir veritabanı için Query Store. Query Store kapalı olduğunda, bu veritabanı veri saymaz; Varsayılan ayar budur. Daha fazla bilgi için [Query Store genel bakış](concepts-query-store.md).
@@ -65,7 +65,7 @@ Postgres için Yönetilen hizmet olarak PostgreSQL için Azure veritabanı'nda y
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hizmetine genel bakış için bkz. [PostgreSQL genel bakış için Azure veritabanı](overview.md).
-- Kotalar ve sınırlamalar temel alarak belirli bir kaynak hakkında bilgi için **hizmet katmanı**, bkz: [hizmet katmanları](concepts-pricing-tiers.md).
-- Hizmete bağlanma hakkında daha fazla bilgi için bkz. [PostgreSQL için Azure veritabanı için bağlantı kitaplıkları](concepts-connection-libraries.md).
+- Hizmetine genel bakış için bkz. [PostgreSQL genel bakış için Azure veritabanı](overview.md).
+- Kotalar ve sınırlamalar temel alarak belirli bir kaynak hakkında bilgi için **hizmet katmanı**, bkz: [hizmet katmanları](concepts-pricing-tiers.md).
+- Hizmete bağlanma hakkında daha fazla bilgi için bkz. [PostgreSQL için Azure veritabanı için bağlantı kitaplıkları](concepts-connection-libraries.md).
 - Görüntüleme ve düzenleme sunucu parametreleri aracılığıyla [Azure portalında](howto-configure-server-parameters-using-portal.md) veya [Azure CLI](howto-configure-server-parameters-using-cli.md).

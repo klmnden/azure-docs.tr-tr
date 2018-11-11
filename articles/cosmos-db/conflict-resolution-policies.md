@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958602"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514834"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Çakışma türlerini ve çözümleme ilkeleri
 
 Çakışma ve çakışma çözümü ilkeleri Cosmos hesabınızın birden çok ile yapılandırılmışsa, geçerli olan bölgeler yazın.
 
-Birden çok yazan eşzamanlı olarak birden çok bölgede aynı öğesi güncelleştirdiğinizde birden çok yazma bölgeleri ile yapılandırılmış, Cosmos DB hesapları için güncelleştirme çakışmaları oluşabilir. Güncelleştirme çakışmaları aşağıdaki üç tür olarak sınıflandırılan:
+Birden çok yazan eşzamanlı olarak birden çok bölgede aynı öğesi güncelleştirdiğinizde birden çok yazma bölgeleri ile yapılandırılmış Cosmos hesapları için güncelleştirme çakışmaları oluşabilir. Güncelleştirme çakışmaları aşağıdaki üç tür olarak sınıflandırılan:
 
 1. **Çakışmaları Ekle:** bir uygulama, iki veya daha fazla öğe ile aynı benzersiz dizin (örneğin, ID özelliği) aynı anda iki veya daha fazla bölgelerden ekler. bu çakışmaları oluşabilir. Bu durumda, tüm yazma işlemlerini başlangıçta kendi ilgili yerel bölgelerde başarılı olabilir, ancak yalnızca bir öğe özgün kimliği ile seçtiğiniz çakışma çözüm İlkesi bağlı olarak, son olarak taahhüt eder.
 

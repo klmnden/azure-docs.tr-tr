@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 212488b74ba726012966787c7b2de633414e96a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245350"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278982"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>İşlem hatları ve Azure Machine Learning
 
@@ -43,6 +43,8 @@ Farklı adımları kullanarak yalnızca ihtiyacınız ince ve iş akışınızı
 İşlem hattı tasarlanmıştır sonra genellikle işlem hattının eğitim döngüsü daha ince ayar yoktur. Ne zaman bir işlem hattı, bir güncelleştirilmiş bir eğitim betiği gibi yeniden çalıştırmanız adımları çalışma atlar yeniden çalıştırın ve hangi değişmediğinden atlar. Aynı paradigma adımının yürütülmesi için kullanılan aynı komut için geçerlidir. 
 
 Azure Machine Learning ile çeşitli araç setleri ve Microsoft Bilişsel Araç Seti veya TensorFlow gibi çerçeveleri her adım için işlem hattınızda kullanabilirsiniz. Çeşitli arasında Azure koordinatları [hedefleri işlem](concept-azure-machine-learning-architecture.md) aşağı akış işlem hedefleriyle Ara verilerinizi kolayca paylaşılabilir böylece kullanırsınız. 
+
+Yapabilecekleriniz [Ölçümleriyle için işlem hattı denemelerinizi](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments) doğrudan Azure portalında. 
 
 ## <a name="key-advantages"></a>Başlıca avantajları
 

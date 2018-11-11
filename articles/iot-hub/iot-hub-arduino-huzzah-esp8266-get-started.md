@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ea7754c9bf755a5fc00823629df17317be0f8901
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343687"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515480"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 bulutta Azure IOT hub'a bağlanma
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-![DHT22 Feather HUZZAH ESP8266 ve IOT hub'ı arasında bir bağlantı](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
+![DHT22 Feather HUZZAH ESP8266 ve IOT hub'ı arasında bir bağlantı](./media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
 ## <a name="what-you-do"></a>Neler
 
@@ -38,7 +38,7 @@ Adafruit Feather HUZZAH ESP8266 oluşturduğunuz IOT hub'a bağlayın. Ardından
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-![Öğretici için gerekli olan bölümleri](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
+![Öğretici için gerekli olan bölümleri](./media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
 Bu işlemi tamamlamak için aşağıdaki bölümleri Feather HUZZAH ESP8266 başlangıç Seti gerekir:
 
@@ -62,7 +62,17 @@ Algılayıcı yok durumunda aşağıdaki öğeler isteğe bağlıdır. Ayrıca, 
 * Bir breadboard
 * M/dk anahtar kabloları
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>IOT hub için bağlantı dizesi alma
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Yeni bir cihaz IOT hub'ı Kaydet
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Algılayıcı ve bilgisayarınızla Feather HUZZAH ESP8266 bağlanma
 
@@ -72,7 +82,7 @@ Bu bölümde, panonuza algılayıcıları bağlayın. Ardından bilgisayarınız
 
 Şu şekilde bağlantı kurmak için breadboard ve anahtar kablo kullanın. Algılayıcı yoksa, bunun yerine sanal sensör verilerini kullanabileceğinizden bu bölümü atlayın.
 
-![Bağlantı Başvurusu](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
+![Bağlantı Başvurusu](./media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 Algılayıcı sabitlemek için aşağıdaki bağlantı kullanın:
 

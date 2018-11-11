@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e2f33935f73aa2070bf77cfd92e7e1c19441eb41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012267"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277657"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics verilerini Power BI'a aktarma
 
@@ -33,7 +33,7 @@ Verilerinizi Log Analytics çalışma alanından Power BI'a aktarmak için Log a
 ![Log Analytics'e Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>Sorgu dışarı aktarma
-Oluşturarak başlayın bir [günlük araması](log-analytics-log-search-new.md) Power BI DataSet'i doldurmak istediğiniz Log Analytics'ten verileri döndürür.  Sorguları dışarı aktar [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx) Power BI Desktop tarafından kullanılabilir.
+Oluşturarak başlayın bir [günlük araması](log-analytics-queries.md) Power BI DataSet'i doldurmak istediğiniz Log Analytics'ten verileri döndürür.  Sorguları dışarı aktar [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx) Power BI Desktop tarafından kullanılabilir.
 
 1. Veri kümeniz için verileri ayıklamak için Log Analytics günlük araması oluşturun.
 2. Günlük araması portalını kullanıyorsanız, tıklayın **Power BI**.  Analytics portalını kullanıyorsanız seçin **dışarı** > **Power BI sorgu (M)**.  Bu seçeneklerin ikisi de sorgu adlı bir metin dosyasına dışarı aktarma **PowerBIQuery.txt**. 
@@ -82,4 +82,4 @@ Power BI'da oluşturulan veri kümesini Power BI Desktop uygulamasında daha ön
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) Power BI'a aktarılabilir sorguları oluşturmak için.
-* Daha fazla bilgi edinin [Power BI](http://powerbi.microsoft.com) Log Analytics dışarı aktarmaya temel görselleştirmeler oluşturun.
+* Daha fazla bilgi edinin [Power BI](https://powerbi.microsoft.com) Log Analytics dışarı aktarmaya temel görselleştirmeler oluşturun.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: shvija
-ms.openlocfilehash: c4a9a3189f3de101528871e4dba95bf7a76b9846
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746923"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280589"
 ---
 # <a name="event-hubs-features-overview"></a>Event Hubs özelliklerine genel bakış
 
@@ -28,13 +28,21 @@ Bu makalede yer alan bilgiler geliştirir [genel bakış makalesi](event-hubs-wh
 ## <a name="namespace"></a>Ad Alanı
 Bir Event Hubs ad alanı tarafından başvurulan bir benzersiz bir kapsam kapsayıcı sağlar. kendi [tam etki alanı adı](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), içinde bir veya daha fazla event hubs'ı veya Kafka konularını oluşturma. 
 
+## <a name="event-hubs-for-apache-kafka"></a>Apache Kafka için Event Hubs
+
+[Bu özellik](event-hubs-for-kafka-ecosystem-overview.md) müşterilerin Event Hubs'a Kafka protokolünü kullanarak iletişim kurmasına olanak tanır bir uç nokta sağlar. Bu tümleştirme, müşterilere bir Kafka uç noktası sağlar. Bu, müşterilerin kendi Kafka kümelerini çalıştırmak için bir alternatif sunar, Event Hubs konuşabilir mevcut Kafka uygulamalarını yapılandırmak sağlar. Event Hubs için Apache Kafka, Kafka protokolü 1.0 ve üzeri destekler. 
+
+Bu tümleştirme sayesinde Kafka kümelerini çalıştırmak veya bunları içeren Zookeeper yönetmeniz gerekmez. Bu ayrıca, En zorlu olay hub'ları gibi yakalama, otomatik şişme ve coğrafi olağanüstü durum kurtarma özelliklerinin bazılarını ile çalışmanıza olanak sağlar.
+
+Bu tümleştirme de yansıtma Oluşturucu gibi uygulamalar veya framework Kafka bağlanma gibi çalışması yalnızca yapılandırma değişikliğiyle clusterless sağlar. 
+
 ## <a name="event-publishers"></a>Olay yayımcıları
 
-Olay hub'ına veri gönderen herhangi bir olay üretici varlıktır veya *olay yayımcısı*. Olay yayımcıları HTTPS veya AMQP 1.0 kullanarak olayları yayımlayabilir. Olay yayımcıları kendilerini bir olay hub'ına tanıtmak için Paylaşılan Erişim İmzası (SAS) belirteci kullanır ve benzersiz bir kimliğe sahip olabilir ya da ortak bir SAS belirteci kullanabilir.
+Olay hub'ına veri gönderen herhangi bir olay üretici varlıktır veya *olay yayımcısı*. Olay yayımcıları HTTPS veya AMQP 1.0 veya Kafka 1.0 ve üzeri kullanarak olayları yayımlayabilir. Olay yayımcıları kendilerini bir olay hub'ına tanıtmak için Paylaşılan Erişim İmzası (SAS) belirteci kullanır ve benzersiz bir kimliğe sahip olabilir ya da ortak bir SAS belirteci kullanabilir.
 
 ### <a name="publishing-an-event"></a>Olay yayımlama
 
-Bir olayı AMQP 1.0 veya HTTPS üzerinden yayımlayabilirsiniz. Event Hubs sağlar [istemci kitaplıkları ve sınıfları](event-hubs-dotnet-framework-api-overview.md) olayları, .NET istemcilerinden bir olay hub'ına yayımlama. Diğer çalışma zamanları ve platformlar için [Apache Qpid](http://qpid.apache.org/) gibi herhangi bir AMQP 1.0 istemcisi kullanabilirsiniz. Olayları ayrı ayrı veya toplu olarak yayımlayabilirsiniz. Tek bir yayın (olay verileri örneği), tek bir olay ya da toplu işlem olmasına bakılmaksızın 256 KB sınırlamaya sahiptir. Bu hata eşiği sonuçlarında daha büyük olaylar yayımlama. Yayımcıların olay hub'ındaki bölümleri bilmemesi ve yalnızca bir *bölüm anahtarı* (sonraki bölümde açıklanmıştır) ya da kimliklerini SAS belirteci üzerinden belirtmeleri en iyi yöntemdir.
+Bir olayı AMQP 1.0, 1.0 (ve üzeri) Kafka veya HTTPS üzerinden yayımlayabilirsiniz. Event Hubs sağlar [istemci kitaplıkları ve sınıfları](event-hubs-dotnet-framework-api-overview.md) olayları, .NET istemcilerinden bir olay hub'ına yayımlama. Diğer çalışma zamanları ve platformlar için [Apache Qpid](http://qpid.apache.org/) gibi herhangi bir AMQP 1.0 istemcisi kullanabilirsiniz. Olayları ayrı ayrı veya toplu olarak yayımlayabilirsiniz. Tek bir yayın (Olay verileri örneği), tek bir olay ya da toplu işlem olmasına bakılmaksızın 1 MB sınırı vardır. Bu hata eşiği sonuçlarında daha büyük olaylar yayımlama. Yayımcıların olay hub'ındaki bölümleri bilmemesi ve yalnızca bir *bölüm anahtarı* (sonraki bölümde açıklanmıştır) ya da kimliklerini SAS belirteci üzerinden belirtmeleri en iyi yöntemdir.
 
 AMQP veya HTTPS kullanma seçimi kullanım senaryosuna bağlıdır. AMQP, taşıma düzeyi güvenliği (TLS) veya SSL/TLS’ye ek olarak kalıcı bir çift yönlü yuva oluşturulmasını gerektirir. Oturum başlatılırken AMQP’nin ağ maliyetleri daha yüksektir, ancak HTTPS her istek için ek SSL yükü gerektirir. Daha sık yayımcılar için AMQP daha yüksek performans sunar.
 

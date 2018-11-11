@@ -1,10 +1,10 @@
 ---
-title: Filtreler ve dinamik bildirimleri | Microsoft Docs
-description: Bu konuda, istemci akış belirli bölümlerine bir akış için kullanabilmeniz için filtreleri oluşturmayı açıklar. Media Services bu seçmeli akış arşivlemek için dinamik bildirimleri oluşturur.
+title: Filtreler ve dinamik bildirimlere | Microsoft Docs
+description: Bu konuda, istemci akışı için bir stream'ın belirli bölümlerine kullanabilmesi için filtreler oluşturmayı açıklar. Media Services, bu seçmeli akış arşivlemek için olan dinamik bildirimler oluşturur.
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
@@ -12,30 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 11/06/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 982af37a866f73292192b0c889e9eeb1e1291030
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788875"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282416"
 ---
-# <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimleri
-2.17 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler müşterilerinizin gibi şeyler seçmesine izin veren sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini, müşterinizin aygıt (yerine varlıkla ilişkilendirilen tüm yorumlama) işleyebilir ses ve video yorumlama belirtin. Bu varlıklarınızı filtreleme aracılığıyla arşivlenmiş **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
+# <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
+2.17 sürümünden başlayarak, Media Services, varlıklarınız için filtrelerini tanımlamanızı sağlar. Bu filtreler müşterileriniz gibi şeyler seçmesine izin veren sunucu tarafı kurallar şunlardır: yalnızca bir bölümünü (tüm video oynatma) yerine bir video kayıttan yürütme ya da yalnızca bir alt kümesini müşterinizin cihaz işleyebileceğini (ses ve video yorumlama belirtin yerine tüm önayarda varlıkla ilişkili olan). Bu varlıklarınızı filtreleme yoluyla elde edilir **dinamik bildirim**müşterinizin istek üzerine video akışı oluşturan s üzerinde belirtilen filtreleri temel.
 
-Bu konular açıklanır ortak senaryolarda filtreleri kullanarak müşteriler ve filtreleri program aracılığıyla oluşturma göstermek konulara bağlantılar için çok yararlı olacaktır.
+Bu konuda, yaygın senaryoları tartışır filtreleri kullanarak filtreler program aracılığıyla nasıl oluşturulacağını gösteren konulara bağlantılar ve müşteriler için çok yararlı olur.
 
 ## <a name="overview"></a>Genel Bakış
-İçeriğinizi (Canlı olayları veya isteğe bağlı video akış) müşterilere teslim ederken hedefiniz farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video teslim etmek için ' dir. Bu hedef aşağıdakileri yapın elde etmek için:
+İçeriğinizi (Canlı etkinlik veya isteğe bağlı video akışı) müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim sağlamaktır. Bu hedef şunları yapmanız elde etmek için:
 
-* Çoklu bit hızı akışına kodlayın ([bit hızı Uyarlamalı](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (Bu ilgilenebilmek kalitesini ve ağ koşullarını) video akışına ve 
-* Media Services'i kullanma [dinamik paketleme](media-services-dynamic-packaging-overview.md) dinamik olarak akışınızı içine farklı protokollere (Bu ilgilenebilmek farklı cihazlarda akış) yeniden paketler. Media Services teknolojileri aşağıdaki bit hızı Uyarlamalı akış teslimini destekler: HTTP canlı akışı (HLS), kesintisiz akış ve MPEG DASH. 
+* kullanarak akışınızı Çoklu bit hızlı kodlama ([bit hızı Uyarlamalı](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (Bu halleder kaliteyi ve ağ koşullarını) video akışına ve 
+* Media Services'i kullanma [dinamik paketleme](media-services-dynamic-packaging-overview.md) dinamik olarak akışınız içine farklı protokollere (Bu halleder farklı cihazlarda akış) yeniden paketler. Media Services dağıtımını aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: HTTP canlı akışı (HLS), kesintisiz akış ve MPEG DASH. 
 
-### <a name="manifest-files"></a>Bildirim dosyası
-Bir varlığı, bit hızı Uyarlamalı akış, kodlarken bir **bildirim** (çalma listesi) dosyası oluşturulur (dosya metin veya XML tabanlı). **Bildirim** dosyası, meta verileri gibi akış içerir: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (nitelikleri), izleme dilleri sunu penceresinde (kayan pencere sabit süresi), video codec (FourCC). Sonraki oynanabilir video parçalar kullanılabilir ve konumlarını hakkında bilgi sağlayarak sonraki parça almak için player talimatı verir. Parçaları (veya kesimler) gerçek "" bir video içeriği öbekleridir.
+### <a name="manifest-files"></a>Bildirim dosyaları
+Bir varlığı, bit hızı Uyarlamalı akış için kodlarken bir **bildirim** (çalma listesi) dosyası oluşturulur (metin tabanlı veya XML tabanlı dosyasıdır). **Bildirim** dosya ekleme gibi meta veri akış: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (kalitelerini), izleme diller Sunu penceresini (sabit süre kayan pencere), video codec bileşeni ( FourCC). Sonraki yürütülebilir video parçalar kullanılabilir ve bulundukları konumlar ilgili bilgi sağlayarak bir sonraki parça almak için player talimatı verir. Parçaları (veya parçaları) gerçek "" bir video içeriğinizi öbekleridir.
 
-Burada, bildirim dosyası örneği verilmiştir: 
+Bir bildirim dosyası örneği aşağıdadır: 
 
     <?xml version="1.0" encoding="UTF-8"?>    
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="330187755" TimeScale="10000000">
@@ -67,122 +67,122 @@ Burada, bildirim dosyası örneği verilmiştir:
 
     </SmoothStreamingMedia>
 
-### <a name="dynamic-manifests"></a>Dinamik bildirimleri
-Vardır [senaryoları](media-services-dynamic-manifest-overview.md#scenarios) varsayılan varlığın bildirim dosyasında açıklanan'den daha fazla esneklik istemciniz gerektiği zaman. Örneğin:
+### <a name="dynamic-manifests"></a>Dinamik bildirimlerin
+Vardır [senaryoları](media-services-dynamic-manifest-overview.md#scenarios) istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerektiğinde. Örneğin:
 
-* Belirli cihaz: yalnızca belirtilen yorumlama ve/veya cihaz tarafından desteklenen dil parçaları belirtilen teslim kayıttan yürütme için içerik ("yorumlama filtre") kullanılır. 
-* ("Alt küçük filtreleme") canlı bir olay alt küçük göstermek için bildirim azaltın.
-* ("Kırpma bir video") bir video başlangıcı kesim.
-* ("Ayarlama sunu pencere") player DVR penceresinde sınırlı bir süre sağlamak amacıyla sunu penceresi (DVR) ayarlayın.
+* Cihaz özel: yalnızca belirtilen yorumlama ve/veya içeriği ("işleme filtreleme") çalmak için kullanılan cihaz tarafından desteklenen belirtilen dil parçaları sunun. 
+* Canlı etkinlik ("alt klip filtreleme") bir alt klip göstermek için bildirim azaltın.
+* ("Kırpma video") bir video başlangıcını kesim.
+* ("Ayarlama sunu pencere") player DVR penceresinde sınırlı bir süre sağlamak amacıyla sunu penceresi DVR ayarlayın.
 
-Bu esneklik elde etmek için Media Services sunar **dinamik bildirimleri** dayalı üzerinde önceden tanımlanmış [filtreleri](media-services-dynamic-manifest-overview.md#filters).  Filtreleri tanımladıktan sonra istemcilerinizin belirli yorumlama veya alt klipleri videonuzu akışla aktarmak için bunları kullanabilirsiniz. Bunlar, akış URL'SİNDE filtreleri belirtmeniz gerekir. Filtreler uygulanması bit hızı Uyarlamalı akış tarafından desteklenen protokolleri [dinamik paketleme](media-services-dynamic-packaging-overview.md): HLS, MPEG DASH ve kesintisiz akış. Örneğin:
+Bu esneklik elde etmek için Media Services sunar **dinamik bildirimlerini** temel üzerinde önceden tanımlanmış [filtreleri](media-services-dynamic-manifest-overview.md#filters).  Filtreler tanımladıktan sonra istemcilerinize bunları belirli bir işleme veya alt klip videonuzun akışını sağlamak için kullanabilirsiniz. Bunlar, akış URL'SİNDE filtreleri belirtmeniz gerekir. Filtreler hızı Uyarlamalı akış protokollerine tarafından desteklenen uygulanabilir [dinamik paketleme](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH ve kesintisiz akış. Örneğin:
 
-MPEG DASH URL filtreli
+MPEG DASH URL filtresi
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
 
-Kesintisiz akış URL'si Filtresi ile
+Filtre ile kesintisiz akış URL'si
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
-İçeriği ve akış URL'lerini yapı teslim etmek hakkında daha fazla bilgi için bkz: [içerik genel bakış sunan](media-services-deliver-content-overview.md).
+İçeriği ve akış URL'lerini derleme sunma konusunda daha fazla bilgi için bkz. [içerik teslimine genel bakış](media-services-deliver-content-overview.md).
 
 > [!NOTE]
-> Dinamik bildirimleri varlık ve bu varlık için varsayılan bildirimi değiştirmemenizi unutmayın. İstemci bir akış ile veya olmadan filtreleri istemek seçebilirsiniz. 
+> Dinamik bildirimlerin varlık ve bu varlık için varsayılan bildirimi değiştirmemenizi unutmayın. İstemci, bir akış ile veya olmadan filtreleri istemek seçebilirsiniz. 
 > 
 > 
 
-### <a id="filters"></a>filtreleri
+### <a id="filters"></a>Filtreleri
 Varlık filtreleri iki tür vardır: 
 
-* Genel filtrelerin (Azure Media Services hesabı herhangi bir varlığını uygulanabilir, hesap ömürlü) ve 
-* Yerel filtreleri (yalnızca ile filtresi oluşturma sırasında ilişkilendirilmiş bir varlık uygulanabilir, varlık ömrü vardır). 
+* Genel filtrelerin (Azure Media Services hesabı olan herhangi bir varlığı uygulanabilir, hesabın bir ömre sahiptir) ve 
+* Yerel filtreleri (yalnızca bir varlık ile filtre oluşturma sırasında ilişkilendirilmiş uygulanabilir, bir varlığın ömrünü vardır). 
 
-Genel ve yerel filtre türleri tam olarak aynı özelliklere sahip. İkisi arasındaki temel fark, bir dosya türünü hangi senaryoları için daha uygun olduğunu ' dir. Genel filtrelerin belirli bir varlık kırpma için yerel filtreleri kullanıldığı (yorumlama filtreleme) cihaz profillerinin genellikle uygundur.
+Genel ve yerel filtre türleri tam olarak aynı özelliklere sahiptir. İkisi arasındaki temel fark, hangi senaryolar için ne tür bir olandan daha uygun olduğunu ' dir. Genel filtrelerin trim belirli bir varlık için yerel filtreleri nerede kullanılabilir cihaz profillerinin (işleme filtreleme) genellikle uygundur.
 
 ## <a id="scenarios"></a>Yaygın senaryolar
-İçeriğinizi (Canlı olayları veya isteğe bağlı video akış) müşterilere teslim ederken hedefiniz farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video teslim etmek için önce belirtildiği gibi. Ayrıca, sizin kaybolabileceğini varlıklarınızı filtreleme ve birini kullanma ile ilgili diğer gereksinimlerin **dinamik bildirim**s. Aşağıdaki bölümlerde farklı filtreleme senaryolar kısa bir genel bakış sağlar.
+İçeriğinizi (Canlı etkinlik veya isteğe bağlı video akışı) müşterilere teslim ederken hedefiniz farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video teslim etmek için önce belirtildiği gibi. Ayrıca, uygulamanızın kaybolabileceğini varlıklarınızı filtreleme ve kullanarak, ilgili diğer gereksinimlerin **dinamik bildirim**s. Aşağıdaki bölümlerde, farklı filtreleme senaryolara kısa bir genel bakış sağlar.
 
-* Yalnızca bir alt kümesini belirli cihazlar (yerine varlıkla ilişkilendirilen tüm yorumlama) işleyebilir ses ve video yorumlama belirtin. 
-* Yalnızca bir bölümünü (yerine tüm video oynatma) bir video oynatma.
-* DVR Sunu penceresini ayarlayın.
+* Yalnızca belirli cihazlar (yerine, varlıkla ilişkili olan tüm önayarda) işleyebilir ses ve video yorumlama kümesini belirtin. 
+* Yalnızca bir bölümünü (tüm video oynatma) yerine bir video kayıttan yürütme.
+* DVR sunu penceresi ayarlayın.
 
-## <a name="rendition-filtering"></a>Yorumlama filtreleme
-Birden çok kodlama profilleri (H.264 temel H.264 yüksek, AACL, AACH, Dolby dijital Plus) ve çoklu kalite bit, varlık kodlama tercih edebilirsiniz. Ancak, tüm istemci cihazları tüm varlığınızın profilleri ve bit destekleyecektir. Örneğin, eski Android aygıtları yalnızca destekler H.264 temel + AACL. Yüksek bit avantajları elde edilemiyor bir aygıt için gönderme, bant genişliği ve cihaz hesaplama boşa harcar. Böyle bir aygıt için görüntü yalnızca ölçeklendirmek için tüm verilen bilgileri çözmelisiniz.
+## <a name="rendition-filtering"></a>İşleme filtreleme
+Varlığınız için birden çok kodlama profilleri (H.264 temel H.264 yüksek, AACL, AACH, Dolby dijital Plus) ve çoklu kalite bit hızlarında kodlamanız tercih edebilirsiniz. Ancak, tüm istemci cihazları tüm varlık profilleri ve bit hızlarına dönüştürme destekleyecektir. Örneğin, eski Android cihazları, yalnızca H.264 temel + AACL destekler. Yüksek bit hızlarına dönüştürme avantajları alınamıyor bir cihaza göndermek, bant genişliği ve cihaz hesaplama boşa harcanmasına neden olur. Böyle bir cihaz, yalnızca ölçeğini ona görüntülenmek üzere tüm belirli bilgileri çözmelisiniz.
 
-Dinamik bildirim aygıtı profilleri oluşturabilirsiniz gibi mobile, konsol, HD/SD, vb. ve izler ve her profilin parçası olmasını istediğiniz nitelikleri içerir.
+Dinamik bildirim ile cihaz profillerini oluşturabilirsiniz gibi mobile, konsol, HD/SD vb. ve izler ve her profilinin bir parçası olmasını istediğiniz kalitelerini içerir.
 
-![Yorumlama filtreleme örneği][renditions2]
+![İşleme filtreleme örneği][renditions2]
 
-Aşağıdaki örnekte, bir kodlayıcı mezzanine varlık yedi ISO MP4s video yorumlama (Başlangıç 180 p 1080 p) kodlayın için kullanıldı. Kodlanmış varlık dinamik olarak aşağıdaki akış protokolleri hiçbirine paketlenmesi: HLS, kesintisiz ve MPEG DASH.  Diyagram üst kısmında, hiçbir filtrelerle varlık HLS bildirimi gösterilir (tüm yedi yorumlama içerir).  Alt sol "ott" adlı bir filtre uygulandığı HLS bildirim gösterilir. Aşağıda, yanıtta atılmış alt iki kalite düzeyi ile sonuçlandı 1 MB/sn, tüm bit kaldırmak için "ott" filtresini belirtir.  Sağ alt "mobil" adlı bir filtre uygulandığı HLS bildirim gösterilir. Çözümleme olduğu iki sonuçlandı 720 p büyük yorumlama kaldırmak için "mobil" filtresini belirtir 1080 p yorumlama atılmış devre dışı.
+Aşağıdaki örnekte, bir kodlayıcı, yedi ISO MP4 video yorumlama (Başlangıç 180 p 1080 p) mezzanine varlık kodlayın için kullanıldı. Kodlanmış varlık dinamik olarak şu protokolden herhangi birini akış paketlenmiş: HLS, kesintisiz ve MPEG DASH.  Diyagramın üstünde filtre varlıkla HLS bildirimi gösterilir (tüm yedi önayarda içerir).  Alt sol, "ott" adlı bir filtre uygulandığı HLS bildirimde gösterilir. Aşağıda, yanıtta çıkartılır alt iki kalite düzeyi sonuçlandı 1 MB/sn, tüm bit hızlarına dönüştürme kaldırmak için "ott" filtresini belirtir. Sağ alt "mobil" adlı bir filtre uygulandığı HLS bildirimde gösterilir. Çözüm olduğu iki sonuçlandı 720 p büyük yorumlama kaldırmak için "mobil" filtresi belirtir 1080 p yorumlama çıkartılır devre dışı.
 
-![Yorumlama filtreleme][renditions1]
+![İşleme filtreleme][renditions1]
 
 ## <a name="removing-language-tracks"></a>Kaldırma dil parçaları
-Varlıklarınızı İngilizce, İspanyolca, Fransızca, vb. gibi birden çok ses dilleri içerebilir. Genellikle, ses izleme seçimi Player SDK yöneticileri varsayılan ve kullanıcı seçimine göre kullanılabilir ses izler. Bu tür Player SDK'ları geliştirmek için zor, cihaza özgü player-çerçeveler arasında farklı uygulamaları gerektirir. Ayrıca, bazı platformlarda Player API'leri sınırlıdır ve burada kullanıcıları seçin veya varsayılan ses izleme değiştirmek Ses Seçimi özelliğini içermez. Varlık filtrelerle yalnızca gerekli ses dilleri dahil filtreleri oluşturarak davranışını kontrol edebilirsiniz.
+Varlıklarınızı birden fazla ses dili İngilizce, İspanyolca, Fransızca, vb. içerebilir. Genellikle, oyuncu SDK yöneticileri varsayılan Ses Seçimi ve kullanıcı seçimine göre kullanılabilir ses izler. Bu tür Sdk'leri geliştirmek için zordur, cihaza özgü oynatıcı-çerçeveleri arasında farklı uygulamaları gerektirir. Ayrıca, bazı platformlarda oyuncu API'leri sınırlıdır ve bu kullanıcılar nerede seçin veya varsayılan ses izleme değişikliği Ses Seçimi özelliğini içermez. Varlık filtrelerle yalnızca gerekli ses dilleri dahil filtreleri oluşturarak davranışını kontrol edebilirsiniz.
 
-![Dil parçaları filtreleme][language_filter]
+![Filtreleme dili izler][language_filter]
 
-## <a name="trimming-start-of-an-asset"></a>Bir varlık Kırpma Başlangıcı
-Çoğu canlı akış olayda işleçleri gerçek olayın önce bazı testleri çalıştırın. Örneğin, şöyle bir Kurşun olay başlamadan önce içerebilir: "Programın kısa bir süre içinde başlayacak". Program arşivleme, test ve slate veri da arşivlenmiş ve sunuya dahil. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç zaman filtresi oluşturmak ve istenmeyen verileri bildirimden kaldırın.
+## <a name="trimming-start-of-an-asset"></a>Bir varlığın başlangıç kırpma
+Çoğu canlı akış olayları, işleçler, gerçek olayın önce bazı testler çalıştırın. Örneğin, olay başlamadan önce böyle bir maskeleme görüntüsü içerebilir: "Program kısa bir süre içinde başlayacak". Program arşivleme, test ve maskeleme görüntüsü veri arşivlenmiş da sunuda. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç süresi filtre oluşturabilir ve bildirim istenmeyen verileri kaldırın.
 
 ![Kırpma Başlat][trim_filter]
 
-## <a name="creating-subclips-views-from-a-live-archive"></a>Canlı arşivinden subclips (görünümler) oluşturma
-Birçok Canlı olayları uzun süredir çalışıp ve canlı arşiv birden çok olay içerebilir. Canlı olay sona erdikten sonra yayıncıları mantıksal program başlangıç Canlı arşivine bölmeniz ve dizileri durdurmak isteyebilirsiniz. Ardından, sanal bu programların ayrı olarak (Bu, varolan önbelleğe alınan parçaları CDN'ler elde değil) Canlı arşiv işleme ve ayrı varlıklar oluşturmadığından post olmadan yayımlayın. Bir futbol veya Basketbol oyun, Beyzbol innings üç aylık dönem ya da herhangi bir spor programı olayları tek tek sanal programlara örnekleridir.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Canlı bir arşivden subclips (görünümler) oluşturma
+Uzun birçok Canlı etkinlikler ve canlı arşiv birden çok olayı içerebilir. Canlı olay bittikten sonra yayımcılar mantıksal program başlangıç Canlı arşive bölmeniz ve dizileri durdurmak isteyebilirsiniz. Ardından, bu sanal programlar, (Bu, var olan bir önbelleğe alınan parçaları avantajı CDN'ler almaz) Canlı arşiv işleme ve ayrı varlıklar oluşturmama post olmadan ayrı olarak yayımlayın. Bir futbol veya Basketbol oyun, innings Beyzbol, Çeyrek yıl veya spor programlarından olayları tek tek sanal programlara örnekleridir.
 
-Dinamik bildirim başlangıç/bitiş zamanına kullanarak filtreler oluşturun ve canlı Arşiviniz üst sanal görünümleri oluşturun. 
+Dinamik bildirim filtreleri başlangıç/bitiş zamanlarına kullanarak oluşturup sanal görünümleri, Canlı arşiv üstüne oluşturabilirsiniz. 
 
-![Filtre subclip][subclip_filter]
+![Alt klip filtresi][subclip_filter]
 
 Filtrelenmiş varlık:
 
 ![Kayak][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Sunu penceresini (DVR) ayarlama
-Şu anda Azure Media Services süresi yapılandırılabileceği 5 dakika arasında - 25 saat döngüsel arşiv sunar. Bildirim filtreleme medya silmeden arşiv üst üzerinde çalışırken DVR penceresini oluşturmak için kullanılabilir. Yayıncıları ile canlı kenar taşımak ve aynı anda daha büyük bir arşivleme penceresi korumak için sınırlı bir DVR pencere sağlamak istediğiniz yere birçok senaryo vardır. Yayıncı klipleri vurgulamak için DVR penceresi dışında veri kullanmak isteyebilir veya he\she farklı aygıtlar için farklı DVR windows sağlamak isteyebilirsiniz. Örneğin, mobil aygıtların birçoğu (Masaüstü istemcileri için mobil cihazlar için ve bir saat 2 dakikalık DVR penceresi olabilir) büyük DVR windows tanıtıcı yok.
+Şu anda, Azure Media Services, döngüsel arşiv süresi yapılandırılabileceği 5 dakika arasında - 25 saat sunar. Bildirim filtreleme medya silmeden arşiv üstüne üzerinde çalışırken DVR pencere oluşturmak için kullanılabilir. Yayımcılar Canlı edge ile taşıyın ve daha büyük bir arşivleme penceresi aynı anda korumak için sınırlı bir DVR penceresi sağlamak istediğiniz birçok senaryo vardır. Yayıncı klipleri vurgulamak için DVR penceresi dışında olan verileri kullanmak isteyebilirsiniz veya he\she farklı cihazlar için farklı DVR windows sağlamak isteyebilirsiniz. Örneğin, mobil aygıtların birçoğu (mobil cihazlar için ve bir saat 2 dakikalık DVR penceresi için Masaüstü istemcilerindeki olabilir) büyük DVR windows işlemez.
 
 ![DVR penceresi][dvr_filter]
 
-## <a name="adjusting-livebackoff-live-position"></a>LiveBackoff (dinamik konum) ayarlama
-Bildirim filtreleme birkaç saniye Canlı program Canlı kenarından kaldırmak için kullanılabilir. Filtreleme Önizleme yayın noktasında sunuyu izleyin ve görüntüleyiciler (yedeklenen-30 saniye kapalı) akış almadan önce tanıtım ekleme noktaları oluşturmak yayıncıları sağlar. Yayıncıları bu reklam kendi istemci çerçeveleri bunların zamanında alınan anında ve reklam fırsat önce bilgi işlem.
+## <a name="adjusting-livebackoff-live-position"></a>LiveBackoff (Canlı konum) ayarlama
+Bildirim filtresi canlı bir canlı program kenarından birkaç saniye kaldırmak için kullanılabilir. Önizleme yayını noktası sunuyu izleyin ve görüntüleyiciler (desteklenen 30 saniye kapalı) akış almadan önce reklam ekleme noktaları oluşturmak yayımcılar filtrelemeye izin verir. Yayımcılar bu tanıtım için kendi istemci çerçevelerini kendisine zamanında alınan anında iletme ve reklam fırsatı önce bilgi işlem.
 
-Tanıtım desteği ek olarak, istemciler kayma ve canlı kenar isabet bunlar hala parçaları bir HTTP 404 veya 412 hata alma yerine sunucudan böylece alabilir görüntüleyiciler konumu ayarlama konusunda LiveBackoff ayarı kullanılabilir.
+Tanıtım desteğine ek olarak, istemciler farklı ve canlı edge isabet bunlar yine de parçaları yerine bir HTTP 404 veya 412 hata sunucusundan alabilmeniz görüntüleyiciler konumu ayarlama konusunda LiveBackoff ayarı kullanılabilir.
 
 ![livebackoff_filter][livebackoff_filter]
 
-## <a name="combining-multiple-rules-in-a-single-filter"></a>Tek bir filtre içinde birden çok kural birleştirme
-Tek bir filtre birden çok filtre kurallarında birleştirebilirsiniz. "Aralığı kuralı" tanımlayabilirsiniz örnek olarak dinamik bir arşivinden maskeleme görüntülerini kaldırmak ve ayrıca kullanılabilir bit filtrelemek için. Birden çok filtre kuralları uygularken son tüm kuralları kesişimi sonucudur.
+## <a name="combining-multiple-rules-in-a-single-filter"></a>Tek bir filtrede birden çok kural birleştirme
+Tek bir filtrede birden çok filtreleme kurallarını birleştirebilirsiniz. Bir "aralık kuralına" tanımlayabilirsiniz örnek olarak canlı bir arşivden maskeleme görüntülerini kaldırmak ve ayrıca kullanıma kullanılabilir bit hızlarına dönüştürme filtrelemek için. Birden çok filtreleme kurallarını uygularken, sonuç tüm kuralları kesişimi ' dir.
 
 ![birden çok kural][multiple-rules]
 
-## <a name="create-filters-programmatically"></a>Filtreler program aracılığıyla oluşturma
-Aşağıdaki filtreler için ilgili Media Services varlıklar anlatılmaktadır. Makale ayrıca program aracılığıyla filtreleri oluşturma gösterilmektedir.  
+## <a name="create-filters-programmatically"></a>Filtre program aracılığıyla oluşturma
+Filtreler için ilgili Media Services varlıkları anlatılmaktadır. Makale ayrıca programlı filtreler oluşturmayı gösterir.  
 
-[REST API'leri ile filtreleri oluşturma](media-services-rest-dynamic-manifest.md).
+[REST API'leri ile filtre oluşturma](media-services-rest-dynamic-manifest.md).
 
-## <a name="combining-multiple-filters-filter-composition"></a>Birden çok filtre (filtresi oluşturma) birleştirme
+## <a name="combining-multiple-filters-filter-composition"></a>Birden çok filtre (filtre oluşturma) birleştirme
 Ayrıca, tek bir URL içinde birden çok filtre birleştirebilirsiniz. 
 
-Aşağıdaki senaryoyu neden filtrelerini birleştirmeye isteyebilirsiniz gösterir:
+Filtrelerini birleştirmeye neden isteyebileceğiniz aşağıdaki senaryoyu gösterir:
 
-1. (Video nitelikleri sınırlamak için), video nitelikleri Android veya iPAD gibi mobil cihazlar için filtre gerekir. İstenmeyen nitelikleri kaldırmak için genel filtre cihaz profillerine uygun olarak oluşturursunuz. Bu makalede daha önce belirtildiği gibi genel filtreler tüm varlıklarınızı başka ilişkilendirme olmadan aynı media services hesabı altında için kullanılabilir. 
-2. Bir varlık başlangıç ve bitiş saati kırpma istiyor. Bunun için yerel bir filtre oluşturun ve başlangıç/bitiş saati ayarlamak. 
-3. Bu filtreler her ikisi de birleştirmek istediğiniz (birleşim olmadan, kalite filtre kullanım zorlaştırır kırpma filtre filtreleme eklemeniz gerekir).
+1. (Video kalitelerini sınırlamak için), video kalitelerini Android ya da iPAD gibi mobil cihazlar için filtre gerekir. İstenmeyen kalitelerini kaldırmak için uygun cihaz profillerine genel filtre oluşturursunuz. Bu makalede daha önce bahsedildiği gibi genel filtrelerin aynı media services hesabı başka ilişkisi olmayan altında tüm varlıklarınız için kullanılabilir. 
+2. Ayrıca, bir varlığın başlangıç ve bitiş zamanı trim istiyorsunuz. Bunu başarmak için yerel bir filtre oluşturun ve başlangıç/bitiş saatini ayarlayın. 
+3. Bu filtreler her ikisi de birleştirmek istediğiniz (birleşim olmadan, kalite filtresi kullanımını zorlaştırır kırpmayı filtre filtreleme eklemeniz gerekir).
 
-Filtreler birleştirmek için filtre adları bildirimi/çalma ayarlamanız gerekir noktalı virgülle ayrılmış URL. Adlı bir filtre sahip varsayalım *MyMobileDevice* nitelikleri filtreler ve başka adlı sahip *MyStartTime* belirli bir başlangıç saati ayarlamak için. Bunları şöyle birleştirebilirsiniz:
+Filtreleri birleştirerek için bildirimi/çalma listesine filtre adına ayarlamanız gerekir noktalı virgülle ayrılmış URL. Adlı bir filtre sahip *MyMobileDevice* kalitelerini filtrelere ve adlı başka bir sahip *MyStartTime* belirli bir başlangıç saati ayarlamak için. Bunları şu şekilde birleştirebilirsiniz:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-En çok üç filtreleri birleştirebilirsiniz. 
+En fazla üç filtreleri de birleştirebilirsiniz. 
 
-Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogu.
+Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogu.
 
 ## <a name="know-issues-and-limitations"></a>Sorunlar ve sınırlamalar
-* Dinamik bildirimi çalışır GOP bu nedenle kırpma sınırları (anahtar çerçeveler) sahip GOP doğruluğu. 
-* Yerel ve genel filtrelerin aynı filtre adı kullanabilirsiniz. Bu yerel filtre Not daha yüksek önceliğe sahiptir ve genel filtreleri geçersiz kılar.
-* Bir filtre güncelleştirirseniz, kuralları yenilemek akış uç 2 dakika kadar sürebilir. İçerik bazı filtreleri kullanarak sunulduğu (ve proxy'ler ve CDN önbellekleri önbelleğe alınmış), bu filtreleri güncelleştiriliyor player hatalarına neden olabilir. Bu filtre güncelleştirdikten sonra önbelleğini temizlemek için önerilir. Bu seçenek yoksa, başka bir filtre kullanmayı düşünün.
+* Dinamik bildirim GOP içinde çalışır sınırları (anahtar çerçeveler) bu nedenle kırpma GOP doğruluğu sahiptir. 
+* Yerel ve genel filtrelerin aynı filtre adı kullanabilirsiniz. Yerel filtreleri, daha yüksek önceliğe sahiptir ve genel filtreleri geçersiz kılar.
+* Bir filtre güncelleştirirseniz, kuralları yenilemek akış uç noktası 2 dakika kadar sürebilir. İçerik bazı filtreler kullanılarak sunulduğu (ve önbellekler proxy'leri ve CDN önbelleğe), bu filtreleri güncelleştiriliyor player hatalarına neden olabilir. Filtre güncelleştirdikten sonra önbelleği temizlemek için önerilir. Bu seçenek, mümkün değildir. farklı bir filtre kullanmayı düşünün.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -191,7 +191,7 @@ Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-se
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[İçerik teslim müşteriler genel bakış](media-services-deliver-content-overview.md)
+[İçerik sağlama konusuna genel bakış müşteriler](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png

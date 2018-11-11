@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056571"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515650"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
-**Android veya iOS KCG cihazları kaydedebilirim miyim?**
-
-**Y:** Evet, ancak yalnızca Azure cihaz kayıt hizmeti ile karma müşteriler için. Şirket içi aygıt kaydı hizmetiyle AD FS'de desteklenmez.
-
-**S: nasıl bir macOS cihazı kaydedebilir miyim?**
-
-**Y:** macOS cihazını kaydetmek için:
-
-1.  [Uyumluluk ilkesi oluşturma](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [MacOS cihazlar için koşullu erişim ilkesi tanımlama](../active-directory-conditional-access-azure-portal.md) 
-
-**Notlar:**
-
-- Koşullu erişim ilkenizi dahil edilen kullanıcıların bir [macOS için Office sürümü desteklenen](../conditional-access/technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
-
-- İlk erişim denemesi sırasında kullanıcılarınızın şirket portalını kullanarak cihazını kaydetmesi istenir.
-
----
-
-**S: kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum?**
-
-**Y:** hibrit Azure AD'ye katılmış olan Windows 10 cihazları görünmez altında kullanıcı cihazları.
+**S: kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Veya neden yok hibrit Azure AD'ye katılmış cihazlar için cihaz sahibi işaretlenmiş? ** 
+ **Y:** hibrit Azure AD'ye katılmış olan Windows 10 cihazları görünmez altında kullanıcı cihazları.
 Azure portalında tüm cihazları görüntüle kullanmanız gerekir. PowerShell de kullanabilirsiniz [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
 
 Yalnızca aşağıdaki cihazlar, kullanıcı cihazları altında listelenir:
@@ -58,12 +38,16 @@ Yalnızca aşağıdaki cihazlar, kullanıcı cihazları altında listelenir:
 
 **S: nasıl istemci cihaz kayıt durumu nedir biliyor musunuz?**
 
-**Y:** Azure portalını kullanabilir, tüm cihazlara gidin ve cihaz kimliğini kullanarak cihaz için arama yapın Birleştirme türü sütunu altındaki değerini denetleyin.
-
-Kayıtlı bir cihazı yerel cihaz kayıt durumundan denetlemek istiyorsanız:
+**Y:** Azure portalını kullanabilir, tüm cihazlara gidin ve cihaz kimliğini kullanarak cihaz için arama yapın Birleştirme türü sütunu altındaki değerini denetleyin. Bazı durumlarda, cihaz sıfırlama yeniden görüntülenir veya silinmiş. Bu nedenle, aynı zamanda çok cihazın aygıt kayıt durumunu denetlemek için önemlidir:
 
 - Windows 10 ve Windows Server 2016 veya üzeri cihazlar için dsregcmd.exe/Status çalıştırın.
 - Alt düzey işletim sistemi sürümleri için "%programFiles%\Microsoft çalışma alanına Join\autoworkplace.exe" çalıştırın.
+
+---
+
+**S: Azure portalında kullanıcı bilgileri altında cihaz kaydı bakın ve cihazda kayıtlı durumu görebilirsiniz. Koşullu erişim kullanmak için doğru Kurulumu miyim?**
+
+**Y:** DeviceID tarafından yansıtılan cihaz birleşim durumu, Azure AD ile eşleşmesi ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan gerekir. Daha fazla bilgi için [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -88,25 +72,6 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` yazın.
 
 ---
-**S: ben bir Azure AD katıldı cihaz yerel olarak cihazda ayrılma?**
-
-**Y:** 
-- Karma Azure AD alanına katılmış aygıtlar için zamanlanmış görev cihazı yeniden kayıt için otomatik kayıt devre dışı bırakmak üzere emin olun. Ardından, açık komut istemini yönetici olarak çalıştırıp türü `dsregcmd.exe /debug /leave`. Alternatif olarak, bu komutu bir komut dosyası olarak toplu olarak ayrılma için birden çok cihazda çalıştırılabilir.
-
-- Azure AD katıldı saf için cihazlar, tüm Azure AD kullanıcı kimlik bilgileriyle oturum açamayacaksınız gibi hesap veya bir oluşturma çevrimdışı bir yerel yönetici olduğundan emin olun. Ardından, Git **ayarları** > **hesapları** > **işe veya okula erişim**. Hesabınızı seçin ve tıklayın **Bağlantıyı Kes**. Komut istemlerini izleyin ve istendiğinde yerel yönetici kimlik bilgilerini girin. Ayrılma işlemi tamamlamak için cihazı yeniden başlatın.
-
----
-
-**S: kullanıcılar Azure AD alanına katılmış aygıtlar yazıcıları arama yapamazsınız. Azure AD alanına katılmış aygıtlar yazdırma nasıl etkinleştirebilirim?**
-
-**Y:** yazıcılar için Azure AD alanına katılmış aygıtlar dağıtmak için bkz: [karma bulut yazdırma](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Hibrit bulut yazdırma dağıtmak için bir şirket içi Windows Server gerekir. Şu anda, bulut tabanlı yazdırma hizmeti kullanılabilir değil. 
-
----
-
-**S: Uzak bir Azure AD'ye nasıl bağlanırım cihazı alanına? ** 
- **Y:** makaleye bakın https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc Ayrıntılar için.
-
----
 
 **S: neden Azure portalında yinelenen cihaz girişi görüyor musunuz?**
 
@@ -128,7 +93,27 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 >[!Note] 
 >Kayıtlı cihazlar için kullanıcılar kaynaklara erişemez emin olmak için cihaz silinmeden önceki öneririz. Daha fazla bilgi için [ıntune'da Yönetim için cihazları kaydetme](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+---
 
+# <a name="azure-ad-join-faq"></a>Azure AD katılımı ile ilgili SSS
+
+**S: ben bir Azure AD katıldı cihaz yerel olarak cihazda ayrılma?**
+
+**Y:** 
+- Karma Azure AD alanına katılmış aygıtlar için zamanlanmış görev cihazı yeniden kayıt için otomatik kayıt devre dışı bırakmak üzere emin olun. Ardından, açık komut istemini yönetici olarak çalıştırıp türü `dsregcmd.exe /debug /leave`. Alternatif olarak, bu komutu bir komut dosyası olarak toplu olarak ayrılma için birden çok cihazda çalıştırılabilir.
+
+- Azure AD katıldı saf için cihazlar, tüm Azure AD kullanıcı kimlik bilgileriyle oturum açamayacaksınız gibi hesap veya bir oluşturma çevrimdışı bir yerel yönetici olduğundan emin olun. Ardından, Git **ayarları** > **hesapları** > **işe veya okula erişim**. Hesabınızı seçin ve tıklayın **Bağlantıyı Kes**. Komut istemlerini izleyin ve istendiğinde yerel yönetici kimlik bilgilerini girin. Ayrılma işlemi tamamlamak için cihazı yeniden başlatın.
+
+---
+
+**S: kullanıcılar Azure AD alanına katılmış aygıtlar yazıcıları arama yapamazsınız. Azure AD alanına katılmış aygıtlar yazdırma nasıl etkinleştirebilirim?**
+
+**Y:** yazıcılar için Azure AD alanına katılmış aygıtlar dağıtmak için bkz: [karma bulut yazdırma](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Hibrit bulut yazdırma dağıtmak için bir şirket içi Windows Server gerekir. Şu anda, bulut tabanlı yazdırma hizmeti kullanılabilir değil. 
+
+---
+
+**S: Uzak bir Azure AD'ye nasıl bağlanırım cihazı alanına? ** 
+ **Y:** makaleye bakın https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc Ayrıntılar için.
 
 ---
 
@@ -144,12 +129,6 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 ---
 
-**S: Azure portalında kullanıcı bilgileri altında cihaz kaydı bakın ve cihazda kayıtlı durumu görebilirsiniz. Koşullu erişim kullanmak için doğru Kurulumu miyim?**
-
-**Y:** DeviceID tarafından yansıtılan cihaz birleşim durumu, Azure AD ile eşleşmesi ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan gerekir. Daha fazla bilgi için [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](../conditional-access/require-managed-devices.md).
-
----
-
 **S: neden Azure AD'ye katılmış yalnızca bir cihaz için bir "kullanıcı adı veya parola hatalı" iletisi alırım?**
 
 **Y:** bu senaryo için yaygın nedenleri şunlardır:
@@ -158,7 +137,7 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 - Bilgisayarınızı Azure Active Directory ile iletişim kuramıyor. Tüm ağ bağlantısı sorunlarını denetleyin.
 
-- Federasyon oturum açma bilgileri, WS-Trust ile etkin bir uç nokta desteklemek için Federasyon sunucunuz gerektirir. 
+- Federasyon oturum açma bilgileri, WS-Trust uç noktaları etkinleştirilmiş ve erişilebilir desteklemek için Federasyon sunucunuz gerektirir. 
 
 - Kimlik doğrulaması üzerinden etkinleştirdiyseniz ve kullanıcı oturum açma sırasında değiştirilmesi gereken geçici bir parola sahiptir.
 
@@ -170,14 +149,15 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 ---
 
-**S: neden hata bilgileri almadım olsa da bir PC katılmaya my girişimi başarısız oldu?**
+**S: neden hata bilgileri almadım olsa da Azure AD Alanım girişimi PC başarısız katılın?**
 
 **Y:** olası bir nedeni, kullanıcı cihazda yerleşik yerel yönetici hesabı kullanarak oturum emin olan. Azure Active Directory Join Kurulumu tamamlamak için kullanmadan önce lütfen farklı bir yerel hesap oluşturun. 
 
-
 ---
 
-**S: sorun giderme nereden bulabilirim otomatik cihaz kaydı hakkında bilgi?**
+# <a name="hybrid-azure-ad-join-faq"></a>Hibrit Azure AD'ye katılım SSS
+
+**S: sorun giderme nereden bulabilirim hibrit Azure AD'ye katılma hatalarını bilgi?**
 
 **Y:** sorun giderme bilgileri için bkz:
 
@@ -188,3 +168,23 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 ---
 
+# <a name="azure-ad-register-faq"></a>Azure AD kayıt SSS
+
+**Android veya iOS KCG cihazları kaydedebilirim miyim?**
+
+**Y:** Evet, ancak yalnızca Azure cihaz kayıt hizmeti ile karma müşteriler için. Şirket içi aygıt kaydı hizmetiyle AD FS'de desteklenmez.
+
+**S: nasıl bir macOS cihazı kaydedebilir miyim?**
+
+**Y:** macOS cihazını kaydetmek için:
+
+1.  [Uyumluluk ilkesi oluşturma](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [MacOS cihazlar için koşullu erişim ilkesi tanımlama](../active-directory-conditional-access-azure-portal.md) 
+
+**Notlar:**
+
+- Koşullu erişim ilkenizi dahil edilen kullanıcıların bir [macOS için Office sürümü desteklenen](../conditional-access/technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
+
+- İlk erişim denemesi sırasında kullanıcılarınızın şirket portalını kullanarak cihazını kaydetmesi istenir.
+
+---

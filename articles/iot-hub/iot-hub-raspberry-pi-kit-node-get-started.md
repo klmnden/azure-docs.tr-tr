@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 348186bcb29b272b7e6512ce42221d54d6b388d9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3f34167cfe689734ec5d5954a1c24a09a1e8d3bd
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161824"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515021"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi (Node.js) Azure IOT hub'a bağlanma
 
@@ -42,7 +42,7 @@ Bir paket henüz yok mu? Deneyin [Raspberry Pi çevrimiçi simülatör](iot-hub-
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-![Ne gerekiyor](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
+![Ne gerekiyor](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * Raspberry Pi 2 veya Raspberry Pi 3 Pano.
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -63,7 +63,17 @@ Aşağıdaki öğeler isteğe bağlıdır:
 > [!NOTE] 
 > İsteğe bağlı öğeleri yoksa sanal sensör verilerini kullanabilirsiniz.
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>IOT hub için bağlantı dizesi alma
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Yeni bir cihaz IOT hub'ı Kaydet
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="set-up-raspberry-pi"></a>Raspberry Pi ' ayarlayın
 
@@ -102,11 +112,11 @@ MicroSD kartı Raspbian görüntüyü yüklemesi için hazırlayın.
 
 3. Raspberry simgesine tıklayın > **tercihleri** > **Raspberry Pi yapılandırma**.
 
-   ![Raspbian tercihleri menüsü](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+   ![Raspbian tercihleri menüsü](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
 4. Üzerinde **arabirimleri** sekmesinde, belirleyin **I2C** ve **SSH** için **etkinleştirme**ve ardından **Tamam**. Yoksa ve fiziksel algılayıcınız varsa sanal sensör verilerini kullanmak istiyorsanız, bu adım isteğe bağlıdır.
 
-   ![I2C ve Raspberry Pi üzerinde SSH'ı etkinleştir](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
+   ![I2C ve Raspberry Pi üzerinde SSH'ı etkinleştir](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
 > SSH ve I2C etkinleştirmek için daha fazla başvuru belgeleri üzerinde bulabilirsiniz [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) ve [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
@@ -115,7 +125,7 @@ MicroSD kartı Raspbian görüntüyü yüklemesi için hazırlayın.
 
 Bir LED'i ve bir BME280 Pi gibi bağlanmak için breadboard ve anahtar kablo kullanın. Algılayıcı yoksa [bu bölümü atlayın](#connect-pi-to-the-network).
 
-![Raspberry Pi ve algılayıcı bağlantı](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
+![Raspberry Pi ve algılayıcı bağlantı](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 BME280 algılayıcı sıcaklık ve nem veri toplayabilir. Cihaz buluta ileti gönderdiğinde LED yanıp. 
 
@@ -134,13 +144,13 @@ Görüntülemek için tıklayın [Raspberry Pi 2 ve 3 PIN eşlemeleri](https://d
 
 Raspberry Pi'yi BME280 başarıyla bağlandıktan sonra aşağıdaki resim gibi olmalıdır.
 
-![Bağlı Pi ve BME280](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
+![Bağlı Pi ve BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Pi ağa bağlanma
 
 Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi, kablolu ağa bağlanacak veya takip için Ethernet kablosu kullanın [yönergeleri Raspberry Pi Foundation'dan](https://www.raspberrypi.org/learning/software-guide/wifi/) Pi, kablosuz ağa bağlanmak için. Bir not gerek Pi'yi ağa başarıyla bağlandı sonra [Pi'yi IP adresini](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Kablolu ağa bağlı](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
+![Kablolu ağa bağlı](./media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
 > [!NOTE]
 > Pi bilgisayarınızı ile aynı ağa bağlı olduğundan emin olun. Örneğin, bilgisayarınız kablosuz ağa bağlıysa, PI kablolu bir ağa bağlıyken devdisco çıkış IP adresini göremeyebilirsiniz.
@@ -157,7 +167,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
 
    b. IP adresini, ana bilgisayar adı (veya IP adresi) PI bölümüne kopyalayın ve SSH bağlantı türü olarak seçin.
    
-   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
    **Mac ve Ubuntu kullanıcıları**
    
@@ -204,7 +214,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    nano config.json
    ```
 
-   ![Yapılandırma dosyası](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
+   ![Yapılandırma dosyası](./media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
    Yapılandırabileceğiniz bu dosyada iki öğe yok. İlki `interval`, buluta gönderilen iletileri arasındaki zaman aralığını (milisaniye cinsinden) tanımlar. İkincisi olan `simulatedData`, olduğu için veya sanal sensör verilerini kullanıp kullanmayacağınızı bir Boolean değeri.
 
@@ -226,7 +236,7 @@ Aşağıdaki komutu çalıştırarak örnek uygulamayı çalıştırın:
 
 Algılayıcı verilerini ve IOT hub'ınıza gönderdiği iletileri gösterir aşağıdaki çıktıyı görmeniz gerekir.
 
-![Çıkış - IOT hub'ınıza Raspberry Pi'dan gönderilen algılayıcı verileri](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
+![Çıkış - IOT hub'ınıza Raspberry Pi'dan gönderilen algılayıcı verileri](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

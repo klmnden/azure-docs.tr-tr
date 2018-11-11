@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2ec758d9457b75cd7e5f6f29757d3201f3a6d62e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388203"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283487"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market sanal makine görüntüsü oluşturma Kılavuzu
 Bu makalede **2. adım**, sanal sabit Azure Marketi'nde dağıtacağınız diskleri (VHD) hazırlama konusunda size yol gösterir. Vhd'lerinizi sku'nuzun temelidir. İşlemi, bir Linux veya Windows tabanlı SKU kullanmanıza bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu da kapsamaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -148,11 +148,11 @@ Bir yerel makineye Uzak Masaüstü dosyası indirmek için kullanın [Get-AzureR
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-MSDN makalesinde RDP hakkında daha fazla bilgi bulunabilir [Azure VM'de RDP veya SSH ile bağlanma](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+MSDN makalesinde RDP hakkında daha fazla bilgi bulunabilir [Azure VM'de RDP veya SSH ile bağlanma](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 **Bir VM yapılandırma ve NIZU oluşturma**
 
-İşletim sistemi vhd'si oluşturulduktan sonra HyperV kullanın ve SKU'nuzu oluşturmaya başlamak için bir VM yapılandırın. Ayrıntılı adımlar şu TechNet bağlantısında bulunabilir bulunabilir: [HyperV yükleyin ve bir VM yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
+İşletim sistemi vhd'si oluşturulduktan sonra HyperV kullanın ve SKU'nuzu oluşturmaya başlamak için bir VM yapılandırın. Ayrıntılı adımlar şu TechNet bağlantısında bulunabilir bulunabilir: [HyperV yükleyin ve bir VM yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 doğru VHD boyutunu seçme
 VM görüntünüzdeki Windows işletim sistemi VHD'si 128 GB sabit biçimli VHD oluşturulmalıdır.  
@@ -191,7 +191,7 @@ VM görüntüleri hakkında daha fazla bilgi edinmek için şu blog gönderileri
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Gerekli araçlara, PowerShell ve Azure Klasik CLI ayarlayın
 * [PowerShell ayarlama](/powershell/azure/overview)
-* [Azure Klasik CLI'yı ayarlama](../cli-install-nodejs.md)
+* [Azure CLI'yı ayarlama](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 bir kullanıcı VM görüntüsü oluşturma
 #### <a name="capture-vm"></a>VM yakalama
@@ -427,63 +427,45 @@ Microsoft Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adı
 
 11. SKU'daki her VHD için bu adımları tekrarlayın.
 
-**Azure CLI Klasik (Windows dışı ve sürekli tümleştirme için önerilir)**
+**Azure CLI 2.0 (Windows dışı ve sürekli tümleştirme için önerilir)**
 
 Klasik Azure CLI kullanarak bir SAS URL'si oluşturmak için adımları aşağıda verilmiştir
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Klasik Azure CLI'dan indirme [burada](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). İçin farklı bağlantıları da bulabilirsiniz **[Windows](http://aka.ms/webpi-azure-cli)** ve  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Microsoft Azure CLI'dan indirme [burada](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). İçin farklı bağlantıları da bulabilirsiniz **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** ve  **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
 2.  Lütfen indirme işlemi tamamlandığınızda yükleyin
 
-3.  Oluşturma bir PowerShell (veya diğer komut dosyası yürütülebilir dosya) aşağıdaki kod ile dosya ve yerel olarak kaydedin
+3.  Oluşturma bir Bash (veya diğer eşdeğer komut dosyası yürütülebilir dosya) aşağıdaki kod ile dosya ve yerel olarak kaydedin
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+        export AZURE_STORAGE_ACCOUNT=<Storage Account Name>
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas --account-name -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n <VHD Blob Name> -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
     Aşağıdaki parametrelerle güncelleştirme yukarıda
 
-    a. **`<StorageAccountName>`**: Depolama hesabınızın adını verin.
+    a. **`<Storage Account Name>`**: Depolama hesabınızın adını verin.
 
-    b. **`<Storage Account Key>`**: Depolama hesabı anahtarınızı verin
+    b. **`<VHD Blob Name>`**: VHD BLOB adını verin.
 
-    c. **`<Permission Start Date>`**: UTC saati için korumak için geçerli tarihten bir gün seçin. Örneğin, geçerli tarihi 26 Ekim 2016'ya, sonra değeri olmalıdır 25/10/2016. Azure CLI 2.0 veya üzeri bir sürümünü kullanıyorsanız, tarihi ve saati başlangıç ve bitiş tarihleri, örneğin sağlar: 10-25-2016T00:00:00Z.
+    En az 3 hafta (varsayılan olarak sas belirteci oluşturma) başlangıç tarihinden sonraki bir tarihi seçin. Örnek değer: **2018-10-11T23:56Z**.
 
-    d. **`<Permission End Date>`**: 3 hafta sonra en az bir tarihi seçin **başlangıç tarihi**. Bu değer olmalıdır **02/11/2016**. Azure CLI 2.0 veya üzeri bir sürümünü kullanıyorsanız, tarihi ve saati başlangıç ve bitiş tarihleri, örneğin sağlar: 11-02-2016T00:00:00Z.
+    Doğru parametreleri güncelleştirilirken AZURE_STORAGE_ACCOUNT dışarı aktardıktan sonra kod örneği aşağıda verilmiştir vhdstorage1ba78dfb6bc2d8 bitiş = = $(-d "3 haftada bir" tarih '+ %Y %m % dT % H: % MZ') CONTAINER_SAS = $(az depolama kapsayıcısı SAS-Oluştur - n VHD'ler--izinleri rl--bitiş $ Bitiş - otsv) BLOB_URL = $(az storage blob url - c VHD'ler - n osdisk_1ba78dfb6b.vhd - otsv) $BLOB_URL echo\?$CONTAINER_SAS
 
-    Doğru parametreleri güncelleştirdikten sonra kod örneği aşağıda verilmiştir
+4.  Betiği çalıştırın ve bu, SAS URL'sini için kapsayıcı düzeyinde erişim sağlar.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
-
-4.  "Yönetici olarak çalıştır" moduyla PowerShell Düzenleyicisi'ni açın ve #3. adımda dosyasını açın. İşletim sistemlerinde kullanılabilir olan herhangi bir betik Düzenleyicisi kullanabilirsiniz.
-
-5.  Betiği çalıştırmak ve bunu size SAS URL'si için kapsayıcı düzeyinde erişim sağlar.
-
-    Aşağıdaki çıktı SAS imzası ve vurgulanan bölüm bir Not Defteri'ne kopyalayın.
-
-    ![Çizim](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
-
-6.  Artık, kapsayıcı düzeyi SAS URL'si alırsınız ve VHD adı içinde eklemeniz gerekir.
-
-    Kapsayıcı düzeyi SAS URL #
-
-    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-7.  Aşağıda gösterildiği gibi kapsayıcı adının SAS URL'si olarak VHD adını Ekle `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-    Örnek:
-
-    VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır
-
-    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+5.  SAS URL'niz denetleyin.
 
     - Görüntü dosyası adı ve ".vhd" URI'de olduğundan emin olun.
     -   İmza ortadaki emin olun "sp rl =" görünür. Bu, okuma ve liste erişim başarıyla sağlandığını gösterir.
     -   İmza ortadaki emin olun "sr = c" görünür. Bu kapsayıcı düzeyinde erişimi olduğunu gösterir.
+
+    Örnek:
+
+    `https://vhdstorage1ba78dfb6bc2d8.blob.core.windows.net/vhds/osdisk_1ba78dfb6b.vhd?se=2018-10-12T00%3A04Z&sp=rl&sv=2018-03-28&sr=c&sig=...`
 
 8.  Oluşturulan erişim imzası URI'si works paylaşılan emin olmak için tarayıcıda test edin. Yükleme işlemini başlatmak
 

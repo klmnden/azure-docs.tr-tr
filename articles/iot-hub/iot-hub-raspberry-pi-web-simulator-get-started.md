@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2dd9b14ebd7e64a1073ab773b2f1ac8d8c05ac0a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185256"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514885"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi çevrimiçi simülatör (Node.js) Azure IOT hub'a bağlama
 
@@ -59,9 +59,13 @@ Raspberry Pi çevrimiçi simülatör başlatmak için düğmeye tıklayın.
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Raspberry Pi simülatörü başlatın</a>
 
 Web benzetici üç alan vardır.
+
 1. Derleme - varsayılan bağlantı hattının bir PI BME280 algılayıcı ve bir LED ile bağlanan alanıdır. Önizleme sürümünde alan kilitli özelleştirme bu nedenle şu anda bunu yapamazsınız.
+
 2. Alan - bir çevrimiçi kod düzenleyicisine, kod ile Raspberry Pi kodlama. Varsayılan örnek uygulamayı BME280 algılayıcıdan algılayıcı verilerini toplamak için yardımcı olur ve Azure IOT Hub'ınıza gönderir. Uygulamayı gerçek PI cihazlarla tamamen uyumludur. 
+
 3. Tümleşik bir konsol penceresi - kodunuzu çıktısını gösterir. Bu pencerenin en üstünde üç düğme bulunur.
+
    * **Çalıştırma** -kodlama alanında uygulamayı çalıştırın.
    * **Sıfırlama** -varsayılan örnek uygulamaya kodlama alan sıfırlayın.
    * **Katlama/genişletme** -sağ tarafta, konsol penceresinde Katlama/genişletmek bir düğme vardır.
@@ -71,8 +75,17 @@ Raspberry Pi web simülatörü artık Önizleme sürümünde kullanılabilir. Se
 
 ![Pi çevrimiçi simülatör'ne genel bakış](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>IOT hub için bağlantı dizesi alma
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Yeni bir cihaz IOT hub'ı Kaydet
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Pi web simülatörü hakkında bir örnek uygulamayı çalıştırma
 
@@ -80,7 +93,6 @@ Raspberry Pi web simülatörü artık Önizleme sürümünde kullanılabilir. Se
    ![Cihaz bağlantı dizesini değiştirin](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. Tıklayın **çalıştırma** veya türü `npm start` uygulamayı çalıştırın.
-
 
 Algılayıcı verilerini ve IOT hub'ınıza gönderdiği iletileri gösterir aşağıdaki çıktıyı görmeniz gerekir ![çıkış - IOT hub'ınıza Raspberry Pi'dan gönderilen algılayıcı verileri](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 744d9929d7f82242d2bb75452b70b11af19b3af7
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49084303"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289181"
 ---
-# <a name="secure-your-iot-deployment"></a>IoT dağıtımınızın güvenliğini sağlama
+# <a name="secure-your-internet-of-things-iot-deployment"></a>Nesnelerin interneti (IOT) dağıtımınızın güvenliğini sağlama
 
 Bu makalede, Azure IOT tabanlı nesnelerin interneti (IOT) altyapısının güvenliğini sağlamak için sonraki ayrıntı düzeyi sağlar. Yapılandırma ve her bir bileşeni dağıtmak için uygulama düzeyi ayrıntıları bağlar. Koleksiyonlardaki karşılaştırmalar ve tutarlılık arasında çeşitli rakip yöntemler de sağlar.
 

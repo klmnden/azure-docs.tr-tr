@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: fa425a5ecd8cf8f4c7b3516534b4c4f0f4257850
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 962090340cad6bcd95245cffe16c25f08a98226b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085351"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300770"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Azure Machine Learning Modellerinizi üretimde Application Insights ile izleme
 
@@ -109,8 +109,11 @@ Application ınsights'ı devre dışı bırakmak için aşağıdaki kodu kullan�
 ## <a name="evaluate-data"></a>Veri değerlendir
 Application ınsights'ı hesabınız, Azure Machine Learning hizmeti aynı kaynak grubunda hizmetinizin veriler depolanır.
 Bunu görüntülemek için:
-1. Kaynak grubunuzda Git [Azure portalında](https://portal.azure.com) ve Application Insights kaynağınıza göz atın. 
-2. **Genel bakış** sekmesi ölçümleri hizmetiniz için temel kümesini gösterir.
+1. Machine Learning hizmeti çalışma alanınızda Git [Azure portalında](https://portal.azure.com) ve Application Insights bağlantıya tıklayın.
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. Seçin **genel bakış** hizmetiniz için ölçümleri temel kümesini görmek için sekmesinde.
 
    [![Genel bakış](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -130,3 +133,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz. [Applicat
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Modellerinizi üretimde şirket verilerini de toplayabilirsiniz. Makaleyi okuyun [üretimde modelleri için veri toplama](how-to-enable-data-collection.md). 
+
+
+## <a name="other-references"></a>Diğer başvurular
+* [Kapsayıcılar için Azure İzleyici](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)

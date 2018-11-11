@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 ms.author: danlep
-ms.openlocfilehash: 987cbcc642152a4077cc895ad06e43ac56113497
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 35e5d13ac358fa5edcb778253340de0f9e15c067
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544073"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281289"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Bir Azure Batch havuzunda işlem düğümleri için VM boyutu seçme
 
@@ -42,8 +42,14 @@ Sanal makine yapılandırmasında batch havuzları destekleyen tüm VM boyutlar�
 | A Serisi | Standard_A0 |
 | B serisi | Tümü |
 
-M serisi VM'ler, yalnızca düşük öncelikli düğümleri için desteklenir.
+Aşağıdaki VM boyutları, yalnızca düşük öncelikli düğümleri için desteklenir:
 
+| Aile  | Desteklenen boyutlar  |
+|---------|---------|
+| M serisi | Standard_M64ms |
+| M serisi | İşler için standart_m128s |
+
+M serisi ailesindeki diğer VM boyutları şu anda desteklenmiyor.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Bulut hizmeti yapılandırması havuzları
 
@@ -55,6 +61,7 @@ Bulut hizmeti yapılandırmasında batch havuzları destekleyen tüm [bulut Hizm
 | Av2 Serisi | İşler için standart_a1_v2, işler için standart_a2_v2, işler için standart_a2m_v2 |
 
 ## <a name="restricted-vm-families"></a>Kısıtlı VM aileleri
+
 Batch havuzlarını aşağıdaki VM aileleri ayrılabilir, ancak belirli bir kota artışı isteğinde gerekir (bkz [bu makalede](batch-quota-limit.md#increase-a-quota)):
 * NCv2 serisi
 * NCv3 serisi

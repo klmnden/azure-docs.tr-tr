@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430230"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277776"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -113,7 +113,7 @@ Uzak Masaüstü kullanarak bu işlevi test ederken, "Parolayı sıfırla" bağla
 
 Windows kilit ekranı kayıt defteri anahtarı veya grup ilkesi ile devre dışı bırakılırsa **Parolayı sıfırla** özelliği bulunmaz.
 
-İlke Ctrl+Alt+Del gerektiriyorsa veya Kilit ekranı bildirimleri kapatılmışsa **Parolayı sıfırla** özelliği çalışmaz. Bu gereksinim Windows 10 19H1 sürümünde giderilecektir.
+İlke Ctrl+Alt+Del gerektiriyorsa veya Kilit ekranı bildirimleri kapatılmışsa **Parolayı sıfırla** özelliği çalışmaz.
 
 Azure AD denetim günlüğü parola sıfırlamanın oluştuğu yerin IP adresi ve ClientType'ı hakkında bilgi içerir.
 

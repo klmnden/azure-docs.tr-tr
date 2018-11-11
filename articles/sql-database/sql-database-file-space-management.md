@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2de57a4ade91293fb1164815f83e87517068544e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954779"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277903"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
@@ -123,7 +123,7 @@ Kullanılan elastik havuzu veri alanı miktarı aşağıdaki sorguyu değiştiri
 ```sql
 -- Connect to master
 -- Elastic pool data space used in MB  
-SELECT TOP 1 avg_storage_percent * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
+SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC

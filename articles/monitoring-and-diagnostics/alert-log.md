@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 43ff945747915edb76da8b593b232e86778374ce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958517"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279118"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -57,7 +57,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
    > [!NOTE]
 
-   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../log-analytics/log-analytics-log-searches.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../log-analytics/log-analytics-queries.md). 
+   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../log-analytics/log-analytics-queries.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../log-analytics/log-analytics-queries.md). 
 
 1.  *Günlük uyarıları*: içinde seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 

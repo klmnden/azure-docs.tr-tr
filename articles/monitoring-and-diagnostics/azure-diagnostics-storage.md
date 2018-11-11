@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 733c84ef9e6cee1a8ea488f0007ade1e72f39737
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f9ae9e2edea1daf2fda825053c777521f042413d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033263"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278931"
 ---
-# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Depolama'da tanılama verilerini Store ve görüntüleme
+# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Depolama’daki tanılama verilerini depolama ve görüntüleme
 Microsoft Azure storage öykünücüsü veya Azure depolama için Aktarım sürece tanılama verilerini kalıcı olarak depolanmaz. Bir kez depolama alanında, çeşitli araçlar biriyle görüntülenebilir.
 
 ## <a name="specify-a-storage-account"></a>Bir depolama hesabı belirtin
@@ -73,7 +73,7 @@ Günlük verilerini aşağıdaki adlara sahip Blob veya tablo depolama alanında
 ## <a name="tools-to-view-diagnostic-data"></a>Tanılama verilerini görüntülemek için Araçlar
 Çeşitli araçları, depolamaya aktarıldıktan sonra verileri görüntülemek kullanılabilir. Örneğin:
 
-* Microsoft Visual Studio için Azure Araçları'nı yüklediyseniz, sunucu Gezgini'nde Visual Studio - Azure Depolama düğümü sunucu Gezgini'nde salt okunur blob ve tablo verilerini Azure depolama hesaplarınızı görüntülemek için kullanabilirsiniz. Yerel depolama öykünücüsü hesabınızdan verileri görüntüleyebilir ve ayrıca depolama hesapları için Azure oluşturduysanız. Daha fazla bilgi için [gözatma ve Sunucu Gezgini ile depolama kaynaklarını yönetme](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+* Microsoft Visual Studio için Azure Araçları'nı yüklediyseniz, sunucu Gezgini'nde Visual Studio - Azure Depolama düğümü sunucu Gezgini'nde salt okunur blob ve tablo verilerini Azure depolama hesaplarınızı görüntülemek için kullanabilirsiniz. Yerel depolama öykünücüsü hesabınızdan verileri görüntüleyebilir ve ayrıca depolama hesapları için Azure oluşturduysanız. Daha fazla bilgi için [gözatma ve Sunucu Gezgini ile depolama kaynaklarını yönetme](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, OSX ve Linux'ta Azure depolama verileriyle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 * [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) görüntüleyin, indirin ve Azure'da çalışan uygulamalar tarafından toplanan Tanılama verileri yönetme olanak tanıyan Azure tanılama Yöneticisi içerir.
 

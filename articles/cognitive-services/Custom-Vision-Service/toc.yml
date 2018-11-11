@@ -4,44 +4,44 @@ items:
   items:
   - name: Özel Görüntü İşleme nedir?
     href: home.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: .NET SDK’sini kullanma
+    items:
+    - name: Resimleri sınıflandırma
+      href: csharp-tutorial.md
+    - name: Nesne algılama
+      href: csharp-tutorial-od.md
+  - name: Python SDK'yı kullanma
+    items:
+    - name: Resimleri sınıflandırma
+      href: python-tutorial.md
+    - name: Nesne algılama
+      href: python-tutorial-od.md
+  - name: Java SDK'yı kullanma
+    items:
+    - name: Resimleri sınıflandırma
+      href: java-tutorial.md
+    - name: Nesne algılama
+      href: java-tutorial-od.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Özel Görüntü İşleme Hizmetini kullanmaya başlama
-    items:
-    - name: Sınıflandırıcı oluşturma
-      href: getting-started-build-a-classifier.md
-    - name: Modelinizi test etme
-      href: test-your-model.md
-    - name: Sınıflandırıcınızı geliştirme
-      href: getting-started-improving-your-classifier.md
-    - name: Tahmin API’sini kullanma
-      href: use-prediction-api.md
-    - name: Modelinizi mobil cihaza dışarı aktarma
-      href: export-your-model.md
-    - name: ONNX modelini Windows ML ile kullanma
-      href: custom-vision-onnx-windows-ml.md
-    - name: Python’da TensorFlow modelini çalıştırma
-      href: export-model-python.md
-    - name: REST API’sini kullanarak model derleme
-      href: rest-api-tutorial.md
-  - name: Uygulama oluşturma
-    items:
-    - name: Resimleri Sınıflandırma
-      items:
-      - name: C# öğreticisi
-        href: csharp-tutorial.md
-      - name: Python öğreticisi
-        href: python-tutorial.md
-      - name: Java öğreticisi
-        href: java-tutorial.md
-    - name: Nesne Algılama
-      items:
-      - name: C# öğreticisi
-        href: csharp-tutorial-od.md
-      - name: Python öğreticisi
-        href: python-tutorial-od.md
-      - name: Java öğreticisi
-        href: java-tutorial-od.md
+  - name: Sınıflandırıcı oluşturma
+    href: getting-started-build-a-classifier.md
+  - name: Modelinizi test etme
+    href: test-your-model.md
+  - name: Sınıflandırıcınızı geliştirme
+    href: getting-started-improving-your-classifier.md
+  - name: Tahmin API’sini kullanma
+    href: use-prediction-api.md
+  - name: Modelinizi mobil cihaza dışarı aktarma
+    href: export-your-model.md
+  - name: ONNX modelini Windows ML ile kullanma
+    href: custom-vision-onnx-windows-ml.md
+  - name: Python’da TensorFlow modelini çalıştırma
+    href: export-model-python.md
+  - name: REST API’sini kullanarak model derleme
+    href: rest-api-tutorial.md
 - name: Başvuru
   items:
   - name: Özel Görüntü Eğitim API’si
@@ -76,9 +76,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Bölgesel kullanılabilirlik
     href: https://azure.microsoft.com/global-infrastructure/services/
-ms.openlocfilehash: 1a29fbc0e28feced9a3a47daa7a861ddcb8a6e95
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1394f71bceef7a0646411a155b63825771e839d3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739779"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281041"

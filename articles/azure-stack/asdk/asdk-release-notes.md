@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 284a964162a2374287b42698b9a2021be36590dd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158168"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515769"
 ---
 # <a name="asdk-release-notes"></a>ASDK sürüm notları  
 Bu makalede, geliştirmeleri, düzeltmeleri ve bilinen sorunlar Azure Stack geliştirme Seti'ni (ASDK) hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,7 +46,7 @@ Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-se
 <!-- TBD - IS ASDK --> 
 - Sanal makineler Azure Stack kullanıcı portalında oluşturulan ve DS serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda portalı görüntülenen bir sorun düzeltildi. DS serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
 
-- Aşağıdaki yönetilen disk sorunları içinde 1809 sabittir ve ayrıca 1808 içinde sabit [Azure Stack düzeltme 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- Aşağıdaki yönetilen disk sorunları içinde 1809 sabittir ve ayrıca 1808 içinde sabit [Azure Stack düzeltme 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Hangi düğmelere SSD veri diskler yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hata ile başarısız oldu premium boyuta sorun düzeltildi: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor VM boyutu için desteklenmeyen 'Premium_LRS' depolama hesabı türü ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -59,6 +59,16 @@ Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-se
 - <!-- 2702741 -  IS, ASDK --> Dinamik Ayırma kullanılarak dağıtılan hangi genel IP'ler, yöntemi değildi neden olan sorun düzeltildi durdurun-serbest verildiği sonra korunması garanti. Bunlar artık korunur.
 
 - <!-- 3078022 - IS, ASDK --> Bir VM 1808 önce durdu-serbest olduysa, 1808 güncelleştirmeden sonra yeniden tahsis bulunamadı.  Bu sorun 1809 içinde düzeltilmiştir. Bu düzeltmeyle 1809 içinde başlatılamadı ve bu durumda örnek başlatılabilir. Düzeltme aynı zamanda bu sorunu yeniden oluşmasını engeller.
+
+<!-- 3090289 – IS, ASDK --> 
+- Burada 1808 güncelleştirmeyi uyguladıktan sonra aşağıdaki sorunlar yönetilen disklere sahip VM'ler dağıtırken karşılaşabileceğiniz bir sorun düzeltildi:
+
+   1. Aboneliği, yönetilen diskler ile VM dağıtma 1808 güncelleştirmeden önce oluşturulduysa, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
+      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
+      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
+   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
+      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4471992).
+      2. Bağlantısındaki [bu makalede](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 - **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi
 
@@ -100,21 +110,14 @@ Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-se
 
 #### <a name="compute"></a>İşlem 
 
+<!-- 3164607 – IS, ASDK -->
+- Aynı ada ve LUN ile aynı sanal makine (VM) için ayrılmış bir diski yeniden bağlanması başarısız bir hata ile gibi **veri diski 'datadisk', 'vm1' VM'sine iliştirilemiyor**. Disk şu anda ayrılmakta veya son ayırma işlemi başarısız oldu hata oluşur. Lütfen disk tamamen ayrılmış kadar bekleyin ve sonra yeniden deneyin veya silme/diski açıkça tekrar ayırın. Geçici çözüm, farklı bir adla veya farklı bir LUN üzerinde yeniden sağlamaktır. 
+
 <!-- 3235634 – IS, ASDK -->
 - Vm'leri içeren boyutları ile dağıtmak için bir **v2** soneki; Örneğin, **işler için standart_a2_v2**, sonek olarak lütfen **işler için standart_a2_v2** (küçük harf v). Kullanmayın **işler için standart_a2_v2** (Büyük Harf V). Bu genel Azure'da çalışır ve Azure Stack'te bir tutarsızlık olduğunu.
 
 <!-- 3099544 – IS, ASDK --> 
 - Azure Stack portalını kullanarak bir yeni sanal makine (VM) oluşturun ve VM boyutu seçin, ABD Doları/ay sütun içeren görüntülenir bir **kullanılamıyor** ileti. Bu sütun görünmemelidir; VM görüntüleme fiyatlandırma sütunu Azure Stack'te desteklenmiyor.
-
-<!-- 3090289 – IS, ASDK --> 
-- Güncelleştirme 1808 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
-
-   1. Aboneliği, yönetilen diskler ile VM dağıtma 1808 güncelleştirmeden önce oluşturulduysa, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
-      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
-      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
-   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
-      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4468920).
-      2. Bağlantısındaki [bu makalede](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 <!-- 2869209 – IS, ASDK --> 
 - Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 

@@ -17,12 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 2dc1be6b861515cf34f8dd799fa732da530e82a1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 05013905ddda232fb08e3b30892af5ac5a8320dc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985412"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289011"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışı
 
@@ -55,12 +55,12 @@ Bu tür bir kimlik doğrulama, Daemon'ları ve kişisel Microsoft hesabına sahi
 ### <a name="application-permissions"></a>Uygulama izinleri
 ACL'ler kullanmak yerine, uygulama izinleri kümesi kullanıma sunmak için API'leri kullanabilirsiniz. Bir uygulama izni bir uygulamaya, bir kuruluşun Yöneticisi tarafından verilir ve yalnızca, kuruluş ve çalışanlarına tarafından sahip olunan veri erişimi için kullanılabilir. Örneğin, Microsoft Graph, aşağıdakileri yapmak için birkaç uygulama izinleri kullanıma sunar:
 
-* Tüm posta kutularındaki postaları Okuma
-* Tüm posta kutularında posta yazma ve okuma
-* Herhangi bir kullanıcı olarak posta gönderme
+* Tüm posta kutularındaki postaları okuma
+* Tüm posta kutularındaki postaları okuma ve yazma
+* Herhangi bir kullanıcı adına posta gönderme
 * Dizin verilerini okuma
 
-Uygulama izinleri hakkında daha fazla bilgi için Git [Microsoft Graph](https://graph.microsoft.io).
+Uygulama izinleri hakkında daha fazla bilgi için Git [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Uygulama izinleri, uygulamanızda kullanmak için sonraki bölümde ele adımları yapın.
 
@@ -177,8 +177,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | kiracı |Gerekli | Dizin Kiracı uygulama, GUID ya da etki alanı adı biçiminde boşluğunun planlamaktadır. |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
 | scope |Gerekli |Geçirilen değer `scope` bu istek parametresi istediğiniz ile yapıştırılmış kaynağın kaynak tanımlayıcısı (uygulama kimliği URI'si) olmalıdır `.default` soneki. Microsoft Graph örnekte değeri, `https://graph.microsoft.com/.default`. Bu değer, v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinleri, bunu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
-| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Gerekli | Onaylama (bir JSON Web belirteci) oluşturmak ve sertifika ile imzalamak için gereken kimlik bilgileri olarak uygulamanız için kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |gerekli | Onaylama (bir JSON Web belirteci) oluşturmak ve sertifika ile imzalamak için gereken kimlik bilgileri olarak uygulamanız için kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
 | grant_type değeri |Gerekli |Olmalıdır `client_credentials`. |
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizli diziyi isteğiyle olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.

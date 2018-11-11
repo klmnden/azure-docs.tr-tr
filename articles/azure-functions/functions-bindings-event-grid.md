@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ac15b95c19fb0184e902ebb43146a76b6ba2faaf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249212"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283742"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -245,12 +245,12 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="usage"></a>Kullanım
 
-C# ve F # Azure işlevleri için 1.x İşlevler, aşağıdaki parametre türleri için Event Grid tetikleyicisinin kullanabilirsiniz:
+İçin C# ve F# Azure işlevlerinde 1.x İşlevler, aşağıdaki parametre türleri için Event Grid tetikleyicisinin kullanabilirsiniz:
 
 * `JObject`
 * `string`
 
-Azure işlevleri'nde C# ve F # işlevleri için 2.x de aşağıdaki parametre türü için Event Grid tetikleyicisinin kullanılacak seçeneğiniz vardır:
+İçin C# ve F# işlevleri Azure işlevleri'nde 2.x de aşağıdaki parametre türü için Event Grid tetikleyicisinin kullanılacak seçeneğiniz vardır:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Tüm olay türlerine abone ortak alanlar için özellikleri tanımlar.
 
@@ -358,6 +358,14 @@ Bir aboneliğin nasıl oluşturulacağı hakkında daha fazla bilgi için bkz. [
 ### <a name="get-the-system-key"></a>Sistem anahtarını alma
 
 Aşağıdaki API (HTTP GET) kullanarak sistem anahtarı alabilirsiniz:
+
+#### <a name="version-2x-runtime"></a>Sürüm 2.x çalışma zamanı
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
+```
+
+#### <a name="version-1x-runtime"></a>Sürüm 1.x çalışma zamanı
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}

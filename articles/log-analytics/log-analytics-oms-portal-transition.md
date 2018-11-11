@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8aec6ae3532acaaa5d039ee9db8745927c66957b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389120"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288790"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -55,7 +55,7 @@ Başvurmak [OMS portalından Log Analytics kullanıcılar için Azure portalına
 Azure portalında erişim yönetimi daha zengin ve OMS portalında erişim yönetimi daha güçlü. Bkz: [çalışma alanlarını yönetme](log-analytics-manage-access.md#manage-accounts-and-users) Log analytics'te erişim yönetimi hakkında ayrıntılar için.
 
 > [!NOTE]
-> Bu makalenin önceki sürümleri, izinler otomatik olarak OMS portalından Azure portalına dönüştürülür, belirtilen. Bu otomatik konuşma artık planlı ve kendiniz dönüştürme gerçekleştirmeniz gerekir.
+> Bu makalenin önceki sürümleri, izinler otomatik olarak OMS portalından Azure portalına dönüştürülür, belirtilen. Bu otomatik dönüştürme artık planlı ve kendiniz dönüştürme gerçekleştirmeniz gerekir.
 
 Bu durumda herhangi bir değişiklik yapmanız gerekmez Azure Portalı'nda zaten uygun erişime sahip olabilir. Bu durumda, yönetici izinleri atamanız gerekir birkaç burada uygun erişimi olmayabilir örneklerinin vardır.
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: fa73062cc2fdfa3704088f37b2e4856e134a6dfe
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979038"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281787"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -59,6 +59,9 @@ Yeniden kimlik doğrulamanın bir döngüde olan veya hesaplarınızı birinin U
 1. Tüm hesapları kaldırın ve sonra Depolama Gezgini'ni kapatın.
 2. Silin. Makinenizden IdentityService klasör. Windows üzerinde klasör konumundaki `C:\users\<username>\AppData\Local`. Mac ve Linux için klasör, kullanıcı dizininizin kökünde bulabilirsiniz.
 3. Mac veya Linux bilgisayarda ise, işletim sistemi keystore Microsoft.Developer.IdentityService girişini silmek gerekir. Mac bilgisayarlarda, anahtar deposu "Gnome Anahtarlık" uygulamasıdır. Linux için uygulama genellikle "Kimlik Anahtarlığı" olarak adlandırılır, ancak ad dağıtımınıza bağlı olarak farklı olabilir.
+
+### <a name="conditional-access"></a>Koşullu Erişim
+Depolama Gezgini Windows 10, Linux veya Macos'ta kullanıldığında, koşullu erişim desteklenmez. Depolama Gezgini tarafından kullanılan AAD kitaplığındaki ilgili bir sınırlama nedeniyle budur.
 
 ## <a name="mac-keychain-errors"></a>Mac Keychain hataları
 MacOS Anahtarlık bir duruma neden olan sorunları Storage Explorer'ın kimlik doğrulama kitaplığı için bazen alabilirsiniz. Aşağıdaki adımlar bu durumu deneyin dışında Anahtarlık almak için:

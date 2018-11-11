@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
-ms.openlocfilehash: 831b1c12514e57d378e22d007c75d8a3715f7276
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: add8253b870c7f1f6689534e11e7d57484248c4d
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219932"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515582"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Zamanlama ve yayınlama işleri (Python)
 
@@ -57,10 +57,17 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 > 
 > 
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+### <a name="retrieve-connection-string-for-iot-hub"></a>IOT hub için bağlantı dizesi alma
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Yeni bir cihaz IOT hub'ı Kaydet
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde, bir sanal tetikler bulut tarafından çağrılan doğrudan bir yönteme yanıt veren bir Python konsol uygulaması oluşturma **lockDoor** yöntemi.

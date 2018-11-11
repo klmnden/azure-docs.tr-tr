@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 0a4e88ed52e2da814d1b10dbc695c9c61b899ef1
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 11/10/2018
+ms.openlocfilehash: 771b89fda4e37d9e8ba47df95f7fd57b41f792a3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248213"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515548"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Şirket içi SQL Server, Azure PowerShell kullanarak Azure SQL veritabanına geçirme
 Bu makalede, geçiş **Adventureworks2012** şirket içi örneği SQL Server 2016 veya üzeri için Microsoft Azure PowerShell kullanarak bir Azure SQL veritabanı'na geri yüklenen veritabanı. Kullanarak Azure SQL veritabanı'na bir şirket içi SQL Server örneğinden veritabanları geçirebilirsiniz `AzureRM.DataMigration` Microsoft Azure PowerShell modülü.
@@ -61,7 +61,7 @@ Yeni Azure veritabanı geçiş hizmeti örneğini kullanarak oluşturabileceğin
 - *Azure kaynak grubu adı*. Kullanabileceğiniz [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) daha önce gösterildiği gibi Azure kaynak grubu oluşturun ve adını parametre olarak sağlamak için komutu.
 - *Hizmet adı*. İçin Azure veritabanı geçiş hizmeti istenen benzersiz bir hizmet adına karşılık gelen dize 
 - *Konum*. Hizmet konumunu belirtir. Batı ABD veya Güneydoğu Asya gibi bir Azure veri merkezi konumu belirtin
-- *SKU*. Bu parametre, DMS Sku adına karşılık gelir. Şu anda desteklenen Sku adları *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
+- *SKU*. Bu parametre, DMS Sku adına karşılık gelir. Şu anda desteklenen Sku adı *GeneralPurpose_4vCores*.
 - *Sanal alt ağ tanımlayıcısı*. Cmdlet'i kullanabilirsiniz [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) bir alt ağ oluşturmak için. 
 
 Aşağıdaki örnekte adlı bir hizmet oluşturur *MyDMS* kaynak grubundaki *MyDMSResourceGroup* bulunan *Doğu ABD* bölge adlıbirsanalağkullanma *MyVNET* ve alt *MySubnet*.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341132"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280172"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -66,7 +66,7 @@ Tüm telemetri öğelerinin kök paylaşmak sonucu görünümü notta `operation
 
 ## <a name="correlation-headers"></a>Bağıntı üstbilgileri
 
-RFC teklifi için üzerinde çalıştığımız [bağıntı HTTP Protokolü](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Bu teklif, iki üstbilgi tanımlar:
+RFC teklifi için üzerinde çalıştığımız [bağıntı HTTP Protokolü](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Bu teklif, iki üstbilgi tanımlar:
 
 - `Request-Id` çağrı genel olarak benzersiz kimliğini Yürüt
 - `Correlation-Context` -Dağıtılmış izleme özellikleri ad değer çiftleri koleksiyonu Yürüt
@@ -77,7 +77,7 @@ Application Insights tanımlar [uzantısı](https://github.com/lmolkova/correlat
 
 ### <a name="w3c-distributed-tracing"></a>W3C dağıtılmış izleme
 
-Biz (izleme biçimine W3C dağıtılmış) geçiş [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Tanımlar:
+Biz için geçiş [W3C dağıtılmış izleme biçimi](https://w3c.github.io/trace-context/). Tanımlar:
 - `traceparent` -Genel olarak benzersiz işlem kimliği ve aramanın benzersiz tanımlayıcısı
 - `tracestate` -İzleme sistem belirli bağlamı yürütür.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Aracılığıyla [cihaz bağlamı sınıfının](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (yalnızca bu telemetri öğesinin etiketli)
+Aracılığıyla [cihaz bağlamı sınıfının](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (yalnızca bu telemetri öğesinin etiketli)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

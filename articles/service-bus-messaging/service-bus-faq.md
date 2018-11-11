@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: b8102c4f98c2627f85946b71a69e88eb02f92bc4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257791"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279890"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
@@ -21,7 +21,7 @@ Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular a�
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus hakkında genel sorular
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
-[Azure Service Bus](service-bus-messaging-overview.md) ayrılmış sistemleri arasında veri göndermek sağlayan bir zaman uyumsuz Mesajlaşma bulut platformudur. Microsoft, bu özelliği kullanmak için kendi donanımınızın herhangi biri ana bilgisayar gerekmez anlamına gelir. bir hizmet olarak sunar.
+[Azure Service Bus](service-bus-messaging-overview.md) ayrılmış sistemleri arasında veri göndermek sağlayan bir zaman uyumsuz Mesajlaşma bulut platformudur. Microsoft, bu özelliği kullanmak için kendi donanım konak gerekmez anlamına gelir. bir hizmet olarak sunar.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Service Bus ad alanı nedir?
 A [ad alanı](service-bus-create-namespace-portal.md) uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sağlar. Ad alanı oluşturarak, Service Bus hizmetini kullanmak gereklidir ve Başlarken ilk adımlar biridir.
@@ -77,6 +77,9 @@ Varsayılan olarak, herhangi bir bulut hizmeti Microsoft, tüm müşteri aboneli
 Microsoft, belirli bir ay içinde kullanım kotalarını aştı bir müşterinin hesabını devre dışı hakkını saklı tutar, ancak e-posta bildirimi gönderilir ve birden fazla girişimde herhangi bir işlem gerçekleştirmeden önce bağlantı kurmak için sunulur. Bu kotalar aşan müşterileri yine de kotaları aşan ücretler için sorumlu.
 
 Diğer hizmetler gibi Azure üzerinde ile Service Bus kaynakların adil kullanım olduğundan emin olmak için özel kotalar bir dizi zorlar. Bu kotaları hakkında daha fazla ayrıntı bulabilirsiniz [Service Bus kotaları genel bakış][Quotas overview].
+
+### <a name="how-to-handle-messages-of-size--1-mb"></a>> 1 MB boyut iletilerini işlemek için nasıl?
+Service Bus Mesajlaşma Hizmetleri (kuyruklar ve konular/abonelikler) kadar boyutta iletileri göndermek uygulama izin 256 KB (standart katman) veya 1 MB (premium katman). Boyutu 1 MB'den büyük iletileri ile uğraşıyorsanız, açıklanan talep denetim desenini kullanın [bu blog gönderisini](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API'lerine ve önerilen eylemlerinin tarafından oluşturulan özel durumları bazıları nelerdir?

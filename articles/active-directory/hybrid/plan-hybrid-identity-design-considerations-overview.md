@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313897"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344891"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Karma Kimlik Tasarımı ile İlgili Dikkat Edilmesi Gerekenler
 Tüketici tabanlı cihazların Kurumsal dünyasında proliferating ve bulut tabanlı hizmet olarak yazılım (SaaS) uygulamaları benimsemek kolaydır. Sonuç olarak, kullanıcıların uygulama erişimi denetimini iç veri merkezlerinden ve bulut platformları arasında koruma zorludur.  
@@ -58,10 +58,10 @@ Tüm belge konuları için gereken sayıda adım yalnızca yineleme sonra en iyi
 
 | Karma kimlik aşaması | Konu listesi |
 | --- | --- |
-| Kimlik gereksinimleri belirleme |[İş gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Dizin eşitleme gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Çok faktörlü kimlik doğrulama gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Karma kimlik benimseme stratejinizi tanımlayın](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
+| Kimlik gereksinimlerini belirleme |[İş gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Dizin eşitleme gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Çok faktörlü kimlik doğrulama gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Karma kimlik benimseme stratejinizi tanımlayın](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
 | Aracılığıyla güçlü kimlik çözümü veri güvenliği iyileştirmeyi planlama |[Veri koruma gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [İçerik Yönetimi gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Erişim denetimi gereksinimleri belirleme](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Olay yanıtı gereksinimlerini belirleme](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Veri koruma stratejisini tanımlayın](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
-| Karma kimlik yaşam döngüsü planlaması |[Karma kimlik yönetimi görevleri belirleme](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Eşitleme Yönetimi](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Karma kimlik yönetimini benimseme stratejinizi belirleme](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
+| Hibrit kimlik yaşam döngüsünü planlama |[Karma kimlik yönetimi görevleri belirleme](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Eşitleme Yönetimi](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Karma kimlik yönetimini benimseme stratejinizi belirleme](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>Bu kılavuzu indirin
-Karma kimlik tasarım konuları Kılavuzu'ndaki bir pdf sürümünü indirebilirsiniz [Technet Galerisi](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## <a name="next-steps"></a>Sonraki Adımlar
+[Kimlik gereksinimleri belirleme](plan-hybrid-identity-design-considerations-business-needs.md)
 

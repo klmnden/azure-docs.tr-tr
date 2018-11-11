@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f722c9610051aadd82d1a00d466edbe05aafc843
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010040"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280446"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak yönetme
 

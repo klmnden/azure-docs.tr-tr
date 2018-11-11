@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914065"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281668"
 ---
 # <a name="introduction-to-auto-scaling"></a>Otomatik ölçeklendirme giriş
 Otomatik ölçeklendirme Hizmetleri raporladığınız ya da kendi kaynak kullanımını temel alarak yük hizmetlerinizi dinamik olarak ölçeklendirmeniz mi ek bir Service fabric özelliktir. Otomatik ölçeklendirme, büyük esneklik sağlar ve ek örnekler ya da isteğe bağlı hizmetinizin bölümler sağlama sağlar. Tüm otomatik ölçeklendirme işlemi, otomatik ve şeffaf ve bir hizmette ilkelerinizi ayarladıktan sonra hizmet düzeyinde el ile ölçeklendirme işlemleri için gerek yoktur. Otomatik ölçeklendirme üzerinde hizmet oluşturma zamanında veya herhangi bir zamanda hizmet güncelleştirerek kapatılabilir.
@@ -28,7 +28,9 @@ Otomatik ölçeklendirme kullanışlı olduğu bir yaygın bir senaryo, belirli 
 * Ağ tüm örneklerini ikiden fazla çekirdek ortalama kullanıyorsanız, ağ geçidi hizmetini bir daha fazla örnek ekleyerek ölçeklendirin. Her saat bunu ancak hiçbir zaman toplam sekizden fazla örneğe sahip.
 * Ağ tüm örneklerini az 0,5 çekirdek ortalama kullanıyorsanız, hizmette bir örnek kaldırarak ölçeklendirin. Her saat bunu ancak hiçbir zaman toplam üçten daha az sayıda örneğe sahip.
 
-Otomatik ölçeklendirme, kapsayıcılar ve normal bir Service Fabric Hizmetleri için desteklenir. Bu makalenin geri kalanında, yolları etkinleştirmek veya otomatik ölçeklendirme, devre dışı bırakmak için ölçeklendirme ilkeleri tanımlar ve bu özelliği kullanmak örnekler sağlar.
+Otomatik ölçeklendirme, kapsayıcılar ve normal bir Service Fabric Hizmetleri için desteklenir. Otomatik ölçeklendirme kullanmak için 6.2 sürümü veya üzeri çalıştırması gerekir Service Fabric çalışma zamanı. 
+
+Bu makalenin geri kalanında, yolları etkinleştirmek veya otomatik ölçeklendirme, devre dışı bırakmak için ölçeklendirme ilkeleri tanımlar ve bu özelliği kullanmak örnekler sağlar.
 
 ## <a name="describing-auto-scaling"></a>Otomatik ölçeklendirme açıklayan
 Bir Service Fabric kümesindeki her bir hizmet için otomatik ölçeklendirme ilkeleri tanımlanabilir. Her bir ölçeklendirme İlkesi iki bölümden oluşur:
@@ -41,7 +43,7 @@ Bir Service Fabric kümesindeki her bir hizmet için otomatik ölçeklendirme il
 Şu anda otomatik ölçekleme için desteklenen iki mekanizma vardır. İlk otomatik ölçeklendirme gerçekleştirildiği ekleyerek veya kaldırarak kapsayıcılar veya durum bilgisi olmayan hizmetler için tasarlanmıştır [örnekleri](service-fabric-concepts-replica-lifecycle.md). Durum bilgisi olan ve durum bilgisi olmayan hizmetler için otomatik ölçeklendirme da ekleyerek gerçekleştirilebilir veya kaldırma adlı [bölümleri](service-fabric-concepts-partitioning.md) hizmeti.
 
 > [!NOTE]
-> Şu anda hizmet başına yalnızca bir ölçeklendirme İlkesi ve ilke başına yalnızca bir ölçeklendirme tetikleyici desteği yoktur.
+> Şu anda hizmet başına yalnızca bir ölçeklendirme İlkesi ve ölçeklendirme İlkesi başına yalnızca bir ölçeklendirme tetikleyici desteği yoktur.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Ortalama bölüm yük tetikleyici bağlı olarak örnek ölçeklendirme
 İlk tetikleyici türünü bir durum bilgisi olmayan hizmet bölümdeki örneklerinin yük temel alır. Ölçüm yükleri bir bölüm, her örneği için yük almak için ilk düzleştirilmiş ve ardından bu değerleri bölüm tüm örneklerinde ortalaması alınır. Hizmet zaman ölçeklendirileceği belirlemek üç faktöre vardır:

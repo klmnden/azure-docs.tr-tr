@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867553"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277809"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Öğretici 7: Basit varlık ve tümcecik listesi ile adları ayıklama
 
@@ -86,7 +86,7 @@ Bu LUIS uygulamasında birden fazla amaçta iş adları bulunmaktadır. LUIS, bu
 
 Varlıklar, örnek ifadelerde işaretlendikten sonra, basit varlığın sinyalini güçlendirmek için tümcecik listesi eklenmesi önemlidir. Tümcecik listesi, tam eşleşme olarak **kullanılmaz** ve beklediğiniz her olası değer olması gerekmez. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **Intents** (Amaçlar) sayfasında **ApplyForJob** amacını seçin. 
 

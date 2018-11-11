@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258842"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345802"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -37,7 +37,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 * Dize sabitleri için bir ters eğik çizgi (\) veya tırnak işareti (") dizedeki gerekiyorsa, eğik çizgi (\) simgesiyle kaçınılmalıdır. Örneğin: "şirket adı: \"Contoso\""
 
 ## <a name="list-of-functions"></a>İşlevlerin listesi
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [değiştirin](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Anahtarı](#switch)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [değiştirin](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Anahtarı](#switch)
 
 - - -
 ### <a name="append"></a>Ekle
@@ -152,6 +152,24 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | **Şablonu** |İsteğe bağlı |Dize |Zaman **şablon** değeri sağlanır, biz arar **oldValue** şablonu içinde ve kaynak değeriyle değiştirin. |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**İşlev:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
+
+**Açıklama:**<br> En az benzersiz değer oluşturma kuralları ifadeleri kullanılarak tanımlanmış olan iki bağımsız değişken gerektirir. İşlev, her kural değerlendirir ve ardından hedef uygulama/dizinindeki benzersizlik için oluşturulan değeri denetler. Bir döndürülen ilk benzersiz değeri bulundu. Tüm değerleri hedefte zaten varsa, giriş kalacakları ve nedeni denetim günlüklerinde günlüğe. Sağlanan bağımsız değişken sayısı için üst sınır yoktur.
+
+> [!NOTE]
+>1. Bu üst düzey bir işlev, iç içe olamaz.
+>2. Bu işlev yalnızca girişi oluşturma için kullanılmak üzere tasarlanmıştır. Bir öznitelik ile kullanırken, ayarlayın **uygulamak eşleme** özelliğini **yalnızca nesne oluşturma sırasında**.
+
+
+**Parametreler:**<br> 
+
+| Ad | Gerekli / yinelenen | Tür | Notlar |
+| --- | --- | --- | --- |
+| ** uniqueValueRule1... uniqueValueRuleN ** |En az 2 gerekli, en üst sınır. |Dize | Değerlendirmek için benzersiz bir değer oluşturma kuralları listesi |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **İşlev:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -238,6 +256,7 @@ NormalizeDiacritics([givenName])
 * **Çıkış**: "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Belirli bir biçimde bir dize olarak çıkış tarihi
+
 Belirli bir biçimdeki bir SaaS uygulamasına tarihleri göndermek istediğiniz. <br>
 Örneğin, tarihleri biçimlendirmek için ServiceNow istiyorsunuz.
 
@@ -251,6 +270,7 @@ Belirli bir biçimdeki bir SaaS uygulamasına tarihleri göndermek istediğiniz.
 * **ÇIKIŞ**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Önceden tanımlanmış seçenekleri kümesi temel alınarak bir değeri değiştirin
+
 Azure AD'de depolanan eyalet koduna göre kullanıcının saat dilimi tanımlamak gerekir. <br>
 Önceden tanımlanmış seçeneklerden herhangi biri durum kodu eşleşmiyorsa, "Avustralya/Sidney" varsayılan değeri kullanın.
 
@@ -262,6 +282,26 @@ Azure AD'de depolanan eyalet koduna göre kullanıcının saat dilimi tanımlama
 
 * **Giriş** (durum): "QLD"
 * **Çıkış**: "Avustralya/Brisbane"
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UserPrincipalName (UPN) özniteliği için benzersiz bir değer oluşturur
+
+Bağlı kullanıcının ilk adını, ikinci adı ve Soyadı, UPN özniteliği için değer atamadan önce hedef AD dizininde UPN özniteliği için bir değer ve kendi benzersizlik denetimi oluşturmanız gerekiyor.
+
+**İfade:** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**Örnek giriş/çıkış:**
+
+* **Giriş** (PreferredFirstName): "John"
+* **Giriş** (PreferredLastName): "Smith"
+* **Çıkış**: "John.Smith@contoso.com" değilse UPN değerini John.Smith@contoso.com dizininde zaten mevcut değil
+* **Çıkış**: "J.Smith@contoso.com" değilse UPN değerini John.Smith@contoso.com dizinde zaten var.
+* **Çıkış**: "Jo.Smith@contoso.com" Yukarıdaki iki UPN değeri dizinde zaten mevcutsa
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Kullanıcı sağlama/sağlamayı kaldırma SaaS uygulamaları için otomatik hale getirin](user-provisioning.md)

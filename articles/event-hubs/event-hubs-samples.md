@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3db77a31dfe92e16d2ec145cc0be595082d0d927
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365654"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279390"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs örnekleri 
 Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Bu örnekler, anahtar özelliklerini gösteren [Azure Event Hubs](/azure/event-hubs/). Bu makale, kategorilere ayırır ve her biri için bağlantılarla birlikte kullanılabilir örnekler açıklar.
@@ -60,7 +60,8 @@ Azure Event hubs Azure CLI örnekleri bulabilirsiniz [azure-event-hubs](https://
 ## <a name="azure-powershell-samples"></a>Azure PowerShell örnekleri
 Azure Event hubs Azure PowerShell örnekleri bulabilirsiniz [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub deposu.
  
-
+## <a name="apache-kafka-samples"></a>Apache Kafka örnekleri
+Apache Kafka özelliği için olay hub'ları için örnekler bulabilirsiniz [azure-event-hubs-için-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub deposu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makaleler de Event Hubs hakkında daha fazla bilgi edinebilirsiniz:

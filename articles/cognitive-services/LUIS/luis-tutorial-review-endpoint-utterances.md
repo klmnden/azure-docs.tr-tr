@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d2400c09a7d18faccc94464158419c81962d4a86
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042287"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282161"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Öğretici 1: Emin olunmayan tahminleri düzeltme
 Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştireceksiniz. Bazı konuşmaların amaç, diğerlerinin ise varlık için doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir. 
@@ -45,13 +45,13 @@ Uç nokta ifadelerini gözden geçirerek, ifadenin tahmin edilen amacını doğr
 
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) indirin ve kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `review` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez.
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `review` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
 
     Bu öğreticiyi yeni, içeri aktarılan bir uygulama olarak kullanıyorsanız, uygulamayı eğitmeniz, yayımlamanız ve sonra da bir [betikle](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya tarayıcıdaki uç noktadan ifadeleri uç noktaya eklemeniz gerekir. Eklenecek konuşmalar:
 
@@ -61,7 +61,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 ## <a name="review-endpoint-utterances"></a>Uç nokta ifadelerini gözden geçirme
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sol gezintiden **Uç nokta ifadelerini gözden geçir**'i seçin. Bu liste **ApplyForJob** amacı için filtrelenmiştir. 
 
@@ -69,7 +69,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 3. Etiketlenmiş varlıkları görmek için **Varlıklar görünümüne** geçin. 
     
-    [ ![Varlıklar görünümü iki durumlu düğmesini vurgulandığı Uç nokta konuşmalarını gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [ ![Varlıklar görünümü iki durumlu düğmesini vurgulandığı Uç nokta ifadelerini gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |İfade|Doğru amaç|Eksik varlıklar|
     |:--|:--|:--|
@@ -124,7 +124,7 @@ Bu uygulamayı içeri aktardıysanız, **Yaklaşım analizi**'ni seçmelisiniz.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasındaki amacı ve varlıkları alma
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma
 
 Düzeltilmiş ifadeye yakın bir ifade deneyin. 
 

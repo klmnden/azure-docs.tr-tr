@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 656742727b2bd85ac93211c74d82fe11d0bc0f46
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 463c74638b0e50348b8c9454334b7457e7b570e6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963906"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283895"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB genel dağıtımını - başlık altında
 
@@ -23,7 +23,7 @@ Azure Cosmos DB, Azure'nın temel bir hizmet olduğundan tüm Azure bölgeleri a
 
 **Azure Cosmos DB'de küresel dağıtım, anahtar teslim:** dilediğiniz zaman birkaç tıklama ile veya programlama yoluyla tek bir API çağrısıyla ekleyebilir veya kendi Cosmos veritabanıyla ilişkili coğrafi bölgeler kaldırın. Bir Cosmos veritabanı, sırayla Cosmos kapsayıcıların bir kümesinden oluşur. Cosmos DB'de kapsayıcıları dağıtımı ve ölçeklenebilirliği mantıksal birimleri görev yapar. Koleksiyonlar, tablolar ve grafikler oluşturduğunuz (dahili) yalnızca Cosmos kapsayıcılardır. Kapsayıcılardır tamamen şemadan ve bir sorgu için bir kapsam belirtin. Bir Cosmos kapsayıcıdaki veri alımı sırasında otomatik olarak dizine alınır. Otomatik dizin oluşturma, şema veya dizin yönetimi, özellikle küresel olarak dağıtılan bir kurulumda yaşamadan ile uğraşmak zorunda kalmadan verileri sorgulamak kullanıcıların sağlar.  
 
-- Belirli bir bölgede bir kapsayıcı içindeki veri bölümü-sağlayın ve (yerel dağıtım) temel alınan kaynak bölümler tarafından şeffaf bir şekilde yönetilen anahtar kullanılarak dağıtılır.  
+- Belirli bir bölgede bir kapsayıcı içindeki veri bölümü-sağlayın ve şeffaf bir şekilde temel alınan fiziksel bölümler (yerel dağıtım) tarafından yönetilen anahtar kullanılarak dağıtılır.  
 
 - Her kaynak bölümü aynı zamanda coğrafi bölgeler arasında çoğaltılır (genel dağıtım). 
 
@@ -31,15 +31,15 @@ Ne zaman esnek bir şekilde Cosmos DB kullanarak uygulama aktarım hızını (ve
 
 Aşağıdaki görüntüde gösterildiği gibi bir kapsayıcıdaki verilerin iki boyutta dağıtılır:  
 
-![Kaynak bölümler](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+![Fiziksel bölümler](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
 
-Kaynak bölümü, bir çoğaltma kümesine adlı çoğaltma grubu tarafından uygulanır. Her makine, önceki görüntüde gösterildiği gibi çeşitli kaynak bölümler işlemlerin sabit bir dizi karşılık çoğaltmaları yüzlerce barındırır. Yinelemeler için kaynak bölümler karşılık gelen dinamik olarak yerleştirilir ve bir küme ve veri merkezleri bölge içindeki makineler arasında Yük Dengelemesi.  
+Bir fiziksel bölüm, bir çoğaltma kümesine adlı çoğaltma grubu tarafından uygulanır. Her makine, önceki görüntüde gösterildiği gibi çeşitli fiziksel bölümler işlemlerin sabit bir dizi karşılık çoğaltmaları yüzlerce barındırır. Çoğaltmaları karşılık gelen fiziksel bölümlere dinamik olarak yerleştirilir ve bir küme ve veri merkezleri bölge içindeki makineler arasında Yük Dengelemesi.  
 
 Bir yinelemenin benzersiz bir Azure Cosmos DB kiracıya ait. Her yineleme Cosmos DB'NİN'ın bir örneğini barındıran [veritabanı altyapısı](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), ilişkili dizinleri yanı sıra kaynakları yönetir. Cosmos DB'nin veritabanı altyapısı bir atom kayıt sırasını (ARS) temel tür sisteminde çalışır. Altyapı, bir şema ve kayıtların yapısını ve örnek değerleri arasındaki sınırı Bulanıklaştırma kavramına bağımsızdır. Cosmos DB, otomatik olarak her şeyi alımı sırasında şema veya dizin yönetimiyle ilgilenmenize gerek kalmadan, Global olarak dağıtılmış verileri sorgulamak kullanıcılara verimli bir biçimde dizin oluşturma tarafından tam şema agnosticism ulaşır.
 
 Cosmos DB'nin veritabanı altyapısı, çeşitli koordinasyon temelleri, dil çalışma zamanlarını, Sorgu işlemcisi, depolama ve alt sistemlerin sorumlu için işlem depolama dizini oluşturma ve veri dizin uygulaması dahil olmak üzere bileşenden oluşur, sırasıyla. Dayanıklılık ve yüksek kullanılabilirlik sağlamak için veritabanı altyapısı, veri ve dizin ssd'lerde devam ediyorsa ve yineleme içinde veritabanı altyapısı örneği arasında çoğaltır-kümelerini sırasıyla. Daha büyük kiracılar, daha yüksek aktarım hızı ve depolama ölçeğini için karşılık gelen ve daha büyük ya da daha sayısı, yinelemeler veya her ikisini de vardır. Sistemin her bileşenin tam olarak zaman uyumsuz: hiç olmadığı kadar hiçbir iş parçacığını engeller ve her bir iş parçacığı kısa süreli bir gereksiz iş parçacığı anahtar ödemeden çalışır. Genelinde tüm giriş denetimi yığından tüm g/ç yolu için oran sınırlandırma ve arka baskısı genişletilmeyecek. Veritabanı altyapımız, ayrıntılı eşzamanlılık yararlanmaya ve yüksek aktarım hızı frugal miktarda sistem kaynağı içinde çalışırken sunmak için tasarlanmıştır.
 
-Cosmos DB'nin genel dağıtım üzerinde iki anahtar soyutlama kullanır: çoğaltma kümeleri ve bölüm ayarlar. Çoğaltma kümesi modüler bir Lego blok düzenlemesi için ve coğrafi olarak dağıtılmış kaynak bölümlerden bir veya daha fazla dinamik bir katmana bölüm kümesi ise. Nasıl genel dağıtımını anlamak için çalışır, ihtiyacımız bu iki anahtar soyutlama anlamak. 
+Cosmos DB'nin genel dağıtım üzerinde iki anahtar soyutlama kullanır: çoğaltma kümeleri ve bölüm ayarlar. Çoğaltma kümesi modüler bir Lego blok düzenlemesi için ve dinamik bir katmana coğrafi olarak dağıtılmış bir veya daha fazla fiziksel bölüm bölüm kümesi ise. Nasıl genel dağıtımını anlamak için çalışır, ihtiyacımız bu iki anahtar soyutlama anlamak. 
 
 ## <a name="replica-sets"></a>Çoğaltma-ayarlar
 
@@ -47,12 +47,11 @@ Kaynak bölümü, bir çoğaltma kümesi olarak adlandırılan birden çok hata 
 
 ## <a name="partition-sets"></a>Bölüm-ayarlar
 
-Tüm yapılandırılmış bölgede çoğaltılan anahtarları aynı kümesini yönetmek için kaynak bölümler, her Cosmos veritabanı bölge ile yapılandırılmış bir grubu oluşur. Bu daha yüksek koordinasyon temel eleman coğrafi olarak dağıtılmış bir dinamik katmana belirli bir anahtar kümesini yönetme kaynak bölümlerinin bölüm-kümesi - adı verilir. Belirtilen kaynak bölümü (bir çoğaltma kümesi) bir küme içinde kapsamlıdır, ancak bir bölüm kümesi kümeler, yayılabilir veri merkezleri ve aşağıdaki görüntüde gösterildiği gibi coğrafi bölgeler:  
+Her Cosmos veritabanı bölge ile yapılandırılmış bir fiziksel bölüm grubu, tüm yapılandırılmış bölgede çoğaltılan anahtarları aynı kümesini yönetmek için oluşur. Bu daha yüksek koordinasyon temel eleman coğrafi olarak dağıtılmış bir dinamik katmana belirli bir anahtar kümesini yönetme fiziksel bölümlerinin bölüm-kümesi - adı verilir. Belirtilen kaynak bölümü (bir çoğaltma kümesi) bir küme içinde kapsamlıdır, ancak bir bölüm kümesi kümeler, yayılabilir veri merkezleri ve aşağıdaki görüntüde gösterildiği gibi coğrafi bölgeler:  
 
-![Bölüm kümeleri](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
-**bölüm kümesi olan dinamik bir katmana kaynak bölüm**
+![Bölüm ayarlar](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 
-Bir coğrafi olarak dağınık "süper çoğaltma çoğaltma-anahtarları kümesinin aynısına sahip olan birden fazla oluşan kümesi", bölüm bir dizi düşünebilirsiniz. Çoğaltma kümesi, bir bölümü kümenin üyelik ayrıca dinamik benzer – belirli bir bölüm kümesi/yeni bölümler eklemek/kaldırmak için örtük kaynak bölüm yönetimi işlemlerini göre dalgalanma (örneğin, ne zaman ölçeği aktarım hızı üzerinde bir kapsayıcı, bölge, Cosmos veritabanı veya hata gerçekleştiğinde bir ekleme/kaldırma) olması sayesinde her bölüm (kümesinin bir bölüm-) yönetme bölüm kümesi üyelik kendi çoğaltma kümesi içinde üyelik tamamen merkezi olmayan ve yüksek oranda kullanılabilir. Bir bölüm kümesi yeniden yapılandırma sırasında kaynak bölümler arasında katmana topolojisi da oluşturulur. Topoloji tutarlılık düzeyi, coğrafi uzaklıktan ve kaynak ve hedef kaynak bölümler arasında kullanılabilir ağ bant genişliği temelinde dinamik olarak seçilir.  
+Bir coğrafi olarak dağınık "süper çoğaltma çoğaltma-anahtarları kümesinin aynısına sahip olan birden fazla oluşan kümesi", bölüm bir dizi düşünebilirsiniz. Çoğaltma kümesi, bir bölümü kümenin üyelik ayrıca dinamik benzer – belirli bir bölüm kümesi/yeni bölümler eklemek/kaldırmak için örtük kaynak bölüm yönetimi işlemlerini göre dalgalanma (örneğin, ne zaman ölçeği aktarım hızı üzerinde bir kapsayıcı, bölge, Cosmos veritabanı veya hata gerçekleştiğinde bir ekleme/kaldırma) olması sayesinde her bölüm (kümesinin bir bölüm-) yönetme bölüm kümesi üyelik kendi çoğaltma kümesi içinde üyelik tamamen merkezi olmayan ve yüksek oranda kullanılabilir. Bir bölüm kümesi yeniden yapılandırma sırasında topolojisi, fiziksel bölümler arasında katman da oluşturulur. Topoloji tutarlılık düzeyi, coğrafi uzaklıktan ve kaynak ve hedef fiziksel bölümler arasında kullanılabilir ağ bant genişliği temelinde dinamik olarak seçilir.  
 
 Hizmet bir tek bir yazma bölgesi veya birden çok yazma bölgeleri ile Cosmos veritabanlarınızı yapılandırmanıza olanak tanır ve seçime bağlı olarak, bölüm kümeleri yazma tam olarak bir ya da tüm bölgelerde kabul edecek şekilde yapılandırılmış. İki düzeyli, iç içe geçmiş fikir birliğine varılmış Protokolü sistem kullanır: bir düzey yazma kabul eden bir kaynak bölümü, bir çoğaltma kümesi çoğaltmalarını içinde çalışır ve diğer tüm tam sıralama garantisi sağlamak için bir bölüm kümesi düzeyinde çalışır bölüm kümesindeki taahhüt yazar. Bu çok katmanlı, iç içe geçmiş fikir birliğine varılmış, Cosmos DB, müşterilerine sağlar. tutarlılık modeli uygulamasının yanı sıra, yüksek kullanılabilirlik için katı SLA'larımız uygulanması için önemlidir.  
 
@@ -60,7 +59,7 @@ Hizmet bir tek bir yazma bölgesi veya birden çok yazma bölgeleri ile Cosmos v
 
 Güncelleştirme yayma, çakışma çözümü ve izleme nedensellik ilişkilerini bizim tasarımı üzerinde Önceki işten esinlenilmiştir [epidemic algoritmaları](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) ve [Bayou](http://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) sistem. Fikirleri çekirdekler kurtulan ve Cosmos DB'nin sistem tasarımı iletişim kurmak için kullanışlı bir çerçeve başvuru sağlar, ancak Cosmos DB sistemde uyguladığımız bunları gibi bunlar da önemli dönüştürme yapılmıştır. Önceki sistemleri kaynak İdaresi ne, Cosmos DB çalışmaya (örneğin, sınırlanmış eskime durumu tutarlılık) özellikleri ve katı ve kapsamlı sağlamak ya da ölçekleme ile tasarlanmış çünkü bu, gerekli Cosmos DB, müşterilerine sunduğu SLA'lar.  
 
-Bir bölüm kümesi birden çok bölgede dağıtılır ve belirli bir bölüm kümesi kapsayan kaynak bölümler arasında veri çoğaltmak için Cosmos Db'ler (çok ana) çoğaltmayı Protokolü aşağıdaki geri çağırma. Her kaynak bölümü (bölüm-kümesi), yazma kabul eder ve bu bölge için yerel istemcileri için okuma tipik olarak görev yapar. Bir bölgede bir kaynak bölümü tarafından kabul edilen yazma arızaya taahhüt verdiniz ve istemciye kabul edildiğini önce kaynak bölümü içinde yüksek oranda kullanılabilir hale. Bunlar belirsiz yazar ve diğer kaynak bölüm koruma entropi kanalı kullanılarak bölüm kümesi içinde dağıtılır. İstemciler, bir istek üst bilgisi geçirerek belirsiz veya kaydedilmiş yazma isteyebilir. (Yayma sıklığını dahil) koruma entropi yayma dinamik kaynak bölümler ve tutarlılık düzeyi yapılandırılmış bölüm kümesi, bölgesel yakınlığını topolojiye bağlı. Bir bölüm kümesinde Cosmos DB, dinamik olarak seçilen arbiter bölümü olan bir birincil işleme düzeni izler. Arbiter seçimi dinamiktir ve yeniden yapılandırma bölümü kümesinin bir parçası katmana topolojisine dayanır. Taahhüt edilen (çok-row/toplu güncelleştirmeler dahil) yazma sipariş edilmesi garanti edilir. 
+Bir bölüm kümesi birden çok bölgede dağıtılır ve belirli bir bölüm kümesi oluşturan fiziksel bölümler arasında veri çoğaltmak için Cosmos Db'ler (çok ana) çoğaltmayı Protokolü aşağıdaki geri çağırma. Her kaynak bölümü (bölüm-kümesi), yazma kabul eder ve bu bölge için yerel istemcileri için okuma tipik olarak görev yapar. Bir bölgede bir kaynak bölümü tarafından kabul edilen yazma arızaya taahhüt verdiniz ve istemciye kabul edildiğini önce kaynak bölümü içinde yüksek oranda kullanılabilir hale. Bunlar belirsiz yazma ve koruma entropi kanalı kullanılarak bölüm kümesi içinde fiziksel diğer bölümlerine yayılır. İstemciler, bir istek üst bilgisi geçirerek belirsiz veya kaydedilmiş yazma isteyebilir. (Yayma sıklığını dahil) koruma entropi yayma dinamik fiziksel bölümler ve tutarlılık düzeyi yapılandırılmış bölüm kümesi, bölgesel yakınlık topolojiye bağlı. Bir bölüm kümesinde Cosmos DB, dinamik olarak seçilen arbiter bölümü olan bir birincil işleme düzeni izler. Arbiter seçimi dinamiktir ve yeniden yapılandırma bölümü kümesinin bir parçası katmana topolojisine dayanır. Taahhüt edilen (çok-row/toplu güncelleştirmeler dahil) yazma sipariş edilmesi garanti edilir. 
 
 Nedensellik ilişkilerini izlemek ve algılamak ve çözmek için vektörleri güncelleştirme çakışması sürümü için kodlanmış vektör saatleri (sırasıyla bölge kodu ve mantıksal saatler her çoğaltma kümesi, fikir birliğine varılmış düzeyine karşılık gelen ve bölüm kümesi içeren) kullanıyoruz. Topoloji ve eş seçimi algoritması, sabit ve en az depolama ve sürüm vektörü, en az bir ağ yükünü sağlamak için tasarlanmıştır. Algoritma katı yakınsama özelliği garanti eder.  
 

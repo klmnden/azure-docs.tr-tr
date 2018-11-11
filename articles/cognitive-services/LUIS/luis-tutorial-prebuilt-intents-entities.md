@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034442"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281804"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Öğretici 2: Ortak amaçları ve varlıkları tanımlama
 Bu öğreticide İnsan Kaynakları uygulamasında değiştireceksiniz. Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. Varlıklar otomatik algılandığından herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez.
@@ -30,25 +30,25 @@ Genel konu etki alanlarının ve veri türlerinin önceden oluşturulmuş modell
 > * Önceden oluşturulmuş varlıkları ekleme 
 > * Eğitim 
 > * Yayımlama 
-> * Uç noktasındaki amaçları ve varlıkları alma
+> * Uç noktadan amaçları ve varlıkları alma
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) indirin ve kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `prebuilts` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez. 
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `prebuilts` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez. 
 
 ## <a name="add-prebuilt-intents"></a>Önceden oluşturulmuş amaçları ekleme
 LUIS, ortak kullanıcı amaçları konusunda yardımcı olmak için önceden oluşturulmuş birçok amaca sahiptir.  
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **Önceden oluşturulmuş amacı ekle**'yi seçin. 
 
@@ -84,7 +84,7 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasındaki amacı ve varlıkları alma
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

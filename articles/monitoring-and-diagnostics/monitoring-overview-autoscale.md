@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 7a3083bd757a7aa5625799724d601f99fd7e2b14
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961305"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281906"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure sanal makineleri, bulut Hizmetleri ve Web uygulamalarını otomatik ölçeklendirmeye genel bakış
 Bu makalede, hangi Microsoft Azure otomatik ölçeklendirme, aboneliğin avantajları olduğu ve nasıl kullanmaya başlayacağınızı açıklar.  
@@ -107,8 +107,8 @@ Otomatik ölçeklendirme ayarlayabilirsiniz.
 | Web Apps |[Web uygulamaları ölçeklendirme](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Otomatik ölçeklendirme bir bulut hizmeti](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Sanal makineler: Klasik |[Klasik sanal makine kullanılabilirlik kümeleri ölçeklendirme](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Sanal makineler: Windows ölçek kümeleri |[Sanal makine ölçeğini artırma veya azaltma Windows ayarlar](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) |
-| Sanal makineler: Linux ölçek kümeleri |[Linux sanal makine ölçeğini artırma veya azaltma ayarlar](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) |
+| Sanal makineler: Windows ölçek kümeleri |[Sanal makine ölçeğini artırma veya azaltma Windows ayarlar](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Sanal makineler: Linux ölçek kümeleri |[Linux sanal makine ölçeğini artırma veya azaltma ayarlar](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Sanal makineler: Windows örneği |[VM ölçek kümeleri için Resource Manager şablonlarını kullanarak gelişmiş otomatik ölçeklendirme yapılandırması](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | API Management hizmeti|[Azure API Management örneği otomatik olarak ölçeklendirme](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

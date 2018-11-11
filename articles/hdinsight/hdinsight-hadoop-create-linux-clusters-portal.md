@@ -1,20 +1,20 @@
 ---
-title: Bir web tarayıcısı - Azure HDInsight'ı kullanarak Hadoop kümeleri oluşturma
-description: Linux'ta bir web tarayıcısını ve Azure Önizleme portalını kullanarak HDInsight için Hadoop, HBase, Storm veya Spark küme oluşturma konusunda bilgi edinin.
+title: Bir web tarayıcısı - Azure HDInsight'ı kullanarak Apache Hadoop kümeleri oluşturma
+description: Linux'ta bir web tarayıcısını ve Azure Önizleme portalını kullanarak HDInsight için Apache Hadoop, Apache HBase, Apache Storm veya Apache Spark küme oluşturma konusunda bilgi edinin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
-ms.openlocfilehash: 77f4b8e8826dab014b81fdb6847755630ac44508
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104951"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278999"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>HDInsight'ı Azure portalını kullanarak Linux tabanlı kümeler oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,7 +34,7 @@ Azure portalı küme özelliklerin çoğu kullanıma sunar. Azure Resource Manag
 
 
 1. [Azure portalında](https://portal.azure.com) oturum açın.
-2. Tıklayın **+**, tıklayın **zeka + analiz**ve ardından **HDInsight**.
+2. Tıklayın **+ kaynak Oluştur**, tıklayın **Analytics**ve ardından **HDInsight**.
    
     ![Azure portalında yeni bir küme oluşturma](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Azure portalında yeni bir küme oluşturma")
 
@@ -47,10 +47,6 @@ Azure portalı küme özelliklerin çoğu kullanıma sunar. Azure Resource Manag
     * Gelen **abonelik** açılan listesinde, küme için kullanılan Azure aboneliğini seçin.
 
     * Tıklayın **küme türü**ve ardından türünü seçin (Hadoop, Spark vb.) küme oluşturmak istiyorsunuz. İçin **işletim sistemi**, tıklayın **Linux** ve ardından bir sürüm seçin. Neyi seçeceğinizi bilmiyorsanız varsayılan sürümü kullanın. Daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
-
-        Hadoop, Spark ve etkileşimli sorgu kümesi türleri için ayrıca yüklemek için seçebileceğiniz **Kurumsal güvenlik paketi**. Kurumsal güvenlik paketi, kümeler için Azure Active Directory Tümleştirmesi ve Apache Ranger gibi güvenlik özelliklerini etkinleştirir. Daha fazla bilgi için [Azure HDInsight, Kurumsal güvenlik paketi](./domain-joined/apache-domain-joined-introduction.md).
-
-        ![Kurumsal güvenlik paketi etkinleştirme](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Kurumsal güvenlik paketi etkinleştir")
      
         > [!IMPORTANT]
         > HDInsight kümeleri gelen iş yükü veya küme için ayarlanan teknoloji karşılık gelen türleri çeşitli. Bir küme üzerinde Storm ve HBase gibi birden birleştiren bir küme oluşturmak için desteklenen bir yöntem yoktur. 
@@ -69,7 +65,9 @@ Azure portalı küme özelliklerin çoğu kullanıma sunar. Azure Resource Manag
 
     * **İleri**’ye tıklayın.
 
-4. İçin **depolama**, varsayılan depolama alanı olarak Azure Storage (WASB) veya Data Lake Storage istediğinizi belirtin. Daha fazla bilgi için aşağıdaki tabloya bakın.
+4. İçinde **güvenlik ve ağ**, kümenizi sağlanan açılır menüyü kullanarak bir sanal ağa bağlanabilir. Bir sanal ağ kümesine yerleştirmek istiyorsanız bir Azure sanal ağı ve alt ağ seçin. Bir sanal ağıyla sanal ağ için belirli yapılandırma gereksinimlerini de dahil olmak üzere, HDInsight'ı kullanma hakkında bilgi için bkz. [kullanarak bir Azure sanal ağ genişletme HDInsight özellikleri](hdinsight-extend-hadoop-virtual-network.md). Kullanmak istiyorsanız **Kurumsal güvenlik paketi**, ayrıca Buradaki yönergeleri izleyebilirsiniz: [Azure Active Directory Domain ServiceskullanarakbirHDInsightkümesiileKurumsalgüvenlikpaketiyapılandırma](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+
+5. İçin **depolama**, varsayılan depolama alanı olarak Azure Storage (WASB) veya Data Lake Storage istediğinizi belirtin. Daha fazla bilgi için aşağıdaki tabloya bakın.
 
     ![Azure portalında yeni bir küme oluşturma](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Azure portalında yeni bir küme oluşturma")
 
@@ -84,7 +82,7 @@ Azure portalı küme özelliklerin çoğu kullanıma sunar. Azure Resource Manag
     > [!WARNING]
     > HDInsight kümesinden farklı bir konumda ek depolama hesabının kullanılması desteklenmez.
 
-5. İsteğe bağlı olarak, tıklayın **uygulamaları** HDInsight kümeleriyle çalışan uygulamaların yüklemek için. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir. Daha fazla bilgi için [yükleme HDInsight uygulamalarını](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. İsteğe bağlı olarak, tıklayın **uygulamaları** HDInsight kümeleriyle çalışan uygulamaların yüklemek için. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir. Daha fazla bilgi için [yükleme HDInsight uygulamalarını](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
 6. Tıklayın **küme boyutu** bu küme için kullanılan düğümleri hakkında bilgileri görüntülemek için. Küme için gereksinim duyduğunuz çalışan düğümleri sayısını ayarlayın. Küme çalıştırmanın tahmini maliyeti de gösterilir.
@@ -100,18 +98,10 @@ Azure portalı küme özelliklerin çoğu kullanıma sunar. Azure Resource Manag
    
    Tıklayın **sonraki** düğüm fiyatlandırma yapılandırmasını kaydetmek için.
 
-7. Tıklayın **Gelişmiş ayarlar** kullanma gibi isteğe bağlı diğer ayarları yapılandırmak için **betik eylemleri** özel bileşenler veya birleştirme yüklemek için bir küme özelleştirmek için bir **sanalağ**. Daha fazla bilgi için aşağıdaki tabloya bakın.
+8. İçinde **betik eylemleri**, özel bileşenleri yüklemek için bir küme özelleştirebilirsiniz.  Küme oluşturulurken bir küme özelleştirmek için özel bir betik kullanmak istiyorsanız bu seçeneği kullanın. Betik eylemleri hakkında daha fazla bilgi için bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
+**İleri**’ye tıklayın.
 
-    ![Düğüm fiyatlandırma katmanları](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "küme düğümleri sayısı belirtin")
-
-    | Seçenek | Açıklama |
-    |--------|-------------|
-    | **Betik eylemleri** | Küme oluşturulurken bir küme özelleştirmek için özel bir betik kullanmak istiyorsanız bu seçeneği kullanın. Betik eylemleri hakkında daha fazla bilgi için bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md). |
-    | **Sanal Ağ** | Bir sanal ağ kümesine yerleştirmek istiyorsanız bir Azure sanal ağı ve alt ağ seçin. Bir sanal ağıyla sanal ağ için belirli yapılandırma gereksinimlerini de dahil olmak üzere, HDInsight'ı kullanma hakkında bilgi için bkz. [kullanarak bir Azure sanal ağ genişletme HDInsight özellikleri](hdinsight-extend-hadoop-virtual-network.md). |
-
-    **İleri**’ye tıklayın.
-
-8. İçin **özeti**, daha önce girdiğiniz bilgileri doğrulayın ve ardından **Oluştur**.
+9. İçin **özeti**, daha önce girdiğiniz bilgileri doğrulayın ve ardından **Oluştur**.
 
     ![Düğüm fiyatlandırma katmanları](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "küme düğümleri sayısı belirtin")
     
@@ -119,7 +109,7 @@ Azure portalı küme özelliklerin çoğu kullanıma sunar. Azure Resource Manag
     > Kümenin, genellikle yaklaşık 15 dakika oluşturulması biraz zaman alabilir. Panosu'ndaki kutucuğu kullanın veya **bildirimleri** sağlama işlemini denetlemek için sayfanın sol giriş.
     > 
     > 
-12. Oluşturma işlemi tamamlandığında, kutucuk ilerlemeyi kümeden için tıklayın. Küme penceresi, aşağıdaki bilgileri sağlar.
+10. Oluşturma işlemi tamamlandığında, kutucuk ilerlemeyi kümeden için tıklayın. Küme penceresi, aşağıdaki bilgileri sağlar.
     
     ![Küme arabirimi](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "küme özellikleri")
     

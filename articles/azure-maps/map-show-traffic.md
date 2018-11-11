@@ -3,18 +3,18 @@ title: Azure Haritalar ile trafiği gösterme | Microsoft Docs
 description: Bir Javascript harita üzerindeki trafik verileri görüntüleme
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/14/2018
+ms.date: 11/10/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 45f7913c5cc69f99b01ba1a911910273673856d3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240095"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51513781"
 ---
 # <a name="show-traffic-on-the-map"></a>Harita üzerinde trafiği Göster
 
@@ -27,7 +27,7 @@ Bu makalede haritada trafik ve olaylar bilgileri gösterecek şekilde gösterilm
 
 Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [bir harita oluşturmak](map-create.md) yönergeler için.
 
-İkinci kod bloğunu kullanır [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) harita üzerinde olayları ve trafik akışları işlemek için eşleme sınıfının işlevi.
+İkinci kod bloğunu kullanır [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) haritanın işlevindeki [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) harita üzerinde olayları ve trafik akışları işlemek için işlevi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

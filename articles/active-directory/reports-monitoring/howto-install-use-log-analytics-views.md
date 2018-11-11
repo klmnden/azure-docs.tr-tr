@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 10/01/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 11cc6a69b8072fca0639da5e517a39c22645710e
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395697"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300515"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Yükleme ve Azure Active Directory için Log Analytics görünümleri kullanma
 
@@ -42,7 +42,7 @@ Log Analytics görünümleri kullanmak için gerekir:
 
 1. Log Analytics çalışma alanınıza gidin. Bunu yapmak için önce gidin [Azure portalında](https://portal.azure.com) seçip **tüm hizmetleri**. Tür **Log Analytics** seçin ve metin kutusu **Log Analytics**. Önkoşulların bir parçası, etkinlik günlükleri yönlendirilen çalışma alanı seçin.
 2. Seçin **Görünüm Tasarımcısı**seçin **alma** seçip **Dosya Seç** görünümleri kullanarak yerel bilgisayarınızdan içeri aktarmak için.
-3. Önkoşullar ve da seçin, indirilen görünümleri seçin **Kaydet** içeri aktarma kaydetmek için. Bunu yapmak **Azure AD hesabı sağlama olayları** görünümü **oturum açma olayları** görünümü ve **gerçekleştiren kullanıcılar onay** görünümü.
+3. Önkoşullar ve da seçin, indirilen görünümleri seçin **Kaydet** içeri aktarma kaydetmek için. Bunu yapmak **Azure AD hesabı sağlama olayları** görünümü ve **oturum açma olayları** görünümü.
 
 ## <a name="use-the-views"></a>Görünümleri kullanma
 
@@ -52,7 +52,6 @@ Log Analytics görünümleri kullanmak için gerekir:
 
     * **Azure AD hesap sağlama olaylarını**: Bu görünümde sağlanan yeni kullanıcı sayısı gibi sağlama etkinliği denetim ile ilgili raporlar gösterilir ve hataları sağlama, kullanıcı sayısı güncelleştirilir ve güncelleştirme hataları ve kullanıcı sayısı XML'deki sağlanan ve karşılık gelen hataları.    
     * **Oturum açma olayları**: Bu görünümde, oturum açma etkinliği, uygulama, kullanıcı, cihaz yanı sıra oturum açma sayısı zamanla izleme Özet görünümünü tarafından oturum açma işlemleri gibi izleme ile ilgili en ilgili raporlar gösterilir.
-    * **Kullanıcılar gerçekleştirme onay**: gibi tüm onay tabanlı uygulamalar için uygulama tarafından oturum açma yanı sıra kullanıcı, oturum açma işlemleri tarafından izin verilen kullanıcılar tarafından izin verir, bu görünümde kullanıcı onayı için ilgili raporlar gösterilir. 
 
 3. Bu görünümler için bireysel raporlar hemen birini seçin. Ayrıca tüm rapor parametreleri uyarılar ayarlayabilirsiniz. Var olan her zaman bir oturum açma hatası örnek için bir uyarı ayarlayalım. Bunu yapmak için önce seçin **oturum açma olayları** görüntülenecek **zaman içinde oturum açma hataları** rapor ve ardından **Analytics** gerçek ile sorguyu Ayrıntılar sayfasını açmak için Raporun. 
 

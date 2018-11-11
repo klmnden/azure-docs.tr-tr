@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 752a0262503550b9995ac76f648a132429203cce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961441"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278336"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısı nedir
 Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda desteklenen olan Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../azure-monitor/overview.md).
@@ -60,7 +60,7 @@ Bkz: [Azure tanılama sürüm geçmişi ve şema](azure-diagnostics-schema.md).
 Hangi hizmeti üzerinde tanı toplama ve kullanmaya başlamak için aşağıdaki makaleleri kullanın çalıştığınız seçin. Belirli görevleri için başvuru için genel Azure tanılama bağlantıları kullanın.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Azure Tanılama'yı kullanarak bulut Hizmetleri
-* Visual Studio kullanıyorsanız, bkz. [Cloud Services uygulamasına izlemek için Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md) kullanmaya başlamak için. Aksi takdirde bkz:
+* Visual Studio kullanıyorsanız, bkz. [Cloud Services uygulamasına izlemek için Visual Studio](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) kullanmaya başlamak için. Aksi takdirde bkz:
 * [Azure Tanılama'yı kullanarak bulut hizmetleri nasıl izlenir?](../cloud-services/cloud-services-how-to-monitor.md)
 * [Azure Tanılama'da bulut Hizmetleri uygulamasını ayarlama](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
@@ -71,8 +71,8 @@ Daha gelişmiş konular için bkz.
 * [Bulut hizmetleri üzerinde tanılamayı ayarlamak için PowerShell kullanma](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtual Machines
-* Visual Studio kullanıyorsanız, bkz. [izleme Azure sanal makineler için Visual Studio kullanımı](../vs-azure-tools-debug-cloud-services-virtual-machines.md) kullanmaya başlamak için. Aksi takdirde bkz:
-* [Bir Azure sanal makinesi üzerinde Azure tanılama ayarlama](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
+* Visual Studio kullanıyorsanız, bkz. [izleme Azure sanal makineler için Visual Studio kullanımı](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) kullanmaya başlamak için. Aksi takdirde bkz:
+* [Bir Azure sanal makinesi üzerinde Azure tanılama ayarlama](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
 Daha gelişmiş konular için bkz.
 

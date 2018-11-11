@@ -1,6 +1,6 @@
 ---
-title: Azure AI galeri | Microsoft Docs
-description: Paylaşabilir ve analizi kaynaklarını ve Azure AI galerisinde daha fazlasını keşfedin. Başkalarından öğrenin ve topluluğa kendi katkı yapın.
+title: Azure AI Gallery | Microsoft Docs
+description: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,83 +15,83 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 0494963f59e885cf2e7fe42704f1314e66ea28a5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 250b0cf6ff949fab064dc61a5260a68fd78d0387
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834796"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346380"
 ---
-# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşabilir ve Azure AI Galerisi kaynakları Bul
-[!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşın ve Azure AI Gallery'de kaynakları keşfedin
 
-<!-- separating these 2 includes -->
+**[Azure AI Gallery](http://gallery.cortanaintelligence.com)**  bulmak için bir topluluk odaklı site ve çözümleri paylaşımı, Azure yapay ZEKA ile oluşturulmuş.
+Galeri, kendi analiz çözümleri geliştirmek üzere kullanabileceği kaynakları çeşitli sahiptir.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="what-can-i-find-in-the-gallery"></a>Galeride ne bulabilirim?
-Azure AI Galerisi, kendi analiz çözümleri geliştirmek için kullanabileceğiniz kaynakları çeşitli içerir.
+## <a name="what-can-i-find-in-the-gallery"></a>Galeride neler bulabilirim?
+Azure AI Gallery kendi analiz çözümleri geliştirmek üzere kullanabileceği kaynakları çeşitli içerir.
 
-* **[Denemeler](gallery-experiments.md)**  -Galerisi, çok çeşitli Azure Machine Learning Studio'da geliştirilen denemeler içerir. Bu teknik, karmaşık machine learning sorunlara ilişkin çözüm tam olarak geliştirilen öğrenme belirli bir makine göstermektedir hızlı kavram kanıtı denemeler arasındadır.
-* **[Jupyter not defterleri](gallery-jupyter-notebooks.md)**  - Jupyter not defterleri dahil kodu, veri görselleştirmeleri ve tek bir etkileşimli belgelerinde tuvale.
-  Galeri not defterlerinde öğreticiler ve teknikleri ve çözümleri öğrenme Gelişmiş makinenin ayrıntılı açıklamalar sağlar.
+* **[Denemeleri](gallery-experiments.md)**  -Galerisi, çok çeşitli Azure Machine Learning Studio'da geliştirilen denemeler içerir. Bu, belirli bir makine öğrenme, karmaşık makine öğrenimi sorunlar için tamamen geliştirdiği çözümleri için teknik gösteren hızlı kavram kanıtı denemeleri arasındadır.
+* **[Jupyter not defterleri](gallery-jupyter-notebooks.md)**  - Jupyter not defterleri dahil kod, veri görselleştirmeleri ve etkileşimli bir tek belge tuval.
+  Galeri not defterlerinde öğreticiler ve Gelişmiş makine öğrenimi teknikleri ve çözümleri ayrıntılı açıklamalar sağlar.
 
 <!--
 - **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - An experiment developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these APIs are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
 -->
 
-* **[Çözümleri](gallery-solutions.md)**  - hızlı bir şekilde önceden yapılandırılmış çözümler, başvuru mimarisi ve tasarım desenleri Cortana Intelligence çözümleri oluşturmak. Bunları kendi dahil yönergeleri veya özel bir iş ortağı ile yapın.
-* **[Öğreticiler](gallery-tutorials.md)**  - öğreticileri sayısı machine learning teknolojileri ve kavramları yürütmek kullanılabilir veya Gelişmiş açıklamak için çeşitli machine learning sorunlarını çözmek için yöntemleri.
+* **[Çözümleri](gallery-solutions.md)**  - hızlı bir şekilde önceden yapılandırılmış çözümleri, başvuru mimarileri ve tasarım desenleri, Cortana Intelligence çözümleri oluşturun. Dahil edilen yönergeler veya öne çıkan iş ortağı ile kendi olacak.
+* **[Öğreticiler](gallery-tutorials.md)**  - birçok öğretici kavramları ve machine learning teknolojileri ile yürütmek kullanılabilir veya Gelişmiş açıklamak için çeşitli makine öğrenme sorunları çözmek için yöntemleri.
 
-Bu temel Galerisi kaynakları birlikte birkaç farklı şekilde mantıksal olarak gruplandırılabilir:
+Bu temel Galerisi kaynağı, birkaç farklı yolla birlikte bir mantıksal gruplandırılabilir:
 
-* **[Koleksiyonları](gallery-collections.md)**  - denemeler, API ' larını gruplamak bir koleksiyon sağlar ve belirli bir çözüm veya kavram bu adresi diğer galeri öğeleri.
-* **[Sektörlerde](gallery-industries.md)**  -sektörlerde Bölümü Galerisi getirir birlikte böyle sektörlerde perakende, üretim, bankacılık ve sağlık olarak özgü çeşitli kaynaklar.
+* **[Koleksiyonları](gallery-collections.md)**  - bir koleksiyonu denemeleri, API'ler, gruplamanıza izin verir ve belirli bir çözüm veya kavram bu adresi diğer galeri öğeleri.
+* **[Sektörler](gallery-industries.md)**  -galeri sektörler bölümünü bir araya getirerek perakende, imalat, bankacılık ve sağlık hizmetleri gibi sektörlerde özgü çeşitli kaynaklar.
 
-Son olarak, **[Competitions](gallery-competitions.md)** heyecan verici Cortana Intelligence Suite kullanarak karmaşık sorunları çözmek için veri scientsts topluluğu ile rekabet olanağı sunar.
+Son olarak, **[Yarışmaları](gallery-competitions.md)** Cortana Intelligence Suite'i kullanarak karmaşık problemleri çözmek için veri scientsts topluluğu ile mücadele etmek için heyecan verici fırsatı sunar.
 
-![Azure AI Galerisi giriş sayfası](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Azure AI Gallery giriş sayfası](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
-## <a name="discover-and-learn"></a>Bul ve öğrenin
-Herkes göz atın ve Microsoft ve gelişmiş analizler topluluk tarafından katkıda galerisinde farklı türdeki kaynakların arayın.
-Daha fazla bilgi edinin ve kendi veri analizi sorunlarını çözme başlangıç almak için bunları kullanın.
-Ayrıca kendi Machine Learning Studio çalışma alanına denemeler ve Jupyter not defterleri indirebilirsiniz.
+## <a name="discover-and-learn"></a>Keşfedin ve öğrenin
+Herkesin göz atın ve Microsoft ve Gelişmiş analiz topluluğunun katkılarıyla galerisinde farklı türdeki kaynakların arayın.
+Daha fazla bilgi edinin ve kendi veri analizi sorunlarını çözme üzerinde avantajlı bir başlangıç yapmak için bunları kullanın.
+Kendi Machine Learning Studio çalışma alanına denemeleri ve Jupyter not defterleri de indirebilirsiniz.
 
-Ad, etiketler, algoritmaları ve diğer öznitelikleri göre arama yapabilirsiniz veya galeride son yayımlanan ve popüler kaynaklarını kolayca bulabilirsiniz.
-Tıklatın **tümüne Gözat** galeri üstbilgisinde, ve ardından arama sayfasının sol düzeltmeler ve üst arama terimlerini girin.
+Adı, etiketler, algoritmaları ve diğer öznitelikler arayın veya galeride yakın zamanda yayımlanan ve popüler kaynakları kolayca bulabilirsiniz.
+Tıklayın **tümüne Gözat** galeri üst bilgisindeki ve ardından sayfanın sol taraftaki daraltmalar arama ve üstündeki arama terimlerini girin.
 
-Döşeme hiçbirini içinde Yazar adından tıklatarak belirli bir yazar Katkıları görüntüle:
+Herhangi bir döşeme içindeki Yazar adından tıklayarak belirli bir yazar Katkıları görüntüle:
 
-![Bir yazarın Katkıları görüntüleyin](./media/gallery-how-to-use-contribute-publish/view-by-author.png)
+![Bir yazar katkılarını görüntüle](./media/gallery-how-to-use-contribute-publish/view-by-author.png)
 
-Açıklama, geri bildirim sağlamak veya her kaynak sayfasında Açıklamalar bölümüne aracılığıyla soru sorun.
-Arkadaş veya LinkedIn veya Twitter paylaşım özelliklerini kullanarak iş arkadaşlarınızı bile kaynak ilgi paylaşabilirsiniz.
-Sayfaları görüntülemek için diğer kullanıcıların davet etmek için bu kaynaklara bağlantılar da eposta.
+Yorum, geribildirim sağlamak veya her bir kaynak sayfasında Açıklamalar bölümü ile ilgili sorularınızı sormak.
+Bir kaynak ilgi bile, arkadaş veya Twitter ve LinkedIn paylaşımı özelliklerini kullanarak iş arkadaşları ile da paylaşabilirsiniz.
+Ayrıca, sayfaları görüntülemek için diğer kullanıcıları davet etmek için bu kaynaklara bağlantılar eposta.
 
 ![Bu öğe arkadaşlarınızla paylaşın](./media/gallery-how-to-use-contribute-publish/comment-and-share.png)
 
 ## <a name="contribute-to-the-gallery"></a>Galeri'ye katkıda bulunma
-Ne zaman oturum açtığınızda, Galeri topluluğu üyesi haline gelir. Bu, böylece başkalarının size keşfettiniz çözümlerinden yararlanabilir kendi galeri öğeleri katkıda sağlar.
+Ne zaman, oturum açma, Galeri topluluğun bir üyesi haline gelir. Bu, böylece diğerleri keşfettiğinize göre çözümlerinden yararlanabilirsiniz kendi galeri öğelerini katkıda bulunmak sağlar.
 
-Başkalarının katkılarınız galerisinde üzerinden gelen gibi görünüm sayısını ve katkılarınız yüklemeleri izleyebilirsiniz:
+Diğer katkılarınız galerideki üzerinden gelen gibi görüntüleme sayısı ve katkılarınız indirilmesini izleyebilirsiniz:
 
 ![Bu öğe arkadaşlarınızla paylaşın](./media/gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
-Kullanıcılar ayrıca açıklamaları ekleme ve diğer veri bilimi topluluk üyeleriyle katkılarınız paylaşabilir.
-Bir tartışma aracı Disqus gibi oturum oturum ve katkılarınız üzerinde bildirimlerin açıklamaları için.
+Kullanıcılar ayrıca açıklamalar ekleyin ve katkılarınız ve veri bilimi topluluğunun diğer üyeleriyle paylaşın.
+Disqus gibi bir tartışma araç oturum ve katkılarınız hakkında açıklamalar için bildirimleri alın.
 
 ![Kullanıcı yorumları izleyin](./media/gallery-how-to-use-contribute-publish/follow-comments.png)
 
-Aşağıdaki öğeler katkıda bulunabilirsiniz Galerisine - daha fazla bilgi için aşağıdaki bağlantıları izleyin:
+Aşağıdaki öğeler katkıda bulunmak için Galeri - daha fazla bilgi için bu bağlantıları izleyin:
 
 * **[Koleksiyonları](gallery-collections.md#contribute)**
-* **[Denemeler](gallery-experiments.md#contribute)**
+* **[Denemeleri](gallery-experiments.md#contribute)**
 * **[Öğreticiler](gallery-tutorials.md#contribute)**
 
-## <a name="we-want-to-hear-from-you"></a>Sizden duymak istiyoruz!
-Bizim kullanıcılar tarafından ve kullanıcılarımızın güdümlü Galeriye istiyoruz. Gülen sağ tarafta ne memnuniyet veya Galerisi hakkında nefretle bize iletmek için kullanın.  
+## <a name="we-want-to-hear-from-you"></a>Görüşlerinizi almak isteriz!
+Kullanıcılarımız tarafından ve kullanıcılarımız için odaklı Galeriye istiyoruz. Gülen sağ tarafta ne, sevdiğiniz veya gitmiyor Galerisi hakkında bize bildirmek için kullanın.  
 
 ![Geri Bildirim](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[BANA GALERİSİNE ELE &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[BENİ GALERİSİNE GÖTÜR &GT;&GT;](http://gallery.cortanaintelligence.com)**
 

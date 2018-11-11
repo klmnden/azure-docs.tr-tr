@@ -8,21 +8,21 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d98a890cfb6bd388477ff3f14b81c8df02ece879
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143657"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287974"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
-Her IOT çözümü farklı olduğundan Azure IOT Hub fiyatlandırma ve ölçek göre çeşitli seçenekler sunar. Bu makalede, IOT hub'ı gereksinimlerinizi değerlendirmenize yardımcı olmak için tasarlanmıştır. IOT Hub katmanları hakkında bilgi fiyatlandırma için başvurun [IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub). 
+Her IOT çözümü farklı olduğundan Azure IOT Hub fiyatlandırma ve ölçek göre çeşitli seçenekler sunar. Bu makalede, IOT hub'ı gereksinimlerinizi değerlendirmenize yardımcı olmak için tasarlanmıştır. Fiyatlandırma IOT Hub katmanları hakkında daha fazla bilgi için bkz [IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 Hangi IOT Hub katmanını çözümünüz için doğru olduğuna karar vermek için iki soruları kendinize sorun:
 
 **Kullanmak hangi özelliklerin planlıyor musunuz?**
-Azure IOT hub'ı destekledikleri özellikler sayısında farklı iki katmanı, temel ve standart, sunar. IOT çözümünüzü cihazlarından veri toplamak ve merkezi olarak analiz etme etrafında alıyorsa temel katman için büyük olasılıkla uygun. IOT cihazları uzaktan denetleme veya bazı iş yüklerinizi aygıtlara dağıtmak için daha gelişmiş yapılandırmaları kullanmak istiyorsanız, standart katman düşünmelisiniz. Hangi özelliklerin dahil her katmanında ayrıntılı bir dökümü için devam [temel ve standart katmanları](#basic-and-standard-tiers).
+Azure IOT hub'ı destekledikleri özellikler sayısında farklı iki katmanı, temel ve standart, sunar. IOT çözümünüzü cihazlarından veri toplamak ve merkezi olarak analiz etme etrafında alıyorsa, temel katman için büyük olasılıkla uygun. IOT cihazları uzaktan denetleme veya bazı iş yüklerinizi aygıtlara dağıtmak için daha gelişmiş yapılandırmaları kullanmak istiyorsanız, standart katman, düşünmelisiniz. Hangi özelliklerin dahil her katmanında ayrıntılı bir dökümü için devam [temel ve standart katmanları](#basic-and-standard-tiers).
 
 **Günlük taşımak ne kadar veri planlıyor musunuz?**
 Her IOT Hub katmanını göre üç boyutlarında kullanılabilir ne kadar veri işleme geçici bir çözüm içinde belirli bir günde başa çıkabilir. Bu boyutları, sayısal olarak 1, 2 ve 3 tanımlanır. Örneğin, bir düzey 3 birim, 300 milyon işleyebilir sırasında her bir birimi bir düzey 1 IOT hub'ı, günde 400 bin iletileri işleyebilir. Veri kılavuzları hakkında daha fazla ayrıntı için devam [ileti işleme hızı](#message-throughput).
@@ -31,7 +31,7 @@ Her IOT Hub katmanını göre üç boyutlarında kullanılabilir ne kadar veri i
 
 Standart katman IOT Hub'ın tüm özelliklerini etkinleştirir ve devre dışı hale getirmek istediğiniz tüm IOT çözümleri için gereklidir çift yönlü iletişim yeteneklerini kullanın. Temel katman özelliklerinin bir alt kümesi sağlar ve buluta cihazlardan gelen tek yönlü iletişimi yalnızca ihtiyacınız olan IOT çözümleri için tasarlanmıştır. Her iki katmanda aynı güvenlik ve kimlik doğrulama özellikleri sunar.
 
-IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Temel katmandan standart katmana yükseltebilirsiniz. Daha fazla bilgi için [IOT hub'ınıza yükseltme](iot-hub-upgrade.md). Temel katman IOT hub'ı için en yüksek bölüm sınırı 8'dir ve standart katman için 32'dir unutmayın. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. IOT hub'ı oluşturulduğunda ve CİHAZDAN buluta iletileri bu iletileri eşzamanlı okuyucu sayısıyla ilgilidir'ün bölüm sınırından seçilir. Bu değer, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır. Ayrıca, bu yalnızca bir tür unutmayın [edition](https://azure.microsoft.com/pricing/details/iot-hub/) IOT hub'ı bir katman içinde seçilebilir. Örneğin, birden çok S1 birimi olan, ancak bir karışımını birimleri S1 ve B3 ya da S1 ve S2 gibi farklı sürümleri ile değil, bir IOT hub'ı oluşturabilirsiniz.
+IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Temel katmandan standart katmana yükseltebilirsiniz. Daha fazla bilgi için [IOT hub'ınıza yükseltme](iot-hub-upgrade.md). Temel katman IOT hub'ı için en yüksek bölüm sınırı 8'dir ve standart katman için 32'dir. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. IOT hub'ı oluşturulduğunda ve CİHAZDAN buluta iletileri bu iletileri eşzamanlı okuyucu sayısıyla ilgilidir'ün bölüm sınırından seçilir. Bu değer, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır. Ayrıca, bu yalnızca bir tür unutmayın [edition](https://azure.microsoft.com/pricing/details/iot-hub/) IOT hub'ı bir katman içinde seçilebilir. Örneğin, birden çok S1 birimi olan, ancak bir karışımını birimleri S1 ve B3 ya da S1 ve S2 gibi farklı sürümleri ile değil, bir IOT hub'ı oluşturabilirsiniz.
 
 | Özellik | Temel katman | Standart katman |
 | ---------- | ---------- | ------------- |
@@ -42,7 +42,7 @@ IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Tem
 | [Cihaz sağlama hizmeti](../iot-dps/about-iot-dps.md) | Evet | Evet |
 | [İzleme ve tanılama](iot-hub-monitor-resource-health.md) | Evet | Evet |
 | [Bulut-cihaz Mesajlaşma](iot-hub-devguide-c2d-guidance.md) |   | Evet |
-| [Cihaz ikizlerini](iot-hub-devguide-device-twins.md), [modül ikizlerini](iot-hub-devguide-module-twins.md) ve [cihaz Yönetimi](iot-hub-device-management-overview.md) |   | Evet |
+| [Cihaz ikizlerini](iot-hub-devguide-device-twins.md), [modül ikizlerini](iot-hub-devguide-module-twins.md), ve [cihaz Yönetimi](iot-hub-device-management-overview.md) |   | Evet |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Evet |
 
 IOT Hub ayrıca test ve değerlendirme için tasarlanmıştır ücretsiz bir katmanı sunar. Bu, standart katman, ancak sınırlı Mesajlaşma kesintileri tüm özelliklerine sahiptir. Ücretsiz katmanındaki temel veya standart olarak yükseltemezsiniz. 
@@ -68,7 +68,7 @@ Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki f
 | [Cihaz olayı Gönder](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Evet | Evet |
 | Modül olayı Gönder | Evet | Evet |
 | [Dosya karşıya yükleme durumu güncelleştirme](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Evet | Evet |
-| [Toplu cihaz işlemi](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Evet, IOT Edge özelliklere dışında | Evet | 
+| [Toplu cihaz işlemi](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Evet, IOT Edge özellikleri dışında | Evet | 
 | [Komut kuyruğu Temizle](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Evet |
 | [Cihaz ikizi Al](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Evet |
 | Modül ikizi Al |   | Evet |
@@ -111,11 +111,11 @@ Belirli veri bloğu performans rakamlarına ulaşmak için bkz. [IOT Hub kotalar
 IOT Hub'ınızda izin verilen ileti sınırına yaklaşılıyor, bunları kullanabilirsiniz [adımları otomatik olarak ölçeklendirmek için](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) aynı IOT hub'ı katmanında bir IOT Hub birimi artırmak için.
 
 ## <a name="sharding"></a>Parçalama
-Bazen tek bir IOT hub, milyonlarca cihaza ölçeklendirebilirsiniz olmakla birlikte, çözümünüzü tek bir IOT hub'a garanti edemez belirli performans özelliklerini gerektirir. Bu durumda birden çok IOT hub'ları arasında cihazlarınızı bölümleyebilirsiniz. IOT hub'ları birden çok trafik artışlarıyla başa kesintisiz ve gerekli olan işlem hızları ve gerekli aktarım hızı elde.
+Bazen tek bir IOT hub, milyonlarca cihaza ölçeklendirebilirsiniz olmakla birlikte, çözümünüzü tek bir IOT hub'a garanti edemez belirli performans özelliklerini gerektirir. Bu durumda, birden çok IOT hub'ları arasında cihazlarınızı bölümleyebilirsiniz. IOT hub'ları birden çok trafik artışlarıyla başa kesintisiz ve gerekli olan işlem hızları ve gerekli aktarım hızı elde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* IOT hub'ı özellikleri ve performans ayrıntıları hakkında ek bilgi için bkz. [IOT Hub fiyatlandırması] [bağlantı fiyatlandırma] veya [IOT Hub kotaları ve kısıtlamaları][IoT Hub quotas and throttles].
+* IOT hub'ı özellikleri ve performans ayrıntıları hakkında daha fazla bilgi için bkz. [IOT Hub fiyatlandırması] [ lnk-pricing] veya [IOT Hub kotaları ve kısıtlamaları] [ IoT Hub quotas and throttles].
 * IOT Hub katmanını değiştirmek için adımları izleyin. [IOT hub'ınıza yükseltme](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

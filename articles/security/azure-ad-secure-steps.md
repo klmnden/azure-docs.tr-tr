@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: d52431b50e37101b0272e3ce4bbf91011a477775
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: cb1c525527f7261c10b502a25b3cab3db89dd85f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252096"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515153"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -34,6 +34,10 @@ Bu denetim listesini açıklayarak hemen kuruluşunuzu korumak için kritik öne
 > [!NOTE]
 > Bu belgedeki önerilerin çoğu, Azure Active Directory, kimlik sağlayıcısı olarak kullanmak üzere yapılandırılan uygulamalar için geçerlidir. Uygulamaları için çoklu oturum açmayı yapılandırma kimlik bilgisi ilkeleri, tehdit algılama, avantajlarını sağlar, bu uygulamaları denetleme, günlüğe kaydetme ve diğer özellikleri ekleyin. [Azure Active Directory aracılığıyla çoklu oturum açmayı](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) tüm bu önerileri dayalı - temelidir.
 
+Bu belgedeki önerileri ile hizalanır [kimlik güvenli puanı](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), bir Azure AD kiracınızın kimliğini güvenlik yapılandırması değerlendirmesinin otomatik. Kuruluşlar geçerli Microsoft güvenlik için en iyi uygulamaları takip etmeleri emin olmak için geçerli güvenlik yapılandırmalarını boşlukları bulmak için Azure AD portalında güvenli kimlik puanı sayfasını kullanabilirsiniz. Her önerinin güvenli puanı sayfasında uygulama puanınız artırmak ve ilerlemenizi izleyin yanı sıra diğer benzer boyutu kuruluşlar veya sektörünüze yönelik uygulamanızda karşılaştırmanıza yardımcı olanak sağlar.
+
+![Güvenli kimlik puanı](media/azure-ad/azure-ad-sec-steps0.png)
+
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Başlamadan önce: MFA ile ayrıcalıklı hesapları korumak
 
 Bu denetim listesini başlamadan önce bu denetim listesini makaleyi okuduğunuz karşın, aşılan yoksa emin olun. Önce ayrıcalıklı hesapları korumak gerekir.
@@ -44,8 +48,8 @@ Tüm ayarlansın mı? Denetim listesi üzerinde başlayalım.
 
 ## <a name="step-1---strengthen-your-credentials"></a>1. adım - kimlik bilgilerinizi güçlendirin 
 
-Çoğu Kurumsal güvenlik ihlallerini birkaç parola ilaç, ihlal yeniden yürütme ya da kimlik avı gibi yöntemlerin biriyle tehlikeye bir hesapla kaynaklanır. (1 saat 15 milyon) Bu videoda bu saldırılar hakkında daha fazla bilgi edinin:
-> [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
+Çoğu Kurumsal güvenlik ihlallerini birkaç parola ilaç, ihlal yeniden yürütme ya da kimlik avı gibi yöntemlerin biriyle tehlikeye bir hesapla kaynaklanır. (45 dakika) Bu videoda bu saldırılar hakkında daha fazla bilgi edinin:
+> [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
 Kullanıcıların kimlik sisteminizde Zayıf parolalar kullanarak ve bunları güçlendirme multi-Factor authentication ile değil, yalnızca birkaç varsa veya size – yalnızca "ne sıklıkta." aşılan değilse
 
@@ -53,36 +57,36 @@ Kullanıcıların kimlik sisteminizde Zayıf parolalar kullanarak ve bunları g�
 
 Parolalar tahmin kötü amaçlı yazılım çalınırsa ya da yeniden kullanılabilir phished sıklığını verilen parola ile güçlü bir kimlik bilgisi çeşit geri – hakkında daha fazla bilgi edinmek için önemlidir [Azure multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
 
-### <a name="turn-off-traditional-complexity-expiration-rules-and-start-banning-commonly-attacked-passwords-instead"></a>Geleneksel karmaşıklığı, sona erme kuralları devre dışı açın ve bunun yerine, yaygın olarak Saldırıya uğrayan parolaları yasağı Başlat
+### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Başlangıç sık engellemeyi parolaları Saldırıya uğrayan ve geleneksel karmaşıklığı ve sona erme kuralları devre dışı bırakma.
 
-Çoğu kuruluş, geleneksel karmaşıklığı (örneğin, özel karakterler) ve parola süre sonu kuralları kullanır. Microsoft research, bu ilkeler kullanıcıların tahmin edilmesi kolaydır parolalar seçmesini zararlı göstermiştir.
+Çoğu kuruluş (gerektiren özel karakterler, sayılar, büyük ve küçük harf) geleneksel karmaşıklığını ve parola süre sonu kuralları kullanır. [Microsoft research](https://aka.ms/passwordguidance) Bu ilkeler, kullanıcıların tahmin edilmesi kolaydır parolaları seçim neden göstermiştir.
 
-Microsoft'un öneriler, tutarlı [NIST kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html), aşağıdaki üç uygulamak için:
+Azure AD'nin [dinamik yasaklı parola](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) özellik, kullanıcıların kolayca tahmin edilebilir parolaları ayarlama özelliğinden önlemek için geçerli bir saldırganın davranışı kullanır. Bu özellik, kullanıcıların bulutta oluşturulduğunda her zaman açık olan ancak dağıttıklarında ayrıca hibrit kuruluşlar için kullanıma sunuldu [Windows Server Active Directory için Azure AD parola koruması](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD parola koruması bu sık kullanılan parolaları seçme kullanıcıların engeller ve belirttiğiniz özel anahtar sözcükler içeren parola engelleyecek şekilde genişletilebilir. Örneğin, şirketinizin ürün adlarını veya bir yerel Spor takım içeren parolaları seçmesini kullanıcılarınızın engelleyebilirsiniz.
+
+Microsoft öneriyor bağlı olarak aşağıdaki modern parola ilkesini benimseme [NIST kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Parolalar en az 8 karaktere sahip olması gerekir. Bunlar, kullanıcıların tahmin edilebilir bir parola seçin, parolaları dosyaları Kaydet veya bunları Not neden artık gerekmeyen daha iyi değildir.
-2. Gibi bir kolayca tahmin edilebilecek parolaları kullanıcılara sürücü süre sonu kurallarını devre dışı **Summer2018!**.
+2. Gibi bir kolayca tahmin edilebilecek parolaları kullanıcılara sürücü süre sonu kurallarını devre dışı **Summer2018!**
 3. Karakter-birleştirme gereksinimleri devre dışı bırakın ve kullanıcıların parolalar tahmin edilebilir karakter değişimler seçmek neden olarak kullanıcıların yaygın olarak Saldırıya uğrayan parolaları seçmesini önleyerek.
 
-Kullanabileceğiniz [parola süresinin dolmasını engellemek için PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) doğrudan Azure AD'de kimlik oluşturursanız, kullanıcılar. Şirket içi kullanan kuruluşlar şirket içi kimlikleri (karma dağıtım olarak da bilinir) Azure AD eşitleme için Azure AD Connect ile AD uygulamanız gerekir [akıllı parola ilkelerini](https://aka.ms/passwordguidance) kullanarak [etki alanı Grup İlkesi ayarları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) veya [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
-
-Azure Active Directory'nin [dinamik yasaklı parola](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) özellik, kullanıcıların kolayca tahmin edilebilir parolaları ayarlama özelliğinden önlemek için geçerli bir saldırganın davranışı kullanır. Bu özellik her zaman açıktır ve karma bir dağıtımda bir kuruluşlarıyla avantajını bu özelliği etkinleştirerek [parola geri yazma](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback) veya dağıtabilirler [etkin Windows Server için Azure AD parola koruması Dizin](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Genel sık kullanılan parolaları seçme kullanıcıların Azure AD parola koruması engeller ve özel parolaları yapılandırabilirsiniz.
+Kullanabileceğiniz [parola süresinin dolmasını engellemek için PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) doğrudan Azure AD'de kimlik oluşturursanız, kullanıcılar için. Hibrit kuruluşlar [etki alanı Grup İlkesi ayarları] kullanarak bu ilkeleri uygulamanız gerekir (https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10) veya [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Sızdırılan kimlik bilgilerine karşı koruma ve kesintilere karşı dayanıklılık ekleme
 
-Kuruluşunuzun karma kimlik çözümü kullanıyorsa, aşağıdaki iki nedenden dolayı parola karması eşitlemeyi etkinleştirmeniz gerekir:
+Doğrudan kimlik doğrulama veya Federasyon ile kuruluşunuzun karma kimlik çözümü kullanıyorsa, aşağıdaki iki nedenden dolayı parola karma eşitlemesini etkinleştirmeniz gerekir:
 
-* [Kimlik bilgileri sızdırılan kullanıcılar](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) Azure AD yönetim raporu "koyu Web'de." kullanıma sunması, kullanıcı adı ve parola çiftleri sizi uyarır Parolaların inanılmaz bir birim aracılığıyla kimlik avı, kötü amaçlı yazılım ve parola yeniden kullanımını üçüncü taraf sitelerinde daha sonra ihlal sızmış. Microsoft kimlik bilgilerinin sızdırılması bunların çoğu bulur ve, Bu raporda eşleşirlerse kimlik bilgileri, kuruluş – ancak yalnızca size bildiririz [parola karma eşitlemesini etkinleştirme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
-* Şirket içi kesinti (örneğin, bir fidye yazılımı saldırısını) durumunda, geçiş yapana mümkün olacaktır [bulut kimlik doğrulaması kullanarak parola karması eşitleme](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Bu yedekleme kimlik doğrulama yöntemi, Azure Active Directory'ye Office 365 dahil olmak üzere, kimlik doğrulaması için yapılandırılan uygulamalar erişmeye devam etmek izin verir.
+* [Kimlik bilgileri sızdırılan kullanıcılar](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) Azure AD yönetim raporu "koyu Web'de." kullanıma sunması, kullanıcı adı ve parola çiftleri sizi uyarır Parolaların inanılmaz bir birim aracılığıyla kimlik avı, kötü amaçlı yazılım ve parola yeniden kullanımını üçüncü taraf sitelerinde daha sonra ihlal sızmış. Microsoft kimlik bilgilerinin sızdırılması bunların çoğu bulur ve, Bu raporda eşleşirlerse kimlik bilgileri, kuruluş – ancak yalnızca size bildiririz [parola karması eşitlemeyi etkinleştirme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
+* Şirket içi kesinti (örneğin, bir fidye yazılımı saldırısını) durumunda, kullanmaya geçmek mümkün olacaktır [parola karması eşitleme kullanarak bulut kimlik doğrulaması](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Bu yedekleme kimlik doğrulama yöntemi, Azure Active Directory'ye Office 365 dahil olmak üzere, kimlik doğrulaması için yapılandırılan uygulamalar erişmeye devam etmek izin verir. Bu durumda BT çalışanlarının şirket içi kesinti çözülene kadar veri paylaşımı için kişisel bir e-posta hesaplarına başvurmadan gerekmez.
 
-Hakkında daha fazla bilgi [parola karması eşitleme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) çalışır.
+Hakkında daha fazla bilgi [parola karma eşitlemesi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) çalışır.
 
-### <a name="implement-ad-fs-extranet-lockout"></a>Uygulama AD FS extranet kilitleme
+### <a name="implement-ad-fs-extranet-smart-lockout"></a>AD FS extranet kilitleme akıllı uygulama
 
-Kuruluşlar, doğrudan Azure AD'ye kimlik doğrulaması için uygulamaları yapılandırma yararlanabilir [Azure AD'ye akıllı kilitleme](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Windows Server 2012 R2 ' AD FS kullanıyorsanız AD FS'yi uygulamaya [extranet kilitlenme koruması](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Windows Server 2016'da AD FS kullanıyorsanız, uygulama [akıllı extranet kilitleme](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS akıllı kilitleme karşı deneme yanılma korur Extranet saldırıları, kullanıcılar Active Directory'de kilitlenmelerini engelleyen sırasında hangi hedef AD FS.
+Kuruluşlar, doğrudan Azure AD'ye kimlik doğrulaması için uygulamaları yapılandırma yararlanabilir [Azure AD'ye akıllı kilitleme](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Windows Server 2012 R2 ' AD FS kullanıyorsanız AD FS'yi uygulamaya [extranet kilitlenme koruması](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Windows Server 2016'da AD FS kullanıyorsanız, uygulama [akıllı extranet kilitleme](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS akıllı kilitleme karşı deneme yanılma korur Extranet saldırıları, kullanıcılar Active Directory'de kilitlenmelerini engelleyen sırasında hangi hedef AD FS.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Doğası gereği güvenli, kimlik bilgilerini kullanmayı daha kolay bir şekilde yararlanın
 
-Kullanarak [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), parolalar, bilgisayarları ve mobil cihazlarda güçlü iki öğeli kimlik doğrulama ile değiştirebilirsiniz. Bu kimlik doğrulaması, kullanıcı kimlik bilgisi bir cihaza bağlanır ve bir biyometrik veya PIN kodu kullanan yeni bir tür oluşur.
+Kullanarak [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), parolalar, bilgisayarları ve mobil cihazlarda güçlü iki öğeli kimlik doğrulama ile değiştirebilirsiniz. Bu kimlik doğrulaması, kullanıcı kimlik bilgisi bir cihaza güvenli bir şekilde bağlanır ve bir biyometrik veya PIN kodu kullanan yeni bir tür oluşur.
 
 ## <a name="step-2---reduce-your-attack-surface"></a>2. adım - saldırı yüzeyinizi azaltmak
 
@@ -98,9 +102,11 @@ Azure AD kimlik doğrulaması ve şirket verilerine erişmek için kendi eski y�
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blok geçersiz kimlik doğrulama giriş noktaları
 
-Varsay ihlal yapısı, koruyucuların kullanarak gerçekleştiğinde güvenliği aşılan kullanıcı kimlik bilgilerini etkisini azaltmak. Ortamınızdaki her uygulama için geçerli kullanım durumları göz önünde bulundurun: grupları, hangi ağları hangi cihazlar ve diğer öğeleri yetkiniz – sonra rest engelleyin. Kısıtlama ilgileniriz [yüksek ayrıcalıklı veya hizmet hesapları](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices). İle [Azure AD koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), tanımladığınız belirli koşullara bağlı kendi uygulamaları ve kaynaklarına nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz.
+Varsay ihlal yapısı, koruyucuların kullanarak gerçekleştiğinde güvenliği aşılan kullanıcı kimlik bilgilerini etkisini azaltmak. Ortamınızdaki her uygulama için geçerli kullanım durumları göz önünde bulundurun: grupları, hangi ağları hangi cihazlar ve diğer öğeleri yetkiniz – sonra rest engelleyin. İle [Azure AD koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), tanımladığınız belirli koşullara bağlı kendi uygulamaları ve kaynaklarına nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz.
 
-Belirli hizmet hesapları (otomatik bir biçimde görevleri gerçekleştirmek için kullanılan hesaplar) dikkat edin. Koşullu erişim kullanarak, bu hesapları yalnızca IP, hizmet karşı çalıştırabilirsiniz ve günün saatini, uygun olduğundan emin olun.
+### <a name="block-end-user-consent"></a>Blok son kullanıcı onayı
+
+OAuth 2.0 ve Microsoft Identity yararlanan uygulamalar vermek için izin varsayılan olarak, tüm kullanıcılar Azure AD'de [onay çerçevesine](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) şirket verilerine erişim izni. Tümleştirip kullanıcıların, Microsoft 365 ve Azure ile tümleşen yararlı uygulamaları kolayca almaya izin vermez ancak bu bir güvenlik riski değilse kullanılan ve dikkatli bir şekilde izlenen. [Tüm gelecek kullanıcı onayı işlemleri devre dışı bırakma](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access) yüzey alanınızı azaltmak ve bu riskin azaltılmasına yardımcı olabilir. Son kullanıcı onayı önceki devre dışı bırakılırsa izin veren hala kabul edilir, ancak bir yönetici tarafından tüm onaylar işlemlerinin gerçekleştirilmesi gerekir. Bu işlev devre dışı bırakmadan önce kullanıcıların yeni uygulamalar için yönetici onayı iste nasıl anladığınızdan emin olun önerilir; Bunun yapılması yardımcı kullanıcı uyuşmazlıkları azaltmak, destek birimi en aza indirmek ve Azure olmayan AD kimlik bilgilerini kullanan uygulamalar için kullanıcıların kaydolmayın emin olun.
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management uygulamak
 
@@ -113,7 +119,7 @@ Belirli hizmet hesapları (otomatik bir biçimde görevleri gerçekleştirmek i�
 * Multi-Factor authentication tarafından korunan emin ayrıcalıklı rolleri yapmak için kurallar oluşturun.
 * Ayrıcalıklı bir görevi tamamlamak için ayrıcalıklı rolleri yalnızca yeteri kadar verilen emin olmak için kurallar oluşturun.
 
-Azure AD PIM etkinleştirin ve ardından yönetim rolleri atanır ve bu rollerdeki gereksiz hesaplarını kaldırmak kullanıcıları görüntüleyin. Kalan ayrıcalıklı kullanıcılar için kalıcı için uygun taşıyabilirsiniz. Son olarak, emin olmak için uygun ilkeleri oluşturmak ayrıcalıklı roller erişmek ihtiyaç duydukları, bunların güvenli bir şekilde bunu yapabilirsiniz.
+Azure AD PIM etkinleştirin ve ardından yönetim rolleri atanır ve bu rollerdeki gereksiz hesaplarını kaldırmak kullanıcıları görüntüleyin. Kalan ayrıcalıklı kullanıcılar için kalıcı için uygun taşıyabilirsiniz. Son olarak, emin olmak için uygun ilkeleri oluşturmak ayrıcalıklı roller erişmek ihtiyaç duydukları, bunlar güvenli bir şekilde bunu, denetim gerekli ile değiştirin.
 
 Ayrıcalıklı hesap işleminizi dağıtma bir parçası olarak izleyin [açısından en iyisi, en az iki Acil Durum hesapları oluşturmak için](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices) varsa Azure ad erişim, kendiniz kilitlemesine emin olmak için.
 
@@ -143,7 +149,7 @@ Microsoft Azure Hizmetleri ve Özellikler Denetim ve günlüğe kaydetme seçene
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Azure AD Connect Health Karma ortamlarda izleyin
 
-[Azure AD Connect Health ile AD FS izleme](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) olası sorunları ve AD FS altyapınızı saldırıları görünürlüğünü büyük öngörü sağlar. Azure AD Connect Health uyarıları ayrıntılarını, çözüm adımları ve bağlantıları ile ilgili belgeler için sunar; kimlik doğrulama trafiği için ilgili çeşitli ölçümleri yönelik kullanım analizi; performans izleme ve raporlar.
+[Azure AD Connect Health ile AD FS izleme](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) olası sorunları ve AD FS altyapınıza yapılan saldırıları görünürlüğünü büyük öngörü sağlar. Azure AD Connect Health uyarıları ayrıntılarını, çözüm adımları ve bağlantıları ile ilgili belgeler için sunar; kimlik doğrulama trafiği için ilgili çeşitli ölçümleri yönelik kullanım analizi; performans izleme ve raporlar.
 
 ![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
 
@@ -151,7 +157,15 @@ Microsoft Azure Hizmetleri ve Özellikler Denetim ve günlüğe kaydetme seçene
 
 [Azure AD kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) büyük bildirimi, izleme ve Raporlama Aracı, kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama için kullanabilirsiniz. Sızan kimlik bilgileri, mümkün olmayan seyahat gibi risk olaylarını algılar ve oturum açma işlemleri virüs bulaşmış cihazlar, anonim IP adresleri, IP adresleri şüpheli etkinlikleri ve konumları bilinmeyen ile ilişkili. Risk altındaki kullanıcılar, e-posta ve/veya Haftalık Özet e-posta almak bildirim uyarıları etkinleştirin.
 
+Azure AD kimlik koruması, günlük izlemeniz iki önemli raporları sağlar:
+1. Riskli oturum açma raporları araştırmanız gereken kullanıcı oturum açma etkinlikleri belirir, meşru sahibi oturum açma yapmamış.
+2. Mümkün olmayan seyahat olaya neden farklı konumlardan kullanıcının oturum açtığı ya da riskli kullanıcı raporları, algılandı sızan kimlik bilgileri gibi tehlikeye girmiş olabilecek kullanıcı hesaplarının belirir. 
+
 ![Riskli oldukları belirlenen kullanıcılar](media/azure-ad/azure-ad-sec-steps3.png)
+
+### <a name="audit-apps-and-consented-permissions"></a>Denetim uygulamalar ve onay verilmiş izinleri
+
+Kullanıcılar, güvenliği aşılmış bir web sitesi ya da, profil bilgileri ve kullanıcı verilerine erişim, kullanıcıların e-posta gibi tabanına uygulamalarda gezinme içine sağladı. Kötü amaçlı bir aktör, posta kutusu içeriklerinin şifrelemek ve posta kutusu verilerinizi yeniden elde etmek için bir ransom talep için alınan onay verilmiş izinleri kullanabilirsiniz. [Yöneticiler gözden geçirmeniz ve Denetim](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) kullanıcılar tarafından verilen izinler.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Adım 5 - Enable son kullanıcı kendi kendine yardım
 

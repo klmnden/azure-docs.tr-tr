@@ -1,25 +1,25 @@
 ---
-title: Apache Kafka ile - Azure HDInsight Spark akışı
-description: Spark, Apache Spark akışı verilerini içine veya dışına DStreams kullanarak Apache Kafka kullanmayı öğrenin. Bu örnekte, HDInsight üzerinde Spark’tan bir Jupyter not defterini kullanarak verilerinizi akışla aktaracaksınız.
+title: Apache Spark ile Apache Kafka - Azure HDInsight akış
+description: Apache Spark akışı verilerini içine veya dışına DStreams kullanarak Apache Kafka kullanmayı öğrenin. Bu örnekte, HDInsight üzerinde Spark’tan bir Jupyter not defterini kullanarak verilerinizi akışla aktaracaksınız.
 keywords: Örnek kafka, kafka zookeeper, spark akış kafka, spark, kafka örnek akış
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d06e9d26051fbfafc4d717ec180e8760157aefd9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094175"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279169"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark akışını (DStream) HDInsight üzerinde Kafka örneğiyle
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark akışını (DStream) HDInsight üzerinde Apache Kafka örneğiyle
 
-Spark, Apache Spark akışı verilerini içine veya dışına DStreams kullanarak HDInsight üzerinde Apache kafka'yı kullanmayı öğrenin. Bu örnek, Jupyter Not Defteri kullanarak Spark kümesi üzerinde çalışan kullanır.
+Apache Spark akışı verilerini içine veya dışına DStreams kullanarak HDInsight üzerinde Apache kafka'yı kullanmayı öğrenin. Bu örnek, Jupyter Not Defteri kullanarak Spark kümesi üzerinde çalışan kullanır.
 
 > [!NOTE]
 > Bu belgede yer alan adımlar hem HDInsight üzerinde Spark hem de HDInsight kümesinde Kafka içeren bir Azure kaynak grubu oluşturur. Bu kümelerin her ikisi de Spark kümesinin Kafka kümesiyle doğrudan iletişim kurmasına olanak tanıyan bir Azure Sanal Ağı içinde bulunur.
@@ -59,7 +59,7 @@ Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, a
 
     * **Konum**: coğrafi olarak yakın bir konum seçin.
 
-    * **Temel küme adı**: Bu değer, Spark temel adı olarak kullanılır ve Kafka kümeleri. Örneğin, girme **hdı** adlı bir Spark kümesi oluşturulur __hdı spark__ ve adlı bir Kafka kümesi **kafka hdı**.
+    * **Temel küme adı**: Bu değer, Spark temel adı olarak kullanılır ve Kafka kümeleri. Örneğin, girme **hdistreaming** adlı bir Spark kümesi oluşturulur __spark hdistreaming__ ve adlı bir Kafka kümesi **kafka hdistreaming**.
 
     * **Küme oturum açma kullanıcı adı**: Spark ve Kafka kümeleri için yönetici kullanıcı adı.
 
@@ -71,7 +71,7 @@ Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, a
 
 3. **Hüküm ve Koşullar**’ı okuyun ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**’u seçin.
 
-4. Son olarak, **Panoya sabitle**’yi işaretleyin ve **Satın Al**’ı seçin. Kümelerin oluşturulması yaklaşık 20 dakika sürer.
+4. Son olarak, seçin **satın alma**. Kümelerin oluşturulması yaklaşık 20 dakika sürer.
 
 Kaynak oluşturulduktan sonra Özet sayfasında görünür.
 

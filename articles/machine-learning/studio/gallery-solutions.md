@@ -1,6 +1,6 @@
 ---
-title: Azure AI galeri çözümleri | Microsoft Docs
-description: Azure AI Galerideki çözümleri keşfedin.
+title: Azure yapay ZEKA Galerisi'ni çözümleri | Microsoft Docs
+description: Azure AI Galerisi'nde çözümleri keşfedin.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,39 +15,37 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 19861955dcf82d0ffae674400552ca1f0c439a81
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cb02ed61ea050c17bc7e6dc0ebc724f29f885dd7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834896"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344344"
 ---
-# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI Galerideki çözümleri Bul
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI Galerisi'nde çözümleri keşfedin
 
-## <a name="solutions"></a>Çözümler
-A **[çözüm](https://gallery.cortanaintelligence.com/solutions)** hızlı bir şekilde önceden yapılandırılmış çözümler, başvuru mimarisi ve tasarım desenleri Cortana Intelligence çözümleri oluşturmak üzere başkalarından galeride sağlar.
-Bunları kendi dahil yönergeleri veya özel bir iş ortağı ile yapın.  
+A **[çözüm](https://gallery.cortanaintelligence.com/solutions)** içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com) hızlı bir şekilde önceden yapılandırılmış çözümlerden Cortana Intelligence çözümleri oluşturun, başvuru mimarileri, hızlı bir başlangıç sağlar ve Tasarım desenleri.
+Dahil edilen yönergeler veya öne çıkan iş ortağı ile kendi olacak.  
 
 ## <a name="discover"></a>Keşif
-  Galerideki çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** galeri giriş sayfasının üst.
+  Galerisi'nde çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** galeri giriş sayfasının üst.
 
- **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)** sayfa en son eklenen çözümlerinin listesini görüntüler.
-Tıklatın **tümünü görmek** tüm çözümleri görüntülemek için.
-Bu sayfadan galerisinde tüm çözümleri göz atabilirsiniz. Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.
+ **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)** sayfası en son eklenen çözümlerinin bir listesini görüntüler.
+Tıklayın **tümünü gör** tüm çözümleri görüntülemek üzere.
+Bu sayfada, galerideki tüm çözümleri göz atabilirsiniz. Filtre ölçütü sol üst girme arama terimlerini ve sayfa seçerek arama da yapabilirsiniz.
 
- Kendi ayrıntı sayfası açın ve daha fazla bilgi okumak için herhangi bir çözümü'ı tıklatın. Bu sayfada açıklama, geri bildirim sağlamak veya açıklamalar bölümüne aracılığıyla sorular sorun. Bunu arkadaş ya da LinkedIn veya Twitter paylaşım özelliklerini kullanarak iş arkadaşlarınızı bile paylaşabilirsiniz. Ayrıca bağlantı çözümü sayfasını görüntülemek için diğer kullanıcıları davet e-posta gönderebilirsiniz.
+ Herhangi bir çözümü Ayrıntılar sayfasını açın ve daha fazla bilgi edinmek için tıklayın. Açıklama ekleyebilir, bu sayfadaki geri bildirim sağlamak veya Açıklamalar bölümü aracılığıyla sorular sorun. Bunu arkadaş veya Twitter ve LinkedIn paylaşımı özelliklerini kullanarak iş arkadaşları ile bile paylaşabilirsiniz. Ayrıca bağlantı çözümü sayfasını görüntülemek için diğer kullanıcıları davet e-posta gönderebilirsiniz.
 
 ![Bu öğe arkadaşlarınızla paylaşın](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Kendi açıklamaları ekleme](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Kendi açıklamalar ekleme](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Dağıtma
-Bir çözüm kullanmak istiyorsanız, **dağıtma**. Yapılandırmak ve çalışma alanınızdaki çözümü dağıtmak için sunulan adımları izleyin.
+Bir çözüm kullanmak istiyorsanız, tıklayın **Dağıt**. Yapılandırma ve dağıtma çalışma alanınızda çözümün sunulan adımları izleyin.
 
 ![Bir galeri çözümü dağıtma](./media/gallery-solutions/deploy-solution.png)
 
-**[BANA GALERİSİNE ELE &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[BENİ GALERİSİNE GÖTÜR &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

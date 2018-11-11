@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318206"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346329"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Azure Kubernetes Service için Azure Machine Learning hizmetinden modelleri dağıtma
 
@@ -63,6 +63,9 @@ Azure Kubernetes hizmeti, Docker görüntüleri kullanır. Görüntüyü oluştu
 1. Görüntü yapılandırmak için Puanlama betiğine ve ortam dosyası oluşturmanız gerekir. Betik ve ortam dosyası oluşturma örneği için görüntü sınıflandırma örneği aşağıdaki bölümlere bakın:
 
     * [Puanlama betiğine (score.py) oluşturma](tutorial-deploy-models-with-aml.md#create-scoring-script)
+
+        > [!IMPORTANT]
+        > Puanlama betiği istemcilerden gönderilen verileri alır ve puanlama modeli geçirir. Betik ve model veri yapısı belgeleyin. Bu belgeleri olan şey web hizmeti kullanmak üzere bir istemci oluştururken kolaylaştırır.
 
     * [Bir ortam dosyası (myenv.yml) oluşturma](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -190,3 +193,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bilgi edinmek için nasıl [ML Model dağıtılan web hizmeti olarak Tüket](how-to-consume-web-service.md).

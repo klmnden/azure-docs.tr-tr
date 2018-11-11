@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870487"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514970"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın
 
@@ -60,7 +60,7 @@ Yönetilen örnek, yalnızca özel bir IP adresi erişilebilir. Şirket içinden
 Yönetilen örnek yalnızca özel bir IP adresi, geliştirici kutusundan erişmek için bu nedenle erişilebilir, önce Geliştirici box'ınızı ve yönetilen örnek VNet arasında bir bağlantı yapmanız gerekir. Bunu yapmak için yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırın. Daha fazla bilgi için [şirket içi bilgisayardan bir Azure SQL veritabanı yönetilen örneğine bağlanmak için noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>Şirket içinden sanal ağ eşlemesi ile bağlanma
-Müşteriler tarafından uygulanan başka bir VPN ağ geçidi ayrı bir sanal ağ ve bir abonelikten bir barındırma yönetilen örneği, yüklü olduğu bir senaryodur. İki sanal etworks ardından eşlenmiş. Aşağıdaki örnek mimarisi diyagramı, bunu nasıl uygulanabileceği gösterilmektedir.
+Müşteriler tarafından uygulanan başka bir VPN ağ geçidi ayrı bir sanal ağ ve bir abonelikten bir barındırma yönetilen örneği, yüklü olduğu bir senaryodur. Ardından eşlenen iki sanal ağ. Aşağıdaki örnek mimarisi diyagramı, bunu nasıl uygulanabileceği gösterilmektedir.
 
 ![VNet eşlemesi](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -83,6 +83,10 @@ Tümleştirildiğinde, Azure App Service ağ yönetilen örneğini sanal ağa e�
 Bu senaryo, aşağıdaki diyagramda gösterilmiştir:
 
 ![tümleşik uygulama eşlemesi](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>VNet tümleştirme özelliğini bir uygulama, bir ExpressRoute ağ geçidi olan bir VNet ile tümleşmez. ExpressRoute ağ geçidi bir arada bulunma modunda yapılandırılmış olsa bile, sanal ağ tümleştirmesi çalışmaz. Ardından ExpressRoute bağlantısı yoluyla kaynaklara erişmeye ihtiyacınız varsa, sanal ağınızda çalışır bir App Service ortamı kullanabilirsiniz.
+>
  
 ## <a name="troubleshooting-connectivity-issues"></a>Bağlantı sorunlarını giderme
 

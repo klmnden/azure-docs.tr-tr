@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419854"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280750"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure uygulama dağıtma yığını
 
@@ -292,7 +292,7 @@ Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 | Abonelik adı | name@contoso.com | Azure Stack kullanıcı abonelik adı. |
 | Hizmet sorumlusu istemci kimliği | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Asıl Kimliğinden [bu](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) bu makaledeki bir bölüm. |
 | Hizmet sorumlusu anahtarı | THESCRETGOESHERE = | Aynı makalede (veya betiği kullandıysanız parolayı) anahtarı. |
-| Kiracı Kimliği | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | Kiracı kimliği aşağıdaki yönerge almak kiracıya alma kimliği Aşağıdaki yönerge almak Kiracı kimliği [Kiracı Kimliğinizi alma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Kiracı Kimliği | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | Aşağıdaki yönerge almak Kiracı kimliği [Kiracı Kimliğinizi alma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Bağlantı: | Doğrulanmadı | Hizmet sorumlusu için bağlantı ayarlarınızı doğrulayın. |
 
 Uç nokta oluşturulduktan sonra Azure Stack bağlantı DevOps kullanıma hazırdır. Azure stack'teki derleme aracısı DevOps yönergeleri alır ve ardından aracı iletişimi için Azure Stack ile uç nokta bilgileri iletmez.
@@ -317,7 +317,7 @@ Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 | Abonelik adı | name@contoso.com | Azure Stack kullanıcı abonelik adı. |
 | Hizmet sorumlusu istemci kimliği | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | AD FS için oluşturduğunuz gelen hizmet sorumlusu istemci kimliği. |
 | Sertifika | `<certificate>` |  Sertifikayı PFX'ten PEM'ye dönüştürün. Sertifika PEM dosyasının içeriğini bu alana yapıştırın. <br> PFX PEM'ye dönüştürme:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| Kiracı Kimliği | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | Kiracı kimliği aşağıdaki yönerge almak kiracıya alma kimliği Aşağıdaki yönerge almak Kiracı kimliği [Kiracı Kimliğinizi alma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Kiracı Kimliği | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | Aşağıdaki yönerge almak Kiracı kimliği [Kiracı Kimliğinizi alma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Bağlantı: | Doğrulanmadı | Hizmet sorumlusu için bağlantı ayarlarınızı doğrulayın. |
 
 Uç nokta oluşturulduktan sonra Azure Stack bağlantı için Azure DevOps kullanıma hazırdır. Yapı aracısının Azure Stack'te Azure DevOps yönergeleri alır ve ardından aracıyı Azure Stack ile iletişim için uç nokta bilgileri iletmez.

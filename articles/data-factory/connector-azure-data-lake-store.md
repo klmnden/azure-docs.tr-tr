@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3b1abe60fc81ae0316e2d0552a1750129171ff5f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817033"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345462"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake depolama Gen1 gelen veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +44,6 @@ Azure Data Lake Store için herhangi bir desteklenen kaynak veri deposundan veri
 > Azure Data Lake Store Bağlayıcısı'nı kullanarak bir kılavuz için bkz. [Azure Data Lake Store ile veri yükleme](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->Kopyalama işlem hattını yazar veya geliştirme sırasında test bağlantısı ve gezinme klasörleri gerçekleştirmek için ADF UI kopya veri aracını kullandığınızda, hizmet sorumlusu veya MSI kök düzeyinde verilmeden izni gerektirir. Kopyalanacak verileri izni olduğu sürece kopyalama etkinliği yürütme süre çalışabilir. İzin sınırlıyorsa yazma işlemleri atlayabilirsiniz.
 
 Aşağıdaki bölümler belirli Data Factory varlıkları Azure Data lake Store için tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -79,6 +76,9 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için Azure Active Directory (Az
 > Hizmet sorumlusu uygun Azure Data Lake Store içinde izni olduğundan emin olun:
 >- **Kaynak olarak**, veri Gezgini'nde -> erişim, en az izni **okuma + yürütme** listelemek ve klasör/klasörlerdeki dosyaları kopyalamak için izni veya **okuma** tek bir dosyayı; kopyalayın ve tercih izni ekleme **bu klasör ve tüm alt öğeleri** için yinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
 >- **Havuz olarak**, veri Gezgini'nde -> erişim, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak ve eklemek izni **bu klasör ve tüm alt öğeleri** özyinelemeli için ve ekleme olarak **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (hem kaynak hem de bulutta) erişim denetimi (IAM), en az izni **okuyucu** Data Factory'ye Data Lake Store'nın bölgesi algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure IR oluşturma](create-azure-integration-runtime.md#create-azure-ir) bağlı hizmeti aşağıdaki örnekteki gibi konum Data Lake Store ve Data Lake Store içinde ilişkilendirin.
+
+>[!NOTE]
+>Kullanırken **kopyalama veri aracı** kopyalama işlem hattını yazar veya **ADF UI** geliştirme sırasında test bağlantısı ve gezinme klasörleri gerçekleştirmek için hizmet sorumlusu verilmedeniznigerektirir **"Yürütme" iznine sahip kök düzeyinde** kökünden başlayarak klasörleri listeleme sırada. Kopyalanacak verileri izni olduğu sürece kopyalama etkinliği yürütme süre çalışabilir. İzin sınırlıyorsa yazma işlemleri atlayabilirsiniz.
 
 Aşağıdaki özellikler desteklenir:
 
@@ -128,6 +128,9 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
 >- **Kaynak olarak**, veri Gezgini'nde -> erişim, en az izni **okuma + yürütme** listelemek ve klasör/klasörlerdeki dosyaları kopyalamak için izni veya **okuma** tek bir dosyayı; kopyalayın ve tercih izni ekleme **bu klasör ve tüm alt öğeleri** için yinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
 >- **Havuz olarak**, veri Gezgini'nde -> erişim, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak ve eklemek izni **bu klasör ve tüm alt öğeleri** özyinelemeli için ve ekleme olarak **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (hem kaynak hem de bulutta) erişim denetimi (IAM), en az izni **okuyucu** Data Factory'ye Data Lake Store'nın bölgesi algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure IR oluşturma](create-azure-integration-runtime.md#create-azure-ir) bağlı hizmeti aşağıdaki örnekteki gibi konum Data Lake Store ve Data Lake Store içinde ilişkilendirin.
 
+>[!NOTE]
+>Kullanırken **kopyalama veri aracı** kopyalama işlem hattını yazar veya **ADF UI** geliştirme sırasında test bağlantısı ve gezinme klasörleri gerçekleştirmek için izin verilmesini gerektirir **kökü "Yürütme" iznine sahip düzeyi** kökünden başlayarak klasörleri listeleme sırada. Kopyalanacak verileri izni olduğu sürece kopyalama etkinliği yürütme süre çalışabilir. İzin sınırlıyorsa yazma işlemleri atlayabilirsiniz.
+
 Azure Data Factory'de bağlı hizmet Data Lake Store genel bilgilerin yanı sıra herhangi bir özelliği belirtmeniz gerekmez.
 
 **Örnek:**
@@ -159,7 +162,7 @@ Azure Data Lake Store/veri kopyalamak için dataset öğesinin type özelliği a
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır: **AzureDataLakeStoreFile** |Evet |
-| folderPath | Data Lake Store içinde bir klasörün yolu. Joker karakter filtresi desteklenmez. Örnek: rootfolder/alt / |Evet |
+| folderPath | Data Lake Store içinde bir klasörün yolu. Joker karakter filtresi desteklenmez. Belirtilmezse, kök dizinine işaret eder. Örnek: rootfolder/alt / |Hayır |
 | fileName | **Adı veya joker karakter filtresi** belirtilen "folderPath" altında dosyaları için. Bu özellik için bir değer belirtmezseniz, klasördeki tüm dosyaları için veri kümesini işaret eder. <br/><br/>Filtre için joker karakterlere izin verilir: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"`<br/>Kullanım `^` joker karakter veya içinde bu kaçış karakteri, gerçek dosya adı varsa, kaçış için.<br/><br/>Dosya adı değil belirtildiği zaman için bir çıktı veri kümesi ve **preserveHierarchy** belirtilmediyse etkinliği havuz kopyalama etkinliği, dosya adı şu biçimde ile otomatik olarak oluşturur: "*veri. [ Etkinlik çalıştırma kimliği GUID]. [GUID, FlattenHierarchy]. [biçim] yapılandırılmışsa. [yapılandırdıysanız sıkıştırma]* ". "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz" buna bir örnektir. |Hayır |
 | Biçim | İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın.<br/><br/>Ayrıştırma veya belirli bir biçime sahip dosyaları oluşturmak istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopya senaryosu için) |
 | Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |

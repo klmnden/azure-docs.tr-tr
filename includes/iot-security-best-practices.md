@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b870be792da9a6646a7854bc17b7e33fb11d7b0c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2138eed9975abe804442c476d19b5b7229685362
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070177"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289198"
 ---
-# <a name="internet-of-things-security-best-practices"></a>En iyi güvenlik uygulamaları, nesnelerin interneti
+# <a name="security-best-practices-for-internet-of-things-iot"></a>Nesnelerin interneti (IOT) için en iyi güvenlik uygulamaları
 
 Bir nesnelerin interneti (IOT) altyapısını koruma sıkı bir güvenlik savunma stratejisi gerektirir. Bu strateji, verileri bulutta güvenli, genel internet üzerinden aktarım sırasında veri bütünlüğünü korumak ve güvenli bir şekilde cihaz sağlamayı gerektirir. Her katman, daha yüksek güvenlik güvencesi genel altyapı oluşturur.
 

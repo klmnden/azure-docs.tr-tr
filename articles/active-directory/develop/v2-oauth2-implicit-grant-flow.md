@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817115"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289028"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
 
@@ -145,7 +145,7 @@ Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı orta
 
 ## <a name="get-access-tokens"></a>Erişim belirteci alma
 
-Tek sayfalı uygulamanızı kullanıcı oturum açma, erişim belirteçleri çağıran web API'leri gibi Azure AD tarafından güvenlik altına alabilirsiniz [Microsoft Graph](https://graph.microsoft.io). Zaten bir belirteci kullanarak alınan bile `token` response_type, kullanıcı yeniden oturum açmak için yeniden yönlendirme gerek kalmadan ek kaynaklara belirteçlerini almak için bu yöntemi kullanabilirsiniz.
+Tek sayfalı uygulamanızı kullanıcı oturum açma, erişim belirteçleri çağıran web API'leri gibi Azure AD tarafından güvenlik altına alabilirsiniz [Microsoft Graph](https://developer.microsoft.com/graph). Zaten bir belirteci kullanarak alınan bile `token` response_type, kullanıcı yeniden oturum açmak için yeniden yönlendirme gerek kalmadan ek kaynaklara belirteçlerini almak için bu yöntemi kullanabilirsiniz.
 
 Normal Openıd Connect/OAuth akışını bu v2.0 için bir istekte yaptığınız `/token` uç noktası. Ancak, v2.0 uç noktası almak ve belirteçleri yenilemek için AJAX çağrıları yapma soru dışında bu nedenle CORS isteklerini desteklemez. Bunun yerine, diğer web API'leri için yeni belirteçlerini almak için gizli bir iframe içinde örtük akış kullanabilirsiniz: 
 

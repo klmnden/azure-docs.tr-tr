@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.openlocfilehash: 9533992b939983ceda37a7c98d0bc2426168a0ac
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956500"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279372"
 ---
 # <a name="configure-spark-settings"></a>Spark ayarlarını yapılandırma
 
@@ -30,11 +30,8 @@ VM sayısı ve HDInsight kümenizdeki düğümleri için VM boyutları, Spark ya
 
 Kümeniz için en iyi Spark sürümü kullanın.  HDInsight hizmeti, Spark hem kendi HDInsight çeşitli sürümlerini içerir.  Spark'ın her bir sürümü, bir dizi varsayılan küme ayarlarını içerir.  
 
-Yeni bir küme oluşturduğunuzda, aralarından seçim yapabileceğiniz geçerli Spark sürümleri şunlardır:
+Yeni bir küme oluşturduğunuzda, aralarından seçim yapabileceğiniz birden fazla Spark sürümü vardır. Listenin tamamını görmek için [HDInsight bileşenleri ve sürümleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning)
 
-![Spark sürümleri](./media/apache-spark-settings/spark-version.png)
-
-Spark 2.x 1.x Spark daha çok daha iyi çalışabilir. Spark 2.x sahip bir dizi Tungsten Catalyst sorgu iyileştirme ve daha fazlası gibi performans iyileştirmeleri.  
 
 > [!NOTE]
 > Apache Spark'ın varsayılan sürüm HDInsight hizmetinde değiştirilebilir. Bir sürüm bağımlılığı varsa, Microsoft .NET SDK'sı, Azure PowerShell ve klasik Azure CLI kullanarak kümeleri oluşturduğunuzda, bu belirli sürümü belirttiğiniz önerir.

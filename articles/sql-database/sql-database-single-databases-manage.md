@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: ac3ce8a417a63ce0a91339c38c2a5ae8b3013228
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 11/09/2018
+ms.openlocfilehash: 27228904dab0726a1d84e58751a3315f3ff03447
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466792"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515395"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Mantıksal sunucuları ve Azure SQL veritabanı'nda tek veritabanları oluşturma ve yönetme
 
@@ -60,7 +60,7 @@ Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfası
 Azure SQL server, veritabanları ve Azure PowerShell ile güvenlik duvarları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps).
 
 > [!TIP]
-> PowerShell için hızlı başlangıç için bkz: [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md). PowerShell örnek komut dosyaları için bkz: [tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell kullanma](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek tek bir SQL veritabanını PowerShell kullanarak](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> PowerShell örnek komut dosyaları için bkz: [tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell kullanma](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek tek bir SQL veritabanını PowerShell kullanarak](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Cmdlet | Açıklama |
 | --- | --- |

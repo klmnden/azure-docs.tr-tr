@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231635"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515667"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
 Azure, hatalarını ayıklamaya yardımcı olmak üzere yerleşik tanılama sağlar bir [App Service web uygulaması](https://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede, Azure tarafından günlüğe kaydedilen bilgilere nasıl yanı sıra tanılama günlüğünü etkinleştirme ve uygulamanız için izleme ekleme öğrenin.
 
-Bu makalede [Azure portalında](https://portal.azure.com), tanılama günlükleri ile çalışmak için Azure PowerShell ve Azure komut satırı arabirimi (Azure CLI). Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Visual Studio'daki sorun giderme Azure](web-sites-dotnet-troubleshoot-visual-studio.md).
+Bu makalede [Azure portalında](https://portal.azure.com) ve Azure CLI'yı tanılama günlükleri ile çalışma. Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Visual Studio'daki sorun giderme Azure](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ Etkinleştirdiğinizde **uygulama tanılama**, ayrıca **düzeyi**. Bu ayar içi
 
 İçin **Web sunucusu günlüğü**, seçebileceğiniz **depolama** veya **dosya sistemi**. Seçme **depolama** bir depolama hesabı ve günlüklere yazılır bir blob kapsayıcısı seçmenizi sağlar. 
 
-Dosya sisteminde günlüklerini depolamak, dosyaları FTP tarafından erişilen veya Azure PowerShell veya Azure komut satırı arabirimi (Azure CLI) kullanarak bir ZIP arşivi indirilir.
+Dosya sisteminde günlüklerini depolamak, dosyaları FTP tarafından erişilen veya Azure CLI kullanarak bir ZIP arşivi indirilir.
 
 Varsayılan olarak, günlükleri otomatik olarak silinmez (dışında **uygulama günlüğü (dosya sistemi)**). Günlükleri otomatik olarak silmek için ayarlarsınız **saklama dönemi (gün)** alan.
 
@@ -84,13 +84,9 @@ Aynı temel bilgileri günlüğe kaydedilen olayları, tüm üç depolama konuml
 > [!NOTE]
 > Depolanan bilgi **tablo depolama** veya **blob depolama** yalnızca depolama istemcisi veya bu depolama sistemleri ile doğrudan çalışabilmeniz için uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve HDInsight, blob depolamada depolanan verilere erişebilir. Ayrıca, aşağıdakilerden birini kullanarak Azure depolama alanına erişen bir uygulama yazabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/downloads/).
 >
-> [!NOTE]
-> Tanılama Azure Powershell'den da etkinleştirilebilir kullanarak **Set-AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
 
 ## <a name="download"></a> Nasıl yapılır: indirme günlükleri
-Tanılama bilgileri için web uygulaması dosya sistemi depolanan FTP kullanarak doğrudan erişilebilir. Ayrıca Azure PowerShell veya Azure komut satırı arabirimi kullanarak bir ZIP arşivi indirilebilir.
+Tanılama bilgileri için web uygulaması dosya sistemi depolanan FTP kullanarak doğrudan erişilebilir. Ayrıca Azure CLI kullanarak bir ZIP arşivi indirilebilir.
 
 Günlükleri depolanan dizin yapısı aşağıdaki gibidir:
 
@@ -106,19 +102,7 @@ Uygulamanızın FTP sunucusu ile FTP bağlantısı açmak için bkz [uygulamanı
 
 Web uygulamanızın FTP/S sunucusuna bağlandıktan sonra açın **LogFiles** günlük dosyalarının depolandığı klasöre,.
 
-### <a name="download-with-azure-powershell"></a>Azure PowerShell ile indirin
-Günlük Dosyaları indirmek için Azure PowerShell'in yeni bir örneğini başlatın ve aşağıdaki komutu kullanın:
-
-    Save-AzureWebSiteLog -Name webappname
-
-Bu komut tarafından belirtilen web uygulaması için günlüklere kaydeder **-adı** parametresi adlı bir dosyaya **logs.zip** geçerli dizin.
-
-> [!NOTE]
-> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Azure komut satırı arabirimi ile indirin
+### <a name="download-with-azure-cli"></a>İle Azure CLI'yı indirme
 Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek için yeni bir komut istemi, PowerShell, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek içi
 Bu komut adlı bir dosyaya ' webappname' adlı web uygulaması için günlüklere kaydeder **diagnostics.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure komut satırı arabirimi (Azure CLI) yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Azure CLI yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights, filtreleme ve günlük arama ve günlükleri
 [Application Insights ile izleme performansıyla ilgili daha fazla bilgi edinin](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Nasıl yapılır: Stream günlükleri
-Bir uygulama geliştirirken, genellikle günlük kaydı bilgilerini neredeyse gerçek zamanlı görmek yararlı olur. Geliştirme ortamınızı Azure PowerShell veya Azure komut satırı arabirimini kullanarak günlüğe bilgi akışını yapabilirsiniz.
+Bir uygulama geliştirirken, genellikle günlük kaydı bilgilerini neredeyse gerçek zamanlı görmek yararlı olur. Geliştirme ortamınızı Azure CLI'yı kullanarak günlük kaydı bilgilerini akışını yapabilirsiniz.
 
 > [!NOTE]
 > Akıştaki sıralama dışı olaylar sonuçlanabilir günlük dosyasına günlük arabellek bazı türleri yazın. Örneğin, bir kullanıcı bir sayfayı ziyaret ettiğinde oluşan bir uygulama günlük girişi sayfa isteği için karşılık gelen HTTP günlük girişi önce akıştaki görüntülenebilir.
@@ -153,29 +137,7 @@ Bir uygulama geliştirirken, genellikle günlük kaydı bilgilerini neredeyse ge
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Azure PowerShell ile akış
-Değiştirmek için akış günlük kaydı bilgilerini, Azure PowerShell'in yeni bir örneği başlatın ve aşağıdaki komutu kullanın:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Bu komut tarafından belirtilen web uygulamasına bağlar **-adı** parametresi ve web uygulama günlüğü olaylarını ortaya çıktıkları PowerShell penceresi için bilgi akışı başlatmak. Herhangi bir bilgi /LogFiles dizininde (d:/home/logfiles) depolanan dosyaları .txt, .log veya .htm bitiş yazılan yerel konsola akışla aktarılır.
-
-Hataları gibi belirli olayları filtrelemek için kullanmak **-ileti** parametresi. Örneğin:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **-yolu** parametresi. Örneğin:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Kullanılabilir yollarının listesini görmek için - ListPath parametresini kullanın.
-
-> [!NOTE]
-> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure PowerShell kullanmak için nasıl](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Azure komut satırı arabirimi ile akış
+### <a name="streaming-with-azure-cli"></a>Azure CLI ile akış
 Değiştirmek için akış günlük kaydı bilgilerini, yeni bir komut istemi, PowerShell, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,7 +153,7 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **--yolu*
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Azure komut satırı arabirimi yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [nasıl için Azure komut satırı arabirimi kullanan](../cli-install-nodejs.md).
+> Azure CLI yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](../cli-install-nodejs.md).
 >
 >
 

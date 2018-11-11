@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 46c59d02294dea34a4713f44f31733035c68d66e
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47058016"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277469"
 ---
 # <a name="azure-management---monitoring"></a>Azure Yönetimi - İzleme
 
@@ -35,13 +35,13 @@ Aşağıdaki diyagramda herhangi bir uygulamayı veya kaynağı korumak için ge
 Aşağıdaki bölümlerde farklı yönetim alanları kısaca açıklanır ve ilgili temel Azure hizmetlerindeki ayrıntılı içeriklere yönelik bağlantılar sunulur.
 
 ## <a name="monitor"></a>İzleme
-İzleme, iş uygulamalarınızın ve bağımlı oldukları kaynakların performansını, sistem durumunu ve kullanılabilirliğini belirlemeye yönelik verileri toplayıp analiz etme eylemidir. Etkili bir izleme stratejisi, uygulamanızdaki farklı bileşenlerin ayrıntılı işlemlerini anlamanıza yardımcı olur ve bazı önemli zorlukları sorun haline gelmeden önce çözmenizi sağlamak amacıyla bunları proaktif bir biçimde size bildirerek çalışma sürenizi artırabilir. Azure'da izleme öncelikle tarafından sağlanır [Azure İzleyici](../azure-monitor/overview.md) izleme verilerini depolamak için ortak depoları sağlar, birden çok veri kaynakları katmanları ve farklı uygulama destekleyen verilerinin toplanması için ve özellikleri toplanan verileri analiz etme ve yanıtlama.
+İzleme, iş uygulamalarınızın ve bağımlı oldukları kaynakların performansını, sistem durumunu ve kullanılabilirliğini belirlemeye yönelik verileri toplayıp analiz etme eylemidir. Etkili bir izleme stratejisi, uygulamanızdaki farklı bileşenlerin ayrıntılı işlemlerini anlamanıza yardımcı olur ve bazı önemli zorlukları sorun haline gelmeden önce çözmenizi sağlamak amacıyla bunları proaktif bir biçimde size bildirerek çalışma sürenizi artırabilir. Azure'da izleme temel olarak [Azure İzleyici](../azure-monitor/overview.md) tarafından sağlanır. Bu hizmet izleme verilerini depolamak için ortak depolar, uygulamanızı destekleyen farklı katmanlardan veri toplamak için birden çok veri kaynağı ve toplanan verileri analiz etmek ve gerekli işlemleri gerçekleştirmek için özellikler sunar.
 
 ## <a name="configure"></a>Yapılandırma
 Yapılandırma, uygulama ve kaynakların ilk dağıtımı ile yapılandırmasına ek olarak, yama ve güncelleştirmeler ile sürdürülen bakımlarını ifade eder.  Bu görevlerin betikler ve ilkeler aracılığıyla otomasyonu sayesinde artıklığı ortadan kaldırabilir, doğruluk ve verimliliğinizi artırmak için harcadığınız zamanı ve çabayı en aza indirebilirsiniz.  [Azure Otomasyonu](..\automation\automation-intro.md), yapılandırma görevlerini otomatikleştirmek için toplu hizmetler sunar.  Süreçleri otomatikleştirmeye yönelik runbook’lara ek olarak, ilkeler aracılığıyla yapılandırmayı yönetmenize ve güncelleştirmeleri tanımlayıp dağıtmanıza yardımcı olan yapılandırma ve güncelleştirme yönetimi sağlar.
 
 ## <a name="govern"></a>İdare
-İdare, Azure’daki uygulama ve kaynaklarınız üzerindeki denetimi sürdürmenize yönelik mekanizmalar ve süreçler sağlar.  Girişimlerinizi planlama ve stratejik öncelikleri belirleme de bu kapsama dahildir.  Azure’da İdare, temelde iki hizmet ile uygulanır.  [Azure İlkesi](../azure-policy/azure-policy-introduction.md), kaynaklarınız üzerinden farklı kuralları ve eylemleri uygulatarak kaynaklarınızın kurumsal standartlarınız ve hizmet düzeyi sözleşmelerinizle uyumlu kalmasından emin olmak amacıyla ilke tanımlarını oluşturmanıza, atamanıza ve yönetmenize olanak sağlar. [Cloudyn Tarafından Sağlanan Azure Maliyet Yönetimi](../cost-management/overview.md), Azure kaynaklarınızın yanı sıra AWS ve Google dahil diğer bulut sağlayıcıları için bulut kullanımınızı ve harcamalarınızı izlemenize imkan tanır.
+İdare, Azure’daki uygulama ve kaynaklarınız üzerindeki denetimi sürdürmenize yönelik mekanizmalar ve süreçler sağlar.  Girişimlerinizi planlama ve stratejik öncelikleri belirleme de bu kapsama dahildir.  Azure’da İdare, temelde iki hizmet ile uygulanır.  [Azure İlkesi](../governance/policy/overview.md), kaynaklarınız üzerinden farklı kuralları ve eylemleri uygulatarak kaynaklarınızın kurumsal standartlarınız ve hizmet düzeyi sözleşmelerinizle uyumlu kalmasından emin olmak amacıyla ilke tanımlarını oluşturmanıza, atamanıza ve yönetmenize olanak sağlar. [Cloudyn Tarafından Sağlanan Azure Maliyet Yönetimi](../cost-management/overview.md), Azure kaynaklarınızın yanı sıra AWS ve Google dahil diğer bulut sağlayıcıları için bulut kullanımınızı ve harcamalarınızı izlemenize imkan tanır.
 
 ## <a name="secure"></a>Güvenlik
 Uygulamalarınızın, kaynaklarınızın ve verilerinizin yönetimi kapsamında, değerlendirilen tehditlerin, toplanıp çözümlenen güvenlik verilerinin ve uygulama ile kaynaklarınızın güvenli bir şekilde tasarlanıp yapılandırılmasını sağlamanın bir birleşimi bulunur.  [Azure Güvenlik Merkezi](../security-center/security-center-intro.md)’nin sağladığı güvenlik izleme ve tehdit analizine hibrit bulut iş yükleri arasında birleşik güvenlik yönetimi ve gelişmiş tehdit koruması dahildir.  Azure’da güvenlik ve Azure kaynaklarını güvenli bir şekilde yapılandırma hakkında kapsamlı bilgi için [Azure Güvenlik’e Giriş](../security/azure-security.md) sayfasına da başvurabilirsiniz.

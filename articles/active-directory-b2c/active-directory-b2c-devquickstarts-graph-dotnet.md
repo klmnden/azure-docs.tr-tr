@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870562"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277560"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API'sini kullanın.
 
@@ -66,8 +66,8 @@ Artık oluşturmak, okumak ve B2C kiracınızın kullanıcılardan güncelleşti
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>Uygulamanız için silme izinlerine yapılandırın
-Şu anda *dizin verilerini okuma ve yazma* izin vermiyor **değil** kullanıcıları silme gibi tüm silme işlemleri yapmak için mevcuttur. Uygulamanızın kullanıcıları silmek vermek istiyorsanız, PowerShell ilgili aşağıdaki ek adımları yapmanız gerekir, aksi halde, sonraki bölüme atlayabilirsiniz.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Uygulamanız için parola izinleri güncelleştirme veya silme'ı yapılandırma
+Şu anda *dizin verilerini okuma ve yazma* izin vermiyor **değil** kullanıcıları silin veya kullanıcı parolalarını güncelleştirin; olanağı da sunar. Uygulamanızı özelliği silme veya güncelleştirme parolaları kullanıcıya vermek istediğiniz PowerShell ilgili aşağıdaki ek adımları yapmanız gerekir, aksi halde, sonraki bölüme atlayabilirsiniz.
 
 İlk olarak, zaten yüklü değilse, yükleyin [Azure AD PowerShell v1 Modülü (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -84,7 +84,7 @@ PowerShell modülü yükledikten sonra Azure AD B2C kiracınıza bağlanın.
 Connect-MsolService
 ```
 
-Kullanacağız artık **uygulama kimliği** uygulama kullanıcıları silmek için izin veren kullanıcı hesabı yönetici rolü atamak için aşağıdaki betikte yer. Tüm yapmanız gereken giriş için iyi bilinen tanımlayıcılar, bu roller sahip, **uygulama kimliği** aşağıdaki betikte yer.
+Kullanacağız artık **uygulama kimliği** uygulamanın kullanıcı hesabı yönetici rolü atamak için aşağıdaki betikte yer. Tüm yapmanız gereken giriş için iyi bilinen tanımlayıcılar, bu roller sahip, **uygulama kimliği** aşağıdaki betikte yer.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Uygulamanızı şimdi de B2C kiracınızdaki kullanıcılar silme izni vardır.
+Uygulamanızı şimdi de kullanıcıları silin veya B2C kiracınızın parolalardan güncelleştirme izni vardır.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Karşıdan yükleme, yapılandırma ve örnek kodu derleme
 İlk olarak, örnek kodu indirdikten ve çalışmasını alın. Bu durumda biz daha yakından bakalım kazanacaktır.  Yapabilecekleriniz [örnek kodu bir .zip dosyası olarak indirme](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Ayrıca, tercih ettiğiniz bir dizine kopyalayabilirsiniz:

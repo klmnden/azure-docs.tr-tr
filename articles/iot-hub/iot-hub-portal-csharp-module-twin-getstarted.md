@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2c7857cd787e9298e94def5341d61238c5bb3a78
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 00b093b5567d85e7f12373020dfaa5f3ca7b0530
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321195"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514409"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Portal ve .NET cihazını kullanarak IoT Hub modül kimliğini ve modül ikizini kullanmaya başlama
 
@@ -24,8 +24,9 @@ ms.locfileid: "49321195"
 
 Bu öğreticide şunları öğreneceksiniz:
 
-1. portalda modül kimliği oluşturma. 
-1. cihazınızdan modül ikizini güncelleştirmek için .NET cihaz SDK’sını kullanma.
+1. Portalda bir modül kimliği oluşturma 
+
+2. Modül ikizi cihazınızdan .NET cihaz SDK'sı güncelleştirme kullanma
 
 > [!NOTE]
 > Hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK'ları hakkında bilgi için bkz. [Azure IoT SDK'ları][lnk-hub-sdks].
@@ -36,21 +37,17 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Visual Studio 2015 veya Visual Studio 2017.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-## <a name="create-a-device-identity-in-the-portal"></a>Portalda cihaz kimliği oluşturma
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-Artık IoT Hub’ınız vardır. [Portalı](https://portal.azure.com) açın ve IoT Hub'ınıza gidin. IoT Cihazları’na tıklayın ve sonra Ekle’ye tıklayarak bir cihaz kimliği oluşturun. Buna **MyFirstDevice** adını verin. 
+### <a name="retrieve-connection-string-for-iot-hub"></a>IOT hub için bağlantı dizesi alma
 
-  ![Cihaz kimliği oluşturma][8]
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-Kaydettikten sonra, cihaz kimliği listesinde MyFirstDevice kimliğinin başarıyla oluşturulduğunu görebilirsiniz.
+## <a name="register-a-new-device-in-the-iot-hub"></a>Yeni bir cihaz IOT hub'ı Kaydet
 
-  ![Oluşturduğunuz cihaz kimliği][11]
-
-Şimdi satıra tıklayın. Cihaz ayrıntılarını göreceksiniz.
-
-  ![Cihaz ayrıntıları][10]
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Portalda bir modül kimliği oluşturma
 
@@ -173,14 +170,11 @@ IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için
 
 
 <!-- Images. -->
-[8]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-device-id.JPG
-[9]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
-[10]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-details.JPG
-[11]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-id-created.JPG
-[12]:./media\iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
-[13]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
-[14]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[9]:./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
+[12]:./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
+[13]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
+[14]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -7,20 +7,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 04e2e32de90283da2563395f8b24dbb4b1dab888
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 8c79107a0081b1c7478ffe8ceb44ec67e1f618c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241768"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283674"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 önizlemesi Azure HDInsight kümeleri ile kullanma
 
-HDInsight kümesindeki verileri çözümlemek için ya da Azure depolama, Azure Data Lake depolama Gen1 veya Azure Data Lake depolama Gen2 önizlemesi herhangi bir birleşimini verileri depolayabilirsiniz. Tüm depolama seçenekleri, kullanıcı verilerini kaybetmeden hesaplama için kullanılan HDInsight kümelerini güvenle silmenizi sağlar.
+Bir HDInsight kümesindeki verileri çözümlemek için Azure Blob Depolama, Azure Data Lake depolama Gen2 etkin önizlemesi ile Azure Blob Depolama veya Azure Data Lake depolama Gen1 herhangi bir birleşimini ya da verileri depolayabilirsiniz. Tüm depolama seçenekleri, kullanıcı verilerini kaybetmeden hesaplama için kullanılan HDInsight kümelerini güvenle silmenizi sağlar.
 
-Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında bir blob kapsayıcısı Azure depolama veya Azure Data Lake Storage varsayılan dosya sistemi olarak belirtebilirsiniz. Alternatif olarak HDInsight 3.5 ile Azure depolama veya Azure Data Lake Storage birkaç özel durum varsayılan dosya sistemi olarak seçebilirsiniz.
+Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama'da veya Data Lake depolama 2. nesil olarak varsayılan dosya sistemi tarafından sunulan hiyerarşik ad alanı, bir blob kapsayıcısı belirtebilirsiniz. Alternatif olarak HDInsight 3.5 ile kapsayıcı ya da hiyerarşik ad alanı birkaç özel durum varsayılan dosya sistemi olarak seçebilirsiniz.
 
-Bu makalede, Azure Data Lake depolama Gen2 HDInsight kümeleri ile nasıl çalıştığını öğrenin. HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [ayarlama HDInsight kümeleri Azure Data Lake Store, Hadoop, Spark, Kafka ve daha fazlası ile kullanarak](quickstart-create-connect-hdi-cluster.md).
+Bu makalede, Data Lake depolama Gen2 HDInsight kümeleri ile nasıl çalıştığını öğrenin. HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [ayarlama HDInsight kümeleri Azure Data Lake Store, Hadoop, Spark, Kafka ve daha fazlası ile kullanarak](quickstart-create-connect-hdi-cluster.md).
 
 Azure depolama, HDInsight ile sorunsuz bir şekilde tümleşen, sağlam ve genel amaçlı bir depolama çözümüdür. HDInsight, küme için varsayılan dosya sistemi olarak Azure Data Lake Storage kullanabilirsiniz. Hadoop dağıtılmış dosya sistemi (HDFS) arabirimi aracılığıyla bileşenlerde HDInsight kümesini Azure Data Lake Storage dosyaları üzerinde doğrudan çalışabilir.
 
@@ -80,13 +80,13 @@ Bazı MapReduce işleri ve paketleri gerçekte Azure depolamada depolamak isteme
 > [!NOTE]
 > Çoğu HDFS komutu (örneğin, `ls`, `copyFromLocal` ve `mkdir`) hala beklendiği gibi çalışmayabilir. Gibi DFS özgü komutlar `fschk` ve `dfsadmin`, Azure depolamada farklı bir davranış gösterir.
 
-## <a name="create-an-data-lake-storage-file-system"></a>Bir Data Lake Store dosya sistemi oluşturun
+## <a name="create-a-data-lake-storage-file-system"></a>Bir Data Lake Store dosya sistemi oluşturun
 
 Dosya sistemi kullanmak için önce oluşturduğunuz bir [Azure depolama hesabı][azure-storage-create]. Bu işlemin bir parçası olarak depolama hesabının oluşturulduğu Azure bölgesini belirtin. Küme ve depolama hesabının aynı bölgede barındırılması gerekir. Hive meta depo SQL Server veritabanı ve Oozie meta depo SQL Server veritabanı da aynı bölgede bulunmalıdır.
 
-Nerede olursa olsun, oluşturduğunuz her blob, Azure Data Lake Storage hesabınızdaki bir dosya sistemine ait. 
+Nerede olursa olsun, oluşturduğunuz her blob depolama hesabınızda bir dosya sistemine ait.
 
-Varsayılan Data Lake Store dosya sistemi, iş geçmişi ve günlükleri gibi kümeye özel bilgileri depolar. Varsayılan Data Lake Store dosya sistemi, birden çok HDInsight kümesiyle paylaşmayın. Bu durum iş geçmişinin bozulmasına neden olabilir. Her küme için farklı bir dosya sistemi kullanmak ve paylaşılan verileri varsayılan depolama hesabı yerine tüm ilgili kümelerin dağıtımında belirtilen bağlantılı depolama hesabındaki yerleştirmek için önerilir. Bağlantılı Depolama hesaplarını yapılandırma hakkında daha fazla bilgi için bkz: [HDInsight kümeleri oluşturma][hdinsight-creation]. Ancak özgün HDInsight kümesi silindikten sonra varsayılan depolama dosya sistemi yeniden kullanabilirsiniz. HBase kümeleri için silinmiş olan bir silinmiş HBase kümesi tarafından kullanılan varsayılan blob kapsayıcısını kullanan yeni bir HBase kümesi oluşturarak HBase tablo şemasını ve verileri tutabilirsiniz.
+Varsayılan Data Lake depolama 2. nesil dosya sistemini iş geçmişi ve günlükleri gibi kümeye özel bilgileri depolar. Varsayılan Data Lake depolama 2. nesil dosya sistemini birden çok HDInsight kümesiyle paylaşmayın. Bu durum iş geçmişinin bozulmasına neden olabilir. Her küme için farklı bir dosya sistemi kullanmak ve paylaşılan verileri varsayılan depolama hesabı yerine tüm ilgili kümelerin dağıtımında belirtilen bağlantılı depolama hesabındaki yerleştirmek için önerilir. Bağlantılı Depolama hesaplarını yapılandırma hakkında daha fazla bilgi için bkz: [HDInsight kümeleri oluşturma][hdinsight-creation]. Ancak özgün HDInsight kümesi silindikten sonra varsayılan depolama dosya sistemi yeniden kullanabilirsiniz. HBase kümeleri için silinmiş olan bir silinmiş HBase kümesi tarafından kullanılan varsayılan blob kapsayıcısını kullanan yeni bir HBase kümesi oluşturarak HBase tablo şemasını ve verileri tutabilirsiniz.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -132,7 +132,7 @@ Varsa, [Azure PowerShell yüklenmiş ve yapılandırılmışsa][powershell-insta
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> Bir kapsayıcı oluşturma, Azure Data Lake depolama alanında bir dosya sistemi oluşturma ile eşanlamlıdır.
+> Bir kapsayıcı oluşturmak, Data Lake depolama Gen2'ye bir dosya sistemi oluşturma ile eşanlamlıdır.
 
 ### <a name="use-azure-cli"></a>Azure CLI kullanma
 
@@ -164,7 +164,7 @@ Bir kapsayıcı oluşturmak için aşağıdaki komutu kullanın:
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> Bir kapsayıcı oluşturma, Azure Data Lake depolama alanında bir dosya sistemi oluşturma ile eşanlamlıdır.
+> Bir kapsayıcı oluşturmak, Data Lake depolama Gen2'ye bir dosya sistemi oluşturma ile eşanlamlıdır.
 
 ## <a name="address-files-in-azure-storage"></a>Azure depolamada dosyaları adresleme
 
@@ -174,7 +174,7 @@ HDInsight’ta Azure depolamadaki dosyalara erişmek için URI şeması aşağı
 
 URI şeması şifrelenmemiş erişim sağlar (ile *abfs:* önek) ve SSL şifreli erişim (ile *abfss*). Kullanmanızı öneririz *abfss* mümkün olduğunda, hatta azure'da aynı bölgede bulunan verilere erişirken.
 
-* &lt;FILE_SYSTEM_NAME&gt; Azure Data Lake Store dosya sistemi yolunu tanımlar.
+* &lt;FILE_SYSTEM_NAME&gt; Data Lake depolama Gen2'ye dosya sistemi yolunu tanımlar.
 * &lt;ACCOUNT_NAME&gt; Azure depolama hesabı adını tanımlar. Tam uygun etki alanı adı (FQDN) gereklidir.
 
     Değilse değerleri &lt;FILE_SYSTEM_NAME&gt; ya da &lt;ACCOUNT_NAME&gt; belirtildiğini, varsayılan dosya sistemi kullanılır. Varsayılan dosya sistemindeki dosyalar için göreli bir yol veya mutlak bir yol kullanabilirsiniz. Örneğin, *hadoop mapreduce examples.jar* HDInsight kümeleriyle gelen dosya başvurulabilir aşağıdaki yollardan birini kullanarak:
@@ -205,9 +205,9 @@ Bu makalede HDFS ile uyumlu Azure Depolama'yı HDInsight ile nasıl kullanacağ�
 Daha fazla bilgi için bkz.
 
 * [Azure Data Lake depolama Gen2 ABFS Hadoop dosya sistemi sürücüsü](abfs-driver.md)
-* [Azure Data Lake depolamaya giriş](introduction.md)
-* [Hadoop, Spark, Kafka ve daha fazlası ile Azure Data Lake Store kullanarak HDInsight kümelerini ayarlama](quickstart-create-connect-hdi-cluster.md)
-* [Azure Data Lake distcp kullanma depolama ile veri alma](use-distcp.md)
+* [Azure Data Lake depolama Gen2'ye Giriş](introduction.md)
+* [Hadoop, Spark, Kafka ve daha fazlası ile Azure Data Lake depolama Gen2 kullanarak HDInsight kümelerini ayarlama](quickstart-create-connect-hdi-cluster.md)
+* [Azure Data Lake depolama Gen2 distcp kullanarak veri alma](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

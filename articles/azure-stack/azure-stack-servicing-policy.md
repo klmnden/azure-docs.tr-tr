@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086973"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277945"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack hizmet İlkesi
 Bu makalede, Azure Stack tümleşik sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekenlere hizmet İlkesi açıklanır. 
@@ -55,7 +55,7 @@ Destek almaya devam etmek için geçerli Azure Stack dağıtımınıza tutmalıs
 
 Örneğin, 1805 en son kullanılabilir güncelleştirme sürümüdür ve iki önceki güncelleştirme paketlerini 1804 ve 1803 sürümleri olan 1803 hem 1804 desteği kalır. Ancak, destek kapsamı dışında 1802 olur. İlke olduğunda yayın ayda bir veya iki için geçerlidir. Örneğin, geçerli sürümde 1805 ve 1804 yayın vardı, 1803 1802 ve iki önceki güncelleştirme paketlerini desteği kalır.
 
-Microsoft yazılım güncelleştirme paketleri, toplu olmayan ve bir önkoşul olarak önceki güncelleştirme paketini gerektirir. Bir veya daha fazla güncelleştirmelerini erteleme karar verirseniz, genel çalışma zamanının en son sürüme almak istiyorsanız göz önünde bulundurun. 
+Microsoft yazılım güncelleştirme paketleri, toplu olmayan ve önceki güncelleştirme paketini veya düzeltmeyi bir önkoşul olarak gerekli. Bir veya daha fazla güncelleştirmelerini erteleme karar verirseniz, genel çalışma zamanının en son sürüme almak istiyorsanız göz önünde bulundurun. 
 
 ## <a name="get-support"></a>Destek alın
 Azure Stack, aynı Azure destek süreci izler. Kurumsal müşteriler, açıklanan işlemi izleyebilirsiniz [Azure destek isteği oluşturmak nasıl](/azure/azure-supportability/how-to-create-azure-support-request). Bir müşteri bir bulut hizmeti sağlayıcısı (CSP) ise, CSP için desteğe başvurun.  Daha fazla bilgi için [Azure desteği SSS](https://azure.microsoft.com/support/faq/). 

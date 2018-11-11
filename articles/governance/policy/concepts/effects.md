@@ -4,40 +4,46 @@ description: Azure İlkesi tanım uyumluluk nasıl yönetildiği ve bildirilen b
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055977"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279509"
 ---
 # <a name="understand-policy-effects"></a>İlke etkilerini anlama
 
 Azure İlkesi her ilke tanımında ne zaman tarama sırasında belirler tek bir etkisi **varsa** ilke kuralı segmentini taranan kaynak eşleşecek şekilde değerlendirilir. Yeni bir kaynak, güncelleştirilmiş bir kaynak veya mevcut bir kaynak için olmaları durumunda etkileri farklı şekilde davranabilir.
 
-Şu anda bir ilke tanımında desteklenen beş etkileri vardır:
+Şu anda bir ilke tanımında desteklenen altı etkileri vardır:
 
 - Ekle
 - Denetim
 - AuditIfNotExists
 - Reddet
 - Deployıfnotexists
+- Devre dışı
 
 ## <a name="order-of-evaluation"></a>Değerlendirme sırası
 
 Oluşturulacak veya güncelleştirilecek bir kaynak Azure Resource Manager aracılığıyla bir istek yapıldığında, ilke isteği uygun kaynak sağlayıcısı için teslim etmeden önce etkileri birkaç işler.
 Bunun yapılması, kaynak İlkesi tasarlanmış idare denetimleri karşılamadığında gereksiz işleme kaynağı sağlayıcısı tarafından engeller. İlke, (eksi işaretini özel durumlar) kapsam tarafından kaynak için geçerlidir ve her tanımı karşı kaynak değerlendirmek hazırlayan bir ilke veya girişim ataması tarafından atanan tüm ilke tanımlarını listesini oluşturur.
 
-- **Append** ilk olarak değerlendirilir. Beri ekleme isteği değiştirecek, göre ekleme yapılan bir değişikliği denetim engellemek veya tetikleme gelen etkisi reddet.
+- **Devre dışı bırakılmış** önce ilke kuralı değerlendirileceğini belirlemek için denetlenir.
+- **Append** ardından değerlendirilir. Beri ekleme isteği değiştirecek, göre ekleme yapılan bir değişikliği denetim engellemek veya tetikleme gelen etkisi reddet.
 - **Reddetme** ardından değerlendirilir. Değerlendirerek reddetme denetim önce istenmeyen bir kaynağın çift günlük kaydı engellenir.
 - **Denetim** giden kaynak sağlayıcıya isteği önce değerlendirilir.
 
 İstek için kaynak sağlayıcısı sağlanır ve kaynak sağlayıcısı başarılı durum kodu döndürür. sonra **AuditIfNotExists** ve **Deployıfnotexists** izleme belirlemek için değerlendirilir Uyumluluk günlük kaydı veya eylem gerekli değildir.
+
+## <a name="disabled"></a>Devre dışı
+
+Bu etkiyi durumlar ve ne zaman ilke tanımı etkisi parametreli test etmek için kullanışlıdır. Tüm ilke atamalarını devre dışı bırakmak yerine etkisi atama parametresini değiştirerek bu ilkenin tek bir atama devre dışı bırakmak mümkün hale gelir.
 
 ## <a name="append"></a>Ekle
 

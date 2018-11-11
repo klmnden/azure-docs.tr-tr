@@ -3,7 +3,7 @@ title: Azure AD Connect Health'i AD FS ile Kullanma| Microsoft Belgeleri
 description: Bu Azure AD Connect Health sayfasında, şirket içi AD FS altyapınızı nasıl izleyeceğiniz açıklanmıştır.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66dd3edefb44a0394216eeff58c6cccb5828c98b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46302066"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278846"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](how-to-connect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](how-to-connect-health-adds.md).
@@ -128,7 +128,7 @@ Ayrıca, tek bir IP adresinin birden fazla kullanıcıya karşı birden çok otu
 
 > [!NOTE]
 > Bu raporu kullanmak için AD FS denetiminin etkin olduğundan emin olmanız gerekir. Daha fazla bilgi için bkz. [AD FS için Denetimi Etkinleştirme](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Erişmek için önizleme, Genel Yönetici veya [Güvenlik Okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) izni gereklidir.  
+> Erişmek için önizleme, Genel Yönetici veya [Güvenlik Okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) izni gereklidir.  
 > 
 
 ### <a name="what-is-in-the-report"></a>Raporun içeriği

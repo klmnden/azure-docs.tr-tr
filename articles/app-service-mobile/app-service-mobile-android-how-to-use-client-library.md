@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: a39ae42ba2344cb39318809e2f120e01a75344d7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b595e62e032743be2655406ac02c8db94cf708f9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025795"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281776"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
 
@@ -144,7 +144,7 @@ public class AzureServiceAdapter {
 
 Artık çağırabilirsiniz `AzureServiceAdapter.Initialize(this);` içinde `onCreate()` ana etkinliği yöntemi.  İstemci erişimi gerektiren diğer yöntemleri `AzureServiceAdapter.getInstance();` hizmeti bağdaştırıcısı için bir başvuru almak için.
 
-## <a name="data-operations"></a>Veri işlemleri
+## <a name="data-operations"></a>Veri İşlemleri
 
 Azure Mobile Apps SDK'sı setinin mobil uygulama arka uçta SQL Azure içinde depolanan verilere erişim sağlamaktır.  Türü kesin belirlenmiş sınıf (tercih edilir) kullanarak bu verilere erişmesinden veya türsüz sorgular (önerilmez).  Bu bölümün toplu kullanarak türü kesin belirlenmiş sınıf ile ilgilidir.
 
@@ -1047,7 +1047,7 @@ Oturum açma akışı istemci kimlik doğrulaması için genel süreç aşağıd
 
 * Akış sunucu kimlik doğrulaması gibi Azure App Service kimlik doğrulaması ve yetkilendirme yapılandırın.
 * Bir erişim belirteci oluşturmak için SDK kimlik doğrulaması için kimlik doğrulama sağlayıcısı tümleştirin.
-* Çağrı `.login()` yöntemini aşağıdaki şekilde:
+* Çağrı `.login()` yöntemini aşağıdaki şekilde (`result` olmalıdır bir `AuthenticationResult`):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1065,6 +1065,8 @@ Oturum açma akışı istemci kimlik doğrulaması için genel süreç aşağıd
     });
     ```
 
+Sonraki bölümde tam kod örneğe bakın.
+
 Değiştirin `onSuccess()` başarılı bir oturum açma kullanmak istediğiniz, kod ile yöntemi.  `{provider}` Dizedir geçerli sağlayıcı: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, veya **twitter**.  Özel kimlik doğrulama uyguladıysanız, özel kimlik doğrulama sağlayıcısı etiketi de kullanabilirsiniz.
 
 ### <a name="adal"></a>Kullanıcıların Active Directory Authentication Library (ADAL) ile kimlik doğrulaması
@@ -1074,35 +1076,35 @@ Kullanıcıların uygulamanızla Azure Active Directory'yi kullanarak oturum aç
 1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma] [ 22] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun.
 2. ADAL build.gradle dosyanıza aşağıdaki tanımları içerecek şekilde değiştirerek yükleyin:
 
-```
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
+    ```
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "YourLocalMavenRepoPath\\.m2\\repository"
+        }
     }
-    maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+    packagingOptions {
+        exclude 'META-INF/MSFTSIG.RSA'
+        exclude 'META-INF/MSFTSIG.SF'
     }
-}
-packagingOptions {
-    exclude 'META-INF/MSFTSIG.RSA'
-    exclude 'META-INF/MSFTSIG.SF'
-}
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:1.1.1') {
-        exclude group: 'com.android.support'
-    } // Recent version is 1.1.1
-    compile 'com.android.support:support-v4:23.0.0'
-}
-```
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile('com.microsoft.aad:adal:1.1.1') {
+            exclude group: 'com.android.support'
+        } // Recent version is 1.1.1
+        compile 'com.android.support:support-v4:23.0.0'
+    }
+    ```
 
-1. Aşağıdaki değişiklik yapmadan uygulamanıza aşağıdaki kodu ekleyin:
+3. Aşağıdaki değişiklik yapmadan uygulamanıza aşağıdaki kodu ekleyin:
 
-* Değiştirin **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçim olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com.
-* Değiştirin **Ekle-RESOURCE-kimliği-Buraya** mobil uygulamanızın arka ucu için istemci kimliği. İstemci kimliği edinebilirsiniz **Gelişmiş** sekmesinde altında **Azure Active Directory ayarları** portalında.
-* Değiştirin **istemci kimliği burayı INSERT** yerel istemci uygulamasından kopyaladığınız istemci kimliği.
-* Değiştirin **ekleme-yeniden yönlendirme-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Değiştirin **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçim olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com.
+    * Değiştirin **Ekle-RESOURCE-kimliği-Buraya** mobil uygulamanızın arka ucu için istemci kimliği. İstemci kimliği edinebilirsiniz **Gelişmiş** sekmesinde altında **Azure Active Directory ayarları** portalında.
+    * Değiştirin **istemci kimliği burayı INSERT** yerel istemci uygulamasından kopyaladığınız istemci kimliği.
+    * Değiştirin **ekleme-yeniden yönlendirme-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*.
 
 ```java
 private AuthenticationContext mContext;

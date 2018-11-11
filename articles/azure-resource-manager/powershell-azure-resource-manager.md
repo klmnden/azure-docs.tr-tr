@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0ecb497e9b07119f6c32149a875f27ee7c338d74
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205808"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344646"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Azure PowerShell ile kaynakları yönetme
 
@@ -56,7 +56,7 @@ Bu makalede, bir sanal makineyi ve ilgili kendi sanal ağı dağıtın. Sanal ma
 * [Ağ Katılımcısı](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Depolama Hesabı Katılımcısı](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için [bir Azure Active Directory grubu](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) oluşturmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makaleyi basitleştirmek için, üyeleri olmayan bir Azure Active Directory grubu oluşturun. Bu grubu hala bir kapsamın rolüne atayabilirsiniz. 
+Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için [bir Azure Active Directory grubu](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) oluşturmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makaleyi basitleştirmek için, üyeleri olmayan bir Azure Active Directory grubu oluşturun. Bu grubu hala bir kapsamın rolüne atayabilirsiniz.
 
 Aşağıdaki örnek, bir grup oluşturur ve kaynak grubu için sanal makine Katılımcısı rolü atar. Çalıştırılacak `New-AzureAdGroup` komutunu kullanın gerekir [Azure Cloud Shell](/azure/cloud-shell/overview) veya [Azure AD PowerShell modülünü indirme](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -74,7 +74,7 @@ Genellikle, kullanıcıların dağıtılmış kaynakları yönetmek için atand�
 
 ## <a name="azure-policy"></a>Azure İlkesi
 
-[Azure İlkesi](../azure-policy/azure-policy-introduction.md) uyan şirket standartlarına emin olmanız tüm kaynakları abonelikte yardımcı olur. Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için bu seçeneği kullanın:
+[Azure İlkesi](../azure-policy/azure-policy-introduction.md) abonelikteki tüm kaynakların şirket standartlarına uyduğundan emin olmanıza yardımcı olur. Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için bu seçeneği kullanın:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -211,11 +211,12 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 Artık gerekli değilse, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Sanal makinelerinizi izleme hakkında bilgi edinmek için [izlemek ve güncelleştirmek Azure PowerShell ile Windows sanal makine](../virtual-machines/windows/tutorial-monitoring.md).
 * Önerilen güvenlik uygulamaları, uygulamak için Azure Güvenlik Merkezi'ni kullanma hakkında bilgi edinmek için [Azure Güvenlik Merkezi'ni kullanarak sanal makine Güvenlik İzleme](../virtual-machines/windows/tutorial-azure-security.md).
 * Var olan kaynakları yeni kaynak grubuna taşıyabilirsiniz. Örnekler için bkz [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).

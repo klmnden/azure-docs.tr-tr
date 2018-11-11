@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 4c96eb5b49c72fe9bb5ab977c773407889c56805
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 88e55468c4018b73cb26087c4fbbdbee65cd5db3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213313"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515531"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -26,9 +26,9 @@ Aşağıdaki tabloda, soru-cevap Oluşturucu tarafından desteklenen içeriği v
 |Kaynak Türü|İçerik Türü| Örnekler|
 |--|--|--|
 |URL'si|Sık sorulan sorular (düz, bölümleri veya ile konuları giriş sayfası)|[Düz SSS](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [bağlantılarla SSS](https://www.microsoft.com/software-download/faq), [konuları giriş sayfası ile ilgili SSS](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOC|Yapılandırılmış bir soru-cevap, vb. SSS sayfaları, ürün el ile broşürler, inceleme, El İlanı ilke ve Destek Kılavuzu.|[QnA.doc yapılandırılmış](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [örnek Ürün Manual.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [örnek yarı structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [beyaz paper.pdf örneği](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
-|Excel|Yapılandırılmış soru-cevap dosyası (RTF dahil olmak üzere HTML desteği)|[Soru-cevap FAQ.xls örneği](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|Yapılandırılmış soru-cevap dosyası|[Örnek chit-chat.tsv](https://github.com/Microsoft/BotBuilder-PersonalityChat/blob/master/CSharp/Datasets/scenario_responses_the_friend.tsv)|
+|PDF / DOC|Yapılandırılmış bir soru-cevap, vb. SSS sayfaları, ürün el ile broşürler, inceleme, El İlanı ilke ve Destek Kılavuzu.|[QnA.doc yapılandırılmış](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [örnek Ürün Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [örnek yarı structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [beyaz paper.pdf örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Yapılandırılmış soru-cevap dosyası (RTF dahil olmak üzere HTML desteği)|[Soru-cevap FAQ.xls örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|TXT/TSV|Yapılandırılmış soru-cevap dosyası|[Örnek chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="faq-urls"></a>SSS URL'leri
 

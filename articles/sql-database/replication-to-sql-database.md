@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: abf41f48ffa08867fd0f06ff88da00ca65286803
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869338"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515718"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL veritabanı tek ve havuza alınmış veritabanlarını çoğaltma
 
@@ -65,7 +65,7 @@ SQL Server çoğaltma üzerinde tek ve havuza alınmış veritabanları için ya
 
 1. Bir şirket içi SQL Server veritabanı üzerinde işlemsel çoğaltma yayın oluşturun.  
 2. Şirket içi SQL Server üzerinde kullanmak **Yeni Abonelik Sihirbazı'nı** veya Transact-SQL deyimlerini bir anında iletme aboneliğine Azure SQL veritabanı oluşturun.  
-3. İlk veri kümesi, genellikle anlık görüntü aracısı tarafından oluşturulan ve dağıtılan ve Dağıtım Aracısı tarafından uygulanan bir anlık görüntüdür. İlk veri kümesi, ayrıca bir yedekleme ya da SQL Server Integration Services gibi diğer yollarla aracılığıyla sağlanabilir.  
+3. Azure SQL veritabanı'nda ilk veri kümesi anlık görüntü aracısı tarafından oluşturulan ve dağıtılan ve Dağıtım Aracısı tarafından uygulanan anlık görüntüsüdür.   
 
 ### <a name="data-migration-scenario"></a>Veri geçiş senaryosu  
 

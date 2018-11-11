@@ -8,33 +8,32 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 9c3334ded76fa57cb88121103720b65af202836d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: b029ff7575f9d8511abcc1619d0c5e2e00df01ea
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009394"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282195"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile Azure Depolama'yı kullanma
 
-HDInsight kümesindeki verileri çözümlemek için Azure Depolama, Azure Data Lake Store veya her ikisinde birden verileri depolayabilirsiniz. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
+HDInsight kümesindeki verileri çözümlemek için verileri ya da Azure storage'da depolayabilirsiniz [Azure Data Lake depolama Gen 1 / Azure Data Lake Store Gen2] veya her ikisini de. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
 
-Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama'da bir blob kapsayıcısını varsayılan dosya sistemi olarak belirtebilir veya birkaç özel durum dışında HDInsight 3.5 ile Azure Depolama'yı ya da Azure Data Lake Store'u varsayılan dosya sistemi olarak seçebilirsiniz. Data Lake Store'u hem varsayılan hem de bağlı depolama alanı olarak kullanmanın desteklenip desteklenmediği hakkında bilgi için bkz. [HDInsight kümesi için kullanılabilirlik](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında varsayılan dosya sistemi olarak Azure storage'da bir blob kapsayıcısı belirtebilirsiniz veya HDInsight 3.6 ile Azure depolama veya Azure Data Lake depolama Gen 1 / Azure Data Lake seçebilirsiniz Store Gen 2 varsayılan dosyaları Sistem birkaç özel durum. Hem varsayılan hem de bağlı depolama olarak Data Lake depolama Gen 1 kullanmanın desteklenebilirliği için bkz: [HDInsight kümesi için kullanılabilirlik](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-Bu makalede Azure Depolama'nın HDInsight kümeleri ile nasıl çalıştığı hakkında bilgi edinebilirsiniz. Data Lake Store'un HDInsight kümeleriyle nasıl çalıştığı hakkında bilgi için bkz. [Azure Data Lake Store'u Azure HDInsight kümeleri ile kullanma](hdinsight-hadoop-use-data-lake-store.md). HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight'ta Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
+Bu makalede Azure Depolama'nın HDInsight kümeleri ile nasıl çalıştığı hakkında bilgi edinebilirsiniz. Data Lake depolama Gen 1 HDInsight kümeleriyle nasıl çalıştığı hakkında bilgi için bkz: [kullanımı Azure Data Lake Store, Azure HDInsight kümeleri](hdinsight-hadoop-use-data-lake-store.md). HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight'ta Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
 Azure depolama, HDInsight ile sorunsuz bir şekilde tümleşen, sağlam ve genel amaçlı bir depolama çözümüdür. HDInsight, Azure Depolama’daki bir blob kapsayıcıyı kümenin varsayılan dosya sistemi olarak kullanabilir. Hadoop dağıtılmış dosya sistemi (HDFS) arabirimi aracılığıyla, HDInsight’taki bileşenler kümesinin tümü blob olarak depolanan yapılandırılmış veya yapılandırılmamış veriler üzerinde doğrudan çalışabilir.
 
 > [!WARNING]
 > Azure Depolama hesabı oluşturmanın birden fazla yolu vardır. Aşağıdaki tabloda HdInsight ile hangi seçeneklerin desteklendiği gösterilmektedir:
-> 
-> | Depolama hesabı türü | Depolama katmanı | HDInsight ile desteklenen |
-> | ------- | ------- | ------- |
-> | Genel amaçlı Depolama Hesabı | Standart | __Evet__ |
-> | &nbsp; | Premium | Hayır |
-> | Blob Depolama Hesabı | Sık Erişimli | Hayır |
-> | &nbsp; | Seyrek Erişimli | Hayır |
+
+| Depolama hesabı türü | Desteklenen hizmetler | Desteklenen performans katmanları | Desteklenen erişim katmanları |
+|----------------------|--------------------|-----------------------------|------------------------|
+| Genel amaçlı V2   | Blob               | Standart                    | Sık, seyrek Archive3    |
+| Genel amaçlı V1   | Blob               | Standart                    | Yok                    |
+| Blob depolama         | Blob               | Standart                    | Sık, seyrek Archive3    |
 
 İş verilerini depolamak için, varsayılan blob kapsayıcısını kullanmanızı önermiyoruz. Depolama maliyetini azaltmak için blob kapsayıcısının her kullanımdan sonra silinmesi iyi bir uygulamadır. Varsayılan kapsayıcıda uygulama ve sistem günlüklerinin bulunduğunu unutmayın. Kapsayıcıyı silmeden önce günlükleri aldığınızdan emin olun.
 
@@ -67,7 +66,7 @@ HDInsight kümeleriyle Azure Depolama hesabını kullanırken dikkat etmeniz ger
 
 Oluşturma işleminde tanımlanan depolama hesapları ve bunların anahtarların %HADOOP_HOME%/conf/core-site.xml küme düğümlerinde depolanır. HDInsight’ın varsayılan davranışı core-site.xml dosyasında tanımlanan depolama hesaplarını kullanmaktır. [Ambari](./hdinsight-hadoop-manage-ambari.md) kullanarak bu ayarı değiştirebilirsiniz.
 
-Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat işleri kendileriyle birlikte depolama hesapları açıklaması ve meta veriler taşıyabilir. (Bu şu anda yalnızca Pig depolama hesapları ile çalışmakta, ancak meta verilerle çalışmamaktadır.) Daha fazla bilgi için bkz. [Alternatif Depolama Hesapları ve Meta Depolarla HDInsight Kümesi kullanma](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat işleri kendileriyle birlikte depolama hesapları açıklaması ve meta veriler taşıyabilir. (Bu şu anda yalnızca Pig depolama hesapları ile çalışmakta, ancak meta verilerle çalışmamaktadır.) Daha fazla bilgi için bkz. [Alternatif Depolama Hesapları ve Meta Depolarla HDInsight Kümesi kullanma](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 Bloblar yapılandırılmış ve yapılandırılmamış veriler için kullanılabilir. Blob kapsayıcıları, verileri anahtar/değer çiftleri olarak depolar ve dizin hiyerarşisi bulunmaz. Ancak, bir dosyayı dizin yapısında depolanmış gibi göstermek için anahtar adında eğik çizgi karakteri (/) kullanılabilir. Örneğin, bir blob'un anahtarı *input/log1.txt* şeklinde olabilir. Gerçek *giriş* dizini yoktur, ancak anahtar adında eğik çizgi karakteri bulunması nedeniyle, bir dosya yolu görünümüne sahiptir.
 

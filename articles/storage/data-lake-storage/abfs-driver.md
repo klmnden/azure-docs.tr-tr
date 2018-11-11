@@ -9,20 +9,20 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f618b925839d6f501635748734327293a2073b64
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1eacaa33fd5d0c70e8a1d3547fa40bf9d0d616c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384864"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282603"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob dosya sistemi sürücü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü
 
-Verileri Azure Data Lake depolama Gen2 önizlemesi için birincil erişim yöntemleri biri aracılığıyla [Hadoop dosya sistemi](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Azure Data Lake depolama Gen2 özellikleri ilişkili bir sürücü, Azure Blob dosya sistemi sürücüsü veya `ABFS`. ABFS Apache Hadoop bir parçasıdır ve hadoop ticari dağıtımlarının çoğunda dahil edilir. Bu sürücü kullanarak, birçok uygulama ve çerçeveler verileri Data Lake depolama Gen2 açıkça Data Lake depolama Gen2'ye hizmet başvuran herhangi bir kodu erişebilir.
+Verileri Azure Data Lake depolama Gen2 önizlemesi için birincil erişim yöntemleri biri aracılığıyla [Hadoop dosya sistemi](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake depolama Gen2, kullanıcıların yeni bir sürücü, Azure Blob dosya sistemi sürücüsü için Azure Blob Depolama erişim sağlar veya `ABFS`. ABFS Apache Hadoop bir parçasıdır ve hadoop ticari dağıtımlarının çoğunda dahil edilir. Bu sürücü kullanarak, birçok uygulama ve çerçeveler verileri Azure Blob depolama alanındaki açıkça Data Lake depolama Gen2'ye başvurma herhangi bir kodu erişebilir.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Önceki özellik: Windows Azure depolama blobu sürücü
 
-Windows Azure depolama blobu sürücü veya [WASB sürücü](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) Azure depolama BLOB'ları için özgün destek sağlanır. Bu sürücü eşleme dosya sisteminin ilgili karmaşık görevleri, Azure Blob Depolama tarafından kullanıma sunulan stili arabirimi (gerektirdiği gibi Hadoop dosya sistemi arabirimi) semantiği, nesne depolamak gerçekleştirdi. Bu sürücü, Blob'larda depolanan verileri yüksek performanslı erişim sağlayan, bu model desteklemeye devam eder ancak önemli miktarda sürdürülmesi zor hale getirme, bu eşlemeyi gerçekleştiren kod içerir. Ayrıca, bazı işlemler gibi [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) ve [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) dizinleri uygulandığında geniş birçok (nesne depoları yetersizliği nedeniyle işlemi gerçekleştirmek için bir sürücü gerektirir Destek dizinler için), genellikle azaltılmış performansa neden olur. Yeni Azure Data Lake Storage hizmeti WASB, devralınan eksiklikleri üstesinden gelmek için tasarlanmıştır.
+Windows Azure depolama blobu sürücü veya [WASB sürücü](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) Azure Blob Depolama için özgün destek sağlanır. Bu sürücü eşleme dosya sisteminin ilgili karmaşık görevleri, Azure Blob Depolama tarafından kullanıma sunulan stili arabirimi (gerektirdiği gibi Hadoop dosya sistemi arabirimi) semantiği, nesne depolamak gerçekleştirdi. Bu sürücü, Blob'larda depolanan verileri yüksek performanslı erişim sağlayan, bu model desteklemeye devam eder ancak önemli miktarda sürdürülmesi zor hale getirme, bu eşlemeyi gerçekleştiren kod içerir. Ayrıca, bazı işlemler gibi [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) ve [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) dizinleri uygulandığında geniş birçok (nesne depoları yetersizliği nedeniyle işlemi gerçekleştirmek için bir sürücü gerektirir Destek dizinler için), genellikle azaltılmış performansa neden olur. ABFS sürücü WASB, devralınan eksiklikleri üstesinden gelmek için tasarlanmıştır.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob dosya sistemi sürücüsü
 

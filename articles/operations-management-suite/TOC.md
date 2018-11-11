@@ -3,7 +3,7 @@
 
 # başlarken
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [Otomasyon](../automation/automation-offering-get-started.md)
+## [Otomasyon](/azure/automation/)
 ## [Backup](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # Nasıl yapılır
 
 ## Çözümleme
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Otomatikleştirme
 ### [Azure Otomasyonu’na genel bakış](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 

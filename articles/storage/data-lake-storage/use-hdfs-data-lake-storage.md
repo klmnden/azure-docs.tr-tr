@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c5f11cbb12b727f5f308d7a71c51706fa8ec373f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576984"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277095"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake depolama 2. nesil ile HDFS CLI'yı kullanma
 
-Azure Data Lake depolama Gen2 önizlemesi yönetmenizi ve sahip olduğu gibi veri erişim sağlayan bir [Hadoop dağıtılmış dosya sistemi (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Bir HDInsight kümesine eklenmiş veya Azure Data Lake depolama Gen2'içinde depolanan veriler üzerinde analiz gerçekleştirmek için Azure Databricks kullanarak bir Apache Spark işi çalıştırma olup olmadığını almak ve yüklenen verileri işlemek için komut satırı arabirimi (CLI) kullanabilirsiniz. Bu makalenin geri kalanında sahip while seçenekler özetlenmektedir [Azure depolama ekibi, Azure Depolama Gezgini ve Azure portalı desteği ekleme çalıştığından](https://azure.microsoft.com/roadmap/).
+Azure Data Lake depolama Gen2 önizlemesi yönetmenizi ve sahip olduğu gibi veri erişim sağlayan bir [Hadoop dağıtılmış dosya sistemi (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Bir HDInsight kümesine eklenmiş veya bir Azure depolama hesabında depolanan veriler üzerinde analiz gerçekleştirmek için Azure Databricks kullanarak bir Apache Spark işi çalıştırma olup almak ve yüklenen verileri işlemek için komut satırı arabirimi (CLI) kullanabilirsiniz.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDInsight ile HDFS CLI
 
 HDInsight, işlem düğümlerine yerel olarak bağlı olan dağıtılmış dosya sistemine erişim imkanı sağlar. Bu dosya sistemi, HDFS ve Hadoop destekleyen diğer dosya sistemleri ile doğrudan etkileşim Kabuğu'nu kullanarak erişilebilir. Sık kullanılan komutlar ve faydalı kaynaklara bağlantılar aşağıda verilmiştir.
 
 >[!IMPORTANT]
->HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Faturalandırma, dakika başına eşit olarak artık kullanımda olmadığında kümenizi her zaman silmelisiniz (bilgi nasıl [küme silme](../../hdinsight/hdinsight-delete-cluster.md)). Ancak, hatta bir HDInsight kümesi silindikten sonra Azure Data Lake depolama Gen2'içinde depolanan verileri devam ettirir.
+>HDInsight kümesi faturalandırması küme oluşturulur ve küme silindiğinde sona erer sonra başlar. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Küme silme hakkında bilgi edinmek için müşterilerimize [makale konusunda](../../hdinsight/hdinsight-delete-cluster.md). Ancak, Data Lake depolama etkin Gen2 ile bir depolama hesabına depolanan verilerinizin bile bir HDInsight kümesi silindikten sonra devam ettirir.
 
 Dosya veya dizinlerin bir listesini almak için:
 

@@ -10,16 +10,16 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815265"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282933"
 ---
 # <a name="configure-your-custom-search-experience"></a>Özel arama deneyiminizi yapılandırın
 
-Özel arama örneği kullanıcılarınızın çok önem verdiğiniz Web sitelerinden içerik eklemek için arama deneyimini uyumlu hale getirmenizi sağlar. Bing web genelinde arama yapmak yerine, yalnızca ilginizi çeken web dilimin arar. Özel web görünümünü oluşturmak için Bing özel arama kullanın [portalı](https://customsearch.ai). Portalda oturum açarken hakkında daha fazla bilgi için bkz: [ilk Bing özel arama örneğinizin oluşturma](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
+Özel arama örneği kullanıcılarınızın çok önem verdiğiniz Web sitelerinden içerik eklemek için arama deneyimini uyumlu hale getirmenizi sağlar. Bing web genelinde arama yapmak yerine, yalnızca ilginizi çeken web dilimin arar. Size özel web görünümünü oluşturmak için Bing Özel Arama [portalını](https://customsearch.ai) kullanın. Portalda oturum açarken hakkında daha fazla bilgi için bkz: [ilk Bing özel arama örneğinizin oluşturma](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
 
 Portal, etki alanlarını, alt ve Bing arama yapmak istediğiniz Web sayfalarını ve arama yapmak istemiyorsanız bu belirten bir arama örneği oluşturmanızı sağlar. Bilmeniz içeriği URL'lerini belirtmeye ek olarak, görünümünüze eklemek isteyebileceğiniz içerik önermek için portalı da sorabilirsiniz. 
 
@@ -64,7 +64,7 @@ Benzer şekilde, (karşıya yükleme dosyasını dilimleri belirtmek için kulla
 
 ## <a name="pinned-list"></a>Sabit listesi
 
-Portal Ayrıca, kullanıcı belirli bir arama terimi girerse belirli bir Web sayfası arama sonucu en üstüne Sabitle sağlar. **Pinned** sekmesi, belirli bir sorgu için en iyi sonucu olarak görünen Web sayfasını belirtin sorgu terim ve Web sayfası çiftlerinin listesini içerir. Sonuçları sabitleme hakkında daha fazla bilgi için bkz: [ayarlamak derece](#adjustrank).
+Portal ayrıca kullanıcı belirli bir arama terimini girdiğinde belirli bir web sayfasının arama sonuçlarının en üstünde sabitlemenizi de sağlar. **Pinned** sekmesi, belirli bir sorgu için en iyi sonucu olarak görünen Web sayfasını belirtin sorgu terim ve Web sayfası çiftlerinin listesini içerir. Ayrıca, arama dizini oluşturulmuş Web sayfalarında görüntülenir. Sonuçları sabitleme hakkında daha fazla bilgi için bkz: [ayarlamak derece](#adjustrank). 
 
 Sonuçları sabitleme resim arama için kullanılabilir değil ve Video arama deneyimleri.
 
@@ -175,7 +175,7 @@ Bing özel arama örneğinizin dilimleri eklemek için kullanmak için aşağıd
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Özel arama çağırın](./search-your-custom-view.md)
-- [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
-- [Sayfa Web sayfaları](./page-webpages.md)
+- [Özel arama örneğinizi çağırma](./search-your-custom-view.md)
+- [Barındırılan kullanıcı arabirimi deneyiminizi yapılandırma](./hosted-ui.md)
+- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
+- [Sayfa web sayfaları](./page-webpages.md)

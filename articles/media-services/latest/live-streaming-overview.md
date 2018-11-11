@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962393"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344986"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -44,11 +44,11 @@ Media Services dinamik olarak şifrelenmiş içerik teslim etmenizi sağlar (**d
 
 Aşağıdaki yeni geliştirmeler yeni sürümde yapıldığını.
 
-- Yeni düşük gecikme süresi modu için Canlı (10 saniye için uçtan uca).
+- Yeni düşük gecikme süresi modu. Daha fazla bilgi için [gecikme](#latency).
 - Geliştirilmiş RTMP desteği (daha fazla kararlılık ve daha fazla kaynak Kodlayıcı desteği).
 - Güvenli RTMPS alın.
 
-    Artık size bir Livestream oluşturduğunuzda 4 URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   
+    Bir Livestream oluşturduğunuzda, 4 alma URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   
 - 24 saatlik biçim dönüştürme desteği. 
 - RTMP SCTE35 aracılığıyla ad sinyal desteği geliştirildi.
 
@@ -82,7 +82,7 @@ Bu tür bir Livestream oluştururken belirtmeniz **hiçbiri** (LiveEventEncoding
 
 Aşağıdaki tabloda, iki Livestream tür özellikleri karşılaştırılır.
 
-| Özellik | Doğrudan Livestream | Temel Livestream |
+| Özellik | Doğrudan Livestream | Standart Livestream |
 | --- | --- | --- |
 | Tekli bit hızı girişi Çoklu bit hızlarında buluta halinde kodlanır |Hayır |Evet |
 | En yüksek çözünürlük, Katmanlar sayısı |4Kp30  |720p, 6 katmanları 30 fps |
@@ -126,6 +126,20 @@ Bir Livestream eşzamanlı çalışan Üçe kadar LiveOutputs destekler, böylec
 Akışın LiveEvent'e akmasını sağladıktan sonra bir Asset, LiveOutput ve StreamingLocator oluşturarak etkinliği akışla göndermeye başlayabilirsiniz. Bu akışı arşivler ve aracılığıyla izleyiciler kullanabilmesi [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 Media Services hesabınız oluşturulduğunda hesabınıza durdurulmuş durumda bir varsayılan akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının çalışıyor durumda olması gerekir.
+
+## <a name="latency"></a>Gecikme süresi
+
+Bu bölümde, düşük gecikme süresi ayarları ve çeşitli oyuncuların kullanırken göreceğiniz tipik sonuçları açıklanmaktadır. Sonuçları, CDN ve ağ gecikmesi göre değişir.
+
+Yeni LowLatency özelliği kullanmak için ayarlayabileceğiniz **StreamOptionsFlag** için **LowLatency** Livestream üzerinde. Akış, çalışır duruma geldikten sonra kullanabileceğiniz [Azure Media Player](http://ampdemo.azureedge.net/) (AMP) tanıtım sayfasını ve "Düşük gecikme süresi buluşsal yöntemler profili" kullanmak için kayıttan yürütme seçeneklerini ayarlayın.
+
+### <a name="pass-through-liveevents"></a>Doğrudan LiveEvents
+
+||2S GOP düşük gecikme süresi etkin|1s GOP düşük gecikme süresi etkin|
+|---|---|---|
+|AMP tire|10'luk bloklar|8s|
+|HLS üzerinde yerel iOS player|14s|10'luk bloklar|
+|HLS. Mixer Player'da JS|30 saniye|16s|
 
 ## <a name="billing"></a>Faturalandırma
 

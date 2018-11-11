@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248719"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282842"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../azure-monitor/overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -98,7 +98,7 @@ Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır
 Ölçümler ile gerçekleştirebileceğiniz görevler aşağıdakileri içerir:
 
 - Kullanım [ölçüm Gezgini](../monitoring-and-diagnostics/monitoring-metric-charts.md) toplanan ölçümlerin analiz etmek ve bunları bir vykreslit v grafu için. Grafiklere sabitleyerek (örneğin, bir sanal makine, Web sitesi veya mantıksal uygulama) kaynak performansını izleyen bir [Azure panosuna](../azure-portal/azure-portal-dashboards.md).
-- Yapılandırma bir [ölçüm uyarısı kuralının](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) bildirim gönderen veya alan [eylemi otomatik](../monitoring-and-diagnostics/monitoring-action-groups.md) ne zaman bir eşiği aştığında ölçümü.
+- Yapılandırma bir [ölçüm uyarısı kuralının](../monitoring-and-diagnostics/alert-metric.md) bildirim gönderen veya alan [eylemi otomatik](../monitoring-and-diagnostics/monitoring-action-groups.md) ne zaman bir eşiği aştığında ölçümü.
 - Kullanım [otomatik ölçeklendirme](../monitoring-and-diagnostics/monitoring-overview-autoscale.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüme göre kaynakları.
 - Yol ölçümlerinin Log analytics'e günlük verileriyle birlikte ölçüm verilerini analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için. 
 - Stream için ölçümleri bir [olay hub'ı](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) kendisine yönlendirmek için [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) veya harici sistemlere bağlanma.
@@ -138,7 +138,7 @@ Azure İzleyici tarafından toplanan günlükler, çeşitli kaynaklardan telemet
 Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynaklardan veri toplayabilir. Log Analytics'e yazılan veri kaynakları şunları içerir:
 
 - [Etkinlik günlükleri](../log-analytics/log-analytics-activity.md) Azure kaynaklarından, yapılandırmaları ve sistem durumu hakkında bilgiler içerir ve [tanılama günlükleri](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) işleyişlerini Öngörüler sağlayın.
-- Aracılarda [Windows](../log-analytics/log-analytics-windows-agent.md) ve [Linux](../log-analytics/log-analytics-linux-agents.md) konuk işletim sistemi ve uygulamaları şunlara göre Log analytics'e telemetri gönderen sanal makineler [veri kaynakları](../log-analytics/log-analytics-data-sources.md) , siz yapılandırırsınız.
+- Aracılarda [Windows](../log-analytics/log-analytics-windows-agent.md) ve [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) konuk işletim sistemi ve uygulamaları şunlara göre Log analytics'e telemetri gönderen sanal makineler [veri kaynakları](../log-analytics/log-analytics-data-sources.md) , siz yapılandırırsınız.
 - Uygulama verileri tarafından toplanan [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Belirli bir uygulama veya hizmetten Öngörüler sağlayan veri [izleme çözümleri](../monitoring/monitoring-solutions.md) veya kapsayıcı öngörüleri, VM Insights veya kaynak grubu Insights gibi özellikleri.
 - Tarafından toplanan güvenlik verileri [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/).

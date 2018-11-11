@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 43713cd4d217f2b43a0966f4de4f3573d4ef9b09
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a0c7dcf848bfe6e5128117169a48adfbf9483f9b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979548"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346771"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
@@ -535,7 +535,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*saat*> | Evet | Tamsayı | Eklenecek saat sayısı pozitif veya negatif | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -577,7 +577,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*dakika*> | Evet | Tamsayı | Pozitif veya negatif eklenecek dakika sayısı | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -649,7 +649,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*saniye*> | Evet | Tamsayı | Pozitif veya negatif eklenecek saniye sayısı | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -692,7 +692,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*aralığı*> | Evet | Tamsayı | Eklenecek belirtilen zaman birimi | 
 | <*timeUnit*> | Evet | Dize | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -1129,7 +1129,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*destinationTimeZone*> | Evet | Dize | Hedef saat dilimi adı. Daha fazla bilgi için [saat dilimi kimliklerini](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -1172,7 +1172,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*sourceTimeZone*> | Evet | Dize | Kaynak saat dilimi adı. Daha fazla bilgi için [saat dilimi kimliklerini](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
 | <*destinationTimeZone*> | Evet | Dize | Hedef saat dilimi adı. Daha fazla bilgi için [saat dilimi kimliklerini](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -1214,7 +1214,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*sourceTimeZone*> | Evet | Dize | Kaynak saat dilimi adı. Daha fazla bilgi için [saat dilimi kimliklerini](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -1802,7 +1802,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama | 
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -1896,7 +1896,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*aralığı*> | Evet | Tamsayı | Otomatik olarak çıkarmak için belirtilen zaman birimi | 
 | <*timeUnit*> | Evet | Dize | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -1938,7 +1938,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*aralığı*> | Evet | Tamsayı | Otomatik olarak çıkarmak için belirtilen zaman birimi | 
 | <*timeUnit*> | Evet | Dize | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -3056,7 +3056,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama | 
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -3087,7 +3087,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama | 
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -3118,7 +3118,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama | 
 | --------- | -------- | ---- | ----------- | 
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -3295,7 +3295,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Zaman damgası*> | Evet | Dize | Zaman damgası içeren dize | 
 | <*aralığı*> | Evet | Tamsayı | Otomatik olarak çıkarmak için belirtilen zaman birimi | 
 | <*timeUnit*> | Evet | Dize | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -3350,7 +3350,7 @@ take([<collection>], <count>)
 Bu örnekler, bu koleksiyonun önünden belirtilen sayıda öğeyi alın:
 
 ```
-take('abcde`, 3)
+take('abcde', 3)
 take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
@@ -3921,7 +3921,7 @@ utcNow('<format>')
 
 | Parametre | Gerekli | Tür | Açıklama | 
 | --------- | -------- | ---- | ----------- | 
-| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddT:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
+| <*Biçim*> | Hayır | Dize | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. | 
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 

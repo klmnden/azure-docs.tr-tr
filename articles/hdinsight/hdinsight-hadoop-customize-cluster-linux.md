@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 17273a572e61d2282e7930d4ea1f44bfaf29d734
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012988"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279749"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -67,7 +67,7 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
         URI, örneğin bkz [örnek betik eylemi betikleri](#example-script-action-scripts) bölümü.
 
         > [!WARNING]
-        > HDInsight yalnızca destekler __genel amaçlı__ Azure depolama hesapları. Şu anda desteklemediği __Blob Depolama__ hesap türü.
+        > HDInsight yalnızca Azure depolama hesapları ile standart performans katmanı Blob destekler. 
 
 * Kısıtlanmış olabilir **yalnızca belirli düğüm türleri üzerinde çalıştırma**örnek baş düğümleri veya çalışan düğümleri için.
 

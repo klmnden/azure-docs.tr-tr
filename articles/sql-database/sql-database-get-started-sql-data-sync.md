@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 71e5ae2a6b486873df147e7c2c0518e1c47b09c7
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914014"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280356"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Öğretici: Azure SQL veritabanı ile şirket içi SQL Server arasında verileri eşitlemek amacıyla SQL Data Sync'i Ayarla
 
@@ -129,7 +129,7 @@ Yeni eşitleme grubu oluşturup, adım 2 ' yi dağıttıktan sonra **eşitleme �
 
     Seçerseniz, **yeni bir aracı oluşturun**, şunları yapın:
 
-   1. Sağlanan bağlantıdan istemci eşitleme Aracısı yazılımını indirin ve SQL Server bulunduğu bilgisayara yükleyin.
+   1. Sağlanan bağlantıdan istemci eşitleme Aracısı yazılımını indirin ve SQL Server bulunduğu bilgisayara yükleyin. Veri Eşitleme Aracısı'ndan doğrudan da indirebilirsiniz [SQL Azure veri eşitleme Aracısı](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > Sunucuyla iletişim istemci Aracısı izin vermek için güvenlik duvarında giden TCP bağlantı noktası 1433 açmanız gerekmez.
@@ -253,35 +253,7 @@ Bir veritabanı olarak dışarı aktardıktan sonra bir `.bacpac` dosya ve yeni 
 
 ## <a name="faq-about-the-client-agent"></a>İstemci Aracısı hakkında SSS
 
-### <a name="why-do-i-need-a-client-agent"></a>Bir istemci Aracısı neden gerekiyor
-
-SQL Data Sync hizmeti, istemci Aracısı aracılığıyla SQL Server veritabanları ile iletişim kurar. Bu güvenlik özelliğini bir güvenlik duvarının arkasındaki veritabanları ile doğrudan iletişim engeller. Ne zaman SQL Data Sync hizmeti iletişim kurar aracıyla, bunu kullanarak yaptığı şifrelenmiş bağlantılar ve benzersiz bir belirteç veya *aracı anahtarı*. SQL Server veritabanları bağlantı dizesi ve aracı anahtarını kullanarak aracı kimlik doğrulaması. Bu tasarım, güvenlik verileriniz için yüksek düzeyde sağlar.
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Kullanıcı Arabirimi yerel aracı kaç örneklerini çalıştırılabilir.
-
-Kullanıcı Arabirimi yalnızca bir örneği çalıştırılabilir.
-
-### <a name="how-can-i-change-my-service-account"></a>Hizmet Hesabımı nasıl değiştirebilirim
-
-Bir istemci Aracısı yükledikten sonra hizmet hesabını değiştirmek için tek kaldırıp yeni hizmet hesabını yeni bir istemci Aracısı yükleme yoludur.
-
-### <a name="how-do-i-change-my-agent-key"></a>Aracı anahtarımı nasıl değiştirebilirim
-
-Bir aracı anahtarı, bir aracı tarafından yalnızca bir kez kullanılabilir. Kaldırın, sonra yeni bir aracıyı yeniden yükleyin veya birden çok aracı tarafından yeniden kullanılabilir olduğunda kullanılamayacak. Var olan bir aracı için yeni bir anahtar oluşturmanız gerekiyorsa, SQL Data Sync hizmet ve istemci Aracısı ile aynı anahtar kaydedilir emin olmanız gerekir.
-
-### <a name="how-do-i-retire-a-client-agent"></a>Bir istemci Aracısı nasıl devre dışı bırakma
-
-Hemen geçersiz kılmak veya aracıyı devre dışı bırakmak için Portalı'nda kendi anahtarını yeniden ancak aracı Arabiriminde bulunmayın. Bir anahtar yeniden oluşturuluyor, karşılık gelen aracı çevrimiçi veya çevrimdışı ise belirtilmediğine önceki anahtar geçersiz kılar.
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Başka bir bilgisayara bir istemci Aracısı nasıl taşırım
-
-Şu anda açıktır olandan farklı bir bilgisayardan yerel aracı çalıştırmak istiyorsanız, şunları yapın:
-
-1. İstediğiniz bilgisayara aracıyı yükleyin.
-2. SQL Data Sync portalında oturum açın ve yeni aracı için bir aracı anahtarı yeniden oluştur.
-3. Yeni aracı anahtarı göndermek için yeni aracının kullanıcı Arabirimi kullanın.
-4. İstemci Aracısı, daha önce kaydedilmiş şirket içi veritabanlarının listesini yüklerken bekleyin.
-5. Veritabanı kimlik bilgileri olarak ulaşılamaz görüntüleyen tüm veritabanları için sağlar. Bu veritabanları, aracının yüklü olduğu yeni bilgisayardan erişilebilir olmalıdır.
+İstemci Aracısı hakkında sık sorulan sorular için bkz. [Aracı SSS](sql-database-data-sync-agent.md#agent-faq).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -3,7 +3,7 @@ title: Service Fabric Azure dosyaları, birim sürücüsü (Önizleme) | Microso
 description: Service Fabric, Azure dosyaları için yedekleme birimleri, kapsayıcıdan kullanarak destekler. Bu, şu anda Önizleme aşamasındadır.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239381"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346414"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure dosyaları, birim sürücüsü (Önizleme)
 Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.docker.com/engine/extend/plugins_volume/) sağlayan [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) birimleri Docker kapsayıcıları için temel. Bu Docker birim eklentisi, Service Fabric kümelerine dağıtılabilir bir Service Fabric uygulaması olarak paketlenir. Onun amacı, kümeye dağıtılan diğer Service Fabric kapsayıcı uygulamaları için birim tabanlı Azure dosyaları sağlamaktır.
@@ -166,12 +166,11 @@ Azure dosyaları toplu eklentisi için sürücü adı **sfazurefile**. Bu değer
 - **Hedef** -bu etiketi içinde çalışmakta olan kapsayıcıyı birim eşlendiği konumdur. Bu nedenle, hedef kapsayıcı içinde zaten bir konuma olamaz
 
 Gösterildiği **DriverOption** öğeleri parçacığında yukarıdaki, Azure dosyaları toplu eklentisi aşağıdaki sürücü seçenekleri destekler:
+- **shareName** -birim için kapsayıcı sağlar. Azure dosyaları dosya paylaşımının adı.
+- **storageAccountName** - Name Azure dosyaları dosyasını içeren Azure depolama hesabını paylaşın.
+- **storageAccountKey** -Azure dosyaları dosya paylaşımını içeren Azure depolama hesabı için erişim anahtarı.
+- **storageAccountFQDN** -depolama hesabı ile ilişkili etki alanı adı. StorageAccountFQDN belirtilmezse, etki alanı adı ile storageAccountName varsayılan suffix(.file.core.windows.net) kullanarak oluşturulmuş.  
 
-Desteklenen sürücü seçenekleri:
-- **shareName** -birim için kapsayıcı sağlar. Azure dosyaları dosya paylaşımının adı
-- **storageAccountName** - Name Azure dosyaları dosyasını içeren Azure depolama hesabını paylaşmak
-- **storageAccountKey** -Azure dosyaları dosya paylaşımını içeren Azure depolama hesabı için erişim anahtarı
-- **storageAccountFQDN** -depolama hesabı ile ilişkili etki alanı adı. StorageAccountFQDN belirtilmezse, etki alanı adı ile storageAccountName varsayılan suffix(.file.core.windows.net) kullanarak oluşturulmuş. 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Desteklenen sürücü seçenekleri:
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>Kendi birim kullanarak veya sürücü günlüğe kaydetme
 Service Fabric Ayrıca kendi özel kullanımı sağlayan [birim](https://docs.docker.com/engine/extend/plugins_volume/) veya [günlüğü](https://docs.docker.com/engine/admin/logging/overview/) sürücüleri. Küme üzerinde Docker birim/günlük sürücü yüklü değilse, bunu el ile RDP/SSH'yi protokolleri kullanarak yükleyebilirsiniz. Yükleme ile bu protokolleri aracılığıyla gerçekleştirebileceğiniz bir [sanal makine ölçek kümesinin başlangıç betiği](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) veya bir [SetupEntryPoint betik](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

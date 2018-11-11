@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: e528f06ffc6b7ef00800605f5f9022fe164821b4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e65fc863d065e68948f417fcc22ececcf5271c8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091908"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515446"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Bir statik genel IP adresiyle Azure Kubernetes Service (AKS) giriş denetleyicisini oluşturma
 
@@ -29,7 +29,7 @@ Aşağıdakileri de yapabilirsiniz:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, NGINX giriş denetleyicisine, Sertifika Yöneticisi ve örnek bir web uygulamasını yüklemek için Helm kullanır. AKS kümenizi içinde başlatılan ve bir hizmet hesabı için Tiller kullanarak Helm olması gerekir. Helm en son sürümünü kullandığınızdan emin olun. Helm en son sürümünü kullandığınızdan emin olun. Yükseltme yönergeleri için bkz. [Helm yükleme docs][helm-install]. Yapılandırma ve Helm kullanma hakkında daha fazla bilgi için bkz. [Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme][use-helm].
+Bu makalede, NGINX giriş denetleyicisine, Sertifika Yöneticisi ve örnek bir web uygulamasını yüklemek için Helm kullanır. AKS kümenizi içinde başlatılan ve bir hizmet hesabı için Tiller kullanarak Helm olması gerekir. Helm en son sürümünü kullandığınızdan emin olun. Yükseltme yönergeleri için bkz. [Helm yükleme docs][helm-install]. Yapılandırma ve Helm kullanma hakkında daha fazla bilgi için bkz. [Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme][use-helm].
 
 Bu makalede, ayrıca Azure CLI Sürüm 2.0.41 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
@@ -81,7 +81,7 @@ HTTPS sertifikaları düzgün çalışması bir FQDN giriş denetleyicisine IP a
 #!/bin/bash
 
 # Public IP address of your ingress controller
-IP="51.145.155.210"
+IP="40.121.63.72"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"

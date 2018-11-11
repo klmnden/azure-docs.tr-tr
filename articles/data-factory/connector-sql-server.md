@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b0e9f72bad685d569b4a09baecec8cebc33fefde
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717905"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345224"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>İçin ve SQL Server'dan Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +119,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır: **SqlServerTable** | Evet |
-| tableName |Tablo veya Görünüm bağlı hizmeti SQL Server veritabanı örneğinde başvurduğu adı. | Evet |
+| tableName |Tablo veya Görünüm bağlı hizmeti SQL Server veritabanı örneğinde başvurduğu adı. | Kaynak, havuz için Evet Hayır |
 
 **Örnek:**
 
@@ -159,7 +159,6 @@ SQL Server'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü
 
 - Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği, verileri almak için SQL Server Kaynak karşı bu sorgu çalıştırır. Alternatif olarak, bir saklı yordam belirterek belirtebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordamın parametreleri sürerse).
 - "SqlReaderQuery" veya "sqlReaderStoredProcedureName" belirtmezseniz, sütunları veri kümesi JSON "yapı" bölümünde tanımlanan bir sorgu oluşturmak için kullanılır (`select column1, column2 from mytable`) SQL sunucuda çalıştırılacak. Veri kümesi tanımı "yapı" yoksa, tüm sütunları tablodan seçilir.
-- Kullanırken **sqlReaderStoredProcedureName**, yine de bir kukla belirtmeniz gerekiyorsa **tableName** veri kümesi JSON özelliğinde.
 
 **Örnek: SQL sorgu kullanma**
 
@@ -489,7 +488,7 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | İkili |Bayt] |
 | Bit |Boole |
 | Char |Dize, Char] |
-| tarih |DateTime |
+| date |DateTime |
 | Tarih saat |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
@@ -506,13 +505,13 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | Gerçek |Tek |
 | rowVersion |Bayt] |
 | smalldatetime |DateTime |
-| tamsayı |Int16 |
+| smallint |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |
 | metin |Dize, Char] |
 | time |Zaman aralığı |
 | timestamp |Bayt] |
-| Mini tamsayı |Int16 |
+| tinyint |Int16 |
 | benzersiz tanımlayıcı |Guid |
 | varbinary |Bayt] |
 | varchar |Dize, Char] |

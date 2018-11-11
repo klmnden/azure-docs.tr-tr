@@ -15,9 +15,9 @@
 | En fazla istek zaman aşımı |24 saat | |
 | Site sayısı |20 |HTTP Dinleyicileri başına 1 |
 | Dinleyici başına URL Eşlemeleri |1 | |
+|URL eşlemesi başına en fazla yol temelli kurallar|100|
 | Eş zamanlı WebSocket bağlantılarını |5000| |
 |URL uzunluğu üst sınırı|8000|
 | En fazla dosya yükleme boyutunu standart |2 GB | |
 | En büyük dosya karşıya yükleme boyutu WAF |Orta WAF ağ geçitleri - 100 MB<br>Geniş WAF ağ geçitleri - 500 MB| |
 |WAF gövdesi boyutu sınırı (olmadan dosyaları)|128 KB|
-

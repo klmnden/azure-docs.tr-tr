@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d21b6235c91a7d2f14b8b39c07891efe967ef572
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958959"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278251"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs kullanarak Azure Tanılama verileri etkin yolu akış
 Azure Tanılama, bulut Hizmetleri sanal makinelerden (VM'ler) ölçümlerini ve günlüklerini toplamak ve sonuçları Azure depolama alanına aktarmak için esnek bir yol sağlar. Mart 2016 (SDK 2.9) zaman çerçevesinde başlayarak, özel veri kaynakları için Tanılama verileri gönderme ve sık kullanılan yol veri aktarma saniyeler içinde kullanarak [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -40,7 +40,7 @@ Olay hub'ları receieving Azure Tanılama'yı verilerden bulut Hizmetleri, VM'le
 * Azure tanılama uzantısını 1.6 ([veya daha sonra .NET 2.9 için Azure SDK](https://azure.microsoft.com/downloads/) varsayılan olarak bu hedefler)
 * [Visual Studio 2013 veya üzeri](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Mevcut Azure tanılama yapılandırmalarını kullanarak uygulamada bir *.wadcfgx* dosya ve aşağıdaki yöntemlerden biri:
-  * Visual Studio: [Azure bulut Hizmetleri ve sanal makineler için tanılamayı yapılandırma](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [Azure bulut Hizmetleri ve sanal makineler için tanılamayı yapılandırma](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [PowerShell kullanarak Azure bulut hizmetlerinde tanılamayı etkinleştirme](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Event Hubs ad alanı makale sağlanan [Event Hubs ile çalışmaya başlama](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
@@ -70,7 +70,7 @@ Varsayılan olarak, Azure tanılama her zaman günlükleri ve ölçümleri bir A
 
 Bu örnekte, olay hub'ı tam ad alanı için olay hub'ı URL'si ayarlanır: Event Hubs ad alanı + "/" + olay hub'ı adı.  
 
-Olay hub'ı URL'si görüntülendiği [Azure portalında](http://go.microsoft.com/fwlink/?LinkID=213885) Event Hubs Panoda.  
+Olay hub'ı URL'si görüntülendiği [Azure portalında](https://go.microsoft.com/fwlink/?LinkID=213885) Event Hubs Panoda.  
 
 **Havuz** ad yapılandırma dosyası boyunca aynı değere tutarlı bir şekilde kullanılan sürece herhangi bir geçerli dize ayarlanabilir.
 

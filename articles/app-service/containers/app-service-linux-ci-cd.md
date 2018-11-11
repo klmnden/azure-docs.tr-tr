@@ -13,65 +13,57 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
-ms.author: msangapu
-ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/08/2018
+ms.author: msangapu;yili
+ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867042"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298550"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kapsayıcılar için Web App ile sürekli dağıtım
 
 Bu öğreticide, bir özel kapsayıcı görüntüsü için sürekli dağıtım yapılandırma öğesinden yönetilen [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) depoları veya [Docker Hub](https://hub.docker.com).
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="enable-continuous-deployment-with-acr"></a>ACR ile sürekli dağıtımı etkinleştirme
 
-[Azure Portal](https://portal.azure.com) oturum açın.
+![Ekran görüntüsü, ACR Web kancası](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## <a name="enable-the-continuous-deployment-feature"></a>Sürekli dağıtım özelliğini etkinleştir
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Seçin **App Service** sayfanın sol tarafındaki seçeneği.
+3. Sürekli dağıtımı yapılandırmak istediğiniz uygulamanın adını seçin.
+4. Üzerinde **kapsayıcı ayarları** sayfasında **tek kapsayıcı**
+5. Seçin **Azure kapsayıcı kayıt defteri**
+6. Seçin **sürekli Dağıtım > üzerinde**
+7. Seçin **Kaydet** sürekli dağıtımını etkinleştirmek için.
 
-Kullanarak sürekli dağıtım özelliği etkinleştirmek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komut yürütülüyor:
+## <a name="use-the-acr-webhook"></a>ACR Web kancası kullanma
 
-```azurecli-interactive
-az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
-```
+Sürekli dağıtım etkinleştirildikten sonra yeni oluşturulan Web kancası, Azure Container Registry Web kancalarını sayfasında görüntüleyebilirsiniz.
 
-İçinde [Azure portalında](https://portal.azure.com/)seçin **App Service** sayfanın sol tarafındaki seçeneği.
+![Ekran görüntüsü, ACR Web kancası](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Docker Hub sürekli dağıtımı yapılandırmak istediğiniz uygulamanın adını seçin.
+Kapsayıcı kayıt defterinizde, geçerli Web kancaları görüntülemek için Web kancaları'a tıklayın.
 
-Üzerinde **kapsayıcı ayarları** sayfasında **üzerinde**ve ardından **Kaydet** sürekli dağıtımını etkinleştirmek için.
+## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Docker Hub (isteğe bağlı) ile sürekli dağıtımı etkinleştirme
 
-![Uygulama ayarının ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Seçin **App Service** sayfanın sol tarafındaki seçeneği.
+3. Sürekli dağıtımı yapılandırmak istediğiniz uygulamanın adını seçin.
+4. Üzerinde **kapsayıcı ayarları** sayfasında **tek kapsayıcı**
+5. Seçin **Docker hub'ı**
+6. Seçin **sürekli Dağıtım > üzerinde**
+7. Seçin **Kaydet** sürekli dağıtımını etkinleştirmek için.
 
-## <a name="prepare-the-webhook-url"></a>Web kancası URL'sini hazırlama
+![Uygulama ayarının ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-Web kancası URL'sini kullanarak elde [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komut yürütülüyor:
-
-```azurecli-interactive
-az webapp deployment container show-cd-url --name sname1 --resource-group rgname
-```
-
-Web kancası URL'sini not edin. Sonraki bölümde gerekir.
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
-
-Alabilirsiniz, `publishingusername` ve `publishingpwd` yayımlama profili Azure portalını kullanarak web uygulamasını yükleyerek.
-
-![Web kancasını 2 ekleme işleminin ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## <a name="add-a-webhook"></a>Bir Web kancası Ekle
-
-Bir Web kancası eklemek için bu kılavuzlarındaki adımları izleyin:
-
-- [Azure Container Registry](../../container-registry/container-registry-webhook.md) Web kancası URL'si kullanılarak
-- [Docker Hub için Web kancaları](https://docs.docker.com/docker-hub/webhooks/)
+Web kancası URL'sini kopyalayın. Docker Hub için bir Web kancası eklemek, takip <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">Docker Hub için Web kancaları</a>.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Linux üzerinde Azure App Service'e Giriş](./app-service-linux-intro.md)
-* [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Linux’ta App Service’te .NET Core web uygulaması oluşturma](quickstart-dotnetcore.md)
 * [Linux üzerinde App Service'te bir Ruby web uygulaması oluşturma](quickstart-ruby.md)
 * [Kapsayıcılar için Web App'te bir Docker/Go web uygulaması dağıtma](quickstart-docker-go.md)

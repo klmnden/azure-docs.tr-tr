@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416129"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288127"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Azure HDInsight için - amacı ve yararları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -180,7 +180,7 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 |Azure izleme ve uyarı Vs tümleştirme üçüncü taraf izleme kullanın|İzleme ve uyarı Azure kullanın||
 |**Konu**: **güvenlik tercihleri** |||
 |Özel ve korumalı veri işlem hattı?|Evet||
-|Etki alanına katılmış kümeye (ESPP)?|     Evet||
+|Etki alanına katılmış kümeye (ESP)?|     Evet||
 |Böylece, şirket içinde AD eşitleme buluta?|     Evet||
 |Hayır. AD kullanıcıları eşitleme?|          100||
 |Bulut için parola eşitlemeyi Tamam?|    Evet||

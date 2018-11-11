@@ -2,25 +2,25 @@
 title: Azure HDInsight kümelerinizi izlemek için log Analytics'i kullanma
 description: Bir HDInsight kümesinde çalışan işleri izlemek için Azure Log Analytics kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/15/2018
-ms.author: jasonh
-ms.openlocfilehash: 1a526bfdd951e4dc2897ec52c03bfbe96ee14d4c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: 531cfb32b3433e0a376845a81a3ea5e13e6f1d11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403687"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278693"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için kullanın
 
 Azure Log Analytics, HDInsight Hadoop küme işlemleri izlemek etkinleştirme ve bir Hdınsight izleme çözümünü ekleme öğrenin.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için bir hizmettir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
+[Log Analytics](../log-analytics/log-analytics-overview.md) bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için Azure İzleyici'de bir hizmettir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -40,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
   Bir HDInsight kümesi oluşturma hakkında yönergeler için bkz: [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 > [!NOTE]
-> HDInsight küme hem de Log Analytics çalışma alanı, daha iyi performans için aynı bölgede yerleştirmek için önerilir. Azure Log Analytics tüm Azure bölgelerinde kullanılabilir olmadığını unutmayın.
+> HDInsight küme hem de Log Analytics çalışma alanı, daha iyi performans için aynı bölgede yerleştirmek için önerilir. Azure Log Analytics, tüm Azure bölgelerinde kullanılamaz.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>Log Analytics portalını kullanarak etkinleştirin.
 
@@ -85,7 +85,7 @@ HDInsight, Azure Log Analytics için ekleyebileceğiniz kümeye özgü yönetim 
 Var olan HDInsight çözümlerinin şunlardır:
 
 * HDInsight Hadoop İzleme
-* HDInsight HBase izleme
+* HDInsight HBase İzleme
 * HDInsight etkileşimli sorgu izleme
 * HDInsight Kafka İzleme
 * HDInsight Spark İzleme

@@ -4,16 +4,16 @@ description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hi�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212786"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283300"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -123,12 +123,12 @@ Aşağıdaki parametrelerle ilke kuralında başvuru `parameters` dağıtım de�
 
 ## <a name="definition-location"></a>Tanım konumu
 
-Bir girişim veya tanımını oluşturulurken tanım konumunu belirtmek önemlidir.
+Oluşturulurken bir girişim veya tanımını konumu belirtmek gereklidir. Tanım konumu, bir yönetim grubu veya abonelik olmalıdır ve, girişim veya atanabilir kapsamı belirler. Kaynaklar doğrudan üyesi veya tanım konumunu hiyerarşi içinde alt atamanın hedef olmalıdır.
 
-Tanım konumu için girişim veya tanımını atanabilir kapsamı belirler. Konum, bir yönetim grubu veya abonelik belirtilebilir.
+Tanım konumu c: ise
 
-> [!NOTE]
-> Bu ilke tanımı için birden çok abonelik uygulamayı planlıyorsanız, konumu için girişim veya atar abonelikleri içeren yönetim grubu olması gerekir.
+- **Abonelik** - yalnızca bu Abonelikteki kaynakların ilke atanabilir.
+- **Yönetim grubu** - yalnızca alt Yönetim grupları ve alt abonelik içindeki kaynaklara ilke atanabilir. Konum, ilke tanımı için birden çok abonelik uygulamayı planlıyorsanız, bu Aboneliklerdeki içeren yönetim grubu olması gerekir.
 
 ## <a name="display-name-and-description"></a>Görünen ad ve açıklama
 
@@ -146,7 +146,7 @@ Kullanabileceğiniz **displayName** ve **açıklama** ilke tanımını ve kullan
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -233,6 +233,7 @@ Aşağıdaki alanları desteklenir:
 - **Append**: dizi alanları isteği ekler
 - **AuditIfNotExists**: bir kaynak mevcut değilse denetim sağlar
 - **Deployıfnotexists**: zaten yoksa, bir kaynak dağıtır.
+- **Devre dışı bırakılmış**: kaynaklar için Uyumluluk İlkesi kuralı için değerlendirilmiyor
 
 İçin **ekleme**, aşağıdaki ayrıntıları sağlamanız gerekir:
 
@@ -247,6 +248,18 @@ Aşağıdaki alanları desteklenir:
 Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 
 İle **AuditIfNotExists** ve **Deployıfnotexists** ilişkili bir kaynak varlığı değerlendirin ve bu kaynak mevcut değil, bir kural ve karşılık gelen bir efekt uygulayın. Örneğin, tüm sanal ağları için Ağ İzleyicisi dağıtıldığını gerektirebilir. Sanal makine uzantısı olmayan dağıtıldığında denetim örneği için bkz: [uzantı mevcut değilse denetim](../samples/audit-ext-not-exist.md).
+
+**Deployıfnotexists** etkisi gerektirir **Roledefinitionıd** özelliğinde **ayrıntıları** ilke kuralı kısmı. Daha fazla bilgi için [düzeltme - ilke tanımı yapılandırma](../how-to/remediate-resources.md#configure-policy-definition).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 Değerlendirme, özellikler ve örnekler de sırasını her etkisi hakkında tüm ayrıntılar için bkz. [anlama ilke etkileri](effects.md).
 

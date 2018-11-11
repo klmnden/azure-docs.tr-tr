@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945120"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514205"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack sertifika imzalama isteği oluşturma
 
@@ -29,7 +29,7 @@ Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker), aşağıdaki 
  - **Standart sertifika istekleri**  
     Şunlara göre istek [Azure Stack dağıtımı için PKI sertifikaları oluşturmak](azure-stack-get-pki-certs.md).
  - **Hizmet olarak Platform**  
-    İsteğe bağlı olarak hizmet olarak platform (PaaS) adları belirtilen sertifika isteği [Azure Stack ortak anahtar altyapısı sertifika gereksinimleri - isteğe bağlı PaaS sertifikaları](azure-stack-pki-certs.md#optional-paas-certificates).
+    Hizmet olarak platform (PaaS) adları için belirtilen sertifika isteyebilir [Azure Stack ortak anahtar altyapısı sertifika gereksinimleri - isteğe bağlı PaaS sertifikaları](azure-stack-pki-certs.md#optional-paas-certificates).
 
 
 
@@ -102,7 +102,7 @@ Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki a
 
     PaaS Hizmetleri dahil etmek için anahtar belirtin. ```-IncludePaaS```
 
-7. Alternatif olarak, geliştirme ve Test ortamları için. Birden çok konu diğer adları ile tek bir sertifika isteği oluşturmak için Ekle **- RequestType SingleCSR** parametresi ve değeri (**değil** üretim ortamları için önerilen):
+7. Alternatif olarak, geliştirme ve Test ortamları için oluşturmak için birden çok konu diğer adları ile tek bir sertifika isteği eklenmesini **- RequestType SingleCSR** parametresi ve değeri (**değil** için önerilen Üretim ortamları için):
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem

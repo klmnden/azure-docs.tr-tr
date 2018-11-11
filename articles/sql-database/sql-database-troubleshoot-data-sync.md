@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: beab191ff33939053da942b0ce7df22238b8acef
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 44bf04d3840009b9408ccfc51fdcefa7c7e116cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247322"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278948"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
 
@@ -112,143 +112,7 @@ Veri eşitleme, döngüsel başvurular işlemiyor. Kaçınma emin olun.
 
 ## <a name="client-agent-issues"></a>İstemci aracı sorunları
 
-- [İstemci aracı yükleme, kaldırma veya onarım başarısız](#agent-install)
-
-- [Ben kaldırma işlemi iptal ettikten sonra istemci Aracısı çalışmıyor](#agent-uninstall)
-
-- [Veritabanım aracı listesinde listelenmiyor](#agent-list)
-
-- [İstemci Aracısı (hata 1069) başlamıyor](#agent-start)
-
-- [Aracı anahtarını Gönder olamaz](#agent-key)
-
-- [İstemci Aracısı, ilişkili şirket içi veritabanı ulaşılamaz durumdaysa portaldan silinemiyor](#agent-delete)
-
-- [Yerel bir eşitleme Aracısı uygulaması yerel eşitleme hizmetine bağlanamıyor](#agent-connect)
-
-### <a name="agent-install"></a> İstemci aracı yükleme, kaldırma veya onarım başarısız
-
-- **Neden**. Birçok senaryo bu hataya neden olabilir. Bu hatanın nedenini belirlemek için günlüklere bakın.
-
-- **Çözüm**. Belirli bir hatanın nedenini bulmak için oluşturmak ve Windows Yükleyici günlüklerine bakın. Bir komut isteminde günlük kaydını etkinleştirebilirsiniz. Örneğin, indirilen AgentServiceSetup.msi dosya LocalAgentHost.msi ise, oluşturun ve aşağıdaki komut satırlarını kullanarak günlük dosyalarını inceleyin:
-
-    -   Yüklemeler için: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   İçin kaldırır: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-
-    Ayrıca Windows Installer tarafından gerçekleştirilen tüm yüklemeleri için günlük kaydını etkinleştirebilirsiniz. Microsoft Bilgi Bankası makalesi [Windows Installer günlüğe kaydetmenin nasıl etkinleştirileceği](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) Windows Yükleyicisi için günlük kaydını etkinleştirmek için tek tıklamayla çözümü sağlar. Ayrıca, günlüklerinin konumunu sağlar.
-
-### <a name="agent-uninstall"></a> Ben kaldırma işlemi iptal ettikten sonra istemci Aracısı çalışmıyor
-
-İstemci Aracısı, hatta kendi kaldırma iptal edildikten sonra çalışmaz.
-
-- **Neden**. Bu durum, SQL Data Sync istemci Aracısı, kimlik bilgilerini depolamaz kaynaklanır.
-
-- **Çözüm**. Bu iki çözüm de deneyebilirsiniz:
-
-    -   İstemci aracısı için kimlik bilgilerini girmek için Services.msc dosyasını kullanın.
-    -   Bu istemci aracısını kaldırın ve yenisini yükleyin. En son istemci Aracısı'ndan yükleyip [İndirme Merkezi](https://go.microsoft.com/fwlink/?linkid=221479).
-
-### <a name="agent-list"></a> Veritabanım aracı listesinde listelenmiyor
-
-Bir eşitleme grubuna mevcut bir SQL Server veritabanını eklemeye çalıştığınızda, veritabanı aracıları listesinde görünmez.
-
-Bu senaryolar, bu soruna neden olabilir:
-
-- **Neden**. Farklı veri merkezlerinde istemci aracısı ve eşitleme grubu var.
-
-- **Çözüm**. İstemci aracısı ve eşitleme grubu aynı veri merkezinde olması gerekir. Bunu ayarlamak için iki seçeneğiniz vardır:
-
-    -   Eşitleme grubu bulunduğu veri merkezine yeni bir aracı oluşturun. Ardından, veritabanı, bu aracı ile kaydedin.
-    -   Geçerli eşitleme grubunu silin. Ardından, aracıyı bulunduğu veri merkezinde eşitleme grubunu yeniden oluşturun.
-
-- **Neden**. Veritabanı listesi istemci aracısının geçerli değil.
-
-- **Çözüm**. Durdurun ve ardından istemci Aracısı hizmetini yeniden başlatın.
-
-    Yerel aracı yalnızca aracı anahtarı ilk teslimini ilişkili veritabanlarını listesini indirir. İlişkili veritabanlarında sonraki aracı anahtar gönderimler listesini indirmek değil. Bir aracı taşıma sırasında kayıtlı veritabanları özgün aracı örneğinde gösterme.
-
-### <a name="agent-start"></a> İstemci Aracısı (hata 1069) başlamıyor
-
-SQL Server'ı barındıran bir bilgisayara aracı çalışmadığından emin keşfedin. Aracıyı elle başlatmayı deneyin iletisini gösteren bir iletişim kutusu görürsünüz "hatası 1069: Hizmet, bir oturum açma hatası nedeniyle başlatılamadı."
-
-![Veri Eşitleme 1069 hata iletişim kutusu](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
-
-- **Neden**. Bu hatanın olası bir nedeni, Aracısı parolanın ve aracıyı oluşturduktan sonra yerel sunucuda parola değiştirildi ' dir.
-
-- **Çözüm**. Aracının parola geçerli sunucu parolanızı güncelleştirin:
-
-  1. SQL Data Sync istemcisi aracı hizmetini bulun.  
-    a. Seçin **Başlat**.  
-    b. Arama kutusuna **services.msc**.  
-    c. Arama sonuçlarında seçin **Hizmetleri**.  
-    d. İçinde **Hizmetleri** penceresinde girişine kaydırma **SQL veri eşitleme Aracısı**.  
-  1. Sağ **SQL veri eşitleme Aracısı**ve ardından **Durdur**.
-  1. Sağ **SQL veri eşitleme Aracısı**ve ardından **özellikleri**.
-  1. Üzerinde **SQL veri eşitleme Aracısı Özellikleri**seçin **oturum** sekmesi.
-  1. İçinde **parola** kutusuna, parolanızı girin.
-  1. İçinde **parolayı onayla** kutusunda, isterse parolanızı tekrar girmelisiniz.
-  1. **Uygula**’yı ve sonra **Tamam**’ı seçin.
-  1. İçinde **Hizmetleri** penceresinde sağ **SQL veri eşitleme Aracısı** hizmet ve ardından **Başlat**.
-  1. Kapat **Hizmetleri** penceresi.
-
-### <a name="agent-key"></a> Aracı anahtarını Gönder olamaz
-
-Oluşturmak veya bir aracıda, aracı yeniden anahtar oluşturma sonra SqlAzureDataSyncAgent uygulama anahtarı göndermeyi deneyin. Gönderim tamamlamak başarısız olur.
-
-![Eşitleme hata iletişim kutusu - aracı anahtarı gönderilemiyor](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
-
-- **Önkoşullar**. Devam etmeden önce şu önkoşulları denetleyin:
-
-  - SQL veri eşitleme Windows hizmeti çalışıyor.
-
-  - SQL veri eşitleme Windows hizmeti için hizmet hesabının ağ erişimi vardır.
-
-  - Yerel Güvenlik Duvarı kuralınız giden 1433 numaralı bağlantı noktaları açıktır.
-
-  - Yerel IP sunucuda veya eşitleme meta verileri veritabanı için veritabanı güvenlik duvarı kuralı eklenir.
-
-- **Neden**. Aracı anahtarı her yerel aracı benzersiz olarak tanımlar. Anahtar iki koşulları karşılaması gerekir:
-
-  -   İstemci aracı anahtarı SQL Data Sync server ve yerel bilgisayar üzerinde aynı olmalıdır.
-  -   İstemci aracı anahtarı yalnızca bir kez kullanılabilir.
-
-- **Çözüm**. Aracınızı çalışmıyorsa, bir ya da bu koşulların her ikisinin de karşılanmadı olmasıdır. Yeniden çalışma için aracınızı almak için:
-
-  1. Yeni bir anahtar oluşturun.
-  1. Yeni anahtar aracıya uygulayın.
-
-  Yeni anahtar aracısına uygulamak için:
-
-  1. Dosya Gezgini'nde, aracı yükleme dizinine gidin. Varsayılan yükleme dizini şöyledir\\Program dosyaları (x86)\\Microsoft SQL Data Sync.
-  1. Bin alt çift tıklayın.
-  1. SqlAzureDataSyncAgent uygulamasını açın.
-  1. Seçin **aracı anahtarını Gönder**.
-  1. Sağlanan alana panonuzdan anahtarını yapıştırın.
-  1. **Tamam**’ı seçin.
-  1. Programı kapatın.
-
-### <a name="agent-delete"></a> İstemci Aracısı, ilişkili şirket içi veritabanı ulaşılamaz durumdaysa portaldan silinemiyor
-
-Bir SQL Data Sync istemci Aracısı ile kayıtlı bir yerel uç noktası (diğer bir deyişle, bir veritabanı) ulaşılamaz hale gelirse, istemci Aracısı silinemiyor.
-
-- **Neden**. Yerel aracı ulaşılamaz veritabanı hala aracı ile kayıtlı olduğundan silinemiyor. Aracıyı silmeye çalıştığınızda, silme işlemi başarısız veritabanı erişmeye çalışır.
-
-- **Çözüm**. "Zorla Sil" kullanmak ulaşılamaz veritabanı silinemiyor.
-
-> [!NOTE]
-> Eşitleme meta veri tablolarını bir "zorla sonra silme", kullanım kalırsa `deprovisioningutil.exe` temizlenmesi.
-
-### <a name="agent-connect"></a> Yerel bir eşitleme Aracısı uygulaması yerel eşitleme hizmetine bağlanamıyor
-
-- **Çözüm**. Aşağıdaki adımları deneyin:
-
-  1. Uygulamadan çıkmak.  
-  1. Bileşen Hizmetleri panelini açın.  
-    a. Görev çubuğundaki arama kutusuna girin **services.msc**.  
-    b. Arama sonuçlarında çift **Hizmetleri**.  
-  1. Durdur **SQL Data Sync** hizmeti.
-  1. Yeniden **SQL Data Sync** hizmeti.  
-  1. Uygulamayı yeniden açmak.
+İstemci Aracısı ile ilgili sorunları gidermek için bkz: [veri eşitleme Aracısı sorunlarını giderme sorunları](sql-database-data-sync-agent.md#agent-tshoot).
 
 ## <a name="setup-and-maintenance-issues"></a>Kurulum ve Bakım konuları
 

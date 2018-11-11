@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389641"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300277"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream analytics'te anomali algılama
 
@@ -31,7 +31,7 @@ Anomalydetectıon işleci, üç tür anomalileri algılar:
 
 * **Negatif eğilim yavaş**: yavaş bir düşüş eğilimi, zaman içinde.  
 
-Anomalydetectıon işleci kullanırken belirtmelisiniz **Limit Duration** yan tümcesi. Bu yan tümce zaman aralığını (ne kadar geri geçerli olay geçmişinden), anomalileri tespit edilirken dikkate alınacağını belirtir. Bu işleç isteğe bağlı olarak belirli bir özellik ya da koşul kullanarak eşleşen olaylar için sınırlı olabilir **olduğunda** yan tümcesi. Bu işleç, ayrı olarak belirtilen anahtara göre olay gruplarını ayrıca isteğe bağlı olarak işleyebilir **tarafından bölüm** yan tümcesi. Eğitim ve tahmin bağımsız olarak her bölüm için gerçekleşir. 
+Anomalydetectıon işleci kullanırken belirtmelisiniz **Limit Duration** yan tümcesi. Bu yan tümce zaman aralığını (ne kadar geri geçerli olay geçmişinden), anomalileri tespit edilirken dikkate alınacağını belirtir. Bu işleç isteğe bağlı olarak belirli bir özellik ya da koşul kullanarak eşleşen olaylar için sınırlı olabilir **olduğunda** yan tümcesi. Bu işleç, ayrı olarak belirtilen anahtara göre olay gruplarını ayrıca isteğe bağlı olarak işleyebilir **tarafından bölüm** yan tümcesi. Eğitim ve tahmin bağımsız olarak her bölüm için gerçekleşir. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Anomalydetectıon işleci için söz dizimi
 
@@ -45,11 +45,11 @@ Anomalydetectıon işleci kullanırken belirtmelisiniz **Limit Duration** yan t�
 
 * **scalar_expression** -skaler ifade anomali algılama üzerinden gerçekleştirilir. Bu parametre, Float'ı dahil etmek veya bu dönüş tek bir (sayı) değerini Bigint veri türleri için izin verilen değerler. Joker karakter ifadesini **\*** izin verilmiyor. Skaler ifade, diğer analiz işlevleri veya dış işlevler içeremez. 
 
-* **partition_by_clause** - `PARTITION BY <partition key>` yan tümcesi öğrenme ve eğitim ayrı bölümler arasında böler. Diğer bir deyişle, ayrı bir model değerini kullanılan `<partition key>` ve bu değer yalnızca olaylarla öğrenme ve eğitim Bu modelde için kullanılabilir. Örneğin, aşağıdaki sorgu trenler ve puanları bir başka okumalar yalnızca aynı algılayıcı karşı okuma:
+* **partition_by_clause** - `PARTITION BY <partition key>` yan tümcesi öğrenme ve eğitim ayrı bölümler arasında böler. Diğer bir deyişle, ayrı bir model değerini kullanılan `<partition key>` ve bu değer yalnızca olaylarla öğrenme ve eğitim Bu modelde için kullanılabilir. Örneğin, aşağıdaki sorgu trenler ve puanları bir başka okumalar yalnızca aynı algılayıcı karşı okuma:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration yan tümcesi** `DURATION(<unit>, <length>)` -anomalileri tespit edilirken, zaman aralığını (ne kadar geri geçerli olay geçmişinden) sayılacağı belirtir. Bkz: [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) desteklenen birimler ve kısaltmalarıyla ayrıntılı bir açıklaması. 
+* **limit_duration yan tümcesi**  `DURATION(<unit>, <length>)` -anomalileri tespit edilirken, zaman aralığını (ne kadar geri geçerli olay geçmişinden) sayılacağı belirtir. Bkz: [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) desteklenen birimler ve kısaltmalarıyla ayrıntılı bir açıklaması. 
 
 * **when_clause** -anomali algılama hesaplamayı kabul olaylar için bir boolean koşulu belirtir.
 

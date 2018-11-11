@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957964"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281702"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -142,7 +142,9 @@ Yalnızca veri fabrikası okur `publish_config.json` Fabrika yüklediğinde, dos
 
 ## <a name="author-with-github-integration"></a>GitHub Tümleştirmesi ile içerik oluşturma
 
-GitHub Tümleştirmesi ile görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Veri fabrikası, bir GitHub hesabı deposu için kaynak denetimi, işbirliği ve sürüm oluşturma ile ilişkilendirebilirsiniz. Tek bir GitHub hesabı birden çok deposu olabilir, ancak bir GitHub deposuna tek bir data factory ile ilişkili olabilir. Bir GitHub hesabı ya da depo yoksa izleyin [bu yönergeleri](https://github.com/join) kaynaklarınızı oluşturmak için. Data Factory ile GitHub tümleştirmesini hem genel GitHub yanı sıra GitHub Enterprise'ı destekler.
+GitHub Tümleştirmesi ile görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Veri fabrikası, bir GitHub hesabı deposu için kaynak denetimi, işbirliği ve sürüm oluşturma ile ilişkilendirebilirsiniz. Tek bir GitHub hesabı birden çok deposu olabilir, ancak bir GitHub deposuna tek bir data factory ile ilişkili olabilir. Bir GitHub hesabı ya da depo yoksa izleyin [bu yönergeleri](https://github.com/join) kaynaklarınızı oluşturmak için.
+
+Her iki genel GitHub Data Factory ile GitHub tümleştirmesini destekler (diğer bir deyişle, [ https://github.com ](https://github.com)) ve GitHub Enterprise. Uzun okuma ve yazma izni GitHub deponuza gibi genel ve özel GitHub depoları Data Factory ile kullanabilirsiniz.
 
 GitHub deposunu yapılandırmak için kullandığınız Azure aboneliği için yönetici izinlerine sahip olmanız.
 
@@ -164,11 +166,11 @@ Bir GitHub deposu ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
 
 **Yapılandırma yöntemine (genel deponun) 1: başlayalım sayfası**
 
-Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
+Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
 
 ![Veri Fabrikası başlangıç sayfası](media/author-visually/github-integration-image1.png)
 
-**Depo ayarları** yapılandırma bölmesi görünür:
+ **Depo ayarları** yapılandırma bölmesi görünür:
 
 ![GitHub depo ayarları](media/author-visually/github-integration-image2.png)
 
@@ -181,14 +183,14 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 | **RepositoryName**                                       | GitHub kod deponuzun adını. Git depoları, kaynak kodunuzu yönetmek için GitHub hesaplarında bulunur. Yeni bir havuz oluşturabilir veya hesabınızda zaten varolan bir depo kullanın.                                                                                                                                                                                                                              |                    |
 | **Birlikte çalışma dalı**                                 | Yayımlama için kullanılan, GitHub işbirliği dal. Varsayılan olarak, ana. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin.                                                                                                                                                                                                                                                               |                    |
 | **Kök klasör**                                          | Kök klasör GitHub işbirliği dalınızdaki.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
+| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 | **Dal kaynağını içeri aktarmak için**                       | Veri Fabrikası Kaynakları (işlem hatları, veri kümeleri, bağlı hizmetler vb.) hangi dala içe aktarılacağını belirler. Aşağıdaki dalları biri kaynakların içeri aktarabilirsiniz: bir. İşbirliği b. Yeni c oluşturun. Var Olanı Kullan                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine 2 (ortak depo): UX yazma tuvali
 
-Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
+Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 
-Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bağlantısındaki açıklamalara bakın *yapılandırma yöntemi 1* yukarıda.
+Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bağlantısındaki açıklamalara bakın *yapılandırma yöntemi 1* yukarıda.
 
 ### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Azure Data Factory ile bir GitHub Enterprise deposunu yapılandırma
 
@@ -196,11 +198,11 @@ GitHub Enterprise depo ile veri fabrikası iki yöntemleri yapılandırabilirsin
 
  #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Yapılandırma yöntemine (Kurumsal depo) 1: başlayalım sayfası
 
-Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
+Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
 
 ![Veri Fabrikası başlangıç sayfası](media/author-visually/github-integration-image1.png)
 
-**Depo ayarları** yapılandırma bölmesi görünür:
+ **Depo ayarları** yapılandırma bölmesi görünür:
 
 ![GitHub depo ayarları](media/author-visually/github-integration-image3.png)
 
@@ -215,14 +217,14 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 | **RepositoryName**                                       | GitHub kod deponuzun adını. Git depoları, kaynak kodunuzu yönetmek için GitHub hesaplarında bulunur. Yeni bir havuz oluşturabilir veya hesabınızda zaten varolan bir depo kullanın.                                                                                                                                                                                                                              |                    |
 | **Birlikte çalışma dalı**                                 | Yayımlama için kullanılan, GitHub işbirliği dal. Varsayılan olarak, ana. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin.                                                                                                                                                                                                                                                               |                    |
 | **Kök klasör**                                          | Kök klasör GitHub işbirliği dalınızdaki.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
+| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 | **Dal kaynağını içeri aktarmak için**                       | Veri Fabrikası Kaynakları (işlem hatları, veri kümeleri, bağlı hizmetler vb.) hangi dala içe aktarılacağını belirler. Aşağıdaki dalları biri kaynakların içeri aktarabilirsiniz: bir. İşbirliği b. Yeni c oluşturun. Var Olanı Kullan                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (Kurumsal depo) 2: UX yazma tuvali
 
-Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
+Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 
-Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bağlantısındaki açıklamalara bakın *yapılandırma yöntemi 1* yukarıda.
+Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bağlantısındaki açıklamalara bakın *yapılandırma yöntemi 1* yukarıda.
 
 ## <a name="use-the-expression-language"></a>İfade dili kullanın
 Azure Data Factory tarafından desteklenen bir ifade dilini kullanarak ifadeleri için özellik değerlerini belirtebilirsiniz.

@@ -6,45 +6,47 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/17/2018
+ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167503"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345105"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını özelleştirme
 
-Bu makalede nasıl kaynak koduna erişim ve UI Uzaktan izleme çözüm Hızlandırıcısını özelleştirme hakkında bilgi sağlar. Bu makalede açıklanır:
+Bu makalede nasıl kaynak koduna erişim ve UI Uzaktan izleme çözüm Hızlandırıcısını özelleştirme hakkında bilgi sağlar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Kullanıcı Arabirimi için bir yerel geliştirme ortamınızı hazırlama
 
 Uzaktan izleme çözüm Hızlandırıcısını UI kodunu React.js framework kullanılarak uygulanır. Kaynak kodunda bulabilirsiniz [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub deposu.
 
-Kullanıcı Arabirimi için değişiklik yapmak için bir kopyasını yerel olarak çalıştırabilirsiniz. Yerel kopya telemetri alma gibi eylemleri gerçekleştirmek için çözüm dağıtılan bir örneğine bağlanır.
+Kullanıcı Arabirimi için değişiklik yapmak için bir kopyasını yerel olarak çalıştırabilirsiniz. Telemetri alma gibi eylemleri tamamlamak için yerel kopyayı çözüm dağıtılan bir örneğine bağlanır.
 
 Aşağıdaki adımlar, kullanıcı Arabirimi geliştirme için yerel bir ortamı ayarlama işlemini özetlemektedir:
 
 1. Dağıtım bir **temel** çözüm Hızlandırıcı kullanarak örneğini **bilgisayarları** CLI. Dağıtımınız ve sanal makine için sağlanan kimlik bilgileri adını not edin. Daha fazla bilgi için [CLI kullanarak dağıtma](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Azure portalını kullanın veya [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) çözümünüzdeki mikro hizmetleri barındıran sanal makineye SSH erişimini etkinleştirmek için. Örneğin:
+1. Mikro hizmetler, çözümünüzdeki barındıran sanal makineye SSH erişimini etkinleştirmek için Azure portal veya Azure Cloud Shell kullanın. Örneğin:
 
-    ```sh
+    ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Yalnızca, test ve geliştirme sırasında SSH erişimini etkinleştirmeniz gerekir. SSH, etkinleştirirseniz [yeniden olabildiğince çabuk devre dışı](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Yalnızca test ve geliştirme sırasında SSH erişimini etkinleştirin. SSH, etkinleştirirseniz [kullanmayı bitirdikten hemen sonra bunu devre dışı bırakmanız gerekir](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Azure portalını kullanın veya [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) adı ve sanal makinenizin genel IP adresini bulmak için. Örneğin:
+1. Azure portal veya Azure Cloud Shell, sanal makinenizin genel IP adresi ve adını bulmak için kullanın. Örneğin:
 
-    ```sh
+    ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. IP adresi önceki adımda ve çalıştırdığınızda sağladığınız kimlik bilgileri kullanarak sanal makinenize bağlanmak için SSH kullanın **bilgisayarları** çözüm dağıtın.
+1. Sanal makinenize bağlanmak için SSH kullanın. IP adresi önceki adımda ve çalıştırdığınızda sağladığınız kimlik bilgileri kullanmak **bilgisayarları** çözümü dağıtmak için. `ssh` Komutu Azure Cloud Shell'de kullanılabilir.
 
 1. Bağlanmak yerel kullanıcı Deneyimini izin vermek için sanal makine bash kabuğunda aşağıdaki komutları çalıştırın:
 
@@ -62,7 +64,9 @@ Aşağıdaki adımlar, kullanıcı Arabirimi geliştirme için yerel bir ortamı
     REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
     ```
 
-1. Bir komut isteminde yerel kopyanızı `azure-iot-pcs-remote-monitoring-webui` klasörü, gerekli kitaplıkları yükleyin ve kullanıcı Arabirimi yerel olarak çalıştırmak için aşağıdaki komutları çalıştırın:
+1. Bir komut isteminde, yerel kopyasına gidin `azure-iot-pcs-remote-monitoring-webui` klasör.
+
+1. Gerekli kitaplıkları yükleyin ve kullanıcı Arabirimi yerel olarak çalıştırmak için aşağıdaki komutları çalıştırın:
 
     ```cmd/sh
     npm install
@@ -73,131 +77,160 @@ Aşağıdaki adımlar, kullanıcı Arabirimi geliştirme için yerel bir ortamı
 
 ## <a name="customize-the-layout"></a>Düzenleri özelleştirme
 
-Uzaktan izleme çözümünde her sayfa, bir dizi denetimi olarak adlandırılır, oluşan *panelleri* kaynak kodunda. Örneğin, **Pano** sayfa oluşur beş bölmelerden: genel bakış, harita, alarmlar, Telemetri ve KPI'ler. Her sayfanın ve kendi panellerinde tanımlayan kaynak kodunu bulabilirsiniz [bilgisayarları-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub deposu. Örneğin, tanımlar kod **Pano** sayfa düzenini ve panel sayfasında bulunan [src/bileşenleri/sayfaları/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) klasör.
+Uzaktan izleme çözümünde her sayfa, bir dizi denetimi olarak adlandırılır, oluşan *panelleri* kaynak kodunda. **Pano** sayfa oluşur beş bölmelerden: genel bakış, harita, alarmlar, Telemetri ve analiz. Her sayfanın ve kendi panellerinde tanımlayan kaynak kodunu bulabilirsiniz [bilgisayarları-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub deposu. Örneğin, tanımlar kod **Pano** sayfa düzenini ve panel sayfasında bulunan [src/bileşenleri/sayfaları/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) klasör.
 
-Çünkü kendi düzen panelleri yönetme ve boyutlandırma, bir sayfanın düzenini kolayca değiştirebilirsiniz. Aşağıdaki gibi değişir **PageContent** öğesinde `src/components/pages/dashboard/dashboard.js` dosya Haritası ve telemetriyi panellerin konumlarını değiştirme ve harita ve KPI panelleri göreli genişliğini değiştirin:
+Çünkü kendi düzen panelleri yönetme ve boyutlandırma, bir sayfanın düzenini kolayca değiştirebilirsiniz. Aşağıdaki değişiklikleri yapın **PageContent** öğesinde `src/components/pages/dashboard/dashboard.js` dosya:
+
+* Haritası ve telemetriyi panellerin konumlarını değiştirme.
+* Harita ve analiz paneller göreli genişliğini değiştirin.
 
 ```nodejs
-<PageContent className="dashboard-container" key="page-content">
+<PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
       <OverviewPanel
+        activeDeviceGroup={activeDeviceGroup}
         openWarningCount={openWarningCount}
         openCriticalCount={openCriticalCount}
         onlineDeviceCount={onlineDeviceCount}
         offlineDeviceCount={offlineDeviceCount}
-        isPending={kpisIsPending || devicesIsPending}
-        error={devicesError || kpisError}
+        isPending={analyticsIsPending || devicesIsPending}
+        error={deviceGroupError || devicesError || analyticsError}
         t={t} />
     </Cell>
-    <Cell className="col-5">
+    <Cell className="col-6">
       <TelemetryPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
         telemetry={telemetry}
         isPending={telemetryIsPending}
-        error={telemetryError}
+        lastRefreshed={lastRefreshed}
+        error={deviceGroupError || telemetryError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
     <Cell className="col-3">
-      <CustAlarmsPanel
-        alarms={currentActiveAlarmsWithName}
-        isPending={kpisIsPending || rulesIsPending}
-        error={rulesError || kpisError}
-        t={t} />
+      <AlertsPanel
+        alerts={currentActiveAlertsWithName}
+        isPending={analyticsIsPending || rulesIsPending}
+        error={rulesError || analyticsError}
+        t={t}
+        deviceGroups={deviceGroups} />
     </Cell>
     <Cell className="col-4">
-    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+      <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
         <MapPanel
+          analyticsVersion={analyticsVersion}
           azureMapsKey={azureMapsKey}
           devices={devices}
-          devicesInAlarm={devicesInAlarm}
+          devicesInAlert={devicesInAlert}
           mapKeyIsPending={azureMapsKeyIsPending}
-          isPending={devicesIsPending || kpisIsPending}
-          error={azureMapsKeyError || devicesError || kpisError}
+          isPending={devicesIsPending || analyticsIsPending}
+          error={azureMapsKeyError || devicesError || analyticsError}
           t={t} />
       </PanelErrorBoundary>
     </Cell>
     <Cell className="col-6">
-      <KpisPanel
-        topAlarms={topAlarmsWithName}
-        alarmsPerDeviceId={alarmsPerDeviceType}
-        criticalAlarmsChange={criticalAlarmsChange}
-        warningAlarmsChange={warningAlarmsChange}
-        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
-        error={devicesError || rulesError || kpisError}
+      <AnalyticsPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
+        topAlerts={topAlertsWithName}
+        alertsPerDeviceId={alertsPerDeviceType}
+        criticalAlertsChange={criticalAlertsChange}
+        isPending={analyticsIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || analyticsError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
+    {
+      Config.showWalkthroughExamples &&
+      <Cell className="col-4">
+        <ExamplePanel t={t} />
+      </Cell>
+    }
   </Grid>
 </PageContent>
 ```
 
 ![Panel düzenini değiştir](./media/iot-accelerators-remote-monitoring-customize/layout.png)
 
-> [!NOTE]
-> Yerel dağıtımda eşleme yapılandırılmadı.
-
-De aynı paneli birden çok örneğini veya birden çok sürüm varsa ekleyebilirsiniz, [yinelenen ve bir paneli özelleştirme](#duplicate-and-customize-an-existing-control). Aşağıdaki örnek, iki örnek telemetri panel düzenleyerek ekleme işlemi gösterilmektedir `src/components/pages/dashboard/dashboard.js` dosyası:
+De aynı paneli birkaç örnek veya çeşitli sürümleri varsa ekleyebilirsiniz, [yinelenen ve bir paneli özelleştirme](#duplicate-and-customize-an-existing-control). Aşağıdaki örnek iki örnek telemetri panel Ekle gösterilmektedir. Bu değişiklikleri yapmak için Düzenle `src/components/pages/dashboard/dashboard.js` dosyası:
 
 ```nodejs
-<PageContent className="dashboard-container" key="page-content">
+<PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
       <OverviewPanel
+        activeDeviceGroup={activeDeviceGroup}
         openWarningCount={openWarningCount}
         openCriticalCount={openCriticalCount}
         onlineDeviceCount={onlineDeviceCount}
         offlineDeviceCount={offlineDeviceCount}
-        isPending={kpisIsPending || devicesIsPending}
-        error={devicesError || kpisError}
+        isPending={analyticsIsPending || devicesIsPending}
+        error={deviceGroupError || devicesError || analyticsError}
         t={t} />
     </Cell>
     <Cell className="col-3">
       <TelemetryPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
         telemetry={telemetry}
         isPending={telemetryIsPending}
-        error={telemetryError}
+        lastRefreshed={lastRefreshed}
+        error={deviceGroupError || telemetryError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
     <Cell className="col-3">
       <TelemetryPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
         telemetry={telemetry}
         isPending={telemetryIsPending}
-        error={telemetryError}
+        lastRefreshed={lastRefreshed}
+        error={deviceGroupError || telemetryError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
-    <Cell className="col-2">
-      <CustAlarmsPanel
-        alarms={currentActiveAlarmsWithName}
-        isPending={kpisIsPending || rulesIsPending}
-        error={rulesError || kpisError}
-        t={t} />
+    <Cell className="col-3">
+      <AlertsPanel
+        alerts={currentActiveAlertsWithName}
+        isPending={analyticsIsPending || rulesIsPending}
+        error={rulesError || analyticsError}
+        t={t}
+        deviceGroups={deviceGroups} />
     </Cell>
     <Cell className="col-4">
-    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+      <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
         <MapPanel
+          analyticsVersion={analyticsVersion}
           azureMapsKey={azureMapsKey}
           devices={devices}
-          devicesInAlarm={devicesInAlarm}
+          devicesInAlert={devicesInAlert}
           mapKeyIsPending={azureMapsKeyIsPending}
-          isPending={devicesIsPending || kpisIsPending}
-          error={azureMapsKeyError || devicesError || kpisError}
+          isPending={devicesIsPending || analyticsIsPending}
+          error={azureMapsKeyError || devicesError || analyticsError}
           t={t} />
       </PanelErrorBoundary>
     </Cell>
     <Cell className="col-6">
-      <KpisPanel
-        topAlarms={topAlarmsWithName}
-        alarmsPerDeviceId={alarmsPerDeviceType}
-        criticalAlarmsChange={criticalAlarmsChange}
-        warningAlarmsChange={warningAlarmsChange}
-        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
-        error={devicesError || rulesError || kpisError}
+      <AnalyticsPanel
+        timeSeriesExplorerUrl={timeSeriesParamUrl}
+        topAlerts={topAlertsWithName}
+        alertsPerDeviceId={alertsPerDeviceType}
+        criticalAlertsChange={criticalAlertsChange}
+        isPending={analyticsIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || analyticsError}
+        theme={theme}
         colors={chartColorObjects}
         t={t} />
     </Cell>
+    {
+      Config.showWalkthroughExamples &&
+      <Cell className="col-4">
+        <ExamplePanel t={t} />
+      </Cell>
+    }
   </Grid>
 </PageContent>
 ```
@@ -206,33 +239,30 @@ Ardından, farklı telemetri her panelinde görüntüleyebilirsiniz:
 
 ![Birden fazla telemetri panel](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
 
-> [!NOTE]
-> Yerel dağıtımda eşleme yapılandırılmadı.
-
 ## <a name="duplicate-and-customize-an-existing-control"></a>Yinelenen ve varolan bir denetimi özelleştirme
 
-Aşağıdaki adımlar, nasıl kullanılacağını özetlemektedir **alarmlar** paneli var olan bir panel yinelenen, değiştirmek ve değiştirilmiş sürümünü kullanmak nasıl bir örnek olarak:
+Aşağıdaki adımlar, var olan bir panel yinelenen, değiştirin ve ardından değiştirilmiş sürümünü nasıl özetlemektedir. Adımları **uyarılar** paneli örnek olarak:
 
-1. Depo, yerel kopyasında bir kopyasını **alarmlar** klasöründe `src/components/pages/dashboard/panels` klasör. Yeni kopya adı **cust_alarms**.
+1. Depo, yerel kopyasında bir kopyasını **uyarılar** klasöründe `src/components/pages/dashboard/panels` klasör. Yeni kopya adı **cust_alerts**.
 
-1. İçinde **alarmsPanel.js** dosyası **cust_alarms** klasöründe olması için sınıfın adını Düzenle **CustAlarmsPanel**:
+1. İçinde **alertsPanel.js** dosyası **cust_alerts** klasöründe olması için sınıfın adını Düzenle **CustAlertsPanel**:
 
     ```nodejs
-    export class CustAlarmsPanel extends Component {
+    export class CustAlertsPanel extends Component {
     ```
 
 1. Aşağıdaki satırı ekleyin `src/components/pages/dashboard/panels/index.js` dosyası:
 
     ```nodejs
-    export * from './cust_alarms';
+    export * from './cust_alerts';
     ```
 
-1. Değiştirin `AlarmsPanel` ile `CustAlarmsPanel` içinde `src/components/pages/dashboard/dashboard.js` dosyası:
+1. Değiştirin `alertsPanel` ile `CustAlertsPanel` içinde `src/components/pages/dashboard/dashboard.js` dosyası:
 
     ```nodejs
     import {
       OverviewPanel,
-      CustAlarmsPanel,
+      CustAlertsPanel,
       TelemetryPanel,
       KpisPanel,
       MapPanel,
@@ -243,17 +273,17 @@ Aşağıdaki adımlar, nasıl kullanılacağını özetlemektedir **alarmlar** p
     ...
 
     <Cell className="col-3">
-      <CustAlarmsPanel
-        alarms={currentActiveAlarmsWithName}
+      <CustAlertsPanel
+        alerts={currentActivealertsWithName}
         isPending={kpisIsPending || rulesIsPending}
         error={rulesError || kpisError}
         t={t} />
     </Cell>
     ```
 
-Artık özgün almıştır **alarmlar** adlı bir kopya paneliyle **CustAlarms**. Bu kopyası, özgün aynıdır. Artık, kopya değiştirebilirsiniz. Örneğin, sıralama sütunu değiştirme **alarmlar** paneli:
+Artık özgün yerine **uyarılar** adlı bir kopya paneliyle **CustAlerts**. Bu kopyası, özgün ile aynıdır. Artık, kopya değiştirebilirsiniz. Örneğin, sıralama sütunu değiştirme **uyarılar** paneli:
 
-1. `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js` dosyasını açın.
+1. `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js` dosyasını açın.
 
 1. Sütun tanımları, aşağıdaki kod parçacığında gösterildiği gibi değiştirin:
 
@@ -272,13 +302,13 @@ Artık özgün almıştır **alarmlar** adlı bir kopya paneliyle **CustAlarms**
     ];
     ```
 
-Yeni sürümünü aşağıdaki ekran görüntüsünde gösterilmektedir **alarmlar** paneli:
+Yeni sürümünü aşağıdaki ekran görüntüsünde gösterilmektedir **uyarılar** paneli:
 
-![Alarmlar panelinde güncelleştirildi](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
+![Uyarılar panelinde güncelleştirildi](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
 
 ## <a name="customize-the-telemetry-chart"></a>Telemetri grafiği özelleştirme
 
-Telemetri grafikte **Pano** sayfası dosyalarında tanımlanan `src/components/pages/dashboard/panels/telemtry` klasör. Çözüm arka ucu telemetri kullanıcı arabirimini alır `src/services/telemetryService.js` dosya. Aşağıdaki adımlarda, 5 dakika 15 dakika telemetri grafiğe görüntülenecek zaman aralığını değiştirmek gösterilmektedir:
+Dosyaları `src/components/pages/dashboard/panels/telemtry` klasör üzerinde telemetri grafik tanımlayın **Pano** sayfası. Çözüm arka ucu telemetri kullanıcı arabirimini alır `src/services/telemetryService.js` dosya. Aşağıdaki adımlarda, 5 dakika 15 telemetri grafiğe görüntülenecek zaman aralığını değiştirmek gösterilmektedir:
 
 1. İçinde `src/services/telemetryService.js` dosya, çağrılan işlev bulun **getTelemetryByDeviceIdP15M**. Bu işlev bir kopyasını alın ve kopyalama gibi değiştirin:
 
@@ -305,28 +335,29 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 ## <a name="add-a-new-kpi"></a>Yeni KPI Ekle
 
-**Pano** sayfası görüntüler KPI'ler **sistem KPI'ları** paneli. Bu KPI'ları hesaplanır `src/components/pages/dashboard/dashboard.js` dosya. KPI'ları tarafından işlenen `src/components/pages/dashboard/panels/kpis/kpisPanel.js` dosya. Aşağıdaki adımlarda açıklanmıştır hesaplamak ve üzerinde yeni bir KPI değeri işlemek nasıl **Pano** sayfası. Yeni bir yüzde değişikliği uyarılar KPI eklemek için gösterilen örnekte bulunur:
+**Pano** sayfası görüntüler KPI'ler **Analytics** paneli. Bu KPI'ları hesaplanır `src/components/pages/dashboard/dashboard.js` dosya. KPI'ları tarafından işlenen `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` dosya. Aşağıdaki adımlarda açıklanmıştır hesaplamak ve üzerinde yeni bir KPI değeri işlemek nasıl **Pano** sayfası. Yeni bir yüzde değişikliği uyarılar KPI eklemek için gösterilen örnekte bulunur:
 
-1. `src/components/pages/dashboard/dashboard.js` dosyasını açın. Değiştirme **ilk durum** eklenecek nesne bir **warningAlarmsChange** özelliğini aşağıdaki gibi:
+1. `src/components/pages/dashboard/dashboard.js` dosyasını açın. Değiştirme **ilk durum** eklenecek nesne bir **warningAlertsChange** özelliğini aşağıdaki gibi:
 
     ```nodejs
     const initialState = {
       ...
 
-      // Kpis data
-      currentActiveAlarms: [],
-      topAlarms: [],
-      alarmsPerDeviceId: {},
-      criticalAlarmsChange: 0,
-      warningAlarmsChange: 0,
-      kpisIsPending: true,
-      kpisError: null,
+      // Analytics data
+      analyticsVersion: 0,
+      currentActiveAlerts: [],
+      topAlerts: [],
+      alertsPerDeviceId: {},
+      criticalAlertsChange: 0,
+      warningAlertsChange: 0,
+      analyticsIsPending: true,
+      analyticsError: null
 
       ...
     };
     ```
 
-1. Değiştirme **currentAlarmsStats** eklenecek nesnenin **totalWarningCount** bir özellik olarak:
+1. Değiştirme **currentAlertsStats** eklenecek nesnenin **totalWarningCount** bir özellik olarak:
 
     ```nodejs
     return {
@@ -338,49 +369,51 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
     };
     ```
 
-1. Yeni KPI hesaplayın. Kritik uyarılar sayısı için hesaplama bulun. Yinelenen kodu ve kopyalama gibi değiştirin:
+1. Yeni KPI hesaplayın. Hesaplama için kritik uyarı sayısını bulur. Yinelenen kodu ve kopyalama gibi değiştirin:
 
     ```nodejs
-    // ================== Warning Alarms Count - START
-    const currentWarningAlarms = currentAlarmsStats.totalWarningCount;
-    const previousWarningAlarms = previousAlarms.reduce(
-      (cnt, { severity }) => severity === 'warning' ? cnt + 1 : cnt,
+    // ================== Warning Alerts Count - START
+    const currentWarningAlerts = currentAlertsStats.totalWarningCount;
+    const previousWarningAlerts = previousAlerts.reduce(
+      (cnt, { severity }) => severity === Config.ruleSeverity.warning ? cnt + 1 : cnt,
       0
     );
-    const warningAlarmsChange = ((currentWarningAlarms - previousWarningAlarms) / currentWarningAlarms * 100).toFixed(2);
-    // ================== Warning Alarms Count - END
+    const warningAlertsChange = ((currentWarningAlerts - previousWarningAlerts) / currentWarningAlerts * 100).toFixed(2);
+    // ================== Warning Alerts Count - END
     ```
 
-1. Yeni dahil **warningAlarmsChange** KPI stream'de KPI:
+1. Yeni dahil **warningAlertsChange** KPI stream'de KPI:
 
     ```nodejs
     return ({
-      kpisIsPending: false,
+      analyticsIsPending: false,
+      analyticsVersion: this.state.analyticsVersion + 1,
 
-      // Kpis data
-      currentActiveAlarms,
-      topAlarms,
-      criticalAlarmsChange,
-      warningAlarmsChange,
-      alarmsPerDeviceId: currentAlarmsStats.alarmsPerDeviceId,
+      // Analytics data
+      currentActiveAlerts,
+      topAlerts,
+      criticalAlertsChange,
+      warningAlertsChange,
+      alertsPerDeviceId: currentAlertsStats.alertsPerDeviceId,
 
       ...
     });
     ```
 
-1. Yeni dahil **warningAlarmsChange** KPI kullanıcı arabirimini oluşturmak için kullanılan durum veri:
+1. Yeni dahil **warningAlertsChange** KPI kullanıcı arabirimini oluşturmak için kullanılan durum veri:
 
     ```nodejs
     const {
       ...
 
-      currentActiveAlarms,
-      topAlarms,
-      alarmsPerDeviceId,
-      criticalAlarmsChange,
-      warningAlarmsChange,
-      kpisIsPending,
-      kpisError,
+      analyticsVersion,
+      currentActiveAlerts,
+      topAlerts,
+      alertsPerDeviceId,
+      criticalAlertsChange,
+      warningAlertsChange,
+      analyticsIsPending,
+      analyticsError,
 
       ...
     } = this.state;
@@ -389,46 +422,47 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 1. KPI'ler panele geçirilen verileri güncelleştirin:
 
     ```node.js
-    <KpisPanel
-      topAlarms={topAlarmsWithName}
-      alarmsPerDeviceId={alarmsPerDeviceType}
-      criticalAlarmsChange={criticalAlarmsChange}
-      warningAlarmsChange={warningAlarmsChange}
-      isPending={kpisIsPending || rulesIsPending || devicesIsPending}
-      error={devicesError || rulesError || kpisError}
+    <AnalyticsPanel
+      timeSeriesExplorerUrl={timeSeriesParamUrl}
+      topAlerts={topAlertsWithName}
+      alertsPerDeviceId={alertsPerDeviceType}
+      criticalAlertsChange={criticalAlertsChange}
+      warningAlertsChange={warningAlertsChange}
+      isPending={analyticsIsPending || rulesIsPending || devicesIsPending}
+      error={devicesError || rulesError || analyticsError}
+      theme={theme}
       colors={chartColorObjects}
       t={t} />
     ```
 
-Yapılan değişiklikler artık tamamlandı `src/components/pages/dashboard/dashboard.js` dosya. Yaptığınız değişiklik aşağıdaki adımlarda açıklanmıştır `src/components/pages/dashboard/panels/kpis/kpisPanel.js` dosyayı yeni KPI görüntülemek için:
+Yapılan değişiklikler artık bitirdikten `src/components/pages/dashboard/dashboard.js` dosya. Yaptığınız değişiklik aşağıdaki adımlarda açıklanmıştır `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` dosyayı yeni KPI görüntülemek için:
 
 1. Yeni KPI değeri şu şekilde almak için kod aşağıdaki satırı değiştirin:
 
     ```nodejs
-    const { t, isPending, criticalAlarmsChange, warningAlarmsChange, error } = this.props;
+    const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. Yeni KPI değeri şu şekilde görüntülenecek biçimlendirme değiştirin:
 
     ```nodejs
-    <div className="kpi-cell">
-      <div className="kpi-header">{t('dashboard.panels.kpis.criticalAlarms')}</div>
-      <div className="critical-alarms">
+    <div className="analytics-cell">
+      <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
+      <div className="critical-alerts">
         {
-          criticalAlarmsChange !== 0 &&
-            <div className="kpi-percentage-container">
-              <div className="kpi-value">{ criticalAlarmsChange }</div>
-              <div className="kpi-percentage-sign">%</div>
+          !showOverlay &&
+            <div className="analytics-percentage-container">
+              <div className="analytics-value">{ !isNaN(criticalAlertsChange) ? criticalAlertsChange : 0 }</div>
+              <div className="analytics-percentage-sign">%</div>
             </div>
         }
       </div>
-      <div className="kpi-header">{t('Warning alarms')}</div>
-      <div className="critical-alarms">
+      <div className="critical-alerts">
         {
-          warningAlarmsChange !== 0 &&
-            <div className="kpi-percentage-container">
-              <div className="kpi-value">{ warningAlarmsChange }</div>
-              <div className="kpi-percentage-sign">%</div>
+          !showOverlay &&
+            <div className="analytics-percentage-container">
+              <div className="analytics-value">{ !isNaN(warningAlertsChange) ? warningAlertsChange : 0 }</div>
+              <div className="analytics-percentage-sign">%</div>
             </div>
         }
       </div>

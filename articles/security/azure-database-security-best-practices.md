@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: bceccbfd0efb54db3e599ec737fe5df0c2a87acd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261664"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281634"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure veritabanı en iyi güvenlik uygulamaları
 Güvenlik veritabanlarını yönetmek için güvenliğin çok önemli olduğu ve her zaman için bir öncelik olmuştur [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/). Veritabanlarınızı sıkı bir şekilde en yasal karşılamak amacıyla güvenli hale getirilebilir veya güvenlik gereksinimleri, HIPAA, ISO 27001/27002 ve PCI DSS düzey 1 gibi. Güvenlik uyumluluk sertifikaları güncel bir listesi kullanılabilir [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). Ayrıca, Mevzuat gereksinimlerine göre belirli Azure veri merkezlerinde veritabanlarınızı yerleştirmek seçebilirsiniz.
@@ -122,7 +122,7 @@ Yetkili bir kullanıcı bir güvenlik yöneticisi veya bir veritabanı yönetici
 - Kullanıcılar ve uygulamalar ayrı hesaplar kimliğini doğrulamak için kullandığınızdan emin olun. Bu şekilde kullanıcılar ve uygulamalar için verilen izinleri sınırlayabilir ve kötü amaçlı etkinlik riskini azaltır.
 - Sabit veritabanı rolleri (örneğin, db_datareader veya db_datawriter) kullanarak veritabanı düzeyinde güvenlik uygulayın. Veya uygulamanız için seçilen veritabanı nesnelerini açık izinler vermek için özel roller oluşturabilirsiniz.
 
-Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır:
+Verilerinizin güvenliğini sağlamak diğer yolları için göz önünde bulundurun:
 
 - [Hücre düzeyinde şifreleme](/sql/relational-databases/security/encryption/encrypt-a-column-of-data): Belirli sütunları hatta veri hücrelerini farklı şifreleme anahtarlarıyla şifrelemenizi sağlar.
 - [Her zaman şifreli](/sql/relational-databases/security/encryption/always-encrypted-database-engine), istemcilerin istemci uygulamaları içindeki hassas verileri şifrelemek ve hiçbir zaman şifreleme anahtarları (SQL veritabanı veya SQL Server) veritabanı altyapısı açığa sağlar. Sonuç olarak, her zaman şifreli verileri (ve görüntüleyebileceğini) arasında bir ayrım sağlar ve kişilere yönetenler (ama hiçbir erişimi olması gerekir).

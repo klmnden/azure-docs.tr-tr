@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: acb3297b8d7af1a91563fb2f519e06bc49c65695
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ae6964b36f837931f2278ceef0b330f9badb1d71
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314625"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282722"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory geçişli kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -54,7 +54,7 @@ Aşağıdaki senaryolar _değil_ desteklenir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Hızlı Başlangıç](how-to-connect-pta-quick-start.md): Azure AD geçişli kimlik doğrulaması ile çalışır duruma alın.
-- [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
+- [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://aka.ms/ADFSTOPTADPDownload) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
 - [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için kiracınızda akıllı kilitleme özelliğini yapılandırma hakkında bilgi edinin.
 - [Teknik yakından bakışın](how-to-connect-pta-how-it-works.md): geçişli kimlik doğrulaması özelliği nasıl çalıştığını anlayın.
 - [Sık sorulan sorular](how-to-connect-pta-faq.md): geçişli kimlik doğrulaması özelliği hakkında sık sorulan soruları yanıtlar bulun.

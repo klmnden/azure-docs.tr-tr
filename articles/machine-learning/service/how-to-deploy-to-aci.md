@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429476"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345055"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Azure Container Instances'a Web hizmetlerini dağıtma 
 
@@ -48,9 +48,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="configure-an-image"></a>Görüntü yapılandırma
 
 Model dosyaları depolamak için kullanılan bir Docker görüntüsü yapılandırın.
-1. Puanlama betiğine (score.py) oluşturma [bu yönergeleri kullanarak](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Puanlama betiğine (score.py) oluşturma [bu yönergeleri kullanarak](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Bir ortam dosyası (myenv.yml) oluşturma [bu yönergeleri kullanarak](tutorial-deploy-models-with-aml.md#create-environment-file) 
+    > [!IMPORTANT]
+    > Puanlama betiği istemcilerden gönderilen verileri alır ve puanlama modeli geçirir. Betik ve model veri yapısı belgeleyin. Bu belgeleri olan şey web hizmeti kullanmak üzere bir istemci oluştururken kolaylaştırır.
+
+1. Bir ortam dosyası (myenv.yml) oluşturma [bu yönergeleri kullanarak](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Docker görüntüsünü Python SDK'yı kullanarak aşağıdaki gibi yapılandırmak için bu iki dosyayı kullanın:
 
@@ -217,8 +220,7 @@ Bu yöntem, oluşturma ve dağıtım bileşenlerde adlandırma üzerinde en fazl
 
 Şimdi web hizmetini test edebilirsiniz.
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>Web hizmetini test edin
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>Web hizmetini test edin
 
 Web hizmeti yöntem ne olursa olsun, kullanılan aynıdır.  Öngörüler elde etmek için kullanmak `run` hizmetinin yöntemi.  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için nasıl [Azure Kubernetes hizmetine dağıtın](how-to-deploy-to-aks.md) büyük ölçekli bir dağıtım için. 
+* Bilgi edinmek için nasıl [ML Model dağıtılan web hizmeti olarak Tüket](how-to-consume-web-service.md).
+* Bilgi edinmek için nasıl [Azure Kubernetes hizmetine dağıtın](how-to-deploy-to-aks.md) büyük ölçekli bir dağıtım için. 
