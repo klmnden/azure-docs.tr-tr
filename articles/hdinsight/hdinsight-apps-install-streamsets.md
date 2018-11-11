@@ -1,6 +1,6 @@
 ---
 title: Yayımlanan uygulama - StreamSets Data Collector - Azure HDInsight yükleme
-description: Yükleyip StreamSets Data Collector üçüncü taraf Hadoop uygulamasını kullanabilirsiniz.
+description: Yükleyip StreamSets Data Collector üçüncü taraf Apache Hadoop uygulamasını kullanabilirsiniz.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 72ace99a8124b0a288e8facf630e947151169d0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106891"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034566"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Yayımlanan uygulama - StreamSets Data Collector yükleme
 
-Bu makalede, yüklemek ve çalıştırmak açıklanır [StreamSets Data Collector HDInsight için](https://streamsets.com/) Azure HDInsight Hadoop uygulamasında yayımlanan. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, yüklemek ve çalıştırmak açıklanır [StreamSets Data Collector HDInsight için](https://streamsets.com/) Azure HDInsight üzerinde Apache Hadoop uygulama yayımlanır. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>StreamSets Data Collector hakkında
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050247"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958908"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -231,6 +231,6 @@ Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabili
 * [ASP.NET Web uygulaması](app-insights-asp-net.md)
 * [Java Web uygulaması](app-insights-java-get-started.md)
 * [Node.js Web uygulaması](app-insights-nodejs.md)
-* [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) veya [Azure](app-insights-azure.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
+* [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) veya [Azure](app-insights-overview.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
 * [Web sayfaları](app-insights-javascript.md) -Tek Sayfalık Uygulama veya normal Web sayfası - bunu kendi başına veya sunucu seçeneklerinden herhangi biriyle birlikte kullanın.
 * Uygulamanızı genel İnternet'ten test etmek için [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md).

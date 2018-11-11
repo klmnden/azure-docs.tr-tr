@@ -1,6 +1,6 @@
 ---
-title: Ambari - Azure HDInsight ile küme yapılandırmalarını en iyi duruma getirme
-description: Ambari web kullanıcı Arabirimi, yapılandırmak ve HDInsight kümeleri en iyi duruma getirmek için kullanın.
+title: Apache Ambari - Azure HDInsight ile küme yapılandırmalarını en iyi duruma getirme
+description: Yapılandırma ve HDInsight kümeleri en iyi duruma getirmek için Apache Ambari web kullanıcı arabirimini kullanın.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 73fdd3f221e35bc1e0b0904bdbbaa63525ba4be3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105482"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038527"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Ambari kullanın
 
@@ -176,7 +176,7 @@ Hadoop işleri genellikle g/ç performansı düşürdüğünü gösterir. Veri s
 
 Kullanılabilir sıkıştırma türleri şunlardır:
 
-| Biçimlendir | Araç | Algoritması | Dosya uzantısı | Bölünebilir mi? |
+| Biçimlendir | Aracı | Algoritması | Dosya uzantısı | Bölünebilir mi? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | SÖNDÜR | .gz | Hayır |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Evet |

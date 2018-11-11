@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 11/05/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369187"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037983"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama
 Bir kullanıcı veya grup için kurumsal bir uygulamayı atamak için Kurumsal uygulamasını yönetmek için uygun izinlere sahip ve dizin için genel yönetici olması gerekir.
 
 > [!NOTE]
-> Bu makalede açıklanan özellikler, bir Azure Active Directory Premium P1 veya Premium P2 lisansı gerektirir. Daha fazla bilgi için [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory).
+> Bu makalede ele alınan özellikleri için gereksinimler lisanslama için bkz: [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > (Örneğin, Office 365 uygulamaları) Microsoft Applications, kullanıcıları kurumsal bir uygulamayı atamak için PowerShell'i kullanın.
@@ -35,7 +35,7 @@ Bir kullanıcı veya grup için kurumsal bir uygulamayı atamak için Kurumsal u
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Nasıl kullanıcı erişimi için Azure portalında kurumsal bir uygulamanın atarım?
 1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri**, Azure Active Directory metin kutusuna girin ve ardından **Enter**.
-3. Üzerinde **Azure Active Directory - *directoryname***  seçin (diğer bir deyişle, Azure AD dikey yönetirken directory), dikey **kurumsal uygulamalar**.
+3. Seçin **kurumsal uygulamalar**.
 
     ![Açılış kurumsal uygulamalar](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
 4. Üzerinde **kurumsal uygulamalar** dikey penceresinde **tüm uygulamaları**. Bu, yönettiğiniz uygulamaları listeler.

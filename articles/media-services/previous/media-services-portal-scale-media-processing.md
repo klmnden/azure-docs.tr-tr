@@ -1,10 +1,10 @@
 ---
-title: Azure portalını kullanarak ölçek medyayı işleme | Microsoft Docs
-description: Bu öğretici, Azure portalını kullanarak işleme ölçeklendirme medya adımlarda size yol gösterir.
+title: Azure portalını kullanarak medya işlemeyi ölçeklendirme | Microsoft Docs
+description: Bu öğreticide, Azure portalını kullanarak işleme ölçeklendirme medya adımları gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 51973916c97282ac93032ab833402d9d1356647e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2aabdc503a694de46796b7c3afeedfcdb2f39ca9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790317"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037881"
 ---
 # <a name="change-the-reserved-unit-type"></a>Ayrılmış birim türünü değiştirme
 > [!div class="op_single_selector"]
@@ -31,10 +31,6 @@ ms.locfileid: "33790317"
 > 
 > 
 
-> [!NOTE]
-> Java SDK'ın en son sürümünü almak ve Java ile geliştirmeye başlamak için bkz. [Media Services için Java istemcisi SDK’sı ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Media Services için en yeni PHP SDK'sını indirmek üzere, [Packagist deposunda](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) Microsoft/WindowAzure paketinin 0.5.7 sürümünü arayın.  
-
 ## <a name="overview"></a>Genel Bakış
 
 Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır.
@@ -45,23 +41,23 @@ Ayrılmış birim türünü belirtmenin yanı sıra, hesabınızın **Ayrılmı�
 >RU, tüm medya işlemesini paralel hale getirmek için çalışır ve Azure Media Indexer’ın kullanıldığı dizin oluşturma işleri de buna dahildir. Bununla birlikte kodlamadan farklı olarak, dizin oluşturma işleri daha hızlı ayrılmış birimlerde daha hızlı işlenmez.
 
 > [!IMPORTANT]
-> Gözden geçirdiğinizden emin olun [genel bakış](media-services-scale-media-processing-overview.md) konu işleme medya ölçeklendirme hakkında daha fazla bilgi için konu.
+> Gözden geçirdiğinizden emin olun [genel bakış](media-services-scale-media-processing-overview.md) medya konu işlemeyi ölçeklendirme hakkında daha fazla bilgi almak için konu.
 > 
 > 
 
 ## <a name="scale-media-processing"></a>Medya işlemeyi ölçeklendirme
-Ayrılmış birim türünü ve ayrılan birim sayısını değiştirmek için aşağıdakileri yapın:
+Ayrılmış birim türünü ve ayrılmış birim sayısını değiştirmek için aşağıdakileri yapın:
 
 1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
-2. İçinde **ayarları** penceresinde, seçin **medya ayrılmış birimleri**.
+2. İçinde **ayarları** penceresinde **medya ayrılmış birimleri**.
    
-    Seçilen ayrılmış birim türü için ayrılan birim sayısını değiştirmek için kullanmak **medya sunulan birimleri** kaydırıcı ekranın üstünde.
+    Seçilen ayrılmış birim türünü ayrılmış birim sayısını değiştirmek için kullanın **medya hizmet birimi** kaydırıcı ekranın üstünde.
    
-    Değiştirmek için **AYRILMIŞ birim türü**, tıklayın **ayrılmış işleme birimleri hızına** çubuğu. Ardından, gereksinim duyduğunuz fiyatlandırma katmanı seçin: S1, S2 ve S3.
+    Değiştirilecek **AYRILMIŞ birim TÜRÜNÜ**, tıklayarak **ayrılmış işleme birimlerinin hızı** çubuğu. Ardından istediğiniz fiyatlandırma katmanını seçin: S1, S2 veya S3.
    
 3. Yaptığınız değişiklikleri kaydetmek için KAYDET düğmesine basın.
    
-    Yeni bir ayrılmış birimler Kaydet bastığınızda ayrılır.
+    KAYDET'i seçtiğinizde yeni bir ayrılmış birim ayrılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Media Services öğrenme yollarını gözden geçirin.
