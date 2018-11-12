@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f28a636f4df1343431762cf1eb8aec9b660f2e2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962512"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283453"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -35,7 +35,7 @@ Hayır. Bu yüzden geçirilmesi gereken bir şey Log Analytics'e kendisine yapı
 ![Log Analytics çalışma alanı](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>İzinleri nasıl yönetebilirim?
-Azure portalında Log Analytics çalışma alanınıza erişimi yoksa, izinlerinizi kullanarak yapılandırmak gereken [Azure rol tabanlı erişim](../active-directory/role-based-access-control-configure.md). Çalışma alanı izinlerini yönetme hakkında daha fazla bilgi için bkz [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Uyarılarla ilgili izinleri yönetme hakkında daha fazla bilgi için bkz. [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Azure portalında Log Analytics çalışma alanınıza erişimi yoksa, izinlerinizi kullanarak yapılandırmak gereken [Azure rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md). Çalışma alanı izinlerini yönetme hakkında daha fazla bilgi için bkz [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Uyarılarla ilgili izinleri yönetme hakkında daha fazla bilgi için bkz. [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Yeni bir çalışma alanı nasıl oluşturulur? 
 Azure portalında çalışma alanlarını listesinden tıklayın **Ekle** çalışma alanları listesinde.  Tüm Ayrıntılar için bkz. [Azure portalında Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
@@ -110,7 +110,7 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunları kaldırıldı **ayarları**. Azure portalında [yönetim çözümlerini yükleme](../monitoring/monitoring-solutions.md#install-a-management-solution) Azure Market'ten. [Çözümleri kaldırma](../monitoring/monitoring-solutions.md#remove-a-management-solution) yüklü çözümleri listesinden.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Nasıl oluştururum ve Uyarıları yönetme?
-Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
+Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../monitoring-and-diagnostics/alert-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Panolarım nasıl erişim sağlanır?
 [Panom'u](../log-analytics/log-analytics-dashboards.md) Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../log-analytics/log-analytics-tutorial-dashboards.md) Azure panolara.

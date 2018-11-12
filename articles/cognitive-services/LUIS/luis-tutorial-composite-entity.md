@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035190"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283521"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Öğreticinin 6: Grup ve ilgili verileri ayıklayın
 Bu öğreticide, bileşik bir varlık içeren tek bir varlığa çeşitli türlerde ayıklanan veri paketi ekleyin. İstemci uygulama, verileri paketleme tarafından farklı veri türlerinde ilgili verileri kolayca ayıklayabilirsiniz.
@@ -26,9 +26,9 @@ Bileşik varlık olduğundan bu veri türü için uygun olan veri:
 
 * Birbiriyle ilgilidir. 
 * Varlık türleri çeşitli kullanın.
-* Gruplandırılmış ve bilgilerin bir birim olarak istemci uygulama tarafından işlenmesi gerekir.
+* İstemci uygulama tarafından bir bilgi birimi olarak gruplanmaları ve işlenmeleri gerekir.
 
-**Bu öğreticide, şunların nasıl yapılır:**
+**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -36,20 +36,20 @@ Bileşik varlık olduğundan bu veri türü için uygun olan veri:
 > * Bileşik varlık ekleme 
 > * Eğitim
 > * Yayımlama
-> * Uç noktasından amaç ve varlıkları alma
+> * Uç noktadan amaçları ve varlıkları alma
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Var olan bir uygulama kullanma
-Adlı son öğreticisinde oluşturulan uygulama devam **İnsanKaynakları**. 
+## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticide İnsanKaynakları uygulamadan yoksa aşağıdaki adımları kullanın:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  İndirip kaydedin [uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json) indirip kaydedin.
 
-2. JSON, yeni bir uygulamaya aktarma.
+2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. Gelen **Yönet** üzerinde bölümünde **sürümleri** sekmesinde sürüm kopyalayın ve adlandırın `composite`. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rota bir parçası olarak kullanıldığından, adın bir URL geçerli olmayan karakterler içeremez.
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `composite` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
 
 
 ## <a name="composite-entity"></a>Bileşik varlık
@@ -97,7 +97,7 @@ Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndür
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Üzerinde **hedefleri** sayfasında **MoveEmployee** hedefi. 
 
@@ -153,7 +153,7 @@ Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndür
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasından amaç ve varlıkları alma 
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

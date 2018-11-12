@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854890"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283845"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Dağıtılmış izleme ve Service Bus mesajlaşması ile bağıntı
 
@@ -181,7 +181,7 @@ Her durumda, erişebileceğiniz `Activity.Current` , geçerli işlem bağlamı i
 
 #### <a name="logging-additional-properties"></a>Günlük ek özellikleri
 
-`Activty.Current` ayrıntılı bağlamında geçerli işlem ve onun ana öğelerinden sağlar. Daha fazla bilgi için [etkinlik belgeleri](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) daha fazla ayrıntı için.
+`Activity.Current` ayrıntılı bağlamında geçerli işlem ve onun ana öğelerinden sağlar. Daha fazla bilgi için [etkinlik belgeleri](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) daha fazla ayrıntı için.
 Service Bus izleme, ek bilgi sağlar `Activity.Current.Tags` -tuttukları `MessageId` ve `SessionId` olduğunda bunlar kullanılabilir.
 
 'Receive' izleyen etkinlikleri 'Özet' ve 'ReceiveDeferred' olay de olabilir `RelatedTo` etiketi. Farklı bir listesini tutar `Diagnostic-Id`(s) sonucunda alınan ileti.

@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.openlocfilehash: 5f47ce84203d88604183d13f6e9282e2bb846451
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006014"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283079"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Kafka bağlanma
 
@@ -35,7 +35,7 @@ HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez
     2. Bir siteden siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu belgede kullanılan yapılandırma bir VPN ağ geçidi cihazı şirket içi ağınıza bağlanır.
     3. Bir DNS sunucusu, sanal ağ oluşturun.
     4. Her bir ağın DNS sunucusu arasında iletim yapılandırın.
-    5. Kafka, HDInsight üzerinde sanal ağa yükleyin.
+    5. Sanal ağda HDInsight kümesinde Kafka oluşturmak.
 
     Daha fazla bilgi için [bir şirket içi ağ üzerinden kafka'ya Connect](#on-premises) bölümü. 
 
@@ -43,8 +43,8 @@ HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez
 
     1. Sanal ağ oluşturun.
     2. Noktadan siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu yapılandırma, hem Windows hem de MacOS istemcileri ile kullanılabilir.
-    3. Kafka, HDInsight üzerinde sanal ağa yükleyin.
-    4. Kafka IP reklam için yapılandırın. Bu yapılandırma, etki alanı adları yerine IP adresini kullanarak bağlanmak istemcinin sağlar.
+    3. Sanal ağda HDInsight kümesinde Kafka oluşturmak.
+    4. Kafka IP reklam için yapılandırın. Bu yapılandırma aracı kullanarak bağlanmak için istemcinin etki alanı adları yerine IP adreslerini sağlar.
     5. İndirin ve geliştirme sisteminde VPN istemcisini kullanır.
 
     Daha fazla bilgi için [VPN istemcisi ile Kafka Bağlan](#vpnclient) bölümü.

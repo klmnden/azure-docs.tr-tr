@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 67138b9e98818f5d106c73cef027d0eb2515e9a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282484"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233924"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Windows tabanlı Apache Hadoop kümelerini yönetme
 
@@ -22,7 +22,9 @@ Kullanarak [Azure portalında][azure-portal], Windows tabanlı Apache Hadoop kü
 
 Bu makaledeki bilgiler, yalnızca pencere tabanlı HDInsight kümeleri için geçerlidir. Linux tabanlı kümeler yönetme hakkında daha fazla bilgi için bkz. [yönetme Hadoop kümeleri HDInsight Azure portalını kullanarak](hdinsight-administer-use-portal-linux.md).
 
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
+> [!IMPORTANT]
+> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
 
 ## <a name="prerequisites"></a>Önkoşullar
 

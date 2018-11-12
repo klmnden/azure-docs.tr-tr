@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: ed3fc6d1d2a4b674e2866d2e168fb72490575869
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281842"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229364"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için Excel Eklentisi
 Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağırmak kolaylaştırır.
@@ -28,7 +28,7 @@ Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağır
 1. Açık [örnek Excel dosyasını](https://aka.ms/amlexcel-sample-2), Excel eklentisi ve Yolcuların Kurtulacağını üzerinde hakkındaki verileri içerir. 
  
 > [!NOTE]
-> Web Hizmetleri listesi dosyasına ve altındaki bir onay kutusu "Otomatik-tahmin etmek için" ilgili görürsünüz. Etkinleştirirseniz, otomatik-tahminler tahmin **tüm** var. her zaman bir değişiklik girişleri hizmetlerinizi güncelleştirilir. İşaretli değilse, "Tahmin"'ye tıklayın yenileme için gerekir. Etkinleştirmek için otomatik-6. adım bir hizmet düzeyi gidin, tahmin edin.
+> Web Hizmetleri listesi dosyasına ve altındaki bir onay kutusu "Otomatik-tahmin etmek için" ilgili görürsünüz. Etkinleştirirseniz, otomatik-tahminler tahmin **tüm** hizmetlerinizi güncelleştirilmiş her olacaktır girişleri bir değişiklik yoktur. İşaretli değilse, "Tahmin"'ye tıklayın yenileme için gerekir. Etkinleştirmek için otomatik-6. adım bir hizmet düzeyi gidin, tahmin edin.
 
 2. Web hizmeti tıklayarak seçin-"Titanic hayatta tahmin unsuru (Excel Eklentisi örneği) [puan]" Bu örnekte.
    

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f88290043f750122327ddb1fd9b381b6bc24110c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959333"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278659"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics ile olayları için IIS ve Azure tablo depolama için Azure blob depolama kullanma
 
@@ -151,7 +151,7 @@ Yaklaşık 30 dakika içerisinde Log analytics'te depolama hesabına ait veriler
 İçindeki adımları kullanın [Azure tanılama dizin için Log Analytics'i yapılandırma](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) tablo Depolama'ya yazılan Azure tanılama verilerini okumak üzere PowerShell kullanma.
 
 Azure PowerShell kullanarak Azure Depolama'ya yazılan olayları daha kesin olarak belirtebilirsiniz.
-Daha fazla bilgi için [Azure sanal Makineler'de tanılamayı etkinleştirme](../virtual-machines/virtual-machines-dotnet-diagnostics.md).
+Daha fazla bilgi için [Azure sanal Makineler'de tanılamayı etkinleştirme](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 Etkinleştirebilir ve aşağıdaki PowerShell betiğini kullanarak Azure tanılama güncelleştirin.
 Bu betik bir özel günlük kaydı yapılandırmasıyla de kullanabilirsiniz.
@@ -195,4 +195,4 @@ Aşağıdaki kod örneği gözden geçirin, kopyalayın, gerektiği gibi değiş
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Günlükleri ve Azure Hizmetleri için ölçümleri toplamak](log-analytics-azure-storage.md) desteklenen Azure Hizmetleri.
 * [Çözümlerle](../monitoring/monitoring-solutions.md) veri Öngörüler sağlar.
-* [Arama sorguları kullanılır](log-analytics-log-search.md) verileri çözümlemek için.
+* [Arama sorguları kullanılır](log-analytics-queries.md) verileri çözümlemek için.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/01/2018
+ms.date: 11/07/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: f2d843b343fa830adf41352ae692ea98bed52ecc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: fiseraci
+ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713655"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277826"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack için kimlik mimarisi
 Azure Stack ile kullanmak için bir kimlik sağlayıcısı seçmeden önce Azure Active Directory (Azure AD) seçeneklerini ve Active Directory Federasyon Hizmetleri (AD FS) arasındaki önemli farklar anlayın. 
@@ -44,7 +44,7 @@ Seçtiğiniz kimlik sağlayıcısı, çok kiracılı desteği dahil olmak üzere
 |Uygulamaları, kimlik sağlayıcısı oturum açmak için kullanabilir |Evet |Evet. Şirket içi ile federasyona eklemek için uygulamalar oluşturabilmek için AD FS örneği. |
 
 ## <a name="topologies"></a>Topolojileri
-Kullanabileceğiniz çeşitli kimlik topolojileri discus aşağıdaki bölümler.
+Aşağıdaki bölümlerde, kullanabileceğiniz çeşitli kimlik topolojileri açıklanmaktadır.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: tek kiracılı topolojisi 
 Azure yığını'nı yükleme ve Azure AD, varsayılan olarak, Azure Stack tek kiracılı topolojisi kullanır. 

@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: b32af29a123ce4d070e1bb68b5a43ba6d0d2c5e1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218483"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278319"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
 Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir. Bu makalede sık sorulan soruların yanıtları bulunur.
@@ -44,7 +44,7 @@ Evet, her abonelik için kotaları şu şekilde ayarlayın:
 
 **Uygulamam için dağıtılan ne kadar süreyle bildirebilirim?**
 
-Biz, şu anda iki gün için bir uygulamanın ömrü sınırladınız. Önizleme için ayrılan serbest çekirdeğe kullanımını en üst düzeye çıkarmak budur. Sonuç olarak, yalnızca belirli bir dağıtım 48 saat için sürekli olarak çalışmasına izin verilen sonra hangi zaman sistem tarafından silinir. Bunu görürseniz, sistem çalıştırarak kapatabilirler olduğunu doğrulamak için bir `az mesh app show` döndürürse komutunu Azure CLI ve denetleme `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Biz, şu anda iki gün için bir uygulamanın ömrü sınırladınız. Önizleme için ayrılan serbest çekirdeğe kullanımını en üst düzeye çıkarmak budur. Sonuç olarak, yalnızca belirli bir dağıtım 48 saat için sürekli olarak çalışmasına izin verilen kapatabilirler sistem tarafından hangi süre geçtikten sonra. Bunu görürseniz, sistem çalıştırarak kapatabilirler olduğunu doğrulamak için bir `az mesh app show` döndürürse komutunu Azure CLI ve denetleme `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Örneğin: 
 
@@ -71,6 +71,10 @@ chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name hello
   "unhealthyEvaluation": null
 }
 ```
+
+Kafes aynı uygulamayı dağıtmaya devam etmek için uygulama ile ilişkili kaynak grubunu silin veya tek başına uygulamayı kaldırmak ve tüm ilgili ağ kaynakları (ağ dahil). 
+
+Kaynak grubunu silmek için kullanın `az group delete <nameOfResourceGroup>` komutu. 
 
 ## <a name="supported-container-os-images"></a>Desteklenen kapsayıcı işletim sistemi görüntüleri
 Aşağıdaki kapsayıcı işletim sistemi görüntüleri, Hizmetleri dağıtım yaparken kullanılabilir.

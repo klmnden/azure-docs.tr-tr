@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400288"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264253"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -292,7 +292,7 @@ TRIM Azure disklerde, premium veya standart diskler kullanımı için herhangi b
 
 **İşletim sistemi ve veri diskleri için desteklenen en büyük yönetilen disk boyutu nedir?**
 
-Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kaydı (MBR) türüdür. 2 TiB kadar bir disk boyutu MBR biçimini destekler. Bir işletim sistemi diski için Azure'un desteklediği en büyük boyutu 2 TiB ' dir. Azure yönetilen diskleri için en fazla 32 TiB destekler. 4 TiB daha büyük yönetilen Disk boyutları Önizleme aşamasındadır. Bunlar üzerinde daha fazla bilgi için bkz. bizim [blog gönderisi](http://aka.ms/azure-large-disk-32TB-preview-blog).
+Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kaydı (MBR) türüdür. 2 TiB kadar bir disk boyutu MBR biçimini destekler. Bir işletim sistemi diski için Azure'un desteklediği en büyük boyutu 2 TiB ' dir. Azure yönetilen diskleri için en fazla 32 TiB destekler. 4 TiB daha büyük yönetilen Disk boyutları Önizleme aşamasındadır. Bunlar üzerinde daha fazla bilgi için bkz. bizim [blog gönderisi](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **İşletim sistemi ve veri diskleri için desteklenen en büyük yönetilmeyen Disk boyutu nedir?**
 
@@ -309,7 +309,7 @@ Oluşturma, ekleme veya 1 TiB büyük diskleri yeniden boyutlandırmak için mev
 |Azure Araçları      | Desteklenen sürümler                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Sürüm numarası 4.1.0: Haziran 2017 sürümü veya üzeri|
-|Azure CLI v1     | Sürüm numarası 0.10.13: Mayıs 2017 sürümü veya üzeri|
+|Azure CLI v1     | Sürüm numarası 0.10.13: Mayıs 2017 sürümü veya üzeri|
 |Azure CLI v2     | Sürüm numarası 2.0.12: Temmuz 2017 sürümü veya üzeri|
 |AzCopy           | Sürüm numarası 6.1.0: Haziran 2017 sürümü veya üzeri|
 

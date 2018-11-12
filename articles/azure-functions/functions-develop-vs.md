@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036436"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515384"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
@@ -189,7 +189,7 @@ Azure işlevleri çekirdek araçları kullanma hakkında daha fazla bilgi edinme
 
 Azure işlev uygulaması da local.settings.json içinde eklenen herhangi bir ayarı eklenmesi gerekir. Proje yayımladığınızda, bu ayarlar otomatik olarak karşıya yüklenmemiş.
 
-İşlev uygulamanızda Azure gerekli ayarları yüklemek için en kolay yolu kullanmaktır **uygulama ayarlarını yönet...**  projenizi başarıyla yayımladıktan sonra görüntülenen bağlantı. 
+İşlev uygulamanızda Azure gerekli ayarları yüklemek için en kolay yolu kullanmaktır **uygulama ayarlarını yönet...**  projenizi başarıyla yayımladıktan sonra görüntülenen bağlantı.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -197,11 +197,13 @@ Bu görüntüler **uygulama ayarları** iletişim kutusu için işlev uygulamas�
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Yerel** local.settings.json dosyasında bir ayar değerini temsil eder ve **uzak** Azure işlev uygulaması, geçerli bir ayardır.  Seçin **ekleme ayarı** yeni bir uygulama ayarı oluşturmak için. Kullanım **yerel bilgisayardan değer Ekle** ayarı değerine kopyalamak için bağlantı **uzak** alan. Seçtiğinizde bekleyen değişiklikleri yerel ayarlar dosyasını ve işlev uygulaması için yazılan **Tamam**.
+
 Ayrıca şu diğer yöntemlerden birini kullanarak uygulama ayarları yönetebilirsiniz:
 
 * [Azure portalını kullanarak](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Kullanarak `--publish-local-settings` Azure işlevleri çekirdek araçları seçeneği yayımlama](functions-run-local.md#publish).
-* [Azure CLI kullanarak](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Azure CLI kullanarak](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>İzleme işlevleri
 
