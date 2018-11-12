@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312461"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263901"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Uygun maliyetli standart depolama ile yönetilmeyen ve yönetilen Azure VM diskleri
 
@@ -61,10 +61,10 @@ Bu bölümde, biz standart depolama kullanırken dikkate almanız gereken ölçe
 | **Kaynak** | **Varsayılan Sınır** |
 |--------------|-------------------|
 | Depolama hesabı başına  | 500 TB |
-| En büyük giriş<sup>1</sup> (ABD bölgeleri) depolama hesabı başına | GRS/ZRS etkinleştirilirse, LRS için 20 GB/sn 10 GB/sn |
-| En büyük çıkış<sup>1</sup> (ABD bölgeleri) depolama hesabı başına | RA-GRS/GRS/ZRS etkinleştirilirse, LRS için 30 GB/sn 20 GB/sn |
-| En büyük giriş<sup>1</sup> (Avrupa ve Asya bölgelerinin) depolama hesabı başına | GRS/ZRS etkinleştirilirse, LRS için 10 GB/sn 5 GB/sn |
-| En büyük çıkış<sup>1</sup> (Avrupa ve Asya bölgelerinin) depolama hesabı başına | RA-GRS/GRS/ZRS etkinleştirilirse, LRS için 15 GB/sn 10 GB/sn |
+| En büyük giriş<sup>1</sup> (ABD bölgeleri) depolama hesabı başına | GRS/ZRS etkinleştirilirse, LRS için 20 GB/sn 10 GB/sn |
+| En büyük çıkış<sup>1</sup> (ABD bölgeleri) depolama hesabı başına | RA-GRS/GRS/ZRS etkinleştirilirse, LRS için 30 GB/sn 20 GB/sn |
+| En büyük giriş<sup>1</sup> (Avrupa ve Asya bölgelerinin) depolama hesabı başına | GRS/ZRS etkinleştirilirse, LRS için 10 GB/sn 5 GB/sn |
+| En büyük çıkış<sup>1</sup> (Avrupa ve Asya bölgelerinin) depolama hesabı başına | RA-GRS/GRS/ZRS etkinleştirilirse, LRS için 15 GB/sn 10 GB/sn |
 | Toplam istek (1 KB nesne boyutu varsayımıyla) oranı depolama hesabı başına | Saniye başına varlıklar veya saniye başına ileti kadar 20.000 IOPS |
 
 <sup>1</sup> Giriş bir depolama hesabına gönderilen tüm verileri (istekler) ifade eder. Çıkış, bir depolama hesabından alınan tüm verileri (yanıtlar) ifade eder.
@@ -111,7 +111,7 @@ Yönetilen disk sanal Makineye bağlıysa, belirli API işlemlerini disklerde iz
 
 Standart depolama kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
 
-* Standart depolama yönetilmeyen diskler/veri boyutu 
+* Standart depolama yönetilmeyen diskler/veri boyutu
 * Standart yönetilen diskler
 * Standart depolama anlık görüntüleri
 * Giden veri aktarımları
@@ -121,14 +121,16 @@ Standart depolama kullanırken aşağıdaki fatura değerlendirmeleri geçerlidi
 
 **Yönetilen diskler:** faturalandırma standart yönetilen diskler için sağlanan disk boyutuna bağlıdır. Azure aşağıdaki tablolarda belirtildiği gibi en yakın yönetilen diskler seçeneğini (yuvarlanır) sağlanan boyut eşlenir. Her yönetilen disk desteklenen sağlanan boyutları birine eşlenir ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GiB sağlanan bir boyutunu belirtin, S15 Disk türünü fiyatlandırmasına göre faturalandırılır.
 
-| **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır.
+
+| **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,385 giB (16 tib'a kadar) | 32.767 giB (32 tib'a kadar) |
 
 
 **Anlık görüntüleri**: standart diskler, anlık görüntüler, anlık görüntüler görüntülenerek kullanılan ek kapasite için faturalandırılır. Anlık görüntüleri hakkında daha fazla bilgi için bkz: [bir blobun anlık görüntüsünü oluşturma](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Giden veri aktarımları**: [giden veri aktarımları](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
+**Giden veri aktarımları**: [giden veri aktarımları](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
 
 **İşlem**: Azure 0.0036 100.000 işlem için standart depolama ücretleri. İşlemlere Depolama'da yapılan hem okuma hem de yazma işlemleri dahildir.
 

@@ -1,19 +1,19 @@
 ---
 title: include dosyası
 description: include dosyası
-services: azure-digital-twins
+services: digital-twins
 author: alinamstanciu
-ms.service: azure-digital-twins
+ms.service: digital-twins
 ms.topic: include
 ms.date: 09/19/2018
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: d08b7a1256a26d1d7d39481ba15a8637339063ea
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1887efd741f4779a5186707d60b27ca66fc3c06f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322975"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51284008"
 ---
 1. [Azure portalda](https://portal.azure.com) sol gezinti bölmesinden **Azure Active Directory**'yi seçin ve **Özellikler** bölmesini açın. **Dizin Kimliğini** geçici bir dosyaya kopyalayın. Bu değeri bir sonraki bölümde örnek uygulamayı yapılandırırken kullanacaksınız.
 

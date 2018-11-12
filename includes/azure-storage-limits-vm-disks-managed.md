@@ -8,35 +8,35 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dcd94cbd7963c13bd739b1b004fe5ac506d3ea9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4441ad1e2940892c1627cbc2d4ee0186e4cfda17
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006522"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264325"
 ---
 **Standart yönetilen sanal makine HDD**
 
-| Standart Disk Türü  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60              | S70              | S80              |
+| Standart Disk Türü  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60 *             | S70 *             | S80 *             |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk boyutu gib biriminde          | 32             | 64             | 128            | 256  | 512            | 1,024    | 2.048     | 4.095    | 8,192     | 16,384     | 32,767     |
-| Disk başına IOPS       | En fazla 500              | En fazla 500              | En fazla 500              | En fazla 500 | En fazla 500              | En fazla 500              | En fazla 500             | En fazla 500              | En fazla 1.300              | En fazla 2.000              | En fazla 2.000              |
+| Disk boyutu gib biriminde          | 32             | 64             | 128            | 256  | 512            | 1,024    | 2.048     | 4.095    | 8,192     | 16,384     | 32,767     |
+| Disk başına IOPS       | En fazla 500              | En fazla 500              | En fazla 500              | En fazla 500 | En fazla 500              | En fazla 500              | En fazla 500             | En fazla 500              | En fazla 1.300              | En fazla 2.000              | En fazla 2.000              |
 | Disk başına aktarım hızı | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn| En fazla 300 MiB/sn | En fazla 500 MiB/sn | En fazla 500 MiB/sn |
 
 **Standart yönetilen sanal makine SSD**
 
-| Standart SSD Disk türü  | E10               | E15               | E20             | E30 | E40              | E50              | E60              | E70              | E80              |
+| Standart SSD Disk türü  | E10               | E15               | E20             | E30 | E40              | E50              | E60 *             | E70 *             | E80 *             |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk boyutu gib biriminde           | 128             | 256             | 512            | 1,024  | 2.048            | 4.095     | 8,192     | 16,384     | 32,767    |
-| Disk başına IOPS       | En fazla 500              | En fazla 500              | En fazla 500              | En fazla 500 | En fazla 500              | En fazla 500              | En fazla 500             | En fazla 500              | En fazla 1.300              | En fazla 2.000              | En fazla 2.000              |
+| Disk boyutu gib biriminde           | 128             | 256             | 512            | 1,024  | 2.048            | 4.095     | 8,192     | 16,384     | 32,767    |
+| Disk başına IOPS       | En fazla 500              | En fazla 500              | En fazla 500              | En fazla 500 | En fazla 500              | En fazla 500              | En fazla 500             | En fazla 500              | En fazla 1.300              | En fazla 2.000              | En fazla 2.000              |
 | Disk başına aktarım hızı | En fazla 60 MB/sn | En fazla 60 MB/sn | En fazla 60 MB/sn | En fazla 60 MB/sn | En fazla 60 MB/sn | En fazla 60 MB/sn | En fazla 60 MB/sn | En fazla 60 MB/sn| En fazla 300 MiB/sn |  En fazla 500 MiB/sn | En fazla 500 MiB/sn |
 
 **Premium yönetilen sanal makine diskleri: disk başına limitler**
 
-| Premium Disk türü  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60              | P70              | P80              |
+| Premium Disk türü  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60 *             | P70 *             | P80 *             |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk boyutu gib biriminde           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2.048     | 4.095    | 8,192     | 16,384     | 32,767     |
-| Disk başına IOPS       | En fazla 120 | En fazla 240              | En fazla 500              | En fazla 1.100 | En fazla 2,300              | En fazla 5000              | En fazla 7.500             | En fazla 7.500              | En fazla 12.500              | En fazla 15000              | 20000              |
+| Disk boyutu gib biriminde           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2.048     | 4.095    | 8,192     | 16,384     | 32,767     |
+| Disk başına IOPS       | En fazla 120 | En fazla 240              | En fazla 500              | En fazla 1.100 | En fazla 2,300              | En fazla 5000              | En fazla 7.500             | En fazla 7.500              | En fazla 12.500              | En fazla 15000              | 20000              |
 | Disk başına aktarım hızı | En fazla 25 MiB/sn | En çok 50 MiB/sn | En fazla 100 MiB/sn | En fazla 125 MiB/sn | En fazla 150 MiB/sn | En fazla 200 MiB/sn | En fazla 250 MiB/sn | En fazla 250 MiB/sn| En fazla 480 MiB/sn | En fazla 750 MiB/sn | En fazla 750 MiB/sn |
 
 **Premium yönetilen sanal makine diskleri: VM başına limitler**

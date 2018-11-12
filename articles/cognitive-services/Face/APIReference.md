@@ -1,7 +1,21 @@
-Başlık: API Başvurusu - yüz tanıma API'si titleSuffix: Azure Bilişsel hizmetler açıklaması: API Başvurusu, kişi yönetimi, LargePersonGroup/PersonGroup yönetimi, LargeFaceList/FaceList yönetim ve yüz algoritmalarını API'leri hakkında bilgi sağlar.
-Hizmetler: bilişsel hizmetler Yazar: SteveMSFT manager: cgronlun
-
-MS.Service: ms.component bilişsel hizmetler: yüz tanıma API'si ms.topic: başvuru ms.date: 03/01/2018 ms.author: sbowles
+---
+title: API Başvurusu - yüz tanıma API'si
+titleSuffix: Azure Cognitive Services
+description: API Başvurusu, kişi yönetimi, LargePersonGroup/PersonGroup yönetimi, LargeFaceList/FaceList yönetim ve yüz algoritmalarını API'leri hakkında bilgi sağlar.
+services: cognitive-services
+author: SteveMSFT
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: reference
+ms.date: 03/01/2018
+ms.author: sbowles
+ms.openlocfilehash: 21bda39c8b014b13fef0b96f554c4dff91b72743
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287056"
 ---
 # <a name="api-reference"></a>API Başvurusu
 

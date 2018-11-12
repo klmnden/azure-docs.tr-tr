@@ -118,6 +118,9 @@ items:
       href: how-to-troubleshoot-deployment.md
     - name: SSL ile güvenli
       href: how-to-secure-web-service.md
+    - name: Dağıtılan modeli tüketme
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
   - name: Modelleri izleme
     items:
     - name: Üretim verilerini toplama
@@ -132,6 +135,8 @@ items:
     href: http://aka.ms/aml-sdk
   - name: Veri hazırlığı SDK’sı
     href: http://aka.ms/data-prep-sdk
+  - name: İzleme SDK’sı
+    href: https://aka.ms/aml-monitoring-sdk
   - name: Machine learning CLI
     href: reference-azure-machine-learning-cli.md
 - name: Kaynaklar
@@ -353,9 +358,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Eski Sorunlar
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 06fb6198395fbf57d9c56aeedea7d96be3ab1c86
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8519a04730105537d5bd8639da54afafdf76590b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287634"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345024"

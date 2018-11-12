@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c071fbfb962de1bf077dfa720cd66bc06e42178
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3bd4adcd6df07aa47312223c559f0e9ed4fc0b14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312391"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263963"
 ---
 <!-- F-series, Fs-series* -->
 
 İşlem VM boyutları en iyi duruma getirilmiş bir yüksek CPU / bellek oranına sahip olması ve orta düzeyde trafiğe sahip web sunucuları, ağ Gereçleri, toplu işlemleri ve uygulama sunucuları için uygundur. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar.
 
-Fsv2 serisi 2,7 GHz temel çekirdek sıklığını ve 3.7 GHz en fazla tek çekirdekli turbo sıklığını Intel® Xeon® Platinum 8168 işlemci üzerinde temel alır. Intel ölçeklenebilir işlemciler üzerinde yenidir Intel® AVX-512 yönergeler, hem tek hem de çift duyarlıklı kayan nokta işlemleri üzerinde vektör işleme iş yükleri için yüksek performans X 2 kadar sağlar. Diğer bir deyişle, bunlar için herhangi bir hesaplama iş yükünü hızlı. 
+Fsv2 serisi Intel® Xeon® Platinum 8168 işlemciye bağlı olduğu için sürekli bir özelliğe sahip olan tüm 3.4 GHz Turbo saat hızı ve 3.7 GHz en fazla tek çekirdekli turbo sıklığını çekirdek. Intel ölçeklenebilir işlemciler üzerinde yenidir Intel® AVX-512 yönergeler, hem tek hem de çift duyarlıklı kayan nokta işlemleri üzerinde vektör işleme iş yükleri için yüksek performans X 2 kadar sağlar. Diğer bir deyişle, bunlar için herhangi bir hesaplama iş yükünü hızlı. 
 
 Daha düşük bir saatlik liste fiyatına Fsv2 serisi fiyat-performans alanında temel Azure işlem birimi (ACU) açısından vCPU başına Azure Portföyündeki en iyi değerdir. 
 

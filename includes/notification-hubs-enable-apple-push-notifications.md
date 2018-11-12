@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bf73f64cc1e1789b770d7fae5f62e0ec27425263
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915452"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264242"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Sertifika imzalama isteği dosyası oluşturma
 
@@ -41,14 +41,14 @@ Ardından, uygulamanızı Apple’a kaydedeceksiniz; anında iletme bildirimleri
 
 iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanızı Apple’a kaydetmenin yanı sıra anında iletme bildirimlerini de kaydetmeniz gerekir.  
 
-1. Uygulamanızı henüz kaydetmediyseniz, Apple Geliştirici Merkezi’ndeki [iOS Sağlama Portalı](http://go.microsoft.com/fwlink/p/?LinkId=272456)’na gidin, Apple kimliğinizle oturum açın, **Tanımlayıcılar**’a, **Uygulama kimlikleri**’ne ve son olarak da **+** işaretine tıklayarak yeni uygulamayı kaydedin.
+1. Uygulamanızı henüz kaydetmediyseniz, Apple Geliştirici Merkezi’ndeki [iOS Sağlama Portalı](https://go.microsoft.com/fwlink/p/?LinkId=272456)’na gidin, Apple kimliğinizle oturum açın, **Tanımlayıcılar**’a, **Uygulama kimlikleri**’ne ve son olarak da **+** işaretine tıklayarak yeni uygulamayı kaydedin.
 
     ![iOS Hazırlama Portalı Uygulama Kimlikleri sayfası](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
 2. Yeni uygulamanız için aşağıdaki üç alanı güncelleştirin ve ardından **Devam**’a tıklayın:
 
     * **Ad**: Uygulamanızı için **Uygulama Kimliği Açıklaması** bölümündeki **Ad** alanına açıklayıcı bir ad yazın.
-    * **Paket Tanımlayıcı**: **Açık Uygulama Kimliği** bölümünün altında, **Paket Tanımlayıcı** öğesini `<Organization Identifier>.<Product Name>` biçiminde, [Uygulama Dağıtım Kılavuzu](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)’nda söz edildiği gibi girin. *Kuruluş Tanımlayıcı* ve kullandığınız *Ürün Adı*, XCode projenizi oluşturduğunuzda kullandığınız kuruluş tanımlayıcısı ve ürün adıyla eşleşmelidir. Aşağıdaki ekran görüntüsünde *NotificationHubs* kuruluş tanımlayıcısı, *GetStarted* ise ürün adı olarak kullanılmıştır. Bu değerin, XCode projenizde kullandığınız değerle eşleştiğinden emin olunması XCode ile doğru yayımlama profili kullanmanızı sağlar.
+    * **Paket Tanımlayıcı** : **Açık Uygulama Kimliği** bölümünün altında, **Paket Tanımlayıcı** öğesini `<Organization Identifier>.<Product Name>` biçiminde, [Uygulama Dağıtım Kılavuzu](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)’nda söz edildiği gibi girin. *Kuruluş Tanımlayıcı* ve kullandığınız *Ürün Adı*, XCode projenizi oluşturduğunuzda kullandığınız kuruluş tanımlayıcısı ve ürün adıyla eşleşmelidir. Aşağıdaki ekran görüntüsünde *NotificationHubs* kuruluş tanımlayıcısı, *GetStarted* ise ürün adı olarak kullanılmıştır. Bu değerin, XCode projenizde kullandığınız değerle eşleştiğinden emin olunması XCode ile doğru yayımlama profili kullanmanızı sağlar.
     * **Anında İletme Bildirimleri**: **Anında İletme Bildirimleri**’ni **App Services** bölümünde denetleyin.
 
     ![Yeni Uygulama Kimliği kaydetme formu](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -111,7 +111,7 @@ iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanız�
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Uygulama için bir sağlama profili oluşturun
 
-1. [iOS Sağlama Portalı](http://go.microsoft.com/fwlink/p/?LinkId=272456)’na geri dönün, **Sağlama Profilleri**’ni ve **Tümü**’nü seçin, ardından da yeni profil oluşturmak için **+** (artı) düğmesine tıklayın. **iOS Sağlama Profili Ekleme** sihirbazını göreceksiniz:
+1. [iOS Sağlama Portalı](https://go.microsoft.com/fwlink/p/?LinkId=272456)’na geri dönün, **Sağlama Profilleri**’ni ve **Tümü**’nü seçin, ardından da yeni profil oluşturmak için **+** (artı) düğmesine tıklayın. **iOS Sağlama Profili Ekleme** sihirbazını göreceksiniz:
 
     ![Sağlama profili listesi](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 

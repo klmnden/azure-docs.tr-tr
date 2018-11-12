@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 505abe8f3dc19458b3f0e18f349974199ae4ba58
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2b7045f74a22732337ceb8dc9136da1c93ee7c2c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212123"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037796"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Kapsayıcılar (Önizleme) için yerleşik Azure izleme 
 Bu makalede Kubernetes ortamlara dağıtılmış ve barındırılan iş yüklerinin performansını izlemek için Azure İzleyici'kapsayıcıları için kurma [Azure Kubernetes hizmeti](https://docs.microsoft.com/azure/aks/).
@@ -110,7 +110,7 @@ AKS kümenizin Azure portalında Azure İzleyicisi'nden izlemeyi etkinleştirmek
 ### <a name="enable-monitoring-from-aks-cluster-in-the-portal"></a>AKS kümesi portalında izlemeyi etkinleştir
 Azure portalında AKS kapsayıcınızı izlemeyi etkinleştirmek için aşağıdakileri yapın:
 
-1. Azure portalında **tüm hizmetleri**. 
+1. Azure portalda **Tüm hizmetler**’i seçin. 
 2. Kaynak listesinde yazmaya başlayın **kapsayıcıları**.  
     Girişinize bağlı listesini filtreler. 
 3. Seçin **Kubernetes Hizmetleri**.  
@@ -244,7 +244,7 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {

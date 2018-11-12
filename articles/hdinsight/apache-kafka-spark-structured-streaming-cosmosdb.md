@@ -1,5 +1,5 @@
 ---
-title: Yapılandırılmış Kafka'dan Azure Cosmos DB'ye - Azure HDInsight ve akış Apache Spark
+title: Yapılandırılmış Apache Kafka'dan Azure Cosmos DB'ye - Azure HDInsight ve akış Apache Spark
 description: Apache Kafka'dan veri okumak ve ardından Azure Cosmos DB'ye depolamak için Apache Spark yapılandırılmış akış'ı kullanmayı öğrenin. Bu örnekte, HDInsight üzerinde Spark’tan bir Jupyter not defterini kullanarak verilerinizi akışla aktaracaksınız.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: fcedf4a9335a0d70cfbab5a7f803b68cb154e209
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278914"
+ms.locfileid: "51287991"
 ---
 # <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Kullanım Apache Spark, Kafka ve Azure Cosmos DB ile akış yapılandırılmış
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: a0dc515bb6a4cbf0395dc1407ca65edd5d517d15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261608"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282688"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
 Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../log-analytics/log-analytics-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
@@ -198,7 +198,7 @@ Zamanlama oluşturulduktan sonra bu zamanlamanın runbook her başlatıldığın
 8. **Tamam** düğmesine tıklayın. 
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Runbook başlatıldığında zamanlamaya göre doğrulayın
-Bir runbook başlatıldığında her [bir iş oluşturulur](../automation/automation-runbook-execution.md) ve günlüğe herhangi bir çıktı.  Aslında, runbook toplama aynı işleri şunlardır.  Runbook zamanlama için başlangıç saatini geçtikten sonra runbook için iş kontrol ederek beklenen şekilde başladığını doğrulayabilirsiniz.
+Bir runbook her başlatıldığında [bir iş oluşturulur](../automation/automation-runbook-execution.md) ve günlüğe herhangi bir çıktı.  Aslında, runbook toplama aynı işleri şunlardır.  Runbook zamanlama için başlangıç saatini geçtikten sonra runbook için iş kontrol ederek beklenen şekilde başladığını doğrulayabilirsiniz.
 
 ![İşler](media/monitoring-runbook-datacollect/jobs.png)
 

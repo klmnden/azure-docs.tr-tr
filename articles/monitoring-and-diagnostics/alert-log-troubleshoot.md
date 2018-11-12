@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0e1cb2cdd6270590def11479cc5859d996d84caa
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749059"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283606"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure İzleyicisi'nde sorun giderme günlük uyarıları  
 
@@ -79,10 +79,10 @@ Uyarı kuralı nasıl yapılandırıldığına bağlı olarak olabilir yanlış 
 ### <a name="alert-query-output-misunderstood"></a>Uyarı sorgusu çıkış yanlış
 Günlük uyarıları için uyarı vermek için mantık analytics sorgusu kullanıcı tarafından sağlanır. Sağlanan analytics sorgusu, çeşitli büyük veri ve matematik işlevleri belirli yapıları oluşturmak için kullanabilirsiniz. Uyarı hizmeti ile verileri belirtilen zaman aralığı için belirtilen aralıklarla müşteri tarafından sağlanan sorgu yürütülür; sağlanan - seçilen uyarı türüne göre sorgu değişir uyarı hizmeti Zarif sağlar ve aynı yapılandırma sinyal mantığını ekranında, "yürütülecek sorgu" bölümünde aşağıda gösterildiği gibi gerektirdiğine Tanık: ![yürütülecek sorgu](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-İçinde gösterilen **yürütülecek sorgu** bölümdür hangi günlük uyarı hizmetinin çalışır; kullanıcı belirtilen sorgu yanı sıra aracılığıyla timespan çalıştırılabilir [analiz portalı](../log-analytics/log-analytics-log-search-portals.md) veya [analizi API'si](https://docs.microsoft.com/en-us/rest/api/loganalytics/) -Bunlar uyarı oluşturması işleminden önce anlamak istiyorsanız, hangi uyarı sorgusu çıkış olabilir.
+İçinde gösterilen **yürütülecek sorgu** bölümdür hangi günlük uyarı hizmetinin çalışır; kullanıcı belirtilen sorgu yanı sıra aracılığıyla timespan çalıştırılabilir [analiz portalı](../log-analytics/log-analytics-log-search-portals.md) veya [analizi API'si](https://docs.microsoft.com/rest/api/loganalytics/) -Bunlar uyarı oluşturması işleminden önce anlamak istiyorsanız, hangi uyarı sorgusu çıkış olabilir.
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](monitor-alerts-unified-log.md)
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md)
-* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-queries.md). 

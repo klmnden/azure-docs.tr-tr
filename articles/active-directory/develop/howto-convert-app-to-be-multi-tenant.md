@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 61238482339250e45be36162e7eef252f78c74b1
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.openlocfilehash: 6581081f0f34f73c915f0b026a3ed50816f6731f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288994"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298952"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Nasıl yapılır: çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcısı ile oturum açın
 
@@ -118,7 +118,7 @@ Diğer bir kiracı yönetici onayı gerektirirken bazı için normal bir kullan�
 
 Yalnızca uygulama izinleri, her zaman bir kiracı yönetici onayı gerektirir. Uygulamanızı bir salt uygulama izni isteklerini ve bir kullanıcı uygulamada oturum açmaya çalışırsa, kullanıcı onayı sağlayamadığı belirten bir hata iletisi görüntülenir.
 
-Belirli bir temsilci izinleri de bir kiracı yönetici onayı gerektirir. Örneğin, oturum açmış kullanıcı olarak Azure AD'ye geri yazma özelliğini bir kiracı yönetici onayı gerektirir. Normal bir kullanıcı, yönetici onayı gerektiren temsilci atanmış izin isteyen bir uygulamada oturum çalışırsa, yalnızca uygulama izinleri gibi uygulamanızın bir hata alır. Yönetici onayı yayımlanan kaynak ve kaynak için belgelerinde bulunabilir geliştiricisi tarafından belirlenir olup bir izni gerektirir. İzinleri belgelerine [Azure AD Graph API'si] [ AAD-Graph-Perm-Scopes] ve [Microsoft Graph API] [ MSFT-Graph-permision-scopes] yönetici izinleri gerektiren belirtin onay vermiş olursunuz.
+Belirli bir temsilci izinleri de bir kiracı yönetici onayı gerektirir. Örneğin, oturum açmış kullanıcı olarak Azure AD'ye geri yazma özelliğini bir kiracı yönetici onayı gerektirir. Normal bir kullanıcı, yönetici onayı gerektiren temsilci atanmış izin isteyen bir uygulamada oturum çalışırsa, yalnızca uygulama izinleri gibi uygulamanızın bir hata alır. Yönetici onayı yayımlanan kaynak ve kaynak için belgelerinde bulunabilir geliştiricisi tarafından belirlenir olup bir izni gerektirir. İzinleri belgelerine [Azure AD Graph API'si] [ AAD-Graph-Perm-Scopes] ve [Microsoft Graph API] [ MSFT-Graph-permission-scopes] yönetici izinleri gerektiren belirtin onay vermiş olursunuz.
 
 Uygulamanız yönetici onayı gerektiren izinler kullanıyorsa, yönetim eylemi nerede başlatabilirsiniz bir düğme veya bağlantı gibi hareket sahip olması. Bu eylem ayrıca içeren her zamanki OAuth2/Openıd Connect yetkilendirme isteği için uygulamanızın gönderdiği isteği `prompt=admin_consent` sorgu dizesi parametresi. Yönetici onay verdi ve müşteri kiracısında hizmet sorumlusu oluşturulduktan sonra sonraki oturum açma istekleri gerekmeyen `prompt=admin_consent` parametresi. Yönetici istenen izinleri kabul edilebilir olduğuna karar olduğundan, başka hiçbir kullanıcı kiracıda o noktadan ilerideki onayı istenir.
 
@@ -184,7 +184,7 @@ Bu makalede, bir kullanıcı için herhangi bir Azure AD kiracısında oturum bi
 * [Uygulama nesneleri ve hizmet sorumlusu nesneleri][AAD-App-SP-Objects]
 * [Uygulamaları Azure Active Directory ile tümleştirme][AAD-Integrating-Apps]
 * [Onay çerçevesine genel bakış][AAD-Consent-Overview]
-* [Microsoft Graph API'si izin kapsamları][MSFT-Graph-permision-scopes]
+* [Microsoft Graph API'si izin kapsamları][MSFT-Graph-permission-scopes]
 * [Azure AD Graph API'si izin kapsamları][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
@@ -202,7 +202,7 @@ Bu makalede, bir kullanıcı için herhangi bir Azure AD kiracısında oturum bi
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

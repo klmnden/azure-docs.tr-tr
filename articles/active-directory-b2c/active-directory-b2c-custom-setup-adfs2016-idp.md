@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219333"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279135"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -26,11 +26,11 @@ Bu makalede bir ADFS kullanıcı hesabı için oturum açma kullanarak etkinleş
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bölümündeki adımları tamamlamanız [özel ilkeleri Azure Active Directory B2C kullanmaya başlama](active-directory-b2c-get-started-custom.md).
-- Erişim için sertifika .pfx dosyasını AD FS tarafından verilmiş bir özel anahtara sahip olduğundan emin olun.
+- Bir özel anahtara sahip bir sertifika .pfx dosyasına erişimi olduğundan emin olun. Kendi imzalı bir sertifika oluşturur ve Azure AD B2C'ye yükleyin. Azure AD B2C, SAML kimlik sağlayıcısına gönderilen SAML isteğini imzalamak için bu sertifikayı kullanır.
 
 ## <a name="create-a-policy-key"></a>İlke anahtarı oluşturma
 
-Azure AD B2C kiracınızda ADFS sertifikanızın depolanacağı gerekir.
+Azure AD B2C kiracınızda sertifikanızın depolanacağı gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
@@ -38,7 +38,7 @@ Azure AD B2C kiracınızda ADFS sertifikanızın depolanacağı gerekir.
 4. Genel bakış sayfasında **kimlik deneyimi çerçevesi - PREVIEW**.
 5. Seçin **ilke anahtarları** seçip **Ekle**.
 6. İçin **seçenekleri**, seçin `Upload`.
-7. Girin bir **adı** ilke anahtarı. Örneğin, `ADFSSamlCert`. Önek `B2C_1A_` anahtarınızı adına otomatik olarak eklenir.
+7. Girin bir **adı** ilke anahtarı. Örneğin, `SamlCert`. Önek `B2C_1A_` anahtarınızı adına otomatik olarak eklenir.
 8. Göz atın ve özel anahtarla birlikte, sertifika .pfx dosyasını seçin.
 9. **Oluştur**’a tıklayın.
 

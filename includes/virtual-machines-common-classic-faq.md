@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226976"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263910"
 ---
 Bu makale, kullanıcıların klasik dağıtım modeliyle oluşturulmuş Azure sanal makineleri hakkında sorduğu bazı yaygın sorular ele alınmıştır.
 
@@ -22,9 +22,9 @@ Evet. Nasıl geçiş yapıldığı ile ilgili yönergeler için bkz.
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Azure sanal makinesinde ne çalıştırabilirim?
 Tüm aboneler bir Azure sanal makinesinde sunucu yazılımı çalıştırabilir. Windows Server’ın yeni sürümlerinin yanı sıra çeşitli Linux dağıtımlarını çalıştırabilirsiniz. Destek ayrıntıları için bkz.
 
-• Windows VM’leri için -- [Azure Sanal Makineleri için Microsoft sunucu yazılımı desteği](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Windows VM’leri için -- [Azure Sanal Makineleri için Microsoft sunucu yazılımı desteği](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• Linux VM’leri için -- [Azure Destekli Dağıtımlarda Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Linux VM’leri için -- [Azure Destekli Dağıtımlarda Linux](https://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 Windows istemci görüntüleri için MSDN Azure avantajı aboneleri ve MSDN Geliştirme ve Test Kullandıkça Öde aboneleri geliştirme ve test görevlerinde Windows 7 ve Windows 8.1’in belirli sürümlerini kullanabilir. Yönerge ve kısıtlamalar dahil olmak üzere ayrıntılı bilgi edinmek için bkz. [MSDN aboneleri için Windows İstemci görüntüleri](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
@@ -38,10 +38,10 @@ Benzeşim grubu özellikleri Azure Resource Manager dağıtım modelinde ve Azur
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Bir sanal makineyle birlikte ne kadar depolama alanı kullanabilirim?
 Her veri diskinin kapasitesi 1 TB'a kadar olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-İşletim sistemi diski ve varsa veri diskleri için bir Azure depolama hesabı tarafından depolama alanı sağlanır. Her disk bir sayfa blobu olarak depolanan bir .vhd dosyasıdır. Fiyatlandırma ayrıntıları için bkz. [Depolama Fiyatlandırma Ayrıntıları](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+İşletim sistemi diski ve varsa veri diskleri için bir Azure depolama hesabı tarafından depolama alanı sağlanır. Her disk bir sayfa blobu olarak depolanan bir .vhd dosyasıdır. Fiyatlandırma ayrıntıları için bkz. [Depolama Fiyatlandırma Ayrıntıları](https://go.microsoft.com/fwlink/p/?LinkId=396819).
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Hangi sanal sabit disk türlerini kullanabilirim?
-Azure yalnızca değişmeyen, VHD biçimli sanal sabit diskleri destekler. Azure’da kullanmak istediğiniz bir VHDX varsa, önce Hyper-V Manager’ı ya da [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet’ini kullanarak bunu dönüştürmeniz gerekir. Bu işlemi yaptıktan sonra, VHD’yi sanal makinelerle kullanabilmek için [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet’ini (Hizmet Yönetimi modunda) kullanarak Azure’daki bir depolama hesabına yükleyin.
+Azure yalnızca değişmeyen, VHD biçimli sanal sabit diskleri destekler. Azure’da kullanmak istediğiniz bir VHDX varsa, önce Hyper-V Manager’ı ya da [convert-VHD](https://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet’ini kullanarak bunu dönüştürmeniz gerekir. Bu işlemi yaptıktan sonra, VHD’yi sanal makinelerle kullanabilmek için [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet’ini (Hizmet Yönetimi modunda) kullanarak Azure’daki bir depolama hesabına yükleyin.
 
 * Linux yönergeleri için bkz. [Linux İşletim Sistemi İçeren Bir Sanal Sabit Disk Oluşturma ve Karşıya Yükleme](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -50,7 +50,7 @@ Birçok yönden “1. Nesil” Hyper-V VM’lerine benzer, ancak tam olarak ayn�
 
 * Azure bir sanal makineye konsol erişimi sağlamaz. Önyüklemesi tamamlanana kadar bir VM’ye erişmenin hiçbir yolu yoktur.
 * Çoğu [boyuttaki](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure VM’ler yalnızca 1 sanal ağ bağdaştırıcısına sahiptir ve bu, yalnızca 1 dış IP adresine sahip olabilecekleri anlamına gelir. (A8 ve A9 boyutları, sınırlı sayıda senaryoda örnekler arası iletişim için ikinci bir ağ bağdaştırıcısı kullanır.)
-* Azure VM’leri 2. Nesil Hyper-V VM özelliklerini desteklemez. Bu özellikler hakkında ayrıntılı bilgi edinmek için bkz. [Hyper-V için Sanal Makine Belirtimleri](http://technet.microsoft.com/library/dn592184.aspx) ve [2. Nesil Sanal Makineye Genel Bakış](https://technet.microsoft.com/library/dn282285.aspx).
+* Azure VM’leri 2. Nesil Hyper-V VM özelliklerini desteklemez. Bu özellikler hakkında ayrıntılı bilgi edinmek için bkz. [Hyper-V için Sanal Makine Belirtimleri](https://technet.microsoft.com/library/dn592184.aspx) ve [2. Nesil Sanal Makineye Genel Bakış](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Bu sanal makineler mevcut, şirket içi ağ altyapımı kullanabilir mi?
 Klasik dağıtım modelinde oluşturulan sanal makineler için Azure Sanal Ağ’ı kullanarak mevcut altyapınızı genişletebilirsiniz. Bu yaklaşım, şube ayarlamak gibidir. Azure’da Sanal özel ağlar (VPN) sağlayıp bunları yönetebilir ve şirket içi BT altyapısına güvenli bir biçimde bağlayabilirsiniz. Ayrıntılar için bkz. [Sanal Ağa Genel Bakış](../articles/virtual-network/virtual-networks-overview.md).
@@ -85,7 +85,7 @@ Yükseltme terimi genellikle donanımı değiştirmeksizin işletim sisteminin d
 * Linux VM'leri için dağıtıma yönelik paket yönetimi araçlarını ve yordamlarını kullanın.
 * Windows sanal makinesi için Windows Server Geçiş Araçları gibi bir araçla sunucuyu geçirmeniz gerekir. Konuk işletim sistemi Azure’dayken işletim sistemini yükseltmeye çalışmayın. Bu işlem, sanal makine erişimini kaybetme riski nedeniyle desteklenmez. Yükseltme sırasında sorun oluşursa, Uzak Masaüstü oturumu başlatma özelliğini kullanamaz hale gelir ve sorunları gideremezsiniz.
 
-Windows Server geçişine yönelik araçlar ve işlemler hakkındaki genel ayrıntılar için bkz. [Rolleri ve Özellikleri Windows Server’a Geçirme](http://go.microsoft.com/fwlink/p/?LinkId=396940).
+Windows Server geçişine yönelik araçlar ve işlemler hakkındaki genel ayrıntılar için bkz. [Rolleri ve Özellikleri Windows Server’a Geçirme](https://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Sanal makinede varsayılan kullanıcı adı ve parola nedir?
 Azure tarafından sağlanan görüntülerin önceden yapılandırılmış bir kullanıcı adı ve parolası yoktur. Bu görüntülerden birini kullanarak sanal makine oluşturduğunuzda, bir kullanıcı adı ve sanal makineye oturum açmak için kullanacağınız bir parola sağlamanız gerekir.
@@ -100,8 +100,8 @@ Ek ayrıntılar:
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure sanal makinelerimde virüsten koruma yazılımı çalıştırabilir mi?
 Azure, virüsten koruma çözümleri için çeşitli seçenek sunar ancak bunların yönetimi size bırakılır. Örneğin, kötü amaçlı yazılımdan koruma yazılımı için ayrı bir aboneliğe ihtiyacınız olabilir; ne zaman tarama çalıştırılacağına ve güncelleştirmelerin yükleneceğine karar vermeniz gerekir. Windows sanal makinesi oluştururken veya daha sonra Microsoft Kötü Amaçlı Yazılımdan Koruma, Symantec Endpoint Protection veya TrendMicro Deep Security Agent için bir VM uzantısıyla virüsten koruma desteği ekleyebilirsiniz. Symantec ve TrendMicro uzantıları, ücretsiz sınırlı süreli deneme aboneliği veya mevcut bir kurumsal abonelik kullanmanıza olanak tanır. Microsoft Kötü Amaçlı Yazılımdan Koruma ücretsizdir. Ayrıntılar için bkz.
 
-* [Azure Sanal Makinesinde Symantec Uç Nokta Koruması yükleme ve yapılandırma](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [Azure Sanal Makinesinde Hizmet Olarak Trend Micro Deep Security yükleme ve yapılandırma](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+* [Azure Sanal Makinesinde Symantec Uç Nokta Koruması yükleme ve yapılandırma](https://go.microsoft.com/fwlink/p/?LinkId=404207)
+* [Azure Sanal Makinesinde Hizmet Olarak Trend Micro Deep Security yükleme ve yapılandırma](https://go.microsoft.com/fwlink/p/?LinkId=404206)
 * [Azure Sanal Makinelerinde Kötü Amaçlı Yazılıma Karşı Koruma Çözümleri Dağıtma](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Yedekleme ve kurtarma seçeneklerim nelerdir?

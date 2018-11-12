@@ -26,7 +26,7 @@
 
 Toplam kayıt sayısı üst kota sınırının altında olsa bile, 1 Nisan 2017 itibarıyla, hesabınızdaki 90 günden eski olan tüm iş kayıtları otomatik olarak, ilişkili görev kayıtlarıyla birlikte silinecek. İş/görev bilgilerini arşivlemeniz gerekiyorsa, [burada](../articles/media-services/previous/media-services-dotnet-manage-entities.md) açıklanan kodu kullanabilirsiniz.
 
-<sup>3</sup> istek varlıklar listesine işi yaparken, istek başına en fazla 1.000 işleri döndürülür. Gönderilen tüm işleri izlemeniz gerekiyorsa, [OData sorgu seçeneklerinde](http://msdn.microsoft.com/library/gg309461.aspx) açıklandığı gibi üste/atla seçeneğini kullanabilirsiniz.
+<sup>3</sup> istek varlıklar listesine işi yaparken, istek başına en fazla 1.000 işleri döndürülür. Gönderilen tüm işleri izlemeniz gerekiyorsa, [OData sorgu seçeneklerinde](https://msdn.microsoft.com/library/gg309461.aspx) açıklandığı gibi üste/atla seçeneğini kullanabilirsiniz.
 
 <sup>4</sup> Bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanmamıştır. Ayrı kullanıcılara farklı erişim hakları vermek için Digital Rights Management (DRM) çözümlerini kullanın. Daha fazla bilgi için [bu](../articles/media-services/previous/media-services-content-protection-overview.md) bölüme bakın.
 

@@ -1,6 +1,6 @@
 ---
-title: Danışmanlık Hizmetleri | Microsoft Docs
-description: Tanımlama ve danışmanlık bir hizmet teklifinin yayımlama Kılavuzu.
+title: Azure ve Dynamcis 365 danışmanlık hizmet teklifi | Microsoft Docs
+description: Tanımlama ve bulut iş ortağı portalında bir Azure veya Dynamcis 365 danışmanlık hizmet teklifi yayımlama Kılavuzu.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811592"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037779"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>Tanımlama ve, danışmanlık hizmetleri teklifi yayımlama
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure ve Dynamics 365 danışmanlık hizmet teklifi
 
-Bu kılavuz, tanımlamanıza ve bulut iş ortağı Portalı'nda, danışmanlık hizmetleri teklifi yayımlama yardımcı olmak için tasarlanmıştır.
+<table> <tr> <td>Bu bölümde, ya da Microsoft Danışmanlık hizmet yayımlamak açıklanmaktadır <a href="https://azuremarketplace.microsoft.com">Azure Marketi</a> veya <a href="https://appsource.microsoft.com">AppSource Market</a>. Microsoft tabanlı çözümler <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, ve <a href="https://powerapps.microsoft.com">PowerApps</a> Appsource'ta listelenmesi uygundur. Diğer teklifler tabanlı diğer Microsoft <a href="https://azure.microsoft.com/services">Azure Hizmetleri</a> Azure Marketi'nde listeleme için uygundur. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>Yayımlama avantajları
+
+Yayımlama ya da Microsoft marketleri önemli avantajları vardır:
+
+- Şirketiniz Microsoft marka yararlanarak tanıtın.
+- Potansiyel olarak 100 milyondan fazla Office 365 ve Dynamics 365 kullanıcıya appsource'ta ulaşın; Azure Market aracılığıyla 200 binin üzerinde kuruluş ulaşın.
+- Yüksek kaliteli müşteri adaylarını bu mağazalardan alın.
+- Hizmetlerinizi Microsoft alan ve tele-satış ekipleri tarafından yükseltilen alın.
+
 
 <a name="define-your-consulting-services-offer"></a>Danışmanlık Hizmetleri teklifinizi tanımlayın
 -------------------------------------
@@ -52,43 +62,36 @@ Yeni bir teklif oluşturmak için aşağıdaki adımları tamamlayın:
 
 ### <a name="define-offer-settings"></a>Teklif ayarları tanımlama
 
-Yeni Teklif ekranında, Teklif kimliği oluşturma ilk adımdır.
-Teklif kimliği, üç bölümden oluşur:
-
-1.  Teklif Kimliği
-2.  Yayımcı kimliği
-3.  Ad
-
-Bu parçaların her biri aşağıdaki bölümlerde karşılanır.
+Yeni Teklif ekranında, Teklif kimliği oluşturma ilk adımdır.  Teklif kimliği, üç bölümden oluşur: **Teklif kimliği**, **yayımcı kimliği**, ve **adı**.  Bu parçaların her biri aşağıdaki bölümlerde karşılanır.
 
 #### <a name="offer-id"></a>Teklif Kimliği
 
-Bu, ilk teklif gönderdiğiniz oluşturduğunuzda, benzersiz bir addır. Yalnızca küçük harf alfasayısal karakterler, kısa çizgi veya alt çizgi oluşmalıdır. Kimliği URL'de görünür olacaktır ve arama motoru sonuçları etkiler. Örneğin, *yourcompanyname\_exampleservice*
+Bu tanımlayıcı, ilk teklif gönderdiğiniz oluşturduğunuzda benzersiz bir addır. Yalnızca küçük harf alfasayısal karakterler, kısa çizgi veya alt çizgi oluşmalıdır. Teklif kimliği URL'de görünür olacaktır ve arama motoru sonuçları etkiler. Örneğin, *yourcompanyname\_exampleservice*
 
-Teklif kimliği eklenen örnekte gösterildiği gibi benzersiz bir tanımlayıcı oluşturmak için yayımcı kimliği. Bu, arama motorları tarafından dizine eklenir ve ayrılabileceğini kalıcı bir bağlantı olarak gösterilir.
+Teklif kimliği, örnekte gösterildiği gibi benzersiz bir tanımlayıcı oluşturmak için yayımcı kimliği eklenmiş. Bu, arama motorları tarafından dizine eklenir ve ayrılabileceğini kalıcı bir bağlantı olarak gösterilir. 
 
-**Bir teklif Canlı sonra alabilir\'t güncelleştirilemiyor**
+*Bir teklif Canlı olduktan sonra onun tanımlayıcı güncelleştirilemiyor*
 
 #### <a name="publisher-id"></a>Yayımcı kimliği
 
-Bu işlem, hesabınıza ilişkilidir. Kuruluş hesabınızla oturum açtıktan sonra yayımcı kimliği açılan menüde görünür.
+Bu tanımlayıcı, hesabınıza ilişkilidir. Kuruluş hesabınızla oturum açtıktan sonra yayımcı kimliği açılan menüde görünür.
 
 #### <a name="name"></a>Ad
 
-Bu, hangi AppSource veya Azure Marketi'nde teklif adı olarak görünür olur.
+AppSource veya Azure Marketi'nde teklif adı olarak ne görüntüler bu dizedir.
 
 **Önemli:** yalnızca burada gerçek hizmetin adını girin. Süre ve hizmetin türü içermez.
 
-Teklif adı nasıl derlenip Edgewater Fullscope aşağıdaki örnekte gösterilmektedir. Teklif adı şu şekilde görünür:
+Teklif adı nasıl derlenip Edgewater Fullscope aşağıdaki örnekte gösterilmektedir. Teklif adı aşağıdaki gibi görünür:
 
 ![Danışmanlık Hizmetleri teklifi yeni oluşturma](media/consulting-services-publishing-offer/cppsampleconsultingoffer.png)
 
 Teklif adı dört bölümden oluşur:
 
--   **Süresi:** bu düzenleyicinin mağaza Ayrıntılar sekmesinde tanımlayın. Süre, saat, gün veya hafta içinde belirtilebilir.
--   **Hizmet türü:** bu düzenleyicinin mağaza Ayrıntılar sekmesinde tanımlayın. Hizmet türleri şunlardır: değerlendirme, bilgilendirme, uygulama, kavram kanıtı ve Atölyesi.
--   **Preposition:** gözden geçireni tarafından eklenen
--   **Ad:** teklif Ayarları sayfasında tanımlanan budur.
+-   **Süresi:** - tanımlanan **mağaza ayrıntıları** Düzenleyicisi sekmesi. Süre, saat, gün veya hafta içinde belirtilebilir.
+-   **Hizmet türü:** - tanımlanan **mağaza ayrıntıları** Düzenleyicisi sekmesi. Hizmetleri türleridir `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, ve `Workshop`.
+-   **Preposition:** - Gözden Geçiren tarafından eklenen
+-   **Ad:** - tanımlanan **teklif ayarları** sayfası.
 
 Aşağıdaki listede, çeşitli iyi adlandırılmış teklif adları sağlar:
 
@@ -124,7 +127,7 @@ Teklif Ayrıntıları bölümü, aşağıdaki alanları içerir:
 
 ##### <a name="offer-summary"></a>Teklif özeti
 
-Teklif, yalnızca teklif adı altında görünür teklifinizi kısa bir açıklamasını özetidir. Düz metin Özet teklif girerken kullanmalıdır ve satır sonları içermemelidir. Teklif özetleri karşılık gelen teklif adlarıyla birlikte iyi örnekleri şunlardır:
+Teklif, yalnızca teklif adı altında görünür teklifinizi kısa bir açıklamasını özetidir. Özet teklif girerken kullanım düz metin ve satır sonları sahip olmamalıdır. Teklif özetleri karşılık gelen teklif adlarıyla birlikte iyi örnekleri şunlardır:
 
 *Örnek 1*
 
@@ -153,7 +156,7 @@ Teklif, yalnızca teklif adı altında görünür teklifinizi kısa bir açıkla
 
 ##### <a name="offer-description"></a>Teklif açıklaması
 
-Bu danışmanlık hizmet teklifinin açıklamasıdır. İyi teklif açıklaması engagement nasıl görüneceğini ve müşteriye teslim edilebilir sonuna ne olacağı hakkında tam Ayrıntılar kapsar. Açıkça müşterinin ne aldıkları anlamanıza yardımcı olacaktır.
+Danışmanlık hizmeti teklif açıklaması. İyi teklif açıklaması engagement nasıl görüneceğini ve müşteriye teslim edilebilir sonuna ne olacağı hakkında tam Ayrıntılar kapsar. Açıkça müşterinin ne aldıkları anlamanıza yardımcı olacaktır.
 
 Teklif Tanımınızda iletişim kurmasını için telefon numarası veya e-posta bağlantılarını içermez. Olacaktır yükleyeceği teklifinizle düğmesini kişi müşteri adayları, teklifinizi tanımlayan sağlama yönetim hedef.
 
@@ -161,7 +164,7 @@ Teklif açıklaması Markdown biçiminde girer. Markdown'ı veya HTML biçimlend
 
 Bu biçimi kullanarak teklifinizin müşteriler için en yüksek okunabilirlik sahip sağlayacaktır.
 
-Teklif açıklamanızı kısa tutun ve kullanıcıları çok miktarda metin okuma ister değil olarak için karakter sınırı kullanır. Yine de, pazarlama broşürler, olgu sayfaları ve daha ayrıntılı ayrıntı teklife açıklayan diğer belgelerin karşıya yüklemek için seçeneğiniz de vardır.
+Teklif açıklamanızı kısa tutun ve kullanıcıları uzun metin okuma ister değil olarak için karakter sınırı kullanır. Yine de, pazarlama broşürler, olgu sayfaları ve daha ayrıntılı ayrıntı teklife açıklayan diğer belgelerin karşıya yüklemek için seçeneğiniz de vardır.
 
 Aşağıdaki örnek, iyi oluşan bir teklif açıklaması ve ilgili adı ve özeti gösterir:
 
@@ -223,7 +226,7 @@ Yeni iş ortağı merkezi varsa kimliği.
 **MPN KİMLİĞİ**
 
 Çalıştırılmadan önce appsource'ta teklifinizin önizlemesi için gizli bir anahtar girin.
-Bir parola değil.
+Bu tanımlayıcı, bir parola değil.
 
 #### <a name="listing-details"></a>Liste ayrıntıları
 
@@ -287,4 +290,4 @@ Teklif, teklif teslim edilebilirleri ya da şirketiniz hakkında daha fazla bilg
 
 Teklif ayarları, mağaza ayrıntıları ve kişiler tamamladıktan sonra seçin **Yayımla** ve bir e-posta adresi sağlayın. Microsoft, teklifinizi yayımlamaya hazır olduğunda, Canlı geçmeden önce önizlemesini görüntülemek için bir e-posta alırsınız. Zaman içinde herhangi bir noktada teklifinizi durumunu denetlemek için portala dönebilirsiniz.
 
-Teklifleri yayımlama işlemi sırasında bir "Yayımlama iptal edildi" veya "Yayımlama başarısız oldu" durumu görüntülenir. İşlem normal bir parçasıdır ve Microsoft'un teklifinizin düzenlemeler izin verir. Görürseniz "Yayımla" iptal edildi, teklife bırakın, bu durumda.
+Teklifleri yayımlama işlemi sırasında bir "Yayımlama iptal edildi" veya "Yayımlama başarısız oldu" durumu görüntülenir. Bu durum işlem normal bir parçasıdır ve teklifinizi düzenlemeler Microsoft'a sağlar. Görürseniz "Yayımla" iptal edildi, teklife bırakın, bu durumda.

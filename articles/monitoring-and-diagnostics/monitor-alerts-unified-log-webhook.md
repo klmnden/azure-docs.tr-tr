@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 8201e1569bd3030a205ab0ec5adb8a1f39a0ecc3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960744"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280719"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Olduğunda bir [günlük uyarı Azure'da oluşturulan](alert-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
@@ -79,7 +79,7 @@ Bu örnek yükü Web kancası'na gönderildiğinde aşağıdaki gibi bir şey ç
 Bu bölümde, yükü standart olduğunda ve ne zaman gibi günlük uyarıları için Web kancası için örnek yük gösterilir, özel.
 
 > [!NOTE]
-> Geriye dönük uyumluluk sağlamak için Azure Log Analytics kullanarak uyarıları için standart bir Web kancası yükü aynı [Log Analytics uyarı Yönetim](../log-analytics/log-analytics-alerts-creating.md). Ancak kullanarak günlük uyarıları için [Application Insights](../application-insights/app-insights-analytics.md), standart bir Web kancası yükü eylem grubu şemasını temel alır.
+> Geriye dönük uyumluluk sağlamak için Azure Log Analytics kullanarak uyarıları için standart bir Web kancası yükü aynı [Log Analytics uyarı Yönetim](../monitoring-and-diagnostics/alert-metric.md). Ancak kullanarak günlük uyarıları için [Application Insights](../application-insights/app-insights-analytics.md), standart bir Web kancası yükü eylem grubu şemasını temel alır.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Günlük uyarıları için standart bir Web kancası 
 Bu örneklerin her ikisi, yalnızca iki sütun ve iki satır işlevsiz bir yükü açıklamıştır.

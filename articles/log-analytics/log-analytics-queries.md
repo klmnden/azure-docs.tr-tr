@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 774ca8d0c893a5672c7f04f3530679204b7262c6
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005062"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51513779"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
-Azure İzleyici tarafından toplanan günlük verilerini temel aldığı bir Log Analytics çalışma alanında depolanan [Azure Veri Gezgini](/data-explorer). Çeşitli kaynaklardan telemetri toplar ve kullandığı [sorgu dilini veri Gezgini'nde](/kusto) almak ve verileri çözümlemek için.
+Azure İzleyici tarafından toplanan günlük verilerini temel aldığı bir Log Analytics çalışma alanında depolanan [Azure Veri Gezgini](/azure/data-explorer). Çeşitli kaynaklardan telemetri toplar ve kullandığı [sorgu dilini veri Gezgini'nde](/azure/kusto/query) almak ve verileri çözümlemek için.
 
 > [!NOTE]
 > Log Analytics daha önce kendi Azure hizmeti olarak kabul. Artık Azure İzleyici bir parçası olarak kabul edilir ve depolama ve analiz sorgu dili kullanarak günlük verilerinin odaklanır. Proaktif olarak size sorunları bildirmekten için Windows ve Linux aracıları için veri toplama, mevcut verileri ve Uyarıları görselleştirmek için görünümleri gibi Log Analytics, ın parçası olarak kabul özellikleri değişmemiştir, ancak artık Azure İzleyici bir parçası olarak kabul edilir.

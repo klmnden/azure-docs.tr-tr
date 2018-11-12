@@ -1,9 +1,9 @@
 
-1. MainPage.xaml.cs proje dosyasında aşağıdaki ekleyin **kullanarak** deyimleri:
+1. MainPage.xaml.cs proje dosyasında, aşağıdaki ekleyin **kullanarak** ifadeleri:
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Değiştir **AuthenticateAsync** aşağıdaki kod ile yöntemi:
+2. Değiştirin **AuthenticateAsync** yöntemini aşağıdaki kod ile:
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -72,13 +72,13 @@
             return success;
         }
    
-    Bu sürümünde **AuthenticateAsync**, uygulama içinde depolanan kimlik bilgilerini kullanmayı dener **PasswordVault** hizmete erişmek için. Hiçbir depolanmış kimlik bilgisi olduğunda bir normal oturum açma da gerçekleştirilir.
+    Bu sürümünde **AuthenticateAsync**, depolanan kimlik bilgilerini kullanmak uygulamayı çalışır **PasswordVault** hizmete erişmek için. Depolanan bir kimlik bilgisi olduğunda bir normal oturum açma da gerçekleştirilir.
    
    > [!NOTE]
-   > Önbelleğe alınan bir belirteç süresi dolmuş olabilir ve uygulama kullanımda olduğunda belirteci süre sonu kimlik doğrulamasından sonra da oluşabilir. Belirtecin süresi varsa belirlemek öğrenmek için bkz: [denetlemek için süresi dolmuş kimlik doğrulama belirteçleri](http://aka.ms/jww5vp). Post süresi dolan belirteçleri ile ilgili yetkilendirme hataları işleme için bir çözüm için bkz: [önbelleğe alma ve Azure Mobile Services belirteçlerin süresinin işleme yönetilen SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Önbelleğe alınan belirteç süresi dolmuş olabilir ve uygulama kullanımda olduğunda belirteci süre sonu kimlik doğrulamasından sonra da meydana gelebilir. Belirtecin süresi olmadığını belirlemek öğrenmek için bkz. [denetlemek için süresi dolan kimlik doğrulama belirteci](https://aka.ms/jww5vp). Süresi dolan belirteçleri ile ilgili yetkilendirme hataları işleme için bir çözüm için gönderiye bakın [önbelleğe alma ve Azure Mobile Services belirteçlerin süresinin işleme yönetilen SDK](https://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
 3. Uygulamayı iki kez yeniden başlatın.
    
-    İlk başlatma oturum açma sağlayıcısı ile yeniden gerekli olduğuna dikkat edin. Ancak, önbelleğe alınmış kimlik bilgilerini ikinci bir yeniden başlatma sırasında kullanılır ve oturum açma atlanır. 
+    İlk başlatma oturum açma sağlayıcısı ile yeniden gerekli olduğuna dikkat edin. Ancak, önbelleğe alınan kimlik bilgileri ikinci bir yeniden başlatma sırasında kullanılır ve oturum açma atlanır. 
 

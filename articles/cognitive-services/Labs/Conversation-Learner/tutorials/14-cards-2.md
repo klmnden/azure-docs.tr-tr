@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 99c474978d4da1d80669505330b2dc6220d7ca5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170581"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226643"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Kart (Kısım 1 / 2) kullanma
 Bu öğreticide, botunuzun için doldurulabilir form kart Ekle gösterilmektedir. Form alanlarını varlıklara nasıl hareket gösterilir.
@@ -24,7 +24,7 @@ Konuşma Öğrenici kart tanım dosyalarınızı olduğu bot başlatıldığı d
 
 ## <a name="video"></a>Video
 
-[![Öğretici 14 Önizleme](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+[![Öğretici 14 Önizleme](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Gereksinimler
 Bu öğreticide, genel öğretici bot çalışıyor olması gerekir

@@ -1,3 +1,5 @@
+# [Veritabanı Geçiş Hizmeti Belgeleri](index.yml)
+
 # Genel Bakış
 ## [Veritabanı Geçiş Hizmeti hakkında](dms-overview.md)
 

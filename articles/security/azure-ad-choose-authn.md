@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388067"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238922"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -68,6 +68,18 @@ Aşağıdaki bölümde karar ağacı kullanarak hangi kimlik doğrulama yöntemi
 ## <a name="decision-tree"></a>Karar ağacı
 
 ![Azure AD kimlik doğrulaması karar ağacı](media/azure-ad/azure-ad-authn-image1.png)
+
+Karar sorular hakkında ayrıntılar:
+
+1. Azure AD oturum açma kullanıcıların parolaları doğrulamak için şirket içi bileşene bağlı olmadan başa çıkabilir.
+2. Azure AD, AD FS Microsoft'un gibi bir güvenilen kimlik doğrulama sağlayıcısı için kullanıcı oturum açma devre dışı dağıtabilir.
+3. Hesabın süresi gibi kullanıcı düzeyinde Active Directory güvenlik ilkeleri uygulamanız gerekiyorsa, hesabı devre dışı parolasının süresi doldu, hesap kilitlendi ve her bir kullanıcı oturum açma saatleri oturum açma, Azure AD, bazı şirket içi bileşenlerin gerektirir.
+4. Yerel olarak Azure AD tarafından desteklenen oturum açma özellikleri:
+   * Akıllı kartlar veya sertifikaları kullanarak oturum açın.
+   * Şirket içi MFA sunucusu kullanarak oturum açın.
+   * 3 taraf kimlik doğrulama çözümü kullanarak oturum açın.
+   * Çok siteli şirket içi kimlik doğrulama çözümüdür.
+5. Azure AD kimlik koruması, hangi oturum açma yönteminden bağımsız olarak, "Kimlik bilgileri sızdırılan kullanıcılar" raporu sağlamak için seçtiğiniz parola karması eşitlemesi gerektirir. Kuruluşlar, birincil, oturum açma yöntemleri başarısız olursa ve hata olayından önce yapılandırılan parola karma eşitlemesi yük devretme gerçekleştirebilirsiniz.
 
 ## <a name="detailed-considerations"></a>Ayrıntılı değerlendirmeler
 
@@ -207,4 +219,4 @@ Günümüz Dünyası, tehditleri günde 24 saat mevcut olan ve her yerden gelir.
 
 [Başlama](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) Azure AD ile ve kuruluşunuz için doğru kimlik doğrulama çözümü dağıtın.
 
-Geçiş hakkında düşünüyorsanız federe kimlik doğrulaması bulut, daha fazla bilgi edinin [oturum açma yöntemini değiştirme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Planlama ve uygulama geçişi yardımcı olması için kullanın [bu proje dağıtım planlarında](http://aka.ms/deploymentplans).
+Geçiş hakkında düşünüyorsanız federe kimlik doğrulaması bulut, daha fazla bilgi edinin [oturum açma yöntemini değiştirme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Planlama ve uygulama geçişi yardımcı olması için kullanın [bu proje dağıtım planlarında](https://aka.ms/deploymentplans).
