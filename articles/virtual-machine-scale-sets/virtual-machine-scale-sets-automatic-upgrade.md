@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: c8ba9ac3150b5a84b2902afaaefcf78c76764fed
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069463"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036199"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Otomatik işletim sistemi görüntüsü yükseltmeleri Azure sanal makine ölçek kümesi
 
@@ -121,7 +121,7 @@ Yük Dengeleyici araştırması içinde başvurulabilir *networkProfile* ölçek
   ...
 ```
 > [!NOTE]
-> Otomatik işletim sistemi yükseltmelerini Service Fabric ile kullanırken, yeni işletim sistemi görüntüsü güncelleştirme etki alanı güncelleştirme Service Fabric'te çalışan hizmetler yüksek kullanılabilirliğini sürdürmek için etki alanı tarafından kullanıma alınır. Service Fabric kümeleri dayanıklılık özellikleri hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Otomatik işletim sistemi yükseltmelerini Service Fabric ile kullanırken, yeni işletim sistemi görüntüsü güncelleştirme etki alanı güncelleştirme Service Fabric'te çalışan hizmetler yüksek kullanılabilirliğini sürdürmek için etki alanı tarafından kullanıma alınır. Service fabric'te otomatik işletim sistemi yükseltmelerini kullanmasına izin kümenizi Silver dayanıklılık katmanı kullanmak için yapılandırılmış veya üzeri olması gerekir. Service Fabric kümeleri dayanıklılık özellikleri hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Kimlik bilgileri güncel tutun
 Ölçek kümeniz, depolama hesabı için bir SAS belirteci kullanan bir VM uzantısı yapılandırılmışsa, örneğin dış kaynaklara erişmek için herhangi bir kimlik bilgisi kullanıyorsa kimlik bilgileri güncel tutulduğundan emin olmanız gerekir. Sertifikalar ve simgeleri dahil olmak üzere tüm kimlik bilgilerinin süresi dolduysa yükseltme başarısız olur ve sanal makinelerin ilk batch başarısız durumda kalır.

@@ -10,26 +10,28 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: erhopf
-ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645087"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037456"
 ---
 # <a name="what-is-translator-text-api"></a>Translator Metin Çevirisi API’si nedir?
 
-Translator Metin Çevirisi API’si, [60’tan fazla dilde](languages.md) çok dilli kullanıcı deneyimleri sunmak üzere uygulamalarınızla, web sitelerinize, araçlarınızla veya diğer çözümlerinize sorunsuz bir şekilde tümleştirilebilir. Metinler arası dil çevirisi gerçekleştirmek için herhangi bir donanım platformu üzerinde herhangi bir işletim sistemi ile kullanılabilir.
+Translator Metin Çevirisi API'sini uygulamalarınız, web siteleriniz, araçlarınız ve çözümlerinizle tümleştirmek kolaydır. [60'tan fazla dilde](languages.md) çok dilli kullanıcı deneyimi eklemenizi sağlayan bu API, tüm donanım platformlarında ve tüm işletim sistemlerinde metin çevirisi için kullanılabilir.
 
 Translator Metin Çevirisi API’si, buluttaki Azure [Bilişsel Hizmetler API’si](https://docs.microsoft.com/azure/#pivot=products&panel=ai) makine öğrenimi ve yapak zeka algoritmaları koleksiyonunun parçasıdır ve geliştirme projelerinizde kullanılmaya hazırdır.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator Hakkında
 
-Microsoft Translator, bulut tabanlı bir makine çevirisi hizmetidir. Bu hizmetin temelinde, çeşitli Microsoft ürünlerini ve hizmetlerini desteklemenin yanı sıra dünya çapında binlerce işletmenin uygulamalarında ve iş akışlarında kullanılıp bu işletmelerin içeriklerini tüm dünyadaki hedef kitleye ulaştırmasını sağlayan Translator Metin Çevirisi API'si ve [Translator Konuşma Çevirisi API'si](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) yer alır.
+Microsoft Translator, bulut tabanlı bir makine çevirisi hizmetidir. Bu hizmetin temelinde, çeşitli Microsoft ürünlerini ve hizmetlerini desteklemenin yanı sıra dünya çapında binlerce işletmenin uygulamalarında ve iş akışlarında kullanılıp bu işletmelerin içeriklerini tüm dünyadaki hedef kitleye ulaştırmasını sağlayan Translator Metin Çevirisi API'si yer alır.
 
-Mevcut Translator Konuşma Çevirisi API'sini, Bing Konuşma API'sini ve Özel Konuşma Tanıma Hizmeti'ni (önizleme) birleştirilmiş ve tamamen özelleştirilebilir bir hizmet haline getiren [Bilişsel Hizmetler Konuşma önizlemesi](https://docs.microsoft.com/azure/cognitive-services/speech-service/) aracılığıyla Konuşma çevirisi de sunulur.  
+Translator Metin Çevirisi API'si ile desteklenen konuşma çevirisi de [Microsoft Konuşma Tanıma Hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/) üzerinden kullanıma açıktır. Bu hizmet Translator Konuşma Çevirisi API'si, Bing Konuşma API'si ve Özel Konuşma Tanıma Hizmeti (önizleme) bileşenlerini tek bir yerde ve tamamen özelleştirilebilir bir hizmet şeklinde sunmaktadır. Konuşma Tanıma API'si, 15 Ekim 2019 tarihinde kullanımdan kaldırılacak Translator Konuşma Çevirisi API'sinin yerini alacaktır.
 
-[Microsoft Translator hizmeti](https://www.microsoft.com/en-us/translator/home.aspx) hakkında daha fazla bilgi edinin
+## <a name="language-support"></a>Dil desteği
+
+Microsoft Translator çeviri, harf çevirisi, dil algılama ve sözlükler için çoklu dil desteği sunmaktadır. Listenin tamamı için [dil desteği](language-support.md) sayfasını inceleyebilir veya listeye [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) üzerinden program aracılığıyla erişebilirsiniz.  
 
 ## <a name="language-customization"></a>Dil özelleştirmesi
 

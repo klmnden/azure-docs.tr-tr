@@ -1,6 +1,6 @@
 ---
 title: Uzaktan izleme çözümünü yerel olarak - Docker - dağıtma Azure | Microsoft Docs
-description: Bu nasıl yapılır kılavuzunda test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtmayı gösterir.
+description: Bu nasıl yapılır kılavuzunda test ve geliştirme için Docker'ı kullanarak yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtmayı gösterir.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285019"
+ms.locfileid: "51288553"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Docker dağıtma
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Makalede, mikro hizmetler için yerel Docker kapsayıcıları dağıtma gösterilmektedir. Yerel mikro hizmetlerin dağıtımı aşağıdaki bulut hizmetlerini kullanır: bulutta IOT Hub, Cosmos DB, Azure akış analizi ve Azure Time Series Insights Hizmetleri.
+Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Yerel Docker kapsayıcıları için mikro Hizmetleri dağıtmayı öğrenin. Yerel mikro hizmetlerin dağıtımı aşağıdaki bulut hizmetlerini kullanır: bulutta IOT Hub, Cosmos DB, Azure akış analizi ve Azure Time Series Insights Hizmetleri.
 
 Uzaktan izleme çözüm Hızlandırıcısını IDE içinde yerel makinenizde çalıştırmak istiyorsanız, bkz. [Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio dağıtma](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -70,13 +70,13 @@ docker-compose up
 İlk defa bu komutu çalıştırdığınızda Docker kapsayıcıları yerel olarak oluşturmak için Docker hub'ından mikro hizmet görüntüleri yükler. Aşağıdaki çalışır, Docker kapsayıcıları hemen çalıştırılır.
 
 > [!TIP]
-> Biz yeni Docker görüntülerini yeni işlevlerle sık sık yayımlayın. En son olanları çekme önce yerel Docker kapsayıcıları ve ilgili görüntüleri aşağıdaki temizleme komutları kümesini kullanabilirsiniz. 
+> Microsoft, yeni Docker görüntülerini yeni işlevlerle sık yayımlar. En son olanları çekme önce yerel Docker kapsayıcıları ve ilgili görüntüleri aşağıdaki temizleme komutları kümesini kullanabilirsiniz:
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 Kapsayıcı günlüklerini görüntülemek için ayrı bir kabuk kullanabilirsiniz. Kimliği kullanarak kapsayıcıdaki ilk bulma `docker ps` komutu. Ardından `docker logs {container-id} --tail 1000` belirtilen kapsayıcı için son 1000 girişlerini görüntülemek için.
 
@@ -101,14 +101,4 @@ Kullanım `docker-compose down --rmi all` Docker görüntülerini kaldırmak ve 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Bir yerel geliştirme ortamını ayarlama
-> * Çözüm hızlandırıcısını yapılandırma
-> * Çözüm Hızlandırıcısını dağıtma
-> * Çözüm Hızlandırıcısını için oturum açın
-
 Uzaktan izleme çözüm dağıttığınıza göre sonraki adım olarak [çözüm panosunun özelliklerini keşfedin](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

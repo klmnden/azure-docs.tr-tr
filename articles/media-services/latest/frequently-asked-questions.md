@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: dccbc6e57e970ec7089f81fccb33b741b9c00e74
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 26661a213b5df5424bf9ab9ad799345ae35620ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376729"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036776"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 sık sorulan sorular
 
@@ -28,7 +28,7 @@ Henüz değil. Desteklenen Sdk'lardan birini kullanabilirsiniz. Öğreticiler ve
 
 ## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>Medya ayrılmış birimi yapılandırmak için bir API mı?
 
-Medya Hizmetleri ekibi RU v3 sürümünde ortadan kaldırır. Ancak gerekli hizmet iş tamamlanmadı. O zamana kadar RU ayarlamak için Azure portalı veya AMS v2 API'leri kullanmayı imajlarını (açıklandığı [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
+Medya ayrılmış birimi yapılandırmak için AMS v2 API'leri kullanmak zorunda şu anda (açıklandığı [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
 
 Kullanırken **VideoAnalyzerPreset** ve/veya **AudioAnalyzerPreset**, Media Services hesabınızı ayarlamak için 10 S3 medya ayrılmış birimi.
 

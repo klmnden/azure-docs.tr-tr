@@ -1,6 +1,6 @@
 ---
-title: .NET - Azure HDInsight'ı kullanarak Hadoop kümeleri oluşturma
-description: Linux'ta HDInsight .NET SDK kullanarak HDInsight için Hadoop, HBase, Storm veya Spark küme oluşturma konusunda bilgi edinin.
+title: .NET - Azure HDInsight'ı kullanarak Apache Hadoop kümeleri oluşturma
+description: Linux'ta HDInsight .NET SDK kullanarak HDInsight için Apache Hadoop, Apache HBase, Apache Storm veya Apache Spark küme oluşturma konusunda bilgi edinin.
 services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: ea5c0d3b9f444601607ebcda8d139797eb8dd2ec
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093920"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035690"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Linux tabanlı kümeler .NET SDK kullanarak HDInsight oluşturma
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-.NET SDK kullanarak Azure HDInsight kümesinde bir Hadoop kümesi oluşturmayı öğrenin.
+.NET SDK kullanarak Azure HDInsight kümesinde bir Apache Hadoop kümesi oluşturmayı öğrenin.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar, bir çalışan düğümü ile bir küme oluşturun. 32'den fazla çalışan düğümleri, küme oluşturma sırasında veya Küme oluşturulduktan sonra ölçeklendirme planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.

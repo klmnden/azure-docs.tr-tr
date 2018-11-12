@@ -1,6 +1,6 @@
 ---
-title: Görüntüleme göreceli gecikmeleri Azure bölgeleri belirli konumlardan | Microsoft Docs
-description: Göreceli gecikmeleri Internet sağlayıcıları Azure bölgeleri belirli konumlardan nasıl görüntüleyeceğinizi öğrenin.
+title: Görüntüleme göreli gecikme Azure bölgelerine belirli konumlardan | Microsoft Docs
+description: Göreli gecikme Internet sağlayıcıları arasında Azure bölgelerine belirli konumlardan görüntülemeyi öğrenin.
 services: network-watcher
 documentationcenter: ''
 author: jimdial
@@ -16,26 +16,26 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6ac37c3a53b0cc71bdab85fb86e0e85d998867aa
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27600960"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300617"
 ---
-# <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Görünüm belirli konumlardan Azure bölgeleri için göreli gecikme
+# <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Görünüm belirli konumlar üzerinden Azure bölgeleri için göreli gecikme
 
-Bu öğreticide, Azure kullanmayı öğrenin [Ağ İzleyicisi](network-watcher-monitoring-overview.md) uygulamanızı dağıtmak veya hizmeti için hangi Azure bölgesi karar vermenize yardımcı olacak hizmet, kullanıcıya demografik bağlı. Ayrıca, Azure hizmet sağlayıcıları bağlantıları değerlendirmek için kullanabilirsiniz.  
+Bu öğreticide, Azure'ı kullanmayı öğrenin [Ağ İzleyicisi](network-watcher-monitoring-overview.md) uygulamanızı dağıtmak veya hizmetinizi için hangi Azure bölgesi karar vermenize yardımcı olacak hizmet, demografik, kullanıcıya dayanarak. Ayrıca, Azure hizmet sağlayıcılarının bağlantıları değerlendirmek için kullanabilirsiniz.  
         
 ## <a name="create-a-network-watcher"></a>Ağ İzleyicisi oluşturma
 
-Zaten bir Ağ İzleyicisi en az bir Azure'da varsa [bölge](https://azure.microsoft.com/regions), bu bölümdeki görevler atlayabilirsiniz. Ağ İzleyici için bir kaynak grubu oluşturun. Bu örnekte, kaynak grubu Doğu ABD bölgesinde oluşturuldu, ancak herhangi bir Azure bölgede kaynak grubu oluşturabilirsiniz.
+En az bir Azure Ağ İzleyicisi zaten olup olmadığını [bölge](https://azure.microsoft.com/regions), bu bölümdeki görevlerde atlayabilirsiniz. Ağ İzleyicisi için bir kaynak grubu oluşturun. Bu örnekte, Doğu ABD bölgesinde bir kaynak grubu oluşturulur, ancak herhangi bir Azure bölgesinde bir kaynak grubu oluşturabilirsiniz.
 
 ```powershell
 New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
-Ağ İzleyicisi oluşturun. En az bir Azure bölgede oluşturulan bir Ağ İzleyicisi olması gerekir. Bu örnekte, bir Ağ İzleyicisi'nin BİZE Doğu Azure bölgesinde oluşturulur.
+Ağ İzleyicisi oluşturun. En az bir Azure bölgesinde oluşturulan bir Ağ İzleyicisi olması gerekir. Bu örnekte, bir Ağ İzleyicisi, Doğu ABD Azure bölgesi oluşturulur.
 
 ```powershell
 New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
@@ -43,7 +43,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Göreli ağ gecikmeleri tek bir Azure bölgesine belirli bir konumdan karşılaştırın.
 
-Hizmet sağlayıcıları değerlendirmek veya bir kullanıcı "site yavaş"gibi bir sorun raporlama sorun giderme hizmet dağıtıldığı azure bölgesine belirli bir konumdan. Örneğin, aşağıdaki komut, Washington eyaleti yasalarına Amerika Birleşik Devletleri'nde ve Batı ABD 2 Azure bölgesini aralık 13-15 2017 arasında arasındaki ortalama göreli Internet servis sağlayıcısı gecikmeleri döndürür:
+Hizmet sağlayıcılarını değerlendirmelerine ve sorun giderme "site yavaş gibi" bir sorun rapor etme bir kullanıcı belirli bir konumdan bir hizmet dağıtıldığı azure bölgesi. Örneğin, aşağıdaki komut, Amerika Birleşik Devletleri'nde bulunan Washington eyaleti aralık 2017 13-15 arasında Batı ABD 2 Azure bölgesi arasındaki ortalama göreli Internet hizmet sağlayıcısı gecikmeleri döndürür:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -57,10 +57,10 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Önceki komutta bölge Ağ İzleyicisi'ni alınırken belirttiğiniz bölge ile aynı olması gerekmez. Önceki komutu, yalnızca var olan bir Ağ İzleyicisi belirtmenizi gerektirir. Ağ İzleyicisi'ni herhangi bir bölgede olabilir. İçin değerler belirlerseniz `-Country` ve `-State`, geçerli olması gerekir. Değerleri büyük/küçük harfe duyarlıdır. Veriler, sınırlı sayıda ülkeler, durumları ve şehir için kullanılabilir. Komutları çalıştırmak [görünümü kullanılabilir ülke, durumları, şehirler ve sağlayıcıları](#view-available) kullanılabilir ülke, şehirler ve önceki komut ile kullanmak için durumlarını listesini görüntülemek için. 
+> Önceki komutta bölgede Ağ İzleyicisi alınırken, belirtilen bölge ile aynı olması gerekmez. Önceki komutun yalnızca, mevcut bir Ağ İzleyicisi belirtmesini gerektirir. Ağ İzleyicisi, herhangi bir bölgede olabilir. İçin değerler belirtirseniz `-Country` ve `-State`, geçerli olması gerekir. Değerleri büyük/küçük harf duyarlıdır. Veriler, sınırlı sayıda ülke, eyalet ve şehir için kullanılabilir. Komutları çalıştırmak [görüntülemek kullanılabilir ülke, eyalet, şehir ve sağlayıcıları](#view-available) kullanılabilir ülke, şehir ve durumları önceki komutuyla birlikte kullanılacak bir listesini görüntülemek için. 
 
 > [!WARNING]
-> 14 Kasım 2017 için sonra bir tarihi belirtmelidir `-StartTime` ve `-EndTime`. 14 Kasım 2017 önce bir tarihi belirterek hiçbir veri döndürür. 
+> Bir tarih için son 30 gün içinde belirtmelisiniz `-StartTime` ve `-EndTime`. Önceki bir tarihi belirterek döndürülen içinde hiç veri neden olur.
 
 Önceki komut çıktısı aşağıdaki gibidir:
 
@@ -102,11 +102,11 @@ ReachabilityReport : [
                      ]
 ```
 
-Döndürülen çıkışında, değeri **puan** göreli gecikme bölgeler ve sağlayıcılar arasında değil. 100 en düşük gecikme iken bir puan 1 en kötü (yüksek) gecikme olur. Göreceli gecikmeleri güne ait ortalaması alınır. Önceki örnekte, sahip temizleyin sırada gecikmeleri aynı iki gün olan ve küçük bir fark iki sağlayıcı gecikme süresi arasında sahip de temizleyin, her iki sağlayıcıları için gecikme 1-100 ölçeğini düşük. Bazen Amerika Birleşik Devletleri'nde Washington eyaleti fiziksel olarak yakın Batı ABD 2 Azure bölgesi olduğundan bu, beklenen bir durumdur, ancak sonuçları beklendiği gibi değil. Büyük tarih aralığını belirtin, zaman içinde gecikme daha ortalama.
+Döndürülen çıktıda değeri **puanı** bölgeler ve sağlayıcılar arasında göreli gecikme olduğunu. 100 gecikme süresi en düşük iken bir puan 1 kötü (yüksek) gecikme süresi ' dir. Göreli gecikme bir gün için ortalaması alınır. Önceki örnekte, sahip temizleme sırasında aynı gecikme süreleriyle her iki gün olduğu ve gecikme süreleriyle her iki sağlayıcıları için iki sağlayıcı gecikme süresini arasında küçük bir fark, sahip de onay kutusunu temizleyin, 1-100 ölçeğinde düşük. Bazen, Amerika Birleşik Devletleri Washington eyaleti fiziksel olarak yakın Batı ABD 2 Azure bölgesini olduğundan bu, beklenen bir durumdur, ancak sonuçlar beklendiği gibi değildir. Belirttiğiniz tarih aralığı daha büyük, daha fazla, ortalama gecikme süresi zaman içinde.
 
-## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Belirli bir konumdan Azure bölgeler arasında göreceli ağ gecikmeleri Karşılaştır
+## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Belirli bir konumdan Azure bölgeleri arasında göreli ağ gecikmeleri karşılaştırın
 
-Belirli bir konuma ve belirli bir Azure bölgesine kullanarak arasında göreceli gecikmeleri belirtme yerine IF `-Location`göreceli gecikmeleri tüm Azure bölgeleri için belirli bir fiziksel konumundan belirlemek istediğinizi, bunu çok yapabilirsiniz. Örneğin, aşağıdaki komutu birincil kullanıcılarınızın Washington durumda bulunan Comcast kullanıcılar ise bir hizmeti dağıtmak için hangi azure bölgesi değerlendirmenize yardımcı olur:
+Eğer, belirli bir konuma kullanarak belirli bir Azure bölgesi arasındaki göreli gecikme belirtmek yerine `-Location`göreli gecikme süreleri için tüm Azure bölgelerinde belirli bir fiziksel konumdan belirlemek istediğinizi, çok bunu yapabilirsiniz. Örneğin, aşağıdaki komut, kullanıcılarınızın birincil içeren Washington eyaletinin bulunan Comcast kullanıcılar ise bir hizmeti dağıtmak için hangi azure bölgesi değerlendirmenize yardımcı olur:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -120,19 +120,19 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 ```
 
 >[!NOTE]
-Farklı olarak tek bir konumu belirttiğinizde, bir konum belirtin veya "Batı US2", "Batı ABD", gibi birden çok konumda belirtirseniz yok, Internet servis sağlayıcısı komutu çalıştırırken belirtmeniz gerekir. 
+Farklı olarak tek bir konum belirttiğinizde, bir konum belirtin veya "Batı ABD 2", "Batı ABD", gibi birden çok konumlarını belirtin yoksa, bir Internet hizmet sağlayıcısı komutu çalıştırırken belirtmeniz gerekir. 
 
-## <a name="view-available"></a>Görünüm kullanılabilir ülke, durumları, şehirler ve sağlayıcıları
+## <a name="view-available"></a>Kullanılabilir ülke, eyalet, şehir ve sağlayıcıları görüntüleyin
 
-Veriler belirli Internet hizmet sağlayıcıları, Ülkeler, durumları ve şehir için kullanılabilir. Tüm kullanılabilir Internet servis sağlayıcılarının bir listesini görüntülemek için söz konusu ülke, durumları ve, verileri görüntüleyebilirsiniz şehirler, aşağıdaki komutu girin:
+Veriler, belirli Internet hizmet sağlayıcıları, ülke, eyalet ve şehir için kullanılabilir. Tüm kullanılabilir Internet hizmet sağlayıcıları, ülke, eyalet ve, verileri görüntüleyebilirsiniz, şehirlere listesini görüntülemek için aşağıdaki komutu girin:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Verileri yalnızca Ülkeler, durumları ve önceki komutu tarafından döndürülen şehir için kullanılabilir. Önceki komutu, var olan bir Ağ İzleyicisi belirtmenizi gerektirir. Belirtilen örnek *NetworkWatcher_eastus* adlı bir kaynak grubunda Ağ İzleyicisi *NetworkWatcherRG*, ancak tüm mevcut Ağ İzleyicisi'ni belirtebilirsiniz. Varolan bir Ağ İzleyicisi yoksa, görevleri tamamlayarak oluşturmak [bir Ağ İzleyicisi oluşturma](#create-a-network-watcher). 
+Veriler, yalnızca ülke, eyalet ve şehir önceki komutu tarafından döndürülen için kullanılabilir. Önceki komutta var olan bir Ağ İzleyicisi belirtmenizi gerektirir. Belirtilen örnek *NetworkWatcher_eastus* adlı bir kaynak grubundaki Ağ İzleyicisi *NetworkWatcherRG*, ancak herhangi bir mevcut Ağ İzleyicisi belirtebilirsiniz. Var olan bir Ağ İzleyicisi yoksa, oluşturun, görevleri tamamlama tarafından [Ağ İzleyicisi oluşturma](#create-a-network-watcher). 
 
-Önceki komutu çalıştırdıktan sonra geçerli değerleri belirten tarafından döndürülen çıktının filtreleyebilirsiniz **Ülke**, **durumu**, ve **Şehir**istenirse.  Örneğin, Amerika Birleşik Devletleri'nde Seattle, Washington, kullanılabilir Internet hizmet sağlayıcıları listesini görüntülemek için aşağıdaki komutu girin:
+Önceki komutu çalıştırdıktan sonra için geçerli değerleri belirtilerek döndürülen çıkışı filtreleyebilirsiniz **Ülke**, **durumu**, ve **Şehir**, isterseniz.  Örneğin, Amerika Birleşik Devletleri'nde Seattle, Washington'da kullanılabilir Internet hizmet sağlayıcıları listesini görüntülemek için aşağıdaki komutu girin:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList `
@@ -144,4 +144,4 @@ Get-AzureRmNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> Belirtilen değer **Ülke** büyük ve küçük olmalıdır. İçin belirtilen değerlere **durumu** ve **Şehir** küçük olmalıdır. Değerleri için hiçbir değerlerle komutu çalıştırdıktan sonra döndürülen çıktının listelenmiş olmalıdır **Ülke**, **durumu**, ve **Şehir**. Yanlış durum belirttiğinizde, veya için bir değer belirtin, **Ülke**, **durumu**, veya **Şehir** olmayan komutu ile hiçbir değer bu çalıştırdıktan sonra döndürülen çıkışı Özellikler, döndürülen çıkış boştur.
+> Belirtilen değer **Ülke** büyük ve küçük olmalıdır. İçin belirtilen değerlere **durumu** ve **Şehir** küçük olmalıdır. Değerler için hiçbir değerlerle komutu çalıştırdıktan sonra döndürülen çıktının yer alması gerekir **Ülke**, **durumu**, ve **Şehir**. Size yanlış durum belirtin veya için bir değer belirtin **Ülke**, **durumu**, veya **Şehir** , değildir komut ile hiçbir değer bu çalıştırdıktan sonra döndürülen çıktının Özellikler, döndürülen çıkış boştur.

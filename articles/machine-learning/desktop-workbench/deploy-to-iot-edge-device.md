@@ -11,18 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/24/2018
-ms.openlocfilehash: 24d3cf0c4b1a1283e7a6a7f61f0bb23dae7143d5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 7322b07740d5dec85b6217e122fb262647527c96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43113011"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258417"
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Bir Azure Machine Learning modeli Azure IOT Edge cihazına dağıtma
 
 Azure Machine Learning modeli Docker tabanlı web Hizmetleri olarak kapsayıcılı hale. Azure IOT Edge cihazları uzaktan kapsayıcılarının dağıtmanıza olanak sağlar. Bu hizmetler birlikte daha hızlı yanıt süreleri ve veri aktarımı daha az Modellerinizi ucuna çalıştırmak için kullanın. 
 
-Ek betikleri ve yönergeler bulunabilir [Azure IOT Edge için AI Toolkit](http://aka.ms/AI-toolkit).
+Ek betikleri ve yönergeler bulunabilir [Azure IOT Edge için AI Toolkit](https://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Modeli kullanıma hazır hale getirme
 

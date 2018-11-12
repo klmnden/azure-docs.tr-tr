@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ed89468d65f35d0a8cda90da365e8625f46e3f92
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056542"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034346"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Geri dönülemez veri kaybından kurtarma
 
@@ -73,4 +73,4 @@ Dağıtım sırasında bir hizmet (PaaS) kaynak olarak altyapı (Iaas) veya plat
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - İçin en iyi uygulamalar hakkında bilgi edinin [altyapısını Yedekleme hizmetini kullanarak](azure-stack-backup-best-practices.md).
+İçin en iyi uygulamalar hakkında bilgi edinin [altyapısını Yedekleme hizmetini kullanarak](azure-stack-backup-best-practices.md).

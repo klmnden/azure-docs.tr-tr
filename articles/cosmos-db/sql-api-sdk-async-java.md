@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/02/2018
 ms.author: moderakh
-ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c8b8397e5d51b67895a6a95ed6d1611813a9aaf6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252879"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300855"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -52,6 +52,9 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Paketleme hata düzeltildi.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Yazma yeniden deneme yolunda NPE düzeltildi.
@@ -119,8 +122,9 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [2.2.1](#2.1.0) |2 Kasım 2018|--- |
-| [2.2.0](#2.2.1) |22 Eylül 2018'den|--- |
+| [2.2.2](#2.2.2) |8 Kasım 2018|--- |
+| [2.2.1](#2.2.1) |2 Kasım 2018|--- |
+| [2.2.0](#2.2.0) |22 Eylül 2018'den|--- |
 | [2.1.0](#2.1.0) |5 Eylül 2018'den|--- |
 | [2.0.1](#2.0.1) |16 Ağustos 2018|--- |
 | [2.0.0](#2.0.0) |20 Haziran 2018|--- |

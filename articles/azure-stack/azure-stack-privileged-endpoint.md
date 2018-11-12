@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f064521929bdaf0565a2993e12be62a3959ad567
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945306"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300447"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack'te ayrıcalıklı uç noktası kullanma
 
@@ -55,7 +55,7 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - ADSK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
+    - ASDK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
 
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
@@ -67,7 +67,7 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
-    - ADSK çalıştırıyorsanız:
+    - ASDK çalıştırıyorsanız:
      
       ````PowerShell
         $cred = Get-Credential
@@ -127,7 +127,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - ADSK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
+    - ASDK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
 
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
@@ -139,7 +139,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
-    - ADSK çalıştırıyorsanız:
+    - ASDK çalıştırıyorsanız:
      
       ````PowerShell
        $cred = Get-Credential

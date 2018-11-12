@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9c2b5db4fe35227600e7ab8d94f2cc8701cf529b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963793"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008343"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı'ndan Nagios ve Zabbix'ten Log analytics'te uyarıları Topla 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -80,7 +80,7 @@ Nagios sunucuda uyarıları toplamak için aşağıdaki adımları gerçekleşti
 
 
 ## <a name="alert-records"></a>Uyarı kayıtları
-Nagios ve Zabbix uyarı kayıtları alabilir kullanarak [günlük aramaları](log-analytics-log-search.md) Log analytics'te.
+Nagios ve Zabbix uyarı kayıtları alabilir kullanarak [günlük aramaları](log-analytics-queries.md) Log analytics'te.
 
 ### <a name="nagios-alert-records"></a>Nagios uyarı kayıtları
 
@@ -119,4 +119,4 @@ Zabbix tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) Log analytics'te.
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

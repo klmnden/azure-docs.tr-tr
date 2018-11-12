@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: eb0f5a4a4219c63334e0a5be3ea4378c3c317bec
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958619"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288110"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
-VFXT kümesi oluşturmak için en kolay yolu gereken betikler, şablonları ve yazılım altyapı oluşturmak ve vFXT kümeyi yönetmek için olan bir sanal makine bir küme denetleyicisi kullanmaktır.
+Azure'da vFXT küme oluşturmak için en kolay yolu, bir küme denetleyicisi kullanmaktır. Küme Denetleyicisi gerekli betikler, şablonları ve yazılım altyapı oluşturmak ve vFXT kümeyi yönetmek için içeren bir vm'dir.
 
 Yeni bir vFXT Küme dağıtımı, aşağıdaki adımları içerir:
 
@@ -82,7 +82,7 @@ Aşağıdaki bilgileri sağlayın.
 * Sanal ağ kaynak grubu adını ve alt ağ adı - var olan kaynakların adlarını (mevcut bir vnet'i kullanıyorsanız) yazın veya yeni bir sanal ağ oluşturuyorsanız yeni adlarını yazın
 * **Denetleyici adı** -VM denetleyici için bir ad ayarlayın
 * Denetleyici yönetici kullanıcı adı - varsayılan değer `azureuser`
-* SSH anahtarı - yönetici kullanıcı adıyla ilişkilendirmek için ortak anahtarı Yapıştır. Okuma [oluşturma ve SSH anahtarlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) yardıma ihtiyacınız varsa.
+* SSH anahtarı - yönetici kullanıcı adıyla ilişkilendirmek için ortak anahtarı Yapıştır. Okuma [oluşturma ve SSH anahtarlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) yardıma ihtiyacınız varsa.
 
 Altında **hüküm ve koşullar**: 
 
@@ -93,16 +93,13 @@ Altında **hüküm ve koşullar**:
 
 Tıklayın **satın alma** bittiğinde. Beş veya altı dakika sonra çalışır duruma denetleyicisi düğümünüzü olacaktır.
 
-Küme için gereken bilgileri toplamak için çıktıların sayfayı ziyaret etmeniz gerekir. Okuma [girişleri için küme oluşturma](#inputs-needed-for-cluster-creation) daha fazla bilgi için.
+Kümeyi oluşturmak için gereken denetleyicisi bilgileri toplamak için çıktıların sayfasını ziyaret edin. Okuma [kümeyi oluşturmak gerekli bilgiler](#information-needed-to-create-the-cluster) daha fazla bilgi için.
 
 ### <a name="create-controller---azure-marketplace-image"></a>Denetleyici - Azure Market görüntüsü oluşturma
 
-Azure Marketi'nde adı için arama yaparak denetleyicisi şablonu bulun ``Avere``. Seçin **Avere vFXT Azure denetleyicisi** şablonu. 
+Azure Marketi'nde adı için arama yaparak denetleyicisi şablonu bulun ``Avere``. Seçin **Avere vFXT Azure denetleyicisi** şablonu.
 
 Zaten yapmadıysanız, koşulları kabul etmek ve "programlı olarak dağıtmak istiyorsanız?" tıklayarak Market görüntüsü için programlı erişimi etkinleştir altında bağlantı **Oluştur** düğmesi.
-
-> [!NOTE] 
-> Genel kullanılabilirlik (31 Ekim - 7 Kasım 2018'den) ilk hafta için aşağıdaki yordamı yerine iki yazılım görüntüleri koşulları kabul etmek için komut satırı seçeneğini kullanmanız gerekir. Bölümündeki yönergeleri [yazılım önceden koşulları kabul](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
 
 ![Ekran görüntüsü oluştur düğmesi programlı erişim bağlantısı](media/avere-vfxt-deploy-programmatically.png)
 
@@ -125,7 +122,7 @@ Ana sayfasına dönün **Avere vFXT Azure denetleyicisi** şablonu ve tıklatın
   * Kullanıcı adı/parola veya SSH ortak anahtarı (önerilen) seçin.
   
     > [!TIP] 
-    > Bir SSH anahtarı daha güvenlidir. Okuma [oluşturma ve SSH anahtarlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) yardıma ihtiyacınız varsa. 
+    > Bir SSH anahtarı daha güvenlidir. Okuma [oluşturma ve SSH anahtarlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) yardıma ihtiyacınız varsa. 
   * Kullanıcı adı belirtin 
   * SSH anahtarını yapıştırın veya girin ve parolayı onaylayın
 * **Gelen bağlantı noktası kuralları** - genel IP adresi, açık bağlantı noktası 22'yi (SSH) kullanarak
@@ -172,29 +169,31 @@ Arka uç veri depolama için Azure Blob Depolama kullanıyorsanız, sanal ağın
 
   ![Hizmet uç noktası oluşturma adımları için ek açıklamalar ile Azure portal ekran görüntüsü](media/avere-vfxt-service-endpoint.png)
 
-## <a name="gather-needed-inputs"></a>Gerekli girişleri toplayın
+## <a name="information-needed-to-create-the-cluster"></a>Kümeyi oluşturmak için gereken bilgileri
 
-Kümeyi oluşturmak için aşağıdaki bilgilere ihtiyacınız var. 
+Küme denetleyici oluşturduktan sonra sonraki adımlar için ihtiyacınız olan bilgileri olduğundan emin olun. 
 
-Resource Manager şablonu kullanarak denetleyici düğüm oluşturduysanız, şunları yapabilirsiniz [şablon çıkışı hakkında bilgi alın](#finding-template-output). 
+Denetleyiciye bağlanmak için gereken bilgileri: 
 
-Denetleyiciye bağlanmak gereken: 
-
-* Denetleyici kullanıcı adı ve SSH anahtarı veya parola
+* Denetleyici kullanıcı adı ve SSH anahtarı (veya parola)
 * Denetleyici için IP adresi veya VM denetleyiciye bağlanmak için başka bir yöntemi
 
-Küme oluşturma için gerekli: 
+Küme için gereken bilgileri: 
 
 * Kaynak grubu adı
 * Azure konumu 
 * Sanal ağ adı
 * Alt ağ adı
-* Küme düğümü rol adı
+* Küme düğümü rol adı - bu adın açıklanan rol oluşturduğunuzda ayarlandığından [aşağıda](#create-the-cluster-node-access-role)
 * Bir Blob kapsayıcısı oluşturma, depolama hesabı adı
 
-Ayrıca eksik bulabilirsiniz denetleyicisi VM bilgi sayfasına atarak bilgileri. Örneğin, **tüm kaynakları** ve Denetleyici adı için arama yapın ve ardından ayrıntılarını görmek için denetleyicinin adını tıklatın.
+Resource Manager şablonu kullanarak denetleyici düğüm oluşturduysanız, bilgi edinebilirsiniz [şablon çıkış](#find-template-output). 
 
-### <a name="finding-template-output"></a>Şablon çıkış bulma
+Denetleyicisi oluşturmak için Azure Market görüntüsü kullandıysanız, bu öğelerin çoğu, doğrudan sağladı. 
+
+Denetleyici VM bilgi sayfasına göz atarak eksik öğeleri bulun. Örneğin, **tüm kaynakları** ve Denetleyici adı için arama yapın ve ardından ayrıntılarını görmek için denetleyicinin adını tıklatın.
+
+### <a name="find-template-output"></a>Şablon çıkış Bul
 
 Şablon çıkış Kaynak Yöneticisi'nden bu bilgileri bulmak için bu yordamı izleyin:
 
@@ -215,7 +214,7 @@ Dağıtım adımlarına geri kalanını yapmak için küme denetleyiciye bağlan
 1. Küme denetleyicinize bağlanmak için yöntem kurulumunuzu temel bağlıdır.
 
    * Denetleyici bir genel IP adresi SSH denetleyicisinin IP yönetici kullanıcı adı olarak varsa, ayarladığınız (örneğin, ``ssh azureuser@40.117.136.91``).
-   * Denetleyici bir genel IP yoksa kullanmak bir [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) veya ağınıza bir VPN bağlantısı.
+   * Denetleyici bir genel IP yoksa, bir VPN kullanın veya [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) , sanal ağa bağlantı.
 
 1. Çalıştırarak denetleyicinize oturum açtıktan sonra kimlik doğrulaması yapmak `az login`. Kabuğu'nda sağlanan doğrulama kodu kopyalayın ve sonra yüklemek için bir web tarayıcısı kullanın [ https://microsoft.com/devicelogin ](https://microsoft.com/devicelogin) ve Microsoft sistemi ile kimlik doğrulaması. Onay Kabuk dönün.
 
@@ -292,15 +291,18 @@ RESOURCE_GROUP=
 Çıkış ve dosyayı kaydedin.
 
 ### <a name="run-the-script"></a>Betiği çalıştırın
+
 Oluşturduğunuz dosya adını yazarak betiği çalıştırın. (Örnek: `./create-cloudbacked-cluster-west1`)  
 
-Bu komut içinde çalıştırmayı göz önünde bulundurun bir [terminal çoğaltıcı](http://linuxcommand.org/lc3_adv_termmux.php) gibi `screen` veya `tmux` bağlantınızı kaybetmeniz durumunda.  
+> [!TIP]
+> Bu komut içinde çalıştırmayı göz önünde bulundurun bir [terminal çoğaltıcı](http://linuxcommand.org/lc3_adv_termmux.php) gibi `screen` veya `tmux` bağlantınızı kaybetmeniz durumunda.  
+
 Çıkış ayrıca oturum `~/vfxt.log`.
 
 Betik tamamlandığında, küme yönetim için gereken yönetim IP adresi kopyalayın.
 
 ![Yönetim IP adresi sonlarında görüntüleme betiğin komut satırı çıkışı](media/avere-vfxt-mgmt-ip.png)
 
-### <a name="next-step"></a>Sonraki adım
+## <a name="next-step"></a>Sonraki adım
 
 Kümenin çalıştığından ve yönetim IP adresini bilmeniz göre yapabilecekleriniz [Küme Yapılandırma Aracı'na bağlanma](avere-vfxt-cluster-gui.md) desteğini etkinleştir ve gerekirse depolama eklemek için.

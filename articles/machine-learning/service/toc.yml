@@ -4,7 +4,7 @@ items:
 - name: Genel Bakış
   items:
   - name: Azure Machine Learning hizmeti nedir?
-    displayName: AML, services
+    displayName: AML, services, overview
     href: overview-what-is-azure-ml.md
   - name: Bu hizmet nasıl çalışır?
     displayName: architecture
@@ -17,6 +17,7 @@ items:
   - name: Kullanmaya başlayın - Portal
     href: quickstart-get-started.md
   - name: Kullanmaya başlama - Python
+    displayName: create workspace
     href: quickstart-create-workspace-with-python.md
 - name: Öğreticiler
   items:
@@ -25,6 +26,7 @@ items:
   - name: 'Modelleri dağıtma: 2. Bölüm'
     href: tutorial-deploy-models-with-aml.md
   - name: Otomatik ML modellerini eğitme
+    displayName: automl
     href: tutorial-auto-train-models.md
 - name: Örnekler
   items:
@@ -34,6 +36,7 @@ items:
 - name: Kavramlar
   items:
   - name: Model yönetimi
+    displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
   - name: FPGA’lar ile hızlandırma
     href: concept-accelerate-with-fpgas.md
@@ -51,13 +54,14 @@ items:
     - name: Ortamı yapılandırma
       href: how-to-configure-environment.md
     - name: VS Code Tools for AI
+      displayName: Visual Studio Code, vscode
       items:
       - name: başlarken
         href: how-to-vscode-tools.md
       - name: Eğitme ve dağıtma
         href: how-to-vscode-train-deploy.md
   - name: Verileri hazırlama
-    displayName: data prep, etl, elt
+    displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md
     items:
     - name: Veri yükleme
@@ -69,6 +73,7 @@ items:
   - name: Modelleri eğitme
     items:
     - name: Eğitim ortamlarını ayarlama
+      displayName: compute target, train
       href: how-to-set-up-training-targets.md
     - name: Eğitim verilerine erişim
       href: how-to-access-data.md
@@ -79,13 +84,12 @@ items:
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-  - name: Modelleri ayarlama
-    items:
     - name: Hiperparametreleri ayarlama
       href: how-to-tune-hyperparameters.md
     - name: Denemeleri ve ölçümleri izleme
       href: how-to-track-experiments.md
   - name: Makine öğrenimini otomatikleştirme
+    displayName: automl
     href: how-to-automated-ml.md
     items:
     - name: Otomatik eğitimi yapılandırma
@@ -101,8 +105,10 @@ items:
     - name: Modellerin dağıtılacağı yerler
       href: how-to-deploy-and-where.md
     - name: ACI'ye dağıtma
+      displayName: Azure Container Instances
       href: how-to-deploy-to-aci.md
     - name: AKS’ye dağıtma
+      displayName: Azure Kubernetes
       href: how-to-deploy-to-aks.md
     - name: FPGA'lara dağıtma
       href: how-to-deploy-fpga-web-service.md
@@ -347,9 +353,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Eski Sorunlar
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 06fb6198395fbf57d9c56aeedea7d96be3ab1c86
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095084"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287634"

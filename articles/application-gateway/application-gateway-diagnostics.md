@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963841"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237208"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -258,7 +258,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 |ruleSetVersion     | Kural kullanılan sürümünü ayarlama. Değerleri 2.2.9 ve 3. 0'ı kullanılabilir.     |
 |RuleId     | Tetikleyici olayın kural kimliği.        |
 |message     | Tetikleyici olay kullanıcı dostu iletisi. Ayrıntılar bölümünde daha ayrıntılı bilgi sağlanır.        |
-|eylem     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
+|action     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
 |site     | Günlük oluşturulduğu site. Genel kurallar olduğundan şu anda yalnızca genel listelenir.|
 |ayrıntılar     | Olay Ayrıntıları.        |
 |details.Message     | Kural açıklaması.        |
@@ -337,7 +337,7 @@ Yüklenen ve popüler çalıştırılan bir Resource Manager şablonu yayımlad�
 
    Filtreleyebilirsiniz bir arka uç havuzu olarak belirli arka uç havuzunda iyi durumda ve uygun olmayan konakları göstermek için.
 
-Bir uygulama ağ geçidi için altında Gözat **izleme** tıklayın **ölçümleri**. Kullanılabilir değerleri görüntülemek için seçin **ÖLÇÜM** aşağı açılan listesi.
+Bir uygulama ağ geçidi için altında Gözat **izleme** tıklayın **ölçümleri**. Kullanılabilir değerleri görüntülemek için **ÖLÇÜM** açılan listesini seçin.
 
 Aşağıdaki görüntüde üç ölçümlerle son 30 dakika boyunca görüntülenen bir örneğe bakın:
 
@@ -380,7 +380,7 @@ Web kancaları ve nasıl uyarılarla kullanabilmek için daha iyi anlamak için 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Sayaç ve olay günlüklerini kullanarak görselleştirme [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
-* [Azure etkinlik günlüğü Power BI ile görselleştirin](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog gönderisi.
+* [Azure etkinlik günlüğü Power BI ile görselleştirin](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog gönderisi.
 * [Görüntüleme ve Power BI ve diğer Azure etkinlik günlüklerini analiz](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog gönderisi.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

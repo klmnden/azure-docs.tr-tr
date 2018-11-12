@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067712"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277282"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -139,6 +139,18 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
+    c. Kaydedilecek *kullanıcı* çoklu müşteri mimarisi bir ortam üzerinde kullanır:
+
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
+        --profile 2018-03-01-hybrid
+      ```
 
 1. Aşağıdaki komutları kullanarak etkin ortam ayarlayın.
 
@@ -223,7 +235,7 @@ Kaynak grubu başarıyla oluşturulursa, önceki komutta aşağıdaki özellikle
 CLI, Azure Stack'te kullanırken dikkat edilmesi gereken bazı bilinen sorunlar vardır:
 
  - CLI etkileşimli mod yani `az interactive` komutu, Azure Stack'te henüz desteklenmiyor.
- - Azure Stack'te kullanılabilir sanal makine görüntüleri listesini almak için kullanın `az vm images list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` yanıt yalnızca Azure Stack ortamınıza kullanılabilir görüntüleri döndürdüğünden emin olur.
+ - Azure Stack'te kullanılabilir sanal makine görüntüleri listesini almak için kullanın `az vm image list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` yanıt yalnızca Azure Stack ortamınıza kullanılabilir görüntüleri döndürdüğünden emin olur.
  - Azure'da kullanılabilen sanal makine görüntüsü diğer adlar, Azure Stack için geçerli olmayabilir. Sanal makine görüntüleri kullanarak, tüm URN parametresini kullanmanız gerekir (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) yerine görüntü diğer adı. Bu URN görüntü belirtimleri ten türetildiği haliyle eşleşmelidir `az vm images list` komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar

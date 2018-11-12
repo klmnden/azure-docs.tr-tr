@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5b8d3aa69d6a141394395f012e5cc57873cafaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421221"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235947"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Azure'da bir HPC Pack kümesinde Excel ve SOA iş yüklerini çalıştırmaya başlama
 Bu makalede Azure Hızlı Başlangıç şablonu veya isteğe bağlı olarak bir Azure PowerShell dağıtım betiğini kullanarak bir Azure sanal makineler'de Microsoft HPC Pack 2012 R2 kümesi dağıtmayı gösterir. Küme, Microsoft Excel veya hizmet odaklı mimari (SOA) iş yükleri HPC Pack ile çalışmak üzere tasarlanmış Azure Market VM görüntülerini kullanır. Bir şirket içi istemci bilgisayarından HPC Excel ve SOA hizmetlerini çalıştırmak için kümeyi kullanabilirsiniz. Excel çalışma kitabı aktarma ve Excel kullanıcı tanımlı işlevleri ya da UDF'ler Excel HPC hizmetleri içerir.
@@ -225,7 +225,7 @@ Azure'da HPC Pack kümesinde çalışır, böylece bir Excel çalışma kitabı 
         </startup>
     </configuration>
     ```
-1. HPC Pack kümesine göndermek için istemci ayarlayın. Bir seçenektir tam yüklemeye [HPC Pack 2012 R2 güncelleştirme 3'ü yükleme](http://www.microsoft.com/download/details.aspx?id=49922) ve HPC Pack istemciyi yükleyin. Alternatif olarak, indirme ve yükleme [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923) ve uygun Visual C++ 2010 için bilgisayarınızı yeniden dağıtılabilir ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
+1. HPC Pack kümesine göndermek için istemci ayarlayın. Bir seçenektir tam yüklemeye [HPC Pack 2012 R2 güncelleştirme 3'ü yükleme](https://www.microsoft.com/download/details.aspx?id=49922) ve HPC Pack istemciyi yükleyin. Alternatif olarak, indirme ve yükleme [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923) ve uygun Visual C++ 2010 için bilgisayarınızı yeniden dağıtılabilir ([x64](https://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
 1. Bu örnekte, ConvertiblePricing_Complete.xlsb adlı örnek Excel çalışma kitabını kullanırız. İndirebilirsiniz [burada](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
 1. Excel çalışma kitabını D:\Excel\Run gibi bir çalışma klasörüne kopyalayın.
 1. Excel çalışma kitabını açın. Üzerinde **geliştirme** Şerit ye **COM eklentileri** ve HPC Pack Excel COM eklentisi başarıyla yüklendiğini doğrulayın.
@@ -262,7 +262,7 @@ Excel UDF'leri çalıştırmak için istemci bilgisayar'kurmak için 1-3'ü önc
 > 
 > 
 
-Küme başarıyla dağıtıldıktan sonra yerleşik bir örneği çalıştırmak için aşağıdaki adımlarla devam Excel UDF. Özelleştirilmiş Excel UDF'leri için bkz: [kaynakları](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) XLL'ler oluşturup bunları Iaas kümede dağıtın.
+Küme başarıyla dağıtıldıktan sonra yerleşik bir örneği çalıştırmak için aşağıdaki adımlarla devam Excel UDF. Özelleştirilmiş Excel UDF'leri için bkz: [kaynakları](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) XLL'ler oluşturup bunları Iaas kümede dağıtın.
 
 1. Yeni bir Excel çalışma kitabını açın. Üzerinde **geliştirme** Şerit ye **eklentileri**. İletişim kutusunda, ardından **Gözat**%CCP_HOME%Bin\XLL32 klasöre gidin ve örnek ClusterUDF32.xll seçin. İstemci makinesinde ClusterUDF32 yoksa, baş düğüm %CCP_HOME%Bin\XLL32 klasöründen kopyalayın.
    
@@ -280,7 +280,7 @@ Küme başarıyla dağıtıldıktan sonra yerleşik bir örneği çalıştırmak
 HPC Pack Iaas kümede genel SOA uygulamaları çalıştırmak için ilk yöntemlerden birini 1. adımda kümeyi dağıtmak için kullanın. Genel işlem düğümünün görüntüsü bu durumda, işlem düğümlerinde Excel gerekmediği belirtin. Ardından aşağıdaki adımları izleyin.
 
 1. Küme sertifikası aldıktan sonra istemci bilgisayarının Cert: \CurrentUser\Root altında içe aktarın.
-1. Yükleme [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) ve [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923). Bu araçlar, SOA istemci uygulamaları geliştirme ve çalıştırma olanak tanır.
+1. Yükleme [HPC Pack 2012 R2 Update 3 SDK](https://www.microsoft.com/download/details.aspx?id=49921) ve [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923). Bu araçlar, SOA istemci uygulamaları geliştirme ve çalıştırma olanak tanır.
 1. HelloWorldR2 indirme [örnek kod](https://www.microsoft.com/download/details.aspx?id=41633). Visual Studio 2010 veya 2012 HelloWorldR2.sln açın. (Bu örnekte şu anda, Visual Studio'nun daha yeni sürümleriyle uyumlu değildir.)
 1. EchoService projeyi ilk derleyin. Ardından, hizmet Iaas kümeye bir şirket içi kümesine dağıttığınız şekilde dağıtın. Ayrıntılı adımlar için HelloWordR2 içinde Benioku.doc bakın. Değiştirebilir ve bir Azure Iaas kümesinde çalışan SOA istemci uygulamaları oluşturmak için HellWorldR2 ve aşağıdaki bölümde açıklandığı gibi diğer projeler oluşturun.
 
@@ -343,7 +343,7 @@ NetTcp bağlama kullanmak için yapılandırmanın bir şirket içi kümesine ba
 SOA istemci uygulaması Iaas küme tam adı baş adının değiştirilmesi dışında herhangi bir değişiklik gerektirmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [bu kaynakları](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) HPC Pack ile Excel iş yükleri çalıştırma hakkında daha fazla bilgi için.
+* Bkz: [bu kaynakları](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) HPC Pack ile Excel iş yükleri çalıştırma hakkında daha fazla bilgi için.
 * Bkz: [SOA Hizmetleri'nde yönetme Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) HPC Pack ile SOA hizmetlerini dağıtıp yönetmeye hakkında daha fazla bilgi için.
 
 <!--Image references-->

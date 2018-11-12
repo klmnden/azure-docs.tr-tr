@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 7ed861a58b82435f9f50a5798ff821fcd6020096
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c1cbd523b8c74bf1221dc47b832c35e9119493a9
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394142"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346295"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
-Bu konuda, Hive tabloları oluşturma ve Azure blob depolamadan veri yükleme genel Hive sorguları sunulmaktadır. Hive tablolarını bölümleme ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanarak, bazı yönergeler de sağlanır.
 
-Bu **menü** nerede veriler depolanan ve işlenen Team Data Science işlem (TDSP) sırasında hedef ortamlara veri almak nasıl açıklayan konulara bağlantılar.
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+Bu makalede, Hive tabloları oluşturma ve Azure blob depolamadan veri yükleme genel Hive sorguları gösterir. Hive tablolarını bölümleme ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanarak, bazı yönergeler de sağlanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, olduğunu varsayar:

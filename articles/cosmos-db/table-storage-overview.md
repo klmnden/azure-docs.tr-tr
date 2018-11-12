@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 495fc0fff39a04dee4fc707bd0d2f6b3571cc46a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 204d0032516886c2d954965c7c4561d967bae705
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582073"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232197"
 ---
 # <a name="azure-table-storage-overview"></a>Azure Tablo depolamaya genel bakış
 
@@ -35,6 +35,6 @@ Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri 
 
 * Kullanılabilir API’ler ile ilgili eksiksiz bilgiler için Tablo hizmeti başvuru belgelerini görüntüleyin:
 
-    * [.NET başvurusu için Depolama İstemci Kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [.NET başvurusu için Depolama İstemci Kitaplığı](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [REST API başvurusu](http://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API başvurusu](https://msdn.microsoft.com/library/azure/dd179355)

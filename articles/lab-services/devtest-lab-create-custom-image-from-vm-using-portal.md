@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a91e14afa8325e75507b2f65cd9d71ab38df4524
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235250"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>VM'den özel görüntü oluşturma
 
@@ -29,7 +29,7 @@ ms.locfileid: "38635346"
 
 Sağlanan VM'den özel görüntü oluşturma ve daha sonra bu özel görüntüyü, birbirinin aynısı olan Vm'leri oluşturmak için kullanın. Aşağıdaki adımlar, bir VM'den özel görüntü oluşturma işlemini göstermektedir:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 

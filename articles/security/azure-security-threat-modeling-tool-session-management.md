@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841822"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232751"
 ---
 # <a name="security-frame-session-management"></a>Güvenlik çerçevesi: Oturum yönetimi
 | Ürün/hizmet | Makale |
@@ -82,7 +82,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Belge Veritabanı | 
+| **Bileşen**               | Azure belge veritabanı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -157,7 +157,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | EnvironmentType - OnPrem |
-| **Başvuruları**              | [Öğesi (ASP.NET Settings Schema) httpCookies](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure özelliği](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Başvuruları**              | [Öğesi (ASP.NET Settings Schema) httpCookies](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure özelliği](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **Adımları** | Tanımlama bilgileri normal yalnızca kendisi için bunlar kapsamlı etki alanı için erişilebilir. Ne yazık ki, HTTPS üzerinden oluşturulan tanımlama bilgileri, HTTP üzerinden erişilebilir olacak şekilde "etki alanı" tanımını Protokolü içermez. "Güvenli" özniteliği için tarayıcı tanımlama bilgisinin yalnızca HTTPS üzerinden kullanılabilir olması gerektiğini gösterir. Tüm tanımlama bilgilerini üzerinden HTTPS kullanımı ayarlandığından emin olun **güvenli** özniteliği. Gereksinim requireSSL özniteliği true olarak ayarlayarak web.config dosyasında zorunlu tutulabilir. Zorunlu kılacak tercih edilen yaklaşım olmasıdır **güvenli** öznitelik herhangi bir ek kod değişikliği yapmaya gerek kalmadan tüm mevcut ve gelecekteki tanımlama.|
 
 ### <a name="example"></a>Örnek

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060386"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233091"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ Bu konu açıklar ve bir SQL Server Reporting Services yerel mod rapor sunucusu 
 
 VM'de HTTPS kullanmak için güvenilir bir SSL sertifikası gerekir. Senaryonuza bağlı olarak, aşağıdaki iki yöntemden birini kullanabilirsiniz:
 
-* Geçerli bir SSL sertifikası bir sertifika yetkilisi (CA) tarafından verilen ve Microsoft tarafından güvenilir. CA kök sertifikaları Microsoft kök sertifikası programı dağıtılacak gereklidir. Bu program hakkında daha fazla bilgi için bkz. [Windows ve Windows Phone 8 SSL kök sertifika programı (üye CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) ve [Microsoft kök sertifika programı giriş](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+* Geçerli bir SSL sertifikası bir sertifika yetkilisi (CA) tarafından verilen ve Microsoft tarafından güvenilir. CA kök sertifikaları Microsoft kök sertifikası programı dağıtılacak gereklidir. Bu program hakkında daha fazla bilgi için bkz. [Windows ve Windows Phone 8 SSL kök sertifika programı (üye CAs)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) ve [Microsoft kök sertifika programı giriş](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 * Kendinden imzalı bir sertifika. Otomatik olarak imzalanan sertifikaları üretim ortamları için önerilmez.
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>Bir güvenilen sertifika yetkilisi (CA) tarafından oluşturulan bir sertifika kullanmak için
@@ -547,7 +547,7 @@ Bağlantı noktası açık olduğunu doğrulamak için bir Windows PowerShell pe
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
+## <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
 Temel rapor sunucusu işlevselliği artık çalışır durumda olduğunu doğrulamak için tarayıcınızı yönetici ayrıcalıklarıyla açın ve ardından aşağıdaki rapor sunucusu ad Rapor Yöneticisi için URL'leri göz atın:
 
 * Sanal makinede rapor sunucusu URL'sine gidin:

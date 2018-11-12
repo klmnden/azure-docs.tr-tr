@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247696"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287549"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -45,7 +45,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 * Kavramını sunar [dönüştüren](transforms-jobs-concept.md) dosya tabanlı iş işleme için. Dönüşüm, Azure Resource Manager şablonları oluşturmak ve işleme ayarlarını birden çok müşteriler veya kiracılar arasında yalıtmak için yeniden kullanılabilir yapılandırmaları oluşturmak için kullanılabilir.
 * Bir varlık olabilir [birden çok StreamingLocators](streaming-locators-concept.md) her farklı dinamik paketleme ve dinamik şifreleme ayarları ile.
 * [İçerik koruma](content-key-policy-concept.md) birden çok anahtar özelliklerini destekler.
-* 24 saate kadar uzun olan Canlı etkinliklerin akışını yapabilirsiniz.
+* 24 tekli bit hızı katkı için medya hizmetlerine kullanarak Çoklu bit hızlarında bir çıkış akışına zaman akışı saate kadar uzun olan Canlı etkinliklerin akışını yapabilirsiniz.
 * Üzerinde LiveEvents yeni düşük gecikme süresi canlı akış desteği.
 * Dinamik paketleme ile dinamik şifrelemeden Livestream Önizleme destekler. Bu önizleme yanı sıra DASH ve HLS paketleme içerik koruması sağlar.
 * LiveOutput v2 API programı varlıkta daha basittir. 

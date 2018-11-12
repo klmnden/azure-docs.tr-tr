@@ -121,31 +121,34 @@ items:
       href: plan-your-environment.md
   - name: Veri edinme ve bu verileri anlama
     items:
-    - name: Veri lojistiğini yönetme
+    - name: Veriyi çekme
+      displayName: move data, manage data logistics
       items:
       - name: Genel Bakış
         href: ingest-data.md
-      - name: Blob depolama
-        href: move-azure-blob.md
-      - name: Depolama Gezgini'ni kullanma
-        href: move-data-to-azure-blob-using-azure-storage-explorer.md
-      - name: AzCopy’yi kullanma
-        href: move-data-to-azure-blob-using-azcopy.md
-      - name: Python kullanma
-        href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
-        maintainContext: true
-      - name: SSIS kullanma
-        href: move-data-to-azure-blob-using-ssis.md
-      - name: VM’ye taşıma
+      - name: Blob depolamanın içine/dışına taşıma
+        items:
+        - name: Genel Bakış
+          href: move-azure-blob.md
+        - name: Depolama Gezgini'ni kullanma
+          href: move-data-to-azure-blob-using-azure-storage-explorer.md
+        - name: AzCopy’yi kullanma
+          href: move-data-to-azure-blob-using-azcopy.md
+        - name: Python kullanma
+          href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+          maintainContext: true
+        - name: SSIS kullanma
+          href: move-data-to-azure-blob-using-ssis.md
+      - name: Sanal makine üzerinde SQL’a taşıma
         href: move-sql-server-virtual-machine.md
-      - name: SQL Veritabanı'na taşıma
+      - name: Azure SQL Veritabanı’na taşıma
         href: move-sql-azure.md
-      - name: Hive tablolarına yükleme
+      - name: Hive tablolarına taşıma
         href: move-hive-tables.md
-      - name: Şirket içi SQL’dan yükleme
-        href: move-sql-azure-adf.md
-      - name: SQL bölüm tablolarından yükleme
+      - name: SQL bölümlenmiş tablolarına taşıma
         href: parallel-load-sql-partitioned-tables.md
+      - name: Şirket içi SQL’dan taşıma
+        href: move-sql-azure-adf.md
     - name: Verileri keşfetme ve görselleştirme
       items:
       - name: Verileri hazırlama
@@ -154,11 +157,11 @@ items:
         items:
         - name: Genel Bakış
           href: explore-data.md
-        - name: Pandas kullanma
+        - name: Azure Blob depolamayı keşfedin
           href: explore-data-blob.md
-        - name: SQL VM kullanma
+        - name: Sanal makine üzerinde SQL’u keşfedin
           href: explore-data-sql-server.md
-        - name: Hive tablolarını kullanma
+        - name: Hive tablolarını keşfedin
           href: explore-data-hive-tables.md
       - name: Örnek veriler
         items:
@@ -235,9 +238,9 @@ items:
       items:
       - name: Genel Bakış
         href: cortana-analytics-playbook-vehicle-telemetry.md
-      - name: Playbook
+      - name: Playbook’a Ayrıntılı Bakış
         href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-      - name: Kurulum
+      - name: Power BI Kurulumu
         href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Kaynaklar
   items:
@@ -269,9 +272,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videolar
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-ms.openlocfilehash: 7a0e7527b62fec7e3c0d65ad59f53709a13039eb
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 64047bdb6dc25a2e31c2c5e282e7706194ff0733
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092483"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344680"

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 6c429931a7a17ab62892ecc774a5cca15a532f72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237643"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -213,7 +213,7 @@ Evet. Ayrıntılar için bkz [Azure ağ güvenliğine genel bakış](../security
 ## <a name="apis-schemas-and-tools"></a>API'leri, şemalar ve Araçlar
 
 ### <a name="can-i-manage-vnets-from-code"></a>Sanal ağlar koddan yönetebilir miyim?
-Evet. Bulunan sanal ağlar için REST API'lerini kullanma [Azure Resource Manager](/rest/api/virtual-network) ve [Klasik (Hizmet Yönetimi)](http://go.microsoft.com/fwlink/?LinkId=296833) dağıtım modelleri.
+Evet. Bulunan sanal ağlar için REST API'lerini kullanma [Azure Resource Manager](/rest/api/virtual-network) ve [Klasik (Hizmet Yönetimi)](https://go.microsoft.com/fwlink/?LinkId=296833) dağıtım modelleri.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Sanal ağlar için araç desteği var mı?
 Evet. Kullanma hakkında daha fazla bilgi edinin:
