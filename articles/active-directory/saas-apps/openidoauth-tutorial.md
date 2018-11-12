@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247989"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287447"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Bir Azure AD uygulama Galerisi Openıd/OAuth uygulaması yapılandırma
 
@@ -84,7 +84,7 @@ Azure AD onay çerçevesine, çok kiracılı web ve yerel istemci uygulamaları 
 
 Bir kullanıcı veya yönetici, dizinde kayıtlı ister bir uygulamaya onay vermiş framework dayanır. Kayıt, dizin verilerini erişim gerektirebilir. İzin verilen sonra istemci uygulama kullanıcı adına Microsoft Graph API'sini çağırmak ve gerektiği gibi bilgileri kullanın.
 
-[Microsoft Graph API](https://graph.microsoft.io/) gibi Office 365'te verilere erişim sağlar:
+[Microsoft Graph API](https://developer.microsoft.com/graph/) gibi Office 365'te verilere erişim sağlar:
 
 - Takvimler ve Exchange'e iletileri.
 - Siteler ve SharePoint listelerinden.

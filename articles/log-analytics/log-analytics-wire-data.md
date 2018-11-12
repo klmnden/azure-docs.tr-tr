@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 7f2ced1d6e5a7368fbf136d31889a763b3306e37
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e3944defa24437fdddf8b61189034d330f89dd4c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964077"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011961"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics'te Wire Data 2.0 (Önizleme) çözümü
 
@@ -451,4 +451,4 @@ Her giriş verileri türü için _WireData_ türünde bir kayıt oluşturulur. A
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ayrıntılı sinyal verileri arama kayıtlarını görüntülemek için [günlüklerde arama yapın](log-analytics-log-search.md).
+- Ayrıntılı sinyal verileri arama kayıtlarını görüntülemek için [günlüklerde arama yapın](log-analytics-queries.md).

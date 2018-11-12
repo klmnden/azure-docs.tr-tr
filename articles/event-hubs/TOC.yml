@@ -5,7 +5,7 @@ items:
   items:
   - name: Event Hubs nedir?
     href: event-hubs-about.md
-  - name: Apache Kafka için Event Hubs (önizleme)
+  - name: Apache Kafka için Event Hubs
     href: event-hubs-for-kafka-ecosystem-overview.md
   - name: Event Hubs Capture
     href: event-hubs-capture-overview.md
@@ -69,8 +69,12 @@ items:
     items:
     - name: Apache Kafka özellikli bir olay hub'ında Kafka aracısını yansıtma
       href: event-hubs-kafka-mirror-maker-tutorial.md
+    - name: Apache Spark'ı Apache Kafka özellikli bir olay hub'ına bağlama
+      href: event-hubs-kafka-spark-tutorial.md
     - name: Apache Flink’i Apache Kafka özellikli bir olay hub'ına bağlama
       href: event-hubs-kafka-flink-tutorial.md
+    - name: Apache Kafka Connect'i Kafka özellikli olay hub'ıyla tümleştirme (Önizleme)
+      href: event-hubs-kafka-connect-tutorial.md
     - name: Akka Streams’i Apache Kafka özellikli bir olay hub'ına bağlama
       href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Örnekler
@@ -122,6 +126,8 @@ items:
       href: event-hubs-metrics-azure-monitor.md
     - name: Event Hubs yönetim kitaplıkları
       href: event-hubs-management-libraries.md
+  - name: Event Hubs bağlantı dizesini alma
+    href: event-hubs-get-connection-string.md
   - name: Sorun giderme
     items:
     - name: Özel durumlar
@@ -134,6 +140,8 @@ items:
     href: event-hubs-auto-inflate.md
   - name: Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma
     href: event-hubs-streaming-azure-diags-data.md
+  - name: Farklı protokoller kullanan uygulamalar arasında olay alışverişi yapma
+    href: event-hubs-exchange-events-different-protocols.md
 - name: Başvuru
   items:
   - name: Java
@@ -176,9 +184,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: f5e7bad27764428b80f523bc3c3c6c0445665783
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 28260650a8859f76aa6d8bd6ff9333d57c65e55a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977796"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281465"

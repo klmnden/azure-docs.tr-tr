@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f239b3ef6881f9ea1be043b7d27f061e015ae3be
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224639"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037370"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory’de cihaz yönetimi nedir?
 
@@ -45,7 +45,7 @@ Bir cihazı Azure AD denetimi altına almak için iki seçeneğiniz vardır:
 
 Cihazı Azure AD’ye **Kaydetme** seçeneğini kullanarak bir cihazın kimliğini yönetebilirsiniz. Bir cihaz kaydedildiğinde, Azure AD cihaz kaydı kullanıcı Azure AD’de oturum açtığında cihazın kimliğini doğrulamak için kullanılan bir kimlik sağlar. Cihazı etkinleştirmek veya devre dışı bırakmak için kimliği kullanabilirsiniz.
 
-Microsoft Intune gibi bir mobil cihaz yönetimi (MDM) çözümü ile birleştirildiğinde Azure AD'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar. Microsoft Intune’da cihazları kaydetme hakkında daha fazla bilgi için, bkz. Intune’da yönetim için cihazları kaydetme.
+Microsoft Intune gibi bir mobil cihaz yönetimi (MDM) çözümü ile birleştirildiğinde Azure AD'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar. Microsoft Intune’da cihazları kaydetme hakkında daha fazla bilgi için, bkz. [Intune’da yönetim için cihazları kaydetme](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms).
 
 Bir cihazı **Katma** seçeneği, cihaz kaydının uzantısıdır. Diğer bir ifadeyle bir cihazı kaydetmenin tüm avantajlarını sağlamanın yanında aynı zamanda bir cihazın yerel durumunu da değiştirir. Yerel durumunu değiştirmek, kullanıcılarınıza kişisel hesap yerine kuruluşa ait bir iş veya okul hesabını kullanarak bir cihazda oturum açma seçeneği sağlar.
 

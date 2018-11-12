@@ -6,24 +6,26 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044558"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287209"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
-Ek olarak kendi [varsayılan olay şeması](event-schema.md), Azure Event Grid, olayları yerel olarak destekleyen [CloudEvents JSON şeması](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) olduğu bir [standart bir belirtim açın](https://github.com/cloudevents/spec/blob/master/spec.md) olay verilerini yaygın bir şekilde tanımlamak için.
+Ek olarak kendi [varsayılan olay şeması](event-schema.md), Azure Event Grid, olayları yerel olarak destekleyen [CloudEvents JSON şeması](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) olduğu bir [açın belirtimi](https://github.com/cloudevents/spec/blob/master/spec.md) açıklayan olay verileri.
 
 Yayımlama için ortak bir olay şema sağlayarak birlikte çalışabilirlik CloudEvents basitleştirir ve bulut kullanan olaylara bağlı. Bu şema Tekdüzen araçları, standart yolu yönlendirme & olayları işleme ve dış olay şeması seri durumdan çıkarılırken Evrensel yollarını sağlar. Ortak bir şema ile platformlar arasında iş daha kolayca tümleştirebilirsiniz.
 
 CloudEvents birkaç yapıdan okunuyor [ortak çalışanlar](https://github.com/cloudevents/spec/blob/master/community/contributors.md), Microsoft, dahil olmak üzere [bulut yerel işlem Foundation](https://www.cncf.io/). 0.1 sürüm olarak şu anda kullanılabilir.
 
 Bu makalede, Event Grid ile CloudEvents şeması kullanmayı açıklar.
+
+## <a name="install-preview-feature"></a>Önizleme özelliğini yükle
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -69,7 +71,7 @@ CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 | schemaURL          | URI      | "https://myschema.com"           | Veri özniteliği uyar (isteğe bağlı) şemayı Bağla | *kullanılmıyor*
 | contentType        | Dize   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklayın                       | *kullanılmıyor*
 | Uzantıları         | Eşleme      | {"yapıştırmadan": "vA", "extB", "vB"}  | Ek meta verileri (isteğe bağlı)                                 | *kullanılmıyor*
-| veri               | Nesne   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veri
+| veriler               | Nesne   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veriler
 
 Daha fazla bilgi için [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
@@ -91,12 +93,12 @@ Tüm olay şemaları için Event Grid için event grid konusu yayımlarken ve bi
 
 ### <a name="input-schema"></a>Giriş şeması
 
-Özel Konunuzu oluşturduğunuzda giriş şemasını CloudEvents için özel bir konuya ayarlamak için aşağıdaki parametreyi Azure CLI'yi kullanın `--input-schema cloudeventv01schema`. Özel konuya gelen olayları CloudEvents v0.1 biçiminde artık bekliyor.
+Özel bir konu oluşturduğunuzda, bir özel konu için giriş şemasını ayarlayın.
 
-Event grid konusu oluşturmak için kullanın:
+Azure CLI için şunu kullanın:
 
-```azurecli
-# if you have not already installed the extension, do it now.
+```azurecli-interactive
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -107,24 +109,50 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
+PowerShell için şunu kullanın:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName gridResourceGroup `
+  -Location westcentralus `
+  -Name <topic_name> `
+  -InputSchema CloudEventV01Schema
+```
+
 Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. Bir konuya CloudEvent şema ile olayları yayımlamak için ayrı ayrı her bir olay yayımlayın.
 
 ### <a name="output-schema"></a>Çıkış şeması
 
-Olay aboneliği oluşturduğunuzda, çıkış şeması CloudEvents olay aboneliği ayarlamak için aşağıdaki parametreyi Azure CLI'yi kullanın `--event-delivery-schema cloudeventv01schema`. Bu olay aboneliğine olayları artık olması teslim edilir CloudEvents v0.1 biçiminde.
+Olay aboneliği oluşturduğunuzda, çıkış şeması ayarlayın.
 
-Bir olay aboneliği oluşturmak için kullanın:
+Azure CLI için şunu kullanın:
 
-```azurecli
+```azurecli-interactive
+topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
   --name <event_subscription_name> \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
   --event-delivery-schema cloudeventv01schema
 ```
 
-Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. CloudEvent şema için yapılandırılmış bir olay aboneliği ayrı ayrı her bir olay alır. Şu anda CloudEvents şeması olay iletildiğinde bir Azure işlev uygulaması için bir olay Kılavuzu tetikleyicisi kullanamazsınız. HTTP tetikleyicisi kullanmanız gerekir. CloudEvents şeması içinde olaylarını alır bir HTTP tetikleyici uygulama örnekleri için bkz [HTTP tetikleyicisi bir Event Grid tetikleyici olarak kullanma](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+PowerShell için şunu kullanın:
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -DeliverySchema CloudEventV01Schema
+```
+
+Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. CloudEvent şema için yapılandırılmış bir olay aboneliği ayrı ayrı her bir olay alır. Şu anda CloudEvents şeması olay iletildiğinde bir Azure işlev uygulaması için bir olay Kılavuzu tetikleyicisi kullanamazsınız. HTTP tetikleyicisi kullanın. CloudEvents şeması içinde olaylarını alır bir HTTP tetikleyici uygulama örnekleri için bkz [HTTP tetikleyicisi bir Event Grid tetikleyici olarak kullanma](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

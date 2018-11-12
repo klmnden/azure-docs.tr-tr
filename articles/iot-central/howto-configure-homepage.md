@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731130"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007629"
 ---
 ## <a name="configuring-homepage"></a>Giriş sayfası yapılandırma
 
-Giriş sayfası erişimi olan kullanıcılar uygulamanın URL'ye gittiğinizde, sayfasıdır. Uygulamanızı oluştururken "Örnek Contoso" veya "Örnek Devkits" Uygulama şablonları seçtiyseniz, uygulamanızın ana sayfalar önceden tanımlanmış. Diğer taraftan "Özel uygulama" uygulama şablonu seçtiyseniz, giriş sayfası boş olacaktır.
+Giriş sayfası uygulamaya erişimi olan kullanıcılar uygulamanın URL'ye gittiğinizde, sayfasıdır. Uygulamanızı oluştururken "Örnek Contoso" veya "Örnek Devkits" Uygulama şablonları seçtiyseniz, uygulamanızın ana sayfalar önceden tanımlanmış. Diğer taraftan "Özel uygulama" uygulama şablonu seçtiyseniz, giriş sayfası boş olacaktır.
 
 Örneğin, "Örnek Contoso" şablonu temel alan uygulamalar için giriş sayfası aşağıdadır. Uygulamanız için giriş sayfası özelleştirmek için önce seçin **Düzenle** sağ üstte. 
 

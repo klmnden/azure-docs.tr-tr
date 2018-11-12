@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 823bf50a54ff43fa95f7136c137e3d8f3303c3e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634380"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286767"
 ---
-# <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT oluşturmak için hazırlık yapma
+# <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT oluşturmaya hazırlanma
 
 Bu makalede bir Avere vFXT kümesi oluşturmak için önkoşul görevleri açıklar.
 
@@ -60,7 +60,7 @@ Aşağıdaki Azure bileşenleri için yeterli kotası olması gerekir. Gerekirse
 |Azure bileşeni|Kota|
 |----------|-----------|
 |Sanal makineler|3 veya daha fazla D16s_v3 veya E32s_v3|
-|Premium SSD depolaması|200 GB işletim sistemi boşluk ve düğüm başına 4 TB önbellek alanı 1 TB |
+|Premium SSD depolama alanı|200 GB işletim sistemi alanına ek olarak düğüm başına 1 TB-4 TB önbellek alanı |
 |Depolama hesabı (isteğe bağlı) |v2|
 |Veri arka uç depolama alanı (isteğe bağlı) |Yeni bir LRS Blob kapsayıcısı |
 
@@ -80,11 +80,10 @@ Yazılımı önceden koşulları kabul etmek için:
     az account set --subscription abc123de-f456-abc7-89de-f01234567890
    ```
 
-1. Hizmet koşullarını kabul edin ve Azure yazılım görüntüleri Avere vFXT için programlı erişimi etkinleştirmek için şu komutu yürütün: 
+1. Hizmet koşullarını kabul edin ve Azure yazılım görüntüsünün Avere vFXT için programlı erişimi etkinleştirmek için şu komutu yürütün: 
 
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
-   az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-node:latest
    ```
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Sonraki adım: vFXT kümesi oluşturma

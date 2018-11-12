@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: df3062349ac384b92eeaf9483310cd5d3b48921f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238565"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288536"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Dinamik yönetim görünümlerini kullanarak Azure SQL Database’i izleme
 
@@ -333,7 +333,7 @@ ORDER BY start_time ASC;
 
 ## <a name="identify-memory-grant-wait-performance-issues"></a>GRANT bekleyin performans sorunlarını belleği tanımlayın
 
-En üst türü bekleyin ise `RESOURCE_SEMAHPORE` ve yüksek bir CPU sorunu yoksa, bekleme sorunu vermek bellek olabilir.
+En üst türü bekleyin ise `RESOURCE_SEMAHPORE` ve bir yüksek CPU kullanımı sorunu yoksa, bekleme sorunu vermek bellek olabilir.
 
 ### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Olup bir `RESOURCE_SEMAHPORE` üst bekleme bekleyin
 

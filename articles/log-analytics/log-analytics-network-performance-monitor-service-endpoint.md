@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: df87f1ab1ba639ad874aa8bd353362913355cf8d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 19b8d4c692d05937a1d7abafb76cf0b9d6cd2f25
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964025"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011485"
 ---
 # <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
@@ -131,4 +131,4 @@ Bir abnormality gözlemlerseniz, şu adımları izleyin:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Arama günlüklerini](log-analytics-log-search.md) ayrıntılı ağ performansı verileri kayıtları görüntülemek için.
+[Arama günlüklerini](log-analytics-queries.md) ayrıntılı ağ performansı verileri kayıtları görüntülemek için.

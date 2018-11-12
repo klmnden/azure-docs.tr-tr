@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a2a869c04034f8ca38e80e1bf10518d22e38bcbc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091784"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287005"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B işbirliği API ve özelleştirme
 
@@ -75,7 +75,7 @@ Bu modda, kişi B2B davetleri olması oluşturma izinlerine sahip API gereksinim
 ### <a name="app-only-mode"></a>Tek uygulama modu
 Uygulama yalnızca bağlamında, uygulamanın, başarılı olması davet User.Invite.All kapsamını gerekir.
 
-Daha fazla bilgi için bkz: https://graph.microsoft.io/docs/authorization/permission_scopes
+Daha fazla bilgi için bkz: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell

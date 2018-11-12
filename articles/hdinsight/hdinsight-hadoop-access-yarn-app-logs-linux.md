@@ -1,36 +1,33 @@
 ---
-title: Linux tabanlı HDInsight üzerinde - Azure erişim Hadoop YARN uygulama günlüklerine
-description: Komut satırı ve bir web tarayıcısı kullanarak bir Linux tabanlı HDInsight (Hadoop) kümesinde YARN uygulama günlüklerine erişmeyi öğrenin.
+title: Linux tabanlı HDInsight üzerinde - Azure erişim Apache Hadoop YARN uygulama günlüklerine
+description: Komut satırı ve bir web tarayıcısı kullanarak bir Linux tabanlı HDInsight (Apache Hadoop) kümesinde YARN uygulama günlüklerine erişmeyi öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 179349d059fd75e2da01eb908a786e2e7ac91307
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 302f2f96a7f17699411ab9fdbdb6ab1f9de149c8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092269"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277609"
 ---
-# <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde erişim YARN uygulama günlüklerine
+# <a name="access-apache-yarn-application-logs-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde erişim Apache YARN uygulama günlüklerine
 
-Azure HDInsight Hadoop kümesinde YARN (henüz başka bir Resource Negotiator) uygulamaları için günlüklere nasıl erişeceğinizi öğrenin.
+Bir Apache Hadoop kümesinde Azure HDInsight üzerinde Apache YARN (henüz başka bir Resource Negotiator) uygulamalar için günlüklere nasıl erişeceğinizi öğrenin.
 
 > [!IMPORTANT]
-> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde HDInsight 3.6 veya daha fazla kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline sunucusu
 
-[YARN Timeline sunucusu](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) tamamlanan uygulamaları ve iki farklı arabirimler üzerinden çerçeveye özgü uygulama bilgileri hakkında genel bilgiler sağlar. Bu avantajlar şunlardır:
+[Apache YARN Timeline sunucusu](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) tamamlanmış uygulamalar genel bilgiler sağlar
 
-* Depolama ve HDInsight kümelerinde genel uygulama bilgilerin alınmasını 3.1.1.374 sürümüyle etkin ya da daha yüksek olmuştur.
-* HDInsight kümelerinde çerçeveye özgü uygulama bilgileri bileşenini Timeline sunucusu şu anda kullanılamıyor.
-
-Uygulamalar hakkında genel bilgiler aşağıdaki veri türünü içerir:
+YARN Timeline sunucusu, aşağıdaki veri türünü içerir:
 
 * Uygulama kimliği, uygulamanın benzersiz tanımlayıcısı
 * Uygulamayı başlatan kullanıcının

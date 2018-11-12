@@ -12,39 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 11/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: fc521db9ad753c4162b65abfd2f9f23c318fa994
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 3a377441758fcd7dd91deefb5cae91579e881498
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131325"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007068"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenli puanınız geliştirin
 
 
-Güvenlik açısından faydalı sunan çok sayıda hizmetleriyle ilk güvenli ve iş yükünüz sağlamlaştırmak için hangi adımlar bilmek zordur. Azure Güvenlik Merkezi güvenli puanı, güvenlik önerileri inceler ve ilk olarak gerçekleştirmek için hangi önerilerin bilmesi bunları sizin için araştırma önceliğini belirleyebilmek en önemli güvenlik açıklarını bulmanıza yardımcı olacak önceliklendirir. Güvenli puanı güvenli bir iş yükü elde etmek için güvenlik sağlamlaştırmak yardımcı olan bir ölçüm aracıdır.
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
-
+Güvenlik açısından faydalı sunan çok sayıda hizmetleriyle ilk güvenli ve iş yükünüz sağlamlaştırmak için hangi adımlar bilmek zordur. Azure güvenli puanı, güvenlik önerileri inceler ve ilk kez gerçekleştirmek için hangi önerilerin bilmesi bunları sizin için önceliklendirir. Bu araştırma önceliğini belirleyebilmek en önemli güvenlik açıklarını bulmanıza yardımcı olur. Güvenli puanı, iş yükü güvenlik duruşunuzu değerlendirmenize yardımcı olur. bir araçtır.
 
 ![Puan Pano güvenliğini sağlama](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## <a name="secure-score-calculation"></a>Puan hesaplanmasında güvenliğini sağlama
 
-Güvenlik Merkezi, güvenlik önerilerinizi gözden geçirme ve her önerinin nasıl önemli olduğunu belirlemek için gelişmiş algoritmalar uygulayarak güvenlik analisti çalışmasını taklit eder.
-Azure Güvenlik Merkezi sürekli etkin öneri incelemeleri ve bunlara bağlı güvenli puanınız hesaplar, iş yükü güvenliğinizi en çok etkileyecek, önem derecesi ve güvenlik en iyi bir öneri puanı türetilir.
+Güvenlik Merkezi, her önerinin nasıl önemli olduğunu belirlemek için güvenlik önerilerini gözden geçirmek ve gelişmiş algoritmalar uygulayarak bir güvenlik analisti, çalışmasını taklit eder.
+Azure Güvenlik Merkezi sürekli etkin öneri incelemeleri ve bunlara bağlı güvenli puanınız hesaplar, bir öneri puanı, İş yükünüzün güvenliğine en çok etkileyecek en iyi güvenlik uygulamaları ve önem derecesi türetilir.
 
-**Puanı güvenli** olduğundan, iyi durumdaki kaynaklar ve toplam kaynaklarınız arasındaki oran temel hesaplama. İyi durumdaki kaynaklar sayısını kaynakların toplam sayısı için eşit ise, en fazla 50 güvenli puanı alın. Güvenli puanınız daha yakın en yüksek puana almayı denemek için iyi durumda olmayan kaynaklar için önerileri takip ederek düzeltin.
+Güvenlik Merkezi ayrıca sağlar, bir **genel puan güvenli**. 
 
-Güvenlik Merkezi ayrıca genel güvenli puanıyla sağlar. 
-
-**Genel puan güvenli** tüm önerileri birikmesi olduğu. Genel güvenli puanınız, abonelikleri veya yaptığınız seçime bağlı olarak Yönetim grupları arasında görüntüleyebilirsiniz. Puan, seçili abonelikte ve bu Aboneliklerdeki etkin öneri göre değişir.
+**Genel puan güvenli** tüm öneri puanları birikmesi olduğu. Genel güvenli puanınız, abonelikleri veya yaptığınız seçime bağlı olarak Yönetim grupları arasında görüntüleyebilirsiniz. Puan, seçili abonelikte ve bu Aboneliklerdeki etkin öneri göre değişir.
 
  
-
-En güvenli puanınız etkisi hangi önerilerdir denetlemek için Güvenlik Merkezi panosunda ilk 3 en etkili önerileri görüntüleyebilir veya öneriler listesi dikey penceresinde kullanarak önerileri sıralayabilirsiniz **güvenli puanı etkisi** sütun.
+Hangi önerileri en güvenli puanınız etkisi denetlemek için Güvenlik Merkezi panosunda ilk üç en etkili önerileri görüntüleyebilir veya öneriler listesi dikey penceresinde kullanarak önerileri sıralayabilirsiniz **güvenli puanı etkisi** sütun.
 
 
 Genel güvenli puanınız görüntülemek için:
@@ -59,16 +53,16 @@ Genel güvenli puanınız görüntülemek için:
 
 Ayrıca, tek tek güvenli puanları görmek için tek bir öneri dikey penceresi içinde bulabilirsiniz.  
 
-**Öneri güvenli puanı** olduğundan, iyi durumdaki kaynaklar ve toplam kaynaklarınız arasındaki oran temel hesaplama. İyi durumdaki kaynaklar sayısını kaynakların toplam sayısı için eşit ise, en fazla güvenli puanı öneri alın. Güvenli puanınız daha yakın en yüksek puana almayı denemek için düzeltme adımları izleyerek iyi durumda olmayan kaynaklar düzeltin.
+**Öneri güvenli puanı** olduğundan, iyi durumdaki kaynaklar ve toplam kaynaklarınız arasındaki oran temel hesaplama. İyi durumdaki kaynaklar sayısını kaynakların toplam sayısı için eşit ise, en fazla güvenli puanı 50 öneri alın. Güvenli puanınız daha yakın en yüksek puana almayı denemek için iyi durumda olmayan kaynaklar için önerileri takip ederek düzeltin.
 
-**Öneri etkisi** bildiğiniz ne kadar güvenli puanınız, öneri adımları uygularsanız artıracak sağlar. Örneğin, güvenli bir puan 42 ise ve **öneri etkisi** + 3 arası, öneri de özetlenen adımları gerçekleştirirseniz güvenli puanınız 45 olacak artırır.
+**Öneri etkisi** bildiğiniz ne kadar güvenli puanınız artırır sağlar öneri adımları uygularsanız. Örneğin, güvenli puanınız 42 ise ve **öneri etkisi** + 3 arası, olan geliştirmek 45 olacak puanınız öneri de özetlenen adımları gerçekleştirmeden.
 
 Öneri düzeltme adımlarını alınmaz, iş yükünüz Internet'e hangi tehditleri gösterir.
 
 ![tek bir öneri güvenli puanı](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede güvenlik duruşunu kullanarak iyileştirmek gösterildi **güvenli puanı** Azure Güvenlik Merkezi'nde. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Bu makalede güvenlik duruşunu kullanarak iyileştirmek gösterildi **güvenli puanı** Azure Güvenlik Merkezi'nde. Güvenlik Merkezi hakkında daha fazla bilgi için bkz:
 
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.

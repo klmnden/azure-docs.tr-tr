@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e06b9ff2134c0bd1fb1ee8515827e9e8c06a3108
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025812"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008479"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics'te kaynaklar arası günlük aramaları gerçekleştirme  
 
@@ -38,7 +38,7 @@ Bir çalışma alanı tanımlama yollarından biri kullanılarak gerçekleştiri
 
 * Kaynak adı - bazen denir, çalışma alanının okunabilir bir ad olduğu *bileşen adı*. 
 
-    `workspace("contosoretail").Update | count`
+    `workspace("contosoretail-it").Update | count`
  
     >[!NOTE]
     >Bir çalışma alanı adına göre tanımlayan benzersizlik tüm erişilebilir aboneliklerindeki varsayar. Belirtilen ada sahip birden çok uygulamalarınız varsa, sorgu belirsizlik nedeniyle başarısız olur. Bu durumda, diğer tanımlayıcılarla birini kullanmanız gerekir.
@@ -59,7 +59,7 @@ Bir çalışma alanı tanımlama yollarından biri kullanılarak gerçekleştiri
 
     Örneğin:
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Bir uygulama tanımlama

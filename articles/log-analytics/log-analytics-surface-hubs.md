@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b33cbce582fde24e4cad6f0c208de3796a04f116
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963345"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009564"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface hub'lar durumlarını izlemek için Log Analytics ile izleme
 
@@ -87,5 +87,5 @@ Surface hub'ları izleme Log Analytics gibi diğer kaydedilen cihazların izleme
 Oluşturabileceğiniz [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) mevcut veya özel günlük aramaları göre. Log Analytics, Surface hub'larından toplar. veriler kullanılarak, sorunlar ve cihazlarınız için tanımladığınız koşulların uyarısında için arama yapabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı Surface Hub verilerini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-queries.md) ayrıntılı Surface Hub verilerini görüntülemek için.
 * Oluşturma [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) Surface hub'larıyla sorunları ortaya çıktığında bunu size bildirecek.

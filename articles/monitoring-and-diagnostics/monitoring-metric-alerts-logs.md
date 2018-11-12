@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 62b5c8fd0a63e660cd4126755d94ea90cf4d412b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961169"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282807"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure İzleyici günlükler için ölçüm uyarıları oluşturma  
 
 ## <a name="overview"></a>Genel Bakış
-Azure İzleyicisi'ni destekleyen [ölçüm uyarı türü](monitoring-near-real-time-metric-alerts.md) üzerinden avantajları olduğu [Klasik uyarılar](insights-alerts-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Bu makalede (yani) bir alt kümesi için kaynak - kullanımını açıklar `Microsoft.OperationalInsights/workspaces`. 
+Azure İzleyicisi'ni destekleyen [ölçüm uyarı türü](monitoring-near-real-time-metric-alerts.md) üzerinden avantajları olduğu [Klasik uyarılar](alert-metric-classic.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Bu makalede (yani) bir alt kümesi için kaynak - kullanımını açıklar `Microsoft.OperationalInsights/workspaces`. 
 
 Ölçümleriniz Azure veya şirket içi kaynaklar dahil olmak üzere günlüklerinden ölçümleri bir parçası olarak ayıklanan popüler Log Analytics günlükleri ile ilgili ölçüm Uyarıları'nı kullanabilirsiniz. Desteklenen Log Analytics çözümleri aşağıda listelenmiştir:
 - [Performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) Windows ve Linux makineler için

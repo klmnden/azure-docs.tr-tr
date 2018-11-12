@@ -7,31 +7,31 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379204"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280462"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Desteklenen Kubernetes sürümlerini Azure Kubernetes Service (AKS)
 
-Kubernetes topluluğuyla ikincil sürümleri kabaca her üç ayda bir serbest bırakır. Bu sürümler, yeni özellikler ve geliştirmeler içerir. Düzeltme eki sürümleri (bazen haftalık) daha sık ve yalnızca küçük bir sürümdeki Kritik hata düzeltmeleri yöneliktir. Bu düzeltme eki sürümler, güvenlik açıklarını veya çok sayıda müşteriler ve üretimde Kubernetes üzerinde çalışan ürünleri etkileyen önemli hatalar için düzeltmeler içerir.
+Kubernetes topluluğu, küçük sürümleri yaklaşık üç ayda bir yayınlamaktadır. Bu yayınlar yeni özellikler ve geliştirmeler içerir. Düzeltme eki yayınları daha sıktır (bazen haftalık) ve yalnızca bir küçük sürümdeki kritik hata düzeltmelerine yöneliktir. Bu düzeltme eki sürümler, güvenlik açıklarını veya çok sayıda müşteriler ve üretimde Kubernetes üzerinde çalışan ürünleri etkileyen önemli hatalar için düzeltmeler içerir.
 
-Alt sürümü içinde kullanılabilir yapılan yeni bir Kubernetes [acs-engine] [ acs-engine] günlük bir. AKS kümeleri için alt sürüm yayın kararlılığını tabi 30 gün içinde serbest AKS hizmet düzeyi hedefi (SLO) hedefler.
+Alt sürümü içinde kullanılabilir yapılan yeni bir Kubernetes [acs-engine] [ acs-engine] günlük bir. AKS Hizmet Düzeyi Hedefi (SLO), yayının kararlılığına bağlı olarak 30 gün içinde AKS kümelerinin küçük sürümü yayınlamayı hedeflemektedir.
 
-## <a name="kubernetes-version-support-policy"></a>Kubernetes sürümü destek ilkesi
+## <a name="kubernetes-version-support-policy"></a>Kubernetes sürüm destek ilkesi
 
-AKS, dört alt Kubernetes sürümlerini destekler:
+AKS, Kubernetes’in dört küçük sürümünü destekler:
 
 - Yukarı Akış (n) olan geçerli alt sürümü yayımlanan
-- İkincil bir üç önceki sürümleri. Her desteklenen podverze iki kararlı düzeltme ekleri de destekler.
+- Önceki üç küçük sürüm. Desteklenen her küçük sürüm, ayrıca iki kararlı düzeltme eki de destekler.
 
 Örneğin, AKS sunarsa *1.11.x* bugün desteği de için sağlanan *1.10.a* + *1.10.b*, *1.9.c*  +  *1.9d*, *1.8.e* + *1.8F* (burada yitirmiş düzeltme eki sürümleri iki en son kararlı yapı değildir).
 
-Yeni bir ikincil sürüm eklendiğinde, desteklenen en eski ikincil sürüm ve yama sürümleri kullanımdan kaldırıldı. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 15 gün duyuru Azure güncelleştirme kanalları yapılır. Where yukarıdaki örnekte *1.11.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.7.g* + *1.7.h*.
+Yeni bir küçük sürüm sunulduğunda, desteklenen en eski küçük sürüm ve düzletme eki yayınları kullanım dışı olur. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 15 gün duyuru aracılığıyla yapılan [Azure güncelleştirme kanalları][azure-update-channel]. Where yukarıdaki örnekte *1.11.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.7.g* + *1.7.h*.
 
-Portalında veya Azure CLI ile bir AKS kümesi dağıtırken, küme her zaman en son düzeltme eki ve n-1 podverze ayarlayın. Örneğin, AKS destekliyorsa *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9 d*, *1.8.e* + *1.8F*, yeni küme için varsayılan sürüm *1.10.b*.
+Bir AKS kümesini portalda veya Azure CLI ile dağıttığınızda, küme her zaman n-1 küçük sürümüne ve en son düzeltme ekine ayarlanır. Örneğin, AKS destekliyorsa *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9 d* , *1.8.e* + *1.8F*, yeni küme için varsayılan sürüm *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Şu anda desteklenen sürümler listesi
 
@@ -85,6 +85,7 @@ Kümenizi yükseltme hakkında daha fazla bilgi için bkz: [Azure Kubernetes Ser
 
 <!-- LINKS - External -->
 [acs-engine]: https://github.com/Azure/acs-engine
+[azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md

@@ -2,19 +2,19 @@
 title: Linux tabanlı HDInsight üzerinde - Azure Solr yüklemek üzere betik eylemi kullanın
 description: Betik eylemlerini kullanarak Linux tabanlı HDInsight Hadoop kümelerinde Solr yüklemeyi öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 205983344be8ae5bbe566a208ceb862b2e93cb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 1c8c63e10e62af60e09af729b115cc675dae7205
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093106"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009411"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve HDInsight Hadoop kümeler üzerinde Solr kullanma
 
@@ -70,7 +70,7 @@ Solr yüklü olan bir küme oluşturmak için adımları kullanın. [oluşturma 
 > [!IMPORTANT]
 > Bu bölümdeki adımları temel Solr işlevlerini göstermektedir. Solr kullanma hakkında daha fazla bilgi için bkz. [Apache Solr site](http://lucene.apache.org/solr/).
 
-### <a name="index-data"></a>Dizin verileri
+### <a name="index-data"></a>Verilerin dizinini oluşturma
 
 Solr için örnek verileri eklemek için aşağıdaki adımları kullanın ve ardından sorgulayın:
 

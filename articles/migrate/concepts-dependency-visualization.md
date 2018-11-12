@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165033"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010329"
 ---
 # <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
@@ -38,6 +38,12 @@ Azure geçişi kullanan [hizmet eşlemesi](../operations-management-suite/operat
     ![Log Analytics çalışma alanına gidin](./media/concepts-dependency-visualization/oms-workspace.png)
 
 Bağımlılık görselleştirmesi kullanmak için indirip analiz etmek istediğiniz her bir şirket içi makinede aracıları yüklemeniz gerekir.  
+
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) her makinede yüklü olması gerekir.
+- [Bağımlılık aracısını](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) her makinede yüklü olması gerekir.
+- Ayrıca, internet bağlantısı olmayan makineleriniz varsa, indirmek ve Log Analytics gateway yükler gerekir.
+
+Bu aracılar, bağımlılık görselleştirmesi kullanmıyorsanız değerlendirmek istediğiniz makinelerde gerekmez.
 
 ## <a name="do-i-need-to-pay-for-it"></a>Bunun için ödeme yapmam gerekiyor?
 

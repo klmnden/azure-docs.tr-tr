@@ -2,19 +2,19 @@
 title: -Azure HDInsight Hadoop ile MapReduce ve PowerShell kullanma
 description: PowerShell uzaktan Hadoop ile MapReduce işleri HDInsight üzerinde çalıştırmak için kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: jasonh
-ms.openlocfilehash: 5f2b6f11a611446ca13dff074b36a4040fb27d62
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: c67ef23a7869c6db6b736b188289a053244b9cbb
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049055"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008173"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>MapReduce işleri PowerShell kullanarak HDInsight üzerinde Hadoop ile çalıştırın.
 

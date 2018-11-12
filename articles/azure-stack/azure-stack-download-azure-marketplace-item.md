@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: b5c2c51429e37eea2473ae5966b1f41295875cb6
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638180"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282511"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
@@ -168,8 +168,10 @@ Bu senaryo iki bölümü vardır:
 
    Alabileceğiniz *yayımcı*, *teklif*, ve *sku* AZPKG dosya yüklemeleri metin dosyasından görüntüyü değerleri. Metin dosyasını, hedef konumda depolanır. *Sürüm* öğesi önceki yordamda Azure'dan indirirken belirtilen sürüm değerdir. 
  
-   Aşağıdaki örnek betik, Windows Server 2016 Datacenter - Sunucu Çekirdeği sanal makine için değerler kullanılır. Değeri *- Osuri* öğesi için blob depolama konumuna örnek yoludur.
+   Aşağıdaki örnek betik, Windows Server 2016 Datacenter - Sunucu Çekirdeği sanal makine için değerler kullanılır. Değeri *- Osuri* öğesi için blob depolama konumuna örnek yoludur. 
 
+   Bu betik bir alternatif olarak, kullandığınız [bu makalede açıklanan yordamı](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) içeri aktarmak için. Azure portalını kullanarak VHD görüntüsü.
+ 
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -179,6 +181,7 @@ Bu senaryo iki bölümü vardır:
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
+   
    **Çözüm şablonları hakkında daha fazla:** bazı şablonlar, küçük bir 3 MB dahil edebilirsiniz. VHD dosya adı ile **fixed3.vhd**. Azure Stack için bu dosyayı içeri gerek yoktur. Fixed3.vhd.  Bu dosya, Azure Marketi'nde yayımlama gereksinimlerini karşılamak için bazı çözüm şablonları ile birlikte gelir.
 
    Şablonları açıklamayı gözden geçirin, indirin ve ardından ek gereksinimler ile çözüm şablonu çalışmak için gereken VHD'ler gibi içeri aktarın.  

@@ -1,115 +1,130 @@
 ---
 title: Azure HDInsight Hive sorguları en iyi duruma getirme
-description: HDInsight Hadoop Hive sorgularınızı en iyi duruma getirmeyi öğrenin.
+description: Bu makalede, HDInsight Hadoop, Apache Hive sorgularını en iyi duruma getirme açıklanır.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1fd3ff89fc8428f03d22f4aa195dabf0e988ef57
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.openlocfilehash: 6729a0e3ccbb96dc178925bbab4cfbf8189c4a14
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106496"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278268"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Hive sorguları en iyi duruma getirme
 
-Varsayılan olarak, performans için Hadoop kümeleri iyileştirilmemiştir. Bu makale, sorgularınız için uygulayabileceğiniz en sık karşılaşılan bazı Hive performans iyileştirme yöntemleri kapsar.
+Azure HDInsight çeşitli küme türleri ve Apache Hive sorguları çalıştırabilirsiniz teknolojiler vardır. HDInsight kümenizi oluşturmak, performans, iş yükü ihtiyaçları için en iyi duruma getirmek için uygun küme türü seçin. 
+
+Örneğin, **etkileşimli sorgu** küme geçici için etkileşimli sorgular en iyi duruma getirme türü. Apache seçin **Hadoop** küme toplu bir işlem olarak kullanılan Hive sorguları için en iyi duruma getirme türü. **Spark** ve **HBase** küme türleri Hive sorguları da çalıştırabilirsiniz. Üzerinde çeşitli HDInsight küme türleri Hive sorguları çalıştırma hakkında daha fazla bilgi için bkz. [Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?](hadoop/hdinsight-use-hive.md).
+
+HDInsight kümeleri, Hadoop küme türü, performans için varsayılan olarak iyileştirilmemiştir. Bu makalede, sorgularınız için uygulayabileceğiniz en yaygın Hive performans iyileştirme yöntemleri bazılarını açıklar.
 
 ## <a name="scale-out-worker-nodes"></a>Çalışan düğümlerini ölçeklendirme
 
-Kümedeki çalışan düğümlerinin sayısını artırmak, daha fazla Eşleyici ve azaltıcının paralel olarak genişletin yararlanabilirsiniz. HDInsight ölçek genişletme artırabilirsiniz iki yolu vardır:
+Daha fazla Eşleyici ve azaltıcının paralel olarak genişletin yararlanmak iş bir HDInsight kümesindeki çalışan düğümleri sayısını artırır. HDInsight ölçek genişletme artırabilirsiniz iki yolu vardır:
 
-* Sağlama zaman, Azure portalı, Azure PowerShell veya platformlar arası komut satırı arabirimi kullanarak çalışan düğümlerinin sayısını belirtebilirsiniz.  Daha fazla bilgi için bkz. [HDInsight kümesi oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Aşağıdaki ekran görüntüsünde çalışan Azure portalında düğüm yapılandırması gösterilmektedir:
+* Zaman bir küme oluşturduğunuzda, Azure portalı, Azure PowerShell veya komut satırı arabirimi kullanarak çalışan düğümlerinin sayısını belirtebilirsiniz.  Daha fazla bilgi için bkz. [HDInsight kümesi oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Aşağıdaki ekran görüntüsünde çalışan Azure portalında düğüm yapılandırması gösterilmektedir:
   
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-* Çalışma zamanında bir yeniden oluşturmanıza gerek kalmadan de bir küme ölçeklendirebilirsiniz:
+    
+* Oluşturulduktan sonra bir yeniden oluşturmanıza gerek kalmadan daha fazla küme ölçeklendirmek için çalışan düğümü sayısı da düzenleyebilirsiniz:
 
     ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-HDInsight tarafından desteklenen farklı sanal makineler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
+HDInsight'ı ölçeklendirme hakkında daha fazla bilgi için bkz. [ölçek HDInsight kümeleri](hdinsight-scaling-best-practices.md)
 
-## <a name="enable-tez"></a>Tez etkinleştirme
+## <a name="use-tez-instead-of-map-reduce"></a>Map Reduce yerine Tez kullanma
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) MapReduce motorunun alternatif bir yürütme altyapısıdır:
+[Apache Tez](http://hortonworks.com/hadoop/tez/) MapReduce motorunun alternatif bir yürütme altyapısıdır. Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
 Tez olduğundan daha hızlıdır:
 
 * **Yönlendirilmiş Çevrimsiz graf (DAG) MapReduce altyapısındaki tek bir iş olarak çalıştırmak**. DAG azaltıcının genişletin kümesi tarafından izlenen her bir kümesi gerektirir. Bu, her bir Hive sorgusu için hazırladık birden çok MapReduce işleri neden olur. Tez böyle bir kısıtlama yok ve böylece iş başlangıç yükünü en aza bir iş olarak karmaşık DAG işleyebilir.
-* **Gereksiz yazma önler**. MapReduce altyapısındaki aynı Hive sorgusu için hazırladık birden çok iş nedeniyle her işin çıktı Ara verileri HDFS'ye yazılır. Bu yana Tez gereksiz yazma önlemek için her bir Hive sorgusu için iş sayısını en aza indirir.
+* **Gereksiz yazma önler**. Birden çok iş MapReduce altyapısındaki aynı Hive sorguları işlemek için kullanılır. Her bir MapReduce işi çıktısını HDFS'ye Ara veriler için yazılır. Tez her bir Hive sorgusu için iş sayısını en aza indirir. bu yana, gereksiz yazmayı önlemek kullanabilirsiniz.
 * **Başlangıç gecikmeleri en aza indirir**. Tez başlamak için ihtiyaç azaltıcının sayısını azaltarak ve ayrıca iyileştirme boyunca geliştirme başlatma gecikmesi en aza indirmek için iyidir.
 * **Kapsayıcıları yeniden**. Her olası Tez kapsayıcıları başlatılıyor nedeniyle gecikme süresi azalır emin olmak için kapsayıcıları yeniden kullanabilirsiniz.
 * **Sürekli iyileştirme teknikleri**. Geleneksel olarak iyileştirme derleme aşaması boyunca yapıldı. Girişleri hakkında daha fazla bilgi mevcuttur ancak, çalışma zamanı sırasında daha fazla iyileştirilmesi sağlar. Tez planı daha fazla çalışma zamanı aşamasına iyileştirmek izin sürekli iyileştirme teknikleri kullanır.
 
 Bu kavramlarla ilgili daha fazla bilgi için bkz. [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
-Herhangi bir Hive sorgusu Tez ayarıyla sorgu koyarak etkin hale getirebilirsiniz:
+Herhangi bir Hive sorgusu Tez sorgu kümesi aşağıdaki komutu ekleyerek etkin hale getirebilirsiniz:
 
-    set hive.execution.engine=tez;
-
-Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
-
+   ```hive
+   set hive.execution.engine=tez;
+   ```
 
 ## <a name="hive-partitioning"></a>Bölümleme hive
 
-G/ç işlemi Hive sorguları çalıştırmak için ana performans sorunu olup. Okumak için gereken veri miktarı azalır, performans artırılabilir. Varsayılan olarak, tüm Hive tabloları Hive sorguları tarayın. Bu tablo tarama gibi sorgular için idealdir. Ancak yalnızca az miktarda veri filtreleme ile (sorgular) gibi taraması gereken sorguları için bu davranışı yükü gereksiz oluşturur. Hive bölümleme Hive sorguları ile Hive tablosundaki verileri yalnızca gerekli miktarda erişim sağlar.
+G/ç işlemleri Hive sorguları çalıştırmak için ana performans sorunu var. Okumak için gereken veri miktarı azalır, performans artırılabilir. Varsayılan olarak, tüm Hive tabloları Hive sorguları tarayın. Ancak yalnızca az miktarda veri filtreleme ile (sorgular) gibi taraması gereken sorguları için bu davranışı yükü gereksiz oluşturur. Hive bölümleme Hive sorguları ile Hive tablosundaki verileri yalnızca gerekli miktarda erişim sağlar.
 
-Hive bölümleme, ham veriler kendi dizin bölümü kullanıcı tarafından tanımlandığı - sahip her bölüm ile yeni dizine özelleştirdiğinizde tarafından uygulanır. Bir Hive tablosu bölümleme sütunu örneğe göre aşağıdaki diyagramda gösterilmektedir *yıl*. Her yıl için yeni bir dizin oluşturulur.
+Hive bölümleme yeni dizine ham verileri yeniden düzenleme tarafından uygulanır. Her bölüm kendi dosya dizini vardır. Bölümleme, kullanıcı tarafından tanımlanır. Bir Hive tablosu bölümleme sütunu örneğe göre aşağıdaki diyagramda gösterilmektedir *yıl*. Her yıl için yeni bir dizin oluşturulur.
 
-![Bölümleme][image-hdi-optimize-hive-partitioning_1]
+![Bölümleme hive][image-hdi-optimize-hive-partitioning_1]
 
 Bölümleme bazı önemli noktalar:
 
 * **Bölüm altında yapmak** -bazı bölümler yalnızca birkaç değerleri olan sütunlarda bölümleme neden olabilir. Örneğin, cinsiyet üzerinde bölümleme yalnızca (Erkek ve Kadın) oluşturulması, böylece gecikme süresini en çok yarısı yalnızca azaltmak için iki bölüm oluşturur.
 * **Olmayan bölüm yapmak** - diğer aşırı bir bölüm (örneğin, kullanıcı kimliği) benzersiz bir değere sahip bir sütun oluşturma birden çok bölüm neden olur. Çok sayıda dizin işlemeye sahip olduğundan bölüm kadar stres üzerinde Küme namenode neden olur.
-* **Veri dengesizliği önlemek** -tüm bölümleri bile boyutu olacak şekilde, bir bölümleme anahtarı dikkatle seçin. Örnek üzerinde bölümleme *durumu* neredeyse 30 olacak şekilde California altında kayıt sayısı neden olabilir, fark popülasyondaki nedeniyle Vermont x.
+* **Veri dengesizliği önlemek** -tüm bölümleri bile boyutu olacak şekilde, bir bölümleme anahtarı dikkatle seçin. Örneğin, üzerinde bölümleme *durumu* sütun dağıtım veri dengesizliği. California eyaleti popülasyondaki bir örneğe neredeyse olduğundan 30 x Vermont bölümlendirmesini boyutu büyük olasılıkla dengesiz ve performans büyük ölçüde değişebilir.
 
 Bölüm tablosu oluşturmak için kullanın *bölümlenmiş tarafından* yan tümcesi:
 
-    CREATE TABLE lineitem_part
-        (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE            STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING,
-         L_COMMENT STRING)
-    PARTITIONED BY(L_SHIPDATE STRING)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-    STORED AS TEXTFILE;
-
+   ```hive
+   CREATE TABLE lineitem_part
+       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
+   PARTITIONED BY(L_SHIPDATE STRING)
+   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+   STORED AS TEXTFILE;
+   ```
+   
 Bölümlenmiş bir tablo oluşturulduktan sonra bölümleme statik veya dinamik bölümlemeyi ya da oluşturabilirsiniz.
 
-* **Statik bölümleme** uygun dizinler zaten parçalı veriler olması ve el ile dizin konumu temel Hive bölümler sorabilir anlamına gelir. Aşağıdaki kod parçacığı bir örnektir.
+* **Statik bölümleme** uygun dizinler zaten parçalı veriler olduğu anlamına gelir. Statik bölümlerle el ile dizin konumu temel Hive bölümler ekleyin. Aşağıdaki kod parçacığı bir örnektir.
   
-        INSERT OVERWRITE TABLE lineitem_part
-        PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
-        SELECT * FROM lineitem 
-        WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
+   ```hive
+   INSERT OVERWRITE TABLE lineitem_part
+   PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
+   SELECT * FROM lineitem 
+   WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
+   
+   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
+   LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+   ```
+   
+* **Dinamik bölümlemeyi** bölümler sizin için otomatik olarak oluşturmak için Hive istediğiniz anlamına gelir. Hazırlama tablo bölümleme tablosu zaten oluşturduğunuz yapmak için ihtiyacınız olan bölümlenmiş bir tablodaki verileri ekleyin:
   
-        ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-        LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
-* **Dinamik bölümlemeyi** bölümler sizin için otomatik olarak oluşturmak için Hive istediğiniz anlamına gelir. Zaten tablo bölümleme hazırlama tablosunda oluşturduk beri yapmak için ihtiyacımız olan bölümlenmiş bir tablodaki verileri ekleyin:
-  
-        SET hive.exec.dynamic.partition = true;
-        SET hive.exec.dynamic.partition.mode = nonstrict;
-        INSERT INTO TABLE lineitem_part
-        PARTITION (L_SHIPDATE)
-        SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
-             L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
-              L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-             L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
-
+   ```hive
+   SET hive.exec.dynamic.partition = true;
+   SET hive.exec.dynamic.partition.mode = nonstrict;
+   INSERT INTO TABLE lineitem_part
+   PARTITION (L_SHIPDATE)
+   SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
+       L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
+       L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+       L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as L_RETURNFLAG,
+       L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as L_SHIPDATE_PS,
+       L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as L_RECEIPTDATE,
+       L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
+       L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
+   ```
+   
 Daha fazla bilgi için [bölümlenmiş tabloları](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>ORCFile biçimini kullanın
 Hive farklı dosya biçimlerini destekler. Örneğin:
 
-* **Metin**: Bu varsayılan dosya biçimidir ve çoğu senaryoda ile çalışır
+* **Metin**: çoğu senaryo ile çalışır ve varsayılan dosya biçimi
 * **Avro**: iyi birlikte çalışabilirlik senaryolarında çalışır
 * **ORC/Parquet**: performans için en uygun
 
@@ -122,37 +137,41 @@ Hive farklı dosya biçimlerini destekler. Örneğin:
 
 ORC biçimi etkinleştirmek için öncelikle bir tablo yan tümcesiyle oluşturmanız *ORC depolanan*:
 
-    CREATE TABLE lineitem_orc_part
-        (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-         L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
-    PARTITIONED BY(L_SHIPDATE STRING)
-    STORED AS ORC;
-
+   ```hive
+   CREATE TABLE lineitem_orc_part
+       (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
+   PARTITIONED BY(L_SHIPDATE STRING)
+   STORED AS ORC;
+   ```
+   
 Ardından, veri hazırlama tablosundan ORC tablosuna ekleyin. Örneğin:
 
-    INSERT INTO TABLE lineitem_orc
-    SELECT L_ORDERKEY as L_ORDERKEY, 
-           L_PARTKEY as L_PARTKEY , 
-           L_SUPPKEY as L_SUPPKEY,
-           L_LINENUMBER as L_LINENUMBER,
-            L_QUANTITY as L_QUANTITY, 
-           L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-           L_DISCOUNT as L_DISCOUNT,
-           L_TAX as L_TAX,
-           L_RETURNFLAG as L_RETURNFLAG,
-           L_LINESTATUS as L_LINESTATUS,
-           L_SHIPDATE as L_SHIPDATE,
+   ```hive
+   INSERT INTO TABLE lineitem_orc
+   SELECT L_ORDERKEY as L_ORDERKEY, 
+          L_PARTKEY as L_PARTKEY , 
+          L_SUPPKEY as L_SUPPKEY,
+          L_LINENUMBER as L_LINENUMBER,
+          L_QUANTITY as L_QUANTITY, 
+          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+          L_DISCOUNT as L_DISCOUNT,
+          L_TAX as L_TAX,
+          L_RETURNFLAG as L_RETURNFLAG,
+          L_LINESTATUS as L_LINESTATUS,
+          L_SHIPDATE as L_SHIPDATE,
            L_COMMITDATE as L_COMMITDATE,
            L_RECEIPTDATE as L_RECEIPTDATE, 
            L_SHIPINSTRUCT as L_SHIPINSTRUCT,
            L_SHIPMODE as L_SHIPMODE,
            L_COMMENT as L_COMMENT
     FROM lineitem;
-
-Daha fazla bilgi edinebilirsiniz ORC biçimi üzerinde [burada](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+   ```
+   
+Daha fazla bilgi edinebilirsiniz ORC biçime [Hive dil el ile](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vektörleştirme
 
@@ -160,7 +179,9 @@ Bir defada bir satır işleme yerine birlikte 1024 satırları toplu işlemek Hi
 
 Vektörleştirme etkinleştirmek için aşağıdaki ayar Hive sorgunuzu ön ek:
 
+   ```hive
     set hive.vectorized.execution.enabled = true;
+   ```
 
 Daha fazla bilgi için [sorgu yürütme Vektörleştirildi](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 

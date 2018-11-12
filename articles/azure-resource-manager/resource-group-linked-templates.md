@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386731"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287583"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -27,7 +27,7 @@ ms.locfileid: "49386731"
 
 Küçük ila orta çözümleri, tek bir şablon anlamak ve sürdürmek daha kolay olur. Tüm kaynaklar ve tek bir dosyada değerleri görebilirsiniz. Gelişmiş senaryolar için bağlı şablonların hedeflenen bileşenlere çözüm bölümlere ayırmak etkinleştirmeniz ve şablonları yeniden.
 
-Bağlantılı şablon kullanırken, dağıtım sırasında parametre değerleri alan bir ana şablon oluşturun. Ana Şablon bağlantılı tüm şablonları içerir ve gerektiğinde bu şablonlara değerleri geçirir.
+Bağlı şablonlar kullanırken, dağıtım sırasında parametre değerleri alan bir ana şablon oluşturun. Ana Şablon bağlantılı tüm şablonları içerir ve gerektiğinde bu şablonlara değerleri geçirir.
 
 Bir öğretici için bkz. [Öğreticisi: bağlı bir Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-linked-templates.md).
 

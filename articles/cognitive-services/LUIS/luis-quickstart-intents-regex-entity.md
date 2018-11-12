@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d7e5ab57d9cf12c6917386282182faacb07725
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159865"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282399"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Öğretici 3: Düzgün biçimlendirilmiş verileri ayıklama
 Bu öğreticide, **Normal İfade** varlığını kullanarak bir konuşmadan tutarlı olarak biçimlendirilmiş veriler ayıklamak için İnsan Kaynakları uygulamasını değiştirme anlatılmaktadır.
@@ -46,24 +46,24 @@ Normal bir ifade, şu durumlarda bu tür veri için iyi bir seçimdir:
 > * Normal ifade varlığı ekleme 
 > * Eğitim
 > * Yayımlama
-> * Uç noktasındaki amaçları ve varlıkları alma
+> * Uç noktadan amaçları ve varlıkları alma
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1. [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json) indirin ve kaydedin.
+1. [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `regex` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez. 
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `regex` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez. 
 
 ## <a name="findform-intent"></a>FindForm amacı
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
 
@@ -90,7 +90,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
     Uygulamaya önceki öğreticide eklenmiş numaralar vardır ve bu nedenle her form etiketlenmiştir. Bu kadarı istemci uygulamanız için yeterli olabilir ancak numara, numara türü etiketi ile etiketlenmiş olmayacaktır. Uygun bir adla yeni bir varlık oluşturulması, istemci uygulamasının LUIS tarafından döndürülen varlığı uygun şekilde işlemesini sağlar.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>Normal ifade varlığı 
 Form numarasıyla eşleştirilecek normal ifade varlığı: `hrf-[0-9]{6}`. Bu normal ifade, `hrf-` değişmez karakterleriyle eşleşir ancak büyük/küçük harf ve kültür farklarını yoksayar. Tam olarak 6 basamak için 0-9 basamaklarını eşleştirir.
@@ -123,7 +123,7 @@ Aşağıdaki adımları izleyerek LUIS uygulamasına HRF-numara biçimini bildir
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasındaki amacı ve varlıkları alma
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
