@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 20b98fa9656c9c66a81ff98a70fcdbfb29d4dad6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093189"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234503"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Rollerin geri dönüştürülmesine neden olan yaygın sorunlar
 Bu makalede, bazı yaygın nedenleri dağıtım sorunlarını ele alır ve bu sorunları çözmenize yardımcı olacak sorun giderme ipuçları sağlar. Bir uygulama ile bir sorun olduğunu rol örneği başlatılamıyor veya başlatılıyor, meşgul ve durdurma durumlar arasında döngüleri göstergesidir.
@@ -64,7 +64,7 @@ Bir web rolü SSL altında çalıştırmak için dışarı aktarılan yönetim s
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazlasını görüntüle [sorun giderme makaleleri](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) bulut Hizmetleri için.
 
-Daha fazla rol senaryolarında geri dönüştürme görüntülemek [Kevin Williamson'ın blog dizisini](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Daha fazla rol senaryolarında geri dönüştürme görüntülemek [Kevin Williamson'ın blog dizisini](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 5328ee7e3e3035ebce1ff9fccbfc6e9ccfd86ee8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 171180eb373553dfa0c971b22e3cf62e450829ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233618"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure’da CentOS tabanlı bir sanal makine hazırlama
 * [Azure'da CentOS 6.x sanal makine hazırlama](#centos-6x)
@@ -29,7 +29,7 @@ ms.locfileid: "48888413"
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev) bir sanal sabit disk için Linux işletim sistemi. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için [Hyper-V rolünü yükleme ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
+Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev) bir sanal sabit disk için Linux işletim sistemi. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için [Hyper-V rolünü yükleme ve sanal makine yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
 
 **CentOS yükleme notları**
 
