@@ -1,5 +1,5 @@
 ---
-title: Örnek verileri Azure blob depolamada | Microsoft Docs
+title: Örnek verileri Azure blob depolama | Microsoft Docs
 description: Örnek verileri Azure Blob Depolama
 services: machine-learning,storage
 documentationcenter: ''
@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: ffb92df0e0727d02985ec26f61739cdc759d0f93
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9f987daf8b0f111f8d527b2f18dc5e3428df282a
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837676"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344935"
 ---
 # <a name="heading"></a>Örnek verileri Azure blob depolama
-Bu belge örnekleme verileri programlı olarak karşıdan yükleyip Python içinde yazılmış yordamları kullanarak örnekleme Azure blob storage'da depolanan kapsar.
 
-Aşağıdaki **menü** çeşitli depolama ortamlarından veri örneği nasıl açıklayan konulara bağlantılar. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+Bu makale, örnekleme verileri program aracılığıyla indiriliyor ve Python'da yazılan yordamları kullanarak örnekleme tarafından Azure blob depolamada depolanan kapsar.
 
 **Neden verilerinizi örnek?**
-Analiz etmek için planlama dataset büyükse, genellikle aşağı örnek için daha küçük, ancak temsili ve daha kolay yönetilebilir bir boyutunu azaltmak için veri için iyi bir fikir değil. Bu, veri anlama, keşfi ve özellik Mühendisliği kolaylaştırır. Cortana Analytics işleminde rolü hızlı prototipi oluşturulurken veri işleme işlevleri ve makine öğrenimi modellerinin oluşturulmasına etkinleştirmektir.
+Veri kümesini analiz etmek için planlama büyükse, genellikle aşağı örnek veriler için daha küçük ancak temsilcisi ve daha kolay yönetilebilir bir boyutunu azaltmak için iyi bir fikir olduğunu. Bu, özellik Mühendisliği veri anlama ve keşfetme kolaylaştırır. Kendi Cortana Analytics süreci rolünde hızlı prototip oluşturma veri işleme işlevleri ve makine öğrenimi modellerini etkinleştirmektir.
 
-Bir adımda bu örnekleme görevdir [takım veri bilimi işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Bir adımda bu örnekleme görevdir [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="download-and-down-sample-data"></a>Karşıdan yükleme ve aşağı örnek veriler
-1. Aşağıdaki örnek Python kodu blob hizmetinden kullanarak Azure blob storage veri indirin: 
+## <a name="download-and-down-sample-data"></a>İndirme ve aşağı örnek veriler
+1. Blob hizmeti aşağıdaki örnek Python kodu aracılığıyla Azure blob depolamadan veri indirin: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -53,7 +50,7 @@ Bir adımda bu örnekleme görevdir [takım veri bilimi işlem (TDSP)](https://a
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 
-2. Yukarıda indirdiğiniz dosyasından Pandas verileri-çerçeve içine verilerini okur.
+2. Yukarıda indirdiğiniz dosyadan Pandas veri-çerçeve içine verileri okuyamadı.
    
         import pandas as pd
    
@@ -68,16 +65,16 @@ Bir adımda bu örnekleme görevdir [takım veri bilimi işlem (TDSP)](https://a
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Şimdi yüzde 1 örnek daha fazla araştırması ve özellik oluşturmak için yukarıdaki veri çerçevesiyle çalışabilirsiniz.
+Artık daha fazla araştırma ve özellik oluşturma için yüzde 1 örnek ile Yukarıdaki veri çerçevesi ile çalışabilirsiniz.
 
-## <a name="heading"></a>Verileri yüklemek ve Azure Machine Learning okuma
-Aşağıdaki örnek kod, aşağı örnek veriler ve doğrudan Azure Machine Learning ile kullanmak üzere kullanabilirsiniz:
+## <a name="heading"></a>Karşıya yüklemek ve Azure Machine Learning içine okuyun
+Aşağıdaki örnek kod, aşağı örnek veriler ve doğrudan Azure Machine Learning'de kullanmak üzere kullanabilirsiniz:
 
-1. Veri çerçevesi yerel bir dosyaya yazma
+1. Veri çerçevesinin yerel bir dosyaya yazma
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
-2. Yerel dosya aşağıdaki örnek kod kullanarak bir Azure blobuna yükle:
+2. Aşağıdaki örnek kodu kullanarak bir Azure blobuna yerel dosya yükleyin:
    
         from azure.storage.blob import BlobService
         import tables
@@ -99,7 +96,7 @@ Aşağıdaki örnek kod, aşağı örnek veriler ve doğrudan Azure Machine Lear
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Verileri Azure blob'tan Azure Machine Learning kullanarak okumak [veri içeri aktarma](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) aşağıdaki resimde gösterildiği gibi:
+3. Azure Machine Learning kullanarak Azure blobundan verileri okumak [verileri içeri aktarma](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) aşağıdaki resimde gösterildiği gibi:
 
 ![Okuyucu blob](./media/sample-data-blob/reader_blob.png)
 

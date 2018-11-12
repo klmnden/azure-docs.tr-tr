@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069955"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289283"
 ---
-# <a name="internet-of-things-security-from-the-ground-up"></a>Nesnelerin interneti güvenliği baştan
+# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Nesnelerin interneti (IOT) baştan için güvenlik
 
 Nesnelerin interneti (IOT), dünya çapında işletmeler için güvenlik, gizlilik ve uyumluluk zorluk doğurur. Burada bu sorunları nasıl uygulandığını ve yazılım etrafında çalışmalarınızı geleneksel siber teknoloji, IOT siber ve fiziksel ortamdan yakınsama ne olur ilgilidir. IOT çözümleri koruma sağlayarak, bu cihazlar Bulut ve işlem ve depolama sırasında buluta güvenli veri koruma arasında güvenli bağlantı cihazların güvenli sağlama gerektirir. Bu işlevselliğin karşı çalışıyor, ancak, bir çözüm içindeki cihazlar çok sayıda kaynak kısıtlı cihazları ve dağıtımları coğrafi dağılımı uygulanır.
 

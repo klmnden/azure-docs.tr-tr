@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0497cba4cae66e63f710c9678f6d87c2f9fb8fb1
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138869"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515095"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -151,7 +151,7 @@ Bir cihazı devre dışı bırakmak / etkinleştirmek için iki seçeneğiniz va
 **Notlar:**
 
 - Bir cihazı devre dışı bırakmak / etkinleştirmek için Azure AD'de genel yönetici olmanız gerekir. 
-- Bir cihazı devre dışı bırakma, bir cihaz Azure AD'ye kaynaklarınıza erişmesini engeller. 
+- Bir cihazı devre dışı bırakma başarıyla cihaz CA tarafından korunan, Azure AD kaynaklarına erişmesini veya WH4B kimlik bilgilerinizi kullanarak cihaz engelleme ağa Azure AD ile kimlik doğrulaması, bir cihaz engeller. 
 
 
 

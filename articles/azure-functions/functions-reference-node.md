@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 18ff0e3fadad64f7bd7fe014a6dcec6a628ef1b9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914562"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036555"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -109,8 +109,8 @@ module.exports = async function (context, req) {
 ## <a name="bindings"></a>Bağlamalar 
 JavaScript'te [bağlamaları](functions-triggers-bindings.md) yapılandırılır ve işlevin function.json içinde tanımlanır. İşlevleri, çeşitli yollarla bağlamalarla etkileşim kurun.
 
-### <a name="reading-trigger-and-input-data"></a>Okuma tetikleyici ve giriş verileri
-Tetikleme ve giriş (bağlamalarını `direction === "in"`) üç yolla bir işlev tarafından okunabilir:
+### <a name="inputs"></a>Girişler
+Giriş, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi biridir ve diğer ek girişi. Tetikleyici ve diğer giriş bağlamaları (bağlamalarını `direction === "in"`) üç yolla bir işlev tarafından okunabilir:
  - **_[Önerilen]_  İşlevinize geçirilen parametreler olarak.** İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. Unutmayın `name` tanımlanan özellik *function.json* olması gerektiği olsa da, parametre adıyla eşleşmesi gerekmez.
  
    ```javascript
@@ -137,7 +137,7 @@ Tetikleme ve giriş (bağlamalarını `direction === "in"`) üç yolla bir işle
    };
    ```
 
-### <a name="writing-data"></a>Veri yazma
+### <a name="outputs"></a>Çıkışlar
 Çıkış (bağlamalarını `direction === "out"`) çeşitli yollarla bir işlevde tarafından yazılabilir. Tüm durumlarda `name` tanımlandığı gibi bağlama özelliğini *function.json* işlevinizde yazılan nesne üyesinin adı karşılık gelir. 
 
 Verileri aşağıdaki yollardan birinde bir çıkış bağlamaları atayabilirsiniz. Bu yöntemler birleştirmemelisiniz değil.

@@ -1,24 +1,24 @@
 ---
-title: HDInsight - Azure ile Ambari Tez görünümünü kullanın
-description: HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Ambari Tez görünümü kullanmayı öğrenin.
+title: Apache Ambari Tez görüntüle - Azure HDInsight ile kullanma
+description: HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Apache Ambari Tez görünümü kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 576460f4b68d670e534e0ddeed920f7ac99e1458
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108895"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034685"
 ---
-# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Ambari görünümlerini kullanma
+# <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight üzerinde Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma
 
-HDInsight için Ambari Web kullanıcı arabirimini anlama ve kullanma Tez işlerinin hatalarını ayıklamak için kullanılan bir Tez görünümü içerir. Tez görünümü bağlı öğelerin bir grafik olarak görselleştirin, her öğenin ayrıntısına ve istatistikleri ve günlük bilgilerini almak sağlar.
+HDInsight için Apache Ambari Web kullanıcı Arabirimi, anlamak ve kullanmak Tez işlerinin hatalarını ayıklamak için kullanılan bir Apache Tez görünümü içerir. Tez görünümü bağlı öğelerin bir grafik olarak görselleştirin, her öğenin ayrıntısına ve istatistikleri ve günlük bilgilerini almak sağlar.
 
 > [!IMPORTANT]
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -28,9 +28,9 @@ HDInsight için Ambari Web kullanıcı arabirimini anlama ve kullanma Tez işler
 * Bir Linux tabanlı HDInsight kümesi. Küme oluşturma adımları için bkz [Linux tabanlı HDInsight kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * HTML5'i destekleyen modern bir web tarayıcısı.
 
-## <a name="understanding-tez"></a>Tez anlama
+## <a name="understanding-apache-tez"></a>Apache Tez anlama
 
-Tez büyük işleyebileceğiniz geleneksel MapReduce işleme özellikleri sağlayan Hadoop'u veri işleme için genişletilebilir bir çerçevedir. Linux tabanlı HDInsight kümeleri için Hive için varsayılan altyapısı olan.
+Tez, geleneksel MapReduce işleme büyük işleyebileceğiniz sağlayan bir Apache Hadoop ile veri işleme için genişletilebilir bir çerçevedir. Linux tabanlı HDInsight kümeleri için Hive için varsayılan altyapısı olan.
 
 Tez yönlendirilmiş Çevrimsiz graf (işleri tarafından gereken eylemlerin sırasını açıklayan DAG) oluşturur. Bireysel eylemleri köşeler verilir ve genel projenin parçası yürütün. Gerçek yürütmesi, bir köşe tarafından açıklanan iş bir görev çağrılır ve kümedeki birden fazla düğümde dağıtılmış.
 

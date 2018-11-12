@@ -1,22 +1,22 @@
 ---
-title: Tez kullanıcı Arabirimi, Windows tabanlı HDInsight ile - Azure kullanın
-description: Tez kullanıcı Arabirimi, Windows tabanlı HDInsight HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için kullanmayı öğrenin.
+title: Windows tabanlı HDInsight - Azure ile kullanım Apache Tez kullanıcı Arabirimi
+description: Apache Tez kullanıcı Arabirimi, Windows tabanlı HDInsight HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112196"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036592"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Tez kullanıcı Arabirimi, Windows tabanlı HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için kullanın
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Apache Tez kullanıcı Arabirimi kullanın
 Tez kullanıcı Arabirimi, yürütme altyapısı Tez kullanan Hive işlerinin hatalarını ayıklamak için kullanılabilir. Bir grafik bağlı öğelerin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini alma Tez kullanıcı Arabirimi iş görselleştirir.
 
 > [!IMPORTANT]
@@ -26,13 +26,13 @@ Tez kullanıcı Arabirimi, yürütme altyapısı Tez kullanan Hive işlerinin ha
 * Bir Windows tabanlı HDInsight kümesi. Yeni küme oluşturma adımları için bkz [Windows tabanlı HDInsight kullanmaya başlama](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]
-  > Tez kullanıcı Arabirimi, yalnızca 8 Şubat 2016'dan sonra oluşturulan Windows tabanlı HDInsight kümelerinde kullanılabilir.
+  > Apache Tez kullanıcı Arabirimi, yalnızca 8 Şubat 2016'dan sonra oluşturulan Windows tabanlı HDInsight kümelerinde kullanılabilir.
   >
   >
 * Bir Windows tabanlı uzak masaüstü istemcisi.
 
-## <a name="understanding-tez"></a>Tez anlama
-Tez Hadoop veri işlemeye yönelik genişletilebilir bir çerçevesidir ve geleneksel MapReduce işleme büyük işleyebileceğiniz sağlar. Tez Hive sorgusu bir parçası olarak aşağıdaki metin dahil olmak üzere etkinleştirebilirsiniz:
+## <a name="understanding-apache-tez"></a>Apache Tez anlama
+Tez Apache Hadoop veri işlemeye yönelik genişletilebilir bir çerçevesidir ve geleneksel MapReduce işleme büyük işleyebileceğiniz sağlar. Tez Hive sorgusu bir parçası olarak aşağıdaki metin dahil olmak üzere etkinleştirebilirsiniz:
 
     set hive.execution.engine=tez;
 
