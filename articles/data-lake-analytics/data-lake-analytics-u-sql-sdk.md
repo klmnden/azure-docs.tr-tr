@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052096"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238803"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Çalıştırma ve U-SQL Azure Data Lake U-SQL SDK'sı ile test etme
 
@@ -36,7 +36,7 @@ Data Lake U-SQL SDK'sı, aşağıdaki bağımlılıkları gerektirir:
 
     ![Visual Studio için Data Lake araçları yerel Windows 10 SDK'yı çalıştırma](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Yükleme [Visual Studio için Data Lake Araçları](http://aka.ms/adltoolsvs). Önceden paketlenmiş Visual C++ ve Windows SDK'sı dosyaları C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK bulabilirsiniz. Bu durumda, U-SQL yerel derleyici bağımlılıkları otomatik olarak bulunamıyor. İçin CppSDK yolunu belirtmeniz gerekir. Dosyaları başka bir konuma kopyalayın veya olduğu gibi kullanabilirsiniz.
+    - Yükleme [Visual Studio için Data Lake Araçları](https://aka.ms/adltoolsvs). Önceden paketlenmiş Visual C++ ve Windows SDK'sı dosyaları C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK bulabilirsiniz. Bu durumda, U-SQL yerel derleyici bağımlılıkları otomatik olarak bulunamıyor. İçin CppSDK yolunu belirtmeniz gerekir. Dosyaları başka bir konuma kopyalayın veya olduğu gibi kullanabilirsiniz.
 
 ## <a name="understand-basic-concepts"></a>Temel kavramlarını anlama
 
@@ -137,7 +137,7 @@ U-SQL yerel ihtiyaçlarını bağımlılıklar için belirtilen CppSDK yolu yan�
 İsteğe bağlı bağımsız değişkenleri şunlardır **çalıştırmak**:
 
 
-|Bağımsız değişken|Varsayılan değer|Açıklama|
+|Bağımsız Değişken|Varsayılan değer|Açıklama|
 |--------|-------------|-----------|
 |-CodeBehind|False|Arka plan kod .cs betiği sahiptir|
 |-CppSDK| |CppSDK dizini|
@@ -169,7 +169,7 @@ Birleştirme yanı sıra **derleme** ve **yürütme**, derleyin ve ayrı olarak 
 İsteğe bağlı bağımsız değişkenleri şunlardır **derleme**:
 
 
-|Bağımsız değişken|Açıklama|
+|Bağımsız Değişken|Açıklama|
 |--------|-----------|
 | -CodeBehind [varsayılan değer 'False']|Arka plan kod .cs betiği sahiptir|
 | -CppSDK [varsayılan değer '']|CppSDK dizini|
@@ -207,7 +207,7 @@ U-SQL betiği derlemek ve bir çalışma dizini, başvuru bütünleştirilmiş k
 
 İsteğe bağlı bağımsız değişkenleri şunlardır **yürütme**:
 
-|Bağımsız değişken|Varsayılan değer|Açıklama|
+|Bağımsız Değişken|Varsayılan değer|Açıklama|
 |--------|-------------|-----------|
 |-DataRoot | '' |Meta veri yürütme için veri kökü. Varsayılan **LOCALRUN_DATAROOT** ortam değişkeni.|
 |-MessageOut | '' |Konsolunda bir dosyaya ileti dökümü.|
@@ -362,7 +362,7 @@ Genel LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 |Workdır|dize|Tercih edilen çalışma dizini|
 
 
-**Yöntemi**
+**Yöntem**
 
 |Yöntem|Açıklama|Dönüş|Parametre|
 |------|-----------|------|---------|

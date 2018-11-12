@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401611"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285733"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra yüksek SSD (Önizleme) yönetilen diskler için Azure sanal makine iş yükleri
 
@@ -23,7 +23,7 @@ Azure Ultra SSD (Önizleme), Azure Iaas Vm'leri için yüksek performans, yükse
 
 **Yönetilen diskler**: Ultra SSD bulunan ve yalnızca yönetilen diskler. Ultra yüksek SSD'ler, bir yönetilmeyen Disk veya sayfa blobu olarak dağıtılamıyor. Bir yönetilen diski oluştururken, disk sku UltraSSD_LRS yazın ve IOPS disk boyutunu belirtmek ve ihtiyacınız olan aktarım hızı ve Azure oluşturur ve diski oluşturup yönetebilmesi belirtin.  
 
-**Sanal makineler**: Ultra SSD tüm Premium SSD etkin Azure sanal makine SKU'larıyla çalışma için tasarlanmıştır Önizleme zaman VM boyutlarını ES/DS v3 VM örnekleri için sınırlı olacaktır ancak.
+**Sanal makineler**: Ultra SSD'ler, tüm etkin Premium SSD Azure sanal makine SKU'ları ile çalışmak üzere tasarlanmıştır; ancak, şu anda Önizleme aşamasında olduğu gibi sanal makinelerin ES/DS v3 boyutlandırılır.
 
 **Dinamik performans Yapılandırması**: Ultra SSD sanal makinelerinizi yeniden başlatmaya gerek kalmadan diskin iş yükü gereksinimlerinize yanı sıra performans (IOPS ve aktarım hızı) dinamik olarak değiştirmenize olanak tanır.
 
@@ -55,7 +55,7 @@ Aşağıdaki tabloda farklı disk boyutları için farklı yapılandırmalar öz
 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 
-Ultra yüksek SSD kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
+Ultra yüksek SSD kullanırken aşağıdaki fatura değerlendirmeleri uygulanacak:
 
 - Yönetilen disk boyutu
 - Yönetilen diskin sağlanan IOPS
@@ -64,11 +64,11 @@ Ultra yüksek SSD kullanırken aşağıdaki fatura değerlendirmeleri geçerlidi
 
 ### <a name="managed-disk-size"></a>Yönetilen disk boyutu
 
-Yönetilen diskler, sağlanan boyutları faturalandırılır. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk desteklenen sağlanan disk boyutuna eşler ve saatlik olarak buna uygun olarak faturalandırılır. Örneğin, bir 200 GiB Ultra SSD Disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Diske yazılan gerçek veri miktarından bağımsız olarak budur.
+Yönetilen diskler üzerinde faturalandırılır, size choosed provisionning yeni bir Azure sanal makine çalışırken VM boyutları. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk için bir desteklenen sağlanan disk boyutu ve buna göre faturalandırılır eşler saatlik olarak. Örneğin, bir 200 GiB Ultra SSD Disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Bu faturalandırma gerçekten diske yazılan veri hacmi bağımsız olarak işlem saati tüketimine temel alınmıştır.
 
 ### <a name="managed-disk-provisioned-iops"></a>Yönetilen diskin sağlanan IOPS
 
-IOPS uygulamanızı diske bir saniyede gönderdiği isteklerinin sayısı ' dir. Bir giriş/çıkış işlem sıralı veya rastgele olabilir, okur veya yazar. Disk boyutu gibi sağlanan IOPS saatlik olarak faturalandırılır. Sağlanan IOPS disk ayrıntıları için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın.
+IOPS, uygulamanızın gönderdiği istekleri dizi için saniye başına disk sayısı. Bir giriş/çıkış işlemi, sıralı bir okuma veya yazma veya rastgele okuma veya yazma. Ortalama IOPS sayısı, disk boyutu veya VM'ye disk sayısına göre saatlik olarak faturalandırılır. Sağlanan IOPS disk ayrıntıları için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Yönetilen diskin sağlanan aktarım hızı
 

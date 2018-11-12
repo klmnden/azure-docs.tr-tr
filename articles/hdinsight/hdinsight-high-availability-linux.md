@@ -3,19 +3,19 @@ title: Hadoop - Azure HDInsight için yüksek kullanılabilirlik
 description: Nasıl HDInsight kümeleri güvenilirlik ve kullanılabilirlik ek bir baş düğüm tarafından öğrenin. Nasıl bu yanı sıra Ambari ve, Hive gibi Hadoop Hizmetleri tek tek her baş düğümüne SSH kullanarak bağlamak için etkiliyor öğrenin.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 keywords: hadoop yüksek kullanılabilirlik
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953605"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281991"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 
@@ -23,8 +23,7 @@ HDInsight kümeleri, kullanılabilirliği ve güvenilirliği Hadoop Hizmetleri v
 
 Hadoop Hizmetleri ve veri kümesindeki birden çok düğüm arasında çoğaltarak yüksek kullanılabilirlik ve güvenilirlik elde eder. Ancak standardı dağıtımlarla hadoop genellikle yalnızca tek bir baş düğüm gerekir. Herhangi bir kesinti tek bir baş düğüm, küme çalışmayı durdurmasına neden olabilir. HDInsight, Hadoop'ın kullanılabilirliği ve güvenilirliği iyileştirmek için iki baş sağlar.
 
-> [!IMPORTANT]
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Kullanılabilirlik ve güvenilirlik düğümleri
 
@@ -224,7 +223,7 @@ Bu belgede belirtilen noktalar hakkında daha fazla bilgi için aşağıdaki ba�
 
 * [Ambari REST başvurusu](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Azure Klasik CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md)
-* [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview)
+* [için Notification Hubs .NET API](/powershell/azure/overview)
 * [Ambari kullanarak HDInsight'ı yönetme](hdinsight-hadoop-manage-ambari.md)
 * [Linux tabanlı HDInsight kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md)
 

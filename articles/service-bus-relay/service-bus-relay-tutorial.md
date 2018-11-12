@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857984"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262021"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF geçişi Öğreticisi
 
@@ -35,7 +35,7 @@ Son üç adımda istemci uygulaması oluşturma, istemci uygulamasını yapılan
 
 Bu öğreticiyi tamamlamak için şunlar gerekir:
 
-* [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticide, Visual Studio 2017 kullanılır.
+* [Microsoft Visual Studio 2015 veya üzeri](https://visualstudio.com). Bu öğreticide, Visual Studio 2017 kullanılır.
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Hizmet ad alanı oluşturma
@@ -55,7 +55,7 @@ Hizmet sözleşmesi hangi işlemleri belirtir (yöntemler ve işlevlere yönelik
 
 3. Service Bus NuGet paketini yükleyin. Bu paket otomatik olarak Service Bus kitaplıklarının yanı sıra WCF **System.ServiceModel** öğesine de başvurular ekler. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx), WCF'nin temel özelliklerine programlamayla erişmenizi sağlayan ad alanıdır. Service Bus, hizmet sözleşmelerini tanımlamak için WCF'nin birçok nesnesini ve özniteliklerini kullanır.
 
-    Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **NuGet paketlerini Yönet...** . **Gözat** sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **Sürüm(ler)** kutusunda proje adının seçili olduğundan emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
+    Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **NuGet paketlerini Yönet...** . Gözat sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **Sürüm(ler)** kutusunda proje adının seçili olduğundan emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
 
     ![][3]
 4. Çözüm Gezgini'nde, zaten açılmamışsa Program.cs dosyasına çift tıklayarak dosyayı düzenleyicide açın.
@@ -81,7 +81,7 @@ Hizmet sözleşmesi hangi işlemleri belirtir (yöntemler ve işlevlere yönelik
     ```
 
    > [!NOTE]
-   > Genellikle, hizmet sözleşmesi ad alanı sürüm bilgilerini barındıran bir adlandırma şeması içerir. Sürüm bilgilerini hizmet sözleşmesi ad alanına dahil etmek, hizmetlerin yeni bir ad alanı içeren yeni bir hizmet sözleşmesi tanımlayarak ve bu sözleşmeyi yeni bir uç noktada kullanıma sunarak büyük değişiklikleri yalıtmalarına olanak sağlar. Bu şekilde, istemcilerin güncelleştirilmesine gerek kalmadan eski hizmet sözleşmelerini kullanmaya devam edebilirsiniz. Sürüm bilgileri, bir tarihten veya bir derleme numarasından oluşabilir. Daha fazla bilgi için bkz. [Hizmet Sürümü Oluşturma](http://go.microsoft.com/fwlink/?LinkID=180498). Bu öğreticinin amaçları doğrultusunda, hizmet sözleşmesi ad alanının adlandırma şeması sürüm bilgilerini içermez.
+   > Genellikle, hizmet sözleşmesi ad alanı sürüm bilgilerini barındıran bir adlandırma şeması içerir. Sürüm bilgilerini hizmet sözleşmesi ad alanına dahil etmek, hizmetlerin yeni bir ad alanı içeren yeni bir hizmet sözleşmesi tanımlayarak ve bu sözleşmeyi yeni bir uç noktada kullanıma sunarak büyük değişiklikleri yalıtmalarına olanak sağlar. Bu şekilde, istemcilerin güncelleştirilmesine gerek kalmadan eski hizmet sözleşmelerini kullanmaya devam edebilirsiniz. Sürüm bilgileri, bir tarihten veya bir derleme numarasından oluşabilir. Daha fazla bilgi için bkz. [Hizmet Sürümü Oluşturma](https://go.microsoft.com/fwlink/?LinkID=180498). Bu öğreticinin amaçları doğrultusunda, hizmet sözleşmesi ad alanının adlandırma şeması sürüm bilgilerini içermez.
    >
    >
 8. İçinde `IEchoContract` arabirim, tek bir işlem için bir yöntem bildirin `IEchoContract` sözleşme arabirimde kullanıma sunduğu ve uygulama `OperationContractAttribute` gibi genel WCF geçişi sözleşmenin bir parçası olarak kullanıma sunmak istediğiniz yönteme öznitelik:

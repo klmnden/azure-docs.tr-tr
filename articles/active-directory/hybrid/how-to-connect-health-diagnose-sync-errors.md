@@ -3,7 +3,7 @@ title: Azure AD Connect Health'i - tanılama yinelenen öznitelik Eşitleme hata
 description: Bu belgede, yinelenen öznitelik eşitleme hatalarını tanılama işlemi ve olası düzeltme doğrudan Azure portalından yalnız bırakılmış nesneye senaryolar açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 2d525056f42b35c573943a4db281c8a74605a4c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315262"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282535"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Tanılama ve yinelenen öznitelik eşitleme hatalarını Düzelt
 
@@ -106,7 +106,7 @@ Bu soru, aynı kullanıcıya ait olup olmadığını görmek için Azure AD'de g
 1.  Çakışan nesne, Azure Active Directory'ye yeni eşitlendi. Nesnelerin öznitelik karşılaştırın:  
   - Görünen Ad
   - Kullanıcı Asıl Adı
-  - Nesne kimliği
+  - Nesne Kimliği
 2.  Azure AD karşılaştırma başarısız olursa, Active Directory ile sağlanan nesneler olup olmadığını denetlemek **belirtilen userprincipalnames adlı**. Yanıt **Hayır** her ikisini de bulursanız.
 
 Aşağıdaki örnekte, iki nesnenin aynı kullanıcıya ait **ALi Johnson**.

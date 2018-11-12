@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225421"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261868"
 ---
 # <a name="what-is-bing-video-search"></a>Bing Video Arama nedir?
 
@@ -47,7 +47,7 @@ Tüm isteklerin bir sunucudan yapılması gerekir.
 
 Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
 
-Belirli bir etki alanındaki videoları almak için [site:](http://msdn.microsoft.com/library/ff795613.aspx) dize işlecini kullanın.
+Belirli bir etki alanındaki videoları almak için [site:](https://msdn.microsoft.com/library/ff795613.aspx) dize işlecini kullanın.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ Video Arama API'si varsayılan olarak sorguyla ilgili tüm videoları döndürü
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Videoları video uzunluğuna göre filtreleyin (örneğin, beş dakikadan kısa videolar)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Videoları yaşa göre filtreleyin (Bing'in geçen hafta keşfettiği videolar gibi)
 
-Belirli bir etki alanındaki videoları almak için sorgu dizesine [site:](http://msdn.microsoft.com/library/ff795613.aspx) dize işlecini ekleyin.
+Belirli bir etki alanındaki videoları almak için sorgu dizesine [site:](https://msdn.microsoft.com/library/ff795613.aspx) dize işlecini ekleyin.
 
 > [!NOTE]
 > Sorguya bağlı olarak `site:` sorgu işlecini kullanmanız halinde [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch) ayarından bağımsız olarak yanıtta yetişkinlere yönelik içerik bulunabilir. `site:` işlecini yalnızca sitenin içeriği hakkında bilgi sahibiyseniz ve senaryonuz, yetişkinlere yönelik içeriğin mevcut olma ihtimalini destekliyorsa kullanın.

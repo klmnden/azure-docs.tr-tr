@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959215"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262310"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
 
@@ -121,7 +121,7 @@ Bazı öğrenme algoritmalarını, veri ya da istenen sonuçları yapısı hakk�
 | [karar ormanı](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [karar jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Düşük bellek Ayak izi |
 | [artırmalı karar ağacı](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Büyük bellek Ayak izi |
-| [sinir ağı](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Ek özelleştirme mümkündür](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [sinir ağı](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Ek özelleştirme mümkündür](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Ortalama perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [Destekli vektör makinesi](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Büyük özellik kümeleri için iyidir |
 | [yerel olarak kapsamlı destek vektör makinesi](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Büyük özellik kümeleri için iyidir |
@@ -130,7 +130,7 @@ Bazı öğrenme algoritmalarını, veri ya da istenen sonuçları yapısı hakk�
 | [Lojistik regresyon](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [karar ormanı](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [karar jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Düşük bellek Ayak izi |
-| [sinir ağı](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ek özelleştirme mümkündür](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [sinir ağı](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ek özelleştirme mümkündür](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [bir-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Seçilen iki sınıflı yöntemi özelliklerini bakın |
 | **Regresyon** | | | | | |
 | [Doğrusal](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ Bazı öğrenme algoritmalarını, veri ya da istenen sonuçları yapısı hakk�
 | [karar ormanı](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [artırmalı karar ağacı](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Büyük bellek Ayak izi |
 | [Hızlı orman quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Noktası Öngörüler yerine dağıtımları |
-| [sinir ağı](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ek özelleştirme mümkündür](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [sinir ağı](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ek özelleştirme mümkündür](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Teknik olarak günlük doğrusal. Sayıları tahmin etmek için |
 | [Sıra](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Sıra sıralama tahmin etmek için |
 | **Anormallik algılama** | | | | | |
@@ -190,7 +190,7 @@ Artırmalı karar ağaçları, kaç kez ayırabilir ve her bölgede nasıl birka
 Sinir ağları beyin ilham alınarak tasarlanan öğrenimi algoritmaları kapsayan [veya çoklu sınıflar](https://msdn.microsoft.com/library/azure/dn906030.aspx), [iki sınıflı](https://msdn.microsoft.com/library/azure/dn905947.aspx), ve [regresyon](https://msdn.microsoft.com/library/azure/dn905924.aspx) sorunları. Sonsuz bir çeşitli geldikleri, ancak Azure Machine Learning içinde sinir ağları yönlendirilmiş Çevrimsiz grafikler biçiminin tümü. Giriş özellikleri ileri (hiçbir zaman geri) katmanları sırasıyla çıkışları açık önce aktarılmasını anlamına gelir. Her katmanda girişleri çeşitli birleşimler ağırlıklı, toplamı ve sonraki katmana geçirildi. Bu basit hesaplamalar birleşimi Gelişmiş sınıfı sınırları ve veri eğilimleri görünüşte tarafından Sihirli öğrenin olanağı sonuçlanır. Çok katmanlı ağlar bu tür "çok fazla teknik raporlama ve Bilim Kurgu artırıyor derin öğrenme" gerçekleştirin.
 
 Bu yüksek performanslı ücretsiz, ancak gelmez. Sinir ağları, özellikle büyük veri kümeleri çok sayıda özellikleri için eğitmek için uzun sürebilir. Ayrıca parametre Süpürme eğitim süresini büyük ölçüde genişletir anlamına gelir çoğu algoritmaları sayısından daha fazla parametre sahiptirler.
-Ve isteyen bu overachievers [kendi ağ yapısı belirtmek](http://go.microsoft.com/fwlink/?LinkId=402867), olasılık inexhaustible.
+Ve isteyen bu overachievers [kendi ağ yapısı belirtmek](https://go.microsoft.com/fwlink/?LinkId=402867), olasılık inexhaustible.
 
 ![Sınırları öğrenilen sinir ağları tarafından][6]
 ***sinir ağları tarafından öğrenilen sınırları, karmaşık ve düzensiz olabilir.***

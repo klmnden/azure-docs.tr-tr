@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264205"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293210"
 ---
-# <a name="internet-of-things-security-architecture"></a>Nesnelerin interneti güvenliği mimarisi
+# <a name="internet-of-things-iot-security-architecture"></a>Nesnelerin interneti (IOT) güvenlik mimarisi
 
 Sistem tasarlanırken bu sistemde olası tehditleri anlamak ve sistem tasarlanmış ve desteklemesi için uygun savunmaları buna göre eklemek önemlidir. Güvenlikten ödün anlama nasıl bir saldırganın bir sistemden olabilir emin uygun Azaltıcı olmasına yardımcı olur çünkü baştan yerinde başlangıç ürün tasarlamak önemlidir.
 
@@ -27,23 +27,23 @@ Tehdit modelleme amacı, bir saldırganın nasıl bir sistemden ve uygun bir ris
 
 Birçok geliştirme ekipleri, müşterilerimiz sistem işlevsel gereksinimlerini yakalama mükemmel bir yarayacaktır. Ancak, belirgin olmayan yollar birisi sistemin kötüye tanımlayan daha zor olur. Tehdit modelleme, geliştirme takımları bir saldırgan ne anlamanıza yardımcı olabilir ve neden. Tehdit modelleme, süreç boyunca bu etkisi güvenlik yapılan tasarım değişiklikleri yanı sıra güvenlik hakkında bir tartışma tasarım kararları sistemde oluşturur. yapılandırılmış bir işlemdir. Bir tehdit modeli basitçe bir belge olsa da, bu belge de bilgi, bekletme derslerde sürekliliği hakkında bilgi edindiniz ve yeni Yardım yerleşik hızlı bir şekilde ekip emin olmak için ideal bir yöntem temsil eder. Son olarak, tehdit modelleme sonucu, güvenlik, müşterilerinize sağlamak istiyorsanız hangi güvenlik taahhütlerine gibi diğer yönlerini dikkate alınması gereken etkinleştirmektir. Bu taahhüt tehdit modelleme ile birlikte bildirin ve nesnelerin interneti (IOT) çözümünüzün test öncülük edin.
 
-### <a name="when-to-threat-model"></a>Ne zaman tehdit modeli
+### <a name="when-to-do-threat-modeling"></a>Ne zaman iş parçacığı modelleme
 
 [Tehdit modelleme](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) tasarım aşaması bünyesine aldığınızda en büyük değer sunar. Tasarlarken, tehditleri ortadan kaldırmak için değişiklik yapmak için en fazla esnekliğine sahipsiniz. Tasarım gereği tehditleri ortadan istenen sonuç elde edilir. Risk azaltma işlemleri ekleme, bunları test etmeye ve geçerli kalırlar ve ayrıca, bu tür eleme her zaman mümkün değildir daha çok daha kolay olur. Bir ürün daha olgun haline gelir ve daha fazla iş ve geliştirme erkenden modelleme tehdit daha çok daha zor ödünler sırayla sonuçta gerektirir tehditleri ortadan kaldırmak daha zor hale gelir.
 
-### <a name="what-to-threat-model"></a>Tehdit modeli gerekenler
+### <a name="what-to-consider-for-threat-modeling"></a>Tehdit modelleme için göz önüne alınması gerekenler
 
-Tehdit modeli bir bütün olarak çözüm ve ayrıca aşağıdaki alanlarda odaklanmak gerekir:
+Çözüm tam ve ayrıca aşağıdaki alanlara odaklanacak olarak gözden geçirmeniz:
 
 * Güvenlik ve gizlilik özellikleri
 * Güvenlik ilgili olan hataları özellikleri
 * Güven sınırının touch özellikleri
 
-### <a name="who-threat-models"></a>Kimin modelleri tehdit
+### <a name="who-performs-threat-modeling"></a>Kimin tehdit modelleme gerçekleştirir
 
 Tehdit modelleme gibi başka bir işlemdir. Tehdit modeli belgenin herhangi bir çözüm bileşeninin gibi ele almanız ve bunu doğrulamak için iyi bir fikirdir. Birçok geliştirme ekipleri, müşterilerimiz sistem işlevsel gereksinimlerini yakalama mükemmel bir yarayacaktır. Ancak, belirgin olmayan yollar birisi sistemin kötüye tanımlayan daha zor olur. Tehdit modelleme, geliştirme takımları bir saldırgan ne anlamanıza yardımcı olabilir ve neden.
 
-### <a name="how-to-threat-model"></a>Nasıl yapılır tehdit modeli
+### <a name="how-to-perform-threat-modeling"></a>Tehdit modelleme gerçekleştirme
 
 Tehdit modelleme işlemi dört adımdan oluşur; adımlar şunlardır:
 
@@ -57,16 +57,21 @@ Tehdit modelleme işlemi dört adımdan oluşur; adımlar şunlardır:
 Üç kuralları bir tehdit modeli oluşturulurken göz önünde bulundurmanız karşısında:
 
 1. Başvuru mimarisi dışında bir diyagramı oluşturun.
-1. Avantajlarına ilk başlatın. Genel bir bakış edinin ve ayrıntılı girmeden önce bir bütün olarak sistemin anlayın. Bu yaklaşım sağlamaya yardımcı olur. Bu, yakından Bakış bölümünde doğru yerlerde.
-1. İşlem sürücü, sürücüsü işlem izin vermeyin. Bir sorun model oluşturma aşamasında bulun ve araştırabilirsiniz istiyorsanız için gidin! Bu adımları slavishly gerektiğini gerektiği hissine kapılmayın.
+
+2. Avantajlarına ilk başlatın. Genel bir bakış edinin ve ayrıntılı girmeden önce bir bütün olarak sistemin anlayın. Bu yaklaşım sağlamaya yardımcı olur. Bu, yakından Bakış bölümünde doğru yerlerde.
+
+3. İşlem sürücü, sürücüsü işlem izin vermeyin. Bir sorun model oluşturma aşamasında bulun ve araştırabilirsiniz istiyorsanız için gidin! Bu adımları slavishly gerektiğini gerektiği hissine kapılmayın.
 
 #### <a name="threats"></a>Tehditler
 
 Bir tehdit modeli dört temel öğeleri şunlardır:
 
 * Web Hizmetleri, Win32 hizmetleri gibi işlemler ve * nix Daemon'ları. Bir işlem teknik ayrıntıya gitme, bu alanlarda mümkün olmadığından bazı karmaşık varlıkları (örneğin, alan ağ geçitleri ve sensörlerden) soyutlanır.
+
 * Verileri (herhangi bir yapılandırma dosyası veya veritabanı gibi veriler depolanır) depolar.
+
 * Veri akışı (veri uygulamadaki diğer öğeler arasındaki geçtiği)
+
 * Dış varlıklar (sistemiyle etkileşimli herhangi bir şey ancak uygulama denetimi altında örnekler kullanıcıları eklemek ve uydu akışları)
 
 Mimari diyagramdaki tüm öğeleri, çeşitli tehditleri tabi olan; Bu makalede STRIDE anımsatıcı. Okuma [yeniden tehdit modelleme, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) STRIDE öğeler hakkında daha fazla bilgi edinmek için.
@@ -135,7 +140,7 @@ Bir şey varsa "gelecek yanlış" otomatik olarak veya uzaktan denetlenebilir ci
 
 Etkileşim desenleri keşfetmenizde "cihaz denetimi" ve "cihaz verileri" ile aynı düzeyde dikkatini tehdit modelleme sırasında bakın. "Cihaz control" bir cihaz için değiştirme veya durumuna veya ortamın durumunu doğru davranışını etkileyen amacı ile herhangi bir şirket tarafından sağlanan herhangi bir bilgi olarak sınıflandırılabilir. "Cihaz verileri" durumuna ve ortam gözlemlenen durumu hakkında herhangi bir taraf için bir cihaz yayan herhangi bir bilgi olarak sınıflandırılabilir.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Azure IOT başvuru Mimarisi Modelleme tehdit
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Azure IOT başvuru Mimarisi Modelleme tehdit gerçekleştirme
 
 Microsoft tehdit modelleme için Azure IOT yapmak için daha önce açıklanan framework kullanır. Aşağıdaki bölümde, IOT için modelleme tehdit hakkında düşünmek ve tanımlanan tehditlere göstermek için Azure IOT başvuru mimarisi somut örneği kullanır. Bu örnekte, dört ana alan odak tanımlar:
 

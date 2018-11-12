@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 605533f25b36a92a660301d28aa63cb2ecdd44f4
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37910061"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285710"
 ---
 Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU’ları seçin.
 
@@ -29,7 +29,7 @@ Yeni VPN ağ geçidi SKU'ları ağ geçitlerinde sunulan özellik kümeleri aç�
 
 | **SKU**| **Özellikler**|
 | ---    | ---         |
-|**Temel** (\*\*)   | **Rota tabanlı VPN**: P2S ile 10 tünel; P2S için; RADIUS kimlik doğrulaması P2S için Ikev2 yok<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
+|**Temel** (\*\*)   | **Rota tabanlı VPN**: S2S/bağlantılar için 10 tünel; P2S için; RADIUS kimlik doğrulaması P2S için Ikev2 yok<br>**İlke tabanlı VPN**: (Ikev1): 1 S2S/bağlantı tünel; P2S yok|
 | **VpnGw1, VpnGw2 ve VpnGw3** | **Rota tabanlı VPN**: 30 tünele kadar (*), P2S, BGP, etkin-etkin, özel IPSec/IKE İlkesi, ExpressRoute/VPN birlikte kullanımı |
 |        |             |
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: a8c7df4ba1cd919a23fc45ee165584cd9a85afed
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ff560715f9c6aff8f50d3b20db1f3e79f3527113
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211324"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257308"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -99,7 +99,7 @@ Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md
 Azure kullanıcı hesabınızın belirli olması gerekiyorsa [izinleri](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) yeni bir sanal makinenin azure'a çoğaltılmasını sağlamak.
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Hyper-V 2.nesil sanal makinelerini Azure'a çoğaltabilir miyim?
-Evet. Site Recovery, 1. kuşak yük devretme sırasında 2. dönüştürür. Yeniden çalışmada, geri kuşak 2 makine dönüştürülür. [Daha fazla bilgi edinin](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Evet. Site Recovery, 1. kuşak yük devretme sırasında 2. dönüştürür. Yeniden çalışmada, geri kuşak 2 makine dönüştürülür. [Daha fazla bilgi edinin](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### <a name="if-i-replicate-to-azure-how-do-i-pay-for-azure-vms"></a>Azure'a çoğaltma işlemi gerçekleştirirken Azure VM'leri için nasıl ödeme yaparım?
 Normal çoğaltma sırasında veriler coğrafi olarak yedekli Azure depolama alanına çoğaltılır ve önemli bir avantaj sağlayan herhangi bir Azure Iaas sanal makine ücreti ödeme yapmak gerekmez. Azure'a yük devretme işleminde ise Site Recovery otomatik olarak Azure IaaS sanal makineleri oluşturur ve ardından Azure'da kullandığınız işlem kaynakları için faturalandırılırsınız.

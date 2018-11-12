@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215438"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261715"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple cihaz Denetleyicilerini Yönet
 
@@ -117,7 +117,7 @@ Microsoft Azure StorSimple Cihazınızı fabrika varsayılan ayarlarına sıfır
    
     `Reset-HcsFactoryDefault`
    
-    Bunun yerine tek bir denetleyici sıfırlamak için kullanın [sıfırlama HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet'iyle `-scope` parametre.)
+    Bunun yerine tek bir denetleyici sıfırlamak için kullanın [sıfırlama HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet'iyle `-scope` parametre.)
    
     Sistem, birden çok kez yeniden başlatılır. Sıfırlama başarıyla tamamlandığında size bildirilir. Sistem modeline bağlı olarak, uygulamanın 45-60 dakika 8100 bir cihaz için ve bu işlemi tamamlamak 8600 ürünü için 60-90 dakika sürebilir.
    

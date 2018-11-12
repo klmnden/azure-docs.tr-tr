@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 39bcea36f3599530413aa9fc4dbb308ee2fb1681
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.date: 11/8/2018
+ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066862"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300701"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>İçin Azure veritabanı geçiş hizmetini kullanarak Azure SQL DB yönetilen örneği geçişlerinin ağ topolojileri
 Bu makalede, kapsamlı bir geçiş deneyimi için Azure SQL veritabanı yönetilen örneği şirket içi SQL Server'lardaki sağlamak için Azure veritabanı geçiş hizmeti çalışabilirsiniz çeşitli ağ topolojileri açıklanır.
@@ -64,10 +64,26 @@ Bir veya daha fazla aşağıdaki senaryolarda ortamınızın gerektiriyorsa, bu 
 **Gereksinimleri**
 - Ayarlanan [VNET ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure SQL veritabanı yönetilen örneği ve Azure veritabanı geçiş hizmeti için kullanılan sanal ağ arasında.
 
+## <a name="inbound-security-rules"></a>Gelen güvenlik kuralları
+
+| **ADI**   | **BAĞLANTI NOKTASI** | **PROTOKOLÜ** | **KAYNAK** | **HEDEF** | **EYLEM** |
+|------------|----------|--------------|------------|-----------------|------------|
+| DMS_subnet | Herhangi biri      | Herhangi biri          | DMS ALT AĞ | Herhangi biri             | İzin Ver      |
+
+## <a name="outbound-security-rules"></a>Giden güvenlik kuralları
+
+| **ADI**                  | **BAĞLANTI NOKTASI**                                              | **PROTOKOLÜ** | **KAYNAK** | **HEDEF**           | **EYLEM** | **Kural nedeni**                                                                                                                                                                              |
+|---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| yönetim                | 443,9354                                              | TCP          | Herhangi biri        | Herhangi biri                       | İzin Ver      | Service bus ve Azure blob depolama ile yönetim düzlemi iletişim. <br/>(Microsoft eşdüzey hizmet sağlama etkinse, bu kural gerekmeyebilir.)                                                             |
+| Tanılama               | 12000                                                 | TCP          | Herhangi biri        | Herhangi biri                       | İzin Ver      | DMS, sorun giderme amacıyla tanılama bilgilerini toplamak için bu kural kullanır.                                                                                                                      |
+| SQL kaynak sunucusu         | 1433 (veya SQL Server dinlediği TCP/IP bağlantı noktası) | TCP          | Herhangi biri        | Şirket içi adres alanı | İzin Ver      | DMS SQL Server Kaynak bağlantısı <br/>(Siteden siteye bağlantınız varsa, bu kural gerekmeyebilir.)                                                                                       |
+| SQL Server'ın adlandırılmış örneği | 1434                                                  | UDP          | Herhangi biri        | Şirket içi adres alanı | İzin Ver      | SQL Server adlandırılmış örneği DMS kaynak bağlantısı <br/>(Siteden siteye bağlantınız varsa, bu kural gerekmeyebilir.)                                                                        |
+| SMB paylaşımı                 | 445                                                   | TCP          | Herhangi biri        | Şirket içi adres alanı | İzin Ver      | SMB ağ paylaşımı için Azure sanal makinesinde Azure SQL veritabanı ve SQL Server'lar geçişler için veritabanı yedekleme dosyaları depolamak DMS <br/>(Siteden siteye bağlantı varsa, bu kural gerekebilir değil). |
+| DMS_subnet                | Herhangi biri                                                   | Herhangi biri          | Herhangi biri        | DMS_Subnet                | İzin Ver      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 - [SQL Server'ı Azure SQL veritabanı yönetilen örneğine geçirme](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Azure veritabanı geçiş hizmeti kullanma önkoşulları genel bakış](https://docs.microsoft.com/azure/dms/pre-reqs)
+- [Azure Veritabanı Geçiş Hizmeti'ni kullanmak için önkoşullara genel bakış](https://docs.microsoft.com/azure/dms/pre-reqs)
 - [Azure portalını kullanarak bir sanal ağ oluşturma](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>Sonraki adımlar

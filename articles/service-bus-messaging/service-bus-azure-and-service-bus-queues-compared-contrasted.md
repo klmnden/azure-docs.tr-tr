@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f48e9a5600dca1e13d6ee94a675d5bc824915118
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393970"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261069"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
 Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları Çözümler: depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -70,7 +70,7 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel
 | Sıralama garantisi |**Hayır** <br/><br>Daha fazla bilgi için ilk Not "Ek bilgileri" bölümüne bakın.</br> |**Evet - ilk-giren ilk çıkar (FIFO)**<br/><br>(ileti oturumları kullanarak) |
 | Teslimi garanti |**En az bir kez** |**En az bir kez**<br/><br/>**En büyük bir kez** |
 | Atomik işlem desteği |**Hayır** |**Evet**<br/><br/> |
-| Davranış alırsınız |**Engelleyici olmayan**<br/><br/>(yeni ileti bulunursa hemen tamamlanır) |**Zaman aşımı olan/olmayan engelleme**<br/><br/>(uzun yoklama sunar veya ["Comet teknik"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Engelleyici olmayan**<br/><br/>(.NET kullanarak API sadece yönetilen) |
+| Davranış alırsınız |**Engelleyici olmayan**<br/><br/>(yeni ileti bulunursa hemen tamamlanır) |**Zaman aşımı olan/olmayan engelleme**<br/><br/>(uzun yoklama sunar veya ["Comet teknik"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Engelleyici olmayan**<br/><br/>(.NET kullanarak API sadece yönetilen) |
 | Anında iletme stili API |**Hayır** |**Evet**<br/><br/>[Pushhandlerservice](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) ve **Onmessageoptions** oturumlarının .NET API. |
 | Modu alır |**Özet & kiralama** |**Özet & Kilitle**<br/><br/>**Alma ve silme** |
 | Özel erişim modu |**Kira tabanlı** |**Kilit tabanlı** |

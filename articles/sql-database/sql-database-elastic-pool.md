@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241217"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283572"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım
 
@@ -113,10 +113,10 @@ Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler 
 
 1. Edtu veya sanal çekirdek havuz için şu şekilde gerekli tahmin:
 
-   DTU tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *ortalama veritabanı başına DTU kullanımı* >,<br>
+   DTU tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *ortalama veritabanı başına DTU kullanımı*>,<br>  
    <*Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı* X *Veritabanı başına en yüksek DTU kullanımı*)
 
-   Sanal çekirdek tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *sanal çekirdek kullanımı veritabanı başına ortalama* >,<br>
+   Sanal çekirdek tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *sanal çekirdek kullanımı veritabanı başına ortalama*>,<br>  
    <*Eşzamanlı olarak en üst seviyeye çıkan sayısı DBs* X *veritabanı başına en yüksek sanal çekirdek kullanımı*)
 
 2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin.
