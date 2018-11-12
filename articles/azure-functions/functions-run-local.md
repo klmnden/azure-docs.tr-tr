@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: cc3a835c0322aded4a92b15c1320259780ffb6d2
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249229"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346431"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -114,16 +114,6 @@ Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debi
     sudo apt-get install azure-functions-core-tools
     ```
 
-### <a name="v1"></a>Sürüm 1.x
-
-İşlevler 1.x çalışma zamanı araçlarını orijinal sürümünü kullanır. Bu sürümü .NET Framework (4.7.1'i) kullanır ve yalnızca Windows bilgisayarlarda desteklenir. Sürüm 1.x Araçları'nı yüklemek için önce [Nodejs'yi yüklemeniz](https://docs.npmjs.com/getting-started/installing-node), npm içerir.
-
-Sürüm 1.x araçlarını yüklemek için aşağıdaki komutu kullanın:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
-
 ## <a name="create-a-local-functions-project"></a>Bir yerel işlevler projesi oluşturma
 
 İşlevleri proje dizini dosyalarını içeren [host.json](functions-host-json.md) ve [local.settings.json](#local-settings-file), tekil işlevler için kod içeren klasörleri yanı sıra. Bu dizinde bir Azure işlev uygulamasında eşdeğerdir. İşlevleri klasör yapısı hakkında daha fazla bilgi için bkz: [Azure işlevleri Geliştirici Kılavuzu](functions-reference.md#folder-structure).
@@ -214,7 +204,7 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 
 + [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
 + [C# betiği (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F # betik (.fsx)](functions-reference-fsharp.md#environment-variables)
++ [F#betik (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -288,7 +278,7 @@ Bu seçenekler şu bağımsız değişkenler kullanarak komutu belirtebilirsiniz
 | Bağımsız Değişken     | Açıklama                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Sürüm 2.x) Sürümünde kullanılan aynı C# betiği (.csx) şablonları oluşturur 1.x ve Portalı'nda. |
-| **`--language -l`**| Programlama dili, C#, F # veya JavaScript gibi şablon. Bu seçenek sürümünde gerekli 1.x. Sürüm 2.x değil Bu seçeneği kullanın veya alt çalışma zamanı ile eşleşen bir dil seçin. |
+| **`--language -l`**| Gibi programlama dili, şablon C#, F#, veya JavaScript. Bu seçenek sürümünde gerekli 1.x. Sürüm 2.x değil Bu seçeneği kullanın veya alt çalışma zamanı ile eşleşen bir dil seçin. |
 | **`--name -n`** | İşlev adı. |
 | **`--template -t`** | Kullanım `func templates list` desteklenen her dil için kullanılabilir şablonların tam listesi görmek için komutu.   |
 

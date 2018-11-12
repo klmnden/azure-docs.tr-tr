@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390185"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016710"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -48,13 +48,9 @@ Dikkate alınması gereken bazı noktalar şunlardır:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric düğümleri otomatik olarak işletim sistemi güncelleştirmeleri alacak mıyım?
 
-Bugün değil, ancak aynı zamanda Azure teslim amaçlayan yaygın bir istek budur.
+Kullanabileceğiniz [sanal makine ölçek kümesi otomatik işletim sistemi görüntüsü güncelleştirme](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) bugün genel kullanıma açık özellik.
 
-Bu arada, sahip olduğumuz [uygulama sağlanan](service-fabric-patch-orchestration-application.md) , Service Fabric düğümleri altındaki işletim sistemi düzeltme eki uygulama ve güncel kalın.
-
-Sınama ile işletim sistemi güncelleştirmeleri, bunlar genellikle geçici kullanılabilirliği kaybı ile sonuçlanır makinenin yeniden başlatılmasını gerektirir ' dir. Service Fabric diğer düğümlere otomatik olarak bu hizmetler için trafiği yönlendirir kendisi tarafından bir sorun değildir. Ancak, işletim sistemi güncelleştirmelerini kümede düzenlenir değil, aynı anda birçok düğüm Git aşağı olasılığı yoktur. Aynı anda böyle bir yeniden başlatma veya bir hizmet için tam kullanılabilirlik kaybına neden olabilir (durum bilgisi olan bir hizmeti için) belirli bir bölüm için en az.
-
-Gelecekte, tamamen otomatik ve güncelleştirme etki alanları arasında eşgüdümlü bir işletim sistemi güncelleştirme ilkesi desteklemek yeniden başlatma ve diğer beklenmeyen hatalar rağmen kullanılabilirlik korunur sağlama planlıyoruz.
+Azure'da çalıştırma kümeler için sahibiz [uygulama sağlanan](service-fabric-patch-orchestration-application.md) , Service Fabric düğümleri altındaki işletim sistemlerine yama yapma.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Büyük sanal makine ölçek kümeleri SF kümem kullanabilir miyim? 
 

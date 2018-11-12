@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: c69a61f19b55cd325cd594173dbf3b5f2b4576b8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962937"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015783"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft azure'da Klasik uyarılar nedir?
 
@@ -29,7 +29,7 @@ Son Azure İzleyici'de, Application Insights, Log Analytics ve hizmetin sistem d
 
 Azure portalında Klasik uyarıları kullanıcı ekran, yalnızca klasik uyarıları görüntüleyebilirsiniz. Bu ekrandan alma **Klasik uyarıları görüntüleyip** uyarılar ekranında düğmesi. 
 
- ![Azure portalında uyarı seçenekleri](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)�
+ ![Azure portalında uyarı seçenekleri](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 Yeni uyarılar kullanıcı deneyimi üzerinde Klasik uyarılar deneyiminin aşağıdaki faydaları vardır:
 -   **Daha iyi bir bildirim sistemi** -tüm yeni uyarıları, bildirimleri ve Uyarıları birden çok yeniden kullanılabilir eylemler grupları adlı eylem grupları kullanın. Klasik ölçüm uyarısı ve eski Log Analytics uyarılarını Eylem grupları kullanmayın.
@@ -40,7 +40,7 @@ Yeni uyarılar kullanıcı deneyimi üzerinde Klasik uyarılar deneyiminin aşa�
 -   **Uyarı birleştirme akıllı** ve **uyarı durumu ayarlama** -yeni uyarılar, otomatik gruplandırma işlevi birlikte aşırı yükleme kullanıcı arabiriminde azaltmak için benzer uyarıların gösteren içerir. 
 
 Yeni ölçüm uyarılarının Klasik ölçüm uyarılarını aşağıdaki avantajlara sahiptir:
--   **Geliştirilmiş gecikme**: yeni ölçüm uyarılarının dakikada bir kadar sık çalıştırılabilir. Eski ölçüm uyarıları olan 5 dakikada bir sıklığında her zaman çalışır. Yeni uyarıların bildirim ya da eylem (3-5 dakika) daha küçük occurance sorun gecikme artırma vardır. 5-15 dakika türüne bağlı olarak eski uyarılardır.  Günlük uyarıları genellikle sahip 10-15 dakika gecikme süresi nedeniyle günlükleri alma kadar süreceğine bağlıdır, ancak yeni işleme yöntemler bu süre azaltır. 
+-   **Geliştirilmiş gecikme**: yeni ölçüm uyarılarının dakikada bir kadar sık çalıştırılabilir. Eski ölçüm uyarıları olan 5 dakikada bir sıklığında her zaman çalışır. Yeni uyarıların daha küçük gecikme sorunu oluşum bildirim veya (3-5 dakika) eylemi için artan vardır. 5-15 dakika türüne bağlı olarak eski uyarılardır.  Günlük uyarıları genellikle sahip 10-15 dakika gecikme süresi nedeniyle günlükleri alma kadar süreceğine bağlıdır, ancak yeni işleme yöntemler bu süre azaltır. 
 -   **Çok boyutlu ölçümler için destek**: ölçüm ilgi çekici bir segmentini izlemenize olanak sağlayan boyutlu ölçümler üzerinde sizi uyarabilir.
 -   **Ölçüm koşullar hakkında daha fazla denetime**: daha zengin bir uyarı kuralları tanımlayabilirsiniz. Yeni uyarılar ölçüm maksimum, minimum, ortalama ve toplam değer izleme desteği sunar.
 -   **Birden çok ölçümlerini izleme birleştirilmiş**: (şu anda en fazla iki ölçüm) birden çok ölçümleri tek bir kural ile izleyebilirsiniz. Her iki ölçüm, belirtilen zaman aralığı için ilgili kendi eşiklerini ihlal etmeniz durumunda bir uyarı tetiklenir.

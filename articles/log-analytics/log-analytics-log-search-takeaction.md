@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d86a4de5f54d0c1c492fa17081623366692712af
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c6206d4aa98ab3c9744f1f82840817b4bdb000ef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959792"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016344"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Log Analytics günlük araması sonuç Otomasyon Runbook'u ile bir eylem
 
@@ -32,7 +32,7 @@ Azure Log Analytics'da bir günlük Arama sonuçlarından artık seçebilirsiniz
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Runbook günlük araması'nı başlatmak için
 
-Bir olayı harekete ve günlük arama sonuçlarınızı runbook başlatmak için bir günlük araması oluşturma işlemiyle başlayın ve sonuçları bir runbook isteğe bağlı çağırabilirsiniz.  Bu, günlük arama özelliğinden gerçekleştirilebilir [Azure portalında](log-analytics-log-search.md).  Bu örnekte, bu özelliğin temel bir örnek ile Azure portalından bir günlük araması gerçekleştirin.
+Bir olayı harekete ve günlük arama sonuçlarınızı runbook başlatmak için bir günlük araması oluşturma işlemiyle başlayın ve sonuçları bir runbook isteğe bağlı çağırabilirsiniz.  Bu, günlük arama özelliğinden gerçekleştirilebilir [Azure portalında](log-analytics-queries.md).  Bu örnekte, bu özelliğin temel bir örnek ile Azure portalından bir günlük araması gerçekleştirin.
 
 1. Azure portalında **tüm hizmetleri** seçip **Log Analytics**.  
 2. Log Analytics çalışma alanınızı seçin.
@@ -51,5 +51,5 @@ Olmak üzere yapılandırılmış bir runbook seçeneğini belirlerseniz [bir Lo
     
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Gözden geçirme [Log Analytics günlük araması başvuru](log-analytics-log-search.md) tüm özellikleri Log Analytics'te kullanılabilir ve arama alanlarını görüntüleyin.
+* Gözden geçirme [Log Analytics günlük araması başvuru](log-analytics-queries.md) tüm özellikleri Log Analytics'te kullanılabilir ve arama alanlarını görüntüleyin.
 * Bir Otomasyon runbook'unu otomatik olarak çağırmak nasıl bilgi edinmek için [bir Log Analytics uyarısından Azure Otomasyonu runbook'u çağırma](../automation/automation-create-alert-triggered-runbook.md).  

@@ -2,18 +2,18 @@
 title: Azure depolama BLOB'ları için sabit depolama | Microsoft Docs
 description: Azure depolama, kullanıcıların verileri silinebilir olmayan ve değiştirilebilir olmayan bir durumda, belirtilen bir zaman aralığı için depolamak olanak sağlayan Blob (nesne) depolama SOLUCAN (bir kez yazma, okuma çok) desteği sunar.
 services: storage
-author: MichaelHauss
+author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: mihauss
+ms.date: 11/05/2018
+ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156910"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037014"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
@@ -194,7 +194,7 @@ Evet, Set Blob Tier komutunu kullanarak verileri katmanlar arasında aktarabilir
 
 **Özelliği deneyebilmek için deneme veya yetkisiz kullanım süresi sunuyor musunuz?**
 
-Evet. Zamana bağlı bekletme ilkesini ilk oluşturulduğunda bulunduğu bir *kilidi* durumu. Bu durumda, bekletme aralığı, artış gibi istediğiniz herhangi bir değişiklik yapmak veya azaltma ve bile ilkeyi silin. İlke kilitlendikten sonra sonsuza kadar silinemediğini kilitli kalır. Ayrıca ilke kilitlendikten sonra saklama süresi kısaltılamaz. Kullanmanızı öneririz *kilidi* durum yalnızca deneme amacıyla ve ilkeyi bir 24 saatlik süre içinde kilitleyin. Bu yöntemler sn 17a-4(f) ve diğer düzenlemelere uygun yardımcı olur.
+Evet. Zamana bağlı bekletme ilkesini ilk oluşturulduğunda bulunduğu bir *kilidi* durumu. Bu durumda, bekletme aralığı, artış gibi istediğiniz herhangi bir değişiklik yapmak veya azaltma ve bile ilkeyi silin. İlke kilitlendikten sonra elde tutma aralığı süresi dolana kadar kilitli kalır. Bu, silme ve bekletme aralığı için değişiklik engeller. Kullanmanızı öneririz *kilidi* durum yalnızca deneme amacıyla ve ilkeyi bir 24 saatlik süre içinde kilitleyin. Bu yöntemler sn 17a-4(f) ve diğer düzenlemelere uygun yardımcı olur.
 
 **Bu özellik ulusal ve kamu bulutlarında mevcut mu?**
 

@@ -1,5 +1,5 @@
-# [Azure Market ve AppSource belgeleri](index.md)  
-
+# [Azure Market ve AppSource belgeleri](index.md)
+## [Derecelendirme ve ilkeleri gözden geçirme](./rating-review-policies.md)   
 ## [Azure Market ve AppSource genel bakışı ve avantajları](./marketplace-publishers-guide.md)  
 
 ### [Markette yayımcı olma](./become-publisher.md)  
@@ -34,6 +34,14 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Bulut İş Ortağı Portalı](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## Portal yönetimi
+### [Geliştirme merkezi hesabı kaydı](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+### [Özel SKU’lar](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+### [SEO kılavuzu](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Yayımcı profilini yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+### [Kullanıcıları yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+### [GDPR uyumluluğu](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## [Sanal makine teklifi](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 ### [Önkoşullar](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -70,8 +78,7 @@
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
 
-## Azure uygulamaları
-### [Geliştirme merkezi hesabı kaydı](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+## [Azure uygulama teklifi](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
 ### [Yönetilen uygulama oluşturma](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
 ### [Çözüm şablonu oluşturma](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
 ### [Yönetim Çözümü Yayımlama](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
@@ -79,14 +86,12 @@
 ### [Teklifi canlı yayımlama](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [Mevcut teklifi güncelleştirme](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [Teklifi silme](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-### [Teklifleri geçirme](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
 
-## SaaS uygulamaları
+## [SaaS uygulama teklifi](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS uygulamaları teknik yayımlama kılavuzu](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [Azure üzerinden SaaS satışı](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS API’leri](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-
-<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [Kapsayıcılar teklifi](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Önkoşullar](./cloud-partner-portal/containers/cpp-prerequisites.md)
@@ -98,6 +103,7 @@
 ### [Kapsayıcı teknik varlıklarını oluşturma](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
 ### [Kapsayıcı teklifini yayımlama](./cloud-partner-portal/containers/cpp-publish-offer.md)
 ### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [IoT Edge modülü teklifi](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Önkoşullar](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
@@ -118,24 +124,16 @@
 ### [IoT Edge module FAQ](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md)
 -->
 
-## Müşteri adaylarını yönetme
-### [Müşteri adaylarını yapılandırma](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure tablosu](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS Uç Noktası](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
-## Müşteri Etkileşimi için Dynamics 365
+## [Müşteri Etkileşimi için Dynamics 365 teklifi](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [Çözüm oluşturma](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [Paket oluşturma](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [SAS anahtarı oluşturma](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [Teklif oluşturma](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [Teklif yayımlama](./cloud-partner-portal-orig/request-to-publish-the-app.md)
 
-## Dynamics 365 for Business Central
+## [Dynamics 365 for Business Central teklifi](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [Genel bakış yayımlama](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
 ### [Yeni teklif oluşturma](./cloud-partner-portal-orig/d365-finance-create-new-offer.md)
 ### [Teklif ayarları](./cloud-partner-portal-orig/d365-finance-create-offer-settings.md)
@@ -143,7 +141,7 @@
 ### [Vitrin ayrıntıları](./cloud-partner-portal-orig/d365-finance-create-storefront-details.md)
 ### [Yayımlama işlemi](./cloud-partner-portal-orig/d365-finance-app-publishing-process.md)
 
-## Dynamics 365 for Operations
+## [Dynamics 365 for Operations teklifi](./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)
 ### [Önkoşullar](./cloud-partner-portal-orig/pre-requisites.md)
 ### [Yayımlama nasıl yapılır?](./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md)
 ### [LCS aboneliği](./cloud-partner-portal-orig/lcs-subscription.md)
@@ -151,6 +149,11 @@
 ### [Veri varlıkları](./cloud-partner-portal-orig/data-entities.md)
 ### [BPM ve metodolojiler](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [Yardım wiki’si](./cloud-partner-portal-orig/help-wiki.md)
+
+## [Danışmanlık hizmetleri](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+## [Yayımcı profilini yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+## [Kullanıcıları yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+## [GDPR uyumluluğu](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## Test Sürüşü
 ### [Test Sürüşü nedir?](./cloud-partner-portal-orig/what-is-test-drive.md)
@@ -160,12 +163,15 @@
 ### [Test Sürüşü örnekleri dönüştürme](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
 ### [Pazarlama ve en iyi yöntemler](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
-## [Danışmanlık hizmetleri](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
-## [Yayımcı profilini yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Kullanıcıları yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR uyumluluğu](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+## Müşteri adaylarını yönetme
+### [Müşteri adaylarını yapılandırma](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+### [Azure tablosu](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+### [HTTPS Uç Noktası](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
 
-## Insights
+## Seller Insights
 ### [Başlarken](./cloud-partner-portal-orig/si-getting-started.md)
 ### [Yenilikler](./cloud-partner-portal-orig/si-changes.md)
 ### [Web analizi](./cloud-partner-portal-orig/web-analytics.md)

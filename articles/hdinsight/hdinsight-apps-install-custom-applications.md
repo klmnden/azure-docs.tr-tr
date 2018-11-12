@@ -1,24 +1,24 @@
 ---
-title: Azure HDInsight üzerinde kendi özel Hadoop uygulamaları yükleme
+title: Azure HDInsight üzerinde kendi özel bir Apache Hadoop uygulamaları yükleme
 description: HDInsight uygulamalarına HDInsight uygulamalarını nasıl yükleyeceğinizi öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b5870d53053511cb56f668943678aeb91bf23b3b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983149"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035365"
 ---
-# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight'a özel Hadoop uygulamaları yükleme
+# <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight üzerinde özel Apache Hadoop uygulamaları yükleme
 
-Bu makalede, Azure portalına yayımlanmamış bir Hadoop uygulamasının Azure HDInsight’a nasıl yükleneceğini öğreneceksiniz. Bu makalede yükleyeceğiniz uygulama [Hue](http://gethue.com/) uygulamasıdır.
+Bu makalede, Azure HDInsight, Azure portalına yayımlanmamış bir Apache Hadoop uygulama yükleneceğini öğreneceksiniz. Bu makalede yükleyeceğiniz uygulama [Hue](http://gethue.com/) uygulamasıdır.
 
 HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır.  Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir.  
 

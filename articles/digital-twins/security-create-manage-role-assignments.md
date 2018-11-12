@@ -1,6 +1,6 @@
 ---
 title: Azure dijital İkizlerini cihaz bağlantısı ve kimlik doğrulaması'nı anlama | Microsoft Docs
-description: Bağlanmak ve cihazların kimliklerini doğrulamak için Azure dijital İkizlerini kullanma
+description: Azure dijital İkizlerini bağlama ve cihazların kimliklerini doğrulamak için kullanın
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -8,28 +8,28 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324304"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012471"
 ---
-# <a name="create-and-manage-role-assignments"></a>Oluşturma ve rol atamalarını yönetme
+# <a name="create-and-manage-role-assignments"></a>Rol atamalarını oluşturma ve yönetme
 
 Azure dijital İkizlerini kullanır rol tabanlı erişim denetimi ([RBAC](./security-role-based-access-control.md)) kaynaklara erişimi yönetmek için.
 
 Her rol ataması içerir:
 
-* Bir **tanımlayıcı nesne** (bir Azure Active Directory Kimliğini, hizmet sorumlusu nesne kimliği veya etki alanı adı).
-* Bir **nesne tanımlayıcı türü**.
-* A **rol tanımı kimliği**.
-* A **alan yolu**.
-* (Çoğu durumda) Azure Active Directory **Kiracı kimliği**.
+* **Nesne tanımlayıcısı**: bir Azure Active Directory Kimliğini, hizmet sorumlusu nesne kimliği veya etki alanı adı
+* **Nesne tanımlayıcı türü**
+* **Rol tanımı kimliği**
+* **Alan yolu**
+* **Kiracı kimliği**: Çoğu durumda, Azure Active Directory Kiracı kimliği
 
 ## <a name="role-definition-identifiers"></a>Rol tanımı tanımlayıcıları
 
-Aşağıdaki tabloda, hangi System/roller API sorgulayarak alınabilir gösterilmiştir:
+Aşağıdaki tabloda, hangi system/roller API sorgulayarak alınabilir gösterilmektedir.
 
 | **Rol** | **tanımlayıcı** |
 | --- | --- |
@@ -41,11 +41,11 @@ Aşağıdaki tabloda, hangi System/roller API sorgulayarak alınabilir gösteril
 | Kullanıcı | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | Destek Uzmanı | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Cihaz yükleyici | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
+| Ağ geçidi cihazı | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>Desteklenen ObjectIdTypes
 
-Desteklenen `ObjectIdTypes` şunlardır:
+Desteklenen `ObjectIdTypes`:
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Ad** | **Gerekli** | **Tür** | **Açıklama** |
 | --- | --- | --- | --- |
-| Rol Kimliği| Evet |dize | Rol tanımı tanımlayıcısı. Rol tanımları ve bunların tanımlayıcıları sistem API'si sorgulanarak bulunabilir. |
-| objectId | Evet |dize | Nesne kimliği, ilişkili türüne göre biçimlendirilmelidir rol ataması. İçin `DomainName` ObjectIdType, nesne kimliği ile başlamalıdır `“@”` karakter. |
-| objectIdType | Evet |dize | Rol ataması türü. Bu tabloda aşağıdaki satırları biri olmalıdır. |
-| Kiracı kimliği | Değişir | dize |Kiracı tanımlayıcısı. İçin izin verilmeyen `DeviceId` ve `TenantId` ObjectIdTypes. Gerekli `UserId` ve `ServicePrincipalId` ObjectIdTypes. DomainName ObjectIdType için isteğe bağlı. |
-| yol * | Evet | dize |Tam erişim yolu `Space` nesne. Örn: `/{Guid}/{Guid}` tanımlayıcı tüm grafik için rol ataması gerekiyorsa belirtin `"/"` (kök gösteren). Ancak, diğer bir deyişle kullanarak önerilmez ve **ilkesine en düşük öncelik ilkesini her zaman izlemelidir**. |
+| Rol Kimliği| Evet |Dize | Rol tanımı tanımlayıcısı. Rol tanımları ve bunların tanımlayıcıları sistem API'si sorgulayarak bulun. |
+| objectId | Evet |Dize | Nesne kimliği, ilişkili türüne göre biçimlendirilmelidir rol ataması. İçin `DomainName` ObjectIdType, nesne kimliği ile başlamalıdır `“@”` karakter. |
+| objectIdType | Evet |Dize | Rol ataması türü. Bu tabloda aşağıdaki satırları biri olmalıdır. |
+| Kiracı kimliği | Değişir | Dize |Kiracı tanımlayıcısı. İçin izin verilmeyen `DeviceId` ve `TenantId` ObjectIdTypes. Gerekli `UserId` ve `ServicePrincipalId` ObjectIdTypes. DomainName ObjectIdType için isteğe bağlı. |
+| yol * | Evet | Dize |Tam erişim yolu `Space` nesne. `/{Guid}/{Guid}` bunun bir örneğidir. Tanımlayıcı için tüm grafı rol ataması gerekiyorsa belirtin `"/"`. Bu karakteri kök belirler ancak kullanımı önerilmez. Her zaman ilkesine en düşük öncelik ilkesini uygulayın. |
 
 ## <a name="sample-configuration"></a>Örnek yapılandırma
 
-Bir kullanıcının yönetimsel erişim zemini Kiracı alanı gerekir:
+Bu örnekte, bir kullanıcının yönetimsel erişim zemini Kiracı alanı gerekir.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ Bir kullanıcının yönetimsel erişim zemini Kiracı alanı gerekir:
     }
   ```
 
-Cihazlardan ve sensörlerden sahte işlem senaryoları test çalıştırmaları bir uygulama:
+Bu örnekte, bir uygulama cihazlardan ve sensörlerden sahte test senaryolarında çalışır.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ Cihazlardan ve sensörlerden sahte işlem senaryoları test çalıştırmaları 
     }
   ```
 
-Bir etki alanının tüm kullanıcılar parçası boşluk, algılayıcılar ve karşılık gelen ilgili nesneleri dahil olmak üzere, kullanıcılar için okuma erişimi alırsınız:
+Bir etki alanının parçası olan tüm kullanıcılar, boşluk, algılayıcılar ve kullanıcılar için okuma erişimi alırsınız. Bu erişim, karşılık gelen ilgili nesneleri içerir.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ Bir etki alanının tüm kullanıcılar parçası boşluk, algılayıcılar ve k
     }
   ```
 
-Bir rol ataması almak için:
+EDİNİN bir rol ataması alınamıyor.
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | Yol | Yol | True | Dize | Alanı tam yolu |
 
-Bir rol atamasını silmek için:
+Bir rol atamasını silmek için DELETE kullanın.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

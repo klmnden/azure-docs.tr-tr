@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure dijital İkizlerini rol tabanlı erişim denetimi | Microsoft Docs
+title: Azure dijital İkizlerini rol tabanlı erişim denetimini anlama | Microsoft Docs
 description: Rol tabanlı erişim denetimi ile dijital İkizlerini kimlik doğrulaması hakkında bilgi edinin.
 author: lyrana
 manager: alinast
@@ -8,31 +8,40 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: 7a6d8565a0f85b4cb81d9f5f23b04fe6b2edc53e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b9ccdb9030a24520be8f24f757c279241f3a07e1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324327"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014797"
 ---
 # <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 
-Azure dijital İkizlerini, belirli veri kaynakları ve uzamsal grafınızı eylemleri için tam erişim denetimi sağlar. Bunu ayrıntılı rol ve adlı izin Yönetimi yapar _rol tabanlı erişim denetimi_. Rol tabanlı erişim denetimi oluşur _rolleri_, ya da izin düzeyini ve _rol atamaları_, veya bir rolü bir kullanıcı veya cihaz ilişkisini.
+Azure dijital İkizlerini, belirli veri kaynakları ve uzamsal grafınızı eylemleri için tam erişim denetimi sağlar. Bunu ayrıntılı rolü ve rol tabanlı erişim denetimi (RBAC) olarak adlandırılan izin Yönetimi yapar. RBAC oluşur _rolleri_ ve _rol atamaları_. Rol izinlerinin düzeyini belirleyin. Rol atamaları bir rol, bir kullanıcı veya cihaz ile ilişkilendirin.
 
-Rol tabanlı erişim denetimi kullanarak, izni bir kullanıcı, bir cihaz, bir hizmet sorumlusu, kullanıcı tanımlı bir işlev için bir etki alanı veya bir kiracıya ait tüm kullanıcıların verilebilir. Buna ek olarak, erişim düzeyini de ince ayar olabilir.
+RBAC kullanarak, için izin verilebilir:
 
-Rol tabanlı erişim denetimi uzamsal graf devralınan izinleri açısından benzersizdir.
+- Bir kullanıcı.
+- Bir cihaz.
+- Bir hizmet sorumlusu.
+- Bir kullanıcı tanımlı işlev. 
+- Bir etki alanına ait tüm kullanıcılar. 
+- Bir kiracı.
+ 
+Erişim düzeyini de ince ayar olabilir.
 
-## <a name="what-can-i-do-with-role-based-access-control"></a>Rol tabanlı erişim denetimi ile ne yapabilirim?
+Uzamsal grafiğin devralınan izinleri RBAC benzersizdir.
 
-Bir geliştirici, rol tabanlı erişim denetimi için kullanabilirsiniz:
+## <a name="what-can-i-do-with-rbac"></a>RBAC ile ne yapabilirim?
+
+Bir geliştirici için RBAC kullanabilirsiniz:
 
 * Bir kullanıcının tüm bir yapı için veya yalnızca belirli bir oda veya kat için cihazları yönetme olanağı vermesi.
 * Bir yönetici genel erişim tüm uzamsal grafik düğümleri bir grafın tamamında veya yalnızca bir bölümünü graf verin.
 * Erişim anahtarlarını dışında grafik bir destek uzmanı okuma erişimi verin.
 * Her bir üyenin tüm graf nesneleri bir etki alanı okuma erişimi verin.
 
-## <a name="role-based-access-control-best-practices"></a>Rol tabanlı erişim denetimi en iyi uygulamalar
+## <a name="rbac-best-practices"></a>RBAC en iyi uygulamalar
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-rbac-best-practices.md)]
 
@@ -40,33 +49,33 @@ Bir geliştirici, rol tabanlı erişim denetimi için kullanabilirsiniz:
 
 ### <a name="role-definitions"></a>Rol tanımları
 
-A **rol tanımı** izinleri koleksiyonudur ve bazen adlı bir **rol**. Rol tanımı dahil olmak üzere izin verilen işlemler listeler *oluşturma*, *okuma*, *güncelleştirme*, ve *Sil*. Ayrıca, bu izinler hangi nesne türleri için geçerli belirtir.
+Rol tanımı izinleri koleksiyonudur ve bazen bir rol olarak da adlandırılır. Rol tanımı listeleri oluşturma dahil izin verilen işlemleri, okuma, güncelleştirme ve silme. Ayrıca, bu izinler hangi nesne türleri için geçerli belirtir.
 
 Azure dijital İkizlerini aşağıdaki rollerin kullanılabilir:
 
-* **Alan yönetici**: oluşturma, okuma, güncelleştirme ve silme izinleri belirtilen alan ve altındaki tüm düğümleri. Genel izni.
-* **Kullanıcı Yöneticisi**: oluşturma, okuma, güncelleştirme ve silme izinleri kullanıcılar ve kullanıcı ile ilgili nesneler için. Alanları için okuma izni.
-* **Cihaz Yöneticisi**: oluşturma, okuma, güncelleştirme ve silme izinleri cihazları ve cihaz ile ilgili nesneler için. Alanları için okuma izni.
-* **Anahtar Yöneticisi**: oluşturma, okuma, güncelleştirme ve silme izinleri için erişim tuşları. Alanları için okuma izni.
+* **Alan yönetici**: oluşturma, okuma, güncelleştirme ve silme izni belirtilen alan ve altındaki tüm düğümleri. Genel izni.
+* **Kullanıcı Yöneticisi**: oluşturma, okuma, güncelleştirme ve silme izni kullanıcılar ve kullanıcı ile ilgili nesneler için. Alanları için okuma izni.
+* **Cihaz Yöneticisi**: oluşturma, okuma, güncelleştirme ve silme izni cihazları ve cihaz ile ilgili nesneler için. Alanları için okuma izni.
+* **Anahtar Yöneticisi**: oluşturma, okuma, güncelleştirme ve silme izni için erişim tuşları. Alanları için okuma izni.
 * **Belirteç yönetici**: erişim anahtarları için okuma ve güncelleştirme izni. Alanları için okuma izni.
-* **Kullanıcı**: boşluk, algılayıcılar ve kullanıcıların izinlerini okuma, bunlara karşılık gelen dahil olmak üzere ilgili nesneler.
+* **Kullanıcı**: boşluk, algılayıcılar ve kullanıcıların izinlerini okuma, bunlara karşılık gelen içeren ilgili nesneler.
 * **Destek Uzmanı**: erişim anahtarlarını dışında her şeyi için okuma izni.
-* **Cihaz yükleyici**: cihazlar ve algılayıcılar, bunlara karşılık gelen dahil olmak üzere için okuma ve güncelleştirme izin ile ilgili nesneleri. Alanları için okuma izni.
-* **Ağ geçidi cihazı**: oluşturma izni'algılayıcıları için. Cihazlardan ve sensörlerden izinlerini okuma, bunlara karşılık gelen dahil olmak üzere ilgili nesneler.
+* **Cihaz yükleyici**: karşılık gelen içeren okuma ve güncelleştirme izniniz cihazlar ve algılayıcılar için ilgili nesneleri. Alanları için okuma izni.
+* **Ağ geçidi cihazı**: oluşturma izni'algılayıcıları için. Cihazlardan ve sensörlerden izinlerini okuma, bunlara karşılık gelen içeren ilgili nesneler.
 
 >[!NOTE]
-> *Sistem/roller API sorgulayarak yukarıdaki tam tanımlarında alınabilir.*
+> Önceki rolleri için tam tanımları almak için sistem/roller API sorgulayın.
 
 ### <a name="object-types"></a>Nesne türleri
 
-`ObjectIdType` Bir rolü verilen kimlik türüne başvuruyor. Gelen apart `DeviceId` ve `UserDefinedFunctionId` türleri türlerine, bir Azure Active Directory (Azure AD) nesnenin bir özelliğine karşılık gelir:
+`ObjectIdType` Rol verdiği kimlik türüne başvuruyor. Gelen apart `DeviceId` ve `UserDefinedFunctionId` türleri türlerine, bir Azure Active Directory (Azure AD) nesnenin bir özelliğine karşılık gelir:
   
 * `UserId` Türü, bir kullanıcıya rol atar.
 * `DeviceId` Türü, bir cihaza bir rolü atar.
-* `DomainName` Türü, bir etki alanı adı için bir rolü atar. Her kullanıcı belirtilen etki alanı adına sahip, karşılık gelen rolü erişim hakkına sahip olursunuz.
-* `TenantId` Türü bir kiracıya bir rolü atar. Belirtilen ait her bir kullanıcı Azure AD Kiracı kimliği, karşılık gelen rolü erişim haklarına sahip.
+* `DomainName` Türü, bir etki alanı adı için bir rolü atar. Her kullanıcı belirtilen etki alanı adına karşılık gelen rolü erişim haklarına sahiptir.
+* `TenantId` Türü bir kiracıya bir rolü atar. Belirtilen ait her kullanıcının Azure AD Kiracı kimliği, karşılık gelen rolü erişim haklarına sahip.
 * `ServicePrincipalId` Türü atar bir rol için bir hizmet sorumlusu nesne kimliği
-* `UserDefinedFunctionId` Türü, bir kullanıcı tanımlı işlev (UDF) için bir rolü atar.
+* `UserDefinedFunctionId` Türü kullanıcı tanımlı bir işlev için (UDF) bir rolü atar.
 
 > [!div class="nextstepaction"]
 > [Sorgu veya bir kullanıcı nesnesi kimliği](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
@@ -79,9 +88,9 @@ Azure dijital İkizlerini aşağıdaki rollerin kullanılabilir:
 
 ## <a name="role-assignments"></a>Rol atamaları
 
-İzinler alıcıya bir rol ataması oluşturma tarafından verilen ve rol atamasını kaldırma tarafından iptal edildi. Bir Azure dijital İkizlerini rol ataması, bir nesne (kullanıcı, Azure AD kiracısı, vb.), rol ve boşluk ilişkilendirir. İzinleri, ardından tüm uzamsal grafiğin altındaki dahil olmak üzere, bu alanına ait tüm nesnelere verilir.
+Alıcıya izin vermek için bir rol ataması oluşturun. İzinleri iptal etmek için rol atamasını kaldırın. Azure dijital İkizlerini rol atama gibi bir kullanıcı ya da Azure AD kiracısı, bir nesne bir rolü ve bir alan ile ilişkilendirir. Bu alana ait tüm nesneleri için izinleri verilir. Tüm uzamsal grafiğin altındaki alanı içerir.
 
-Örneğin, bir kullanıcı rolüne sahip bir rol ataması verilen `DeviceInstaller` uzamsal grafiğin kök düğüm için temsil eden bir yapı. Kullanıcı, ardından okuma ve yalnızca bu düğüm, ancak diğer tüm alt alanları binada cihazları güncelleştirmek mümkün değil.
+Örneğin, bir kullanıcı rolüne sahip bir rol ataması verilen `DeviceInstaller` uzamsal grafiğin kök düğüm için temsil eden bir yapı. Kullanıcı daha sonra okuyabilir ve cihazlar için düğüm ve diğer tüm alt alanları binada güncelleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

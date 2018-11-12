@@ -2,19 +2,19 @@
 title: Azure HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme
 description: Nasıl kullanacağınızı öğrenin daha iyi performans için Azure HDInsight Spark kümelerinde kaynaklarını yönetme.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d7395231662d79d284bdf061e651602dea392c28
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051507"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014593"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme 
 
@@ -76,7 +76,7 @@ Uygulama gereksinimlerine bağlı olarak Spark yapılandırması için kullanıl
 2. Varsayılan değerleri kümede aynı anda çalıştırılması dört Spark uygulamaları uygundur. Aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcı arabiriminden bu değerleri değiştirebilirsiniz:
 
     ![Ambari kullanarak parametrelerini ayarlayın](./media/apache-spark-resource-manager/set-executor-parameters.png)
-3. Tıklayın **Kaydet** yapılandırma değişikliklerini kaydetmek için. Sayfanın üst kısmında etkilenen tüm hizmetleri yeniden başlatmanız istenir. Tıklayın **yeniden**.
+3. Tıklayın **Kaydet** yapılandırma değişikliklerini kaydetmek için. Sayfanın üst kısmında etkilenen tüm hizmetleri yeniden başlatmanız istenir. **Yeniden Başlat**'a tıklayın.
 
     ![Hizmetlerini yeniden başlatın](./media/apache-spark-resource-manager/restart-services.png)
 

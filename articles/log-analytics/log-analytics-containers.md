@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 824be21623892b8810ca4af5b885daf65bfb1594
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959163"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013063"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -604,7 +604,7 @@ Günlük araması açılır ve kapsayıcılarınızı durumuyla ilgili bilgileri
 
 ![Kapsayıcılar için günlük araması](./media/log-analytics-containers/containers-log-search.png)
 
-Buradan, ilgilendiğiniz belirli bilgileri bulmak için değiştirmeniz arama sorgusu düzenleyebilirsiniz. Günlük aramaları hakkında daha fazla bilgi için bkz: [Log Analytics'te günlük aramaları](log-analytics-log-search.md).
+Buradan, ilgilendiğiniz belirli bilgileri bulmak için değiştirmeniz arama sorgusu düzenleyebilirsiniz. Günlük aramaları hakkında daha fazla bilgi için bkz: [Log Analytics'te günlük aramaları](log-analytics-queries.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Başarısız bir kapsayıcı bularak sorunlarını giderme
 
@@ -672,4 +672,4 @@ Sorguları kaydetme, Log analytics'te standart bir özelliktir. Bunları kaydede
 Yararlı bulabileceğiniz bir sorguyu oluşturduktan sonra Kaydet'e tıklayarak **Sık Kullanılanlar** günlük araması sayfanın üstünde. Bu işlemi daha sonra kolayca erişebilir **Panom'u** sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](log-analytics-log-search.md) ayrıntılı kapsayıcı veri kayıtları görüntülemek için.
+* [Arama günlüklerini](log-analytics-queries.md) ayrıntılı kapsayıcı veri kayıtları görüntülemek için.

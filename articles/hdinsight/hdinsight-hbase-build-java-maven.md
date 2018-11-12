@@ -2,19 +2,19 @@
 title: Windows tabanlı Azure HDInsight için HBase Java uygulaması derleme
 description: Apache Maven bir Java tabanlı Apache HBase uygulaması oluşturmayı ve ardından bir Windows tabanlı Azure HDInsight kümesine dağıtmak için kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c10fcb8e45dc163629186cfb48408e8734bc5a56
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a7df61cad250663d4b08c8c8d32257718e2f37db
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418220"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012862"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Windows tabanlı HDInsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanma
 Öğrenin ve oluşturmak bir [Apache HBase](http://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Ardından uygulama, Azure HDInsight (Hadoop) ile kullanın.

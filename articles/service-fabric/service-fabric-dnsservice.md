@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387947"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035942"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service fabric'te DNS hizmeti
 DNS hizmeti kümenizde DNS protokolünü kullanarak diğer hizmetleri bulmak için etkinleştirebileceğiniz bir isteğe bağlı sistem hizmetidir. 
@@ -43,6 +43,9 @@ Aşağıdaki diyagramda, bölümlenmiş durum bilgisi olan hizmetler için DNS h
 Dinamik bağlantı noktaları, DNS hizmeti tarafından desteklenmez. Dinamik bağlantı noktaları üzerinde kullanıma sunulan hizmetlerin çözümlenmesi için kullanmak [ters proxy hizmeti](./service-fabric-reverseproxy.md).
 
 ## <a name="enabling-the-dns-service"></a>DNS hizmetini etkinleştirme
+> [!NOTE]
+> Service Fabric Hizmetleri için DNS hizmeti Linux üzerindeki henüz desteklenmiyor.
+
 Portalı kullanarak bir küme oluşturduğunuzda, DNS hizmeti varsayılan olarak etkindir **dahil DNS hizmeti** onay kutusunu **küme yapılandırması** menüsü:
 
 ![DNS hizmeti Portalı aracılığıyla etkinleştirme](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -251,6 +254,8 @@ public class ValuesController : Controller
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 * Service Fabric sürümleri 6,3 ve üzeri, DNS adı bir tire içeren hizmet adları için DNS araması bir sorun yoktur. Bu sorun hakkında daha fazla bilgi için lütfen aşağıdaki izleme [GitHub sorunu](https://github.com/Azure/service-fabric-issues/issues/1197). Bunun için bir düzeltme sonraki 6,3 güncelleştirmede kullanıma sunulacaktır. 
+
+* Service Fabric Hizmetleri için DNS hizmeti Linux üzerindeki henüz desteklenmiyor. DNS hizmeti Linux üzerindeki kapsayıcılar için desteklenir. Fabric istemci/ServicePartitionResolver kullanarak el ile çözüm kullanılabilir bir alternatiftir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Hizmet iletişimi ile küme içindeki hakkında daha fazla bilgi [bağlanın ve hizmetlerle iletişim kurma](service-fabric-connect-and-communicate-with-services.md)

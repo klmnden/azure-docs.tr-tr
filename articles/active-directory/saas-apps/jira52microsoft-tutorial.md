@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 43ad99d4814923204b3b1993969bd6a0730530c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741751"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Öğretici: Azure Active Directory JIRA SAML SSO tarafından Microsoft (V5.2) ile tümleştirme
 
@@ -62,7 +62,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 **Desteklenen sürümler:**
 
 * JIRA çekirdek ve yazılım: 5.2
-* JIRA, 6.0 ve 7.12 de destekler. Daha fazla bilgi için tıklayın [JIRA SAML SSO Microsoft tarafından](jiramicrosoft-tutorial.md)
+* JIRA 6.0 için 7.12 da destekler. Daha fazla bilgi için tıklayın [JIRA SAML SSO Microsoft tarafından](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 

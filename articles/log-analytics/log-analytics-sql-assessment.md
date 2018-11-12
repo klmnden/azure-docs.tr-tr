@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be2fd826ffa658ec04bd937036e37bf55cbf65a4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 96163188fad464bc4b94457f7061a78b3f4997a9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964144"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014508"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log analytics'te SQL Server sistem durumu denetimi çözümü SQL ortamınızla en iyi duruma getirme
 
@@ -184,7 +184,7 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-queries.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
     ```
 
     >[!NOTE]
-    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
+    > Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-queries.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](log-analytics-log-search.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+* [Arama günlüklerini](log-analytics-queries.md) ayrıntılı veri SQL sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058283"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035110"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Altyapı Backup hizmeti en iyi uygulamalar
 
@@ -52,9 +52,8 @@ Anahtarı güvenli bir konuma (örneğin, ortak Azure Key Vault gizli) depolanma
 
 ### <a name="backups"></a>Yedeklemeler
 
- - Altyapı yedekleme denetleyicisi isteğe bağlı olarak tetiklenmesi gerekiyor. Günde en az iki kez yedekleme için önerilir.
  - Kapalı kalma süresi olmadan kullanıcı uygulamaları ve yönetim deneyimleri olduğundan sistem çalışırken yedekleme işlerini Yürüt. Yedekleme işlerinin makul yük altında bir çözüm için 20-40 dakika bekler.
- - Yönerge sağlanan OEM kullanarak, el ile yedekleme ağ anahtarları ve donanım yaşam döngüsü ana bilgisayar (HLH) burada altyapısını yedekleme denetleyicisi depoları denetim düzlemi yedekleme verilerini aynı yedekleme paylaşımında depolanması gerekir. Anahtar ve HLH yapılandırmaları bölge klasöre depolamayı düşünün. Azure Stack birden fazla aynı bölgede olması Ölçek birimine ait her bir yapılandırma için bir tanımlayıcı kullanmayı düşünün.
+ - OEM tarafından sağlanan yönergeleri kullanarak, el ile yedekleme ağ anahtarları ve donanım yaşam döngüsü ana bilgisayar (HLH) burada altyapısını yedekleme denetleyicisi depoları denetim düzlemi yedekleme verilerini aynı yedekleme paylaşımında depolanması gerekir. Anahtar ve HLH yapılandırmaları bölge klasöre depolamayı düşünün. Azure Stack birden fazla aynı bölgede olması Ölçek birimine ait her bir yapılandırma için bir tanımlayıcı kullanmayı düşünün.
 
 ### <a name="folder-names"></a>Klasör adları
 
@@ -95,5 +94,6 @@ Aşağıdaki uyarıları, sistem tarafından desteklenir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - Gözden geçirme için başvuru materyalleri [altyapı Backup hizmeti](azure-stack-backup-reference.md).  
- - Etkinleştirme [altyapısını yedekleme hizmeti](azure-stack-backup-enable-backup-console.md).
+Gözden geçirme için başvuru materyalleri [altyapı Backup hizmeti](azure-stack-backup-reference.md).
+
+Etkinleştirme [altyapısını yedekleme hizmeti](azure-stack-backup-enable-backup-console.md).

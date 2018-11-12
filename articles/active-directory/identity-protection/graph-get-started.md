@@ -17,15 +17,15 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a415258b8127bb78d8a8d1b5ef228234b34b3e26
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242169"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287521"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
-Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. Bu makalede, bu API sorgulama başlamanıza yardımcı olur. Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/).
+Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. Bu makalede, bu API sorgulama başlamanıza yardımcı olur. Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://developer.microsoft.com/graph/).
 
 
 Microsoft Graph üzerinden kimlik koruması verilere erişmek için dört adım vardır:
@@ -219,7 +219,7 @@ Kiracı etki alanı istemci Kimliğinizi ve gizli anahtarı eklemeniz yeterlidir
 Tebrikler, ilk çağrınızı Microsoft Graph için yaptığınız!  
 Artık kimlik risk olayları sorgulamak ve gördüğünüz ancak verileri kullanın.
 
-Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında daha fazla bilgi edinmek için kullanıma [belgeleri](https://graph.microsoft.io/docs) ve çok daha fazlasını [Microsoft Graph site](https://graph.microsoft.io/). Ayrıca, yer işareti emin [Azure AD kimlik koruması API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) kimlik koruma API'lerini grafikte kullanılabilir tüm listeleyen sayfası. Kimlik koruması API aracılığıyla birlikte çalışmak için yeni yöntemler ekleyeceğiz gibi bu sayfada görürsünüz.
+Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında daha fazla bilgi edinmek için kullanıma [belgeleri](https://developer.microsoft.com/graph/docs) ve çok daha fazlasını [Microsoft Graph site](https://developer.microsoft.com/graph/). Ayrıca, yer işareti emin [Azure AD kimlik koruması API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) kimlik koruma API'lerini grafikte kullanılabilir tüm listeleyen sayfası. Kimlik koruması API aracılığıyla birlikte çalışmak için yeni yöntemler ekleyeceğiz gibi bu sayfada görürsünüz.
 
 İlgili bilgiler için bkz:
 
@@ -227,9 +227,9 @@ Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında da
 
 -  [Azure Active Directory kimlik koruması tarafından algılanan risk olayı türleri](../reports-monitoring/concept-risk-events.md)
 
-- [Microsoft Graph](https://graph.microsoft.io/)
+- [Microsoft Graph](https://developer.microsoft.com/graph/)
 
-- [Microsoft Graph’a genel bakış](https://graph.microsoft.io/docs)
+- [Microsoft Graph’a genel bakış](https://developer.microsoft.com/graph/docs)
 
-- [Azure AD kimlik koruması hizmeti kök](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+- [Azure AD kimlik koruması hizmeti kök](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
 
