@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 4128f5e389ac6e35f863f02ff5b09ff96fadc527
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962495"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288246"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
 Azure Stack Azure ile kaydetme, Azure Market öğelerini indirme ve ticaret verileri Microsoft'a raporlamaya ayarlamak için sağlar. Azure Stack kaydettikten sonra kullanım için Azure ticaret bildirilir ve kayıt için kullanılan abonelik altında görebilirsiniz.
 
-Bu makaledeki bilgiler, Azure ile kayıt Azure Stack tümleşik sistemleri açıklanmaktadır. Azure ile ASDK kaydetme hakkında daha fazla bilgi için bkz: [Azure Stack kayıt](.\asdk\asdk-register.md) ASDK belgelerinde.
+Bu makaledeki bilgiler, Azure ile kayıt Azure Stack tümleşik sistemleri açıklanmaktadır. Azure ile ASDK kaydetme hakkında daha fazla bilgi için bkz: [Azure Stack kayıt](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) ASDK belgelerinde.
 
 > [!IMPORTANT]  
 > Kayıt teklifi Market'te öğeleri dahil olmak üzere tam Azure Stack işlevleri desteklemek için gereklidir. Ayrıca, Azure Stack-,-Kullandıkça Ödeme modeli kullanılırken kaydedilmezse lisanslama koşulları ihlal olacaktır. Azure Stack lisanslama modelleri hakkında daha fazla bilgi için bkz. [sayfa satın alma](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233822"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruma
 
@@ -35,7 +35,7 @@ Microsoft Azure StorSimple çözümü birbiriyle etkileşim dört ana bileşende
 * **StorSimple cihaz Yöneticisi hizmeti Microsoft Azure'da barındırılan** – yapılandırmak ve StorSimple cihaz sağlama için kullandığınız yönetim hizmeti.
 * **StorSimple cihaz** – veri merkezinizde yüklü fiziksel bir cihaz. Tüm ana bilgisayarlar ve veri üretme istemciler için StorSimple cihazı bağlayın ve cihaz verileri yönetir ve Azure bulutuna taşır uygun şekilde.
 * **İstemciler/ana bilgisayarları bağlı cihaza** – için StorSimple cihazı bağlayın ve korunması gereken veriler oluşturabilen istemcilerin altyapınızdaki.
-* **Bulut depolama** – Azure buluttaki verilerin depolandığı konumu.
+* **Bulut depolama** – Azure bulutunda verilerin depolandığı konum.
 
 Aşağıdaki bölümlerde, her biri bu bileşenler ve bunlar üzerinde depolanan verileri korumaya yardımcı olmak StorSimple güvenlik özellikleri açıklanmaktadır. Ayrıca, Microsoft Azure StorSimple güvenliği ve karşılık gelen yanıtları ilgili olabilecek sorular listesini içerir.
 
@@ -43,9 +43,9 @@ Aşağıdaki bölümlerde, her biri bu bileşenler ve bunlar üzerinde depolanan
 
 StorSimple cihaz Yöneticisi hizmeti Microsoft Azure'da barındırılan ve kuruluşunuzun temin tüm StorSimple cihazları yönetmek için kullanılan bir yönetim hizmetidir. StorSimple cihaz Yöneticisi hizmeti bir web tarayıcısı üzerinden Azure portalında oturum açmak için Kurumsal kimlik bilgilerinizi kullanarak erişebilirsiniz.
 
-StorSimple cihaz Yöneticisi hizmetine erişim, kuruluşunuzun StorSimple içeren bir Azure aboneliği olmasını gerektirir. Azure portalında erişebildiği özellikleri aboneliğinizi yönetir. Kuruluşunuzun bir Azure aboneliğine sahip değil ve isterseniz bunları hakkında daha fazla bilgi için bkz [Azure'a kuruluş olarak kaydolma](../active-directory/fundamentals/sign-up-organization.md).
+StorSimple cihaz Yöneticisi hizmetine erişim, kuruluşunuzun StorSimple içeren bir Azure aboneliği olmasını gerektirir. Aboneliğiniz, Azure portalında erişebildiğiniz özellikleri yönetir. Kuruluşunuzun bir Azure aboneliğine sahip değil ve isterseniz bunları hakkında daha fazla bilgi için bkz [Azure'a kuruluş olarak kaydolma](../active-directory/fundamentals/sign-up-organization.md).
 
-StorSimple cihaz Yöneticisi hizmetine Azure'da barındırıldığı için Azure güvenlik özellikleri tarafından korunur. Microsoft Azure tarafından sağlanan güvenlik özellikleri hakkında daha fazla bilgi için Git [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+StorSimple cihaz Yöneticisi hizmetine Azure'da barındırıldığı için Azure güvenlik özellikleri tarafından korunur. Microsoft Azure tarafından sağlanan güvenlik özellikleri hakkında daha fazla bilgi için [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/security/)’ne gidin.
 
 ## <a name="storsimple-device-protection"></a>StorSimple cihaz koruma
 
@@ -121,7 +121,7 @@ StorSimple Snapshot Manager hakkında daha fazla bilgi için Git [StorSimple Sna
 StorSimple parolalarını güçlü ve iyi korumalı olduğundan emin olmak için aşağıdaki yönergeleri kullanmanızı öneririz:
 
 * Her üç ayda bir parolalarınızı değiştirin. Parolaları değiştirme yıllık zorlanır.
-* Güçlü parolalar kullanın. Daha fazla bilgi için Git [güçlü parolalar oluşturma ve bunları koruma](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Güçlü parolalar kullanın. Daha fazla bilgi için Git [güçlü parolalar oluşturma ve bunları koruma](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Her zaman farklı parolalar için farklı erişim mekanizmaları kullanın. Belirttiğiniz parola her benzersiz olmalıdır.
 * Parolalar StorSimple cihazına erişmek için yetkili değil kimseyle paylaşmayın.
 * Başkalarının önünde bir parola hakkında konuşmak değil veya parola biçime bakma ipucu.
@@ -215,7 +215,7 @@ Fiziksel ve sanal serisi için StorSimple cihaz Yöneticisi, aşağıdaki anahta
 - Paylaşımlarında bulunan veriler erişebilen kullanıcılar. Paylaşımı verileri erişebilen kullanıcıları içeren bir liste görüntülenir ve görüntülenebilir. Bu liste de silinir paylaşımları silindiğinde. Bu, yalnızca StorSimple sanal dizilerine uygulanır.
  * Kimin erişebileceğini veya bir paylaşımı silmek için adımları izleyin. kullanıcı listesini görüntülemek için [StorSimple sanal dizisi paylaşımları yönetme](storsimple-virtual-array-manage-shares.md)
 
-Daha fazla bilgi için Microsoft Privacy ilke gözden geçirme [Güven Merkezi](https://www.microsoft.com/trustcenter).
+Daha fazla bilgi için, [Güven Merkezi](https://www.microsoft.com/trustcenter)’nde Microsoft Gizlilik ilkesini gözden geçirin.
 
 ## <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 

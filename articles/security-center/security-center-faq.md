@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: d8313ec66f8b71102e63751e7cf07885c899a7e8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301047"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011893"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -45,7 +45,7 @@ Güvenlik Merkezi iki katmanda sunulur:
 **Standart katman** algılama özellikleri dahil olmak üzere, tehdit zekası, davranışsal analiz, anomali algılama, güvenlik olayları ve tehdit attribution raporları Gelişmiş tehdit ekler. Standart katman ilk 60 gün boyunca ücretsizdir. İlk 60 günden sonraki hizmeti kullanmaya devam etmeyi tercih ederseniz, biz otomatik olarak ücret alınmaya başlatın.  Yükseltmek için seçin [fiyatlandırma katmanı](https://docs.microsoft.com/azure/security-center/security-center-pricing) güvenlik ilkesinde.
 
 ## <a name="permissions"></a>İzinler
-Azure Güvenlik Merkezi kullanan [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md), sağlayan [yerleşik roller](../role-based-access-control/built-in-roles.md) kullanıcıları, grupları ve Azure Hizmetleri için atanabilir.
+Azure Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../role-based-access-control/built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../role-based-access-control/role-assignments-portal.md) kullanır.
 
 Güvenlik Merkezi, güvenlik sorunlarını ve güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın yapılandırmasını değerlendirir. Güvenlik Merkezi'nde, yalnızca bir kaynağa sahip, katkıda bulunan veya okuyucu rolü bir kaynağın ait olduğu kaynak grubu veya abonelik atandığında ilgili bilgiler görürsünüz.
 
@@ -308,7 +308,7 @@ Güvenlik açıklarına karşı güncelleştirmeler, Güvenlik Merkezi'nde gecik
 - Sistem güncelleştirmeleri – veri 24 saat içinde güncelleştirilir
 - Uç nokta koruma sorunları – 8 saat içinde verileri güncelleştirildi.
 
-Güvenlik Merkezi, genellikle her saat yeni verileri tarar. Gecikme süresi yukarıdaki burada son tarama değil veya bir tarama işlemi başarısız oldu kötü bir durum senaryosu değerlerdir.
+Güvenlik Merkezi genellikle her saat yeni verileri tarar ve buna göre öneriler yeniler. 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM Aracısı eksik?" iletiyi neden alıyorum
 Veri toplama özelliğini etkinleştirmeyi Vm'lerinde VM aracısı yüklü olmalıdır. VM Aracısı, Azure Marketi’nden dağıtılan VM’ler için varsayılan olarak yüklüdür. Diğer Vm'lere VM Aracısı yükleme hakkında daha fazla bilgi için blog gönderisine bakın [VM aracısı ve uzantıları](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

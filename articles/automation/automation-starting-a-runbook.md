@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00143ab1f4aaba0f700e084d9225570c28713d0d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42057622"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252352"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Azure Automation'da bir runbook başlatma
 Aşağıdaki tabloda kendi belirli senaryonuza en uygun Azure automation'da bir runbook başlatma yöntemi belirlemenize yardımcı olur. Bu makale, Azure portalı ve Windows PowerShell ile bir runbook başlatma hakkında bilgi içerir. Aşağıdaki bağlantılardan erişebileceğiniz diğer belgeler diğer yöntemler hakkında ayrıntılı bilgi sağlanır.
@@ -66,7 +66,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Runbook parametre gerektiriyor sonra olarak sağlamanız gereken bir [hashtable](http://technet.microsoft.com/library/hh847780.aspx) burada karma tablosu anahtarının parametre adıyla eşleştiği ve değerin parametre değeri olduğu. Aşağıdaki örnek, FirstName ve LastName, RepeatCount adlı bir tamsayı ve Show adlı bir Boole parametresi adlı iki dize parametre ile bir runbook başlatmak gösterilmektedir. Parametreler hakkında daha fazla bilgi için bkz. [Runbook parametreleri](#Runbook-parameters) aşağıda.
+Runbook parametre gerektiriyor sonra olarak sağlamanız gereken bir [hashtable](https://technet.microsoft.com/library/hh847780.aspx) burada karma tablosu anahtarının parametre adıyla eşleştiği ve değerin parametre değeri olduğu. Aşağıdaki örnek, FirstName ve LastName, RepeatCount adlı bir tamsayı ve Show adlı bir Boole parametresi adlı iki dize parametre ile bir runbook başlatmak gösterilmektedir. Parametreler hakkında daha fazla bilgi için bkz. [Runbook parametreleri](#Runbook-parameters) aşağıda.
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

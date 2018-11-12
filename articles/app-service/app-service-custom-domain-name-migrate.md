@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049985"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300175"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Etkin DNS adını Azure App Service'e geçirme
 
@@ -60,6 +60,13 @@ Gereksinim duyduğunuz TXT kaydı, geçirmek istediğiniz DNS kaydını bağlıd
 | \* (joker karakter) | _awverify.\*_ | _&lt;Appname >. azurewebsites.net_ |
 
 DNS kayıtları sayfası geçirmek istediğiniz DNS adı kayıt türü unutmayın. App Service eşlemeleri CNAME ve A kayıtları destekler.
+
+> [!NOTE]
+> CloudFlare gibi belirli sağlayıcıları `awverify.*` geçerli kaydı değildir. Kullanım `*` yalnızca yerine.
+
+> [!NOTE]
+> Joker karakter `*` kayıtları alt etki alanlarını bir CNAME'İNİZ'ın kayıtla doğrulama olmaz. Açıkça her alt etki alanı için bir TXT kaydı oluşturmanız gerekebilir.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Etki alanı için uygulamanızı etkinleştirme
 

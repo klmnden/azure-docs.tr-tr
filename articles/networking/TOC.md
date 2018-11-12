@@ -72,7 +72,7 @@
 ## [Yazar şablonları](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Topluluk şablonları](https://azure.microsoft.com/resources/templates/)
-## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
+## [Ağ blogu](https://azure.microsoft.com/blog/topics/networking)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services/)

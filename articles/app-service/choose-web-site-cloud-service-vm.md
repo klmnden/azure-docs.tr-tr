@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022357"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238514"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 
@@ -47,7 +47,7 @@ Aşağıdaki tabloda, en iyi seçimi yapmanıza yardımcı olmak için App Servi
 | WebMatrix desteği |X | |X | | |
 | Service Bus, Depolama, SQL Veritabanı gibi hizmetlere erişim |X |X |X |X | |
 | Web sitesini veya çok katmanlı mimarinin Web hizmetleri katmanını barındırma |X |X |X |X | |
-| Çok katmanlı mimarinin orta katmanını barındırma |X |X |X |X |App Service Web uygulamaları kolayca REST API orta katmanını, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) özelliği de arka planda işlenen işleri barındırabilir. Katmana yönelik olarak bağımsız ölçeklenebilirlik elde etmek için WebJobs’ı ayrılmış bir Web sitesinde çalıştırabilirsiniz. |
+| Çok katmanlı mimarinin orta katmanını barındırma |X |X |X |X |App Service Web uygulamaları kolayca REST API orta katmanını, [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) özelliği de arka planda işlenen işleri barındırabilir. Katmana yönelik olarak bağımsız ölçeklenebilirlik elde etmek için WebJobs’ı ayrılmış bir Web sitesinde çalıştırabilirsiniz. |
 | Tümleşik Hizmet Olarak MySQL desteği |X |X | | | |
 | ASP.NET, klasik ASP, Node.js, PHP, Python desteği |X |X |X |X |Service Fabric, [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) kullanarak bir Web ön ucu oluşturmayı destekler veya her türden uygulamayı (Node.js, Java vb.) [konuk yürütülebilir dosyası](../service-fabric/service-fabric-guest-executables-introduction.md) olarak dağıtabilirsiniz. |
 | Yeniden dağıtmadan ölçeği birden fazla örneğe genişletme |X |X |X |X |Sanal Makineler, ölçeği birden fazla örneğe genişletebilir ancak bunlar üzerinde çalışan hizmetler, bu ölçek genişletmeyi kullanabilecek şekilde yazılmış olmalıdır. İstekleri makineler arasında yönlendirmek için bir yük dengeleyici yapılandırmanız ve [kullanılabilirlik kümesinde](../virtual-machines/windows/manage-availability.md) birden fazla VM örneğine sahip olduğunuzdan emin olmanız gerekir. |

@@ -1,6 +1,6 @@
 ---
 title: Azure Veri Gezgini zaman serisi analizi
-description: Azure veri Gezgini'nde zaman serisi çözümlemesi hakkında daha fazla bilgi edinin
+description: "Azure veri Gezgini'nde zaman serisi çözümlemesi hakkında daha fazla bilgi edinin "
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: fafaf0b4721c45b002e67896223877da43d66e56
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 49aa1226de53a1d8f13e0f4f1e79f37f6bfa21ee
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51220101"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300498"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure veri Gezgini'nde zaman serisi analizi
 

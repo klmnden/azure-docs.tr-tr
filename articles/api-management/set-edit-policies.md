@@ -1,9 +1,9 @@
 ---
-title: Nasıl ayarlayacağınız veya Azure API Management ilkeleri düzenleme | Microsoft Docs
-description: Bu konu, ayarlama veya Azure API yönetimi ilkelerini düzenleme gösterilmektedir.
+title: Azure API Management ilkeleri ayarlama veya düzenleme nasıl | Microsoft Docs
+description: Bu konuda, Azure API Management ilkeleri ayarlama veya düzenleme gösterilmektedir.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,37 +11,36 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936706"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008275"
 ---
-# <a name="how-to-set-or-edit-azure-api-management-policies"></a>Nasıl ayarlayacağınız veya Azure API Management ilkeleri düzenleme
+# <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management ilkeleri ayarlama veya düzenleme yapma
 
-İlke tanımı gelen ve giden ifadeler tanımlayan bir XML dosyasıdır. XML tanımı penceresinden doğrudan düzenlenebilir. Önceden tanımlanmış bir ilke sağlanan listeden İlkesi penceresi sağındaki öğesini de seçebilirsiniz. Geçerli kapsam için geçerli deyimleri etkin ve vurgulanır. Etkin bir deyimi tıklatarak uygun XML tanım görünümünde imleç konumu ekler. 
+İlke tanımı gelen ve giden ifadeler açıklayan bir XML belgesidir. XML tanım penceresinden doğrudan düzenleyebilirsiniz. Ayrıca, önceden yapılandırılmış bir ilkeyle sağlanan listeden ilke pencerenin sağında seçebilirsiniz. Geçerli kapsam için geçerli ifadeler etkin ve vurgulanır. Etkin bir deyim tıklayarak uygun XML tanımı görünümünün imleç konumu ekler. 
 
-İlkeleri hakkında ayrıntılı bilgi için bkz: [Azure API Management ilkeleri](api-management-howto-policies.md).
+İlkeleri hakkında ayrıntılı bilgi için bkz. [Azure API Management ilkeleri](api-management-howto-policies.md).
 
-## <a name="set-or-edit-a-policy"></a>Ayarlama veya bir ilkeyi Düzenle
+## <a name="set-or-edit-a-policy"></a>Ayarlayın veya bir ilkeyi düzenleyebilirsiniz
 
-Ayarlamak veya bir ilke düzenlemek için aşağıdaki adımları izleyin:
+Ayarlamak veya bir ilkeyi düzenlemek için aşağıdaki adımları izleyin:
 
 1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. APIM örneğinize göz atın.
-3. Tıklatın **API'leri** sekmesi.
-4. Daha önce aldığınız API'leri birini seçin.
-5. Seçin **tasarım** sekmesi.
-6. İlkeyi uygulamak istediğiniz işlemi seçin. Tüm işlemler için ilkeyi uygulamak istiyorsanız seçin **tüm işlemleri**.
-7. Üçgen tıklayın **gelen** veya **giden** Kurşun Kalem.
-8. Seçin **Kod düzenleyicisinde** öğesi.
+3. **API'ler** sekmesine tıklayın.
 
-    ![İlkeyi düzenleme](./media/set-edit-policies/set-edit-policies01.png)
+    ![İlkeyi düzenleme](./media/set-edit-policies/code-editor.png)
 
-9. İstenen ilke kodu uygun blokları birine yapıştırın.
+4. Daha önce içeri aktardığınız API'lerden birini seçin.
+5. **Tasarım** sekmesini seçin.
+6. İlkeyi uygulamak istediğiniz bir işlem seçin. Tüm işlemler için ilkeyi uygulamak istiyorsanız seçin **tüm işlemleri**.
+7. Seçin **</>** (Kod düzenleyicisinde) simgesine **gelen işlem** veya **giden işlem** bölümü.
+8. İstenen ilke kod uygun blok birine yapıştırın.
          
         <policies>
              <inbound>
@@ -58,82 +57,82 @@ Ayarlamak veya bir ilke düzenlemek için aşağıdaki adımları izleyin:
              </on-error>
          </policies>
  
-## <a name="configure-scope"></a>Kapsam yapılandırın
+## <a name="configure-scope"></a>Kapsam yapılandırma
 
-İlkeleri, genel olarak veya bir ürün, API veya işlemi kapsamda yapılandırılabilir. Bir ilke yapılandırmaya başlamak için önce ilkenin uygulanacağı kapsam seçmeniz gerekir.
+Genel olarak veya bir ürün, API veya işlem kapsamında ilkeleri yapılandırılabilir. Bir ilke yapılandırmaya başlamak için önce ilkenin uygulanacağı kapsamı seçmeniz gerekir.
 
-İlke kapsamları aşağıdaki sırayla değerlendirilir:
+İlke kapsamları şu sırada değerlendirilir:
 
-1. Genel kapsamlı
+1. Genel kapsam
 2. Ürün kapsamı
 3. API kapsamı
 4. İşlem kapsamı
 
-Deyimleri ilkeleri içinde yerleşimini göre değerlendirilir `base` varsa, öğesi. Genel ilke üst öğeye sahip İlkesi ve kullanarak `<base>` öğesi içindeki etkisi yoktur.
+Deyimleri içinde ilkeleri yerleşimini göre değerlendirilir `base` varsa öğe. Genel ilke sahip üst öğe İlkesi ve kullanarak `<base>` öğesi içindeki etkisizdir.
 
-İlkeler ilke düzenleyicisinde geçerli kapsamdaki görmek için tıklatın **yeniden hesapla seçili kapsam için etkin ilke**.
+İlkeler ilke düzenleyicisinde geçerli kapsamda görmek için tıklayın **etkin ilke seçilen kapsam için'yeniden hesapla**.
 
-### <a name="global-scope"></a>Genel kapsamlı
+### <a name="global-scope"></a>Genel kapsam
 
-Genel kapsam için yapılandırılmış **tüm API'leri** APIM Örneğinizde.
+Genel kapsam için yapılandırılmış **tüm API'leri** APIM Örneğinize içinde.
 
-1. Oturum [Azure portal](https://portal.azure.com/) ve APIM örneğine gidin.
-2. Tıklatın **tüm API'leri**.
+1. Oturum [Azure portalında](https://portal.azure.com/) ve APIM Örneğinize gidin.
+2. Tıklayın **tüm API'leri**.
 
-    ![Genel kapsamlı](./media/api-management-howto-policies/global-scope.png)
+    ![Genel kapsam](./media/api-management-howto-policies/global-scope.png)
 
-3. Üçgen simgesine tıklayın.
+3. Bu üçgen simgesine tıklayın.
 4. **Kod düzenleyicisi**’ni seçin.
-5. İlkeleri ekleme veya düzenleme.
-6. Tuşuna **kaydetmek**. 
+5. Ekleyebilir veya ilkeleri düzenleyebilirsiniz.
+6. **Kaydet**’e basın. 
 
-    Değişiklikler hemen API Yönetimi ağ geçidi yayılır.
+    Değişiklikler hemen API Management ağ geçidi dağıtılır.
 
 ### <a name="product-scope"></a>Ürün kapsamı
 
-Ürün kapsamı seçilen ürün için yapılandırılır.
+Ürün kapsamı, seçili ürün için yapılandırılır.
 
-1. Tıklatın **ürünleri**.
+1. Tıklayın **ürünleri**.
 
     ![Ürün kapsamı](./media/api-management-howto-policies/product-scope.png)
 
-2. İlkeleri uygulamak istediğiniz ürün seçin.
-3. Tıklatın **ilkeleri**.
-4. İlkeleri ekleme veya düzenleme.
-5. Tuşuna **kaydetmek**. 
+2. İlkeleri uygulamak istediğiniz ürünü seçin.
+3. Tıklayın **ilkeleri**.
+4. Ekleyebilir veya ilkeleri düzenleyebilirsiniz.
+5. **Kaydet**’e basın. 
 
 ### <a name="api-scope"></a>API kapsamı
 
 API kapsam için yapılandırılmış **tüm işlemleri** seçili API.
 
-1. Seçin **API** ilkelerini uygulamak istiyor.
+1. Seçin **API** ilkelerini uygulamak istediğiniz.
 
     ![API kapsamı](./media/api-management-howto-policies/api-scope.png)
 
-2. Seçin **tüm işlemleri**
-3. Üçgen simgesine tıklayın.
+2. **Tüm işlemler**’i seçin
+3. Bu üçgen simgesine tıklayın.
 4. **Kod düzenleyicisi**’ni seçin.
-5. İlkeleri ekleme veya düzenleme.
-6. Tuşuna **kaydetmek**. 
+5. Ekleyebilir veya ilkeleri düzenleyebilirsiniz.
+6. **Kaydet**’e basın. 
 
 ### <a name="operation-scope"></a>İşlem kapsamı 
 
-İşlem kapsam için seçilen işlem yapılandırılır.
+İşlem kapsamı seçili işlemi için yapılandırılmıştır.
 
 1. Seçin bir **API**.
 2. İlkelerini uygulamak istediğiniz işlemi seçin.
 
     ![İşlem kapsamı](./media/api-management-howto-policies/operation-scope.png)
 
-3. Üçgen simgesine tıklayın.
+3. Bu üçgen simgesine tıklayın.
 4. **Kod düzenleyicisi**’ni seçin.
-5. İlkeleri ekleme veya düzenleme.
-6. Tuşuna **kaydetmek**. 
+5. Ekleyebilir veya ilkeleri düzenleyebilirsiniz.
+6. **Kaydet**’e basın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki konulara bakın:
+Aşağıdaki ilgili konulara bakın:
 
-+ [API dönüştürme](transform-api.md)
-+ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [API'leri dönüştürme](transform-api.md)
++ [İlke başvurusu](api-management-policy-reference.md) ilke bildirimlerine ve ayarlarının tam listesi için
 + [İlke örnekleri](policy-samples.md)

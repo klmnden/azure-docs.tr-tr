@@ -1,6 +1,6 @@
 ---
-title: Kubernetes (K8) Azure Stack dağıtımınıza sorunlarını giderme | Microsoft Docs
-description: Kubernetes (K8) Azure Stack dağıtımınıza sorunlarını gidermeyi öğrenin.
+title: Kubernetes için Azure Stack dağıtımınıza sorunlarını giderme | Microsoft Docs
+description: Kubernetes için Azure Stack dağıtımınıza sorunlarını gidermeyi öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231245"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007834"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtımınıza sorunlarını giderme
 
@@ -28,11 +28,11 @@ ms.locfileid: "50231245"
 > [!Note]  
 > Azure Stack'te Kubernetes önizlemeye sunuldu.
 
-Aşağıdaki makalede Kubernetes kümeniz sorun giderme sırasında arar. Dağıtım uyarıyı gözden geçirin ve dağıtımınızın durumunu dağıtım için gerekli öğeler bakarak gözden geçirebilirsiniz. Azure Stack veya Linux sanal makineleri barındıran Kubernetes dağıtım günlüklerini toplamak gerekebilir. Ayrıca, bir yönetim uç noktasından günlükleri almak için Azure Stack yöneticinizle birlikte çalışmanız gerekebilir.
+Aşağıdaki makalede Kubernetes kümeniz sorun giderme sırasında arar. Dağıtım uyarıyı gözden geçirin ve dağıtımınızın durumunu dağıtım için gerekli öğeler tarafından gözden geçirin. Azure Stack veya Linux sanal makineleri barındıran Kubernetes dağıtım günlüklerini toplamak gerekebilir. Bir yönetim uç noktasından günlükleri almak için Azure Stack yöneticinizle birlikte çalışmak gerekebilir.
 
 ## <a name="overview-of-deployment"></a>Dağıtıma genel bakış
 
-Kümenizde sorun giderme için adımlara geçmeden önce Azure Stack Kubernetes Küme dağıtımı işlemi gözden geçirmek isteyebilirsiniz. Dağıtım, sanal makineler oluşturmak için bir Azure Resource Manager çözüm şablonu kullanır ve ACS altyapısı kümenizin yükler.
+Kümenizi sorunlarını gidermeye başlamadan önce Azure Stack Kubernetes Küme dağıtımı işlemi gözden geçirmek isteyebilirsiniz. Dağıtım, sanal makineler oluşturmak ve kümeniz için ACS altyapısı yüklemek için bir Azure Resource Manager çözüm şablonu kullanır.
 
 ### <a name="deployment-workflow"></a>Dağıtım iş akışı
 
@@ -42,72 +42,72 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
 
 ### <a name="deployment-steps"></a>Dağıtım adımları
 
-1. Toplanan giriş parametreleri Market öğesi.
+1. Market öğesi giriş parametrelerini toplamak.
 
-    Kubernetes gibi küme ayarlamak için gereken değerleri girin:
-    -  **Kullanıcı adı** Kubernetes kümesinin parçası olan bir Linux sanal makineleri ve DVM için kullanıcı adı.
-    -  **SSH ortak anahtarı** DVM ve Kubernetes kümesinin bir parçası olarak oluşturulan tüm Linux makinelerinin yetkilendirme için kullanılan anahtarı
-    -  **Hizmet İlkesi** Kubernetes Azure bulut sağlayıcısı tarafından kullanılan kimliği. Asıl hizmetiniz oluşturulduğunda, istemci kimliği uygulama kimliği olarak belirlenmiştir. 
-    -  **İstemci gizli anahtarı** , hizmet sorumlusu oluştururken oluşturduğunuz anahtar oldukları.
+    Kubernetes kümesini ayarlamak için ihtiyacınız olan değerlere girin dahil olmak üzere:
+    -  **Kullanıcı adı**: Kubernetes kümesini ve DVM parçası olan bir Linux sanal makineleri için kullanıcı adı.
+    -  **SSH ortak anahtarı**: Kubernetes kümesini ve DVM bir parçası olarak oluşturulan tüm Linux makinelerinin yetkilendirme için kullanılan anahtar.
+    -  **Hizmet İlkesi**: Kubernetes Azure bulut sağlayıcısı tarafından kullanılan kimliği. İstemci kimliği, hizmet sorumlusu oluştururken sağladığınız uygulama kimliği olarak tanımlanır. 
+    -  **İstemci gizli anahtarı**:, hizmet sorumlusu oluştururken oluşturduğunuz anahtar bunlar.
 
-2. VM dağıtımı oluşturur ve özel betik uzantısı.
-    -  Market Linux görüntüsü kullanarak Linux VM dağıtımı oluşturur **Ubuntu Server 16.04 LTS**.
-    -  İndir ve müşteri betik uzantısını marketten Yürüt. Komut dosyası **Linux 2.0 için özel betik**.
-    -  DVM özel betiği çalıştırır. Komut dosyası:
-        1. Galeri uç noktası, Azure Resource Manager meta veri uç noktasından alır.
-        2. Active directory kaynak kimliği, Azure Resource Manager meta veri uç noktasından alır.
+2. VM dağıtımı oluşturmak ve özel betik uzantısı.
+    -  Market Linux görüntüsü kullanarak Linux VM dağıtımı oluşturma **Ubuntu Server 16.04 LTS**.
+    -  İndirme ve çalıştırma müşteri betik uzantısını marketten. Komut dosyası **Linux 2.0 için özel betik**.
+    -  DVM özel betiği çalıştırın. Betik aşağıdaki görevleri gerçekleştirir:
+        1. Galeri uç noktası Azure Resource Manager meta veri uç noktasından alır.
+        2. Active directory kaynak kimliği Azure Resource Manager meta veri uç noktasından alır.
         3. ACS altyapısı için API modelini yükler.
         4. ACS altyapısı için Kubernetes kümesi dağıtır ve Azure Stack bulut profiline kaydeder `/etc/kubernetes/azurestackcloud.json`.
-3. Ana Vm'lerden oluşturur.
+3. Ana VM'ler oluşturun.
 
-    İndirir ve müşteri betik uzantısını yürütür.
+4. İndirin ve müşteri betik uzantıları çalıştırın.
 
-4. Ana betiği çalıştırır.
+5. Ana betiği çalıştırın.
 
-    Komut dosyası:
+    Betik aşağıdaki görevleri gerçekleştirir:
     - Etcd, Docker ve Kubernetes yükler kubelet gibi kaynakları. etcd makine kümesi arasında verileri depolamak için bir yol sağlayan bir dağıtılmış anahtar değer deposudur. Docker kapsayıcıları olarak bilinen tam kemikler işletim sistemi düzeyinde virtualizations destekler. Kubelet her Kubernetes düğümü üzerinde çalışan düğümü aracısıdır.
     - Etcd hizmet ayarlar.
     - Kubelet hizmet ayarlar.
-    - Kubelet başlatır. Bu, aşağıdakileri içerir:
+    - Kubelet başlatır. Bu görev, aşağıdaki adımları içerir:
         1. API hizmetini başlatır.
-        2. Denetleyici hizmetini başlatır.
+        2. Denetleyici Hizmeti başlatır.
         3. Scheduler hizmetini başlatır.
-5. Aracı VM'ler oluşturur.
+6. Aracı VM'ler oluşturun.
 
-    İndirir ve müşteri betik uzantısını yürütür.
+7. İndirme ve çalıştırma müşteri betik uzantısını.
 
-6. Aracı betiği çalıştırır. Aracısı özel betik:
-    - Etcd yükleyin.
-    - Kubelet hizmetini ayarlayın.
-    - Kubernetes kümesini birleştirir.
+7. Aracı betiği çalıştırın. Aracısı özel betik aşağıdaki görevleri gerçekleştirir:
+    - Etcd yükler
+    - Kubelet hizmet ayarlar
+    - Kubernetes kümesini birleştirir
 
 ## <a name="steps-for-troubleshooting"></a>Sorun giderme adımları
 
-Kubernetes kümenizi destekleyen Vm'lerde günlüklerini toplayabilir. Ayrıca dağıtım günlüğünü gözden geçirebilirsiniz. Azure Stack kullanmakta olduğunuz sürümünü doğrulamak için ve Azure dağıtımınızla ilgili yığından günlüklerini almak için Azure Stack yöneticinizle konuşun gerekebilir.
+Kubernetes kümenizi destekleyen sanal makinelere günlüklerini toplayabilir. Ayrıca dağıtım günlüğünü gözden geçirebilirsiniz. Azure Stack, kullanılacağını ve Azure yığından dağıtımınızla ilgili günlüklerini almak için gereken sürümünü doğrulamak için Azure Stack yöneticinizle konuşun gerekebilir.
 
 1. Gözden geçirme [dağıtım durumu](#review-deployment-status) ve [günlüklerini](#get-logs-from-a-vm) ana düğüm Kubernetes kümenize öğesinden.
-2. Azure Stack en son sürümünü kullanmanız gerekir. Azure Stack sürümünüz hakkında şüpheleriniz varsa, Azure Stack yöneticinize başvurun. Kubernetes kümesi Marketi zaman 0.3.0 Azure Stack 1808 veya üzeri bir sürümünü gerektirir.
-3.  VM oluşturma dosyalarınızı gözden geçirin. Aşağıdaki sorunlarla karşılaşmış olabilir:  
+2. Azure Stack en son sürümünü kullandığınızdan emin olun. Hangi sürümü kullandığınızdan emin değilseniz, Azure Stack yöneticinize başvurun. Kubernetes kümesi Marketi zaman 0.3.0 Azure Stack 1808 veya üzeri bir sürümünü gerektirir.
+3.  VM oluşturma dosyalarınızı gözden geçirin. Aşağıdaki sorunları vardı:  
     - Ortak anahtar geçersiz olabilir. Oluşturduğunuz anahtarı gözden geçirin.  
-    - VM oluşturma veya oluşturma hatası tetikleyen bir iç hata tetiklenen. Azure Stack aboneliğiniz için kapasite sınırlamaları dahil olmak üzere bir dizi etkene göre hatalarına neden.
-    - VM için tam etki alanı adı (FDQN), yinelenen bir önek ile başlayan mu?
+    - VM oluşturma veya oluşturma hatası tetikleyen bir iç hata tetiklenen. Azure Stack aboneliğiniz için kapasite sınırlamaları dahil olmak üzere hata, bir dizi etkene neden olabilir.
+    - VM için tam etki alanı adı (FDQN) bir yinelenen öneki ile başladığından emin olun.
 4.  VM **Tamam**, DVM değerlendirebilirsiniz. DVM bir hata iletisi varsa:
 
     - Ortak anahtar geçersiz olabilir. Oluşturduğunuz anahtarı gözden geçirin.  
-     - Ayrıcalıklı uç noktaları kullanarak, Azure Stack için günlükleri almak için Azure Stack yöneticinize başvurmanız gerekir. Daha fazla bilgi için [Azure Stack'te tanılama araçları](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
-5. Dağıtımınız hakkında sorularınız varsa sorunuzu gönderin veya birisi zaten sorusuna cevap verdi varsa bkz [Azure Stack Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+    - Ayrıcalıklı uç noktaları kullanarak, Azure Stack için günlükleri almak için Azure Stack yöneticinize başvurmanız gerekir. Daha fazla bilgi için [Azure Stack'te tanılama araçları](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. Dağıtımınız hakkında bir sorunuz varsa, yayınlamak veya birisi zaten sorusuna cevap verdi varsa bkz [Azure Stack Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Dağıtım durumunu gözden geçirin
 
-Tüm sorunları gözden geçirmek için Kubernetes kümenizi dağıttığınızda, dağıtım durumunu gözden geçirebilirsiniz.
+Kubernetes kümesini dağıtırken, herhangi bir sorun için kontrol etmek için dağıtım durumunu gözden geçirebilirsiniz.
 
 1. Açık [Azure Stack portalı](https://portal.local.azurestack.external).
-2. Seçin **kaynak grupları**, ve ardından kullanılan kaynak grubu adını seçin, Kubernetes kümesini dağıtırken.
-3. Seçin **dağıtımları** ardından **dağıtım adı**.
+2. Seçin **kaynak grupları**ve ardından, Kubernetes kümesini dağıtırken kullandığınız kaynak grubu adını seçin.
+3. Seçin **dağıtımları**ve ardından **dağıtım adı**.
 
     ![Sorun giderme](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
-4.  Sorun giderme penceresi başvurun. Dağıtılan her bir kaynak, aşağıdaki bilgileri sağlar.
+4.  Sorun giderme penceresi başvurun. Dağıtılan her bir kaynak, aşağıdaki bilgileri sağlar:
     
     | Özellik | Açıklama |
     | ----     | ----        |
@@ -115,21 +115,23 @@ Tüm sorunları gözden geçirmek için Kubernetes kümenizi dağıttığınızd
     | Tür | Kaynak sağlayıcıya ve kaynak türü. |
     | Durum | Öğenin durumu. |
     | Zaman Damgası | Saat UTC zaman damgası. |
-    | İşlem ayrıntıları | İşlem ayrıntıları gibi kaynak sağlayıcısı işlemi, kaynak uç noktası ve kaynağın adı. |
+    | İşlem ayrıntıları | İşlem ayrıntıları işlemi, kaynak uç noktası ve kaynağın adını söz konusuydu kaynak sağlayıcısı gibi. |
 
-    Her öğe bir durum simgesi yeşil veya kırmızı olacaktır.
+    Her öğenin bir durum simgesi yeşil veya kırmızı vardır.
 
 ## <a name="get-logs-from-a-vm"></a>Bir sanal makineden günlükleri alın
 
-Kümeniz için ana VM bağlanmak için bir bash istemi açın ve günlükler oluşturmak için bir komut dosyasını çalıştırın. Ana küme kaynak grubunuzda bulunabilir ve adlı `k8s-master-<sequence-of-numbers>`. 
+Günlükler oluşturmak için kümeniz için ana VM bağlanmak bir bash istemi açın ve ardından bir komut çalıştırın gerekir. Sanal makine küme kaynak grubunuzda bulunabilir ve adlı asıl `k8s-master-<sequence-of-numbers>`. 
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-Bir bash ihtiyacınız olacak makinede kullanımınız, Azure Stack yönetmek için ister. Bash günlüklere erişmek komut dosyalarını çalıştırmak için kullanın. Bir Windows makinede yüklü Git bash isteminde kullanabilirsiniz. En son git sürümünü almak için bkz: [git indirmeleri](https://git-scm.com/downloads).
+İhtiyacınız bir bash istemi makinedeki Azure Stack yönetmek için kullanabilirsiniz. Bash günlüklere erişmek komut dosyalarını çalıştırmak için kullanın. Bir Windows makinede Git ile yüklü bash isteminde kullanabilirsiniz. En son git sürümünü almak için bkz: [Git indirmeleri](https://git-scm.com/downloads).
 
 ### <a name="get-logs"></a>Günlükleri alın
 
-1. Bir bash istemi açın. Bir Windows makinede git kullanıyorsanız, bir bash istemi aşağıdaki yoldan açabilirsiniz: `c:\programfiles\git\bin\bash.exe`.
+Günlükleri almak için aşağıdaki adımları uygulayın:
+
+1. Bir bash istemi açın. Bir Windows makinede Git kullanıyorsanız, bir bash istemi aşağıdaki yoldan açabilirsiniz: `c:\programfiles\git\bin\bash.exe`.
 2. Şu bash komutlarını çalıştırın:
 
     ```Bash  
@@ -140,23 +142,23 @@ Bir bash ihtiyacınız olacak makinede kullanımınız, Azure Stack yönetmek i�
     ```
 
     > [!Note]  
-    > Windows üzerinde çalıştırmanız gerekmez `sudo` ve yalnızca kullanabilirsiniz `chmod 744 getkuberneteslogs.sh`.
+    > Windows üzerinde çalıştırmanız gerekmez `sudo`. Bunun yerine, hemen kullanabileceğiniz `chmod 744 getkuberneteslogs.sh`.
 
-3. Aynı oturumunda aşağıdaki komutu ortamınızla eşleşecek şekilde güncelleştirildi parametrelerle çalıştırın.
+3. Aynı oturumda ortamınızla eşleşecek şekilde güncelleştirildi parametrelerle aşağıdaki komutu çalıştırın:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
     ```
 
-    Parametreleri gözden geçirin ve ortamınıza bağlı değerlerini ayarlayın.
+4. Parametreleri gözden geçirin ve ortamınıza bağlı değerlerini ayarlayın.
     | Parametre           | Açıklama                                                                                                      | Örnek                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -i,--dosya kimliği | Kubernetes ana VM bağlanmak için RSA özel anahtar dosyası. Anahtar ile başlamalıdır `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
     | y-,--konak          | Genel IP veya Kubernetes kümesi ana VM tam etki alanı adını (FQDN). VM adı ile başlayan `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | u-,--kullanıcı          | Kubernetes küme ana VM kullanıcı adı. Bu ad, Market öğesi yapılandırırken ayarlarsınız.                                                                    | azureuser                                                                     |
+    | u-,--kullanıcı          | Kubernetes küme ana VM kullanıcı adı. Market öğesi yapılandırdığınızda bu adını ayarlayın.                                                                    | azureuser                                                                     |
     | -d--vmdhost       | Genel IP veya DVM FQDN'si. VM adı ile başlayan `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
 
-   Parametre değerleriniz eklediğinizde, aşağıdaki gibi görünebilir:
+   Parametre değerleriniz eklediğinizde, aşağıdaki kodu şöyle görünebilir:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
@@ -167,15 +169,15 @@ Bir bash ihtiyacınız olacak makinede kullanımınız, Azure Stack yönetmek i�
     ![Oluşturulan günlükleri](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Klasörlerdeki komutu tarafından oluşturulan günlükleri alın. Komut yeni bir klasör oluşturur ve saat damgasının.
+4. Klasörlerdeki komutu tarafından oluşturulan günlükleri alın. Komut, yeni bir klasör oluşturur ve bunları zaman damgaları.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine kubernetes dvm.log
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Kubernetes için Azure Stack dağıtma](azure-stack-solution-template-kubernetes-deploy.md).
+[Kubernetes için Azure Stack dağıtma](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Bir Kubernetes Market'te (Azure Stack operatörü için) ekleyin.](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Bir Kubernetes kümesi Market'te (Azure Stack operatörü için) ekleyin.](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure'da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

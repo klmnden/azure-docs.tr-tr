@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638162"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300379"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenlerini tahmin doğruluğunu artırmak
 Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır.  Bir desen çok daha fazla konuşma sağlamadan bir amaç için daha yüksek doğruluk derecesi elde etmek sağlar. 
@@ -89,7 +89,7 @@ Eklemek için bir **Pattern.any** deseni şablon varlığa saran ve küme ayraç
 Bu kitap başlık örneklerde kitap başlığın bağlamsal sözcükleri LUIS için kafa karıştırıcı değildir. LUIS içindeki bir desenle olduğundan ve bir Pattern.any varlığı ile işaretlenmiş kitap başlığı sona ereceği bilir.
 
 ### <a name="explicit-lists"></a>Açık listeler
-Desen bir Pattern.any içeriyorsa ve desen sözdizimi için olasılığını sağlar yanlış varlık ayıklama tabanlı utterance üzerinde oluşturun bir [açık listesi](https://aka.ms/ExplicitList) özel durumuna izin yazma API aracılığıyla. 
+Desen bir Pattern.any içeriyorsa ve desen sözdizimi için olasılığını sağlar yanlış varlık ayıklama tabanlı utterance üzerinde oluşturun bir [açık listesi](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) özel durumuna izin yazma API aracılığıyla. 
 
 Örneğin, hem isteğe bağlı söz dizimi içeren bir düzeni olduğunu varsayalım `[]`ve varlık sözdizimi `{}`, birleştirilmiş bir şekilde hatalı verileri ayıklamak için.
 
@@ -102,7 +102,7 @@ Desen '[Bul] e-postadan hakkında {subject} [{person}]'. Aşağıdaki konuşma i
 
 Önceki tabloda, utterance `email about the man from La Mancha`, konu olmalıdır `the man from La Mancha` (bir kitap başlığı) ancak konu isteğe bağlı sözcüğünü içerdiğinden `from`, başlığı yanlış tahmin edildiğinde. 
 
-Bu özel durumun desen için düzeltmek için ekleme `the man from la mancha` {subject} varlık kullanan bir açık listesi eşleşme olarak [açık bir listesi için API geliştirme](https://aka.ms/ExplicitList).
+Bu özel durumun desen için düzeltmek için ekleme `the man from la mancha` {subject} varlık kullanan bir açık listesi eşleşme olarak [açık bir listesi için API geliştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>İsteğe bağlı bir metin şablonu utterance olarak işaretlemek için söz dizimi
 İsteğe bağlı normal ifade köşeli parantez sözdizimini kullanarak utterance metni işaretleme `[]`. İsteğe bağlı bir metin, köşeli ayraç yalnızca iki ayraçlar en fazla iç içe yerleştirebilirsiniz.

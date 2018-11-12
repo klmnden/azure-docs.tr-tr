@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955465"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288212"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Azure AD v2.0 uç noktası v1.0 uç noktası ile karşılaştırma
 
@@ -41,7 +41,7 @@ Yeni bir uygulama geliştirirken, v1.0 ve v2.0 uç noktaları arasındaki farkla
 
 * V1.0 hem v2.0 uç noktaları ayrıca oturum açma işlemlerini kabul *[Konuk kullanıcılar](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* olarak yapılandırılan uygulamalar için bir Azure AD Directory *[tek kiracılı](single-and-multi-tenant-apps.md)* veya *çok kiracılı* kiracıya özgü uç noktaya işaret edecek şekilde yapılandırılmış uygulamaların (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-V2.0 uç noktası, oturum açma hesaplarından, kişisel ve iş ve Okul kabul uygulamaları uygulamanızı tamamen hesabı belirsiz yazma olanağı veren yazmanızı sağlar. Örneğin, uygulamanızın çağırırsa [Microsoft Graph](https://graph.microsoft.io), bazı ek işlevler ve veriler iş hesaplarını, SharePoint sitelerinde veya dizin verilerini gibi kullanılabilir olacaktır. Ancak birçok eylemi için gibi [bir kullanıcının posta okuma](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), aynı kod hem kişisel ve iş ve Okul hesapları için e-posta erişebilirsiniz.
+V2.0 uç noktası, oturum açma hesaplarından, kişisel ve iş ve Okul kabul uygulamaları uygulamanızı tamamen hesabı belirsiz yazma olanağı veren yazmanızı sağlar. Örneğin, uygulamanızın çağırırsa [Microsoft Graph](https://developer.microsoft.com/graph), bazı ek işlevler ve veriler iş hesaplarını, SharePoint sitelerinde veya dizin verilerini gibi kullanılabilir olacaktır. Ancak birçok eylemi için gibi [bir kullanıcının posta okuma](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), aynı kod hem kişisel ve iş ve Okul hesapları için e-posta erişebilirsiniz.
 
 V2.0 uç noktası için tüketici, eğitim ve kurumsal dünyaları erişmek için tek bir kitaplığı (MSAL) kullanabilirsiniz.
 

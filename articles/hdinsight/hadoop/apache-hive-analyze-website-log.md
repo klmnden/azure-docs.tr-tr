@@ -2,19 +2,19 @@
 title: Web sitesi günlüğü çözümlemesi - Azure HDInsight Hadoop ile Hive kullanma
 description: Web sitesi günlüklerini çözümlemek için HDInsight ile Hive kullanma konusunda bilgi edinin. Bir HDInsight tablosuna giriş olarak bir günlük dosyası kullanın ve verileri sorgulamak için HiveQL kullanın.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048033"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233607"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Web sitesi günlüklerini çözümlemek için Windows tabanlı HDInsight ile Hive kullanma
 Bir Web sitesi günlüklerini çözümlemek için HDInsight ile HiveQL kullanmayı öğrenin. Web sitesi günlüğü çözümlemesi benzer etkinliklere dayalı hedef kitlenizi segmentlere ayırın, site ziyaretçilerinin demografik bilgilere göre kategorilere ayırın ve bulmak için içeriği teslim bunlar görünümü, Web siteleri geliyorlar ve benzeri kullanılabilir.
@@ -34,7 +34,7 @@ Bu örnekte, bir HDInsight kümesi ziyaretlerin sıklığına ilişkin Web sites
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure HDInsight Hadoop kümesinde sağlanması gerekir. Yönergeler için [HDInsight küme sağlama](../hdinsight-hadoop-provision-linux-clusters.md).
 * Excel 2010 yüklü veya Microsoft Excel 2013 yüklü olmalıdır.
-* Olmalıdır [Microsoft Hive ODBC sürücüsünü](http://www.microsoft.com/download/details.aspx?id=40886) kovanından Excel'e veri aktarma için.
+* Olmalıdır [Microsoft Hive ODBC sürücüsünü](https://www.microsoft.com/download/details.aspx?id=40886) kovanından Excel'e veri aktarma için.
 
 ## <a name="to-run-the-sample"></a>Örneği çalıştırmak için
 1. Gelen [Azure portalında](https://portal.azure.com/), ilerlemeyi (küme var. sabitlenmiş değilse), gelen örneği çalıştırmak istediğiniz küme kutucuğuna tıklayın.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 2ba921a45619c74af230b282c23adff502ae5b6d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d93b8e37c2025ebe47f9351da26f0913107585d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961458"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009377"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure ağ Log Analytics çözümleri izleme
 
@@ -236,4 +236,4 @@ Değişiklik yeni çözümde görünür değil. önce toplanan veriler. Alan adl
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-search.md) ayrıntılı Azure tanılama verilerini görüntülemek için.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-queries.md) ayrıntılı Azure tanılama verilerini görüntülemek için.

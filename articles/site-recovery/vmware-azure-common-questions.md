@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215455"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012114"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -59,6 +59,8 @@ Başlarken, kendi Windows Server makinelerinde koruma amacı, koruma etkinleşti
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Burada şirket içi Vm'leri için çoğaltma?
 Verileri Azure depolama alanına çoğaltır. Bir yük devretme çalıştırdığınızda, Site Recovery depolama hesabından Azure Vm'leri otomatik olarak oluşturur.
 
+## <a name="replication"></a>Çoğaltma
+
 ### <a name="what-apps-can-i-replicate"></a>Hangi uygulamaların çoğaltabilirim?
 Herhangi bir uygulamayı veya ile uyumlu bir VMware VM'de çalışan iş yüklerini çoğaltabilirsiniz [çoğaltma gereksinimlerini](vmware-physical-azure-support-matrix.md##replicated-machines). Site kurtarma uygulamayla tutarlı çoğaltma için destek sağlar, böylece uygulamalar üzerinde başarısız oldu ve akıllı bir duruma başarısız oldu. Site Recovery, SharePoint, Exchange, Dynamics, SQL Server ve Active Directory gibi Microsoft uygulamalarıyla tümleşir ve Oracle, SAP, IBM ve Red Hat gibi önde gelen satıcılarla yakın bir tümleştirmede çalışır. İş yükü koruması hakkında [daha fazla bilgi edinin](site-recovery-workload.md).
 
@@ -74,18 +76,17 @@ Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Reco
 Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depolama hesabının ulaştığında, bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz.
 
 
-
-## <a name="what-are-the-replicated-vm-requirements"></a>Çoğaltılmış sanal makine gereksinimleri nelerdir?
+### <a name="what-are-the-replicated-vm-requirements"></a>Çoğaltılmış sanal makine gereksinimleri nelerdir?
 
 Çoğaltma için bir VMware VM, desteklenen bir işletim sistemi çalıştırmalıdır. Ayrıca, VM, Azure Vm'leri için gereksinimleri karşılaması gerekir. [Daha fazla bilgi edinin](vmware-physical-azure-support-matrix.md##replicated-machines) destek matrisi içinde.
 
-## <a name="how-often-can-i-replicate-to-azure"></a>Azure'a ne sıklıkta çoğaltabilirim?
+### <a name="how-often-can-i-replicate-to-azure"></a>Azure'a ne sıklıkta çoğaltabilirim?
 VMware Vm'lerini Azure'a çoğaltırken çoğaltma sürekli olarak yapılır.
 
-## <a name="can-i-extend-replication"></a>Ben çoğaltma uzatabilir miyim?
+### <a name="can-i-extend-replication"></a>Ben çoğaltma uzatabilir miyim?
 Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
 
-## <a name="can-i-do-an-offline-initial-replication"></a>Çevrimdışı ilk çoğaltma yapabilirim?
+### <a name="can-i-do-an-offline-initial-replication"></a>Çevrimdışı ilk çoğaltma yapabilirim?
 Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Diskleri çoğaltmanın dışında tutabilirsiniz?
@@ -141,7 +142,7 @@ Yapılandırma sunucusunun düzenli zamanlanmış yedeklemeleri almaya öneririz
 Yükleyicileri tutulur **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** yapılandırma sunucusundaki klasör.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Mobility hizmeti nasıl yüklerim?
-Çoğaltmak istediğiniz her sanal makinede kullanarak yüklediğiniz bir [gönderme yüklemesi](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery), veya el ile yükleme [UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui), veya [PowerShell kullanarak](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt). Alternatif olarak, bir dağıtım aracı gibi kullanarak dağıtabileceğiniz [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md), veya [Azure Otomasyonu ve DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+Çoğaltmak istediğiniz her sanal makinede kullanarak yüklediğiniz bir [gönderme yüklemesi](vmware-azure-install-mobility-service.md), veya [el ile yükleme](vmware-physical-mobility-service-install-manual.md) kullanıcı Arabirimi veya Powershell. Alternatif olarak, bir dağıtım aracı gibi kullanarak dağıtabileceğiniz [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

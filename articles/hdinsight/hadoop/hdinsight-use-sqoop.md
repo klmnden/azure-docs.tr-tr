@@ -3,18 +3,18 @@ title: Azure HDInsight (Hadoop) ile Apache Sqoop işleri çalıştırma
 description: Bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve için bir iş istasyonundan Azure PowerShell'i kullanma konusunda bilgi edinin.
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 7834c6365753e290c7d9e232f716e4b1d39f3db5
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 85753376e33f5392be06f7d3ea89a04367e3c9ab
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042583"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009870"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Sqoop kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,7 +27,7 @@ Hadoop günlüklerini ve dosyaları gibi yapılandırılmamış ve yarı yapıla
 
 HDInsight kümelerinde desteklenir Sqoop sürümleri için bkz: [HDInsight tarafından sağlanan küme sürümlerindeki yenilikler nelerdir?][hdinsight-versions]
 
-## <a name="understand-the-scenario"></a>Senaryo anlama
+## <a name="understand-the-scenario"></a>Senaryoyu anlama
 
 HDInsight küme bazı örnek verilerle birlikte gelir. Aşağıdaki iki örnek kullanabilirsiniz:
 

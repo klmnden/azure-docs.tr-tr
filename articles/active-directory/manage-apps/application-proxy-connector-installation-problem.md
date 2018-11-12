@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.openlocfilehash: 98dc3981e0f34ebfe7d8881d77b84cfe252e3f4f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.reviewer: japere
+ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357597"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036946"
 ---
-# <a name="problem-installing-the-application-proxy-agent-connector"></a>Uygulama proxy'si aracı Bağlayıcısı'nı yükleme sorunu
+# <a name="problem-installing-the-application-proxy-agent-connector"></a>Uygulama Ara Sunucusu Aracı Bağlayıcısı’nı yüklerken sorun oluşuyor
 
 Microsoft AAD Application Proxy Connector giden bağlantılar iç etki alanı bulut kullanılabilir uç noktasından bağlantısını kurmak için kullandığı bir iç etki alanı bileşendir.
 
@@ -63,13 +63,13 @@ Bir bağlayıcı yüklemesi başarısız olduğunda, kök nedeni genellikle aşa
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Yönetici Bağlayıcısı'nı yüklemek için kullanılan doğrulayın
 
-**Hedef:** bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcının başarılı olması için yükleme için genel yönetici olması gerekir.
+**Hedef:** bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcının bir uygulama Yöneticisi veya yüklemesinin başarılı olması için genel yönetici olması gerekir.
 
 **Kimlik bilgilerinin doğru olup olmadığını doğrulamak için:**
 
 Bağlanma <https://login.microsoftonline.com> ve aynı kimlik bilgilerini kullanın. Oturum açma başarılı olduğundan emin olun. Kullanıcı rolü giderek denetleyebilirsiniz **Azure Active Directory**  - &gt; **kullanıcılar ve gruplar**  - &gt; **tüm kullanıcılar**. 
 
-Kullanıcı hesabınızın, ardından "dizin rolü" elde edilen menüsünde seçin. Seçili rol için "Genel yönetici" olduğunu doğrulayın. Herhangi bir sayfasında bu adımları boyunca erişim erişemiyorsanız, genel yönetici değildir.
+Kullanıcı hesabınızın, ardından "dizin rolü" elde edilen menüsünde seçin. Seçili rolü "uygulama Yönetici" veya "Genel yönetici" olduğunu doğrulayın. Herhangi bir sayfasında bu adımları boyunca erişim bulamıyorsanız, gerekli rol yok.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure AD uygulama ara sunucusu bağlayıcıları anlama](application-proxy-connectors.md)

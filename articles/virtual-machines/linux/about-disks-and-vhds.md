@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 53b44d47d9421f1b37aef7ca4d30c2c753b79740
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: eec7b64836819f840702bb715f4fcc0573a94b00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218330"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251858"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Azure Linux Vm'leri için diskleri depolama hakkında
 Yalnızca diğer bilgisayarlar gibi azure'da sanal makineler bir işletim sistemini, uygulamalarını ve verilerini depolamak için bir farkı şudur diskleri kullanın. Tüm Azure sanal makineler, en az iki diskin – Linux işletim sistemi diski ve geçici bir diskle sahiptir. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ile görüntü sanal sabit bir Azure depolama hesabında depolanan diskleri (VHD). Sanal makineler, VHD'ler olarak da depolanan bir veya daha fazla veri diski olarak da olabilir.
@@ -50,10 +50,13 @@ Veri diskleri için sanal makine herhangi bir zamanda göre ekleyebileceğiniz *
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
+Önizleme boyutlar için bkz. bizim [SSS](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) bulunan hangi bölgelerde öğrenin.
+
 ## <a name="troubleshooting"></a>Sorun giderme
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Bir diski](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM'niz için ek depolama alanı eklemek için.
 * [Anlık görüntü oluşturma](snapshot-copy-managed-disk.md).
 * [Yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md).

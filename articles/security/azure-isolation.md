@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579866"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239058"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutta yalıtım
 ##  <a name="introduction"></a>Giriş
@@ -91,7 +91,7 @@ Azure RBAC, tüm kaynak türleri için geçerli olan üç temel rolüne sahiptir
 
 - **Okuyucu** mevcut Azure kaynaklarını görebilirsiniz.
 
-![Azure Rol Tabanlı Erişim Denetimi](./media/azure-isolation/azure-isolation-fig3.png)
+![Azure rol tabanlı erişim denetimi](./media/azure-isolation/azure-isolation-fig3.png)
 
 Azure RBAC rolleri kalan belirli bir Azure kaynak yönetimi sağlar. Örneğin, sanal makine Katılımcısı rolü oluşturmak ve sanal makineleri yönetmek kullanıcı sağlar. Bunları erişim için Azure sanal ağı veya sanal makineye bağlanan alt vermez.
 
@@ -111,7 +111,7 @@ Azure Active Directory için diğer özelliklerinden bazıları şunlardır:
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) yüz milyonlarca kimliğe kadar ölçeklendirebileceğiniz müşteri uygulamaları için bir yüksek oranda kullanılabilir kimlik genel yönetim hizmeti sağlar. Bu hizmet mobil platformlar ve web platformlarıyla tümleştirilebilir. Tüketicileriniz için özelleştirilebilir bir deneyimle uygulamalarınızda ister mevcut sosyal hesaplarını kullanarak veya kimlik bilgileri oluşturarak oturum açabilir.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Yalıtım Microsoft Administrators & veri silme
-Microsoft, sağlam ölçüler verilerinizi uygunsuz erişiminden koruyun veya yetkisiz kişiler tarafından alır. Bu çalışma süreçleri ve denetimleri tarafından yedeklenen [çevrimiçi hizmet koşulları](http://aka.ms/Online-Services-Terms), verilerinize erişimi yöneten sözleşmeye dayalı taahhütleri sunar.
+Microsoft, sağlam ölçüler verilerinizi uygunsuz erişiminden koruyun veya yetkisiz kişiler tarafından alır. Bu çalışma süreçleri ve denetimleri tarafından yedeklenen [çevrimiçi hizmet koşulları](https://aka.ms/Online-Services-Terms), verilerinize erişimi yöneten sözleşmeye dayalı taahhütleri sunar.
 
 -   Microsoft mühendisleri varsayılan verilerinize bulutta erişiminiz yok. Bunun yerine, yalnızca gerektiğinde yönetim gözetim altında erişim izni verilir. Bu erişim dikkatli bir şekilde denetlenir ve günlüğe ve artık gerekli olmadığında iptal.
 
@@ -119,7 +119,7 @@ Microsoft, sağlam ölçüler verilerinizi uygunsuz erişiminden koruyun veya ye
 
 ISO/IEC 27001 gibi denetlenen sertifikaları ile Kurumsal hizmetlerini, Microsoft ve işletme amacıyla yalnızca bu erişim gerçekleştiğini doğrulamak için örnek denetimler gerçekleştirir, akredite edilmiş denetim firmaları tarafından düzenli olarak doğrulanır. Her zaman, dilediğiniz zaman ve herhangi bir nedenle kendi müşteri verilerinize erişebilirsiniz.
 
-Herhangi bir veri silerseniz, Microsoft Azure önbelleğe alınmış veya yedek kopyalar içeren verileri siler. Kapsamdaki hizmetler için saklama süresi dolduktan sonra 90 gün içinde silme işlemi gerçekleşir. (Kapsamındaki hizmetler veri işleme koşulları bölümünde tanımlanmış bizim [çevrimiçi hizmet koşulları](http://aka.ms/Online-Services-Terms).)
+Herhangi bir veri silerseniz, Microsoft Azure önbelleğe alınmış veya yedek kopyalar içeren verileri siler. Kapsamdaki hizmetler için saklama süresi dolduktan sonra 90 gün içinde silme işlemi gerçekleşir. (Kapsamındaki hizmetler veri işleme koşulları bölümünde tanımlanmış bizim [çevrimiçi hizmet koşulları](https://aka.ms/Online-Services-Terms).)
 
 Depolama için kullanılan bir disk sürücüsü bir donanım hatası nedeniyle düşerse, güvenli bir şekilde olduğu [silinmesi veya yok](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) önce Microsoft değiştirme veya onarım için üreticinin döndürür. Herhangi bir yolla veriler kurtarılamaz emin olmak için sürücüdeki verilerin üzerine yazılır.
 

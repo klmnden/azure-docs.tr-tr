@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470073"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300566"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 Azure depolama, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli olanak tanıyan bir katmanlı güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağları uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağırırken uygulamalar (geçerli bir erişim anahtarı veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -201,7 +201,7 @@ Her Depolama hesabı ile birleştirilebilir 100'e kadar IP ağ kurallarını des
 ### <a name="configuring-access-from-on-premises-networks"></a>Şirket içi ağlardan erişimi yapılandırma
 Depolama hesabınıza bir IP ağ kuralı ile şirket içi ağlarınızı erişim vermek için internet'e yönelik ağınız tarafından kullanılan IP adreslerini tanımlamanız gerekir.  Yardım için ağ yöneticinize başvurun.
 
-Azure ağı kullanarak ağınıza bağlı olup olmadığını [ExpressRoute](/azure/expressroute/expressroute-introduction), her bağlantı hattı Microsoft kullanarakServices'eAzuredepolamagibibağlanmakiçinkullanılanikiortakIPadresi,MicrosoftEdgeileyapılandırılmış[Azure genel eşdüzey hizmet sağlama](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Azure depolama bağlantı hattınızın gelen iletişimlere izin vermesi için genel IP adresleri, bağlantı hatları için IP ağ kuralları oluşturmanız gerekir.  ExpressRoute bağlantı hattı'nın genel IP adreslerinizi bulmak için [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal aracılığıyla.
+Azure ağı kullanarak ağınıza bağlı olup olmadığını [ExpressRoute](/azure/expressroute/expressroute-introduction), her bağlantı hattı Microsoft kullanarakServices'eAzuredepolamagibibağlanmakiçinkullanılanikiortakIPadresi,MicrosoftEdgeileyapılandırılmış[Azure genel eşdüzey hizmet sağlama](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Azure depolama bağlantı hattınızın gelen iletişimlere izin vermesi için genel IP adresleri, bağlantı hatları için IP ağ kuralları oluşturmanız gerekir.  ExpressRoute bağlantı hattı'nın genel IP adreslerinizi bulmak için [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal aracılığıyla.
 
 
 ### <a name="managing-ip-network-rules"></a>IP ağ kurallarını yönetme
@@ -294,7 +294,7 @@ Bu tür bir hizmet beklendiği gibi çalışmaya izin vermek için ağ kurallar�
 |Azure Event Grid|Microsoft.EventGrid|BLOB Depolama olayı yayımlamayı etkinleştirin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs yakalama ile verileri arşivleme.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Ağı|Microsoft.Networking|Store ve ağ trafik günlüklerini analiz edin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure İzleyici|Microsoft.Insights| İzleme verilerinin güvenli storaage hesabına yazma sağlayan [daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure İzleyici|Microsoft.Insights| İzleme verilerinin bir güvenli depolama hesabına yazma sağlayan [daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
 |
 
 

@@ -1,10 +1,10 @@
 ---
 title: REST API kullanarak iş ilerleme durumunu denetlemek nasıl | Microsoft Docs
-description: İşin ilerleme durumunu izlemek öğrenin.
+description: İşin ilerleme durumunu izlemek hakkında bilgi edinin.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 0065b12c9ee01bddef664e5c78a4e40af759826a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dc78dce667bf00dd6e923b86b9859e29e4a5fde6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790289"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035008"
 ---
-# <a name="how-to-check-job-progress"></a>Nasıl yapılır: İş ilerleme durumunu denetleme
+# <a name="how-to-check-job-progress"></a>Nasıl yapılır: işin ilerleme durumunu denetleme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -29,16 +29,16 @@ ms.locfileid: "33790289"
 > 
 > 
 
-İşlerini çalıştırdığınızda, genellikle iş ilerleme durumunu izlemek için bir yol gerekir. İş durumu özelliğini kullanarak iş durumunu bulabilirsiniz. State özelliği hakkında daha fazla bilgi için bkz: [işi varlık özellikleri](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+İşleri çalıştırmak, genellikle iş ilerleme durumunu izlemek için bir yol gerektirir. İş durumunu işin durumu özelliğini kullanarak bulabilirsiniz. State özelliği hakkında daha fazla bilgi için bkz. [işi varlık özellikleri](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
 ## <a name="check-job-progress"></a>İşin ilerleme durumunu denetleme
 
-İsteği:
+İstek:
 
     GET https://media.windows.net/api/Jobs()?$filter=Id%20eq%20'nb%3Ajid%3AUUID%3Af3c43f94-327f-2347-90bb-3bf79f8559f1'&$top=1 HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -51,7 +51,7 @@ AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik do
 
 
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -76,4 +76,4 @@ Yanıtı:
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Media Services operations REST API genel bakış](media-services-rest-how-to-use.md)
+[Media Services işlemlerini REST API'si genel bakış](media-services-rest-how-to-use.md)
