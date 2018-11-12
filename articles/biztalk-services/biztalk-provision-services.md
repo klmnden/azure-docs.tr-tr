@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26632730"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261970"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
 
@@ -28,7 +28,7 @@ ms.locfileid: "26632730"
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
-> Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>BizTalk Hizmeti oluşturma
@@ -84,7 +84,7 @@ Bu gereksinimler Ücretsiz Sürüm için geçerli değildir.
 <br/><br/>
 Azure hesabında birden fazla abonelik olabilir ve izni olan herkes tarafından yönetilebilir. Örneğin, Azure hesap sahibiniz <em>BizTalkServiceSubscription</em> adlı bir abonelik oluşturur ve şirketinizdeki BizTalk Yöneticilerine (örneğin, ContosoBTSAdmins@live.com) bu abonelik için erişim hakkı verir. Bu senaryoda, BizTalk Yöneticileri Azure’da oturum açar ve Azure BizTalk Services de dahil olmak üzere abonelikte barındırılan tüm hizmetler için tam yönetici haklarına sahip olurlar. BizTalk Yöneticileri Azure hesap sahipleri değildir; bu nedenle de herhangi fatura bilgilerine erişimleri yoktur.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Azure’da Abonelikleri ve Depolama Hesaplarını Yönetme</a> konusu daha fazla bilgi sağlar.
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=267577"> Azure’da Abonelikleri ve Depolama Hesaplarını Yönetme</a> konusu daha fazla bilgi sağlar.
 </td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ Azure hesabında birden fazla abonelik olabilir ve izni olan herkes tarafından 
 <br/><br/>
 BizTalk Hizmeti oluşturduğunuzda, mevcut Azure SQL Sunucusu, Azure SQL Database kullanırsınız ya da otomatik olarak yeni bir Sunucu veya SQL Database oluşturursunuz.
 <br/><br/>
-SQL Database ölçeği otomatik olarak yapılandırılır. Genellikle, varsayılan ölçek BizTalk hizmeti için yeterlidir. Ölçeğin değiştirilmesi fiyatı etkiler. Bkz. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL Veritabanı'nda Hesaplar ve Faturalar</a>
+SQL Database ölçeği otomatik olarak yapılandırılır. Genellikle, varsayılan ölçek BizTalk hizmeti için yeterlidir. Ölçeğin değiştirilmesi fiyatı etkiler. Bkz. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL Veritabanı'nda Hesaplar ve Faturalar</a>
 <br/><br/>
 <strong>Notlar</strong>
 <br/>
@@ -123,7 +123,7 @@ Varsayılan Storage ayarları BizTalk hizmeti için yeterlidir.
 <br/><br/>
 Storage hesabı oluşturduğunuzda, Birincil ve İkincil Anahtar da otomatik olarak oluşur. Bu Anahtarlar Storage hesabınıza erişimi denetler. BizTalk Hizmeti otomatik olarak Birincil Anahtarı kullanır.
 <br/><br/>
-Daha fazla bilgi için bkz. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">Storage</a>.
+Daha fazla bilgi için bkz. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285671">Storage</a>.
 </td>
 </tr>
 
@@ -165,7 +165,7 @@ Karma Bağlantılar Azure web sitesine veya Azure mobil hizmetinden SQL Sunucusu
  Karma Bağlantıları oluşturma ve yönetme de dahil, daha fazla bilgi için bkz. [Karma Bağlantılar](integration-hybrid-connection-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md) ile tanışmaya hazırlayın. BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
+Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md) ile tanışmaya hazırlayın. BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
@@ -173,7 +173,7 @@ Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Se
 * [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
-* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Karma Bağlantılar](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png

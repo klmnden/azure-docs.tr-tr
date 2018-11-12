@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: f3f310c247aea3842b5ec7a9a1409032d5bdc0bf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912926"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300232"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
 
@@ -44,7 +44,7 @@ ms.locfileid: "50912926"
 1. Depolama hesabının kaynak Kimliğini almak için aşağıdaki komutu çalıştırın, bir depolama hesabı oluşturulduktan sonra yönetmek istediğiniz
 
     ```
-    az storage account show -n storageaccountname (Copy ID out of the result of this command)
+    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
     
 2. Uygulama kimliği, Azure anahtar Kasası'nın hizmet sorumlusu alma 
@@ -56,7 +56,7 @@ ms.locfileid: "50912926"
 3. Azure Key Vault kimlik için depolama anahtarı operatörü rolünü atama
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Anahtar kasası oluşturma yönetilen depolama hesabı.     <br /><br />

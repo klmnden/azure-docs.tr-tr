@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 53c50ba75a16c58d7936a6f06de87218f67f5951
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219605"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282076"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -339,7 +339,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 ## <a name="rules-for-devices"></a>Cihazlar için kuralları
 
-Ayrıca, bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsiniz. Grup üyeleri hem kullanıcılar hem de cihazlara sahip olamaz. Aşağıdaki cihaz öznitelikleri kullanılabilir.
+Ayrıca, bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsiniz. Grup üyeleri hem kullanıcılar hem de cihazlara sahip olamaz. **OrganizationalUnit** özniteliği artık listelenir ve kullanılmamalıdır. Bu dize, Intune tarafından belirli durumlarda ayarlanır ancak hiçbir cihaz Bu öznitelikte göre gruplara eklenir, böylece Azure AD tarafından tanınmıyor.
+
+Aşağıdaki cihaz öznitelikleri kullanılabilir.
 
  Cihaz özniteliği  | Değerler | Örnek
  ----- | ----- | ----------------
@@ -355,7 +357,6 @@ Ayrıca, bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluştur
  enrollmentProfileName | Apple cihaz kayıt profili ya da Windows Autopilot profili adı | (device.enrollmentProfileName - eq "DEP iPhone")
  isRooted | doğru yanlış | (device.isRooted - eq true)
  managementType | MDM (mobil cihazlar için)<br>Bilgisayar (Intune PC aracısı tarafından yönetilen bilgisayarlar için) | (device.managementType - eq "MDM")
- Kuruluş birimi | Şirket içi Active Directory tarafından ayarlayın kuruluş birimi adı eşleşen herhangi bir dize değeri | (device.organizationalUnit - eq "ABD bilgisayarları")
  deviceId | Geçerli bir Azure AD cihaz kimliği | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Geçerli bir Azure AD nesne kimliği |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | Modern iş yeri cihazları etiketleme için Intune cihaz özelliği eşleşen herhangi bir dize | (device.systemLabels-"M365Managed" içerir)

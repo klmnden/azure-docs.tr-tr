@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166529"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281821"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Öğretici 8: Konuşmadaki anahtar tümcecikleri ayıklama
 Bu öğreticide konuşmalardan ana konuyu ayıklamak için önceden oluşturulmuş keyPhrase varlığı kullanılmaktadır. Herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez. Varlık otomatik olarak algılanır.
@@ -29,7 +29,7 @@ Aşağıdaki konuşmalarda anahtar ifade örnekleri gösterilmektedir:
 
 İstemci uygulamanız konuşmanın bir sonraki adımını belirlemek için bu değerleri diğer ayıklanan varlıklarla birlikte kullanabilir.
 
-**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Aşağıdaki konuşmalarda anahtar ifade örnekleri gösterilmektedir:
 > * keyPhrase varlığını ekleme 
 > * Eğitim
 > * Yayımlama
-> * Uç noktasındaki amaçları ve varlıkları alma
+> * Uç noktadan amaçları ve varlıkları alma
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
@@ -45,22 +45,22 @@ Aşağıdaki konuşmalarda anahtar ifade örnekleri gösterilmektedir:
 
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
 1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `keyphrase` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez.
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `keyphrase` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
 
 ## <a name="add-keyphrase-entity"></a>keyPhrase varlığını ekleme 
 Konuşmaların konusunu ayıklamak için önceden oluşturulmuş keyPhrase varlığını ekleyin.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
 
-3. **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) öğesini seçin.
+3. **Add prebuilt entity** (Önceden oluşturulan varlık ekle) öğesini seçin.
 
 4. Açılan iletişim kutusunda **keyPhrase** öğesini ve ardından **Done** (Bitti) öğesini seçin. 
 
@@ -78,7 +78,7 @@ Konuşmaların konusunu ayıklamak için önceden oluşturulmuş keyPhrase varl�
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasındaki amacı ve varlıkları alma
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

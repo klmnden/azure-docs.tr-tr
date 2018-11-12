@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ec429407324210fca824ebd0734ddb39bce56ac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232805"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256570"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Firebase Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -45,7 +45,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
 
-* Yukarıda belirtilen etkin bir Azure hesabının yanı sıra, bu öğretici [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797)'nun en son sürümünü gerektirir.
+* Yukarıda belirtilen etkin bir Azure hesabının yanı sıra, bu öğretici [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)'nun en son sürümünü gerektirir.
 * Firebase Cloud Messaging için Android 2.3 veya üstü.
 * Firebase Cloud Messaging için Google Deposu düzeltme 27 gereklidir.
 * Firebase Cloud Messaging için Google Play Services 9.0.2 veya üstü.
@@ -165,8 +165,8 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
     Aşağıdaki kodda `NotificationSettings` sınıfı için bu üç yer tutucuyu güncelleştirdiğinizden emin olun:
    
    * **SenderId**: [Firebase konsolundaki](https://firebase.google.com/console/) proje ayarlarınızın **Cloud Messaging** sekmesinde daha önce edindiğiniz Gönderen Kimliği.
-   * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure portalında] hub'ınızın **Erişim İlkeleri**'ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
-   * **HubName**: [Azure portalında] hub sayfasında görüntülenen bildirim hub’ınızın adını kullanın.
+   * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure Portal] hub'ınızın **Erişim İlkeleri**'ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
+   * **HubName**: [Azure Portal] hub sayfasında görüntülenen bildirim hub’ınızın adını kullanın.
      
      `NotificationSettings` kodu:
      
@@ -487,7 +487,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
 
 ## <a name="test-the-app"></a>Uygulamayı test edin
 ### <a name="test-send-notification-from-the-notification-hub"></a>Bildirim hub’ından bildirim göndermeyi test edin
-Aşağıdaki eylemleri uygulayarak [Azure portalında] anında iletme bildirimleri gönderebilirsiniz: 
+Aşağıdaki eylemleri uygulayarak [Azure Portal] anında iletme bildirimleri gönderebilirsiniz: 
 
 1. **Sorun Giderme** bölümünde **Test Gönderimi**‘ni seçin.
 2. **Platformlar** için **Android**’i seçin. 
@@ -532,4 +532,4 @@ Bu öğreticide, Android cihazlara anında iletme bildirimleri göndermek için 
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure portalında]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

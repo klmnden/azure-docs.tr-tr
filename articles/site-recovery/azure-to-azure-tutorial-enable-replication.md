@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 63a45aa02eadd0b5739c1624af524883171a7055
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8dc6b7da77988a789de04578d6653b192f58afa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211205"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261732"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
@@ -81,9 +81,9 @@ Giden bağlantıyı denetlemek için URL tabanlı bir güvenli duvarı kullanıy
 
 URL’ler yerine IP adreslerini kullanarak giden bağlantıyı denetlemek istiyorsanız, IP tabanlı güvenlik duvarları, ara sunucu veya NSG kuralları için uygun veri merkezi aralıklarını, Office 365 adreslerini ve hizmet uç noktası adreslerini beyaz listeye ekleyin.
 
-  - [Microsoft Azure Veri Merkezi IP Aralıkları](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Almanya’daki Windows Azure Veri Merkezi IP Aralıkları](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Çin’deki Windows Azure Veri Merkezi IP Aralıkları](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [Almanya’daki Windows Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [Çin’deki Windows Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Office 365 URL’leri ve IP adresi aralıkları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery hizmeti uç nokta IP adresleri](https://aka.ms/site-recovery-public-ips)
 
