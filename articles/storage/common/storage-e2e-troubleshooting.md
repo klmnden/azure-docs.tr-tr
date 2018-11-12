@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262327"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ Microsoft Azure depolama kullanan istemci uygulamalar gidermek için ne zaman bi
   
     Bkz: [Azure portalında depolama hesabı izleme](storage-monitor-storage-account.md) Azure portalında izlemeyi yapılandırma hakkında bilgi için.
 * **AzCopy**. Azure depolama için sunucu günlüklerine, günlük bloblarını Microsoft ileti Çözümleyicisi'ni kullanarak analiz için yerel bir dizine kopyalamak için AzCopy kullanabilirsiniz blobları olarak depolanır. Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) AzCopy hakkında daha fazla bilgi.
-* **Microsoft Message Analyzer**. İleti Çözümleyicisi günlük dosyalarını kullanır ve filtre, arama ve Grup günlük verileri için hataları ve performans sorunlarını analiz etmek için kullanabileceğiniz yararlı kümeleri halinde kolaylaştırır görsel bir biçimde günlük verileri görüntüleyen bir araçtır. Bkz: [Microsoft ileti Çözümleyicisi işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx) ileti Çözümleyicisi hakkında daha fazla bilgi.
+* **Microsoft Message Analyzer**. İleti Çözümleyicisi günlük dosyalarını kullanır ve filtre, arama ve Grup günlük verileri için hataları ve performans sorunlarını analiz etmek için kullanabileceğiniz yararlı kümeleri halinde kolaylaştırır görsel bir biçimde günlük verileri görüntüleyen bir araçtır. Bkz: [Microsoft ileti Çözümleyicisi işletim kılavuzu](https://technet.microsoft.com/library/jj649776.aspx) ileti Çözümleyicisi hakkında daha fazla bilgi.
 
 ## <a name="about-the-sample-scenario"></a>Örnek senaryosu hakkında
 Bu öğreticide, burada bir düşük yüzde başarı oranı Azure depolama çağıran bir uygulama için Azure depolama ölçümlerini gösterir bir senaryoyu inceleyeceğiz. Düşük yüzde başarı oranı ölçüm (olarak gösterilen **PercentSuccess** içinde [Azure portalında](https://portal.azure.com) ve tabulky Metrik), başarılı, ancak 299 büyük bir HTTP durum kodu iade işlemleri izler. Sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla bu işlemleri kaydedilir **ClientOtherErrors**. Düşük başarı yüzdesi ölçüm hakkında daha fazla ayrıntı için bkz. [ölçümleri Göster düşük PercentSuccess veya Analiz günlük girişlerini sahip işlem durumundaki ClientOtherErrors işlemlerini](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -51,7 +51,7 @@ Başarı yüzdesi oranı ölçüm %100 altında olduğundan emin ediyoruz kurduk
 ### <a name="some-causes-of-400-range-errors"></a>400-range hatalarının bazı nedenleri
 Aşağıdaki örneklerde, bazı 400-range hataların olası nedenlerin yanı sıra Azure Blob Depolama istekler için bir örnekleme gösterir. Bu hatalar, ek olarak 300 aralığı ve 500 aralığın hatalar herhangi bir düşük yüzde başarı oranı için katkıda bulunabilir.
 
-Aşağıdaki listelerde tam gölgeden uzak olduğunu unutmayın. Bkz: [durumu ve hata kodları](http://msdn.microsoft.com/library/azure/dd179382.aspx) hataları her depolama hizmeti için özel ve genel Azure depolama hataları hakkında ayrıntılı bilgi için MSDN'de.
+Aşağıdaki listelerde tam gölgeden uzak olduğunu unutmayın. Bkz: [durumu ve hata kodları](https://msdn.microsoft.com/library/azure/dd179382.aspx) hataları her depolama hizmeti için özel ve genel Azure depolama hataları hakkında ayrıntılı bilgi için MSDN'de.
 
 **Durum kodu 404 (bulunamadı) örnekleri**
 
@@ -79,7 +79,7 @@ Bunlardan herhangi biriyle çalışmaya seçebilirsiniz ancak bu öğreticide, M
 * **HTTP ağ izleme günlüğü**, HTTP/HTTPS istek ve yanıt verilerini Azure Storage'a karşı işlemleri de dahil olmak üzere, veri toplar. Bu öğreticide, başlığında aracılığıyla ileti Çözümleyicisi kullanarak ağ izlemesini oluşturacağız.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Sunucu tarafı günlük kaydını ve ölçümleri yapılandırma
-Böylece verileri analiz etmek için istemci uygulamadan alınan aldık ilk olarak, size Azure Storage günlüğe kaydetme ve ölçümler, yapılandırmanız gerekir. Aracılığıyla günlüğe kaydetme ve çeşitli şekillerde - ölçümlerde yapılandırabilirsiniz [Azure portalında](https://portal.azure.com), PowerShell kullanarak veya programlama yoluyla. Bkz: [depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](http://msdn.microsoft.com/library/azure/dn782843.aspx) ve [depolama günlüğünü etkinleştirme ve erişim günlüğü verilerini](http://msdn.microsoft.com/library/azure/dn782840.aspx) günlüğe kaydetme ve ölçümler yapılandırma hakkında ayrıntılı bilgi için MSDN'de.
+Böylece verileri analiz etmek için istemci uygulamadan alınan aldık ilk olarak, size Azure Storage günlüğe kaydetme ve ölçümler, yapılandırmanız gerekir. Aracılığıyla günlüğe kaydetme ve çeşitli şekillerde - ölçümlerde yapılandırabilirsiniz [Azure portalında](https://portal.azure.com), PowerShell kullanarak veya programlama yoluyla. Bkz: [depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](https://msdn.microsoft.com/library/azure/dn782843.aspx) ve [depolama günlüğünü etkinleştirme ve erişim günlüğü verilerini](https://msdn.microsoft.com/library/azure/dn782840.aspx) günlüğe kaydetme ve ölçümler yapılandırma hakkında ayrıntılı bilgi için MSDN'de.
 
 **Azure portalı üzerinden**
 
@@ -124,7 +124,7 @@ Azure PowerShell ile çalışmaya başlamak için bkz. [Azure PowerShell'i yükl
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET istemci tarafı günlük kaydını yapılandırma
-Bir .NET uygulaması için istemci tarafı günlük kaydını yapılandırmak için uygulamanın yapılandırma dosyasında (web.config veya app.config) .NET tanılamayı etkinleştirin. Bkz: [istemci-tarafı .NET depolama istemci kitaplığı ile günlüğe kaydetme](http://msdn.microsoft.com/library/azure/dn782839.aspx) ve [istemci-tarafı Java için Microsoft Azure depolama SDK'sı ile günlüğe kaydetme](http://msdn.microsoft.com/library/azure/dn782844.aspx) ayrıntılı bilgi için MSDN'de.
+Bir .NET uygulaması için istemci tarafı günlük kaydını yapılandırmak için uygulamanın yapılandırma dosyasında (web.config veya app.config) .NET tanılamayı etkinleştirin. Bkz: [istemci-tarafı .NET depolama istemci kitaplığı ile günlüğe kaydetme](https://msdn.microsoft.com/library/azure/dn782839.aspx) ve [istemci-tarafı Java için Microsoft Azure depolama SDK'sı ile günlüğe kaydetme](https://msdn.microsoft.com/library/azure/dn782844.aspx) ayrıntılı bilgi için MSDN'de.
 
 İstemci tarafı günlük nasıl istemci isteği hazırlar ve alır ve yanıt işler hakkında ayrıntılı bilgi içerir.
 
@@ -160,7 +160,7 @@ Depolama istemcisi kitaplığı, uygulamanın yapılandırma dosyasında (web.co
 > 
 > 
 
-Bkz: [ağ izleme özelliklerini kullanmaya](http://technet.microsoft.com/library/jj674819.aspx) daha fazla bilgi için TechNet'teki.
+Bkz: [ağ izleme özelliklerini kullanmaya](https://technet.microsoft.com/library/jj674819.aspx) daha fazla bilgi için TechNet'teki.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Azure portalında ölçüm verileri gözden geçirin
 Uygulamanızı bir süreliğine çalıştırıldıktan sonra görünen ölçüm grafikleri inceleyebilirsiniz [Azure portalında](https://portal.azure.com) hizmetinizin nasıl performans gösterdiğini gözlemleyin.
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 AzCopy, ücretsiz olarak kullanılabilir [Azure indirmeleri](https://azure.microsoft.com/downloads/) sayfası. AzCopy kullanma hakkında daha fazla ayrıntı için bkz. [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
 
-Sunucu tarafı günlüklerini indirerek hakkında ek bilgi için bkz: [indirme günlüğü depolama günlük verilerini](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Sunucu tarafı günlüklerini indirerek hakkında ek bilgi için bkz: [indirme günlüğü depolama günlük verilerini](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Günlük verilerini analiz etmek için Microsoft ileti Çözümleyicisi'ni kullanın
-Microsoft Message Analyzer, yakalama, görüntüleme ve trafik, olayları ve diğer sorun giderme ve tanılama senaryoları sistem veya uygulama iletileri Mesajlaşma Protokolü çözümlemek için kullanılan bir araçtır. İleti Çözümleyicisi'ni yüklemek için toplama ve günlük verilerini analiz sağlar ve kaydedilen izleme dosyaları. İleti Çözümleyicisi hakkında daha fazla bilgi için bkz: [Microsoft ileti Çözümleyicisi işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx).
+Microsoft Message Analyzer, yakalama, görüntüleme ve trafik, olayları ve diğer sorun giderme ve tanılama senaryoları sistem veya uygulama iletileri Mesajlaşma Protokolü çözümlemek için kullanılan bir araçtır. İleti Çözümleyicisi'ni yüklemek için toplama ve günlük verilerini analiz sağlar ve kaydedilen izleme dosyaları. İleti Çözümleyicisi hakkında daha fazla bilgi için bkz: [Microsoft ileti Çözümleyicisi işletim kılavuzu](https://technet.microsoft.com/library/jj649776.aspx).
 
 İleti Çözümleyicisi varlıklar Azure depolama için sunucu, istemci ve ağ günlükleri analiz etmenize yardım içerir. Bu bölümde, depolama günlüklerinde düşük başarı yüzdesi, sorunu gidermek için bu araçları kullanmak nasıl açıklayacağız.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>İleti Çözümleyicisi'ni ve Azure depolama varlıkları indirip yükleyin
-1. İndirme [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) Microsoft İndirme Merkezi ve yükleyiciyi çalıştırın.
+1. İndirme [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) Microsoft İndirme Merkezi ve yükleyiciyi çalıştırın.
 2. İleti Çözümleyicisi'ni başlatın.
 3. Gelen **Araçları** menüsünde **varlık Yöneticisi**. İçinde **varlık Yöneticisi** iletişim kutusunda **indirir**, ardından filtre **Azure depolama**. Aşağıdaki resimde gösterildiği gibi Azure depolama varlıkları görürsünüz.
 4. Tıklayın **eşitleme tüm görüntülenen öğelerin** Azure depolama varlıkları yüklemek için. Kullanılabilir Varlıklar içerir:
@@ -231,7 +231,7 @@ Aşağıdaki resimde örnek bir oturum ile sunucu, istemci ve ağ izleme günlü
 
 Günlük verileri büyük miktarda hala varsa, önce günlük verilerinizi yüklemek bir oturum filtresi belirlemek isteyebilirsiniz. İçinde **oturumu filtre** kutusunda **Kitaplığı** düğmesi önceden tanımlanmış bir filtre seçin; örneğin, **genel süresi filtre ı** Azure Depolama'dan filtreler filtrelemek için bir zaman aralığı. Başlangıç ve zaman damgası için görmek istediğiniz aralığı bitiş belirtmek üzere filtre kriterlerini daha sonra düzenleyebilirsiniz. Ayrıca, bir özel durum kodu filtreleyebilirsiniz; Örneğin, durum kodu 404 olduğu günlük girişlerini yüklemek seçebilirsiniz.
 
-Microsoft Message Analyzer günlük verileri içeri aktarma hakkında daha fazla bilgi için bkz. [ileti verilerini alma](http://technet.microsoft.com/library/dn772437.aspx) TechNet'teki.
+Microsoft Message Analyzer günlük verileri içeri aktarma hakkında daha fazla bilgi için bkz. [ileti verilerini alma](https://technet.microsoft.com/library/dn772437.aspx) TechNet'teki.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Günlük dosyası verilerini ilişkilendirmek için istemci İstek Kimliği'ni kullanın
 Azure depolama istemci kitaplığı, benzersiz istemci istek kimliği her istek için otomatik olarak oluşturur. İleti Çözümleyicisi içindeki tüm üç günlükleri arasında verilerin bağıntısını kurmaya kullanabilmeniz için bu değer, istemci günlüğü, sunucu günlük ve ağ izleme için yazılır. Bkz: [istemci istek kimliği](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) istemci hakkında ek bilgi için kimliği isteyin.
@@ -337,7 +337,7 @@ Görünüm düzenleri bu iki sekme olarak gösterilen verileri kullanarak hataya
 404 hatası veriyor blob adresini öğrendikten sonra daha ayrıntılı bir araştırma. Günlük girişlerini aynı blob işlemleri ile ilişkili diğer iletiler için arama yaparsanız, istemci varlık daha önce silinmiş olup olmadığını kontrol edebilirsiniz.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Diğer türde depolama hatalarını çözümleme
-Günlük verilerinizi analiz etmek için ileti Çözümleyicisi kullanımıyla ilgili bilgi sahibi olduğunuza göre diğer türde bir görünümü kullanarak hataları çözümleyebilir düzenleri, renk kurallarını ve arama ve filtreleme. Aşağıdaki tablolarda, karşılaşabileceğiniz bazı sorunları ve bunların yerini bulmak için kullanabileceğiniz filtreleme ölçütlerini listeler. Filtreler ve dil filtreleme Message Analyzer'ı oluşturma ile ilgili daha fazla bilgi için bkz: [ileti veri filtreleme](http://technet.microsoft.com/library/jj819365.aspx).
+Günlük verilerinizi analiz etmek için ileti Çözümleyicisi kullanımıyla ilgili bilgi sahibi olduğunuza göre diğer türde bir görünümü kullanarak hataları çözümleyebilir düzenleri, renk kurallarını ve arama ve filtreleme. Aşağıdaki tablolarda, karşılaşabileceğiniz bazı sorunları ve bunların yerini bulmak için kullanabileceğiniz filtreleme ölçütlerini listeler. Filtreler ve dil filtreleme Message Analyzer'ı oluşturma ile ilgili daha fazla bilgi için bkz: [ileti veri filtreleme](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Araştırmak için... | Filtre ifadesi kullan... | İfade günlüğüne uygular (istemci, sunucu, ağ, tüm) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Günlük verilerinizi analiz etmek için ileti Çözümleyicisi kullanımıyla i
 Azure Depolama'daki sorun giderme uçtan uca senaryolar hakkında daha fazla bilgi için şu kaynaklara bakın:
 
 * [Microsoft Azure Depolama izleme, tanılama ve sorun giderme](storage-monitoring-diagnosing-troubleshooting.md)
-* [Depolama Analizi](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Depolama Analizi](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Azure portalında depolama hesabı izleme](storage-monitor-storage-account.md)
 * [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
-* [Microsoft Message Analyzer işletim kılavuzu](http://technet.microsoft.com/library/jj649776.aspx)
+* [Microsoft Message Analyzer işletim kılavuzu](https://technet.microsoft.com/library/jj649776.aspx)
