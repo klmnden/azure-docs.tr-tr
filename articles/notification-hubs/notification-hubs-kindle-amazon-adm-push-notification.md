@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf5cb2851acdcf1f9353e88fc2f2caa3c356804e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230383"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -41,7 +41,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için kod oluşturur/
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> Android SDK’sını alın (Eclipse kullandığınız varsayılır).
+* <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> Android SDK’sını alın (Eclipse kullandığınız varsayılır).
 * Kindle için geliştirme ortamınızı ayarlamak üzere <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Geliştirme Ortamınızı Ayarlama</a>'daki adımları izleyin.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Geliştirici portalına yeni bir uygulama ekleme

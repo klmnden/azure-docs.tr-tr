@@ -2,19 +2,19 @@
 title: 'Intellij için Azure Araç Seti: Spark HDInsight kümesi için uygulamalar oluşturma '
 description: Spark Scala içinde yazılmış uygulamalar geliştirmek için Intellij için Azure araç takımı kullanın ve bunları bir HDInsight Spark kümesine göndermek.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: 51e1e7696ece46e63358b2ed6efa55bbf6ab01fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff7cfcd56158bd38d031a29a21247fb9eb6b91f9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420787"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289079"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Spark uygulamaları için bir HDInsight kümesi oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
@@ -195,7 +195,7 @@ Scala uygulama oluşturduktan sonra küme gönderebilirsiniz.
        > [!NOTE]
        > Başvurulan Jar'lar ve başvurulan dosyaları karşıya yükleme için bkz: [küme kaynaklarını karşıya yükleme](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-    * **Karşıya yükleme yolu**: Jar veya Scala proje kaynakları gönderim için depolama konumu belirtebilirsiniz. Desteklenen üç depolama türü vardır: **Azure Blob**, **yapıtları karşıya yüklemek için Spark kullanma etkileşimli oturumu**, ve **kümenin varsayılan depolama hesabını kullanırsınız**. Aşağıdaki ekran görüntüsünde, Azure Blob için bir örnek verilmiştir.
+    * **Karşıya yükleme yolu**: Jar veya Scala proje kaynakları gönderim için depolama konumu belirtebilirsiniz. Desteklenen üç depolama türü vardır: **Azure Blob**, **yapıtları karşıya yüklemek için Spark kullanma etkileşimli oturumu**, ve **kümenin varsayılan depolama hesabını kullanırsınız**ve **ADLS Gen1**. Aşağıdaki ekran görüntüsünde, Azure Blob için bir örnek verilmiştir.
 
         ![Spark gönderim iletişim kutusu](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -258,26 +258,25 @@ Varsayılan olarak, tüm Azure abonelik Spark kümeleri Intellij için Azure Ara
 Spark yerel Console(Scala) çalıştırın ya da Spark Livy etkileşimli oturumu Console(Scala) çalıştırın.
 
 ### <a name="spark-local-consolescala"></a>Spark yerel Console(Scala)
-1. Bağımlılıkları el ile eklemeniz. Menüde **dosya**->**proje yapıları**->**proje ayarları**->**kitaplıkları**, ardından **+**, seçin **gelen Maven...** . Enter **org.apache.spark:spark-repl_2.11:2.1.0** açılır iletişim kutusu. Bağımlılıkları kitaplıklarında ekledikten sonra bağımlılık ilk satırı geçmeden **modülleri** içinde **proje yapıları** penceresi. Taşımadan önce değiştirme **kapsam** için **çalışma zamanı**.
-
-    ![Yerel konsol bağımlılık kitaplıkları ekleme](./media/apache-spark-intellij-tool-plugin/local-console-add-dependency-libraries.png)
-
-    ![İlk satıra yerel konsol taşıma](./media/apache-spark-intellij-tool-plugin/local-console-move-first-line.png)
-
-2. Önce yoksa yapılandırmasını ayarlayın. İçinde **Çalıştır/hata ayıklama yapılandırmaları** penceresinde tıklayın **+** -> **Azure HDInsight Spark**seçin sekmesi **'yerelolarakçalıştırma**, ana sınıfı seçin ve ardından tıklayın **Tamam**.
+1. Önce yoksa yapılandırmasını ayarlayın. İçinde **Çalıştır/hata ayıklama yapılandırmaları** penceresinde tıklayın **+** -> **Azure HDInsight Spark**seçin sekmesi **'yerelolarakçalıştırma**ve **uzaktan çalıştırmak kümesinde**, ana sınıfı seçin ve ardından tıklayın **Tamam**.
 
     ![Yerel konsol kümesi yapılandırması](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
  
-3. Ana Sınıf dosyanıza karşılık gelen dosyayı açın ve sağ tıklayın **Spark konsol**, ardından **Spark yerel Console(Scala) çalıştırma**. Veya menüsüne gidin **Araçları**->**Spark konsol**->**Spark yerel Console(Scala) çalıştırma** konsolunu başlatın.
+2. Karşılık gelen ana sınıf dosyasını açın ve sağ tıklayın **Spark konsol**, ardından **Spark yerel Console(Scala) çalıştırma**. Veya menüsüne gidin **Araçları**->**Spark konsol**->**Spark yerel Console(Scala) çalıştırma** konsolunu başlatın. Ardından, otomatik istiyorsanız bağımlılıkları düzeltme istemek için iki iletişim kutuları görüntülenir. Düğmesine tıklamanız yeterlidir **otomatik düzeltme**.
+
+    ![Spark otomatik Fix1](./media/apache-spark-intellij-tool-plugin/console-auto-fix1.png)
+
+    ![Spark otomatik Fix2](./media/apache-spark-intellij-tool-plugin/console-auto-fix2.png)
 
     ![Spark yerel giriş noktası](./media/apache-spark-intellij-tool-plugin/spark-console-local-entry-script.png)
 
-4. Yerel konsol başarıyla başlatıldıktan sonra. Aşağıdaki gibidir. İstediğiniz bir şey yapabilirsiniz. Örneğin, **sc.appName**, sonuç gösterilir, ctrl + Enter tuşuna basın.
+3. Yerel konsol başarıyla başlatıldıktan sonra. Aşağıdaki gibidir. İstediğiniz bir şey yapabilirsiniz. Örneğin, **sc.appName**, sonuç gösterilir, ctrl + Enter tuşuna basın. Kırmızı düğmeye tıklayarak yerel konsol sonlandırabilirsiniz.
 
     ![Yerel konsol sonucu](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
+
 ### <a name="spark-livy-interactive-session-consolescala"></a>Livy etkileşimli oturumu Console(Scala) spark
-Yalnızca Intellij 2018.2 üzerinde desteklenir.
+Yalnızca, Intellij 2018.2 ve 2018.3 desteklenir.
 
 1. Önce yoksa yapılandırmasını ayarlayın. İçinde **Çalıştır/hata ayıklama yapılandırmaları** penceresinde tıklayın **+** -> **Azure HDInsight Spark**seçin sekmesi **uzaktan çalıştırmak kümedeki** , küme adı ve ana sınıfı seçin ve ardından tıklayın **Tamam**.
 
@@ -290,6 +289,11 @@ Yalnızca Intellij 2018.2 üzerinde desteklenir.
 3. Konsol başarıyla başlatıldıktan sonra istediğiniz bir şey yapabilirsiniz. Örneğin, **sc.appName**, sonuç gösterilir, ctrl + Enter tuşuna basın.
 
     ![Etkileşimli konsol sonucu](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+
+### <a name="send-selection-to-spark-console"></a>Spark konsola seçimi Gönder
+Bu yerel konsol veya Livy etkileşimli oturumu Console(Scala) bazı kodları göndererek forsee komut dosyası sonucu için sizin için uygundur. Bazı kodları Scala dosyasındaki vurgulayın ve ardından sağ tıklayın **Spark Konsolu seçimin Gönder**. Seçilen kodları konsola gönderilir ve gerçekleştirilmesi. Sonuç kodları konsolunda sonra görüntülenir. Konsolu, varsa hataları denetler. 
+
+   ![Spark konsola seçimi Gönder](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Intellij için Azure Araç Seti kullanmak için Intellij Idea uygulamalara dönüştürün
 Mevcut Spark Scala dönüştürebilirsiniz Intellij için Azure araç seti ile uyumlu olacak şekilde Intellij Idea'te oluşturduğunuz uygulamalar. Ardından eklenti uygulamaları bir HDInsight Spark kümesine göndermek için kullanabilirsiniz.
@@ -333,11 +337,7 @@ Yığın boyutu, çalıştırılacak Spark için yeterince büyük olmadığı i
 ![Intellij "VM Seçenekleri" kutusunda seçenekleri ekleme](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>SSS
-Ne zaman bir küme bağlantı, ben depolama kimlik bilgileri vermenizi Öner.
-
-![Küme bağlantı, depolama kimlik bilgilerini belirtin](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
-
-İşleri göndermek için iki mod vardır. Depolama kimlik bilgisi sağlanır, toplu iş modu işi göndermek için kullanılır. Aksi takdirde, etkileşimli mod kullanılır. Küme meşgul ise, aşağıdaki hata alabilirsiniz.
+Küme meşgul ise, aşağıdaki hata alabilirsiniz.
 
 ![Intellij alma hatası ne zaman meşgul küme](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
 

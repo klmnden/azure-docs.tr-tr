@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363615"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230521"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Öğretici: Azure PowerShell ile sanal makine ölçek kümeleri için özel görüntü oluşturma ve kullanma
 Ölçek kümesi oluşturduğunuzda, sanal makine örnekleri dağıtılırken kullanılacak bir görüntü belirtirsiniz. Sanal makine örnekleri dağıtıldıktan sonraki görev sayısını azaltmak için özel bir sanal makine görüntüsünü kullanabilirsiniz. Bu özel sanal makine görüntüsü, gerekli uygulama yüklemelerini veya yapılandırmalarını içerir. Ölçek kümesinde oluşturulan tüm sanal makine örnekleri, özel sanal makine görüntüsünü kullanır ve uygulama trafiğinizi sunmaya hazır olur. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -76,7 +76,7 @@ mstsc /v:<IpAddress>
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Sanal makinenizi özel görüntü olarak kullanılmaya hazırlamanın son adımı, sanal makinenizin genelleştirilmesidir. Sysprep tüm kişisel hesap bilgilerinizi ve yapılandırmalarınızı kaldırır ve sanal makineyi gelecekteki dağıtımlar için sıfırlayıp temiz bir duruma getirir. Daha fazla bilgi için bkz. [Sysprep İşlemini Kullanma: Giriş](http://technet.microsoft.com/library/bb457073.aspx).
+Sanal makinenizi özel görüntü olarak kullanılmaya hazırlamanın son adımı, sanal makinenizin genelleştirilmesidir. Sysprep tüm kişisel hesap bilgilerinizi ve yapılandırmalarınızı kaldırır ve sanal makineyi gelecekteki dağıtımlar için sıfırlayıp temiz bir duruma getirir. Daha fazla bilgi için bkz. [Sysprep İşlemini Kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
 
 Sanal makineyi genelleştirmek için Sysprep işlemini çalıştırıp sanal makineyi ayarlayarak hızlı bir deneyim elde edin. İşlem tamamlandığında, Sysprep işlemine sanal makineyi kapatmasını bildirin:
 

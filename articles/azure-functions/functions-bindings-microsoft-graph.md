@@ -9,16 +9,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251116"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301025"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
-Bu makalede, yapılandırmak ve Microsoft Graph Tetikleyicileri ve bağlamaları Azure işlevleri'nde çalışmak açıklanmaktadır. Bu, Azure işlevleri veri öngörüleri ve olayları çalışmak için kullanabileceğiniz [Microsoft Graph](https://graph.microsoft.io).
+Bu makalede, yapılandırmak ve Microsoft Graph Tetikleyicileri ve bağlamaları Azure işlevleri'nde çalışmak açıklanmaktadır. Bu, Azure işlevleri veri öngörüleri ve olayları çalışmak için kullanabileceğiniz [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Microsoft Graph uzantı aşağıdaki bağlamaları sağlar:
 - Bir [kimlik doğrulama belirteci giriş bağlama](#token-input) , tüm Microsoft Graph API ile etkileşim kurmanızı sağlar.
@@ -834,7 +834,7 @@ Bu bölüm aşağıdaki alt bölümleri içerir:
 * [Örnek](#outlook-output---example)
 * [Öznitelikleri](#outlook-output---attributes)
 * [Yapılandırma](#outlook-output---configuration)
-* [Kullanım](#outlook-outnput---usage)
+* [Kullanım](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Outlook çıkış - örnek
 

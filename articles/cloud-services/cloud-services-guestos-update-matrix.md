@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: raiye
-ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978749"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346176"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -42,6 +42,9 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetl
 Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetleme [bu] [ cloud updates] uğradı.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+
+###### <a name="november-8-2018"></a>**8 Kasım 2018**
+Ekim konuk işletim sistemi kullanıma sundu.
 
 ###### <a name="october-12-2018"></a>**12 Ekim 2018**
 Eylül konuk işletim sistemi kullanıma sundu.
@@ -74,8 +77,9 @@ Nisan konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-5.24_201810-01 |8 Kasım 2018 |POST 5.26 |
 | WA-GUEST-OS-5.23_201809-01 |12 Ekim 2018 |POST 5.25 |
-| WA-GUEST-OS-5.22_201808-01 |12 Eylül 2018'den |POST 5,24 |
+|~~WA-GUEST-OS-5.22_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |
@@ -88,8 +92,9 @@ Nisan konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-4.59_201810-01 |8 Kasım 2018 |POST 4.61 |
 | WA-GUEST-OS-4.58_201809-01 |12 Ekim 2018 |POST 4.60 |
-| WA-GUEST-OS-4.57_201808-01 |12 Eylül 2018'den |POST 4.59 |
+|~~WA-GUEST-OS-4.57_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |
@@ -102,8 +107,9 @@ Nisan konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-3.66_201810-01 |8 Kasım 2018 |POST 3.68 |
 | WA-GUEST-OS-3.65_201809-01 |12 Ekim 2018 |POST 3.67 |
-| WA-GUEST-OS-3.64_201808-01 |12 Eylül 2018'den |POST 3.66 |
+|~~WA-GUEST-OS-3.64_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |
@@ -116,8 +122,9 @@ Nisan konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-2.79_201810-01 |8 Kasım 2018 |POST 2.81 |
 | WA-GUEST-OS-2.78_201809-01 |12 Ekim 2018 |POST 2,80 |
-| WA-GUEST-OS-2.77_201808-01 |12 Eylül 2018'den |POST 2.79 |
+|~~WA-GUEST-OS-2.77_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018|

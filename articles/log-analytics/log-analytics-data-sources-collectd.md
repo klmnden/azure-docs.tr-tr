@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b7c1a378b2bd653b1a4dae12b4240c41461902cf
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 29fa8d0216ac5b986a758ef553814d53834793d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961034"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009734"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Log Analytics Linux aracıda toplanan verileri toplamak
 [Toplanan](https://collectd.org/) olduğu bir açık kaynak Linux daemon, düzenli aralıklarla uygulama ve sistem düzeyindeki bilgileri performans ölçümleri toplar. Örnek uygulamalar, Java sanal makinesi (JVM), MySQL sunucusu ve Ngınx içerir. Bu makale, Log analytics'te, toplanan performans veri toplanmasına hakkında bilgi sağlar.
@@ -124,6 +124,6 @@ Linux için Log Analytics aracısını yeni ölçümler ile toplanmış altyapı
 | değerler] | Ort |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-search.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
 * Kullanım [özel alanlar](log-analytics-custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
 

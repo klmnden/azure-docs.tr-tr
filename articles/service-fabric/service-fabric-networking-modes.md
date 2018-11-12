@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric kapsayıcı hizmetlerini ağ modlarını yapılandırma | Microsoft Docs
-description: Azure Service Fabric tarafından desteklenen farklı ağ modlarını ayarlama öğrenin.
+title: Azure Service Fabric kapsayıcı Hizmetleri için ağ modları yapılandırma | Microsoft Docs
+description: Azure Service Fabric tarafından desteklenen farklı ağ modları ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: twhitney, subramar
+ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287641"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300788"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
-Kapsayıcı için bir Azure Service Fabric kümesi kullanan Hizmetleri **nat** varsayılan olarak ağ modu. Birden fazla kapsayıcı hizmeti aynı bağlantı noktasında dinleme ve nat modu kullanılan dağıtım hataları oluşabilir. Aynı bağlantı noktasında dinleme birden çok kapsayıcı hizmetlerini desteklemek için Service Fabric sunar **açık** ağ modu (5.7 ve sonraki sürümler). Açık modunda her kapsayıcı hizmeti bir iç, aynı bağlantı noktasında dinleme birden çok hizmetlerini destekleyen bir IP adresi dinamik olarak atanmış sahiptir.  
+Bir Azure Service Fabric kümesi için kapsayıcı hizmetleri kullanan **nat** varsayılan olarak ağ modu. Birden fazla kapsayıcı hizmeti, aynı bağlantı noktasında dinleme ve nat modu kullanılan dağıtım hataları oluşabilir. Birden çok kapsayıcı Hizmetleri aynı bağlantı noktasında dinleme desteklemek için Service Fabric sunar **açık** ağ modu (5.7 ve sonraki sürümler). Açık modda, aynı bağlantı noktasında dinleme birden çok hizmeti destekleyen bir IP adresi dinamik olarak atanan her kapsayıcı hizmeti bir iç, sahiptir.  
 
-Hizmet bildiriminizi statik bir uç noktası ile bir kapsayıcı hizmeti varsa, oluşturabilir ve yeni hizmetler dağıtım hatasız açık modunu kullanarak silebilirsiniz. Aynı docker-compose.yml dosyası birden çok hizmet oluşturmak için statik bağlantı noktası eşlemelerini ile de kullanılabilir.
+Statik bir uç noktası ile bir kapsayıcı hizmeti, hizmet bildiriminde varsa, oluşturun ve dağıtım hata olmadan açık modunu kullanarak yeni hizmetler silin. Aynı docker-compose.yml dosyası birden çok hizmeti oluşturmak için statik bağlantı noktası eşlemelerini ile de kullanılabilir.
 
-Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme taşır, IP adresini değiştirir. Bu nedenle, kapsayıcı hizmetlerini bulmak için dinamik olarak atanmış IP adresini kullanarak önerilmez. Yalnızca Service Fabric adlandırma hizmeti veya DNS hizmeti, hizmet bulma için kullanılmalıdır. 
+Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğüme taşır, IP adresi değişir. Bu nedenle, kapsayıcı Hizmetleri bulmak için dinamik olarak atanan IP adresini kullanarak önermemekteyiz. Yalnızca Service Fabric adlandırma ağ geçidi veya DNS hizmeti için hizmet bulma kullanılmalıdır. 
 
 >[!WARNING]
->Azure sanal ağ başına 4.096 IP'leri toplam sağlar. Düğüm sayısını ve (açık modunu kullanarak) kapsayıcı hizmeti örneklerinin sayısını toplamı 4.096 IP'leri bir sanal ağ içindeki aşamaz. Yüksek yoğunlukta senaryoları için nat ağ modu öneririz.
+>Azure sanal ağ başına 4.096 IP'lerin toplam sağlar. Düğüm sayısını ve kapsayıcı hizmeti (kullandığınız modunu açın) bir örnek sayısı toplamı, bir sanal ağ içindeki 4.096 IP'ler aşamaz. Yüksek yoğunluklu senaryoları için nat ağ modu öneririz.
 >
 
 ## <a name="set-up-open-networking-mode"></a>Açık ağ Modu'nu ayarla
@@ -78,7 +78,7 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
             ],
     ```
 
-2. Kümedeki her düğümde yapılandırılması birden fazla IP adresine izin vermek için ağ profili bölümünü ayarlamak. Aşağıdaki örnek Windows/Linux Service Fabric kümesi için düğüm başına beş IP adresini ayarlar. Her düğümde bağlantı noktasında dinleme beş hizmet örneği olabilir.
+2. Ağ profili bölümünü, kümedeki her düğümde yapılandırılması birden çok IP adresi izin verecek şekilde ayarlayın. Aşağıdaki örnek bir Windows/Linux Service Fabric kümesi için düğüm başına beş adet IP adresi ayarlar. Her düğümde bağlantı noktasını dinleyen beş hizmet örnekleri olabilir.
 
     ```json
     "variables": {
@@ -175,7 +175,7 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
               }
    ```
  
-3. Yalnızca Windows kümeler için aşağıdaki değerlere sahip sanal ağ için UDP/53 numaralı bağlantı noktası açar bir Azure ağ güvenlik grubu (NSG) kuralı ayarlayın:
+3. Yalnızca Windows kümeleri için aşağıdaki değerlerle sanal ağ için bağlantı noktası UDP/53'kurmak açılır bir Azure ağ güvenlik grubu (NSG) kuralı ayarlayın:
 
    |Ayar |Değer | |
    | --- | --- | --- |
@@ -187,7 +187,7 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
    |Eylem | İzin Ver  | |
    | | |
 
-4. Her hizmet için uygulama bildiriminde ağ modunu belirtin: `<NetworkConfig NetworkType="Open">`. **Açık** modu sonuçları bir ayrılmış IP adresi alma hizmetindeki ağ. Hizmet bir mod belirtilmezse, varsayılan **nat** modu. Aşağıdaki örnekte bildirim, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` hizmetleri her aynı bağlantı noktasını dinler olabilir (her iki hizmetlerin dinlediği `Endpoint1`). Açık ağ modu belirtildiğinde, `PortBinding` yapılandırmaları belirtilemez.
+4. Her hizmet için uygulama bildiriminde ağ modu belirtin: `<NetworkConfig NetworkType="Open">`. **Açık** modu sonuçları bir ayrılmış IP adresini alma hizmetinde ağ oluşturma. Hizmet bir modu belirtilmezse, varsayılan **nat** modu. Aşağıdaki örnekte liste, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` hizmetleri her aynı bağlantı noktasını dinler kullanabilirsiniz (her iki hizmet de dinlemede `Endpoint1`). Ağ modunu açın belirtildiğinde `PortBinding` yapılandırmaları belirtilemez.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -216,13 +216,13 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
     </ApplicationManifest>
     ```
 
-    Karışık ve hizmetlerde Windows kümesi için bir uygulama içinde farklı ağ modları eşleşmesi. Başkalarının nat modu kullanırken bazı hizmetler açık modunu kullanabilirsiniz. Bir hizmet nat modunu kullanacak şekilde yapılandırıldığında, üzerinde dinleyen bir hizmet bağlantı noktası benzersiz olmalıdır.
+    Karışık ve uygulama için bir Windows kümesi içindeki hizmetler arasında farklı ağ modları eşleşmesi. Bazı hizmetler, kullanılırken diğerlerinde nat modu açık modunu kullanabilirsiniz. Bir hizmet, nat modunu kullanacak şekilde yapılandırıldığında, hizmet dinleme yaptığı bağlantı noktası benzersiz olmalıdır.
 
     >[!NOTE]
-    >Linux kümelerinde farklı Hizmetleri için ağ modları karıştırılması desteklenmiyor. 
+    >Farklı Hizmetleri için ağ modları karıştırma Linux kümelerinde desteklenmez. 
     >
 
-5. Zaman **açık** modu seçildiğinde, **Endpoint** hizmet bildirimi tanımında açıkça noktasına uç noktasına karşılık gelen kod paketi hizmet paketi yalnızca bir kod olsa bile Bu paketi. 
+5. Zaman **açık** modu seçilidir ve **uç nokta** hizmet bildirimindeki tanım açıkça işaret etmelidir uç noktasına karşılık gelen kod paketi için hizmet paketi tek bir kod olsa bile Bu paketi. 
    
    ```xml
    <Resources>
@@ -232,7 +232,7 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
    </Resources>
    ```
    
-6. Windows, bir VM yeniden oluşturulmaları açık ağ neden olur. Bu ağ yığınını bir arka plandaki sorunu azaltmak için yapılır. Varsayılan davranışa ağ yeniden oluşturmaktır. Bu davranışı devre dışı bırakılması gerekiyorsa, aşağıdaki yapılandırma config yükseltme tarafından izlenen kullanılabilir.
+6. Windows için VM yeniden başlatma, yeniden oluşturulması açık ağ neden olur. Bu, ağ yığınını, temel alınan bir sorunu azaltmak içindir. Varsayılan davranış, ağ yeniden oluşturmaktır. Bu davranışı devre dışı bırakılması gerekiyorsa, bir yapılandırma yükseltmenin ardından aşağıdaki yapılandırma kullanılabilir.
 
 ```json
 "fabricSettings": [
@@ -251,5 +251,5 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Service Fabric uygulama modelini anlama](service-fabric-application-model.md)
 * [Service Fabric hizmet bildirimi kaynakları hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
-* [Windows Server 2016 Service Fabric Windows kapsayıcı dağıtma](service-fabric-get-started-containers.md)
-* [Service Fabric Linux'ta Docker kapsayıcısı dağıtma](service-fabric-get-started-containers-linux.md)
+* [Service fabric'e Windows Server 2016 üzerinde bir Windows kapsayıcısı dağıtma](service-fabric-get-started-containers.md)
+* [Linux üzerinde Service Fabric için bir Docker kapsayıcısı dağıtma](service-fabric-get-started-containers-linux.md)

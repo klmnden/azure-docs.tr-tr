@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: ca93d97c3e0ddab0377ef437a04e7e3e31197b97
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166393"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231406"
 ---
 # <a name="split-merge-security-configuration"></a>Ayırma-birleştirme güvenliği yapılandırma
 Ayırma/birleştirme hizmetini kullanmak için doğru güvenlik yapılandırmanız gerekir. Hizmet, Microsoft Azure SQL veritabanı'nın esnek ölçeklendirme özelliği bir parçasıdır. Daha fazla bilgi için [esnek ölçek bölme ve birleştirme Service Öğreticisi](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -29,21 +29,21 @@ Sertifikalar iki şekilde yapılandırılır.
 2. [İstemci sertifikaları yapılandırma](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Sertifika edinme
-Ortak sertifika yetkilileri (CA) ya da sertifika elde edilebilir [Windows sertifika hizmeti](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Bu sertifikaları almak için tercih edilen yöntemlerdir.
+Ortak sertifika yetkilileri (CA) ya da sertifika elde edilebilir [Windows sertifika hizmeti](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Bu sertifikaları almak için tercih edilen yöntemlerdir.
 
 Bu seçenek kullanılabilir değilse, oluşturabileceğiniz **otomatik olarak imzalanan sertifikalar**.
 
 ## <a name="tools-to-generate-certificates"></a>Sertifikalarını oluşturmak için Araçlar
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Araçları çalıştırmak için
-* Bir geliştirici komut isteminden Visual Studios için bkz: [Visual Studio komut istemi](http://msdn.microsoft.com/library/ms229859.aspx) 
+* Bir geliştirici komut isteminden Visual Studios için bkz: [Visual Studio komut istemi](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Yüklü değilse, şuraya gidin:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* WDK gelen alma [Windows 8.1: setleri ve araçları indirme](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* WDK gelen alma [Windows 8.1: setleri ve araçları indirme](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>SSL sertifikası yapılandırma
 Bir SSL sertifikası, iletişimi şifrelemek ve sunucu kimlik doğrulaması için gereklidir. Aşağıdaki üç senaryo en uygun seçin ve tüm adımları yürütün:
@@ -411,7 +411,7 @@ Bulut hizmeti için karşıya yüklenen sertifikanın parmak izi ile parmak izi 
 11. **Son**'a tıklayın.
 12. **Tamam** düğmesine tıklayın.
 
-## <a name="import-certificate"></a>Sertifika İçeri Aktar
+## <a name="import-certificate"></a>Sertifikayı içeri aktar
 Sertifika Alma Sihirbazı'nda:
 
 1. Depolama konumu seçin.

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 7d25b072ffc41608bca9e0b23116b2eb453dd160
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740357"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Öğretici: Azure Active Directory Tümleştirme ile Microsoft tarafından JIRA SAML SSO
 
@@ -43,7 +43,7 @@ Microsoft Azure Active Directory hesabınız Atlassian JIRA sunucusu ile çoklu 
 Azure AD tümleştirmesi Microsoft tarafından JIRA SAML SSO ile yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- JIRA çekirdek 7.8 için yazılım 6.0 veya JIRA hizmet Masası 3.0 3.2 için yüklü ve yapılandırılmış Windows 64-bit sürümünde
+- JIRA çekirdek 7.12 yazılım 6.0 veya JIRA hizmet Masası 3.0, 3.5 için yüklü ve yapılandırılmış Windows 64-bit sürümü
 - HTTPS etkin JIRA sunucusudur
 - JIRA eklentisi için desteklenen sürümler bölümü belirtilmiştir unutmayın.
 - JIRA sunucu kimlik doğrulaması için Azure AD oturum açma sayfasına özellikle Internet üzerinden erişilebilir olduğundan ve Azure AD'den belirteç alamaz gerekir
