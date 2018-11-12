@@ -6,15 +6,15 @@ manager: garavd
 ms.service: site-recovery
 ms.date: 10/28/2018
 ms.topic: conceptual
-ms.author: rayne
-ms.openlocfilehash: 9bc0d5976cf01eb61c2a09a35ccd3a834313ca00
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.author: nisoneji
+ms.openlocfilehash: c6ec47017d944a206642932223ebb1d9df9cf942
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210508"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011740"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-auzre"></a>Kapasite ve ölçeklendirme Azure için VMware olağanüstü durum kurtarma için planlama
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
 
 Kapasite planlaması ve ölçeklendirme, şirket içi VMware Vm'leri ve fiziksel sunucuları azure'a çoğaltırken anlamak için bu makaleyi kullanın [Azure Site Recovery](site-recovery-overview.md).
 

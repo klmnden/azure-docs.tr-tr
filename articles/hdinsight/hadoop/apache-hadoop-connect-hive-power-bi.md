@@ -3,19 +3,19 @@ title: Power BI'da Azure HDInsight ile büyük verileri Görselleştirme
 description: Azure HDInsight tarafından işlenen Hive verileri görselleştirmek için Microsoft Power BI'ı kullanmayı öğrenin.
 keywords: hdınsight, hadoop, hive, etkileşimli sorgu, Interactive hive, LLAP, odbc
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: c24818f6b746754111540bae5fbf7f21d22c3a61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: b094df367d4396533d368b9fdbcb4b78ec1673de
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041913"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008904"
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Microsoft Power BI'ın ODBC kullanarak Azure HDInsight ile Hive verileri Görselleştirme
 
@@ -54,7 +54,7 @@ Hivesampletable Hive tablosu tüm HDInsight kümeleri ile birlikte gelir.
 4. Gelen **gelen ODBC** veri kaynağı adı son bölümde oluşturduğunuz ve ardından bölmesinde **Tamam**.
 5. Gelen **Gezgin** bölmesini genişletin **ODBC HIVE -> Varsayılan ->** seçin **hivesampletable**ve ardından **yük**.
 
-## <a name="visualize-data"></a>Verileri Görselleştirme
+## <a name="visualize-data"></a>Verileri görselleştirme
 
 Son yordama devam edin.
 

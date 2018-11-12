@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 61238482339250e45be36162e7eef252f78c74b1
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960286"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288994"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Nasıl yapılır: çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcısı ile oturum açın
 
@@ -46,9 +46,9 @@ Her adım ayrıntılı olarak bakalım. Doğrudan atlayabilirsiniz [çok kiracı
 
 Varsayılan olarak, Azure AD web uygulaması/API'si kayıtları tek kiracılı olan. Kaydınızı bularak çok kiracılı yapabileceğiniz **çok Kiracılı** açın **özellikleri** uygulama kaydınızı bölmesinde [Azure portalında] [ AZURE-portal] ve ayarlamak **Evet**.
 
-Çok kiracılı bir uygulama yapılabilmesi için önce Azure AD uygulama kimliği URI'si uygulamanın genel olarak benzersiz olması gerekir. Uygulama Kimliği URI'si, uygulamanın iletişim kuralı iletileri içinde tanımlanan yollardan biridir. Tek kiracılı bir uygulama için uygulama kimliği URI'Sİ'ın bu kiracıda benzersiz olması için yeterli. Azure AD uygulama tüm kiracılarda bulabilmesi için çok kiracılı bir uygulama için genel olarak benzersiz olmalıdır. Azure AD kiracısının doğrulanmış bir etki alanıyla eşleşen bir konak adı uygulama kimliği URI'si gerektirerek genel benzersizlik zorlanır. 
+Çok kiracılı bir uygulama yapılabilmesi için önce Azure AD uygulama kimliği URI'si uygulamanın genel olarak benzersiz olması gerekir. Uygulama Kimliği URI'si, uygulamanın protokol iletileri içinde tanımlanması için kullanılan yollardan biridir. Tek kiracılı bir uygulamada Uygulama Kimliği URI'sinin kiracı içinde benzersiz olması yeterlidir. Azure AD'nin uygulamayı tüm kiracılar arasında bulabilmesi için çok kiracılı uygulamada bu değerin genel olarak benzersiz olması gerekir. Genel olarak benzersiz olma gereksinimi, Uygulama Kimliği URI'sinin Azure AD kiracısının doğrulanmış etki alanı ile eşleşen bir ana bilgisayar adına sahip olması şartıyla sağlanır. 
 
-Varsayılan olarak, Azure Portalı aracılığıyla oluşturulan uygulamalar üzerinde uygulama oluşturma ayarlama genel olarak benzersiz bir uygulama kimliği URI'si sahiptir, ancak bu değeri değiştirebilirsiniz. Örneğin, kiracınızın adını contoso.onmicrosoft.com sonra geçerli ise uygulama kimliği URI'si olması `https://contoso.onmicrosoft.com/myapp`. Kiracınızda doğrulanmış bir etki alanının olsaydı `contoso.com`, geçerli bir uygulama kimliği URI'si de sonra `https://contoso.com/myapp`. Çok kiracılı başarısız olarak bir uygulama ayarı bu düzen uygulama kimliği URI'si izleyin değil ise.
+Varsayılan olarak, Azure Portalı aracılığıyla oluşturulan uygulamalar üzerinde uygulama oluşturma ayarlama genel olarak benzersiz bir uygulama kimliği URI'si sahiptir, ancak bu değeri değiştirebilirsiniz. Örneğin, kiracınızın adını contoso.onmicrosoft.com sonra geçerli ise uygulama kimliği URI'si olması `https://contoso.onmicrosoft.com/myapp`. Kiracınızda doğrulanmış bir etki alanının olsaydı `contoso.com`, geçerli bir uygulama kimliği URI'si de sonra `https://contoso.com/myapp`. Uygulama Kimliği URI'si bu düzene uygun olmadığında uygulamayı çok kiracılı hale getirme işlemi başarısız olur.
 
 > [!NOTE] 
 > Yerel istemci kayıtları yanı [v2.0 uygulamaları](./active-directory-appmodel-v2-overview.md) varsayılan olarak çok kiracılıdır. Bu uygulama kayıtları çok kiracılı yapmak için herhangi bir eylemde bulunmanız gerekmez.
@@ -201,8 +201,8 @@ Bu makalede, bir kullanıcı için herhangi bir Azure AD kiracısında oturum bi
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: e728162da8221046b8496cced8671695c7794164
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978392"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007595"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Önizleme: Azure AD parola koruması işletimsel yordamları
 
@@ -67,7 +67,7 @@ Bu ayar varsayılan (Evet) etkin durumda normalde bırakılmalıdır. Bu ayar de
 
 `Get-AzureADPasswordProtectionSummaryReport` Cmdlet'i, etkinliğin Özet görünümünü oluşturmak için kullanılabilir. Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
 
-```Powershell
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,7 +83,7 @@ PasswordSetErrors               : 1
 Cmdlet'in raporlama kapsamı kullanarak etkilenebilir orman, - etki alanı veya – DomainController parametre. Bir parametre belirtmeden gelir – orman.
 
 > [!NOTE]
-> Bu cmdlet her etki alanı denetleyicisi için bir Powershell oturumu açarak çalışır. Başarılı olması için her etki alanı denetleyicisinde Powershell uzak oturum desteği etkinleştirilmeli ve istemci yeterli ayrıcalıklara sahip olmalıdır. Powershell uzak oturum gereksinimleri hakkında daha fazla bilgi için 'Get-Help about_Remote_Troubleshooting' bir Powershell penceresinde çalıştırın.
+> Bu cmdlet her etki alanı denetleyicisi için bir PowerShell oturumu açarak çalışır. Başarılı olması için her etki alanı denetleyicisinde PowerShell uzak oturum desteği etkinleştirilmeli ve istemci yeterli ayrıcalıklara sahip olmalıdır. PowerShell uzak oturum gereksinimleri hakkında daha fazla bilgi için 'Get-Help about_Remote_Troubleshooting' bir PowerShell penceresinde çalıştırın.
 
 > [!NOTE]
 > Bu cmdlet her DC aracı hizmetinin yönetici olay günlüğünü uzaktan sorgulayarak çalışır. Olay günlükleri, olaylar çok sayıda içeriyorsa, cmdlet tamamlanması uzun zaman alabilir. Ayrıca, toplu ağ sorguları büyük veri kümeleri, etki alanı denetleyicisi performansını etkileyebilir. Bu nedenle, bu cmdlet üretim ortamlarında dikkatli kullanılmalıdır.
@@ -92,7 +92,7 @@ Cmdlet'in raporlama kapsamı kullanarak etkilenebilir orman, - etki alanı veya 
 
 `Get-AzureADPasswordProtectionDCAgent` Cmdlet'i, bir etki alanı veya orman çalışan çeşitli DC aracılarla ilgili temel bilgileri görüntülemek için kullanılabilir. Bu bilgiler, çalışan DC aracı hizmetleri tarafından kayıtlı serviceConnectionPoint nesnelerden alınır. Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
 
-```Powershell
+```PowerShell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: d49360fe39b0df7fc1172c3927e8725af10f927d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963889"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011060"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -251,7 +251,7 @@ Haritada gösterilen topolojisi Katman 3 topolojisi ve Katman 2 cihazları ve ba
 
 ## <a name="log-analytics-search"></a>Log Analytics arama 
 
-Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [Log Analytics arama](log-analytics-log-search.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin.  **Ortak sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
+Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [Log Analytics arama](log-analytics-queries.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin.  **Ortak sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
 
 ## <a name="alerts"></a>Uyarılar
 

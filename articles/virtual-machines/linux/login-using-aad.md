@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993570"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007153"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -147,6 +147,20 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 Kapat tarayıcı penceresinin SSH istemine geri dönmek ve basın **Enter** anahtarı. Artık Azure Linux sanal makine rolü izinleri ile gibi atanmış olarak oturum açmış *VM kullanıcı* veya *VM Yöneticisi*. Kullanıcı hesabınızın atanırsa *Sanal Makine Yöneticisi oturum açma* kullanabileceğiniz rol `sudo` kök ayrıcalıkları gerektiren komutlarını çalıştırmak.
+
+## <a name="sudo-and-aad-login"></a>Sudo ve AAD oturum açma
+
+Sudo, ilk kez ikinci kez kimlik doğrulaması istenir. Sudo çalıştırmak için yeniden kimlik doğrulaması olmasını istemiyorsanız sudoers dosyanızı düzenleyebileceğiniz `/aad/etc/sudoers.d/aad_admins` ve bu satırı değiştirin:
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+Bu satırla:
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## <a name="troubleshoot-sign-in-issues"></a>Oturum açma sorunlarını giderme
 

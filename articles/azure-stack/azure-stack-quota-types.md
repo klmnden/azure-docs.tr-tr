@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/30/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3c0ab236dd6fce10be0a50c435f04517e14c1387
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077604"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299428"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
@@ -31,15 +31,15 @@ ms.locfileid: "49077604"
 ## <a name="compute-quota-types"></a>Kota türleri işlem 
 | **Tür** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| En fazla sanal makine sayısı | 20 | Bu konumda bir abonelik oluşturan sanal makineler en fazla sayısı. |
-| En fazla sanal makine çekirdeklerinin sayısı | 50 | Bu konumda abonelik oluşturup oluşturamayacağını çekirdek sayısı (örneğin, bir A3 VM dört çekirdek vardır). |
+| En fazla sanal makine sayısı | 50 | Bu konumda bir abonelik oluşturan sanal makineler en fazla sayısı. |
+| En fazla sanal makine çekirdeklerinin sayısı | 100 | Bu konumda abonelik oluşturup oluşturamayacağını çekirdek sayısı (örneğin, bir A3 VM dört çekirdek vardır). |
 | Maks. kullanılabilirlik kümesi sayısı | 10 | Bu konumda oluşturulabilir kullanılabilirlik kümelerinin maksimum sayısı. |
-| Sanal makine ölçek maksimum sayısını ayarlar | 20 | Bu konumda oluşturulan sanal makine ölçek kümeleri en fazla sayısı. |
+| Sanal makine ölçek maksimum sayısını ayarlar | 100 | Bu konumda oluşturulan sanal makine ölçek kümeleri en fazla sayısı. |
 
 ## <a name="storage-quota-types"></a>Depolama kota türleri 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Maksimum Kapasite (GB) |500 |Bu konumda bulunan bir abonelik tarafından tüketilen toplam depolama kapasitesi. |
+| Maksimum Kapasite (GB) |2048 |Bu konumda bulunan bir abonelik tarafından tüketilen toplam depolama kapasitesi. |
 | Toplam depolama hesabı sayısı |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesabı sayısı. |
 
 > [!NOTE]  

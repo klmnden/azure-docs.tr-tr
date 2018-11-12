@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093981"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299869"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -42,7 +42,7 @@ Aşağıdaki listede, Azure Stack dağıtmak için gerekli sertifika gereksiniml
 - Azure Stack dağıtımı ve döndürme yapabilirsiniz veya tüm ad alanları sertifikanın konu adı ve konu alternatif adı (SAN) alanlarını kapsayan tek bir sertifikayı kullanın ya da kullanabilirsiniz, aşağıdaki ad alanlarının her biri için tek tek sertifikaları kullanmak için plan hizmetleri gerektirir. Her iki yaklaşım gibi gerekli olduğu bitiş noktası için joker karakterler kullanarak gerektiren **KeyVault** ve **KeyVaultInternal**. 
 - Sertifikanın PFX şifreleme 3DES olmalıdır. 
 - Sertifika imza algoritma SHA1 olmalıdır. 
-- Ortak ve özel anahtarları Azure Stack yükleme için gerekli olduğu gibi PFX sertifika biçimi olmalıdır. 
+- Ortak ve özel anahtarları Azure Stack yükleme için gerekli olduğu gibi PFX sertifika biçimi olmalıdır. Özel anahtarı yerel makine anahtar özniteliği olmalıdır.
 - PFX şifreleme 3DES (Bu bir Windows 10 istemci ya da Windows Server 2016 sertifika deposuna dışa aktarırken varsayılandır) olmalıdır.
 - Sertifika pfx dosyasını bir değer "Dijital imza" ve "KeyEncipherment", "Anahtar kullanımı" alanında olması gerekir.
 - Sertifika pfx dosyaları "Sunucu kimlik doğrulaması (1.3.6.1.5.5.7.3.1)" ve "İstemci kimlik doğrulaması (1.3.6.1.5.5.7.3.2)" değerlerini "Gelişmiş anahtar kullanımı" alanında olması gerekir.

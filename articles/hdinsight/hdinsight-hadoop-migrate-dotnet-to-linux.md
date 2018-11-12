@@ -2,19 +2,19 @@
 title: .NET ile HDInsight - Azure Linux tabanlı Hadoop MapReduce kullanma
 description: .NET uygulamalarında Linux tabanlı HDInsight MapReduce akış için nasıl kullanılacağı hakkında bilgi edinin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: f8a29c744d0ebfbab4127c421d0dba22e8d7ff52
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111100"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008122"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>.NET çözümlerini Linux tabanlı HDInsight için Windows tabanlı HDInsight için geçirme
 
