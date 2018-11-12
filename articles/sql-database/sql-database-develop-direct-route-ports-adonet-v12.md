@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 89802722e9e848b5cd5ede952287d5c934c142c3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351328"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260032"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 için 1433 dışındaki bağlantı noktaları
 Bu konuda, ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için Azure SQL veritabanı bağlantı davranışları açıklanmaktadır. 
@@ -48,7 +48,7 @@ Bağlantı noktası aralıkları 11000 11999 ve 14000 14999 Azure İstemci makin
 * Özellikle, bağlantı noktaları aralığındaki herhangi diğer giden blockers boş olmalıdır.
 * Azure vm'nizdeki **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı** bağlantı noktası ayarlarını denetler.
   
-  * Kullanabileceğiniz [güvenlik duvarının kullanıcı arabirimi](http://msdn.microsoft.com/library/cc646023.aspx) belirtmek için bir kural eklemek üzere **TCP** protokol söz dizimi ile bir bağlantı noktası aralığı birlikte ister **11000 11999**.
+  * Kullanabileceğiniz [güvenlik duvarının kullanıcı arabirimi](https://msdn.microsoft.com/library/cc646023.aspx) belirtmek için bir kural eklemek üzere **TCP** protokol söz dizimi ile bir bağlantı noktası aralığı birlikte ister **11000 11999**.
 
 ## <a name="version-clarifications"></a>Sürüm açıklamalar
 Bu bölümde, ürün sürümleri başvuran adlar açıklar. Ayrıca, bazı eşleştirmeleri ürünleri arasındaki sürümleri listelenir.
@@ -65,9 +65,9 @@ Bu bölümde, ürün sürümleri başvuran adlar açıklar. Ayrıca, bazı eşle
 
 
 ## <a name="related-links"></a>İlgili bağlantılar
-* ADO.NET 4.6 20 Temmuz 2015 tarihinde yayınlanmıştır. Bir .NET ekibi blog duyurusuna kullanılabilir [burada](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 15 Ağustos 2012 tarihinde yayınlanmıştır. Bir .NET ekibi blog duyurusuna kullanılabilir [burada](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * Bir ADO.NET 4.5.1 blog yazısı kullanılabilir [burada](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 20 Temmuz 2015 tarihinde yayınlanmıştır. Bir .NET ekibi blog duyurusuna kullanılabilir [burada](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 15 Ağustos 2012 tarihinde yayınlanmıştır. Bir .NET ekibi blog duyurusuna kullanılabilir [burada](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
+  * Bir ADO.NET 4.5.1 blog yazısı kullanılabilir [burada](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC sürücüsü 17 SQL Server® - Windows, Linux ve macOS için https://www.microsoft.com/download/details.aspx?id=56567
 

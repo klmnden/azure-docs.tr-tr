@@ -1,6 +1,6 @@
 ---
 title: REST ile içerik anahtarları oluşturma | Microsoft Docs
-description: Varlıkları için güvenli erişim sağlamaya içerik anahtarları oluşturmayı öğrenin.
+description: Varlıklara güvenli erişim sağlayan bir içerik anahtarı oluşturmayı öğrenin.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 83ba02aedebe69e15736975fbd73c7c7f221634f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790338"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242645"
 ---
-# <a name="create-content-keys-with-rest"></a>İçerik anahtarı REST ile oluşturma
+# <a name="create-content-keys-with-rest"></a>REST ile içerik anahtarı oluşturma
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
-Media Services şifrelenmiş varlıklar teslim etmenizi sağlar. A **ContentKey** güvenli erişim sağlayan, **varlık**s. 
+Media Services, şifrelenmiş varlıklar iletmenizi sağlar. A **ContentKey** güvenli erişim sağlayan, **varlık**s. 
 
 Yeni bir varlık oluşturduğunuzda (örneğin, önce [dosyaları karşıya yükleme](media-services-rest-upload-files.md)), aşağıdaki şifreleme seçenekleri belirleyebilirsiniz: **StorageEncrypted**, **CommonEncryptionProtected**, veya **EnvelopeEncryptionProtected**. 
 
-İstemcilerinize varlıklar iletirken yapabilecekleriniz [dinamik olarak şifrelenmesini varlıkları için yapılandırma](media-services-rest-configure-asset-delivery-policy.md) aşağıdaki iki şifrelemeleri biriyle: **DynamicEnvelopeEncryption** veya **DynamicCommonEncryption**.
+Varlıklar, istemcilere teslim zaman [varlıklarını dinamik olarak şifrelenmesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md) aşağıdaki iki şifrelerinden biri ile: **DynamicEnvelopeEncryption** veya  **DynamicCommonEncryption**.
 
-Şifrelenmiş varlıklar sahip ilişkilendirilecek **ContentKey**s. Bu makalede, bir içerik anahtarı oluşturmayı açıklar.
+Şifrelenmiş varlıklar sahip ilişkilendirilecek **ContentKey**s. Bu makalede, bir içerik anahtarı oluşturma işlemini açıklar.
 
-Şifrelenmesini istediğiniz varlık ile ilişkilendirmek içerik anahtarları oluşturmak için genel adımlar verilmiştir. 
+Şifrelenmesini istediğiniz varlıkların ile ilişkilendirmek, içerik anahtarı oluşturmak için genel adımlar aşağıdadır. 
 
-1. Rastgele bir 16 bayt AES anahtar (ortak ve zarf şifreleme) veya bir 32 baytlık AES anahtarı (depolama şifrelemesi) oluşturun. 
+1. Rastgele bir 16 baytlık AES anahtar (ortak ve zarf şifreleme) veya (depolama şifrelemesi için) 32 bayt AES anahtarı oluşturur. 
    
-    Şifre çözme sırasında aynı içerik anahtarı kullanmak üzere varlık gereken ile ilişkili tüm dosyalar anlamına gelir, varlık için içerik anahtarı budur. 
-2. Çağrı [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) ve [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) içerik anahtarınızı şifrelemek için kullanılması gereken doğru X.509 sertifikası almak için yöntemleri.
-3. İçerik anahtarınızı X.509 sertifikasının ortak anahtarla şifreler. 
+    Şifre çözme sırasında aynı içerik anahtarı kullanan varlık gereken ilişkilendirilmiş tüm dosyalar anlamına gelir, varlık için içerik anahtarını budur. 
+2. Çağrı [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) ve [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) içerik anahtarınızı şifrelemek için kullanılacak doğru X.509 sertifikası almak için yöntemleri.
+3. İçerik anahtarınız X.509 sertifikasının ortak anahtarla şifreler. 
    
-   Media Services .NET SDK'sı RSA şifreleme yaparken OAEP ile kullanır.  Bir örnekte görebilirsiniz [EncryptSymmetricKeyData işlevi](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. İçerik anahtarı ve anahtarı tanımlayıcısı kullanılarak hesaplanan (PlayReady AES anahtar sağlama toplamı algoritmadan yola çıkılarak) bir sağlama toplamı değeri oluşturun. Daha fazla bilgi için bulunan PlayReady Başlığı nesnesi belgenin "PlayReady AES anahtar sağlama toplamı algoritması" bölümüne bakın [burada](http://www.microsoft.com/playready/documents/).
+   Media Services .NET SDK ile OAEP RSA şifreleme yaparken kullanır.  Bir örnekte gördüğünüz [EncryptSymmetricKeyData işlevi](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Anahtar tanımlayıcısı ve içerik anahtarı kullanılarak hesaplanan (PlayReady ve AES anahtar sağlama toplamı algoritmasına göre) bir sağlama toplamı değeri oluşturun. Daha fazla bilgi için PlayReady üstbilgisi nesne belgenin bulunan "PlayReady AES anahtar sağlama algoritması" bölümüne bakın [burada](https://www.microsoft.com/playready/documents/).
    
-   Aşağıdaki .NET örnek anahtar tanımlayıcısı ve temizleyin içerik anahtarı GUID parçası kullanarak sağlama toplamı hesaplar.
+   Aşağıdaki .NET örnek anahtar tanımlayıcısı ve Temizle içerik anahtarı GUID kısmını kullanarak sağlama toplamını hesaplar.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -66,23 +66,23 @@ Yeni bir varlık oluşturduğunuzda (örneğin, önce [dosyaları karşıya yük
              Array.Copy(array, array2, 8);
              return Convert.ToBase64String(array2);
          }
-5. İle içerik anahtarı oluşturun **EncryptedContentKey** (base64 ile kodlanmış dizeye dönüştürülen), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, ve **sağlama toplamı** önceki adımlarda almış değerleri.
+5. İçerik anahtarı ile oluşturmak **EncryptedContentKey** (base64 ile kodlanmış dizeye dönüştürülür) **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, ve **sağlama toplamı** önceki adımlarda almış değerleri.
 6. İlişkilendirme **ContentKey** varlıkla, **varlık** $links işlemle varlık.
 
-Bu makalede, bir AES anahtarı oluşturur, anahtarı şifrelemek ve sağlama toplamı hesaplamak nasıl göstermez. 
+Bu makalede, bir AES anahtarı oluşturur, anahtar şifreleme ve sağlama toplamı hesaplamak nasıl algılanacağını göstermez. 
 
 >[!NOTE]
 
->Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
+>Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="retrieve-the-protectionkeyid"></a>ProtectionKeyId alma
-Aşağıdaki örnek, içerik anahtarı şifrelerken kullandığınız sertifika için bir sertifika parmak izini ProtectionKeyId almak nasıl gösterir. Makinenizde uygun sertifika zaten sahip olduğunuzdan emin olmak için bu adımı uygulayın.
+Aşağıdaki örnek, içerik anahtarınız şifrelerken kullanmak sertifika için bir sertifika parmak izi ProtectionKeyId almak gösterilmektedir. Makinenizde uygun sertifikayı zaten sahip olduğunuzdan emin olmak için bu adımı uygulayın.
 
-İsteği:
+İstek:
 
     GET https://media.windows.net/api/GetProtectionKeyId?contentKeyType=0 HTTP/1.1
     MaxDataServiceVersion: 3.0;NetFx
@@ -94,7 +94,7 @@ Aşağıdaki örnek, içerik anahtarı şifrelerken kullandığınız sertifika 
     Host: media.windows.net
 
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -111,10 +111,10 @@ Yanıtı:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-## <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>ProtectionKey için ProtectionKeyId alma
-Aşağıdaki örnek, önceki adımda aldığınız ProtectionKeyId kullanarak X.509 sertifikası almak nasıl gösterir.
+## <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>İçin ProtectionKeyId ProtectionKey alma
+Aşağıdaki örnek, önceki adımda aldığınız ProtectionKeyId kullanılarak X.509 sertifikası almak gösterilmektedir.
 
-İsteği:
+İstek:
 
     GET https://media.windows.net/api/GetProtectionKey?ProtectionKeyId='7D9BB04D9D0A4A24800CADBFEF232689E048F69C' HTTP/1.1
     MaxDataServiceVersion: 3.0;NetFx
@@ -128,7 +128,7 @@ Aşağıdaki örnek, önceki adımda aldığınız ProtectionKeyId kullanarak X.
 
 
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -148,9 +148,9 @@ Yanıtı:
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
 ## <a name="create-the-contentkey"></a>ContentKey oluşturma
-X.509 sertifikası alınır ve ortak anahtar, içerik anahtarı şifrelemek için kullanılan sonra oluşturmanız bir **ContentKey** varlık ve onun özellik değerlerinin buna uygun olarak ayarla.
+X.509 sertifikası alınır ve kendi ortak anahtar, içerik anahtarını şifrelemek için kullanılan sonra oluşturma bir **ContentKey** varlık ve değerlerini uygun şekilde kendi özellik kümesi.
 
-Ne zaman ayarlamalısınız değerlerden biri oluşturma içerik türü bir anahtardır. Aşağıdaki değerlerden birini seçin:
+İçeriği ne zaman ayarlamalısınız değerlerinden oluşturma türü anahtardır. Aşağıdaki değerlerden birini seçin:
 
     public enum ContentKeyType
     {
@@ -177,7 +177,7 @@ Ne zaman ayarlamalısınız değerlerden biri oluşturma içerik türü bir anah
     }
 
 
-Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir **ContentKey** ile bir **ContentKeyType** depolama şifrelemenin ("1") ve **ProtectionKeyType** belirtmek için "0" olarak ayarlayın koruma anahtarı kimliğidir X.509 sertifika parmak izi.  
+Aşağıdaki örnek nasıl oluşturulacağını gösterir. bir **ContentKey** ile bir **ContentKeyType** ayarlamak için depolama şifrelemesi ("1") ve **ProtectionKeyType** göstermek için "0" olarak ayarlayın koruma anahtarı X.509 sertifika parmak izini kimliğidir.  
 
 İstek
 
@@ -201,7 +201,7 @@ Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir **ContentKey** i
     }
 
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -230,7 +230,7 @@ Yanıtı:
 ## <a name="associate-the-contentkey-with-an-asset"></a>ContentKey bir varlıkla ilişkilendirme
 ContentKey oluşturduktan sonra aşağıdaki örnekte gösterildiği gibi $links işlemi kullanarak, varlıkla ilişkilendirin:
 
-İsteği:
+İstek:
 
     POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Afbd7ce05-1087-401b-aaae-29f16383c801')/$links/ContentKeys HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -245,7 +245,7 @@ ContentKey oluşturduktan sonra aşağıdaki örnekte gösterildiği gibi $links
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 204 No Content 
 

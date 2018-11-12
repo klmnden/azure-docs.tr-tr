@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409295"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261817"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Öğretici: Azure Sanal WAN (Önizleme) kullanarak Noktadan Siteye bağlantı oluşturma
 
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Sanal WAN oluşturma
 
-Bir tarayıcıdan [Azure portala (Önizleme)](http://aka.ms/azurevirtualwanpreviewfeatures) gidin ve Azure hesabınızla oturum açın.
+Bir tarayıcıdan [Azure portala (Önizleme)](https://aka.ms/azurevirtualwanpreviewfeatures) gidin ve Azure hesabınızla oturum açın.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -111,12 +111,13 @@ P2S yapılandırması, uzak istemcilerin bağlanmasına yönelik parametreleri t
 
 ## <a name="hub"></a>5. Hub atamasını düzenleme
 
-1. Sanal WAN mimarinizin sayfasında **Noktadan siteye yapılandırmalar**’a tıklayın.
-2. **Hub** bölümünde henüz bir hub'a bağlanmamış olan yapılandırmaların listesini görürsünüz.
-3. İlişkilendirmek istediğiniz yapılandırmayı seçin ve **Hub atamasını düzenle**’ye tıklayın
-4. Açılır listeden, yapılandırmayı ilişkilendirmek istediğiniz hub’ları seçin.
-5. **Ata**'ya tıklayın. 
-6. İşlemin tamamlanması 30 dakika sürebilir.
+1. Sanal WAN'ınızın sayfasında **Hub'lar** öğesine tıklayın.
+2. Noktadan siteye yapılandırmasını atamak istediğiniz hub'ı seçin.
+3. **"..."** simgesine tıklayıp **Sanal hub'ı düzenle**'yi seçin.
+4. **Noktadan siteye ağ geçidini dahil et** seçeneğini işaretleyin.
+5. **Ağ geçidi ölçek birimleri**'ni ve **Noktadan siteye yapılandırması** ile istemciler için bir **Adres havuzu** seçin.
+6. **Onayla**'ya tıklayın. 
+7. İşlemin tamamlanması 30 dakika sürebilir.
 
 ## <a name="vnet"></a>6. Sanal ağınızı bir hub'a bağlama
 
@@ -135,9 +136,10 @@ Bu adımda hub'ınızla bir sanal ağ arasında eşleme bağlantısı oluşturac
 
 İstemcilerinizi yapılandırmak için VPN profilini kullanın.
 
-1. Sanal WAN mimarinizin sayfasında **Noktadan siteye yapılandırmalar**’a tıklayın.
-2. Sayfanın üst kısmında **Noktadan siteye profili indir**’e tıklayın. 
-3. Dosya oluşturulduktan sonra bağlantıya tıklayarak indirebilirsiniz.
+1. Sanal WAN'ınızın sayfasında **Hub'lar** öğesine tıklayın.
+2. Profilini indirmek istediğiniz hub'ı seçin.
+3. **"..."** simgesine tıklayıp **Profili indir**'i seçin. 
+4. Dosya oluşturulduktan sonra bağlantıya tıklayarak indirebilirsiniz.
 4. Noktadan siteye istemcileri yapılandırmak için profil dosyasını kullanın.
 
 ## <a name="device"></a>8. Noktadan siteye istemcileri yapılandırma

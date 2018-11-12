@@ -1,6 +1,6 @@
 ---
-title: Derin Dalış araç sağlık ve yürüten tahmin etmek nasıl içine alışkanlıklarınıza - Azure | Microsoft Docs
-description: Araç sistem durumu ve yürüten gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence yeteneklerini kullanabilir alışkanlıklarınıza.
+title: Yakından araç durumu ve sürüş tahmin etmek nasıl yararlanabileceğini - Azure | Microsoft Docs
+description: Araç durumu ve sürüş üzerinde gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence'nın özelliklerini kullanmaya alışkanlıkları.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,55 +15,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059209"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300957"
 ---
-# <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Araç Telemetri analiz çözümü playbook: ayrıntılı çözüme daha yakından inceleyin
-Bu playbook bölümlerini bu menü bağlantılar: 
+# <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Araç Telemetri analizi çözüm kitabı: çözümün içine yakından
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+Her çözüm mimarisinde gösterilen aşamalardan bu makalede tatbikatları aşağı. Yönergeler ve özelleştirme için işaretçiler dahil edilir. 
 
-Bu belge kümede ayrıntısına gider her çözüm mimarisinde gösterilen aşamaları. Yönergeler ve özelleştirme işaretçileri dahil edilir. 
+Bu çözüm özeti açıklamasını gözden geçirmek için bkz. [araç Telemetri analizi çözüm kitabı](cortana-analytics-playbook-vehicle-telemetry.md).
+
 
 ## <a name="data-sources"></a>Veri kaynakları
-Çözüm iki farklı veri kaynakları kullanır:
+Çözüm iki farklı veri kaynaklarını kullanmaktadır:
 
-* Benzetimli araç sinyalleri ve tanılama veri kümesi
+* Simülasyon araç sinyaller ve tanılama veri kümesi
 * Araç Kataloğu
 
-Aşağıdaki ekran görüntüsünde gösterildiği gibi bir araç telematik simulator Bu çözüm, bir parçası olarak dahil edilir. Tanılama bilgileri ve araç durumunu ve belirli bir noktada yönlendirmeli düzeni zamanında karşılık gelen sinyalleri yayar.  Araç katalog araç tanımlama numaraları (VINs) modellerine eşleyen bir başvuru veri kümesi içerir. Not: Araç telematik Simulator Visual Studio çözümü veri kümesi artık kullanılamıyor. 
+Bir araç telematik simülatörü, aşağıdaki ekran görüntüsünde gösterildiği gibi bu çözüm, bir parçası olarak dahil edilir. Tanılama bilgileri ve araç durumu ve sürüş düzeni belirli bir noktada sürede karşılık gelen sinyalleri yayar.  Araç katalog araç kimlik numaraları (VINs) modeller için eşlenen başvuru veri kümesi içerir. Not: Araç telematik simülatörü Visual Studio çözümünü veri kümesi artık kullanılamıyor. 
 
-![Araç telematik simulator](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
+![Araç telematik simülatörü](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
 
-Bu JSON biçimli veri kümesinin aşağıdaki şema içerir.
+Bu JSON ile biçimlendirilmiş bir veri kümesi, aşağıdaki şema içeriyor.
 
 | Sütun | Açıklama | Değerler |
 | --- | --- | --- |
 | TOPLAMIDIR |Rastgele oluşturulmuş Toplamıdır |10.000 rastgele oluşturulmuş VINs ana listesinden elde |
-| Dış sıcaklığı |Aracın burada yürüten dış sıcaklığı |0 ile 100 rastgele oluşturulmuş sayı |
-| Altyapısı sıcaklık |Aracın altyapısı sıcaklığını |0'dan rastgele oluşturulmuş bir sayıya 500 |
-| Hız |Aracın yönlendiren altyapısı hızı |0 ile 100 rastgele oluşturulmuş sayı |
-| Yakıt |Aracın yakıt düzeyi |Rastgele oluşturulan numarası 0 ile 100'e (yakıt düzeyi yüzdesi gösterir) |
-| EngineOil |Aracın altyapısı Petrol düzeyi |Rastgele oluşturulan numarası 0 ile 100'e (altyapısı Petrol düzeyi yüzdesi gösterir) |
-| Lastiği baskısı |Aracın lastiği Basıncı |Rastgele oluşturulan numarası 0 ile 50 (lastiği baskısı düzeyi yüzdesi gösterir) |
-| Kilometre Sayacı |Aracın Kilometre Sayacı okuma |Rastgele oluşturulmuş 0'dan numara 200.000 |
-| Accelerator_pedal_position |Aracın Hızlandırıcı pedal konumu |Rastgele oluşturulan numarası 0 ile 100'e (Hızlandırıcı düzeyi yüzdesi gösterir) |
-| Parking_brake_status |Aracın veya yerleşmiş durumdayken gösterir |TRUE veya False |
+| Dış sıcaklığı |Burada araç önünü açıyor dış sıcaklığı |0 ile 100 rastgele oluşturulmuş sayı |
+| Altyapısı sıcaklık |Araç altyapısı Sıcaklığın |0 rastgele oluşturulmuş bir sayıya 500 |
+| Hız |Hangi aracın yönlendirdiğini altyapısı hız |0 ile 100 rastgele oluşturulmuş sayı |
+| Yakıt |Araç yakıt düzeyi |Rastgele oluşturulmuş sayı 0 ile 100 (yakıt düzeyi yüzdesini gösterir) |
+| EngineOil |Araç altyapısı Petrol düzeyi |Rastgele oluşturulmuş sayı 0 ile 100 (altyapısı Petrol düzeyi yüzdesini gösterir) |
+| Lastik baskısı |Araç, Lastik baskısı |Rastgele oluşturulmuş sayı 0 ile 50 (Lastik baskısı düzeyi yüzdesini gösterir) |
+| Kilometre Sayacı |Araç, Kilometre Sayacı okuma |Rastgele oluşturulmuş sayıya 200.000 0 |
+| Accelerator_pedal_position |Araç Hızlandırıcı pedal konumu |Rastgele oluşturulmuş sayı 0 ile 100 (Hızlandırıcı düzeyi yüzdesini gösterir) |
+| Parking_brake_status |Araç veya yerleşmiş durumdayken gösterir |TRUE veya False |
 | Headlamp_status |Ön ışık üzerinde olup olmadığını gösterir |TRUE veya False |
-| Brake_pedal_status |Fren pedal veya basılı olup olmadığını gösterir |TRUE veya False |
-| Transmission_gear_position |Aracın iletim dişli konumu |Durumları: ilk olarak, üçüncü, dördüncü beşinci, altıncı seventh, sekizinci ikinci |
-| Ignition_status |Aracın çalışıyor veya durdurulmuştur olup olmadığını gösterir |TRUE veya False |
+| Brake_pedal_status |Hızınızı pedal veya basıldığını bildirir |TRUE veya False |
+| Transmission_gear_position |Araç aktarım dişli konumu |Durumları: ilk olarak, üçüncü, dördüncü, beşinci, altıncı seventh, sekizinci ikinci |
+| Ignition_status |Araç çalışıyor veya durduruldu olduğunu gösterir |TRUE veya False |
 | Windshield_wiper_status |Ön wiper veya açık olup olmadığını gösterir |TRUE veya False |
 | ABS |ABS veya bağlı olup olmadığını gösterir |TRUE veya False |
-| Zaman damgası |Veri noktası oluşturulduğunda, zaman damgası |Tarih |
-| Şehir |Aracın konumu |Bu çözümdeki dört Şehir: Bellevue, Redmond, Sammamish, Seattle |
+| Zaman damgası |Veri noktasının oluşturulduğu zaman damgası |Tarih |
+| Şehir |Araç konumu |Bu çözümdeki dört şehirler: Bellevue, Redmond, Sammamish, Seattle |
 
-Araç model başvuru veri kümesi VINs modellerine eşler. 
+Araç modeli başvuru veri kümesi için modelleri VINs eşler. 
 
 | TOPLAMIDIR | Model |
 | --- | --- |
@@ -98,70 +98,70 @@ Araç model başvuru veri kümesi VINs modellerine eşler.
 | 8OMCL3LGI7XNCC21U |Dönüştürülebilir |
 | ……. | |
 
-## <a name="ingestion"></a>Alım
-Azure Event Hubs, Azure akış analizi ve Azure Data Factory birleşimleri araç sinyalleri, tanılama olayları alma için kullanılır ve gerçek zamanlı ve toplu analizi. Tüm bu bileşenlerin oluşturulur ve çözüm dağıtımının bir parçası yapılandırılmış. 
+## <a name="ingestion"></a>Alma
+Azure Event Hubs, Azure Stream Analytics ve Azure Data Factory birleşimlerini vehicle sinyalleri, tanılama olaylarını almak için kullanılır ve gerçek zamanlı ve toplu analiz. Tüm bu bileşenlerin oluşturulur ve çözüm dağıtımının bir parçası yapılandırılmış. 
 
 ### <a name="real-time-analysis"></a>Gerçek zamanlı analiz
-Araç telematik simulator tarafından oluşturulan olayları event hub'ına olay hub'ı SDK kullanarak yayımlanır.  
+Araç telematik simülatörü tarafından oluşturulan olaylar, olay hub'ına olay hub'ı SDK'sını kullanarak yayımlanır.  
 
 ![Olay hub'ı Panosu](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-event-hub-dashboard.png) 
 
-Stream Analytics işi, bu olayları olay hub'ı alır ve araç durumu çözümlemek için gerçek zamanlı verileri işler.
+Stream Analytics işi, bu olayları olay hub'ı alır ve gerçek zamanlı olarak araç durumu çözümlemek için verileri işler.
 
-![Veriler işlenirken Analytics iş akışı](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-stream-analytics-job-processing-data.png) 
+![Stream Analytics işi verileri işleme](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-stream-analytics-job-processing-data.png) 
 
 
 Stream Analytics işi:
 
-* Olay hub'ı verileri alır.
-* Araç Toplamıdır karşılık gelen modeline eşlemek için başvuru verileri ile bir birleştirme gerçekleştirir. 
-* Bunları zengin toplu analiz için Azure Blob depolama alanına devam ettirir. 
+* Olay hub'ından veri alır.
+* ' % S'araç Toplamıdır karşılık gelen modeline eşlemek için başvuru verileriyle birleştirme gerçekleştirir. 
+* Bunları zengin toplu analiz için Azure Blob depolamaya devam ettirir. 
 
-Aşağıdaki akış analizi sorgu verileri Blob depolama alanına kalıcı hale getirmek için kullanılır: 
+Aşağıdaki Stream Analytics sorgusu, Blob depolama alanına verileri kalıcı hale getirmek için kullanılır: 
 
-![Akış analizi işi sorgu veri alımı için](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
-
-
-### <a name="batch-analysis"></a>Toplu iş analiz
-Ek bir birim benzetimli araç sinyalleri ve tanılama veri kümesi için daha zengin toplu analiz de oluşturulur. Bu ek bir birim toplu işlem için iyi temsili veri birimi emin olmak için gereklidir. Bu amaçla PrepareSampleDataPipeline veri fabrikası iş akışı içinde bir yılın tutarında benzetimli araç sinyalleri ve tanılama veri kümesi oluşturmak için kullanılır. Veri Fabrikası özel .NET etkinlik gereksinimlerinize göre özelleştirmeleri için Visual Studio çözümü indirmek için Git [Data Factory özel etkinlik](http://go.microsoft.com/fwlink/?LinkId=717077) Web sayfası. 
-
-Bu iş akışı örneği verileri toplu işleme için hazırlanmış gösterir.
-
-![Toplu işleme iş akışı için hazırlanmış örnek veriler](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
+![Stream Analytics işi sorgusu için veri alma](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
 
 
-Ardışık Düzen özel bir veri fabrikası .NET etkinliğini oluşur.
+### <a name="batch-analysis"></a>Batch analizi
+Ek bir birim simülasyon araç sinyaller ve tanılama veri kümesi, ayrıca daha ayrıntılı toplu analizler için oluşturulur. Bu ek bir birim, toplu işlem için bir iyi temsili veri hacmi emin olmak için gereklidir. Bu amaçla PrepareSampleDataPipeline Data Factory iş akışında bir yılın değerinde simülasyon araç sinyaller ve tanılama veri kümesi oluşturmak için kullanılır. Data Factory özel bir .NET etkinliği gereksinimlerinize göre özelleştirme için Visual Studio çözümü indirmek için Git [Data Factory özel etkinlik](https://go.microsoft.com/fwlink/?LinkId=717077) Web sayfası. 
+
+Bu iş akışı, toplu işlem için hazır örnek veriler gösterilmektedir.
+
+![Örnek verileri toplu işleme iş akışı için hazır](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
+
+
+Özel bir Data Factory .NET etkinliğini işlem hattı oluşur.
 
 ![PrepareSampleDataPipeline etkinliği](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-pipeline.png) 
 
-Ardışık Düzen başarıyla yürütür ve RawCarEventsTable veri kümesi "Hazır" olarak işaretlenmiş sonra bir yılın tutarında benzetimli araç sinyalleri ve tanılama veri oluşturulur. Aşağıdaki klasör ve dosya depolama hesabınızda connectedcar kapsayıcısı altında oluşturulan bakın:
+İşlem hattı başarılı bir şekilde yürütür ve RawCarEventsTable veri kümesi "Hazır" olarak işaretlenmiş sonra bir yılın değerinde simülasyon araç sinyaller ve Tanılama verileri oluşturulur. Aşağıdaki klasör ve dosya depolama hesabınızda connectedcar kapsayıcısı altında oluşturulan görürsünüz:
 
 ![PrepareSampleDataPipeline çıkış](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
 ## <a name="partition-the-data-set"></a>Bölüm veri kümesi
-Veri hazırlama adımında ham yarı yapılandırılmış araç sinyalleri ve tanılama veri kümesi yıl/ay biçimine bölümlenir. Bu bölümleme daha verimli şekilde sorgulamak ve ölçeklenebilir uzun vadeli depolama hatası üzerinden etkinleştirerek yükseltir. İlk blob hesabı dolduğunda, örneğin, bunu üzerinden sonraki hesabına hataları. 
+Veri hazırlama adımında, ham yarı yapılandırılmış araç sinyaller ve tanılama veri kümesi yıl/ay biçimine bölümlenir. Bu bölümleme daha etkili bir sorgulama ve ölçeklenebilir, uzun vadeli depolama hatası üzerinden etkinleştirerek yükseltir. İlk blob hesabı dolduğunda, örneğin, bu üzerinden sonraki hesabına hataları. 
 
 >[!NOTE] 
->Bu adım çözümdeki yalnızca toplu işleme için geçerlidir.
+>Bu adımda çözümü yalnızca toplu işleme için geçerlidir.
 
 Giriş ve çıkış veri yönetimi:
 
-* **Çıktı verilerini** (etiketli PartitionedCarEventsTable) uzun bir süre için Müşteri'nin veri gölü veri temel / "rawest" form olarak tutulur. 
-* **Giriş verileri** çıktı verilerini tam uygunluğunu girişine sahip olduğu için bu ardışık düzen genellikle atılır. (Daha sonra kullanmak için bölümlenmiş) depolanır.
+* **Çıktı verilerini** (etiketli PartitionedCarEventsTable) uzun bir süre için temel / "rawest" form verilerinin müşterinin veri gölü'nde olarak tutulur. 
+* **Veri girişi** çıktı verilerini tam uygunlukta girişine sahip olduğundan bu işlem hattı için genellikle atılır. (Daha iyi kullanmak için bölümlenmiş) depolanır.
 
-Bölüm araba olayları iş akışı.
+Bölüm araba olay iş akışı.
 
-![Bölüm araba olayları iş akışı](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
+![Bölüm araba olay iş akışı](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
 
-Ham verileri PartitionCarEventsPipeline içinde bir Azure Hdınsight Hive etkinliğini kullanarak aşağıdaki ekran görüntüsünde gösterildiği gibi bölümlenmiş. Veri hazırlama adımında bir yıl için oluşturulan örnek verileri yıl/AYA göre bölümlenmiş. Bölümler araç sinyalleri ve tanılama verilerini her ay yılın (toplam 12 bölümlerinin) oluşturmak için kullanılır. 
+Ham verileri PartitionCarEventsPipeline içinde bir Azure HDInsight Hive etkinliği'ni kullanarak aşağıdaki ekran görüntüsünde gösterildiği gibi bölümlenir. Veri hazırlama adımı bir yıl için oluşturulan örnek veriler yıl/ay temelinde bölümlenir. Bölümler, her bir yılın ayı için (12 bölümün toplamı) vehicle sinyaller ve tanılama verilerini oluşturmak için kullanılır. 
 
 ![PartitionCarEventsPipeline etkinliği](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-pipeline.png)
 
 
 **PartitionConnectedCarEvents Hive betiği**
 
-Hive betiği partitioncarevents.hql bölümleme için kullanılır. İndirilen ZIP dosyasının \demo\src\connectedcar\scripts klasöründe bulunur. 
+Hive betiği partitioncarevents.hql bölümleme için kullanılır. Bu işlem, indirilen ZIP dosyasının \demo\src\connectedcar\scripts klasöründe bulunur. 
     
     SET hive.exec.dynamic.partition=true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -298,75 +298,75 @@ Hive betiği partitioncarevents.hql bölümleme için kullanılır. İndirilen Z
         MonthNo
     FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
 
-Ardışık Düzen başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulur şu bölümlerde bakın:
+İşlem hattı başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulan aşağıdaki bölümlere bakın:
 
-![Bölümlenmiş çıktı](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
+![Bölümlenmiş çıkış](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
 
-Veriler artık, daha kolay yönetilebilir ve zengin toplu Öngörüler kazanmak için daha fazla işleme için hazır duruma getirilmiştir. 
+Daha kolay yönetilebilir ve batch zengin içgörüler edinmek için daha fazla işleme için hazır veriler artık iyileştirilmiştir. 
 
 ## <a name="data-analysis"></a>Veri çözümlemesi
-Bu bölümde, akış analizi, Azure Machine Learning, veri fabrikası ve Hdınsight araç sistem durumunu gelişmiş analizler ve alışkanlık yürüten zengin için birleştirme bakın.
+Bu bölümde, Stream Analytics, Azure Machine Learning, Data Factory ve HDInsight için Gelişmiş analiz üzerinde araç durumu ve sürüş alışkanlıkları zengin bir araya getirilebileceğini öğrenin bakın.
 
 ### <a name="machine-learning"></a>Makine öğrenimi
-Burada amaç, Bakım veya aşağıdaki varsayımları temel alarak, belirli bir sistem durumu istatistikleri temel geri çağırma gerektiren taşıtlardan tahmin etmektir:
+Buradaki amaç, bakım ya da aşağıdaki varsayımları temel alarak, belirli bir sistem durumu istatistiklerini göre geri çağırma gerektiren taşıtlardan tahmin etmektir:
 
-* Aşağıdaki üç koşullardan biri doğruysa taşıtlardan bakım bakım gerektirir:
+* Aşağıdaki üç koşulun true ise, Araçlar bakım bakım gerektirir:
   
-  * Lastiği baskısı düşüktür.
+  * Lastik baskısı düşüktür.
   * Altyapısı Petrol düşük düzeydir.
   * Altyapısı sıcaklık yüksektir.
 
-* Aşağıdaki koşullardan biri doğruysa taşıtlardan bir güvenlik sorunu sahip ve geri çağırma gerektirir:
+* Aşağıdaki koşullardan biri doğru ise, Araçlar bir güvenlik sorunu sahip olabileceğiniz ve geri çağırma gerektirir:
   
-  * Altyapısı sıcaklık yüksekse, ancak dış sıcaklığı düşüktür.
+  * Altyapısı sıcaklık yüksektir, ancak dış sıcaklığı düşüktür.
   * Altyapısı sıcaklık düşüktür, ancak dış sıcaklığı yüksektir.
 
-Önceki gereksinimlerine bağlı olarak, iki ayrı modelleri anormallikleri algıla. Bir model araç bakım algılama için ve araç geri çağırma algılaması için bir model şeklindedir. Her iki modellerinde yerleşik asıl bileşen analiz (PCA) algoritması anomali algılama için kullanılır. 
+Önceki gereksinimlerine bağlı olarak, iki ayrı modeli anomalileri algılayın. Araç bakım algılama için bir modeldir ve araç geri çağırma algılaması için bir modeldir. Her iki modelleri, yerleşik asıl bileşende analiz (PCA) algoritması anomali algılama için kullanılır. 
 
 #### <a name="maintenance-detection-model"></a>**Bakım algılama modeli**
 
-Varsa, üç göstergeleri--lastiği baskısı, altyapısı Petrol veya altyapısı sıcaklık--ilgili koşulu karşılayan, bakım algılama modelini bir anomali raporları. Sonuç olarak, bu üç değişkenleri olması dikkate almanız model oluşturmaya gerekir. Machine learning'de denemede **Select Columns in Dataset sütun** modülü, bu üç değişkenleri ayıklamak için kullanılır. Ardından, PCA tabanlı anomali algılama modülü anomali algılama modelini oluşturmak için kullanılır. 
+Varsa üç göstergelerini--Lastik baskısı, altyapısı Petrol veya altyapısı sıcaklık--kendi ilgili koşulunu karşılayan, bir anomali algılama modeli bakım raporlar. Sonuç olarak, bu üç değişkenin olması dikkate alınması gereken modeli oluşturmaya gerekir. Machine learning'de denemede **kümesindeki sütunları seçme** modülü, bu üç değişkenin ayıklamak için kullanılır. Ardından, PCA tabanlı anomali algılama modülü anomali algılama modeli oluşturmak için kullanılır. 
 
-PCA özellik seçimi, Sınıflandırma ve anomali algılama uygulanan machine learning'de kurulmuş bir tekniktir. PCA büyük olasılıkla bağıntılı değişkenleri asıl bileşenleri adı verilen değerleri kümesine içermesi kümesi dönüştürür. Anahtar PCA tabanlı model özellikleri ve anormallikleri daha kolay tanımlamak için küçük boyutlu bir alanı üzerine proje verilere olur.
+PCA machine learning'de özellik seçimi, Sınıflandırma ve anomali algılama için uygulanabilir kurulan bir tekniktir. PCA büyük olasılıkla bağıntılı değişkenleri asıl bileşenleri olarak adlandırılan değerleri kümesine içermesi birtakım dönüştürür. Özellikler ve anomalileri daha kolay tanımlamak için küçük boyutlu bir alanı proje verilerini modelleme PCA tabanlı anahtar fikrini sağlamaktır.
 
-İçin yeni her giriş algılama modeline anomali algılayıcısı ilk eigenvectors üzerinde kendi projeksiyon hesaplar. Ardından, normalleştirilmiş yeniden yapılandırma hata hesaplar. Bu anomali puan normalleştirilmiş hatadır: yüksek hata, daha anormal örneği. 
+Anomali algılayıcısı, algılama modeline her yeni giriş için kendi projeksiyon üzerinde eigenvectors ilk hesaplar. Ardından, normalleştirilmiş reconstruction hata hesaplar. Bu anomali puanı normalleştirilmiş hatadır: hata: arttıkça, fazla anormal örneği. 
 
-Üç boyutlu boşluk nokta koordinatları lastiği baskısı, altyapısı Petrol ve altyapısı sıcaklık tarafından tanımlanan bakım algılama sorunu her kayıt olarak kabul edilir. Bu anormallikleri yakalamak için PCA iki boyutlu bir alanı üç boyutlu alanı özgün verileri proje için kullanılır. Bu nedenle, bileşenleri içinde PCA kullanmak için parametre sayısı iki olarak ayarlanır. Bu parametre, PCA tabanlı anomali algılama uygulama önemli bir rol oynar. Proje verilerini PCA kullandıktan sonra bu anormallikleri daha kolay tanımlanır.
+Üç boyutlu boşluk nokta koordinatları Lastik baskısı, altyapısı Petrol ve altyapısı sıcaklık tarafından tanımlanan bakım algılama sorunu, her bir kayıt olarak kabul edilir. Bu anormal durumları yakalamak için üç boyutlu boşluk özgün veri iki boyutlu bir alanı proje için PCA kullanılır. Bu nedenle, bileşen PCA içinde kullanmak için parametre sayısı iki olarak ayarlanır. Bu parametre, PCA tabanlı anomali algılama uygulama önemli bir rol oynar. Proje verilerini PCA kullandıktan sonra bu anomalileri daha kolay tanımlanır.
 
 #### <a name="recall-anomaly-detection-model"></a>**Anomali algılama modelini geri çağırma**
 
-Geri çağırma anomali algılama modelinde **Select Columns in Dataset sütun** ve PCA tabanlı anomali algılama modülleri benzer şekilde kullanılır. Özellikle, üç değişkenleri--altyapısı sıcaklık, dış sıcaklık ve hız--ayıklanır ilk kullanarak **Select Columns in Dataset sütun** modülü. Hızı değişkeni de altyapısı sıcaklık hızı için genellikle eşleştiğinden bulunmaktadır. Ardından, PCA tabanlı anomali algılama modülü iki boyutlu bir alanı üç boyutlu alanı verilerden proje için kullanılır. Geri çağırma ölçütleri karşılanır. Aracın altyapısı sıcaklık ve dış sıcaklığı yüksek oranda olumsuz bağıntılı geri çağırma gerektirir. PCA gerçekleştirildikten sonra PCA tabanlı anomali algılama algoritması anormallikleri yakalamak için kullanılır. 
+Geri çağırma anomali algılama modelinde **kümesindeki sütunları seçme** ve PCA tabanlı anomali algılama modülleri benzer şekilde kullanılır. Özellikle, üç değişkenin--altyapısı sıcaklık, dış ısı ve hız--ayıklanır ilk kullanarak **kümesindeki sütunları seçme** modülü. Hızı değişkeni de altyapısı sıcaklık genellikle hızını eşleştiğinden dahildir. Ardından, PCA tabanlı anomali algılama modülü, üç boyutlu veriler iki boyutlu bir alanı proje için kullanılır. Geri çağırma ölçütleri karşılanır. Araç altyapısı sıcaklık ve dış sıcaklığı olumsuz son derece bağıntılı olan geri çağırma gerektirir. PCA gerçekleştirildikten sonra PCA tabanlı anomali algılama algoritması anomalileri yakalamak için kullanılır. 
 
-Her iki modeli eğitimindeki normal veri PCA tabanlı anomali algılama modelini eğitmek için girdi verisi olarak kullanılır. (Normal veri Bakım veya geri çağırma gerektirmez.) Puanlama denemesinde eğitilen anomali algılama modelini araç Bakım veya geri çağırma gerekli olup olmadığını algılamak için kullanılır. 
+Her iki modeli eğitimindeki PCA tabanlı anomali algılama modeli eğitmek için normal veri girdi verisi olarak kullanılır. (Normal veri bakım ya da geri çağırma gerektirmez.) Puanlama denemesinde eğitilen anomali algılama modelini vehicle bakım ya da geri çağırma gerekli olup olmadığını algılamak için kullanılır. 
 
 ### <a name="real-time-analysis"></a>Gerçek zamanlı analiz
-Aşağıdaki akış analizi SQL sorgusunu tüm önemli araç parametreleri ortalamasını almak için kullanılır. Bu parametreler araç hızı, yakıt düzeyi, altyapısı sıcaklık, Kilometre Sayacı okuma, lastiği baskısı, altyapısı Petrol düzeyinin ve diğerleri içerir. Ortalamalar anormallikleri algılamak, uyarıları vermek ve belirli bir bölgede işletilen taşıtlardan genel sistem durumu koşulları belirlemek için kullanılır. Ortalamalar sonra demografisine için bağıntılı olan. 
+Aşağıdaki Stream Analytics SQL sorgusunu, tüm önemli vehicle parametreleri ortalamasını almak için kullanılır. Bu parametreleri vehicle hızı, yakıt düzeyi, altyapısı sıcaklık, Kilometre Sayacı okuma, Lastik baskısı, altyapısı Petrol düzeyi ve diğerleri içerir. Ortalamalar, anomalileri algılayın, uyarı vermek ve belirli bir bölgede çalıştırılan Araçlar genel sistem durumu koşullarını belirlemek için kullanılır. Ortalamalar ardından demografik bilgileri için birbiriyle ilişkilendirilir. 
 
 ![Stream Analytics sorgu için gerçek zamanlı işleme](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
-Tüm ortalamalar üç saniyelik atlayan pencere hesaplanır. Atlayan pencere çakışmayan ve bitişik zaman aralıkları gerektiği için kullanılır. 
+Üç saniye atlayan pencere üzerinde ortalama hesaplanır. Bir atlayan pencere, çakışmayan ve bitişik zaman aralıkları gerekli olduğu için kullanılır. 
 
-Stream Analytics Pencereleme özellikleri hakkında daha fazla bilgi için bkz: [Pencereleme (Azure akış analizi)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Stream Analytics Pencereleme yetenekleri hakkında daha fazla bilgi için bkz. [Pencereleme (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
-#### <a name="real-time-prediction"></a>**Gerçek zamanlı tahmin**
+#### <a name="real-time-prediction"></a>**Gerçek zamanlı öngörü**
 
-Bir uygulamayı gerçek zamanlı machine learning modelini faaliyete çözümün parçası olarak dahil edilir. RealTimeDashboardApp uygulama oluşturulur ve çözüm dağıtımının bir parçası yapılandırılmış. Uygulama:
+Bir uygulamayı gerçek zamanlı machine learning modeli hazır hale getirmek için çözümün parçası olarak dahil edilir. RealTimeDashboardApp uygulama oluşturulur ve çözüm dağıtımının bir parçası yapılandırılmış. Uygulama:
 
-* Stream Analytics olayları bir modelinde sürekli yayımladığı bir olay hub'ı örneğine dinler.
+* Stream Analytics olayları içindeki bir desenle sürekli olarak yayımladığı olay hub'ı örneği için dinler.
 
-    ![Stream Analytics sorgu veri yayımlamak için](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) 
+    ![Stream Analytics sorgu verileri yayımlama](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) 
 
-* Olaylarını alır. Bu uygulamayı alır her olay için: 
+* Olayları alır. Bu uygulamanın aldığı her olay için: 
    
-   * Veriler, machine learning Puanlama istek-yanıt (RRS) uç noktası kullanılarak işlenir. RRS endpoint dağıtımının bir parçası otomatik olarak yayımlanır.
-   * RRS çıkış API'leri gönderme yöntemini kullanarak bir Power BI veri kümesine yayımlanır.
+   * Veriler bir machine learning Puanlama istek yanıt (RRS) uç noktası kullanılarak işlenir. RRS uç nokta, dağıtımın bir parçası otomatik olarak yayımlanır.
+   * RRS çıkış push API kullanarak Power BI veri kümesine yayımlanır.
 
-Bu deseni, ayrıca iş kolu satır uygulama gerçek zamanlı analiz akış ile tümleştirmek istediğiniz senaryolar için geçerlidir. Bu senaryolar, uyarılar, bildirimler ve mesajlaşma içerir.
+Bu düzen, ayrıca bir satır iş kolu uygulaması gerçek zamanlı analiz akışıyla tümleştirmek istediğiniz senaryolar için geçerlidir. Bu senaryolar, uyarılar, bildirimler ve mesajlaşma içerir.
 
-Not: RealtimeDashboardApp Visual Studio çözümü için verileri artık mevcut değil.
+Not: veri RealtimeDashboardApp Visual Studio çözümü artık kullanılabilir değil.
 
-#### <a name="execute-the-real-time-dashboard-application"></a>**Gerçek zamanlı Pano uygulamanın yürütme**
-1. RealtimeDashboardApp ayıklamak ve yerel olarak kaydedin.
+#### <a name="execute-the-real-time-dashboard-application"></a>**Gerçek zamanlı Pano uygulamayı yürütme**
+1. RealtimeDashboardApp ayıklayın ve yerel olarak kaydedin.
 
     ![RealTimeDashboardApp klasörü](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) 
 
@@ -376,39 +376,39 @@ Not: RealtimeDashboardApp Visual Studio çözümü için verileri artık mevcut 
 
     ![Oturum açma gerçek zamanlı Pano uygulama penceresi](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
     
-4. Seçin **kabul**.
+4. **Kabul Et**’i seçin.
 
     ![Gerçek zamanlı Pano uygulama son oturum açma penceresi](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 >[!NOTE] 
->Power BI veri kümesi temizlemek isterseniz, "flushdata" parametresiyle RealtimeDashboardApp yürütün. 
+>Power BI veri kümesi temizlemek isterseniz, RealtimeDashboardApp "flushdata" parametresiyle yürütün. 
 
     RealtimeDashboardApp.exe -flushdata
 
 
-### <a name="batch-analysis"></a>Toplu iş analiz
-Burada amaç, Contoso Motors büyük veri harekete geçirmek Azure işlem özellikleri nasıl kullanacağını göstermektir. Bu veri yönlendirmeli modelleri, kullanım davranışı ve araç durumu zengin Öngörüler ortaya çıkarır. Bu bilgileri mümkün hale getirir:
+### <a name="batch-analysis"></a>Batch analizi
+Buradaki amaç, Contoso Motors Azure işlem büyük verilerden yararlanmasına imkan nasıl kullanacağını göstermektir. Bu verileri zengin içgörüler sürüş desenleri, kullanım davranışı ve araç durumu ortaya çıkarır. Bu bilgileri mümkün hale getirir:
 
-* Müşteri deneyimini geliştirmek ve alışkanlık ve fuel-efficient yönlendirmeli davranışları yürüten üzerinde Öngörüler sağlayarak daha ucuzdur yapın.
-* Proaktif olarak iş kararları yönetir ve en iyi sınıf ürünleri ve hizmetleri sağlamak için müşteriler ve bunların yönlendirmeli desenler hakkında bilgi edinin.
+* Müşteri deneyimini iyileştirmek ve alışkanlıkları ve fuel-efficient sürüş davranışları artırmaya Öngörüler sunarak ucuz yapın.
+* İş kararlarını yöneten ve sınıfının en iyisi ürünleri ve hizmetleri sağlamak için müşterilerin ve sürüş düzenlerini proaktif bir şekilde öğrenin.
 
-Bu çözümde aşağıdaki ölçümleri hedeflenir:
+Bu çözümde aşağıdaki ölçümleri hedeflenen:
 
-* **Davranış yürüten etkin**: modelleri, konumları, yönlendirmeli koşullar, saat ve agresif yönlendirmeli modeli serisidir yılın eğilimi tanımlar. Contoso Motors bu Öngörüler pazarlama kampanyaları için kişiselleştirilmiş yeni özellikler ve kullanım tabanlı sigorta tanıtmak için kullanabilirsiniz.
-* **Fuel-Efficient yönlendirmeli davranışı**: modelleri, konumları, yönlendirmeli koşullar, saat ve fuel-efficient yönlendirmeli modeli serisidir yılın eğilimi tanımlar. Contoso Motors bu Öngörüler pazarlama kampanyaları için yeni özellikler ve uygun maliyetli ve ortam kolay yönlendirmeli alışkanlıklarınıza sürücülerini öngörülü raporlama tanıtmak için kullanabilirsiniz.
-* **Modelleri geri çağırma**: anomali algılama makine öğrenimi denemesinin faaliyete geçirmeye yönelik geri çekme gerektiren modelleri tanımlar.
+* **Agresif davranışının şekillendirilmesinde**: modelleri, konumları, sürüş koşullar ve yılın agresif sürüş desenleriyle ilgili Öngörüler elde etmek için zaman eğilimi tanımlar. Contoso motorlar bu bilgileri pazarlama kampanyaları için yeni kişiselleştirilmiş özellikler ve kullanım tabanlı sigorta tanıtmak için kullanabilir.
+* **Fuel-Efficient sürüş davranışı**: modelleri, konumları, sürüş koşullar ve yılın fuel-efficient sürüş desenleriyle ilgili Öngörüler elde etmek için zaman eğilimi tanımlar. Contoso motorlar bu Öngörüler pazarlama kampanyaları için yeni özellikler ve uygun maliyetli ve ortam dostu sürüş alışkanlıkları sürücülerini proaktif raporlama tanıtmak için kullanabilirsiniz.
+* **Modelleri geri çağırma**: anomali algılama machine learning denemesinden faaliyete geçirmeye yönelik geri çekme gerektiren modelleri tanımlar.
 
-Her bir bu ölçümleri ayrıntılara göz atalım.
+Bu ölçüm her ayrıntılarına bakalım.
 
-#### <a name="aggressive-driving-behavior-patterns"></a>**Agresif yönlendirmeli davranışı desenleri**
+#### <a name="aggressive-driving-behavior-patterns"></a>**Agresif sürüş davranış kalıplarını**
 
-Bölümlenmiş araç sinyalleri ve tanılama veri AggresiveDrivingPatternPipeline aşağıdaki iş akışında gösterildiği gibi işlenir. Hive modelleri, konum, araç, yönlendirmeli koşullar ve agresif yönlendirmeli desenleri sergilemesine diğer parametreleri belirlemek için kullanılır.
+Bölümlenmiş vehicle sinyaller ve tanılama verilerini AggresiveDrivingPatternPipeline aşağıdaki iş akışında gösterildiği gibi işlenir. Hive modelleri, konum, araç, sürüş koşullar ve agresif sürüş desenleri göstermesi diğer parametreleri belirlemek için kullanılır.
 
-![Agresif yönlendirmeli düzeni iş akışı](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
+![Agresif sürüş deseni iş akışı](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
 
-***Agresif yönlendirmeli düzeni Hive sorgusu***
+***Agresif sürüş deseni Hive sorgusu***
 
-Hive betiği aggresivedriving.hql agresif yönlendirmeli koşul modelleri analiz etmek için kullanılır. İndirilen ZIP dosyasının \demo\src\connectedcar\scripts klasöründe bulunur. 
+Hive betiği aggresivedriving.hql agresif sürüş koşul desenleri analiz etmek için kullanılır. Bu işlem, indirilen ZIP dosyasının \demo\src\connectedcar\scripts klasöründe bulunur. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -468,22 +468,22 @@ Hive betiği aggresivedriving.hql agresif yönlendirmeli koşul modelleri analiz
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
 
 
-Komut dosyası en yüksek hızda desenleri braking göre reckless/agresif yönlendirmeli davranışlarını algılamak için bir araç 's iletim dişli konum, Fren pedal durumu ve hız birleşimini kullanır. 
+Betik, yüksek hızda desenleri braking üzerinde temel reckless/agresif sürüş davranışları algılamak için bir araç 's iletim dişli konumunu, hızınızı pedal durumu ve hızlı birleşimi kullanır. 
 
-Ardışık Düzen başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulur şu bölümlerde bakın:
+İşlem hattı başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulan aşağıdaki bölümlere bakın:
 
 ![AggressiveDrivingPatternPipeline çıkış](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-aggressive-driving-pattern-output.png) 
 
 
-#### <a name="fuel-efficient-driving-behavior-patterns"></a>**Fuel-Efficient yönlendirmeli davranışı desenleri**
+#### <a name="fuel-efficient-driving-behavior-patterns"></a>**Fuel-Efficient sürüş davranış kalıplarını**
 
-Bölümlenmiş araç sinyalleri ve tanılama veri FuelEfficientDrivingPatternPipeline aşağıdaki iş akışında gösterildiği gibi işlenir. Hive modelleri, konum, araç, yönlendirmeli koşullar ve fuel-efficient yönlendirmeli desenleri sergilemesine diğer özelliklerini belirlemek için kullanılır.
+Bölümlenmiş vehicle sinyaller ve tanılama verilerini FuelEfficientDrivingPatternPipeline aşağıdaki iş akışında gösterildiği gibi işlenir. Hive modelleri, konum, araç, sürüş koşullar ve fuel-efficient sürüş desenleri göstermesi diğer özelliklerini belirlemek için kullanılır.
 
-![Fuel-Efficient yönlendirmeli desenleri](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
+![Fuel-Efficient sürüş desenleri](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
-***Fuel-Efficient yönlendirmeli düzeni Hive sorgusu***
+***Sürüş Fuel-Efficient deseni Hive sorgusu***
 
-Hive betiği fuelefficientdriving.hql fuel-efficient yönlendirmeli koşul modelleri analiz etmek için kullanılır. İndirilen ZIP dosyasının \demo\src\connectedcar\scripts klasöründe bulunur. 
+Hive betiği fuelefficientdriving.hql fuel-efficient sürüş koşul desenleri analiz etmek için kullanılır. Bu işlem, indirilen ZIP dosyasının \demo\src\connectedcar\scripts klasöründe bulunur. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -543,29 +543,29 @@ Hive betiği fuelefficientdriving.hql fuel-efficient yönlendirmeli koşul model
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
 
 
-Komut dosyasını bir araç 's iletim dişli konumu bileşimini kullanır, Fren pedal durumu, hızlı ve Hızlandırıcı braking, hızlandırmasını, temel fuel-efficient yönlendirmeli davranışlarını algılamak için konumunu pedal ve desenler hızı. 
+Araç'ın iletim dişli konumu bileşimi betikte, hızınızı pedal durumu, hız ve Hızlandırıcı braking, hızlandırma üzerinde temel fuel-efficient sürüş davranışları algılamak için konumun pedal ve desenleri hızlandırın. 
 
-Ardışık Düzen başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulur şu bölümlerde bakın:
+İşlem hattı başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulan aşağıdaki bölümlere bakın:
 
 ![FuelEfficientDrivingPatternPipeline çıkış](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
-**Model tahminleri geri çağırma**
+**Model tahminlerini geri çağırma**
 
-Deneme öğrenme makine sağlandığında ve çözüm dağıtımının bir parçası olarak bir web hizmeti olarak yayımlanır. Toplu Puanlama uç noktası bu iş akışındaki kullanılır. Bu data factory bağlantılı hizmet olarak kayıtlı olup Puanlama etkinliği veri fabrikası toplu kullanarak kullanıma hazır hale getirilmiş.
+Machine learning deneme sağlanabilir ve çözüm dağıtımının parçası olarak bir web hizmeti olarak yayımlandı. Toplu işlem Puanlama uç noktası bu iş akışında kullanılır. Data factory bağlı hizmet olarak kayıtlı ve etkinlik data factory toplu işlem Puanlama kullanarak kullanıma hazır hale getirdiniz.
 
 ![Machine learning uç noktası](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
-Kayıtlı bağlantılı hizmet DetectAnomalyPipeline içinde anomali algılama modelini kullanarak verileri Puanlama amacıyla kullanılır. 
+Kayıtlı bağlantılı hizmete DetectAnomalyPipeline anomali algılama modeli kullanarak verileri puanlamak için kullanılır. 
 
-![Machine learning toplu veri fabrikasında Puanlama etkinliği](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png)  
+![Machine learning toplu iş Puanlama etkinliği, data factory'de](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png)  
 
-Web hizmeti Puanlama toplu işlemle operationalized böylece bu ardışık düzendeki veri hazırlığı için birkaç adım gerçekleştirilir. 
+Böylece, toplu işlem Puanlama web hizmeti ile kullanıma hazır hale getirdiniz birkaç adım veri hazırlama için bu işlem hattı gerçekleştirilir. 
 
-![Geri çağırma tahmin DetectAnomalyPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png)  
+![Geri çağırma tahmin için DetectAnomalyPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png)  
 
 ***Anomali algılama Hive sorgusu***
 
-Puanlama tamamlandıktan sonra bir Hdınsight etkinliği işler ve anormallikleri modelin kategorize verileri toplar. Model 0.60 veya daha yüksek bir olasılık puan kullanır.
+Puanlama tamamlandıktan sonra HDInsight faaliyet işler ve model anomalileri sınıflandırılmış verileri toplar. Model 0.60 ya da daha yüksek bir olasılık puanı kullanır.
 
     DROP TABLE IF EXISTS CarEventsAnomaly; 
     CREATE EXTERNAL TABLE CarEventsAnomaly 
@@ -625,53 +625,57 @@ Puanlama tamamlandıktan sonra bir Hdınsight etkinliği işler ve anormallikler
     where RecallLabel = '1' AND RecallProbability >= '0.60'
 
 
-Ardışık Düzen başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulur şu bölümlerde bakın:
+İşlem hattı başarıyla yürütüldükten sonra depolama hesabınızda connectedcar kapsayıcısı altında oluşturulan aşağıdaki bölümlere bakın:
 
 ![DetectAnomalyPipeline çıkış](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 
 ## <a name="publish"></a>Yayımlama
 
 ### <a name="real-time-analysis"></a>Gerçek zamanlı analiz
-Stream Analytics işi sorgularda birini olayları çıkış olay hub'ı örneğine yayımlar. 
+Stream Analytics işinde birine çıkış olay hub'ı örneği için olayları yayımlar. 
 
-![Akış analizi işine çıkış olay hub'ı örneğine yayımlanan](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
+![Stream Analytics işi çıktı olay hub'ı örneği için yayımlanan](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
-Aşağıdaki akış analizi sorgu çıkış olay hub'ı örneğine yayımlamak için kullanılır:
+Aşağıdaki Stream Analytics sorgusu, çıkış event hub örneğine yeniden yayımlamak için kullanılır:
 
-![Stream Analytics sorgu çıkış olay hub'ı örneğine yayımlamak için](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
+![Stream Analytics sorgu çıkış event hub örneğine yeniden yayımlamak için](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
 
-Bu akış olayların çözümde bulunan RealTimeDashboardApp tarafından kullanılır. Bu uygulama, machine learning gerçek zamanlı Puanlama istek-yanıt web hizmetini kullanır. Sonuç veri tüketim için bir Power BI veri kümesi yayımlar. 
+Bu akışı çözümde yer alan RealTimeDashboardApp tarafından kullanılır. Bu uygulama, machine learning için gerçek zamanlı Puanlama istek-yanıt web hizmeti kullanır. Bir Power BI veri kümesine tüketim için sonuç verileri yayımlar. 
 
-### <a name="batch-analysis"></a>Toplu iş analiz
-Toplu işlem ve gerçek zamanlı işleme sonuçları Azure SQL veritabanı tabloları tüketimi için yayımlanır. SQL server, veritabanı ve tablo Kurulum komut dosyasının bir parçası otomatik olarak oluşturulur. 
+### <a name="batch-analysis"></a>Batch analizi
+Toplu ve gerçek zamanlı işleme sonuçları tüketim için Azure SQL Database tablolarını yayımlanır. SQL server, veritabanı ve tabloları Kurulum betiğini bir parçası olarak otomatik olarak oluşturulur. 
 
-Toplu işleme sonuçlarını veri reyonu akışına kopyalanır.
+Toplu işleme sonuçları veri reyonu iş akışına kopyalanır.
 
 ![Toplu veri reyonu akışına kopyalanan sonuçlarını işleme](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
 Stream Analytics işi veri reyonuna yayımlanır.
 
-![Akış analizi işi veri reyonuna yayımlanan](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+![Yayımlanan veri reyonuna Stream Analytics işi](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
 
-Veri reyonu Stream Analytics işinde ayardır.
+Veri reyonu Stream Analytics işinde ayarıdır.
 
-![Veri reyonu ayarında Stream Analytics işi](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
+![Stream Analytics işinde veri reyonu ayarı](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
 
 ## <a name="consume"></a>Tüketme
-Power BI Bu çözüm gerçek zamanlı veri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano sağlar. 
+Power BI bu çözüme gerçek zamanlı verileri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano sunar. 
 
-Son Panosu, aşağıdaki örnekte olduğu gibi görünür:
+Son panoyu şu örnekteki gibi görünür:
 
 ![Power BI Panosu](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
 ## <a name="summary"></a>Özet
-Bu belgede ayrıntılı ayrıntıya araç Telemetri analizi çözümün içerir. Lambda mimarisi düzeni için kullanılan gerçek zamanlı ve toplu analytics Öngörüler ve Eylemler ile. Çeşitli etkin yolunuzda (gerçek zamanlı) gerektiren kullanım durumları için bu deseni uygular ve yolunuzda (toplu) analytics. 
+Bu belgede ayrıntılı araştırıp araç Telemetri analizi çözüm içerir. Lambda mimari yapısı için kullanılan gerçek zamanlı ve toplu analiz tahminler ve Eylemler ile. Bu düzen çok çeşitli sıcak yol (gerçek zamanlı) gerektiren kullanım örnekleri için geçerlidir ve Durgun yol (toplu) analizi. 
 
 ### <a name="references"></a>Başvurular
 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
-* [Akış alımı için Azure olay hub'ları SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Akış alımı için Azure Event Hubs SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Azure Data Factory veri taşıma özellikleri](../../data-factory/copy-activity-overview.md)
-* [Azure veri fabrikası .NET etkinliği](../../data-factory/transform-data-using-dotnet-custom-activity.md)
-* [Azure veri fabrikası .NET etkinlik örnek verileri hazırlamak için kullanılan Visual Studio çözümü](http://go.microsoft.com/fwlink/?LinkId=717077) 
+* [Azure Data Factory .NET etkinliği](../../data-factory/transform-data-using-dotnet-custom-activity.md)
+* [Azure Data Factory .NET etkinliği örnek verileri hazırlamak için kullanılan Visual Studio çözümü](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## <a name="next-steps"></a>Sonraki Adımlar
+
+Power BI raporları ve panolar Bu çözüm için yapılandırma konusunda bilgi için bkz: [araç Telemetri analizi çözüm şablonu Power BI Panosu kurulum yönergeleri](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

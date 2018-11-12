@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5cfe86414473f352673f39850a34f8ef265c91f5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302869"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258910"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformlar ve araçlar için veri bilimi projeleri
 
@@ -152,4 +152,4 @@ Git komutlarını çalıştırmak için Linux (CentOS) makineleri kullanıyorsan
 
 Tam işlem için tüm adımları gösteren uçtan uca talimatlara **belirli senaryoları** de sağlanır. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) konu. Bunlar, bulut, şirket içi araçları ve Hizmetleri, bir iş akışı veya akıllı bir uygulama oluşturmak için işlem hattı birleştirme işlemini göstermektedir. 
 
-Azure Machine Learning Studio kullanma adımları Team Data Science Process içinde yürütülen örnekler için bkz [Azure ML ile](http://aka.ms/datascienceprocess) öğrenme yolu.
+Azure Machine Learning Studio kullanma adımları Team Data Science Process içinde yürütülen örnekler için bkz [Azure ML ile](https://aka.ms/datascienceprocess) öğrenme yolu.

@@ -8,12 +8,12 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2513624aecff652e8a952b3255faf2ab9366f21a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741445"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288705"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlama
 
@@ -26,7 +26,7 @@ IOT Edge çalışma zamanı birden çok IOT Edge modülleri işlevlerini tümle�
 IOT Edge hub'ı iki ana işlevleri sağlar: IOT hub'ı ve yerel iletişimler proxy.
 
 ### <a name="iot-hub-primitives"></a>IOT hub'ı temelleri
-Modül bir IOT hub'ı görür öğesine anlamında bir cihaza BT'nin örneği:
+IOT hub'ı öğesine anlamında bir cihaz için bir modül örneğinin görür:
 
 * ayrı ve ayrı olan bir modül ikizi sahip [cihaz ikizi](../iot-hub/iot-hub-devguide-device-twins.md) ve bir modül ikizlerini aygıtın;
 * gönderebilmesi [CİHAZDAN buluta iletileri](../iot-hub/iot-hub-devguide-messaging.md);
@@ -41,7 +41,7 @@ Bkz: [geliştirme ve IOT Edge modülü sanal cihazı dağıtma](tutorial-csharp-
 ### <a name="device-to-cloud-messages"></a>Cihazdan buluta iletiler
 Etkinleştirmek için CİHAZDAN buluta iletileri işleme karmaşık IOT Edge hub'ı bildirim temelli modülleri ve IOT hub'ı arasında ve modüller arasında iletileri yönlendirme sağlar. Bildirim temelli yönlendirme modülleri izlemesine izin verir ve işlem iletileri diğer modüller tarafından gönderilen ve bunları karmaşık komut zincirlerinde yayar. Makaleyi [modül bileşimi](module-composition.md) modülleri yolları kullanarak karmaşık komut zincirlerinde birleştirmeyi açıklar.
 
-IOT Edge modülü, normal bir IOT Hub cihaz uygulaması farklı bunları işlemek için kendi yerel IOT Edge hub proxy gönderildiğini CİHAZDAN buluta iletiler alabilir.
+IOT Edge modülü, normal bir IOT Hub cihaz uygulaması aksine, bunları işlemek için kendi yerel IOT Edge hub tarafından proxy gönderildiğini CİHAZDAN buluta iletiler alabilir.
 
 IOT Edge hub'ı modülünüzde açıklanan bildirim temelli rota tabanlı iletileri yayar [modül bileşimi](module-composition.md) makalesi. IOT Edge modülü geliştirirken, ileti işleyicileri ayarlayarak bu iletiler alabilir.
 
@@ -58,7 +58,9 @@ Son olarak, cihaz-bulut iletileri Edge hub'ı tarafından işlenen, aşağıdaki
 | $outputName | İleti göndermek için kullanılan çıkış. Boş olabilir. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Bir modülden IOT Edge hub'ına bağlama
-Bir modülden yerel IOT Edge hub'ına bağlanma iki adımı kapsar: modülünüzde başladığında IOT Edge çalışma zamanı ve emin olun, cihazdaki IOT Edge hub'ı tarafından sunulan sertifika, uygulamanızın kabul sağlanan bağlantı dizesini kullanın.
+Bir modülden yerel IOT Edge hub'ına bağlanan iki adımdan oluşur: 
+1. Modülünüzün başladığında IOT Edge çalışma zamanı tarafından sağlanan bağlantı dizesi kullanın.
+2. Bu cihazın IOT Edge hub tarafından sunulan sertifika, uygulamanızın kabul ettiğinden emin olun.
 
 IOT Edge çalışma zamanı ortam değişkeninde tarafından kullanılacak bağlantı dizesini eklenen `EdgeHubConnectionString`. Bu, kullanmak istediği herhangi bir programı kullanılmasını sağlar.
 

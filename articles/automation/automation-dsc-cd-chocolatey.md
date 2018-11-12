@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634261"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259182"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Kullanım örneği: Sanal makinelere Otomasyon durum yapılandırması ve Chocolatey kullanarak sürekli dağıtım
 
@@ -87,7 +87,7 @@ Veya el ile bir yaklaşım yoktur. Bir Windows bilgisayar için bir PowerShell t
 Bu, bulunmanıza biraz ince ayarlar yapma gerektirir. Ancak sabit değil ve (gelecek yükseltmek istemediğiniz sürece.), kaynak başına yalnızca bir kez gerçekleştirilir Bu makalede PowerShell tümleştirme modülleri yazma ile ilgili daha fazla bilgi için bkz: [Azure Automation tümleştirme modülleri yazma](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - İş istasyonunuzda aşağıdaki gibi ihtiyacınız modülünü yükleyin:
-  - Yükleme [Windows Management Framework v5](http://aka.ms/wmf5latest) (Windows 10 için gerekli değildir)
+  - Yükleme [Windows Management Framework v5](https://aka.ms/wmf5latest) (Windows 10 için gerekli değildir)
   - `Install-Module –Name MODULE-NAME`    < — modülü PowerShell Galerisi'ndeki Dallarınızla
 - Modül klasörüne kopyalayın `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` geçici bir klasöre
 - Örnekler ve belgeler ana klasöründen silin.

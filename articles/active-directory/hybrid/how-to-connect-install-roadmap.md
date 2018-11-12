@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318648"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253202"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect ve Azure AD Connect Health yükleme yol haritası
 
@@ -26,7 +26,7 @@ ms.locfileid: "49318648"
 > [!IMPORTANT]
 > Microsoft, resmi olarak belgelenen eylemler dışında Azure AD Connect eşitlemesinin değiştirilmesini veya çalıştırılmasını desteklemez. Bu eylemler, tutarsız veya desteklenmeyen Azure AD Connect eşitlemesi durumuyla sonuçlanabilir. Sonuç olarak Microsoft, bu tür dağıtımlar için teknik destek sağlayamaz.
 
-Azure AD Connect'i [Microsoft İndirme Merkezi](http://go.microsoft.com/fwlink/?LinkId=615771)'nden indirebilirsiniz.
+Azure AD Connect'i [Microsoft İndirme Merkezi](https://go.microsoft.com/fwlink/?LinkId=615771)'nden indirebilirsiniz.
 
 | Çözüm | Senaryo |
 | --- | --- |
@@ -41,7 +41,7 @@ Azure AD Connect'i [Microsoft İndirme Merkezi](http://go.microsoft.com/fwlink/?
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect'i Yüklemek için sonraki adımlar
 |Konu |Bağlantı|  
 | --- | --- |
-|Azure AD Connect'i indirme | [Azure AD Connect’i indirme](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Azure AD Connect'i indirme | [Azure AD Connect’i indirme](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Hızlı ayarları kullanarak yükleme | [Azure AD Connect’i hızlı yükleme](./how-to-connect-install-express.md)|
 |Özelleştirilmiş ayarları kullanarak yükleme | [Azure AD Connect özel yüklemesi](./how-to-connect-install-custom.md)|
 |DirSync'ten yükseltme | [Azure AD eşitleme aracından (DirSync) yükseltme](./how-to-dirsync-upgrade-get-started.md)|
@@ -141,12 +141,12 @@ Azure AD Connect Health ile çalışmaya başlamak için aşağıdaki adımları
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Azure AD Connect Health Aracısını indirme ve yükleme
 * Azure AD Connect Health [gereksinimlerini yerine getirdiğinizden](how-to-connect-health-agent-install.md#requirements) emin olun.
 * AD FS için Azure AD Connect Health kullanmaya başlama
-    * [AD FS için Azure AD Connect Health Aracısını indirin.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [AD FS için Azure AD Connect Health Aracısını indirin.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Yükleme talimatlarına bakın](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Eşitleme için Azure AD Connect Health kullanmaya başlama
-    * [Azure AD Connect'in en son sürümünü indirip yükleyin](http://go.microsoft.com/fwlink/?linkid=615771). Eşitleme için Durum Aracısı, Azure AD Connect yüklemesinin bir parçası olarak yüklenir (sürüm 1.0.9125.0 veya daha yeni bir sürüm).
+    * [Azure AD Connect'in en son sürümünü indirip yükleyin](https://go.microsoft.com/fwlink/?linkid=615771). Eşitleme için Durum Aracısı, Azure AD Connect yüklemesinin bir parçası olarak yüklenir (sürüm 1.0.9125.0 veya daha yeni bir sürüm).
 * AD DS için Azure AD Connect Health kullanmaya başlama
-    * [AD DS için Azure AD Connect Health Aracısını indirin](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [AD DS için Azure AD Connect Health Aracısını indirin](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Yükleme talimatlarına bakın](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 

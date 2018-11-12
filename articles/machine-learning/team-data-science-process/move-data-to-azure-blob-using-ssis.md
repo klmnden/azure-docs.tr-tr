@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 1a0d8106c6a48494a938ee7a9da6f43f467516f6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2fe57480f7d8e22cfffafec6845372718587958e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394026"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258434"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>İçin veya SSIS bağlayıcıları kullanarak Azure Blob Depolama veri taşıma
 [Azure için SQL Server Integration Services özellik paketi](https://msdn.microsoft.com/library/mt146770.aspx) Azure'a bağlanmak için Azure ve şirket içi veri kaynakları ve Azure'da depolanan işlem verileri arasında veri aktarımı bileşenleri sağlar.
@@ -31,7 +31,7 @@ Müşteriler, şirket içi verileri buluta taşıdığınızda, Azure teknolojil
 
 Bu genellikle olması gereken ilk adım, [SQL](sql-walkthrough.md) ve [HDInsight](hive-walkthrough.md) izlenecek yollar.
 
-Hibrit veri tümleştirme senaryolarında, yaygın işletme ihtiyaçlarını gerçekleştirmek için SSIS kullanan kurallı senaryoları için bkz [Bunu yapmak için Azure SQL Server Integration Services özellik paketi ile çok daha fazlasını](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogu.
+Hibrit veri tümleştirme senaryolarında, yaygın işletme ihtiyaçlarını gerçekleştirmek için SSIS kullanan kurallı senaryoları için bkz [Bunu yapmak için Azure SQL Server Integration Services özellik paketi ile çok daha fazlasını](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogu.
 
 > [!NOTE]
 > Azure blob depolama için bir tam giriş için başvurmak [Azure Blob Temelleri](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) ve [Azure Blob hizmeti](https://msdn.microsoft.com/library/azure/dd179376.aspx).
@@ -47,10 +47,10 @@ Bu makalede açıklanan görevler gerçekleştirmek için bir Azure aboneliği v
 Kullanılacak **SSIS bağlayıcıları**, yüklemeniz gerekir:
 
 * **SQL Server 2014 veya 2016 standart (veya üstü)**: Install SQL Server Integration Services içerir.
-* **Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi için Azure**: Bu indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 tümleştirmesi Hizmetleri](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
+* **Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi için Azure**: Bu indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 tümleştirmesi Hizmetleri](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
 
 > [!NOTE]
-> SSIS SQL Server ile birlikte yüklenir, ancak Express sürümünde bulunmamaktadır. Hangi uygulamaların çeşitli SQL Server sürümlerinde yer hakkında daha fazla bilgi için bkz: [SQL Server sürümleri](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+> SSIS SQL Server ile birlikte yüklenir, ancak Express sürümünde bulunmamaktadır. Hangi uygulamaların çeşitli SQL Server sürümlerinde yer hakkında daha fazla bilgi için bkz: [SQL Server sürümleri](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 

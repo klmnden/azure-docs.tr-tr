@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044731"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242815"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
-Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).
+Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="TransformationPolicies"></a> Dönüştürme ilkeleri
 
@@ -83,7 +83,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ayrıştırma tarihi|Ayarlandığında `false` tarih değerlerini dönüştürme sırasında yalnızca kopyalanır|Hayır|true|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, giden, hata
 
@@ -127,7 +127,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |göz önünde bulundurun kabul-üstbilgisi|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> Accept üst bilgisi istekte XML istenirse - true - dönüştürme uygulanır.<br />-yanlış - dönüştürme her zaman geçerlidir.|Hayır|true|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, giden, hata
 
@@ -162,7 +162,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |-|Yeni dize. Arama dizesini kaldırmak için bir sıfır uzunluk değiştirme dizesini belirtin.|Evet|Yok|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, giden arka uç, hata
 
@@ -193,7 +193,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |yeniden yönlendirme içerik URL'leri|Kök öğe.|Evet|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, giden
 
@@ -269,7 +269,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 |SF dinleyici adı|Yalnızca arka uç Service Fabric hizmeti ve 'backend-id' kullanarak belirtilen olduğunda geçerlidir. Service Fabric güvenilir hizmetler, bir hizmet birden çok dinleyici oluşturmanıza olanak sağlar. Bu öznitelik, bir güvenilir hizmet arka ucu birden fazla dinleyici sahip olduğunda, belirli bir dinleyici seçmek için kullanılır. Bu öznitelik belirtilmezse, API Management'ın adı olmadan bir dinleyici kullanmayı dener. Adı olmayan bir dinleyici Reliable Services için yalnızca bir dinleyicisi olması normaldir. |Hayır|Yok|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, arka uç
 
@@ -308,12 +308,12 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -321,14 +321,14 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Örnek bir JObject olarak gövde erişme. Biz özgün istek gövdesinde belirtilmemelidir daha sonra işlem hattı içinde bir özel durumu oluşur ayırma değil beri çoğalttığını unutmayın.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -439,7 +439,7 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, giden arka uç
 
@@ -510,7 +510,7 @@ OriginalUrl.
 |ad|Ayarlanacak üstbilginin adı belirtir.|Evet|Yok|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, giden arka uç, hata
 
@@ -570,7 +570,7 @@ OriginalUrl.
 |ad|Ayarlanacak sorgu parametresi adını belirtir.|Evet|Yok|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, arka uç
 
@@ -648,7 +648,7 @@ OriginalUrl.
 |kopyalama eşleşmeyen-params|Özgün URL şablonunda yok gelen istekteki sorgu parametreleri için URL yeniden yazma şablon tarafından tanımlanan eklenip eklenmeyeceğini belirtir|Hayır|true|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen
 
@@ -712,7 +712,7 @@ OriginalUrl.
 |stylesheet|Kök stil sayfası öğesi. Tüm öğeleri ve öznitelikleri içinde tanımlanan standarda [XSLT belirtimi](http://www.w3.org/TR/xslt)|Evet|
 
 ### <a name="usage"></a>Kullanım
- Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **İlke bölümler:** gelen, giden
 
