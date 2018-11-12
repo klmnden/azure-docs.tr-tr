@@ -1,25 +1,25 @@
 ---
-title: 'Öğretici: Data Factory kullanarak Azure HDInsight isteğe bağlı Hadoop kümeleri oluşturma '
-description: Azure Data Factory kullanarak HDInsight isteğe bağlı Hadoop kümeleri oluşturmayı öğrenin.
+title: 'Öğretici: Data Factory kullanarak Azure HDInsight isteğe bağlı Apache Hadoop kümeleri oluşturma '
+description: Azure Data Factory kullanarak HDInsight isteğe bağlı Apache Hadoop kümeleri oluşturmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 9e21c49e7a472830c19f61388739c35aac17c3ff
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955618"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036385"
 ---
-# <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: Azure Data Factory kullanarak HDInsight isteğe bağlı Hadoop kümeleri oluşturma
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: Apache Hadoop kümelerini isteğe bağlı Azure Data Factory kullanarak HDInsight oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Bu makalede, Azure Data Factory kullanarak Azure HDInsight, isteğe bağlı bir Hadoop kümesi oluşturmayı öğrenin. Ardından Hive işleri çalıştırmayı ve kümeyi silmek için veri işlem hatları Azure Data Factory'de kullanın. Bu öğreticinin sonunda, küme oluşturma işi çalıştırma ve küme silme zaman çizelgesinde nerede gerçekleştirilen çalıştırma bir büyük veri iş kullanıma hazır hale getirme hakkında bilgi edinin.
+Bu makalede, Azure Data Factory kullanarak Azure HDInsight, isteğe bağlı bir Apache Hadoop kümesi oluşturmayı öğrenin. Ardından Hive işleri çalıştırmayı ve kümeyi silmek için veri işlem hatları Azure Data Factory'de kullanın. Bu öğreticinin sonunda, küme oluşturma işi çalıştırma ve küme silme zaman çizelgesinde nerede gerçekleştirilen çalıştırma bir büyük veri iş kullanıma hazır hale getirme hakkında bilgi edinin.
 
 Bu öğretici aşağıdaki görevleri kapsar: 
 

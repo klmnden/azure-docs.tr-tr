@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248940"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038477"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -148,6 +148,10 @@ Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütm
 Bir veri fabrikasında zaten ayarladığınız var olan şirket içinde barındırılan tümleştirme çalışma zamanı altyapısını yeniden kullanabilirsiniz. Bu sayede oluşturmak bir *bağlı şirket içinde barındırılan tümleştirme çalışma zamanı* IR (paylaşılan) var olan bir başvuru tarafından Fabrika farklı bir verileri şirket içinde barındırılan.
 
 PowerShell kullanarak bir şirket içinde barındırılan tümleştirme çalışma zamanı paylaşmak için bkz: [PowerShell ile Azure Data factory'de bir paylaşılan şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma](create-shared-self-hosted-integration-runtime-powershell.md).
+
+On iki dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminoloji
 

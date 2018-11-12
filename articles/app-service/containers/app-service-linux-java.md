@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418543"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037698"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -147,7 +147,7 @@ Bölümündeki yönergeleri [var olan özel bir SSL sertifikası bağlama](/azur
 >[!NOTE]
 > Uygulamanız Spring Framework veya Spring Boot kullanıyorsa, veritabanı bağlantısı bilgilerini Spring veri JPA [uygulama özellikleri dosyanızda] ortam değişkenleri olarak ayarlayabilirsiniz. Ardından [uygulama ayarları](/azure/app-service/web-sites-configure#app-settings) bu değerler uygulamanız için Azure portal veya CLI tanımlamak için.
 
-Bu bölümdeki örnek yapılandırma parçacıkları MySQL veritabanını kullan. Yapılandırma belgelerini ek bilgi için bkz. [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), ve [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+Bu bölümdeki örnek yapılandırma parçacıkları MySQL veritabanını kullan. Yapılandırma belgelerini ek bilgi için bkz. [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), ve [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 Tomcat veritabanlarına Java veritabanı bağlantısı (JDBC) veya Java Kalıcılık API (JPA) kullanarak yönetilen bağlantıları kullanacak şekilde yapılandırmak için önce başlangıç Tomcat tarafından okunan CATALINA_OPTS ortam değişkeni özelleştirin. Bu değerler bir uygulama ayarı ile App Service Maven eklentisi ayarlayın:
 

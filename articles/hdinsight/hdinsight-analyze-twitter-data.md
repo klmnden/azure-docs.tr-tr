@@ -1,20 +1,20 @@
 ---
-title: HDInsight - Azure Hadoop ile twitter verilerini çözümleme
-description: Belirli bir sözcüğün kullanım sıklığını bulmak için HDInsight, Hadoop üzerinde Twitter verilerini çözümlemek için Hive'ı kullanmayı öğrenin.
+title: HDInsight - Azure, Apache Hadoop ile twitter verilerini çözümleme
+description: Belirli bir sözcüğün kullanım sıklığını bulmak için HDInsight, Apache Hadoop üzerinde Twitter verilerini çözümlemek için Hive'ı kullanmayı öğrenin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387590"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037304"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight Hive kullanarak Twitter verilerini çözümleme
 Sosyal Web siteleri, büyük veri benimsenmesine yönelik önemli itici zorlar biridir. Twitter gibi siteler tarafından sağlanan genel API'leri, veri çözümlemek ve popüler eğilimleri anlamak için yararlı bir kaynaktır.

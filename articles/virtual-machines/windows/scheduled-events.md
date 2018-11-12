@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d96058ae9415ccb361af8a281a4b65b3f69edfcd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746774"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034958"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure meta veri hizmetine: Windows VM'ler zamanlanmış olaylar
 
@@ -42,7 +42,7 @@ Birçok uygulama, sanal makine bakım için hazırlanmanıza zamandan yararlı o
 - Olay günlüğü
 - Normal şekilde kapatılmasını 
 
-Zamanlanmış olaylar, uygulamanızın kullanarak bakım zaman ve ortaya etkisini sınırlamak için görevlerini tetikleyin bulabilir.  
+Zamanlanmış olaylar, uygulamanızın kullanarak bakım zaman ve ortaya etkisini sınırlamak için görevlerini tetikleyin bulabilir. Zamanlanmış olaylar etkinleştirme sanal makinenizin bakım etkinliği gerçekleştiren önce geçmesi gereken süreyi en düşük düzeyde sağlar. Ayrıntılar için olay planlama bölümüne altına bakın.
 
 Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 - Platform tarafından başlatılan Bakım (örneğin konak işletim sistemi güncelleştirmesi)
@@ -71,7 +71,7 @@ Zamanlanmış olaylar tutulan hizmetidir. Sürümleri zorunludur ve geçerli sü
 > Önceki Önizleme sürümlerinde zamanlanmış olaylar {son} api-version desteklenir. Bu biçim, artık desteklenmemektedir ve gelecekte kullanım dışı bırakılacaktır.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Zamanlanmış olaylar etkinleştirme ve devre dışı bırakma
-Zamanlanmış olaylar, olaylar için bir istekte hizmeti ilk zaman için etkindir. İlk iki dakikaya kadar çağrınızda Gecikmeli yanıt beklemelisiniz.
+Zamanlanmış olaylar, olaylar için bir istekte hizmeti ilk zaman için etkindir. İlk iki dakikaya kadar çağrınızda Gecikmeli yanıt beklemelisiniz. Düzenli aralıklarla durum gerçekleştirilmekte olan bakım etkinliklerinin yanı sıra yaklaşan bakım olayları algılamak için uç nokta sorgu.
 
 Zamanlanmış olaylar 24 saat için bir istek yapmadığında hizmetiniz için dışıdır.
 
@@ -110,6 +110,7 @@ Bu durumda Zamanlanmış olaylar olduğunda, bir dizi olay yanıtı içerir:
     ]
 }
 ```
+DocumentIncarnation ETag ve olayları yükü son sorgu bu yana değişmişse incelemek için kolay bir yol sağlar.
 
 ### <a name="event-properties"></a>Olay Özellikleri
 |Özellik  |  Açıklama |

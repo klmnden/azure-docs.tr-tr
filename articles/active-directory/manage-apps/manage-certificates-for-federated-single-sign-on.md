@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719588"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035345"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme
 Bu makalede, yaygın soruları ve Azure Active Directory (Azure AD), SaaS uygulamaları için Federasyon çoklu oturum açma (SSO) kurmaya oluşturur sertifikalarla ilgili bilgiler yer almaktadır. Uygulamaları Azure AD uygulama galerisinde veya galeri dışı uygulama şablonu kullanarak ekleyin. Federasyon SSO seçeneği kullanarak uygulamayı yapılandırın.
@@ -76,16 +76,20 @@ Aşağıdaki yenileme adımları sonucunda, kullanıcılarınızın önemli kapa
 
     ![Yeni Sertifika Oluştur](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. Yeni sertifikanız için saat ve istenen sona erme tarihi seçin ve tıklayın **Kaydet**.
+2. Yeni sertifikanız için saat ve istenen sona erme tarihi seçin ve tıklayın **Kaydet**. Var olan sertifika ile çakışan bir tarih seçmek, sertifika süre sonu nedeniyle kapalı kalma süresi sınırlı olduğundan emin olmanızı sağlar. 
 
-3. Sertifikayı indirin **SAML imzalama sertifikası** seçeneği. SaaS uygulamanın çoklu oturum açma yapılandırması ekranına yeni sertifikayı yükleyin. Bu, belirli bir SaaS uygulamanız için yapma hakkında bilgi için tıklayın **görünümü uygulaması yapılandırma Öğreticisi** bağlantı.
+3. Uygulamayı otomatik olarak bir sertifika geri alabilirsiniz, yeni sertifikayı etkin olarak ayarlayın.  Uygulamaya çalışıp çalışmadığını denetlemek için oturum açın.
+
+4. Uygulamayı otomatik olarak eşleşmiyorsa toplama yeni sertifika, ancak bir imzalama sertifikası, birden çok işleyici eskisinin süresi dolmadan önce yeni bir uygulama karşıya sonra portalına geri dönüp etkin sertifikayı. 
+
+5. Uygulamayı aynı anda yalnızca bir sertifika işleyebilir, kapalı kalma süresi penceresi seçin, yeni sertifikayı indirip, uygulamayı karşıya, Azure Portalı'na dönün ve yeni sertifikayı etkin olarak ayarlayın. 
    
-4. Azure AD'de yeni sertifikayı etkinleştirmek için işaretleyin **yeni sertifikayı etkin hale getirin** onay kutusunu ve tıklatın **Kaydet** sayfanın üstünde düğme. Bu, Azure AD tarafında yeni sertifikayı yapar. Sertifika durumu değişir **yeni** için **etkin**. Bu noktadan itibaren yeni sertifikayı yanıt imzalama için kullanan Azure AD başlatır. 
+6. Azure AD'de yeni sertifikayı etkinleştirmek için işaretleyin **yeni sertifikayı etkin hale getirin** onay kutusunu ve tıklatın **Kaydet** sayfanın üstünde düğme. Bu, Azure AD tarafında yeni sertifikayı yapar. Sertifika durumu değişir **yeni** için **etkin**. Bu noktadan itibaren yeni sertifikayı yanıt imzalama için kullanan Azure AD başlatır. 
    
     ![Yeni Sertifika Oluştur](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
-* [Azure Active Directory'de uygulama yönetimi](what-is-application-management.md)
+* [Azure Active Directory’de Uygulama Yönetimi](what-is-application-management.md)
 * [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](what-is-single-sign-on.md)
 * [SAML tabanlı çoklu oturum açma sorunlarını giderme](../develop/howto-v1-debug-saml-sso-issues.md)

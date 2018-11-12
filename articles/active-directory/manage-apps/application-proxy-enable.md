@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5227f756e807a30573733bd408144d869caac9ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366484"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034975"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Bağlayıcıyı yükleyin ve uygulama ara sunucusu ile çalışmaya başlama
 Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
@@ -33,6 +33,7 @@ Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara
 * [Microsoft Azure AD temel veya premium aboneliği](../fundamentals/active-directory-whatis.md) ve genel yöneticisi olduğunuz bir Azure AD dizini.
 * Windows Server 2012 R2 veya uygulama ara sunucusu bağlayıcısını yüklemek, 2016 çalıştıran bir sunucu. Sunucu, Bulut ve yayımlamakta olduğunuz şirket içi uygulamalarda uygulama ara sunucusu hizmetlerine bağlanabilir olması gerekiyor.
   * Çoklu oturum açma için Kerberos kısıtlanmış temsil kullanarak yayımladığınız uygulamalarda, bu makinenin etki alanı-yayımlamakta olduğunuz uygulamalarla aynı AD etki alanına katılması. Bilgi için [uygulama proxy'si ile çoklu oturum açma için KCD](application-proxy-configure-single-sign-on-with-kcd.md).
+* TLS 1.2 temel işletim sistemi üzerinde çalışan. TLS 1.2 değiştirmek için adımları izleyin. [etkinleştirme TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Azure AD Connect için içeriği olmakla birlikte, bu yordamı tüm .NET istemcileri için aynıdır.
 
 Kuruluşunuz internet'e bağlanmak için proxy sunucuları kullanıyorsa, okuma [iş mevcut şirket içi proxy sunucuları](application-proxy-configure-connectors-with-proxy-servers.md) uygulaması Ara sunucusu ile çalışmaya başlamadan önce bunları yapılandırma hakkında daha fazla ayrıntı için.
 
