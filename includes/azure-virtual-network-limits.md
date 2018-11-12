@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51525672"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219904"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -45,7 +45,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Sanal ağlar |1000 |
 | Sanal ağ başına alt ağ sayısı |3000 |
 | Sanal ağ başına sanal ağ eşlemesi |100 |
-| Sanal ağ başına DNS sunucusu sayısı |20 |
+| Sanal ağ başına DNS sunucusu sayısı |25 |
 | Sanal ağ başına özel IP Adresi sayısı |65536 |
 | Ağ arabirimi başına özel IP Adresleri |256 |
 | Bir sanal makine veya rol örneği, bir NIC eş zamanlı TCP veya UDP akışlar |500K |
