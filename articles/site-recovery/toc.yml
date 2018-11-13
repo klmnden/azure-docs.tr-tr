@@ -60,7 +60,7 @@ items:
       href: azure-to-azure-tutorial-migrate.md
 - name: Kavramlar
   items:
-  - name: Sık sorulan sorular (SSS)
+  - name: Site Recovery hakkında sık sorulan sorular
     href: site-recovery-faq.md
   - name: Azure'a Azure VM olağanüstü durum kurtarma hakkında
     items:
@@ -80,6 +80,8 @@ items:
       href: vmware-azure-common-questions.md
     - name: Destek matrisi
       href: vmware-physical-azure-support-matrix.md
+    - name: Yapılandırma sunucusu dağıtımı için destek gereksinimleri
+      href: vmware-azure-configuration-server-requirements.md
     - name: VMware-Azure arası mimari
       href: vmware-azure-architecture.md
     - name: Azure'dan VMware'e yeniden çalışma konumu seçenekleri
@@ -134,9 +136,9 @@ items:
       items:
       - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı hazırlama
         href: azure-to-azure-about-networking.md
-      - name: Azure VM’lerinde olağanüstü durum kurtarma için ağ eşlemesini hazırlama
+      - name: Yük devretme sonrasında ağ eşlemesini ayarlama ve IP adreslerini koruma
         href: azure-to-azure-network-mapping.md
-      - name: Yük devretme için IP adresi ayarlama
+      - name: Yük devretme sonrasında IP adreslerini korumaya yönelik örnekler
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Azure VM olağanüstü durum kurtarma ile ExpressRoute’u tümleştirme
         href: azure-vm-disaster-recovery-with-expressroute.md
@@ -148,14 +150,6 @@ items:
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Yük devretme sonrasında Azure VM'lerini yeniden koruma
         href: azure-to-azure-how-to-reprotect.md
-    - name: Sorun giderme
-      items:
-      - name: Azure-Azure arası çoğaltma sorunlarını giderme
-        href: azure-to-azure-troubleshoot-errors.md
-      - name: Devam eden çoğaltma sorunlarını giderme
-        href: azure-to-azure-troubleshoot-replication.md
-      - name: Azure Site Recovery uzantı sorunlarını giderme
-        href: site-recovery-extension-troubleshoot.md
       - name: Azure'a geçişten sonra Azure VM'leri için olağanüstü durumdan kurtarmayı ayarlama
         href: azure-to-azure-replicate-after-migration.md
     - name: Yönetme
@@ -188,10 +182,8 @@ items:
         href: vmware-azure-set-up-process-server-scale.md
     - name: Olağanüstü durum kurtarma işlemini ayarlama
       items:
-      - name: Kaynak ortamı ayarlama
+      - name: Kaynak ortamını/yapılandırma sunucusunu ayarlama
         href: vmware-azure-set-up-source.md
-      - name: VMware VM'leri için yapılandırma sunucusunu dağıtma
-        href: vmware-azure-deploy-configuration-server.md
       - name: Hedef ortamı ayarlama
         href: vmware-azure-set-up-target.md
       - name: Çoğaltma ayarlarını yapılandırma
@@ -390,14 +382,18 @@ items:
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Azure VM’leri
     items:
-    - name: Azure-Azure arası çoğaltma sorunlarını giderme
+    - name: Azure VM’lerinin çoğaltma sorunlarını giderme
       href: azure-to-azure-troubleshoot-errors.md
+    - name: Azure VM’lerinde devam eden çoğaltma sorunlarını giderme
+      href: azure-to-azure-troubleshoot-replication.md
     - name: Azure VM'leri için Mobility hizmeti sorunlarını giderme
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/fiziksel sunucu
     items:
     - name: VMware-Azure arası çoğaltma sorunlarını giderme
       href: vmware-azure-troubleshoot-replication.md
+    - name: Yapılandırma sunucusu sorunlarını giderme
+      href: vmware-azure-troubleshoot-configuration-server.md
     - name: VMware VM'leri/fiziksel sunucular için Mobility hizmetinin gönderme yüklemesi sorunlarını giderme
       href: vmware-azure-troubleshoot-push-install.md
     - name: Azure'a yük devretme sorunlarını giderme
@@ -438,9 +434,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 770aa6a07df6900b10558ebbb7718c248296ee51
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d0d5ff955caa7cf9206973f0411f4170ba3bbc35
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288093"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566365"
