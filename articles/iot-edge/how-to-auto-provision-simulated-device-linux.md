@@ -2,18 +2,18 @@
 title: Otomatik sağlama DPS - Linux ile Azure IOT Edge cihazı | Microsoft Docs
 description: Sanal bir TPM bir Linux VM için Azure IOT Edge cihaz sağlama test etmek için kullanın.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739677"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565080"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde sanal bir TPM ile Edge cihazı oluşturma ve sağlama
 

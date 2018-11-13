@@ -1,8 +1,18 @@
 ---
-Başlık: Azure Site Recovery ile azure'a VMware olağanüstü durum kurtarma için VMware sanal makinelerinin çoğaltmasını etkinleştir | Microsoft Docs açıklaması: Bu makalede, Azure Site Recovery kullanarak azure'a olağanüstü durum kurtarma için VMware VM çoğaltmayı etkinleştirmek açıklanır.
-Yazar: asgang ms.service: site recovery ms.date: 07/06/2018 ms.topic: kavramsal ms.author: asgang
-
-
+title: Azure'da Azure Site Recovery ile VMware olağanüstü durum kurtarma için VMware VM çoğaltmayı etkinleştirme | Microsoft Docs
+description: Bu makalede, Azure Site Recovery kullanarak azure'a olağanüstü durum kurtarma için VMware VM çoğaltmayı etkinleştirme açıklar.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566372"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
 
@@ -68,10 +78,7 @@ VMware sanal makineleri çoğaltılırken:
     ![Çoğaltmayı etkinleştirme](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. **Çoğaltmayı Etkinleştir**’e tıklayın. **Ayarlar** > **İşler** > **Site Recovery İşleri** bölümünden **Korumayı Etkinleştir** işinin ilerleme durumunu izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
-> [!NOTE]
-> Makinesi için göndererek yükleme hazırsanız koruma etkinleştirildiğinde Mobility hizmet bileşeni yüklenir. Bileşen makineye yüklendikten sonra bir koruma işi başlatır ve başarısız olur. Hatadan sonra her makineye el ile yeniden başlatmanız gerekir. Yeniden başlatma işleminden sonra koruma işini yeniden başlar ve ilk çoğaltma gerçekleşir.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>VM özelliklerini görüntüleme ve yönetme
 

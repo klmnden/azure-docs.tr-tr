@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f11012c90ab2b82e945fdb67e224783c3f05c6dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237562"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567171"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -61,7 +61,7 @@ Aşağıdaki listelenen özellikleri olan özelliklerini Azure platformu güvenl
 | [Güvenlik geliştirme döngüsü](https://www.microsoft.com/en-us/sdl/)iç denetimleri | [Her zaman verilerinizi yönetin](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Güven Merkezi](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Microsoft Azure hizmetlerindeki müşteri verilerini nasıl korur](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | [Zorunlu güvenlik Eğitimi, arka plan denetimleri](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Veri konumu üzerinde denetimi](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Ortak Denetimler Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft, Azure hizmetlerindeki veri konumu yönetme](http://azuredatacentermap.azurewebsites.net/)|
 | [Sızma testi](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [izinsiz giriş algılama, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [denetimleri ve günlüğe kaydetme](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Kendi koşullarınıza göre veri erişimi sağlar](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Bulut Hizmetleri son dikkatli olmanızı denetim listesi](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Microsoft, verilerinizi hangi koşullarda erişebilecek kişileri](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
-| [Resim datacentre durumu](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fiziksel güvenlik [ağ güvenliğini sağlama](https://docs.microsoft.com/azure/security/security-network-overview) | [Kanuni yaptırım yetkililerine yanıt](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Hizmet, konum ve sektöre göre uyumluluk](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft Azure hizmetlerindeki müşteri verilerini nasıl korur](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
+| [Teknoloji veri merkezi](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fiziksel güvenlik [ağ güvenliğini sağlama](https://docs.microsoft.com/azure/security/security-network-overview) | [Kanuni yaptırım yetkililerine yanıt](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Hizmet, konum ve sektöre göre uyumluluk](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft Azure hizmetlerindeki müşteri verilerini nasıl korur](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Güvenlik olay yanıtı](https://aka.ms/SecurityResponsepaper), [paylaşılan sorumluluk](https://aka.ms/sharedresponsibility) |[Katı gizlilik standartları](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure Hizmetleri, saydamlık hub için sertifika gözden geçirin](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
 
@@ -345,7 +345,7 @@ Düzeltme eki güncelleştirmeleri, bulma ve olası sorunları düzeltmek için 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditleri engellemenize, algılamanıza ve yanıtlamanıza, ayrıca Azure kaynaklarınızın güvenliğini denetlemenize yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
 
-## <a name="identify-and-access-management"></a>Tanımlamak ve erişim yönetimi
+## <a name="identity-and-access-management"></a>Kimlik ve erişim yönetimi
 
 Sistemleri, uygulamalar ve veri güvenliği, kimlik tabanlı erişim denetimleriyle başlar. Microsoft iş ürünlerini ve hizmetlerini yerleşik kimlik ve erişim yönetimi özellikleri, kullanıcıların kullanımına yasal zaman veya mekandan bağımsız olmasını sağlarken Kurumsal ve kişisel bilgilerinizi yetkisiz erişimden korunmasına yardımcı Yöneticiler gerekir.
 

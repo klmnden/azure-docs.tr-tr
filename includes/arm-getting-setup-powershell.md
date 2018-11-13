@@ -1,3 +1,16 @@
+---
+author: sdwheeler
+ms.service: azure-powershell
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sewhee
+ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572873"
+---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>PowerShell Resource Manager şablonları için ayarlama
 Azure PowerShell Resource Manager ile kullanabilmeniz için önce sağ Windows PowerShell ve Azure PowerShell sürümlerine sahip gerekecektir.
 

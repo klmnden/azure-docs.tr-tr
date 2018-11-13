@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 8d5017cbd2177d080e5cef3d99a9f6b62eae08d5
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: dac15f0b96e9e295f92f250fe387e5b6ba9ae000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978970"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567613"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>HTTP ve HTTPS Uç noktalara yönelik güvenlik erişim ilkesi atama
 Bir farklı Çalıştırma İlkesi uygulama ve hizmet bildirimi HTTP uç noktası kaynakları bildirir, belirtmelisiniz bir **SecurityAccessPolicy**.  **SecurityAccessPolicy** Bu uç noktaları için ayrılan bağlantı noktaları olarak hizmetini çalıştıran kullanıcı hesabının doğru şekilde kısıtlanmıştır sağlar. Aksi takdirde, **http.sys** Erişim hizmetine sahip değil ve istemciden çağrıları hataları alırsınız. Aşağıdaki örnekte adlı bir uç nokta Customer1 hesabı uygulanır **Uçnoktaadı**, sağlayan, tam erişim hakları.

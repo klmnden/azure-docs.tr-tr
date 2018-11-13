@@ -5,14 +5,14 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: alkohli
-ms.openlocfilehash: bf5c6c805a99845cdd427817ac72b3f5d3245389
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c28eaf22d05bfda5085f9e269bda85ca0d46a7d3
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345751"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578136"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple ile Azure dosya eşitleme ve veri kutusu Edge veri aktarımı seçeneklerini karşılaştırma 
  
@@ -37,5 +37,5 @@ Bu belge, Azure'da şirket içi veri aktarımı için seçeneklerine genel bakı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview.md) ve [Azure Data Box ağ geçidi](/azure/databox-online/data-box-gateway-overview.md)
-- Hakkında bilgi edinin [Azure dosya eşitleme](/azure/storage/files/storage-sync-files-deployment-guide.md)
+- Hakkında bilgi edinin [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) ve [Azure Data Box ağ geçidi](/azure/databox-online/data-box-gateway-overview)
+- Hakkında bilgi edinin [Azure dosya eşitleme](/azure/storage/files/storage-sync-files-deployment-guide)

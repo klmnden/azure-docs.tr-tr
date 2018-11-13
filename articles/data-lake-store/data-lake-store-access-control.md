@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432632"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567494"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
@@ -128,9 +128,11 @@ Bir parçası olan tüm kullanıcılar **sahipleri** rol bir Data Lake depolama 
 
 POSIX ACL’lerinde her kullanıcı bir "birincil grup" ile ilişkilendirilir. Örneğin, "gamze" adlı kullanıcı "finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait olabilir, ancak bir grup her zaman birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur). Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
 
-**Satıcıya yeni dosya veya klasör için sahip olan Grup**
+"Data Lake depolama Gen1 kullanıcılara ilişkili hiçbir birincil grup" olduğundan, sahip olan grup aşağıdaki gibi atanır.
 
-* **Olay 1**: Kök klasör "/". Bir Data Lake depolama Gen1 hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup, hesabı oluşturan kullanıcıya ayarlanır.
+**Yeni dosya veya klasör için sahip olan grup atama**
+
+* **Olay 1**: Kök klasör "/". Bir Data Lake depolama Gen1 hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup için bir tüm sıfır GUID ayarlanır.  Bu değer, erişime izin vermez.  Bir grup atanır bu zamana kadar yer tutucu olduğu.
 * **Olay 2** (Diğer her olay): Yeni bir olay oluşturulduğunda sahip olan grup üst klasörden kopyalanır.
 
 **Sahip olan Grup değiştirme**
@@ -140,7 +142,9 @@ Sahip olan grup aşağıdakiler tarafından değiştirilebilir:
 * Sahip olan kullanıcı aynı zamanda hedef grubun üyesi ise sahip olan kullanıcı.
 
 > [!NOTE]
-> Sahip olan grup, bir dosya veya klasörün ACL’lerini *değiştiremez*.  Sahip grup, kök klasörde olduğu gibi (yukarıdaki **Durum 1**) hesabı oluşturan kullanıcıya ayarlı olsa da, tek bir kullanıcı hesabı sahip grup üzerinden izin sağlamak için geçerli değildir.  Uygunsa bu izni geçerli bir kullanıcı hesabına atayabilirsiniz.
+> Sahip olan grup, bir dosya veya klasörün ACL’lerini *değiştiremez*.
+>
+> Kök klasörü söz konusu olduğunda hesabı oluşturan kullanıcıya sahip olan Grup ya da Eylül 2018'den önce oluşturulan hesapları için ayarlanmış **vaka 1**, yukarıdaki.  Tek bir kullanıcı hesabı sahip grup üzerinden izin sağlamak için geçerli değil, bu nedenle hiçbir izinleri bu varsayılan ayarı tarafından verilir. Bu izni geçerli bir kullanıcı grubuna atayabilirsiniz.
 
 
 ## <a name="access-check-algorithm"></a>Erişim denetimi algoritması

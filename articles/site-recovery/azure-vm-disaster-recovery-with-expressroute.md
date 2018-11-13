@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: e7c63fba892f70ca0e18c1bffcda0782316b7ada
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211562"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567783"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -185,7 +185,7 @@ Bizim örneğimizde, aşağıdaki topoloji kullanıyoruz:
 - Hedef kurtarma Azure Güneydoğu Asya bölgedir.
 - Bir iş ortağı uç Singapur aracılığıyla ikincil bir ExpressRoute bağlantı hattı bağlantı kurulur.
 
-Yük devretme sonrasında aynı IP adresine sahip tek bir ExpressRoute bağlantı hattı kullanan basit bir topolojisi için [bu makaleyi gözden geçirin](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+Yük devretme sonrasında aynı IP adresine sahip tek bir ExpressRoute bağlantı hattı kullanan basit bir topolojisi için [bu makaleyi gözden geçirin](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
 
 ### <a name="example-steps"></a>Örnek adımlar
 Bu örnekte, burada ait kurtarma otomatik hale getirmek için yapmanız gerekenler:

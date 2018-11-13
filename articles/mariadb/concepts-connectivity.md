@@ -3,19 +3,19 @@ title: Geçici bağlantı hatalarının MariaDB için Azure veritabanı işleme 
 description: Geçici bağlantı hataları için MariaDB için Azure veritabanı işleme hakkında bilgi edinin.
 keywords: MySQL bağlantı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası
 services: mariadb
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mariadb
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 90b253fda55a903f22068ebac0c6c3fff5ad8347
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
-ms.translationtype: HT
+ms.openlocfilehash: 203401e3842912169371f315048f6930c8dc80eb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347705"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568106"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Geçici bağlantı hataları MariaDB için işleme için Azure veritabanı
 

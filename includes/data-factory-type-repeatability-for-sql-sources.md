@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572835"
+---
 ## <a name="repeatability-during-copy"></a>Kopyalama sırasında yinelenebilirliği
 Diğer verilerin Azure SQL/SQL Server için veri kopyalamayı depoladığında bir yinelenebilirliği istenmeyen sonuçlar önlemek için akılda tutulması gerekir. 
 

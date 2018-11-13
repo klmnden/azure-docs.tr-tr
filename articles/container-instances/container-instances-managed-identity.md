@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651627"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578680"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances ile yönetilen kimliklerini kullanma
 
@@ -38,7 +38,7 @@ Herhangi bir kimlik doğrulaması için çalışan bir kapsayıcı içinde yöne
 
 ### <a name="enable-a-managed-identity"></a>Yönetilen bir kimlik etkinleştir
 
- Azure Container Instances'da REST API sürümü 2018-10-01 ve karşılık gelen bir SDK'ları ve araçları itibarıyla Azure kaynakları için yönetilen kimlik desteklenir. Kapsayıcı grubu oluşturduğunuzda, bir veya daha fazla yönetilen kimlik ayarlayarak etkinleştirin bir [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) özelliği. Etkinleştirebilir veya bir kapsayıcı grubu çalışmaya başladıktan sonra yönetilen kimlikleri güncelleştirin; iki eylem yeniden başlatmak kapsayıcı grubunun neden olur. Yeni veya mevcut kapsayıcı grubunda kimlikleri ayarlamak için Azure CLI, Resource Manager şablonu veya bir YAML dosyası kullanın. 
+ Azure Container Instances'da REST API sürümü 2018-10-01 ve karşılık gelen bir SDK'ları ve araçları itibarıyla Azure kaynakları için yönetilen kimlik desteklenir. Kapsayıcı grubu oluşturduğunuzda, bir veya daha fazla yönetilen kimlik ayarlayarak etkinleştirin bir [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) özelliği. Etkinleştirebilir veya bir kapsayıcı grubu çalışmaya başladıktan sonra yönetilen kimlikleri güncelleştirin; iki eylem yeniden başlatmak kapsayıcı grubunun neden olur. Yeni veya mevcut kapsayıcı grubunda kimlikleri ayarlamak için Azure CLI, Resource Manager şablonu veya bir YAML dosyası kullanın. 
 
 Azure Container Instances, yönetilen Azure kimlikleri her iki tür destekler: kullanıcı tarafından atanan ve sistem tarafından atanan. Bir kapsayıcı grubu üzerinde bir sistem tarafından atanan kimliği, bir veya daha fazla kullanıcı tarafından atanan kimlikleri veya her iki tür kimlik etkinleştirebilirsiniz. 
 

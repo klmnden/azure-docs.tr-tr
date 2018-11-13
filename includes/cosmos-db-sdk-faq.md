@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572858"
+---
 **1. Müşteriler, retiring SDK'sının nasıl bildirilecek?**
 
 Microsoft, desteklenen bir SDK'sı için sorunsuz bir geçiş kolaylaştırmak için 12 aylık sağladığımız ön bildirimi desteğin sona ermesi için retiring SDK'sının sağlayacaktır. Ayrıca, müşteriler çeşitli iletişim kanalları – Azure Yönetim Portalı, Geliştirici Merkezi aracılığıyla Web günlüğü gönderisinde bildirilir ve doğrudan iletişim için atanan hizmet yöneticileri.

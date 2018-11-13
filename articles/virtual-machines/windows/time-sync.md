@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/017/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1c784721d103ca623f6e9bac5ec1281beeb70074
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ad5ceeef170e38bf6368c54894b20245d10b74ee
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468339"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578204"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure'da Windows VM'ler için zaman eşitleme
 
@@ -40,6 +40,8 @@ Bir bilgisayar saatini doğruluk ne kadar yakın bilgisayar saati Eşgüdümlü 
 Azure ana Katman 1 Microsoft'a ait cihazlardan, GPS anten ile kendi zaman iç Microsoft saat sunucuları eşitlenir. Azure sanal makineler'de ya da doğru zaman geçirmek için konakta bağlıdır (*konak zaman*) VM veya VM'yi açın doğrudan saat saat sunucusu veya her ikisinin bir birleşiminde alabilirsiniz. 
 
 Sanal makine konak etkileşim saati da etkileyebilir. Sırasında [Bakımı koruma bellek](maintenance-and-updates.md#memory-preserving-maintenance), Vm'leri 30 saniyeye kadar duraklatıldı. Örneğin, bakım başlamadan önce VM saat 10:00:00 AM'den gösterir ve 28 saniye sürer. VM çağrıldıktan sonra sanal makinedeki saat 10:00:00 28 saniye olabilecek'da, yine de gösterebilir devre dışı. Bu, doğru VMICTimeSync hizmet konak ve istemleri değişiklikler için VM'ler üzerinde gerçekleştirilecek dengelemek için neler olduğunu izler.
+
+VMICTimeSync hizmet örneği veya eşitleme modda çalışır ve yalnızca bir saat ileri olumlu yönde etkiler. W32time çalışıyor olmasını gerektiren örnek modunda VMICTimeSync hizmeti konak her 5 saniyede bir yoklar ve zamanı örnekleri için W32time sağlar. Her 30 saniyede yaklaşık W32time hizmeti en son zaman örneği alır ve konuğun saat etkilemek için kullanır. Bir konuk sürdürüldü veya 5 saniyeden ana bilgisayarın saati arkasındaki bir konuğun saat drifts eşitleme modunu etkinleştirir. W32time hizmeti düzgün şekilde çalıştığı durumlarda asla ikinci durumda olmaması gerekir.
 
 Zaman eşitleme çalışmıyor olmadan, sanal makinedeki saatin hataları accumulate. Yalnızca bir VM olduğunda, iş yüküne yüksek oranda doğru zaman tutma gerektirmedikçe etkisini önemli olmayabilir. Ancak çoğu durumda, biz birden fazla varsa, birbirine bağlı işlemler ve süre tüm dağıtım tutarlı olması gerekiyor izlemek için zaman kullanan VM'ler. Zaman VM'ler arasında farklı olduğunda, aşağıdaki etkileri görebilirsiniz:
 

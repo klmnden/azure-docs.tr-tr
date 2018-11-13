@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/08/2018
-ms.openlocfilehash: 9e873de5899f0cf84fe76b70ffb70b38638055ef
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/12/2018
+ms.openlocfilehash: 08585b795b8c407bc66162a961fca92777f78076
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299903"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578632"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Verileri Azure SQL Data Sync için eşitleme Aracısı
 
@@ -31,8 +31,14 @@ Veri Eşitleme aracısını indirmek için Git [SQL Azure veri eşitleme Aracıs
 
 Veri Eşitleme aracısını komut isteminden sessizce yüklemek için aşağıdaki örneğe benzer bir komut girin. İndirilen .msi dosyasının dosya adını denetleyin ve sağlamak için kendi değerlerinizi **TARGETDIR** ve **SERVICEACCOUNT** bağımsız değişkenler.
 
+- İçin bir değer sağlamıyorsa **TARGETDIR**, varsayılan değer `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`.
+
+- Sağlarsanız `LocalSystem` değeri olarak **SERVICEACCOUNT**, şirket içi SQL Server'a bağlanmak için aracıyı yapılandırdığınızda, SQL Server kimlik doğrulaması kullanın.
+
+- Değeri olarak bir etki alanı kullanıcı hesabı veya yerel kullanıcı hesabı sağlarsanız **SERVICEACCOUNT**, parola ile sağlamak de **SERVICEPASSWORD** bağımsız değişken. Örneğin, `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## <a name="sync-data-with-sql-server-on-premises"></a>Şirket içi SQL Server ile veri eşitleme
@@ -91,10 +97,10 @@ Hemen geçersiz kılmak veya aracıyı devre dışı bırakmak için Portalı'nd
 
 - **Neden**. Birçok senaryo bu hataya neden olabilir. Bu hatanın nedenini belirlemek için günlüklere bakın.
 
-- **Çözüm**. Belirli bir hatanın nedenini bulmak için oluşturmak ve Windows Yükleyici günlüklerine bakın. Bir komut isteminde günlük kaydını etkinleştirebilirsiniz. Örneğin, indirilen AgentServiceSetup.msi dosya LocalAgentHost.msi ise, oluşturun ve aşağıdaki komut satırlarını kullanarak günlük dosyalarını inceleyin:
+- **Çözüm**. Belirli bir hatanın nedenini bulmak için oluşturmak ve Windows Yükleyici günlüklerine bakın. Bir komut isteminde günlük kaydını etkinleştirebilirsiniz. Örneğin, indirilen yükleme dosyasını ise `SQLDataSyncAgent-2.0-x86-ENU.msi`, oluşturun ve aşağıdaki komut satırlarını kullanarak günlük dosyalarını inceleyin:
 
-    -   Yüklemeler için: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   İçin kaldırır: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   Yüklemeler için: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+    -   İçin kaldırır: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Ayrıca Windows Installer tarafından gerçekleştirilen tüm yüklemeleri için günlük kaydını etkinleştirebilirsiniz. Microsoft Bilgi Bankası makalesi [Windows Installer günlüğe kaydetmenin nasıl etkinleştirileceği](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) Windows Yükleyicisi için günlük kaydını etkinleştirmek için tek tıklamayla çözümü sağlar. Ayrıca, günlüklerinin konumunu sağlar.
 
@@ -275,6 +281,8 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 ```
 
 ### <a name="unregister-a-database"></a>Bir veritabanı kaydını sil
+
+Bir veritabanı kaydını kaldırmak için bu komutu kullanırken, veritabanı tamamen deprovisions. Veritabanı diğer eşitleme gruplarında yer alıyorsa, bu işlem bir eşitleme gruplarına ayırır.
 
 #### <a name="usage"></a>Kullanım
 

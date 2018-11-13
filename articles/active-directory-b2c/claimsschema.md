@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637740"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568651"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,7 +50,7 @@ ms.locfileid: "49637740"
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| displayName | 0:1 | Çeşitli ekranında kullanıcılara görüntülenen başlığı. Değer olabilir [yerelleştirilmiş](localization.md). |
+| DisplayName | 0:1 | Çeşitli ekranında kullanıcılara görüntülenen başlığı. Değer olabilir [yerelleştirilmiş](localization.md). |
 | DataType | 0:1 | Talep türü. Veri türlerini boolean, tarih, dateTime, int, long, dize stringCollection, alternativeSecurityIdCollection kullanılabilir. |
 | DefaultPartnerClaimTypes | 0:1 | İş ortağı varsayılan talep türleri için belirtilen bir protokol kullanın. Değer, geçersiz kılınabilir **PartnerClaimType** belirtilen **Inputclaim** veya **OutputClaim** öğeleri. Bu öğe, bir protokol için varsayılan adı belirtmek için kullanın.  |
 | Maske | 0:1 | Talep görüntülenirken uygulanabilir karakter maskeleme isteğe bağlı bir dize. Örneğin, telefon numarası 324-232-4343 XXX-XXX-4343 maskelenmiş olamaz. |

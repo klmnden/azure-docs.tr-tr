@@ -2,24 +2,20 @@
 title: Parola çoklu oturum açma için Galeri dışı applicationn yapılandırma | Microsoft Docs
 description: Azure AD uygulama Galerisi'nde listelenmeyen olduğunda özel bir galeri dışı uygulama güvenli parola tabanlı çoklu oturum açma için yapılandırma
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357449"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578408"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 
@@ -115,7 +111,6 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 11. Ayrıca, kullanıcı adına kimlik bilgilerini kullanıcıları satırlarını seçip tıklayarak sağlayabilirsiniz **kimlik bilgilerini güncelleştirme** ve kullanıcılar adına kullanıcı adı ve parola girme. Aksi takdirde, kullanıcılar başlatma sırasında kimlik kendilerini girmeniz istenir.
 
-12. **İsteğe bağlı:** belirli Twitter ve Facebook gibi sosyal medya uygulamaları için Ayrıca seçilen bir sıklıkta uygulama parolasını otomatik geçişi etkinleştirmek için seçenek mevcuttur. Bu seçim etkinleştirmek için **bu kullanıcı veya grubun parolasını otomatik olarak yönetmek için Azure AD istiyorum** sırasında bir kullanıcının veya grubun adına kimlik bilgilerini girme. Ardından **geçiş sıklığı (hafta)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Bir uygulamaya doğrudan bir kullanıcı atama
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543148"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568685"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C özel bir ilke doğrulama teknik profil tanımlama
 
@@ -53,8 +53,8 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Başvuru Kimliği | Evet | İlke veya üst ilkede zaten tanımlanmış bir teknik profili tanımlayıcısı. |
-|ContinueOnError|Hayır| Herhangi bir sonraki doğrulama teknik profil doğrulama bu validaiton teknik profili, bir hata harekete geçirirse sürmelidir olup olmadığını belirten. Mümkün olan değerleri: `true` veya `false` (varsayılan, daha fazla doğrulama profilleri işlenmesini durdurur ve bir hata döndürdü). 
-|ContinueOnSuccess | Hayır | Herhangi bir sonraki doğrulama profil doğrulama başarılı olursa bu doğrulama teknik profili sürmelidir olup olmadığını belirten. Mümkün olan değerleri: `true` veya `false`. Varsayılan `true`, daha fazla doğrulama profilleri işlenmesini devam edeceği anlamına gelir. |
+|ContinueOnError|Hayır| Herhangi bir sonraki doğrulama teknik profil doğrulama bu validaiton teknik profili, bir hata harekete geçirirse sürmelidir olup olmadığını belirten. Olası değerler: `true` veya `false` (varsayılan, daha fazla doğrulama profilleri işlenmesini durdurur ve bir hata döndürdü). 
+|ContinueOnSuccess | Hayır | Herhangi bir sonraki doğrulama profil doğrulama başarılı olursa bu doğrulama teknik profili sürmelidir olup olmadığını belirten. Olası değerler: `true` veya `false`. Varsayılan `true`, daha fazla doğrulama profilleri işlenmesini devam edeceği anlamına gelir. |
 
 **ValidationTechnicalProfile** öğesi aşağıdaki öğeyi içerir:
 
@@ -81,8 +81,8 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 Aşağıdaki örnek, bu doğrulama teknik profiller kullanır: 
 
 1. İlk doğrulama teknik profili, kullanıcı kimlik bilgileri denetler ve bir hata, geçersiz kullanıcı adı veya hatalı parola gibi oluşursa devam etmez. 
-2. UserType talep mevcut değilse veya userType değerini ise sonraki doğrulama teknik profili, yürütme değil `Partner`. İç müşteri veritabanından kullanıcı profilini okuyun ve REST API hizmeti kullanılabilir değil ya da herhangi bir iç hata gibi bir hata oluşursa devam etmek doğrulama teknik profil çalışır.
-3. Son doğrulama teknik profili, userType talep değil mevcutsa ya da userType değeri yürütme değil `Customer`. Doğrulama teknik profili, dahili partner veritabanından kullanıcı profilini okumaya çalışır ve REST API hizmeti kullanılabilir değil ya da herhangi bir iç hata gibi bir hata oluşursa devam eder.
+2. UserType talep mevcut değilse veya userType değerini ise sonraki doğrulama teknik profili, yürütme değil `Partner`. İç müşteri veritabanından kullanıcı profilini okuyun ve REST API Hizmet kullanılamıyor veya herhangi bir iç hata gibi bir hata oluşursa devam etmek doğrulama teknik profil çalışır.
+3. Son doğrulama teknik profili, userType talep değil mevcutsa ya da userType değeri yürütme değil `Customer`. Doğrulama teknik profili, dahili partner veritabanından kullanıcı profilini okumaya çalışır ve REST API Hizmet kullanılamıyor veya herhangi bir iç hata gibi bir hata oluşursa devam eder.
 
 ```XML
 <ValidationTechnicalProfiles>

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: da9319934068709d5635352fdbd52c3ca6ac49be
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244347"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568895"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -173,7 +173,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 
     > [!NOTE]
     > Seçerseniz, **Kaldır** çoğaltma ayarları temizlemek için aşağıdaki komutlar tun şirket VMM sunucusu seçeneğini.
-3. VMM konsolundan (yönetici ayrıcalıklarına sahip gerekli) PowerShell kullanarak kaynak VMM sunucusunda bu betiği çalıştırın. Yer tutucusunu değiştirin **SQLVM1** sanal makinenizin adıyla.
+3. VMM konsolundan (yönetici ayrıcalıkları gereklidir) PowerShell kullanarak kaynak VMM sunucusunda bu betiği çalıştırın. Yer tutucusunu değiştirin **SQLVM1** sanal makinenizin adıyla.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
@@ -194,7 +194,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 > [!NOTE]
 > Seçerseniz, **Kaldır** çoğaltma ayarları temizlemek için aşağıdaki komutlar tun şirket VMM sunucusu seçeneğini.
 
-3. VMM konsolundan (yönetici ayrıcalıklarına sahip gerekli) PowerShell kullanarak kaynak VMM sunucusunda bu betiği çalıştırın. Yer tutucusunu değiştirin **SQLVM1** sanal makinenizin adıyla.
+3. VMM konsolundan (yönetici ayrıcalıkları gereklidir) PowerShell kullanarak kaynak VMM sunucusunda bu betiği çalıştırın. Yer tutucusunu değiştirin **SQLVM1** sanal makinenizin adıyla.
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264158"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572842"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standart SSD yönetilen diskler için Azure sanal makine iş yükleri
 
@@ -46,9 +46,9 @@ Aşağıdaki tabloda, şu anda sunulan için standart SSD disk boyutları içeri
 |E70 *    |16.384 giB      |En fazla 2.000       |Saniye başına en fazla 500 MiB        |
 |E80 *    |32.767 giB      |En fazla 2.000       |Saniye başına en fazla 500 MiB        |
 
-Standart SSD GÇ işlemlerinin çoğu için Tek haneli milisaniyelik gecikme süreleri sağlamak ve IOPS ve aktarım hızı yukarıdaki tabloda açıklanan limitlerde sağlamak üzere tasarlanmıştır. Bazen gerçek IOPS ve aktarım hızı trafik düzenlerini bağlı olarak değişiklik gösterebilir. Standart SSD daha düşük gecikme süresiyle HDD diskleri daha tutarlı performans sağlar.
+Standart SSD GÇ işlemlerinin çoğu için Tek haneli milisaniyelik gecikme süreleri sağlamak ve yukarıdaki tabloda örneklerin % 99 oranında açıklanan sınırlara kadar aktarım hızı ve IOPS sunmak için tasarlanmıştır. Bazen gerçek IOPS ve aktarım hızı trafik düzenlerini bağlı olarak değişiklik gösterebilir. Standart SSD daha düşük gecikme süresiyle HDD diskleri daha tutarlı performans sağlar.
 
-Premium SSD diğer taraftan, daha iyi standart SSD'ler, düşük gecikme, yüksek IOPS/aktarım hızı ve sağlanan disk performansı daha da iyi tutarlılık gerçekleştirin. Kritik üretim iş yükleri için önerilen disk türüdür. İş yükünüz yüksek performanslı ve düşük gecikme süreli disk desteği gerektiriyorsa, Premium depolama kullanmayı düşünmeniz gerekir.
+Premium SSD diğer taraftan, daha iyi standart SSD'ler, düşük gecikme, yüksek IOPS/aktarım hızı ve sağlanan disk performansı daha da iyi tutarlılık gerçekleştirin. Premium SSD kritik üretim iş yükleri için önerilen disk türüdür. İş yükünüz yüksek performanslı ve düşük gecikme süreli disk desteği gerektiriyorsa, Premium depolama kullanmayı düşünmeniz gerekir.
 
 Standart SSD, Premium SSD gibi 256 KiB GÇ birim boyutunu da kullanın. Aktarılan veriler en fazla 256 KiB ise, 1 g/ç birim olarak kabul edilir. Daha büyük g/ç boyutları olarak birden çok g/ç boyutu 256 sayılır KiB. Örneğin, 1.100 KiB g/ç beş g/ç birimleri kabul edilir.
 

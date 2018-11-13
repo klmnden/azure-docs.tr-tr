@@ -2,19 +2,19 @@
 title: Linux üzerinde Azure IOT Edge yükleme | Microsoft Docs
 description: Linux üzerinde Azure IOT Edge yükleme yönergeleri
 author: kgremban
-manager: timlt
+manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 6d6d29d9bce68f22a83f2b4de228968b00b8bba0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 08946076add9ab1c0972729fa89cf8aea0968c99
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739609"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568515"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Azure IOT Edge çalışma zamanı (x64) Linux'ta yükleme
 

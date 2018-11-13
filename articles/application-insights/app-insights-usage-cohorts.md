@@ -14,12 +14,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138801"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564927"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohortlar
 
@@ -49,9 +49,9 @@ Ekibinizin bağlı bir kullanıcı uygulamanızı beş veya daha fazla kez belir
     Bu kohort için üç parametresi vardır:
     * **Etkinlikleri**burada "kullanımı" hangi olay ve sayfa görüntüleme sayısı seçin
     * **Dönem**, bir ay tanımı.
-    * **UsedAtleastCustom**, sayı sürelerinin kullanıcılar sorun bir süre içinde bağlı olarak saymak için kullanmanız gerekir.
+    * **UsedAtLeastCustom**, sayı sürelerinin kullanıcılar sorun bir süre içinde bağlı olarak saymak için kullanmanız gerekir.
 
-4. Değişiklik **UsedAtleastCustom** için **5 + gün**, bırakıp **süresi** varsayılan 28 gün.
+4. Değişiklik **UsedAtLeastCustom** için **5 + gün**, bırakıp **süresi** varsayılan 28 gün.
 
     ![Bağlı kullanıcılar](.\media\app-insights-usage-cohorts\003.png)
 

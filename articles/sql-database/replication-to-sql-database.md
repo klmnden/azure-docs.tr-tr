@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: abf41f48ffa08867fd0f06ff88da00ca65286803
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515718"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567902"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL veritabanı tek ve havuza alınmış veritabanlarını çoğaltma
 
@@ -65,7 +65,7 @@ SQL Server çoğaltma üzerinde tek ve havuza alınmış veritabanları için ya
 
 1. Bir şirket içi SQL Server veritabanı üzerinde işlemsel çoğaltma yayın oluşturun.  
 2. Şirket içi SQL Server üzerinde kullanmak **Yeni Abonelik Sihirbazı'nı** veya Transact-SQL deyimlerini bir anında iletme aboneliğine Azure SQL veritabanı oluşturun.  
-3. Azure SQL veritabanı'nda ilk veri kümesi anlık görüntü aracısı tarafından oluşturulan ve dağıtılan ve Dağıtım Aracısı tarafından uygulanan anlık görüntüsüdür.   
+3. Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları ile ilk veri kümesi anlık görüntü aracısı tarafından oluşturulan ve dağıtılan ve Dağıtım Aracısı tarafından uygulanan bir anlık görüntüdür. Azure SQL veritabanı yönetilen örnek sayesinde, bir veritabanı yedeği abone veritabanının çekirdeğini oluşturma için de kullanabilirsiniz.
 
 ### <a name="data-migration-scenario"></a>Veri geçiş senaryosu  
 

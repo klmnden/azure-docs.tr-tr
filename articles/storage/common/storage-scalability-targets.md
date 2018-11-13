@@ -1,41 +1,32 @@
 ---
-title: Azure depolama ölçeklenebilirlik ve performans hedefleri | Microsoft Docs
-description: Gelen ve giden bant genişliği hem de standart ve premium depolama hesapları için kapasite ve istek hızı dahil olmak üzere Azure depolama için ölçeklenebilirlik ve performans hedefleri hakkında bilgi edinin. Azure Depolama hizmetlerinin her biri bölümleri için performans hedeflerini anlayın.
+title: Azure Depolama ölçeklenebilirlik ve performans hedefleri
+description: Gelen ve giden bant genişliği, standart Azure depolama hesapları için kapasite ve istek hızı dahil olmak üzere ölçeklenebilirlik ve performans hedefleri hakkında bilgi edinin.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/08/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 758871537b89a9c010cfaddf324e2208f9846afb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 93e09f3ab6780eb9ce7fa29b4554b53d796b6837
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241336"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564962"
 ---
-# <a name="azure-storage-scalability-and-performance-targets"></a>Azure Depolama Ölçeklenebilirlik ve Performans Hedefleri
-## <a name="overview"></a>Genel Bakış
-Bu makalede, Azure depolama için ölçeklenebilirlik ve performans konuları açıklanır. Diğer Azure sınırları özeti için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md).
+# <a name="azure-storage-scalability-and-performance-targets-for-standard-storage-accounts"></a>Standart depolama hesapları için Azure depolama ölçeklenebilirlik ve performans hedefleri
 
-> [!NOTE]
-> Tüm depolama hesapları, yeni bir düz ağ topolojisi üzerine çalıştırın ve oluşturuldukları zaman bağımsız olarak, bu makalede açıklanan ölçeklenebilirlik ve performans hedefleri destekler. Ölçeklenebilirlik ve Azure depolama düz ağ mimarisi üzerinde daha fazla bilgi için bkz: [Microsoft Azure Depolama: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılıkla](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
-> 
+Bu makalede ölçeklenebilirlik ve performans hedefleri standart Azure depolama hesapları için ayrıntıları. Burada listelenen ölçeklenebilirlik ve performans hedefleri yüksek kaliteli hedefler, ancak ulaşılabilir. Tüm durumlarda, istek hızı ve bant genişliği, Depolama tarafından gerçekleştirilen hesap üzerinde saklanan nesneleri kullanılan, erişim desenlerini boyutuna bağlıdır ve iş yükü türüne uygulamanızı gerçekleştirir. 
 
-> [!IMPORTANT]
-> Burada listelenen ölçeklenebilirlik ve performans hedefleri yüksek kaliteli hedefler, ancak ulaşılabilir. Tüm durumlarda, istek hızı ve bant genişliği, Depolama tarafından gerçekleştirilen hesap üzerinde saklanan nesneleri kullanılan, erişim desenlerini boyutuna bağlıdır ve iş yükü türüne uygulamanızı gerçekleştirir. Hizmetinizin performansını gereksinimlerinizi karşılayıp karşılamadığını belirlemek için test etmeyi unutmayın. Mümkünse, ani artışlar trafiğinin oranını önlemek ve bölümler arasında trafiği iyi dağıtılmış olduğundan emin olun.
-> 
-> Uygulamanızın hangi iş yükünüz için bir bölüm işleyebilir, sınırına ulaştığında, Azure depolama hata kodu: 503 (Sunucu meşgul) veya hata kodu 500 (işlem zaman aşımı) yanıtlarını döndürmek başlar. Bu hataların oluşma, uygulamanızı yeniden denemeler için bir üstel geri alma İlkesi kullanmalısınız. Üstel geri alma yükü azaltmak ve ani trafik bu bölüme kolaylaştırmak için bölüm sağlar.
-> 
-> 
+Hizmetinizin performansını gereksinimlerinizi karşılayıp karşılamadığını belirlemek için test etmeyi unutmayın. Mümkünse, ani artışlar trafiğinin oranını önlemek ve bölümler arasında trafiği iyi dağıtılmış olduğundan emin olun.
 
-Uygulamanızın ihtiyaçlarını tek bir depolama hesabı ölçeklenebilirlik hedefleri aşarsanız, birden çok depolama hesaplarını kullanmak için uygulamanızı oluşturabilirsiniz. Ardından, bu depolama hesabı arasında veri nesnelerinizi bölümleyebilirsiniz. Bkz: [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) birim fiyatlandırma hakkında bilgi için.
+Uygulamanızın hangi iş yükünüz için bir bölüm işleyebilir, sınırına ulaştığında, Azure depolama hata kodu: 503 (Sunucu meşgul) veya hata kodu 500 (işlem zaman aşımı) yanıtlarını döndürmek başlar. 503 hatalarını oluşan, yeniden denemeler için bir üstel geri alma İlkesi kullanmak için uygulamanızı değiştirme göz önünde bulundurun. Üstel geri alma yükü azaltmak ve ani trafik bu bölüme kolaylaştırmak için bölüm sağlar.
 
-## <a name="scalability-targets-for-a-storage-account"></a>Bir depolama hesabı için ölçeklenebilirlik hedefleri
+## <a name="standard-storage-account-scale-limits"></a>Standart depolama hesabı ölçek sınırları
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-### <a name="storage-resource-provider-limits"></a>Depolama kaynak sağlayıcısı sınırları 
+## <a name="storage-resource-provider-scale-limits"></a>Depolama kaynak sağlayıcısı ölçek sınırları 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -48,7 +39,7 @@ Azure dosyaları ve Azure dosya eşitleme için ölçek ve performans hedefleri 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure dosya eşitleme ölçek hedefleri
-Bu her zaman mümkün değildir, ancak Azure dosya eşitleme ile sınırsız kullanım için tasarlamak mümkün olduğunca çalıştık. Aşağıdaki tabloda test işlemlerimizi sınırları ve hangi hedeflerin gerçekten sabit limitlerdir gösterir:
+Azure dosya eşitleme ile sınırsız kullanım amacı tasarlanmıştır ancak sınırsız kullanım her zaman mümkün değildir. Aşağıdaki tabloda, Microsoft'un test sınırları gösterir ve de hangi hedeflerin sabit limitlerdir gösterir:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -63,5 +54,4 @@ Bu her zaman mümkün değildir, ancak Azure dosya eşitleme ile sınırsız kul
 * [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md)
 * [Azure depolama çoğaltma](../storage-redundancy.md)
 * [Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi](../storage-performance-checklist.md)
-* [Microsoft Azure Depolama: Yüksek oranda kullanılabilir depolama ile bulut hizmeti güçlü tutarlılık](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

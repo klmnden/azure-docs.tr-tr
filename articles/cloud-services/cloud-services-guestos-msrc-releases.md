@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: raiye
-ms.openlocfilehash: cfd0d9d7484e82ee130f4de860190238718c149c
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301076"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578782"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
@@ -28,11 +28,10 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10 Güvenlik | 5,24 | 9 Ekim 2018 |
-| Rel 18-10 | [4464330] | Windows 10 Güvenlik | 6.0 | 9 Ekim 2018 |
 | Rel 18-10 | [4462915] | Windows Güvenlik | 2.79 | 9 Ekim 2018 |
 | Rel 18-10 | [4462931] | Windows Güvenlik | 3.66 | 9 Ekim 2018 |
 | Rel 18-10 | [4462941] | Windows Güvenlik | 4.59 | 9 Ekim 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.0 | 9 Ekim 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59 5,24 | 9 Ekim 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66 4.59 | 9 Ekim 2018 |
 | Yok | [4339284] | Saat dilimi güncelleştirme | 2.79, 3.66 4.59 | 24 Temmuz 2018 |
 | Yok | [4457144] | Eylül güvenlikle dökümü | 2.79 | 11 Eylül 2018'den |
@@ -46,7 +45,6 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4457036] | Eylül güvenlikle .NET 4.5.2'nin dökümü | 4.59 | 11 Eylül 2018'den |
 
 [4462917]: http://support.microsoft.com/kb/4462917
-[4464330]: http://support.microsoft.com/kb/4464330
 [4462915]: http://support.microsoft.com/kb/4462915
 [4462931]: http://support.microsoft.com/kb/4462931
 [4462941]: http://support.microsoft.com/kb/4462941

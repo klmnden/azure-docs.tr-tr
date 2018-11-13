@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515616"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567919"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -221,6 +221,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
    - *Ölçek birimi düğümü çevrimdışı.*
    
   Çalıştırma [Test AzureStack](azure-stack-diagnostic-test.md) altyapı rol örneklerinin durumunu doğrulamak ve birim düğümlerini ölçeklendirme cmdlet'i. Hiçbir sorun tarafından algılanan [Test AzureStack](azure-stack-diagnostic-test.md), bu uyarılar yoksayabilirsiniz. Bir sorun algılandığında, altyapı rol örneği veya Yönetim Portalı veya PowerShell kullanarak bir düğümü başlatma girişiminde bulunabilir.
+
+  En son bu sorun düzeltilene [1809 düzeltme yayın](https://support.microsoft.com/help/4471993/), bu nedenle sorun yaşıyorsanız bu düzeltmenin yüklenebilmesi emin olun. 
 
 <!-- 1264761 - IS ASDK -->  
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  

@@ -3,19 +3,19 @@ title: MariaDB için Azure veritabanı bağlantı sorunlarını giderme | Micros
 description: MariaDB için Azure veritabanı bağlantı sorunlarını giderme hakkında bilgi edinin.
 keywords: mariadb bağlantı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası
 services: mariadb
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mariadb
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 63ccb2fe73a411ac7e4fca663f0d6b47647c02f4
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0100fa6d9691c864de9ac4aaea04b647e1705872
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347739"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565148"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı bağlantı sorunlarını giderme
 

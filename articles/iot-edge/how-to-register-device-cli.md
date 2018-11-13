@@ -2,19 +2,19 @@
 title: Yeni bir Azure IOT Edge cihazı (CLI) kaydetme | Microsoft Docs
 description: Yeni bir IOT Edge cihazı kaydetmek için Azure CLI için IOT uzantısını kullanma
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998041"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569259"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme
 
@@ -30,7 +30,7 @@ Bu makalede, Azure CLI kullanarak yeni bir IOT Edge cihazı kaydettirmek göster
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. 
 * [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
 
-## <a name="create-a-device"></a>Bir cihaz oluşturma
+## <a name="create-a-device"></a>Cihaz oluşturma
 
 IOT hub'ına yeni bir cihaz kimliği oluşturmak için aşağıdaki komutu kullanın: 
 

@@ -1,51 +1,51 @@
 ---
-title: Yeni bir Azure IOT kenar cihaz (portal) kaydetme | Microsoft Docs
-description: Yeni bir IOT sınır cihazı kaydetmek için Azure portalını kullanın
+title: Yeni bir Azure IOT Edge cihazı (portal) kaydetme | Microsoft Docs
+description: Yeni bir IOT Edge cihazı kaydetmek için Azure portalını kullanma
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b61594469df33e11c23c9cbe0b9542da374fefa3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6657203c76bc03a262fbcbd30b5bf74b5be140eb
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036307"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577507"
 ---
-# <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Azure portalından yeni bir Azure IOT kenar cihaz kaydetme
+# <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Azure portalında yeni bir Azure IOT Edge cihazı kaydedin
 
-IOT cihazlarınızı Azure IOT Edge kullanmadan önce bunları IOT hub'ınıza kaydetmeniz gerekir. Bir cihaz kaydettiğinizde, kenar iş yükleri için Cihazınızı ayarlamak için kullanılan bir bağlantı dizesi alırsınız. 
+IOT cihazlarınızı Azure IOT Edge ile kullanabilmeniz için önce bunları IOT hub'ınıza kaydetmeniz gerekir. Bir cihaz kaydettiğinizde, Edge iş yükleri için Cihazınızı ayarlamak için kullanılan bir bağlantı dizesi alır. 
 
-Bu makalede, Azure Portalı'nı kullanarak yeni bir IOT sınır cihazı kaydetmek gösterilmiştir.
+Bu makalede, Azure portalını kullanarak yeni bir IOT Edge cihazı kaydettirmek gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizde. 
+* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki. 
 
-## <a name="create-a-device"></a>Bir cihaz oluşturma
+## <a name="create-a-device"></a>Cihaz oluşturma
 
-Azure portalında IOT sınır cihazları oluşturulur ve IOT hub'ınıza bağlanın ancak kenar etkin olmayan cihazlardan ayrı olarak yönetilir. 
+Azure portalında, IOT Edge cihazları oluşturulur ve IOT hub'ınıza bağlanmak, ancak edge etkin olmayan cihazlardan ayrı olarak yönetilir. 
 
-1. Oturum [Azure portal](https://portal.azure.com) ve IOT hub'ına gidin. 
-2. Seçin **IOT kenar** menüsünde.
-3. Seçin **IOT sınır cihazı eklemek**. 
-4. Açıklayıcı cihaz kimliğini sağlayın 
+1. Oturum [Azure portalında](https://portal.azure.com) ve IOT hub'ınıza gidin. 
+2. Seçin **IOT Edge** menüsünde.
+3. Seçin **IOT Edge cihazı Ekle**. 
+4. Açıklayıcı bir cihaz kimliği sağlayın. 
 5. **Kaydet**’i seçin. 
 
-## <a name="view-all-devices"></a>Tüm cihazları görüntüleme
+## <a name="view-all-devices"></a>Tüm cihazları görüntüle
 
-IOT hub'ınıza bağlanan tüm kenar özellikli aygıtları listelendiğini **IOT kenar** sayfası. 
+IOT hub'ınıza bağlanan tüm edge özellikli cihazlar listelenir **IOT Edge** sayfası. 
 
 ## <a name="retrieve-the-connection-string"></a>Bağlantı dizesi alma
 
-Cihazınızı ayarlamak hazır olduğunuzda, fiziksel kimliğini IOT hub'ında cihazınızla bağlanan bağlantı dizesi gerekiyor.
+Cihazınızı ayarlamak hazır olduğunuzda, fiziksel cihazınızın IOT hub'ında kimliği ile bağlanan bağlantı dizesine ihtiyacınız vardır.
 
-1. Gelen **IOT kenar** sayfasında Portalı'nda, sınır cihazları listesinden cihaz Kimliği'i tıklatın. 
-2. Ya da değerini kopyalayın **bağlantı dizesi — birincil anahtar** veya **bağlantı dizesi — ikincil anahtar**. 
+1. Gelen **IOT Edge** sayfasında Portalı'nda, uç cihazlarında listesinden bir cihaz kimliği tıklayın. 
+2. Ya da değeri kopyalayın **bağlantı dizesi (birincil anahtar)** veya **bağlantı dizesi (ikincil anahtarı)**. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için nasıl [modülleri Azure portal ile bir aygıta dağıtmak](how-to-deploy-modules-portal.md)
+Bilgi edinmek için nasıl [modülleri Azure portalıyla bir cihaza dağıtın](how-to-deploy-modules-portal.md)

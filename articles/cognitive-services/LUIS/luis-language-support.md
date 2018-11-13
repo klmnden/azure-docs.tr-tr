@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: ce0a2f36ca11c704062deb28bf47c45a91a32222
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a26fa1f64f1ef8ecef8140b1feab89fdd57875fe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435599"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569208"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS dil ve bölge desteği
 
@@ -32,14 +32,14 @@ LUIS, konuşma şu dillerde anlar:
 | Dil |Yerel Ayar  |  Önceden oluşturulmuş etki alanı | Önceden oluşturulmuş varlık | Tümcecik önerileri | **[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Duygu ve<br>Anahtar sözcükleri)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikan İngilizcesi |`en-US` | ✔ | ✔  |✔|✔|
-| Kanada Fransızcası |`fr-CA` |-|   -   |-|✔|
 | *[Çince](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Hollanda dili |`nl-NL` |-|  -   |-|✔|
+| Felemenkçe |`nl-NL` |-|  -   |-|✔|
 | Fransızca (Fransa) |`fr-FR` |-| ✔ |✔ |✔|
-| Almanca |`de-DE` |-| ✔ |✔ |✔|
+| Fransızca (Kanada) |`fr-CA` |-|   -   |-|✔|
+| Almanca  |`de-DE` |-| ✔ |✔ |✔|
 | İtalyanca |`it-IT` |-| ✔ |✔|✔|
 | *[Japonca](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Yalnızca anahtar ifade|
-| Kore dili |`ko-KR` |-|   -   |-|Yalnızca anahtar ifade|
+| Korece |`ko-KR` |-|   -   |-|Yalnızca anahtar ifade|
 | Portekizce (Brezilya) |`pt-BR` |-| ✔ |✔ |tüm alt kültürler|
 | İspanyolca (İspanya) |`es-ES` |-| ✔ |✔|✔|
 | İspanyolca (Meksika)|`es-MX` |-|  -   |✔|✔|
@@ -81,14 +81,14 @@ Makine öğrenimi için LUIS bir utterance keser [belirteçleri](luis-glossary.m
 |Dil|  her alanı ya da özel karakter | karakter düzeyi|Bileşik sözcüklerin|[parçalanmış varlık döndürdü](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Çince||✔||✔|
-|Hollanda dili|||✔|✔|
+|Felemenkçe|||✔|✔|
 |İngilizce (en-us)|✔ ||||
 |Fransızca (fr-FR)|✔||||
 |Fransızca (fr-CA)|✔||||
-|Almanca|||✔|✔|
+|Almanca |||✔|✔|
 |İtalyanca|✔||||
 |Japonca||||✔|
-|Kore dili||✔||✔|
+|Korece||✔||✔|
 |Portekizce (Brezilya)|✔||||
 |İspanyolca (es-ES)|✔||||
 |İspanyolca (es-MX)|✔||||

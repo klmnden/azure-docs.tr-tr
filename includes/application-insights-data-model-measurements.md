@@ -1,9 +1,22 @@
-Özel ölçüler koleksiyonu. Bu koleksiyona telemetri öğeyle ilişkili ölçüm adlı raporu kullanın. Genel kullanım örnekleri şunlardır:
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572839"
+---
+Özel ölçümler koleksiyonu. Bu koleksiyona telemetri öğeyle ilişkili ölçüm adlı raporu kullanın. Tipik kullanım örnekleridir:
 - Bağımlılık Telemetrisi yükü boyutu
-- Telemetri isteği tarafından işlenen sıra öğelerin sayısı
-- zaman o müşteri sürdü Sihirbazı Adım tamamlama olayı Telemetri adımda tamamlamak için.
+- İstek Telemetri tarafından işlenen kuyruk öğe sayısı
+- Bu müşteri sürdü Sihirbazı Adım tamamlandı olay Telemetri adımda tamamlanması zaman.
 
-Sorgulayabileceğiniz [özel ölçümleri](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) uygulama analytics'te:
+Sorgulayabilirsiniz [özel ölçümleri](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) Application analytics'te:
 
 ```
 customEvents
@@ -12,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Özel ölçüler ait telemetri öğesi ile ilişkilendirilmiş. Bu ölçümler içeren telemetri öğesiyle tabi örnekleme oldukları. Diğer telemetri türlerinden bağımsız bir değere sahip bir ölçü izlemek için [ölçüm telemetri](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Özel ölçümler, ait oldukları telemetri öğesinin ile ilişkilidir. Bu ölçüler içeren telemetri öğeyle tabi örnekleme değildirler. Diğer telemetri türleri bağımsız bir değere sahip bir ölçüm izlemek için [ölçüm telemetri](../articles/application-insights/app-insights-api-custom-events-metrics.md).
 
 En fazla anahtar uzunluğu: 150
