@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2bee2211846125e47ab8e8e7638f388bd819e5b4
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300889"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515599"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -64,12 +64,13 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 - **Kubernetes Market öğesi**. Şimdi kullanarak Kubernetes kümelerini dağıtmayı [Kubernetes Market öğesi](azure-stack-solution-template-kubernetes-cluster-add.md). Kullanıcılar, Kubernetes öğeyi seçin ve Azure Stack'e bir Kubernetes kümesi dağıtmak için bazı parametreleri doldurun. Şablonları amacı, geliştirme/test Kubernetes dağıtımları birkaç adımda ayarlamak için kullanıcılara basit olmasını sağlamaktır.
 
 <!-- | IS ASDK--> 
-- **Blok zinciri şablonları**. Artık yürütebilir [Ethereum consortium dağıtımları](user/azure-stack-ethereum.md) Azure Stack'te. Üç yeni şablonlarında bulabilirsiniz [Azure Stack hızlı başlangıç şablonlarından](https://github.com/Azure/AzureStack-QuickStart-Templates). Bunlar dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum ağ yapılandırma izin verin. Şablonları amacı, geliştirme/test Blockchain dağıtımları birkaç adımda ayarlamak için kullanıcılara basit olmasını sağlamaktır.
+- **Blok zinciri şablonları**. Artık yürütebilir [Ethereum consortium dağıtımları](user/azure-stack-ethereum.md) Azure Stack'te. Üç yeni şablonlarında bulabilirsiniz [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates). Bunlar dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum ağ yapılandırma izin verin. Şablonları amacı, geliştirme/test Blockchain dağıtımları birkaç adımda ayarlamak için kullanıcılara basit olmasını sağlamaktır.
 
 <!-- | IS ASDK--> 
 - **API Sürüm profili 2017-03-09-profile 2018-03-01-karma güncelleştirildi**. API profillerini Azure kaynak sağlayıcısı ve Azure REST uç noktaları için API sürümü belirtin. Profilleri hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### <a name="fixed-issues"></a>Düzeltilen sorunlar
+### <a name="fixed-issues"></a>Düzeltilen sorunlar
+
 <!-- IS ASDK--> 
 - Bir kullanılabilirlik kümesi Portal'da bulunan ve bir hata etki alanı ve 1 güncelleştirme etki alanına sahip kümesinde sonuçlandı oluşturmaya yönelik bir sorunu düzelttik. 
 
@@ -162,7 +163,7 @@ Bu güncelleştirme ayrıca L1 Terminal içinde açıklanan hata (L1TF) olarak b
 > Azure Stack dağıtımınıza uzantısı konağı için hazır olun. Aşağıdaki yönergeleri kullanarak sisteminizi hazırlama [hazırlamak için Azure Stack için uzantısı konağı](azure-stack-extension-host-prepare.md).
 
 Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
@@ -266,7 +267,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
       1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
       2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
    2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
-      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4468920/).
+      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4471992/).
       2. Bağlantısındaki [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
       
 <!-- 3179561 - IS --> 
