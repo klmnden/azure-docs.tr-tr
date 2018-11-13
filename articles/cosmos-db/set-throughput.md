@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 49682a2d9ec5d3ce7c2139dc8b2e2fd6a1c3ec18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278897"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236798"
 ---
 # <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Cosmos DB kapsayıcıları ve veritabanları için sağlama aktarım hızı
 
@@ -27,7 +27,7 @@ Bir kapsayıcı sağlanan aktarım hızı ayarlama yaygın olarak kullanılan bi
 
 Garantili performans kapsayıcısı için istediğiniz zaman, kapsayıcı ayrıntı düzeyinde aktarım hızı yapılandırmanız önerilir.
 
-Bir Cosmos kapsayıcı sağlanan aktarım hızı, tüm mantıksal bölümler kapsayıcının eşit dağıtılır. Kaynak bölümü tarafından barındırılan bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı olduğundan, fiziksel bölümler yalnızca kapsayıcıya ait ve kapsayıcıdaki sağlanmış olan aktarım hızı destekler. Aşağıdaki görüntüde, kaynak bölümü bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı nasıl barındıran gösterilmektedir:
+Bir Cosmos kapsayıcı sağlanan aktarım hızı, tüm mantıksal bölümler kapsayıcının eşit dağıtılır. Kaynak bölümü tarafından barındırılan bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı olduğundan, kaynak bölümler yalnızca kapsayıcıya ait ve kapsayıcıdaki sağlanmış olan aktarım hızı destekler. Aşağıdaki görüntüde, kaynak bölümü bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı nasıl barındıran gösterilmektedir:
 
 ![Kaynak bölümü](./media/set-throughput/resource-partition.png)
 
@@ -49,7 +49,7 @@ Birden çok kapsayıcıya aktarım hızı paylaşmak istediğiniz, ancak belirli
 
 Belirli bir anda zaman, tüm mantıksal bölümler bu kapsayıcı, bir veritabanı içinde bir kapsayıcıya ayrılan aktarım hızı dağıtılır. Aktarım hızı seçmeli olarak sağlanan aktarım hızı bir veritabanında paylaşımı kapsayıcılar varsa, belirli bir kapsayıcı veya mantıksal bir bölümü için uygulanamıyor. Bir mantıksal bölüm iş yüküne en fazla aktarım hızı belirli bir mantıksal birime atanan kullanırsa, işlemlerinizin oranı sınırlı olur. Hız sınırlama ortaya çıktığında, kapsayıcının tamamı verimliliğini artırmak veya işlemi yeniden deneyin. Bölümleme hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md).
 
-Bir veritabanı için sağlanan işleme paylaşımı birden çok mantıksal bölümleri tek kaynak bölüm üzerinde barındırılabilir. Tek bir mantıksal bölüm kapsayıcısının her zaman içinde kaynak bölümü kapsamlıdır, ancak 'L' 'C' kapsayıcıları için sağlanan aktarım hızına bir veritabanının paylaşımı arasında mantıksal bölümler eşlenen ve 'R' fiziksel bölümler barındırılan. Kaynak bölümü farklı bir veritabanı kapsayıcılara ait bir veya daha fazla mantıksal bölümler nasıl barındırabilir, aşağıdaki resimde gösterilmektedir:
+Bir veritabanı için sağlanan işleme paylaşımı birden çok mantıksal bölümleri tek kaynak bölüm üzerinde barındırılabilir. Tek bir mantıksal bölüm kapsayıcısının her zaman içinde kaynak bölümü kapsamlıdır, ancak 'L' 'C' kapsayıcıları için sağlanan aktarım hızına bir veritabanının paylaşımı arasında mantıksal bölümler eşlenen ve 'R' kaynak bölümler üzerinde barındırılan. Kaynak bölümü farklı bir veritabanı kapsayıcılara ait bir veya daha fazla mantıksal bölümler nasıl barındırabilir, aşağıdaki resimde gösterilmektedir:
 
 ![Kaynak bölümü](./media/set-throughput/resource-partition2.png)
 

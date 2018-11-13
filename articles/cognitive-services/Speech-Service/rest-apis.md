@@ -11,7 +11,7 @@ ms.date: 05/09/2018
 ms.author: erhopf
 ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
 ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2018
 ms.locfileid: "51038612"

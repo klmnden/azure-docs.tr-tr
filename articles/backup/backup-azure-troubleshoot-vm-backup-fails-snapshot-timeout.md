@@ -11,7 +11,7 @@ ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51260508"
