@@ -452,38 +452,40 @@ items:
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
     - name: Maven’i desteklemek için eski Java Uygulamasını geçirme
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
-  - name: Bir Windows/VS geliştirme ortamında çalışma
+  - name: IDE içinde çalışma
     items:
-    - name: Visual Studio'da uygulamaları yönetme
-      href: service-fabric-manage-application-in-visual-studio.md
-    - name: Visual Studio'da güvenli bağlantı yapılandırma
-      href: service-fabric-visualstudio-configure-secure-connections.md
-    - name: Visual Studio’da .NET hizmetinde hata ayıklama
-      href: service-fabric-debugging-your-application.md
-    - name: Service Fabric ve VS ile Windows kapsayıcı hatalarını ayıklama
-      href: service-fabric-how-to-debug-windows-containers.md
-    - name: Genel hatalar ve özel durumlar
-      href: service-fabric-errors-and-exceptions.md
-    - name: Yerel olarak izleme ve tanılama
-      href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
-    - name: Windows'da Linux kümesi ayarlama
-      href: service-fabric-local-linux-cluster-windows.md
-  - name: Bir Linux/Eclipse geliştirme ortamında çalışma
-    items:
-    - name: Java ile geliştirme için Eclipse eklentisini kullanmaya başlama
-      href: service-fabric-get-started-eclipse.md
-    - name: Eclipse’te Java hizmeti hata ayıklaması
-      href: service-fabric-debugging-your-application-java.md
-    - name: Yerel olarak izleme ve tanılama
-      href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
-  - name: Bir VS Code ortamında çalışma
-    items:
-    - name: VS Code'u kullanmaya başlama
-      href: service-fabric-get-started-vs-code.md
-    - name: VS Code ile C# Service Fabric uygulamaları geliştirme
-      href: service-fabric-develop-csharp-applications-with-vs-code.md
-    - name: VS Code ile Java Service Fabric uygulamaları geliştirme
-      href: service-fabric-develop-java-applications-with-vs-code.md
+    - name: Bir Windows/VS geliştirme ortamında çalışma
+      items:
+      - name: Visual Studio'da uygulamaları yönetme
+        href: service-fabric-manage-application-in-visual-studio.md
+      - name: Visual Studio'da güvenli bağlantı yapılandırma
+        href: service-fabric-visualstudio-configure-secure-connections.md
+      - name: Visual Studio’da .NET hizmetinde hata ayıklama
+        href: service-fabric-debugging-your-application.md
+      - name: Service Fabric ve VS ile Windows kapsayıcı hatalarını ayıklama
+        href: service-fabric-how-to-debug-windows-containers.md
+      - name: Genel hatalar ve özel durumlar
+        href: service-fabric-errors-and-exceptions.md
+      - name: Yerel olarak izleme ve tanılama
+        href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
+      - name: Windows'da Linux kümesi ayarlama
+        href: service-fabric-local-linux-cluster-windows.md
+    - name: Bir Linux/Eclipse geliştirme ortamında çalışma
+      items:
+      - name: Java ile geliştirme için Eclipse eklentisini kullanmaya başlama
+        href: service-fabric-get-started-eclipse.md
+      - name: Eclipse’te Java hizmeti hata ayıklaması
+        href: service-fabric-debugging-your-application-java.md
+      - name: Yerel olarak izleme ve tanılama
+        href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Bir VS Code ortamında çalışma
+      items:
+      - name: VS Code'u kullanmaya başlama
+        href: service-fabric-get-started-vs-code.md
+      - name: VS Code ile C# Service Fabric uygulamaları geliştirme
+        href: service-fabric-develop-csharp-applications-with-vs-code.md
+      - name: VS Code ile Java Service Fabric uygulamaları geliştirme
+        href: service-fabric-develop-java-applications-with-vs-code.md
   - name: Cloud Services’tan geçiş
     items:
     - name: Cloud Services ile Service Fabric karşılaştırması
@@ -761,9 +763,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 33a243d89888bcb34d9c23a100643876f6eb4b53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a7549a3544fb40527e0526bfb5c7db424b0d014a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241302"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567817"
