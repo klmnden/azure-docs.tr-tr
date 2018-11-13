@@ -4,17 +4,17 @@ description: Azure İlkesi, Azure ortamında ilke tanımlarınızı oluşturmak,
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961289"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252828"
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
@@ -35,12 +35,14 @@ Azure İlkesi, ilkelerinizi oluşturmak, atamak ve yönetmek için kullandığı
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure İlkesi'ndeki RBAC İzinleri
 
-Azure İlkesi, iki farklı Kaynak Sağlayıcısındaki işlemler olarak temsil edilen izinlere sahiptir:
+Azure İlkesi iki Kaynak Sağlayıcısı’nda işlemler olarak bilinen bazı izinlere sahiptir:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Yerleşik rollerin birçoğu Azure İlkesi kaynaklarında farklı izin düzeylerine sahiptir. Örneğin **Güvenlik Yöneticisi** ilke atamalarını ve tanımlarını yönetebilir ancak uyumluluk bilgilerini görüntüleyemez. **Okuyucu** ise ilke atamaları ve tanımlarıyla ilgili ayrıntılı bilgileri okuyabilir ancak uyumluluk bilgilerini görüntüleyemez ve üzerinde değişiklik yapamaz. **Sahip** tüm haklara sahipken **Katılımcı**, herhangi bir Azure İlkesi iznine sahip değildir. İlke uyumluluk ayrıntılarını görüntüleme izni vermek için [özel rol](../../role-based-access-control/custom-roles.md) oluşturun.
+Birçok Yerleşik rol Azure İlkesi kaynaklarına izin verir. **Kaynak İlkesine Katkıda Bulunan (Önizleme)** rolü İlke işlemlerinin çoğunu içerir ve **Sahip** rolü tüm haklara sahiptir. Hem **Katkıda Bulunan** hem de **Okuyucu** rolü İlkeyle ilgili tüm ayrıntıları okuyabilir ancak **Katkıda Bulunan** düzeltmeler de tetikleyebilir.
+
+Yerleşik rollerin hiçbirinde gerekli izinler yoksa [özel rol](../../role-based-access-control/custom-roles.md) oluşturun.
 
 ## <a name="policy-definition"></a>İlke tanımı
 

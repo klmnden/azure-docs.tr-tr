@@ -1,21 +1,22 @@
 ---
-title: Azure CLI Betiği-Azure Cosmos DB için çok bölgeli çoğaltma | Microsoft Docs
-description: Azure CLI Betiği Örneği - Azure Cosmos DB için çok bölgeli çoğaltma
+title: Azure CLI Betiği-Azure Cosmos DB Tablo API’si hesabı, veritabanı ve tablosu oluşturma | Microsoft Docs
+description: Azure CLI Betiği Örneği - Azure Cosmos DB Tablo API'si hesabı, veritabanı ve tablosu oluşturma
 author: markjbrown
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: d9f1420b5d2706ed4547e46639739c0f707559ab
+ms.openlocfilehash: 178ecfe6971a47009781d8866986d936f8e3a5d2
 ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015219"
+ms.locfileid: "51019591"
 ---
-# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Azure CLI kullanarak bir Azure Cosmos DB veritabanı hesabını birden çok bölgede çoğaltma ve yük devretme önceliklerini yapılandırma
+# <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>Azure Cosmos DB: Azure CLI kullanarak bir Tablo API'si hesabı oluşturma
 
-Bu örnek, Azure CLI kullanarak herhangi bir türden Azure Cosmos DB veritabanı hesabını birden çok bölgede çoğaltır ve yük devretme önceliklerini yapılandırır.
+Bu örnek CLI betiği, Azure Cosmos DB Tablo API'si hesabı, veritabanı ve tablosu oluşturur.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -23,7 +24,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh "Scale Azure Cosmos DB into multiple regions, change fail-over regions")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-table-account/create-cosmosdb-table-account.sh "Create an Azure Cosmos DB Table API account, database, and table.")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
@@ -40,8 +41,10 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 | Komut | Notlar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Azure Cosmos DB hesabını güncelleştirir. |
-| [az group delete](/cli/azure/group#az-group-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB hesabı oluşturur. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Azure Cosmos DB veritabanı oluşturur. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Azure Cosmos DB tablosu oluşturur. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

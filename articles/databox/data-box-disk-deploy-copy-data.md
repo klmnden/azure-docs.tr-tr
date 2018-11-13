@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092465"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913831"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Öğretici: Verileri Azure Data Box Disk'e kopyalama ve doğrulama
 
@@ -31,14 +31,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Başlamadan önce aşağıdakilerden emin olun:
 - [Öğretici: Azure Data Box Disk'inizi takma ve yapılandırma](data-box-disk-deploy-set-up.md) adımlarını tamamladınız.
 - Disklerinizin kilitleri açılır ve diskler bir istemci bilgisayara bağlanır.
-- Disklere veri kopyalamak için kullanılan istemci bilgisayar [Desteklenen işletim sistemi](data-box-disk-system-requirements.md) çalıştırmalıdır.
+- Disklere veri kopyalamak için kullanılan istemci bilgisayar [Desteklenen işletim sistemi](data-box-disk-system-requirements.md##supported-operating-systems-for-clients) çalıştırmalıdır.
+- Verileriniz için hedeflenen depolama türünün [Desteklenen depolama türleri](data-box-disk-system-requirements.md#supported-storage-types) ile eşleştiğinden emin olun.
 
 
 ## <a name="copy-data-to-disks"></a>Disklere veri kopyalama
 
 Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak için aşağıdaki adımları gerçekleştirin.
 
-1. Kilidi açılan sürücünün içeriğini görüntüleyin. 
+1. Kilidi açılan sürücünün içeriğini görüntüleyin.
 
     ![Sürücü içeriğini görüntüleme](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -229,7 +230,7 @@ Kopyalama işlemi tamamlandıktan sonra gerçekleştirmeniz gereken adım verile
 
 Verileri doğrulamak için aşağıdaki adımları uygulayın.
 
-1. Sağlama toplamı doğrulaması için sürücünüzün *AzureImportExport* klasöründe `DataBoxDiskValidation.cmd` komutunu çalıştırın. 
+1. Sağlama toplamı doğrulaması için sürücünüzün *DataBoxDiskImport* klasöründe `DataBoxDiskValidation.cmd` komutunu çalıştırın. 
     
     ![Data Box Diski doğrulama aracı çıktısı](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167367"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963855"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Öğretici: Azure Data Box Edge kurulumu (Önizleme)
 
@@ -111,8 +111,14 @@ Cihazınızın kablolarını bağlamaya başlamadan önce şunlara ihtiyacınız
 
 - Kutusu açılmış, ambalajından çıkarılmış ve rafa monte edilmiş Edge fiziksel cihazınız.
 - İki güç kablosu. 
-- İki 1 GbE RJ-45 ağ kablosu ve dört 25 GbE SFP+ bakır kablo.
+- Yönetim arabirimine bağlamak için en az bir 1-GbE RJ-45 ağ kablosu. Cihazda biri yönetim ve diğeri veri olmak üzere iki 1-GbE ağ arabirimi vardır.
+- Yapılandırılacak her veri ağı arabirimi için bir 25-GbE SFP+ bakır kablo. En az bir veri ağı arabiriminin (PORT 2, PORT 3, PORT 4, PORT 5 veya PORT 6) İnternete bağlı olması gerekir (Azure bağlantısı için).
 - İki Güç Dağıtım Birimine erişim (önerilir).
+
+> [!NOTE]
+> - Tek bir veri ağı arabirimini bağlıyorsanız Azure'a veri göndermek için 25 GbE ağ arabirimlerinden birini (PORT 3, PORT 4, PORT 5 veya PORT 6 gibi) kullanmanızı öneririz. 
+> - En iyi performansı elde etmek ve büyük miktarda veriyi işlemek için tüm veri bağlantı noktalarını bağlamak isteyebilirsiniz.
+> - Edge cihazının veri kaynağı sunucularından veri alabilmesi için veri merkezi ağına bağlı olması gerekir. 
 
 Edge cihazınızda 8 adet NVMe SSD vardır. Ayrıca ön panelde durum LED'i ve güç düğmeleri bulunur. Cihazın arkasında yedekli Güç Kaynağı Birimleri (PSU) vardır. Cihazınızda altı ağ arabirimi bulunur: iki 1 Gbps arabirim ve dört 25 Gbps arabirim. Cihazınızda temel kart yönetim denetleyicisi (BMC) bulunur. Cihazınızın arka yüzündeki bağlantı noktalarını inceleyin.
  
@@ -123,13 +129,7 @@ Cihazınızın güç ve ağ kablolarını bağlamak için aşağıdaki adımlar�
 1. Güç kablolarını kasadaki PSU'lara bağlayın. Yüksek kullanılabilirlik için iki PSU'yu da takın ve ayrı güç kaynaklarına bağlayın.
 2. Güç kablolarını raf güç dağıtım birimlerine (PDU) takın. İki PSU'nun ayrı güç kaynaklarını kullandığından emin olun.
 3. PORT 1 ile gösterilen 1 GbE ağ arabirimi fiziksel cihazı yapılandırmak için kullanılan bilgisayara bağlayın. PORT 1, yönetim için ayrılmış arabirimdir.
-4. PORT 2 ile gösterilen 1 GbE ağ arabirimini RJ-45 ağ kablolarıyla veri merkezi ağına/İnternete bağlayın. 
-5. PORT 3, PORT 4, PORT 5 ve PORT 6 ile gösterilen dört 25 GbE ağ arabirimini SFP+ bakır kablolarla veri merkezi ağına/İnternete bağlayın. 
-
-> [!NOTE]
-> - En az bir veri ağı arabiriminin (PORT 2, PORT 3, PORT 4, PORT 5 veya PORT 6) İnternete bağlı olması gerekir (Azure bağlantısı için). 
-> - Azure'a veri göndermek için 25 GbE ağ arabirimlerinden birini (PORT 3, PORT 4, PORT 5 veya PORT 6 gibi) kullanmanızı öneririz. 
-> - Edge cihazının veri kaynağı sunucularından veri alabilmesi için veri merkezi ağına bağlı olması gerekir.  
+4. PORT 2, PORT 3, PORT 4, PORT 5 veya PORT 6 bağlantı noktalarından birini veya birkaçını veri merkezi ağına/İnternete bağlayın. PORT 2’yi bağlıyorsanız, RJ-45 ağ kablosunu kullanın. 25-GbE ağ arabirimleri için SFP+ bakır kablolarını kullanın.  
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

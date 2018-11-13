@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/01/2018
-ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 2e7ac70f0e59c50a87e59c8c50db2a0805f20095
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063226"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911787"
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Veritabanı: SQL Server Management Studio kullanarak verileri bağlama ve sorgulama
+# <a name="quickstart-azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Hızlı Başlangıç: Azure SQL Veritabanı: SQL Server Management Studio kullanarak verileri bağlama ve sorgulama
 
 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) Microsoft Windows için SQL Server’dan SQL Veritabanı’na tüm SQL altyapılarını yönetebileceğiniz tümleşik bir ortamdır. Bu hızlı başlangıçta SSMS kullanarak bir Azure SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır. 
 

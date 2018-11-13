@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/07/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352669"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277979"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Öğretici: Federasyon etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
 
@@ -156,6 +156,8 @@ Bazı etki alanına katılmış cihazlar Windows alt düzey cihazlarıysa şunla
  
 - Cihaz kaydı için yerel intranet ayarlarını yapılandırma
 
+- Windows alt düzey cihazlarını denetleme 
+
 
 ### <a name="update-device-settings"></a>Cihaz ayarlarını güncelleştirme 
 
@@ -176,8 +178,6 @@ Windows aşağı düzey cihazlarınızın karma Azure AD'ye katılmasını başa
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - Kuruluşunuzun Güvenlik Belirteci Hizmeti (STS - federasyon etki alanları)
 
 - `https://autologon.microsoftazuread-sso.com` (Sorunsuz SSO için).
@@ -185,6 +185,10 @@ Windows aşağı düzey cihazlarınızın karma Azure AD'ye katılmasını başa
 Ayrıca, kullanıcının yerel intranet bölgesinde **Betik yoluyla durum çubuğu güncelleştirmelerine izin ver** seçeneğini etkinleştirmeniz gerekir.
 
 
+
+### <a name="control-windows-down-level-devices"></a>Windows alt düzey cihazlarını denetleme 
+
+Windows alt düzey cihazlarını kaydetmek için İndirme Merkezi’nden bir Windows Installer paketi (.msi) indirip yüklemeniz gerekir. Daha fazla bilgi için [buraya](hybrid-azuread-join-control.md#control-windows-down-level-devices) tıklayın. 
 
 ## <a name="verify-the-registration"></a>Kaydı doğrulama
 

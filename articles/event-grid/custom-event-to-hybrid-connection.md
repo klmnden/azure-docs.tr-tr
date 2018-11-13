@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: d56a07bf6fcb368f50e081a1f56b7cfb022c05ca
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042249"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747788"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure CLI ve Event Grid ile özel olayları Azure Relay Karma Bağlantılar’a yönlendirme
 
@@ -22,6 +22,8 @@ Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Azure Relay Karma 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu makalede zaten bir karma bağlantınız ve dinleyici uygulamanız olduğu varsayılmıştır. Karma bağlantıları kullanmaya başlamak için bkz. [Relay Karma Bağlantılar’ı kullanmaya başlama - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) veya [Relay Karma Bağlantılar’ı kullanmaya başlama - Düğüm](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -64,14 +66,17 @@ hybridname=<hybrid-name>
 
 relayid=$(az resource show --name $relayname --resource-group $relayrg --resource-type Microsoft.Relay/namespaces --query id --output tsv)
 hybridid="$relayid/hybridConnections/$hybridname"
+topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name <event_subscription_name> \
   --endpoint-type hybridconnection \
-  --endpoint $hybridid
+  --endpoint $hybridid \
+  --expiration-date "<yyyy-mm-dd>"
 ```
+
+Abonelik için bir [sona erme tarihi](concepts.md#event-subscription-expiration) belirlendiğine dikkat edin.
 
 ## <a name="create-application-to-process-events"></a>Olayları işlemek için uygulama oluşturma
 

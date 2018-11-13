@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 23478a1f72a4b74bcacf27d3b18116250eb6bfff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4e7b6d5c2f84f7d385709dc780507c262081757a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984662"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280601"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -67,7 +67,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Verileri bir HDInsight kümesine yükleme
 
-Bir HDInsight kümesiyle ilişkili depolama birimine veri yüklemenin birçok yolu vardır. Bu bölümde, verileri karşıya yüklemek için `scp` kullanacaksınız. Diğer veri yükleme yöntemleri hakkında bilgi edinmek için bkz. [Azure Depolama Blogları ile Data Lake Storage Gen2 Önizleme arasında veri kopyalamak için Distcp kullanma](use-distcp.md).
+Bir HDInsight kümesiyle ilişkili depolama birimine veri yüklemenin birçok yolu vardır. Bu bölümde, verileri karşıya yüklemek için `scp` kullanacaksınız. Verileri karşıya yüklemenin diğer yolları hakkında bilgi edinmek için bkz. [Var olan bir depolama hesabı ile Data Lake Storage 2. Nesil etkinleştirilmiş yeni bir depolama hesabı arasında veri kopyalamak için Distcp kullanma](use-distcp.md).
 
 1. Bir komut istemi açın ve aşağıdaki komutu kullanarak .zip dosyasını HDInsight kümesinin baş düğümüne yükleyin:
 

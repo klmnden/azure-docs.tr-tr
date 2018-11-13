@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815384"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279220"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Öğretici: Özel Arama web sayfası oluşturma
 
@@ -34,7 +34,7 @@ Ele alınan görevler şunlardır:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Öğreticiyi takip edebilmek için Bing Özel Arama API'si için bir abonelik anahtarına ihtiyacınız olacaktır.  Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+- Öğreticiyi takip edebilmek için Bing Özel Arama API'si için bir abonelik anahtarına ihtiyacınız olacaktır.  Anahtar almak için bkz. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz.
 
 ## <a name="create-a-custom-search-instance"></a>Özel arama örneği oluşturma
@@ -79,7 +79,7 @@ Sonuçlardan hariç tutmak istediğiniz web sitelerini veya URL'leri **Engellend
 
 ## <a name="add-pinned-entries"></a>Sabitlenmiş girişleri ekleme
 
-Belirli bir web sayfasını arama sonuçlarının en üstüne sabitlemek için ilgili web sayfasını ve sorgu terimini **Sabitlendi** sekmesine ekleyin. **Sabitlendi** sekmesinde belirli bir arama sonucu için ilk sırada görünen web sayfasını belirten web sayfası ve sorgu terimi çiftlerinin listesi bulunur. Web sayfası yalnızca kullanıcının sorgu dizesinin sabitleme eşleme koşuluna göre sabitlenen sorgu dizesiyle eşleşmesi durumunda sabitlenir. [Daha fazla bilgi edinin](../define-your-custom-view.md#pin-to-top).
+Belirli bir web sayfasını arama sonuçlarının en üstüne sabitlemek için ilgili web sayfasını ve sorgu terimini **Sabitlendi** sekmesine ekleyin. **Sabitlendi** sekmesinde belirli bir arama sonucu için ilk sırada görünen web sayfasını belirten web sayfası ve sorgu terimi çiftlerinin listesi bulunur. Web sayfası yalnızca kullanıcının sorgu dizesinin sabitleme eşleme koşuluna göre sabitlenen sorgu dizesiyle eşleşmesi durumunda sabitlenir. Aramalarda yalnızca dizine alınmış web sayfaları görüntülenir. Daha fazla bilgi için bkz. [Özel görünümünüzü tanımlama](../define-your-custom-view.md#pin-to-top).
 
 1. **Yapılandırma** sayfasında **Sabitlendi** sekmesine tıklayın ve ilk sırada döndürülmesini istediğiniz web sayfasını ve sorgu terimini girin.  
   

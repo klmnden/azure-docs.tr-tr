@@ -4,21 +4,21 @@ description: Yapıt oluşturmak, tanımlamak ve dağıtmak için Azure Blueprint
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974213"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283555"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API ile Azure Blueprint Tanımlama ve Atama
 
-Azure'da şema oluşturma ve atama süreçlerini anlamak kuruluşların ortak tutarlılık desenleri tanımlamalarını ve Resource Manager şablonlarını, ilkelerini, güvenlik düzeyini ve daha fazlasını temel alan yeniden kullanılabilir ve hızla dağıtılabilir yapılandırmalar geliştirmesini sağlar. Bu öğreticide kuruluşunuzda aşağıdakiler gibi şema oluşturma, yayımlama ve atama konusundaki yaygın görevlerin bazılarını yerine getirmek için Azure Blueprints'i kullanmayı öğreneceksiniz:
+Şema oluşturma ve atama süreçlerini anlamak, ortak tutarlılık desenlerini tanımlamanızı ve Resource Manager şablonlarını, ilkelerini, güvenlik düzeyini ve daha fazlasını temel alan yeniden kullanılabilir ve hızla dağıtılabilir yapılandırmalar geliştirmenizi sağlar. Bu öğreticide kuruluşunuzda aşağıdakiler gibi şema oluşturma, yayımlama ve atama konusundaki yaygın görevlerin bazılarını yerine getirmek için Azure Blueprints'i kullanmayı öğreneceksiniz:
 
 > [!div class="checklist"]
 > - Yeni bir şema oluşturma ve çeşitli desteklenen yapıtlar ekleme
@@ -33,6 +33,8 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="getting-started-with-rest-api"></a>REST API'sini kullanmaya başlama
 
 REST API konusunda bilginiz yoksa özellikle istek URI'si ve istek gövdesi olmak üzere REST API hakkında genel bilgi edinmek için [Azure REST API Başvurusu](/rest/api/azure/) sayfasını inceleyerek başlayın. Bu makalede Azure Blueprints ile çalışmak üzere yönlendirme yapmak için bu kavramlar kullanılmakta ve bunları bildiğiniz kabul edilmektedir. [ARMClient](https://github.com/projectkudu/ARMClient) gibi araçlar yetkilendirme adımlarını otomatik olarak gerçekleştirebilir ve bu nedenle yeni başlayanlar için önerilir.
+
+Blueprints belirtimleri için bkz. [Azure Blueprints REST API’si](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>REST API ve PowerShell
 
@@ -59,7 +61,7 @@ Aboneliğiniz hakkında bilgi almak için yukarıdaki **$restUri** değişkeni i
 
 ## <a name="create-a-blueprint"></a>Şema oluşturma
 
-Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumdaki kaynaklardan bir şema oluşturmaktır. Bu örnekte abonelik için rol ve ilke atamalarını yapılandırmak için 'MyBlueprint' adlı bir şema oluşturacak, kaynak grubu ekleyecek ve kaynak grubunda Resource Manager şablonu ve rol ataması oluşturacaksınız.
+Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumdaki kaynaklardan bir şema oluşturmaktır. Abonelik için rol ve ilke atamalarını yapılandırmak üzere 'MyBlueprint' adlı bir şema oluşturacağız. Ardından bir kaynak grubu ekleyecek ve bu kaynak grubuna da bir Resource Manager şablonu ve rol ataması ekleyeceğiz.
 
 > [!NOTE]
 > REST API kullanıldığında ilk olarak _şema_ nesnesi oluşturulur. Eklenecek ve parametreye sahip olan her _yapıt_ için parametrelerin önceden ilk _şema_ içinde tanımlanması gerekir.
@@ -69,7 +71,7 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
 - `{YourMG}` - Yönetim grubunuzun adıyla değiştirin
 - `{subscriptionId}` - Abonelik kimliğinizle değiştirin
 
-1. İlk _şema_ nesnesini oluşturun. **İstek Gövdesi** şemayla ilgili özellikleri, oluşturulacak kaynak gruplarını ve atama sırasında ayarlanan ve sonraki adımlarda eklenecek yapıtlar tarafından kullanılan tüm şema düzeyi parametreleri içerir.
+1. İlk _şema_ nesnesini oluşturun. **İstek Gövdesi** şemayla ilgili özellikleri, oluşturulacak kaynak gruplarını ve tüm şema düzeyi parametreleri içerir. Parametreler atama sırasında ayarlanır ve sonraki adımlarda eklenecek yapıtlar tarafından kullanılır.
 
    - REST API URI'si
 
@@ -176,7 +178,7 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
      }
      ```
 
-1. Abonelikte Depolama etiketi için (_storageAccountType_ parametresini yeniden kullanarak) başka bir ilke ataması ekleyin. Bu ek ilke ataması yapıtı, şemada tanımlanan bir parametrenin birden fazla yapıt tarafından kullanılabileceğini gösterir. Örnekte **storageAccountType** kaynak grubunda bir sonraki adımda oluşturulan depolama hesabıyla ilgili bilgileri sağlamak için kullanılmıştır.
+1. Abonelikte Depolama etiketi için (_storageAccountType_ parametresini yeniden kullanarak) başka bir ilke ataması ekleyin. Bu ek ilke ataması yapıtı, şemada tanımlanan bir parametrenin birden fazla yapıt tarafından kullanılabileceğini gösterir. Örnekte kaynak grubunda etiket ayarlamak için **storageAccountType** kullanılmıştır. Bu değer, bir sonraki adımda oluşturulan depolama hesabıyla ilgili bilgi sağlar.
 
    - REST API URI'si
 
@@ -204,7 +206,7 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
      }
      ```
 
-1. Kaynak grubuna şablon ekleyin. Resource Manager şablonu **İstek Gövdesi** şablonun normal JSON bileşenini içerir, **properties.resourceGroup** ile hedef kaynak grubunu tanımlar ve **storageAccountType**, **tagName** ile **tagValue** şema parametrelerini şemaya sağlayarak yeniden kullanır. Şema parametreleri **properties.parameters** tanımlanarak şemaya sunulur ve bu anahtar/değer çifti şema JSON nesnesinde kullanılarak değer eklenir. Şema ve şablon parametresi adları aynı olabilir ancak burada şemadan şablon yapıtına geçirme işleminin gösterilmesi için farklı olarak belirlenmiştir.
+1. Kaynak grubuna şablon ekleyin. Bir Resource Manager şablonunun **İstek Gövdesi**, şablonun normal JSON bileşenini içerir ve **properties.resourceGroup** ile hedef kaynak grubunu tanımlar. Şablon aynı zamanda **storageAccountType**, **tagName** ve **tagValue** şema parametrelerini şablona geçirerek hepsini yeniden kullanır. Şema parametreleri **properties.parameters** tanımlanarak şemaya sunulur ve bu anahtar-değer çifti şema JSON nesnesinde kullanılarak değer eklenir. Şema ve şablon parametresi adları aynı olabilir ancak burada şemadan şablon yapıtına geçirme işleminin gösterilmesi için farklı olarak belirlenmiştir.
 
    - REST API URI'si
 
@@ -386,9 +388,9 @@ REST API kullanarak yayımlanan şemaları bir aboneliğe atayabilirsiniz. Oluş
      }
      ```
 
-## <a name="unassign-a-blueprint"></a>Şemanın atamasını kaldırma
+## <a name="unassign-a-blueprint"></a>Şema atamasını kaldırma
 
-Artık gerekli olmayan veya güncel desenlere, ilkelere ve tasarımlara sahip olan daha yeni şemalarla değiştirilen şemalar abonelikten kaldırılabilir. Bir şema kaldırıldığında o şemanın bir parçası olarak atanan yapıtlar geride kalır. Bir şemanın atamasını kaldırmak için aşağıdaki REST API işlemini kullanın:
+Bir şemayı abonelikten kaldırabilirsiniz. Kaldırma işlemi genellikle yapıt kaynaklarına ihtiyaç duyulmadığında gerçekleştirilir. Bir şema kaldırıldığında o şemanın bir parçası olarak atanan yapıtlar geride kalır. Bir şemanın atamasını kaldırmak için aşağıdaki REST API işlemini kullanın:
 
 - REST API URI'si
 

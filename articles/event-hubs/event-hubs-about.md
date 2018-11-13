@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 5493819efb32fa594cf27695b2ab5d1273225756
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f3f9abfb8373e7257237b39d16dfb3f36259ddd5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429907"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281923"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure Event Hubs nedir?
 
@@ -34,7 +34,7 @@ Event Hubs, aşağıdaki yaygın senaryoların bazılarında kullanılır:
 
 ## <a name="why-use-event-hubs"></a>Event Hubs’ı neden kullanmalıyım?
 
-Veriler ancak kolay bir şekilde işlenebildiğinde ve veri kaynaklarından tam zamanında içgörüler alındığında değerlidir. Event Hubs; düşük gecikme süresine sahip dağıtılmış bir akış işleme platformu ile tam kapsamlı bir Büyük Veri işlem hattı oluşturmak için Azure içindeki ve dışındaki veriler ve analiz hizmetleriyle sorunsuz bir tümleştirme sunar.
+Veriler ancak kolay bir şekilde işlenebildiğinde ve veri kaynaklarından tam zamanında içgörüler alındığında değerlidir. Event Hubs; düşük gecikme süresine sahip dağıtılmış bir akış işleme platformu ile tam kapsamlı Büyük Veri işlem hattınızı oluşturmak için Azure içindeki ve dışındaki veriler ve analiz hizmetleriyle sorunsuz bir tümleştirme sunar.
 
 Event Hubs bir olay işlem hattı için "ön kapı" görevi yapar ve çözüm mimarilerinde genelde *olay alıcı* olarak adlandırılır. Olay yutucu, bir olay akışının üretimini ilgili olayların kullanılmasına ayıran, olay yayımcıları ile olay tüketicileri arasında duran bir bileşen veya hizmettir. Event Hubs tutma süresi arabelleğine sahip birleştirilmiş akış platformu sunarak olay oluşturucuları olay tüketicilerinden ayırır. 
 
@@ -58,9 +58,9 @@ Event Hubs ile megabayt boyutunda veri akışlarıyla başlayıp gigabayt veya t
 
 ## <a name="rich-ecosystem"></a>Zengin ekosistem
 
-[Apache Kafka ekosistemleri için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md), [Apache Kafka (1.0 ve üzeri)](https://kafka.apache.org/) istemcilerinin ve uygulamalarının küme yönetmeye gerek kalmadan Event Hubs ile iletişim kurmasını sağlar.
+[Apache Kafka için Event Hubs ekosistemleri](event-hubs-for-kafka-ecosystem-overview.md), [Apache Kafka (1.0 ve üzeri)](https://kafka.apache.org/) istemcilerinin ve uygulamalarının küme yönetmeye gerek kalmadan Event Hubs ile iletişim kurmasını sağlar.
  
-Çeşitli [dillerde (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs) kullanılabilen geniş ekosistem sayesinde akışlarınızı Event Hubs'dan işlemeye kolayca başlayabilirsiniz. Desteklenen tüm istemci dilleri, düşük düzeyde tümleştirme sağlar.
+Çeşitli [dillerde (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs) kullanılabilen geniş ekosistem sayesinde akışlarınızı Event Hubs'dan işlemeye kolayca başlayabilirsiniz. Desteklenen tüm istemci dilleri, düşük düzeyde tümleştirme sağlar. Ekosistem, Stream Analytics ve Azure İşlevleri gibi Azure hizmetlerine sorunsuz tümleştirme sunarak sunucusuz mimariler oluşturmanızı da sağlar.
 
 ## <a name="key-architecture-components"></a>Temel mimari bileşenler
 

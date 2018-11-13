@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092702"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912129"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>API'nizin birden fazla sürümünü yayımlama 
 
@@ -37,8 +37,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-* Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
++ [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
++ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Yeni bir sürüm ekleme
 
@@ -48,8 +49,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 2. Bunun yanındaki bağlam menüsünü (**...**) seçin.
 3. **+ Sürüm Ekle** seçeneğini belirleyin.
 
-    > [!TIP]
-    > Sürümler yeni bir API’yi ilk kez oluşturduğunuzda da etkinleştirilebilir. Bunun için **API Ekle** ekranında **Bu API’nin sürümü oluşturulsun mu?** seçeneğini belirleyin.
+> [!TIP]
+> Sürümler yeni bir API’yi ilk kez oluşturduğunuzda da etkinleştirilebilir. Bunun için **API Ekle** ekranında **Bu API’nin sürümü oluşturulsun mu?** seçeneğini belirleyin.
 
 ## <a name="choose-a-versioning-scheme"></a>Sürüm oluşturma düzeni seçme
 
@@ -58,34 +59,38 @@ Azure API Management, çağıranlara istedikleri API sürümünü belirtme olana
 ![Sürüm ekle ekranı](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. **Sürüm oluşturma düzeniniz** olarak **yol** seçeneğini belirlenmiş halde bırakın.
-2. **v1**’i **Ad** ve **Sürüm tanımlayıcısı** olarak ekleyin.
+2. **Ad** alanına **demo-conference-api-v1** yazın.
+
+    > [!NOTE]
+    > Sürüm aslında API'nin düzeltmesine dayanan yeni bir API'dir. **Ad**, yeni API’nin adıdır ve API Management örneği genelinde benzersiz olmalıdır.
+
+3. **Sürüm tanımlayıcısı** alanına **v1** yazın.
 
     > [!TIP]
     > Sürüm oluşturma şeması olarak **üst bilgi** veya **sorgu dizesi** seçeneğini belirlerseniz üst bilgi veya sorgu dizesi parametresinin adı gibi bir ek değer belirtmeniz gerekir.
 
-3. Yeni sürümünüzü ayarlamak için **Oluştur**’u seçin.
-4. API listesindeki **Demo Konferans API’sinin** altında artık iki ayrı API görürsünüz: **Özgün** ve **v1**.
+4. Yeni sürümünüzü ayarlamak için **Oluştur**’u seçin.
+5. API listesindeki **Demo Konferans API’sinin** altında artık iki ayrı API görürsünüz: **Özgün** ve **v1**.
 
     ![Azure portalında bir API altında listelenen sürümler](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Sürüm bilgisi olmayan bir API’ye sürüm eklerseniz, varsayılan URL’de yanıt veren bir **Özgün** sürüm otomatik olarak oluşturulur. Bu, mevcut çağıranların sürüm ekleme işleminden olumsuz yönde etkilenmemesini sağlar. Başlangıçta etkinleştirilen sürümlerle yeni bir API oluşturursanız Özgün sürüm oluşturulmaz.
 
-5. Artık **Özgün** sürümden ayrı bir API olarak **v1** sürümünü düzenleyip yapılandırabilirsiniz. Bir sürümde yapılan değişiklikler diğer bir sürümü etkilemez.
+6. Artık **Özgün** sürümden ayrı bir API olarak **v1** sürümünü düzenleyip yapılandırabilirsiniz. Bir sürümde yapılan değişiklikler diğer bir sürümü etkilemez.
 
 ## <a name="add-the-version-to-a-product"></a>Sürümü bir ürüne ekleme
 
 Çağıranların yeni sürümü görmesi için sürümün **ürüne** eklenmesi gerekir.
 
+![API Management Ürünleri](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. Klasik dağıtım modeli sayfasından **Ürünler** seçeneğini belirleyin.
-
-    ![API Management Ürünleri](media/api-management-getstarted-publish-versions/Products.png)
-
 2. **Sınırsız**’ı seçin.
 3. **API’ler** seçeneğini belirleyin.
 4. **Add (Ekle)** seçeneğini belirleyin.
 5. **Demo Konferans API’si, Sürüm v1** seçeneğini belirleyin.
-6. Hizmet yönetimi sayfasına gidin ve **API'ler** seçeneğini belirleyin.
+6. **Seç**'e tıklayın.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Sürümü görüntülemek için geliştirici portalına göz atma
 

@@ -1,285 +1,107 @@
 ---
-title: 'Öğretici: Java için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma - Özel Görüntü İşleme Hizmeti'
+title: 'Hızlı Başlangıç: Java için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma'
 titlesuffix: Azure Cognitive Services
-description: Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve varsayılan uç noktayı kullanarak bir tahminde bulunun.
+description: Java SDK'sını kullanarak bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve nesneleri algılayın.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d5dd481d32ede9a400def02d421a7cb8b816338a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957344"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279594"
 ---
-# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Öğretici: Java için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Hızlı Başlangıç: Java için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma
 
-Bir nesne algılama projesi oluşturmak için Görüntü İşleme API’sini kullanan temel bir Java uygulamasını keşfedin. Oluşturulduktan sonra etiketlenmiş bölgeler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Özel Görüntü İşleme API’sini kullanarak kendi uygulamanızı derlemek için şablon olarak bu açık kaynak örneği kullanın.
+Bu makalede, Özel Görüntü İşleme SDK'sını Java ile kullanarak nesne algılama modeli oluşturmaya başlarken size yardımcı olacak bilgiler ve örnek kod sağlanır. Oluşturulduktan sonra etiketlenmiş bölgeler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Kendi Java uygulamanızı oluştururken bu örneği şablon olarak kullanın. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Öğreticiyi kullanmak için aşağıdakileri yapmanız gerekir:
+- Kendi seçtiğiniz bir Java IDE
+- [JDK 7 veya 8](https://aka.ms/azure-jdks) yüklenmiş olmalıdır.
+- Maven yüklenmiş olmalıdır
 
-- JDK 7 veya 8 yükleyin.
-- Maven’i yükleyin.
-
-## <a name="install-the-custom-vision-service-sdk"></a>Özel Görüntü İşleme Hizmeti SDK’sını yükleme
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Özel Görüntü İşleme SDK’sını ve örnek kodu alma
+Özel Görüntü İşleme kullanan bir Java uygulaması yazmak için Özel Görüntü İşleme maven paketlerine ihtiyacınız olacaktır. Bunlar indireceğiniz örnek projeye dahil edilmiştir, ama burada bunlara tek tek erişebilirsiniz.
 
 Maven merkezi deposundan Özel Görüntü İşleme SDK’sını yükleyebilirsiniz:
 * [Eğitim SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 * [Tahmin SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarlarını alma
+[Bilişsel Hizmetler Java SDK'sı Örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) projesini kopyalayın veya indirin. **Vision/CustomVision/** klasörüne gidin.
 
-Bu örnekte kullanılan anahtarları almak için [Özel Görüntü İşleme sitesini](https://customvision.ai) ziyaret edin ve sağ üst kısımdaki __dişli simgesini__ seçin. __Hesaplar__ bölümünde, __Eğitim Anahtarı__ ve __Tahmin Anahtarı__ alanlarından değerleri kopyalayın.
+Bu Java projesi, [Özel Görüntü İşleme web sitesi](https://customvision.ai/) üzerinden erişilebilen __Sample Java OD Project__ adlı yeni bir Özel Görüntü İşleme nesne algılama projesi oluşturur. Daha sonra bir sınıflandırıcıyı eğitip test etmek için görüntüleri karşıya yükler. Bu projede sınıflandırıcının, bir ağacın __Köknar__ mı yoksa __Japon Kirazı__ mı olduğunu belirlemesi hedeflenmiştir.
 
-![Anahtarlar kullanıcı arabiriminin görüntüsü](./media/python-tutorial/training-prediction-keys.png)
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+Program, önemli verilerinizi ortam değişkeni olarak depolayacak şekilde yapılandırılır. PowerShell'de **Vision/CustomVision** klasörüne giderek bu ortam değişkenlerini ayarlayın. Ardından komutları girin:
+
+```PowerShell
+$env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
+$env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
+```
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
-Görüntüler de dahil olmak üzere tam projeye [Java deposu için Özel Görüntü İşleme Azure örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) bölümünden erişilebilir. 
+Java IDE'nize `Vision/CustomVision` projesini yükleyin ve _CustomVisionSamples.java_ dosyasını açın. **runSample** yöntemini bulun ve **ImageClassification_Sample** yöntem çağrısını açıklama haline getirin; bu yöntem, bu kılavuzun kapsamına girmeyen görüntü sınıflandırma senaryosunu çalıştırır. **ObjectDetection_Sample** yöntemi bu hızlı başlangıcın birincil işlevini gerçekleştirir; yöntemin tanımına gidin ve kodu inceleyin. 
 
-`Vision/CustomVision` projesini açmak için sık kullandığınız Java IDE’nizi kullanın. 
+### <a name="create-a-new-custom-vision-service-project"></a>Yeni bir Özel Görüntü İşleme Hizmeti projesi oluşturma
 
-Bu uygulama, __Örnek Java OD Projesi__ adlı yeni bir proje oluşturmak için daha önce aldığınız eğitim anahtarını kullanır. Daha sonra nesne algılayıcısını eğitip test etmek için görüntüleri karşıya yükler. Nesne algılayıcısı, __çatal__ veya __makas__ içeren bölgeleri belirler.
+Eğitim istemcisi ve nesne algılama projesini oluşturan kod bloğuna gidin. Oluşturulan proje, daha önce ziyaret ettiğiniz [Özel Görüntü İşleme web sitesinde](https://customvision.ai/) gösterilir. 
 
-Aşağıdaki kod parçacıkları, bu örneğin birincil işlevlerini uygular:
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=181-206)]
 
-## <a name="create-a-custom-vision-service-project"></a>Özel Görüntü İşleme Hizmeti projesi oluşturma
+### <a name="add-tags-to-your-project"></a>Projenize etiketler ekleme
 
-Nesne algılama ve görüntü sınıflandırma projesi oluşturma arasındaki fark, createProject çağrısına belirtilen etki alanıdır.
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=208-218)]
 
-> [!IMPORTANT]
-> `trainingApiKey` öğesini, daha önce aldığınız eğitim anahtarı değerine ayarlayın.
+### <a name="upload-and-tag-images"></a>Görüntüleri karşıya yükleme ve etiketleme
 
-```java
-final String trainingApiKey = "insert your training key here";
-TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
+Nesne algılama projelerinde görüntüleri etiketlediğinizde etiketli her nesnenin bölgesini normalleştirilmiş koordinatları kullanarak belirtmeniz gerekir. `regionMap` Haritasının tanımına gidin. Bu kod, örnek görüntülerin her birini etiketlendikleri bölgeyle ilişkilendirir.
 
-System.out.println("Object Detection Sample");
-Trainings trainer = trainClient.trainings();
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=130-179)]
 
-// find the object detection domain to set the project type
-Domain objectDetectionDomain = null;
-List<Domain> domains = trainer.getDomains();
-for (final Domain domain : domains) {
-    if (domain.type() == DomainType.OBJECT_DETECTION) {
-        objectDetectionDomain = domain;
-        break;
-    }
-}
+Ardından projeye görüntüleri ekleyen kod bloğuna atlayın. Görüntüler projenin **src/main/resources** klasöründen okunur ve uygun etiketleri ve bölge koordinatlarıyla hizmete yüklenir.
 
-if (objectDetectionDomain == null) {
-    System.out.println("Unexpected result; couldn't find object detection domain.");
-    return;
-}
-
-System.out.println("Creating project...");
-// create an object detection project
-Project project = trainer.createProject()
-    .withName("Sample Java OD Project")
-    .withDescription("Sample OD Project")
-    .withDomainId(objectDetectionDomain.id())
-    .withClassificationType(Classifier.MULTILABEL.toString())
-    .execute();
-```
-
-## <a name="add-tags-to-your-project"></a>Projenize etiketler ekleme
-
-```java
-// create fork tag
-Tag forkTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("fork")
-    .execute();
-
-// create scissors tag
-Tag scissorsTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("scissor")
-    .execute();
-```
-
-## <a name="upload-images-to-the-project"></a>Projeye görüntüleri karşıya yükleme
-
-Nesne algılama projesi için görüntü, bölge ve etiketleri karşıya yüklemeniz gerekir. Bölge, normalleştirilmiş koordinatlardadır ve etiketlenmiş nesnenin konumunu belirtir.
-
-
-```java
-// Mapping of filenames to their respective regions in the image. The coordinates are specified
-// as left, top, width, height in normalized coordinates. I.e. (left is left in pixels / width in pixels)
-
-// This is a hardcoded mapping of the files we'll upload along with the bounding box of the object in the
-// image. The boudning box is specified as left, top, width, height in normalized coordinates.
-//  Normalized Left = Left / Width (in Pixels)
-//  Normalized Top = Top / Height (in Pixels)
-//  Normalized Bounding Box Width = (Right - Left) / Width (in Pixels)
-//  Normalized Bounding Box Height = (Bottom - Top) / Height (in Pixels)
-HashMap<String, double[]> regionMap = new HashMap<String, double[]>();
-regionMap.put("scissors_1.jpg", new double[] { 0.4007353, 0.194068655, 0.259803921, 0.6617647 });
-regionMap.put("scissors_2.jpg", new double[] { 0.426470578, 0.185898721, 0.172794119, 0.5539216 });
-regionMap.put("scissors_3.jpg", new double[] { 0.289215684, 0.259428144, 0.403186262, 0.421568632 });
-regionMap.put("scissors_4.jpg", new double[] { 0.343137264, 0.105833367, 0.332107842, 0.8055556 });
-regionMap.put("scissors_5.jpg", new double[] { 0.3125, 0.09766343, 0.435049027, 0.71405226 });
-regionMap.put("scissors_6.jpg", new double[] { 0.379901975, 0.24308826, 0.32107842, 0.5718954 });
-regionMap.put("scissors_7.jpg", new double[] { 0.341911763, 0.20714055, 0.3137255, 0.6356209 });
-regionMap.put("scissors_8.jpg", new double[] { 0.231617644, 0.08459154, 0.504901946, 0.8480392 });
-regionMap.put("scissors_9.jpg", new double[] { 0.170343131, 0.332957536, 0.767156839, 0.403594762 });
-regionMap.put("scissors_10.jpg", new double[] { 0.204656869, 0.120539248, 0.5245098, 0.743464053 });
-regionMap.put("scissors_11.jpg", new double[] { 0.05514706, 0.159754932, 0.799019635, 0.730392158 });
-regionMap.put("scissors_12.jpg", new double[] { 0.265931368, 0.169558853, 0.5061275, 0.606209159 });
-regionMap.put("scissors_13.jpg", new double[] { 0.241421565, 0.184264734, 0.448529422, 0.6830065 });
-regionMap.put("scissors_14.jpg", new double[] { 0.05759804, 0.05027781, 0.75, 0.882352948 });
-regionMap.put("scissors_15.jpg", new double[] { 0.191176474, 0.169558853, 0.6936275, 0.6748366 });
-regionMap.put("scissors_16.jpg", new double[] { 0.1004902, 0.279036, 0.6911765, 0.477124184 });
-regionMap.put("scissors_17.jpg", new double[] { 0.2720588, 0.131977156, 0.4987745, 0.6911765 });
-regionMap.put("scissors_18.jpg", new double[] { 0.180147052, 0.112369314, 0.6262255, 0.6666667 });
-regionMap.put("scissors_19.jpg", new double[] { 0.333333343, 0.0274019931, 0.443627447, 0.852941155 });
-regionMap.put("scissors_20.jpg", new double[] { 0.158088237, 0.04047389, 0.6691176, 0.843137264 });
-regionMap.put("fork_1.jpg", new double[] { 0.145833328, 0.3509314, 0.5894608, 0.238562092 });
-regionMap.put("fork_2.jpg", new double[] { 0.294117659, 0.216944471, 0.534313738, 0.5980392 });
-regionMap.put("fork_3.jpg", new double[] { 0.09191177, 0.0682516545, 0.757352948, 0.6143791 });
-regionMap.put("fork_4.jpg", new double[] { 0.254901975, 0.185898721, 0.5232843, 0.594771266 });
-regionMap.put("fork_5.jpg", new double[] { 0.2365196, 0.128709182, 0.5845588, 0.71405226 });
-regionMap.put("fork_6.jpg", new double[] { 0.115196079, 0.133611143, 0.676470637, 0.6993464 });
-regionMap.put("fork_7.jpg", new double[] { 0.164215669, 0.31008172, 0.767156839, 0.410130739 });
-regionMap.put("fork_8.jpg", new double[] { 0.118872553, 0.318251669, 0.817401946, 0.225490168 });
-regionMap.put("fork_9.jpg", new double[] { 0.18259804, 0.2136765, 0.6335784, 0.643790841 });
-regionMap.put("fork_10.jpg", new double[] { 0.05269608, 0.282303959, 0.8088235, 0.452614367 });
-regionMap.put("fork_11.jpg", new double[] { 0.05759804, 0.0894935, 0.9007353, 0.3251634 });
-regionMap.put("fork_12.jpg", new double[] { 0.3345588, 0.07315363, 0.375, 0.9150327 });
-regionMap.put("fork_13.jpg", new double[] { 0.269607842, 0.194068655, 0.4093137, 0.6732026 });
-regionMap.put("fork_14.jpg", new double[] { 0.143382356, 0.218578458, 0.7977941, 0.295751631 })
-regionMap.put("fork_15.jpg", new double[] { 0.19240196, 0.0633497, 0.5710784, 0.8398692 });
-regionMap.put("fork_16.jpg", new double[] { 0.140931368, 0.480016381, 0.6838235, 0.240196079 });
-regionMap.put("fork_17.jpg", new double[] { 0.305147052, 0.2512582, 0.4791667, 0.5408496 })
-regionMap.put("fork_18.jpg", new double[] { 0.234068632, 0.445702642, 0.6127451, 0.344771236 });
-regionMap.put("fork_19.jpg", new double[] { 0.219362751, 0.141781077, 0.5919118, 0.6683006 });
-regionMap.put("fork_20.jpg", new double[] { 0.180147052, 0.239820287, 0.6887255, 0.235294119 });
-
-System.out.println("Adding images...");
-for (int i = 1; i <= 20; i++) {
-    String fileName = "fork_" + i + ".jpg";
-    byte[] contents = GetImage("/fork", fileName);
-    AddImageToProject(trainer, project, fileName, contents, forkTag.id(), regionMap.get(fileName));
-}
-
-for (int i = 1; i <= 20; i++) {
-    String fileName = "scissors_" + i + ".jpg";
-    byte[] contents = GetImage("/scissors", fileName);
-    AddImageToProject(trainer, project, fileName, contents, scissorsTag.id(), regionMap.get(fileName));
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=220-231)]
 
 Önceki kod parçacığı, kaynak akışları olarak görüntüleri alan ve bunları hizmete yükleyen iki yardımcı işlevinden yararlanır.
 
-```java
-private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)
-{
-    System.out.println("Adding image: " + fileName);
-    ImageFileCreateEntry file = new ImageFileCreateEntry()
-        .withName(fileName)
-        .withContents(contents);
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-    ImageFileCreateBatch batch = new ImageFileCreateBatch()
-        .withImages(Collections.singletonList(file));
+### <a name="train-the-project"></a>Projeyi eğitme
 
-    // If Optional region is specified, tack it on and place the tag there, otherwise
-    // add it to the batch.
-    if (regionValues != null)
-    {
-        Region region = new Region()
-            .withTagId(tag)
-            .withLeft(regionValues[0])
-            .withTop(regionValues[1])
-            .withWidth(regionValues[2])
-            .withHeight(regionValues[3]);
-        file = file.withRegions(Collections.singletonList(region));
-    } else {
-        batch = batch.withTagIds(Collections.singletonList(tag));
-    }
+Bu kod, projedeki ilk yinelemeyi oluşturur ve bunu varsayılan yineleme olarak işaretler. Varsayılan yineleme, tahmin isteklerine yanıt verecek modelin sürümünü yansıtır. Bu modeli her yeniden eğitişinizde bunu güncelleştirmeniz gerekir.
 
-    trainer.createImagesFromFiles(project.id(), batch);
-}
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=233-242)]
 
-private static byte[] GetImage(String folder, String fileName)
-{
-    try {
-        return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
-    }
-    return null;
-}
-```
+### <a name="use-the-prediction-endpoint"></a>Tahmin uç noktasını kullanma
 
-## <a name="train-the-project"></a>Projeyi eğitme
+Burada `predictor` nesnesiyle gösterilen tahmin uç noktası, bir görüntüyü geçerli modele göndermek ve sınıflandırma tahmini almak için kullandığınız başvurudur. Bu örnekte `predictor`, tahmin anahtarı ortam değişkeni kullanılarak başka bir yerde tanımlanır.
 
-Bu, projedeki ilk yinelemeyi oluşturur ve bu yinelemeyi varsayılan yineleme olarak işaretler. 
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=244-270)]
 
-```java
-System.out.println("Training...");
-Iteration iteration = trainer.trainProject(project.id());
-while (iteration.status().equals("Training"))
-{
-    System.out.println("Training Status: "+ iteration.status());
-    Thread.sleep(5000);
-    iteration = trainer.getIteration(project.id(), iteration.id());
-}
-System.out.println("Training Status: "+ iteration.status());
-trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
-```
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Varsayılan tahmin uç noktasını alma ve kullanma
+Maven kullanarak çözümü derlemek ve çalıştırmak için, PowerShell'de proje dizininde aşağıdaki komutu çalıştırın:
 
-> [!IMPORTANT]
-> `predictionApiKey` öğesini, daha önce aldığınız tahmin anahtarı değerine ayarlayın.
-
-```java
-final String predictionApiKey = "insert your prediction key here";
-PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
-
-// Use below for predictions from a url
-// String url = "some url";
-// ImagePrediction results = predictor.predictions().predictImage()
-//                         .withProjectId(project.id())
-//                         .withUrl(url)
-//                         .execute();
-
-// load test image
-byte[] testImage = GetImage("/ObjectTest", "test_image.jpg");
-
-// predict
-ImagePrediction results = predictor.predictions().predictImage()
-    .withProjectId(project.id())
-    .withImageData(testImage)
-    .execute();
-
-for (Prediction prediction: results.predictions())
-{
-    System.out.println(String.format("\t%s: %.2f%% at: %.2f, %.2f, %.2f, %.2f",
-        prediction.tagName(),
-        prediction.probability() * 100.0f,
-        prediction.boundingBox().left(),
-        prediction.boundingBox().top(),
-        prediction.boundingBox().width(),
-        prediction.boundingBox().height()
-    ));
-}
-```
-
-## <a name="run-the-example"></a>Örneği çalıştırma
-
-Tahmin sonuçları, ilerleme durumunu göstermek için günlük kaydı ile birlikte konsolda görüntülenir.
-
-Maven kullanarak çözümü derlemek ve çalıştırmak için:
-
-```
+```PowerShell
 mvn compile exec:java
 ```
+
+Günlüğe kaydetme ve tahmin sonuçları için konsol çıkışını görüntüleyin. Ardından test görüntüsünün etiketlendiğini ve algılama bölgesinin doğru olduğunu onaylayabilirsiniz.
+
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Artık kodda nesne algılama işleminin her adımının nasıl uygulanabileceğini gördünüz. Bu örnek tek bir eğitim yinelemesi yürütür ama modelinizin daha doğru olmasını sağlamak için çoğunlukla birden çok kez eğitmeniz ve test etmeniz gerekecektir. Sonraki kılavuzda görüntü sınıflandırma konusu üstünde durulur ancak temel ilkeleri nesne algılamaya benzer.
+
+> [!div class="nextstepaction"]
+> [Modeli test etme ve yeniden eğitme](test-your-model.md)

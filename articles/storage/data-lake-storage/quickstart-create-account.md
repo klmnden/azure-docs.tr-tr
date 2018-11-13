@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 41f25496d089a5c6487176afee01f7cb06330794
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426881"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281566"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Hızlı Başlangıç: Azure Data Lake Storage Gen2 Önizleme depolama hesabı oluşturma
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>Hızlı Başlangıç: Analiz için depolama hesabı oluşturma
 
-Azure Data Lake Storage Gen2 Önizleme hesapları, Hadoop Dağıtılmış Dosya Sistemi (HDFS) ile çalışacak şekilde tasarlanmış yerel dizin tabanlı dosya sistemi sunan [Hiyerarşik Ad Alanı Hizmeti](introduction.md) sunar. HDFS'den Data Lake Storage Gen2 verilerine erişim [ABFS sürücüsü](abfs-driver.md) aracılığıyla sağlanabilir.
+Data Lake Storage 2. Nesil Önizleme sürümü etkin depolama hesapları, Hadoop Dağıtılmış Dosya Sistemi (HDFS) ile çalışacak şekilde tasarlanmış yerel dizin tabanlı bir dosya sistemi sunan [hiyerarşik ad alanı hizmetini destekler](introduction.md). HDFS'den Data Lake Storage Gen2 verilerine erişim [ABFS sürücüsü](abfs-driver.md) aracılığıyla sağlanabilir.
 
-Depolama hesabınızda Data Lake Storage Gen2 özelliklerini etkinleştirmek için [önizleme anketini doldurarak erişim isteğinde bulunun](https://aka.ms/adlsgen2signup). İsteğiniz onaylandıktan sonra yeni bir Data Lake Storage Gen2 hesabı oluşturabilirsiniz. Bu hızlı başlangıçta [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) kullanarak hesap oluşturma adımları gösterilmektedir.
+Depolama hesabınızda Data Lake Storage Gen2 özelliklerini etkinleştirmek için [önizleme anketini doldurarak erişim isteğinde bulunun](https://aka.ms/adlsgen2signup). İsteğiniz onaylandıktan sonra Data Lake Storage 2. Nesil etkin bir depolama hesabı oluşturabilirsiniz. Bu hızlı başlangıçta [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) kullanarak hesap oluşturma adımları gösterilmektedir.
 
 > [!NOTE]
 > Data Lake Storage Gen2 hesabını oluşturma onayı verildikten sonra Azure portalındaki hesap oluşturma arabirimi güncelleştirilir. Aynı şekilde Data Lake Storage Gen2 ile ilgili PowerShell ve CLI bağımsız değişkenleri yalnızca önizleme onayından sonra çalışır.
@@ -51,7 +51,7 @@ Düğme bu hızlı başlangıçtaki adımları uygulamak için kullanabileceğin
 
 Ayrıca, Azure CLI’yi yerel olarak yükleyip kullanabilirsiniz. Bu hızlı başlangıç için Azure CLI 2.0.38 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli).
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 hesabı oluşturmaya genel bakış
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Azure Data Lake Storage 2. Nesil etkin bir depolama hesabı oluşturma
 
 Hesap oluşturmadan önce depolama hesapları veya oluşturduğunuz diğer Azure kaynakları için mantıksal kapsayıcı görevi görecek bir kaynak grubu oluşturmanız gerekir. Bu hızlı başlangıç tarafından oluşturulan kaynakları temizlemek isterseniz, kaynak grubunu silmeniz yeterlidir. Kaynak grubunun silinmesi, ilişkili depolama hesabını ve kaynak grubuyla ilişkili diğer tüm kaynakları da siler. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../../azure-resource-manager/resource-group-overview.md).
 
@@ -135,7 +135,7 @@ Ardından PowerShell'i yeniden başlatın.
 PowerShell ile yeni bir kaynak grubu oluşturmak için [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanın: 
 
 > [!NOTE]
-> > Hiyerarşik ad alanı şu anda tüm genel bölgelerde kullanılabilir, ancak özel bölgelerin hiçbirinde kullanılamaz. Şu anda bağımsız bulutlarda kullanılamıyor.
+> > Hiyerarşik ad alanı şu anda tüm genel bölgelerde kullanılabilir. Şu anda bağımsız bulutlarda kullanılamıyor.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -222,6 +222,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir Data Lake Storage Gen2 hesabı oluşturdunuz. Depolama hesabınıza/hesabınızdan blobları karşıya yüklemeyi ve indirmeyi öğrenmek için, Blob depolama hızlı başlangıcı ile devam edin.
+Bu hızlı başlangıçta, Data Lake Storage 2. Nesil özelliklerine sahip bir depolama hesabı oluşturdunuz. Depolama hesabınıza/hesabınızdan blobları karşıya yüklemeyi ve indirmeyi öğrenmek için, Blob depolama hızlı başlangıcı ile devam edin.
 
 * [AzCopy kullanarak Azure Blob Depolamadan/Depolamaya veri taşıma](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

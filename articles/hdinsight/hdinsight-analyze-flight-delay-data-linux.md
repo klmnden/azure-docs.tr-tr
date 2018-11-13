@@ -1,20 +1,20 @@
 ---
 title: 'Öğretici: HDInsight üzerinde Hive kullanarak ayıklama, dönüştürme, yükleme (ETL) işlemleri gerçekleştirme - Azure '
-description: Ham CSV veri kümesinden veri ayıklama, HDInsight üzerinde Hive kullanarak dönüştürme ve sonra Sqoop kullanarak dönüştürülmüş verileri Azure SQL veritabanına yükleme hakkında bilgi edinin.
+description: Ham CSV veri kümesinden veri ayıklama, HDInsight üzerinde Hive kullanarak dönüştürme ve sonra Apache Sqoop kullanarak dönüştürülmüş verileri Azure SQL veritabanına yükleme hakkında bilgi edinin.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 9ea9fbdbe07013131f35a7a0c3d6ab4af19f7056
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ac56475f39f820c2d2af961a1813859ec42b0a46
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990952"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038460"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 

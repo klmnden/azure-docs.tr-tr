@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030855"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913572"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Dışarı aktarılan verileri oluşturma ve yönetme
 
@@ -46,7 +46,7 @@ Azure Depolama hesapları için:
 
 ## <a name="create-a-daily-export"></a>Günlük bir dışarı aktarma oluşturma
 
-Maliyet Yönetimi + Faturalama &gt; bir abonelik veya bir abonelikteki kaynak grubunu seçin &gt; Dışarı Aktar &gt; **Ekle**.
+Maliyet Yönetimi + Faturalama &gt; Maliyet Yönetimi &gt; bir abonelik veya bir abonelikteki kaynak grubunu &gt; seçin &gt; Dışarı Aktar **Ekle**.
 
 Dışarı aktarma için bir ad yazın ve abonelik, Azure depolama hesabı, kapsayıcı ve dosya depolama dizini veya blob kapsayıcısını belirtin ve ardından **Oluştur**’a tıklayın.
 

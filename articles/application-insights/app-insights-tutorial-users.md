@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights uygulamasında müşterilerinizin anlama | Microsoft Docs
-description: Müşteriler, uygulamanızın nasıl kullandığını anlamak için Azure Application Insights kullanma Öğreticisi.
+title: Azure Application Insights’ta müşterilerinizi anlama | Microsoft Docs
+description: Müşterilerin uygulamanızı nasıl kullandığını anlamak için Azure Application Insights’ı kullanma öğreticisi.
 keywords: ''
 services: application-insights
 author: mrbullwinkle
@@ -10,25 +10,25 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24099030"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256009"
 ---
-# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Müşteriler, uygulamanızın nasıl kullandığını anlamak için Azure Application Insights kullanın
+# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Müşterilerin uygulamanızı nasıl kullandığını anlamak için Azure Application Insights’ı kullanın
 
-Azure Application Insights, kullanıcılarınızın uygulamanızla nasıl etkileşim anlamanıza yardımcı olmak üzere kullanım bilgilerini toplar.  Bu öğreticide, bu bilgileri çözümlemek için kullanılabilir olan farklı kaynaklar açıklanmaktadır.  Şunları öğreneceksiniz nasıl yapılır:
+Azure Application Insights, kullanıcıların uygulamanızla nasıl etkileşim kurduğunu anlamanıza yardımcı olmak için kullanım bilgileri toplar.  Bu öğreticide bu bilgileri analiz etmek için kullanabileceğiniz farklı kaynaklar gösterilmektedir.  Şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Uygulamanızı erişen kullanıcılar hakkındaki ayrıntıları Çözümle
-> * Müşteriler, uygulamanızın kullanımını analiz etmek için oturum bilgilerini kullanın
-> * İstenen kullanıcı etkinliklerinizi gerçek etkinliklerini karşılaştırmanıza olanak tanıyan funnels tanımlayın 
-> * Görselleştirme ve sorguları tek bir belgeye birleştirmek için bir çalışma kitabı oluşturun
-> * Birlikte çözümlemek için benzer kullanıcı grubu
-> * Hangi kullanıcıların uygulamanıza döndürme öğrenin
-> * Kullanıcılarınızın uygulamanız aracılığıyla nasıl gezindiğini inceleyin.
+> * Uygulamanıza erişen kullanıcılarla ilgili bilgileri analiz etme
+> * Oturum bilgilerini kullanarak müşterilerin uygulamanızı nasıl kullandığını analiz etme
+> * İstenen kullanıcı etkinliğini gerçek etkinlikle karşılaştırmanızı sağlayan huniler tanımlama 
+> * Görselleştirmeleri ve sorguları tek bir belgede birleştirmenizi sağlayan bir çalışma kitabı oluşturma
+> * Benzer kullanıcıları gruplayarak birlikte analiz etme
+> * Uygulamanıza dönüş yapan kullanıcıları öğrenme
+> * Kullanıcıların uygulamanızda nasıl gezindiğini inceleme
 
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -38,133 +38,133 @@ Bu öğreticiyi tamamlamak için:
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
     - ASP.NET ve web geliştirme
     - Azure geliştirme
-- İndirme ve yükleme [Visual Studio anlık görüntü hata ayıklayıcısı](http://aka.ms/snapshotdebugger).
-- .NET uygulaması azure'a dağıtma ve [Application Insights SDK'sı etkinleştirmek](app-insights-asp-net.md). 
-- [Uygulamanızdan telemetri göndermesine](app-insights-usage-overview.md#send-telemetry-from-your-app) özel olaylar/sayfa görünümleri eklemek için
-- Gönderme [kullanıcı bağlamı](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) ne zaman içinde bir kullanıcı yaptığını izlemek ve kullanım özellikleri tam olarak kullanma.
+- [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger)’ı indirin ve yükleyin.
+- Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](app-insights-asp-net.md). 
+- Özel olaylar/sayfa görüntülemeleri eklemek için [uygulamanızdan telemetri gönderme](app-insights-usage-overview.md#send-telemetry-from-your-app)
+- Kullanıcının zaman içinde gerçekleştirdiği işlevleri izlemek ve kullanım özelliklerinden tam olarak faydalanmak için [kullanıcı bağlamı](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) gönderin.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
-Oturum açtığınızda Azure portalında [https://portal.azure.com](https://portal.azure.com).
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="get-information-about-your-users"></a>Kullanıcılarınızın hakkında bilgi edinin
-**Kullanıcılar** paneli, çeşitli yollarla, kullanıcılarınızın hakkında önemli ayrıntıları anlamanıza olanak sağlar. Where gibi bilgileri anlamak için bu panoyu kullanabilir, kullanıcılarınızın kendi istemci ayrıntılarını, bağlanan ve uygulamanızın hangi alanlarda bunlar eriştiğiniz. 
+## <a name="get-information-about-your-users"></a>Kullanıcılarınızla ilgili bilgi edinme
+**Kullanıcılar** paneli, kullanıcılarınızla ilgili önemli ayrıntıları farklı şekillerde anlamanıza yardımcı olur. Bu paneli kullanarak kullanıcılarınızın bağlandığı konum, istemcilerin ayrıntıları ve erişim sağlanan uygulama bölümleri gibi bilgileri anlayabilirsiniz. 
 
-1. Seçin **Application Insights** ve aboneliğinizi seçin.
-2. Seçin **kullanıcılar** menüde.
-3. Varsayılan görünüm uygulamanız son 24 saat üzerinden bağlı benzersiz kullanıcıların sayısını gösterir.  Zaman penceresi değiştirin ve bu bilgileri filtrelemek için çeşitli diğer ölçütleri belirleyin.
+1. **Application Insights**’ı ve sonra aboneliğinizi seçin.
+2. Menüden **Kullanıcılar**'ı seçin.
+3. Varsayılan görünümde son 24 saat içinde uygulamanıza bağlanan benzersiz kullanıcı sayısı gösterilir.  Bu bilgileri filtrelemek için zaman aralığını değiştirebilir ve diğer ölçütleri ayarlayabilirsiniz.
 
-    ![Sorgu Oluşturucusu](media\app-insights-tutorial-users\QueryBuilder.png)
+    ![Sorgu Tasarımcısı](media\app-insights-tutorial-users\QueryBuilder.png)
 
-6. Tıklatın **sırasında** açılır ve zaman penceresini 7 gün olarak değiştirin.  Bu, farklı grafiklerinde panelinde dahil edilen veri artırır.
+6. **Sırasında** açılan menüsüne tıklayın ve zaman aralığını 7 gün olarak değiştirin.  Bu işlem paneldeki grafiklerde yer alan bilgi miktarını artırır.
 
-    ![Zaman aralığını Değiştir](media\app-insights-tutorial-users\TimeRange.png)
+    ![Zaman aralığını değiştirme](media\app-insights-tutorial-users\TimeRange.png)
 
-4. Tıklatın **bölme** dökümünü kullanıcı özelliği tarafından grafiğe eklemek için açılır.  Seçin **ülke veya bölge**.  Grafik aynı veri içerir, ancak her ülkedeki kullanıcı sayısı dökümünü görüntülemenize izin verir.
+4. **Bölme ölçütü** açılan menüsüne tıklayarak grafiğe kullanıcı özelliğine göre bir döküm ekleyin.  **Ülke veya bölge**'yi seçin.  Grafikte aynı veriler yer alır ancak her ülkedeki kullanıcı sayısı dökümünü görüntülemenizi sağlar.
 
     ![Ülke veya bölge grafiği](media\app-insights-tutorial-users\CountryorRegion.png)
 
-5. İmleç grafikte farklı çubukları üzerine getirin ve sayısı her ülke için yalnızca bu çubuğu tarafından temsil edilen zaman penceresi gösterdiğine dikkat edin.
-6. Bakın **Insights** kullanıcı verilerinizi çözümlemesi sağ sütun.  Bu kullanıcı verilerinin önemli oluşturan ortak özellikleri ile benzersiz içinde oturum sayısını kaydeder ve süre gibi bilgiler sağlar 
+5. İmleci grafikteki çubukların üzerinde gezdirdiğinizde her bir ülkeye ait sayının yalnızca ilgili çubuğun gösterdiği zaman aralığını yansıttığını görebilirsiniz.
+6. Sağ taraftaki kullanıcı verilerinizle analiz gerçekleştiren **İçgörüler** sütununa bakın.  Burada zaman içindeki benzersiz oturum sayısı ve kullanıcı verilerinin önemli bir kısmını oluşturan ortak özellikleri içeren kayıtlar gibi bilgiler sunulur 
 
-    ![Öngörüler sütun](media\app-insights-tutorial-users\insights.png)
-
-
-## <a name="analyze-user-sessions"></a>Kullanıcı oturumlarının çözümleme
-**Oturumları** Masası benzer **kullanıcılar** paneli.  Burada **kullanıcılar** , uygulamanızın erişen kullanıcılar hakkındaki ayrıntıları anlamanıza yardımcı olur **oturumları** kullanıcılarla uygulamanızın kullanımını anlamanıza yardımcı olur.  
-
-1. Seçin **oturumları** menüde.
-2. Grafik bakın ve filtrelemek ve verileri olarak bölmek için aynı seçeneklere sahip Not **kullanıcılar** paneli.
-
-    ![Oturumları Sorgu Oluşturucusu](media\app-insights-tutorial-users\SessionsBuilder.png)
-
-3. **Bu oturumlar örneği** sağdaki bölmesinde çok fazla sayıda olayı içerir oturumları listeler.  Analiz etmek için ilginç oturumları bunlar.
-
-    ![Bu oturumlar örneği](media\app-insights-tutorial-users\SessionsSample.png)
-
-4. Görüntülemek için oturumları birini tıklatın, **oturum zaman çizelgesi**, oturumlarında her eylem gösterir.  Bu, çok sayıda özel durumlar oturumlarıyla gibi bilgileri belirlemenize yardımcı olabilir.
-
-    ![Oturumları zaman çizelgesi](media\app-insights-tutorial-users\SessionsTimeline.png)
-
-## <a name="group-together-similar-users"></a>Birbirine benzer kullanıcı grubu
-A **Kohort** kullanıcılar groupd benzer özelliklere üzerinde kümesidir.  Belirli kullanıcı grupları analiz etmenize izin vererek diğer paneller filtre verilere cohorts kullanabilirsiniz.  Örneğin, yalnızca bir satın alma tamamlandı kullanıcılar çözümlemek isteyebilirsiniz.
-
-1.  Seçin **Cohorts** menüde.
-2.  Tıklatın **yeni** yeni kohort oluşturmak için.
-3.  Seçin **kimin kullanılan** açılır ve bir eylem seçin.  Yalnızca bu zaman penceresi içinde raporun gerçekleştirdiğini kullanıcılar dahil edilir.
-
-    ![Belirtilen eylemleri kohort](media\app-insights-tutorial-users\CohortsDropdown.png)
-
-4.  Seçin **kullanıcılar** menüde.
-5.  İçinde **Göster** açılan listesinde, oluşturulan yeni kohort seçin.  Grafik verileri bu kullanıcılara sınırlıdır.
-
-    ![Kullanıcıların aracında kohort](media\app-insights-tutorial-users\UsersCohort.png)
+    ![İçgörüler sütunu](media\app-insights-tutorial-users\insights.png)
 
 
-## <a name="compare-desired-activity-to-reality"></a>Gerçekte istenen etkinliğe Karşılaştır
-Ne uygulamanızın kullanıcılarının yaptığını üzerinde önceki paneller odaklanmış sırada **Funnels** odaklanmak yapmak için kullanıcıların istiyor.  Bir huni uygulamanızda adımları kümesini ve adımları arasında taşıma kullanıcı yüzdesini temsil eder.  Örneğin, ürün arama uygulamanıza bağlanan kullanıcılar yüzdesini ölçer Huni oluşturabilirsiniz.  Daha sonra bu ürüne alışveriş sepeti ekleme kullanıcı yüzdesi ve bir satın almanızı tamamlayın olanlar yüzdesini görebilirsiniz.
+## <a name="analyze-user-sessions"></a>Kullanıcı oturumlarını analiz etme
+**Oturumlar** paneli, **Kullanıcılar** paneline benzerdir.  **Kullanıcılar** paneli, uygulamanıza erişen kullanıcılarla ilgili bilgileri anlamanıza yardımcı olurken **Oturumlar** paneli bu kullanıcıların uygulamanızı nasıl kullandığını anlamanıza yardımcı olur.  
 
-1. Seçin **Funnels** menü ve ardından **yeni**. 
+1. Menüden **Oturumlar**'ı seçin.
+2. Grafiğe göz attığınızda verileri filtrelemek ve ayrıntılara inmek için **Kullanıcılar** paneliyle aynı seçeneklere sahip olduğunuzu göreceksiniz.
+
+    ![Oturumlar Sorgu Tasarımcısı](media\app-insights-tutorial-users\SessionsBuilder.png)
+
+3. Sağ taraftaki **Bu oturumların örneği** bölmesinde olayların çoğunu içeren oturumlar listelenir.  Bu oturumları analiz etmek ilginizi çekebilir.
+
+    ![Bu oturumların örneği](media\app-insights-tutorial-users\SessionsSample.png)
+
+4. Bu oturumlardan birine tıklayarak oturumdaki tüm eylemleri gösteren **Oturum Zaman Çizelgesi**'ni görüntüleyebilirsiniz.  Bu seçenek, çok sayıda özel duruma sahip olan oturumlar gibi bilgileri tanımlamanıza yardımcı olabilir.
+
+    ![Oturum Zaman Çizelgesi](media\app-insights-tutorial-users\SessionsTimeline.png)
+
+## <a name="group-together-similar-users"></a>Benzer kullanıcıları gruplama
+**Kohort**, benzer özelliklere göre gruplanan kullanıcı kümesidir.  Kohortları kullanarak diğer panellerdeki verileri filtreleyebilir ve belirli bir kullanıcı grubunu analiz edebilirsiniz.  Örneğin yalnızca bir satın alma işlemini tamamlamış olan kullanıcıları analiz etmek isteyebilirsiniz.
+
+1.  Menüden **Kohortlar**'ı seçin.
+2.  Yeni bir kohort oluşturmak için **Yeni**'ye tıklayın.
+3.  **Şunu kullanan:** açılan menüsünü seçip bir eylem belirleyin.  Yalnızca raporun zaman aralığında bu eylemi gerçekleştirmiş olan kullanıcılar dahil edilir.
+
+    ![Belirli eylemleri gerçekleştirmiş olan kohort](media\app-insights-tutorial-users\CohortsDropdown.png)
+
+4.  Menüden **Kullanıcılar**'ı seçin.
+5.  **Göster** açılan menüsünde yeni oluşturduğunuz kohortu seçin.  Grafik verileri bu kullanıcılarla sınırlanır.
+
+    ![Kullanıcılar aracındaki kohort](media\app-insights-tutorial-users\UsersCohort.png)
+
+
+## <a name="compare-desired-activity-to-reality"></a>İstenen etkinliği gerçek değerlerle karşılaştırma
+Önceki paneller uygulamanızın kullanıcılarının gerçekleştirdiği işlemlere odaklanırken **Huniler** paneli kullanıcılarınızın yapmak istediklerine odaklanır.  Huni, uygulamanızdaki bir adım kümesini ve adımlar arasında geçiş yapan kullanıcıların yüzdesini temsil eder.  Örneğin ürün ararken uygulamanıza bağlanan kullanıcıların yüzdesini ölçen bir huni oluşturabilirsiniz.  Ardından bu ürünü alışveriş sepetine ekleyen kullanıcıların yüzdesini ve satın alma işlemini tamamlayanların yüzdesini görebilirsiniz.
+
+1. Menüden **Huniler**'i seçin ve **Yeni**'ye tıklayın. 
 
     ![](media\app-insights-tutorial-users\funnelsnew.png)
 
-2. Yazın bir **Huni adı**.
-3. Bir huni her adımı için bir eylem seçerek en az iki adımlara oluşturun.  Eylemlerin listesini Application Insights tarafından toplanan kullanım verileri oluşturulur.
+2. **Huni Adı** alanına bir ad yazın.
+3. Her adım için bir eylem seçerek en az iki adımdan oluşan bir huni oluşturun.  Eylemler listesi, Application Insights'tan alınan kullanım verileriyle oluşturulur.
 
     ![](media\app-insights-tutorial-users\funnelsedit.png)
 
-4. Tıklatın **kaydetmek** Huni kaydedin ve ardından sonuçları görüntüleyin.  Huni sağındaki penceresine ilk etkinlik önce ve sonra kullanıcı tendencies belirli dizisi geçici anlamanıza yardımcı olması için son etkinlik en yaygın olayları gösterir.
+4. **Kaydet**'e tıklayarak huniyi kaydedin ve sonuçlarını görüntüleyin.  Huninin sağ tarafındaki pencere, ilk etkinlikten önceki ve son etkinlikten sonraki en yaygın etkinlikleri göstererek belirli bir işlem sırası etrafındaki kullanıcı eğilimlerini anlamanıza yardımcı olur.
 
     ![](media\app-insights-tutorial-users\funnelsright.png)
 
 
-## <a name="learn-which-customers-return"></a>Hangi müşterilerin iade öğrenin
-**Bekletme** , hangi kullanıcıların gelmeye uygulamanıza anlamanıza yardımcı olur.  
+## <a name="learn-which-customers-return"></a>Dönüş yapan müşterileri öğrenme
+**Elde tutma**, uygulamanıza dönüş yapan kullanıcıları anlamanıza yardımcı olur.  
 
-1. Seçin **bekletme** menüde.
-2. Varsayılan olarak, herhangi bir eylem gerçekleştirilen ve herhangi bir eylemi gerçekleştirmek için döndürülen kullanıcıları çözümlenen bilgileri içerir.  Bu filtre, tüm dahil, örneğin, yalnızca bir satın alma tamamladıktan sonra döndürülen kullanıcılar değiştirebilirsiniz.
+1. Menüden **Elde tutma**'yı seçin.
+2. Analiz edilen bilgiler varsayılan olarak bir eylem gerçekleştiren ve ardından herhangi bir eylem gerçekleştirmek için geri dönen kullanıcıları kapsar.  Bu filtreyi yalnızca satın alma işlemini tamamladıktan sonra geri dönen kullanıcılar gibi istediğiniz farklı bir bilgiyle değiştirebilirsiniz.
 
     ![](media\app-insights-tutorial-users\retentionquery.png)
 
-3. Ölçütlere uyan döndürmeyi kullanıcılar grafik gösterilir ve form için farklı süreler tablo.  Tipik bir düzen zamanla kullanıcılar döndürme, aşamalı bir açılan içindir.  Bir süre ani bir açılan sonraki ilgili bir sorun tetikleyebilir. 
+3. Ölçütlerle eşleşen geri dönen kullanıcılar farklı süreler için grafik ve tablo biçiminde gösterilir.  Tipik bir düzende, zaman içinde geri dönen kullanıcı sayısında kademeli bir düşüş olacaktır.  Bir zaman aralığından bir sonrakine geçişte ani bir düşüş olması bir sorun olduğunu gösterebilir. 
 
     ![](media\app-insights-tutorial-users\retentiongraph.png)
 
-## <a name="analyze-user-navigation"></a>Kullanıcı Gezinti Çözümle
-A **kullanıcı akışı** kullanıcılarınızın uygulamanızın özelliklerini ve sayfaları arasında nasıl gezindiğini visualizes.  Bu, burada kullanıcıların belirli bir sayfadan genellikle taşımak için nasıl uygulamanızı'bunlar genellikle çıkın ve düzenli aralıklarla yinelenen herhangi bir eylem olup olmadığını gibi soruları yanıtlamanıza yardımcı olur.
+## <a name="analyze-user-navigation"></a>Kullanıcı gezintisini analiz etme
+**Kullanıcı akışı**, kullanıcıların uygulamanızın sayfaları ve özellikleri arasında nasıl gezindiğini görselleştirir.  Bu da kullanıcıların belirli bir sayfadan geçiş yaptıkları yerler, uygulamanızdan çıkış yapma şekli düzenli olarak tekrarlanan eylemler gibi sorulara yanıt bulmanıza yardımcı olur.
 
-1.  Seçin **kullanıcı akışları** menüde.
-2.  Tıklatın **yeni** yeni bir kullanıcı akışı oluşturun ve ardından **Düzenle** ayrıntılarını düzenlemek için.
-3.  Artırmak **zaman aralığı** 7 gün ve ilk olay seçin.  Akış bu olayla Başlat kullanıcı oturumları izler.
+1.  Menüden **Kullanıcı akışları**'nı seçin.
+2.  **Yeni**'ye tıklayarak yeni bir kullanıcı akışı oluşturun ve ardından **Düzenle**'ye tıklayarak ayrıntılarını düzenleyin.
+3.  **Zaman Aralığı** değerini 7 güne çıkarın ve ardından ilk olayı seçin.  Akış, bu olayla başlayan kullanıcı oturumlarını izler.
 
     ![](media\app-insights-tutorial-users\flowsedit.png)
 
-4.  Kullanıcı akışı görüntülenir ve farklı kullanıcı yollarını görebilir ve kullanıcıların oturumlarını sayar.  Mavi çizgiler kullanıcı sonra geçerli gerçekleştirilecek eylemi belirtir.  Kırmızı bir çizgi kullanıcı oturumunu sona gösterir.
+4.  Kullanıcı akışı görüntülenir ve farklı kullanıcı yolları ile oturum sayıları da gösterilir.  Mavi çizgiler kullanıcının geçerli eylemden sonra bir eylem gerçekleştirdiğini gösterir.  Kırmızı çizgi kullanıcı oturumunun sonlandırıldığını gösterir.
 
     ![](media\app-insights-tutorial-users\flows.png)
 
-5.  Bir olay akışından kaldırmak için tıklatın **x** eylemi ve ardından köşesindeki **grafik oluşturma**.  Grafik kaldırıldı bu olay'nın tüm örneklerini çizilir.  Tıklatın **Düzenle** olay şimdi eklendiğini görmeyi **olayları dışlanan**.
+5.  Akıştaki bir olayı kaldırmak için eylemin köşesindeki **x** simgesine ve ardından **Grafik Oluştur**'a tıklayın.  Grafik yeniden çizilir ve olay örnekleri kaldırılır.  **Düzenle**'ye tıkladığınızda olayın **Dışlanan olaylar** alanına eklenmiş olduğunu görebilirsiniz.
 
     ![](media\app-insights-tutorial-users\flowsexclude.png)
 
-## <a name="consolidate-usage-data"></a>Kullanım verileri birleştirme
-**Çalışma kitapları** veri görselleştirmeleri, analitik sorguları ve metin etkileşimli belgelere birleştirir.  Çalışma kitapları, ortak kullanım bilgilerini gruplamak, belirli bir olay bilgilerinden birleştirebilir veya geri ekibinizin uygulamanızın kullanımı raporu için kullanabilirsiniz.
+## <a name="consolidate-usage-data"></a>Kullanım verilerini birleştirme
+**Çalışma kitapları** veri görselleştirmelerini, Analytics sorgularını ve metinleri etkileşimli belgelere dönüştürür.  Çalışma kitaplarını kullanarak yaygın kullanım bilgilerini gruplandırabilir, belirli bir olayla ilgili bilgileri birleştirebilir veya uygulamanızın kullanımıyla ilgili ekibinize rapor verebilirsiniz.
 
-1.  Seçin **çalışma kitaplarını** menüde.
-2.  Tıklatın **yeni** yeni bir çalışma kitabı oluşturulamadı.
-3.  Bir sorgu zaten bir çubuk grafiği görüntülenen son gün içinde tüm kullanım verilerini içeren sağlanır.  Bu sorgu, el ile düzenlemeden veya kullanabilirsiniz tıklatın **örnek sorguları** diğer yararlı sorgularından seçmek için.
+1.  Menüden **Çalışma kitapları**'nı seçin.
+2.  Yeni bir çalışma kitabı oluşturmak için **Yeni**'ye tıklayın.
+3.  Son bir gündeki tüm kullanım verilerinin çubuk grafik olarak gösterildiği bir sorgu otomatik olarak sağlanır.  Bu sorguyu kullanabilir, el ile düzenleyebilir veya **Örnek sorgular**'a tıklayarak diğer yararlı sorgulardan seçim yapabilirsiniz.
 
     ![](media\app-insights-tutorial-users\samplequeries.png)
 
-4.  Tıklatın **düzenleme Bitti**.
-5.  Tıklatın **Düzenle** çalışma kitabını üstündeki metnini düzenlemek için üst bölmede.  Bu, markdown kullanarak biçimlendirilir.
+4.  **Düzenleme bitti**'ye tıklayın.
+5.  Çalışma kitabının en üstündeki metni düzenlemek için üst bölmeden **Düzenle**'ye tıklayın.  Bu çalışma kitabı markdown kullanılarak biçimlendirilir.
 
     ![](media\app-insights-tutorial-users\markdown.png)
 
-6.  Tıklatın **kullanıcıları eklemek** kullanıcı bilgilerini içeren bir grafik eklemek için.  İsterseniz ve ardından grafiği ayrıntılarını Düzenle **düzenleme Bitti** kaydetmek için.
+6.  Kullanıcı bilgilerini içeren bir grafik eklemek için **Kullanıcı ekle**'ye tıklayın.  Dilerseniz grafiğin ayrıntılarını düzenleyin ve **Düzenleme bitti**'ye tıklayarak kaydedin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanıcılarınızın analiz etme öğrendiğinize göre diğer yararlı verileri bu bilgilerle uygulamanız ile ilgili bir araya özel panolar oluşturmayı öğrenmek için sonraki öğretici için ilerleyin.
+Kullanıcılarınızı analiz etmeyi öğrendiğinize göre bir sonraki öğreticiye geçerek bu bilgileri uygulamanızla ilgili diğer faydalı bilgilerle birleştirmek için özel panolar oluşturmayı öğrenebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Özel panolar oluşturun](app-insights-tutorial-dashboards.md)
+> [Özel panolar oluşturma](app-insights-tutorial-dashboards.md)

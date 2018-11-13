@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975819"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913287"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Hızlı Başlangıç: Azure Active Directory v2.0 uç noktasıyla uygulama kaydetme
 
@@ -30,8 +30,10 @@ ms.locfileid: "46975819"
 
 Hem kişisel Microsoft hesabı (MSA) hem de iş veya okul hesabı (Azure AD) oturum açmalarını kabul eden bir uygulama geliştirmek için Azure Active Directory (Azure AD) v2.0 uç noktasıyla bir uygulamayı kaydetmeniz gerekmektedir. Şu anda Azure AD veya MSA ile sahip olduğunuz mevcut uygulamaları kullanamayacaksınız. Tamamen yeni bir uygulama oluşturmanız gerekir.
 
+Bazı Azure AD senaryoları ve özellikleri v2.0 uç noktasında desteklenmez. v2.0 uç noktasını kullanmanızın gerekip gerekmediğini belirlemek için [v2.0 sınırlamaları](active-directory-v2-limitations.md) bölümünü okuyun.
+
 > [!NOTE]
-> Bazı Azure AD senaryoları ve özellikleri v2.0 uç noktasında desteklenmez. v2.0 uç noktasını kullanmanızın gerekip gerekmediğini belirlemek için [v2.0 sınırlamaları](active-directory-v2-limitations.md) bölümünü okuyun.
+> Yeni uygulama mı kaydediyorsunuz? Azure portalında **Uygulama kayıtları (Önizleme)** deneyimini kullanın. Başlamak için bkz. [Uygulama kaydetme (Önizleme)](quickstart-register-app.md).
 
 ## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1. Adım: Microsoft uygulama kayıt portalında oturum açma
 

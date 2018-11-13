@@ -1,61 +1,53 @@
 ---
-title: 'Öğretici: Python için Özel Görüntü İşleme SDK’sı ile görüntü sınıflandırma projesi oluşturma'
+title: 'Hızlı Başlangıç: Python için Özel Görüntü İşleme SDK’sı ile görüntü sınıflandırma projesi oluşturma'
 titlesuffix: Azure Cognitive Services
-description: Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve varsayılan uç noktayı kullanarak bir tahminde bulunun.
+description: Python SDK'sını kullanarak bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve bir tahminde bulunun.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4de1a33006f580bda9d356027e93b4bf2309dd90
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953121"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281396"
 ---
-# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>Öğretici: Python için Özel Görüntü İşleme SDK’sı ile görüntü sınıflandırma projesi oluşturma
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Hızlı Başlangıç: Özel Görüntü İşleme Python SDK’sı ile görüntü sınıflandırma projesi oluşturma
 
-Özel Görüntü İşleme Hizmeti ve temel Python betiği ile nasıl görüntü sınıflandırma projesi oluşturulacağını öğrenin. Oluşturulduktan sonra etiketler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için bunu kullanabilirsiniz. Özel Görüntü İşleme API’sini kullanarak kendi uygulamanızı derlemek için şablon olarak bu açık kaynak örneği kullanın.
-
-
+Bu makalede, Özel Görüntü İşleme SDK'sini Python ile kullanarak görüntü sınıflandırma modeli oluşturmaya başlarken size yardımcı olacak bilgiler ve örnek kod sağlanır. Oluşturulduktan sonra etiketler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Kendi Python uygulamanızı oluştururken bu örneği şablon olarak kullanın. Kod _içermeyen_ bir sınıflandırma modeli oluşturma ve kullama işlemi yapmak istiyorsanız, [tarayıcı tabanlı kılavuz](getting-started-build-a-classifier.md) konusuna bakın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Python 2.7+ veya Python 3.5+.
-- Pip aracı.
+- [Python 2.7+ veya 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) aracı
 
-## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarlarını alma
+## <a name="install-the-custom-vision-sdk"></a>Özel Görüntü İşleme SDK’sını yükleme
 
-Bu örnekte kullanılan anahtarları almak için [Özel Görüntü İşleme web sayfasını](https://customvision.ai) ziyaret edin ve sağ üst kısımdaki __dişli simgesini__ seçin. __Hesaplar__ bölümünde, __Eğitim Anahtarı__ ve __Tahmin Anahtarı__ alanlarından değerleri kopyalayın.
+PowerShell'de aşağıdaki komutu çalıştırarak Python için Özel Görüntü İşleme Hizmeti SDK’sını yükleyin:
 
-![Anahtarlar kullanıcı arabiriminin görüntüsü](./media/python-tutorial/training-prediction-keys.png)
-
-## <a name="install-the-custom-vision-service-sdk"></a>Özel Görüntü İşleme Hizmeti SDK’sını yükleme
-
-Özel Görüntü İşleme Hizmeti SDK’sını yüklemek için aşağıdaki komutu kullanın:
-
-```
+```PowerShell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-## <a name="get-example-images"></a>Örnek görüntüleri alma
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-Bu örnekte, [https://github.com/Microsoft/Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) projesinin `Samples/Images` dizininde yer alan görüntüler kullanılmaktadır. Projeyi geliştirme ortamınıza kopyalayın veya indirin ve ayıklayın.
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-## <a name="create-a-custom-vision-service-project"></a>Özel Görüntü İşleme Hizmeti projesi oluşturma
 
-Yeni bir Özel Görüntü İşleme Hizmeti projesi oluşturmak için `sample.py` adlı yeni dosya oluşturun. Dosya içerikleri olarak aşağıdaki kodu kullanın:
+## <a name="add-the-code"></a>Kod ekleme
 
-> [!IMPORTANT]
-> `training_key` öğesini, daha önce aldığınız eğitim anahtarı değerine ayarlayın.
->
-> `prediction_key` öğesini, daha önce aldığınız tahmin anahtarı değerine ayarlayın.
+Tercih ettiğiniz proje dizininde *sample.py* adlı yeni bir dosya oluşturun.
 
-```python
+### <a name="create-the-custom-vision-service-project"></a>Özel Görüntü İşleme hizmeti projesi oluşturma
+
+Yeni bir Özel Görüntü İşleme hizmeti projesi oluşturmak için betiğinize aşağıdaki kodu ekleyin. Abonelik anahtarlarınızı uygun tanımlara ekleyin.
+
+```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
 from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
 
@@ -67,29 +59,28 @@ trainer = training_api.TrainingApi(training_key)
 
 # Create a new project
 print ("Creating project...")
-project = trainer.create_project("My Project")
+project = trainer.create_project("My New Project")
 ```
 
-## <a name="add-tags-to-your-project"></a>Projenize etiketler ekleme
+### <a name="create-tags-in-the-project"></a>Projede etiketler oluşturma
 
-Projenize etiketler eklemek için, `sample.py` dosyasının sonuna aşağıdaki kodu ekleyin:
+Projenizde sınıflandırma etiketleri oluşturmak için, *sample.py* dosyasının sonuna aşağıdaki kodu ekleyin:
 
-```python
+```Python
 # Make two tags in the new project
 hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-## <a name="upload-images-to-the-project"></a>Projeye görüntüleri karşıya yükleme
+### <a name="upload-and-tag-images"></a>Görüntüleri karşıya yükleme ve etiketleme
 
-Projeye örnek görüntüleri eklemek için etiket oluşturduktan sonra aşağıdaki kodu ekleyin. Bu kod, karşılık gelen etiketle görüntüyü karşıya yükler:
+Projeye örnek görüntüleri eklemek için etiket oluşturduktan sonra aşağıdaki kodu ekleyin. Bu kod, her görüntüyü ilgili etiketiyle birlikte karşıya yükler. Bilişsel Hizmetler Python SDK'sı Örnekleri projesini indirdiğiniz konuma bağlı olarak, temel görüntünün URL yolunu girmeniz gerekir.
 
-> [!IMPORTANT]
->
-> Daha önce Bilişsel CustomVision Windows projesini indirdiğiniz yere göre görüntülerin yolunu değiştirin.
+> [!NOTE]
+> Bilişsel Hizmetler Python SDK'sı Örnekleri projesini daha önce indirdiğiniz konuma bağlı olarak görüntülerin yolunu değiştirmeniz gerekir.
 
-```python
-base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
+```Python
+base_image_url = "<path to project>"
 
 print ("Adding images...")
 for image_num in range(1,10):
@@ -99,28 +90,13 @@ for image_num in range(1,10):
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
     trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
-
-
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following:
-#
-#import os
-#hemlock_dir = "Images\\Hemlock"
-#for image in os.listdir(os.fsencode("Images\\Hemlock")):
-#    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data, [ hemlock_tag.id ])
-#
-#cherry_dir = "Images\\Japanese Cherry"
-#for image in os.listdir(os.fsencode("Images\\Japanese Cherry")):
-#    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data, [ cherry_tag.id ])
 ```
 
-## <a name="train-the-project"></a>Projeyi eğitme
+### <a name="train-the-classifier"></a>Sınıflandırıcıyı eğitme
 
-Sınıflandırıcıyı eğitmek için `sample.py` dosyasının sonuna aşağıdaki kodu ekleyin:
+Bu kod, projedeki ilk yinelemeyi oluşturur ve bunu varsayılan yineleme olarak işaretler. Varsayılan yineleme, tahmin isteklerine yanıt verecek modelin sürümünü yansıtır. Bu modeli her yeniden eğitişinizde bunu güncelleştirmeniz gerekir.
 
-```python
+```Python
 import time
 
 print ("Training...")
@@ -135,9 +111,9 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Varsayılan tahmin uç noktasını alma ve kullanma
+### <a name="get-and-use-the-default-prediction-endpoint"></a>Varsayılan tahmin uç noktasını alma ve kullanma
 
-Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için `sample.py` dosyasının sonuna aşağıdaki kodu ekleyin:
+Tahmin uç noktasına bir görüntü göndermek ve tahmini almak için dosyanın sonuna aşağıdaki kodu ekleyin:
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -150,27 +126,20 @@ predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 test_img_url = base_image_url + "Images/Test/test_image.jpg"
 results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)
 
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following.
-#
-# Open the sample image and get back the prediction results.
-# with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data, iteration.id)
-
 # Display the results.
 for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
-## <a name="run-the-example"></a>Örneği çalıştırma
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Çözümü çalıştırın. Tahmin sonuçlarını konsolda görüntülenir.
+*Sample.py*'yi çalıştırın.
 
-```
+```PowerShell
 python sample.py
 ```
 
-Uygulamanın çıktısı aşağıdaki metne benzer:
+Uygulamanın çıkışı aşağıdaki metne benzer olmalıdır:
 
 ```
 Creating project...
@@ -182,3 +151,14 @@ Done!
         Hemlock: 93.53%
         Japanese Cherry: 0.01%
 ```
+
+Ardından test görüntüsünün (**<base_image_url>/Images/Test/** yolunda bulunur) düzgün etiketlendiğini doğrulayabilirsiniz. Ayrıca [Özel Görüntü İşleme web sitesine](https://customvision.ai) geri dönebilir ve yeni oluşturulan projenizin geçerli durumunu görebilirsiniz.
+
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Artık kodda görüntü sınıflandırma işleminin her adımının nasıl uygulanabileceğini gördünüz. Bu örnek tek bir eğitim yinelemesi yürütür ama modelinizin daha doğru olmasını sağlamak için çoğunlukla birden çok kez eğitmeniz ve test etmeniz gerekecektir.
+
+> [!div class="nextstepaction"]
+> [Modeli test etme ve yeniden eğitme](test-your-model.md)

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408416"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962019"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Hibrit Azure Active Directory'ye katılmış cihazları elle yapılandırma 
 
@@ -504,6 +504,9 @@ Bazı etki alanına katılmış cihazlar Windows alt düzey cihazlarıysa şunla
  
 - Cihazın kimlik doğrulaması yapılırken sertifika istemlerinin engellenmesi için yerel İntranet bölgelerine Azure AD cihaz kimlik doğrulaması uç noktasını ekleyin.
 
+- Windows alt düzey cihazlarını denetleme 
+
+
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Kullanıcıların cihazları kaydetmesini sağlamak için Azure AD'de ilke ayarlama
 
 Windows alt düzey cihazlarını kaydetmek için, kullanıcıların Azure AD'de cihazları kaydedebilmesini sağlama ayarının ayarlandığından emin olmanız gerekir. Azure portal'da bu ayarları aşağıdaki bölümde bulabilirsiniz:
@@ -551,6 +554,12 @@ AD FS'de kimlik doğrulama yöntemi ile geçen bir verme aktarım kuralı ekleme
 Kayıt cihazlarındaki kullanıcılar Azure AD'ye kimlik doğrulaması yaparken sertifika istemlerini engellemek için, Internet Explorer'da Yerel İntranet bölgesine aşağıdaki URL'yi eklemek üzere etki alanına katılmış cihazlarınıza bir ilke gönderebilirsiniz:
 
 `https://device.login.microsoftonline.com`
+
+
+### <a name="control-windows-down-level-devices"></a>Windows alt düzey cihazlarını denetleme 
+
+Windows alt düzey cihazlarını kaydetmek için İndirme Merkezi’nden bir Windows Installer paketi (.msi) indirip yüklemeniz gerekir. Daha fazla bilgi için [buraya](hybrid-azuread-join-control.md#control-windows-down-level-devices) tıklayın. 
+
 
 
 ## <a name="verify-joined-devices"></a>Katılmış cihazları doğrulama

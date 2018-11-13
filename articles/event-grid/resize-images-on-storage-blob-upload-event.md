@@ -3,7 +3,7 @@ title: Karşıya yüklenen görüntülerin yeniden boyutlandırılmasını otoma
 description: Azure Event Grid, Azure Depolama’da blob yüklemelerini tetikleyebilir. Bu hizmeti kullanarak, Azure Depolama’ya yüklenmiş görüntü dosyalarını, yeniden boyutlandırma ve diğer iyileştirmeler için Azure İşlevleri gibi diğer hizmetlere gönderebilirsiniz.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585586"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282518"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -158,19 +158,18 @@ Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayı
 
 3. Tabloda belirtilen olay aboneliği ayarlarını kullanın.
     
-    ![Azure portalında işlevden olay aboneliği oluşturma](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Azure portalında işlevden olay aboneliği oluşturma](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Ad** | imageresizersub | Yeni olay aboneliğinizi tanımlayan ad. | 
     | **Konu türü** |  Depolama hesapları | Depolama hesabı olay sağlayıcısını seçin. | 
     | **Abonelik** | Azure aboneliğiniz | Varsayılan olarak, geçerli Azure aboneliğiniz seçili durumdadır.   |
     | **Kaynak grubu** | myResourceGroup | **Var olanı kullan**’ı seçin ve bu öğreticide kullandığınız kaynak grubunu belirleyin.  |
-    | **Örnek** |  Blob depolama hesabınız |  Oluşturduğunuz Blob depolama hesabını seçin. |
+    | **Kaynak** |  Blob depolama hesabınız |  Oluşturduğunuz Blob depolama hesabını seçin. |
     | **Olay türleri** | Oluşturulan blob | **Oluşturulan blob** dışındaki tüm türlerin işaretini kaldırın. Yalnızca `Microsoft.Storage.BlobCreated` türündeki olaylar işleve geçirilir.| 
-    | **Abone türü** |  Web Kancası |  Seçenekler: Web Kancası ve Event Hubs. |
+    | **Abone türü** |  otomatik oluşturulmuş |  Web Kancası olarak önceden tanımlanmış. |
     | **Abone uç noktası** | otomatik oluşturulmuş | Sizin için oluşturulan uç nokta URL'sini kullanın. | 
-    | **Önek filtresi** | /blobServices/default/containers/images/blobs/ | Depolama olaylarını yalnızca **images** kapsayıcısı üzerindeki olaylarla filtreler.| 
+    | **Ad** | imageresizersub | Yeni olay aboneliğinizi tanımlayan ad. | 
 
 4. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu işlem, *images* kapsayıcısına bir blob eklendiğinde `imageresizerfunc` olayını tetikleyen bir olay aboneliği oluşturur. İşlev, görüntüleri yeniden boyutlandırır ve *thumbnails* kapsayıcısına ekler.
 

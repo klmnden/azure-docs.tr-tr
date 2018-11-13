@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888206"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978324"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh nedir?
 
@@ -66,6 +66,8 @@ Service Fabric Mesh ile şunları yapabilirsiniz:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Yalnızca birkaç adımda Visual Studio ile örnek bir proje dağıtabilirsiniz. Daha fazla bilgi için bkz. [ASP.NET Core web sitesi oluşturma](service-fabric-mesh-quickstart-dotnet-core.md). 
+
+[Sık sorulan sorulara](service-fabric-mesh-faq.md) yanıtlar bulun.
 
 
 <!-- Links -->

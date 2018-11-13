@@ -8,16 +8,16 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 338acd3e26f9b36e5f9afaf90f95f61e7623cebc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426728"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281736"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
-Bu hızlı başlangıçta Azure Data Lake Storage Gen2 Önizleme sürümünde depolanan verileri analiz etmek için Azure Databricks kullanarak bir Apache Spark işini çalıştırmayı öğreneceksiniz.
+Bu hızlı başlangıçta Data Lake Storage 2. Nesil Önizleme sürümü etkin bir depolama hesabında depolanan verileri analiz etmek için Azure Databricks kullanarak bir Apache Spark işini çalıştırmayı öğreneceksiniz.
 
 Spark işinin parçası olarak, demografiye dayalı ücretsiz/ücretli kullanıma yönelik öngörüler elde etmek için bir radyo kanalının abonelik verilerini analiz edeceksiniz.
 
@@ -25,7 +25,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- [Azure Data Lake Storage Gen2 hesabı oluşturma](quickstart-create-account.md)
+- [Data Lake Storage 2. Nesil etkin bir depolama hesabı oluşturma](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>Depolama hesabı yapılandırmasını not alın
 
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz.
 
-1. Azure portalında **Kaynak oluşturun** > **Analiz** > **Azure Databricks**'i seçin. 
+1. Azure portalında **Kaynak oluşturun** > **Analiz** > **Azure Databricks**'i seçin.
 
     ![Azure portalında Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -47,7 +47,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     ![Azure Databricks çalışma alanı oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     Aşağıdaki değerleri sağlayın:
-     
+
     |Özellik  |Açıklama  |
     |---------|---------|
     |**Çalışma alanı adı**     | Databricks çalışma alanınız için bir ad sağlayın        |
@@ -191,7 +191,7 @@ Kümeyi oluştururken **__ dakika etkinsizlik süresinden sonra sonlandır** ona
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure Databricks’te bir Spark kümesi oluşturdunuz ve Data Lake Storage Gen2'deki verileri kullanarak bir Spark işi çalıştırdınız. Diğer veri kaynaklarından Azure Databricks’e verileri aktarma hakkında bilgi almak için [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) bölümüne de bakabilirsiniz. Azure Databricks kullanılarak bir ETL işleminin (verileri ayıklama, dönüştürme ve yükleme) nasıl gerçekleştirileceğini öğrenmek için sonraki makaleye ilerleyin.
+Bu makalede, Azure Databricks’te bir Spark kümesi oluşturdunuz ve Data Lake Storage 2. Nesil etkin bir depolama hesabındaki verileri kullanarak bir Spark işi çalıştırdınız. Diğer veri kaynaklarından Azure Databricks’e verileri aktarma hakkında bilgi almak için [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) bölümüne de bakabilirsiniz. Azure Databricks kullanılarak bir ETL işleminin (verileri ayıklama, dönüştürme ve yükleme) nasıl gerçekleştirileceğini öğrenmek için sonraki makaleye ilerleyin.
 
 > [!div class="nextstepaction"]
 >[Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)

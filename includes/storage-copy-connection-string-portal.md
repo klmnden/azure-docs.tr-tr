@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bef314e60b962e39b3a55d0fb7acb40d4d1b4c32
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f511eafda70fca997a08b5907e606e572b8e219
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38732887"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50974007"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Azure portalından kimlik bilgilerinizi kopyalama
 
-Örnek uygulamanın, depolama hesabınıza erişim için kimlik doğrulaması gerçekleştirmesi gerekir. Kimlik doğrulaması gerçekleştirmek için, depolama hesabınızın kimlik bilgilerini bir bağlantı dizesi şeklinde uygulamaya sağlarsınız. Depolama hesabınızın kimlik bilgilerini görüntülemek için:
+Örnek uygulamanın, depolama hesabınıza erişim için kimlik doğrulaması gerçekleştirmesi gerekir. Kimlik doğrulaması gerçekleştirmek için, depolama hesabınızın kimlik bilgilerini uygulamaya bir bağlantı dizesi olarak ekleyin. Bu adımları izleyerek depolama hesabı kimlik bilgilerinizi görüntüleyin:
 
 1. [Azure portalına](https://portal.azure.com) gidin.
 2. Depolama hesabınızı bulun.
-3. Depolama hesabına genel bakışın **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Hesap erişim anahtarlarınız ve her bir anahtar için tam bağlantı dizesi görüntülenir.   
-4. **key1** bölümünde **Bağlantı dizesi** değerini bulun ve **Kopyala** düğmesine tıklayarak bağlantı dizesini kopyalayın. Sonraki adımda bir ortam değişkenine bağlantı dizesini ekleyeceksiniz.
+3. Depolama hesabına genel bakışın **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Burada, hesap erişim anahtarlarınızı ve her anahtar için tam bağlantı dizesini görüntüleyebilirsiniz.   
+4. **key1** bölümünde **Bağlantı dizesi** değerini bulun ve **Kopyala** düğmesini seçerek bağlantı dizesini kopyalayın. Sonraki adımda bir ortam değişkenine bağlantı dizesini ekleyeceksiniz.
 
     ![Azure portalından bağlantı dizesinin kopyalanmasını gösteren ekran görüntüsü](media/storage-copy-connection-string-portal/portal-connection-string.png)

@@ -6,18 +6,18 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 10/23/2018
 ms.author: rogarana
-ms.openlocfilehash: b482379c05133dcf58e54bd01f38f0c3cee95e8d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 89beae63564c9a3f80b92b8a496a452114304718
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398602"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963710"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak blobları yükleme, indirme ve listeleme
+# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak blobları yükleme, indirme ve listeleme
 
-Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu kılavuzda yerel disk ile Azure Blob depolama arasında dosyaları aktarmak için PowerShell kullanma hakkında ayrıntılı bilgiler sağlanmaktadır.
+Azure kaynaklarını oluşturmak ve yönetmek için Azure PowerShell modülünü kullanın. Azure kaynaklarını oluşturma ve yönetme işlemleri PowerShell komut satırından veya betiklerden gerçekleştirilebilir. Bu kılavuzda yerel disk ile Azure Blob depolama arasında dosyaları aktarmak için PowerShell kullanma hakkında bilgi sağlanır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -29,7 +29,7 @@ Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürüm�
 
 Bloblar her zaman bir kapsayıcıya yüklenir. Bu, blob gruplarını bilgisayarınızdaki dosyaları klasörler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 
-Kapsayıcı adını ayarlayın, daha sonra [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) kullanarak kapsayıcıyı oluşturun ve dosyalara genel erişime izin vermek için izinleri 'blob' olarak ayarlayın. Bu örnekteki kapsayıcı adı *quickstartblobs*’tur.
+Kapsayıcı adını ayarlayın ve ardından [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer)’ı kullanarak kapsayıcıyı oluşturun. Dosyalara genel erişime izin vermek için izinleri `blob` olarak ayarlayın. Bu örnekteki kapsayıcı adı *quickstartblobs*’tur.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -38,11 +38,11 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 
-Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. IaaS VM’lerini yedeklemek için kullanılan VHD dosyaları sayfa bloblarıdır. Ekleme blobları, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetme için kullanılır. Blob depolamada depolanan çoğu dosya blok blobudur. 
+Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. IaaS VM’lerini yedekleyen VHD dosyaları sayfa bloblarıdır. Ekleme bloblarını, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetmek için kullanın. Blob depolamada depolanan çoğu dosya blok blobudur. 
 
-Bir dosyayı bir blok blobuna yüklemek için, bir kapsayıcı başvurusu alın ve bu kapsayıcıdaki blok blobuna bir başvuru alın. Blob başvurusunu aldıktan sonra, [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) kullanarak verileri karşıya yükleyebilirsiniz. Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob zaten varsa blobun üzerine yazılır.
+Bir dosyayı bir blok blobuna yüklemek için, bir kapsayıcı başvurusu alın ve bu kapsayıcıdaki blok blobuna bir başvuru alın. Blob başvurusunu aldıktan sonra, [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) kullanarak verileri karşıya yükleyebilirsiniz. Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob varsa blobun üzerine yazılır.
 
-Aşağıdaki örneklerde yerel diskteki D:\\_TestImages klasöründen Image001.jpg ve Image002.png dosyaları az önce oluşturduğunuz kapsayıcıya yüklenmektedir.
+Aşağıdaki örneklerde yerel diskteki *D:\\_TestImages* klasöründen *Image001.jpg* ve *Image002.png* dosyaları az önce oluşturduğunuz kapsayıcıya yüklenmektedir.
 
 ```powershell
 # upload a file
@@ -62,7 +62,7 @@ Devam etmeden önce istediğiniz sayıda dosyayı karşıya yükleyin.
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-[Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) kullanarak kapsayıcıdaki blobların bir listesini alın. Bu örnekte karşıya yüklenen blobların yalnızca adları gösterilmektedir.
+[Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) kullanarak kapsayıcıdaki blobların listesini alın. Bu örnekte karşıya yüklenen blobların yalnızca adları gösterilmektedir.
 
 ```powershell
 Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name 
@@ -70,9 +70,9 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Blob’ları indirme
 
-Blobları yerel diskinize indirin. İndirilecek her blob için, blobu indirmek için adı ayarlayın ve [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) öğesini çağırın.
+Blobları yerel diskinize indirin. İndirmek istediğiniz her blobda, blobu indirmek için adı ayarlayın ve [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) çağrısı yapın.
 
-Bu örnekte, bloblar yerel diskteki D:\\_TestImages\Downloads klasörüne indirilmektedir. 
+Bu örnekte, bloblar yerel diskteki *D:\\_TestImages\Downloads* klasörüne indirilir. 
 
 ```powershell
 # download first blob
@@ -90,9 +90,9 @@ Get-AzureStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>AzCopy ile veri aktarımı
 
-[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) yardımcı programı, Azure Depolama’ya yüksek performanslı betik oluşturulabilir veri aktarımı için diğer bir seçenektir. Blob, Dosya ve Tablo depolamaları arasında veri aktarmak için AzCopy kullanabilirsiniz.
+[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) yardımcı programı, Azure Depolama’ya yüksek performanslı betik oluşturulabilir veri aktarımı için diğer bir seçenektir. Blob, Dosya ve Tablo depolamaları arasında veri aktarmak için AzCopy kullanın.
 
-Hızlı bir örnek olarak, bir PowerShell penceresinden *myfile.txt* adlı dosyayı *mystoragecontainer* kapsayıcısına yüklemek için AzCopy komutu aşağıdadır.
+Hızlı bir örnek olarak, bir PowerShell penceresinden *myfile.txt* adlı dosyayı *mystoragecontainer* kapsayıcısına yüklemek için AzCopy komutu aşağıda gösterilmiştir.
 
 ```PowerShell
 ./AzCopy `
@@ -104,7 +104,7 @@ Hızlı bir örnek olarak, bir PowerShell penceresinden *myfile.txt* adlı dosya
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Oluşturduğunuz tüm varlıkları kaldırın. Bunu yapmanın en kolay yolu kaynak grubunu silmektir. Bu, ayrıca grubun içerdiği tüm kaynakları da siler. Bu durumda, depolama hesabı ve kaynak grubu kaldırılır.
+Oluşturduğunuz tüm varlıkları kaldırın. Varlıkları kaldırmanın en kolay yolu kaynak grubunu silmektir. Kaynak grubunu kaldırdığınızda o grubun içindeki tüm kaynaklar da silinir. Aşağıdaki örnekte, kaynak grubu kaldırıldığında depolama hesabı ve kaynak grubunun kendisi de kaldırılır.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -112,7 +112,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, dosyaları yerel bir disk ve Azure Blob depolama arasında aktarmayı öğrendiniz. PowerShell'i kullanarak Blob depolama ile çalışma hakkında daha fazla bilgi edinmek için Azure PowerShell'i Azure Depolama'yla kullanma öğreticisine geçin.
+Bu hızlı başlangıçta, dosyaları yerel bir disk ile Azure Blob depolama arasında aktardınız. PowerShell'i kullanarak Blob depolama ile çalışma hakkında daha fazla bilgi edinmek için Azure PowerShell'i Azure Depolama'yla kullanma öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Depolama ile Azure PowerShell’i kullanma](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

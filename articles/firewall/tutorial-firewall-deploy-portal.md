@@ -1,36 +1,38 @@
 ---
-title: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
+title: "Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma"
 description: Bu öğreticide Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtmayı ve yapılandırmayı öğreneceksiniz.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/6/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238837"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278591"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
-Azure Güvenlik Duvarı'nda giden erişimi denetlemek için iki kural türü bulunur:
+Giden ağ erişimini denetleme, genel ağ güvenlik planının önemli bir parçasıdır. Örneğin web sitelerine erişimi veya erişilebilen giden IP adreslerini ve bağlantı noktalarını kısıtlamak isteyebilirsiniz.
 
-- **Uygulama kuralları**
+Azure Güvenlik Duvarı, Azure alt ağından giden ağ erişimini denetlemenin bir yoludur. Azure Güvenlik Duvarı ile şunları yapılandırabilirsiniz:
 
-   Bir alt ağdan erişilebilen tam etki alanı adları (FQDN) yapılandırmanızı sağlar. Örneğin alt ağınızdan *github.com* için erişim izni verebilirsiniz.
-- **Ağ kuralları**
-
-   Kaynak adresi, protokol, hedef bağlantı noktası ve hedef adres bilgilerine sahip kurallar yapılandırmanızı sağlar. Örneğin alt ağınızdan DNS sunucunuzun IP adresinin 53 (DNS) numaralı bağlantı noktasına giden trafiğe izin verecek bir kural oluşturabilirsiniz.
+* Bir alt ağdan erişilebilen tam etki alanı adlarını (FQDN) tanımlayan uygulama kuralları.
+* Kaynak adres, protokol, hedef bağlantı noktası ve hedef adresini tanımlayan ağ kuralları.
 
 Ağ trafiğinizi güvenlik duvarından alt ağın varsayılan ağ geçidi olarak yönlendirdiğinizde ağ trafiği yapılandırılan güvenlik duvarı kurallarına tabi tutulur.
 
-Uygulama ve ağ kuralları, *kural koleksiyonları* halinde depolanır. Kural koleksiyonu, aynı eylemi ve önceliği paylaşan kuralların listesidir.  Ağ kuralı koleksiyonu ağ kurallarından, uygulama kuralı koleksiyonu ise uygulama kurallarından oluşan bir listedir.
+Bu öğreticide kolay dağıtım için üç alt ağa sahip tek bir basitleştirilmiş sanal ağ oluşturursunuz. Üretim dağıtımları için [hub ve bağlı bileşen modeli](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) önerilir ve bu yapıda güvenlik duvarı kendi sanal ağında, iş yükü sunucuları ise bir veya daha fazla alt ağ ile aynı bölgedeki eş sanal ağlarda bulunur.
 
-Azure Güvenlik Duvarı kural işleme mantığı hakkında daha fazla bilgi için bkz: [Azure Güvenlik Duvarı kural işleme mantığı](rule-processing.md).
+- **AzureFirewallSubnet** - güvenlik duvarı bu alt ağdadır.
+- **Workload-SN**: İş yükü sunucusu bu alt ağda yer alır. Bu alt ağın ağ trafiği güvenlik duvarından geçer.
+- **Jump-SN**: "Atlama" sunucusu bu alt ağda yer alır. Atlama sunucusu, Uzak Masaüstü ile bağlanabileceğiniz genel IP adresine sahiptir. Buradan iş yükü sunucusuna bağlanabilirsiniz (başka bir Uzak Masaüstü oturumuyla).
+
+![Öğretici ağı altyapısı](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -38,29 +40,22 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Test amaçlı ağ ortamı oluşturma
 > * Güvenlik duvarı dağıtma
 > * Varsayılan rota oluşturma
-> * Uygulama kurallarını yapılandırma
-> * Ağ kurallarını yapılandırma
+> * Github.com’a erişime izin vermek için uygulama yapılandırma
+> * Dış DNS sunucularına erişime izin vermek için ağ kuralı yapılandırma
 > * Güvenlik duvarını test etme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu öğreticide üç alt ağa sahip tek bir sanal ağ oluşturmanız gerekir:
-- **FW-SN**: Güvenlik duvarı bu alt ağda yer alır.
-- **Workload-SN**: İş yükü sunucusu bu alt ağda yer alır. Bu alt ağın ağ trafiği güvenlik duvarından geçer.
-- **Jump-SN**: "Atlama" sunucusu bu alt ağda yer alır. Atlama sunucusu, Uzak Masaüstü ile bağlanabileceğiniz genel IP adresine sahiptir. Buradan iş yükü sunucusuna bağlanabilirsiniz (başka bir Uzak Masaüstü oturumuyla).
-
-![Öğretici ağı altyapısı](media/tutorial-firewall-rules-portal/Tutorial_network.png)
-
-Bu öğreticide kolay dağıtım için basitleştirilmiş bir ağ yapılandırılması kullanılır. Üretim dağıtımları için [hub ve bağlı bileşen modeli](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) önerilir ve bu yapıda güvenlik duvarı kendi sanal ağında, iş yükü sunucuları ise bir veya daha fazla alt ağ ile aynı bölgedeki eş sanal ağlarda bulunur.
-
-## <a name="set-up-the-network-environment"></a>Ağ ortamını oluşturma
+## <a name="set-up-the-network"></a>Ağı ayarlama
 
 İlk olarak güvenlik duvarını dağıtmak için gerekli olan kaynakları içerecek bir kaynak grubu oluşturun. Ardından sanal ağı, alt ağları ve test sunucularını oluşturun.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
+Kaynak grubu, bu öğreticideki tüm kaynakları içerir.
+
 1. [http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
-2. Azure portal giriş sayfasında **Kaynak grupları**'na ve ardından **Ekle**'ye tıklayın.
+2. Azure portalı giriş sayfasında **Kaynak grupları** > **Ekle**'ye tıklayın.
 3. **Kaynak grubu adı** alanına **Test-FW-RG** yazın.
 4. **Abonelik** bölümünde aboneliğinizi seçin.
 5. **Kaynak grubu konumu** bölümünde bir konum seçin. Bundan sonra oluşturacağınız tüm kaynakların aynı konumda olması gerekir.
@@ -68,13 +63,15 @@ Bu öğreticide kolay dağıtım için basitleştirilmiş bir ağ yapılandırı
 
 ### <a name="create-a-vnet"></a>Sanal ağ oluşturma
 
+Bu sanal ağda üç alt ağ bulunacaktır.
+
 1. Azure portal giriş sayfasında **Tüm hizmetler**'e tıklayın.
 2. **Ağ** bölümünde **Sanal ağlar**'a tıklayın.
 3. **Ekle**'ye tıklayın.
 4. **Ad** alanına **Test-FW-VN** yazın.
 5. **Adres alanı** için **10.0.0.0/16** yazın.
 6. **Abonelik** bölümünde aboneliğinizi seçin.
-7. **Kaynak grubu** için **Var olanı kullan**’ı ve **Test-FW-RG** girişini seçin.
+7. **Kaynak grubu** olarak **Var olanı kullan** > **Test-FW-RG**’yi seçin.
 8. **Konum** alanında önceden kullandığınız konumu seçin.
 9. **Alt ağ** bölümünde **Ad** alanına **AzureFirewallSubnet** yazın. Güvenlik duvarı bu alt ağda yer alacaktır ve alt ağ adının **mutlaka** AzureFirewallSubnet olması gerekir.
 10. **Adres aralığı** için **10.0.1.0/24** yazın.
@@ -87,9 +84,9 @@ Bu öğreticide kolay dağıtım için basitleştirilmiş bir ağ yapılandırı
 
 Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları için bir alt ağ oluşturun.
 
-1. Azure portal giriş sayfasında **Kaynak grupları**'na ve ardından **Test-FW-RG** girişine tıklayın.
+1. Azure portalı giriş sayfasında **Kaynak grupları** > **Test-FW-RG**'ye tıklayın.
 2. **Test-FW-VN** sanal ağına tıklayın.
-3. **Alt ağlar**’a ve ardından **+Alt ağ**’a tıklayın.
+3. **Alt ağlar** > **+Alt ağ**’a tıklayın.
 4. **Ad** alanına **Workload-SN** yazın.
 5. **Adres aralığı** için **10.0.2.0/24** yazın.
 6. **Tamam** düğmesine tıklayın.
@@ -102,14 +99,14 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
 
 1. Azure portal giriş sayfasında **Tüm hizmetler**'e tıklayın.
 2. **İşlem** bölümünde **Sanal makineler**'e tıklayın.
-3. **Ekle**, **Windows Server**, **Windows Server 2016 Datacenter** ve ardından **Oluştur**'a tıklayın.
+3. **Ekle** > **Windows Server** > **Windows Server 2016 Datacenter** > **Oluştur**’a tıklayın.
 
 **Temel Bilgiler**
 
 1. **Ad** alanına **Srv-Jump** yazın.
 5. Bir kullanıcı adı ve parola girin.
 6. **Abonelik** bölümünde aboneliğinizi seçin.
-7. **Kaynak grubu** için **Var olanı kullan**’a tıklayın ve **Test-FW-RG** girişini seçin.
+7. **Kaynak grubu** olarak **Var olanı kullan** > **Test-FW-RG**’yi seçin.
 8. **Konum** alanında önceden kullandığınız konumu seçin.
 9. **Tamam** düğmesine tıklayın.
 
@@ -143,9 +140,11 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 
 ## <a name="deploy-the-firewall"></a>Güvenlik duvarını dağıtma
 
+Güvenlik duvarını sanal ağa dağıtın.
+
 1. Portal giriş sayfasında **Kaynak oluştur**'a tıklayın.
 2. **Ağ**'a tıklayın ve **Öne çıkanlar**'ın sonrasında **Tümünü gör**'e tıklayın.
-3. **Güvenlik duvarı**'na ve ardından **Oluştur**'a tıklayın. 
+3. **Güvenlik duvarı** > **Oluştur**’a tıklayın. 
 4. **Güvenlik duvarı oluştur** sayfasında aşağıdaki ayarları kullanarak güvenlik duvarını yapılandırın:
    
    |Ayar  |Değer  |
@@ -166,7 +165,7 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 
 ## <a name="create-a-default-route"></a>Varsayılan rota oluşturma
 
-**Workload-SN** alt ağında varsayılan giden rotayı güvenlik duvarından geçecek şekilde yapılandıracaksınız.
+**Workload-SN** alt ağında varsayılan giden rotayı güvenlik duvarından geçecek şekilde yapılandırın.
 
 1. Azure portal giriş sayfasında **Tüm hizmetler**'e tıklayın.
 2. **Ağ** bölümünde **Rota tabloları**'na tıklayın.
@@ -177,15 +176,12 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 7. **Konum** alanında önceden kullandığınız konumu seçin.
 8. **Oluştur**’a tıklayın.
 9. **Yenile**'ye ve ardından **Firewall-route** rota tablosuna tıklayın.
-10. **Alt ağlar**’a ve ardından **İlişkilendir**’e tıklayın.
-11. **Sanal ağlar**'a tıklayın ve ardından **Test-FW-VN** girişini seçin.
-12. **Alt ağ** bölümünde **Workload-SN** girişine tıklayın.
-
-    > [!IMPORTANT]
-    > Bu rota için yalnızca **Workload-SN** alt ağını seçtiğinizden emin olun. Aksi takdirde güvenlik duvarınız düzgün çalışmaz.
+10. **Alt ağlar** > **İlişkilendir**’e tıklayın.
+11. **Sanal ağ** > **Test-FW-RG**’ye tıklayın.
+12. **Alt ağ** bölümünde **Workload-SN** girişine tıklayın. Bu rota için yalnızca **Workload-SN** alt ağını seçtiğinizden emin olun. Aksi takdirde güvenlik duvarınız düzgün çalışmaz.
 
 13. **Tamam** düğmesine tıklayın.
-14. **Rotalar**'a ve ardından **Ekle**'ye tıklayın.
+14. **Yollar** > **Ekle**’ye tıklayın.
 15. **Rota adı** alanına **FW-DG** yazın.
 16. **Adres ön eki** alanına **0.0.0.0/0** yazın.
 17. **Sonraki atlama türü** için **Sanal gereç**'i seçin.
@@ -194,7 +190,9 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 18. **Sonraki atlama adresi** alanına önceden not ettiğiniz güvenlik duvarı özel IP adresini yazın.
 19. **Tamam** düğmesine tıklayın.
 
-## <a name="configure-application-rules"></a>Uygulama kurallarını yapılandırma
+## <a name="configure-an-application-rule"></a>Uygulama kuralı yapılandırma
+
+Bu, github.com adresine giden erişime izin veren bir uygulama kuralıdır.
 
 1. **Test-FW-RG** öğesini açın ve **Test-FW01** güvenlik duvarına tıklayın.
 2. **Test-FW01** sayfasının **Ayarlar** bölümünde **Kurallar**'a tıklayın.
@@ -204,13 +202,15 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 6. **Eylem** alanında **İzin ver**'i seçin.
 7. **Kurallar** bölümünde **Ad** alanında **AllowGH** yazın.
 8. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
-9. **Protokol:bağlantı noktası** alanına **http, https** yazın. 
+9. **Protokol:bağlantı noktası** alanına **http, https** yazın.
 10. **Hedef FQDNS** alanına **github.com** yazın.
 11. **Ekle**'ye tıklayın.
 
 Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri için yerleşik bir kural koleksiyonu bulunur. Bu FQDN'ler platforma özgüdür ve başka amaçlarla kullanılamaz. Daha fazla bilgi için bkz. [Altyapı FQDN'leri](infrastructure-fqdns.md).
 
-## <a name="configure-network-rules"></a>Ağ kurallarını yapılandırma
+## <a name="configure-a-network-rule"></a>Ağ kuralını yapılandırma
+
+Bu, bağlantı noktası 53’deki (DNS) iki IP adresine giden erişime izin veren ağ kuralıdır.
 
 1. **Ağ kuralı koleksiyonu ekle**'ye tıklayın.
 2. **Ad** alanına **Net-Coll01** yazın.
@@ -226,7 +226,7 @@ Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri i
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>**Srv-Work** ağ arabiriminin birincil ve ikincil DNS adresini değiştirme
 
-Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandırıyorsunuz. Bu durum Azure Güvenlik Duvarı'nın genel gereksinimlerinden biri değildir. 
+Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandırıyorsunuz. Bu durum Azure Güvenlik Duvarı'nın genel gereksinimlerinden biri değildir.
 
 1. Azure portaldan **Test-FW-RG** kaynak grubunu açın.
 2. **Srv-Work** sanal makinesinin ağ arabirimine tıklayın.
@@ -238,11 +238,13 @@ Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandır�
 
 ## <a name="test-the-firewall"></a>Güvenlik duvarını test etme
 
+Şimdi beklendiği gibi çalıştığını doğrulamak için güvenlik duvarını test edin.
+
 1. Azure portalda **Srv-Work** sanal makinesinin ağ ayarlarını gözden geçirin ve özel IP adresini not edin.
 2. **Srv-Jump** sanal makinesine uzak masaüstü bağlantısı kurun ve oradan da **Srv-Work** özel IP adresine uzak masaüstü bağlantısı açın.
 
 5. Internet Explorer'ı açın ve http://github.com adresine gidin.
-6. Güvenlik uyarılarında **Tamam**'a ve **Kapat**'a tıklayın.
+6. Güvenlik uyarılarında **Tamam** > **Kapat**'a tıklayın.
 
    GitHub giriş sayfasını görmeniz gerekir.
 
@@ -260,17 +262,6 @@ Güvenlik duvarı kurallarının çalıştığını doğruladığınıza göre:
 Güvenlik duvarı kaynaklarını bir sonraki öğretici için tutabilirsiniz veya artık gerekli değilse **Test-FW-RG** kaynak grubunu silerek güvenlik duvarıyla ilgili tüm kaynakları silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Ağı ayarlama
-> * Güvenlik duvarı oluşturma
-> * Varsayılan rota oluşturma
-> * Uygulama ve ağ güvenlik duvarı kurallarını yapılandırma
-> * Güvenlik duvarını test etme
-
-Şimdi Azure Güvenlik Duvarı günlüklerini izleyebilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Öğretici: Azure Güvenlik Duvarı günlüklerini izleme](./tutorial-diagnostics.md)

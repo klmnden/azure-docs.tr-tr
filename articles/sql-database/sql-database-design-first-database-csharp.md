@@ -11,15 +11,15 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 06/07/2018
-ms.openlocfilehash: 504fae03e06632f5960bfe0761cc0167b9e1d3fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 11/01/2018
+ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465229"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912348"
 ---
-# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>C&#x23; ve ADO.NET ile bir Azure SQL veritabanı tasarlama ve bağlama
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Öğretici: C&#x23; ve ADO.NET ile bir Azure SQL veritabanı tasarlama ve bağlama
 
 Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak veritabanıdır (DBaaS). Bu öğreticide, Visual Studio ile ADO.NET ve Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 

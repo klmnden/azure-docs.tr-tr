@@ -13,111 +13,139 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 0da5962bc0b48a387ee82a1db36099682e14bca3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168195"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218976"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Azure Data Lake Storage 1. Nesil için sanal ağ tümleştirmesi - Önizleme
 
-Azure Data Lake Storage 1. Nesil için sanal ağ tümleştirmesi (önizleme) tanıtımı. Sanal ağ tümleştirmesi, Azure Data Lake Storage 1. Nesil hesaplarınızı belirli sanal ağlarınız ve alt ağlarınızla sınırlandırarak yetkisiz erişimi önlemenizi sağlar. Artık ADLS 1. Nesil hesabınızı yalnızca belirli sanal ağ ve alt ağlardan gelen trafiği kabul edip diğer tüm erişimi engelleyecek şekilde yapılandırabilirsiniz. Bu durum ADLS hesabınızı dışarıdan gelen tehditlere karşı korumanıza yardımcı olur.
+Bu makalede önizleme sürümündeki Azure Data Lake Storage 1. Nesil için sanal ağ tümleştirmesi anlatılmaktadır. Sanal ağ tümleştirmesi ile hesaplarınızı yalnızca belirli sanal ağlardan ve alt ağlardan gelen trafiği kabul edecek şekilde yapılandırabilirsiniz. 
 
-ADLS 1. Nesil için sanal ağ tümleştirmesi, erişim belirtecinde ek güvenlik talepleri oluşturmak için sanal ağınızla Azure Active Directory hizmeti arasında sanal ağ hizmet uç noktası güvenliğini kullanır. Ardından bu talepler sanal ağınız için ADLS 1. Nesil hesabınızda kimlik doğrulaması gerçekleştirme ve erişim izni verme amacıyla kullanılır.
+Bu özellik, Data Lake Storage hesabınızı dışarıdan gelebilecek tehditlere karşı korumanıza yardımcı olur.
+
+Data Lake Storage 1. Nesil için sanal ağ tümleştirmesi, erişim belirtecinde ek güvenlik talepleri oluşturmak için sanal ağınızla Azure Active Directory (Azure AD) arasında sanal ağ hizmet uç noktası güvenliğini kullanır. Ardından bu talepler sanal ağınız için Data Lake Storage 1. Nesil hesabınızda kimlik doğrulaması gerçekleştirme ve erişim izni verme amacıyla kullanılır.
 
 > [!NOTE]
-> Bu teknoloji önizleme aşamasındadır ve üretim ortamlarında kullanılması önerilmez.
+> Bu teknoloji, önizleme aşamasındadır. Üretim ortamında kullanılması önerilmez.
 >
-> Bu özellikler ek ücrete tabi değildir. ADLS 1. Nesil ([fiyatlandırma](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)) ve kullandığınız tüm Azure hizmetleri ([fiyatlandırma](https://azure.microsoft.com/pricing/#product-picker)) için standart ücretler tahsil edilir.
+> Bu özellikler ek ücrete tabi değildir. Hesabınız Data Lake Storage 1. Nesil için standart ücretler üzerinden faturalandırılır. Daha fazla bilgi için bkz. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Kullandığınız diğer tüm Azure hizmetleri için bkz. [Fiyatlandırma](https://azure.microsoft.com/pricing/#product-picker).
 
-## <a name="scenarios-for-vnet-integration-for-adls-gen1"></a>ADLS 1. Nesil için Sanal Ağ Tümleştirmesi senaryoları
+## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Data Lake Storage 1. Nesil sanal ağ tümleştirmesi senaryoları
 
-ADLS Gen1 Sanal Ağ Tümleştirmesi, ADLS 1. Nesil hesabınıza erişimi belirlenen sanal ağlar ve alt ağlarla sınırlamanızı sağlar.  Erişim belirli bir Sanal Ağ Alt Ağı ile kilitlendikten sonra Azure'daki diğer sanal ağlara/VM'lere hesabınız için erişim izni verilmez.  ADLS 1. Nesil Sanal Ağ Tümleştirmesi, işlev açısından [sanal ağ hizmeti uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) ile aynı senaryoyu etkinleştirir.  İki senaryo arasında aşağıdaki bölümlerde belirtilen önemli farklar vardır. 
+Data Lake Storage 1. Nesil sanal ağ tümleştirmesi ile Data Lake Storage 1. Nesil hesabınıza erişimi belirli sanal ağlar ve alt ağlar ile sınırlandırabilirsiniz. Hesabınız belirtilen sanal ağ alt ağına kilitlendikten sonra Azure'daki diğer sanal ağlar/VM'ler tarafından erişim sağlanamaz. Data Lake Storage 1. Nesil sanal ağ tümleştirmesi, işlev açısından [sanal ağ hizmeti uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) ile aynı senaryoyu etkinleştirir. İki senaryo arasındaki önemli farklar aşağıdaki bölümlerde belirtilmiştir. 
 
-![ADLS 1. Nesil Sanal Ağ Tümleştirmesi senaryo diyagramı](media/data-lake-store-network-security/scenario-diagram.png)
+![Data Lake Storage 1. Nesil sanal ağ tümleştirmesi senaryo diyagramı](media/data-lake-store-network-security/scenario-diagram.png)
 
 > [!NOTE]
 > Sanal ağ kurallarına ek olarak var olan IP güvenlik duvarı kurallarını kullanarak şirket içi ağlardan erişime de izin verebilirsiniz. 
 
-## <a name="optimal-routing-with-adls-gen1-vnet-integration"></a>ADLS 1. Nesil Sanal Ağ Tümleştirmesi ile en iyi rota
+## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Data Lake Storage 1. Nesil sanal ağ tümleştirmesi için en uygun rota
 
-Sanal ağ hizmet uç noktalarının temel avantajlarından biri, sanal ağınızdan [en iyi rotayı](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) kullanma seçeneğidir.  ADLS 1. Nesil hesaplarında aynı rota iyileştirmesini gerçekleştirmek için sanal ağınızdan ADLS 1. Nesil hesabınıza aşağıdaki [kullanıcı tanımlı rotaları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) kullanabilirsiniz:
+Sanal ağ hizmet uç noktalarının temel avantajlarından biri, sanal ağınızdan [en iyi rotayı](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) kullanma seçeneğidir. Data Lake Storage 1. Nesil hesaplarında aynı rota iyileştirme adımlarını gerçekleştirebilirsiniz. Sanal ağınızdan Data Lake Storage 1. Nesil hesabınıza aşağıdaki [kullanıcı tanımlı rotaları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) kullanın.
 
-- **ADLS Genel IP Adresi**: Hedef ADLS 1. Nesil hesaplarınız için genel IP adresini kullanın.  Hesaplarınızın [DNS adlarını çözümleyerek](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) ADLS 1. Nesil hesabınızın IP adresini tanımlayabilirsiniz.  Her adres için ayrı bir giriş oluşturun.
+**Data Lake Storage genel IP adresi**: Hedef Data Lake Storage 1. Nesil hesaplarınız için genel IP adresini kullanın. Hesaplarınızın [DNS adlarını çözümleyerek](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) Data Lake Storage 1. Nesil hesabınızın IP adresini tanımlayabilirsiniz. Her adres için ayrı bir giriş oluşturun.
 
-```azurecli
-# Create a Route table for your resource group
-az network route-table create --resource-group $RgName --name $RouteTableName
+    ```azurecli
+    # Create a route table for your resource group.
+    az network route-table create --resource-group $RgName --name $RouteTableName
+    
+    # Create route table rules for Data Lake Storage public IP addresses.
+    # There's one rule per Data Lake Storage public IP address. 
+    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+    
+    # Update the virtual network, and apply the newly created route table to it.
+    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+    ```
 
-# Create Route Table Rules for ADLS Public IP Addresses
-# There will be one rule per ADLS Public IP Addresses 
-az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+## <a name="data-exfiltration-from-the-customer-virtual-network"></a>Müşteri sanal ağından veri sızdırma
 
-# Update the VNet and apply the newly created Route Table to it
-az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-```
+Data Lake Storage hesaplarını sanal ağ erişimiyle sınırlandırmaya ek olarak yetkisiz hesaba sızma olmamasını da sağlamak isteyebilirsiniz.
 
-## <a name="data-exfiltration-from-the-customer-vnet"></a>Müşteri sanal ağından veri sızdırma
-
-ADLS hesaplarını sanal ağ erişimiyle sınırlandırmaya ek olarak yetkisiz hesaba sızma olmamasını da sağlamak isteyebilirsiniz.
-
-Önerimiz sanal ağınızda kullanacağınız bir güvenlik duvarı çözümü ile giden trafiği hedef hesap URL'sine göre filtrelemek ve yalnızca yetkili ADLS 1. Nesil hesaplarına izin vermektir.
+Giden trafiği hedef hesap URL'sine göre filtrelemek için sanal ağınızda bir güvenlik duvarı çözümü kullanın. Yalnızca onaylanan Data Lake Storage 1. Nesil hesaplarına erişim izni verin.
 
 Kullanılabilen seçeneklerin bazıları şunlardır:
-- [Azure Güvenlik Duvarı](https://docs.microsoft.com/azure/firewall/overview): Sanal ağınız için bir [Azure Güvenlik Duvarı dağıtıp yapılandırabilir](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) ve giden ADLS trafiğinin güvenliğini sağlayıp bilinen ve yetkili hesap URL'leriyle sınırlandırabilirsiniz.
-- [Ağ Sanal Gereci](https://azure.microsoft.com/solutions/network-appliances/) Güvenlik Duvarı: Yöneticiniz yalnızca belirli ticari güvenlik duvarı satıcılarının kullanımını yetkilendiriyorsa Azure Market'te bulunan bir NVA güvenlik duvarı çözümünü kullanarak aynı işleve erişebilirsiniz.
+- [Azure Güvenlik Duvarı](https://docs.microsoft.com/azure/firewall/overview): Sanal ağınızda bir [Azure Güvenlik Duvarı dağıtın ve yapılandırın](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal). Giden Data Lake Storage trafiğinin güvenliğini sağlayın, bilinen ve onaylı hesap URL'si ile kilitleyin.
+- [Sanal ağ gereci](https://azure.microsoft.com/solutions/network-appliances/) güvenlik duvarı: Yöneticiniz yalnızca belirli ticari güvenlik duvarı satıcılarının kullanılmasına izin veriyor olabilir. Aynı işlevi gerçekleştirmek için Azure Market'te bulunan ağ sanal gereci güvenlik duvarı çözümlerinden birini kullanın.
 
 > [!NOTE]
-> Veri yolunda güvenlik duvarı kullanımı, veri yoluna bir atlama ekler ve kullanılabilir aktarım hızı ile bağlantı gecikme süresi dahil olmak üzere uçtan uca veri alışverişinde ağ performansını olumsuz etkileyebilir. 
+> Veri yolunda güvenlik duvarı kullanmak yeni bir atlama eklenmesine neden olur. Bu durum ağ performansını ve uçtan uca veri alışverişini etkileyebilir. Kullanılabilen aktarım hızı ve bağlantı gecikme süresi bu durumdan etkilenebilir. 
 
 ## <a name="limitations"></a>Sınırlamalar
-1.  HDInsight kümeleri önizleme sürümüne eklendikten sonra oluşturulmalıdır.  ADLS 1. Nesil sanal ağ tümleştirmesi desteğinden önce oluşturulan kümelerin bu yeni özelliği desteklemesi için yeniden oluşturulması gerekir. 
-2.  Yeni bir HDInsight kümesi oluştururken sanal ağ tümleştirmesi etkin bir ADLS 1. Nesil hesabının seçilmesi durumunda işlem başarısız olacaktır. Öncelikle sanal ağ kuralını devre dışı bırakmanız gerekir. Alternatif olarak ADLS hesabının **Güvenlik duvarı ve sanal ağlar** dikey penceresinden **Tüm ağlardan ve hizmetlerden erişime izin ver** seçeneğini belirleyebilirsiniz.  Daha fazla bilgi için [Özel durumlar](##Exceptions) bölümüne bakın.
-3.  ADLS 1. Nesil sanal ağ tümleştirmesi önizleme sürümü [Azure kaynakları için yönetilen kimliklerle](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) çalışmaz.  
-4.  Sanal ağın etkinleştirilmiş olduğu ADLS 1. Nesil hesabınızdaki dosya/klasör verilerine portaldan erişim sağlanamaz.  Buna sanal ağ içindeki VM'lerden erişim ve Veri Gezgini kullanımı gibi etkinlikler dahildir.  Hesap yönetimi etkinlikleri çalışmaya devam eder.  Sanal ağın etkinleştirilmiş olduğu ADLS hesabınızdaki dosya/klasör verilerine portal dışı tüm kaynaklardan erişim sağlanabilir: SDK erişimi, PowerShell betikleri, diğer Azure hizmetleri (kaynağı portal olmayan) vb. 
+
+- Data Lake Storage 1. Nesil sanal ağ tümleştirmesi desteği öncesinde oluşturulmuş olan HDI kümelerinin bu yeni özelliği desteklemesi için yeniden oluşturulması gerekir.
+ 
+- Yeni bir HDInsight kümesi oluşturduğunuzda ve sanal ağ tümleştirmesi etkinleştirilmiş bir Data Lake Storage 1. Nesil hesabını seçtiğinizde bu işlem başarısız olur. Öncelikle sanal ağ kuralını devre dışı bırakmanız gerekir. Alternatif olarak Data Lake Storage hesabının **Güvenlik duvarı ve sanal ağlar** dikey penceresinde **Tüm ağlardan ve hizmetlerden erişime izin ver**'i seçebilirsiniz. Daha fazla bilgi için [Özel durumlar](##Exceptions) bölümüne bakın.
+
+- Data Lake Storage 1. Nesil sanal ağ tümleştirmesi önizleme sürümü, [Azure kaynakları için yönetilen kimliklerle](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) birlikte çalışmaz.
+  
+- Sanal ağ tümleştirmesi etkin Data Lake Storage 1. Nesil hesabınızdaki dosya ve klasör verilerine portaldan erişim sağlayamazsınız. Bu kısıtlamaya sanal ağ içindeki VM'lerden erişim ve Veri Gezgini kullanımı gibi etkinlikler dahildir. Hesap yönetimi etkinlikleri çalışmaya devam eder. Sanal ağ tümleştirmesi etkin Data Lake Storage hesabınızdaki dosya ve klasör verilerine portal dışı kaynaklardan erişim sağlayabilirsiniz. Bu kaynaklara SDK erişimi, PowerShell betikleri ve portaldan başlatılmayan diğer tüm Azure hizmetleri dahildir. 
 
 ## <a name="configuration"></a>Yapılandırma
 
-### <a name="step1-configure-your-vnet-to-use-aad-service-endpoint"></a>1. adım: Sanal ağınızı AAD Hizmet Uç Noktasını kullanacak şekilde yapılandırma
-1.  Azure portala gidin ve hesabınızda oturum açın. 
-2.  Aboneliğinizde [yeni bir sanal ağ oluşturun](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) veya var olan sanal ağlardan birine gidin.  Sanal ağın ADLS 1. Nesil hesabıyla aynı bölgede olması gerekir. 
-3.  Sanal ağ dikey penceresinden **Hizmet uç noktaları**'nı seçin. 
-4.  **Ekle**'ye tıklayarak yeni bir hizmet uç noktası ekleyin.
-![Sanal ağ hizmet uç noktası ekleme](media/data-lake-store-network-security/config-vnet-1.png)
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>1. Adım: Sanal ağınızı bir Azure AD hizmet uç noktasını kullanacak şekilde yapılandırma
+
+1.  Azure portala gidin ve hesabınızda oturum açın.
+ 
+2.  Aboneliğinizde [yeni bir sanal ağ oluşturun](https://docs.microsoft.com/azure/virtual-network/quick-create-portal). İsterseniz var olan bir sanal ağa da gidebilirsiniz. Sanal ağın Data Lake Storage 1. Nesil hesabıyla aynı bölgede olması gerekir.
+ 
+3.  **Sanal ağ** dikey penceresinde **Hizmet uç noktaları**'nı seçin.
+ 
+4.  **Ekle**'yi seçerek yeni bir hizmet uç noktası ekleyin.
+
+    ![Sanal ağ hizmeti uç noktası ekleme](media/data-lake-store-network-security/config-vnet-1.png)
+
 5.  Uç noktası hizmeti olarak **Microsoft.AzureActiveDirectory** seçeneğini belirleyin.
-![Microsoft.AzureActiveDirectory hizmet uç noktasını seçme](media/data-lake-store-network-security/config-vnet-2.png)
-6.  Bağlantı izni vermek istediğiniz alt ağları seçin ve **Ekle**'ye tıklayın.
-![Alt ağı seçme](media/data-lake-store-network-security/config-vnet-3.png)
-7.  Hizmet uç noktasının eklenmesi 15 dakika sürebilir. Uç nokta eklendikten sonra listede görünür. Göründüğünden ve tüm ayrıntıların yapılandırmaya uygun olduğundan emin olun. 
-![Hizmet uç noktası ekleme başarılı](media/data-lake-store-network-security/config-vnet-4.png)
 
-### <a name="step-2-set-up-the-allowed-vnetsubnet-for-your-adls-gen1-account"></a>2. Adım: ADLS 1. Nesil hesabınız için izin verilen sanal ağı/alt ağı ayarlama
-1.  Sanal ağınızı yapılandırdıktan sonra aboneliğinizde [yeni bir Azure Data Lake Storage 1. Nesil hesabı](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) oluşturun veya var olan bir ADLS 1. Nesil hesabına gidin. ADLS 1. Nesil hesabının sanal ağ ile aynı bölgede bulunması gerekir. 
-2.  **Güvenlik duvarları ve sanal ağlar**'ı seçin.
+     ![Select the Microsoft.AzureActiveDirectory hizmet uç noktasını seçme](media/data-lake-store-network-security/config-vnet-2.png)
 
-  > [!NOTE]
-  > Ayarlarda **Güvenlik duvarları ve sanal ağlar** seçeneği görünmüyorsa lütfen portal oturumunu kapatın. Tarayıcıyı kapatın. Tarayıcı önbelleğini temizleyin. Makineyi yeniden başlatın ve yeniden deneyin.
+6.  Bağlantı izni vermek istediğiniz alt ağları seçin. **Add (Ekle)** seçeneğini belirleyin.
 
-  ![ADLS hesabınıza sanal ağ kuralı ekleme](media/data-lake-store-network-security/config-adls-1.png)
-3.  **Seçili ağlar**'ı seçin. 
-4.  **Var olan sanal ağı ekle**’ye tıklayın.
-  ![Var olan sanal ağı ekle](media/data-lake-store-network-security/config-adls-2.png)
-5.  Bağlantı izni vermek istediğiniz sanal ağları ve alt ağları seçip **Ekle**'ye tıklayın.
-  ![Sanal ağları ve alt ağları seçme](media/data-lake-store-network-security/config-adls-3.png)
-6.  Sanal ağların ve alt ağların listede düzgün şekilde gösterildiğinden emin olun ve **Kaydet**'e tıklayın.
-  ![Yeni kuralı kaydetme](media/data-lake-store-network-security/config-adls-4.png)
+    ![Alt ağı seçme](media/data-lake-store-network-security/config-vnet-3.png)
 
-  > [!NOTE]
-  > Kaydettikten sonra ayarların geçerli olması 5 dakika sürebilir.
+7.  Hizmet uç noktasının eklenmesi 15 dakika sürebilir. Eklendikten sonra listede gösterilir. Göründüğünden ve tüm ayrıntıların yapılandırmaya uygun olduğundan emin olun.
+ 
+    ![Hizmet uç noktası ekleme başarılı](media/data-lake-store-network-security/config-vnet-4.png)
 
-7.  [İsteğe bağlı] Sanal ağlara ve alt ağlara ek olarak belirli IP adreslerine erişim izni vermek isterseniz bu işlemi aynı sayfadaki **Güvenlik duvarı** bölümünden gerçekleştirebilirsiniz. 
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>2. Adım: Data Lake Storage 1. Nesil hesabınız için izin verilen sanal ağı veya alt ağı ayarlama
+
+1.  Sanal ağınızı yapılandırdıktan sonra aboneliğinizde [yeni bir Azure Data Lake Storage 1. Nesil hesabı](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) oluşturun. İsterseniz var olan bir Data Lake Storage 1. Nesil hesabına da gidebilirsiniz. Data Lake Storage 1. Nesil hesabının sanal ağ ile aynı bölgede olması gerekir.
+ 
+2.  **Güvenlik duvarı ve sanal ağlar**'ı seçin.
+
+    > [!NOTE]
+    > Ayarlarda **Güvenlik duvarı ve sanal ağlar** seçeneği görünmüyorsa portal oturumunu kapatın. Tarayıcıyı kapatın ve tarayıcı önbelleğini temizleyin. Makineyi yeniden başlatın ve yeniden deneyin.
+
+       ![Data Lake Storage hesabınıza sanal ağ kuralı ekleme](media/data-lake-store-network-security/config-adls-1.png)
+
+3.  **Seçili ağlar**'ı seçin.
+ 
+4.  **Var olan sanal ağı ekle**’yi seçin.
+
+    ![Var olan sanal ağı ekle](media/data-lake-store-network-security/config-adls-2.png)
+
+5.  Bağlantıya izin vermek istediğiniz sanal ağları ve alt ağları seçin. **Add (Ekle)** seçeneğini belirleyin.
+
+    ![Sanal ağı ve alt ağları seçme](media/data-lake-store-network-security/config-adls-3.png)
+
+6.  Sanal ağların ve alt ağların listede düzgün şekilde gösterildiğinden emin olun. **Kaydet**’i seçin.
+
+    ![Yeni kuralı kaydetme](media/data-lake-store-network-security/config-adls-4.png)
+
+    > [!NOTE]
+    > Kaydettikten sonra ayarların geçerli olması 5 dakika sürebilir.
+
+7.  [İsteğe bağlı] **Güvenlik duvarı ve sanal ağlar** sayfasının **Güvenlik duvarı** bölümünde belirli IP adreslerinden gelen bağlantılara izin verebilirsiniz. 
 
 ## <a name="exceptions"></a>Özel durumlar
-**Güvenlik duvarı ve sanal ağlar** dikey penceresinin Özel durumlar bölümünde, belirli hizmetlerden ve sanal makinelerden Azure'a erişilmesini sağlayan iki onay kutusu bulunur.
-![Güvenlik duvarı ve sanal ağ özel durumları](media/data-lake-store-network-security/firewall-exceptions.png)
-- **Tüm Azure hizmetlerinin bu Data Lake Storage 1. Nesil hesabına erişmesine izin ver** seçeneği Azure Data Factory, Event Hubs, Azure VM'leri gibi tüm Azure hizmetlerine erişim izni verir. Bu hizmetler ADLS hesabınızla iletişim kurabilir.
+Seçtiğiniz sanal ağların dışındaki Azure hizmetlerinden ve VM'lerden gelen bağlantılara izin verebilirsiniz. **Güvenlik duvarı ve sanal ağlar** dikey penceresinin **Özel durumlar** bölümündeki iki seçenekten birini belirleyin:
+ 
+- **Tüm Azure hizmetlerinin bu Data Lake Storage 1. Nesil hesabına erişmesine izin ver**. Bu seçenek Azure Data Factory ve Azure Event Hubs gibi Azure hizmetlerinin ve tüm Azure VM'lerinin Data Lake Storage hesabınızla iletişim kurmasına izin verir.
 
-- **Azure Data Lake Analytics'in bu Data Lake Storage 1. Nesil hesabına erişmesine izin ver** seçeneği, Azure Data Lake Analytics hizmetinin bu ADLS hesabıyla bağlantı kurmasını sağlar. 
+- **Azure Data Lake Analytics'in bu Data Lake Storage 1. Nesil hesabına erişmesine izin ver**. Bu seçenek, Data Lake Analytics hizmetinin bu Data Lake Storage hesabına bağlanmasını sağlar. 
 
-Bu özel durumları kapalı tutmanızı ve yalnızca sanal ağınızın dışındaki bu hizmetlerden bağlantı kurulmasını istediğiniz durumlarda açmanızı öneririz.
+  ![Güvenlik duvarı ve sanal ağ özel durumları](media/data-lake-store-network-security/firewall-exceptions.png)
+
+Bu özel durumları kapalı tutmanızı öneririz. Bunları ancak sanal ağınızdaki diğer hizmetlerden bağlantı kurulmasını istiyorsanız açmanız önerilir.

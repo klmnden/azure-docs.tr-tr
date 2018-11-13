@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: e4e667c9a9490d164b9fb1c90580ceb30989a7dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988923"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913003"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Hızlı Başlangıç: Microsoft kimlik platformu ile uygulama kaydetme (Önizleme)
 
 Kurumsal geliştiriciler ve hizmet olarak yazılım (SaaS) sağlayıcıları, hizmetleri için güvenli oturum açma ve yetkilendirme imkanı sunmak için Microsoft kimlik platformu ile tümleştirilebilen ticari bulut hizmetleri veya iş kolu uygulamaları geliştirebilir.
 
-Bu hızlı başlangıçta, bir uygulamayı Microsoft kimlik portalı ile tümleştirilebilir bir şekilde Azure portalında ekleme ve kaydetme işlemi gösterilmektedir.
+Bu hızlı başlangıçta, uygulamanızı Microsoft kimlik platformuyla tümleştirilebilmesi için Azure portalında **Uygulama kayıtları (Önizleme)** deneyimini kullanarak uygulama ekleme ve kaydetme işlemleri gösterilir.
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -35,8 +35,8 @@ Başlamak için, Azure portalında uygulama kaydı için Önizleme deneyimine ka
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Yeni bir uygulamayı Azure portalını kullanarak kaydetme
 
-1. Bir iş veya okul hesabı ya da kişisel Microsoft hesabınızı kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-1. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu kullanmak istediğiniz Azure AD kiracısına ayarlayın.
+1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
+1. Hesabınız size birden fazla Azure AD kiracısına erişim veriyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
 1. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin ve ardından **Uygulama kayıtları (Önizleme) > Yeni kayıt** seçeneğini belirleyin.
 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
 
@@ -45,7 +45,7 @@ Başlamak için, Azure portalında uygulama kaydı için Önizleme deneyimine ka
 
         | Desteklenen hesap türleri | Açıklama |
         |-------------------------|-------------|
-        | **Yalnızca bu kuruluş dizinindeki hesaplar** | Bir iş kolu uygulaması (LOB) oluşturuyorsanız bu seçeneği belirleyin. Uygulamayı bir dizine kaydetmiyorsanız bu seçenek kullanılamaz.<br><br>Bu seçenek, yalnızca Azure AD tek kiracılı hesaba eşlenir.<br><br>Uygulamayı bir dizinin dışına kaydetmediğiniz sürece, bu varsayılan seçenektir. Uygulamanın bir dizin dışında kaydedildiği durumlarda, varsayılan seçenek Azure çok kiracılı ve kişisel Microsoft kişisel hesaplarıdır. |
+        | **Yalnızca bu kuruluş dizinindeki hesaplar** | Bir iş kolu uygulaması (LOB) oluşturuyorsanız bu seçeneği belirtin. Uygulamayı bir dizine kaydetmiyorsanız bu seçenek kullanılamaz.<br><br>Bu seçenek, yalnızca Azure AD tek kiracılı hesaba eşlenir.<br><br>Uygulamayı bir dizinin dışına kaydetmediğiniz sürece, bu varsayılan seçenektir. Uygulamanın bir dizin dışında kaydedildiği durumlarda, varsayılan seçenek Azure çok kiracılı ve kişisel Microsoft kişisel hesaplarıdır. |
         | **Herhangi bir kuruluş dizinindeki hesaplar** | Tüm iş ve eğitim müşterilerini hedeflemek istiyorsanız bu seçeneği belirleyin.<br><br>Bu seçenek, bir yalnızca Azure AD çok kiracılı hesaba eşlenir.<br><br>Uygulamayı yalnızca Azure AD tek kiracılı olarak kaydettiyseniz, **Kimlik doğrulaması** dikey penceresinden Azure AD çok kiracılı olacak şekilde ve tekrar tek kiracılı olarak güncelleştirebilirsiniz. |
         | **Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesapları** | En geniş müşteri kümesini hedeflemek için bu seçeneği belirleyin.<br><br>Bu seçenek Azure AD çok kiracılı ve kişisel Microsoft hesaplarına eşlenir.<br><br>Uygulamayı Azure AD çok kiracılı ve kişisel Microsoft hesapları olarak kaydettiyseniz, bunu kullanıcı arabiriminde değiştiremezsiniz. Bunun yerine, desteklenen hesap türlerini değiştirmek için uygulama bildirimi düzenleyicisini kullanmanız gerekir. |
 
@@ -59,7 +59,7 @@ Başlamak için, Azure portalında uygulama kaydı için Önizleme deneyimine ka
 
     [![Yeni bir uygulamayı Azure portalında kaydetme](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD, uygulamanıza benzersiz bir uygulama kimliği atar ve uygulamanızın **Genel Bakış** sayfasına yönlendirilirsiniz. Uygulamanıza ek özellikler eklemek için, markalama, sertifikalar ve gizli diziler, API izinleri ve daha fazlasını içeren diğer yapılandırma seçeneklerini belirleyebilirsiniz.
+Azure AD, uygulamanıza benzersiz bir uygulama (istemci) kimliği atar ve uygulamanızın **Genel Bakış** sayfasına yönlendirilirsiniz. Uygulamanıza ek özellikler eklemek için, markalama, sertifikalar ve gizli diziler, API izinleri ve daha fazlasını içeren diğer yapılandırma seçeneklerini belirleyebilirsiniz.
 
 [![Yeni kaydedilen uygulamanın genel bakış sayfası](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 

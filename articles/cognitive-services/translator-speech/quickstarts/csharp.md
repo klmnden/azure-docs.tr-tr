@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 224a0ab83720bb9605f2dad9c2612630e90fea2a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341744"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913538"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Hızlı Başlangıç: C# dilinde Translator Konuşma Çevirisi API'si 
 <a name="HOLTop"></a>
@@ -26,7 +26,7 @@ Bu makalede Translator Konuşma Çevirisi API'si’ni kullanarak bir .wav dosyas
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
+Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.) Mac OS veya Linux kullanıyorsanız metin düzenleyiciyi de kullanabilirsiniz [Visual Studio Code] (alternatif olarak https://code.visualstudio.com/Download)).
 
 Aşağıdaki koddan derlediğiniz yürütülebilir dosya ile aynı klasörün içinde "speak.wav" adlı bir .wav dosyanız olmalıdır. Bu .wav dosyası standart PCM, 16 bit, 16 kHz, mono biçiminde olmalıdır.
 

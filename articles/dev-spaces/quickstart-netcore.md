@@ -1,22 +1,21 @@
 ---
 title: Bulutta Kubernetes geliştirme alanı oluşturma | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: iainfoulds
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: iainfou
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-manager: douge
-ms.openlocfilehash: abceef1d73cafdc24099f9ac9ca67bb36e7e96d1
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4c17f1f2d36e23fa4a3c1625e3da33b6fb4625d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318070"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978221"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Hızlı Başlangıç: Azure Dev Spaces ile bir Kubernetes geliştirme alanı oluşturma (.NET Core ve VS Code)
 
@@ -34,7 +33,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 - Azure aboneliği. Hesabınız yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) sürüm 2.0.43 veya üzeri.
-- EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.9.6 veya üzerini çalıştıran, **Http Application Routing** etkinleştirilmiş bir Kubernetes kümesi.
+- EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.9.6 veya üzerini çalıştıran, **Http Application Routing** etkinleştirilmiş bir Kubernetes kümesi.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>

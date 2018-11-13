@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Veritabanı Yönetilen Örneği’ne geçirmek için DMS kullanma | Microsoft Docs
+title: 'Öğretici: Azure SQL Veritabanı Yönetilen Örneği’ne geçirmek için DMS kullanma | Microsoft Docs'
 description: Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server'ı çevrimdışı Azure SQL Veritabanı Yönetilen Örneği'ne geçirmeyi öğrenin.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 445d4a50cdb0780e7aff5331f0ba9e70aae44e25
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: f6b77f3a2b78d037e74bbca9a3624c9fa62c5d8b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945170"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961883"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>DMS kullanarak çevrimdışı biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Öğretici: DMS kullanarak çevrimdışı biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını [Azure SQL Veritabanı Yönetilen Örneği](../sql-database/sql-database-managed-instance.md)'ne geçirebilirsiniz. El ile gerçekleştirilmesi gereken adımlar içeren ek yöntemler için bkz. [Azure SQL Veritabanı Yönetilen Örneği'ne SQL Server örneği geçişi](../sql-database/sql-database-managed-instance-migrate.md).
 
 Bu öğreticide şirket içi SQL Server örneğindeki **Adventureworks2012** veritabanını Azure Veritabanı Geçiş Hizmeti'ni kullanarak bir Azure SQL Veritabanı Yönetilen Örneği'ne geçireceksiniz.

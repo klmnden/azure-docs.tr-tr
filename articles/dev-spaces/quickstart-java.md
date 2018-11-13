@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: mmontwil
-ms.openlocfilehash: 7fcdd2d41f5fe76776acd5642cda11ef8a65f82d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 9e0d90dc4e5e4782802233dd311d10fc1cbe969c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353767"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978545"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Hızlı Başlangıç: Azure Dev Spaces ile bir Kubernetes geliştirme alanı oluşturma (Java ve VS Code)
 
@@ -34,7 +34,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 - Azure aboneliği. Hesabınız yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) sürüm 2.0.43 veya üzeri.
-- EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.10.3 veya üzerini çalıştıran, **Http Application Routing** etkinleştirilmiş bir Kubernetes kümesi.
+- EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.10.3 veya üzerini çalıştıran, **Http Uygulama Yönlendirmesi** etkinleştirilmiş bir Kubernetes kümesi.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
