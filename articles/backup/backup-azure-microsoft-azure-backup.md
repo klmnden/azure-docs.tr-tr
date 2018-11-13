@@ -7,26 +7,26 @@ manager: shivamg
 keywords: Azure backup sunucusu; iş yüklerini korumak; iş yüklerini yedekleme
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/10/2018
-ms.author: adigan
-ms.openlocfilehash: 67243aca9f5f578402ff79422783148af53798c6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 11/12/2018
+ms.author: adigan; kasinh
+ms.openlocfilehash: 602b7b2a81ec727c9acaf86165867daa20370947
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38546026"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578731"
 ---
-# <a name="install-and-configure-azure-backup-server"></a>Azure Backup Sunucusu'nu yükleme ve yapılandırma
+# <a name="install-and-upgrade-azure-backup-server"></a>Yükleme ve Azure Backup sunucusu yükseltme
 > [!div class="op_single_selector"]
 > * [Azure Backup Sunucusu](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
 >
 
-Bu makalede, Azure Backup sunucusu kullanarak iş yüklerini yedeklemek için ortamınızı hazırlama açıklanmaktadır. Azure Backup sunucusu ile Hyper-V Vm'leri, Microsoft SQL Server, SharePoint Server, Microsoft Exchange ve Windows istemcileri gibi uygulama iş yükleri tek bir konsoldan koruyabilirsiniz.
+Bu makalede, Microsoft Azure Backup sunucusu (MABS) kullanarak iş yüklerini yedeklemek için ortamınızı hazırlama açıklanmaktadır. Azure Backup sunucusu ile Hyper-V Vm'leri, Microsoft SQL Server, SharePoint Server, Microsoft Exchange ve Windows istemcileri gibi uygulama iş yükleri tek bir konsoldan koruyabilirsiniz.
 
 > [!NOTE]
-> Azure Backup sunucusu artık VMware Vm'leri koruyabilir ve Gelişmiş güvenlik özellikleri sağlar. Aşağıdaki bölümlerde açıklandığı gibi ürün yükleyin; Güncelleştirme 1 ve en son Azure Backup aracısı için geçerlidir. Azure Backup sunucusu ile VMware sunucularını yedekleme hakkında daha fazla bilgi için bkz [bir VMware sunucusunu yedeklemek için Azure Backup sunucusu kullanma](backup-azure-backup-server-vmware.md). Güvenlik özellikleri hakkında bilgi edinmek için bkz [Azure yedekleme güvenlik özelliklerinin belgeleri](backup-azure-security-feature.md).
+> Azure Backup sunucusu artık VMware Vm'leri koruyabilir ve Gelişmiş güvenlik özellikleri sağlar. Ürün, aşağıdaki bölümlere ve en son Azure Backup Aracısı açıklandığı gibi yükleyin. Azure Backup sunucusu ile VMware sunucularını yedekleme hakkında daha fazla bilgi için bkz [bir VMware sunucusunu yedeklemek için Azure Backup sunucusu kullanma](backup-azure-backup-server-vmware.md). Güvenlik özellikleri hakkında bilgi edinmek için bkz [Azure yedekleme güvenlik özelliklerinin belgeleri](backup-azure-security-feature.md).
 >
 >
 
@@ -37,13 +37,13 @@ Azure'da sanal makineler gibi bir hizmet (Iaas) iş yükleri olarak altyapı da 
 >
 >
 
-Azure Backup sunucusu iş yükü yedekleme işlevselliğinin Data Protection Manager (DPM) devralır. DPM belgesinin bazı paylaşılan işlevlerini açıklamak için bu makalede bağlar. Ancak Azure Backup sunucusu, DPM ile aynı işlevlere çoğunu paylaşır. Azure Backup sunucusu başlamıyor banda yedekleyin ya da System Center ile tümleştirilir.
+Azure Backup sunucusu iş yükü yedekleme işlevselliğinin Data Protection Manager (DPM) devralır. DPM belgesinin bazı paylaşılan işlevlerini açıklamak için bu makalede bağlar. Azure Backup sunucusu DPM ile aynı işlevlere çoğunu paylaşır, ancak Azure Backup sunucusu desteklemez banda yedekleyin ya da System Center ile tümleştirilir.
 
 ## <a name="choose-an-installation-platform"></a>Bir yükleme platformu seçin
 Azure Backup sunucusu kullanmaya başlamak ve çalıştırmak doğrultusunda ilk adımı bir Windows Server'ı ayarlamaktır. Sunucunuz, Azure'da veya şirket içinde olabilir.
 
 ### <a name="using-a-server-in-azure"></a>Azure'da bir sunucu kullanarak
-Azure Backup sunucusu çalıştıran bir sunucu seçerken, bir galeri görüntüsü ile Windows Server 2012 R2 Datacenter veya Windows Server 2016 Datacenter Başlat önerilir. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olsanız için önerilen sanal makine azure'da kullanmaya başlama bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: standart A2 iki çekirdek ve 3,5 GB RAM.
+Azure Backup sunucusu çalıştıran bir sunucu seçerken, bir galeri görüntüsü ile Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter veya Windows Server 2019 Datacenter Başlat önerilir. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olsanız için önerilen sanal makine azure'da kullanmaya başlama bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: standart A2 iki çekirdek ve 3,5 GB RAM.
 
 Azure Backup sunucusu iş yüklerini koruma birçok küçük farklar vardır. Makale [bir Azure sanal makinesi olarak DPM yükleme](https://technet.microsoft.com/library/jj852163.aspx), yardımcı olur, bu küçük farklar açıklanmaktadır. Makine dağıtmadan önce tamamen bu makaleyi okuyun.
 
@@ -52,7 +52,8 @@ Azure'da taban sunucusu çalıştırmak istemiyorsanız, Hyper-V VM, VMware VM v
 
 | İşletim Sistemi | Platform | SKU |
 |:--- | --- |:--- |
-| Windows Server 2016 ve en son Sp'ler |64 bit |Standard, Datacenter, Essentials (ve sonraki sürümlerde MABS v2) |
+| Windows Server 2019 |64 bit |Standard, Datacenter, Essentials (MABS V3 ve üzeri) |
+| Windows Server 2016 ve en son Sp'ler |64 bit |Standard, Datacenter, Essentials (MABS V2 ve üzeri) |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 ve en son SP'ler |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 ve en son SP'ler |64 bit |Standard, Workgroup |
@@ -157,16 +158,30 @@ Ayıklama işlemi tamamlandı, yeni ayıklanan başlatmak için bu kutuyu işare
 2. Hoş Geldiniz ekranında tıklayın **sonraki** düğmesi. Sayfasına yönlendirileceksiniz *önkoşul denetimleri* bölümü. Bu ekranda tıklayın **denetleyin** Azure Backup sunucusu için donanım ve yazılım önkoşullarının karşılanıp karşılanmadığını olmadığını belirlemek için. Tüm Önkoşullar başarıyla karşılandıysa makinenin bu gereksinimleri karşıladığını belirten bir ileti görürsünüz. Tıklayarak **sonraki** düğmesi.
 
     ![Azure Backup sunucusu - Hoş Geldiniz ve önkoşulları denetleyin](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Microsoft Azure Backup sunucusu, SQL Server Standard gerektirir. Ayrıca, Azure Backup sunucusu yükleme paketini kendi SQL kullanmak istemiyorsanız gereken uygun SQL Server ikili dosyaları ile sunulur. Yeni bir Azure Backup sunucusu yüklemesi ile başlatılırken seçeneğini belirlemelisiniz **yeni SQL Server örneği bu kurulum ile yükleme** tıklatıp **denetle ve Yükle** düğmesi. Önkoşullar başarıyla yüklendikten sonra tıklayın **sonraki**.
+3. Microsoft Azure Backup sunucusu, SQL Server Enterprise gerektirir. Ayrıca, Azure Backup sunucusu yükleme paketini kendi SQL kullanmak istemiyorsanız gereken uygun SQL Server ikili dosyaları ile sunulur. Yeni bir Azure Backup sunucusu yüklemesi ile başlatılırken seçeneğini belirlemelisiniz **yeni SQL Server örneği bu kurulum ile yükleme** tıklatıp **denetle ve Yükle** düğmesi. Önkoşullar başarıyla yüklendikten sonra tıklayın **sonraki**.
 
     ![Azure Backup sunucusu - SQL denetimi](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Makineyi yeniden başlatmak için bir öneri ile bir hata oluşması durumunda bunu ve tıklayın **tekrar kontrol edin**.
+    Makineyi yeniden başlatmak için bir öneri ile bir hata oluşması durumunda bunu ve tıklayın **tekrar kontrol edin**. Herhangi bir SQL yapılandırma sorunu durumunda SQL SQL yönergelerine göre yeniden yapılandırmanız ve mevcut SQL örneğini kullanarak MABS yüklemesi/yükseltmesi için yeniden deneyin.
 
    > [!NOTE]
-   > Azure Backup sunucusu, uzak bir SQL Server örneği ile çalışmaz. Azure Backup sunucusu tarafından kullanılan örnek yerel olması gerekir.
-   >
-   >
+   > Azure Backup sunucusu, uzak bir SQL Server örneği ile çalışmaz. Azure Backup sunucusu tarafından kullanılan örnek yerel olması gerekir. MABS Kurulum, MABS için mevcut bir SQL server kullandığınız durumda yalnızca kullanımını destekler. *örnekleri adlı* SQL Server.
+
+   **El ile yapılandırma**
+
+    > [!IMPORTANT]
+
+    > Yapılandırmadan sonra MABS, el ile yapılandırdığınızda, emin *Isınitialized* özelliği SSRS *True*. True olarak ayarlandığında, MABS SSRS zaten yapılandırıldı ve SSRS yapılandırma atlanacak varsayar.
+
+    > SSRS yapılandırma için aşağıdaki değerleri kullanın:
+
+      >- Hizmet hesabı: Ağ hizmeti 'Yerleşik bir hesap kullan' olmalıdır
+    >- Web hizmeti URL'si: ReportServer_MSDPMINSTANCE 'Sanal dizini' olmalıdır
+    > - Veritabanı: Veritabanı adı ReportServer$ MSDPMINSTANCE olmalıdır
+    > - Web portalı URL'si: Reports_MSDPMINSTANCE 'Sanal dizini' olmalıdır
+
+    > [Daha fazla bilgi edinin](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS yapılandırma hakkında.
+
 4. Microsoft Azure Backup sunucusu dosyaları yüklenmesi için bir konum girin ve tıklayın **sonraki**.
 
     ![Microsoft Azure yedekleme PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
@@ -198,12 +213,58 @@ Ayıklama işlemi tamamlandı, yeni ayıklanan başlatmak için bu kutuyu işare
 Yükleme adım tamamlandığında, ürünün masaüstü simgelerini de oluşturulmuş. Yalnızca ürün başlatmak için simgesini çift tıklatın.
 
 ### <a name="add-backup-storage"></a>Yedekleme depolama alanı ekleme
-İlk yedek kopyanın Azure Backup sunucusu makinesine bağlı depolama tutulur. Disk ekleme hakkında daha fazla bilgi için bkz. [depolama havuzlarını yapılandırın ve disk depolama](https://technet.microsoft.com/library/hh758075.aspx).
+İlk yedek kopyanın Azure Backup sunucusu makinesine bağlı depolama tutulur. Disk ekleme hakkında daha fazla bilgi için bkz. [depolama havuzlarını yapılandırın ve disk depolama](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
 > [!NOTE]
 > Verileri Azure'a göndermek planlama olsa bile, yedekleme depolama alanı ekleme gerekir. Azure Backup sunucusu geçerli mimaride Azure yedekleme kasası tutan *ikinci* ilk (ve zorunlu) yedek kopyayı yerel depolama sırasında verilerin kopyasını tutar.
 >
 >
+
+### <a name="install-and-update-the-data-protection-manager-protection-agent"></a>Yükleme ve Data Protection Manager koruma Aracısı güncelleştirme
+
+System Center Data Protection Manager koruma Aracısı, MABS kullanır. [Adımlar şunlardır](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-1807) koruma sunucularınız üzerinde koruma aracısı yüklemek için.
+
+Aşağıdaki bölümlerde, istemci bilgisayarlar için koruma aracılarını güncelleştirme konusunda açıklanmaktadır.
+
+1. Yedek sunucu yöneticisi Konsolu'ndaki seçin **Yönetim** > **aracıları**.
+
+2. Görüntü bölmesinde, koruma aracısını güncelleştirmek istediğiniz bilgisayarları seçin.
+
+  > [!NOTE]
+  > **Aracı güncelleştirmeleri** sütunu her korumalı bilgisayar için bir koruma Aracısı güncelleştirmesi çıktığında gösterir. İçinde **eylemleri** bölmesinde **güncelleştirme** eylemi, yalnızca korumalı bir bilgisayarın seçili olduğundan ve güncelleştirmeleri kullanılabilir.
+  >
+  >
+
+3. Seçili bilgisayarlara güncelleştirilmiş koruma aracıları yüklemek için **eylemleri** bölmesinde **güncelleştirme**.
+
+4. Bilgisayar ağa bağlanana kadar ağa bağlı olmayan bir istemci bilgisayar için **aracı durumu** sütun bir durumu gösterir **güncelleştirme Beklemede**.
+
+  Bir istemci bilgisayar ağa bağlandıktan sonra **aracı güncelleştirmeleri** sütununda istemci bilgisayar durumunu gösteren **güncelleştirme**.
+
+## <a name="move-mabs-to-a-new-server"></a>Yeni bir sunucuya MABS Taşı
+
+MABS, depolama korurken yeni bir sunucuya taşımanız gerekiyorsa adımlar şunlardır. Yalnızca tüm veriler ise Modern yedekleme depolama alanı üzerinde bu yapılabilir.
+
+
+  > [!IMPORTANT]
+  > - Yeni sunucu adını, özgün Azure Backup sunucusu örneğinin adıyla aynı olmalıdır. Önceki depolama havuzu ve Data Protection Manager veritabanı, Kurtarma noktalarını tutmak isteyip kullanmak istiyorsanız, yeni Azure Backup sunucusu örneğinin adını değiştiremezsiniz.
+  > - Data Protection Manager veritabanının bir yedeğini olması gerekir. Veritabanını geri yüklemek gerekir.
+
+1. Görüntü bölmesinde, koruma aracısını güncelleştirmek istediğiniz bilgisayarları seçin.
+2. Kapatma özgün Azure backup sunucusu veya kablo devre dışı duruma.
+3. Makine hesabı active Directory'de sıfırlayın.
+4. Server 2016 yeni makineye yüklemek ve aynı makine adı özgün Azure Backup sunucusu olarak adlandırın.
+5. Etki alanına katılma
+6. Azure Backup Sunucusu'nu V2 veya üzeri (taşıma DPM depolama havuzu diskleri eski sunucu ve içeri aktarma) yükleyin
+7. 1. adımda alınan DPMDB geri yükleyin.
+8. Depolama, yedekleme özgün sunucudan yeni sunucuya ekleyin.
+9. DPMDB'yi SQL geri yükleme
+10. Microsoft Azure Backup'a yeni server CD'sinde yönetici komut satırından konumu ve bin klasörüne yükleyin
+
+Örnek yol: C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+Azure'a yedekleme çalıştırmak DPMSYNC-SYNC
+
+10) DPMSYNC çalıştırın-eşitleme Not eskileri taşıma yerine DPM depolama havuzuna yeni diskler ekledikten sonra çalıştırırsanız DPMSYNC - Reallocatereplica
 
 ## <a name="network-connectivity"></a>Ağ bağlantısı
 Azure Backup sunucusu başarıyla çalışmak ürün için Azure Backup hizmeti bağlantısı gerektirir. Makineyi azure'a bağlantısı olup olmadığını doğrulamak için kullanın ```Get-DPMCloudConnection``` Azure Backup sunucusu PowerShell konsolundaki cmdlet'i. Bu cmdlet'in çıktısı TRUE ise bağlantı var. daha sonra başka hiçbir bağlantısı yoktur.
@@ -238,12 +299,45 @@ Bir Azure aboneliğine ait olması mümkündür bir *süresi dolan* veya *yetki 
 * A *yetki kaldırıldı* abonelik sağlaması dönemin işlevselliğini kaybeder. Durumun dönüş üzerinde *etkin*, yedekleme/geri yükleme ürün işlevselliğini hale getirilir. Yerel disk yedekleme verilerine, ayrıca ile yeterince uzun bir saklama dönemi bıraktıysanız alınabilir. Ancak, abonelik girdikten sonra Azure yedekleme verilerinde irretrievably kayıp *yetki kaldırıldı* durumu.
 * Bir *süresi dolan* abonelik hale getirdiği kadar işlevselliği için yalnızca kaybeder *etkin* yeniden. Aboneliği olan bir dönem için zamanlanan tüm yedeklemeler *süresi dolan* çalışmaz.
 
+## <a name="upgrade-mabs"></a>MABS yükseltme
+MABS yükseltmek için aşağıdaki yordamları kullanın.
+
+### <a name="upgrade-from-mabs-v2-to-v3"></a>V3 için MABS V2'den yükseltme
+
+> [!NOTE]
+
+> MABS V2 MABS V3 yüklemek için bir önkoşul olmamasına. Ancak, MABS V3 yalnızca MABS V2'den yükseltme yapabilirsiniz.
+
+MABS yükseltmek için aşağıdaki adımları kullanın:
+
+1. MABS V3 MABS V2'den yükseltme için işletim sisteminizi Windows Server 2016 veya Windows Server 2019 gerekirse yükseltin.
+
+2.  Sunucunuzu yükseltin. Adımları benzer [yükleme](#install-and-upgrade-azure-backup-server). Ancak, SQL ayarları için SQL örneğinizin SQL 2017'ye yükseltmek veya kendi SQL server 2017 kullanmak için bir seçenek alırsınız.
+
+  > [!NOTE]
+
+  > SQL örneğinizin yükseltiliyor, mevcut SQL Raporlama örneği kaldırılır ve bu nedenle MABS yeniden yükseltme girişimi başarısız olur ancak çıkmayın.
+
+  Dikkat edilecek önemli noktalar:
+
+  > [!IMPORTANT]
+
+  >  SQL 2017 yükseltmesinin bir parçası olarak SQL şifreleme anahtarlarını yedeklemeniz ve Raporlama Hizmetleri kaldırın. SQL server yükseltmesi sonrasında raporlama service(14.0.6827.4788) yüklü & şifreleme anahtarı geri yüklenir.
+
+3. Korumalı sunuculardaki koruma aracılarını güncelleştirin.
+4. Yedeklemeler, üretim sunucuları yeniden başlatma gerek kalmadan devam etmelidir.
+5. Artık verilerinizi korumaya başlayabilir. Korurken, Modern yedekleme depolama alanı için yükseltme yapıyorsanız, yedeklemeleri depolamak ve denetlemek için sağlanan alanı altında istediğiniz birimleri de seçebilirsiniz. [Daha fazla bilgi edinin](backup-mabs-add-storage.md).
+
+> [!NOTE]
+
+> MABS V1'den V2'ye yükseltiyorsanız, işletim sisteminizi Windows Server 2016 veya Windows Server 2012 R2 olduğundan emin olun. System Center 2016 veri koruma Yöneticisi'ni Modern yedekleme depolama alanı gibi yeni özelliklerden yararlanmak için Windows Server 2016'da yedekleme sunucusu V2 yüklemeniz gerekir. Yükseltme veya yedekleme sunucusu V2'ı yüklemeden önce okumanız [yükleme önkoşulları](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) MABS için geçerlidir.
+
 ## <a name="troubleshooting"></a>Sorun giderme
 Microsoft Azure Backup sunucusu kurulumu aşamasında (veya yedekleme veya geri yükleme sırasında) hatalarla başarısız olursa, şuna başvurun [hata kodları belge](https://support.microsoft.com/kb/3041338) daha fazla bilgi için.
 Ayrıca başvurabilirsiniz [Azure Backup ilgili sık sorulan sorular](backup-azure-backup-faq.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ayrıntılı bilgi edinebilirsiniz [ortamınızı DPM'ye hazırlama](https://technet.microsoft.com/library/hh758176.aspx) Microsoft TechNet sitesindeki. Ayrıca, Azure Backup sunucusu dağıtılan kaldırılabilir ve desteklenen yapılandırmalar hakkında bilgi içerir.
+Ayrıntılı bilgi edinebilirsiniz [ortamınızı DPM'ye hazırlama](https://technet.microsoft.com/library/hh758176.aspx) Microsoft TechNet sitesindeki. Ayrıca, Azure Backup sunucusu dağıtılan kaldırılabilir ve desteklenen yapılandırmalar hakkında bilgi içerir. Kullanabileceğiniz bir dizi [PowerShell cmdlet'i](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) çeşitli işlemleri gerçekleştirmek için.
 
 Bu makale, Microsoft Azure Backup sunucusu kullanarak iş yükü koruması daha derin bir anlayış kazanmak için kullanabilirsiniz.
 

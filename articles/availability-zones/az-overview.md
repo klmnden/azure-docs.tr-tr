@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a98e2ef8cb1f1cd7ad06cc482f24590d59eea3e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f1fd272bc25486e3abd068be5ddc01f5ac5f5f76
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248648"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566287"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
 Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -43,7 +43,7 @@ Azure üzerinde kapsamlı iş sürekliliği elde etmek için uygulama mimarinizi
 - Doğu ABD 2 (Önizleme)
 - Fransa Orta
 - Kuzey Avrupa
-- Güneydoğu Asya (Önizleme)
+- Güneydoğu Asya 
 - Batı Avrupa
 - Batı ABD 2
 
@@ -58,7 +58,8 @@ Kullanılabilirlik alanlarını destekleyen Azure Hizmetleri'nin şunlardır:
 - Yönetilen Diskler
 - Load Balancer
 - Genel IP adresi
-- Bölgesel olarak yedekli depolama
+- Alanlar arası yedekli depolama
+
 - SQL Veritabanı
 - Event Hubs
 - Service Bus
@@ -77,7 +78,7 @@ Bir kullanılabilirlik alanında dağıtılan sanal makineler için hiçbir ek �
 - [Bölge yedekli sanal makine ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Sanal makineleri ile bölgesel olarak yedekli bir ön uç bir Standard Load Balancer'ı kullanarak bölgeler arasında Yük Dengelemesi](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Bölgesel bir ön uç ile bir Standard Load Balancer'ı kullanarak bir bölge içerisindeki Vm'lerde Yük Dengeleme](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md)
+- [Alanlar arası yedekli depolama](../storage/common/storage-redundancy-zrs.md)
 - [SQL Veritabanı](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Event Hubs coğrafi olağanüstü durum kurtarma](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 - [Service Bus coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)

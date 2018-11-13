@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038612"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566627"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -127,14 +127,43 @@ HTTP kodu|Anlamı|Olası neden
 
 ### <a name="json-response"></a>JSON yanıtı
 
-Sonuçları JSON biçiminde döndürülür. `simple` Biçimi yalnızca aşağıdaki üst düzey alanları içerir.
+Sonuçları JSON biçiminde döndürülür. Sorgu parametrelerinizin bağlı olarak bir `simple` veya `detailed` biçiminde döndürülür.
+
+#### <a name="the-simple-format"></a>`simple` Biçimi 
+
+Bu biçim, aşağıdaki üst düzey alanları içerir.
 
 |Alan adı|İçerik|
 |-|-|
-|`RecognitionStatus`|Durumu gibi `Success` başarılı tanıma. Sonraki tabloya bakın.|
+|`RecognitionStatus`|Durumu gibi `Success` başarılı tanıma. Bkz. Bu [tablo](rest-apis.md#recognitionstatus).|
 |`DisplayText`|Harf, noktalama işaretleri, ters metin normalleştirme (dönüştürme konuşulan metnin gibi 200 "iki yüz" veya "Dr kısa form sonra tanınan metin. Smith"için"doktor smith") ve küfür maskeleme. Yalnızca başarı sunar.|
 |`Offset`|Tanınan konuşma tanıma ses akışı başlar süre (100 nanosaniyelik birimleri).|
 |`Duration`|Ses akışı olarak tanınan konuşma süresi (100 nanosaniyelik birimlerindeki).|
+
+#### <a name="the-detailed-format"></a>`detailed` Biçimi 
+
+Bu biçim, aşağıdaki üst düzey alanları içerir.
+
+|Alan adı|İçerik|
+|-|-|
+|`RecognitionStatus`|Durumu gibi `Success` başarılı tanıma. Bkz. Bu [tablo](rest-apis.md#recognition-status).|
+|`Offset`|Tanınan konuşma tanıma ses akışı başlar süre (100 nanosaniyelik birimleri).|
+|`Duration`|Ses akışı olarak tanınan konuşma süresi (100 nanosaniyelik birimlerindeki).|
+|`NBest`|Büyük olasılıkla en yüksek dereceye sahip aynı konuşma alternatif yorum listesi. Bkz: [NBest açıklama](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+`NBest` Alan büyük olasılıkla'den az büyük olasılıkla sıralanmış aynı konuşma alternatif ınterpretations listesi verilmiştir. İlk giriş ana tanıma işleminin sonucu aynıdır. Her girişin aşağıdaki alanları içerir:
+
+|Alan adı|İçerik|
+|-|-|
+|`Confidence`|Güvenilirlik puanı 1.0 (tam güven) girişinin 0,0 (güven yok)
+|`Lexical`|Sözcük şeklinde tanınan metin: Gerçek sözcüklerin tanınır.
+|`ITN`|Ters metin normalleştirilmiş ("") kurallı tanınan metinle telefon numaraları, sayılar, kısaltmaları ("doktor smith" için "dr smith") ve uygulanan diğer dönüşümler.
+|`MaskedITN`| Edemezsiniz formun, istenmesi halinde uygulanan küfür maskeleme ile.
+|`Display`| Noktalama işaretleri ve eklenen büyük/küçük harf ile tanınan metin görüntüleme formu.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 `RecognitionStatus` Alan aşağıdaki değerleri içerebilir.
 
@@ -148,17 +177,6 @@ Sonuçları JSON biçiminde döndürülür. `simple` Biçimi yalnızca aşağıd
 
 > [!NOTE]
 > Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez.
-
-
-`detailed` Biçimi içeren aynı alanları `simple` , bunların ile biçimde bir `NBest` alan. `NBest` Alan büyük olasılıkla'den az büyük olasılıkla sıralanmış aynı konuşma alternatif ınterpretations listesi verilmiştir. İlk giriş ana tanıma işleminin sonucu aynıdır. Her girişin aşağıdaki alanları içerir:
-
-|Alan adı|İçerik|
-|-|-|
-|`Confidence`|Güvenilirlik puanı 1.0 (tam güven) girişinin 0,0 (güven yok)
-|`Lexical`|Sözcük şeklinde tanınan metin: Gerçek sözcüklerin tanınır.
-|`ITN`|Ters metin normalleştirilmiş ("") kurallı tanınan metinle telefon numaraları, sayılar, kısaltmaları ("doktor smith" için "dr smith") ve uygulanan diğer dönüşümler.
-|`MaskedITN`| Edemezsiniz formun, istenmesi halinde uygulanan küfür maskeleme ile.
-|`Display`| Noktalama işaretleri ve eklenen büyük/küçük harf ile tanınan metin görüntüleme formu. Aynı `DisplayText` en üst düzey sonuç.
 
 ### <a name="sample-responses"></a>Örnek yanıt
 

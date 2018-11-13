@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7600ff1a11435ee079fef80ecfa5ad88de1b4750
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261158"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569031"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop günlüklerini analiz etme
 
@@ -131,7 +131,7 @@ Bu bölümde listelenen hata iletileri, Azure HDInsight Hadoop kullanıcıları 
 
 HDInsight kümelerini yönetmek için kullanıldığında bu hata iletileri bazıları aynı zamanda Azure Portalı'nda görülebilir. Ancak karşılaşabileceğiniz diğer hata iletileri vardır bu bağlamda olası düzeltici eylemlerde kısıtlamaları nedeniyle daha az ayrıntılı. Diğer hata iletileri, risk azaltma açık olduğu bağlamlarda sağlanır. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Açıklama**: Hive ve Oozie meta depolar için özel ayarları kullanmak için lütfen en az bir bileşen için Azure SQL veritabanı ayrıntılarını belirtin.
 * **Risk azaltma**: kullanıcının erişmesi geçerli bir SQL Azure meta veri deposu sağlayın ve isteği yeniden deneyin.  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06d78c9a9754638054a07c15ef67bfc703dd77ca
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78920bfe000287daef7b4efcaa8339d599d6f57e
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428769"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578510"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -33,14 +33,6 @@ Bu makalede, Azure Resource Manager dağıtım şablonu kullanarak, Azure sanal 
 
 - Azure Resource Manager dağıtım şablonu kullanmaya bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan bir yönetilen kimlik arasındaki farkı](overview.md#how-does-it-work)**.
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
-- Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki Azure rol tabanlı erişim denetimi atamalarını hesabınızın gerekir:
-
-    > [!NOTE]
-    > Hiçbir ek Azure AD dizini rol atamaları gerekli.
-
-    - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) bir VM oluşturun ve etkinleştirin ve sistem ve/veya yönetilen kimlik kullanıcı tarafından atanan bir Azure VM'den kaldırın.
-    - [Yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolüne bir kullanıcı tarafından atanan oluşturmak için yönetilen kimliği.
-    - [Yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) gelen ve sanal makine rolü atamak ve bir kullanıcı tarafından atanan kaldırmak için yönetilen kimliği.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
@@ -58,6 +50,8 @@ Belirlediğiniz seçeneğe bakılmaksızın, şablon söz dizimi ilk dağıtım�
 Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak bir sistem tarafından atanan yönetilen kimliği devre dışı.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Bir Azure VM veya varolan bir VM'yi oluşturma sırasında sistem tarafından atanan yönetilen kimlik etkinleştir
+
+Yönetilen kimlik sistem tarafından atanan bir VM'de etkinleştirmek için hesabınızın gerekli [sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rol ataması.  Hiçbir ek Azure AD dizini rol atamaları gereklidir.
 
 1. Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir.
 
@@ -136,6 +130,8 @@ Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak b
 
 Yönetilen kimlik sistem tarafından atanan sanal makinenizde etkinleştirdikten sonra bir rol gibi vermek isteyebilirsiniz **okuyucu** içinde oluşturulduğu kaynak grubuna erişim.
 
+Sanal makinenizin sistem tarafından atanan kimlik için bir rol atamak için hesabınızın gerekli [kullanıcı erişimi Yöneticisi](/azure/role-based-access-control/built-in-roles#user-access-administrator) rol ataması.
+
 1. Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir.
  
 2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) ve sanal makinenize vermek için aşağıdaki bilgileri ekleyin **okuyucu** içinde oluşturulduğu kaynak grubuna erişim.  Şablon yapınızı, düzenleyici ve seçtiğiniz dağıtım modeline bağlı olarak değişiklik gösterebilir.
@@ -178,7 +174,7 @@ Yönetilen kimlik sistem tarafından atanan sanal makinenizde etkinleştirdikten
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Sistem tarafından atanan yönetilen bir kimlik bir Azure VM'den devre dışı bırak
 
-Sistem tarafından atanan bir yönetilen kimlik artık gerektiren bir VM'niz varsa:
+Yönetilen kimlik sistem tarafından atanan bir sanal makineden kaldırmak için hesabınızın gerekli [sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rol ataması.  Hiçbir ek Azure AD dizini rol atamaları gereklidir.
 
 1. Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir.
 
@@ -213,6 +209,8 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
 > Bir Azure Resource Manager şablonu kullanarak bir kullanıcı tarafından atanan yönetilen kimlik oluşturmak için bkz [kullanıcı tarafından atanan bir yönetilen kimlik oluşturma](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
  ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Bir Azure sanal makinesi için bir kullanıcı tarafından atanan bir yönetilen kimlik atama
+
+Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabınızın gerekir [sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) ve [yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol atamaları. Hiçbir ek Azure AD dizini rol atamaları gereklidir.
 
 1. Altında `resources` öğesi, kullanıcı tarafından atanan bir yönetilen kimlik VM'nize atamak için şu girişi ekleyin.  Değiştirdiğinizden emin olun `<USERASSIGNEDIDENTITY>` kullanıcı tarafından atanan adı ile yönetilen oluşturduğunuz kimliği.
 
@@ -356,7 +354,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Kullanıcı tarafından atanan bir yönetilen kimlik bir Azure VM'den kaldırın.
 
-Artık bir kullanıcı tarafından atanan bir yönetilen kimlik gereken bir VM'niz varsa:
+Bir kullanıcı tarafından atanan kimliği bir sanal makineden kaldırmak için hesabınızın gerekli [sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rol ataması. Hiçbir ek Azure AD dizini rol atamaları gereklidir.
 
 1. Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir.
 

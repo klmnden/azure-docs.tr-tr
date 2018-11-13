@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 75e37d228d523347ee54794ead5fbba6f278702a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260508"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569089"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: aracı veya uzantı ile ilgili sorunlar
 
@@ -60,6 +60,13 @@ Bu sorunu çözmek için kaynak grubu üzerindeki kilidi kaldırın ve temizleme
 
 **1. adım: [kilit geri yükleme noktası kaynak grubundan Kaldır](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **2. adım: [geri yükleme noktası koleksiyonunu Temizle](#clean_up_restore_point_collection)**<br>
+
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - yedekleme, şifrelenmiş VM'lerin anahtar kasasına yedekleme için yeterli izinlere sahip değil.
+
+**Hata kodu**: UserErrorKeyvaultPermissionsNotConfigured <br>
+**Hata iletisi**: yedekleme, şifrelenmiş VM'lerin anahtar kasasına yedekleme için yeterli izinlere sahip değil. <br>
+
+Yedekleme işleminin şifrelenmiş VM'ler üzerinde başarılı olması için bu anahtar kasasına erişmek için izinleri olmalıdır. Bu yapılabilir kullanarak [Azure portalında](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) aracılığıyla veya [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - anlık görüntü işlemi, sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu
 

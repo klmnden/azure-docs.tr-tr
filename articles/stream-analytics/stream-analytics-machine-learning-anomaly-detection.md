@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300277"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567052"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream analytics'te anomali algılama
 
@@ -131,7 +131,7 @@ Ayrıntılı strangeness hesaplama gözden geçirelim (Geçmiş windows olaylar�
    - Eğim negatifse eğimi  
    - Aksi takdirde 0  
 
-Gelen olay strangeness değeri Hesaplandı sonra martingale değer strangeness değeri temel alınarak hesaplanır (bkz [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) martingale değerin nasıl hesaplanır ilişkin ayrıntılar için). Bu martingale değer anomali puanı döndürülen. Martingale değeri algılayıcısı ara sıra değişiklikler sağlam kalmasına izin verir ve yanlış uyarıların azaltan yanıt olarak garip değerleri yavaş artar. Ayrıca, kullanışlı bir özellik vardır: 
+Gelen olay strangeness değeri Hesaplandı sonra martingale değer strangeness değeri temel alınarak hesaplanır (bkz [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) martingale değerin nasıl hesaplanır ilişkin ayrıntılar için). Bu martingale değer anomali puanı döndürülür. Martingale değeri algılayıcısı ara sıra değişiklikler sağlam kalmasına izin verir ve yanlış uyarıların azaltan yanıt olarak garip değerleri yavaş artar. Ayrıca, kullanışlı bir özellik vardır: 
 
 Olasılık [t böyle vardır, M<sub>t</sub> > λ] < 1/λ nerede M<sub>t</sub> anlık t martingale değerdir ve λ gerçek bir değerdir. Örneğin, bir uyarı varsa, M<sub>t</sub>> 100 ve hatalı Pozitiflerin olasılığını olan 1/100'den küçük.  
 

@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23863975"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568735"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Ağ İzleyicisi ile paket incelemesi
 
-Ağ İzleyicisi'nin paket yakalama özelliği kullanarak, Azure vm'lerinde portalı, PowerShell CLI ve SDK ve REST API aracılığıyla programlı olarak yakalamaları oturumlarını yönetmesine ve başlatın. Paket yakalama, paket düzeyinde veri kullanılabilir bir biçimde bilgileri sağlayarak gerektiren adresi senaryolar olanak tanır. Verileri incelemek için ücretsiz Araçlar yararlanarak, Vm'leriniz gelen ve giden iletişimler inceleyin ve ağ trafiğinizi alın. Paket yakalama veri bazı örnek kullanımları şunlardır: ağ veya uygulama sorunları incelemeye, ağ kötüye ve yetkisiz erişim girişimlerini algılama veya Mevzuat uyumluluğu bakımını yapma. Bu makalede, Ağ İzleyicisi tarafından sağlanan bir paket yakalama dosyasını açmak nasıl bir popüler açık kaynak aracını kullanarak gösteriyoruz. Biz de nasıl bir bağlantı gecikmesi hesaplamak, anormal trafiği tanımlamak ve ağ istatistikleri inceleyin gösteren örnekler sağlanır.
+Ağ İzleyicisi paket yakalama özelliğini kullanarak, Şirket portalı, PowerShell, CLI ve REST API'si ve SDK'sı aracılığıyla program aracılığıyla Azure sanal makinelerinize yakalamaları oturumlarını yönetmek ve başlatmak. Paket yakalaması kullanılabilir bir biçimde bilgi sağlayarak paket düzeyinde veri gerektiren senaryolara olanak tanır. Verileri incelemek için ücretsiz Araçlar yararlanarak, iletişimler için ve sanal makinelerinize inceleyin ve ağ trafiğiniz hakkında Öngörüler elde edebilirsiniz. Paket yakalama veri bazı örnek kullanımları şunlardır: ağ veya uygulama sorunlarını araştırma, ağ kötüye kullanım ve yetkisiz erişim girişimlerini algılama ve yasal uyumluluk bakımını yapma. Bu makalede, Ağ İzleyicisi tarafından sağlanan bir paket yakalama dosyasını açmak nasıl bir popüler açık kaynak aracını kullanarak göstereceğiz. Bağlantı gecikmesini hesaplamak, olağan dışı trafiği tanımlamak ve ağ istatistiklerini İnceleme gösteren örnekler de sağlayacağız.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede önceden çalıştırılmış olan bir paket yakalama önceden yapılandırılmış bazı senaryolar üzerinden gider. Bu senaryolar, bir paket yakalama gözden geçirerek erişilebilir özellikleri gösterilmektedir. Bu senaryo kullanır [WireShark](https://www.wireshark.org/) paket yakalama incelemek için.
+Bu makalede daha önce çalıştırılmış olan bir paket yakalama önceden yapılandırılmış bazı senaryolar üzerinden gider. Bu senaryolar, bir paket yakalama gözden geçirerek erişilebilir özellikleri gösterilmektedir. Bu senaryo kullanan [WireShark](https://www.wireshark.org/) paket yakalaması incelemek için.
 
-Bu senaryo, bir sanal makinede bir paket yakalama zaten başlattıysanız varsayar. Bir paket yakalama ziyaret oluşturmayı öğrenmek için [Yönet paket yakalar portal ile](network-watcher-packet-capture-manage-portal.md) veya REST şu adresi ziyaret ederek ile [REST API ile paket yakalar yönetme](network-watcher-packet-capture-manage-rest.md).
+Bu senaryo bir sanal makinede bir paket yakalaması zaten çalıştırıldığı varsayılır. Bir paket yakalama ziyaret oluşturma hakkında bilgi edinmek için [portal ile yönetme paket yakalar](network-watcher-packet-capture-manage-portal.md) veya REST ederek [REST API'si ile yönetme paket yakalar](network-watcher-packet-capture-manage-rest.md).
 
 ## <a name="scenario"></a>Senaryo
 
 Bu senaryoda:
 
-* Paket yakalama gözden geçirin
+* Paket yakalaması gözden geçirin
 
-## <a name="calculate-network-latency"></a>Ağ gecikmesi Hesapla
+## <a name="calculate-network-latency"></a>Ağ gecikme süresini hesapla
 
-Bu senaryoda, iki uç noktaları arasında gerçekleşen bir İletim Denetimi Protokolü (TCP) konuşma ilk gidiş dönüş süresi (RTT) görüntülemek nasıl gösterir.
+Bu senaryoda, iki uç nokta arasında gerçekleşen bir İletim Denetimi Protokolü (TCP) konuşma ilk gidiş dönüş süresi (RTT) görüntüleme göstereceğiz.
 
-Bir TCP bağlantı kurulduğunda bağlantı gönderilen ilk üç paketleri genellikle üç yönlü el sıkışması olarak adlandırılan bir yol izler. Bu bağlantı kuruldu, istemci bir ilk istek ve yanıt sunucudan bu el sıkışma gönderilen ilk iki paketleri inceleyerek biz gecikme hesaplayabilirsiniz. Bu gecikme gidiş dönüş süresi (RTT) olarak adlandırılır. TCP protokolü ve üç yönlü el sıkışma hakkında daha fazla bilgi için aşağıdaki kaynağa bakın. https://support.microsoft.com/en-US/Help/172983/Explanation-of-the-three-Way-Handshake-via-TCP-ip
+Bir TCP bağlantı kurulduğunda bağlantı gönderilen ilk üç paketler üç yönlü anlaşma adlandırılan deseni izler. Bu bağlantı oluşturulduğunda istemciden bir ilk istek ve yanıt sunucudan bu el sıkışması gönderilen ilk iki paket inceleyerek gecikme hesaplayabiliriz. Bu gecikme süresi, gidiş dönüş süresi (RTT) olarak adlandırılır. TCP protokolü ve üç yönlü anlaşma daha fazla bilgi için aşağıdaki kaynağa bakın. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
 ### <a name="step-1"></a>1. Adım
 
-WireShark başlatma
+WireShark başlatın
 
 ### <a name="step-2"></a>2. Adım
 
-Yük **.cap** paket yakalama dosyasından. Bu dosya içinde kaydedildi blob bulunabilir bizim nasıl yapılandırdığınıza bağlı olarak sanal makinenin yerel olarak.
+Yük **.cap** dosyasını, paket yakalama. Bu dosya, kaydedildi BLOB bulunabilir bizim nasıl yapılandırdığınıza bağlı olarak sanal makine üzerinde yerel olarak.
 
 ### <a name="step-3"></a>3. Adım
 
-TCP görüşmeleri ilk gidiş dönüş süresi (RTT) görüntülemek için biz yalnızca TCP anlaşma söz konusu ilk iki paket adresindeki arayacaktır. Biz [Eşitlemeye] olan üç yönlü el sıkışma ilk iki paketlerinde kullanacağınız [Eşitlemeye, ACK] paketler. TCP üstbilgisinde ayarlanan bayraklarının adlandırılır. Son paket [ACK] paket el sıkışma içinde bu senaryoda kullanılmaz. İstemci tarafından gönderilen [Eşitlemeye] paket. Alındıktan sonra sunucu [ACK] paket Eşitlemeye istemciden alma onay olarak gönderir. Sunucu yanıtı çok az ek yük gerektirdiğini yararlanarak, biz RTT zamanını çıkararak [Eşitlemeye, ACK] hesaplamak paket alındı [Eşitlemeye] zamana göre istemci tarafından paket istemci tarafından gönderildi.
+TCP konuşmalardaki ilk gidiş dönüş süresi (RTT) görüntülemek için biz yalnızca ilk iki paketleri TCP el sıkışması dahil, arayacaktır. Biz [SYN] olan üç yönlü anlaşma ilk iki paketlerinde kullanacaklardır [SYN, ACK] paketler. TCP üstbilgisinde ayarlanan bayrakları için adlandırılır. Bu senaryoda, son pakette [ACK] paketini el sıkışması kullanılmaz. [SYN] paketi, istemci tarafından gönderilir. Sunucu [ACK] paketini aldıktan sonra bir bildirim SYN istemciden alma olarak gönderir. Sunucu yanıtı çok az ek yük gerektirdiğini yararlanarak, biz RTT zamanını çıkararak [SYN, ACK] hesaplamak paket alındı [SYN] zamanına göre istemcinin paket istemci tarafından gönderildi.
 
-WireShark kullanarak bu değeri bize hesaplanır.
+WireShark kullanarak bu değeri bizim için hesaplanır.
 
-Daha kolay TCP üç yönlü anlaşma ilk iki paketlerini görüntülemek için biz WireShark tarafından sağlanan filtreleme özellik yararlanacak olan.
+İlk iki paketi TCP üç yönlü anlaşma daha kolay görüntülemek için WireShark tarafından sağlanan filtreleme özelliği yararlanacaktır.
 
-WireShark filtre uygulamak için yakalama [Eşitlemeye] pakette "İletim Denetimi Protokolü" kesimi genişletin ve TCP üstbilgisinde ayarlanan bayraklar inceleyin.
+WireShark içinde filtre uygulamak için yakalama [SYN] pakette "İletim Denetimi Protokolü" segmentini genişletin ve TCP üstbilgisinde ayarlanan işaretlere inceleyin.
 
-Tüm [Eşitlemeye] üzerinde filtrelemek için arıyoruz beri ve [Eşitlemeye, ACK] bayrakları altında paketleri cofirm eşitlemeye biti 1 olarak ayarlayın, sonra sağ tıklayarak eşitlemeye bit Filtre -> olarak seçili Uygula ->.
+Tüm [SYN] üzerinde filtre arıyoruz olduğundan ve [SYN ACK] bayrakları altında paketleri cofirm Syn biti 1 olarak ayarlayın ve ardından sağ tıklayarak Syn bit -> Uygula Filtre -> olarak seçili.
 
 ![Şekil 7][7]
 
 ### <a name="step-4"></a>4. Adım
 
-Yalnızca [Eşitlemeye] bit kümesiyle paketleri görmek için penceresini filtre, ilk RTT görüntülemek ilgilendiğiniz görüşmeleri kolayca seçebilirsiniz. RTT WireShark içinde görüntülemek için basit bir yol tıklamanız yeterlidir "SEQ/ACK" analiz işaretlenmiş açılır. Ardından görüntülenen RTT görürsünüz. Bu durumda, RTT 0.0022114 saniye ya da 2.211 ms idi.
+Yalnızca [SYN] biti ayarlanmış olan paketler görmek için penceresini filtreledi, ilk RTT görüntülemek ilginizi çeken konuşmaları kolayca seçebilirsiniz. RTT WireShark içinde görüntülemek için basit bir yol tıklamanız yeterlidir "SEQ/ACK" analiz işaretlenmiş açılır. Ardından görüntülenen RTT görürsünüz. Bu durumda, RTT 0.0022114 saniye veya 2.211 ms idi.
 
 ![Şekil 8][8]
 
 ## <a name="unwanted-protocols"></a>İstenmeyen protokolleri
 
-Azure üzerinde dağıtılan sanal makine örneği üzerinde çalışan birçok uygulamalar olabilir. Bu uygulamalar çoğunu ağ üzerinden belki de açık izniniz olmadan iletişim kurar. Paket yakalama ağ iletişimi depolamak için kullanarak, biz nasıl uygulama ağ üzerinde varsayılır ve herhangi bir sorun için Ara araştırabilirsiniz.
+Azure'da dağıtılmış bir sanal makine örneğinde çalışan birçok uygulama olabilir. Bu uygulamaların çoğu ağ üzerinden, belki de açık izniniz olmadan yaşınızı iletişim kurar. Ağ iletişimi depolamak için paket yakalama özelliğini kullanarak, biz nasıl uygulama ağ üzerinde olduğu varsayılır ve herhangi bir sorun için konum araştırabilirsiniz.
 
-Bu örnekte, sizi bir önceki gözden makinenizde çalışan bir uygulama yetkisiz iletişimi gösterebilir istenmeyen protokoller için paket yakalama çalıştı.
+Bu örnekte, şimdi bir önceki gözden makinenizde çalışan bir uygulamadan yetkisiz iletişim gösterebilir istenmeyen protokoller için paket yakalaması çalıştı.
 
 ### <a name="step-1"></a>1. Adım
 
@@ -83,33 +83,33 @@ Bu örnekte, sizi bir önceki gözden makinenizde çalışan bir uygulama yetkis
 
 ![protokol hiyerarşi menüsü][2]
 
-Protokol hiyerarşisi penceresi görüntülenir. Bu görünüm yakalama oturumunu ve aktarılan ve protokoller kullanılarak alınan paket sayısı sırasında kullanımda olan tüm protokollerin bir listesini sağlar. Bu görünüm, sanal makine ya da ağ üzerindeki istenmeyen ağ trafiğini bulmak için yararlı olabilir.
+Protokol hiyerarşi penceresinde görünür. Bu görünüm, yakalama oturumu ve aktarılan ve protokoller kullanılarak alınan paket sayısı sırasında kullanımda olan tüm protokollerin bir listesini sağlar. Bu görünüm, istenmeyen ağ trafiğini sanal makineler veya ağda bulmak için yararlı olabilir.
 
-![açılan iletişim kuralı hiyerarşisini][3]
+![açılan iletişim kuralı hiyerarşisi][3]
 
-Aşağıdaki ekran görüntüsünde gördüğünüz gibi eşler arası dosya paylaşımı için kullanılan BitTorrent protokolünü kullanarak trafiği vardı. Yönetici olarak BitTorrent görmeyi beklediğiniz değil Bu belirli sanal makinelerde trafiği. Şimdi, bu trafiğin kullanan, bu sanal makinede yüklü eşler arası yazılım kaldırabilir, veya ağ güvenlik grupları veya bir Güvenlik Duvarı'nı kullanarak trafiği engelle. Ayrıca, Protokolü kullanımı, sanal makinelere düzenli olarak gözden geçirebilirsiniz şekilde paket yakalamaları bir zamanlamaya göre çalışmasını tercih edebilirsiniz. Azure ağ görevleri otomatik hale getirme konusunda bir örnek ziyaret [izlemek azure automation ile ağ kaynakları](network-watcher-monitor-with-azure-automation.md)
+Aşağıdaki ekran görüntüsünde görüldüğü gibi eşler arası dosya paylaşımı için kullanılan BitTorrent protokolünü kullanarak trafiği vardı. Yönetici olarak BitTorrent görmeyi beklediğiniz değil Bu belirli sanal makinelerde trafiği. Şimdi, bu trafiğin kullanan bu sanal makinede yüklü eşler arası yazılım kaldırabilir, veya ağ güvenlik grupları veya bir Güvenlik Duvarı'nı kullanarak trafiği engelleme. Buna ek olarak, Protokolü kullanımı üzerindeki sanal makinelerinize düzenli olarak gözden geçirebilmeniz için paket yakalamaları almanızı sağlamanın bir zamanlamaya göre çalıştırabilir katılmak bırakmayı. Azure ağ görevleri otomatikleştirmek nasıl bir örnek ziyaret [azure Otomasyonu ile ağ kaynaklarını izleme](network-watcher-monitor-with-azure-automation.md)
 
 ## <a name="finding-top-destinations-and-ports"></a>En çok kullanılan hedefler ve bağlantı noktalarını bulma
 
-Üzerinden iletilen bağlantı noktalarını, uç noktalarını ve trafik türlerini anlama bir izleme veya sorun giderme uygulamaları ve ağınızdaki kaynaklara önemlidir. Paket yakalama dosyası üstten yararlanarak, biz bizim VM ile iletişim kurduğu üst hedefler ve kullanılan bağlantı noktaları hızla bilgi edinebilirsiniz.
+Trafiği, uç noktaları ve bağlantı noktaları üzerinden iletişim kurduğu türlerini anlama bir izleme ya da sorun giderme uygulamaları ve ağınızdaki kaynaklara önemlidir. Bir paket yakalama dosyası yukarıdaki yararlanarak, biz bizim VM ile iletişim kurduğu en çok kullanılan hedefler ve kullanılan bağlantı noktaları hızlıca bilgi edinebilirsiniz.
 
 ### <a name="step-1"></a>1. Adım
 
-Önceki senaryoda aynı yakalama kullanarak **istatistikleri** > **IPv4 istatistikleri** > **hedefleri ve bağlantı noktaları**
+Önceki senaryoda aynı yakalama kullanarak **istatistikleri** > **IPv4 istatistikleri** > **hedefler ve bağlantı noktaları**
 
 ![Paket yakalama penceresi][4]
 
 ### <a name="step-2"></a>2. Adım
 
-Bir satır öne çıkması sonuçları göz biz gibi birden çok bağlantı noktası bağlantı 111 vardı. En fazla kullanılan bağlantı noktası 3389, Uzak Masaüstü olduğu idi ve kalan RPC dinamik bağlantı noktalarının.
+Bir satır belirginleştirmek sonuçları aracılığıyla baktığımızda gibi birden çok bağlantı noktasında 111 vardı. En çok kullanılan bağlantı noktası 3389, Uzak Masaüstü olduğu olduğu ve kalan RPC dinamik bağlantı noktaları değildir.
 
-Bu trafik bir şey olabilir, ancak birçok bağlantıları için kullanılan ve yönetici için bilinmeyen bir bağlantı noktasıdır.
+Bu trafiğe bir şey anlamına gelebilir, ancak birçok bağlantıları için kullanılan ve yöneticinin bilinmeyen bir bağlantı noktası var.
 
 ![Şekil 5][5]
 
 ### <a name="step-3"></a>3. Adım
 
-Yerleştir bağlantı noktası dışı belirledik şimdi biz bağlantı noktasını temel alarak bizim yakalama filtreleyebilirsiniz.
+Artık, bir çıkış bağlantı noktasına dayanarak bizim yakalama filtreleyeceğiz yerde bağlantı noktasının belirledik.
 
 Bu senaryoda filtresi şöyle olacaktır:
 
@@ -117,15 +117,15 @@ Bu senaryoda filtresi şöyle olacaktır:
 tcp.port == 111
 ```
 
-Biz üstten filtre metni filtre metin kutusuna girin ve ENTER tuşuna basın.
+Size yukarıda filtre metnini filtre metin kutusuna girin ve ENTER tuşuna basın.
 
 ![Şekil 6][6]
 
-Tüm trafiğin aynı alt ağda yerel bir sanal makineden gelen sonuçlarından görebiliriz. Biz bu trafiği neden oluştuğunu hala anlamadığınız, size daha fazla neden bu bağlantı noktası 111 çağrıları yapma belirlemek için paket inceleyebilirsiniz. Bu bilgileri size uygun eylemi gerçekleştirin.
+Tüm trafik aynı alt ağda yerel bir sanal makineden gelen sonuçlardan görebiliriz. Biz yine de bu trafiği neden oluştuğunu anlamıyorsanız, size daha fazla neden 111 numaralı bağlantı noktasında bu çağrıları yapma belirlemek için paketler inceleyebilirsiniz. Bu bilgileri size uygun eylemi gerçekleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ İzleyicisi, diğer tanılama özellikleri hakkında bilgi edinin ziyaret ederek [Azure ağ izlemeye genel bakış](network-watcher-monitoring-overview.md)
+Ağ İzleyicisi'nin diğer tanılama özellikleri hakkında bilgi edinin ederek [Azure ağ izlemeye genel bakış](network-watcher-monitoring-overview.md)
 
 [1]: ./media/network-watcher-deep-packet-inspection/figure1.png
 [2]: ./media/network-watcher-deep-packet-inspection/figure2.png

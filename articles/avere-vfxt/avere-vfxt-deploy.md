@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: eb0f5a4a4219c63334e0a5be3ea4378c3c317bec
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288110"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578646"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
@@ -90,6 +90,7 @@ Altında **hüküm ve koşullar**:
 
   > [!NOTE] 
   > Abonelik sahibi değilseniz, önkoşul izleyerek adımları için koşulları kabul etmek bir sahip [yazılım önceden koşulları kabul](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
+
 
 Tıklayın **satın alma** bittiğinde. Beş veya altı dakika sonra çalışır duruma denetleyicisi düğümünüzü olacaktır.
 
@@ -225,7 +226,9 @@ Dağıtım adımlarına geri kalanını yapmak için küme denetleyiciye bağlan
 ## <a name="create-the-cluster-node-access-role"></a>Küme düğümü erişim rolü oluşturma
 
 > [!NOTE] 
-> Abonelik sahibi değildir ve rol zaten oluşturulmadı, yordamı kullanın veya bu adımları bir abonelik sahibi olan [Avere vFXT küme çalışma zamanı erişim rol olmadan bir denetleyici oluşturma](avere-vfxt-pre-role.md).
+> * Abonelik sahibi değildir ve rol zaten oluşturulmadı, yordamı kullanın veya bu adımları bir abonelik sahibi olan [Avere vFXT küme çalışma zamanı erişim rol olmadan bir denetleyici oluşturma](avere-vfxt-pre-role.md).
+> 
+> * Microsoft iç kullanıcılar yerine çalışırken "Avere küme çalışma zamanını operatörü" adlı varolan bir rolünü oluşturmak için kullanmanız gerekir. 
 
 [Rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) vFXT küme düğümlerine gerekli görevler gerçekleştirme yetkisi verir.  
 

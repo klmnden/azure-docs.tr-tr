@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cef3eef86cbb4abde5005f7a5bc278f9cd831b64
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7ea379516c6e636abd1309416374be75bcdbb686
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515276"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578748"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
@@ -55,17 +55,7 @@ Bölgesel kesintiler nadir değildir ve Azure Cosmos DB, veritabanının her zam
 
 - Tek bölgeli hesaplar, bölgesel bir kesintinin ardından kullanılabilirlik kaybedebilir. Her zaman yüksek kullanılabilirlik sağlamak için en az iki bölgeleri (tercihen en az iki yazma bölgeleri) Cosmos hesabınızla ayarlamak için önerilir.
 
-### <a name="durability-following-a-regional-disaster"></a>Aşağıdaki bölgesel bir olağanüstü durum dayanıklılığı
-
-Bir yazma işlemi, istemci için Onaylandı önce veri yazma işlemleri kabul eden bir bölgedeki bir çekirdeği tarafından depolanmasına kararlıdır. Aşağıdaki tabloda her tutarlılık düzeyinin kurtarılamaz bölgesel olağanüstü durum çeşitli bölgeleri kapsayan Cosmos hesapları için aşağıdaki olası veri kaybı penceresini gösterir.
-
-| **Tutarlılık düzeyi** | **Bölgesel bir olağanüstü durum aşağıdaki olası veri kaybı penceresini** |
-| - | - |
-| Güçlü | Sıfır |
-| Sınırlanmış Eskime Durumu | "Cosmos hesapta yapılandırma eskime penceresine" sınırlı. |
-| Oturum | En fazla 5 saniye |
-| Tutarlı Ön Ek | En fazla 5 saniye |
-| Nihai | En fazla 5 saniye |
+- Bile oldukça nadir ve talihsiz olayda Azure bölgesi kalıcı olarak kurtarılamaz olduğunda olup olmadığını olası veri kaybı olmadan çok bölgeli Cosmos hesabınızı güçlü, varsayılan tutarlılık düzeyi ile yapılandırılır. Sınırlanmış eskime durumu tutarlılık ile yapılandırılmış çok bölgeli Cosmos hesaplar için bir kalıcı olarak kurtarılamaz yazma bölgesi olması durumunda olası veri kaybı penceresini sınırlanmış eskime durumu penceresine; oturum, tutarlı ön ek ve nihai tutarlılık düzeyleri için olası veri kaybı penceresini en fazla beş saniye sınırlıdır.
 
 ## <a name="building-highly-available-applications"></a>Yüksek düzeyde erişilebilir uygulamalar oluşturma
 

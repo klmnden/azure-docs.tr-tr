@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f1242b299c6d2278bd75b576f225987854a2d8a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381749"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566542"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -272,7 +272,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 | Başvuru Kimliği | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir teknik profili tanımlayıcısı. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
-**ClaimsProviderSelections** bir kullanıcı yolculuğunun talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar. İle **EnabledForUserJourneys** filtre, öğe hangi Talep sağlayıcı olan kullanıcı için kullanılabilir. **EnabledForUserJourneys** öğesi aşağıdaki değerlerden birini içerir:
+**ClaimsProviderSelections** bir kullanıcı yolculuğunun talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar. İle **EnabledForUserJourneys** kullanıcıya hangi Talep sağlayıcı kullanılabilir filtrelemenize, öğe. **EnabledForUserJourneys** öğesi aşağıdaki değerlerden birini içerir:
 
 - **Her zaman**, teknik profil yürütün.
 - **Hiçbir zaman**, teknik profil atlayın. 

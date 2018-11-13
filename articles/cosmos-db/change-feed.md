@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: ad2032345332519713b177596df0556e4c35c18c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741870"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567749"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB'de destek akış değişiklik ile çalışma
 
@@ -177,7 +177,7 @@ Değişiklik akışı işlemci kitaplığı, bölümler ve paralel olarak çalı
 
 Sol istemci ilk olarak başlatıldığından ve tüm bölümleri ve ardından ikinci bir istemci başlatıldı ve ardından ilk izin bazı ikinci istemci kiraları Git izleme başlatıldı. Bu gördüğünüz gibi farklı makinelerde ve istemciler arasındaki iş dağıtmak için kullanışlı yoludur.
 
-Aynı koleksiyona izleme ve iki işlev nasıl işlemci kitaplığı için öğe bölümleri karar bağlı bağlı olarak farklı belgeler alabilirsiniz aynı kira kullanılarak iki sunucusuz Azure funtions varsa unutmayın.
+Sahip olduğunuz aynı koleksiyonu izleme ve aynı kira kullanarak iki sunucusuz Azure işlevleri, ardından iki işlev nasıl işlemci kitaplığı bölümlerini işlemek karar verdikten sonra bağlı olarak farklı belgeler alabilirsiniz, unutmayın.
 
 <a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Anlama değişiklik akışı işlemci kitaplığı

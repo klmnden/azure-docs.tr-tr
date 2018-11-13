@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 1a61d8f4008b0183ab5ddb51332d887217f52f48
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435602"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566644"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Soru-cevap Oluşturucu dil ve bölge desteği
 
@@ -27,13 +27,15 @@ Soru-cevap Oluşturucu, herhangi bir dil sayfanın soru/yanıt ayıklama destekl
 |Desteklenen diller| Yerel Ayar|
 |-----|----|
 |Türkçe|tr-*|
-|Fransızca|FR-*|
+|Fransızca |FR-*|
 |İtalyanca|BT-*|
-|Almanca|de-*|
-|İspanyolca|ES-*|
+|Almanca |de-*|
+|İspanyolca |ES-*|
 
 ## <a name="query-matching-and-relevance"></a>Sorguyla eşleşen ve ilgi düzeyi
 Soru-cevap Oluşturucu bağlıdır [dil Çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support) sonuçları sağlamak için Azure Search'te. Özel yeniden sıralama özellikleri kullanılabilir tr - için * daha iyi uygunluğu sağlayan diller.
+
+Azure arama özellikleri, desteklenen diller için nominal açık olduğunda, soru-cevap Oluşturucu, Azure arama sonuçlarının üstünde yer alan bir ek derecelendiricisini sahiptir. Derecelendiricisini Bu modelde bazı özel anlam kullanır ve word tabanlı özellikleri tr-*, henüz diğer diller için kullanılabilir değildir. İç çalışma derecelendiricisini'nın bir parçası olarak Biz bu kullanılabilir, değişiklik yapmayın. 
 
 Soru-cevap Oluşturucu, otomatik olarak Bilgi Bankası dili oluşturma sırasında algılar ve Çözümleyicisi uygun şekilde ayarlar. Aşağıdaki dillerde bilgi bankalarından oluşturabilirsiniz. Okuma [bu](../How-To/language-knowledge-base.md) soru-cevap Oluşturucu dillerin nasıl işlediği hakkında daha fazla ayrıntı için.
 
@@ -54,13 +56,13 @@ Bengali|
 |Hırvatça|
 |Çekçe|
 |Danca|
-|Hollanda dili|
+|Felemenkçe|
 |Türkçe|
 |Estonca|
 |Fince|
-|Fransızca|
+|Fransızca |
 |Galiçya dili|
-|Almanca|
+|Almanca |
 |Yunanca|
 |Gucerat dili|
 |İbranice|
@@ -72,7 +74,7 @@ Bengali|
 |İtalyanca|
 |Japonca|
 |Kannada dili|
-|Kore dili|
+|Korece|
 |Letonca|
 |Litvanca|
 |Malayalam dili|
@@ -87,8 +89,8 @@ Bengali|
 |Serbian_Latin|
 |Slovakça|
 |Slovence|
-|İspanyolca|
-|İsveç dili|
+|İspanyolca |
+|İsveççe|
 |Tamil dili|
 |Telugu dili|
 |Tay Dili|

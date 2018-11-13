@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161837"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567069"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,8 +49,7 @@ Bu kullanıcı yolculuklarından ilgi topluluğuna çeşitli yanıtlama taraflar
 
 Kullanıcı yolculuğu için başarılı bir işlem gelmelidir düzenleme dizisi olarak temsil edilir. Herhangi bir adım başarısız olursa, işlem başarısız olur. Yapı taşlarını düzenleme adımları başvurabilir ve ilke dosyasında talep sağlayıcıları izin. Göstermek veya bir kullanıcı deneyimi oluşturmak için sorumludur herhangi bir düzenleme adımı, ayrıca ilgili içerik tanımı tanımlayıcısı bir başvuru içeriyor.
 
-Düzenleme adımlarının düzenleme adımı öğesinde tanımlanan önkoşullara göre conditionaly ecxetuted olabilir. Examle için yalnızca belirli bir talep varsa veya bir talebi eşitse veya belirtilen değer için bir düzenleme adımı gerçekleştirmek için kontrol edebilirsiniz. 
-
+Düzenleme adımlarının yürütüldü, düzenleme adımı öğesinde tanımlanan önkoşullara göre conditionaly olabilir. Examle için yalnızca belirli bir talep varsa veya bir talebi eşitse veya belirtilen değer için bir düzenleme adımı gerçekleştirmek için kontrol edebilirsiniz. 
 
 Düzenleme adımlarının sıralanmış listesini belirtmek için bir **OrchestrationSteps** öğesi ilkesinin bir parçası eklenir. Bu öğe gereklidir.
 
@@ -66,7 +65,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 | --------- | -------- | ----------- |
 | Sipariş verme | Evet | Düzenleme adımlarının sırası. | 
 | Tür | Evet | Düzenleme adımı türü. Olası değerler: <ul><li>**ClaimsProviderSelection** -düzenleme adımı birini seçmek için kullanıcıya çeşitli talep sağlayıcıları sunan gösterir.</li><li>**CombinedSignInAndSignUp** -düzenleme adımı oturum açma ve yerel hesap kaydolma sayfası birleşik sosyal sağlayıcılar sunar gösterir.</li><li>**ClaimsExchange** -düzenleme adımı talepler bir talep sağlayıcı ile değiştirir gösterir.</li><li>**SendClaims** -düzenleme adımı, bir talep veren tarafından verilmiş bir belirteç ile bağlı olan tarafa talep gönderdiğini belirtir.</li></ul> | 
-| ContentDefinitionReferenceId | Hayır | Tanımlayıcısını [içerik tanımı](contentdefinitions.md) bu düzenleme adımı ile ilişkili. Çoğunlukla içerik tanım başvurusu tanımlayıcısını otomatik olarak onaylanan teknik profili içinde tanımlanır. Ancak, teknik bir profili olmayan bir şey görüntülemek Azure AD B2C ihtiyacı olduğunda bazı durumlar vardır. Düzenleme adımı türü aşağıdaki ise iki örnekler verilmiştir: `ClaimsProviderSelection` veya `CombinedSignInAndSignUp`. Teknik profil gerek kalmadan kimlik sağlayıcısı seçim görüntülemek Azure AD B2C gerekir. | 
+| ContentDefinitionReferenceId | Hayır | Tanımlayıcısını [içerik tanımı](contentdefinitions.md) bu düzenleme adımı ile ilişkili. Çoğunlukla içerik tanım başvurusu tanımlayıcısını otomatik olarak onaylanan teknik profili içinde tanımlanır. Ancak, teknik bir profili olmayan bir şey görüntülemek Azure AD B2C ihtiyacı olduğunda bazı durumlar vardır. Düzenleme adımı türü aşağıdakilerden biri ise iki örnekler verilmiştir: `ClaimsProviderSelection` veya `CombinedSignInAndSignUp`. Teknik profil gerek kalmadan kimlik sağlayıcısı seçim görüntülemek Azure AD B2C gerekir. | 
 | Cpimıssuertechnicalprofilereferenceıd değeri | Hayır | Düzenleme adımı türü `SendClaims`. Bu özellik, bağlı olan taraf için belirteç veren talep sağlayıcısı teknik profil tanımlayıcısını tanımlar.  Yoksa, bağlı olan taraf belirteci olmadan oluşturulduysa. |
 
 

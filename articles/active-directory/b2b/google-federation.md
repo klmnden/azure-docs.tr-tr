@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 11/07/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389454"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569014"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google B2B Konuk kullanıcılar için kimlik sağlayıcısı Ekle
 
@@ -43,15 +43,21 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
 
    ![Google API kimlik bilgileri](media/google-federation/google-api.png)
  
-4. Seçin **Oauth onay ekranı** girin ve sekme bir **kullanıcılara gösterilen ürün adı**. (Diğer ayarları bırakın.) **Kaydet**’i seçin.
+4. Seçin **OAuth onay ekranı** girin ve sekme bir **uygulama adı**. (Diğer ayarları bırakın.)
 
    ![Google OAuth onay ekranı](media/google-federation/google-oauth-consent-screen.png)
 
-5. Seçin **kimlik bilgilerini** sekmesi. İçinde **kimlik bilgilerini oluştur** menüsünde seçin **OAuth istemcisi kimliği**.
+5. Kaydırma **etki alanlarında yetkilendirilmiş** bölümünde ve microsoftonline.com girin.
+
+   ![Yetkili etki alanı bölümü](media/google-federation/google-oauth-authorized-domains.png)
+
+6. **Kaydet**’i seçin.
+
+7. Seçin **kimlik bilgilerini** sekmesi. İçinde **kimlik bilgilerini oluştur** menüsünde seçin **OAuth istemcisi kimliği**.
 
    ![Google API kimlik bilgileri](media/google-federation/google-api-credentials.png)
 
-6. Altında **uygulama türü**, seçin **Web uygulaması**ve ardından altındaki **yetkili yeniden yönlendirme URI'leri**, aşağıdaki URI girin:
+8. Altında **uygulama türü**, seçin **Web uygulaması**ve ardından altındaki **yetkili yeniden yönlendirme URI'leri**, aşağıdaki URI girin:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(burada `<directory id>` , dizin kimliği)
    
@@ -60,7 +66,7 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
 
    ![OAuth istemcisi kimliği oluşturma](media/google-federation/google-create-oauth-client-id.png)
 
-7. **Oluştur**’u seçin. İstemci Kimliğini ve kimlik sağlayıcısı Azure AD portalında eklediğinizde kullanacağınız istemci gizli anahtarını kopyalayın.
+9. **Oluştur**’u seçin. İstemci Kimliğini ve kimlik sağlayıcısı Azure AD portalında eklediğinizde kullanacağınız istemci gizli anahtarını kopyalayın.
 
    ![OAuth istemci kimliği ve istemci gizli anahtarı](media/google-federation/google-auth-client-id-secret.png)
 

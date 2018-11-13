@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036555"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567154"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -419,7 +419,7 @@ Aşağıdaki tabloda her önemli işlevler çalışma zamanı sürümü tarafın
 | İşlevler sürümü | Node.js sürümü | 
 |---|---|
 | 1.x | 6.11.2 (çalışma zamanı tarafından kilitlendi) |
-| 2.x  | _Etkin LTS_ ve _geçerli_ Node.js sürümleri (8.11.1 ve önerilen 10.6.0). Sürüm WEBSITE_NODE_DEFAULT_VERSION ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Etkin LTS_ ve tek sayılı _geçerli_ Node.js sürümleri (8.11.1 ve önerilen 10.6.0). Sürüm WEBSITE_NODE_DEFAULT_VERSION ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 Çalışma zamanı kullanarak yukarıdaki uygulama ayarını denetleyerek veya yazdırma geçerli sürümü gördüğünüz `process.version` herhangi bir işlevden.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7700de9bed7e5cfc003481a8e7d93720a767928
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7761b6f034eae6b23be51930a1498957debafe8b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036164"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566593"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight Hive kullanarak uçuş gecikme verilerini çözümleme
 Hive, Apache Hadoop MapReduce işlerini adlı bir SQL benzeri bir betik dilini çalışan bir yol sağlar  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetleme doğru sorgulamak ve büyük hacimli verileri analiz etme.
@@ -88,7 +88,7 @@ Bir HDInsight kümesi oluşturmayı ve Hive işlerini çalıştırma hakkında d
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -449,7 +449,7 @@ HiveQL komutların tam listesi için bkz. [Hive veri tanımlama dili][hadoop-hiv
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {

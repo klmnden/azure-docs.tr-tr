@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50dcd2a6a2c8dc703b4c8c0ee8fb6270e0840581
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211647"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566474"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Azure PowerShell ile VMware vm'lerinin olağanüstü durum kurtarmayı ayarlama
 
@@ -23,7 +23,8 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 > [!div class="checklist"]
 > - Bir kurtarma Hizmetleri kasası oluşturun ve kasa bağlamını ayarlayın.
 > - Sunucu kaydı kasadaki doğrulayın.
-> - Çoğaltma, çoğaltma ilkesi dahil olmak üzere ayarlayın. VCenter server'ınızı ekleyin ve Vm'leri keşfedin. > - Bir vCenter sunucusu eklemek ve keşfedin 
+> - Çoğaltma, çoğaltma ilkesi dahil olmak üzere ayarlayın. VCenter server'ınızı ekleyin ve Vm'leri keşfedin. 
+> - Bir vCenter sunucusu eklemek ve keşfedin 
 > - Çoğaltılan verileri tutmak için depolama hesapları oluşturmanız ve sanal makinelerini çoğaltma.
 > - Yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırma, sanal makineleri çoğaltmak için aşağıdakiler e ayarları gerçekleştirin.
 
@@ -93,7 +94,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. İndirilen kasa kayıt anahtarını kullanın ve tam yükleme ve yapılandırma sunucusunun kaydı için aşağıda verilen makalelerindeki adımları izleyin.
-   - [Koruma hedeflerinizi seçme](vmware-azure-set-up-source.md#choose-your-protection-goals)
+   - [Koruma hedeflerinizi seçme](vmware-azure-set-up-source.md#choose-protection-goals)
    - [Kaynak ortamını ayarlama](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>Kasa bağlamını ayarlayın

@@ -1,25 +1,38 @@
-Etki alanı adı sistemi (DNS), internet'te öğeleri bulmak için kullanılır. Tarayıcınızda bir adres girin veya bir web sayfası bir bağlantıya tıklayın, örneğin, bu DNS etki alanı bir IP adresine çevirmek için kullanır. IP adresi tür sokak adresi gibi ancak çok İnsan kolay değil. Örneğin, bir DNS adı gibi unutmayın çok daha kolay **contoso.com** 192.168.1.88 veya 2001:0:4137:1f67:24a2:3888:9cce:fea3 gibi bir IP adresi anımsaması küçüktür.
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572857"
+---
+Etki alanı adı sistemi (DNS), internet'te şeyler bulmak için kullanılır. Örneğin, tarayıcınızda bir adres girin veya bir web sayfası bağlantısına tıklayın, etki alanı bir IP adresine çevirmek için DNS kullanır. IP adresi, bir açık adres gibi tür olmakla birlikte çok İnsan kolay değil. Örneğin, bir DNS adı gibi çok kolay olan **contoso.com** 192.168.1.88 veya 2001:0:4137:1f67:24a2:3888:9cce:fea3 gibi bir IP adresi hatırlamak yerine.
 
-DNS sistem dayanır *kayıtları*. Kayıtları ilişkilendirmek belirli bir *adı*, gibi **contoso.com**, bir IP adresi ya da başka bir DNS adına sahip. Bir uygulama bir web tarayıcısı gibi bir ad DNS arar, kaydı bulur ve her adresi olarak işaret kullanır. İşaret değeri bir IP adresi varsa, tarayıcı bu değeri kullanır. Başka bir DNS adına işaret ediyorsa, uygulama çözümleme yeniden yapmanız gerekir. Sonuç olarak, tüm ad çözümlemesi bir IP adresi sona erer.
+DNS sistem dayanır *kayıtları*. Kayıtları belirli bir ilişkilendirme *adı*, gibi **contoso.com**, bir IP adresi veya başka bir DNS adı. Bir uygulama, bir web tarayıcısı gibi bir ad DNS arar, kaydı bulur ve her adresi olarak işaret kullanır. Tarayıcı, işaret değeri bir IP adresi varsa, bu değeri kullanır. Başka bir DNS adını işaret ediyorsa, uygulama, çözümü yeniden bulunduğuyla ilgilidir. Sonuç olarak, tüm ad çözümlemesi, bir IP adresi sona erecek.
 
-Bir Azure Web sitesi oluşturduğunuzda, bir DNS adı otomatik olarak siteye atanmış. Bu ad biçimini alır  **&lt;yoursitename&gt;. azurewebsites.net**. Web sitenizi bir Azure trafik Yöneticisi uç noktası olarak eklediğinizde, Web sitenizi üzerinden erişilebilir ise  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** etki alanı.
+Bir Azure Web sitesi oluşturduğunuzda, bir DNS adı otomatik olarak siteye atanmış. Bu ad biçimi alır  **&lt;yoursitename&gt;. azurewebsites.net**. Web sitenizi bir Azure Traffic Manager uç noktası olarak eklediğinizde, Web sitenizi ardından aracılığıyla erişilebilir  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** etki alanı.
 
 > [!NOTE]
-> Web sitenizi bir trafik Yöneticisi uç noktası olarak yapılandırıldığında, kullanacağınız **. trafficmanager.net** adresi DNS kayıtlarını oluştururken.
+> Web sitenizi bir Traffic Manager uç noktası olarak yapılandırıldığında, kullanacağınız **. trafficmanager.net** adresi DNS kayıtlarını oluştururken.
 > 
-> Trafik Yöneticisi ile CNAME kayıtlarına yalnızca kullanabilirsiniz
+> Traffic Manager ile CNAME kayıtlarına yalnızca kullanabilirsiniz
 > 
 > 
 
-Ayrıca kayıtları, her biri kendi işlevleri ve sınırlamaları, birden çok tür vardır, ancak için trafik Yöneticisi uç noktalar olarak yapılandırılmış Web sitelerinde, biz yalnızca yaklaşık bir dikkat edin; *CNAME* kaydeder.
+Ayrıca birden çok kayıt, her biri kendi işlevleri ve sınırlamalar da vardır, ancak için Traffic Manager uç noktaları olarak yapılandırılmış. Web siteleri için biz yalnızca yaklaşık bir dikkatli olun; *CNAME* kaydeder.
 
-### <a name="cname-or-alias-record"></a>CNAME veya diğer ad kaydı
-Bir CNAME kaydı eşleyen bir *belirli* gibi DNS adı **mail.contoso.com** veya **www.contoso.com**, başka bir (kurallı) etki alanı adı. Azure trafik Yöneticisi'ni kullanarak Web söz konusu olduğunda kurallı etki alanı adıdır  **&lt;Uygulamam >. trafficmanager.net** Traffic Manager profilinizin etki alanı adı. Oluşturduktan sonra CNAME için diğer ad oluşturur  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı. CNAME girişi IP adresine çözümleyecek,  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı otomatik olarak, böylece Web sitesinin IP adresi değişirse, herhangi bir eylemde bulunmanız gerekmez.
+### <a name="cname-or-alias-record"></a>CNAME ya da diğer ad kaydı
+Eşleyen bir CNAME kaydı bir *belirli* DNS adı, örneğin **mail.contoso.com** veya **www.contoso.com**, başka bir (kurallı) etki alanı adı. Azure Traffic Manager'ı kullanarak Web. siteleri söz konusu olduğunda kurallı bir etki alanı adıdır  **&lt;Uygulamam >. trafficmanager.net** Traffic Manager profilinizin etki alanı adı. Oluşturulduktan sonra CNAME için bir diğer ad oluşturur  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı. CNAME girişi IP adresine çözümlenmesi,  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı otomatik olarak, böylece Web sitesinin IP adresi değişirse, herhangi bir eylemde bulunmanız gerekmez.
 
-Trafik Yöneticisi trafiği geldikten sonra ardından trafiği yük dengeleyici yöntemi için yapılandırılmış Web sitenizi, yönlendirir. Bu Web sitenizin ziyaretçileri için tamamen saydamdır. Özel etki alanı adı tarayıcısında yalnızca görürler.
+Trafik Traffic Manager, geldikten sonra trafik Yük Dengeleme için yapılandırılan yöntemini kullanarak Web sitenizi yönlendirir. Bu Web sitenizi ziyaret edenler için tamamen saydamdır. Yalnızca özel etki alanı adı tarayıcısında görürler.
 
 > [!NOTE]
-> Bazı etki alanı kayıt yalnızca bir CNAME kaydı gibi kullanırken alt etki alanları eşlemeye izin **www.contoso.com**ve değil kök adları gibi **contoso.com**. CNAME kayıtları hakkında daha fazla bilgi için şirketiniz tarafından sağlanan belgelere bakın <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME kaydı Wikipedia girişinde</a>, veya <a href="http://tools.ietf.org/html/rfc1035">IETF etki alanı adları - uygulama ve belirtim</a> belge.
+> Bazı etki alanı kayıt yalnızca bir CNAME kaydı kullanarak alt etki alanları eşleyin izin **www.contoso.com**ve değil kök adları gibi **contoso.com**. CNAME kayıtları hakkında daha fazla bilgi için bkz: şirketiniz tarafından sağlanan belgelere <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME kaydı Wikipedia girdiye</a>, veya <a href="http://tools.ietf.org/html/rfc1035">IETF etki alanı adları - uygulama ve belirtimi</a> belge.
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ad32bd521975312b72aa55fc44e9b4d213519a07
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056092"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567885"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure'da bir Service Fabric küme için sertifikaları kaldırın veya ekleyin
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı hakkında bilgilenmeli ve hakkında bilgi sahibi olmanız önerilir [küme güvenliği senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir bir küme sertifikası ve devam etmeden önce ne için kullanılır.
@@ -47,7 +47,7 @@ Ardından amacınızla birincil olarak işaretlenmiş sertifikayı kaldırmak i�
 > [!TIP]
 > Artık daha iyi ve daha kolay şekilde kullanarak bir ikincil sertifika eklemek [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i. Bu bölümdeki adımları izlemeden gerek yoktur.  Ayrıca, ilk olarak oluşturmak ve kullanırken kümeyi dağıtmak için kullanılan şablon gerekmeyen [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet'i.
 
-Bu adımları Resource Manager nasıl çalışır ile ilgili bilgi sahibi olduğunuz ve en az bir Resource Manager şablonu kullanarak bir Service Fabric kümesi dağıttıysanız ve kullanışlı kümeyi oluşturmak için kullanılan şablonu varsayılır. JSON kullanarak memnun olduğunuz varsayılır.
+Bu adımları Resource Manager nasıl çalışır ile ilgili bilgi sahibi olduğunuz ve Resource Manager şablonu kullanarak en az bir Service Fabric kümesi dağıttıysanız ve kullanışlı kümeyi oluşturmak için kullanılan şablonu varsayılır. JSON kullanarak memnun olduğunuz varsayılır.
 
 > [!NOTE]
 > Örnek şablonu ve boyunca veya bir başlangıç noktası olarak izlemek için kullanabileceğiniz parametreler için arıyorsanız, ardından bunu indirmek [git deposu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 

@@ -2,18 +2,18 @@
 title: Azure IOT Edge cihazları ağ geçidi olarak kullanma | Microsoft Docs
 description: Saydam, donuk oluşturmak için Azure IOT Edge ya da verileri birden çok akış CİHAZDAN buluta gönderiyor veya yerel olarak işleme proxy ağ geçidi cihazı kullanın.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f5bd60ddbc98f5dd7d88c7a5e3ea745f68789348
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 53f0f1e77f8879807b2fb93b86d825e3bd044f41
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914082"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567222"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Bir ağ geçidi olarak IOT Edge cihazının nasıl kullanılabileceğini
 

@@ -3,18 +3,18 @@ title: Dağıtma, izleme modüller için Azure IOT Edge | Microsoft Docs
 description: Uç cihazlarında çalışan modülleri yönetme
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393466"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566255"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Dağıtma ve Azure portalını kullanarak ölçekte IOT Edge modülleri izleme
 
@@ -106,7 +106,7 @@ Bu dağıtım alması gereken belirli cihazları hedeflemek için etiketler öze
 Birden çok dağıtım aynı cihazı hedefleyebilir olduğundan, her dağıtım öncelik numarası vermesi gerekir. Şimdiye kadar bir çakışma varsa (yüksek değerler daha yüksek bir önceliği gösterir) en yüksek öncelikli dağıtım kazanır. İki dağıtım aynı öncelik numarasına sahip olmak, çoğu oluşturulmuş bir son kazanır. 
 
 1. Dağıtım için pozitif bir tamsayı girin **öncelik**. İki veya daha fazla dağıtım aynı cihazda hedeflenen durumunda durumunda, sayısal değeri en yüksek dağıtım önceliği geçerli olur.
-1. Girin bir **hedef koşulu** hangi cihazların bu dağıtım ile hedeflenecek belirlemek için. Koşul, cihaz ikizi etiketlere göre veya cihaz çiftinin bildirilen özellikler ve ifade biçim ile eşleşmesi. Örneğin, `tags.environment='test'` veya `properties.reported.devicemodel='4000x'`. 
+1. Girin bir **hedef koşulu** hangi cihazların bu dağıtım ile hedeflenecek belirlemek için. Koşul, cihaz ikizi etiketlere göre veya cihaz çiftinin bildirilen özellikler ve ifade biçim ile eşleşmesi. Örneğin, `tags.environment='test'` veya `properties.reported.devicemodel='4000x'`. 
 1. Seçin **sonraki** son adıma geçmek için.
 
 ### <a name="step-5-review-template"></a>5. adım: Gözden geçirme şablonu
@@ -123,14 +123,14 @@ Bir dağıtımın ayrıntılarını görüntülemek ve onu çalıştıran cihazl
 
    ![IOT Edge dağıtımları görüntüle](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Dağıtım listesini inceleyin. Her bir dağıtım için aşağıdaki ayrıntıları görüntüleyebilirsiniz:
+1. Dağıtım listesini inceleyin. Her bir dağıtım için aşağıdaki ayrıntıları görüntüleyebilirsiniz:
    * **Kimliği** -dağıtım adı.
    * **Hedef koşul** -hedeflenen cihazları tanımlamak için kullanılan etiketi.
    * **Öncelik** -bir dağıtıma atanan öncelik numarası.
    * **Sistem ölçümlerini** - **hedeflenen** hedefleme koşula uyan IOT hub'da cihaz ikizlerini belirtir ve **uygulanan** sahip cihazların sayısını belirtir Dağıtım içeriğini kendi modül ikizlerini IOT hub'ında uygulanan. 
    * **Cihaz ölçümleri** -başarı veya IOT Edge istemci çalışma zamanı hata raporlama dağıtım Edge cihazların sayısı.
    * **Oluşturma zamanı** -dağıtım oluşturulduğu zaman damgası. Bu zaman damgasından iki dağıtım aynı önceliğe sahip olduğunuzda TIES ayırmak için kullanılır. 
-2. İzlemek istediğiniz dağıtımı seçin.  
+2. İzlemek istediğiniz dağıtımı seçin.  
 3. Dağıtım ayrıntılarını inceleyin. Dağıtım ayrıntılarını gözden geçirmek için sekmeleri kullanabilirsiniz.
 
 ## <a name="modify-a-deployment"></a>Bir dağıtım değiştirme
@@ -151,10 +151,10 @@ Bir dağıtım değiştirmek için aşağıdaki adımları kullanın:
    ![IOT Edge dağıtımları görüntüle](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Değiştirmek istediğiniz dağıtımı seçin. 
-1. Aşağıdaki alanları güncelleştirmeleri yapın: 
-   * Hedef koşul 
-   * Etiketler 
-   * Öncelik 
+1. Aşağıdaki alanları güncelleştirmeleri yapın: 
+   * Hedef koşul 
+   * Etiketler 
+   * Öncelik 
 1. **Kaydet**’i seçin.
 1. Bağlantısındaki [bir dağıtımını izleme](#monitor-a-deployment) dağıtmadan değişiklikleri izlemek için. 
 
@@ -170,7 +170,7 @@ Bir dağıtım sildiğinizde, sonraki en yüksek öncelikli dağıtım üzerinde
 
 1. Silmek istediğiniz dağıtım seçmek için onay kutusunu kullanın. 
 1. **Sil**’i seçin.
-1. Bir komut istemi Bu eylem bu dağıtımı silin ve tüm cihazlar için önceki duruma geri bildirir.  Bu, daha düşük öncelikli bir dağıtım uygulayacağı anlamına gelir.  Başka bir dağıtımda henüz hedeflenmişse, hiçbir modülün kaldırılacak. Cihazınızın tüm modülleri kaldırmak istiyorsanız, sıfır modülleriyle bir dağıtımını oluşturun ve aynı cihazlara dağıtın. Seçin **Evet** devam etmek için. 
+1. Bir komut istemi Bu eylem bu dağıtımı silin ve tüm cihazlar için önceki duruma geri bildirir.  Bu, daha düşük öncelikli bir dağıtım uygulayacağı anlamına gelir.  Başka bir dağıtımda henüz hedeflenmişse, hiçbir modülün kaldırılacak. Cihazınızın tüm modülleri kaldırmak istiyorsanız, sıfır modülleriyle bir dağıtımını oluşturun ve aynı cihazlara dağıtın. Seçin **Evet** devam etmek için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

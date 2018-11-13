@@ -7,110 +7,89 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209622"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564978"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>Farklı Azure bölgelerindeki sanal ağları eşleme
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Ağ eşlemesini ve sanal ağlar için IP adresini ayarlama
 
-
-Bu makalede, Azure sanal ağ birbiriyle farklı Azure bölgelerinde bulunan iki örneğini eşlemek açıklar. Ağ eşlemesini çoğaltılan bir sanal makinenin hedef Azure bölgeniz oluşturulduğunda, sanal makine de kaynak sanal makinenin sanal ağa eşlenen sanal ağda oluşturulmasını sağlar.  
+Bu makalede iki farklı Azure bölgelerinde bulunan Azure sanal ağlar (Vnet'ler) örneğini eşlemeyle ilgili bilgi ve ağlar arasında IP adresini ayarlama konusunda açıklanmaktadır. Ağ eşlemesini sağlar çoğaltılmış bir VM oluşturulur kaynak VM sanal ağa eşlenmiş vnet'teki hedef Azure bölgesi oluşturulur.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Ağları Eşle önce siz oluşturduğunuzdan emin olun bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md) Kaynak bölgesi hem de hedef Azure bölgesi.
 
-## <a name="map-virtual-networks"></a>Sanal ağları eşleme
+Ağları Eşle önce olması [Azure sanal ağları](../virtual-network/virtual-networks-overview.md) kaynak ve hedef Azure bölgesi. 
 
-Bir Azure bölgesinde (kaynak ağı) Azure sanal makineleri için başka bir bölgede (hedef ağı) bulunan bir sanal ağda bulunan bir Azure sanal ağı eşleme için şuraya gidin: **Site Recovery altyapısı**  >  **Ağ eşleme**. Ağ eşlemesi oluşturun.
+## <a name="set-up-network-mapping"></a>Ağ eşlemesini ayarlama
 
-![Ağ eşlemeleri penceresi - ağ eşlemesi oluşturma](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+Ağları aşağıdaki şekilde eşlenir:
 
+1. İçinde **Site Recovery altyapısı**, tıklayın **+ ağ eşlemesi**.
 
-Aşağıdaki örnekte, Doğu Asya bölgesinde sanal makinenin çalışıyor. Sanal makine Güneydoğu Asya bölgeye çoğaltılır.
+    ![ Ağ eşlemesi oluşturma](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-Ağ eşlemesi için Güneydoğu Asya bölgesi Doğu Asya bölgesi oluşturmak için kaynak ağ konumunu ve hedef ağ konumunu seçin. Sonra **Tamam**’ı seçin.
+3. İçinde **ağ eşlemesi Ekle**kaynağını seçin ve hedef konumları. Örneğimizde, kaynak VM Doğu Asya bölgesinde çalıştığından ve Güneydoğu Asya bölgeye çoğaltır.
 
-![Ağ eşleme pencere - eklemek kaynak ağı için kaynak ve hedef konumları seçin](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Kaynak ve hedef seçin ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. Şimdi bir ağ eşlemesini karşı dizin oluşturun. Örneğimizde, kaynak artık Güneydoğu Asya olacaktır ve hedef Doğu Asya olacaktır.
 
-
-Ağ eşlemesi, Doğu Asya bölgesi için Güneydoğu Asya bölgesi oluşturmak için önceki işlemi tekrarlayın.
-
-![Ağ Eşleme bölmesi - ekleme kaynak ve hedef konumların hedef ağ seçin](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![Ağ Eşleme bölmesi - ekleme kaynak ve hedef konumların hedef ağ seçin](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Çoğaltmayı etkinleştirdiğinizde, bir ağ eşleme
+## <a name="map-networks-when-you-enable-replication"></a>Çoğaltmayı etkinleştirdiğinizde ağları Eşle
 
-Hiçbir ağ eşlemesi varsa bir sanal makine bir Azure bölgesinden başka bir bölgeye ilk kez çoğalttığınızda, çoğaltma işlemini ayarladığınız zaman hedef ağ ayarlayabilirsiniz. Bu ayarda bağlı olarak, Azure Site Recovery ağ eşlemeleri kaynak bölgesinden hedef bölge ve kaynak bölgeye hedef bölge oluşturur.   
+Azure Vm'leri için olağanüstü durum kurtarma yapılandırmadan önce Ağ eşlemesi hazırlandı yapmadıysanız, bir hedef belirtebilirsiniz ağ, [ayarlama ve çoğaltmayı etkinleştirme](azure-to-azure-how-to-enable-replication.md). Aşağıdaki bunu yaptığınızda olur:
 
-![Ayarlar bölmesini yapılandırma - hedef konumu seçin](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- Seçtiğiniz hedefe bağlı olarak, Site Recovery otomatik olarak ağ eşlemeleri kaynaktan hedef bölge ve kaynak bölgeye hedeften oluşturur.
+- Varsayılan olarak, Site Recovery, hedef bölgedeki kaynak ağına aynı olan bir ağ oluşturur. Site Recovery ekler **-asr** kaynak ağı adı soneki olarak. Hedef ağ özelleştirebilirsiniz.
+- Ağ eşlemesi zaten oluştuysa, çoğaltmayı etkinleştirdiğinizde, hedef sanal ağ değiştiremezsiniz. Hedef sanal ağ değiştirmek için mevcut ağ eşlemesini değiştirmeniz gerekir.
+- Bir bölgeden bölgeye B bir ağ eşlemesini değiştirirseniz, ayrıca bölgeye A. B bölgeden ağ eşlemesini değiştirmek olun]
 
-Varsayılan olarak, Site Recovery, hedef bölgedeki kaynak ağına aynı olan bir ağ oluşturur. Site Recovery ağ ekleyerek oluşturur **-asr** kaynak ağı adı soneki olarak. Önceden oluşturulmuş bir ağ seçmek için Seç **Özelleştir**.
+## <a name="specify-a-subnet"></a>Bir alt ağ belirtin
 
-![Hedef ayarları bölmesi - kümesi hedef kaynak grubu adı ve hedef sanal ağ adı özelleştirme](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+VM Seçilen hedefin alt ağ kaynak VM alt ağ adını temel alarak.
 
-Ağ eşlemesi zaten oluştuysa, çoğaltmayı etkinleştirdiğinizde, hedef sanal ağ değiştiremezsiniz. Bu durumda, hedef sanal ağ değiştirmek için mevcut ağ eşlemesini değiştirin.  
+- Hedef ağ ile kaynak VM alt ağı ile aynı ada sahip bir alt ağ varsa, bu alt hedef sanal makine için ayarlanır.
+- Alfabetik sırada ilk alt ağ, aynı ada sahip bir alt ağı hedef ağ mevcut değilse hedef alt ağ ayarlanır.
+- Değiştirebileceğiniz içinde **işlem ve ağ** VM için ayarlar.
 
-![Hedef özelleştirme ayarları bölmesi - hedef kaynak grubu adını ayarla](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![Ağ eşleme bölmesini değiştirme - mevcut bir hedef sanal ağ adını değiştirme](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> Bir bölgeden bölgeye B bir ağ eşlemesini değiştirirseniz, aynı zamanda bölgeye A. B bölgeden ağ eşlemesini değiştirmek emin olun
->
->
+    ![İşlem ve ağ işlem Özellikler penceresi](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## <a name="subnet-selection"></a>Alt ağ seçimi
-Hedef sanal makinenin alt ağ, alt ağının kaynak sanal makinenin adına göre seçilir. Bu alt ağ, kaynak sanal makinenin aynı ada sahip bir alt ağ hedef ağdaki mevcutsa hedef sanal makine için ayarlanır. Alfabetik olarak ilk alt ağ, aynı ada sahip bir alt ağı hedef ağ mevcut değilse hedef alt ağ ayarlanır.
+## <a name="set-up-ip-addressing-for-target-vms"></a>Hedef sanal makineler için IP adresini ayarlama
 
-Alt ağ değiştirmek için Git **işlem ve ağ** sanal makine için ayarları.
+Hedef sanal makinedeki her NIC için IP adresini aşağıdaki gibi yapılandırılır:
 
-![İşlem ve ağ işlem Özellikler penceresi](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
-
-## <a name="ip-address"></a>IP adresi
-
-Aşağıdaki bölümlerde açıklandığı gibi hedef sanal makinenin her ağ arabirimi için IP adresi ayarlanır.
-
-### <a name="dhcp"></a>DHCP
-Kaynak sanal makinenin ağ arabiriminde DHCP kullanıyorsa, hedef sanal makinenin ağ arabiriminde de DHCP kullanacak şekilde ayarlanır.
-
-### <a name="static-ip-address"></a>Statik IP adresi
-Kaynak sanal makinenin ağ arabiriminde bir statik IP adresi kullanıyorsa, hedef sanal makinenin ağ arabiriminde de statik bir IP adresi kullanacak şekilde ayarlanır. Statik bir IP adresi nasıl belirlendiğini aşağıdaki bölümlerde açıklanmaktadır.
-
-### <a name="ip-assignment-behavior-during-failover"></a>Yük devretme sırasında IP ataması davranışı
-#### <a name="1-same-address-space"></a>1. Aynı adres alanı
-
-Kaynak alt ağ ve hedef alt ağ aynı adres alanı varsa, kaynak sanal makinenin Ağ arabiriminin IP adresini hedef IP adresi olarak ayarlanır. Aynı IP adresi kullanılabilir değilse, bir sonraki kullanılabilir IP adresi hedef IP adresi olarak ayarlanır.
-
-#### <a name="2-different-address-spaces"></a>2. Farklı bir adres alanları
-
-Kaynak alt ağ ve hedef alt ağ farklı adres alanları varsa, hedef alt ağdaki bir sonraki kullanılabilir IP adresi hedef IP adresi olarak ayarlanır.
+- **DHCP**: kaynak VM NIC'i DHCP kullanıyorsa, hedef VM NIC de DHCP kullanacak şekilde ayarlanır.
+- **Statik IP adresi**: kaynak VM NIC'SİNDE statik IP adresleme kullanıyorsa, hedef VM NIC de statik IP adresi kullanır.
 
 
-### <a name="ip-assignment-behavior-during-test-failover"></a>Yük devretme testi sırasında IP ataması davranışı
-#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Seçilen hedef ağ üretim vnet'se
-- Kurtarma IP (hedef IP), ancak statik IP olacaktır **aynı IP adresini olmayacaktır** yük devretme için ayrılmış.
-- Atanan IP adresi alt ağ adres aralığı sonundaki bir sonraki kullanılabilir IP'yi olacaktır.
-- İçin örneğin, kaynak VM statik IP olarak yapılandırılmışsa: 10.0.0.19 ve yük devretme testi ile yapılandırılmış bir üretim ağı denendi: ***dr PROD KB***, 10.0.0.0/24 alt ağ aralığında ile. </br>
--İle bir sonraki kullanılabilir IP'yi olan alt ağ adres aralığı sonundan devredilen VM'nin atanır: 10.0.0.254 </br>
+## <a name="ip-address-assignment-during-failover"></a>Yük devretme sırasında IP adresi ataması
 
-**Not:** terminoloji **üretim vNet** 'olağanüstü durum kurtarma yapılandırması sırasında eşlenmiş hedef ağ' denir.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Seçilen hedef ağ üretim vNet değil ancak üretim ağı ile aynı alt ağ aralığında varsa
-
-- Kurtarma IP (hedef IP) statik bir IP ile olacaktır **aynı IP adresini** (yani, statik IP adresi yapılandırılmış) yük devretme için ayrılmış. Aynı IP adresi kullanılabilir sağlanır.
-- Ardından yapılandırılmış statik IP, bazı diğer VM/cihaza zaten atanmışsa, Kurtarma IP alt ağ adres aralığı sonundaki bir sonraki kullanılabilir IP'yi olacaktır.
-- İçin örneğin, kaynak VM statik IP olarak yapılandırılmışsa: 10.0.0.19 ve yük devretme testi ile bir test ağı denendi: ***dr-olmayan-PROD-KB***, üretim ağ - olarak aynı alt ağ aralığı ile 10.0.0.0/24. </br>
-  Aşağıdaki statik IP adresiyle devredilen VM'ye atanmış olur </br>
-    - statik IP yapılandırılmış: IP varsa 10.0.0.19.
-    - Bir sonraki kullanılabilir IP'yi: IP adresi 10.0.0.19 zaten varsa 10.0.0.254 kullanın.
+**Kaynak ve hedef alt ağlar** | **Ayrıntılar**
+--- | ---
+Aynı adres alanı | Kaynak VM NIC IP adresi, VM'nin NIC IP adresi hedef olarak ayarlanır.<br/><br/> Adresi kullanılabilir değilse, bir sonraki kullanılabilir IP adresi hedef olarak ayarlanır.
+Farklı bir adres alanı<br/><br/> Hedef alt ağdaki bir sonraki kullanılabilir IP adresi, hedef VM NIC adresi olarak ayarlanır.
 
 
-Her ağ arabirimi hedef IP değiştirmek için Git **işlem ve ağ** sanal makine için ayarları.</br>
-En iyi uygulama sınama Yük Devretmesini gerçekleştirmek için bir test ağı seçmek için her zaman önerilir.
+
+## <a name="ip-address-assignment-during-test-failover"></a>Yük devretme testi sırasında IP adresi ataması
+
+**Hedef ağ** | **Ayrıntılar**
+--- | ---
+Hedef VNet yük devretme ağdır | -Hedef IP adresi, statik, ancak aynı IP adresi, yük devretme için ayrılmış olarak değil değildir.<br/><br/>  -Alt ağ aralığı sonundan sonraki kullanılabilir adresi atanan adresidir.<br/><br/> Örneğin: 10.0.0.19 kaynak IP adresine sahip ve yük devretme ağı kullanan aralığı 10.0.0.0/24 durumunda 10.0.0.254 hedef VM'ye atanan İleri IP adresi olur.
+Yük devretme sanal ağı hedef ağ değil | -Hedef IP adresi, statik yük devretme için ayrılmış aynı IP adresine sahip olacaktır.<br/><br/>  -Aynı IP adresi zaten atanmış ise, IP adresi alt ağ aralığı eeach sırasında kullanılabilir bir sonraki olduğu.<br/><br/> Örneğin: 10.0.0.19 kaynak statik IP adresi olduğundan ve aralığı 10.0.0.0/24 olan bir yük devretme ağı olmayan bir ağ yük devretme açıktır sonra hedef statik IP adresi varsa 10.0.0.0.19 olacaktır ve 10.0.0.254 Aksi durumda olur.
+
+- Yük devretme VNet olağanüstü durum kurtarma işlemini ayarladığınız olurken seçtiğiniz hedef ağdır.
+- Üretim dışı ağ her zaman test yük devretmesi için kullanmanızı öneririz.
+- Hedef IP adresini değiştirebileceğiniz **işlem ve ağ** VM ayarları.
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Gözden geçirme [Ağ Kılavuzu, Azure sanal makineleri çoğaltma](site-recovery-azure-to-azure-networking-guidance.md).
+- Gözden geçirme [kılavuz ağ](site-recovery-azure-to-azure-networking-guidance.md) Azure VM'LERİNDE olağanüstü durum kurtarma için.
+- [Daha fazla bilgi edinin](site-recovery-retain-ip-azure-vm-failover.md) yük devretmeden sonra IP adresleri koruma hakkında.
+
+Seçilen hedef ağı yük devretme vnet'se"ve"Seçili hedef ağ yük devretme sanal ağdan farklı ancak yük devretme sanal ağ ile aynı alt ağ aralığında ise"söylemek 2 noktası

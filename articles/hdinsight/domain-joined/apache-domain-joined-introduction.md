@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf94ba73d57763f5e05ed9b33d10bb335103400a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a1b4565d4875b60ce36d74f8c99e4c7d79999c36
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946401"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578272"
 ---
 # <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Hadoop güvenliğine giriş
 
@@ -25,7 +25,7 @@ Kurumsal güvenlik paketi'ile (ESP), bir Active Directory etki alanına katılm�
 Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) Hive güvenliği kullanarak yapılandırabilirsiniz [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
 
 > [!NOTE]
-> Bu makalede açıklanan yeni özellikler yalnızca şu küme türlerini üzerinde önizleme modunda kullanılabilir: Hadoop, Spark ve etkileşimli sorgu. Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
+> Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Kuruluş güvenliği dört temel yapı taşları içerir: çevre güvenliği, kimlik doğrulaması, yetkilendirme ve şifreleme.
 

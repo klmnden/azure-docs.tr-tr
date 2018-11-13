@@ -2,19 +2,19 @@
 title: Azure IOT Edge modüllerini (CLI) dağıtma | Microsoft Docs
 description: Modüller IOT Edge cihazına dağıtmak için Azure CLI için IOT uzantısı kullanma
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c882321af38b21f4820345b8ce5448227cb121c6
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977643"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564995"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI ile Azure IOT Edge modüllerini dağıtmak
 

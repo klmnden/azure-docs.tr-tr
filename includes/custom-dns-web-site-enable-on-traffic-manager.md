@@ -1,30 +1,43 @@
-Etki alanı adınızı kayıtlarını dağıtıldıktan sonra özel etki alanı adınızı web uygulamanızı Azure App Service'te erişmek için kullanılabilir doğrulamak için tarayıcınızı kullanmanız mümkün olması gerekir.
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: 2e6697b07f305a78ef4cc3f462c76804160a9d12
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572874"
+---
+Etki alanı adınız için kayıtları yayıldıktan sonra özel etki alanı adınızı Azure App Service'te web uygulamanıza erişmek için kullanılabilir olduğunu doğrulamak için tarayıcınızı kullanmayı başlatabilmeniz gerekir.
 
 > [!NOTE]
-> CNAME DNS sistemi üzerinden yayılması biraz zaman alabilir. Bir hizmeti gibi kullanabilir <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> CNAME kullanılabilir olduğunu doğrulayın.
+> Bu, CNAME DNS sistem üzerinden yayılması biraz zaman alabilir. Bir hizmet gibi kullanabileceğiniz <a href="http://www.digwebinterface.com/"> http://www.digwebinterface.com/ </a> CNAME kullanılabilir olduğunu doğrulayın.
 > 
 > 
 
-Trafik Yöneticisi uç noktası olarak web uygulamanızı eklemediyseniz, ad çözümlemesi özel etki alanı adı yollar için trafik Yöneticisi olarak çalışmadan önce bunu yapmanız gerekir. Trafik Yöneticisi daha sonra web uygulamanızın yönlendirir. İçinde bulunan bilgileri kullanın [ekleme veya silme uç noktaların](../articles/traffic-manager/traffic-manager-endpoints.md) web uygulamanızı bir uç nokta Traffic Manager profilinize olarak eklemek için.
+Bir Traffic Manager uç noktası olarak web uygulamanızın eklemediyseniz, ad çözümlemesi için Traffic Manager özel etki alanı adı yollar olarak çalışmadan önce bunu yapmanız gerekir. Traffic Manager, ardından web uygulamanıza yönlendirir. Yer alan bilgileri kullanın [Ekle veya Sil uç noktaları](../articles/traffic-manager/traffic-manager-endpoints.md) web uygulamanızı bir uç nokta Traffic Manager profilinize olarak eklenecek.
 
 > [!NOTE]
-> Web uygulamanızı bir uç nokta eklerken listelenmemişse için yapılandırıldığından emin olun **standart** uygulama hizmeti planı modu. Kullanmalısınız **standart** Traffic Manager ile çalışmak için web uygulamanız için modu.
+> Web uygulamanızı bir uç nokta eklerken listelenmemişse için yapılandırıldığından emin olun **standart** App Service planı modu. Kullanmalısınız **standart** Traffic Manager ile çalışmak için web uygulamanız için modu.
 > 
 > 
 
-1. Tarayıcınızda açın [Azure Portal](https://portal.azure.com).
-2. İçinde **Web Apps** sekmesini seçin, web uygulamanızın adını tıklatın, **ayarları**ve ardından **özel etki alanları**
+1. Tarayıcınızda açın [Azure portalı](https://portal.azure.com).
+2. İçinde **Web Apps** sekmesini seçin, web uygulaması adını tıklatın, **ayarları**ve ardından **özel etki alanları**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. İçinde **özel etki alanları** dikey penceresinde tıklatın **ana bilgisayar adını eklemek**.
-4. Kullanım **ana bilgisayar adı** metin kutuları bu web uygulaması ile ilişkilendirmek için trafik yöneticisi etki alanı adı girin.
+3. İçinde **özel etki alanları** dikey penceresinde tıklayın **konak adı Ekle**.
+4. Kullanım **Hostname** bu web uygulaması ile ilişkilendirmek için Traffic Manager etki alanı adını girmek için metin kutuları.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
-5. Tıklatın **doğrulama** etki alanı adı yapılandırmasını kaydetmek için.
-6. Tıklatarak bağlı **doğrulama** Azure etki alanı doğrulama iş akışı kazandırın. Bu etki alanı sahipliğini yanı sıra ana bilgisayar adı kullanılabilirliğini ve rapor başarı veya hata düzeltme konusunda tavsiyeler ayrıntılı hata kontrol eder.    
-7. Doğrulama başarılı bağlı **ana bilgisayar adını eklemek** düğmesi etkin olacak ve, Ata ana bilgisayar adı için kullanamazsınız. Özel etki alanı adınızı bir tarayıcıda şimdi gidin. Özel etki alanı adınızı kullanarak, uygulama çalışan görmelisiniz. 
+5. Tıklayın **doğrulama** etki alanı adı yapılandırmasını kaydetmek için.
+6. Üzerine tıklayarak **doğrulama** Azure etki alanı doğrulama iş akışı devre dışı yaslanıp. Bu etki alanı sahipliğini yanı sıra ana bilgisayar adı kullanılabilirliği ve rapor başarı veya hata düzeltme konusunda tavsiyeler ile ayrıntılı hata denetler.    
+7. Doğrulama başarılı bağlı **konak adı Ekle** düğmesi etkin olacak ve ata ana bilgisayar adı için mümkün olacaktır. Bir tarayıcı özel etki alanı adınızı artık gidin. Özel etki alanı adınızı kullanarak uygulama çalışan görmelisiniz. 
    
-   Yapılandırma tamamlandıktan sonra özel etki alanı adı listelenir **etki alanı adları** , web uygulamanızın bölümü.
+   Yapılandırma tamamlandıktan sonra özel etki alanı adı, listelenir **etki alanı adları** web uygulamanızın bölümü.
 
-Bu noktada, tarayıcınızda trafik yöneticisi etki alanı adı girin ve başarılı bir şekilde, web uygulamanıza sürdüğünü olduğunu görmek mümkün olması gerekir.
+Bu noktada, tarayıcınızda Traffic Manager etki alanı adı girin ve başarıyla, web uygulamanıza sürdüğünü görmek mümkün olması gerekir.
 

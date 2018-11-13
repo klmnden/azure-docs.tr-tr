@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/11/2018
 ms.author: raynew
-ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219502"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568463"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusunu yönetme
+# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
 Kullanırken bir şirket içi yapılandırma sunucusu ayarlama [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için. Yapılandırma sunucusu arasındaki iletişimi düzenler şirket içi VMware ve Azure ve veri çoğaltma işlemlerini yönetir. Bu makalede dağıtıldıktan sonra yapılandırma sunucusunu yönetmek için ortak görevler özetlenir.
 
@@ -124,7 +124,7 @@ Gerekirse yapılandırma sunucusunu aynı kasaya yeniden kaydettirin. Varsayıla
 2. Bir yönetici PowerShell komut penceresi açın ve aşağıdaki komutu çalıştırın:
 
     ```
-    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
     net stop dra
     ```
 3. Masaüstü kısayolunu kullanarak yapılandırma sunucusu Gereci tarayıcı portalını başlatın.

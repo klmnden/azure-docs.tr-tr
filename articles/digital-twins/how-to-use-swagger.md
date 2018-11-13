@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0fae059db53668da2d71906bbe94e9dabae931bc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960217"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578595"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Azure dijital İkizlerini Swagger'ı kullanın
 
 Sağlanan her bir Azure dijital İkizlerini örneği otomatik olarak oluşturulan kendi Swagger başvuru belgelerini içerir.
 
 [Swagger](https://swagger.io/), veya [Openapı](https://www.openapis.org/), karmaşık bir etkileşimli ve dilden başvuru kaynağı API bilgilere sahip. Swagger hangi JSON yükü, HTTP yöntemleri ve API üzerinde işlemler gerçekleştirmek için kullanılacak özel uç noktaları ile ilgili kritik başvuru malzemesi sağlar.
+
+> [!IMPORTANT]
+> Swagger kimlik doğrulaması desteği genel Önizleme sırasında geçici olarak devre dışı bırakıldı.
 
 ## <a name="swagger-summary"></a>Swagger özeti
 
@@ -43,10 +46,10 @@ Oluşturulan kendi yönetim API'si Swagger belgelerimize erişebilirsiniz:
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| Özel öznitelik adı | Şununla değiştir |
+| Özel ad | Şununla değiştir |
 | --- | --- |
-| *örneğinizinadı* | Azure dijital İkizlerini örneğinizin adı |
-| *yourLocation* | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
+| örneğinizinadı | Azure dijital İkizlerini örneğinizin adı |
+| yourLocation | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
 
 ## <a name="reference-material"></a>Başvuru kaynakları
 
@@ -104,7 +107,10 @@ Listelenen her endpoint, geliştirme ve test doğrulamak için yanıt gövdesi v
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 yetkilendirme
 
-Etkileşimli olarak istekleri OAuth 2.0 tarafından korunan API'si kaynaklarına karşı test etmek için bkz: [resmi belgelerine](https://swagger.io/docs/specification/authentication/oauth2/).
+OAuth 2.0 tarafından korunan istekleri etkileşimli olarak test etme hakkında daha fazla bilgi için bkz. [resmi belgelerine](https://swagger.io/docs/specification/authentication/oauth2/).
+
+> [!NOTE]
+> OAuth 2.0 kimlik doğrulaması desteği genel Önizleme sırasında geçici olarak devre dışı bırakıldı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

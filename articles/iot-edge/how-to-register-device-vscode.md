@@ -1,82 +1,82 @@
 ---
-title: Yeni bir Azure IOT kenar cihaz (VS Code) kaydetme | Microsoft Docs
-description: Yeni bir IOT sınır cihazı Azure IOT hub'ınıza oluşturmak için Visual Studio Code kullanın
+title: Yeni bir Azure IOT Edge cihazı (VS Code) kaydetme | Microsoft Docs
+description: Azure IOT hub'ına yeni bir IOT Edge cihazı oluşturmak için Visual Studio Code'u kullanma
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7902461f58df1b4fe0c3ed3b577f668fe8be4cc2
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036533"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578714"
 ---
-# <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Visual Studio Code yeni bir Azure IOT kenar aygıttan kaydetme
+# <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Visual Studio code'dan yeni bir Azure IOT Edge cihazı kaydedin
 
-IOT cihazlarınızı Azure IOT Edge kullanmadan önce bunları IOT hub'ınıza kaydetmeniz gerekir. Bir cihaz kaydettiğinizde, kenar iş yükleri için Cihazınızı ayarlamak için kullanılan bir bağlantı dizesi alırsınız. 
+IOT cihazlarınızı Azure IOT Edge ile kullanabilmeniz için önce bunları IOT hub'ınıza kaydetmeniz gerekir. Bir cihaz kaydettiğinizde, Edge iş yükleri için Cihazınızı ayarlamak için kullanılan bir bağlantı dizesi alır. 
 
-Bu makalede, Visual Studio Code (VS Code) kullanarak yeni bir IOT sınır cihazı kaydetmek gösterilmiştir. VS Code'da çoğu işlemi gerçekleştirmek için birden çok yolu vardır. Bu makalede Explorer kullanır, ancak adımları çoğunu çalıştırmak için komutu palet de kullanabilirsiniz. 
+Bu makalede, Visual Studio Code (VS Code) kullanarak yeni bir IOT Edge cihazı kaydettirmek gösterilmektedir. VS Code'da çoğu işlemi gerçekleştirmek için birden çok yolu vardır. Bu makalede Gezgini'ni kullanır, ancak komut paletini adımlarının çoğunun çalıştırmak için de kullanabilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizde
+* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki
 * [Visual Studio Code](https://code.visualstudio.com/) 
-* [Azure IOT kenar uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) için Visual Studio Code
+* [Azure IOT Edge uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) Visual Studio Code için
 
-## <a name="sign-in-to-access-your-iot-hub"></a>IOT hub'ınızı erişmek için oturum açın
+## <a name="sign-in-to-access-your-iot-hub"></a>IOT hub'ınıza erişmek için oturum açın
 
-Visual Studio Code için Azure IOT uzantıları, IOT hub'ınıza işlemlerini gerçekleştirmek için kullanabilirsiniz. Bu işlemler çalışmak Azure hesabınızda oturum açın ve üzerinde çalıştığınız IOT hub'ını seçin gerekir.
+Visual Studio Code için Azure IOT uzantıları, IOT hub'ınıza işlemleri gerçekleştirmek için kullanabilirsiniz. Bu işlemleri çalışmak Azure hesabınızda oturum açın ve üzerinde çalıştığınız IOT hub'ı seçmek gerekir.
 
-1. Visual Studio Code'da açın **Explorer** görünümü.
+1. Visual Studio Code'da açmak **Gezgini** görünümü.
 
-2. Explorer alt kısmındaki genişletin **Azure IOT Hub cihazları** bölümü. 
+2. Explorer alt kısmında, Genişlet **Azure IOT Hub cihazları** bölümü. 
 
    ![Azure IOT Hub cihazları genişletin](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Tıklayın **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta görmüyorsanız, üstbilgi gelin. 
+3. Tıklayarak **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta simgesini görmüyorsanız, tıklayın veya üst bilgisinin üzerinde gezdirin. 
 
 4. Seçin **IOT hub'ını seçin**.
 
-5. Azure hesabınızda açmadınız varsa, bunu yapmak için yönergeleri izleyin. 
+5. Azure hesabınızda oturum açmadınız, bunu yapmak için yönergeleri izleyin. 
 
 6. Azure aboneliğinizi seçin. 
 
-7. IOT hub'ı seçin. 
+7. IOT hub'ınızı seçin. 
 
-## <a name="create-a-device"></a>Bir cihaz oluşturma
+## <a name="create-a-device"></a>Cihaz oluşturma
 
-1. VS Code Explorer'da genişletin **Azure IOT Hub cihazları** bölümü. 
+1. VS Code Gezgininde genişletin **Azure IOT Hub cihazları** bölümü. 
 
-2. Tıklayın **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta görmüyorsanız, üstbilgi gelin. 
+2. Tıklayarak **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta simgesini görmüyorsanız, tıklayın veya üst bilgisinin üzerinde gezdirin. 
 
-3. Seçin **IOT sınır cihazı oluşturma**. 
+3. Seçin **IOT Edge cihazı oluşturma**. 
 
-4. Açılır metin kutusunda Cihazınızı kimliği verin. 
+4. Açılan metin kutusuna, cihaz kimliği verin. 
 
-Çıkış ekranında komutu sonucu bakın. Aygıt bilgisi yazdırılır, içeren **DeviceID** belirttiğiniz ve **connectionString** fiziksel cihazınızın IOT hub'ınıza bağlanmak için kullanabilirsiniz. 
+Çıkış ekranında, komutun sonucuna ilişkin bakın. İçeren cihaz bilgileri yazdırılır **DeviceID** sağladığınız ve **connectionString** fiziksel Cihazınızı IOT hub'ınıza bağlanmak için kullanabilirsiniz. 
 
-## <a name="view-all-devices"></a>Tüm cihazları görüntüleme
+## <a name="view-all-devices"></a>Tüm cihazları görüntüle
 
-IOT hub'ınıza bağlanan tüm aygıtları listelenen **Azure IOT Hub cihazları** Visual Studio kod Gezgini bölümü. IOT sınır cihazları farklı bir simgesi vardır ve bunlar her cihaza dağıtılan modülleri göstermek için Genişletilebilir olgu kenar olmayan aygıtlardan ayrılabilen. 
+IOT hub'ınıza bağlanan tüm cihazlar listelenen **Azure IOT Hub cihazları** Visual Studio kod Gezgini bölüm. Ayrılabilen farklı bir simgesi vardır ve bunlar her cihaza dağıtılan modülleri göstermek için Genişletilebilir olgu kenar-olmayan cihazlardan IOT Edge cihazları. 
 
    ![VS code'da aygıtlarını görüntüle](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>Bağlantı dizesi alma
 
-Cihazınızı ayarlamak hazır olduğunuzda, fiziksel kimliğini IOT hub'ında cihazınızla bağlanan bağlantı dizesi gerekiyor.
+Cihazınızı ayarlamak hazır olduğunuzda, fiziksel cihazınızın IOT hub'ında kimliği ile bağlanan bağlantı dizesine ihtiyacınız vardır.
 
-1. Cihazınızı Kimliğini sağ **Azure IOT Hub cihazları** bölümü. 
+1. Cihazınızı kimliği sağ **Azure IOT Hub cihazları** bölümü. 
 2. Seçin **cihaz bağlantı dizesini kopyalayın**.
 
-   Bağlantı dizesi, panoya kopyalandı. 
+   Bağlantı dizesi panonuza kopyalanır. 
 
-Öğesini de seçebilirsiniz **cihaz bilgi al** tüm cihaz bilgilerini görmek için sağ tıklama menüsünden bağlantı dizesi çıktı penceresinde de dahil olmak üzere. 
+Belirleyebilirsiniz **cihaz bilgi al** tüm cihaz bilgileri görmek için sağ tıklama menüsünden bağlantı dizesi dahil olmak üzere çıktı penceresinde. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için nasıl [modülleri Visual Studio Code ile bir aygıta dağıtmak](how-to-deploy-modules-vscode.md).
+Bilgi nasıl [Visual Studio Code ile bir cihaz için modülleri dağıtma](how-to-deploy-modules-vscode.md).

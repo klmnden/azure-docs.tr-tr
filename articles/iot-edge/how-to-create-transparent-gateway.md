@@ -2,18 +2,18 @@
 title: Azure IOT Edge ile saydam bir ağ geçidi oluşturma | Microsoft Docs
 description: Azure IOT Edge cihazı, birden çok cihaza yönelik bilgi işleyebilen saydam bir ağ geçidi olarak kullanma
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a48699507fbba18b20cb94e404c4814f25d31f44
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50915306"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568480"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe7d18cdfa88988e1c7dda7f1120d4750fa52e8c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269437"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578493"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkeleri teknik profilleri hakkında
 
@@ -38,8 +38,7 @@ Teknik profili, bu tür senaryolar sağlar:
 - [SAML2](saml-technical-profile.md) -tüm SAML Protokolü kimlik sağlayıcısı ile Federasyon.
 - [Kendi kendine onaylanan](self-asserted-technical-profile.md) -kullanıcıyla etkileşim. Örneğin, oturum açmak için kullanıcının kimlik bilgileri toplamak, kayıt sayfasını işlemek veya parola sıfırlama.
 - **WsFed** -tüm WsFed Protokolü kimlik sağlayıcısı ile Federasyon. 
-- **Oturum yönetimi** -işlemek oturumları farklı türde. 
-- **Kullanıcı yolculuğu içeriği sağlayıcısı**
+- [Oturum yönetimi](active-directory-b2c-reference-sso-custom.md) -işlemek oturumları farklı türde. 
 - **Application ınsights**
 
 ## <a name="technical-profile-flow"></a>Teknik profil akışı
@@ -56,7 +55,7 @@ Tüm tür teknik profili, aynı kavramı paylaşır. Giriş talepleri göndermek
     - Veya kullanıcı hesabı güncelleştirilemiyor.
     - Gönderir ve mesaj MFA doğrular.
 4. **ValidationTechnicalProfiles** - bir [kendi kendine teknik profil onaylanan](self-asserted-technical-profile.md), girdi çağırabilirsiniz [doğrulama teknik profili](validation-technical-profile.md). Doğrulama teknik profili, kullanıcı tarafından profili verileri doğrular ve bir hata iletisi veya Tamam ile veya çıkış talep olmadan döndürür. Örneğin, ciddi bir şekilde Azure AD B2C'yi yeni bir hesap oluşturmadan önce Dizin Hizmetleri'nde kullanıcı zaten var olup olmadığını denetler. Kendi iş mantığınızı eklemek için bir REST API teknik profili çağırabilirsiniz.<p>Doğrulama teknik profili ' çıkış taleplerini kapsamını doğrulama teknik profili çağıran teknik profil ve diğer doğrulama teknik profiller aynı teknik profili altındaki sınırlıdır. Çıkış talep düzenleme sonraki adımda kullanmak istiyorsanız, çıkış talep doğrulama teknik profili çağıran teknik profile eklemeniz gerekir.
-5. **OutputClaims** -talep geri talep paketi için döndürülen. Bu talep sonraki düzenlemeleri adım veya çıkış talep dönüştürmeleri kullanabilirsiniz.
+5. **OutputClaims** -talep, talep paketi için geri döndürülür. Bu talep sonraki düzenlemeleri adım veya çıkış talep dönüştürmeleri kullanabilirsiniz.
 6. **OutputClaimsTransformations** -giriş her çıkış talep [dönüştürme talep](claimstransformations.md) talep paketinden seçilir. Önceki adımdan teknik profil çıkış talep giriş talepleri çıkış talep dönüşümünün olabilir. Yürütmeden sonra çıkış talep, talep paketindeki geri yerleştirilir. Bir çıkış talep dönüştürme, çıkış talep giriş talepleri bir sonraki çıkış talep dönüştürme de olabilir.
 7. **Çoklu oturum açma (SSO) oturum yönetimi** - [SSO oturum yönetimi](active-directory-b2c-reference-sso-custom.md) kullanıcı zaten doğrulandıktan sonra bir kullanıcı etkileşimi denetler. Örneğin, yönetici kimlik sağlayıcıları seçimini görüntülenip görüntülenmeyeceğini veya yerel hesap ayrıntılarını yeniden girilmesi gerekip gerekmediğini kontrol edebilirsiniz.
 

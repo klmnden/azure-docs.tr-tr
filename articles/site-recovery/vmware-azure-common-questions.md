@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2436a4e75045200a8d2f48586e31ebfa0c03705a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012114"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566270"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -110,6 +110,8 @@ Yapılandırma sunucusu da dahil olmak üzere, Site Recovery bileşenlerini şir
 - İşlem sunucusu çoğaltma ağ geçidi davranır. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure depolama., işlem sunucusu ayrıca Mobility hizmetini şirket içi VMware Vm'lerini otomatik olarak bulunmasını gerçekleştirir ve çoğaltmak istediğiniz Vm'lere yükler gönderir.
 - Ana hedef sunucu azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
 
+[Daha fazla bilgi edinin](vmware-azure-architecture.md) yapılandırma sunucusu bileşenleri ve süreçleri hakkında.
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>Yapılandırma sunucusunu ayarladıktan nereden ayarlayabilirim?
 İçin yapılandırma sunucusunu tek yüksek oranda kullanılabilir şirket içi VMware VM ihtiyacınız var.
 
@@ -126,15 +128,35 @@ Hayır. Bunu yapmak için her bölgede bir yapılandırma sunucusu ayarlamanız 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure'da bir yapılandırma sunucusu ana bilgisayar?
 Olası, şirket içi VMware altyapınızı ve Vm'leri ile iletişim kurmak yapılandırma sunucusunu çalıştıran Azure VM gerekir. Bu gecikme ekleyebilir ve sürmekte olan çoğaltmayı etkilemeden.
 
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Yapılandırma sunucusu şablonunun en son sürümünü nereden alabilirim?
-En son sürümü [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-
 ### <a name="how-do-i-update-the-configuration-server"></a>Yapılandırma sunucusu nasıl güncelleştirebilirim?
-Güncelleştirme paketlerini yükleyin. En son güncelleştirme bilgileri bulabilirsiniz [wiki güncelleştirmeleri sayfası](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+[Hakkında bilgi edinin](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) yapılandırma sunucusu güncelleştiriliyor. En son güncelleştirme bilgileri bulabilirsiniz [Azure güncelleştirmeleri sayfası](https://azure.microsoft.com/updates/?product=site-recovery). Ayrıca doğrudan yapılandırma sunucusunun en son sürümünü indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Ben, dağıtılan yapılandırma sunucusu yedeklemeniz gerekir?
 Yapılandırma sunucusunun düzenli zamanlanmış yedeklemeleri almaya öneririz. Başarıyla yeniden çalışma için geri başarısız sanal makine yapılandırma sunucusu veritabanında bulunmalı ve yapılandırma sunucusunun çalıştığından ve bağlı durumda olması gerekir. Genel yapılandırma sunucusu yönetim görevleri hakkında daha fazla bilgi [burada](vmware-azure-manage-configuration-server.md).
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Yapılandırma sunucusu ayarlama, ı indirebilir ve MySQL el ile yükleme?
+Evet. MySQL indirin ve yerleştirebilir **C:\Temp\ASRSetup** klasör. Daha sonra el ile yükleyin. Ne zaman VM yapılandırma sunucusu ayarlarsınız ve kabul MySQL koşulları olarak listelenecektir **zaten yüklü** içinde **yükleyip**.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Miyim MySQL yüklenmesini önlemek ancak Site Recovery yükleme izin?
+Evet. MySQL yükleyiciyi indirir ve yerleştirebilir **C:\Temp\ASRSetup** klasör.  Yapılandırma sunucusu VM'SİNİN ayarladığınızda, kabul hüküm ve tıklayarak **yükleyip**, eklediğiniz MySQL yüklemek için yükleyici portalını kullanacaksınız.
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL yapılandırma sunucusu sanal makine başka bir şey için kullanabilir miyim?
+Hayır, yapılandırma sunucusu için yalnızca VM kullanmanız gerekir. 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Yapılandırma sunucusunda kayıtlı kasayı değiştirebilir miyim?
+Hayır. Yapılandırma sunucusu ile bir kasaya kaydedildikten sonra değiştirilemez.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Aynı yapılandırma sunucusu VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için kullanabilir miyim
+Evet, ancak bu fiziksel makine olması yalnızca olması başarısız bir VMware VM'sine geri unutmayın.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Yapılandırma sunucusu için parola nereden indirebilirim?
+[Bu makaleyi gözden geçirin](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) parola indirme hakkında bilgi edinmek için.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>Kasa kayıt anahtarlarının nereden indirebilirim?
+
+İçinde **kurtarma Hizmetleri kasası**, **yönetme** > **Site Recovery altyapısı** > **yapılandırmasunucusu**. İçinde **sunucuları**seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
+
+
 
 ## <a name="mobility-service"></a>Mobility hizmeti
 

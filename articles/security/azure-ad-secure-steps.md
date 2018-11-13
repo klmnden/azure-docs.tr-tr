@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: cb1c525527f7261c10b502a25b3cab3db89dd85f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515153"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567959"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -51,8 +51,6 @@ Tüm ayarlansın mı? Denetim listesi üzerinde başlayalım.
 Çoğu Kurumsal güvenlik ihlallerini birkaç parola ilaç, ihlal yeniden yürütme ya da kimlik avı gibi yöntemlerin biriyle tehlikeye bir hesapla kaynaklanır. (45 dakika) Bu videoda bu saldırılar hakkında daha fazla bilgi edinin:
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-Kullanıcıların kimlik sisteminizde Zayıf parolalar kullanarak ve bunları güçlendirme multi-Factor authentication ile değil, yalnızca birkaç varsa veya size – yalnızca "ne sıklıkta." aşılan değilse
-
 ### <a name="make-sure-your-organization-use-strong-authentication"></a>Kuruluş kullanım güçlü kimlik doğrulaması emin olun
 
 Parolalar tahmin kötü amaçlı yazılım çalınırsa ya da yeniden kullanılabilir phished sıklığını verilen parola ile güçlü bir kimlik bilgisi çeşit geri – hakkında daha fazla bilgi edinmek için önemlidir [Azure multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
@@ -69,7 +67,7 @@ Microsoft öneriyor bağlı olarak aşağıdaki modern parola ilkesini benimseme
 2. Gibi bir kolayca tahmin edilebilecek parolaları kullanıcılara sürücü süre sonu kurallarını devre dışı **Summer2018!**
 3. Karakter-birleştirme gereksinimleri devre dışı bırakın ve kullanıcıların parolalar tahmin edilebilir karakter değişimler seçmek neden olarak kullanıcıların yaygın olarak Saldırıya uğrayan parolaları seçmesini önleyerek.
 
-Kullanabileceğiniz [parola süresinin dolmasını engellemek için PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) doğrudan Azure AD'de kimlik oluşturursanız, kullanıcılar için. Hibrit kuruluşlar [etki alanı Grup İlkesi ayarları] kullanarak bu ilkeleri uygulamanız gerekir (https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10) veya [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Kullanabileceğiniz [parola süresinin dolmasını engellemek için PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) doğrudan Azure AD'de kimlik oluşturursanız, kullanıcılar için. Hibrit kuruluşlar kullanarak bu ilkeleri uygulamanız gerekir [etki alanı Grup İlkesi ayarları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) veya [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Sızdırılan kimlik bilgilerine karşı koruma ve kesintilere karşı dayanıklılık ekleme
 
