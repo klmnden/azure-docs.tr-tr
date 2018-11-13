@@ -3,24 +3,24 @@ title: Azure IoT Central'da yeni bir cihaz türü tanımlama | Microsoft Docs
 description: Bu öğreticide, bir oluşturucu olarak Azure IoT Central uygulamanızda yeni bir cihaz türünü nasıl tanımlayacağınız gösterilir. Türünüz için telemetriyi, durumu, özellikleri ve ayarları tanımlarsınız.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 10/12/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8c69a863d8719a0e4eba30a6d5a619210e7f95b8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156043"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963614"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama
 
 Bu öğreticide, bir oluşturucu olarak Microsoft Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlamak için cihaz şablonunu nasıl tanımlayacağınız gösterilir. Cihaz şablonu, cihaz türünüz için telemetriyi, durumu, özellikleri ve ayarları tanımlar.
 
-Gerçek bir cihaza bağlamadan önce uygulamanızı test edebilmenize olanak tanımak için, siz cihaz şablonunu oluşturduğunuzda Azure IoT Central şablondan bir simülasyon cihazı oluşturur.
+Gerçek bir cihaza bağlamadan önce uygulamanızı test edebilmenize olanak tanımak için, siz cihaz şablonunu oluşturduğunuzda IoT Central şablondan bir simülasyon cihazı oluşturur.
 
 Bu öğreticide, bir **Bağlı Klima** cihaz şablonu oluşturursunuz. Bağlı klima cihazı:
 
@@ -59,9 +59,9 @@ Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması g
 
 4. Yeni bir Azure IoT Central uygulaması oluşturmak için:
     
-    * **Ücretsiz**'i seçin. 7 günlük deneme için herhangi bir abonelik gereksinimi yoktur.
+    * **Deneme**’yi seçin. Deneme uygulaması oluşturmak için Azure aboneliği gerekmez.
     
-       Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Azure IoT Central uygulamanızı oluşturma](howto-create-application.md).
+       Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
     
     * **Özel Uygulama**'yı seçin.
     
@@ -69,9 +69,9 @@ Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması g
     
     * **Oluştur**’u seçin.
 
-    ![Azure IoT Central Uygulama Oluştur sayfası](./media/tutorial-define-device-type/iotcentralcreatenew.png)
+    ![Azure IoT Central Uygulama Oluştur sayfası](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Daha fazla bilgi için bkz. [Azure IoT Central uygulamanızı oluşturma](howto-create-application.md).
+    Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Yeni özel cihaz şablonu oluşturma
 

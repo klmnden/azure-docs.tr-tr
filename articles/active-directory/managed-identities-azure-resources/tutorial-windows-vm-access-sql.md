@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 57f9def09f498c3fc644cbee979d5ae552f2206c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 61b176f4f1fccbb975ee53de497d5afcc8ede060
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238123"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Öğretici: Azure SQL hizmetine erişmek için Windows VM sistem tarafından atanan yönetilen kimlik kullanma
 
@@ -29,9 +29,8 @@ Bu öğreticide, Azure SQL Server'a erişmek amacıyla, Windows sanal makinesi (
 
 > [!div class="checklist"]
 > * VM'nize Azure SQL sunucusu için erişim verme
-> * Azure AD'de grup oluşturma ve VM sistem tarafından atanan yönetilen kimliğini gruba üye yapma
 > * SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme
-> * Azure AD grubunu temsil eden veritabanında bir içerilen kullanıcı oluşturma
+> * VM’nin sistem tarafından atanan kimliğini temsil eden veritabanında içerilen kullanıcı oluşturma
 > * VM kimliğini kullanarak erişim belirteci alma ve Azure SQL sunucusunu sorgulamak için bunu kullanma
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -48,74 +47,16 @@ Bu öğreticide, Azure SQL Server'a erişmek amacıyla, Windows sanal makinesi (
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>VM'nize Azure SQL sunucusundaki bir veritabanı için erişim verme
 
-Şimdi VM'nize Azure SQL sunucusundaki bir veritabanı için erişim verebilirsiniz.  Bu adımda, mevcut SQL sunucusunu kullanabilir veya yeni bir sunucu oluşturabilirsiniz.  Azure portalını kullanarak yeni sunucu ve veritabanı oluşturmak için bu [Azure SQL hızlı başlangıcını](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) izleyin. [Azure SQL belgeleri](https://docs.microsoft.com/azure/sql-database/) arasında Azure CLI'nin ve Azure PowerShell'in kullanıldığı hızlı başlangıçlar da vardır.
+VM’nize Azure SQL Server’daki bir veritabanına erişim vermek için var olan SQL sunucusunu kullanabilir veya yeni bir sunucu oluşturabilirsiniz.  Azure portalını kullanarak yeni sunucu ve veritabanı oluşturmak için bu [Azure SQL hızlı başlangıcını](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) izleyin. [Azure SQL belgeleri](https://docs.microsoft.com/azure/sql-database/) arasında Azure CLI'nin ve Azure PowerShell'in kullanıldığı hızlı başlangıçlar da vardır.
 
-VM'nize veritabanı erişimi verme işleminin üç adımı vardır:
-1.  Azure AD'de grup oluşturma ve VM sistem tarafından atanan yönetilen kimliğini gruba üye yapma.
-2.  SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme.
-3.  Azure AD grubunu temsil eden veritabanında bir **içerilen kullanıcı** oluşturun.
+VM'nize veritabanı erişimi verme işleminin iki adımı vardır:
 
-> [!NOTE]
-> Normalde doğrudan VM'nin sistem tarafından atanan yönetilen kimliğine eşlenen bir içerilen kullanıcı oluşturabilirsiniz.  Şu anda Azure SQL, VM sistem tarafından atanan yönetilen kimliğini temsil eden Azure AD Hizmet Sorumlusunun içerilen kullanıcıyla eşlenmesine izin vermemektedir.  Desteklenen bir geçici çözüm olarak, VM sistem tarafından atanan yönetilen kimliğini Azure AD grubuna üye yapın ve ardından grubu temsil eden veritabanında bir içerilen kullanıcı oluşturun.
-
-
-## <a name="create-a-group-in-azure-ad-and-make-the-vms-system-assigned-managed-identity-a-member-of-the-group"></a>Azure AD'de grup oluşturma ve VM sistem tarafından atanan yönetilen kimliğini gruba üye yapma
-
-Mevcut Azure AD grubunu kullanabilir veya Azure AD PowerShell kullanarak yeni bir grup oluşturabilirsiniz.  
-
-İlk olarak [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülünü yükleyin. Ardından `Connect-AzureAD` kullanarak oturum açın ve aşağıdaki komutu çalıştırarak grubu oluşturup bir değişkene kaydedin:
-
-```powershell
-$Group = New-AzureADGroup -DisplayName "VM managed identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-```
-
-Çıkış aşağıdaki gibi görünür ve değişkenin değeri de incelenir:
-
-```powershell
-$Group = New-AzureADGroup -DisplayName "VM managed identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-$Group
-ObjectId                             DisplayName          Description
---------                             -----------          -----------
-6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM managed identity access to SQL
-```
-
-Sonraki adımda VM'nin sistem tarafından atanan yönetilen kimliğini gruba ekleyin.  Sistem tarafından atanan yönetilen kimliğinin **ObjectId** değerine ihtiyacınız olacaktır. Bunu, Azure PowerShell'i kullanarak alabilirsiniz.  İlk olarak [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)'i indirin. Sonra `Connect-AzureRmAccount` kullanarak oturum açın ve aşağıdaki komutları çalıştırarak şunları yapın:
-- Birden çok Azure aboneliğiniz varsa, oturum bağlamının doğru Azure aboneliğine ayarlandığından emin olun.
-- Azure aboneliğinizdeki kullanılabilir kaynakları listeleyerek kaynak grubu ve VM adlarının doğruluğundan emin olun.
-- `<RESOURCE-GROUP>` ve `<VM-NAME>` için uygun değerleri kullanarak VM'nin sistem tarafından atanan yönetilen kimliğini özelliklerini alın.
-
-```powershell
-Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
-Get-AzureRmResource
-$VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
-```
-
-Çıkış aşağıdaki gibi görünür ve VM'nin sistem tarafından atanan yönetilen kimliğinin hizmet sorumlusu Object ID değeri de incelenir:
-```powershell
-$VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
-$VM.Identity.PrincipalId
-b83305de-f496-49ca-9427-e77512f6cc64
-```
-
-Şimdi VM'nin sistem tarafından atanan yönetilen kimliğini gruba ekleyin.  Yalnızca Azure AD PowerShell kullanarak gruba hizmet sorumlusu ekleyebilirsiniz.  Şu komutu çalıştırın:
-```powershell
-Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
-```
-
-Daha sonra grup üyeliğini de incelerseniz, çıkış şöyle görünür:
-
-```powershell
-Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
-Get-AzureAdGroupMember -ObjectId $Group.ObjectId
-
-ObjectId                             AppId                                DisplayName
---------                             -----                                -----------
-b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
-```
+1.  SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme.
+2.  VM’nin sistem tarafından atanan kimliğini temsil eden veritabanında bir **içerilen kullanıcı** oluşturun.
 
 ## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme
 
-Artık grubu oluşturduğunuza ve VM'nin sistem tarafından atanan yönetilen kimliğini üyeliğe eklediğinize göre, aşağıdaki adımları kullanarak [SQL sunucusu için Azure AD kimlik doğrulamasını yapılandırabilirsiniz](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server):
+Aşağıdaki adımları kullanarak [SQL sunucusu için Azure AD kimlik doğrulamasını yapılandırın](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server):
 
 1.  Azure portalında, sol gezintiden **SQL sunucuları**'nı seçin.
 2.  Azure AD kimlik doğrulaması için etkinleştirilecek SQL sunucusuna tıklayın.
@@ -124,7 +65,7 @@ Artık grubu oluşturduğunuza ve VM'nin sistem tarafından atanan yönetilen ki
 5.  Sunucunun yöneticisi olacak bir Azure AD kullanıcı hesabı seçin ve **Seç**'e tıklayın.
 6.  Komut çubuğunda **Kaydet**'e tıklayın.
 
-## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Azure AD grubunu temsil eden veritabanında bir içerilen kullanıcı oluşturma
+## <a name="create-a-contained-user-in-the-database-that-represents-the-vms-system-assigned-identity"></a>VM’nin sistem tarafından atanan kimliğini temsil eden veritabanında içerilen kullanıcı oluşturma
 
 Bu sonraki adım için, [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)'ya (SSMS) ihtiyacınız vardır. Başlamadan önce, Azure Ad tümleştirmesiyle ilgili arka plan bilgileri için aşağıdaki makaleleri gözden geçirmeniz yararlı olabilir:
 
@@ -140,17 +81,23 @@ Bu sonraki adım için, [Microsoft SQL Server Management Studio](https://docs.mi
 7.  **Bağlan**'a tıklayın.  Oturum açma işlemini tamamlayın.
 8.  **Nesne Gezgini**'nde **Veritabanları** klasörünü genişletin.
 9.  Kullanıcı veritabanına sağ tıklayın ve **Yeni sorgu**'ya tıklayın.
-10.  Sorgu penceresinde, aşağıdaki satırı girin ve araç çubuğunda **Yürüt**'e tıklayın:
+10. Sorgu penceresinde, aşağıdaki satırı girin ve araç çubuğunda **Yürüt**'e tıklayın:
+
+    > [!NOTE]
+    > Aşağıdaki komutta yer alan `VMName`, önkoşullar bölümünde sistem tarafından atanan kimliği etkinleştirdiğiniz VM’nin adıdır.
     
      ```
-     CREATE USER [VM managed identity access to SQL] FROM EXTERNAL PROVIDER
+     CREATE USER [VMName] FROM EXTERNAL PROVIDER
      ```
     
-     Komutun başarıyla tamamlanması ve grup için içerilen kullanıcıyı oluşturması gerekir.
+     Komutun başarıyla tamamlanması ve VM’nin sistem tarafından atanan kimliği için içerilen kullanıcıyı oluşturması gerekir.
 11.  Sorgu penceresini temizleyin, aşağıdaki satırı girin ve araç çubuğunda **Yürüt**'e tıklayın:
+
+    > [!NOTE]
+    > Aşağıdaki komutta yer alan `VMName`, önkoşullar bölümünde sistem tarafından atanan kimliği etkinleştirdiğiniz VM’nin adıdır.
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM managed identity access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VMName]
      ```
 
      Komutun başarıyla tamamlanması ve içerilen kullanıcıya veritabanının tamamını okuma erişimi vermesi gerekir.

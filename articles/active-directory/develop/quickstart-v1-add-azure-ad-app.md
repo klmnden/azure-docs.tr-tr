@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 7e2225a173562be28840cb0a66913b9f8c9657ff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962054"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911873"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Hızlı Başlangıç: Azure Active Directory v1.0 uç noktasına uygulama kaydetme
 
@@ -31,7 +31,10 @@ Kurumsal geliştiriciler ve hizmet olarak yazılım (SaaS) sağlayıcıları, hi
 
 Azure AD'nin özelliklerini kullanmak isteyen her uygulama önce bir Azure AD kiracısı olarak kaydedilmelidir. Bu kayıt işlemi Azure AD'ye uygulamanızın bulunduğu konumun URL'si, bir kullanıcının kimliği doğrulandıktan sonra yanıtların gönderileceği URL, uygulamayı tanımlayan URI gibi ayrıntılarının verilmesini içerir.
 
-Bu hızlı başlangıçta bir uygulamanın Azure AD'ye eklenmesi ve kaydedilmesi gösterilmektedir.
+Bu hızlı başlangıçta Azure portalındaki **Uygulama kayıtları** deneyimini kullanarak Azure AD’de uygulama ekleme ve kaydetme işlemleri gösterilir.
+
+> [!NOTE]
+> Yeni bir uygulama mı kaydediyorsunuz? Azure portalında yeni **Uygulama kayıtları (Önizleme)** deneyimini kullanın. Başlamak için bkz. [Uygulama kaydetme (Önizleme)](quickstart-register-app.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 

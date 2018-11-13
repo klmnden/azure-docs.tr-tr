@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353725"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569123"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile çözüm öğrenme bir makine oluşturma
 
@@ -1175,7 +1175,7 @@ Gelen Linux oturumu için Windows alt sistemi içinde aşağıdaki komutları bi
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Azure AD'de hizmet sorumlusu oluşturma
 
-1.  Oturum açmak için genel [ *Azure portalında*](http://www.poartal.azure.com/).
+1.  Oturum açmak için genel [ *Azure portalında*](http://portal.azure.com/).
 
 2.  Azure Stack örneği ile ilişkili Azure AD kiracısı kullanarak oturum açın.
 

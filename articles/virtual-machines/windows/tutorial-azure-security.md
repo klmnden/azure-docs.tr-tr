@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298519"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978511"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Öğretici: Windows sanal makinelerini izlemek için Azure Güvenlik Merkezi kullanma
 
@@ -133,7 +133,7 @@ Bu öğreticide, Azure Güvenlik Merkezi’ni ayarladınız ve sonra Güvenlik M
 > * Yapılandırma durumu sorunlarını görüntüleme ve düzeltme
 > * Algılanan tehditleri gözden geçirme
 
-Azure DevOps Services ve IIS çalıştıran bir Windows VM ile bir CI/CD işlem hattı oluşturmayı öğrenmek için sonraki öğreticiye geçin.
+Bir çift Windows sanal makinesinde SQL&#92;IIS&#92;.NET yığınını yüklemeyi öğrenmek için bir sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [SQL&#92;IIS&#92;.NET yığını](tutorial-iis-sql.md)

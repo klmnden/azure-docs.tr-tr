@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322960"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281227"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Hızlı başlangıç: Azure Digital Twins'i kullanarak uygun odaları bulma
 
 Azure Digital Twins hizmeti, fiziksel ortamınızın dijital görüntüsünü oluşturmanızı sağlar. Bu işlemin ardından ortamınızdaki olaylarla ilgili bildirimler alabilir ve verdiğiniz yanıtları özelleştirebilirsiniz. 
 
 Bu hızlı başlangıçta [bir çift .NET örneği](https://github.com/Azure-Samples/digital-twins-samples-csharp) kullanılarak hayali bir ofis binası dijital ortama aktarılmakta ve bu odadaki uygun odaları nasıl bulacağınız gösterilmektedir. Digital Twins sayesinde birden fazla sensörü ortamınızla ilişkilendirebilirsiniz. Odanın uygun olup olmadığının yanı sıra karbondioksit sensörüyle odadaki hava kalitesinin uygun olup olmadığını da anlayabilirsiniz. Örnek uygulamalardan biri ayrıca bu senaryoyu görselleştirmenize yardımcı olmak için rastgele sensör verileri oluşturacaktır.
+
+Aşağıdaki videoda hızlı başlangıç ayarları özetlenir:
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -36,7 +40,7 @@ Bu hızlı başlangıçta [bir çift .NET örneği](https://github.com/Azure-Sam
 
 Bu bölümdeki adımları izleyerek [portalda](https://portal.azure.com) yeni bir Digital Twins örneği oluşturun.
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Uygulamanızın izinlerini ayarlama
 

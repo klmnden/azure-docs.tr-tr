@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a75d7e599b10b1d56bd41db1d6785dace67d5d06
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857848"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278676"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma
 
@@ -27,11 +27,11 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-**Kaynak oluştur** > **Kapsayıcılar** > **Azure Container Registry** seçeneklerini belirleyin.
+**Kaynak oluştur** > **Kapsayıcılar** > **Container Registry**'yi seçin.
 
 ![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-01]
 
-**Kaynak Defteri Adı** ve **Kaynak grubu** değerlerini girin. Kaynak defteri adı Azure’da benzersiz olmalı ve 5-50 arası alfasayısal karakter içermelidir. `myResourceGroup` adlı yeni bir kaynak grubu oluşturun ve **SKU** için 'Temel'i seçin. **Oluştur**’u seçerek ACR örneğini dağıtın.
+**Kaynak Defteri Adı** ve **Kaynak grubu** değerlerini girin. Kaynak defteri adı Azure’da benzersiz olmalı ve 5-50 arası alfasayısal karakter içermelidir. Bu hızlı başlangıçta `West US` konumunda `myResourceGroup` adlı yeni bir kaynak grubu oluşturun ve **SKU** olarak ‘Temel’ seçeneğini belirleyin. **Oluştur**’u seçerek ACR örneğini dağıtın.
 
 ![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-03]
 
@@ -71,29 +71,29 @@ Azure Container Registry’nize görüntü gönderebilmeniz için önce bir gör
 docker pull microsoft/aci-helloworld
 ```
 
-Görüntüyü kayıt defterinize göndermeden önce ACR oturum açma sunucusunun adıyla etiketlemeniz gerekir. Görüntüyü [docker tag][docker-tag] komutunu kullanarak etiketleyin. *login server* değerini daha önce kaydettiğiniz oturum açma sunucusu adıyla değiştirin.
+Görüntüyü kayıt defterinize göndermeden önce ACR oturum açma sunucusunun adıyla etiketlemeniz gerekir. Görüntüyü [docker tag][docker-tag] komutunu kullanarak etiketleyin. *login server* değerini daha önce kaydettiğiniz oturum açma sunucusu adıyla değiştirin. Görüntünüzü depoya yerleştirmek için **`myrepo`** gibi bir *depo adı* ekleyin.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Son olarak, [docker push][docker-push] komutunu kullanarak görüntüyü ACR örneğine gönderin. *login server* değerini ACR örneğinizin sunucu adıyla değiştirin.
+Son olarak, [docker push][docker-push] komutunu kullanarak görüntüyü ACR örneğine gönderin. *login server* değerini ACR örneğinizin oturum açma sunucusu adıyla ve *repository name* değerini önceki komutta kullandığınız deponun adıyla değiştirin.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 Başarılı bir `docker push` komutunun çıktısı şuna benzer:
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>Kapsayıcı görüntülerini listeleme
@@ -114,7 +114,7 @@ Açılır menü görüntülendiğinde **Örneği çalıştır**’ı seçin:
 
 ![ACI açılır menüsünü başlatma][qs-portal-11]
 
-**Kapsayıcı adı**’nı doldurun, doğru aboneliğin seçildiğinden emin olun, mevcut **Kaynak grubu**: "myResourceGroup" öğesini seçin ve ardından **Tamam**’a tıklayarak Azure Container Örneğini başlatın.
+**Kapsayıcı adı**’nı doldurun, doğru aboneliğin seçildiğinden emin olun, mevcut **Kaynak grubu**: "myResourceGroup" öğesini seçin. Azure Kapsayıcı Örneğini başlatmak için “Genel IP adresi” seçeneğinin **Evet**’e ayarlayıp **Tamam**’a tıklanarak etkinleştirilmiş olduğundan emin olun.
 
 ![ACI dağıtım seçeneklerini başlatma][qs-portal-12]
 
@@ -136,7 +136,7 @@ Kapsayıcı **Çalışıyor** durumuna geçtikten sonra uygulamayı görüntüle
 
 Kaynaklarınızı temizlemek için portaldaki **myResourceGroup** kaynak grubuna gidin. Kaynak grubu yüklendikten sonra **Kaynak grubunu sil**’e tıklayarak kaynak grubunu, Azure Container Registry’yi ve tüm Azure Container Örneklerini kaldırın.
 
-![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-08]
+![Azure portalında kaynak grubunu silme][qs-portal-08]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c46a9f827bdeeaf7a2b9897b262484f64f83b9a8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466039"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283470"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme
 
-Bu öğreticide Azure Data Lake Storage 2. Nesil Önizleme ile uyumlu bir hesaptaki verileri sorgulamak için bir Azure Databricks kümesinde Spark sorguları çalıştırmayı öğreneceksiniz.
+Bu öğreticide Azure Data Lake Storage 2. Nesil Önizleme etkin bir depolama hesabındaki verileri sorgulamak için bir Azure Databricks kümesinde Spark sorguları çalıştırmayı öğreneceksiniz.
 
 > [!div class="checklist"]
 > * Databricks kümesi oluşturma
@@ -31,9 +31,9 @@ Bu öğreticide [Amerika Birleşik Devletleri Ulaştırma Bakanlığı](https://
 > [!NOTE]
 > Tüm veri alanlarını seçmek için **Prezipped file** (Önceden sıkıştırılmış dosya) onay kutusuna tıklayın. İndirilen veriler gigabayt boyutunda olabilir ancak analiz için bu boyutta veri olması şarttır.
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 hesabı oluşturma
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>Analiz özelliklerine sahip bir Azure depolama hesabı oluşturma
 
-Başlamak için yeni bir [Azure Data Lake Storage Gen2 hesabı](quickstart-create-account.md) oluşturun ve benzersiz bir ad verin. Ardından yapılandırma ayarlarını almak için depolama hesabına gidin.
+Başlamak için [analiz özelliklerine sahip yeni bir depolama hesabı](quickstart-create-account.md) oluşturun ve bu hesaba benzersiz bir ad verin. Ardından yapılandırma ayarlarını almak için depolama hesabına gidin.
 
 1. **Settings** (Ayarlar) altında **Access keys** (Erişim anahtarları) öğesine tıklayın.
 2. Anahtar değerini kopyalamak için **key1**'in yanındaki **Copy** (Kopyala) düğmesine tıklayın.
@@ -137,11 +137,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-Bu kod örnekleriyle Azure Data Lake Storage 2. Nesil uyumlu bir hesapta depolanan verileri kullanarak HDFS’nin hiyerarşik özelliklerini keşfettiniz.
+
+Bu kod örnekleriyle Data Lake Storage 2. Nesil etkin bir depolama hesabında depolanan verileri kullanarak HDFS’nin hiyerarşik özelliklerini keşfettiniz.
 
 ## <a name="query-the-data"></a>Verileri sorgulama
 
-Bir sonraki adımda Azure Data Lake Storage'a yüklediğiniz verileri sorgulamaya başlayabilirsiniz. Aşağıdaki kod bloklarını **Cmd 1** bölümüne girin ve **Cmd + Enter** tuşlarına basarak Python betiğini çalıştırın.
+Bir sonraki adımda depolama hesabınıza yüklediğiniz verileri sorgulamaya başlayabilirsiniz. Aşağıdaki kod bloklarını **Cmd 1** bölümüne girin ve **Cmd + Enter** tuşlarına basarak Python betiğini çalıştırın.
 
 ### <a name="simple-queries"></a>Basit sorgular
 

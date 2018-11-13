@@ -7,16 +7,16 @@ ms.component: dsc
 keywords: dsc, yapılandırma, otomasyon
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053724"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243701"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>İstenen Durum Yapılandırması ile Linux sanal makinesi yapılandırma
 
@@ -30,20 +30,20 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 * Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
 * Red Hat Enterprise Linux, CentOS veya Oracle Linux çalıştıran bir Azure Resource Manager VM (Klasik değil). VM oluşturma yönergeleri için bkz. [Azure portalında ilk Linux sanal makinenizi oluşturma](../virtual-machines/linux/quick-create-portal.md)
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
-https://portal.azure.com adresinden Azure’da oturum açın
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+https://portal.azure.com adresinden Azure'da oturum açın
 
 ## <a name="onboard-a-virtual-machine"></a>Sanal makine ekleme
 Makine eklemek ve İstenen Durum Yapılandırması'nı etkinleştirmek için kullanabileceğiniz birçok farklı yöntem mevcuttur. Bu hızlı başlangıçta ekleme işlemi Otomasyon hesabıyla gerçekleştirilmektedir. Makinelerinizi İstenen Durum Yapılandırması'na eklemek için kullanabileceğiniz diğer yöntemler hakkında daha fazla bilgi edinmek için [ekleme](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) makalesini okuyabilirsiniz.
 
 1. Azure portalının sol tarafındaki bölmede **Otomasyon hesapları**'nı seçin. Sol bölmede bu seçenek yoksa **Tüm hizmetler**'i seçip açılan ekranda arama yapın.
 1. Listeden bir Otomasyon hesabı seçin.
-1. Otomasyon hesabının sol tarafındaki bölmede **DSC Düğümleri**'ni seçin.
-1. **Azure VM ekle** seçeneğine tıklayın
-1. DSC özelliğini etkinleştirmek istediğiniz sanal makineyi bulun. Aradığınız sanal makineyi bulmak için arama alanını ve filtre seçeneklerini kullanabilirsiniz.
-1. Sanal makineye ve ardından **Bağlan**'a tıklayın
-1. Sanal makineye uygun DSC ayarlarını seçin. Hazır yapılandırmanız varsa *Düğüm Yapılandırmasının Adı* alanında belirtebilirsiniz. Makinenin yapılandırma davranışını denetlemek için [yapılandırma modunu](https://docs.microsoft.com/powershell/dsc/metaconfig) ayarlayabilirsiniz.
-1. **Tamam**’a tıklayın.
+1. Otomasyon hesabının sol bölmesinde, **Durum yapılandırması (DSC)** öğesini seçin.
+2. VM seçme sayfasını açmak için **Ekle**'ye tıklayın.
+3. DSC özelliğini etkinleştirmek istediğiniz sanal makineyi bulun. Aradığınız sanal makineyi bulmak için arama alanını ve filtre seçeneklerini kullanabilirsiniz.
+4. Sanal makineye ve ardından **Bağlan**'a tıklayın
+5. Sanal makineye uygun DSC ayarlarını seçin. Hazır yapılandırmanız varsa *Düğüm Yapılandırmasının Adı* alanında belirtebilirsiniz. Makinenin yapılandırma davranışını denetlemek için [yapılandırma modunu](https://docs.microsoft.com/powershell/dsc/metaconfig) ayarlayabilirsiniz.
+6. **Tamam**’a tıklayın.
 
 ![DSC'ye Azure VM ekleme](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -101,10 +101,10 @@ configuration LAMPServer {
 
 Yapılandırmayı içeri aktarmak için:
 
-1. Otomasyon hesabının sol tarafındaki bölmede **DSC Yapılandırmaları**'nı seçin.
-1. **Yapılandırma ekle** seçeneğine tıklayın
-1. Önceki adımda kaydettiğiniz *Yapılandırma dosyasını* seçin
-1. **Tamam**’a tıklayın.
+1. Otomasyon hesabının sol bölmesinde **Durum yapılandırması (DSC)** öğesini seçin ve ardından **Yapılandırmalar** sekmesine tıklayın.
+2. **+ Ekle**'ye tıklayın
+3. Önceki adımda kaydettiğiniz *Yapılandırma dosyasını* seçin
+4. **Tamam**’a tıklayın.
 
 ## <a name="compile-a-configuration"></a>Yapılandırma derleme
 
@@ -112,18 +112,16 @@ DSC Yapılandırmalarının bir düğüme atanabilmesi için bir Düğüm Yapıl
 
 Yapılandırmayı derlemek için:
 
-1. Otomasyon hesabının sol tarafındaki bölmede **DSC Yapılandırmaları**'nı seçin.
+1. Otomasyon hesabının sol bölmesinde **Durum yapılandırması (DSC)** öğesini seçin ve ardından **Yapılandırmalar** sekmesine tıklayın.
 1. Önceki adımda içeri aktardığınız yapılandırmayı seçin: "LAMPServer"
 1. Menü seçeneklerinden **Derle**'ye ve ardından **Evet**'e tıklayın
 1. Yapılandırma görünümünde kuyruğa eklenmiş yeni bir *Derleme işi* görürsünüz. İş başarıyla tamamlandıktan sonra bir sonraki adıma geçebilirsiniz. Hata oluşursa ayrıntılar için Derleme işinin üzerine tıklayabilirsiniz.
-
-![Derleme İşi Durumu](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>Düğüm yapılandırması atama
 
 Derlenmiş *Düğüm Yapılandırması* DSC Düğümlerine atanabilir. Atama yapılandırmayı makineye uygular ve yapılandırmaya aykırı durumları izler (veya otomatik olarak düzeltir).
 
-1. Otomasyon hesabının sol tarafındaki bölmede **DSC Düğümleri**'ni seçin
+1. Otomasyon hesabının sol bölmesinde **Durum Yapılandırması (DSC) öğesini seçin ve ardından **Düğümler** sekmesine tıklayın.
 1. Yapılandırma atamak istediğiniz düğümü seçin
 1. **Düğüm Yapılandırması Ata**'ya tıklayın
 1. Atamak için *Düğüm Yapılandırması* - **LAMPServer.localhost** seçimini yapın ve **Tamam**'a tıklayın
@@ -133,7 +131,7 @@ Derlenmiş *Düğüm Yapılandırması* DSC Düğümlerine atanabilir. Atama yap
 
 ## <a name="viewing-node-status"></a>Düğüm durumunu görüntüleme
 
-Yönetilen tüm düğümlerin durumuna Otomasyon Hesabının **DSC Düğümleri** görünümünden ulaşabilirsiniz. Görüntülenen değerleri duruma ve düğüm yapılandırmasına göre filtreleyebilir veya ad ile arama yapabilirsiniz. 
+Tüm yönetilen düğümlerin durumunu Otomasyon Hesabında, **Durum Yapılandırması (DSC)** öğesinde ve **Düğümler** sekmesinin altında bulabilirsiniz. Görüntülenen değerleri duruma ve düğüm yapılandırmasına göre filtreleyebilir veya ad ile arama yapabilirsiniz.
 
 ![DSC Düğümü Durumu](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

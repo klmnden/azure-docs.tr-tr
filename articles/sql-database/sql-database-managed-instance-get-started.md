@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 09/23/2018
-ms.openlocfilehash: c0c249ffe426e86049024122d9cbf786bb677220
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 3eadc2d233fd1716716c323f4c7087ee8363c67c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160647"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912331"
 ---
-# <a name="create-an-azure-sql-database-managed-instance"></a>Azure SQL Veritabanı Yönetilen Örneği oluşturma
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
 Bu hızlı başlangıç, Azure portalda bir Azure SQL Veritabanı [Yönetilen Örneği](sql-database-managed-instance.md) oluşturma adımlarını vermektedir. 
 
@@ -89,3 +89,4 @@ Dağıtım başarıyla tamamlandıktan sonra oluşturulan kaynakları gözden ge
   - Bir Azure sanal makinesinden bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Azure sanal makine bağlantısı yapılandırma](sql-database-managed-instance-configure-vm.md).
   - Şirket içi bir istemci bilgisayardan noktadan siteye bağlantı kullanarak bir Yönetilen Örneğe bağlanmayı gösteren bir hızlı başlangıç için bkz: [Siteden noktaya bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
 - Mevcut bir SQL Server veritabanını şirket içinden Yönetilen bir örneğe geri yüklerken, veritabanı yedekleme dosyasından geri yükleme işlemini [Geçiş için Azure Veritabanı Geçiş Hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) veya [T-SQL RESTORE komutu](sql-database-managed-instance-get-started-restore.md) ile yapabilirsiniz.
+- Sorun gidermeye yönelik yerleşik makine zekasını da içeren gelişmiş Yönetilen Örnek veritabanı performansı izleme seçenekleri için bkz. [Azure SQL Veritabanı'nı Azure SQL Analytics ile izleme](../log-analytics/log-analytics-azure-sql.md)

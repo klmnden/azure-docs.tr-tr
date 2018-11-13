@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024373"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282569"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
-Bu öğreticide Azure Databricks kullanarak Azure Data Lake Storage Gen2 Önizleme'den Azure SQL Veri Ambarı'na veri aktarmak için bir ETL (veri ayıklama, dönüştürme ve yükleme) işlemi gerçekleştireceksiniz.
+Bu öğreticide Azure Databricks kullanarak Azure Data Lake Storage 2. Nesil etkin bir Azure Depolama hesabından Azure SQL Veri Ambarı'na veri aktarmak için bir ETL (veri ayıklama, dönüştürme ve yükleme) işlemi gerçekleştireceksiniz.
 
 Aşağıdaki şekilde uygulama akışı gösterilmektedir:
 
@@ -52,7 +52,7 @@ Bu öğreticiyi tamamlamak için:
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
 
-Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz. 
+Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz.
 
 1. Azure portalında **Kaynak oluşturun** > **Analiz** > **Azure Databricks**'i seçin.
 
@@ -138,7 +138,7 @@ Bir sonraki adım, örnek verileri daha sonra Azure Databricks'te dönüştürme
 
 2. Sonraki adımda örnek verileri depolama hesabınıza yükleyin. Verileri depolama hesabınıza yüklemek için kullandığınız yöntem, hiyerarşik ad alanını etkinleştirme durumuna göre değişiklik gösterir.
 
-    Hiyerarşik ad alanı Gen2 hesabınız için oluşturulmuş olan Azure Depolama hesabınızda etkinleştirilmişse yükleme için Azure Data Factory, distp veya AzCopy (sürüm 10) araçlarını kullanabilirsiniz. AzCopy sürüm 10 yalnızca önizleme müşterileri tarafından kullanılabilir. AzCopy'yi kullanmak için aşağıdaki kodu bir komut penceresine yapıştırın:
+    Hiyerarşik ad alanı Azure Depolama hesabınızda etkinleştirilmişse yükleme için Azure Data Factory, distp veya AzCopy (sürüm 10) araçlarını kullanabilirsiniz. AzCopy sürüm 10 şu anda yalnızca önizleme yoluyla kullanılabilir. AzCopy'yi kullanmak için aşağıdaki kodu bir komut penceresine yapıştırın:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>

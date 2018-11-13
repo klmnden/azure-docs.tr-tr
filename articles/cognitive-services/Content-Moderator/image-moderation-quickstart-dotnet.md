@@ -1,56 +1,53 @@
 ---
-title: 'Hızlı başlangıç: C# ile görüntü içeriğini denetleme - Content Moderator'
+title: 'Hızlı Başlangıç: C# dilinde uygunsuz malzemeler için görüntü içeriğini analiz etme'
 titlesuffix: Azure Cognitive Services
-description: C# için Content Moderator SDK'sını kullanarak görüntü içeriğini denetleme
+description: .NET için Content Moderator SDK'sını kullanarak çeşitli uygunsuz malzemeler için görüntü içeriğini analiz etme
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: sajagtap
-ms.openlocfilehash: 4973d78eac02aed42689bf5742155c375d5f78ae
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8f407a42ab2e1538193206dec1955257a5f9940a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309306"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005504"
 ---
-# <a name="quickstart-check-image-content-in-c"></a>Hızlı başlangıç: C# ile görüntü içeriğini denetleme 
+# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>Hızlı Başlangıç: C# dilinde uygunsuz malzemeler için görüntü içeriğini analiz etme
 
-Bu makalede, aşağıdaki amaçlarla bir görüntüyü denetlemek üzere [.NET için Content Moderator SDK'sını](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır: 
-
-- yetişkinlere yönelik veya müstehcen içerik
-- ayıklanabilir metin
-- insan yüzleri
+Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır. Uygunsuz olabilecek malzemeyi azaltmak amacıyla yetişkinlere yönelik veya müstehcen içeriği, ayıklanabilir metinleri ve insan yüzlerini taramayı öğreneceksiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-## <a name="sign-up-for-content-moderator-services"></a>Content Moderator hizmetleri için kaydolma
+## <a name="prerequisites"></a>Ön koşullar
 
-REST API veya SDK aracılığıyla Content Moderator hizmetlerini kullanabilmeniz için önce bir API anahtarı ve API hesabınızın bölgesi gerekir. İkisini de almak için [Azure portalda](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) Content Moderator hizmetine abone olabilirsiniz.
-
-## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturma
-
-1. Çözümünüze yeni bir **Console uygulaması (.NET Framework)** projesi ekleyin.
-
-   Örnek kodda projeyi **ImageModeration** olarak adlandırın.
-
-1. Bu projeyi çözümün tek başlatma projesi olarak seçin.
+- Content Moderator abonelik anahtarı. Content Moderator'a abone olmak ve anahtarınızı almak için [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yönergelerini izleyin.
+- [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü
 
 
-### <a name="install-required-packages"></a>Gerekli paketleri yükleme
+> [!NOTE]
+> Bu kılavuzda ücretsiz katmanı Content Moderator aboneliği kullanılır. Her abonelik katmanında nelerin sağlandığı hakkında bilgi için [Fiyatlandırma ve sınırlar](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) sayfasına bakın.
 
-Aşağıdaki NuGet paketlerini yükleyin:
+## <a name="create-the-visual-studio-project"></a>Visual Studio projesini oluşturma
 
-- Microsoft.Azure.CognitiveServices.ContentModerator
-- Microsoft.Rest.ClientRuntime
-- Newtonsoft.Json
+1. Visual Studio'da yeni bir **Konsol uygulaması (.NET Framework)** projesi oluşturun ve projeyi **ImageModeration** olarak adlandırın. 
+1. Çözümünüzde başka projeler de varsa, tek başlangıç projesi olarak bunu seçin.
+1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayın ve **NuGet Paketlerini Yönet**'i seçin; ardından aşağıdaki projeleri bulun ve yükleyin:
+    - Microsoft.Azure.CognitiveServices.ContentModerator
+    - Microsoft.Rest.ClientRuntime
+    - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Programı deyimler kullanarak güncelleştirme
+## <a name="add-image-moderation-code"></a>Görüntü denetimi kodu ekleme
 
-Aşağıdaki `using` deyimlerini ekleyin.
+Ardından, temel bir içerik moderasyonu senaryosu uygulamak için kodu bu kılavuzdan kopyalayıp projenize yapıştıracaksınız.
+
+### <a name="include-namespaces"></a>Ad alanlarını ekleme
+
+Aşağıdaki `using` deyimlerini *Program.cs* dosyanızın en üstüne ekleyin.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
@@ -65,44 +62,24 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator istemcisini oluşturma
 
-Aboneliğiniz için bir Content Moderator istemcisi oluşturmak üzere aşağıdaki kodu ekleyin.
-
-> [!IMPORTANT]
-> **AzureRegion** ve **CMSubscriptionKey** alanlarını bölge tanımlayıcınız ve abonelik anahtarınızın değerleri ile güncelleştirin.
+Aboneliğinize bir Content Moderator istemci sağlayıcısı oluşturmak için aşağıdaki kodu *Program.cs* dosyanıza ekleyin. Aynı ad alanına **Program** sınıfıyla birlikte kodu ekleyin. **AzureRegion** ve **CMSubscriptionKey** alanlarını bölge tanımlayıcınızın ve abonelik anahtarınızın değerleriyle güncelleştirmeniz gerekecektir.
 
 ```csharp
-/// <summary>
-/// Wraps the creation and configuration of a Content Moderator client.
-/// </summary>
-/// <remarks>This class library contains insecure code. If you adapt this 
-/// code for use in production, use a secure method of storing and using
-/// your Content Moderator subscription key.</remarks>
+// Wraps the creation and configuration of a Content Moderator client.
 public static class Clients
 {
-    /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, westus.
-    /// </summary>
+    // The region/location for your Content Moderator account, 
+    // for example, westus.
     private static readonly string AzureRegion = "YOUR API REGION";
 
-    /// <summary>
-    /// The base URL fragment for Content Moderator calls.
-    /// </summary>
+    // The base URL fragment for Content Moderator calls.
     private static readonly string AzureBaseURL =
         $"https://{AzureRegion}.api.cognitive.microsoft.com";
 
-    /// <summary>
-    /// Your Content Moderator subscription key.
-    /// </summary>
+    // Your Content Moderator subscription key.
     private static readonly string CMSubscriptionKey = "YOUR API KEY";
 
-    /// <summary>
-    /// Returns a new Content Moderator client for your subscription.
-    /// </summary>
-    /// <returns>The new client.</returns>
-    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-    /// When you have finished using the client,
-    /// you should dispose of it either directly or indirectly. </remarks>
+    // Returns a new Content Moderator client for your subscription.
     public static ContentModeratorClient NewClient()
     {
         // Create and initialize an instance of the Content Moderator API wrapper.
@@ -114,93 +91,63 @@ public static class Clients
 }
 ```
 
-### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatma
+### <a name="set-up-input-and-output-targets"></a>Giriş ve çıkış hedeflerini ayarlama
 
-Aşağıdaki statik alanları Program.cs dosyasındaki **Program** sınıfına ekleyin.
+Aşağıdaki statik alanları _Program.cs_ dosyasındaki **Program** sınıfına ekleyin. Bunlar, giriş görüntü içeriğiyle çıkış JSON içeriğinin dosyalarını belirtir.
 
 ```csharp
-///<summary>
-///The name of the file that contains the image URLs to evaluate.
-///</summary>
-///<remarks>You will need to create an input file and update 
-///this path accordingly. Paths are relative to the execution directory.
-///</remarks>
+//The name of the file that contains the image URLs to evaluate.
 private static string ImageUrlFile = "ImageFiles.txt";
 
-///<summary>
 ///The name of the file to contain the output from the evaluation.
-///</summary>
-///<remarks>Paths are relative to the execution directory.
-///</remarks>
 private static string OutputFile = "ModerationOutput.json";
 ```
 
-_ImageFiles.txt_ adlı bir giriş dosyası oluşturup analiz etmek istediğiniz görüntülerin URL'lerini ekleyin. Bu hızlı başlangıçta örnek çıktıyı oluşturmak için aşağıdaki iki URL kullanılmıştır.
-- https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
-- https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
+*_ImageFiles.txt* giriş dosyasını oluşturmanız ve yolunu uygun şekilde güncelleştirmeniz gerekir (göreli yollar, yürütme dizinine göre belirlenir). _ImageFiles.txt_ dosyasını açın ve denetlenecek görüntülerin URL'lerini ekleyin. Bu hızlı başlangıçta örnek giriş olarak aşağıdaki URL'ler kullanılır.
+```
+https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
+https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
+```
 
-## <a name="create-a-class-to-handle-results"></a>Sonuçları işlemek için bir sınıf oluşturma
+### <a name="create-a-class-to-handle-results"></a>Sonuçları işlemek için bir sınıf oluşturma
 
-Aşağıdaki sınıfı **Program** sınıfına ekleyin. Gözden geçirilen görüntülerin her birinin denetim sonuçlarını kaydetmek için bu sınıfın bir örneğini kullanacaksınız.
+Aynı ad alanında *Program* sınıfıyla birlikte **Program.cs** dosyasına aşağıdaki kodu ekleyin. Gözden geçirilen görüntülerin her birinin denetim sonuçlarını kaydetmek için bu sınıfın bir örneğini kullanacaksınız.
 
 ```csharp
-/// <summary>
-/// Contains the image moderation results for an image, 
-/// including text and face detection results.
-/// </summary>
+// Contains the image moderation results for an image, 
+// including text and face detection results.
 public class EvaluationData
 {
-    /// <summary>
-    /// The URL of the evaluated image.
-    /// </summary>
+    // The URL of the evaluated image.
     public string ImageUrl;
 
-    /// <summary>
-    /// The image moderation results.
-    /// </summary>
+    // The image moderation results.
     public Evaluate ImageModeration;
 
-    /// <summary>
-    /// The text detection results.
-    /// </summary>
+    // The text detection results.
     public OCR TextDetection;
 
-    /// <summary>
-    /// The face detection results;
-    /// </summary>
+    // The face detection results;
     public FoundFaces FaceDetection;
 }
 ```
 
-## <a name="create-the-image-evaluation-method"></a>Görüntü değerlendirme yöntemini oluşturma
+### <a name="define-the-image-evaluation-method"></a>Görüntü değerlendirme yöntemini tanımlama
 
-**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, tek bir görüntüyü değerlendirir ve değerlendirme sonuçlarını döndürür.
-
-> [!NOTE]
-> Content Moderator hizmet anahtarınızın saniye başına istek (RPS) hız sınırı vardır ve bu sınırı aşarsanız SDK 429 hata kodu ile bir özel durum oluşturur. Ücretsiz katman anahtarı bir RPS'lik hız sınırına sahiptir.
+**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, tek bir görüntüyü üç farklı yoldan değerlendirir ve değerlendirme sonuçlarını döndürür. Bu tek tek işlemlerin ne yaptığı hakkında daha fazla bilgi edinmek istiyorsanız, [Sonraki adımlar](#next-steps) bölümündeki bağlantıyı izleyin.
 
 ```csharp
-/// <summary>
-/// Evaluates an image using the Image Moderation APIs.
-/// </summary>
-/// <param name="client">The Content Moderator API wrapper to use.</param>
-/// <param name="imageUrl">The URL of the image to evaluate.</param>
-/// <returns>Aggregated image moderation results for the image.</returns>
-/// <remarks>This method throttles calls to the API.
-/// Your Content Moderator service key will have a requests per second (RPS)
-/// rate limit, and the SDK will throw an exception with a 429 error code 
-/// if you exceed that limit. A free tier key has a 1 RPS rate limit.
-/// </remarks>
+// Evaluates an image using the Image Moderation APIs.
 private static EvaluationData EvaluateImage(
   ContentModeratorClient client, string imageUrl)
 {
-    var url = new ImageUrl("URL", imageUrl.Trim());
+    var url = new BodyModel("URL", imageUrl.Trim());
 
     var imageData = new EvaluationData();
 
     imageData.ImageUrl = url.Value;
 
-  // Evaluate for adult and racy content.
+    // Evaluate for adult and racy content.
     imageData.ImageModeration =
         client.ImageModeration.EvaluateUrlInput("application/json", url, true);
     Thread.Sleep(1000);
@@ -219,18 +166,9 @@ private static EvaluationData EvaluateImage(
 }
 ```
 
-**EvaluateUrlInput** yöntemi, Görüntü Denetim REST API'si için bir sarmalayıcıdır.
-Döndürülen değer, API çağrısından döndürülen nesneyi içerir.
+### <a name="load-the-input-images"></a>Giriş görüntülerini yükleme
 
-**OCRUrlInput** yöntemi, Görüntü OCR REST API'si için bir sarmalayıcıdır.
-Döndürülen değer, API çağrısından döndürülen nesneyi içerir.
-
-**FindFacesUrlInput** yöntemi, Görüntüde Yüzler Bulma REST API'si için bir sarmalayıcıdır.
-Döndürülen değer, API çağrısından döndürülen nesneyi içerir.
-
-## <a name="evaluate-the-images-in-your-code"></a>Kodunuzdaki görüntüleri değerlendirme
-
-Aşağıdaki kodu **Main** yöntemine ekleyin.
+Aşağıdaki kodu **Program** sınıfındaki **Main** yöntemine ekleyin. Bu, giriş dosyasındaki her görüntü URL'sinin değerlendirme verilerini alacak şekilde programı ayarlar. Ardından bu verileri tek bir çıkış dosyasına yazar.
 
 ```csharp
 // Create an object to store the image moderation results.
@@ -265,9 +203,9 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 }
 ```
 
-## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırma ve çıktıyı gözden geçirme
+## <a name="run-the-program"></a>Programı çalıştırma
 
-_ModerationOutput.json_ dosyasını açarak çıkış içeriğini görüntüleyin. Aşağıdaki içeriğe benzer şekilde görünmelidir. Her görüntünün `ImageModeration`, `FaceDetection` ve `TextDetection` bölümleri farklıdır ve bunlar **EvaluateImage** yönteminizdeki üç API çağrısı için kullanılır.
+Program JSON dize verilerini _ModerationOutput.json_ dosyasına yazacaktır. Bu hızlı başlangıçta kullanılan örnek görüntüler aşağıdaki çıkışı verir. Her görüntünün `ImageModeration`, `FaceDetection` ve `TextDetection` bölümleri farklıdır ve bunlar **EvaluateImage** yönteminizdeki üç API çağrısı için kullanılır.
 
 ```json
 [{
@@ -451,6 +389,9 @@ _ModerationOutput.json_ dosyasını açarak çıkış içeriğini görüntüleyi
 }]
 ```
 
-## <a name="next-steps---get-the-source-code"></a>Sonraki adımlar - kaynak kodunu alma
+## <a name="next-steps"></a>Sonraki adımlar
 
-Bu ve diğer .NET için Content Moderator hızlı başlangıçları için [Content Moderator .NET SDK'sını](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümünü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) alın ve tümleştirmeniz üzerinde çalışmaya başlayın.
+Bu hızlı başlangıçta, Content Moderator hizmetini kullanarak belirli bir görüntü örneği hakkındaki ilgili bilgileri döndüren basit bir .NET uygulaması geliştirdiniz. Bundan sonra, hangi verilere ihtiyacınız olduğuna ve uygulamanızın bunları nasıl işleyeceğine karar verebilmek için farklı bayrakların ve sınıflandırmaların anlamları hakkında daha fazla bilgi edinin.
+
+> [!div class="nextstepaction"]
+> [Görüntü moderasyonu kılavuzu](image-moderation-api.md)

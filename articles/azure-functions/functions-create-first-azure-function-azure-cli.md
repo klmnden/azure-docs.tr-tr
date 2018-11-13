@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fdee336298212f2536c2408e49f40e25e2c24161
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986007"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227697"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Komut satırından ilk işlevinizi oluşturma
 
@@ -108,17 +108,19 @@ _Consumption-plan-location_ parametresini ayarlamak, işlev uygulamasının bir 
 }
 ```
 
-## <a name="configure-the-function-app"></a>İşlev uygulamasını yapılandırma
+### <a name="configure-the-function-app-nodejs"></a>İşlev uygulamasını yapılandırma (Node.js)
 
-Core Tools sürüm 2.x, Azure İşlevleri 2.x çalışma zamanının şablonlarını kullanarak projeler oluşturur. Bu yüzden, 2.x çalışma zamanının Azure’da kullanıldığından emin olmalısınız. `FUNCTIONS_WORKER_RUNTIME` uygulama ayarını `~2` olarak ayarladığınızda, işlev uygulaması en son 2.x sürümüne sabitlenir. [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) komutuyla uygulama ayarlarını belirleyin.
+JavaScript işlev uygulaması oluşturduğunuzda doğru Node.js sürümünü hedeflemeniz önemlidir. İşlevler çalışma zamanı sürüm 2.x, Node.js sürüm 8.x gerektirir. `WEBSITE_NODE_DEFAULT_VERSION` uygulama ayarı Azure’daki işlev uygulaması tarafından kullanılan Node.js sürümünü denetler. Node.js sürümünü `8.11.1` olarak ayarlamak için [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) komutunu kullanın.
 
 Aşağıdaki Azure CLI komutunda <app_name>, işlev uygulamanızın adıdır.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~2
+--settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
+
+Çıkıştaki yeni ayarı doğrulayın.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
@@ -127,3 +129,4 @@ az functionapp config appsettings set --name <app_name> \
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+

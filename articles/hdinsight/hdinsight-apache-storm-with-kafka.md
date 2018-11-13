@@ -1,22 +1,22 @@
 ---
-title: 'Öğretici: HDInsight üzerinde Storm ile Apache Kafka - Azure '
+title: 'Öğretici: HDInsight üzerinde Apache Storm ile Apache Kafka - Azure '
 description: HDInsight üzerinde Apache Storm ve Apache Kafka kullanarak akış işlem hattı oluşturmayı öğrenin. Bu öğreticide, Kafka'dan veri akışı yapmak için KafkaBolt ve KafkaSpout bileşenlerini kullanırsınız.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.openlocfilehash: 7aa8f0b62459c376113bca5a0c58cc7dd3b5280c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094898"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036351"
 ---
-# <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Öğretici: HDInsight üzerinde Kafka ile Apache Storm kullanma
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: HDInsight üzerinde Apache Kafka ile Apache Storm kullanma
 
 Bu öğreticide, HDInsight üzerinde Apache Kafka ile veri okumak ve yazmak için Apache Storm topolojisinin nasıl kullanılacağı gösterilir. Bu öğreticide, Storm kümesindeki HDFS uyumlu depolamada verileri kalıcı hale getirme işlemi de gösterilir.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382168"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035930"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile kapsayıcı uygulaması dağıtma
 
@@ -76,6 +76,9 @@ Team Services yayın tanımı, kümeye uygulama paketi dağıtan bir iş akış�
 Web tarayıcısını açın ve şu adresteki yeni takım projenize gidin: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 **Derleme ve yayın** sekmesini ve **Derlemeler**'i seçip **Yeni İşlem Hattı**'na tıklayın.
+
+>[!NOTE]
+>Derleme tanımı şablonunu görmüyorsanız **Yeni YAML işlem hattı oluşturma deneyimi** özelliğinin kapalı olduğundan emin olun. Bu özellik, DevOps hesabınızın **Önizleme Özellikleri** bölümünde yapılandırılır.
 
 ![Yeni İşlem Hattı][new-pipeline]
 

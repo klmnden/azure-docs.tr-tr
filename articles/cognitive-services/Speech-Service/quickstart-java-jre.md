@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467268"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218585"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak Windows veya Linux üzerinde Java’da konuşma tanıma
 
@@ -74,7 +74,7 @@ Ubuntu 16.04 kullanıyorsanız, Eclipse’i başlatmadan önce gerekli paketleri
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Ayrıca Konuşma SDK'sı sürüm 1.0.1 bağımlılığına sahip bir `dependencies` öğesi de oluşturun:
+  * Ayrıca Konuşma SDK'sı sürüm 1.1.0 bağımlılığına sahip bir `dependencies` öğesi de oluşturun:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407630"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959231"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
 
@@ -98,20 +98,9 @@ Bu değerleri bulmak için aşağıdaki adımları takip edin:
 Bu örnekte sunucu adı **demosunucum.mysql.database.azure.com**, sunucu yöneticisi oturum açma bilgileri ise **myadmin@mydemoserver** şeklindedir.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>MySQL komut satırı aracını kullanarak sunucuya bağlanma
-MySQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanarak bağlanabilirsiniz. 
+**mysql.exe** komut satırı aracını kullanarak sunucunuza bağlanın. MySQL'i [buradan](https://dev.mysql.com/downloads/) indirerek bilgisayarınıza yükleyebilirsiniz. 
 
-İlk olarak sunucuya nasıl bağlanılacağını göstermek için [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) komut satırı aracını kullanalım. Burada açıklandığı şekliyle bir web tarayıcısını ve Azure Cloud Shell’i herhangi bir ek yazılım yüklemeniz gerekmeden kullanabilirsiniz. Yerel olarak yüklü mysql yardımcı programınız varsa, oradan da bağlanabilirsiniz.
-
-1. Azure portalı web sayfasının sağ üst tarafındaki terminal simgesi aracılığıyla (**>_**) Azure Cloud Shell’i başlatın.
-![Azure Cloud Shell terminal simgesi](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell, tarayıcınızda açılarak bash kabuk komutları yazmanıza olanak verir.
-
-   ![Komut istemi--mysql komut satırı örneği](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. Cloud Shell isteminde, mysql komut satırını yazarak MySQL için Azure Veritabanı sunucunuza bağlanın.
-
-    mysql yardımcı programıyla MySQL için Azure Veritabanı sunucusuna bağlanmak için aşağıdaki biçim kullanılır:
+1. mysql yardımcı programıyla MySQL için Azure Veritabanı sunucusuna bağlanmak için aşağıdaki biçim kullanılır:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ MySQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanarak ba�
 
     Örneğin, aşağıdaki komut örnek sunucumuza bağlanır:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ MySQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanarak ba�
     mysql>
     ```
     > [!TIP]
-    > Güvenlik duvarı Azure Cloud Shell IP adreslerine izin verecek biçimde yapılandırılmamışsa aşağıdaki hata oluşur:
+    > Güvenlik duvarı istemcinizin IP adreslerine izin verecek biçimde yapılandırılmamışsa aşağıdaki hata oluşur:
     >
     > HATA 2003 (28000): 123.456.789.0 IP adresli istemcinin sunucuya erişmesine izin verilmiyor.
     >
@@ -178,7 +167,7 @@ MySQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanarak ba�
     SHOW DATABASES;
     ```
 
-7.  `\q` yazın ve ardından **Enter** tuşuna basarak mysql aracından çıkın. İşlem tamamlanınca Azure Cloud Shell’i kapatabilirsiniz.
+7.  `\q` yazın ve ardından **Enter** tuşuna basarak mysql aracından çıkın. 
 
 Böylece Azure Veritabanını MySQL sunucusuna bağladınız ve boş bir kullanıcı veritabanı oluşturdunuz. Benzer bir alıştırma için sonraki bölüme geçin. Sonraki alıştırmada aynı sunucuya başka bir genel araç, MySQL Workbench kullanılarak bağlanacağız.
 

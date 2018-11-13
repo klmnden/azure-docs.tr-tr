@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
-description: Visual Studio Team Services (VSTS) uygulamasında Cosmos DB öykünücüsü derleme görevini kullanarak derleme ve yayın iş yükü ayarlama öğreticisi
+description: Azure DevOps'ta Cosmos DB öykünücüsü derleme görevini kullanarak derleme ve yayın iş yükü ayarlama öğreticisi
 services: cosmos-db
 keywords: Azure Cosmos DB Öykünücüsü
 author: deborahc
@@ -8,67 +8,67 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 8/28/2018
+ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 37bb43435c34f14145b3642aa12c5cb0f16d780c
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783883"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036980"
 ---
-# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-visual-studio-team-services"></a>Visual Studio Team Services uygulamasında Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
+# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps'ta Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
 
 Azure Cosmos DB öykünücüsü, geliştirme amaçlı olarak Azure Cosmos DB hizmetine öykünen yerel bir ortam sağlar. Öykünücü sayesinde Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı yerel ortamda geliştirip test edebilirsiniz. 
 
-Visual Studio Team Services (VSTS) için Azure Cosmos DB öykünücüsü derleme görevi, bu işlemi bir CI ortamında da gerçekleştirmenizi sağlar. Derleme göreviyle derleme ve yayın iş yüklerinizin bir parçası olarak öykünücüyle test çalıştırabilirsiniz. Bu görev öykünücünün çalıştığı bir Docker kapsayıcı başlatır ve derleme tanımının kalanı tarafından kullanılabilecek bir uç nokta sunar. İstediğiniz sayıda öykünücü örneği oluşturup başlatabilirsiniz ve oluşturduğunuz her örnek ayrı bir kapsayıcıda çalışır. 
+Azure DevOps için Azure Cosmos DB öykünücüsü derleme görevi, bu işlemi bir CI ortamında da gerçekleştirmenizi sağlar. Derleme göreviyle derleme ve yayın iş yüklerinizin bir parçası olarak öykünücüyle test çalıştırabilirsiniz. Bu görev öykünücünün çalıştığı bir Docker kapsayıcı başlatır ve derleme tanımının kalanı tarafından kullanılabilecek bir uç nokta sunar. İstediğiniz sayıda öykünücü örneği oluşturup başlatabilirsiniz ve oluşturduğunuz her örnek ayrı bir kapsayıcıda çalışır. 
 
-Bu makalede VSTS uygulamasında test çalıştırmak için Cosmos DB öykünücüsü derleme görevini kullanan bir ASP.NET uygulaması için CI işlem hattı ayarlama adımları gösterilmektedir. 
+Bu makalede Azure DevOps'ta test çalıştırmak için Cosmos DB öykünücüsü derleme görevini kullanan bir ASP.NET uygulaması için CI işlem hattı ayarlama adımları gösterilmektedir. 
 
 ## <a name="install-the-emulator-build-task"></a>Öykünücü derleme görevini yükleme
 
-Derleme görevini kullanmak için öncelikle VSTS kuruluşunuza yüklemeniz gerekir. [Market](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) sayfasında **Azure Cosmos DB Emulator** uzantısını bulun ve **Ücretsiz edinin**'e tıklayın.
+Derleme görevini kullanmak için öncelikle Azure DevOps kuruluşunuza yüklemeniz gerekir. [Market](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) sayfasında **Azure Cosmos DB Emulator** uzantısını bulun ve **Ücretsiz edinin**'e tıklayın.
 
-![VSTS Market'te Azure Cosmos DB Emulator derleme görevini bulun ve yükleyin](./media/tutorial-setup-ci-cd/addExtension_1.png)
+![Azure DevOps Market'te Azure Cosmos DB Emulator derleme görevini bulun ve yükleyin](./media/tutorial-setup-ci-cd/addExtension_1.png)
 
 Ardından uzantının yükleneceği kuruluşu seçin. 
 
 > [!NOTE]
-> Bir VSTS kuruluşuna uzantı yükleyebilmek için hesap sahibi veya proje koleksiyonu yöneticisi olmanız gerekir. Gerekli izinlere sahip değilseniz ancak hesap üyesiyseniz uzantı isteyebilirsiniz. [Daha fazla bilgi edinin.](https://docs.microsoft.com/vsts/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions) 
+> Bir Azure DevOps kuruluşuna uzantı yükleyebilmek için hesap sahibi veya proje koleksiyonu yöneticisi olmanız gerekir. Gerekli izinlere sahip değilseniz ancak hesap üyesiyseniz uzantı isteyebilirsiniz. [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
-![Uzantının yükleneceği VSTS kuruluşunu seçme](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![Uzantının yükleneceği Azure DevOps kuruluşunu seçme](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## <a name="create-a-build-definition"></a>Derleme tanımı oluşturma
 
-Uzantıyı yüklediniz, şimdi bunu bir [derleme tanımına](https://docs.microsoft.com/vsts/pipelines/get-started-designer?view=vsts&tabs=new-nav) eklemeniz gerekiyor. Var olan derleme tanımlarından birini değiştirebilir veya yenisini oluşturabilirsiniz. Bir derleme tanımınız varsa [Öykünücü derleme görevini derleme tanımına ekleme](#addEmulatorBuildTaskToBuildDefinition) bölümüne geçebilirsiniz.
+Artık uzantı yüklendiğine göre Azure DevOps hesabınızda oturum açın ve projeler panosundan projenizi bulun. Projenize bir [derleme işlem hattı](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ekleyebilir veya var olan derleme işlem hattını değiştirebilirsiniz. Bir derleme işlem hattınız varsa [Derleme tanımına Öykünücü derlemesi ekleme](#addEmulatorBuildTaskToBuildDefinition) bölümüne geçebilirsiniz.
 
-Yeni bir derleme tanımı oluşturmak için VSTS uygulamasının **Derleme ve Yayın** sekmesine gidin. **+Yeni**'yi seçin.
+1. Yeni bir derleme tanımı oluşturmak için Azure DevOps uygulamasının **Derlemeler** sekmesine gidin. **+Yeni**'yi seçin. > **Yeni derleme işlem hattı**
 
-![Yeni bir derleme tanımı oluşturma](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png) Derlemeyi etkinleştirmek için kullanmak istediğiniz takım projesini, depoyu ve dalı seçin. 
+   ![Yeni derleme işlem hattı oluşturma](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
-![Derleme tanımı için takım projesini, depoyu ve dalı seçme ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+2. İstenen **kaynak**, **Takım projesi**, **Depo** ve **El ile ve zamanlanan derlemeler için varsayılan dal** değerlerini seçin. Gerekli seçenekleri belirttikten sonra **Devam**’ı seçin
 
-Son olarak derleme tanımı için kullanmak istediğiniz şablonu belirleyin. Bu öğreticide **ASP.NET** şablonunu seçeceğiz. 
+   ![Derleme işlem hattı için takım projesini, depoyu ve dalı seçme ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-![Kullanmak istediğiniz derleme tanımı şablonunu seçin ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
+3. Son olarak derleme işlem hattı için kullanmak istediğiniz şablonu belirleyin. Bu öğreticide **ASP.NET** şablonunu seçeceğiz. 
 
-Artık Azure Cosmos DB öykünücüsü derleme görevini kullanacak şekilde ayarlayabileceğiniz aşağıdakine benzer bir derleme tanımınız var. 
+Artık Azure Cosmos DB öykünücüsü derleme görevini kullanacak şekilde ayarlayabileceğiniz bir derleme işlem hattınız var. 
 
-![ASP.NET derleme tanımı şablonu](./media/tutorial-setup-ci-cd/CreateNewBuildDef_4.png)
+## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Görevi derleme işlem hattına ekleme
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Görevi derleme tanımına ekleme
+1. Derleme işlem hattına görev eklemeden önce aracı işi eklemelisiniz. Derleme işlem hattınıza gidin **...** öğesini ve **Aracı işi ekle**’yi seçin.
 
-Öykünücü derleme görevini eklemek için arama kutusuna **cosmos** yazın ve **Ekle**'yi seçin. Derleme görevi Cosmos DB öykünücüsü örneğinin çalıştığı bir kapsayıcı başlatır. Bu nedenle öykünücünün çalışır durumda olmasını bekleyen diğer görevlerden önce bu görevin yerleştirilmesi gerekir.
+1. Ardından aracı işinin yanındaki **+** sembolünü seçerek öykünücü derleme görevini ekleyin. Arama kutusundan **cosmos** araması yapın, **Azure Cosmos DB Öykünücüsünü** seçin ve aracı işine ekleyin. Derleme görevi, üzerinde Cosmos DB öykünücüsünün bir örneğinin çalıştığı bir kapsayıcı başlatır. Azure Cosmos DB Öykünücüsü görevi, öykünücünün çalışır durumda olmasını gerektiren diğer görevlerden önce yerleştirilmelidir.
 
-![Öykünücü derleme görevini derleme tanımına ekleme](./media/tutorial-setup-ci-cd/addExtension_3.png) Bu öğreticide öykünücünün testler yürütülmeden önce kullanılabilir durumda olmasını sağlamak için görevi 1. Aşamanın başına ekleyeceğiz.
-Tamamlanmış derleme tanımı bu örneğe benzer olacaktır. 
+   ![Öykünücü derleme görevini derleme tanımına ekleme](./media/tutorial-setup-ci-cd/addExtension_3.png)
 
-![ASP.NET derleme tanımı şablonu](./media/tutorial-setup-ci-cd/CreateNewBuildDef_5.png)
+Bu öğreticide, testlerimiz çalıştırmadan önce öykünücünün kullanılabildiğinden emin olmak için görevi en başa ekleyeceksiniz.
 
 ## <a name="configure-tests-to-use-the-emulator"></a>Testleri öykünücüyü kullanacak şekilde yapılandırma
+
 Şimdi testlerimizi öykünücüyü kullanacak şekilde yapılandıracağız. Öykünücü derleme görevi, derleme işlem hattındaki diğer görevlerin istek düzenleyebileceği "CosmosDbEmulator.Endpoint" ortam değişkenini dışarı aktarır. 
 
-Bu öğreticide [Visual Studio Test görevini](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) kullanarak **.runsettings** dosyasıyla yapılandırılmış birim testlerini çalıştıracağız. Birim testi kurulumu hakkında daha fazla bilgi edinmek için [belgeleri](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017) inceleyin.
+Bu öğreticide [Visual Studio Test görevini](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) kullanarak **.runsettings** dosyasıyla yapılandırılmış birim testlerini çalıştıracağız. Birim testi kurulumu hakkında daha fazla bilgi edinmek için [belgeleri](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017) inceleyin.
 
 Uygulamanın birim testlerine iletilecek parametreleri tanımlayan örnek **.runsettings** dosyasını aşağıda görebilirsiniz. Kullanılan `authKey` değişkeninin öykünücü için [iyi bilinen anahtar](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) olduğuna dikkat edin. Bu `authKey`, öykünücü derleme görevi tarafından beklenen anahtardır ve **.runsettings** dosyanızda tanımlanmalıdır.
 
@@ -82,7 +82,8 @@ Uygulamanın birim testlerine iletilecek parametreleri tanımlayan örnek **.run
   </TestRunParameters>
 </RunSettings>
 ```
-`TestRunParameters` parametrelerine uygulamanın test projesindeki bir `TestContext` özelliği aracılığıyla başvurulur. Burada Cosmos DB ile çalışan örnek bir testi görebilirsiniz. 
+
+`TestRunParameters` parametrelerine uygulamanın test projesindeki bir `TestContext` özelliği aracılığıyla başvurulur. Burada Cosmos DB ile çalışan örnek bir testi görebilirsiniz.
 
 ```csharp
 namespace todo.Tests
@@ -135,7 +136,8 @@ Visual Studio Test görevindeki Execution Options (Yürütme Seçenekleri) böl�
 ![Uç noktası değişkenini öykünücü derleme görevi uç noktasıyla geçersiz kılma](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
 ## <a name="run-the-build"></a>Derlemeyi çalıştırma
-Şimdi derlemeyi kaydedip kuyruğa alabilirsiniz. 
+
+Şimdi derlemeyi **kaydedip kuyruğa alabilirsiniz**. 
 
 ![Derlemeyi kaydetme ve çalıştırma](./media/tutorial-setup-ci-cd/runBuild_1.png)
 
