@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fd5b0637ab21c9859f2ed06a96c69b51f4681097
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471518"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569293"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -77,7 +77,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/action | Kiracı için yeni bir orman oluşturun. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Tüm sunucular için belirtilen hizmet adını alır. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/alerts/read | Uyarı ayrıntıları ortaya orman alertıd uyarı gibi tarih, uyarı son algılanan, uyarı açıklaması, son güncelleştirilen, uyarı düzeyi, uyarı durumu, bağlantılar vb. sorun giderme uyarı alır. |
-> | Eylem | Microsoft.ADHybridHealthService/addsservices/configuration/read | Hizmet yapılandırması ormanın alır. Örnek - orman adı, etki alanı adlandırma Yöneticisi FSMO rolündeki değişiklikler, Şema Yöneticisi FSMO rolündeki değişiklikler vb. Functionla düzeyi. |
+> | Eylem | Microsoft.ADHybridHealthService/addsservices/configuration/read | Hizmet yapılandırması ormanın alır. Örnek - orman adı, etki alanı adlandırma Yöneticisi FSMO rolündeki değişiklikler, Şema Yöneticisi FSMO rolündeki değişiklikler vb. işlev düzeyi. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/delete | Bir hizmet siler ve bu bilgisayarın sistem durumu verileriyle birlikte sunucuları. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Orman için etki alanları ve siteler ayrıntılarını alır. Örnek sistem durumu, etkin uyarıları çözümlenen uyarılar, özellikler gibi etki alanı işlev düzeyi orman, altyapı yöneticisi, PDC, RID Yöneticisi vb.  |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Orman için kullanıcı tercihi ayarını alır.<br>Örnek - MetricCounterName ldapsuccessfulbinds ntlmauthentications, kerberosauthentications addsinsightsagentprivatebytes, ldapsearches gibi.<br>UI grafiklerini vb. için ayarlar. |
@@ -104,7 +104,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ADHybridHealthService/reports/badpassword/read | Active Directory Federasyon Hizmeti içindeki tüm kullanıcılar için hatalı parola denemesi listesini alır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | BLOB SAS URİ'si durumu içeren alır ve belirli bir kiracının günde IPADDRESS başına UserID başına yeni sıraya alınan rapor işi sıklığı, hatalı kullanıcı adı/parola için nihai sonucu çalışır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | DevOps listesini alır kiracılar tarafından onaylanan. Genellikle, müşteri desteği için kullanılır. |
-> | Eylem | Microsoft.ADHybridHealthService/reports/isdevops/read | Wheather teannt DevOps onaylı olup olmadığını belirten bir değer alır. |
+> | Eylem | Microsoft.ADHybridHealthService/reports/isdevops/read | Teannt DevOps onaylı olup olmadığını belirten bir değer alır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Seçili dev ops Kiracı için userid(objectid) güncelleştirir. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Seçili dağıtım belirli kiracısı için alır. |
 > | Eylem | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | Kiracı kimliği alır verilen Kiracı depolama konumu. |
@@ -240,7 +240,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ApiManagement/service/apis/products/read | API parçası olan tüm ürünler |
 > | Eylem | Microsoft.ApiManagement/service/apis/read | Tüm kayıtlı API'ler veya Get ayrıntılarını API'ın listesini alın |
 > | Eylem | Microsoft.ApiManagement/service/apis/releases/delete | API veya kaldırma API sürümünün tüm sürümleri kaldırır |
-> | Eylem | Microsoft.ApiManagement/service/apis/releases/read | Yayınları bir API reelase API veya Get ayrıntılarını Al |
+> | Eylem | Microsoft.ApiManagement/service/apis/releases/read | Yayınları API sürümü için bir API veya Get ayrıntılarını Al |
 > | Eylem | Microsoft.ApiManagement/service/apis/releases/write | Yeni API sürüm oluşturma veya güncelleştirme mevcut API sürümü |
 > | Eylem | Microsoft.ApiManagement/service/apis/revisions/delete | Bir API'nin tüm düzeltmeleri kaldırır |
 > | Eylem | Microsoft.ApiManagement/service/apis/revisions/read | API'ye ait düzeltmeler Al |
@@ -395,11 +395,11 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | --- | --- | --- |
 > | Eylem | Microsoft.Authorization/checkAccess/action | Arayanın belirli bir eylemi gerçekleştirmek için yetkili olup olmadığını denetler |
 > | Eylem | Microsoft.Authorization/classicAdministrators/delete | Yöneticiyi abonelikten çıkarır. |
-> | Eylem | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Aboneliğin yönetici işlemi durumlarını alır. |
+> | Eylem | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Aboneliğin yönetici işlem durumlarını alır. |
 > | Eylem | Microsoft.Authorization/classicAdministrators/read | Abonelik için yöneticileri okur. |
 > | Eylem | Microsoft.Authorization/classicAdministrators/write | Abonelik için yönetici ekleyin veya değiştirin. |
-> | Eylem | Microsoft.Authorization/denyAssignments/delete | Belirtilen kapsamda bir reddetme atamasını silin. |
-> | Eylem | Microsoft.Authorization/denyAssignments/read | Bir reddetme atama hakkında bilgi alın. |
+> | Eylem | Microsoft.Authorization/denyAssignments/delete | Belirtilen kapsamdaki bir reddetme atamasını silin. |
+> | Eylem | Microsoft.Authorization/denyAssignments/read | Reddetme ataması hakkında bilgi edinin. |
 > | Eylem | Microsoft.Authorization/denyAssignments/write | Belirtilen kapsamda bir reddetme ataması oluşturun. |
 > | Eylem | Microsoft.Authorization/elevateAccess/action | Çağırana kiracı kapsamında Kullanıcı Erişim Yöneticisi erişimi verir |
 > | Eylem | Microsoft.Authorization/locks/delete | Belirtilen kapsamdaki kilitleri silin. |
@@ -552,7 +552,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | --- | --- | --- |
 > | Eylem | Microsoft.AzureActiveDirectory/b2cDirectories/delete | B2C Dizini kaynağını sil |
 > | Eylem | Microsoft.AzureActiveDirectory/b2cDirectories/read | B2C Dizini kaynağını görüntüle |
-> | Eylem | Microsoft.AzureActiveDirectory/b2cDirectories/write | B2C Dizini kaynağı oluştur veya güncelleştir |
+> | Eylem | Microsoft.AzureActiveDirectory/b2cDirectories/write | B2C dizini kaynağını güncelle |
 > | Eylem | Microsoft.AzureActiveDirectory/operations/read | Microsoft.AzureActiveDirectory kaynak sağlayıcısı için tüm kullanılabilir API işlemlerini okuyun |
 > | Eylem | Microsoft.AzureActiveDirectory/register/action | Microsoft.AzureActiveDirectory kaynak sağlayıcısı için aboneliği kaydedin |
 
@@ -672,20 +672,20 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.Blueprint/blueprintAssignments/delete | Şema Yapıtlarını Silin |
-> | Eylem | Microsoft.Blueprint/blueprintAssignments/read | Herhangi Bir Şema Yapıtını Okuyun |
-> | Eylem | Microsoft.Blueprint/blueprintAssignments/write | Herhangi Bir Şema Yapıtı Oluşturun veya Güncelleştirin |
-> | Eylem | Microsoft.Blueprint/blueprints/artifacts/delete | Şema Yapıtlarını Silin |
-> | Eylem | Microsoft.Blueprint/blueprints/artifacts/read | Herhangi Bir Şema Yapıtını Okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/artifacts/write | Herhangi Bir Şema Yapıtı Oluşturun veya Güncelleştirin |
-> | Eylem | Microsoft.Blueprint/blueprints/delete | Herhangi bir Şemayı Silin |
-> | Eylem | Microsoft.Blueprint/blueprints/read | Herhangi bir Şemayı okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/artifacts/read | Herhangi Bir Şema Yapıtını Okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/delete | Herhangi bir Şemayı Silin |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/read | Herhangi bir Şemayı okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/write | Herhangi Bir Şema Oluşturun veya Güncelleştirin |
-> | Eylem | Microsoft.Blueprint/blueprints/write | Herhangi Bir Şema Oluşturun veya Güncelleştirin |
-> | Eylem | Microsoft.Blueprint/register/action | Şema Kaynak Sağlayıcısını kaydeder |
+> | Eylem | Microsoft.Blueprint/blueprintAssignments/delete | Herhangi bir Blueprint yapıtlarını silin |
+> | Eylem | Microsoft.Blueprint/blueprintAssignments/read | Herhangi bir Blueprint Yapıtını okuyun |
+> | Eylem | Microsoft.Blueprint/blueprintAssignments/write | Herhangi bir Blueprint Yapıtları güncelle |
+> | Eylem | Microsoft.Blueprint/blueprints/artifacts/delete | Herhangi bir Blueprint yapıtlarını silin |
+> | Eylem | Microsoft.Blueprint/blueprints/artifacts/read | Herhangi bir Blueprint Yapıtını okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/artifacts/write | Herhangi bir Blueprint Yapıtları güncelle |
+> | Eylem | Microsoft.Blueprint/blueprints/delete | Herhangi bir Blueprint'i silin |
+> | Eylem | Microsoft.Blueprint/blueprints/read | Herhangi bir Blueprint'i okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/artifacts/read | Herhangi bir Blueprint Yapıtını okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/delete | Herhangi bir Blueprint'i silin |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/read | Herhangi bir Blueprint'i okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/write | Herhangi bir Blueprint oluştur veya güncelleştir |
+> | Eylem | Microsoft.Blueprint/blueprints/write | Herhangi bir Blueprint oluştur veya güncelleştir |
+> | Eylem | Microsoft.Blueprint/register/action | Blueprint kaynak sağlayıcısını kaydeder |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -729,7 +729,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Cache/redis/patchSchedules/read | Redis Cache'in düzeltme eki uygulama zamanlamasını alır |
 > | Eylem | Microsoft.Cache/redis/patchSchedules/write | Redis Cache'in düzeltme eki uygulama zamanlamasını değiştirir |
 > | Eylem | Microsoft.Cache/redis/read | Redis Cache'nin ayarlarını ve yapılandırmasını yönetim portalında görüntüleyin |
-> | Eylem | Microsoft.Cache/redis/recommendations/read | Azure Redis Cache öneriler okuyun |
+> | Eylem | Microsoft.Cache/redis/recommendations/read | Azure Redis Cache Önerilerini Okuyun |
 > | Eylem | Microsoft.Cache/redis/regenerateKey/action | Redis Cache erişim anahtarlarının değerini yönetim portalında değiştirin |
 > | Eylem | Microsoft.Cache/redis/start/action | Bir önbellek örneği başlatın. |
 > | Eylem | Microsoft.Cache/redis/start/action | Bir önbellek örneği başlatın. |
@@ -857,12 +857,12 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ClassicCompute/domainNames/capabilities/read | Etki alanı adı özelliklerini gösterir |
 > | Eylem | Microsoft.ClassicCompute/domainNames/delete | Kaynaklar için etki alanı adlarını kaldırın. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/read | Dağıtım yuvalarını gösterir. |
-> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | Etki alanı adı dağıtım yuvası rolünü Al |
-> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | Etki alanı adı dağıtım yuvası rolü için rol örneğini al |
+> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | Etki alanı adının dağıtım yuvasındaki rolü al |
+> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | Etki alanı adının dağıtım yuvasındaki rol için rol örneği al |
 > | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | Dağıtım yuvası durumu alır. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/state/write | Dağıtım yuvası durumunu ekleyin. |
-> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | Etki alanı adı dağıtım yuvası için yükseltme etki alanı Al |
-> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | Etki alanı adı dağıtım yuvası için yükseltme etki alanını güncelleştirme |
+> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | Etki alanı adındaki dağıtım yuvası için yükseltme etki alanını al |
+> | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | Etki alanı adındaki dağıtım yuvası için yükseltme etki alanını güncelleştir |
 > | Eylem | Microsoft.ClassicCompute/domainNames/deploymentslots/write | Dağıtımı oluşturur veya güncelleştirir. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/extensions/delete | Etki alanı adı uzantılarını kaldırın. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | Etki alanı uzantıları için işlem durumunu okur. |
@@ -975,7 +975,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Ağ güvenlik grubunu siler. |
 > | Eylem | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Ağ güvenlik grubu için işlem durumunu okur. |
 > | Eylem | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Ağ Güvenlik Grupları Tanılama Ayarlarını alır |
-> | Eylem | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Ağ Güvenlik Grubu tanılama ayarları oluşturur veya güncelleştirir, bu işlem öngörüler kaynak sağlayıcısı tarafından desteklenir. |
+> | Eylem | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Oluşturur veya ağ güvenlik grupları tanılama ayarları, bu işlem kaynak sağlayıcısı tarafından takıma güncelleştirir. | 
 > | Eylem | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Ağ güvenlik grubunun olaylarını alır |
 > | Eylem | Microsoft.ClassicNetwork/networkSecurityGroups/read | Ağ güvenlik grubunu alır. |
 > | Eylem | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Güvenlik kuralını siler. |
@@ -1029,7 +1029,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | Uzak sanal ağ eşleme ara sunucusunu alır. |
 > | Eylem | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | Uzak sanal ağ eşleme ara sunucusunu ekler veya güncelleştirir. |
 > | Eylem | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | Alt ağ ile ilişkilendirilmiş ağ güvenlik grubunu siler. |
-> | Eylem | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Ağ güvenlik grubuyla ilişkili sanal ağ alt ağı için işlem durumunu okur. |
+> | Eylem | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Sanal ağ alt ağı ilişkili ağ güvenlik grubu için işlem durumunu okur. |
 > | Eylem | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | Alt ağ ile ilişkilendirilmiş ağ güvenlik grubunu alır. |
 > | Eylem | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | Alt ağ ile ilişkilendirilmiş bir ağ güvenlik grubu ekler. |
 > | Eylem | Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action | Bir Sanal Ağın geçişini doğrular |
@@ -1141,8 +1141,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Compute/images/write | Yeni bir Görüntü oluşturur veya mevcut bir Görüntüyü güncelleştirir |
 > | Eylem | Microsoft.Compute/locations/capsOperations/read | Zaman uyumsuz bir Caps işleminin durumunu alır |
 > | Eylem | Microsoft.Compute/locations/diskOperations/read | Zaman uyumsuz bir Disk işlemin durumunu alır |
-> | Eylem | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Günlükleri toplam istek azaltma tanılama yardımcı olmak için zaman aralığına göre göstermek için oluşturabilir. |
-> | Eylem | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Günlükleri daraltılmış istekler ResourceName, OperationName veya uygulanan kısıtlama ilkesi tarafından gruplandırılmış toplamları göstermek için oluşturabilir. |
+> | Eylem | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Azaltma tanılamasına yardımcı olmak üzere zaman aralığına göre toplam istekleri göstermek için günlükler oluşturun. |
+> | Eylem | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Azaltılmış isteklerin ResourceName, OperationName alanlarına veya uygulanan Azaltma İlkesine göre gruplanmış kümeleri göstermek için günlükler oluşturun. |
 > | Eylem | Microsoft.Compute/locations/operations/read | Bir zaman uyumsuz işlemin durumunu alır |
 > | Eylem | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | Platform Görüntüsü Teklifi'nin özelliklerini alma |
 > | Eylem | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | Platform Görüntüsü SKU'sunun özelliklerini alma |
@@ -1214,7 +1214,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Sanal Makine Ölçek Kümesi için tanılama ayarını alır. |
 > | Eylem | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Sanal Makine Ölçek Kümesi için tanılama ayarını oluşturur veya güncelleştirir. |
 > | Eylem | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Sanal Makine Ölçek Kümeleri için kullanılabilir günlükleri alır. |
-> | Eylem | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Sanal Makine Ölçek Kümesi Ölçüm Tanımlarını Okur |
+> | Eylem | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Sanal makine ölçek kümesi ölçüm tanımlarını okur |
 > | Eylem | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | Bir Sanal Makine Ölçek Kümesinin tüm genel IP adreslerinin özelliklerini alma |
 > | Eylem | Microsoft.Compute/virtualMachineScaleSets/read | Bir Sanal Makine Ölçek Kümesinin özelliklerini alın |
 > | Eylem | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | Sanal Makine Ölçek Kümesi'nin örneklerini yeniden dağıtın |
@@ -2226,7 +2226,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.EventHub/namespaces/read | Ad Alanı Kaynak Açıklamasının listesini alır |
 > | Eylem | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | ACS ad alanını kaldırın |
 > | Eylem | Microsoft.EventHub/namespaces/write | Namespace kaynağı oluşturun ve özelliklerini güncelleştirin. Etiketleri ve kapasitesi Namespace hangi güncelleştirilebilecek özelliklerdir. |
-> | Eylem | Microsoft.EventHub/operations/read | İşlemleri Al |
+> | Eylem | Microsoft.EventHub/operations/read | Alma İşlemleri |
 > | Eylem | Microsoft.EventHub/register/action | Aboneliği EventHub kaynak sağlayıcısı için kaydeder ve EventHub kaynaklarının oluşturulmasını sağlar |
 > | Eylem | Microsoft.EventHub/sku/read | Sku kaynak açıklamalarının listesini alın |
 > | Eylem | Microsoft.EventHub/sku/regions/read | SkuRegions kaynak açıklamalarının listesini alın |
@@ -2384,152 +2384,152 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Insights/LogProfiles/Delete | Bir Etkinlik Günlüğü günlük profilini silin |
 > | Eylem | Microsoft.Insights/LogProfiles/Read | Bir Etkinlik Günlüğü günlük profilini okuyun |
 > | Eylem | Microsoft.Insights/LogProfiles/Write | Bir Etkinlik Günlüğü günlük profili oluşturun veya güncelleştirin |
-> | Eylem | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | ADAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ADReplicationResult/Read | ADReplicationResult tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | ADSecurityAssessmentRecommendation tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | ADAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ADReplicationResult/Read | ADReplicationResult tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | ADSecurityAssessmentRecommendation tablosundan veri oku |
 > | Eylem | Microsoft.Insights/Logs/Alert/Read | Alert tablosundan veri oku |
-> | Eylem | Microsoft.Insights/Logs/AlertHistory/Read | AlertHistory tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ApplicationInsights/Read | Applicationınsights tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/AzureActivity/Read | AzureActivity tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/AzureMetrics/Read | AzureMetrics tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/BoundPort/Read | BoundPort tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/CommonSecurityLog/Read | CommonSecurityLog tablosundan veri okuma |
-> | Eylem | Microsoft.Insights/Logs/ComputerGroup/Read | ComputerGroup tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ConfigurationChange/Read | ConfigurationChange tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ConfigurationData/Read | ConfigurationData tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ContainerImageInventory/Read | ContainerImageInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ContainerInventory/Read | ContainerInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ContainerLog/Read | ContainerLog tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ContainerServiceLog/Read | ContainerServiceLog tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceAppCrash/Read | DeviceAppCrash tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceAppLaunch/Read | DeviceAppLaunch tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceCalendar/Read | DeviceCalendar tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceCleanup/Read | DeviceCleanup tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceConnectSession/Read | DeviceConnectSession tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceEtw/Read | DeviceEtw tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceHardwareHealth/Read | DeviceHardwareHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceHealth/Read | DeviceHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceHeartbeat/Read | DeviceHeartbeat tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceSkypeHeartbeat/Read | DeviceSkypeHeartbeat tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceSkypeSignIn/Read | DeviceSkypeSignIn tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DeviceSleepState/Read | DeviceSleepState tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHAppFailure/Read | DHAppFailure tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHAppReliability/Read | DHAppReliability tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHDriverReliability/Read | DHDriverReliability tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHLogonFailures/Read | DHLogonFailures tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHLogonMetrics/Read | DHLogonMetrics tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHOSCrashData/Read | DHOSCrashData tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHOSReliability/Read | DHOSReliability tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DHWipAppLearning/Read | DHWipAppLearning tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DnsEvents/Read | DnsEvents tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/DnsInventory/Read | DnsInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ETWEvent/Read | ETWEvent tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/AlertHistory/Read | AlertHistory tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ApplicationInsights/Read | ApplicationInsights tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/AzureActivity/Read | AzureActivity tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/AzureMetrics/Read | AzureMetrics tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/BoundPort/Read | BoundPort tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/CommonSecurityLog/Read | CommonSecurityLog tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ComputerGroup/Read | ComputerGroup tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ConfigurationChange/Read | ConfigurationChange tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ConfigurationData/Read | ConfigurationData tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ContainerImageInventory/Read | ContainerImageInventory tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ContainerInventory/Read | ContainerInventory tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ContainerLog/Read | ContainerLog tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ContainerServiceLog/Read | ContainerServiceLog tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceAppCrash/Read | DeviceAppCrash tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceAppLaunch/Read | DeviceAppLaunch tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceCalendar/Read | DeviceCalendar tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceCleanup/Read | DeviceCleanup tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceConnectSession/Read | DeviceConnectSession tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceEtw/Read | DeviceEtw tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceHardwareHealth/Read | DeviceHardwareHealth tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceHealth/Read | DeviceHealth tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceHeartbeat/Read | DeviceHeartbeat tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceSkypeHeartbeat/Read | DeviceSkypeHeartbeat tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceSkypeSignIn/Read | DeviceSkypeSignIn tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DeviceSleepState/Read | DeviceSleepState tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHAppFailure/Read | DHAppFailure tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHAppReliability/Read | DHAppReliability tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHDriverReliability/Read | DHDriverReliability tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHLogonFailures/Read | DHLogonFailures tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHLogonMetrics/Read | DHLogonMetrics tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHOSCrashData/Read | DHOSCrashData tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHOSReliability/Read | DHOSReliability tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DHWipAppLearning/Read | DHWipAppLearning tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DnsEvents/Read | DnsEvents tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/DnsInventory/Read | DnsInventory tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ETWEvent/Read | ETWEvent tablosundan veri oku |
 > | Eylem | Microsoft.Insights/Logs/Event/Read | Event tablosundan veri oku |
-> | Eylem | Microsoft.Insights/Logs/ExchangeAssessmentRecommendation/Read | ExchangeAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ExchangeOnlineAssessmentRecommendation/Read | ExchangeOnlineAssessmentRecommendation tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/ExchangeAssessmentRecommendation/Read | ExchangeAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ExchangeOnlineAssessmentRecommendation/Read | ExchangeOnlineAssessmentRecommendation tablosundan veri oku |
 > | Eylem | Microsoft.Insights/Logs/Heartbeat/Read | Hearbeat tablosundan veri oku |
-> | Eylem | Microsoft.Insights/Logs/IISAssessmentRecommendation/Read | IISAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/InboundConnection/Read | InboundConnection tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/KubeNodeInventory/Read | KubeNodeInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/KubePodInventory/Read | KubePodInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/LinuxAuditLog/Read | LinuxAuditLog tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAApplication/Read | MAApplication tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAApplicationHealth/Read | MAApplicationHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAApplicationHealthAlternativeVersions/Read | MAApplicationHealthAlternativeVersions tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAApplicationHealthIssues/Read | MAApplicationHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAApplicationInstance/Read | MAApplicationInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAApplicationInstanceReadiness/Read | MAApplicationInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAApplicationReadiness/Read | MAApplicationReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADeploymentPlan/Read | MADeploymentPlan tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADevice/Read | MADevice tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADevicePnPHealth/Read | MADevicePnPHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADevicePnPHealthAlternativeVersions/Read | MADevicePnPHealthAlternativeVersions tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADevicePnPHealthIssues/Read | MADevicePnPHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADeviceReadiness/Read | MADeviceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADriverInstanceReadiness/Read | MADriverInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MADriverReadiness/Read | MADriverReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAddin/Read | MAOfficeAddin tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinHealth/Read | MAOfficeAddinHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinHealthIssues/Read | MAOfficeAddinHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinInstance/Read | MAOfficeAddinInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinInstanceReadiness/Read | MAOfficeAddinInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinReadiness/Read | MAOfficeAddinReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeApp/Read | MAOfficeApp tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAppHealth/Read | MAOfficeAppHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAppInstance/Read | MAOfficeAppInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeAppReadiness/Read | MAOfficeAppReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeBuildInfo/Read | MAOfficeBuildInfo tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeCurrencyAssessment/Read | MAOfficeCurrencyAssessment tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeCurrencyAssessmentDailyCounts/Read | MAOfficeCurrencyAssessmentDailyCounts tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeDeploymentStatus/Read | MAOfficeDeploymentStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroHealth/Read | MAOfficeMacroHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroHealthIssues/Read | MAOfficeMacroHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroIssueInstanceReadiness/Read | MAOfficeMacroIssueInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroIssueReadiness/Read | MAOfficeMacroIssueReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroSummary/Read | MAOfficeMacroSummary tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeSuite/Read | MAOfficeSuite tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAOfficeSuiteInstance/Read | MAOfficeSuiteInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAProposedPilotDevices/Read | MAProposedPilotDevices tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAWindowsBuildInfo/Read | MAWindowsBuildInfo tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAWindowsCurrencyAssessment/Read | MAWindowsCurrencyAssessment tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAWindowsCurrencyAssessmentDailyCounts/Read | MAWindowsCurrencyAssessmentDailyCounts tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAWindowsDeploymentStatus/Read | MAWindowsDeploymentStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/MAWindowsSysReqInstanceReadiness/Read | MAWindowsSysReqInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/NetworkMonitoring/Read | NetworkMonitoring tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/OfficeActivity/Read | OfficeActivity tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/IISAssessmentRecommendation/Read | IISAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/InboundConnection/Read | InboundConnection tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/KubeNodeInventory/Read | KubeNodeInventory tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/KubePodInventory/Read | KubePodInventory tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/LinuxAuditLog/Read | LinuxAuditLog tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAApplication/Read | MAApplication tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAApplicationHealth/Read | MAApplicationHealth tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAApplicationHealthAlternativeVersions/Read | MAApplicationHealthAlternativeVersions tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAApplicationHealthIssues/Read | MAApplicationHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAApplicationInstance/Read | MAApplicationInstance tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAApplicationInstanceReadiness/Read | MAApplicationInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAApplicationReadiness/Read | MAApplicationReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADeploymentPlan/Read | MADeploymentPlan tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADevice/Read | MADevice tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADevicePnPHealth/Read | MADevicePnPHealth tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADevicePnPHealthAlternativeVersions/Read | MADevicePnPHealthAlternativeVersions tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADevicePnPHealthIssues/Read | MADevicePnPHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADeviceReadiness/Read | MADeviceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADriverInstanceReadiness/Read | MADriverInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MADriverReadiness/Read | MADriverReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAddin/Read | MAOfficeAddin tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinHealth/Read | MAOfficeAddinHealth tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinHealthIssues/Read | MAOfficeAddinHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinInstance/Read | MAOfficeAddinInstance tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinInstanceReadiness/Read | MAOfficeAddinInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAddinReadiness/Read | MAOfficeAddinReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeApp/Read | MAOfficeApp tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAppHealth/Read | MAOfficeAppHealth tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAppInstance/Read | MAOfficeAppInstance tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeAppReadiness/Read | MAOfficeAppReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeBuildInfo/Read | MAOfficeBuildInfo tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeCurrencyAssessment/Read | MAOfficeCurrencyAssessment tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeCurrencyAssessmentDailyCounts/Read | MAOfficeCurrencyAssessmentDailyCounts tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeDeploymentStatus/Read | MAOfficeDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroHealth/Read | MAOfficeMacroHealth tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroHealthIssues/Read | MAOfficeMacroHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroIssueInstanceReadiness/Read | MAOfficeMacroIssueInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroIssueReadiness/Read | MAOfficeMacroIssueReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeMacroSummary/Read | MAOfficeMacroSummary tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeSuite/Read | MAOfficeSuite tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAOfficeSuiteInstance/Read | MAOfficeSuiteInstance tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAProposedPilotDevices/Read | MAProposedPilotDevices tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAWindowsBuildInfo/Read | MAWindowsBuildInfo tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAWindowsCurrencyAssessment/Read | MAWindowsCurrencyAssessment tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAWindowsCurrencyAssessmentDailyCounts/Read | MAWindowsCurrencyAssessmentDailyCounts tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAWindowsDeploymentStatus/Read | MAWindowsDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/MAWindowsSysReqInstanceReadiness/Read | MAWindowsSysReqInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/NetworkMonitoring/Read | NetworkMonitoring tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/OfficeActivity/Read | OfficeActivity tablosundan veri oku |
 > | Eylem | Microsoft.Insights/Logs/Operation/Read | Operation tablosundan veri oku |
-> | Eylem | Microsoft.Insights/Logs/OutboundConnection/Read | OutboundConnection tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/OutboundConnection/Read | OutboundConnection tablosundan veri oku |
 > | Eylem | Microsoft.Insights/Logs/Perf/Read | Perf tablosundan veri oku |
-> | Eylem | Microsoft.Insights/Logs/ProtectionStatus/Read | ProtectionStatus tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/ProtectionStatus/Read | ProtectionStatus tablosundan veri oku |
 > | Eylem | Microsoft.Insights/Logs/Read | Tüm günlüklerinizin verilerini okuma |
-> | Eylem | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | ReservedAzureCommonFields tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ReservedCommonFields/Read | ReservedCommonFields tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | SCCMAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | SCOMAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SecurityAlert/Read | SecurityAlert tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SecurityBaseline/Read | SecurityBaseline tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | SecurityBaselineSummary tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SecurityDetection/Read | SecurityDetection tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SecurityEvent/Read | SecurityEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | ServiceFabricOperationalEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ServiceFabricReliableActorEvent/Read | ServiceFabricReliableActorEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/ServiceFabricReliableServiceEvent/Read | ServiceFabricReliableServiceEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SfBAssessmentRecommendation/Read | SfBAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SfBOnlineAssessmentRecommendation/Read | SfBOnlineAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SharePointOnlineAssessmentRecommendation/Read | SharePointOnlineAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SPAssessmentRecommendation/Read | SPAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SQLAssessmentRecommendation/Read | SQLAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/SQLQueryPerformance/Read | SQLQueryPerformance tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/Syslog/Read | Syslog tablosunda veri okuma |
-> | Eylem | Microsoft.Insights/Logs/SysmonEvent/Read | SysmonEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAApp/Read | UAApp tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAComputer/Read | UAComputer tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAComputerRank/Read | UAComputerRank tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UADriver/Read | UADriver tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UADriverProblemCodes/Read | UADriverProblemCodes tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAFeedback/Read | UAFeedback tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAHardwareSecurity/Read | UAHardwareSecurity tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAIESiteDiscovery/Read | UAIESiteDiscovery tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAOfficeAddIn/Read | UAOfficeAddIn tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAProposedActionPlan/Read | UAProposedActionPlan tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UASysReqIssue/Read | UASysReqIssue tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UAUpgradedComputer/Read | UAUpgradedComputer tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/Update/Read | Güncelleştirme tablosunda veri okuma |
-> | Eylem | Microsoft.Insights/Logs/UpdateRunProgress/Read | UpdateRunProgress tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/UpdateSummary/Read | UpdateSummary tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | ReservedAzureCommonFields tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ReservedCommonFields/Read | ReservedCommonFields tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | SCCMAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | SCOMAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SecurityAlert/Read | SecurityAlert tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SecurityBaseline/Read | SecurityBaseline tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | SecurityBaselineSummary tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SecurityDetection/Read | SecurityDetection tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SecurityEvent/Read | SecurityEvent tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | ServiceFabricOperationalEvent tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ServiceFabricReliableActorEvent/Read | ServiceFabricReliableActorEvent tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/ServiceFabricReliableServiceEvent/Read | ServiceFabricReliableServiceEvent tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SfBAssessmentRecommendation/Read | SfBAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SfBOnlineAssessmentRecommendation/Read | SfBOnlineAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SharePointOnlineAssessmentRecommendation/Read | SharePointOnlineAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SPAssessmentRecommendation/Read | SPAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SQLAssessmentRecommendation/Read | SQLAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SQLQueryPerformance/Read | SQLQueryPerformance tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/Syslog/Read | Syslog tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/SysmonEvent/Read | SysmonEvent tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAApp/Read | UAApp tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAComputer/Read | UAComputer tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAComputerRank/Read | UAComputerRank tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UADriver/Read | UADriver tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UADriverProblemCodes/Read | UADriverProblemCodes tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAFeedback/Read | UAFeedback tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAHardwareSecurity/Read | UAHardwareSecurity tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAIESiteDiscovery/Read | UAIESiteDiscovery tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAOfficeAddIn/Read | UAOfficeAddIn tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAProposedActionPlan/Read | UAProposedActionPlan tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UASysReqIssue/Read | UASysReqIssue tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UAUpgradedComputer/Read | UAUpgradedComputer tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/Update/Read | Güncelleştirme tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UpdateRunProgress/Read | UpdateRunProgress tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/UpdateSummary/Read | UpdateSummary tablosundan veri oku |
 > | Eylem | Microsoft.Insights/Logs/Usage/Read | Usage tablosundan veri oku |
-> | Eylem | Microsoft.Insights/Logs/W3CIISLog/Read | W3cııslog tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WaaSDeploymentStatus/Read | WaaSDeploymentStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WaaSInsiderStatus/Read | WaaSInsiderStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WaaSUpdateStatus/Read | WaaSUpdateStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WDAVStatus/Read | WDAVStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WDAVThreat/Read | WDAVThreat tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WindowsClientAssessmentRecommendation/Read | WindowsClientAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WindowsFirewall/Read | WindowsFirewall tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WindowsServerAssessmentRecommendation/Read | WindowsServerAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WireData/Read | İletilen veri tablosunda veri okuma |
-> | Eylem | Microsoft.Insights/Logs/WUDOAggregatedStatus/Read | WUDOAggregatedStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.Insights/Logs/WUDOStatus/Read | WUDOStatus tablodaki verileri okuma |
+> | Eylem | Microsoft.Insights/Logs/W3CIISLog/Read | W3CIISLog tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WaaSDeploymentStatus/Read | WaaSDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WaaSInsiderStatus/Read | WaaSInsiderStatus tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WaaSUpdateStatus/Read | WaaSUpdateStatus tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WDAVStatus/Read | WDAVStatus tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WDAVThreat/Read | WDAVThreat tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WindowsClientAssessmentRecommendation/Read | WindowsClientAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WindowsFirewall/Read | WindowsFirewall tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WindowsServerAssessmentRecommendation/Read | WindowsServerAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WireData/Read | WireData tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WUDOAggregatedStatus/Read | WUDOAggregatedStatus tablosundan veri oku |
+> | Eylem | Microsoft.Insights/Logs/WUDOStatus/Read | WUDOStatus tablosundan veri oku |
 > | Eylem | Microsoft.Insights/MetricAlerts/Delete | Bir ölçüm uyarısını silin |
 > | Eylem | Microsoft.Insights/MetricAlerts/Read | Bir ölçüm uyarısını okuyun |
 > | Eylem | Microsoft.Insights/MetricAlerts/Status/Read | Ölçüm uyarısı durumunu oku |
@@ -2542,13 +2542,13 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | DataAction | Microsoft.Insights/Metrics/Write | Ölçümleri yaz |
 > | Eylem | Microsoft.Insights/MigrateToNewpricingModel/Action | Aboneliği yeni fiyatlandırma modeline geçirin |
 > | Eylem | Microsoft.Insights/Operations/Read | Okuma İşlemleri |
-> | Eylem | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını Kaydet |
+> | Eylem | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını kaydedin |
 > | Eylem | Microsoft.Insights/RollbackToLegacyPricingModel/Action | Aboneliği eski fiyatlandırma modeline geri alın |
 > | Eylem | Microsoft.Insights/ScheduledQueryRules/Delete | Zamanlanmış bir sorgu kuralı siliniyor |
 > | Eylem | Microsoft.Insights/ScheduledQueryRules/Read | Zamanlanmış bir sorgu kuralı okunuyor |
 > | Eylem | Microsoft.Insights/ScheduledQueryRules/Write | Zamanlanmış bir sorgu kuralı yazılıyor |
 > | Eylem | Microsoft.Insights/Tenants/Register/Action | Microsoft Insights sağlayıcısını başlatır |
-> | Eylem | Microsoft.Insights/Unregister/Action | Microsoft Insights sağlayıcısını Kaydet |
+> | Eylem | Microsoft.Insights/Unregister/Action | Microsoft Insights sağlayıcısını kaydedin |
 > | Eylem | Microsoft.Insights/Webtests/Delete | Bir web testi yapılandırmasını silme |
 > | Eylem | Microsoft.Insights/Webtests/GetToken/Read | Bir web testi belirtecini okuma |
 > | Eylem | Microsoft.Insights/Webtests/MetricDefinitions/Read | Bir web testi ölçümünün tanımlarını okuma |
@@ -2701,161 +2701,161 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | ADAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | ADReplicationResult tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | ADSecurityAssessmentRecommendation tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | ADAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | ADReplicationResult tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | ADSecurityAssessmentRecommendation tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Alert tablosundan veri oku |
-> | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | AlertHistory tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Applicationınsights tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | AlertHistory tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | ApplicationInsights tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/AuditLogs/read | Bulunan tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | AzureActivity tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | AzureMetrics tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/BoundPort/read | BoundPort tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | CommonSecurityLog tablosundan veri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | ComputerGroup tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationChange/read | ConfigurationChange tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | ConfigurationData tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerImageInventory/read | ContainerImageInventory tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | ContainerInventory tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | ContainerLog tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | ContainerServiceLog tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | DeviceAppCrash tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | DeviceAppLaunch tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | DeviceCalendar tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCleanup/read | DeviceCleanup tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceConnectSession/read | DeviceConnectSession tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceEtw/read | DeviceEtw tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHardwareHealth/read | DeviceHardwareHealth tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | DeviceHealth tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHeartbeat/read | DeviceHeartbeat tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeHeartbeat/read | DeviceSkypeHeartbeat tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeSignIn/read | DeviceSkypeSignIn tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSleepState/read | DeviceSleepState tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppFailure/read | DHAppFailure tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppReliability/read | DHAppReliability tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHDriverReliability/read | DHDriverReliability tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonFailures/read | DHLogonFailures tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonMetrics/read | DHLogonMetrics tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSCrashData/read | DHOSCrashData tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSReliability/read | DHOSReliability tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DHWipAppLearning/read | DHWipAppLearning tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | DnsEvents tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | DnsInventory tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | ETWEvent tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | AzureActivity tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | AzureMetrics tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/BoundPort/read | BoundPort tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | CommonSecurityLog tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | ComputerGroup tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationChange/read | ConfigurationChange tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | ConfigurationData tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerImageInventory/read | ContainerImageInventory tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | ContainerInventory tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | ContainerLog tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | ContainerServiceLog tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | DeviceAppCrash tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | DeviceAppLaunch tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | DeviceCalendar tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceCleanup/read | DeviceCleanup tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceConnectSession/read | DeviceConnectSession tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceEtw/read | DeviceEtw tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceHardwareHealth/read | DeviceHardwareHealth tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | DeviceHealth tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceHeartbeat/read | DeviceHeartbeat tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeHeartbeat/read | DeviceSkypeHeartbeat tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeSignIn/read | DeviceSkypeSignIn tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceSleepState/read | DeviceSleepState tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHAppFailure/read | DHAppFailure tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHAppReliability/read | DHAppReliability tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHDriverReliability/read | DHDriverReliability tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHLogonFailures/read | DHLogonFailures tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHLogonMetrics/read | DHLogonMetrics tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHOSCrashData/read | DHOSCrashData tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHOSReliability/read | DHOSReliability tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DHWipAppLearning/read | DHWipAppLearning tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | DnsEvents tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | DnsInventory tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | ETWEvent tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/Event/read | Event tablosundan veri oku |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | ExchangeAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | ExchangeOnlineAssessmentRecommendation tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | ExchangeAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | ExchangeOnlineAssessmentRecommendation tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Hearbeat tablosundan veri oku |
-> | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | IISAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | InboundConnection tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | IISAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | InboundConnection tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/KubeEvents/read | KubeEvents tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | KubeNodeInventory tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/KubePodInventory/read | KubePodInventory tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | KubeNodeInventory tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/KubePodInventory/read | KubePodInventory tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/KubeServices/read | KubeServices tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | LinuxAuditLog tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplication/read | MAApplication tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealth/read | MAApplicationHealth tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthAlternativeVersions/read | MAApplicationHealthAlternativeVersions tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthIssues/read | MAApplicationHealthIssues tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstance/read | MAApplicationInstance tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstanceReadiness/read | MAApplicationInstanceReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationReadiness/read | MAApplicationReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeploymentPlan/read | MADeploymentPlan tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevice/read | MADevice tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealth/read | MADevicePnPHealth tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthAlternativeVersions/read | MADevicePnPHealthAlternativeVersions tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthIssues/read | MADevicePnPHealthIssues tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeviceReadiness/read | MADeviceReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverInstanceReadiness/read | MADriverInstanceReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverReadiness/read | MADriverReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddin/read | MAOfficeAddin tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealth/read | MAOfficeAddinHealth tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealthIssues/read | MAOfficeAddinHealthIssues tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstance/read | MAOfficeAddinInstance tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstanceReadiness/read | MAOfficeAddinInstanceReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinReadiness/read | MAOfficeAddinReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeApp/read | MAOfficeApp tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppHealth/read | MAOfficeAppHealth tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppInstance/read | MAOfficeAppInstance tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppReadiness/read | MAOfficeAppReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeBuildInfo/read | MAOfficeBuildInfo tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessment/read | MAOfficeCurrencyAssessment tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessmentDailyCounts/read | MAOfficeCurrencyAssessmentDailyCounts tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeDeploymentStatus/read | MAOfficeDeploymentStatus tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealth/read | MAOfficeMacroHealth tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealthIssues/read | MAOfficeMacroHealthIssues tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueInstanceReadiness/read | MAOfficeMacroIssueInstanceReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueReadiness/read | MAOfficeMacroIssueReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroSummary/read | MAOfficeMacroSummary tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuite/read | MAOfficeSuite tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuiteInstance/read | MAOfficeSuiteInstance tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAProposedPilotDevices/read | MAProposedPilotDevices tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsBuildInfo/read | MAWindowsBuildInfo tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessment/read | MAWindowsCurrencyAssessment tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessmentDailyCounts/read | MAWindowsCurrencyAssessmentDailyCounts tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsDeploymentStatus/read | MAWindowsDeploymentStatus tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | MAWindowsSysReqInstanceReadiness tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | NetworkMonitoring tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | OfficeActivity tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | LinuxAuditLog tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplication/read | MAApplication tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealth/read | MAApplicationHealth tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthAlternativeVersions/read | MAApplicationHealthAlternativeVersions tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthIssues/read | MAApplicationHealthIssues tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstance/read | MAApplicationInstance tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstanceReadiness/read | MAApplicationInstanceReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationReadiness/read | MAApplicationReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADeploymentPlan/read | MADeploymentPlan tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevice/read | MADevice tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealth/read | MADevicePnPHealth tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthAlternativeVersions/read | MADevicePnPHealthAlternativeVersions tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthIssues/read | MADevicePnPHealthIssues tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADeviceReadiness/read | MADeviceReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADriverInstanceReadiness/read | MADriverInstanceReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MADriverReadiness/read | MADriverReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddin/read | MAOfficeAddin tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealth/read | MAOfficeAddinHealth tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealthIssues/read | MAOfficeAddinHealthIssues tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstance/read | MAOfficeAddinInstance tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstanceReadiness/read | MAOfficeAddinInstanceReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinReadiness/read | MAOfficeAddinReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeApp/read | MAOfficeApp tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppHealth/read | MAOfficeAppHealth tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppInstance/read | MAOfficeAppInstance tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppReadiness/read | MAOfficeAppReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeBuildInfo/read | MAOfficeBuildInfo tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessment/read | MAOfficeCurrencyAssessment tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessmentDailyCounts/read | MAOfficeCurrencyAssessmentDailyCounts tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeDeploymentStatus/read | MAOfficeDeploymentStatus tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealth/read | MAOfficeMacroHealth tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealthIssues/read | MAOfficeMacroHealthIssues tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueInstanceReadiness/read | MAOfficeMacroIssueInstanceReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueReadiness/read | MAOfficeMacroIssueReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroSummary/read | MAOfficeMacroSummary tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuite/read | MAOfficeSuite tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuiteInstance/read | MAOfficeSuiteInstance tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAProposedPilotDevices/read | MAProposedPilotDevices tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsBuildInfo/read | MAWindowsBuildInfo tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessment/read | MAWindowsCurrencyAssessment tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessmentDailyCounts/read | MAWindowsCurrencyAssessmentDailyCounts tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsDeploymentStatus/read | MAWindowsDeploymentStatus tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | MAWindowsSysReqInstanceReadiness tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | NetworkMonitoring tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | OfficeActivity tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Operation tablosundan veri oku |
-> | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | OutboundConnection tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | OutboundConnection tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Perf tablosundan veri oku |
-> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | ProtectionStatus tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | ProtectionStatus tablosundan veri oku |
 > | Eylem | Microsoft.LogAnalytics/logs/read | Tüm günlüklerinizin verilerini okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | ReservedAzureCommonFields tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | ReservedCommonFields tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | SCCMAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SCOMAssessmentRecommendation/read | SCOMAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | SecurityAlert tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | SecurityBaseline tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | SecurityBaselineSummary tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | SecurityDetection tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | SecurityEvent tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | ServiceFabricOperationalEvent tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | ServiceFabricReliableActorEvent tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | ServiceFabricReliableServiceEvent tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | SfBAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | SfBOnlineAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | SharePointOnlineAssessmentRecommendation tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | ReservedAzureCommonFields tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | ReservedCommonFields tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | SCCMAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SCOMAssessmentRecommendation/read | SCOMAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | SecurityAlert tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | SecurityBaseline tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | SecurityBaselineSummary tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | SecurityDetection tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | SecurityEvent tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | ServiceFabricOperationalEvent tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | ServiceFabricReliableActorEvent tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | ServiceFabricReliableServiceEvent tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | SfBAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | SfBOnlineAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | SharePointOnlineAssessmentRecommendation tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/SigninLogs/read | SigninLogs tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | SPAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | SQLAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | SQLQueryPerformance tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Syslog tablosunda veri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | SysmonEvent tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | SPAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | SQLAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | SQLQueryPerformance tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Syslog tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | SysmonEvent tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/Tables.Custom/read | Herhangi bir özel günlüğün verilerini okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | UAApp tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | UAComputer tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputerRank/read | UAComputerRank tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriver/read | UADriver tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriverProblemCodes/read | UADriverProblemCodes tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAFeedback/read | UAFeedback tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAHardwareSecurity/read | UAHardwareSecurity tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAIESiteDiscovery/read | UAIESiteDiscovery tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAOfficeAddIn/read | UAOfficeAddIn tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | UAProposedActionPlan tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | UASysReqIssue tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | UAUpgradedComputer tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Güncelleştirme tablosunda veri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | UpdateRunProgress tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | UpdateSummary tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | UAApp tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | UAComputer tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAComputerRank/read | UAComputerRank tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UADriver/read | UADriver tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UADriverProblemCodes/read | UADriverProblemCodes tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAFeedback/read | UAFeedback tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAHardwareSecurity/read | UAHardwareSecurity tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAIESiteDiscovery/read | UAIESiteDiscovery tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAOfficeAddIn/read | UAOfficeAddIn tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | UAProposedActionPlan tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | UASysReqIssue tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | UAUpgradedComputer tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Güncelleştirme tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | UpdateRunProgress tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | UpdateSummary tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Usage tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/VMBoundPort/read | VMBoundPort tablodaki verileri okuma |
 > | DataAction | Microsoft.LogAnalytics/logs/VMConnection/read | VMConnection tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | W3cııslog tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSDeploymentStatus/read | WaaSDeploymentStatus tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSInsiderStatus/read | WaaSInsiderStatus tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSUpdateStatus/read | WaaSUpdateStatus tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVStatus/read | WDAVStatus tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVThreat/read | WDAVThreat tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | WindowsClientAssessmentRecommendation tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | W3CIISLog tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WaaSDeploymentStatus/read | WaaSDeploymentStatus tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WaaSInsiderStatus/read | WaaSInsiderStatus tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WaaSUpdateStatus/read | WaaSUpdateStatus tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WDAVStatus/read | WDAVStatus tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WDAVThreat/read | WDAVThreat tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | WindowsClientAssessmentRecommendation tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsEvent/read | WindowsEvent tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | WindowsFirewall tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | WindowsServerAssessmentRecommendation tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | İletilen veri tablosunda veri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | WindowsFirewall tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | WindowsServerAssessmentRecommendation tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | WireData tablosundan veri oku |
 > | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | WorkloadMonitoringPerf tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | WUDOAggregatedStatus tablodaki verileri okuma |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | WUDOStatus tablodaki verileri okuma |
+> | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | WUDOAggregatedStatus tablosundan veri oku |
+> | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | WUDOStatus tablosundan veri oku |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -2907,7 +2907,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Logic/integrationServiceEnvironments/providers/Microsoft.Insights/metricDefinitions/read | Tümleştirme hizmeti ortamı ölçüm tanımlarını okur. |
 > | Eylem | Microsoft.Logic/integrationServiceEnvironments/read | Tümleştirme hizmeti ortamını okur. |
 > | Eylem | Microsoft.Logic/integrationServiceEnvironments/write | Tümleştirme hizmeti ortamını oluşturur veya güncelleştirir. |
-> | Eylem | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | İş akışı, önerilen işlem grupları alır. |
+> | Eylem | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | Önerilen iş akışı işlem gruplarını alır. |
 > | Eylem | Microsoft.Logic/locations/workflows/validate/action | İş akışını doğrular. |
 > | Eylem | Microsoft.Logic/operations/read | İşlemi alır. |
 > | Eylem | Microsoft.Logic/register/action | Belirli bir abonelik için Microsoft.Logic kaynak sağlayıcısını kaydeder. |
@@ -3171,7 +3171,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Media/mediaservices/streamingPolicies/write | Herhangi bir akış ilke güncelle |
 > | Eylem | Microsoft.Media/mediaservices/syncStorageKeys/action | Bağlı Azure depolama hesabı için depolama anahtarları Eşitle |
 > | Eylem | Microsoft.Media/mediaservices/transforms/delete | Herhangi bir dönüştürme Sil |
-> | Eylem | Microsoft.Media/mediaservices/transforms/jobs/cancelJob/action | İşi İptal Et |
+> | Eylem | Microsoft.Media/mediaservices/transforms/jobs/cancelJob/action | İşi iptal et |
 > | Eylem | Microsoft.Media/mediaservices/transforms/jobs/delete | Herhangi bir işi Sil |
 > | Eylem | Microsoft.Media/mediaservices/transforms/jobs/read | Herhangi bir işi okuma |
 > | Eylem | Microsoft.Media/mediaservices/transforms/jobs/write | Herhangi bir işi güncelle |
@@ -3453,7 +3453,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Network/networkSecurityGroups/delete | Bir ağ güvenlik grubunu siler |
 > | Eylem | Microsoft.Network/networkSecurityGroups/join/action | Bir ağ güvenlik grubu birleştirir |
 > | Eylem | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Ağ Güvenlik Grupları Tanılama Ayarlarını alır |
-> | Eylem | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Ağ Güvenlik Grubu tanılama ayarları oluşturur veya güncelleştirir, bu işlem öngörüler kaynak sağlayıcısı tarafından desteklenir. |
+> | Eylem | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Oluşturur veya ağ güvenlik grupları tanılama ayarları, bu işlem kaynak sağlayıcısı tarafından takıma güncelleştirir. |
 > | Eylem | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Ağ güvenlik grubunun olaylarını alır |
 > | Eylem | Microsoft.Network/networkSecurityGroups/read | Bir ağ güvenlik grubu tanımı alır |
 > | Eylem | Microsoft.Network/networkSecurityGroups/securityRules/delete | Güvenlik kuralını siler |
@@ -3573,7 +3573,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/read | Bir iç içe Traffic Manager iç içe uç noktanın tüm özellikleri dahil olmak üzere bir profiline ait uç noktasını alır. |
 > | Eylem | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/write | Var olan bir Traffic Manager profilini yeni bir iç içe uç nokta ekleyin veya mevcut bir iç içe uç noktası, Traffic Manager profilindeki özelliklerini güncelleştirir. |
 > | Eylem | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read | Traffic Manager tanılama ayarlarını alır. |
-> | Eylem | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Oluşturur veya Traffic Manager tanılama ayarlarını güncelleştirir bu işlem Öngörüler kaynak sağlayıcısı tarafından Öngörüler. |
+> | Eylem | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Oluşturur veya tanılama ayarları, bu işlem Öngörüler kaynak sağlayıcısı tarafından takıma Traffic Manager güncelleştirir. |
 > | Eylem | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Traffic Manager için olayları alır |
 > | Eylem | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Traffic Manager için kullanılabilir ölçümleri alır. |
 > | Eylem | Microsoft.Network/trafficManagerProfiles/read | Traffic Manager profilinin yapılandırma alın. Bu, DNS ayarları, trafik yönlendirme ayarlarını, uç nokta izleme ayarları ve bu Traffic Manager profili tarafından yönlendirilen bitiş noktaları listesini içerir. |
@@ -3599,7 +3599,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Network/virtualnetworkgateways/getvpnclientipsecparameters/Action | Vpnclient IPSec parametreleri için VirtualNetworkGateway P2S istemcilere alın. |
 > | Eylem | Microsoft.Network/virtualnetworkgateways/getvpnprofilepackageurl/Action | Önceden oluşturulan vpn istemci profili paket URL'sini alır |
 > | Eylem | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Sanal ağ geçidi tanılama ayarlarını alır. |
-> | Eylem | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Oluşturur veya sanal ağ geçidi tanılama ayarlarını güncelleştirir bu işlem Öngörüler kaynak sağlayıcısı tarafından Öngörüler. |
+> | Eylem | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Oluşturur veya sanal ağ geçidi tanılama ayarları, bu işlem Öngörüler kaynak sağlayıcısı tarafından takıma güncelleştirir. |
 > | Eylem | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Sanal ağ geçidi için olayları alır |
 > | Eylem | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Sanal ağ geçidi için kullanılabilir ölçümleri alır |
 > | Eylem | Microsoft.Network/virtualNetworkGateways/read | Bir VirtualNetworkGateway alır |
@@ -3810,161 +3810,161 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.OperationalInsights/workspaces/notificationSettings/read | Çalışma alanının Kullanıcı bildirim ayarlarını alın. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/notificationSettings/write | Çalışma alanının Kullanıcı bildirim ayarlarını ayarlayın. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/purge/action | Belirtilen veriyi çalışma alanından silin |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | ADAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | ADReplicationResult tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | ADSecurityAssessmentRecommendation tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | ADAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | ADReplicationResult tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | ADSecurityAssessmentRecommendation tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/Alert/read | Alert tablosundan veri oku |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | AlertHistory tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Applicationınsights tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | AlertHistory tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | ApplicationInsights tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Bulunan tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | AzureActivity tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | AzureMetrics tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | BoundPort tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | CommonSecurityLog tablosundan veri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | ComputerGroup tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read | ConfigurationChange tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ConfigurationData/read | ConfigurationData tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | ContainerImageInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | ContainerInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | ContainerLog tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | ContainerServiceLog tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | DeviceAppCrash tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | DeviceAppLaunch tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | DeviceCalendar tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | DeviceCleanup tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | DeviceConnectSession tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | DeviceEtw tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | DeviceHardwareHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | DeviceHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | DeviceHeartbeat tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | DeviceSkypeHeartbeat tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | DeviceSkypeSignIn tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | DeviceSleepState tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHAppFailure/read | DHAppFailure tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHAppReliability/read | DHAppReliability tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHDriverReliability/read | DHDriverReliability tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHLogonFailures/read | DHLogonFailures tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHLogonMetrics/read | DHLogonMetrics tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHOSCrashData/read | DHOSCrashData tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHOSReliability/read | DHOSReliability tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHWipAppLearning/read | DHWipAppLearning tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DnsEvents/read | DnsEvents tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/DnsInventory/read | DnsInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ETWEvent/read | ETWEvent tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | AzureActivity tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | AzureMetrics tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | BoundPort tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | CommonSecurityLog tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | ComputerGroup tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read | ConfigurationChange tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ConfigurationData/read | ConfigurationData tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | ContainerImageInventory tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | ContainerInventory tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | ContainerLog tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | ContainerServiceLog tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | DeviceAppCrash tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | DeviceAppLaunch tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | DeviceCalendar tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | DeviceCleanup tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | DeviceConnectSession tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | DeviceEtw tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | DeviceHardwareHealth tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | DeviceHealth tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | DeviceHeartbeat tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | DeviceSkypeHeartbeat tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | DeviceSkypeSignIn tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | DeviceSleepState tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHAppFailure/read | DHAppFailure tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHAppReliability/read | DHAppReliability tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHDriverReliability/read | DHDriverReliability tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHLogonFailures/read | DHLogonFailures tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHLogonMetrics/read | DHLogonMetrics tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHOSCrashData/read | DHOSCrashData tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHOSReliability/read | DHOSReliability tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DHWipAppLearning/read | DHWipAppLearning tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DnsEvents/read | DnsEvents tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/DnsInventory/read | DnsInventory tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ETWEvent/read | ETWEvent tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/Event/read | Event tablosundan veri oku |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | ExchangeAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | ExchangeOnlineAssessmentRecommendation tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | ExchangeAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | ExchangeOnlineAssessmentRecommendation tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Hearbeat tablosundan veri oku |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | IISAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | InboundConnection tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | IISAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | InboundConnection tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | KubeEvents tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | KubeNodeInventory tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | KubePodInventory tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | KubeNodeInventory tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | KubePodInventory tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/KubeServices/read | KubeServices tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | LinuxAuditLog tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | MAApplication tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | MAApplicationHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthAlternativeVersions/read | MAApplicationHealthAlternativeVersions tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthIssues/read | MAApplicationHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstance/read | MAApplicationInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstanceReadiness/read | MAApplicationInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationReadiness/read | MAApplicationReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | MADeploymentPlan tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevice/read | MADevice tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | MADevicePnPHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | MADevicePnPHealthAlternativeVersions tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | MADevicePnPHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | MADeviceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | MADriverInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | MADriverReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | MAOfficeAddin tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | MAOfficeAddinHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | MAOfficeAddinHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | MAOfficeAddinInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | MAOfficeAddinInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | MAOfficeAddinReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | MAOfficeApp tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | MAOfficeAppHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | MAOfficeAppInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | MAOfficeAppReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | MAOfficeBuildInfo tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | MAOfficeCurrencyAssessment tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | MAOfficeCurrencyAssessmentDailyCounts tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | MAOfficeDeploymentStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | MAOfficeMacroHealth tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | MAOfficeMacroHealthIssues tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | MAOfficeMacroIssueInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | MAOfficeMacroIssueReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroSummary/read | MAOfficeMacroSummary tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuite/read | MAOfficeSuite tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuiteInstance/read | MAOfficeSuiteInstance tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAProposedPilotDevices/read | MAProposedPilotDevices tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsBuildInfo/read | MAWindowsBuildInfo tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | MAWindowsCurrencyAssessment tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | MAWindowsCurrencyAssessmentDailyCounts tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | MAWindowsDeploymentStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | MAWindowsSysReqInstanceReadiness tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | NetworkMonitoring tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | OfficeActivity tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | LinuxAuditLog tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | MAApplication tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | MAApplicationHealth tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthAlternativeVersions/read | MAApplicationHealthAlternativeVersions tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthIssues/read | MAApplicationHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstance/read | MAApplicationInstance tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstanceReadiness/read | MAApplicationInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAApplicationReadiness/read | MAApplicationReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | MADeploymentPlan tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevice/read | MADevice tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | MADevicePnPHealth tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | MADevicePnPHealthAlternativeVersions tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | MADevicePnPHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | MADeviceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | MADriverInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | MADriverReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | MAOfficeAddin tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | MAOfficeAddinHealth tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | MAOfficeAddinHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | MAOfficeAddinInstance tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | MAOfficeAddinInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | MAOfficeAddinReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | MAOfficeApp tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | MAOfficeAppHealth tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | MAOfficeAppInstance tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | MAOfficeAppReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | MAOfficeBuildInfo tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | MAOfficeCurrencyAssessment tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | MAOfficeCurrencyAssessmentDailyCounts tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | MAOfficeDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | MAOfficeMacroHealth tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | MAOfficeMacroHealthIssues tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | MAOfficeMacroIssueInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | MAOfficeMacroIssueReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroSummary/read | MAOfficeMacroSummary tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuite/read | MAOfficeSuite tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuiteInstance/read | MAOfficeSuiteInstance tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAProposedPilotDevices/read | MAProposedPilotDevices tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsBuildInfo/read | MAWindowsBuildInfo tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | MAWindowsCurrencyAssessment tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | MAWindowsCurrencyAssessmentDailyCounts tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | MAWindowsDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | MAWindowsSysReqInstanceReadiness tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | NetworkMonitoring tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | OfficeActivity tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/Operation/read | Operation tablosundan veri oku |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | OutboundConnection tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | OutboundConnection tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/Perf/read | Perf tablosundan veri oku |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | ProtectionStatus tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | ProtectionStatus tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/read | Çalışma alanındaki veriler üzerinde sorgular çalıştırın. |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | ReservedAzureCommonFields tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | ReservedCommonFields tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | SCCMAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SCOMAssessmentRecommendation/read | SCOMAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read | SecurityAlert tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read | SecurityBaseline tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | SecurityBaselineSummary tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | SecurityDetection tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | SecurityEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | ServiceFabricOperationalEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | ServiceFabricReliableActorEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | ServiceFabricReliableServiceEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | SfBAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | SfBOnlineAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | SharePointOnlineAssessmentRecommendation tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | ReservedAzureCommonFields tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | ReservedCommonFields tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | SCCMAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SCOMAssessmentRecommendation/read | SCOMAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read | SecurityAlert tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read | SecurityBaseline tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | SecurityBaselineSummary tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | SecurityDetection tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | SecurityEvent tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | ServiceFabricOperationalEvent tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | ServiceFabricReliableActorEvent tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | ServiceFabricReliableServiceEvent tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | SfBAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | SfBOnlineAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | SharePointOnlineAssessmentRecommendation tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/SigninLogs/read | SigninLogs tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | SPAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | SQLAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | SQLQueryPerformance tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Syslog tablosunda veri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | SysmonEvent tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | SPAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | SQLAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | SQLQueryPerformance tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Syslog tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | SysmonEvent tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Herhangi bir özel günlüğün verilerini okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAApp/read | UAApp tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | UAComputer tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAComputerRank/read | UAComputerRank tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UADriver/read | UADriver tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UADriverProblemCodes/read | UADriverProblemCodes tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAFeedback/read | UAFeedback tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAHardwareSecurity/read | UAHardwareSecurity tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAIESiteDiscovery/read | UAIESiteDiscovery tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAOfficeAddIn/read | UAOfficeAddIn tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAProposedActionPlan/read | UAProposedActionPlan tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UASysReqIssue/read | UASysReqIssue tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAUpgradedComputer/read | UAUpgradedComputer tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/Update/read | Güncelleştirme tablosunda veri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read | UpdateRunProgress tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read | UpdateSummary tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAApp/read | UAApp tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | UAComputer tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAComputerRank/read | UAComputerRank tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UADriver/read | UADriver tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UADriverProblemCodes/read | UADriverProblemCodes tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAFeedback/read | UAFeedback tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAHardwareSecurity/read | UAHardwareSecurity tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAIESiteDiscovery/read | UAIESiteDiscovery tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAOfficeAddIn/read | UAOfficeAddIn tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAProposedActionPlan/read | UAProposedActionPlan tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UASysReqIssue/read | UASysReqIssue tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UAUpgradedComputer/read | UAUpgradedComputer tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/Update/read | Güncelleştirme tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read | UpdateRunProgress tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read | UpdateSummary tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/Usage/read | Usage tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/VMBoundPort/read | VMBoundPort tablodaki verileri okuma |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/VMConnection/read | VMConnection tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | W3cııslog tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | WaaSDeploymentStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | WaaSInsiderStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | WaaSUpdateStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | WDAVStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | WDAVThreat tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | WindowsClientAssessmentRecommendation tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | W3CIISLog tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | WaaSDeploymentStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | WaaSInsiderStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | WaaSUpdateStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | WDAVStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | WDAVThreat tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | WindowsClientAssessmentRecommendation tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/WindowsEvent/read | WindowsEvent tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | WindowsFirewall tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | WindowsServerAssessmentRecommendation tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WireData/read | İletilen veri tablosunda veri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | WindowsFirewall tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | WindowsServerAssessmentRecommendation tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WireData/read | WireData tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/query/WorkloadMonitoringPerf/read | WorkloadMonitoringPerf tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | WUDOAggregatedStatus tablodaki verileri okuma |
-> | Eylem | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | WUDOStatus tablodaki verileri okuma |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | WUDOAggregatedStatus tablosundan veri oku |
+> | Eylem | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | WUDOStatus tablosundan veri oku |
 > | Eylem | Microsoft.OperationalInsights/workspaces/read | Mevcut bir çalışma alanını alır |
 > | Eylem | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | Belirtilen çalışma alanı paylaşılan anahtarı yeniden oluşturur |
 > | Eylem | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Kaydedilmiş bir arama sorgusunu siler |
@@ -4265,7 +4265,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Relay/namespaces/WcfRelays/read | WcfRelay kaynak açıklamalarının listesini alın |
 > | Eylem | Microsoft.Relay/namespaces/WcfRelays/write | Oluşturma veya güncelleştirme WcfRelay özellikleri. |
 > | Eylem | Microsoft.Relay/namespaces/write | Namespace kaynağı oluşturun ve özelliklerini güncelleştirin. Etiketleri ve kapasitesi Namespace hangi güncelleştirilebilecek özelliklerdir. |
-> | Eylem | Microsoft.Relay/operations/read | İşlemleri Al |
+> | Eylem | Microsoft.Relay/operations/read | Alma İşlemleri |
 > | Eylem | Microsoft.Relay/register/action | Aboneliği geçiş kaynak sağlayıcısı için kaydeder ve Geçiş kaynaklarının oluşturulmasını sağlar |
 > | Eylem | Microsoft.Relay/unregister/action | Aboneliği geçiş kaynak sağlayıcısı için kaydeder ve Geçiş kaynaklarının oluşturulmasını sağlar |
 
@@ -4284,9 +4284,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Resourcehealth/healthevent/Resolved/action | Belirtilen kaynaktaki sistem durumu değişikliğini gösterir |
 > | Eylem | Microsoft.Resourcehealth/healthevent/Updated/action | Belirtilen kaynaktaki sistem durumu değişikliğini gösterir |
 > | Eylem | Microsoft.ResourceHealth/impactedResources/read | Seçili abonelik için Etkilenen Kaynaklar'ı al |
-> | Eylem | Microsoft.ResourceHealth/Operations/read | Microsoft ResourceHealth için aboneliği işlemleri Al |
+> | Eylem | Microsoft.ResourceHealth/Operations/read | Microsoft ResourceHealth için kullanılabilen işlemleri al |
 > | Eylem | Microsoft.ResourceHealth/register/action | Microsoft ResourceHealth için aboneliği kaydeder |
-> | Eylem | Microsoft.ResourceHealth/unregister/action | Microsoft ResourceHealth için aboneliği kaydını siler |
+> | Eylem | Microsoft.ResourceHealth/unregister/action | Microsoft ResourceHealth aboneliğinin kaydını siler |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -4490,7 +4490,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ServiceBus/namespaces/topics/subscriptions/write | Oluşturma veya güncelleştirme TopicSubscription özellikleri. |
 > | Eylem | Microsoft.ServiceBus/namespaces/topics/write | Oluşturma veya güncelleştirme konu özellikleri. |
 > | Eylem | Microsoft.ServiceBus/namespaces/write | Namespace kaynağı oluşturun ve özelliklerini güncelleştirin. Etiketleri ve kapasitesi Namespace hangi güncelleştirilebilecek özelliklerdir. |
-> | Eylem | Microsoft.ServiceBus/operations/read | İşlemleri Al |
+> | Eylem | Microsoft.ServiceBus/operations/read | Alma İşlemleri |
 > | Eylem | Microsoft.ServiceBus/register/action | Aboneliği ServiceBus kaynak sağlayıcısı için kaydeder ve ServiceBus kaynaklarının oluşturulmasını sağlar |
 > | Eylem | Microsoft.ServiceBus/sku/read | Sku kaynak açıklamalarının listesini alın |
 > | Eylem | Microsoft.ServiceBus/sku/regions/read | SkuRegions kaynak açıklamalarının listesini alın |
@@ -4906,7 +4906,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir. |
 > | Eylem | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Dosya için günlük tanımını alır |
 > | Eylem | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Microsoft Depolama Ölçümleri tanımlarının listesini alın. |
-> | Eylem | Microsoft.Storage/storageAccounts/lastsynctime/read | Depolama hesabı'nın son eşitleme zamanı döndürür |
+> | Eylem | Microsoft.Storage/storageAccounts/lastsynctime/read | Depolama hesabının son eşitleme zamanını döndürür |
 > | Eylem | Microsoft.Storage/storageAccounts/listAccountSas/action | Belirtilen depolama hesabı için Hesap SAS belirtecini döndürür. |
 > | Eylem | Microsoft.Storage/storageAccounts/listkeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
 > | Eylem | Microsoft.Storage/storageAccounts/listServiceSas/action | Belirtilen depolama hesabı için Hizmet SAS belirtecini döndürür. |
@@ -4929,7 +4929,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Storage/storageAccounts/queueServices/write | Kuyruk hizmeti özelliklerini ayarlamanın sonucunu döndürür |
 > | Eylem | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
 > | Eylem | Microsoft.Storage/storageAccounts/regeneratekey/action | Belirtilen depolama hesabının erişim anahtarlarını yeniden oluşturur. |
-> | Eylem | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Belirtilen depolama hesabı için tüm kullanıcı temsilcisi anahtarlar iptal eder. |
+> | Eylem | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Belirtilen depolama hesabı için tüm kullanıcı temsilcisi anahtarlarını iptal eder. |
 > | Eylem | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Depolama hesabı tanılama ayarlarını oluşturun/güncelleştirin. |
 > | Eylem | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın tanılama ayarını alır. |
 > | Eylem | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir. |
