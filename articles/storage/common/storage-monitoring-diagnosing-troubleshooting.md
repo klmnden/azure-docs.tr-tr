@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 1b949d2baedc7a7da3230212e267c3ac98b30bbd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239551"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626006"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -56,8 +56,8 @@ Uçtan uca Azure depolama uygulamalarda sorun giderme uygulamalı kılavuzu içi
   * [Ölçümler PercentThrottlingError’da artış gösteriyor]
   * [Ölçümler PercentTimeoutError’da artış gösteriyor]
   * [Ölçümler PercentNetworkError’da artış gösteriyor]
-  * [İstemci, HTTP 403 (Yasak) iletilerini alma]
-  * [İstemci, HTTP 404 (bulunamadı) iletilerini alma]
+  * [İstemci HTTP 403 (Yasak) iletilerini alıyor]
+  * [İstemci HTTP 404 (Bulunamadı) iletilerini alıyor]
   * [İstemci HTTP 409 (Çakışma) iletileri alma]
   * [Düşük PercentSuccess ölçümleri göster veya ClientOtherErrors işlem durumundaki işlemlerini analytics günlük girdilerine sahip]
   * [Kapasite ölçümlerini beklenmeyen artışı depolama kapasitesi kullanımı Göster]
@@ -197,7 +197,7 @@ Uygulamanızın kullanıcılarının, istemci uygulaması tarafından bildirilen
 Aşağıdaki kaynaklar, depolama ile ilgili durum ve hata kodları anlamak için kullanışlıdır:
 
 * [Genel REST API hata kodları](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [BLOB hizmeti hata kodları](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Blob Hizmeti Hata Kodları](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Kuyruk hizmeti hata kodları](https://msdn.microsoft.com/library/azure/dd179446.aspx)
 * [Tablo hizmeti hata kodları](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Dosya hizmeti hata kodları](https://msdn.microsoft.com/library/azure/dn690119.aspx)
@@ -319,8 +319,8 @@ Sorununuzu bir depolama hizmet kullanılabilirliğini ilişkilidir?
 ---
  İstemci uygulamanızın bir depolama hizmetinden bir HTTP 4XX (örneğin, 404) yanıt alıyor?
 
-* [İstemci, HTTP 403 (Yasak) iletilerini alma]
-* [İstemci, HTTP 404 (bulunamadı) iletilerini alma]
+* [İstemci HTTP 403 (Yasak) iletilerini alıyor]
+* [İstemci HTTP 404 (Bulunamadı) iletilerini alıyor]
 * [İstemci HTTP 409 (Çakışma) iletileri alma]
 
 ---
@@ -642,7 +642,7 @@ Aşağıdaki tabloda, iki istemci işlemleri için sunucu tarafı günlüğünde
 Bu işlemler başarıyla tamamladınız ve kullanılabilirlik gibi diğer ölçümleri etkilemez unutulmaması önemlidir. Başarısız HTTP durum kodlarına yol açabilir ancak başarıyla yürütme işlemlerinin bazı örnekleri şunlardır:
 
 * **ResourceNotFound** (değil bulunan 404), örneğin bir GET isteği mevcut bir bloba'den.
-* **ResouceAlreadyExists** (409 çakışma), örneğin bir **CreateIfNotExist** işlem kaynağı zaten mevcut olduğu.
+* **ResourceAlreadyExists** (409 çakışma), örneğin bir **CreateIfNotExist** işlem kaynağı zaten mevcut olduğu.
 * **ConditionNotMet** (değil değiştiren 304), bir istemci gönderdiğinde gibi örneğin bir koşullu işlemi bir **ETag** değer ve bir HTTP **If-None-Match** yalnızca varsa görüntüyü istemek için üst bilgi Son işlem itibaren güncelleştirilmiş.
 
 Depolama Hizmetleri sayfasında döndüren ortak REST API hata kodlarının listesini bulabilirsiniz [ortak REST API hata kodları](https://msdn.microsoft.com/library/azure/dd179357.aspx).
@@ -843,8 +843,8 @@ Daha fazla bilgi bulabilirsiniz [Application Insights nedir](../../application-i
 [Ölçümler PercentTimeoutError’da artış gösteriyor]: #metrics-show-an-increase-in-PercentTimeoutError
 [Ölçümler PercentNetworkError’da artış gösteriyor]: #metrics-show-an-increase-in-PercentNetworkError
 
-[İstemci, HTTP 403 (Yasak) iletilerini alma]: #the-client-is-receiving-403-messages
-[İstemci, HTTP 404 (bulunamadı) iletilerini alma]: #the-client-is-receiving-404-messages
+[İstemci HTTP 403 (Yasak) iletilerini alıyor]: #the-client-is-receiving-403-messages
+[İstemci HTTP 404 (Bulunamadı) iletilerini alıyor]: #the-client-is-receiving-404-messages
 [Daha önce istemci veya başka bir işlem nesnesi silindi.]: #client-previously-deleted-the-object
 [Bir paylaşılan erişim imzası (SAS) yetkilendirme sorunu]: #SAS-authorization-issue
 [İstemci tarafı JavaScript kodu nesneye erişim izni yok]: #JavaScript-code-does-not-have-permission

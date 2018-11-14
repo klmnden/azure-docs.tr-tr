@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fd5b0637ab21c9859f2ed06a96c69b51f4681097
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 4f2fc320d0d66e19ec8a1e591377c482a7ec64d9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569293"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626142"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -935,7 +935,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ClassicCompute/virtualMachines/delete | Sanal makineleri kaldırır. |
 > | Eylem | Microsoft.ClassicCompute/virtualMachines/detachDisk/action | Bir veri diskini sanal makineden ayırır. |
 > | Eylem | Microsoft.ClassicCompute/virtualMachines/diagnosticsettings/read | Sanal makine tanılama ayarlarını alır. |
-> | Eylem | Microsoft.ClassicCompute/virtualMachines/disks/read | Veri disklerinin listesini alır |
+> | Eylem | Microsoft.ClassicCompute/virtualMachines/disks/read | Veri disklerinin listesini alır. |
 > | Eylem | Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action | Sanal makine için RDP dosyasını indirir. |
 > | Eylem | Microsoft.ClassicCompute/virtualMachines/extensions/operationStatuses/read | Sanal makine uzantıları için işlem durumunu okur. |
 > | Eylem | Microsoft.ClassicCompute/virtualMachines/extensions/read | Sanal makine uzantısını alır. |
@@ -3171,7 +3171,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Media/mediaservices/streamingPolicies/write | Herhangi bir akış ilke güncelle |
 > | Eylem | Microsoft.Media/mediaservices/syncStorageKeys/action | Bağlı Azure depolama hesabı için depolama anahtarları Eşitle |
 > | Eylem | Microsoft.Media/mediaservices/transforms/delete | Herhangi bir dönüştürme Sil |
-> | Eylem | Microsoft.Media/mediaservices/transforms/jobs/cancelJob/action | İşi iptal et |
+> | Eylem | Microsoft.Media/mediaservices/transforms/jobs/cancelJob/action | İşi İptal Et |
 > | Eylem | Microsoft.Media/mediaservices/transforms/jobs/delete | Herhangi bir işi Sil |
 > | Eylem | Microsoft.Media/mediaservices/transforms/jobs/read | Herhangi bir işi okuma |
 > | Eylem | Microsoft.Media/mediaservices/transforms/jobs/write | Herhangi bir işi güncelle |
