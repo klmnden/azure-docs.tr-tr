@@ -13,44 +13,44 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/15/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b81c66acc0a90ba9b74cf1f4fb34ef7a545837f9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736615"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623188"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory raporlama gecikmeleri
 
-İle [raporlama](../active-directory-preview-explainer.md) Azure Active Directory ortamınızı nasıl çalıştığını belirlemek için gereken tüm bilgileri alın. Veri raporlama için Azure Portalı'nda görünmesi için gereken süreyi gecikme süresi de denir. 
-
-Bu konu, Azure portalında tüm raporlama kategorileri gecikme bilgileri listeler. 
-
+Gecikme süresi, Azure Active raporlama verilerini Directory (Azure AD) görünmesini süresini miktarıdır [Azure portalında](https://portal.azure.com). Bu makale, beklenen gecikme sürelerini farklı rapor türlerini listeler. 
 
 ## <a name="activity-reports"></a>Etkinlik raporları
 
-Etkinlik Raporlama iki alan vardır:
+İki tür Etkinlik Raporu vardır:
 
-- **Oturum açma etkinlikleri**: Yönetilen uygulamaların kullanımı ve kullanıcıların oturum açma etkinlikleri hakkında bilgiler
-- **Denetim günlükleri** - Kullanıcılar ve grup yönetimi, yönetilen uygulamalarınız ve dizin etkinlikleriniz hakkında sistem etkinliği bilgileri
+- [Oturum açma işlemleri](concept-sign-ins.md) – kullanımı hakkında bilgi yönetilen uygulamalar ve kullanıcı oturum açma etkinlikleri sağlar.
+- [Denetim günlükleri](concept-audit-logs.md) -kullanıcılar ve grupları, yönetilen uygulamalar ve dizin etkinlikleriniz hakkında sistem etkinliği bilgileri sağlar
 
-Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
+Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler. 
 
-| Rapor | Gecikme süresi (%95) |Gecikme süresi (% 99)|
+> [!NOTE]
+> **Gecikme süresi (yüzde 95'lik dilim)** olarak %95 günlükler bildirilir, süresi başvurur ve **gecikme (99. yüzdebirlik dilimde)** olarak %99 günlükler bildirilir süresini gösterir. 
+>
+
+| Rapor | Gecikme süresi (yüzde 95'lik dilim) |Gecikme (99. yüzdebirlik dilimde)|
 | :-- | --- | --- | 
 | Denetim günlükleri | 2 dk.  | 5 dk.  |
 | Oturum açma işlemleri | 2 dk.  | 5 dk. |
 
-
 ## <a name="security-reports"></a>Güvenlik raporları
 
-Güvenlik raporlama iki alan vardır:
+İki tür güvenlik raporu vardır:
 
-- **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. 
-- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. 
+- [Riskli oturum açma işlemleri](concept-risky-sign-ins.md) - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. 
+- [Riskli oldukları belirlenen kullanıcılar](concept-user-at-risk.md) - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. 
 
 Aşağıdaki tabloda, güvenlik raporları gecikme bilgileri listeler.
 
@@ -61,7 +61,7 @@ Aşağıdaki tabloda, güvenlik raporları gecikme bilgileri listeler.
 
 ## <a name="risk-events"></a>Risk olayları
 
-Azure Active Directory, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılamak için Uyarlamalı makine öğrenimi algoritmaları ve buluşsal yöntemler kullanır. Her bir kayıt adı verilen risk olayı şüpheli eylem depolanır algılandı.
+Azure AD, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılamak için Uyarlamalı makine öğrenimi algoritmaları ve buluşsal yöntemler kullanır. Her kuşkulu eylem adlı bir kayıt depolanır algılanan bir **risk olayı**.
 
 Aşağıdaki tabloda, risk olayları gecikme bilgileri listeler.
 
@@ -75,17 +75,8 @@ Aşağıdaki tabloda, risk olayları gecikme bilgileri listeler.
 | Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri |2 saat |4 saat |8 saat  |
 
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure portalında Etkinlik raporlarını hakkında daha fazla bilgi edinmek istiyorsanız, bkz:
-
-- [Azure Active Directory portalındaki oturum açma etkinlik raporları](concept-sign-ins.md)
-- [Azure Active Directory portalındaki denetim etkinlik raporları](concept-audit-logs.md)
-
-Azure portalında güvenlik raporları hakkında daha fazla bilgi edinmek istiyorsanız, bkz:
-
-- [Risk altındaki kullanıcılar güvenlik raporu Azure Active Directory portalındaki](concept-user-at-risk.md)
-- [Azure Active Directory portalındaki riskli oturum açma işlemleri raporu](concept-risky-sign-ins.md)
-
-Risk olayları hakkında daha fazla bilgi edinmek istiyorsanız bkz [Azure Active Directory risk olayları](concept-risk-events.md).
+* [Azure AD raporlarına genel bakış](overview-reports.md)
+* [Azure AD raporlar programlı erişim](concept-reporting-api.md)
+* [Azure Active Directory risk olayları](concept-risk-events.md)

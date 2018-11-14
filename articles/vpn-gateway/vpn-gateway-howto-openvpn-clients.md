@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: de24e8b308c6adf3f69caae4ab671f57fc2f6b8c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565063"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624446"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Azure VPN ağ geçidi (Önizleme) için OpenVPN istemcilerini yapılandırma
 
@@ -38,7 +38,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
   ```
 6. Açık *profileinfo.txt* Defteri'nde. İstemci (alt) sertifikanın parmak izini edinmek için metni seçin (dahil olmak üzere ve arasında) "---BEGIN CERTIFICATE---" ve "---bitiş sertifika---" için alt sertifika ve kopyalayın. Alt sertifika, konu = bakarak belirleyebilirsiniz / satır.
-7. Geçiş *vpnconfig.ovpn* dosya 3. adımdaki Not Defteri'nde açılır. "Sertifika" arasındaki her şey Değiştir gösterilen bölümü bulun ve "/ Sertifika".
+7. Geçiş *vpnconfig.ovpn* dosya 3. adımdaki Not Defteri'nde açılır. Aşağıda gösterilen bölümü bulun ve "cert" arasındaki her şeyi değiştirin ve "/ Sertifika".
 
   ```
   # P2S client certificate
@@ -119,7 +119,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 11. Komut satırını kullanarak bağlanmak için aşağıdaki komutu yazın:
   
   ```
-  Sudo openvpn –config <name and path of your VPN profile file>
+  sudo openvpn –-config <name and path of your VPN profile file>
   ```
 12. GUI kullanarak bağlanmak için sistem ayarlarına gidin.
 13. Tıklayın **+** yeni VPN bağlantısı eklemek için.

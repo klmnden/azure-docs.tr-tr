@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 71ac963f00993f8a66d41a8d6f3f67528d9c0583
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903056"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625158"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>İstemci tarafına reklam ekleme
 Bu makalede, çeşitli türlerdeki istemci tarafına reklam ekleme hakkında bilgi içerir.
@@ -107,7 +107,7 @@ Belirli bir sırada doğrusal reklam görüntülenebilir. Bunu yapmak için ek E
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -127,7 +127,7 @@ Belirli bir sırada doğrusal reklam görüntülenebilir. Bunu yapmak için ek E
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -160,7 +160,7 @@ Doğrusal reklam içinde belirtilen bir <Creative> de öğesi. Aşağıdaki örn
     </Creative>
 ```
 
-<**NonLinearAds**> bir veya daha fazla öğe içerebilir <**NonLinear**> öğeleri, her biri bir doğrusal ad tanımlayabilir. <**NonLinear**> öğesi kaynak için doğrusal bir ad belirtir. Kaynak olabilir bir <**StaticResouce**> e <**IFrameResource**>, veya bir <**HTMLResouce**>. <**StaticResource**> HTML olmayan kaynak açıklar ve kaynak nasıl görüntüleneceğini belirten bir creativeType öznitelik tanımlar:
+<**NonLinearAds**> bir veya daha fazla öğe içerebilir <**NonLinear**> öğeleri, her biri bir doğrusal ad tanımlayabilir. <**NonLinear**> öğesi kaynak için doğrusal bir ad belirtir. Kaynak olabilir bir <**StaticResource**> e <**IFrameResource**>, veya bir <**HTMLResource**>. <**StaticResource**> HTML olmayan kaynak açıklar ve kaynak nasıl görüntüleneceğini belirten bir creativeType öznitelik tanımlar:
 
 Görüntü/gif, görüntü/jpeg, görüntü/png – kaynak bir HTML biçiminde görüntülenir <**img**> etiketi.
 

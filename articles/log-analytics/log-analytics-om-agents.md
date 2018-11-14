@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fcdc14534e833ee394645e19cf8bc4bd9d6a7aaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ed1d9fc810bfa14beed83609d13c1010d479ed9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961152"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622254"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
-System Center Operations Manager'a yaptığınız mevcut yatırımı korumak ve Log Analytics'le sağlanan genişletilmiş özellikleri kullanmak için, Operations Manager'ı Log Analytics çalışma alanınızla tümleştirebilirsiniz. Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
+Mevcut yatırımınızı korumak için [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) ve Log Analytics ile genişletilmiş özellikleri kullanmak için Operations Manager ile Log Analytics çalışma alanınızın tümleştirebilirsiniz. Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
 
 * Operations Manager ile BT hizmetlerinizin durumunu izleyebilirsiniz.
 * Olay ve sorun yönetimini destekleyen ITSM çözümlerinizle tümleştirmeyi koruyabilirsiniz.
@@ -44,7 +44,7 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 
 * Log Analytics'e yalnızca System Center Operations Manager 1807, Operations Manager 1801'e, Operations Manager 2016, Operations Manager 2012 SP1 UR6 destekler veya sonraki bir sürümü ve Operations Manager 2012 R2 UR2 veya üzeri. Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
 * Tüm Operations Manager aracılarının en düşük destek gereksinimlerini karşılaması gerekir. En düşük güncelleştirmeyi aracılardır Windows aracı iletişimi Aksi halde ve başarısız Operations Manager olay günlüğündeki hatalara neden emin olun.
-* Log Analytics çalışma alanı. Daha fazla bilgi için gözden [bilgisayarlar ortamınızdan Log Analytics'e bağlama](log-analytics-concept-hybrid.md).
+* Log Analytics çalışma alanı. Daha fazla bilgi için gözden [Log Analytics çalışma alanına genel bakış](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) ).
 * Azure'de bir üyesi olan bir hesapla kimlik doğrulamasını [Log Analytics katkıda bulunan rolü](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]

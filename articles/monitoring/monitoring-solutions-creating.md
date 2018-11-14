@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b7839fc498b54d2128528c8d655d78bb759a7cd5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282059"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612448"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarım ve azure'da (Önizleme) bir yönetim çözümü oluşturun
 > [!NOTE]
@@ -54,7 +54,7 @@ Tüm kullanılabilir veri kaynakları erişilebilir değil veri gerektiren sonra
 Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıcıya yardımcı olacağını düşündüğünüz tüm sorguları tanımlamanız gerekir.  Bunlar Portalı'nda kayıtlı aramalar kullanabilecekleri olacaktır ve bunları de içerebilir bir [, liste sorguları görselleştirme bölümü](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) özel görünümünüzdeki.
 
 ### <a name="alerts"></a>Uyarılar
-[Log analytics'teki uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) ile ilgili sorunları belirlemenize [günlük aramaları](#log-searches) karşı depodaki verileri.  Bunlar kullanıcıya bildir ya da otomatik olarak yanıtta bir eylem çalıştırın. Uygulamanızın farklı uyarı koşullarını tanımlamak ve karşılık gelen bir uyarı kuralları, çözüm dosyasına eklenecek gerekir.
+[Log analytics'teki uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) ile ilgili sorunları belirlemenize [günlük aramaları](#log-searches) karşı depodaki verileri.  Bunlar kullanıcıya bildir ya da otomatik olarak yanıtta bir eylem çalıştırın. Uygulamanızın farklı uyarı koşullarını tanımlamak ve karşılık gelen bir uyarı kuralları, çözüm dosyasına eklenecek gerekir.
 
 Ardından sorun büyük olasılıkla otomatik bir işlem ile düzeltilebilir, bu düzeltmesi yapmak için Azure Automation'da bir runbook genellikle oluşturacaksınız.  Çoğu Azure hizmeti ile yönetilebilir [cmdlet'leri](/powershell/azure/overview) , bu tür işlevleri gerçekleştirmek için runbook yararlanarak.
 

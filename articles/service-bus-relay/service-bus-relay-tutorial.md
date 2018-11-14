@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus WCF geçişi Öğreticisi | Microsoft Docs
+title: Azure WCF geçişini kullanarak dış istemci için bir şirket içi WCF REST hizmeti kullanıma sunma | Microsoft Docs
 description: WCF geçişi kullanarak bir istemci ve hizmet uygulaması oluşturun.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262021"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615485"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Azure WCF geçişi Öğreticisi
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Azure WCF geçişini kullanarak dış istemci için bir şirket içi WCF REST hizmeti kullanıma sunma
 
 Bu öğreticide basit bir WCF geçişi istemci uygulaması ve Azure Geçişi'ni kullanarak hizmet oluşturma açıklanır. Kullanıldığı benzer bir öğretici için [Service Bus mesajlaşması](../service-bus-messaging/service-bus-messaging-overview.md), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -31,19 +31,32 @@ Bu öğreticideki konu başlıklarını sırasıyla anlayıp uyguladıktan sonra
 
 Son üç adımda istemci uygulaması oluşturma, istemci uygulamasını yapılandırma ve ana bilgisayarın işlevselliğine erişebilen bir istemci oluşturma ile bu istemciyi kullanma açıklanır.
 
+Bu öğreticide aşağıdaki adımları uygulayın:
+
+> [!div class="checklist"]
+> * Bir geçiş ad alanı oluşturun.
+> * Bir WCF Hizmeti sözleşmesi oluşturma
+> * WCF sözleşmesi uygulama
+> * Geçiş hizmeti ile kaydetmek için WCF Hizmeti barındırma ve çalıştırma
+> * Hizmet sözleşmesi için bir WCF istemcisi oluşturma
+> * WCF istemcisini yapılandırma
+> * WCF istemcisini uygulama
+> * Uygulamalar çalıştırın. 
+
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için şunlar gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* [Microsoft Visual Studio 2015 veya üzeri](https://visualstudio.com). Bu öğreticide, Visual Studio 2017 kullanılır.
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+- [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
+- .NET için Azure SDK. Buradan yükleyin [SDK indirme sayfasını](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-service-namespace"></a>Hizmet ad alanı oluşturma
+## <a name="create-a-relay-namespace"></a>Bir geçiş ad alanı oluşturma
+Ad alanı oluşturma ve edinmek için ilk adım olan bir [paylaşılan erişim imzası (SAS)](../service-bus-messaging/service-bus-sas.md) anahtarı. Bir ad alanı aracılığıyla geçiş hizmetine tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi, Azure'a bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
-Ad alanı oluşturma ve edinmek için ilk adım olan bir [paylaşılan erişim imzası (SAS)](../service-bus-messaging/service-bus-sas.md) anahtarı. Bir ad alanı aracılığıyla geçiş hizmetine tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi, Azure'a bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır. [Buradaki yönergeleri](relay-create-namespace-portal.md) izleyerek bir Geçiş ad alanı oluşturun.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Bir WCF hizmet sözleşmesini tanımlama
-
 Hizmet sözleşmesi hangi işlemleri belirtir (yöntemler ve işlevlere yönelik web hizmeti terminolojisi) hizmetini destekler. Sözleşmeler; C++, C# veya Visual Basic arabirimi tanımlamasıyla oluşturulur. Arabirimdeki her yöntem belirli bir hizmet işlemine karşılık gelir. Her arabirimde [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) özniteliğinin ve her işlemde de [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) özniteliğinin uygulanmış olması gerekir. [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) özniteliğini içeren bir arabirimdeki yöntem [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) özniteliğine sahip değilse bu yöntem kullanıma sunulmaz. Bu görevlere ilişkin kod, aşağıdaki yordamın altındaki örnekte sağlanır. Sözleşmeler ve hizmetlere ilişkin daha fazla bilgi için WCF belgelerinde bulunan [Hizmetleri Tasarlama ve Uygulama](https://msdn.microsoft.com/library/ms729746.aspx) başlığına bakın.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Geçiş sözleşme ile bir arabirim oluşturma
@@ -51,13 +64,13 @@ Hizmet sözleşmesi hangi işlemleri belirtir (yöntemler ve işlevlere yönelik
 1. **Başlat** menüsünde programa sağ tıklayıp **Yönetici olarak çalıştır** seçeneğini belirleyip Visual Studio'yu yönetici olarak açın.
 2. Yeni bir konsol uygulama projesi oluşturun. **Dosya** menüsüne tıklayın, **Yeni** seçeneği belirleyin ve ardından **Proje**'ye tıklayın. **Yeni Proje** iletişim kutusunda, **Visual C#** öğesine tıklayın (**Visual C#** görünmezse **Diğer Diller** bölümüne bakın). Tıklayın **konsol uygulaması (.NET Framework)** şablonunu ve adlandırın **EchoService**. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
-    ![][2]
+    ![Konsol uygulaması oluşturma][2]
 
 3. Service Bus NuGet paketini yükleyin. Bu paket otomatik olarak Service Bus kitaplıklarının yanı sıra WCF **System.ServiceModel** öğesine de başvurular ekler. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx), WCF'nin temel özelliklerine programlamayla erişmenizi sağlayan ad alanıdır. Service Bus, hizmet sözleşmelerini tanımlamak için WCF'nin birçok nesnesini ve özniteliklerini kullanır.
 
     Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **NuGet paketlerini Yönet...** . Gözat sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **Sürüm(ler)** kutusunda proje adının seçili olduğundan emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
 
-    ![][3]
+    ![Service Bus paket][3]
 4. Çözüm Gezgini'nde, zaten açılmamışsa Program.cs dosyasına çift tıklayarak dosyayı düzenleyicide açın.
 5. Aşağıdaki using deyimlerini dosyanın üst tarafına ekleyin:
 
@@ -231,7 +244,7 @@ Aşağıdaki kod, hizmet ana bilgisayarı ile ilişkilendirilen App.config dosya
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Geçiş hizmeti ile kaydetmek için bir temel web hizmeti barındırma ve çalıştırma
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Geçiş hizmeti ile kaydetmek için WCF Hizmeti barındırma ve çalıştırma
 
 Bu adım, bir Azure geçişi hizmetini çalıştırma işlemi açıklanır.
 
@@ -501,7 +514,7 @@ Bu adımda, daha önce bu öğreticide oluşturduğunuz hizmete erişen temel is
     Bu adım, hizmet ve istemci uygulaması, Azure geçişi ile iletişim kurmak için TCP kullandığı olgu tanımlanan sözleşme bitiş noktası adını tanımlar. Uç nokta adı, bir sonraki adımda bu uç nokta yapılandırmasını hizmet URI'si ile bağlamak için kullanılır.
 5. Tıklayın **dosya**, ardından **Tümünü Kaydet**.
 
-## <a name="example"></a>Örnek
+### <a name="example"></a>Örnek
 
 Aşağıdaki kod, Echo istemciye yönelik App.config dosyasını gösterir.
 
@@ -607,7 +620,7 @@ Ancak, bir çağrı hizmeti kullanır ancak istemci uygulamanın kanal alan geç
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Örnek
+### <a name="example"></a>Örnek
 
 Tamamlanan kodunuzu aşağıdaki gibi görünmelidir, istemci uygulamasının nasıl oluşturulacağını, hizmet işlemlerini çağırma ve işlem çağrısından sonra istemciyi kapatma işlemlerinin nasıl gösteren tamamlanmıştır.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. Bu şekilde istemciden hizmete metin iletileri göndermeye devam edebilirsiniz. İşiniz bittiğinde her iki uygulamayı da sonlandırmak için istemci ve hizmet konsolu pencerelerinde Enter tuşuna basın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Şu öğreticiye ilerleyin: 
 
-Bu öğreticide bir Azure geçişi istemci uygulaması ve Service Bus WCF geçişi yeteneklerini kullanarak hizmet oluşturma gösterdi. Kullanıldığı benzer bir öğretici için [Service Bus Mesajlaşması](../service-bus-messaging/service-bus-messaging-overview.md), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Azure geçişi hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın.
-
-* [Azure Geçiş’e genel bakış](relay-what-is-it.md)
-* [.NET ile WCF geçişi hizmetini kullanma](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[Ağınızın dışından bir istemci için bir şirket içi WCF REST hizmeti kullanıma sunma](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

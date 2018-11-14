@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı kaynak limitleri - mantıksal sunucu | Microsoft Docs
-description: Bu makalede tek veritabanları ve elastik havuzlar kullanarak havuza alınmış veritabanları için Azure SQL veritabanı kaynak limitleri genel bir bakış sağlar. Ayrıca, bu kaynak sınırları isabet veya sınırlar aşıldığında ne ile ilgili bilgi sağlar.
+description: Bu makalede tek veritabanları ve elastik havuzlar kullanarak havuza alınmış veritabanları için kaynak sınırları Azure SQL veritabanı mantıksal sunucusuna genel bakış sağlar. Ayrıca, bu kaynak sınırları isabet veya sınırlar aşıldığında ne ile ilgili bilgi sağlar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: b48c090cc67d4557140b5734f1a5e1f763b271ab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 11/13/2018
+ms.openlocfilehash: a423f5c112faa615b7888dacfa20f9ff8f6a595a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829572"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620907"
 ---
-# <a name="sql-database-resource-limits-for-single-and-pooled-databases-on-a-logical-server"></a>Bir mantıksal sunucuda tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri 
+# <a name="sql-database-resource-limits-for-single-and-pooled-databases"></a>Tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri
 
 Bu makalede, bir mantıksal sunucuda tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri genel bir bakış sağlar. Ayrıca, bu kaynak sınırları isabet veya sınırlar aşıldığında ne ile ilgili bilgi sağlar.
 
@@ -35,18 +35,17 @@ Bu makalede, bir mantıksal sunucuda tek ve havuza alınmış veritabanları iç
 | Sunucuları her bölgede abonelik başına en fazla sayısı | 200 |  
 | DTU / sunucu başına eDTU kotası | 54,000 |  
 | Sunucu/örnek başına sanal çekirdek kotası | 540 |
-| Sunucu başına en fazla havuz | Dtu veya sanal çekirdek sayısı sınırlıdır. |
+| Sunucu başına en fazla havuz | Dtu veya sanal çekirdek sayısı sınırlıdır. Örneğin, 1000 Dtu'ya her havuzu ise tek bir sunucu 54 havuzları destekleyebilir.|
 ||||
 
 > [!NOTE]
-> Daha fazla DTU /eDTU kotası, sanal çekirdek kota veya varsayılan tutarından daha fazla sunucu elde etmek için yeni bir destek isteği sorun türünü "Kota" aboneliği için Azure portalında gönderilebilir. DTU / sunucu başına eDTU kota ve veritabanı sınırı sunucu başına elastik havuzlar sayısını kısıtlar. 
-
+> Daha fazla DTU /eDTU kotası, sanal çekirdek kota veya varsayılan tutarından daha fazla sunucu elde etmek için yeni bir destek isteği sorun türünü "Kota" aboneliği için Azure portalında gönderilebilir. DTU / sunucu başına eDTU kota ve veritabanı sınırı sunucu başına elastik havuzlar sayısını kısıtlar.
 > [!IMPORTANT]
 > Veritabanı sayısı mantıksal sunucu başına sınıra yaklaştığında, aşağıdaki oluşabilir:
 > - Sorguları ana veritabanına karşı çalışır artan gecikme süresi'ı seçin.  Bu, kaynak kullanımı istatistikleri sys.resource_stats gibi görünümlerini içerir.
 > - Yönetim işlemlerini gecikme artırma ve sunucusundaki veritabanlarını içeren portal bakış açılarını işleme.
 
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>Veritabanı kaynak limitleri ulaşıldığında ne olur?
+## <a name="what-happens-when-database-resource-limits-are-reached"></a>Veritabanı kaynak limitleri ulaşıldığında ne olur
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>İşlem (Dtu ve Edtu / sanal çekirdek)
 
@@ -66,11 +65,12 @@ Yüksek alan kullanımının karşılaşıldığında, risk azaltma seçenekleri
 - Veritabanını bir elastik havuzda ise, böylece kendi depolama alanını diğer veritabanlarıyla paylaşılmıyor ardından alternatif olarak veritabanı havuz dışına taşınabilir.
 - Kullanılmayan alanı geri kazanmak için bir veritabanı daraltır. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetme](sql-database-file-space-management.md)
 
-### <a name="sessions-and-workers-requests"></a>Oturumlarının ve çalışan (istek) 
+### <a name="sessions-and-workers-requests"></a>Oturumlarının ve çalışan (istek)
 
-Oturumlar ve çalışan sayısı, hizmet katmanı tarafından belirlenir ve boyutu (Dtu ve Edtu) işlem. Yeni istekler oturumu veya çalışan sınırlara ulaştı ve istemciler bir hata iletisi alıyorsunuz reddedilir. Kullanılabilir bağlantı sayısı uygulama tarafından denetlenebilir, ancak eş zamanlı çalışan sayısı genellikle tahmin edin ve denetlemek daha zordur. Bu ne zaman veritabanı kaynak limitleri ulaştı ve çalışanları nedeniyle uzun çalışan sorguları üst üste yığmak yoğun yük dönemlerini sırasında özellikle doğrudur. 
+Oturumlar ve çalışan sayısı, hizmet katmanı tarafından belirlenir ve boyutu (Dtu ve Edtu) işlem. Yeni istekler oturumu veya çalışan sınırlara ulaştı ve istemciler bir hata iletisi alıyorsunuz reddedilir. Kullanılabilir bağlantı sayısı uygulama tarafından denetlenebilir, ancak eş zamanlı çalışan sayısı genellikle tahmin edin ve denetlemek daha zordur. Bu ne zaman veritabanı kaynak limitleri ulaştı ve çalışanları nedeniyle uzun çalışan sorguları üst üste yığmak yoğun yük dönemlerini sırasında özellikle doğrudur.
 
 Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azaltma seçenekleri şunlardır:
+
 - Artan hizmet katmanı veya boyutu veritabanınız veya elastik havuzun işlem. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
 - İşlem kaynakları için Çekişme nedeniyle artan çalışan kullanımı nedenini ise, her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 

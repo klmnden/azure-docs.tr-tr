@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 0fae059db53668da2d71906bbe94e9dabae931bc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578595"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624259"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Azure dijital İkizlerini Swagger'ı kullanın
 
@@ -36,20 +36,7 @@ Swagger içeren API'nizi etkileşimli bir özetini sunar:
 
 Swagger, geliştirme ve yönetim API'sine yapılan test çağrıları yardımcı olmak için kullanışlı bir araçtır.
 
-> [!TIP]
-> Swagger önizlemesi API özelliği göstermek için sağlanmıştır.
-> Konumunda barındırılan [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-Oluşturulan kendi yönetim API'si Swagger belgelerimize erişebilirsiniz:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Özel ad | Şununla değiştir |
-| --- | --- |
-| örneğinizinadı | Azure dijital İkizlerini örneğinizin adı |
-| yourLocation | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Başvuru kaynakları
 

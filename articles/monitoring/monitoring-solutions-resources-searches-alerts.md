@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b4d6e1137b9e0404675a48260ea6c9f2c0d5c76f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282348"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614082"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -27,7 +27,7 @@ ms.locfileid: "51282348"
 > Şu anda Önizleme aşamasında olan yönetim çözümleri oluşturmak için başlangıç belgeleri budur. Aşağıda açıklanan herhangi bir şema tabi bir değişikliktir.   
 
 
-[Yönetim çözümleri](monitoring-solutions.md) genellikle içerecektir [kayıtlı aramalar](../log-analytics/log-analytics-queries.md) çözüm tarafından toplanan verileri çözümlemek için Log analytics'te.  Da belirtebilirler [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) kullanıcıya bildir veya otomatik olarak yanıt olarak kritik bir sorunu eylem.  Bu makale, Log Analytics kayıtlı aramalar tanımlamayı açıklar ve uyarılar bir [kaynak yönetimi şablonu](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) olarak eklenebilir böylece [yönetim çözümleri](monitoring-solutions-creating.md).
+[Yönetim çözümleri](monitoring-solutions.md) genellikle içerecektir [kayıtlı aramalar](../log-analytics/log-analytics-queries.md) çözüm tarafından toplanan verileri çözümlemek için Log analytics'te.  Da belirtebilirler [uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) kullanıcıya bildir veya otomatik olarak yanıt olarak kritik bir sorunu eylem.  Bu makale, Log Analytics kayıtlı aramalar tanımlamayı açıklar ve uyarılar bir [kaynak yönetimi şablonu](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) olarak eklenebilir böylece [yönetim çözümleri](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > Bu makaledeki örnekleri parametreler ve değişkenler gerekli olduğunu veya yönetim çözümleri için yaygın olduğunu ve açıklanan kullanmak [tasarım ve derleme Azure Yönetimi çözümünde](monitoring-solutions-creating.md)  
@@ -380,8 +380,7 @@ Aşağıdaki kaynakları içeren bir çözümü bir örnek aşağıda verilmişt
             "dependsOn": [
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-              "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-              "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+              "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
             ],
             "properties": {
               "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",

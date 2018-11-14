@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42062139"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621454"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB verilere erişimin güvenliğini sağlama
 Bu makalede depolanan verilere erişimin güvenliğini sağlama genel bir bakış sağlar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -40,7 +40,7 @@ Her hesap iki ana anahtarları oluşur: bir birincil anahtar ve ikincil anahtar.
 
 Cosmos DB hesabı için iki ana anahtarları ek olarak iki salt okunur anahtar vardır. Bu salt okunur anahtarlar yalnızca hesabın okuma işlemlerinin izin verir. Salt okunur anahtarları izinleri kaynakları okumak üzere erişim sağlamaz.
 
-Birincil, ikincil, salt okunur ve okuma-yazma ana anahtarları alınabilir ve Azure portalını kullanarak yeniden oluşturuldu. Yönergeler için [görüntüleme, kopyalama ve yeniden oluşturma erişim anahtarlarını](manage-account.md#keys).
+Birincil, ikincil, salt okunur ve okuma-yazma ana anahtarları alınabilir ve Azure portalını kullanarak yeniden oluşturuldu. Yönergeler için [görüntüleme, kopyalama ve yeniden oluşturma erişim anahtarlarını](manage-with-cli.md#regenerate-account-key).
 
 ![NoSQL veritabanı güvenliği gösteren Azure portalı - erişim denetimi (IAM)](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -196,5 +196,4 @@ Azure Cosmos DB, arayın, seçin, değiştirmek ve veritabanı veya koleksiyon i
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Cosmos DB veritabanı güvenliği hakkında daha fazla bilgi için bkz: [Cosmos DB: Veritabanı Güvenlik](database-security.md).
-* Ana ve salt okunur anahtarları yönetme hakkında daha fazla bilgi için bkz: [bir Azure Cosmos DB hesabını yönetme](manage-account.md#keys).
 * Azure Cosmos DB yetkilendirme belirteçleri oluşturmak nasıl öğrenmek için bkz. [erişim denetimini Azure Cosmos DB kaynaklarını](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

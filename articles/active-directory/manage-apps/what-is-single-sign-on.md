@@ -1,199 +1,183 @@
 ---
-title: Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? | Microsoft Docs
-description: Tüm işletmeler için gereksinim duyduğunuz SaaS ve web uygulamaları için çoklu oturum açmayı etkinleştirmek için Azure Active Directory kullanın.
+title: Uygulamalar - Azure Active Directory çoklu oturum açma | Microsoft Docs
+description: Uygulamaları Azure Active Directory (Azure AD) yapılandırma tek bir oturum açma yöntemi seçin öğrenin. Böylece kullanıcılar her uygulama için hatırlamak ve hesap yönetimi yönetimini basitleştirmek için çoklu oturum açma kullanın.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.reviewer: asmalser
-ms.custom: it-pro
-ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: arvindh
+ms.openlocfilehash: 5dedef82fcae2b50a58af924f5748c900adf96e0
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236015"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624616"
 ---
-# <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?
-Çoklu oturum açma tüm uygulamalar ve yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak iş yapmanız gereken kaynaklara erişmeye çalıştığında anlamına gelir. Oturum açtıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazmak) ikinci kez.
+# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
+Uygulamaları Azure Active Directory (Azure AD) yapılandırırken en uygun çoklu oturum açma yöntemi seçin öğrenin. 
 
-Pek çok kuruluş yazılım üzerinde son kullanıcı üretkenliğini için Office 365, Box ve Salesforce gibi bir hizmet (SaaS) uygulamaları olarak kullanır. Tarihsel olarak, BT personeliniz ayrı ayrı oluşturup her SaaS uygulamasında kullanıcı hesaplarını güncelleştirmek gereken ve kullanıcıların her bir SaaS uygulaması için bir parola hatırlamaları gereken.
+- **Çoklu oturum açma ile**, kullanıcıların etki alanına katılmış cihazlara erişmek için bir hesap ile bir kez oturum şirket kaynakları, yazılım olarak hizmet (SaaS) uygulamaları ve web uygulamaları. Kullanıcı, oturum açtıktan sonra Office 365 portalında veya Azure AD MyApps erişim paneli uygulamaları başlatabilir. Yöneticiler kullanıcı hesabı yönetimini merkezden gerçekleştirin ve otomatik olarak ekleyebilir veya grup üyeliğine dayalı uygulamalara kullanıcı erişimini kaldırabilirsiniz. 
 
-Azure Active Directory şirket içi Active Directory Kullanıcıları yalnızca kendi etki alanına katılmış cihazlarda oturum açın ve şirket kaynaklarına birincil kuruluş hesabını kullanmak etkinleştirme buluta genişletir, ancak aynı zamanda tüm SaaS uygulamalarına ve web için gerekli kendi iş.
+- **Çoklu oturum açma olmadan**, kullanıcılar uygulamaya özgü hatırlamak ve her uygulama için oturum açın. Office 365 kutusu ve Salesforce gibi her bir uygulama için kullanıcı hesaplarını oluşturmak için BT personeli gerekir. Kullanıcıların parolalarını unutmayın yanı sıra her bir uygulama için oturum açmak için kullanacağınız gerekir.
 
-Bu nedenle yalnızca kullanıcılar birden fazla kullanıcı adları yönetmek zorunda değilsiniz ve kuruluş Grup üyeleri ve durumlarını çalışan olarak parolalar, uygulamalarına erişim otomatik olarak sağlanan ya da sağlanan dayanır. Azure Active Directory SaaS uygulamaları arasında kullanıcıların erişimini merkezi olarak yönetmenizi sağlayan güvenlik ve erişim yönetimi denetimler sunar.
+Bu makalede tek oturum açma yöntemleri açıklar ve uygulamalarınız için en iyi yöntemi belirlemenize yardımcı olur.
 
-Azure AD, günümüzün popüler SaaS uygulamalarının çoğu için kolay tümleştirme sağlar; kimlik ve erişim yönetimi sağlar ve kullanıcıların doğrudan, çoklu oturum açma uygulamalarına veya keşfedin ve bunları Office 365 veya Azure AD erişim paneli gibi bir portaldan başlatma imkan tanır.
+## <a name="choosing-a-single-sign-on-method"></a>Tek bir oturum açma yöntemi seçme
 
-Tümleştirme mimarisi aşağıdaki dört temel yapı taşları oluşur:
+Bir uygulama için çoklu oturum açmayı yapılandırmak için birkaç yolu vardır. Bir uygulama için çoklu oturum açma yöntem seçme uygulama kimlik doğrulaması için nasıl yapılandırıldığına bağlıdır. Tüm tek oturum açma yöntemleri, devre dışı dışında otomatik olarak kullanıcıların uygulamaları bir ikinci oturum açma gerek kalmadan oturum açın.  
 
-* Çoklu oturum açma kullanıcıların Azure AD'de kuruluş hesabını temel SaaS uygulamalarına erişmelerini sağlar. Çoklu oturum açma hangi kullanıcıların kendi tek bir kurumsal hesap kullanarak bir uygulamaya kimlik doğrulaması sağlayan'i.
-* Kullanıcı sağlama, kullanıcı hazırlama ve hedef Windows Server Active Directory ve/veya Azure AD içinde yapılan değişiklikler temel SaaS uygulamasına sağlamayı sağlar. Sağlanan hesap ne çoklu oturum açmayı doğrulandıktan sonra uygulama kullanmak üzere yetki verilmesini sağlar.
-* Merkezi bir uygulamaya erişim yönetimi tek nokta SaaS uygulama erişim Azure portalı sağlar ve yönetimi, uygulama erişim karar alma ve onayları kuruluşunuzdaki herkes için temsilci seçme olanağı
-* Birleşik raporlama ve Azure AD'de kullanıcı etkinliğini izleme
+- Bulut uygulamalarını çoklu oturum açma için SAML, parola tabanlı, bağlantılı veya devre dışı yöntemler kullanabilirsiniz. SAML en güvenli çoklu oturum açma yöntemidir.
+- Şirket içi uygulamaları, parola tabanlı, tümleşik Windows kimlik doğrulaması, çoklu oturum açma için üst bilgi tabanlı, bağlantılı veya devre dışı yöntemleri kullanabilir. Uygulamalar, uygulama proxy'si için yapılandırıldığında, şirket içi seçenekler çalışır. 
 
-## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Çoklu oturum açma özelliği, Azure Active Directory ile nasıl kullanılır?
-Uygulamaya kullanıcılar oturum açtığında, kimin söyledikleri olduklarını kanıtlamak için gerekli olduğu bir kimlik doğrulama işleminden geçin. Çoklu oturum açma olmadan bu kimlik doğrulama işlemi, genellikle uygulamayı depolanmış bir parola girerek gerçekleştirilir ve kullanıcıların bu parolayı bilmeniz gerekir.
+Bu akış, hangi çoklu oturum açma yöntemi, sizin durumunuz için en iyi olduğuna karar vermenize yardımcı olur. 
 
-Azure AD uygulamaları için oturum açmak için üç farklı yolla destekler:
+![Çoklu oturum açma yöntemi seçin](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
 
-* **Federasyon çoklu oturum açma** uygulamaların yerine için kendi parola istemi kullanıcı kimlik doğrulaması için Azure ad yeniden yönlendirme sağlar. Federasyon çoklu oturum açma desteği gibi SAML 2.0, WS-Federation ve Openıd Connect protokolleri ve fikirlerini modu, çoklu oturum açma uygulamaları için desteklenir.
-* **Parola tabanlı çoklu oturum açma** güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak etkinleştirir. Parola tabanlı çoklu oturum açma uygulama tarafından sağlanan mevcut işlem kullanıyor ancak yönetici parolaları yönetmek etkinleştirir ve kullanıcının parolasını bilmesini gerektirmez.
-* **Çoklu oturum açma bağlı** herhangi var olan tek bir uygulama için ayarlanmadı, ancak bu uygulamaların Office 365 veya Azure AD erişim paneli portallarında bağlanmasını sağlar oturum yararlanmak Azure AD tarafından doğrulanmasını sağlar ve ek sağlar Raporlama, Azure AD'de uygulamaları var. ne zaman başlatılır.
+Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrıntı için bağlantılar. 
 
-Bir kullanıcı bir uygulama ile doğrulandıktan sonra bunlar Ayrıca uygulama izinleri ve erişim düzeyini içindeki uygulama nerede bildiren uygulama düzeyinde sağlanan hesap kaydı olması gerekir. Bu hesap kaydını sağlama ya da otomatik olarak gerçekleşebileceği veya kullanıcı çoklu oturum açma erişimi sağlanan önce el ile bir yönetici tarafından ortaya çıkabilir.
+| Çoklu oturum açma yöntemi | Uygulama türleri | Kullanılması gereken durumlar |
+| :------ | :------- | :----- |
+| [SAML](#saml-sso) | Yalnızca bulut | SAML mümkün olduğunca kullanın. SAML uygulamaları SAML protokollerden birini kullanmak için yapılandırıldığı zaman çalışır.|
+| [Parola tabanlı](#password-based-sso) | Bulut ve şirket içi | Uygulama, kullanıcı adı ve parola ile kimlik doğrulamasını gerçekleştirdiğinde kullanın. Parola tabanlı çoklu oturum açma güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Bu yöntem, uygulama tarafından sağlanan mevcut oturum açma işlemi kullanır, ancak yönetici parolaları yönetmek etkinleştirir. |
+| [Bağlı](#linked-sso) | Bulut ve şirket içi | Uygulama sağlayıcısı hizmeti başka bir çoklu oturum açmayı tanımlamak için yapılandırıldığında bağlı çoklu oturum açma kullanın. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
+| [Devre dışı](#disabled-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı yapılandırılmaya hazır değilken, çoklu oturum açma devre dışı. Kullanıcıların, bunlar bu uygulamayı başlatmak her seferinde kullanıcı adı ve parola girmeniz gerekir.|
+| [Tümleşik Windows kimlik doğrulaması (IWA)](#integrated-windows-authentication-iwa-sso) | yalnızca şirket içi | Bu çoklu oturum açma yöntemi kullanan uygulamalar için kullanmak [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. Uygulama Ara sunucusu bağlayıcıları, bir uygulama kullanıcıların kimliğini doğrulamak için Kerberos Kısıtlı temsilci (KCD) kullanın. | 
+| [Üst bilgi tabanlı](#header-based-sso) | yalnızca şirket içi | Uygulama için kimlik doğrulama üst bilgileri kullandığında üst bilgi tabanlı çoklu oturum açma kullanın. Üst bilgi tabanlı çoklu oturum açma Azure Active Directory için PingAccess gerektirir. Uygulama Ara sunucusu kullanıcının kimliğini doğrulamak için Azure AD kullanır ve ardından bağlayıcı hizmetini üzerinden geçen trafik geçirir.  | 
 
- Bu tek oturum açma modları ve aşağıda sağlama hakkında daha fazla bilgi.
+## <a name="saml-sso"></a>SAML SSO
+İle **SAML çoklu oturum açma**, Azure AD, kullanıcının Azure AD hesabı kullanarak uygulamaya kimliğini doğrular. Azure AD oturum açma bilgileri uygulamaya bir bağlantı protokolü üzerinden iletişim kurar. SAML tabanlı çoklu oturum açma ile kullanıcılar, SAML Taleplerde tanımladığınız kurallarına göre belirli uygulama rollerine eşleyebilirsiniz
 
-### <a name="federated-single-sign-on"></a>Federasyon çoklu oturum açma
-Federasyon çoklu oturum açma, kuruluşunuzdaki kullanıcılar Azure ad kullanıcı hesabı bilgilerini kullanarak Azure AD tarafından üçüncü taraf SaaS uygulaması için otomatik olarak oturum açmanız sağlar.
+SAML tabanlı çoklu oturum açma şöyledir:
 
-Bu senaryoda, Azure AD ile önceden kaydedilmiş ve bir üçüncü taraf SaaS uygulaması tarafından denetlenen kaynaklarına erişmek istediğinizde Federasyon kullanıcının kimliğinin yeniden doğrulanması ortadan kaldırır.
+- Daha güvenli parola tabanlı çoklu oturum açma ve diğer tüm, oturum açma yöntemleri.
+- Çoklu oturum açma için önerilen bizim yöntemi.
 
-Azure AD Federasyon çoklu oturum açma SAML 2.0, WS-Federation destekleyen uygulamalarla destekleyebilir veya Openıd connect protokolleri.
+SAML tabanlı çoklu oturum açma şu protokolden herhangi birini kullanan uygulamalar için desteklenir:
 
-Ayrıca bkz: [Federasyon çoklu oturum açma için sertifikaları yönetme](manage-certificates-for-federated-single-sign-on.md)
+- SAML 2.0
+- WS-Federation
+- Openıd connect
 
-### <a name="password-based-single-sign-on"></a>Parola tabanlı çoklu oturum açma
-Parola tabanlı çoklu oturum açmayı yapılandırma, üçüncü taraf SaaS uygulamasında kullanıcı hesap bilgileri kullanılarak Azure AD tarafından üçüncü taraf SaaS uygulaması için otomatik olarak oturum açmanız, kuruluşunuzdaki kullanıcılardan sağlar. Bu özelliği etkinleştirmek, Azure AD toplar ve kullanıcı hesabı bilgilerini ve ilgili parolayı güvenli bir şekilde depolar.
+Bir uygulama SAML tabanlı çoklu oturum açma için yapılandırmak üzere bkz [yapılandırma SAML tabanlı çoklu oturum açma](configure-single-sign-on-portal.md). Birçok uygulama de [uygulamaya özgü öğreticiler](../saas-apps/tutorial-list.md) Bu adım, SAML tabanlı çoklu oturum açma belirli uygulamalar için yapılandırma. 
 
-Azure AD, bir HTML tabanlı oturum açma sayfasına sahip tüm bulut tabanlı uygulama için parola tabanlı çoklu oturum açma destekleyebilir. Özel tarayıcı eklentisi kullanarak, AAD güvenli bir şekilde kullanıcı adı ve parola gibi uygulama kimlik bilgileri dizinden almak aracılığıyla oturum açma işlemini otomatikleştiren ve uygulama oturum açma sayfası kullanıcı adına bu kimlik bilgilerini girer. İki kullanım örnekleri vardır:
+SAML Protokolü nasıl çalıştığı hakkında daha fazla bilgi için bkz. [çoklu oturum açma SAML Protokolü](../develop/single-sign-on-saml-protocol.md).
 
-1. **Yönetici kimlik bilgilerini yöneten** – Yöneticiler oluşturma ve uygulama kimlik bilgilerini yönetme ve grup veya kullanıcıları uygulamaya erişmeniz için bu kimlik bilgileri atayın. Bu gibi durumlarda, son kullanıcı kimlik bilgilerini bilmeniz gerekmez, ancak yine de yalnızca kendi erişim panellerine veya sağlanan bağlantı yoluyla tıklayarak uygulama için çoklu oturum açma erişimi kazanır. Bu işlem hem de yapabildiği, uygulamaya özgü parolaları yönetme veya unutmayın gerekmez son kullanıcılar için kimlik bilgilerinin kolaylık yanı sıra yönetici tarafından yaşam döngüsü yönetimi sağlar. Kimlik bilgileri, son kullanıcıdan otomatik oturum açma işlemi sırasında gizlenmiş olan; ancak web hata ayıklama araçları'nı kullanarak kullanıcı tarafından teknik olarak bulunabilir ve alacağı kimlik bilgilerini doğrudan kullanıcı tarafından sunulan aynı güvenlik ilkelerini kullanıcılara ve yöneticilere izlemelidir. Yönetici tarafından sağlanan kimlik bilgileri, sosyal medya veya belge paylaşımı uygulamaları gibi çok sayıda kullanıcı arasında paylaşılan bir hesap erişim sağlarken yararlıdır.
-2. **Kullanıcı kimlik bilgilerini yöneten** – yöneticiler uygulamaları son kullanıcılara veya gruplara atamak ve son kullanıcıların erişim panelinde ilk kez uygulamaya erişmeyi doğrudan bağlı kendi kimlik bilgilerini girmek izin. Bu kolaylık yapabildiği bunlar sürekli olarak kullanıcıların uygulamaya erişebilmesi için her zaman uygulamaya özgü parolaları girmeniz gerekmez, son kullanıcılar için oluşturur. Kullanıcıların parolalarını güncelleştirmek ya da gerektiği şekilde silerek yönetmeye devam edebilirsiniz. Bu kullanım örneği, bir atlama taşı yapabildiği yönetici uygulama için yeni kimlik bilgileri gelecekteki bir tarihte son kullanıcının uygulama erişim deneyimi değiştirmeden ayarlayabilir, kimlik bilgilerinin yönetimsel yönetim olarak da kullanılabilir.
+## <a name="password-based-sso"></a>Parola tabanlı SSO
+Parola tabanlı oturum açma ile uygulama adı ve parola ile uygulama kimliğini doğrular. Son kullanıcılar, erişim uygulama ilk zaman oturum açın. İlk oturum açma işleminden sonra Azure Active Directory kullanıcı ve uygulama parolasını sağlar. 
 
-Her iki durumda da kimlik bilgilerini şifrelenmiş bir duruma dizininde depolanır ve yalnızca HTTPS üzerinden otomatik oturum açma işlemi sırasında geçirilir. Azure AD parola tabanlı çoklu oturum açma kullanarak bir Federasyon protokollerine destekleme kapasitesine sahip olmayan uygulamalar için uygun kimlik erişim yönetimi çözümü sunar.
+Parola tabanlı çoklu oturum açma uygulama tarafından sağlanan mevcut kimlik doğrulama işlemi kullanır. Parola çoklu oturum açma bir uygulama için etkinleştirdiğinizde, Azure AD toplar ve kullanıcı adları ve parolalar uygulama için güvenli bir şekilde depolar. Kullanıcı kimlik bilgilerini şifrelenmiş bir duruma dizininde depolanır. 
 
-Parola tabanlı SSO güvenli bir şekilde Azure AD'den uygulama ve kullanıcıya özgü bilgileri almak ve hizmete uygulamak için bir tarayıcı uzantısı kullanır. Azure AD tarafından desteklenen çoğu üçüncü taraf SaaS uygulamaları, bu özelliği desteklemez.
+Kullanım parola tabanlı çoklu oturum açma zaman:
 
-Parola tabanlı SSO için son kullanıcının tarayıcılar olabilir:
-* Internet Explorer 11 – Windows 7 veya üzeri
-* Edge Windows 10 Anniversary Edition veya sonrası 
-* Chrome--Üzerinde Windows 7 ve daha sonra ve MacOS x veya sonrası
-* Firefox 26,0 veya daha sonra--Windows XP SP2 veya üstü ve Mac OS X 10,6 veya sonraki bir sürümü üzerinde
+- Uygulamanın, oturum açma SAML çoklu Protokolü desteklemiyor.
+- Bir uygulama adı ve parola yerine erişim belirteçleri ve üst bilgileri ile kimlik doğrulaması yapar.
 
-### <a name="linked-single-sign-on"></a>Bağlantılı çoklu oturum açma
-Bir uygulama için çoklu oturum açmayı yapılandırırken, Azure portalı, "bağlantılı çoklu oturum açma" üçüncü bir seçenek sağlar. Bu seçenek, yalnızca bir uygulamaya bir bağlantı oluşturun ve seçili kullanıcıların erişim panelinde yerleştirme silebilirler.
+Parola tabanlı çoklu oturum açma bir HTML tabanlı oturum açma sayfası olan tüm bulut tabanlı uygulama için desteklenir. Kullanıcı aşağıdaki tarayıcılardan herhangi birini kullanabilirsiniz:
 
-Active Directory Federasyon Hizmetleri 2.0 kullanan kullanıcıların kimliğini doğrulamak üzere yapılandırılmış bir uygulama ise, örneğin, bir yönetici "bağlantılı çoklu oturum açma" seçeneği erişim panelinde bir bağlantı oluşturmak için kullanabilirsiniz. Kullanıcılar bağlantıyı eriştiğinde, Active Directory Federasyon Hizmetleri 2.0 veya uygulama tarafından sağlanan tüm var olan tek oturum açma çözümü kullanarak doğrulanır.
+- Internet Explorer 11 Windows 7 veya üzeri
+- Edge Windows 10 Anniversary Edition veya sonrası 
+- Chrome Windows 7 ve daha sonra ve MacOS x veya sonrası
+- Firefox 26,0 veya daha sonra Windows XP SP2 veya üzeri ve Mac OS X 10.6 üzerinde veya üzeri
 
-### <a name="user-provisioning"></a>Kullanıcı sağlama
-Uygulama için Windows Server Active Directory veya Azure AD kimlik bilgilerinizi kullanarak otomatik kullanıcı hazırlama ve hesapların Azure Portal'ı, üçüncü taraf SaaS uygulamaları'nda sağlamayı Azure AD sağlar. Bir kullanıcı, bu uygulamalardan birini için Azure ad'deki izinleri verildiğinde, bir hesap otomatik olarak (sağlanan hedef SaaS uygulaması) oluşturulabilir.
+Bir bulut uygulama parola tabanlı çoklu oturum açma için yapılandırmak üzere bkz [parola çoklu oturum açma için uygulamayı yapılandırma](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
 
-Bir kullanıcı silindi veya Azure AD'de kendi bilgilerini değiştirir, bu değişiklikler ayrıca SaaS uygulamasında yansıtılır. Diğer bir deyişle, otomatik kimlik yaşam döngüsü yönetimini yapılandırma, yöneticilerin denetlemek ve otomatik sağlama ve sağlamayı SaaS uygulamaları sağlamak sağlar. Azure AD'de kullanıcı sağlamayı tarafından bu Otomasyon kimlik yaşam döngüsü yönetimi etkindir.
+Bir şirket içi uygulama için uygulama proxy'si aracılığıyla çoklu oturum açmayı yapılandırmak için bkz [vaulting uygulama proxy'si ile çoklu oturum açma için parola](application-proxy-configure-single-sign-on-password-vaulting.md)
 
-Daha fazla bilgi için bkz: [otomatik kullanıcı hazırlama ve SaaS uygulamalarına sağlama kaldırmayı](user-provisioning.md)
+### <a name="managing-credentials-for-password-based-sso"></a>Parola tabanlı SSO için kimlik bilgilerini yönetme
 
-## <a name="get-started-with-the-azure-ad-application-gallery"></a>Azure AD uygulama Galerisi'ni kullanmaya başlama
-Başlamaya hazır mısınız? Azure AD arasında çoklu oturum açmayı dağıtmayı ve kuruluşunuzun kullandığı, SaaS uygulamaları, şu yönergeleri izleyin.
+Bir uygulama bir kullanıcının kimliğini doğrulamak için Azure AD dizininden kullanıcının kimlik bilgilerini alır ve bunları uygulamanın oturum açma sayfasına girer.  Azure AD kullanıcı kimlik bilgilerini güvenli bir şekilde bir web tarayıcısı uzantısı veya mobil uygulama geçirir. Bu işlem, bir yönetici kullanıcı kimlik bilgilerini yönetmek etkinleştirir ve kullanıcıların parolalarını unutmayın gerektirmez.
 
-### <a name="using-the-azure-ad-application-gallery"></a>Azure AD uygulama Galerisi kullanma
-[Azure Active Directory Uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/) Azure Active Directory ile çoklu oturum açma biçimi desteklediği bilinen uygulamaların bir listesini sağlar.
+> [!IMPORTANT]
+> Kimlik bilgileri, son kullanıcıdan otomatik oturum açma işlemi sırasında gizlenmiş olan. Ancak, kimlik bilgileri web hata ayıklama araçlarını kullanarak bulunabilir. Kullanıcıların ve yöneticilerin kimlik bilgilerini doğrudan kullanıcı tarafından girildiği gibi aynı güvenlik ilkeleri izlemeniz gerekir.
 
-![Azure çevrimiçi uygulama Galerisi](media/what-is-single-sign-on/onlineappgallery.png)
+Her uygulamanın ya da Azure AD Yöneticisi veya kullanıcılar tarafından yönetilebilir.
 
-Uygulamaları destekledikleri hangi özellikleri tarafından bulma için bazı ipuçları şunlardır:
+Ne zaman Azure AD Yöneticisi kimlik bilgilerini yönetir:  
 
-* Azure AD otomatik hazırlama ve tüm "Öne çıkan uygulamalar" uygulamalar için sağlamayı destekler [Azure Active Directory Uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/).
-* Özellikle destekleyen Federasyon uygulamalarına listesini Federasyon tek SAML, WS-Federasyon gibi bir protokol kullanarak oturum açmayı veya Openıd Connect bulunabilir [burada](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+- Kullanıcı sıfırlama veya kullanıcı adınızı ve parolanızı hatırlayacağınızdan gerekmez. Kullanıcı kendi erişim panellerine veya sağlanan bağlantı yoluyla tıklayarak uygulamaya erişebilir.
+- Yönetici kimlik bilgileri yönetim görevlerini gerçekleştirebilirsiniz. Örneğin, yönetici kullanıcı grup üyeliklerini ve çalışan durumuna göre uygulama erişimi güncelleştirebilirsiniz.
+- Yönetici, çok sayıda kullanıcı arasında paylaşılan uygulamalara erişim sağlamak için yönetici kimlik bilgilerini kullanabilirsiniz. Örneğin, yönetici bir sosyal medya veya belge paylaşımı uygulama erişimi için bir uygulama erişebilen herkesin izin verebilirsiniz.
 
-Uygulamanızı bulduktan sonra çoklu oturum açmayı etkinleştirmek için adım adım yönergeleri app Galerisi'nde hem de Azure portalında izleyerek başlayabilirsiniz.
+Ne zaman son kullanıcı kimlik bilgilerini yönetir:
 
-### <a name="application-not-in-the-gallery"></a>Uygulama galerisinde?
-Uygulamanızı Azure AD uygulama galerisinde bulunamazsa, bu seçenekler vardır:
+- Kullanıcılar parolalarını güncelleştirmek ya da gerektiği şekilde silerek yönetebilir. 
+- Yöneticiler uygulama için yeni kimlik bilgilerini ayarlamak hala mümkün.
 
-* **Kullanmakta olduğunuz listelenmemiş uygulama ekleme** -kuruluşunuz kullanarak listelenmemiş bir uygulamayı bağlamak için Azure portalındaki uygulama galerisinde özel kategorisini kullanın. Bir federasyon uygulaması olarak, SAML 2.0 destekleyen herhangi bir uygulama ya da bir HTML tabanlı oturum açma sayfasında parola SSO uygulama olarak olan herhangi bir uygulama ekleyebilirsiniz. Daha fazla ayrıntı için bu makaleye bakın [kendi uygulamanızı ekleme](configure-federated-single-sign-on-non-gallery-applications.md).
-* **Geliştirdiğiniz kendi uygulamanızı ekleyin** - kendiniz uygulama geliştirdiyseniz, Federasyon çoklu oturum açmayı uygulamak için Azure AD Geliştirici belgelerindeki yönergeleri izleyin veya graph API kullanarak Azure AD sağlama. Daha fazla bilgi için şu kaynaklara bakın:
-  
-  * [Azure AD için Kimlik Doğrulama Senaryoları](../develop/authentication-scenarios.md)
-  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
-  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
-  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
-* **Bir uygulama tümleştirmesi istek** -ihtiyacınız kullanarak uygulama için destek isteyin [Azure AD geri bildirim Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-### <a name="using-the-azure-portal"></a>Azure portalını kullanma
-Uygulamanın çoklu oturum açmayı yapılandırmak için Azure portalında Active Directory uzantısını kullanın. İlk adım, portalda Active Directory bölümünden bir dizin seçmeniz gerekir:
+## <a name="linked-sso"></a>Bağlantılı SSO
+Bağlantılı oturum açma için çoklu oturum açmayı başka bir hizmet olarak zaten yapılandırılmış bir uygulama için çoklu oturum açma sağlamak için Azure AD'deki sağlar. Bağlı uygulama Office 365 portalında veya Azure AD MyApps portalında son kullanıcılara görünür. Örneğin, bir kullanıcı çoklu oturum açma Active Directory Federasyon Hizmetleri 2.0 (AD FS), Office 365 portalından için yapılandırılmış bir uygulama başlatabilirsiniz. Ek raporlama da Office 365 portalında veya Azure AD MyApps portalından başlatılan bağlantılı uygulamalar için kullanılabilir. 
 
-![](./media/what-is-single-sign-on/azuremgmtportal.png)
+Bağlantılı çoklu oturum açma için kullanın:
 
-Üçüncü taraf SaaS uygulamalarınızı yönetmek için seçili dizin uygulamaları sekmesine geçebilirsiniz. Bu görünüm, yöneticilerin sağlar:
+- Uygulamaları bir süre geçirirken, tutarlı bir kullanıcı deneyimi sağlar. Uygulamaları Azure Active Directory'ye geçiriyorsanız, bağlantılar, geçirmek istediğiniz tüm uygulamalar için hızlı bir şekilde yayımlamak için bağlantılı çoklu oturum açma kullanabilirsiniz.  Kullanıcılar, tüm bağlantıları bulabilirsiniz [MyApps portalında](../user-help/active-directory-saas-access-panel-introduction.md) veya [Office 365 uygulama başlatıcısında](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Kullanıcılar, bağlı bir uygulama veya geçirilmiş bir uygulamayı eriştiğiniz bilemezsiniz.  
 
-* Azure AD galeri, yanı, geliştirdiğiniz uygulamaları yeni uygulamalar ekleme
-* Tümleşik uygulamaları silin
-* Önceden tümleştirilmiş uygulamaları yönetme
+Bir kullanıcı ile bağlantılı bir uygulamaya kimlik doğrulaması yapıldıktan sonra hesap kaydı son kullanıcı çoklu oturum açma erişimi sağlanan önce oluşturulması gerekir. Bu hesap kaydı sağlama ya da otomatik olarak gerçekleşebileceği ya da bir yönetici tarafından el ile ortaya çıkabilir.
 
-Bir üçüncü taraf SaaS uygulaması için tipik yönetim görevleri şunlardır:
+## <a name="disabled-sso"></a>Devre dışı SSO
 
-* Azure AD parola SSO kullanarak veya mevcut SaaS hedefi varsa, Federasyon SSO ile çoklu oturum açmayı etkinleştirme
-* İsteğe bağlı olarak, kullanıcı için hazırlama ve sağlamayı (kimlik yaşam döngüsü yönetimi) kullanıcı sağlamayı etkinleştirme
-* Uygulamalar için 
-* Kullanıcı sağlamayı etkin olduğunda, bu uygulamaya erişim sahip kullanıcıları seçme
+Devre dışı moda uygulama için çoklu oturum açma kullanılmayan anlamına gelir. Çoklu oturum açma devre dışı bırakıldığında, kullanıcıların iki kez kimlik doğrulaması gerekebilir. İlk olarak, Azure AD ile kullanıcıların kimliğini doğrulamak ve bunlar uygulamaya oturum açın. 
 
-Yapılandırma, Federasyon çoklu oturum açmayı destekleyen galeri uygulamalar için üçüncü taraf uygulama ve Azure AD arasında federasyon güveni oluşturmak için sertifikalar ve meta verileri gibi ek yapılandırma ayarları sağlamak, genellikle gerektirir. Yapılandırma Sihirbazı'nı yönergeleri ve SaaS uygulamaya özgü verileri kolay erişim sağlar ve size ayrıntılarını gösterir.
+Çoklu oturum açma modunu devre dışı:
 
-Otomatik kullanıcı hazırlama destekleyen galeri uygulamalar için Azure AD SaaS uygulamasında hesaplarınızı yönetme izni vermenizi gerektirir. En azından, kimlik bilgilerinin Azure AD üzerinden hedef uygulama için kimlik doğrulaması yapılırken kullanması gereken sağlamanız gerekir. Ek yapılandırma ayarları sağlanması gerekip gerekmediğini, uygulama gereksinimlerine bağlıdır.
+- Bu uygulamayı Azure AD çoklu oturum açma ile tümleştirmeye hazır değilseniz veya
+- Uygulamanın diğer yönleri test ediyorsanız veya
+- Bir şirket içi uygulamaya güvenlik katmanı olarak, kullanıcıların kimlik doğrulaması yapmasına gerek yoktur. Kullanıcı kimlik doğrulaması yapması, devre dışı. 
 
-## <a name="deploying-azure-ad-integrated-applications-to-users"></a>Azure AD tümleşik uygulamalarını kullanıcılara dağıtma
-Azure AD, kuruluşunuzda son kullanıcıların uygulamaları dağıtmak için çeşitli özelleştirilebilir yollar sağlar:
+## <a name="integrated-windows-authentication-iwa-sso"></a>Tümleşik Windows kimlik doğrulaması (IWA) SSO
 
-* Azure AD erişim paneli
-* Office 365 uygulama Başlatıcısı
-* Birleştirilmiş uygulamalarda doğrudan oturum açma
-* Birleştirilmiş, parola tabanlı veya var olan uygulamalara yönelik ayrıntılı bağlantılar
+Azure AD uygulama ara sunucusu kullanan uygulamalar için çoklu oturum açma (SSO) sağlayan [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. Uygulamanız IWA kullanıyorsa, uygulama proxy'si uygulamaya, Kerberos Kısıtlı temsilci (KCD) kullanarak kimliğini doğrular. Kullanıcı zaten Azure AD'yi kullanarak kimliğinin çünkü Azure Active Directory tarafından güvenilen bir talep kullanan uygulama için çoklu oturum açma çalışır.
 
-Kuruluşunuzda dağıtmayı tercih hangi yöntemleri kümeleri olur.
+Tümleşik Windows kimlik doğrulaması çoklu oturum açma modu kullan:
 
-### <a name="azure-ad-access-panel"></a>Azure AD erişim paneli
-Adresinden erişim Paneli'nde https://myapps.microsoft.com Azure görüntülemek için Active Directory'de son kullanıcı bir kurumsal hesap ile sağlayan web tabanlı bir portal ve Azure AD yöneticinizin erişim verilen başlatma bulut tabanlı uygulamalar, olan. Son kullanıcı ile başladıysanız [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), ayrıca erişim paneli ile Self Servis Grup Yönetimi özellikleri kullanabilir.
+- Çoklu oturum açma kimliğini doğrulayan bir şirket içi uygulamaya IWA ile sağlamak için. 
 
-![Azure AD erişim paneli](media/what-is-single-sign-on/azure-ad-access-panel.png)
+Şirket içi uygulama IWA için yapılandırmak üzere bkz [uygulamalarınıza uygulama proxy'si ile çoklu oturum açma için Kerberos kısıtlanmış temsil](application-proxy-configure-single-sign-on-with-kcd.md). 
 
-Erişim paneli, Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure aboneliği veya Office 365 aboneliğine sahip olmasını gerektirmez.
+### <a name="how-single-sign-on-with-kcd-works"></a>KCD works ile nasıl çoklu oturum açma
+Bir kullanıcı IWA kullanan şirket içi uygulamaya eriştiğinde, bu diyagramda akışı açıklanır.
 
-Azure AD erişim paneli hakkında daha fazla bilgi için bkz. [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+![Microsoft AAD kimlik doğrulaması akışı diyagramı](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-### <a name="office-365-application-launcher"></a>Office 365 uygulama Başlatıcısı
-Office 365 dağıtmış olan kuruluşlar için Azure AD üzerinden kullanıcılara atanan uygulamalar ayrıca Office 365 portalında görünür https://portal.office.com/myapps. Bu ikinci bir portal kullanmak zorunda kalmadan uygulamalarını başlatmak için bir kuruluştaki kullanıcılar için kolay getirir ve Office 365 kullanan kuruluşlar için önerilen uygulama başlatılırken çözüm.
+1. Kullanıcı, uygulama proxy'si aracılığıyla şirket içi uygulamaya erişmek için URL'yi girer.
+2. Uygulama Ara sunucusu için Azure AD kimlik doğrulama hizmetleri preauthenticate için istek yönlendirir. Bu noktada, Azure AD, tüm geçerli kimlik doğrulama ve yetkilendirme ilkeleri, çok faktörlü kimlik doğrulaması gibi uygulanır. Kullanıcı doğrulanmış olması durumunda, Azure AD belirteç oluşturulur ve kullanıcıya gönderir.
+3. Kullanıcı belirteci uygulama ara sunucusuna iletir.
+4. Uygulama proxy'si, belirteci doğrular ve belirteçten kullanıcı asıl adı (UPN) alır. Bunu daha sonra istek, UPN ve hizmet asıl adı (SPN) bağlayıcı dually kimliği doğrulanmış ve güvenli bir kanal üzerinden gönderir.
+5. Bağlayıcı, şirket içi ile Kerberos Kısıtlı temsilci (KCD) anlaşma kullanır. AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünme.
+6. Active Directory Uygulama bağlayıcısı için Kerberos belirteci gönderir.
+7. Bağlayıcı AD'den alınan Kerberos belirteci kullanarak uygulama sunucusu, özgün istek gönderir.
+8. Uygulama için uygulama proxy'si hizmeti ardından döndürülen bağlayıcı yanıta gönderir ve son kullanıcı.
 
-![](./media/what-is-single-sign-on/officeapphub.png)
+## <a name="header-based-sso"></a>Üst bilgi tabanlı SSO
 
-Office 365 uygulama başlatıcısında hakkında daha fazla bilgi için bkz: [uygulamanızın Office 365 uygulama başlatıcısında sahip](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Üst bilgi tabanlı çoklu oturum açma, HTTP üst bilgileri için kimlik doğrulaması kullanan uygulamalar için çalışır. Bu oturum açma yöntemi PingAccess adlı bir üçüncü taraf kimlik doğrulama hizmeti kullanır. Bir kullanıcının yalnızca Azure AD'ye kimlik doğrulaması gerekir. 
 
-### <a name="direct-sign-on-to-federated-apps"></a>Birleştirilmiş uygulamalarda doğrudan oturum açma
-SAML 2.0, WS-Federation ve Openıd destekleyen en Federasyon uygulamaları, kullanıcıların uygulamayı başlatın ve ardından Azure AD kullanarak otomatik yeniden yönlendirme veya bir bağlantıya tıklayarak oturum açmak için oturum de destek bağlanın. Bu hizmet sağlayıcısı olarak bilinir-oturum açma başlatılan ve Azure AD uygulama galerisinde en Federasyon uygulamalarına destek (Ayrıntılar için Azure Portalı'nda uygulamanın çoklu oturum açma Yapılandırması Sihirbazı'ndan belgelerine bağlı bu bakın).
+Kullanım üst bilgi tabanlı çoklu oturum açma zaman:
 
-![](./media/what-is-single-sign-on/workdaymobile.png)
+- Uygulama proxy'si ile PingAccess uygulama için yapılandırılmış
 
-### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Doğrudan bağlantılar Federasyon, parola tabanlı veya var olan uygulamalar için oturum açma
-Azure AD çoklu oturum açma uygulamalar için doğrudan bağlantılar parola tabanlı çoklu oturum açma, bağlantılı çoklu oturum açma ve herhangi bir biçimde Federasyon çoklu oturum açmayı destekleyen tek tek de destekler.
+Üst bilgi tabanlı kimlik doğrulamasını yapılandırmak için bkz: [üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile çoklu oturum açma](application-proxy-configure-single-sign-on-with-ping-access.md). 
 
-Bu bağlantılar bir kullanıcı belirli bir uygulama için Azure AD oturum açma işlemi aracılığıyla bunları Azure ad erişim paneli veya Office 365 kullanıcı başlatma gerek kalmadan gönderme özel olarak hazırlanmış URL'leri verilmiştir. Bu tek oturum açma URL'leri önceden tümleştirilmiş tüm uygulamalar, Pano sekmesi altında Azure portal'ın Active Directory bölümünde aşağıdaki ekran görüntüsünde gösterildiği gibi bulunabilir.
+### <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD için PingAccess nedir?
 
-![](./media/what-is-single-sign-on/deeplink.png)
+Azure AD, kullanıcıları için PingAccess kullanarak erişim ve tek kimlik doğrulaması için üst bilgi kullanan uygulamalar için oturum. Uygulama Ara sunucusu, bu uygulamaları diğer, Azure AD kimlik doğrulaması yapmak için kullanarak ve ardından bağlayıcı hizmetini üzerinden trafiği geçirerek gibi davranır. PingAccess hizmeti Azure AD erişim belirteci kimlik doğrulaması gerçekleştikten sonra uygulamaya gönderilen bir üstbilgi biçimine çevirir.
 
-Bu bağlantıları kopyalanır ve seçilen uygulamanın oturum açma bağlantı sağlamak için istediğiniz yere yapıştırılan. Bu e-posta ya da kullanıcı uygulama erişimi için ayarladığınız tüm özel web tabanlı portal olabilir. Bir Azure AD doğrudan çoklu oturum açma URL'si için Twitter'ın bir örnek aşağıda verilmiştir:
+Kurumsal uygulamalarınıza kullanmak oturum açtığında, kullanıcılar farklı bir şey fark olmaz. Bunlar yine de her yerde her cihazda çalışabilirsiniz. Uygulama Ara sunucusu bağlayıcıları doğrudan tüm uygulamalara uzaktan trafiği ve otomatik olarak yük dengelemesi devam edeceğiz.
 
-`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
+### <a name="how-do-i-get-a-license-for-pingaccess"></a>Bir lisans için PingAccess nasıl alabilirim?
 
-Kuruluşa özgü URL'lere erişim paneli için benzer, daha fazla bu URL'yi dizininiz için etkin veya doğrulanmış etki alanlarından biri myapps.microsoft.com etki alanından sonra ekleyerek özelleştirebilirsiniz. Bu, tüm kurumsal markayı hemen oturum açma sayfasında kullanıcının ilk kullanıcı kimliği girildikten gerek yüklenir sağlar:
+Bu senaryo, Azure Active Directory ve PingAccess arasındaki iş ortaklığı ile sunulan olduğundan, her iki hizmet için Lisansınızın olması gerekir. Ancak, en fazla 20 uygulamaları kapsayan temel bir PingAccess lisansı Azure Active Directory Premium abonelikleri içerir. 20'den fazla üst bilgi tabanlı uygulamaları yayımlamak gerekiyorsa, ek bir PingAccess lisanstan elde edebilirsiniz. 
 
-`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
-
-Yetkili bir kullanıcı bu uygulamaya özgü bağlantılardan birini tıkladığında, bunlar ilk olarak (Bunlar zaten oturum varsayılarak), Kurumsal oturum açma sayfasına bakın ve oturum açma işleminden sonra uygulamasının adresinden erişim Paneli'nde durdurmadan yönlendirilirsiniz. Kullanıcı, parola tabanlı çoklu oturum açma tarayıcı uzantısı gibi bir uygulamaya erişmek için ön koşullar eksik ardından bağlantıyı eksik uzantıyı yüklemek için girmesini ister. Bağlantı URL'si de uygulama için tek oturum açma yapılandırması değiştiğinde olursa sabit kalır.
-
-Bu bağlantıları erişim panelinde ve Office 365 olarak aynı erişim denetimi mekanizmaları kullanın ve yalnızca bu kullanıcılar veya gruplar, Azure portalında uygulamanıza atanan kimliğini başarıyla doğrulamak mümkün olacaktır. Ancak, yetkilendirilmemiş herhangi bir kullanıcı, erişim verilmemiş ve erişim sahip oldukları mevcut uygulamaları görüntülemek için erişim paneli yüklemek için bir bağlantı verilen açıklayan bir ileti görürsünüz.
+Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
-* [Cloud discovery'yi ayarlama](/cloud-app-security/set-up-cloud-discovery)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler](../saas-apps/tutorial-list.md)
+* [Çoklu oturum açmayı yapılandırma Öğreticisi](configure-single-sign-on-portal.md)
 * [Uygulamalara erişimi yönetme giriş](what-is-access-management.md)
-* [Dış kimlikler Azure AD'de yönetmek için özellikleri karşılaştırma](../active-directory-b2b-compare-b2c.md)
+* İndirme bağlantısı: [tek oturum açma dağıtım planı](http://aka.ms/SSODeploymentPlan).
 
 

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c99099c9b0fdf485bcf1db1d00b23e1e119ec557
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162451"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614166"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel İlkesi'nde bir SAML teknik profili tanımlama
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C, SAML 2.0 kimlik sağlayıcısı için destek sağlar. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. SAML ile AD FS ve sosyal mevcut oturum veya Kurumsal kimlikleri kullanıcılara izin vererek Salesforce gibi bir kimlik sağlayıcısı SAML ile federasyona eklemek teknik profili temel.
+Azure Active Directory (Azure AD) B2C, SAML 2.0 kimlik sağlayıcısı için destek sağlar. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. AD FS ve kendi mevcut sosyal veya Kurumsal kimlik ile oturum açmak, kullanıcıların Salesforce gibi bir temel SAML kimlik sağlayıcısı ile federasyona SAML teknik profili ile.
 
 ## <a name="metadata-exchange"></a>Meta veri değişimi
 
@@ -111,7 +111,7 @@ Bir kimlik sağlayıcısı oluşturma akış başlattığında aşağıdaki ilke
 | WantsSignedAssertions | Hayır | Teknik profil imzalanmasını gelen tüm onayları gerekli olup olmadığını gösterir. Olası değerler: `true` veya `false`. Varsayılan değer `true` şeklindedir. Değer ayarlanmışsa `true`, tüm onayları bölüm `saml:Assertion` gönderilen Azure AD B2C'ye sağlayıcısı kimliği tarafından imzalanması gerekir. Değer ayarlanmışsa `false`, onaylamalar kimlik sağlayıcısı oturum olmamalıdır, ancak Azure AD B2C'yi aşması durumunda, imza doğrulanmaz. Bu meta veriler ayrıca meta verileri bayrağı denetler **WantsAssertionsSigned**, kimlik sağlayıcısı ile paylaşılan Azure AD B2C teknik profil meta verilerinde çıkış olduğu. Onaylamalar doğrulama devre dışı bırakırsanız, ayrıca yanıt İmza doğrulamasını devre dışı bırakmak isteyebilirsiniz (daha fazla bilgi için **ResponsesSigned**). |
 | ResponsesSigned | Hayır | Olası değerler: `true` veya `false`. Varsayılan değer `true` şeklindedir. Değer ayarlanmışsa `false`, kimlik sağlayıcısı SAML yanıtını oturum olmamalıdır, ancak Azure AD B2C'yi aşması durumunda, imza doğrulanmaz. Değer ayarlanmışsa `true`, Azure AD B2C kimlik sağlayıcısı tarafından gönderilen SAML yanıtını imzalanır ve doğrulanması gerekir. SAML yanıtını doğrulaması devre dışı bırakırsanız, ayrıca onaylama İmza doğrulamasını devre dışı bırakmak isteyebilirsiniz (daha fazla bilgi için **WantsSignedAssertions**). |
 | WantsEncryptedAssertions | Hayır | Teknik profil şifrelenmesini gelen tüm onayları gerekli olup olmadığını gösterir. Olası değerler: `true` veya `false`. Varsayılan değer `false` şeklindedir. Değer ayarlanmışsa `true`, Azure AD B2C kimlik sağlayıcısı tarafından gönderilen bir onayları imzalanmalıdır ve **SamlAssertionDecryption** şifreleme anahtarı belirtilmesi gerekiyor. Değer ayarlanmışsa `true`, Azure AD B2C teknik profil meta verileri içeren **şifreleme** bölümü. Kimlik sağlayıcısı meta verileri okur ve SAML yanıtını onayı Azure AD B2C teknik profil meta verilerinde sağlanan ortak anahtarla şifreler. Onaylamalar şifrelemeyi etkinleştirirseniz, ayrıca yanıt imza doğrulaması devre dışı bırakmanız gerekebilir (daha fazla bilgi için **ResponsesSigned**). | 
-| IdpInitiatedProfileEnabled | Hayır |Bir çoklu oturum açma oturumu profili bir SAML kimlik sağlayıcısı profili tarafından başlatılan etkinleştirilip etkinleştirilmediğini gösterir. Olası değerler: `true` veya `false`. Varsayılan, `false` değeridir. Flow'da kimlik sağlayıcısı tarafından başlatılan harici olarak kullanıcının kimliği doğrulanır ve ardından belirteci kullanır, düzenleme adımlarının yürütür ve ardından bağlı olan taraf uygulaması için bir yanıt gönderir. Azure AD B2C, istenmeyen bir yanıtı gönderilir. |
+| IdpInitiatedProfileEnabled | Hayır |Bir çoklu oturum açma oturumu profili bir SAML kimlik sağlayıcısı profili tarafından başlatılan etkinleştirilip etkinleştirilmediğini gösterir. Olası değerler: `true` veya `false`. Varsayılan değer: `false`. Flow'da kimlik sağlayıcısı tarafından başlatılan harici olarak kullanıcının kimliği doğrulanır ve ardından belirteci kullanır, düzenleme adımlarının yürütür ve ardından bağlı olan taraf uygulaması için bir yanıt gönderir. Azure AD B2C, istenmeyen bir yanıtı gönderilir. |
 
 ## <a name="cryptographic-keys"></a>Şifreleme anahtarları
 

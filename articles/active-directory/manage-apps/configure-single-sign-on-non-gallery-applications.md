@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc7510fdc635de03ac4dd4f64118bc5be040e969
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719418"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622202"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma
 
@@ -31,9 +31,9 @@ Azure Active Directory Uygulama galerisinde Azure Active Directory ile çoklu ot
 Müşterilerle [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) lisans, bu ek özellikler ayrıca Al:
 
 * SAML 2.0 kimlik sağlayıcısı (SP tarafından başlatılan veya IDP tarafından başlatılan) destekleyen herhangi bir uygulamanın Self Servis tümleştirme
-* Self Servis tümleştirme kullanarak bir HTML tabanlı oturum açma sayfası olan herhangi bir web uygulaması [parola tabanlı SSO](what-is-single-sign-on.md#password-based-single-sign-on)
+* Self Servis tümleştirme kullanarak bir HTML tabanlı oturum açma sayfası olan herhangi bir web uygulaması [parola tabanlı SSO](what-is-single-sign-on.md#password-based-sso)
 * Self Servis bağlantı kullanıcı sağlama için SCIM'yi protokolünü kullanan uygulamalar ([burada açıklanan](use-scim-to-provision-users-and-groups.md))
-* Herhangi bir uygulama için bağlantılar ekleme yeteneği [Office 365 uygulama başlatıcısında](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
+* Herhangi bir uygulama için bağlantılar ekleme yeteneği [Office 365 uygulama başlatıcısında](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](what-is-single-sign-on.md#linked-sso)
 
 Bu yalnızca kullanan ancak henüz için Azure AD uygulama Galerisi konaklarınızda yok SaaS uygulamaları içerebilir, ancak kuruluşunuzun Bulut veya şirket içi denetim sunucuları dağıtılan üçüncü taraf web uygulamaları.
 
@@ -165,7 +165,7 @@ Oturum açma sayfası yakalanan, kullanıcılar ve gruplar atanabilir ve kimlik 
 ## <a name="existing-single-sign-on"></a>Varolan çoklu oturum açma
 Uygulamanın, kuruluşunuzun Azure AD erişim paneli veya Office 365 portalına bir bağlantı eklemek için bu seçeneği belirleyin. Bu bağlantıları şu anda Azure Active Directory Federasyon Hizmetleri (veya başka bir Federasyon Hizmeti) kullanan özel web Apps'e eklemek yerine Azure AD kimlik doğrulaması için kullanabilirsiniz. Veya belirli SharePoint sayfaları veya yalnızca kullanıcı erişim panellerinde görünmesi istiyorsanız diğer web sayfaları için ayrıntılı bağlantılar ekleyebilirsiniz. 
 
-Seçtikten sonra **sonraki**, bağlamak için uygulamanın URL'sini girmeniz istenir. Tamamlandığında, kullanıcıları ve grupları görünen uygulamanın uygulama atanabilir [Office 365 uygulama başlatıcısında](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) yönetmeyecek olan kullanıcılar için.
+Seçtikten sonra **sonraki**, bağlamak için uygulamanın URL'sini girmeniz istenir. Tamamlandığında, kullanıcıları ve grupları görünen uygulamanın uygulama atanabilir [Office 365 uygulama başlatıcısında](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](end-user-experiences.md) yönetmeyecek olan kullanıcılar için.
 
 > [!NOTE] 
 > Kullanarak uygulama için bir kutucuk logosu karşıya yüklediğiniz **karşıya Logo** düğmesini **yapılandırma** uygulama için sekmesinde. 

@@ -13,38 +13,40 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/07/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e6ad35702b15090202278cfdead62b245040302
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309629"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624633"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory raporlama API'SİYLE çalışmaya başlama
 
-Azure Active Directory ile çeşitli sağlar [raporları](overview-reports.md). Bu raporların verileri SIEM sistemleri, denetim ve iş zekası araçları gibi uygulamalarınız için çok yararlı olabilir. 
+Azure Active Directory ile çeşitli sağlar [raporları](overview-reports.md), SIEM sistemleri, Denetim ve iş zekası araçları gibi uygulamalar için yararlı bilgiler içeren. 
 
-Azure AD raporlama API'sini kullanarak, bir dizi REST tabanlı API aracılığıyla verilere programlı erişim elde edebilirsiniz. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
+Azure AD raporlar için Microsoft Graph API'sini kullanarak, bir dizi REST tabanlı API aracılığıyla verilere programlı erişim elde edebilirsiniz. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
 
-Bu makalede ilgili API'si kullanarak raporlama verilerine erişmek için bir yol haritası sağlar.
+Bu makalede erişim yolları dahil olmak üzere Raporlama API'si ile bir genel bakış sağlar.
 
 Sorun yaşarsanız bkz [Azure Active Directory için destek alma](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
-Bu makale, Azure AD Graph API için geçerlidir.  Microsoft Graph API için ilgili benzer bilgileri için bkz. [directoryAudit kaynak türü](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit).
-
 ## <a name="prerequisites"></a>Önkoşullar
 
-Betik kullanarak API erişimi üzerinde planlıyor olsanız bile raporlama API'sini erişmek için şunları yapmanız:
+Raporlama API'si ile veya kullanıcı müdahalesi olmadan erişmek için gerekir:
 
 1. (Güvenlik okuyucusu, Güvenlik Yöneticisi, genel yönetici) Rolleri Ata
 2. Bir uygulamayı kaydetme
 3. İzinleri verme
 4. Yapılandırma ayarlarını toplayın
 
-Ayrıntılı yönergeler için bkz. [Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar](howto-configure-prerequisites-for-reporting-api.md).
+Ayrıntılı yönergeler için bkz. [Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar](howto-configure-prerequisites-for-reporting-api.md). 
+
+## <a name="api-endpoints"></a>API uç noktaları 
+
+Microsoft Graph API uç nokta için denetim günlüklerini `https://graph.microsoft.com/beta/auditLogs/directoryAudits` ve oturum açma işlemleri için Microsoft Graph API uç noktası `https://graph.microsoft.com/beta/auditLogs/signIns`. Daha fazla bilgi için [denetim API'si başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) ve [oturum açma, API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
 ## <a name="apis-with-graph-explorer"></a>API'leri ile Graph Gezgini
 
@@ -60,11 +62,10 @@ Kullanıcı müdahalesi olmadan raporlama verilerini almak planlıyorsanız Azur
 
 Ayrıntılı yönergeler için bkz. [sertifikalarla Azure AD raporlama API'sini kullanarak veri alma](tutorial-access-api-with-certificates.md).
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
- * [Denetim API'si başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
- * [Oturum açma etkinliği raporunu API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Raporlama API'sini erişmek için Önkoşullar](howto-configure-prerequisites-for-reporting-api.md) 
+ * [Sertifikalarla Azure AD raporlama API'sini kullanarak veri alma](tutorial-access-api-with-certificates.md)
  * [Azure AD raporlama API'sini hatalarını giderme](troubleshoot-graph-api.md)
 
 

@@ -3,7 +3,7 @@ title: Bir Azure Service Fabric kümesindeki sertifikaları yönetme | Microsoft
 description: Yeni sertifikalar, geçiş sertifikası ekleyin ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2018
-ms.author: chackdan
-ms.openlocfilehash: ad32bd521975312b72aa55fc44e9b4d213519a07
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 11/13/2018
+ms.author: aljo-microsoft
+ms.openlocfilehash: cca48e78278cf234d6f6062eadac4f85ecbcb79b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567885"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625938"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure'da bir Service Fabric küme için sertifikaları kaldırın veya ekleyin
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı hakkında bilgilenmeli ve hakkında bilgi sahibi olmanız önerilir [küme güvenliği senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir bir küme sertifikası ve devam etmeden önce ne için kullanılır.
@@ -175,7 +175,7 @@ Aşağıdaki boyunca kolaylığı için örnek 5-VM-1-NodeType-Secure_Step2.JSON
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Yukarıda eklediğiniz yeni parametreleri yansıtacak şekilde şablon dosyanızı düzenleyin
-Örnekten kullanıyorsanız [git deposu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) örneği takip etmek için örnek 5-VM-1-NodeType-Secure.paramters_Step2.JSON içinde değişiklik başlatmak için 
+Örnekten kullanıyorsanız [git deposu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) örneği takip etmek için örnek 5-VM-1-NodeType-Secure.parameters_Step2.JSON içinde değişiklik başlatmak için 
 
 Resource Manager şablonu parametreniz dosya düzenleme, secCertificateThumbprint ve secCertificateUrlValue için iki yeni parametreler eklendi. 
 
@@ -221,11 +221,11 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <R
 Aynı PowerShell doldurulmuş bir örnek aşağıda verilmiştir.
 
 ```powershell
-$ResouceGroup2 = "chackosecure5"
+$ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResouceGroup2
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

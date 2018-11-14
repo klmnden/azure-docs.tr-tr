@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006031"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613367"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -33,7 +33,7 @@ Etkinlik günlüğü farklıdır [tanılama günlükleri](monitoring-overview-of
 Azure portalı, CLI, PowerShell cmdlet'lerini kullanarak, etkinlik günlüğünde olayları alabilirsiniz ve Azure İzleyici REST API'si.
 
 > [!NOTE]
->  [Yeni uyarılarda](monitoring-overview-unified-alerts.md) uyarı kuralları oluşturma ve yönetme etkinlik oturum açtığınızda Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](alert-activity-log.md).
+> [Yeni uyarılarda](monitoring-overview-alerts.md) oluşturma ve yönetme etkinlik günlük uyarısı kuralları Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](alert-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Etkinlik günlüğünde kategorileri

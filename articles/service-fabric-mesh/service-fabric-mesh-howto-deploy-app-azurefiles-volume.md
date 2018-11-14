@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055155"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614268"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Azure dosyaları bağlayarak bir Azure Service Fabric Mesh uygulaması Store durumda birim kapsayıcı içinde temel
 
@@ -62,10 +62,10 @@ Uygulama ve aşağıdaki komutu kullanarak ilgili kaynakları oluşturmak ve de�
 
 `storageAccountKey` Parametredir şablondaki güvenli bir dize. Dağıtım durumunu görüntülenmez ve `az mesh service show` komutları. Aşağıdaki komutta doğru belirtildiğinden emin olun.
 
-Aşağıdaki komutu kullanarak bir Linux uygulama dağıtır [mesh_rp.linux.json şablon](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Bir Windows uygulaması dağıtmak için [mesh_rp.windows.json şablon](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Büyük kapsayıcı görüntülerini dağıtmak için daha uzun süreceğini unutmayın.
+Aşağıdaki komutu kullanarak bir Linux uygulama dağıtır [counter.azurefilesvolume.linux.json şablon](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Bir Windows uygulaması dağıtmak için [counter.azurefilesvolume.windows.json şablon](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Büyük kapsayıcı görüntülerini dağıtmak için daha uzun süreceğini unutmayın.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 Birkaç dakika sonra komut ile döndürmelidir `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
@@ -97,5 +97,5 @@ az group delete --resource-group myResourceGroup
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Azure dosyaları toplu örnek uygulamayı görünümünde [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
-- Service Fabric kaynak modeli hakkında daha fazla bilgi için bkz: [Service Fabric Mesh kaynak modeli](service-fabric-mesh-service-fabric-resources.md).
-- Service Fabric Mesh hakkında daha fazla bilgi edinmek için [Service Fabric Mesh genel bakış](service-fabric-mesh-overview.md).
+- Service Fabric Kaynak Modeli hakkında daha fazla bilgi için bkz. [Service Fabric Mesh Kaynak Modeli](service-fabric-mesh-service-fabric-resources.md).
+- Service Fabric Mesh hakkında daha fazla bilgi edinmek için [Service Fabric Mesh’e genel bakış](service-fabric-mesh-overview.md) makalesini okuyun.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414629"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612582"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Azure uyarıları log Analytics uyarıları genişletme
 Yakın zamanda kadar Azure Log Analytics, Log Analytics verilerine dayalı koşulları proaktif olarak bildirebilirsiniz kendi uyarı işlevleri dahil. Microsoft Operations Management Suite portalında uyarı kuralları Yönetildi Yeni uyarı deneyimi artık Microsoft azure'da çeşitli hizmetlerdeki uyarı tümleştirilmiştir. Bu olarak kullanılabilir **uyarılar** Azure portalında, Azure İzleyici ve etkinlik günlükleri, ölçümler, uyarı destekler ve hem Log Analytics hem de Azure Application Insights günlüğe kaydeder. 
@@ -60,5 +60,5 @@ Uyarıları oluşturmaya devam edebilirsiniz [Log Analytics API](../log-analytic
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Araçlar hakkında bilgi edinin [başlatma uyarıları Log Analytics'ten Azure'a genişletme](monitoring-alerts-extend-tool.md).
-* Daha fazla bilgi edinin [Azure Uyarıları'deneyimi](monitoring-overview-unified-alerts.md).
+* Daha fazla bilgi edinin [Azure Uyarıları'deneyimi](monitoring-overview-alerts.md).
 * Oluşturmayı [uyarılar Azure Uyarıları'nda oturum](monitor-alerts-unified-log.md).

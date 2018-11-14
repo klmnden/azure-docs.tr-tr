@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816693"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622983"
 ---
-# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI İçerik Paketi'ni kullanma
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI içerik Paketi'ni kullanma
 
 |  |
 |--|
-|Şu anda Azure AD Power BI içerik paketi, Azure AD kiracınızdan verileri almak için Azure AD Graph API kullanır. Sonuç olarak, içerik paketindeki veri kullanarak alınan verileri arasındaki bazı girdilerinde görebilirsiniz [raporlama için Microsoft Graph API'lerini](concept-reporting-api.md). |
+|Azure AD Power BI içerik paketi şu anda Azure AD kiracınızdaki verileri almak için Azure AD Graph API'lerini kullanmaktadır. Sonuç olarak içerik paketinde mevcut olan verilerle [raporlama için Microsoft Graph API'lerini](concept-reporting-api.md) kullanarak aldığınız veriler arasında farklılık olabilir. |
 |  |
 
-BT yöneticisi, kullanıcılarınıza nasıl benimseyin ve Azure Active Directory özelliklerine anlamanız gerekir. Bu, BT altyapınız ve iletişim artırmalarını ve en iyi Azure AD özellikleri dışında almak için plana sağlar. Azure Active Directory için Power BI içerik paketi, verilerinizi içine dizininizle neler olduğunu daha zengin içgörüler toplamak için daha fazla analiz olanağı sağlar. Kolayca tümleşme, Azure Active Directory API'lerini Power bı'a, önceden oluşturulmuş içerik paketi indirebilir ve Azure Active Power BI'ı sunan zengin görselleştirme deneyiminden faydalanarak Directory'niz tüm etkinlikleri öngörü. Kendi panonuzu oluşturabilir ve kuruluşunuzdaki herkesle kolayca paylaşabilirsiniz. 
+Power BI İçerik Paketi için Azure Active Directory (Azure AD) yardımcı olmak için önceden oluşturulmuş raporları içerir, kullanıcılarınızın benimseyin ve nasıl Azure AD özellikleri anlayın. Bu, Power BI'da zengin görselleştirme deneyiminden faydalanarak dizininizdeki tüm etkinliklerin bir anlayış kazanmak sağlar. Ayrıca, kendi panonuzu oluşturabilir ve kuruluşunuzdaki herkesle paylaşabilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,36 +38,32 @@ BT yöneticisi, kullanıcılarınıza nasıl benimseyin ve Azure Active Director
 
 Kullanıma [hızlı](quickstart-install-power-bi-content-pack.md) Azure AD Power BI içerik Paketi'ni yüklemek için.
 
-## <a name="what-can-i-do-with-this-content-pack"></a>Bu içerik paketiyle ne yapabilirim?
+### <a name="reports-included-in-this-version-of-azure-ad-logs-content-pack"></a>Bu Azure AD günlükleri İçerik Paketi sürümünde yer alan raporlar
 
-Bu içerik paketiyle yapabileceklerinizi anlatmadan önce paketteki raporlar hakkında kısa bilgiler vermek istiyoruz. Rapor verileri **son 30 günü** kapsar.
+Aşağıdaki raporlar, Azure AD Power BI içerik paketine dahil edilir. Verilerden raporlar içeren **son 30 gün**.
 
-### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Bu Azure Active Directory günlükleri İçerik Paketi sürümünde yer alan raporlar
+**Uygulama kullanımını ve Eğilimleri raporu**: Bu rapor, kuruluşunuzda kullanılan uygulamaları hakkında Öngörüler sunar. En popüler uygulamalar listesini almak veya kuruluşunuzda son zamanlarda toplu bir uygulamayı nasıl kullanıldığını anlayın. Bu, izleme ve kullanım zaman içinde geliştirilmeye sağlar.
 
-**Uygulama Kullanımı ve Eğilim Raporu**: Kuruluşunuzda kullanılan uygulamalar ve hangisinin en çok ve hangi zamanlarda kullanıldığıyla ilgili öngörülere ulaşın. Bu raporu kullanarak kuruluşunuzda kısa süre önce kullanıma sunduğunuz bir uygulama hakkında öngörüye sahip olabilir veya popüler uygulamaları görebilirsiniz. Bu sayede kullanılmayan uygulamaların kullanılmasını teşvik edebilirsiniz.
+**Konuma ve kullanıcılara göre oturum açma**: Bu rapor, tüm oturum açma Azure kimliği kullanılarak gerçekleştirilen işlemleri hakkında veri sağlar. Bu rapor, tek tek oturum açma aşağı inebilir ve şunun gibi sorular sorun:
 
-**Konuma ve kullanıcılara göre oturum açma sayıları**: Azure kimliği kullanılarak gerçekleştirilen tüm oturum açma işlemleri ve kullanıcıların kimliği hakkında öngörüler toplayın. Bu bilgiyle oturum açma işlemleri hakkında ayrıntılı bilgilere ulaşabilir ve şu soruların yanıtlarını bulabilirsiniz:
-
-- Bu kullanıcı en çok nereden oturum açmış?
+- Burada bu kullanıcı gelen oturum?
 - Hangi kullanıcı en çok oturum açma sayısına sahip ve nereden oturum açıyor? 
 - Oturum açma işlemi başarılı olmuş mu?  
  
-Belirli bir tarihe veya konuma tıklayarak ayrıntılara ulaşabilirsiniz.
+Ayrıca, belirli bir tarih veya konumu seçerek sonuçlarını filtreleyebilirsiniz.
 
-**Uygulama başına benzersiz kullanıcı sayısı**: Belirli bir uygulamayı kullanan tüm benzersiz kullanıcıları görüntüleyin. Buna yalnızca uygulamada “*başarıyla*” oturum açmış kullanıcılar dahil edilir.
+**Uygulama başına benzersiz kullanıcı**: Bu rapor, belirli bir uygulamayı kullanan tüm benzersiz kullanıcıları bir görünümünü sağlar. Yalnızca sahip kullanıcılar içerir "*başarıyla*" bir uygulamada oturum açmış.
 
-**Cihazdan oturum açma işlemleri**: Kuruluşunuzdaki kullanıcıların işletim sistemleri ve tarayıcıları hakkında bilgi edinin ve kullanıcılarla ilgili şu ayrıntılı bilgilere ulaşın:
+**Cihaz oturum açma işlemleri**: Bu rapor, kuruluşunuzda kullanılan cihaz profillerini anlayabilir ve kullanıma göre cihaz ilkeleri belirleyebilirsiniz yardımcı olur. Bu veriler dahil olmak üzere kullanıcılar hakkında ayrıntılı bilgiyle beraber uygulamalara oturum açmak için kullanılan tarayıcılar ve işletim sistemi türü sağlar:
 
 - User Name
 - IP Adresi
 - Konum 
 - Oturum açma durumu 
 
-Bu rapor türüyle kuruluşunuzda kullanılan cihaz profillerini anlayabilir ve kullanıma göre cihaz ilkeleri belirleyebilirsiniz
+**SSPR huni**: Bu rapor SSPR aracının kuruluşunuzda nasıl kullanıldığını anlamanıza yardımcı olur. Kaç parola sıfırlama, SSPR aracıyla bulunulması görebilir ve kaç tanesinin başarılı. Ayrıca, parola sıfırlama hatalarının inin ve hunisini neden anlama. 
 
-**SSPR Hunisi**: Kuruluşunuzda parola sıfırlama işlemlerinin nasıl gerçekleştirildiğini kavrayın. SSPR aracıyla kaç parola sıfırlama girişimi yapıldığını ve kaçının başarılı olduğunu görün. SSPR hunisini kullanarak Parola sıfırlama işlemlerinin ayrıntılarına inin ve başarısız olan işlemlerin nedenini öğrenin. Bu rapor SSPR aracının kuruluşunuzda nasıl kullanıldığını göstererek doğru kararlar almanızı sağlar.
-
-## <a name="customizing-azure-ad-activity-content-pack"></a>Azure AD Etkinlik içerik paketini özelleştirme
+## <a name="customize-azure-ad-activity-content-pack"></a>Azure AD etkinlik içerik paketini özelleştirme
 
 **Görselleri Değiştirme**: **Raporu Düzenle**'ye tıklayıp istediğiniz görünümü seçerek raporun görsellerini değiştirebilirsiniz.
  
@@ -75,51 +71,43 @@ Bu rapor türüyle kuruluşunuzda kullanılan cihaz profillerini anlayabilir ve 
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/10.png) 
 
-**Ek alanları dahil etme**: Alan eklemek/kaldırmak istediğiniz görsele tıklayarak rapora alan ekleyebilir veya var olan alanları kaldırabilirsiniz. Aşağıdaki örnekte tablo görünümüne "oturum açma durumu" alanını ekliyorum. 
+**Ek alanları dahil etme**: Alan eklemek/kaldırmak istediğiniz görsele tıklayarak rapora alan ekleyebilir veya var olan alanları kaldırabilirsiniz. Örneğin, aşağıda gösterildiği gibi Tablo görünümüne "oturum açma durumu" alanını ekleyebilirsiniz. 
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/11.png) 
 
-**Görselleri panonuza sabitleyin**: Panonuzu özelleştirebilir ve kendi görselleştirmelerinizi rapora ekleyip panoya sabitleyebilirsiniz. Aşağıdaki örnekte "Oturum Açma Durumu" adında yeni bir filtre ekledim ve rapora dahil ettim. Ayrıca çubuk grafik görselini çizgi grafik olarak değiştirdim be bu yeni görseli panoya sabitleyebilirim.
-
-![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/12.png) 
+**Görselleştirmeleri bir panoya sabitleme**: panoya sabitleme ve kendi görselleştirmelerinizi rapora dahil olmak üzere, panoyu özelleştirebilirsiniz. 
 
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/13.png) 
  
-
- 
-
-
-**Panonuzu paylaşma**: İstediğiniz içeriği oluşturduktan sonra panoyu kuruluşunuzdaki kullanıcılarla paylaşabilirsiniz. Raporu paylaştığınızda raporda belirlediğiniz alanları görebileceklerini unutmayın.
+**Pano paylaşmak**: Ayrıca panoyu kullanıcılarla kuruluşunuzun içinde paylaşabilirsiniz. Raporu paylaştığınızda raporda seçtiğiniz alanları kullanıcılar görebilir.
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/14.png) 
 
+## <a name="schedule-a-daily-refresh-of-your-power-bi-report"></a>Power BI raporunuzun her gün yenilenmesini zamanlayabilirsiniz.
 
-
-## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Power BI raporunuzun her gün yenilenmesini planlama
-
-Power BI raporunuzun her gün yenilenmesi için **Veri Kümeleri > Ayarlar > Yenilemeyi Zamanla** sayfasına gidin ve aşağıdaki gibi ayarlayın.
+Power BI raporunuzun her gün yenilenmesi zamanlamak için Git **veri kümeleri** > **ayarları** > **yenilemeyi zamanla** ve aşağıda gösterildiği gibi ayarlayın.
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/15.png) 
 
-## <a name="updating-to-newer-version-of-content-pack"></a>İçerik paketini yeni sürüme güncelleştirme
+## <a name="update-to-newer-version-of-content-pack"></a>İçerik paketinin daha yeni sürüme güncelleştirin
 
 İçerik paketinizi yeni sürüme güncelleştirmek istiyorsanız:
 
-- Yeni içerik paketini indirin ve bu makaledeki talimatlara göre kurun.
+- Yeni içerik paketini indirin ve bu makaledeki yönergeleri kullanarak ayarlayın.
 
-- Kurduktan sonra **Veri Kaynağı > Ayarlar > Veri kaynağı kimlik bilgileri** sayfasına gidin ve aşağıdaki gibi kimlik bilgilerinizi tekrar girin
+- Git, kurduktan sonra **veri kaynağı** > **ayarları** > **veri kaynağı kimlik bilgileri** ve kimlik bilgilerinizi yeniden girin.
 
     ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/16.png) 
 
-İçerik paketinin yeni sürümü çalışmaya başladığında ihtiyaç duymanız halinde eski içerik paketiyle ilişkilendirilmiş raporları ve veri kümelerini silerek onu kaldırabilirsiniz.
+İçerik paketinin yeni sürümü beklendiği gibi çalıştığını doğruladıktan sonra bağlantılı raporlara ve veri kümeleri söz konusu içerik paketiyle ilişkili silerek gerekirse eski sürümü kaldırabilirsiniz.
 
 ## <a name="still-having-issues"></a>Sorun yaşamaya devam mı ediyorsunuz? 
 
 [Sorun giderme kılavuzumuzu](troubleshoot-content-pack.md) inceleyin. Power BI hakkında genel yardım için bu [yardım makalelerini inceleyin](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
  
-
+ 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Power BI içerik Paketi'ni yüklemek](quickstart-install-power-bi-content-pack.md).
-* [İçerik Paketi hatalarında sorun giderme](troubleshoot-content-pack.md).
+* [İçerik paketi hatalarını düzeltme](troubleshoot-content-pack.md).
 * [Azure AD raporlar nedir? ](overview-reports.md).

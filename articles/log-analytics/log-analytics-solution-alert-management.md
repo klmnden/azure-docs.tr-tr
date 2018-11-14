@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fa76ccf7019097c5f27aa126b0a5a7dc81ffbd41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bba008bc6d1214aa4b2ca7cc609586a3d18159fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008156"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613622"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log analytics'teki uyarı yönetimi çözümü
 
 ![Uyarı Yönetimi simgesi](media/log-analytics-solution-alert-management/icon.png)
 
-Uyarı yönetimi çözümü tüm uyarıları Log Analytics deponuzdaki analiz etmenize yardımcı olur.  Bu uyarılar bir çeşitli kaynaklardan kaynaklar dahil olmak üzere gelmiş olabilir [Log Analytics tarafından oluşturulan](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) veya [Nagios veya Zabbix içeri aktarılan](log-analytics-quick-collect-linux-computer.md). Çözüm ayrıca uyarılar herhangi aktarır [bağlı System Center Operations Manager Yönetim grupları](log-analytics-om-agents.md).
+Uyarı yönetimi çözümü tüm uyarıları Log Analytics deponuzdaki analiz etmenize yardımcı olur.  Bu uyarılar bir çeşitli kaynaklardan kaynaklar dahil olmak üzere gelmiş olabilir [Log Analytics tarafından oluşturulan](../monitoring-and-diagnostics/monitoring-overview-alerts.md) veya [Nagios veya Zabbix içeri aktarılan](log-analytics-quick-collect-linux-computer.md). Çözüm ayrıca uyarılar herhangi aktarır [bağlı System Center Operations Manager Yönetim grupları](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Çözüm herhangi bir kayıt türü ile Log Analytics deposunda çalışır **uyarı**, ne olursa olsun bu kayıtları toplamak için gerekli bir yapılandırmadır gerçekleştirmeniz gerekir.
 
-- Log Analytics uyarılarını için [uyarı kuralları oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) doğrudan depoda uyarı kayıtları oluşturmak için.
+- Log Analytics uyarılarını için [uyarı kuralları oluşturma](../monitoring-and-diagnostics/monitoring-overview-alerts.md) doğrudan depoda uyarı kayıtları oluşturmak için.
 - Nagios ve Zabbix uyarıları için [bu sunucuları yapılandırmak](log-analytics-quick-collect-linux-computer.md) uyarıları Log Analytics'e göndermek için.
 - System Center Operations Manager uyarıları için [Operations Manager yönetim grubunuzu Log Analytics çalışma alanınıza bağlanmak](log-analytics-om-agents.md).  System Center Operations Manager'da oluşturulan tüm uyarılar, Log Analytics'e aktarılır.  
 
@@ -123,4 +123,4 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan uyarı kayıtlarına iliş
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Log Analytics’ten uyarı oluşturma hakkında daha ayrıntılı bilgi edinmek için bkz. [Log Analytics’teki Uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) .
+* Log Analytics’ten uyarı oluşturma hakkında daha ayrıntılı bilgi edinmek için bkz. [Log Analytics’teki Uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) .

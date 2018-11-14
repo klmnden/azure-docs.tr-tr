@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: cf92b5b6ee3c6a529a43e7fa4cfeeb09954ad9ea
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365400"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623120"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uygulama proxy'sinde talep kullanan uygulamalar ile çalışma
 [Talep kullanan uygulamalar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) yeniden yönlendirmesi için güvenlik belirteci hizmeti (STS) gerçekleştirin. STS, bir belirteç lisanslarınıza kullanıcıdan kimlik bilgilerini ister ve ardından kullanıcıyı uygulamaya yönlendirir. Bu yeniden yönlendirme ile çalışmak uygulama proxy'sini etkinleştirmek için birkaç yolu vardır. Talep kullanan uygulamalar için dağıtımınızı yapılandırmak için bu makaleyi kullanın. 
@@ -54,7 +54,7 @@ Tüm uygulamalarınız için iç URL tam olarak nitelikli etki alanı adlarını
    ![Uç nokta - ekleme güvenilen URL değeri - ekran görüntüsü ayarlama](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Çoklu oturum açmayı etkinleştirme](application-proxy-single-sign-on.md) talep kullanan olmayan uygulamalar için
+* [Çoklu oturum açmayı etkinleştirme](configure-single-sign-on-portal.md) talep kullanan olmayan uygulamalar için
 * [Yerel istemci uygulama proxy uygulamaları ile etkileşim kurmak etkinleştirin](application-proxy-configure-native-client-application.md)
 
 

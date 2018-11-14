@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 49d68a28180c384a181f29e41c12a5e32bd76aee
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280682"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625224"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -126,14 +126,14 @@ Bir GUID 32 onaltılık basamak olan bir başvuru benzersiz sayıdır. İzleme i
 > [!Note]
 > Yüksek oranda kullanmanızı öneririz. olduğu [Azure Depolama'nın GUID generator form](https://aka.ms/StoragePartners) , GUID oluşturmak için. Daha fazla bilgi için müşterilerimize [SSS](#faq).
 
-Her bir teklif ve dağıtım kanalı için benzersiz bir GUID oluşturun. Bir şablon kullanarak iki çözümleri dağıtmak ve Azure Marketi'nde ve GitHub üzerinde her biri kullanılabilir ise, dört GUID'leri oluşturmanız gerekir:
+Her bir teklif ve dağıtım kanalı her ürün için benzersiz bir GUID oluşturun öneririz. Bölünecek raporlama istemiyorsanız ürünün birden çok dağıtım kanalları için tek bir GUID kullanmayı tercih edebilirsiniz. 
 
-*   Bir Azure Marketi'nde teklif 
-*   Github'da bir teklif
-*   Azure Marketi'nde teklif B 
-*   Github'da teklif B
+Bir şablonu kullanarak bir ürünün dağıtılmasını ve Azure Marketi'nde ve GitHub üzerinde kullanılabilir, oluşturabilir ve 2 ayrı GUID'ler kaydedin:
 
-Raporlama, iş ortağı değeri (Microsoft iş ortağı kimliği) ve GUID tarafından gerçekleştirilir. 
+*   Azure Marketi'nde bir ürün 
+*   Github'da bir ürün
+
+Raporlama GUID'leri ve iş ortağı değeri (Microsoft iş ortağı kimliği) ile gerçekleştirilir. 
 
 Ayrıca, GUID'leri SKU'ları bir teklifini türevlerini nerede SKU gibi daha ayrıntılı bir düzeyde izleyebilirsiniz.
 

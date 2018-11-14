@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731811"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615612"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Batch AI işi girdi ve çıktı Azure depolama ile Store
 
@@ -30,7 +30,7 @@ Azure Depolama, Microsoft’un bulut depolama çözümüdür. Azure Blob kapsay�
 
 Batch AI ortamınız için Azure Depolama'yı seçtiğinizde, daha yüksek aktarım hızı olan bir Blob kapsayıcısında (örneğin, veri kümeleri) giriş dosyalarınızı depolamak eğitim çıkışınızı (izin verme akış destekleyen bir dosya paylaşımında depoladığınız öneririz. Çıktı günlüklerini okumak) iş eşzamanlı olarak çalışırken. 
 
-Azure Depolama'yı kullanabilmeniz için önce şunları yapmalısınız [bir Azure depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md). Batch AI destekler bağlama birimlerden hem genel amaçlı v1 (GPv1) ve genel amaçlı v2 (GPv2) Azure depolama hesapları. Azure depolama hesabı, birden çok Blob kapsayıcıları tutun veya dosya paylaşımı örneklerini. Oluşturulacak depolama hesabı türünü seçerken, maliyet ve performans gereksinimlerinizi göz önünde bulundurun. Daha fazla bilgi için [Azure depolama hesabına genel bakış](../storage/common/storage-account-overview.md). 
+Azure Depolama'yı kullanabilmeniz için önce şunları yapmalısınız [bir Azure depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md). Batch AI destekler bağlama birimlerden hem genel amaçlı v1 (GPv1) ve genel amaçlı v2 (GPv2) Azure depolama hesapları. Azure depolama hesabı, birden çok Blob kapsayıcıları tutun veya dosya paylaşımı örneklerini. Oluşturulacak depolama hesabı türünü seçerken, maliyet ve performans gereksinimlerinizi göz önünde bulundurun. Daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../storage/common/storage-account-overview.md). 
 
 Bir Blob kapsayıcı oluşturun ve Veri kümenizi bir Azure Blob kapsayıcısını karşıya yüklemek için aşağıdaki yöntemlerden birini seçin:
 - [Azure portalında](../storage/blobs/storage-quickstart-blobs-portal.md) web tabanlı bir GUI ile karşıya yükleme. Küçük sayıda dosyayı karşıya yüklemek için Azure portalında basit işlemi sağlar.
@@ -98,7 +98,7 @@ Eğitim betiğinizi bir yol bilgisi gerektiriyorsa, bir komut satırı bağıms�
 
 ### <a name="abbreviate-input-paths"></a>Giriş yollarından kısaltma
 
-Giriş yollarından bir ortam değişkeni kısaltma için kullanın `inputDirectories` özelliği, `job.json` dosya (veya `models.JobCreateParamters.input_directories` Batch AI SDK'sını kullanılıyorsa). Şemasını `inputDirectories` olan:
+Giriş yollarından bir ortam değişkeni kısaltma için kullanın `inputDirectories` özelliği, `job.json` dosya (veya `models.JobCreateParameters.input_directories` Batch AI SDK'sını kullanılıyorsa). Şemasını `inputDirectories` olan:
 
 ```json
 {
@@ -115,7 +115,7 @@ Daha fazla bilgi için [burada](https://github.com/Azure/BatchAI/blob/master/doc
 
 ### <a name="abbreviate-output-paths"></a>Çıktı yollarında kısaltma
 
-Bir ortam değişkeni çıktı yollarında kısaltma için kullanın `outputDirectories` özelliği, `job.json` dosya (veya `models.JobCreateParamters.output_directories` Batch AI SDK'sını kullanılıyorsa). Bu yöntemi kullanarak Çıkış dosyalarını yollarını basitleştirebilir. Şemasını `outputDirectories` olan:
+Bir ortam değişkeni çıktı yollarında kısaltma için kullanın `outputDirectories` özelliği, `job.json` dosya (veya `models.JobCreateParameters.output_directories` Batch AI SDK'sını kullanılıyorsa). Bu yöntemi kullanarak Çıkış dosyalarını yollarını basitleştirebilir. Şemasını `outputDirectories` olan:
 
 ```json
 {
@@ -135,7 +135,7 @@ Daha fazla bilgi için [burada](https://github.com/Azure/BatchAI/blob/master/doc
 
 ### <a name="use-azure-portal"></a>Azure portalı kullanma
 
-Azure portalında bir GUI dosya Gezgini'ni kullanarak işleri çıktısını görüntülemek için kullanışlı bir yoldur. Bununla birlikte, Stdout ve Stderr veya bir yolda çıkışı görüntülemek istiyorsanız `outputDirectories`, dosyalar, Azure depolama birimindeki bir otomatik olarak oluşturulan yol yerleştirilir. Aşağıda daha fazla bilgi için bkz.
+Azure portalında bir GUI dosya Gezgini'ni kullanarak işleri çıktısını görüntülemek için kullanışlı bir yoldur. Bununla birlikte, Stdout ve Stderr veya bir yolda çıkışı görüntülemek istiyorsanız `outputDirectories`, dosyalar, Azure depolama birimindeki bir otomatik olarak oluşturulan yol yerleştirilir. Daha fazla bilgi için aşağıya bakın.
 
 ### <a name="access-stdout-and-stderr-output"></a>Erişim Stdout ve Stderr çıktısı
 

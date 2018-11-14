@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015783"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614149"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft azure'da Klasik uyarılar nedir?
 
@@ -55,7 +55,7 @@ Klasik uyarılar kullanılabilir - ölçüm uyarıları ve etkinlik günlüğü 
 
 * **Klasik etkinlik günlüğü uyarıları** -etkinlik günlüğü olayı eşleşme atadığınız ölçütleri Filtrele oluşturulduğunda tetikleyen akış günlük uyarısı. Yalnızca bir durum, bu uyarılar sahip "Uyarı alt filtre ölçütlerini yeni olaya yalnızca geçerlidir. bu yana, etkinleştirildi". Bu uyarılar, yeni bir hizmet durumu olay meydana geldiğinde veya bir kullanıcı veya uygulama "sanal makineyi silin." aboneliğinizde, örneğin, bir işlem gerçekleştirdiğinde bildirilmesi için kullanılabilir
 
-Tanılama günlük verilerini Azure İzleyici kullanılabilir, verileri Log Analytics'e (OMS önceden) yönlendirmek ve Log Analytics sorgu uyarısını kullanın. Analizi şimdi kullandığı oturum [yöntemi yeni uyarı](monitoring-overview-unified-alerts.md) 
+Tanılama günlük verilerini Azure İzleyici kullanılabilir, verileri Log Analytics'e (OMS önceden) yönlendirmek ve Log Analytics sorgu uyarısını kullanın. Analizi şimdi kullandığı oturum [yöntemi yeni uyarı](monitoring-overview-alerts.md) 
 
 Aşağıdaki diyagramda, Azure İzleyici ve, kavramsal olarak, bu verileri nasıl uyarabilir veri kaynakları özetlenmektedir.
 

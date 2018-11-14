@@ -6,18 +6,18 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 1026b103b8bb2b16114147b1c58deaf5b20cc437
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579733"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625887"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup sunucusu yenilikler
 
-Microsoft Azure Backup sunucusu sürüm 3 (MABS V3) en son yükseltme ve Kritik hata düzeltmeleri, Windows Server 2019 desteği, 2017 SQL desteği ve diğer özellikleri ve geliştirmeleri içerir. Düzeltilen hataların ve yükleme yönergeleri için MABS V3 listesini görüntülemek için 4457852 KB makalesine bakın.
+Microsoft Azure Backup sunucusu sürüm 3 (MABS V3) en son yükseltme ve Kritik hata düzeltmeleri, Windows Server 2019 desteği, 2017 SQL desteği ve diğer özellikleri ve geliştirmeleri içerir. Düzeltilen hataların listesi ve yükleme yönergeleri için bkz. KB makalesi MABS V3 görüntülemek için [4457852](https://support.microsoft.com/en-us/help/4457852/microsoft-azure-backup-server-v3).
 
 MABS V3 sürümünde aşağıdaki özellikler bulunmaktadır:
 

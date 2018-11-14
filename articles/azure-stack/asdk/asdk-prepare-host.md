@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd02dfe37a1566a3121b3571f72d964621330cd0
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647315"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615407"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>ASDK ana bilgisayarını hazırlayın
 Ana bilgisayarda ASDK yükleyebilmek için önce ASDK ortamı yüklemesi için hazırlıklı olmalıdır. Geliştirme Seti ana bilgisayar hazırlandığınızda ASDK dağıtımına başlamak için CloudBuilder.vhdx sanal makine sabit sürücüden önyükleme yapmaz.
@@ -53,7 +53,7 @@ Ana bilgisayarda ASDK yükleyebilmek için önce ASDK ana bilgisayar ortamı haz
 
 6. Üzerinde **isteğe bağlı ayarlar** sayfasında, yerel yöneticinizden hesap Geliştirme Seti konak bilgisayar için bilgi ve ardından **sonraki**. Aşağıdaki isteğe bağlı ayarları için değerleri de sağlayabilirsiniz:
   - **ComputerName**: Bu seçenek Geliştirme Seti konak adını ayarlar. Adı, FQDN gereksinimlere uygun olmalıdır ve 15 karakter veya daha az olmalıdır. Varsayılan Windows tarafından oluşturulan bir rastgele bir bilgisayar adıdır.
-  - **Statik IP yapılandırması**: dağıtımınızı statik bir IP adresi kullanacak şekilde ayarlar. Aksi takdirde, yükleyici cloudbuilder.vhx yeniden başlatıldığında, ağ arabirimleri DHCP ile yapılandırılır.
+  - **Statik IP yapılandırması**: dağıtımınızı statik bir IP adresi kullanacak şekilde ayarlar. Aksi takdirde, yükleyici cloudbuilder.vhdx yeniden başlatıldığında, ağ arabirimleri DHCP ile yapılandırılır.
 
     ![](media/asdk-prepare-host/3.PNG)
 

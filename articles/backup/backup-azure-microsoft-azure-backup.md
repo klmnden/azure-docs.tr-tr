@@ -7,14 +7,14 @@ manager: shivamg
 keywords: Azure backup sunucusu; iş yüklerini korumak; iş yüklerini yedekleme
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 602b7b2a81ec727c9acaf86165867daa20370947
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578731"
+ms.locfileid: "51616325"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Yükleme ve Azure Backup sunucusu yükseltme
 > [!div class="op_single_selector"]
@@ -169,18 +169,20 @@ Ayıklama işlemi tamamlandı, yeni ayıklanan başlatmak için bu kutuyu işare
 
    **El ile yapılandırma**
 
-    > [!IMPORTANT]
+   Kendi SQL örneğini kullandığınızda, ana veritabanı sysadmin rolüne BUILTIN\Administrators eklediğiniz emin olun.
 
-    > Yapılandırmadan sonra MABS, el ile yapılandırdığınızda, emin *Isınitialized* özelliği SSRS *True*. True olarak ayarlandığında, MABS SSRS zaten yapılandırıldı ve SSRS yapılandırma atlanacak varsayar.
+    **SQL 2017 ile SSRS yapılandırma**
 
-    > SSRS yapılandırma için aşağıdaki değerleri kullanın:
+    SQL 2017 kendi örneğini kullanırken, SSRS el ile yapılandırmanız gerekiyor. SSRS yapılandırma sonrasında emin *Isınitialized* özelliği SSRS *True*. True olarak ayarlandığında, MABS SSRS zaten yapılandırıldı ve SSRS yapılandırma atlanacak varsayar.
 
-      >- Hizmet hesabı: Ağ hizmeti 'Yerleşik bir hesap kullan' olmalıdır
-    >- Web hizmeti URL'si: ReportServer_MSDPMINSTANCE 'Sanal dizini' olmalıdır
-    > - Veritabanı: Veritabanı adı ReportServer$ MSDPMINSTANCE olmalıdır
-    > - Web portalı URL'si: Reports_MSDPMINSTANCE 'Sanal dizini' olmalıdır
+    SSRS yapılandırma için aşağıdaki değerleri kullanın:
 
-    > [Daha fazla bilgi edinin](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS yapılandırma hakkında.
+        - Service Account: ‘Use built-in account’ should be Network Service
+        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
+        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
+        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+
+    [Daha fazla bilgi edinin](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS yapılandırma hakkında.
 
 4. Microsoft Azure Backup sunucusu dosyaları yüklenmesi için bir konum girin ve tıklayın **sonraki**.
 
@@ -323,6 +325,8 @@ MABS yükseltmek için aşağıdaki adımları kullanın:
   > [!IMPORTANT]
 
   >  SQL 2017 yükseltmesinin bir parçası olarak SQL şifreleme anahtarlarını yedeklemeniz ve Raporlama Hizmetleri kaldırın. SQL server yükseltmesi sonrasında raporlama service(14.0.6827.4788) yüklü & şifreleme anahtarı geri yüklenir.
+
+ > SQL 2017 elle yapılandırırken başvurmak *SQL 2017 ile SSRS yapılandırma* bölümü altında yükleme yönergeleri.
 
 3. Korumalı sunuculardaki koruma aracılarını güncelleştirin.
 4. Yedeklemeler, üretim sunucuları yeniden başlatma gerek kalmadan devam etmelidir.

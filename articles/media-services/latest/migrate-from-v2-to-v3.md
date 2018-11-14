@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287549"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616019"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -59,6 +59,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 * V3 SDK'ları, depolama kullanmak istiyorsanız ve sürüm oluşturma sorunları önler SDK sürümü üzerinde daha fazla denetim verir depolama SDK artık birbirinden ayrılmıştır. 
 * V3 API'leri, tüm kodlama hızları bit / saniye cinsindendir. Bu, Media Encoder Standard hazır ayarları v2 farklıdır. Örneğin, v2'de hızı (kbps) 128 belirtilebilir, ancak v3 sürümünde bu 128000 (bit/saniye) olacaktır. 
 * Varlıkları AssetFiles AccessPolicies ve IngestManifests v3 sürümünde yok.
+* IAsset.ParentAssets özelliği v3 sürümünde mevcut değil.
 * ContentKeys artık bir varlık değil, artık StreamingLocator özelliğidir.
 * Event Grid destek NotificationEndpoints değiştirir.
 * Aşağıdaki varlıkların yeniden adlandırıldı

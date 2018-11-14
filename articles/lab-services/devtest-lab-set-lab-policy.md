@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255191"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622032"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara yönelik tüm ilkeleri yönetme
 
-Azure DevTest Labs, maliyet denetlemek ve laboratuvarlarınızı içinde boşa harcamayı için her bir laboratuvar ilkeleri (ayarlar) yöneterek sağlar. Bu makalede her İlkesi ayarlama konusunda adım adım ayrıntılı olarak açıklanmaktadır.  
+Maliyet denetlemek ve en aza indiren azure DevTest Labs sağlar, her bir laboratuvar ilkelerini (ayarlar) yöneterek, Labs'de boşa. Bu makalede her İlkesi ayarlama konusunda adım adım ayrıntılı olarak açıklanmaktadır.  
 
 ## <a name="set-allowed-virtual-machine-sizes"></a>Sanal makine boyutları izin kümesi
 Hangi VM boyutlarının laboratuvarda izin verildiğini belirtmek sağlayarak Laboratuvar israfı en aza indirmek için izin verilen VM boyutları ayarlama İlkesi yardımcı olur. Bu ilke etkinleştirilirse, yalnızca bu listedeki VM boyutları, sanal makineler oluşturmak için kullanılabilir.
@@ -42,28 +42,28 @@ Hangi VM boyutlarının laboratuvarda izin verildiğini belirtmek sağlayarak La
 1. **Kaydet**’i seçin.
 
 ## <a name="set-virtual-machines-per-user"></a>Kullanıcı başına sanal makineler kümesi
-İlkeyi **kullanıcı başına sanal makine** bireysel bir kullanıcı tarafından oluşturulan VM'ler en fazla sayısını belirtmenizi sağlar. Bir kullanıcı oluşturma veya Kullanıcı sınırı sağlandığında bir VM talep çalışırsa, bir VM oluşturulur ve talep olamaz bir hata iletisi gösterir. 
+İlkeyi **kullanıcı başına sanal makine** bireysel bir kullanıcı tarafından oluşturulan VM'lerin sayısını belirtmenizi sağlar. Bir kullanıcı oluşturma veya bir sanal kullanıcı sınırı sağlandığında talep çalışırsa, bir VM oluşturulur ve talep olamaz bir hata iletisi gösterir. 
 
 1. Laboratuvar'ın **yapılandırması ve ilkelerini** bölmesinde **kullanıcı başına sanal makine**.
    
     ![Kullanıcı başına sanal makineler](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Seçin **Evet** kullanıcı başına VM'lerin sayısını sınırlamak için. Kullanıcı başına VM'lerin sayısını sınırlamak istemiyorsanız seçin **Hayır**. Seçerseniz **Evet**, oluşturulan veya bir kullanıcı tarafından talep VM'ler en fazla sayısını gösteren bir sayısal değer girin. 
+1. Seçin **Evet** kullanıcı başına VM'lerin sayısını sınırlamak için. Kullanıcı başına VM'lerin sayısını sınırlamak istemiyorsanız seçin **Hayır**. Seçerseniz **Evet**, oluşturulan veya bir kullanıcı tarafından istenen VM sayısını belirten bir sayısal değer girin. 
 
-1. Seçin **Evet** SSD (katı hal disk) kullanan VM'ler sayısını sınırlamak için. SSD kullanın, seçin VM sayısını sınırlamak istemiyorsanız **Hayır**. Seçerseniz **Evet**, SSD kullanılarak oluşturulan VM'ler en fazla sayısını gösteren bir değer girin. 
+1. Seçin **Evet** SSD (katı hal disk) kullanan VM'ler sayısını sınırlamak için. SSD kullanın, seçin VM sayısını sınırlamak istemiyorsanız **Hayır**. Seçerseniz **Evet**, SSD kullanılarak oluşturulan VM'lerin sayısını belirten bir değer girin. 
 
 1. **Kaydet**’i seçin.
 
 ## <a name="set-virtual-machines-per-lab"></a>Laboratuvar başına sanal makineler kümesi
-İlkeyi **Laboratuvar başına sanal makine** geçerli Laboratuvar için oluşturulan VM'ler en fazla sayısını belirtmenizi sağlar. Laboratuvar sınırına bir VM oluşturmak bir kullanıcı çalışırsa, VM oluşturulan bir hata iletisi gösterir. 
+İlkeyi **Laboratuvar başına sanal makine** geçerli Laboratuvar için oluşturulan VM'lerin sayısını belirtmenizi sağlar. Laboratuvar sınırına bir VM oluşturmak bir kullanıcı çalışırsa, VM oluşturulan bir hata iletisi gösterir. 
 
 1. Laboratuvar'ın **yapılandırması ve ilkelerini** bölmesinde **Laboratuvar başına sanal makine**.
    
     ![Laboratuvar başına sanal makine](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Seçin **Evet** Laboratuvar başına sanal makinelerin sayısını sınırlamak için. Laboratuvar başına sanal makinelerin sayısını sınırlamak istemiyorsanız seçin **Hayır**. Seçerseniz **Evet**, oluşturulan veya bir kullanıcı tarafından talep VM'ler en fazla sayısını gösteren bir sayısal değer girin. 
+1. Seçin **Evet** Laboratuvar başına sanal makinelerin sayısını sınırlamak için. Laboratuvar başına sanal makinelerin sayısını sınırlamak istemiyorsanız seçin **Hayır**. Seçerseniz **Evet**, oluşturulan veya bir kullanıcı tarafından istenen VM sayısını belirten bir sayısal değer girin. 
 
-1. Seçin **Evet** SSD (katı hal disk) kullanan VM'ler sayısını sınırlamak için. SSD kullanın, seçin VM sayısını sınırlamak istemiyorsanız **Hayır**. Seçerseniz **Evet**, SSD kullanılarak oluşturulan VM'ler en fazla sayısını gösteren bir değer girin. 
+1. Seçin **Evet** SSD (katı hal disk) kullanan VM'ler sayısını sınırlamak için. SSD kullanın, seçin VM sayısını sınırlamak istemiyorsanız **Hayır**. Seçerseniz **Evet**, SSD kullanılarak oluşturulan VM'lerin sayısını belirten bir değer girin. 
 
 1. **Kaydet**’i seçin.
 
@@ -78,7 +78,7 @@ Otomatik kapatma ilkesi bu Laboratuvar Vm'leri kapatmak süreyi belirtmenize imk
 
 1. Bu ilkeyi etkinleştirmek, geçerli bir laboratuvar içindeki tüm sanal makineleri kapatmaya saat (ve saat dilimi) belirtin.
 
-1. Belirtin **Evet** veya **Hayır** seçeneği 15 dakika önce belirtilen otomatik kapatma saatinin bildirim göndermek için. Seçerseniz **Evet**, bir Web kancası URL uç noktası veya gönderilen veya gönderilmesi bildirim istediğiniz belirten bir e-posta adresi girin. Kullanıcı bildirimi alır ve kapatma erteleme seçeneği verilir.
+1. Belirtin **Evet** veya **Hayır** seçeneği 15 dakika önce belirtilen otomatik kapatma saatinin bildirim göndermek için. Seçerseniz **Evet**, bir Web kancası URL uç noktası veya gönderilen veya gönderilmesi bildirim istediğiniz belirten bir e-posta adresi girin. Kullanıcı bildirimi alır ve kapatmayı ertelemeniz seçeneği de verilir.
 
    Web kancaları hakkında daha fazla bilgi için bkz: [bir Web kancası veya API Azure işlevi oluşturma](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
@@ -86,10 +86,34 @@ Otomatik kapatma ilkesi bu Laboratuvar Vm'leri kapatmak süreyi belirtmenize imk
 
 Varsayılan olarak, geçerli Laboratuvardaki tüm sanal makineler için bu ilke etkinleştirildikten sonra uygulanır. Bu ayar, belirli bir sanal makineden kaldırmak için sanal makinenin yönetim bölmesini açın ve değiştirmek, **otomatik kapatma** ayarı.
 
-## <a name="set-auto-start"></a>Otomatik başlangıcı Ayarla
-Otomatik başlatma ilke geçerli Laboratuvardaki VM'ler başlatıldığında belirtmenize olanak sağlar.  
+## <a name="set-auto-shutdown-policy"></a>Otomatik kapatma ilkesi ayarlama
+Laboratuvar sahibi olarak, tüm VM'ler için laboratuvarda bir kapanma zamanlaması yapılandırabilirsiniz. Bunu yaptığınızda, kullanılmayan makineler çalışıyor (boşta öğesinden) maliyetlerinden tasarruf edebilirler. Laboratuvarınız sanal makineleri merkezi olarak aynı zamanda Kaydet Laboratuvar kullanıcılarınızın çaba, tek tek makineler için bir zamanlama ayarından tüm bir kapatma ilke uygulayabilir. Bu özellik, Laboratuvar kullanıcılarınıza tam denetim için bir denetim yok sunmasını başlangıç Laboratuvar zamanlamanızı ilkesi ayarlamanıza olanak sağlar. Laboratuvar sahibi olarak, aşağıdaki adımları izleyerek bu ilke yapılandırabilirsiniz:
 
-1. Laboratuvar'ın **yapılandırması ve ilkelerini** bölmesinde **otomatik başlatma**.
+1. Laboratuvarınız için giriş sayfasında, seçin **yapılandırması ve ilkelerini**.
+2. Seçin **otomatik kapatma ilke** içinde **zamanlamaları** soldaki menüden bölümü.
+3. Seçeneklerden birini seçin. Aşağıdaki bölümlerde bu seçenekler hakkında daha fazla bilgi verin: İlkesi ayarlama laboratuvar'da oluşturulan yalnızca yeni VM'ler ve zaten var olan VM'ler için geçerlidir. 
+
+    ![Otomatik kapatma ilkesi seçenekleri](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
+
+### <a name="user-sets-a-schedule-and-can-opt-out"></a>Kullanıcı bir zamanlama ayarlar ve iptal edebilir
+Bu ilke için Laboratuvarınızı ayarlarsanız, Laboratuvar kullanıcıları geçersiz kılabilir veya Laboratuvar zamanlama dışında iyileştirilmiş. Bu seçenek Laboratuvar kullanıcıları kendi sanal makinelerinin otomatik kapatma zamanlamasını üzerinde tam denetim verir. Laboratuvar kullanıcıları herhangi bir değişiklik, VM otomatik kapanma zamanlaması sayfasında bakın.
+
+![Otomatik kapatma ilkesi seçeneği - 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
+
+### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>Kullanıcı bir zamanlama ayarlar ve çıkma olamaz
+Bu ilke için Laboratuvarınızı ayarlarsanız, Laboratuvar kullanıcıları Labs zamanlaması geçersiz kılabilirsiniz. Ancak, bunlar otomatik kapatma ilke dışı bırakamazlar. Bu seçenek laboratuvarınızda her makineye bir otomatik kapatma zamanlamasını altında olduğundan emin olur. Laboratuvar kullanıcıları kendi sanal makinelerinin otomatik kapatma zamanlamasını güncelleştirme ve kapatma bildirimlerini ayarlama.
+
+![Otomatik kapatma ilkesi seçeneği - 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
+
+### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>Kullanıcı Laboratuvar Yöneticisi tarafından ayarladığı zamanlamayı üzerinde denetimi yoktur
+Bu ilke için Laboratuvarınızı ayarlarsanız, Laboratuvar kullanıcıları geçersiz kılabilir veya Laboratuvar zamanlama dışında iyileştirilmiş. Bu seçenek, Laboratuvar Yönetim zamanlamaya Laboratuvardaki her makine için tam denetim sunar. Laboratuvar kullanıcıları yalnızca kendi sanal makineleri için otomatik kapatma bildirimler ayarlayabilirsiniz.
+
+![Otomatik kapatma ilkesi seçeneği - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
+
+## <a name="set-autostart"></a>Küme otomatik başlatma
+Autostart ilke geçerli Laboratuvar VM'lerin yeniden başlatıldığında belirtmenize olanak sağlar.  
+
+1. Laboratuvar'ın **yapılandırması ve ilkelerini** bölmesinde **Autostart**.
    
     ![Otomatik başlatma](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -99,7 +123,7 @@ Otomatik başlatma ilke geçerli Laboratuvardaki VM'ler başlatıldığında bel
 
 4. **Kaydet**’i seçin.
 
-Etkinleştirildikten sonra bu ilke geçerli Laboratuvardaki herhangi bir VM için otomatik olarak uygulanmaz. Bu ayarı belirli bir VM'ye uygulamak için sanal makinenin yönetim bölmesini açın ve değiştirmek, **otomatik başlatma** ayarı.
+Etkinleştirildikten sonra bu ilke geçerli Laboratuvardaki herhangi bir VM için otomatik olarak uygulanmaz. Bu ayarı belirli bir VM'ye uygulamak için sanal makinenin yönetim bölmesini açın ve değiştirmek, **Autostart** ayarı.
 
 ## <a name="set-expiration-date"></a>Sona erme tarihini ayarlayın
 Ayarlayabileceğiniz bir sona erme tarihi ne zaman, [VM oluşturma](devtest-lab-add-vm.md). İçinde **Gelişmiş ayarlar**, üzerinde VM otomatik olarak silinir bir tarih belirtmek için takvim simgesini seçin. Varsayılan olarak, sanal Makinenin her zaman geçerli olsun.

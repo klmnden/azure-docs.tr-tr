@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 88e55468c4018b73cb26087c4fbbdbee65cd5db3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515531"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624886"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -131,6 +131,10 @@ Bilgi Bankası içeri aktarma, var olan bir Bilgi Bankası içeriğini değişti
 ## <a name="editorially-add-to-knowledge-base"></a>Bilgi Bankası'na bilgi bankanızı düzenleyerek Ekle
 
 Bilgi Bankası doldurmak için önceden var olan içerik yoksa, soru-cevap Oluşturucu bilgi temel Bankalarıyla bilgi bankanızı düzenleyerek ekleyebilirsiniz. Bilgi bankanızı güncelleştirmeyi öğrenebilirsiniz [burada](../How-To/edit-knowledge-base.md).
+
+## <a name="formatting-considerations"></a>Biçimlendirme konuları
+
+URL veya içeri aktardıktan sonra Markdown dönüştürülür ve bu biçimde depolanır. Dönüştürme işlemini doğru şekilde dosyalarınızı ve URL'leri bağlantılar dönüştürme değil, sorular ve cevaplar üzerindeki düzenleyebilir **Düzenle** sayfası. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -11,59 +11,56 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255788"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624157"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcıları düzeltme
 
-Azure Active Directory’de (Azure AD) güvenlik raporları ile ortamınızda güvenliği tehlikeye girmiş kullanıcı hesaplarının olasılığı hakkında bilgi sahibi olabilirsiniz. Riskli olduğu belirlenen bir kullanıcı gizliliği bozulmuş olabilecek bir kullanıcı hesabının göstergesidir.
+Azure Active Directory (Azure AD) güvenlik raporları ile ortamınızda güvenliği aşılan kullanıcı hesaplarının olasılığı ölçer. Riskli olduğu belirlenen bir kullanıcı gizliliği bozulmuş olabilecek bir kullanıcı hesabının göstergesidir.
 
 Microsoft ortamınızın güvenliğini korumak için çalışmaktadır. Bu çalışma kapsamında, Microsoft alışılmadık veya bilinen saldırı düzenleriyle tutarlı etkinlikleri sürekli izler. 
 
-
-Kullanıcılarınızdan bazılarının hesaplarına yetkisiz erişimi gösteriyor olabilecek alışılmadık etkinlikler algılanırsa, eyleme geçmenizi sağlayacak bildirimler alırsınız. Size bildirimler sağlanması Microsoft'un kendi sistemlerinde herhangi bir şekilde güvenliğin aşıldığı anlamına gelmez.
- 
+Bazı kullanıcılarınızın hesaplarına yetkisiz erişimi gösteriyor olabilir alışılmadık etkinlikler algılanırsa, eyleme sağlayacak bildirimler alırsınız. Bu, Microsoft'un kendi sistemlerinde aşıldığı anlamına gelmez.
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Riskli olarak işaretlenen kullanıcılar raporuna erişme
 
-Azure Active Directory’deki (AD) ilgili [rapor](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) aracılığıyla riskli olduğu için işaretlenmiş kullanıcıları gözden geçirebilirsiniz. Azure AD’ye abone değilseniz, [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) adresinde hiç ücret ödemeden bir defalık abonelik işlemi yapabilirsiniz. Bu raporda aşağıda örnekleri verilen çeşitli eylemleri gerçekleştirebilirsiniz:
+Risk için işaretlenmiş kullanıcıları gözden geçirebilirsiniz [risk altındaki kullanıcılar raporu](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) Azure portalında. Azure AD yoksa, ücretsiz, kaydolabilirsiniz [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
+
+Risk raporu için işaretlenmiş kullanıcılar, her kullanıcı için aşağıdaki eylemleri gerçekleştirebilirsiniz:
 
 - Geçici parola oluşturma
 - Kullanıcının bir sonraki defa oturum açtığında parolasını güvenli şekilde sıfırlamasını zorunlu tutma
 - Herhangi bir düzeltme eylemi gerçekleştirmeden kullanıcı riskini kapatma.
 
-Daha fazla bilgi için bkz. [Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcılar güvenlik raporu](concept-user-at-risk.md).
+Daha fazla bilgi için [işaretlenmiş kullanıcılar güvenlik raporundan](concept-user-at-risk.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Office 365 müşterileri için Azure AD aboneliği
 
-İşlem tamamlandığında, Office 365 kimlik bilgilerinizi kullanarak Azure Yönetim Merkezi'ne erişebilirsiniz. Azure AD’ye erişiminizi etkinleştirdikten sonra, Azure AD portalına yeniden yönlendirilirsiniz. Temel abonelik düzeyinde, raporlarda sağlanan ayrıntı miktarı sınırlıdır. Ek veriler ve analizler, Azure Premium abonelerine sağlanır.
+Erişim için Office 365 kimlik bilgilerinizi de kullanabilirsiniz **Azure Yönetim Merkezi'ne**. Azure AD’ye erişiminizi etkinleştirdikten sonra, Azure AD portalına yeniden yönlendirilirsiniz. Temel abonelik düzeyinde, raporlarda sağlanan ayrıntı miktarı sınırlıdır. Ek veriler ve analizler, Azure Premium abonelerine sağlanır.
 
+Erişim için **risk için işaretlenen kullanıcılar** Office 365 Yönetim merkezinde raporları:
 
-**Office 365 yönetim merkezinde Riskli olarak işaretlenmiş kullanıcılar raporlarına erişmek için:**
-
-1.  Sol taraftaki gezinti menüsünde **Yönetim merkezleri**'ne tıklayın. 
-2.  **Azure AD**'ye tıklayın.
+1.  Sol taraftaki gezinti menüsünden seçin **Yönetim Merkezleri**. 
+2.  Seçin **Azure AD'ye**.
 3.  **Azure Active Directory yönetim merkezi**'nde oturum açın.
-4.  Sayfanın en üstünde **Yeni portalı gözden geçirin** ifadesini içeren bir başlık görüntüleniyorsa, bağlantıya tıklayın.
-4.  Sol taraftaki gezinti menüsünde **Azure Active Directory**'ye tıklayın. 
-5.  Gezinti bölmesinde, **Güvenlik**'in altında **Riskli oldukları belirlenen kullanıcılar**'a tıklayın.
-
-Burada görüntülenen bilgileri gözden geçirin. Listelenen tüm hesapların parolasını sıfırlamalısınız. 
+4.  Bildiren sayfanın en üstünde bir başlık görüntüleniyorsa **yeni portala göz atın**, bağlantıyı seçin.
+4.  Sol taraftaki gezinti menüsünde seçin **Azure Active Directory**. 
+5.  Gezinti bölmesinde seçin **risk için işaretlenen kullanıcılar** gelen **güvenlik** bölümü.
 
 ## <a name="remediation-actions"></a>Düzeltme eylemleri
 
 Etkilenen hesapları düzeltmeye ve ortamınızın güvenliğini sağlamaya yardımcı olmak için aşağıdaki eylemleri gerçekleştirin:
 
-1.  Çok faktörlü kimlik doğrulaması ve self servis parola sıfırlama için bilgilerin doğruluğunu [onaylayın](https://aka.ms/MFAValid). 
-2.  Tüm kullanıcılarda çok faktörlü kimlik doğrulamasını [etkinleştirin](https://aka.ms/MFAuth). 
-3.  Etkilenen her hesap için, bu [düzeltme betiğini](https://aka.ms/remediate) kullanıp aşağıdaki adımları otomatik olarak gerçekleştirebilirsiniz: 
+1.  [Doğru bilgileri doğrulamak](http://aka.ms/MFAValid) için multi-Factor authentication ve Self Servis parola sıfırlama. 
+2.  [Çok faktörlü kimlik doğrulamasını etkinleştirme](http://aka.ms/MFAuth) tüm kullanıcılar için. 
+3.  Bunu kullanın [düzeltme komut dosyası](http://aka.ms/remediate) otomatik olarak aşağıdaki adımları gerçekleştirmek için etkilenen her hesap için: 
 
     a. Hesabın güvenliğini sağlamak ve etkin oturumları sonlandırmak için parolayı sıfırlayın.
 
@@ -79,22 +76,20 @@ Etkilenen hesapları düzeltmeye ve ortamınızın güvenliğini sağlamaya yard
 
     g. Posta kutusu denetimini etkinleştirin.
 
-    h. Yöneticinin gözden geçirmesi için Denetim Günlüğü oluşturun.
+    h. Bir denetim günlüğünü gözden geçirmek yöneticiye üretir.
 
 4. Office 365 kiracınızı ve diğer BT altyapısını inceleyin; bunun için tüm kiracı ayarlarını, kullanıcı hesaplarını ve olası değişiklikler için kullanıcı başına yapılandırma ayarlarını gözden geçirin. Kalıcılık yöntemi göstergelerini, ayrıca yetkisiz erişim sağlayan birinin VPN kimlik bilgilerini almak veya diğer kurumsal kaynaklara erişmek için ilk tutunma noktasına işaret edebilecek göstergeleri arayın. 
 
-5.  Araştırmanız kapsamında, polis de dahil olmak üzere resmi yetkililere durumu bildirmenizin gerekip gerekmediğini de düşünmelisiniz.
+5.  Araştırmanızı bir parçası olarak, Emniyet teşkilatı dahil olmak üzere resmi yetkililere bildirmelisiniz olup olmadığını göz önünde bulundurun.
 
 Ayrıca şunları yapmalısınız:
 
-- Alışılmadık etkinlikleri belirlemek üzere bu [kılavuzu](https://aka.ms/fixaccount) okuyun ve yönergelerini uygulayın. 
-- Kiracınızdaki etkinliği analiz etmenize yardımcı olması için [denetim işlem hattını etkinleştirin](https://aka.ms/improvesecurity). Bu tamamlandıktan sonra, tüm etkinlik günlükleri denetim deponuza doldurulmaya başlar. Bu noktada, [Güvenlik ve Uyumluluk Merkezi'nin Arama ve Araştırma](https://aka.ms/sccsearch) özelliğinden de yararlanabilirsiniz. 
-- Tüm hesaplarınızda posta kutusu denetimini etkinleştirmek için bu [betiği](https://aka.ms/mailboxaudit1) kullanın. 
-- Tüm posta kutularınız için temsilci izinlerini ve posta iletme kurallarını gözden geçirin. Bu görevi gerçekleştirmek için bu [PowerShell betiğini](https://aka.ms/delegateforwardrules) kullanabilirsiniz. 
-
-
+- Okuma ve bunu uygulamak [alışılmadık etkinlikleri belirlemek üzere Kılavuzu](http://aka.ms/fixaccount). 
+- [Denetim işlem hattını etkinleştirin](http://aka.ms/improvesecurity) kiracınızdaki etkinliği analiz etmenize yardımcı olmak için. İşlem tamamlandıktan sonra Denetim deponuza etkinlik günlükleri ile doldurma başlatır. Bu noktada, ayrıca yararlanabileceğiniz [güvenlik ve uyumluluk Merkezi'nin arama ve araştırma kaynak](http://aka.ms/sccsearch). 
+- Bunu kullanın [posta kutusu denetimini etkinleştirmek için betik](http://aka.ms/mailboxaudit1) tüm hesaplarınız için. 
+- Tüm posta kutularınız için temsilci izinlerini ve posta iletme kurallarını gözden geçirin. Bu görevi gerçekleştirmek için bu [PowerShell betiğini](http://aka.ms/delegateforwardrules) kullanabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure Active Directory Kimlik Koruması hakkında daha fazla bilgi için bkz. [Azure Active Directory Kimlik Koruması](../active-directory-identityprotection.md).
-
+* [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md)
+* [Riskli oldukları belirlenen kullanıcılar](concept-user-at-risk.md)

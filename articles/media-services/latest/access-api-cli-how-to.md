@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 5d7c338dc9d5028552d9b33802982ffda97a56f0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 54a92e56df21b59430ed12f191a9cf7a918e14c9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389862"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612908"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI ile API erişim Azure medya Hizmetleri
  
@@ -32,22 +32,19 @@ Bu makalede bir Azure AD uygulaması ve hizmet sorumlusu oluşturma ve Azure Med
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-[Bu hızlı başlangıçta](create-account-cli-quickstart.md) açıklandığı gibi yeni bir Azure Media Services hesabı oluşturun.
+- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
 
-Oturum [Azure portalında](http://portal.azure.com) ve başlatma **CloudShell** CLI komutları, sonraki adımlarda gösterildiği gibi yürütülecek.
+- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI sürüm 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+    Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun.
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
+[Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

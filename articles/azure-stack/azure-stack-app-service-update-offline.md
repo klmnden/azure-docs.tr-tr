@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059660"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614819"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Azure Stack'te Azure App Service'in çevrimdışı güncelleştirme
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!IMPORTANT]
-> Azure Stack tümleşik sisteminize 1807 güncelleştirmesini veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
+> Azure Stack tümleşik sisteminize 1809 güncelleştirmesini veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
 >
 >
 
@@ -44,7 +44,7 @@ Bu makaledeki yönergeleri takip ederek, Yükseltme yapabileceğiniz [App Servic
 
 App Service kaynak sağlayıcısı bir Azure Stack ortamında yükseltmek için bu görevleri tamamlamanız gerekir:
 
-1. İndirme [uygulama hizmeti yükleyicisi](https://aka.ms/appsvcupdate3installer)
+1. İndirme [uygulama hizmeti yükleyicisi](https://aka.ms/appsvcupdate4installer)
 2. Çevrimdışı bir yükseltme paketi oluşturun.
 3. App Service yükleyiciyi (appservice.exe) çalıştırın ve yükseltme tamamlayın.
 
@@ -93,7 +93,7 @@ App Service bağlantısı kesilmiş bir ortamda yükseltmek için önce Internet
 
 5. Gözden geçirin ve üçüncü taraf lisans koşullarını kabul edin ve ardından **sonraki**.
 
-6. Emin olun Azure Stack Azure Resource Manager uç noktasını ve Active Directory Kiracısı bilgilerdir doğru. Azure Stack geliştirme Seti'ni dağıtım sırasında varsayılan ayarları kullandıysanız, varsayılan değerleri kabul edebilir. Ancak, Azure Stack dağıtıldığında seçenekleri özelleştirdiyseniz, bu pencerede, değişimi yansıtmak için değerleri düzenlemeniz gerekir. Örneğin, etki alanı soneki kullanırsanız *mycloud.com*, Azure Stack Azure Resource Manager uç noktanız için değiştirmeniz gerekir *management.region.mycloud.com*. Bilgilerinizi onayladıktan sonra tıklayın **sonraki**.
+6. Emin olun Azure Stack Azure Resource Manager uç noktasını ve Active Directory Kiracısı bilgilerdir doğru. Azure Stack geliştirme Seti'ni dağıtım sırasında varsayılan ayarları kullandıysanız, varsayılan değerleri kabul edebilir. Ancak, Azure Stack dağıtıldığında seçenekleri özelleştirdiyseniz, bu pencereyi değerleri düzenlemeniz gerekir. Örneğin, etki alanı soneki kullanırsanız *mycloud.com*, Azure Stack Azure Resource Manager uç noktanız için değiştirmeniz gerekir *management.region.mycloud.com*. Bilgilerinizi onayladıktan sonra tıklayın **sonraki**.
 
     ![Azure Stack bulut bilgileri][3]
 
@@ -104,7 +104,7 @@ App Service bağlantısı kesilmiş bir ortamda yükseltmek için önce Internet
         * Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, *cloudadmin@azurestack.local*. Parolanızı girin ve tıklayın **oturum**.
    2. İçinde **Azure Stack aboneliklerini** kutusunda **varsayılan sağlayıcı aboneliği**.
    3. İçinde **Azure Stack konumları** kutusunda, için dağıtmakta bölgeyi karşılık gelen konum seçin. Örneğin, **yerel** , Azure Stack Geliştirme Seti için dağıtma.
-   4. Mevcut bir App Service dağıtımı belirlendiyse, kaynak grubu ve depolama hesabı doldurulur ve devre dışı.
+   4. Mevcut bir App Service dağıtımı algılanırsa, kaynak grubu ve depolama hesabı doldurulur ve devre dışı.
    5. Tıklayın **sonraki** yükseltme özetini gözden geçirmek için.
 
     ![Uygulama Hizmeti yüklemesi algılandı][4]

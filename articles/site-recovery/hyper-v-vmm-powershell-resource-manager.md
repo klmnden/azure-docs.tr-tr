@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8e1494594546c432123b8b1b98d646e8637eea99
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214588"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622848"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell (Resource Manager) aracılığıyla Hyper-V Vm'lerini ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -21,7 +21,7 @@ Bu makalede, Hyper-V Vm'lerini ikincil bir Virtual Machine Manager buluta System
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Gözden geçirme [senaryo mimarisini ve bileşenlerini](hyper-v-vmm-architecture.md).
+- [Senaryo mimarisini ve bileşenlerini](hyper-v-vmm-architecture.md) gözden geçirin.
 - Tüm bileşenler için [destek gereksinimlerini](site-recovery-support-matrix-to-sec-site.md) gözden geçirin.
 - Virtual Machine Manager sunucuları ve Hyper-V konakları ile uyumlu olduğundan emin [destek gereksinimlerini](site-recovery-support-matrix-to-sec-site.md).
 - Çoğaltmak istediğiniz VM'lerin uyumlu onay [makine desteği çoğaltılan](site-recovery-support-matrix-to-sec-site.md).
@@ -29,20 +29,20 @@ Bu makalede, Hyper-V Vm'lerini ikincil bir Virtual Machine Manager buluta System
 
 ## <a name="prepare-for-network-mapping"></a>Ağ eşlemesi için hazırlanma
 
-[Ağ eşlemesini](hyper-v-vmm-network-mapping.md) arasındaki eşlemeleri şirket içi kaynak ile hedef Bulutlar Virtual Machine Manager VM ağları. Eşleme şunları yapar:
+[Ağ eşlemesini](hyper-v-vmm-network-mapping.md) arasındaki eşlemeleri şirket içi kaynak ile hedef Bulutlar Virtual Machine Manager VM ağları. Eşleme sürecinde şu işlemler gerçekleştirilir:
 
-- Vm'leri yük devretme sonrasında uygun hedef VM ağlarına bağlar. 
-- En uygun şekilde hedef Hyper-V ana bilgisayar sunucuları üzerinde çoğaltma Vm'leri yerleştirir. 
+- VM'ler yük devretme sonrasında uygun hedef VM ağlara bağlanır. 
+- Çoğaltma VM'lerini en uygun şekilde hedef Hyper-V konağı sunucularına yerleştirir. 
 - Ağ eşlemesini yapılandırmazsanız, çoğalma VM'ler için bir VM ağı yük devretmeden sonra bağlanması gerekmez.
 
 Virtual Machine Manager aşağıdaki gibi hazırlayın:
 
 * Olduğundan emin olun [Virtual Machine Manager Mantıksal ağlar](https://docs.microsoft.com/system-center/vmm/network-logical) kaynak ve hedef Virtual Machine Manager sunuculara:
 
-    - Mantıksal ağ kaynak sunucudaki Hyper-V konaklarının bulunduğu kaynak bulutla ilişkili olmalıdır.
-    - Hedef sunucudaki mantıksal ağı hedef bulutla ilişkili olmalıdır.
-* Olduğundan emin olun [VM ağları](https://docs.microsoft.com/system-center/vmm/network-virtual) kaynak ve hedef Virtual Machine Manager sunucularında. VM ağları her konumdaki mantıksal ağ bağlantılı olması gerekir.
-* Kaynak VM ağına kaynak Hyper-V konaklarında VM'ler bağlanın. 
+    - Kaynak sunucusundaki mantıksal ağ, Hyper-V konaklarının bulunduğu kaynak bulutla ilişkilendirilmelidir.
+    - Hedef sunucudaki mantıksal ağ, hedef bulutla ilişkilendirilmelidir.
+* Olduğundan emin olun [VM ağları](https://docs.microsoft.com/system-center/vmm/network-virtual) kaynak ve hedef Virtual Machine Manager sunucularında. VM ağları, her bir konumdaki mantıksal ağa bağlanmış olmalıdır.
+* Kaynak Hyper-V konaklarındaki VM'leri kaynak VM ağına bağlayın. 
 
 ## <a name="prepare-for-powershell"></a>PowerShell için hazırlama
 
@@ -73,7 +73,7 @@ Azure PowerShell kullanıma hazır olduğundan emin olun:
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Yeni bir kurtarma Hizmetleri kasası oluşturun. Kasa nesnesi daha sonra kullanılmak üzere bir değişkene kaydedin. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
     Get-AzureRMRecoveryServicesVault cmdlet'ini kullanarak oluşturduktan sonra kasayı nesnesi alabilirsiniz.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 91404f01a1a675ac59898336ef8aa81e1d2638b6
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579242"
+ms.locfileid: "51613104"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server'da Azure Stack Marketini SSS
 
@@ -38,7 +38,7 @@ Ardından, tüm sanal makine ölçek kümeleri belirli bir sürümüne başvuruy
 Microsoft Azure Stack marketten Windows Server görüntülerini iki sürümünü sunar:
 
 - **Kullandıkça Öde**: Bu görüntüleri tam fiyat Windows ölçümleri çalıştırın. 
-   Kimin kullanmalıdır: kullanan EA müşterileri *tüketim faturalandırma modeli*; SPLA lisans kullanmak istiyor musunuz CSP'ler.
+   Kimin kullanmalıdır: kullanan Kurumsal Anlaşma (EA) müşterileri *tüketim faturalandırma modeli*; SPLA lisans kullanmak istiyor musunuz CSP'ler.
 - **Kendi lisansını (KLG) getirin**: temel ölçümleri bu görüntüleri çalıştırın.
    Kimin kullanmalıdır: EA müşterileri; Windows Server Lisansı SPLA lisansı kullanan CSP'ler.
 
@@ -52,7 +52,7 @@ Yanlış sürüm Market yönetiminden silin. Tam olarak tamamlanmasını bekleyi
 
 Bkz: [Kullandıkça Öde dön teklifi'nden yararlanarak Windows Server Vm'lerinin Dönüştür](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1).
 
-### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-ea-entitlement"></a>Ne eski görüntüyü sahibim ve "Bir lisansım" kutusu ya da biz kendi görüntülerinizi kullanın ve EA yetkilendirmesini sahibiz denetlemek benim kullanıcı mı unuttunuz?
+### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Ne eski görüntüyü sahibim ve "Bir lisansım" kutusu ya da biz kendi görüntülerinizi kullanın ve Kurumsal Anlaşma yetkilendirmesini sahibiz denetlemek benim kullanıcı mı unuttunuz?
 
 Bkz: [Windows Server için Azure hibrit Avantajı'nı kullanarak mevcut bir VM'ye dönüştürmek](../virtual-machines/windows/hybrid-use-benefit-licensing.md#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Azure hibrit avantajı, Azure Stack için geçerli değildir, ancak bu ayar etkisini uygulandığını unutmayın.
 
@@ -60,7 +60,7 @@ Bkz: [Windows Server için Azure hibrit Avantajı'nı kullanarak mevcut bir VM'y
 
 Bu görüntüleri geçerli **licenseType** , Kullandıkça Ödeme olduklarından parametresi. Bu parametre ayarlayabilirsiniz (yanıt önceki SSS Bölümüne bakın). Bu yalnızca Windows Server yazılımı, kendi lisansını Getir gerektiren katmanlı ürün, SQL gibi geçerlidir. Lisanslama Kullandıkça Ödeme katmanlı yazılım ürünleri için geçerli değildir.
 
-### <a name="i-have-an-ea-and-i-create-my-own-images-how-do-i-make-sure-they-are-billed-correctly"></a>Bir EA sahibim ve kendi görüntülerini oluşturabilirim. doğru faturalandırılır nasıl emin olabilirim?
+### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Ben bir Kurumsal Anlaşma (EA) sahip ve EA Windows Server Lisansımı kullanmak; görüntüler doğru faturalandırılır nasıl emin olabilirim?
 
 Ekleyebileceğiniz **licenseType: Windows_Server** bir Azure Resource Manager şablonunda. Her sanal makine kaynak bloğu için bu ayarı eklenmesi gerekir.
 

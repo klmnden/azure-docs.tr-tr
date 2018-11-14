@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515667"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614388"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -73,16 +73,16 @@ Varsayılan olarak, günlükleri otomatik olarak silinmez (dışında **uygulama
 > Varsa, [depolama hesabınızın erişim anahtarlarını yeniden oluştur](../storage/common/storage-create-storage-account.md), güncelleştirilmiş anahtarları kullanmak için kendi günlük yapılandırmasını sıfırlamanız gerekir. Bunu yapmak için:
 >
 > 1. İçinde **yapılandırma** sekmesinde, ilgili günlük kaydı özelliğini **kapalı**. Ayarlarınızı kaydedin.
-> 2. Depolama hesabının blob veya tablo için günlüğe kaydetme, yeniden etkinleştirin. Ayarlarınızı kaydedin.
+> 2. Depolama hesabı blob'u için günlüğe kaydetme, yeniden etkinleştirin. Ayarlarınızı kaydedin.
 >
 >
 
-Dosya sistemi, tablo depolama veya blob depolama, herhangi bir birleşimini aynı anda etkinleştirilebilir ve tek bir günlük düzeyi yapılandırmalara sahip. Örneğin, hataları ve Uyarıları dosya sistemi günlük kaydı ile ayrıntılı bir düzeyde etkinleştirirken uzun vadeli günlüğü çözüm olarak, BLOB depolamaya oturum isteyebilirsiniz.
+Dosya sistemi veya blob depolama, herhangi bir birleşimini aynı anda etkinleştirilebilir ve tek bir günlük düzeyi yapılandırmalara sahip. Örneğin, hataları ve Uyarıları dosya sistemi günlük kaydı ile ayrıntılı bir düzeyde etkinleştirirken uzun vadeli günlüğü çözüm olarak, BLOB depolamaya oturum isteyebilirsiniz.
 
-Aynı temel bilgileri günlüğe kaydedilen olayları, tüm üç depolama konumları sunarken **tablo depolama** ve **blob depolama** daha örnek kimliği ve iş parçacığı kimliği gibi ek bilgilerini günlüğe kaydetme günlüğe kaydetme için daha ayrıntılı timestamp (değer biçimi) **dosya sistemi**.
+Depolama konumlarının her ikisinde de aynı temel bilgileri günlüğe kaydedilen olayları sunarken **blob depolama** günlüklerini örnek kimliği ve iş parçacığı kimliği günlüğünüdeğerindendahaayrıntılıbirzamandamgası(değerbiçimi)gibiekbilgi**dosya sistemi**.
 
 > [!NOTE]
-> Depolanan bilgi **tablo depolama** veya **blob depolama** yalnızca depolama istemcisi veya bu depolama sistemleri ile doğrudan çalışabilmeniz için uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve HDInsight, blob depolamada depolanan verilere erişebilir. Ayrıca, aşağıdakilerden birini kullanarak Azure depolama alanına erişen bir uygulama yazabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/downloads/).
+> Depolanan bilgi **blob depolama** yalnızca depolama istemcisi veya bu depolama sistemleri ile doğrudan çalışabilmeniz için uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013, blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve HDInsight blob depolamada depolanan verilere erişebilir. Ayrıca, aşağıdakilerden birini kullanarak Azure depolama alanına erişen bir uygulama yazabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Nasıl yapılır: indirme günlükleri
@@ -159,7 +159,7 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **--yolu*
 
 ## <a name="understandlogs"></a> Nasıl yapılır: Tanılama günlükleri anlama
 ### <a name="application-diagnostics-logs"></a>Uygulama tanılama günlükleri
-Uygulama tanılama günlüklerinin dosya sistemi, tablo depolama veya blob depolama depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Temel depolanan veriler aynı depolama üç arasında - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği kümesidir.
+Uygulama tanılama günlüklerinin dosya sistemi veya blob depolamaya depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Temel depolanan veriler aynı depolama üç arasında - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği kümesidir.
 
 **Dosya sistemi**
 
@@ -173,27 +173,9 @@ Dosya sistemine oturum ya da akış kullanılarak alınan her satırı aşağıd
 
 Dosya sistemi günlük kaydı yalnızca zaman, işlem kimliği, olay düzeyi ve ileti sağlayan üç kullanılabilir yöntemi, en temel bilgileri sağlar.
 
-**Tablo depolama**
-
-Tablo depolama için oturum açarken, ek özellikler olay hakkında daha ayrıntılı bilgi yanı sıra tablo depolanan verileri aramayı kolaylaştırmak için kullanılır. Tabloda depolanan her varlık (satır) için aşağıdaki özellikleri (sütunları) kullanılır.
-
-| Özellik adı | Değeri/biçimi |
-| --- | --- |
-| PartitionKey |Olayın yyyyMMddHH biçimindeki tarih/saat |
-| RowKey |Bu varlık benzersiz olarak tanımlayan bir GUID değeri |
-| Zaman damgası |Olayın saat ve tarihi |
-| EventTickCount |Değer çizgisi biçiminde (daha fazla duyarlık) olayın gerçekleştiği saat ve tarihi |
-| ApplicationName |Web uygulaması adı |
-| Düzey |Olay düzeyi (uyarı, bilgi, hata) |
-| EventID |Bu olay, olay kimliği<p><p>Varsayılan olarak hiçbiri belirtilmişse 0 |
-| Örnek kimliği |Örnek web uygulamasının bile oluştu |
-| PID |İşlem Kimliği |
-| TID |Olay üretilen iş parçacığının iş parçacığı kimliği |
-| İleti |Olay ayrıntı iletisi |
-
 **Blob depolama**
 
-Blob depolama için oturum açarken, verileri virgülle ayrılmış değerler (CSV) biçiminde depolanır. Tablo depolama, benzer olay hakkında daha ayrıntılı bilgi sağlamak için ek alanlar kaydedilir. Aşağıdaki özellikler, CSV her satır için kullanılır:
+Blob depolama için oturum açarken, verileri virgülle ayrılmış değerler (CSV) biçiminde depolanır. Olay hakkında daha ayrıntılı bilgi sağlamak için ek alanlar günlüğe kaydedilir. Aşağıdaki özellikler, CSV her satır için kullanılır:
 
 | Özellik adı | Değeri/biçimi |
 | --- | --- |

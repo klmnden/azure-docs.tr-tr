@@ -6,54 +6,45 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 8094965da5fb0a5fad0313fd96e2878f86d78aa7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 33190472215e7a02b94951a73054ebe3e1994e54
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215506"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623919"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevler kullanma
 
-[Kullanıcı tanımlı işlevleri](./concepts-user-defined-functions.md) özel mantığı, gelen telemetri iletilerini ve uzamsal graf meta verilerini, olayları göndermek için önceden tanımlı uç noktaları kullanıcının karşı çalıştırmak kullanıcıyı etkinleştirir. Bu kılavuzdaki sıcaklık olayları algılamak için acting örneği alacağız ve tüm okuma uyar, belirli bir sıcaklık aşıyor.
+[Kullanıcı tanımlı işlevleri](./concepts-user-defined-functions.md) özel mantığı gelen telemetri iletilerini ve uzamsal graf meta verileri karşı çalıştırmak için kullanıcı (UDF) etkinleştirin. Ardından kullanıcı önceden tanımlı uç nokta için olay gönderebilirsiniz. Bu kılavuzda, sıcaklık olayları algılamak için acting örneği anlatılmaktadır ve tüm okuma uyar, belirli bir sıcaklık aşıyor.
 
-Aşağıdaki örneklerde `https://yourManagementApiUrl` dijital İkizlerini API URI'sini belirtir:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management
-```
-
-| Özel öznitelik adı | Değiştirin |
-| --- | --- |
-| *örneğinizinadı* | Azure dijital İkizlerini örneğinizin adı |
-| *yourLocation* | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="client-library-reference"></a>İstemci Kitaplığı Başvurusu
 
-Kullanıcı tanımlı işlevler çalışma zamanı yardımcı yöntemler olarak kullanılabilen işlevleri aşağıdaki numaralandırılmış [istemci başvurusu](#Client-Reference).
+Kullanıcı tanımlı işlevler çalışma zamanı yardımcı yöntemler olarak kullanılabilir olan işlevlerin listelenir [istemci başvurusu](#Client-Reference) bölümü.
 
 ## <a name="create-a-matcher"></a>Bir Eşleştiricisi oluşturma
 
-Matchers hangi kullanıcı tanımlı işlevler için belirli bir telemetri iletisi yürütülecek belirlemek graf nesneleridir.
+Matchers ne için belirli bir telemetri iletisi kullanıcı tanımlı işlevleri çalıştırma belirleyen graf nesneleridir.
 
-Geçerli Eşleştiricisi koşul karşılaştırmalar:
+- Geçerli Eşleştiricisi koşul karşılaştırmalar:
 
-- `Equals`
-- `NotEquals`
-- `Contains`
+  - `Equals`
+  - `NotEquals`
+  - `Contains`
 
-Geçerli Eşleştiricisi koşul hedefleri:
+- Geçerli Eşleştiricisi koşul hedefleri:
 
-- `Sensor`
-- `SensorDevice`
-- `SensorSpace`
+  - `Sensor`
+  - `SensorDevice`
+  - `SensorSpace`
 
-Aşağıdaki örnek Eşleştiricisi true ile herhangi bir algılayıcı telemetri olayı olarak değerlendirilecektir `"Temperature"` veri türü değeri olarak. Bir kullanıcı tanımlı işlev üzerinde birden fazla matchers oluşturabilirsiniz.
+Aşağıdaki örnek Eşleştiricisi herhangi bir algılayıcı telemetri olay üzerinde true değerlendirir `"Temperature"` veri türü değeri olarak. Bir kullanıcı tanımlı işlev üzerinde birden fazla matchers oluşturabilirsiniz:
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/matchers
+POST yourManagementApiUrl/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -64,35 +55,34 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
       "comparison": "Equals"
     }
   ],
-  "SpaceId": "yourSpaceIdentifier"
+  "SpaceId": "YOUR_SPACE_IDENTIFIER"
 }
 ```
 
-| Özel öznitelik adı | Değiştirin |
+| Değeriniz | Şununla değiştir |
 | --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
-| *yourSpaceIdentifier* | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
+| YOUR_SPACE_IDENTIFIER | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
 
 ## <a name="create-a-user-defined-function-udf"></a>Bir kullanıcı tanımlı işlev (UDF) oluşturma
 
-Matchers sonra oluşturulan, aşağıdaki POST çağrısına işlevi parçacığıyla karşıya yükleyin:
+İşlev kod parçacığını aşağıdaki matchers oluşturulduktan sonra karşıya **POST** çağırın:
 
 > [!IMPORTANT]
 > - Aşağıdaki üst bilgilerinde ayarlayın `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
 > - Çok bölümlü gövde:
 >   - İlk UDF için gerekli meta veriler hakkında bir parçasıdır.
->   - Javascript işlem mantığı ikinci bölümüdür.
-> - Değiştir `userDefinedBoundary` bölümü `SpaceId` ve `Machers` GUID.
+>   - JavaScript işlem mantığı ikinci bölümüdür.
+> - İçinde **userDefinedBoundary** bölümünde, değiştirin **SpaceId** ve **Machers** değerleri.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
 
-| Özel öznitelik adı | Değiştirin |
+| Parametre değeri | Şununla değiştir |
 | --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
+| *userDefinedBoundary* | Çok parçalı içerik sınır adı |
 
-Gövde:
+### <a name="body"></a>Gövde
 
 ```plaintext
 --userDefinedBoundary
@@ -100,10 +90,10 @@ Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "yourSpaceIdentifier",
+  "SpaceId": "YOUR_SPACE_IDENTIFIER",
   "Name": "User Defined Function",
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["yourMatcherIdentifier"]
+  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
 --userDefinedBoundary
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
@@ -116,10 +106,10 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-| Özel öznitelik adı | Değiştirin |
+| Değeriniz | Şununla değiştir |
 | --- | --- |
-| *yourSpaceIdentifier* | Alanı tanımlayıcısı  |
-| *yourMatcherIdentifier* | Kullanmak istediğiniz Eşleştiricisi kimliği |
+| YOUR_SPACE_IDENTIFIER | Alanı tanımlayıcısı  |
+| YOUR_MATCHER_IDENTIFIER | Kullanmak istediğiniz Eşleştiricisi kimliği |
 
 ### <a name="example-functions"></a>Örnek işlevleri
 
@@ -139,7 +129,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-*Telemetri* parametresi sunan **SensorId** ve **ileti** öznitelikleri (bir algılayıcı tarafından gönderilen bir iletinin karşılık gelen). *ExecutionContext* parametre aşağıdaki öznitelikleri gösterir:
+**Telemetri** parametresi sunan **SensorId** ve **ileti** öznitelikleri, karşılık gelen bir algılayıcı tarafından gönderilen ileti. **ExecutionContext** parametre aşağıdaki öznitelikleri gösterir:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -151,7 +141,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-Telemetri algılayıcı okuma önceden tanımlanmış bir eşik değerini geçiyor, sonraki örnekte, biz bir iletiyi günlüğe kaydeder. Tanılama ayarlarınızı dijital İkizlerini örneğinde etkinse, kullanıcı tanımlı işlevleri günlüklerinden de iletilir:
+Telemetri algılayıcı okuma önceden tanımlanmış bir eşik değerini geçiyor, sonraki örnekte, biz bir ileti Kaydet. Azure dijital İkizlerini örneğinde tanılama ayarlarınızı etkinse, kullanıcı tanımlı işlevleri günlüklerinden de iletilir:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -166,7 +156,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Önceden tanımlanmış sabit sıcaklık düzeye yükseldiğinde, aşağıdaki kod bir uyarı tetikler.
+Önceden tanımlanmış sabitinin sıcaklık düzeye yükseldiğinde, aşağıdaki kod bir bildirim tetikleyen:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -190,300 +180,295 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Başvurmak için daha karmaşık bir UDF kod örneği, [kullanılabilir alanları yeni hava UDF ile işaretleyin](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
+Daha karmaşık bir UDF kod örneği için [kullanılabilir alanları yeni bir uzaktan UDF ile kontrol](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Rol ataması oluşturma
 
-Biz altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol ataması oluşturmanız gerekir. Biz yapmazsanız, grafik nesnelerde eylemler gerçekleştirmek için yönetim API'si ile etkileşim için uygun izinlere sahip değil. Kullanıcı tanımlı işlev gerçekleştirdiği eylemleri, dijital İkizlerini yönetim API'leri rol tabanlı erişim denetimine muaf değildir. Bunlar belirli roller ya da belirli erişim denetimi yolları belirterek kapsamda sınırlanabilir. Daha fazla bilgi için [rol tabanlı erişim denetimi](./security-role-based-access-control.md) belgeleri.
+Biz altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol ataması oluşturmanız gerekir. Biz Aksi takdirde, grafik nesnelerde eylemler gerçekleştirmek için yönetim API'si ile etkileşim için uygun izinlere olmaz. Kullanıcı tanımlı işlev gerçekleştirdiği eylemleri, rol tabanlı erişim denetimi Azure dijital İkizlerini yönetim API'leri içinde muaf değildir. Bunlar belirli roller ya da belirli erişim denetimi yolları belirterek kapsamda sınırlanabilir. Daha fazla bilgi için [rol tabanlı erişim denetimi](./security-role-based-access-control.md) belgeleri.
 
-1. Rolleri için sorgu ve UDF için atamak istediğiniz rolü Kimliğini alın. geçirin **Roleıd** aşağıda.
+1. Roller için sorgulama ve UDF için atamak istediğiniz rolü Kimliğini alın. Geçirin **Roleıd**:
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/system/roles
-```
+    ```plaintext
+    GET yourManagementApiUrl/system/roles
+    ```
 
-| Özel öznitelik adı | Değiştirin |
-| --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
+1. **ObjectID** daha önce oluşturulan UDF kimliği olacaktır.
+1. Değerini bulun **yolu** alanlarınıza ile sorgulamak `fullpath`.
+1. Döndürülen kopyalama `spacePaths` değeri. Aşağıdaki kodda, kullanacaksınız:
 
-2. **ObjectID** daha önce oluşturulan UDF kimliği olacaktır.
-3. Değerini bulun **yolu** alanlarınıza ile sorgulamak `fullpath`.
-4. Döndürülen kopyalama `spacePaths` değeri. Kullanacağınız aşağıda.
+    ```plaintext
+    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    ```
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
-```
+    | Parametre değeri | Şununla değiştir |
+    | --- | --- |
+    | *yourSpaceName* | Kullanmak istediğiniz alanı adı |
 
-| Özel öznitelik adı | Değiştirin |
-| --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
-| *yourSpaceName* | Kullanmak istediğiniz alanı adı |
+1. Döndürülen yapıştırın `spacePaths` içine değer **yolu** UDF rol ataması oluşturmak için:
 
-4. Şimdi, döndürülen yapıştırın `spacePaths` içine değer **yolu** UDF rol ataması oluşturmak için.
+    ```plaintext
+    POST yourManagementApiUrl/roleassignments
+    {
+      "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
+      "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",
+      "ObjectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
+      "Path": "YOUR_ACCESS_CONTROL_PATH"
+    }
+    ```
 
-```plaintext
-POST https://yourManagementApiUrl/api/v1.0/roleassignments
-{
-  "RoleId": "yourDesiredRoleIdentifier",
-  "ObjectId": "yourUserDefinedFunctionId",
-  "ObjectIdType": "UserDefinedFunctionId",
-  "Path": "yourAccessControlPath"
-}
-```
-
-| Özel öznitelik adı | Değiştirin |
-| --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
-| *yourDesiredRoleIdentifier* | İstenen rol tanımlayıcısı |
-| *yourUserDefinedFunctionId* | Kullanmak istediğiniz UDF kimliği |
-| *yourAccessControlPath* | Erişim denetimi yolu |
+    | Değeriniz | Şununla değiştir |
+    | --- | --- |
+    | YOUR_DESIRED_ROLE_IDENTIFIER | İstenen rol tanımlayıcısı |
+    | YOUR_USER_DEFINED_FUNCTION_ID | Kullanmak istediğiniz UDF kimliği |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | UDF türünü belirterek kimliği |
+    | YOUR_ACCESS_CONTROL_PATH | Erişim denetimi yolu |
 
 ## <a name="send-telemetry-to-be-processed"></a>İşlenecek telemetri gönderme
 
-Telemetri algılayıcı grafikte açıklanan tarafından oluşturulan, karşıya yüklenen kullanıcı tanımlı bir işlevin yürütülmesini tetiklemek. Telemetri veri işlemcisi tarafından devralındığında, bir çalıştırma planı kullanıcı tanımlı işlevi çağırma için oluşturulur.
+Karşıya yüklenen kullanıcı tanımlı işlevin çalışması telemetri algılayıcı grafikte açıklanan tarafından oluşturulan tetikler. Veri işlemcisi telemetriyi seçer. Ardından bir çalıştırma planı, kullanıcı tanımlı işlevi çağırma için oluşturulur.
 
 1. Okuma kapatıp oluşturulan algılayıcı için matchers alın.
 1. Hangi matchers başarıyla Değerlendirilmiş bağlı olarak, ilişkili kullanıcı tanımlı işlevleri alın.
-1. Her kullanıcı tanımlı işlevi yürütür.
+1. Her kullanıcı tanımlı işlevi çalıştırın.
 
 ## <a name="client-reference"></a>İstemci başvurusu
 
 ### <a name="getspacemetadataid--space"></a>getSpaceMetadata(id) ⇒ `space`
 
-Belirtilen bir alan tanımlayıcısı grafikten yer alır.
+Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu işlevi grafikten yer alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
-| ------ | ------------------- | ------------ |
+| Parametre  | Tür                | Açıklama  |
+| ---------- | ------------------- | ------------ |
 | *Kimliği*  | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
-Belirtilen bir algılayıcı tanımlayıcısı, algılayıcı grafikten alır.
+Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, bu işlev grafikten algılayıcı alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
-| ------ | ------------------- | ------------ |
+| Parametre  | Tür                | Açıklama  |
+| ---------- | ------------------- | ------------ |
 | *Kimliği*  | `guid` | Algılayıcı tanımlayıcısı |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
-Belirtilen bir cihaz tanımlayıcısı, cihaz grafikten alır.
+Cihaz tanımlayıcısı göz önünde bulundurulduğunda, bu işlevi cihaz grafikten alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *Kimliği* | `guid` | Cihaz tanımlayıcısı |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>⇒ getSensorValue (sensorId, veri türü) `value`
 
-Bir algılayıcı tanımlayıcısı ve kendi veri türüne, algılayıcı için geçerli değer alır.
+Verilen bir algılayıcı tanımlayıcısı ve kendi veri türüne, bu işlev, algılayıcı için geçerli değeri alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | Algılayıcı tanımlayıcısı |
 | *Veri türü*  | `string` | Algılayıcı veri türü |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>(spaceId, valueName) getSpaceValue ⇒ `value`
 
-Bir alanı tanımlayıcısı ve değer adı verildiğinde, bu alanı özelliğinin geçerli değeri alır.
+Bir alanı tanımlayıcısı ve değer adı verildiğinde, bu işlev, alan özelliğinin geçerli değeri alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | alanı tanımlayıcısı |
 | *değer adı* | `string` | özellik adı alanı |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>⇒ getSensorHistoryValues (sensorId, veri türü) `value[]`
 
-Bir algılayıcı tanımlayıcısı ve kendi veri türüne, algılayıcı için geçmiş değerlerle alın.
+Verilen bir algılayıcı tanımlayıcısı ve veri türü, bu işlev, algılayıcı için geçmiş değerlerle alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Algılayıcı tanımlayıcısı |
 | *Veri türü* | `string` | Algılayıcı veri türü |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>⇒ getSpaceHistoryValues (spaceId, veri türü) `value[]`
 
-Bir alanı tanımlayıcısı ve değer adı verildiğinde, bu özellik alanı için geçmiş değerlerle alın.
+Bir alanı tanımlayıcısı ve değer adı verildiğinde, bu işlev Geçmiş alanı bu özellik değerlerini alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | alanı tanımlayıcısı |
 | *değer adı* | `string` | özellik adı alanı |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
-Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu üst alanı için alt alanları alın.
+Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu işlev, üst alanı için alt alanları alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
-Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu üst alanı alt sensörlerden alın.
+Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu işlev, üst alanı alt sensörlerden alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
-Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, alt cihazlar için bu üst alanı alın.
+Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu işlevi alt cihazlar için bu üst yer alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
-Cihaz tanımlayıcısı göz önünde bulundurulduğunda, bu üst cihaz için alt sensörlerden alın.
+Cihaz tanımlayıcısı göz önünde bulundurulduğunda, bu işlev bu üst cihaz için alt sensörlerden alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *cihaz kimliği* | `guid` | Cihaz tanımlayıcısı |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
-Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, kendi üst alanını alır.
+Bu işlev bir alanı tanımlayıcısı göz önünde bulundurulduğunda, kendi üst alanını alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
-Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, kendi üst alanını alır.
+Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, bu işlev kendi üst alanını alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Algılayıcı tanımlayıcısı |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
-Cihaz tanımlayıcısı göz önünde bulundurulduğunda, kendi üst yer alır.
+Bu işlev, cihaz tanımlayıcısı göz önünde bulundurulduğunda, kendi üst alanını alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Cihaz tanımlayıcısı |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
-Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, kendi üst cihaz alın.
+Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, bu işlev, üst cihaz alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Algılayıcı tanımlayıcısı |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>(spaceId, propertyName) getSpaceExtendedProperty ⇒ `extendedProperty`
 
-Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, alanından özelliği ve değerini alın.
+Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu işlevin özelliği ve değerini alanından alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | alanı tanımlayıcısı |
 | *PropertyName* | `string` | özellik adı alanı |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>(sensorId, propertyName) getSensorExtendedProperty ⇒ `extendedProperty`
 
-Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, algılayıcıdan özelliği ve değerini alın.
+Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, bu işlevin özelliği ve değerini algılayıcıdan alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Algılayıcı tanımlayıcısı |
 | *PropertyName* | `string` | Algılayıcı özellik adı |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>(cihaz kimliği, propertyName) getDeviceExtendedProperty ⇒ `extendedProperty`
 
-Cihaz tanımlayıcısı göz önünde bulundurulduğunda, CİHAZDAN özelliği ve değerini alın.
+Cihaz tanımlayıcısı göz önünde bulundurulduğunda, bu işlevin özelliği ve değerini CİHAZDAN alır.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *cihaz kimliği* | `guid` | Cihaz tanımlayıcısı |
 | *PropertyName* | `string` | cihaz özellik adı |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue (sensorId, veri türü, değer)
 
-Belirtilen veri türü ile algılayıcı nesnede bir değer ayarlar.
+Bu işlev, belirtilen veri türü ile algılayıcı nesnede bir değer ayarlar.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Algılayıcı tanımlayıcısı |
 | *Veri türü*  | `string` | Algılayıcı veri türü |
-| *value*  | `string` | değer |
+| *value*  | `string` | Değer |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, veri türü, değer)
 
-Belirtilen veri türüne sahip alan nesne üzerinde bir değer ayarlar.
+Bu işlev, belirtilen veri türüne sahip alan nesne üzerinde bir değer ayarlar.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | alanı tanımlayıcısı |
-| *Veri türü* | `string` | veri türü |
-| *value* | `string` | değer |
+| *Veri türü* | `string` | Veri türü |
+| *value* | `string` | Değer |
 
 ### <a name="logmessage"></a>log(Message)
 
-Kullanıcı tanımlı işlev içinde aşağıdaki iletiyi günlüğe kaydeder.
+Bu işlev kullanıcı tanımlı işlev içinde aşağıdaki iletiyi günlüğe kaydeder.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *İleti* | `string` | günlüğe kaydedilecek ileti |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, yükü)
 
-Gönderilecek özel bir bildirim gönderir.
+Bu işlev özel bir bildirim gönderilecek gönderdiği.
 
 **Tür**: genel işlevi
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| *topologyObjectId*  | `guid` | Grafik nesne tanımlayıcısı (ör. alan / algılayıcı /device kimliği)|
-| *topologyObjectType*  | `string` | (ör. alan / algılayıcı / cihaz)|
-| *Yükü*  | `string` | bildirimi gönderilecek JSON yükü |
+| *topologyObjectId*  | `guid` | Nesne tanımlayıcısı grafiğini oluşturun. Örnekler alanı, sensör ve cihaz kimliği.|
+| *topologyObjectType*  | `string` | Sensör ve cihaz verilebilir.|
+| *Yükü*  | `string` | Bildirimi gönderilecek JSON yükü. |
 
 ## <a name="return-types"></a>Dönüş türleri
 
-Yukarıdaki istemci başvurusu dönüş nesneleri açıklayan modelleri şunlardır:
+Aşağıdaki modelleri önceki istemci başvurusu dönüş nesneleri açıklanır.
 
 ### <a name="space"></a>Uzay
 
@@ -502,45 +487,45 @@ Yukarıdaki istemci başvurusu dönüş nesneleri açıklayan modelleri şunlard
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Geçerli alan üst alanı döndürür.
+Bu işlev geçerli alanının üst alanı döndürür.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Geçerli alan sensörlerden alt öğesini döndürür.
+Bu işlev geçerli alanı sensörlerden alt öğesini döndürür.
 
 #### <a name="childdevices--device"></a>ChildDevices() ⇒ `device[]`
 
-Geçerli alan cihazları alt öğesini döndürür.
+Bu işlev, cihazların geçerli alanı alt döndürür.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Genişletilmiş özellik ve geçerli bir alan değerini döndürür.
+Bu işlev, genişletilmiş özellik ve geçerli bir alan değerini döndürür.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *PropertyName* | `string` | Genişletilmiş özellik adı |
 
 #### <a name="valuevaluename--value"></a>Value(ValueName) ⇒ `value`
 
-Geçerli alan değerini döndürür.
+Bu işlev, geçerli alanı değerini döndürür.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *değer adı* | `string` | değer adı |
 
 #### <a name="historyvaluename--value"></a>History(ValueName) ⇒ `value[]`
 
-Geçmiş geçerli alan değerlerini döndürür.
+Bu işlev, geçerli alanı geçmiş değerlerini döndürür.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *değer adı* | `string` | değer adı |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Belirtilen yük ile bir bildirim gönderir.
+Bu işlev, belirtilen yüküyle bir bildirim gönderir.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *Yükü* | `string` | Bildirime eklenecek JSON yükü |
 
@@ -566,25 +551,25 @@ Belirtilen yük ile bir bildirim gönderir.
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Geçerli cihaz üst alanını döndürür.
+Bu işlev, geçerli cihaz üst alanını döndürür.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Geçerli cihaz sensörlerden alt öğesini döndürür.
+Bu işlev geçerli cihazın sensör alt öğesini döndürür.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Genişletilmiş özellik ve geçerli cihaz için değerini döndürür.
+Bu işlev, genişletilmiş özellik ve geçerli cihaz için değerini döndürür.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *PropertyName* | `string` | Genişletilmiş özellik adı |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Belirtilen yük ile bir bildirim gönderir.
+Bu işlev, belirtilen yüküyle bir bildirim gönderir.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *Yükü* | `string` | Bildirime eklenecek JSON yükü |
 
@@ -614,33 +599,33 @@ Belirtilen yük ile bir bildirim gönderir.
 
 #### <a name="space--space"></a>Space() ⇒ `space`
 
-Geçerli algılayıcı üst alanını döndürür.
+Bu işlev, geçerli algılayıcı üst alanını döndürür.
 
 #### <a name="device--device"></a>Device() ⇒ `device`
 
-Üst cihaz geçerli algılayıcı döndürür.
+Bu işlev, geçerli algılayıcı üst cihaz döndürür.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Genişletilmiş özellik ve geçerli algılayıcı için değerini döndürür.
+Bu işlev, genişletilmiş özellik ve geçerli algılayıcı için değerini döndürür.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *PropertyName* | `string` | Genişletilmiş özellik adı |
 
 #### <a name="value--value"></a>Value()) ⇒ `value`
 
-Geçerli algılayıcı değerini döndürür.
+Bu işlev, geçerli algılayıcı değerini döndürür.
 
 #### <a name="history--value"></a>History() ⇒ `value[]`
 
-Geçmiş geçerli algılayıcı değerlerini döndürür.
+Bu işlev, geçerli algılayıcı geçmiş değerlerini döndürür.
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Belirtilen yük ile bir bildirim gönderir.
+Bu işlev, belirtilen yüküyle bir bildirim gönderir.
 
-| param  | Tür                | Açıklama  |
+| Parametre  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
 | *Yükü* | `string` | Bildirime eklenecek JSON yükü |
 
@@ -654,7 +639,7 @@ Belirtilen yük ile bir bildirim gönderir.
 }
 ```
 
-### <a name="extended-property"></a>Genişletilmiş Özellik
+### <a name="extended-property"></a>Genişletilmiş özellik
 
 ```JSON
 {
@@ -665,6 +650,6 @@ Belirtilen yük ile bir bildirim gönderir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Olayları göndermek için dijital İkizlerini uç noktaları oluşturulacağını öğrenmek için [oluşturma dijital İkizlerini uç noktaları](how-to-egress-endpoints.md).
+- Bilgi nasıl [dijital İkizlerini Azure uç noktaları oluşturma](how-to-egress-endpoints.md) olayları göndermek için.
 
-Dijital İkizlerini uç noktaları hakkında daha fazla ayrıntı için okuma [uç noktaları hakkında daha fazla bilgi](concepts-events-routing.md).
+- Azure dijital İkizlerini uç noktaları hakkında daha fazla ayrıntı için bilgi [uç noktaları hakkında daha fazla](concepts-events-routing.md).

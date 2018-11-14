@@ -8,55 +8,58 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283606"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616495"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure İzleyicisi'nde sorun giderme günlük uyarıları  
-
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, Azure İzleyici içinde günlük uyarıları ayarlama sırasında görülen yaygın sorunların ele gösterilmektedir. Ve işlevler veya günlük uyarıları yapılandırma ile ilgili sık sorulan soruların bir çözüm sağlar. Terim **günlük uyarıları** dayalı özel sorgu olduğu sinyal uyarılarını açıklamak için [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerden öğrenin [günlük uyarıları - genel bakış](monitor-alerts-unified-log.md).
+Bu makalede, Azure İzleyici'de günlük uyarıları ayarlama sırasında görülen yaygın sorunların nasıl giderileceğini gösterir. Ayrıca, çözümler işlevselliği veya günlük uyarıları yapılandırma ile ilgili sık sorulan soruların yanıtlarını sağlar. 
+
+Terim **günlük uyarıları** yangın özel bir sorgunun bağlı uyarılar açıklamak için [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerinde öğrenin [günlük uyarıları - genel bakış](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> Bu makalede, Azure portalında ve ilişkili eylem grupları aracılığıyla bildirim tetiklenen gibi uyarı kuralı gösterildiğinde durumları dikkate almaz. Böyle durumlarda, ayrıntıları bu makalede şirket edinmek [Eylem grupları](monitoring-action-groups.md).
+> Bu makalede, Azure portal'ı gösterdiğinde durumları ve uyarı kuralını tetikleyen ve ilişkili bir eylem grupları tarafından gerçekleştirilen bir bildirim dikkate almaz. Böyle durumlarda, ayrıntıları bu makalede şirket edinmek [Eylem grupları](monitoring-action-groups.md).
 
 
 ## <a name="log-alert-didnt-fire"></a>Günlük uyarı yangın gelmedi
 
-Ayrıntılı sonraki bazı yaygın nedenler neden olan bir yapılandırılmış [Azure İzleyici'de günlük uyarı kuralı](alert-log.md) görüntülendiğinde tetiklenir değil [Azure uyarıları](monitoring-alerts-managing-alert-states.md), harekete beklediğiniz. 
+İşte bazı yaygın nedenler neden yapılandırılmış bir [Azure İzleyici'de günlük uyarı kuralı](alert-log.md) değil durumu göster [olarak *harekete* beklendiğinde](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Günlükler için veri alım zamanı
-Günlük uyarı works düzenli aralıklarla göre müşteri tarafından sağlanan sorgusunu çalıştırarak [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Her ikisi de muazzam miktarlardaki günlük verileri işler ve aynı işlevselliği sağlar, analizinin gücünden tarafından desteklenir. Log Analytics hizmeti dünya genelindeki terabayta kadar binlerce müşteri hem çeşitli kaynaklardan veri işleme gerektirir - hizmet için gecikme süresini saldırılara açıktır gibi. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../log-analytics/log-analytics-data-ingestion-time.md).
+Günlük uyarı düzenli aralıklarla çalışan temel sorgunuzu [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Log Analytics, binlerce müşteri çeşitli kaynaklardan gelen verileri terabayta kadar dünya genelindeki işlediğinden, hizmet için değişen gecikme süresini saldırılara açıktır. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Application Insights veya Log Analytics ortaya çıkabilecek veri alımı gecikme gidermek için günlükleri; Günlük uyarı bekler ve ne zaman veri henüz uyarı zaman aralığı için alınan değil bulduğu bir süre sonra yeniden denenir. Biz verilerin Log Analytics tarafından alınan gerekli süre bekleyin emin olmak için bir üssel olarak artan bekleme süresi ayarlama, günlük uyarıları var. Günlük uyarı kuralı tarafından sorgulanan günlükleri alma gecikmeleri etkileniyorsa, yalnızca veri alma sonrası Log Analytics ve üstel bir zaman aralığı nedeniyle günlük uyarı hizmetinin birden çok kez arada denemeden sonra kullanılabilir olduktan sonra bu nedenle daha sonra günlük uyarı tetikler .
+Veri alımı gecikme gidermek için sistem bekler ve uyarı sorgusu, gerekli verileri değil henüz alınır bulursa, birden çok kez yeniden dener. Sistem ayarlamak üssel olarak artan bir bekleme süresi vardır. Bunlar geciktirmek için veriyi kullanılabilir olduktan sonra günlük uyarı yalnızca Tetikleyiciler yavaş günlük verisi alımı nedeniyle olabilir. 
 
 ### <a name="incorrect-time-period-configured"></a>Süre yanlış yapılandırılmış
-Makalesinde açıklandığı [günlük uyarıları için terimler](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), süre yapılandırmasında belirtilen sorgu için zaman aralığını belirtir. Sorgu yalnızca bu zaman aralığı içinde oluşturulmuş olan kayıtları döndürür. Süre kötüye kullanımı önlemek günlük sorgusu için alınan verileri sınırlar ve hiçbir zaman komut bozar (önce ister) günlük sorguda kullanılan. 
-*Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorguyu, 13: 15'te çalıştırmak, 12:15 PM arasında 13: 15'te oluşturulan kayıtları döndürülür günlük sorgusu yürütülemedi. Günlük sorgusu komutu gibi önce zaman kullanıyorsa, şimdi (1d), günlük sorgusu çalıştırılması yalnızca 1:15 PM - 12:15 PM arasında verileri için veri yalnızca son 60 dakika için varmış gibi. Yedi günün verilerini günlük sorgusu belirtildiği için değil.*
+Makalesinde açıklandığı [günlük uyarıları için terimler](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), dönem içinde belirtilen yapılandırmasını sorgu için zaman aralığını belirten zaman. Sorgu yalnızca bu zaman aralığı içinde oluşturulmuş olan kayıtları döndürür. Süre kötüye kullanımı önlemek günlük sorgusu için alınan verileri sınırlar ve hiçbir zaman komut bozar (önce ister) günlük sorguda kullanılan. 
+*Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırılan 12:15 PM arasında 13: 15'te oluşturulan kayıtları için günlük sorgusu kullanılır. Günlük sorgu süresi komutu gibi kullanıyorsa *önce (1d)*, bu aralık için zaman dilimini ayarlandığından sorgu hala yalnızca 13: 15'te 12:15 PM arasında verileri kullanır.*
 
-Sorgu mantığınızı bağlı olarak, uygun bir zaman diliminde yapılandırma sağlanan denetleyin. Daha önce belirtilen Örneğin günlük önce kullanır (1 d) ile gösterildiği gibi sorgu yeşil işaret - ardından zaman aralığı 24 saat veya 1440 dakika (kırmızı renkte belirtildiği gibi) olarak ayarlanmalıdır, sağlanan sorgu emin olmak için doğru olarak envisaged yürütür.
-    ![Zaman aralığı](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
+Bu nedenle, onay yapılandırma dönemdeki Sorgunuzla eşleşen. Günlük sorgusu kullanıyorsa, daha önce belirtilen örneğin *önce (1d)* yeşil işaretçisi ile gösterildiği gibi ardından zaman aralığı 24 saat veya 1440 dakika (içinde belirtilen kırmızı) olarak sorguyu tasarlandığı gibi yürüten emin olmak için ayarlanması gerekir.
+
+![Zaman aralığı](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
 
 ### <a name="suppress-alerts-option-is-set"></a>Seçenek kümesi uyarıları bastır
-Makalenin 8 adımda açıklandığı [Azure portalında günlük uyarı kuralı oluşturma](alert-log.md#managing-log-alerts-from-the-azure-portal), günlük uyarı bir seçenek sağlar uyarı kuralının otomatik gizleme yapılandırın ve bildirim/tetikleyici görünürlüğe zaman miktarı için engelleme. Eylem grubu belirtilen süre için tetikleme değil sırasında yürütmek günlüğü uyarısı bastır uyarılar seçeneği neden olur **uyarıları bastır** seçenek ve bu nedenle kullanıcı bu uyarı olmadı çünkü bu yapılandırıldığı şekilde engellendi sırada harekete düşünüyor .
-    ![Uyarıları bastır](./media/monitor-alerts-unified/LogAlertSuppress.png)
+Makalenin 8 adımda açıklandığı [Azure portalında günlük uyarı kuralı oluşturma](alert-log.md#managing-log-alerts-from-the-azure-portal), günlük uyarıları sağlayan bir **uyarıları bastır** seçeneği için yapılandırılmış bir süre tetikleme ve bildirim eylemlerini gizlemek için saat. Sonuç olarak, çünkü bu oldu, ancak engellendi sırasında bir uyarı yangın olmadı düşünebilirsiniz.  
+
+![Uyarıları Gizle](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>Ölçüm ölçüsü uyarı kuralı yanlış
-Ölçüm ölçüsü günlük uyarı kuralı özel yeteneklere sahip ancak sırayla kısıtlama uyarı sorgu söz dizimi kullanan günlük uyarıları alt türüdür. Ölçüm ölçüsü günlük uyarı kuralı için bir ölçüm zaman serisi - sağlamak için uyarı sorgusu çıkışını gerekli AggregatedValue ayrı eşit boyutlu zaman süreler karşılık gelen değerleri ile birlikte içeren bir tablo hesaplanan. Ayrıca, kullanıcılar bilgisayar, düğüm, vb. AggregatedValue yanı sıra tablo ek değişkenlerine sahip seçebilirsiniz. tablodaki hangi verileri kullanarak sıralanabilir.
+**Ölçüm ölçüsü günlük uyarıları** özel özellikleri ve kısıtlı uyarı sorgusu söz dizimi olan günlük uyarı alt olan. Bir ölçüm ölçüsü günlük uyarı kuralı bir ölçüm zaman serisi olmasını çıkış sorgu gerektirir; diğer bir deyişle, ayrı bir tabloyla eşit olarak süreler karşılık gelen toplam değerler ile birlikte boyutlandırılmış. Ayrıca, kullanıcıların tabloda AggregatedValue yanı sıra bir ek değişkeni sahip olmayı seçebilirsiniz. Tabloyu sıralamak için bu değişkenleri kullanılabilir. 
 
-Örneğin, ölçüm ölçüsü günlük uyarı kuralı olarak yapılandırılan varsayalım:
+Örneğin, bir ölçüm ölçüsü günlük uyarı kuralı olarak yapılandırılan varsayalım:
 - Sorgu şöyleydi: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - 6 saatlik süre
 - 50 eşiği
 - üç ardışık ihlaller uyarı mantığı
 - Toplama $table seçilen bağlı
 
-Komut içinde kullandık olduğundan artık özetlemek... tarafından sağlanan iki değişken ve: zaman damgası & $table; uyarı hizmeti için "Toplama sırasında" - temelde $table seçin, alana göre sonuç tabloyu sıralamak: aşağıda gösterildiği gibi $table - ve ardından her tablo için birden çok AggregatedValue göz 3 veya daha fazla ardışık ihlaller olup olmadığını görmek için (availabilityResults gibi) yazın.
+Komut içerdiğinden *... Özetleme ölçütü* ve iki değişken (zaman damgası & $table), sağlanan sistem için "Toplama sırasında" $table seçer. Alana göre sonuç tabloyu sıralar *$table* aşağıda gösterildiği gibi ve ardından her bir tablo türü (gibi availabilityResults) için birden çok AggregatedValue 3 veya daha fazla ardışık ihlaller olup olmadığını görmek için bakar.
 
-   ![Birden çok değer ile ölçüm ölçüm sorgu yürütme](./media/monitor-alerts-unified/LogMMQuery.png)
+![Birden çok değer ile ölçüm ölçüm sorgu yürütme](./media/monitor-alerts-unified/LogMMQuery.png)
 
 "Toplama sırasında" $table – olduğu gibi veriler (kırmızı); olduğu gibi $table sütununda sıralanır Grup ve "Toplama sırasında" alanı türleri için konum (yani) $table – örneğin: değerleri availabilityResults bir çizim/varlık (olarak vurgulanmış turuncu) olarak kabul edilir. Bu değeri Çizdirmek/varlık – uyarı hizmetinin (gösterildiği yeşil) oluşan üç ardışık ihlaller Tablo değeri 'availabilityResults' için hangi uyarı tetiklenir denetler. Benzer şekilde, tüm diğer değerini üç ardışık ihlaller görülürse - $table, başka bir uyarı bildirimi için aynı tetiklenir; Uyarı hizmetiyle (turuncu) olduğu gibi bir çizim/varlık değerleri zamanına göre otomatik olarak sıralama.
 
@@ -85,4 +88,5 @@ Günlük uyarıları için uyarı vermek için mantık analytics sorgusu kullan�
 
 * Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](monitor-alerts-unified-log.md)
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md)
-* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-overview.md). 
+

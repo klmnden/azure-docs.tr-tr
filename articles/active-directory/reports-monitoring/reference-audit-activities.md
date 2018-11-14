@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056537"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622883"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD denetim etkinliği başvurusu
 
-Azure Active Directory’deki (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
+Azure Active Directory (Azure AD) raporları ile ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
 Azure AD'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
 
-- **Etkinlik** 
-    - **Oturum açma etkinlikleri**: Yönetilen uygulamaların kullanımı ve kullanıcıların oturum açma etkinlikleri hakkında bilgiler
-    - **Denetim günlükleri** - Azure AD içindeki çeşitli özellikler tarafından yapılan tüm değişiklikler için günlükler aracılığıyla izlenebilirlik sağlar. Azure AD içindeki kullanıcı, uygulama, grup, rol, ilke, kimlik doğrulama vb. herhangi bir kaynakta yapılan değişiklikler, denetim günlüklerinin örnekleridir.
-- **Güvenlik** 
-    - **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. Riskli oturum açma işlemleri.
-    - **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. Riskli oldukları belirlenen kullanıcılar.
+- **Etkinlik raporları** 
+    - [Oturum açma işlemleri](concept-sign-ins.md) – kullanımı hakkında bilgi yönetilen uygulamalar ve kullanıcı oturum açma etkinlikleri sağlar.
+    - [Denetim günlükleri](concept-audit-logs.md) - Azure AD içindeki çeşitli özellikler tarafından yapılan tüm değişiklikler için günlükler aracılığıyla izlenebilirlik sağlar. 
+    
+- **Güvenlik raporları** 
+    - [Riskli oturum açma işlemleri](concept-risky-sign-ins.md) - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. 
+    - [Riskli oldukları belirlenen kullanıcılar](concept-user-at-risk.md) - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. 
 
 Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri listelenir.
- 
-
 
 ## <a name="access-reviews"></a>Erişim gözden geçirmeleri
 
@@ -72,9 +71,6 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Kullanıcı Yönetimi|V1 uygulamaları alma|
 |Kullanıcı Yönetimi|V2 uygulaması alma|
 |Kullanıcı Yönetimi|V2 uygulamaları alma|
-
-
-
 
 ## <a name="account-provisioning"></a>Hesap sağlama
 
@@ -593,13 +589,8 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |İlke Yönetimi|Self servis parola sıfırlama için kaydolan kullanıcı|
 
 
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki genel bakışlar için:
-
-- Raporlama, bkz. [Azure Active Directory raporlama](overview-reports.md).
-
-- Denetim etkinliği raporları, bkz. [Azure Active Directory portalında etkinlik raporlarını denetleme](concept-audit-logs.md). 
-
+- [Azure AD raporlar genel bakış](overview-reports.md).
+- [Denetim günlükleri raporu](concept-audit-logs.md). 
+- [Azure AD raporlar programlı erişim](concept-reporting-api.md)

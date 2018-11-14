@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: db68f979239a5783338d99360209ae231a75c936
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 70a3de35f6fd942bca5355db3a7c6b57aec6adbc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945044"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613945"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları 
 
@@ -27,6 +27,54 @@ ms.locfileid: "49945044"
 * Hata düzeltmeleri
 * Kullanım dışı işlev
 * Değişiklikleri planları
+
+## <a name="november-2018"></a>Kasım 2018
+
+CLI 2.0 modülü için kullanıma sunuldu [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+
+### <a name="new-commands"></a>Yeni komutlar
+
+- [ams hesabı az](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams hesabına filtreleme](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams varlığı](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams varlığı filtreleme](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams içeriğini-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams işi](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams canlı olay](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams Canlı çıkış](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams akış uç noktası](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [Akış az ams-Bulucu](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams hesabınızı mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -medya ayrılmış birimi yönetmenizi sağlar
+
+### <a name="new-features-and-breaking-changes"></a>Yeni özellikler ve bozucu değişiklikler
+
+#### <a name="asset-commands"></a>Varlık komutları
+
+- ```--storage-account``` ve ```--container``` bağımsız değişkenleri eklendi.
+- Varsayılan değerleri (şimdi + 23 h) süre sonu ve izinleri (okuma) için ```az ams asset get-sas-url``` eklenen komutu.
+
+#### <a name="job-commands"></a>İş komutları
+
+- ```--correlation-data``` ve ```--label``` bağımsız değişkenleri eklendi
+- ```--output-asset-names``` olarak yeniden adlandırıldı ```--output-assets```. Varlıklar, boşlukla ayrılmış listesini kabul artık ' assetName label =' biçimi. Bir varlık etiketi olmadan şöyle gönderilebilir: ' assetName ='.
+
+#### <a name="streaming-locator-commands"></a>Akış Bulucusu komutları
+
+- ```az ams streaming locator``` temel komutu yerine ```az ams streaming-locator```.
+- ```--streaming-locator-id``` ve ```--alternative-media-id support``` bağımsız değişkenleri eklendi.
+- ```--content-keys argument``` bağımsız değişken güncelleştirildi.
+- ```--content-policy-name``` olarak yeniden adlandırıldı ```--content-key-policy-name```.
+
+#### <a name="streaming-policy-commands"></a>Akış ilke komutları
+
+- ```az ams streaming policy``` temel komutu yerine ```az ams streaming-policy```.
+- Şifreleme parametreleri, destek ```az ams streaming-policy create``` eklendi.
+
+#### <a name="transform-commands"></a>Komutları dönüştürme
+
+- ```--preset-names``` bağımsız değişken yerine ```--preset```. Artık yalnızca 1 çıkış/ön ayarı teker teker ayarlayabilirsiniz (daha fazla çalıştırmak için sahip olduğunuz eklemek için ```az ams transform output add```). Ayrıca, özel JSON yolunu geçirerek özel StandardEncoderPreset ayarlayabilirsiniz.
+- ```az ams transform output remove``` kaldırmak için çıkış dizinini geçirerek gerçekleştirilebilir.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` eklenen bağımsız değişkenleri ```az ams transform create``` ve ```az ams transform output add``` komutları.
 
 ## <a name="october-2018---ga"></a>Ekim 2018 - GA
 
@@ -120,5 +168,4 @@ Varlıklar veya hesap filtreleri 09/28 ile 10 arasında oluşturduğunuz, / 12 i
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Genel Bakış](media-services-overview.md)
+[Genel Bakış](media-services-overview.md)

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281787"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616206"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -81,7 +81,7 @@ MacOS Anahtarlık bir duruma neden olan sorunları Storage Explorer'ın kimlik d
 * Depolama Gezgini'ni yeniden başlatın
 * Kimlik doğrulama penceresi boş ise, kimlik doğrulaması iletişim kutusunu kapatmadan önce en az bir dakika bekleyin.
 * Proxy ve sertifika ayarları, makine ve Depolama Gezgini için düzgün şekilde yapılandırıldığından emin olun.
-* Windows üzerinde olan ve Visual Studio 2017 erişiminiz aynı makine ve oturum açma, Visual Studio 2017'ye açmayı deneyin. Bir başarılı oturum açma işleminden sonra Visual Studio 2017, Depolama Gezgini'ni açın ve hesap panelinde hesabınızı görmeniz mümkün olması gerekir. 
+* Windows üzerinde olan ve Visual Studio 2017 erişiminiz aynı makine ve oturum açma, Visual Studio 2017'ye açmayı deneyin. Bir başarılı oturum açma işleminden sonra Visual Studio 2017, Depolama Gezgini'ni açın ve hesap panelinde hesabınızı görmeniz mümkün olması gerekir.
 
 Bu yöntemlerin hiçbiri çalışıyorsanız [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ Bir ekli hesabı veya kullanıcı Arabirimi aracılığıyla depolama kaynağı 
 
 * Proxy URL'si ve bağlantı noktası numarası
 * Kullanıcı adı ve parola tarafından proxy gerekliyse
+
+Depolama Gezgini .pac dosya proxy ayarlarını yapılandırmak için desteklemediğini unutmayın.
 
 ### <a name="common-solutions"></a>Yaygın çözümleri
 

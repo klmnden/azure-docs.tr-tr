@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232452"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614481"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF geçişi REST Öğreticisi
-
 Bu öğretici, REST tabanlı bir arabirimi kullanıma sunan basit bir Azure geçişi ana bilgisayar uygulaması derlemeyi açıklar. REST, HTTP istekleri üzerinden Service Bus API'lerine erişmek için web tarayıcısı gibi bir web istemcisi sunar.
 
 Bu öğreticide, Azure geçişi üzerinde bir REST hizmeti oluşturmak için programlama modeli Windows Communication Foundation (WCF) REST kullanılır. Daha fazla bilgi için WCF belgelerinde [WCF REST Programlama Modeli](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) ve [Hizmetleri Tasarlama ve Uygulama](/dotnet/framework/wcf/designing-and-implementing-services) konularına bakın.
 
-## <a name="step-1-create-a-namespace"></a>1. Adım: Ad alanı oluşturma
+Bu öğreticide aşağıdaki adımları uygulayın:
+
+> [!div class="checklist"]
+> * Bir geçiş ad alanı oluşturun.
+> * REST tabanlı WCF hizmet sözleşmesini tanımlama
+> * REST tabanlı WCF sözleşmesi uygulama
+> * REST tabanlı WCF Hizmeti barındırma ve çalıştırma
+> * Çalıştırma ve test etme hizmeti
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
+
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+- [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
+- .NET için Azure SDK. Buradan yükleyin [SDK indirme sayfasını](https://azure.microsoft.com/downloads/).
+
+## <a name="create-a-relay-namespace"></a>Bir geçiş ad alanı oluşturma
 
 Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Azure kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. [Buradaki yönergeleri](relay-create-namespace-portal.md) izleyerek bir Geçiş ad alanı oluşturun.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>2. adım: Azure geçişi ile kullanmak için REST tabanlı WCF hizmet sözleşmesini tanımlama
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Azure geçişi ile kullanmak için REST tabanlı WCF hizmet sözleşmesini tanımlama
 
 WCF REST stilinde bir hizmet oluşturduğunuzda sözleşme tanımlamanız gerekir. Sözleşmede ana bilgisayarın hangi işlemleri desteklediği belirtilir. Bir hizmet işlemi, web hizmeti yöntemi olarak düşünülebilir. Sözleşmeler; C++, C# veya Visual Basic arabirimi tanımlamasıyla oluşturulur. Arabirimdeki her yöntem belirli bir hizmet işlemine karşılık gelir. [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğinin her arabirime ve [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğinin her işleme uygulanması gerekir. Arabirimdeki bir yöntem [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğine sahip olup [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğine sahip olmazsa bu yöntem kullanıma sunulmaz. Bu görevler için kullanılan kod, aşağıdaki yordamın altındaki örnekte gösterilir.
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Adım 3:Service Bus hizmetini kullanmak için REST tabanlı WCF hizmeti sözleşmesi uygulama
+## <a name="implement-the-rest-based-wcf-service-contract"></a>REST tabanlı WCF hizmet sözleşmesini uygulama
 REST stilinde WCF geçişi hizmetini oluşturmak için öncelikle bir arabirim kullanılarak tanımlanan sözleşmeyi oluşturmanız gerekir. Bir sonraki adım ise bu arabirimi uygulamaktır. Bu adımda kullanıcı tanımlı **IImageContract** arabirimini uygulayan **ImageService** adlı bir sınıf oluşturursunuz. Sözleşmeyi uyguladıktan sonra, App.config dosyası kullanarak arabirimi yapılandırırsınız. Yapılandırma dosyasında hizmetin adı, sözleşmeyi ve geçiş hizmeti ile iletişim kurmak için kullanılan protokol türü adı gibi bir uygulama için gerekli bilgileri içerir. Bu görevler için kullanılan kod, aşağıdaki yordamın altındaki örnekte sağlanır.
 
 Önceki adımlarda olduğu gibi bir REST stilinde sözleşme ve bir WCF geçişi sözleşmesi uygulama arasında çok az bir fark yoktur.
@@ -430,7 +446,7 @@ Aşağıdaki örnek, hizmetle ilişkilendirilen App.config dosyasını gösterir
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>4. adım: Azure Geçişi'ni kullanmak için REST tabanlı WCF Hizmeti barındırma
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Azure Geçişi'ni kullanmak için REST tabanlı WCF Hizmeti barındırma
 Bu adımda, WCF geçişi ile bir konsol uygulaması kullanarak bir web hizmetinin nasıl çalıştırılacağı açıklanır. Bu adımda yazılan kodların tam listesi yordamdan sonraki örnekte verilmiştir.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Hizmet için taban adresi oluşturma
@@ -476,7 +492,7 @@ Bu adımda, WCF geçişi ile bir konsol uygulaması kullanarak bir web hizmetini
     host.Close();
     ```
 
-## <a name="example"></a>Örnek
+### <a name="example"></a>Örnek
 Aşağıdaki örnek, hizmet sözleşmesini ve bu öğreticinin önceki kısımlarında yer alan uygulamayı içerir ve hizmeti bir konsol uygulamasında barındırır. Aşağıdaki kodu ImageListener.exe adlı bir yürütülebilir dosyada derleyin.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>Kod derleme
+## <a name="run-and-test-the-service"></a>Çalıştırma ve test etme hizmeti
 Çözümü derledikten sonra uygulamayı çalıştırmak için şunları yapın:
 
 1. Hizmeti çalıştırmak için **F5**'e basın veya yürütülebilir dosya konumuna gözatın (ImageListener\bin\Debug\ImageListener.exe). Uygulamayı çalışır durumda tutmak için bir sonraki adımı gerçekleştirmeniz gerekir.

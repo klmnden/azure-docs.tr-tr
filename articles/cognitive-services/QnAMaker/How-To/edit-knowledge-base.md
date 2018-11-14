@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fa5b5e1998d54c7b22d01e7cc70e84059d482cfb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279770"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623555"
 ---
 # <a name="edit-a-knowledge-base"></a>Bilgi bankası düzenleme
 
@@ -29,30 +29,25 @@ Soru-cevap Oluşturucu, kullanımı kolay bir düzenleme deneyimi sunarak bilgi 
 
     ![My bilgi Bankalarından](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Düzenlemeler yapmak için belirli bir Bilgi Bankası'nı seçin.
+1. Düzenlemeler yapmak için belirli bir Bilgi Bankası'nı seçin.
  
-3. **Ayarlar**’a tıklayın.
-
-   Burada zorunlu alan hizmet adını düzenleyebilirsiniz.
+1. Seçin **ayarları**. Burada zorunlu alan hizmet adını düzenleyebilirsiniz.
   
-   Tıklayarak, Bilgi Bankası için yeni SSS içeriği eklemek için yeni URL'leri ekleyebilirsiniz **knowledgebase Yönet -> ' + URL Ekle '** bağlantı.
-   
-   Tıklayarak mevcut URL'ler silebilirsiniz **Sil simgesi**.
-   
-   En son içeriği mevcut URL'ler gezinmesi için bilgi istiyorsanız, onay kutusu adı işaretleyerek **'Yenile'**, bu Bilgi Bankası son URL içeriklerle güncelleştirir.
-   
-Tıklayarak Bilgi Bankası, bir parçası olarak desteklenen dosya belge ekleyebilirsiniz **Yönet Bilgi Bankası -> ' + Dosya Ekle '**
+    |Hedef|Eylem|
+    |--|--|
+    |URL ekle|SSS içeriği yeni Bilgi Bankası'na tıklayarak eklemek için yeni URL'leri ekleyebilirsiniz **Bilgi Bankası'Yönet -> ' + URL Ekle '** bağlantı.|
+    |URL Sil|Var olan URL'ler Sil simgesini seçerek silebilirsiniz, çöp kutusu.|
+    |URL içerik Yenile|En son içeriği mevcut URL'ler gezinmesi için bilgi bankanızı istiyorsanız belirleyin **Yenile** onay kutusu. Bu, Bilgi Bankası'ı en son URL içeriklerle güncelleştirir.|
+    |Dosya Ekle|Seçerek bir Bilgi Bankası bir parçası olarak desteklenen dosya belgeye eklediğiniz **Bilgi Bankası yönetme**, ardından seçerek **+ Dosya Ekle**|
+    |İçeri Aktarma|Mevcut tüm Bilgi Bankası seçerek de içeri aktarabilirsiniz **Ímport Bankası** düğmesi. |
+    |Güncelleştirme|Bilgi Bankası güncelleştirme bağlıdır **Yönetimi fiyatlandırma katmanı** bilgi bankanızı ile ilgili soru-cevap Oluşturucu hizmeti oluşturulurken kullanılır. Gerekli olursa yönetim katmanı Azure Portal'dan da güncelleştirebilirsiniz.
 
-Var olan herhangi bir Bilgi Bankası tıklayarak da içeri aktarabilirsiniz **'Ímport Bilgi Bankası'** düğmesi. 
-   
-Bilgi Bankası'nın updation bağlıdır **Yönetimi fiyatlandırma katmanı** , knowledgbase ile ilgili soru-cevap Oluşturucu hizmetini oluştururken kullanılan. Gerekli olursa yönetim katmanı Azure Portal'dan da güncelleştirebilirsiniz.
-
-4. Bilgi Bankası değişiklikleri tamamladıktan sonra tıklayarak **kaydedin ve eğitme** değişiklikleri kalıcı hale getirmek için sayfanın sağ üst köşesindeki içinde.    
+1. Bilgi bankasına tamamladıktan sonra değişiklik yapmaya **kaydedin ve eğitme** değişiklikleri kalıcı hale getirmek için sayfanın sağ üst köşesindeki içinde.    
 
     ![Kaydet ve eğitme](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!NOTE]
-    Sayfanın tıklatmadan önce kaydederken bırakarak ve eğitme değişiklikleri kalıcı olmaz.
+    >[!CAUTION]
+    >Seçmeden önce sayfadan ayrılırsanız **kaydedin ve eğitme**, tüm değişiklikler kaybolacak.
 
 ## <a name="add-a-qna-pair"></a>Soru-Cevap çifti ekleme
 
@@ -62,7 +57,7 @@ Seçin **ekleme soru-cevap çifti** Bilgi Bankası tabloya yeni satır eklemek i
 
 ## <a name="delete-a-qna-pair"></a>Soru-cevap çifti Sil
 
-Bir soru-cevap'ı silmek için tıklayın **Sil** simgesine soru-cevap satırın en sağındaki.
+Bir soru-cevap'ı silmek için tıklayın **Sil** simgesine soru-cevap satırın en sağındaki. Bu kalıcı bir işlemdir. Geri alınamaz. Öğesinden, KB verme göz önünde bulundurun **Yayımla** çiftleri silmeden önce sayfa. 
 
 ![Soru-cevap çifti Sil](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -95,6 +90,10 @@ Filtre simgesini seçerek meta verileri çifti Ekle
 Bilgi Bankası (KB) silinmesi kalıcı bir işlemdir. Geri alınamaz. Bilgi Bankası silmeden önce Bilgi Bankası'ndaki vermelisiniz **ayarları** soru-cevap Oluşturucu Portalı'nın sayfasında. 
 
 BB'NİZLE paylaşıyorsa [ortak çalışanlar](collaborate-knowledge-base.md) silin, herkesin KB olarak erişimini kaybeder. 
+
+## <a name="delete-azure-resources"></a>Azure kaynaklarını silme 
+
+Soru-cevap Oluşturucu, bilgi bankaları için kullanılan Azure kaynakları silerseniz, bilgi bankalarından artık çalışmaz. Tüm kaynakları silmeden önce bilgi bankalarından öğesinden dışarı emin olun **ayarları** sayfası. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

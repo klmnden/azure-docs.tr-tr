@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7d65752787e65eeabf203f9bdc3ea11a1569f8a1
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091700"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613384"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure İzleyici (Önizleme) VM'ler için sık sorulan sorular
 Bu Microsoft FAQ VM'ler için Azure İzleyici hakkında sık sorulan soruların bir listesidir. Çözümü hakkında ek sorularınız varsa, Git [tartışma forumuna](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -93,6 +93,11 @@ Büyük ve karmaşık yapılandırmalar ele eşlemek için geliştirmeler yaptı
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Performans sekmesinde ağ grafik neden Azure VM genel bakış sayfasında ağ grafik farklı görünüyor?
 
 Bir Azure VM için genel bakış sayfasında, konağın Konuk VM etkinliğinde ölçü temel grafik görüntüler.  Azure VM genel ağ grafik için faturalandırılır, ağ trafiği yalnızca görüntüler.  Bu, sanal ağlar arası trafik içermez.  VM'ler için Azure İzleyici için gösterilen grafikler ve veri Konuk VM verilerden dayanır ve ağ grafik gelen ve giden sanal ağlar arası dahil olmak üzere, bu VM'ye tüm TCP/IP'yi trafiğini gösterir.
+
+## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics'i ücretsiz fiyatlandırma planına müşterisiysem, kendi sınırlaması var mı?
+Log Analytics çalışma alanını kullanma ile Azure İzleyici yapılandırdıysanız *ücretsiz* Vm'leri eşleme özelliğini yalnızca beş bağlı makine destekleyeceği fiyatlandırma katmanı, Azure İzleyici, çalışma alanına bağlı. Boş bir çalışma alanına bağlı beş Vm'leriniz varsa, Vm'lerden birinin bağlantısını kesip daha sonra yeni bir VM bağlanmak yeni VM izlenen değil ve harita sayfada yansıtılır.  
+
+Bu koşul altında ile istenir **şimdi deneyin** seçeneği VM açıp seçin **Insights (Önizleme)** sol bölmesinden sonra bile, sanal makinede yüklü.  Ancak, bu VM VM'ler için Azure İzleyici'na eklediğinizden yokmuş normal olarak ortaya çıkabilecek gibi seçeneklerle istenmez. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Gözden geçirme [sanal makineler için yerleşik Azure İzleyici](monitoring-vminsights-onboard.md) gereksinimleri ve yöntemler, sanal makinelerin izlemeyi etkinleştirmek için anlamak için.

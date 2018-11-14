@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 166adc2b464ede5ba77d049075479e3b37a02a88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1451cdc5efcb62cff5c5d3725d5b15eb44be1755
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954868"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613673"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Azure Machine Learning ile nesne algılama modellerini Derleme ve dağıtma
 
@@ -29,7 +29,7 @@ Bu makalede, kullanmayı öğrenin **görüntü işleme için Azure Machine Lear
 Oluşturma ve bu modeli Bu paket dağıtma, aşağıdaki adımları izleyerek gidin:
 1.  Veri kümesi oluşturma
 2.  Derin sinir ağı (DNN) modeli tanımı
-3.  Modeli eğitimi
+3.  Model Eğitimi
 4.  Değerlendirme ve görselleştirme
 5.  Web hizmeti dağıtımı
 6.  Web hizmeti yük testi
@@ -534,7 +534,7 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
         image (str): Image file path
         service_endpoint_url(str): web service endpoint url
         service_key(str): Service key. None for local deployment.
-        parameters (dict): Additional request paramters in dictionary. Default is {}.
+        parameters (dict): Additional request parameters in dictionary. Default is {}.
 
 
     Returns:

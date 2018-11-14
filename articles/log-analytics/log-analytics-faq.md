@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c79a44422944fd2049c47a6729a86d063dbcd15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232350"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625836"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -160,7 +160,7 @@ A. Hayır, rastgele bir tablo veya Azure depolamadaki kapsayıcılar okumak şu 
 
 A. Log Analytics hizmeti, Azure üzerinde oluşturulmuştur. Log Analytics IP adresleridir içinde [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Hizmet dağıtımları yaptığınız gibi Log Analytics hizmetine gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin bölümünde belgelendirilen [ağ gereksinimleri](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Hizmet dağıtımları yaptığınız gibi Log Analytics hizmetine gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin bölümünde belgelendirilen [ağ gereksinimleri](log-analytics-agent-overview.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>S. Azure'a bağlamak için ExpressRoute kullanıyorum. My Log Analytics trafik, ExpressRoute bağlantım kullanıyor mu?
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: c1cc8769617e4c9cd823b1e44d60c49b73f4bdb9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289718"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615805"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Azure'dan Azure'a VM devam eden çoğaltma sorunlarını giderme
 
@@ -56,12 +56,6 @@ Premium P10 veya P15 disk | 16 KB | 4 MB/sn |  Disk başına 336 GB
 Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 672 GB
 Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
 Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 MB/sn | Disk başına 842 GB
-
-
-**Kaynak veri değişim sıklığı** | **Üst sınır**
----|---
-VM başına ortalama veri değişim sıklığı| 25 MB/sn
-VM üzerindeki tüm disklerde en yüksek veri değişim sıklığı | 54 MB/sn
 
 ### <a name="solution"></a>Çözüm
 Azure Site Recovery disk türüne göre oran sınırlarını değiştirme verisine sahip olduğunu anlamanız gerekir. Bu sorunu yinelenen veya olmayabileceği bulmak önemli olan bilmek oranı düzeni etkilenen sanal makinenin veri değiştirin.

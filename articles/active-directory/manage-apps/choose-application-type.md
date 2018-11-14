@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357477"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625090"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Uygulama eklerken kullanılacak uygulama türünü seçme
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory'de uygulama eklerken uygulama türünü seçme
+Uygulamaları Azure Active Directory (Azure AD) ekleyebilirsiniz dört türleri hakkında daha fazla bilgi edinin. Azure Active Directory'de uygulama eklerken dört uygulama türünü birini seçmeniz istenir. 
 
-Bu makalede Azure AD ile tümleştirmek uygulamaların dört ana türlerini anlamanıza yardımcı olur:
-
-* Her biri tarafından desteklenen özellikler
-* Hangi uygulamanın neden seçebilirsiniz
-* Nasıl kullanıcılardır gibi bu uygulamanın temel özellikleri nasıl yapılandıracağınızı öğrenmek **sağlanan**, veya ne **çoklu oturum açma** teknolojisini kullanın.
-
-## <a name="supported-application-types-in-azure-ad"></a>Azure AD'de desteklenen uygulama türleri
+## <a name="what-are-the-types-of-applications"></a>Uygulama türleri nelerdir?
 
 Azure AD kullanarak ekleyebileceğiniz dört ana uygulama türlerini destekler **Ekle** özelliği bulunan altında **kurumsal uygulamalar**. Bunlar:
 
@@ -41,7 +36,7 @@ Azure AD kullanarak ekleyebileceğiniz dört ana uygulama türlerini destekler *
 
 -   **Galeri dışı uygulamalar** – kendi uygulamalarınızı getirin! İstediğiniz herhangi bir web bağlantısına veya bir kullanıcı adı ve parola alanını işleyen herhangi bir uygulama SAML veya Openıd Connect protokolleri destekler veya çoklu oturum açma için Azure AD ile tümleştirmek istediğiniz SCIM destekler.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Özellikler ve önceki tüm uygulama türleri tarafından desteklenen yetenekler
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>Özellikler ve yetenekler uygulama türleri tarafından desteklenir
 
 Aşağıdaki özellikleri Azure AD'de herhangi bir önceki dört uygulama türünden desteklenir:
 

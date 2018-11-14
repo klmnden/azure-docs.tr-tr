@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 11/13/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13ce1a7c9008a7893892e5d7e6b67a243c381c9f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349152"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622015"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalının kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme
-Bu makalede nasıl kullanılacağını [Azure portalında](https://portal.azure.com) hesabı otomatik kullanıcı hazırlama ve "öneçıkan"Kategorieklenmişolanlarıözellikledestekleyenuygulamalariçinsağlamayıyönetme[ Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Otomatik kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [sağlama kaldırmayı Azure Active Directory ile SaaS uygulamalarına kullanıcı sağlamayı otomatikleştirin ve](user-provisioning.md).
+Bu makalede nasıl kullanılacağını [Azure portalında](https://portal.azure.com) hesabı otomatik kullanıcı hazırlama ve onu destekleyen uygulamalar için sağlamayı yönetme. Otomatik kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [sağlama kaldırmayı Azure Active Directory ile SaaS uygulamalarına kullanıcı sağlamayı otomatikleştirin ve](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
-Çoklu oturum açma bir dizinde kullanarak dizin Yöneticisi tarafından yapılandırılan tüm uygulamalar [Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), görüntülenebilen ve yönetilebilen [Azure portalında](https://portal.azure.com). Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** Portalı'nın bölümü. Kurumsal uygulamalar, dağıtıldığı ve kuruluşunuzda kullanılan uygulamalardır.
+Çoklu oturum açmayı bir dizinde görüntülenebilen ve yönetilebilen için yapılandırılan tüm uygulamalar [Azure portalında](https://portal.azure.com). Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** Portalı'nın bölümü. Kurumsal uygulamalar, dağıtıldığı ve kuruluşunuzda kullanılan uygulamalardır.
 
 ![Kurumsal uygulamalar bölmesi](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
@@ -77,7 +77,5 @@ Bu bölümde sağlama hizmeti uygulama ve kaç kullanıcı ve Grup nesneleri yö
 
 Bağlantılar için sağlanan **sağlama etkinliği raporunu** tüm kullanıcıları ve grupları Azure AD güncelleştirilmiş ve kaldırılan arasında oluşturulan günlüğünü sağlayan ve hedef uygulama ve **hata raporusağlama** sağlayan daha ayrıntılı hata iletileri okumak, oluşturulmuş, güncelleştirilmiş veya kaldırılacak kullanıcı ve Grup nesneler için. 
 
-## <a name="feedback"></a>Geri Bildirim
 
-Lütfen geri bildirim yakında tutun! Geri bildirim ve geliştirme için fikir gönderin **Yönetici portalı** bölümünü bizim [geri bildirim Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Mühendislik ekibi her gün harika yeni öğeler oluşturma hakkında heyecan ve kılavuzunuzu şekle kullanın ve bir sonraki projeniz tanımlayın.
 

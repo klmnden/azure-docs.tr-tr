@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233805"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621760"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -171,7 +171,7 @@ Daha fazla bilgi için bkz.
 * Birleştirilmiş uygulamalarda doğrudan oturum açma
 * Birleştirilmiş, parola tabanlı veya var olan uygulamalara yönelik ayrıntılı bağlantılar
 
-Daha fazla bilgi için bkz. [Azure AD tümleşik uygulamalarını kullanıcılara dağıtma](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+Daha fazla bilgi için [uygulamalar için son kullanıcı deneyimlerini](../manage-apps/end-user-experiences.md).
 
 - - -
 **S: Azure AD, uygulamalar için kimlik doğrulaması ve çoklu oturum açmaya ne gibi farklı yollarla olanak tanır?**
@@ -182,7 +182,7 @@ Daha fazla bilgi için bkz.
 
 * [Azure AD için Kimlik Doğrulama Senaryoları](../develop/authentication-scenarios.md)
 * [Active Directory kimlik doğrulama protokolleri](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Çoklu oturum açma özelliği, Azure Active Directory ile nasıl kullanılır?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Azure AD uygulamaları için çoklu oturum açma](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **S: Şirket içi olarak çalıştırdığım uygulamaları ekleyebilir miyim?**

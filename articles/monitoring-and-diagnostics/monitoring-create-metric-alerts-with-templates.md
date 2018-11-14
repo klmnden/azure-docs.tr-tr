@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3739ad3d90dd9d97d755bc0e2fa41e0962396cb1
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c6a1647293cb0e075b3269d795b018bb223ab8f1
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354249"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615186"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
 
@@ -1372,5 +1372,5 @@ az group deployment create \
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinin [Azure uyarıları](monitoring-overview-unified-alerts.md)
+* Daha fazla bilgi edinin [Azure uyarıları](monitoring-overview-alerts.md)
 * Bilgi edinmek için nasıl [Resource Manager şablonları ile bir eylem grubu oluştur](monitoring-create-action-group-with-resource-manager-template.md)

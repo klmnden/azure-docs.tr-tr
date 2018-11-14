@@ -13,18 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 01/15/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9138da42eeb87e45b86be10aff67792ee6de09b4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2607c5dacf6f261f27e7805e02df189a2753404c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056555"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625666"
 ---
-# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Herhangi bir veri karşıdan Azure Active Directory etkinlik günlüğünde bulamıyorum
-
+# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Tüm verileri karşıdan Azure Active Directory etkinlik günlüğünde bulamıyorum
 
 ## <a name="symptoms"></a>Belirtiler
 
@@ -32,15 +31,15 @@ Etkinlik günlüklerini (denetim veya oturum açma) indirdim ve seçtiğim süre
 
  ![Raporlama](./media/troubleshoot-missing-data-download/01.png)
  
-
 ## <a name="cause"></a>Nedeni
 
 Azure Portal'da etkinlik günlüklerini indirdiğinizde, en son gerçekleşen en başta tarafından sıralanan 5000 kayıt ölçek sınırlıyoruz. 
 
 ## <a name="resolution"></a>Çözüm
 
-Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](concept-reporting-api.md) kullanabilirsiniz. Bizim önerdiğimiz yaklaşım, bir zamanlamaya göre bir sürede (örneğin, günlük veya haftalık) artımlı bir şekilde kayıt getirilecek raporlama API'lerini çağıran bir komut çalıştırmaktır.
+Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](concept-reporting-api.md) kullanabilirsiniz. Bizim önerdiğimiz yaklaşım olmaktır [bir zamanlamaya göre Çalıştır](tutorial-signin-logs-download-script.md) bir sürede (örneğin, günlük veya haftalık) artımlı bir şekilde kayıt getirilecek raporlama API'lerini çağırır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz. [Azure Active Directory raporlama hakkında SSS](reports-faq.md).
+
+* [Azure Active Directory SSS raporları](reports-faq.md)
 

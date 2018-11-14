@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: ef1956f5283105548ba8790b87e82c35d6c9e1cd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dc6a52462dffcb735e845c9150b2189e37273496
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960948"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615441"
 ---
 # <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
@@ -82,6 +82,6 @@ Log Analytics'te merkezi bir konum uygulamak için iki seçenek vardır:
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Oluşturma ve kullanarak çalışma yapılandırılmasını otomatikleştirmek [Resource Manager şablonları](log-analytics-template-workspace-configuration.md)
 * Çalışma alanlarını kullanarak oluşturulmasını otomatikleştirin [PowerShell](log-analytics-powershell-workspace-configuration.md) 
-* Kullanım [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) var olan sistemlerle tümleştirmek için
+* Kullanım [uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) var olan sistemlerle tümleştirmek için
 * Özet raporları kullanarak oluşturmak [Power BI](log-analytics-powerbi.md)
 * Gözden geçirme sürecini [birden çok CSP müşterileri izlemek için Log Analytics ve Power BI'ı yapılandırma](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

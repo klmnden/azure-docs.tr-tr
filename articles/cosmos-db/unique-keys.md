@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252573"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624429"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB'de benzersiz anahtarlar
 
@@ -48,17 +48,6 @@ Bir Cosmos kapsayıcı oluştururken benzersiz anahtarlar tanımlayabilirsiniz. 
 * Seyrek benzersiz anahtarlar desteklenmez. Bazı benzersiz yolu eksik değerler benzersizlik kısıtlaması katılmak null değerler olarak kabul edilir. Bu nedenle, yalnızca olabilir bu kısıtlamasını karşılamak için null değerine sahip tek bir öğe.
 
 * Benzersiz anahtar adları büyük/küçük harfe duyarlıdır. Örneğin, bir kapsayıcı için /address/zipcode ayarlamak benzersiz anahtar kısıtlaması ile düşünün. Verilerinizi ZipCode adlı bir alan varsa, "zipcode" "ZipCode" aynı olduğundan, Cosmos DB "null" benzersiz bir anahtar olarak ekler. "Null" yinelenen anahtar benzersiz kısıtlamayı ihlal çünkü bu büyük/küçük harfe duyarlılık nedeniyle tüm ZipCode kayıtlarıyla eklenemez.
-
-## <a name="supported-apis-and-sdks"></a>Desteklenen API'ler ve SDK'lar
-
-Benzersiz anahtarlar bu özellik şu anda aşağıdaki Cosmos DB API'ları ve istemci SDK'ları tarafından desteklenir: 
-
-|İstemci sürücüleri|SQL API’si|Cassandra API’si|MongoDB API’si|Gremlin API|Tablo API’si|
-|---|---|---|---|---|---|
-|.NET|Evet|Hayır|Evet|Hayır|Hayır|
-|Java|Evet|Hayır|Evet|Hayır|Hayır|
-|Python|Evet|Hayır|Evet|Hayır|Hayır|
-|Düğüm/JS|Evet|Hayır|Evet|Hayır|Hayır|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

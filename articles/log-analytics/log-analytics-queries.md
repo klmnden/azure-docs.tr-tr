@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 774ca8d0c893a5672c7f04f3530679204b7262c6
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51513779"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612763"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
@@ -41,12 +41,12 @@ Log Analytics bağlantısı herhangi bir veri almak için günlük sorgusu gerek
 Log Analytics'te sorgu kullanacağını farklı yollar şunlardır:
 
 - **Portalları.** Günlük veri etkileşimli analiz gerçekleştirebilir [Azure portalında](log-analytics-log-search-portals.md).  Bu, sorgunuzu düzenleyin ve çeşitli biçimlerde ve görselleştirmeler sonuçları analiz etmek sağlar.  
-- **Uyarı kuralları.** [Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) çalışma alanınızdaki veri sorunları proaktif olarak belirleyin.  Her uyarı kuralı otomatik olarak düzenli aralıklarla çalışan bir günlük araması temel alır.  Sonuçları bir uyarının oluşturulması gerektiğini belirlemek için incelenir.
+- **Uyarı kuralları.** [Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md) çalışma alanınızdaki veri sorunları proaktif olarak belirleyin.  Her uyarı kuralı otomatik olarak düzenli aralıklarla çalışan bir günlük araması temel alır.  Sonuçları bir uyarının oluşturulması gerektiğini belirlemek için incelenir.
 - **Panolar.** Herhangi bir sorgu sonuçlarını sabitleyebilirsiniz bir [Azure panosuna]() olan izin, günlük ve ölçüm verileri bir araya görselleştirip, isteğe bağlı olarak diğer Azure kullanıcıları ile paylaşın. 
 - **Görünümler.**  Kullanıcı panolarla dahil edilecek veri görselleştirmeleri oluşturabilirsiniz [Görünüm Tasarımcısı](log-analytics-view-designer.md).  Günlük sorguları tarafından kullanılan verileri sağlar [kutucukları](log-analytics-view-designer-tiles.md) ve [görselleştirme bölümleri](log-analytics-view-designer-parts.md) her görünümde.  
 - **Dışarı aktarın.**  İçeri aktardığınızda verilerin Log Analytics çalışma alanından Excel'e veya [Power BI](log-analytics-powerbi.md), dışarı aktarmak için verileri tanımlamak için bir günlük sorgusu oluşturun.
 - **PowerShell.** Bir komut satırı veya kullanan bir Azure Otomasyonu runbook'u bir PowerShell Betiği çalıştırabilirsiniz [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) Log Analytics'ten verileri almak için.  Bu cmdlet, alınacak verileri belirlemek üzere bir sorgu gerektirir.
-- **Log Analytics API'si.**  [Log Analytics günlük arama API'si](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) çalışma alanından günlük verilerini almak herhangi bir REST API istemcisi sağlar.  API isteği almak için verileri belirlemek için Log Analytics karşı çalışan bir sorgu içerir.
+- **Log Analytics API'si.**  [Log Analytics günlük arama API'si](../monitoring-and-diagnostics/monitoring-overview-alerts.md) çalışma alanından günlük verilerini almak herhangi bir REST API istemcisi sağlar.  API isteği almak için verileri belirlemek için Log Analytics karşı çalışan bir sorgu içerir.
 
 ![Günlük aramaları](media/log-analytics-queries/queries-overview.png)
 

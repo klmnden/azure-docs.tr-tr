@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici'deki Azure Active Directory etkinlik günlükleri (önizleme) | Microsoft Docs
-description: Azure İzleyici'deki Azure Active Directory etkinlik günlüklerine genel bakış (önizleme)
+description: Azure İzleyici (Önizleme) giriş Azure Active Directory etkinlik günlükleri
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395692"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625445"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure İzleyici'deki Azure AD etkinlik günlükleri (önizleme)
 
-Artık Azure İzleyici'yi kullanarak Azure Active Directory (Azure AD) etkinlik günlüklerini kendi depolama hesabınıza veya olay hub'ınıza yönlendirebilirsiniz. Azure İzleyici'deki Azure Active Directory günlükleri özelliğinin genel önizleme sürümü ile aşağıdakileri yapabilirsiniz:
+Azure Active Directory (Azure AD) etkinlik günlükleri, uzun vadeli bekletme ve veri öngörüleri için birkaç uç artık yönlendirebilirsiniz. Azure İzleyici günlüklerine Azure AD genel önizlemesiyle sağlar:
 
-* Azure depolama hesabınızın denetim günlüklerini arşivleyerek verileri uzun bir süre saklayabilirsiniz.
-* Splunk ve QRadar gibi popüler Güvenlik Bilgileri ve Olay Yönetimi (SIEM) araçlarını kullanarak analiz etmek üzere denetim günlüklerinizin akışını bir Azure olay hub'ına yapabilirsiniz.
-* Denetim günlüklerinizin akışını bir olay hub'ına yaparak kendi özel günlük çözümlerinizle tümleştirebilirsiniz.
+* Arşiv Azure AD etkinlik günlüklerini verileri uzun süre korumak için Azure depolama hesabınız için.
+* Azure olay hub'ına Splunk ve QRadar gibi popüler güvenlik bilgileri ve Olay yönetimi (SIEM) araçlarını kullanarak analiz için Stream Azure AD etkinlik günlükleri.
+* Azure AD tümleştirme bunları bir olay hub'ına akış tarafından kendi özel günlük çözümleri ile etkinlik günlükleri.
 * Gönderme Azure AD etkinlik günlüklerini Log Analytics, izleme ve uyarı bağlı veriler üzerinde zengin görselleştirmeler sağlamak için.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Desteklenen raporlar
 
-Bu özelliği kullanarak denetim etkinlik günlüklerinizi ve oturum açma işlemleri etkinlik günlüklerinizi Azure depolama hesabınıza, olay hub'ınıza veya özel çözümünüze yönlendirebilirsiniz. 
+Azure yönlendirebilirsiniz AD denetim günlüklerini ve oturum açma günlüklerinin Azure depolama hesabı, olay hub'ı, Log Analytics veya özel bir çözüm için bu özelliği kullanarak. 
 
 * **Denetim günlükleri**: [Denetim günlükleri etkinlik raporu](concept-audit-logs.md), kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
 * **Oturum açma günlükleri**: [Oturum açma işlemleri etkinlik raporuyla](concept-sign-ins.md), denetim günlüklerinde bildirilen görevleri kimlerin gerçekleştirdiğini saptayabilirsiniz.
@@ -101,25 +101,19 @@ Log Analytics çalışma alanı yönetmeyle ilgili maliyetleri gözden geçirmek
 
 Bu bölümde, Azure İzleyici'deki Azure AD günlükleriyle ilgili sık sorulan soruların yanıtları ve bilinen sorunlar yer almaktadır.
 
-**S: Nereden başlamalıyım?** 
-
-**Y**: Bu makalede bu özelliği dağıtmak için bilmeniz gerekenler açıklanmaktadır. Ön koşulları karşıladıktan sonra günlüklerinizi yapılandırmanıza ve bir olay hub'ına yönlendirmenize yardımcı olabilecek öğreticilere gidin.
-
----
-
 **S: Bu özelliğe hangi günlükler dahildir?**
 
 **Y**: Hem oturum açma etkinliği hem de denetim günlükleri bu özellik üzerinden yönlendirilebilir ancak B2C ile ilgili denetim olayları şu an için dahil değildir. Desteklenen günlük türlerini ve özellik tabanlı günlükleri öğrenmek için [Denetim günlüğü şemasını](reference-azure-monitor-audit-log-schema.md) ve [Oturum açma günlüğü şemasını](reference-azure-monitor-sign-ins-log-schema.md) inceleyin. 
 
 ---
 
-**S: Eylem gerçekleştirildikten ne kadar süre sonra ilgili günlükler olay hub'ında gösterilir?**
+**S: nasıl yakında bir eylem sonra karşılık gelen günlükler my olay hub'ında görünür?**
 
 **A**: Günlüklerin eylem gerçekleştirildikten sonra iki ila beş dakika içinde olay hub'ınızda gösterilmesi gerekir. Event Hubs hakkında daha fazla bilgi için bkz. [Azure Event Hubs nedir?](../../event-hubs/event-hubs-about.md)
 
 ---
 
-**S: Eylem gerçekleştirildikten ne kadar süre sonra ilgili günlükler depolama hesaplarında gösterilir?**
+**S: ne kadar süre sonra eylemi depolama Hesabımı karşılık gelen günlükler gösterilir?**
 
 **Y**: Azure depolama hesapları için gecikme süresi eylemin gerçekleştirilmesinden itibaren 5 ile 15 dakika arasındadır.
 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782068"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614963"
 ---
-# <a name="use-azure-files-with-linux"></a>Azure dosyaları'ı Linux ile kullanma
+# <a name="use-azure-files-with-linux"></a>Azure Dosyaları'nı Linux ile kullanma
 [Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure dosya paylaşımlarını kullanarak Linux dağıtımları bağlanabilir [SMB çekirdek istemci](https://wiki.samba.org/index.php/LinuxCIFS). Bu makalede Azure dosya paylaşımını bağlayabilmeniz için iki yolunu gösterir: ile isteğe bağlı `mount` komut ve üzerinde önyükleme bir girişi oluşturarak `/etc/fstab`.
 
 > [!NOTE]  
@@ -117,7 +117,7 @@ ms.locfileid: "43782068"
     fi
     ```
 
-4. **Yalnızca kök okuyabilen veya değiştirebilen parola dosyası için kimlik bilgileri dosyası üzerindeki izinleri değiştirin.** Depolama hesabı anahtarını aslında bir süper yönetici parolası depolama hesabı için olduğundan, yalnızca kök gibi erişebilirsiniz dosyanın izinlerini ayarlama, böylece daha düşük ayrıcalıklı kullanıcıyı kuralından depolama hesabı anahtarı olamaz önemlidir.   
+4. **Yalnızca kök okuyabilen veya değiştirebilen parola dosyası için kimlik bilgileri dosyası üzerindeki izinleri değiştirin.** Depolama hesabı anahtarını aslında bir süper yönetici parolası depolama hesabı için olduğundan, yalnızca kök gibi erişebilirsiniz dosyanın izinlerini ayarlama, daha düşük ayrıcalıklı kullanıcıyı depolama hesabı anahtarı alınamıyor böylece önemlidir.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4aa5e4ff46eeaa4e8d8c723f626dd1f1193fd12a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cc7bd6bab76ee6617a2594cb0b84ace3f6f3dafc
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281617"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622134"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Azure Cosmos DB ile verileri küresel dağıtım
 
@@ -36,7 +36,7 @@ Birçok uygulama, çok bölgeli (yerel) yazma işlemleri gerçekleştirme olana�
 
 **Yüksek oranda kullanılabilir uygulamalar oluşturmayı**: çalıştıran birden çok bölgede bir veritabanı, veritabanının kullanılabilirliğini artırır. Tek bir bölge kullanılamıyorsa, diğer bölgelere otomatik olarak uygulama isteklerini işler. Azure Cosmos DB, % 99,999 okuma ve yazma kullanılabilirliğini çok bölgeli veritabanları için sunar.
 
-**Bölgesel kesintiler sırasında iş sürekliliği**: Azure Cosmos DB destekleyen [otomatik yük devretme](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account) bölgesel bir kesinti sırasında. Üstelik, bölgesel bir kesinti sırasında Cosmos DB, gecikme süresi, kullanılabilirlik, tutarlılık ve aktarım hızı SLA'lar korumak devam eder. Tüm uygulamanızın yüksek oranda kullanılabilir olduğundan emin olun yardımcı olmak için Azure Cosmos DB bölgesel bir kesinti simülasyonu yapma el ile yük devretme API sunar. Bu API kullanarak normal iş sürekliliği tatbikatları gerçekleştirebilirsiniz.
+**Bölgesel kesintiler sırasında iş sürekliliği**: Azure Cosmos DB destekleyen [otomatik yük devretme](how-to-manage-database-account.md#automatic-failover) bölgesel bir kesinti sırasında. Üstelik, bölgesel bir kesinti sırasında Cosmos DB, gecikme süresi, kullanılabilirlik, tutarlılık ve aktarım hızı SLA'lar korumak devam eder. Tüm uygulamanızın yüksek oranda kullanılabilir olduğundan emin olun yardımcı olmak için Azure Cosmos DB bölgesel bir kesinti simülasyonu yapma el ile yük devretme API sunar. Bu API kullanarak normal iş sürekliliği tatbikatları gerçekleştirebilirsiniz.
 
 **Global ölçeklenebilirlik okuyup**: çok yöneticili özelliğine sahip esnek bir biçimde ölçeklendirmek okuma ve yazma aktarım hızı tüm dünyada. Çok yöneticili özelliği, uygulamanız bir Azure Cosmos DB veritabanında yapılandırır veya bir kapsayıcı teslim tüm bölgeler arasında ve korunan aktarım hızı garanti [SLA'mali olarak desteklenen](https://aka.ms/acdbsla).
 

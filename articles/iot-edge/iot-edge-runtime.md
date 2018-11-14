@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 51f00b46283adf0f64bf37d5813640aa4e36f667
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 9894df3bed50059dc28ed6308c96990178cf44ef
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567256"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624988"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT Edge çalışma zamanı ve mimarisini anlama
 
@@ -70,8 +70,10 @@ Edge hub'ına veri göndermek için bir modül SendEventAsync yöntemi çağır�
 Bir ileti almak için belirli bir girdi gelen iletileri işleyen bir geri çağırma kaydedin. Aşağıdaki sözde kod üzerinde input1 alınan tüm iletileri işlemek için kullanılacak işlev messageProcessor kaydeder:
 
    ```csharp
-   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
+
+Tercih ettiğiniz SDK dili için API Başvurusu ModuleClient sınıfı ve kendi iletişim yöntemleri hakkında daha fazla bilgi için bkz: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C ve Python](https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), veya [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 Çözüm Geliştirici nasıl Edge hub'ı modüller arasında iletileri geçirir belirleyen kuralları belirtmek için sorumludur. Yönlendirme kuralları bulutta tanımlanır ve kendi cihaz ikizi Edge hub'ına gönderilen. IOT hub'ı yolları aynı sözdizimi, Azure IOT edge'deki modüller arasında tanımlamak için kullanılır. 
 

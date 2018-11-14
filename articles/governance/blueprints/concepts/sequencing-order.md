@@ -4,16 +4,16 @@ description: Her aşamanın ayrıntılarını ve bir şema geçtiği yaşam dön
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094587"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620604"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure şemaları, dağıtım sırası anlama
 
@@ -47,6 +47,9 @@ Her **kaynak grubu** yapıt dizisi sırayla yapıtlar için bu kaynak grubu içi
 Büyük bir blueprint'i oluştururken, belirli bir sırayla oluşturulacak kaynakları için gerekli olabilir. Bu senaryoda en yaygın kullanım desenini, çeşitli Azure Resource Manager şablonları bir şema içerir andır. Blueprint tanımlanması için sıralama sırasını sağlayarak bu düzen işler.
 
 Sıralama tanımlayarak gerçekleştirilir bir `dependsOn` JSON özelliği. Bu özellik yalnızca şema (için kaynak grupları) ve yapıt nesneleri destekler. `dependsOn` bir dizeyi belirli yapıt oluşturulmadan önce oluşturulması gereken yapıt adları dizisidir.
+
+> [!NOTE]
+> **Kaynak grubu** yapıtları Destek `dependsOn` özelliği hedefi olamaz, ancak bir `dependsOn` herhangi bir yapı türü tarafından.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Örnek - şema ile sıralanmış kaynak grubu
 

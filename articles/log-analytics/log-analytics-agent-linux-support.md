@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55a3f3d7ac08554273464ed7c6f665e27661c6f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237834"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625530"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı ile ilgili sorunları giderme 
 
@@ -85,7 +85,7 @@ Bu adımların hiçbiri işinize yaramazsa aşağıdaki Destek kanallarını da 
 | --- | --- |
 | 2 | Geçersiz seçenek omsadmin betiğe sağlanan. Çalıştırma `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` kullanım için. |
 | 3 | Omsadmin betiği için sağlanan geçersiz yapılandırma. Çalıştırma `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` kullanım için. |
-| 4 | Geçersiz proxy omsadmin betiğe sağlanan. Proxy doğrulayın ve bkz bizim [bir HTTP proxy'sinin kullanmaya yönelik belgeler](log-analytics-concept-hybrid.md#network-firewall-requirements). |
+| 4 | Geçersiz proxy omsadmin betiğe sağlanan. Proxy doğrulayın ve bkz bizim [bir HTTP proxy'sinin kullanmaya yönelik belgeler](log-analytics-agent-overview.md#network-firewall-requirements). |
 | 5 | Log Analytics hizmetten alınan 403 HTTP hata. Ayrıntılar için omsadmin betik tam çıktıyı görmek. |
 | 6 | Log Analytics'e hizmetinden alınan olmayan 200 HTTP hatası. Ayrıntılar için omsadmin betik tam çıktıyı görmek. |
 | 7 | Log Analytics hizmetine bağlanılamıyor. Ayrıntılar için omsadmin betik tam çıktıyı görmek. |

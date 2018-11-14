@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005232"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613996"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
 
@@ -165,7 +165,7 @@ Arama sorguları kaydetme, Log Analytics standart bir özelliktir ve yararlı bu
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Uyarı sorguları oluşturma
-Sorgularınızın oluşturduktan sonra belirli olaylar meydana geldiğinde, sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [Log analytics'teki uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) uyarılar oluşturma hakkında daha fazla bilgi için. Sorguları ve diğer sorgu örnekleri uyarı örnekleri için bkz: [İzleyici Log Analytics kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog gönderisi.
+Sorgularınızın oluşturduktan sonra belirli olaylar meydana geldiğinde, sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [Log analytics'teki uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) uyarılar oluşturma hakkında daha fazla bilgi için. Sorguları ve diğer sorgu örnekleri uyarı örnekleri için bkz: [İzleyici Log Analytics kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog gönderisi.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Ayarı üzerinde ESXi ana bilgisayar ne gerekiyor? Hangi etki alanım geçerli ortamda gerekir mi?
@@ -208,4 +208,4 @@ Birden çok nedeni olabilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kullanım [günlük aramaları](log-analytics-queries.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.
 * [Kendi panolarınızı oluşturun](log-analytics-dashboards.md) VMware konak veriler gösteriliyor.
-* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) belirli VMware konak olaylar gerçekleştiğinde.
+* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-alerts.md) belirli VMware konak olaylar gerçekleştiğinde.

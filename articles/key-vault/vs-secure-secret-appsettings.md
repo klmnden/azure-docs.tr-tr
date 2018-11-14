@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: d1e4177dff3f9ae8c78fb2e22b12e40ff2682c58
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037575"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625462"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -100,7 +100,7 @@ Hızlı bir prototip yazma ve Azure kaynaklarını hazırlayacak istemiyorsanız
 
 1. Aşağıdaki NuGet paketini projenize yükleyin.
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. İzleme için benzer bir dosya oluşturun. Altındaki proje klasörünüzün dışında bir konuma kaydedin.
@@ -145,7 +145,7 @@ Projeniz için bir anahtar Kasası'nı yapılandırmak için ASP.NET core bölü
 
 1. Aşağıdaki NuGet paketini projenize yükleyin.
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Key Vault yapılandırma Oluşturucu, Web.config içinde tanımlayın. Bu bölümde önce yerleştirin *appSettings* bölümü. Değiştirin *vaultName* Key Vault'unuza genel Azure veya tam URI ise bağımsız bulut kullanıyorsanız, anahtar kasası adı olacak.

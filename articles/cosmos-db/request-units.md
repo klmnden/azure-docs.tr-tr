@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: eabfe503d9b92252ada0014eba4c83390dd6fd97
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 709cd16c7eee30dd2d88ea87b5f704ad20530ffb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236084"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621352"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>İstek birimi olarak Azure Cosmos DB'de
 
@@ -53,7 +53,7 @@ RU/sn sayısı sağlamak için tahmini çalışırken, aşağıdaki faktörleri 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Daha fazla bilgi edinin [Cosmos DB kapsayıcıları ve veritabanları için sağlama aktarım hızı](set-throughput.md)
-* Daha fazla bilgi edinin [mantıksal bölümler](partition-data.md)
-* Daha fazla bilgi edinin [ölçeklendirme aktarım hızı](scaling-throughput.md)
+* Daha fazla bilgi edinin [Llogical bölümleri](partition-data.md)
+* Daha fazla bilgi edinin [küresel olarak ölçekleme sağlanan aktarım hızı](scaling-throughput.md)
 * Bilgi [Cosmos kapsayıcısında aktarım hızını sağlamasını yapma](how-to-provision-container-throughput.md)
 * Bilgi [Cosmos veritabanı aktarım hızını sağlamasını yapma](how-to-provision-database-throughput.md)

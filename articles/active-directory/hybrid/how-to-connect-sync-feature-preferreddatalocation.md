@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 951ac39e1bb6ce050da26fa8ff3f93fd4e27e7d7
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318406"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623036"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
 Bu konunun amacı, öznitelik tercih edilen veri konumu için Azure Active Directory (Azure AD) Connect eşitleme yapılandırma konusunda rehberlik sağlamaktır. Birisi çoklu coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerine coğrafi konumunu belirlemek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirinin yerine kullanılır.)
@@ -31,7 +31,7 @@ Varsayılan olarak, Office 365 kaynaklarına kullanıcılarınız için Azure AD
 Öznitelik ayarlayarak **preferredDataLocation**, kullanıcının coğrafi tanımlayabilirsiniz. Kullanıcının Office 365 kaynaklarına, posta kutusu ve OneDrive gibi bir kullanıcı, aynı coğrafi bölgede olması ve bir kiracı, kuruluşunuzun tamamı için çözümlenmedi.
 
 > [!IMPORTANT]
-> Çoklu coğrafi şu anda en düşük 2.500 Office 365 hizmetlerine abonelikleri olan müşteriler için kullanılabilir. Ayrıntılar için Microsoft temsilcinize konuşun.
+> Çoklu coğrafi müşterilere 5000 Office 365 hizmetlerine abonelikler en az şu anda kullanılabilir. Ayrıntılar için Microsoft temsilcinize konuşun.
 >
 >
 

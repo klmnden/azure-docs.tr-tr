@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: bc48101decce9a92a01b8e6958bed08850a94b7e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8776a07f4fb1ffcc573bfedace38280576fa3184
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241404"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622984"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
 Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Kullanabileceğiniz bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanılabilir. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır.
@@ -43,19 +43,19 @@ Aşağıdaki tabloda, ağ geçidi türleri ve tahmini performanslarını göster
 > 
 >
 
-### <a name="zrgw"></a>Bölgesel olarak yedekli ağ geçidi SKU'ları (Önizleme)
+### <a name="zrgw"></a>Bölgesel olarak yedekli ağ geçidi SKU'ları
 
 Azure kullanılabilirlik alanları, ExpressRoute ağ geçitleri de dağıtabilirsiniz. Bu fiziksel ve mantıksal olarak bunları farklı kullanılabilirlik alanları, şirket içi ağ bağlantınızı bölge düzeyinde hatalardan Azure'a koruma halinde ayırır.
 
 ![Bölgesel olarak yedekli ExpressRoute ağ geçidi](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
-Bölgesel olarak yedekli ağ geçitleri, ExpressRoute ağ geçidi için belirli yeni ağ geçidi SKU'ları kullanın. Yeni SKU'lara şu anda kullanılabilir **genel Önizleme**.
+Bölgesel olarak yedekli ağ geçitleri, ExpressRoute ağ geçidi için belirli yeni ağ geçidi SKU'ları kullanın.
 
 * ErGw1AZ
 * ErGw2AZ
 * ErGw3AZ
 
-Yeni ağ geçidi SKU'ları, en iyi sonucu gereksinimlerinize uyacak şekilde diğer dağıtım seçenekleri de destekler. Yeni ağ geçidi SKU'ları kullanarak bir sanal ağ geçidi oluştururken, aynı zamanda belirli bir bölgenin ağ geçidi dağıtmak için seçeneğiniz vardır. Bu, bölgesel bir ağ geçidi olarak adlandırılır. Bölgesel bir ağ geçidi dağıttığınızda, ağ geçidinin tüm örnekleri aynı kullanılabilirlik alanında dağıtılır. Önizlemede kaydetmek için bkz [bölgesel olarak yedekli sanal ağ geçidi oluşturma](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
+Yeni ağ geçidi SKU'ları, en iyi sonucu gereksinimlerinize uyacak şekilde diğer dağıtım seçenekleri de destekler. Yeni ağ geçidi SKU'ları kullanarak bir sanal ağ geçidi oluştururken, aynı zamanda belirli bir bölgenin ağ geçidi dağıtmak için seçeneğiniz vardır. Bu, bölgesel bir ağ geçidi olarak adlandırılır. Bölgesel bir ağ geçidi dağıttığınızda, ağ geçidinin tüm örnekleri aynı kullanılabilirlik alanında dağıtılır. 
 
 ## <a name="resources"></a>REST API ve PowerShell cmdlet'leri
 Ek teknik kaynaklar ve sanal ağ geçidi yapılandırması için REST API'ler ve PowerShell cmdlet'lerini kullanırken, belirli bir söz dizimi gereksinimler için şu sayfalara bakın:
@@ -69,3 +69,5 @@ Ek teknik kaynaklar ve sanal ağ geçidi yapılandırması için REST API'ler ve
 Bkz: [Expressroute'a genel bakış](expressroute-introduction.md) kullanılabilir bağlantı yapılandırmaları hakkında daha fazla bilgi.
 
 Bkz: [ExpressRoute için sanal ağ geçidi oluşturma](expressroute-howto-add-gateway-resource-manager.md) ExpressRoute ağ geçitleri oluşturma hakkında daha fazla bilgi için.
+
+Bkz: [bölgesel olarak yedekli sanal ağ geçidi oluşturma](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) bölgesel olarak yedekli ağ geçitlerini yapılandırma hakkında daha fazla bilgi.

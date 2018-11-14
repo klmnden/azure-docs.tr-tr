@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/28/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d3809c2615c1d73d0c4c80bafba77614aac6b17e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395691"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624208"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Azure AD çözümleme etkinlik günlüklerini Log Analytics (Önizleme) ile
 
@@ -97,7 +97,7 @@ Azure AD etkinlik için önceden oluşturulmuş Log Analytics görünümleri de 
 * **Oturum açma olayları**: Bu görünümde, oturum açma etkinliği, uygulama, kullanıcı, cihaz yanı sıra oturum açma sayısı zamanla izleme Özet görünümünü tarafından oturum açma işlemleri gibi izleme ile ilgili en ilgili raporlar gösterilir.
 * **Kullanıcılar gerçekleştirme onay**: gibi tüm onay tabanlı uygulamalar için uygulama tarafından oturum açma yanı sıra kullanıcı, oturum açma işlemleri tarafından izin verilen kullanıcılar tarafından izin verir, bu görünümde kullanıcı onayı için ilgili raporlar gösterilir. 
 
-Bilgi nasıl [yüklemek ve Log Analytics görünümleri kullanmak için Azure AD etkinlik günlüklerini](howto-install-use-log-analytics-views.md). 
+[Azure AD etkinlik günlükleri için Log Analytics görünümlerini yüklemeyi ve kullanmayı](howto-install-use-log-analytics-views.md) öğrenin. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

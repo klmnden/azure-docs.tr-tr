@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718738"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614047"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure Stack ortamına bir App Service kaynak sağlayıcısı ekleme
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!IMPORTANT]
-> Azure Stack tümleşik sisteminize 1807 güncelleştirmesini veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
+> Azure Stack tümleşik sisteminize 1809 güncelleştirmesini veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
 >
 >
 
@@ -84,8 +84,7 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
     2. İçinde **Azure Stack aboneliklerini** kutusunda **varsayılan sağlayıcı aboneliği**.
     
     > [!NOTE]
-    > App Service yalnızca dağıtılabilir içine **varsayılan sağlayıcı aboneliği** şu anda.  Gelecekteki bir güncelleştirmede App Service uygulamasına yeni ölçümü Azure Stack 1804 ' sunulan abonelik dağıtmak ve bu yeni abonelik için tüm mevcut dağıtımları da geçirilecektir.
-    >
+    > App Service yalnızca dağıtılabilir içine **varsayılan sağlayıcı aboneliği**.
     >
     
     3. İçinde **Azure Stack konumları** kutusunda, için dağıtmakta bölgeyi karşılık gelen konum seçin. Örneğin, **yerel** , Azure Stack Geliştirme Seti için dağıtma.
@@ -170,7 +169,7 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
     ![Uygulama hizmeti yükleyicisi][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core Azure Stack'te Azure App Service ile kullanmak için desteklenen bir platform görüntüsü değil.  Üretim dağıtımları için değerlendirme görüntüleri kullanmayın.  Azure Stack'te Azure App Service, Microsoft.Net 3.5.1 SP1 dağıtım için kullanılan görüntüye etkinleştirilmesini gerektirir.   Market'te genel olarak Windows Server 2016 görüntüleri etkin bu özelliğe sahip değildir.**
+    > **Windows Server 2016 Core Azure Stack'te Azure App Service ile kullanmak için desteklenen bir platform görüntüsü değil.  Üretim dağıtımları için değerlendirme görüntüleri kullanmayın.  Azure Stack'te Azure App Service, Microsoft.Net 3.5.1 SP1 dağıtım için kullanılan görüntüye etkinleştirilmesini gerektirir.   Market'te genel olarak Windows Server 2016 görüntüleri etkin bu özelliğe sahip değildir, bu nedenle oluşturmak ve bir Windows Server 2016 görüntüsü önceden etkinleştirildiğinde kullanmanız gerekir.**
 
 14. İçinde **Platform görüntüsü seçin** kutusunda, bu işlem kaynak sağlayıcısı App Service bulut için kullanılabilir dağıtım Windows Server 2016 sanal makine görüntünüzü seçin. **İleri**’ye tıklayın.
 
@@ -198,7 +197,7 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
 
 1. Azure Stack Yönetim Portalı'nda Git **yönetim - App Service**.
 
-2. Genel bakış sayfasında durumu altında denetleyin **durumu** gösterir **tüm roller hazır**.
+2. Durumu altında genel bakış, görmek için iade **durumu** görüntüler **tüm roller hazır**.
 
     ![App Service Yönetimi](media/azure-stack-app-service-deploy/image12.png)
     

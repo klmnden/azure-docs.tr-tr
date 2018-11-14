@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51525672"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597667"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -49,7 +49,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Sanal ağ başına özel IP Adresi sayısı |65536 |
 | Ağ arabirimi başına özel IP Adresleri |256 |
 | Bir sanal makine veya rol örneği, bir NIC eş zamanlı TCP veya UDP akışlar |500K |
-| Ağ Arabirimleri (NIC) |24000 |
+| Ağ Arabirimleri (NIC) |65536 |
 | Ağ Güvenlik Grupları (NSG) |5000 |
 | NSG başına NSG kuralları |1000 |
 | IP adresleri ve aralıkları kaynak veya hedef bir güvenlik grubu için belirtilen |4000 |
@@ -64,28 +64,27 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Sanal ağ TAP başına ağ arabirimi DOKUNUN yapılandırması |100 |
 
 #### <a name="publicip-address"></a>Genel IP adresi sınırlamaları
-
 | Kaynak | Varsayılan limit | Üst Sınır |
 | --- | --- | --- |
-| Genel IP adresi - dinamik |200 (Temel) |desteğe başvurun |
+| Genel IP adresi - dinamik |(Temel) 1000 |desteğe başvurun |
 | Genel IP adresleri - statik |200 (Temel) |desteğe başvurun |
 | Genel IP adresleri - statik |200 (standart) |desteğe başvurun |
 
 #### <a name="load-balancer"></a>Yük Dengeleyici sınırları
 Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md)
 
-| Kaynak | Varsayılan limit | Üst Sınır |
+| Kaynak | Varsayılan limit |
 | --- | --- | --- |
-| Yük Dengeleyiciler | 100 | 1000 |
-| Her bir kaynak, temel kuralları | 250 | 250 |
-| Her bir kaynak, standart kuralları | 1500 | 1500 |
-| IP yapılandırması başına kuralları | 299 |299 |
-| Ön uç IP yapılandırmaları, temel | 10 | 200 |
-| Ön uç IP yapılandırmaları, standart | 10 | 600 |
-| Arka uç havuzu, temel | 100, tek bir kullanılabilirlik kümesi | 100, tek bir kullanılabilirlik kümesi |
-| Arka uç havuzu, standart | 1000, tek bir sanal ağ | 1000, tek bir sanal ağ |
-| Standart yük dengeleyici başına arka uç kaynaklarına * | 150 | 150 |
-| HA bağlantı noktaları, standart | İç ön uç başına 1 | İç ön uç başına 1 |
+| Yük Dengeleyiciler | 1000 | 
+| Her bir kaynak, temel kuralları | 250 |
+| Her bir kaynak, standart kuralları | 1500 | 
+| IP yapılandırması başına kuralları | 299 |
+| Ön uç IP yapılandırmaları, temel | 200 |
+| Ön uç IP yapılandırmaları, standart | 600 |
+| Arka uç havuzu, temel | 100, tek bir kullanılabilirlik kümesi |
+| Arka uç havuzu, standart | 1000, tek bir sanal ağ |
+| Standart yük dengeleyici başına arka uç kaynaklarına * | 150 |
+| HA bağlantı noktaları, standart | İç ön uç başına 1 |
 
 ** En fazla 150 kaynaklar, tek başına sanal makineler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri herhangi bir birleşimi.
 

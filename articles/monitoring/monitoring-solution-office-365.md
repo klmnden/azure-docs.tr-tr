@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e22a2eb6eefb84c6745de9b19e7710913b4ee7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257672"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616291"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -711,4 +711,4 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 ## <a name="next-steps"></a>Sonraki adımlar
 * Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-queries.md)’te Günlük Aramalarını kullanın.
 * [Kendi panolarınızı oluşturun](../log-analytics/log-analytics-dashboards.md) , sık kullanılan Office 365 arama sorgularını görüntülemek için.
-* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  
+* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-alerts.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  

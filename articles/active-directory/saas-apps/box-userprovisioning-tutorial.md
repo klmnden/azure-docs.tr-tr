@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349033"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625360"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Öğretici: Yapılandırma kutusu için otomatik kullanıcı hazırlama
 
@@ -51,11 +51,11 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 
 [Kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-## <a name="assign-users-and-groups"></a>Kullanıcıları ve grupları atama
+## <a name="assign-users-and-groups"></a>Kullanıcıları ve grupları ata
 **Kutusu > kullanıcıları ve grupları** Azure portalında sekme kutusuna hangi kullanıcıların ve grupların erişim verilmesi gerektiğini belirtmenize olanak sağlar. Bir kullanıcı veya grup atamasını gerçekleşmesi aşağıdakiler neden olur:
 
 * Azure AD kutusuna kimlik doğrulaması için atanan kullanıcı (ya da doğrudan atama veya grup üyeliği) izin verir. Bir kullanıcı atanmamışsa, Azure AD kutusuna oturum açmak için bunları izin vermez ve Azure AD oturum açma sayfasında bir hata döndürür.
-* Bir uygulama kutucuğunda kutusu için kullanıcının eklenen [uygulama Başlatıcısı](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+* Bir uygulama kutucuğunda kutusu için kullanıcının eklenen [uygulama Başlatıcısı](../manage-apps/end-user-experiences.md).
 * Otomatik sağlama etkinleştirildiğinde otomatik olarak sağlanacak sağlama kuyruğa atanan kullanıcılar ve/veya grupları eklenir.
   
   * Yalnızca bir kullanıcı, nesneyi sağlanması için yapılandırılmış olan, ardından doğrudan atanmış tüm kullanıcılar sağlama kuyruğuna yerleştirilir ve atanan tüm grupların üyeleri olan tüm kullanıcılar sağlama kuyruğuna yerleştirilir. 

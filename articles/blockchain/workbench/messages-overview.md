@@ -5,23 +5,327 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8f3584475415cf9ca19458f6da78d34df37f438
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235998"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614370"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench ile tümleştirme Mesajlaşma
 
 REST API yanı sıra, Azure Blockchain Workbench de ileti tabanlı bir tümleştirme sağlar. Workbench, muhasebe merkezli olayları Azure Event Grid, veri alma veya bu olaylara göre eylemde bulunmak aşağı akış tüketiciler etkinleştirme aracılığıyla yayımlar. Güvenilir Mesajlaşma gerekli istemcilerinin Azure Blockchain Workbench iletileri bir Azure Service Bus uç noktası için de sunar.
 
-Geliştiriciler Ayrıca dış sistemler kullanıcıları oluşturun, sözleşmeler oluşturun ve bir kayıt defteri sözleşmelerinde güncelleştirmek için başlatma işlemleri iletişim yeteneğini gösterdiğiniz ilgi belirtmiş. Bu işlevsellik şu anda genel önizlemede gösterilmez, ancak söz konusu özellik sunan bir örnek bulabilirsiniz [ http://aka.ms/blockchain-workbench-integration-sample ](https://aka.ms/blockchain-workbench-integration-sample).
+## <a name="input-apis"></a>Giriş API'leri
+
+İşlem kullanıcıları oluşturun, sözleşmeler oluşturun ve sözleşmeleri güncelleştirmek için dış sistemlerden başlatmak istiyorsanız, bir kayıt defteri üzerinde işlemler gerçekleştirmek için giriş API'leri Mesajlaşma'ı kullanabilirsiniz. Bkz: [tümleştirme örnekleri Mesajlaşma](https://aka.ms/blockchain-workbench-integration-sample) giriş API'leri gösteren bir örnek için.
+
+Şu anda kullanılabilir giriş API'leri aşağıda verilmiştir.
+
+### <a name="create-user"></a>Kullanıcı oluştur
+
+Yeni bir kullanıcı oluşturur.
+
+İstek, aşağıdaki alanları gerektirir:
+
+| **Ad**             | **Açıklama**                                      |
+|----------------------|------------------------------------------------------|
+| requestId            | İstemci tarafından sağlanan GUID                                |
+| FirstName            | Kullanıcı adı                              |
+| Soyadı             | Kullanıcının soyadı                               |
+| EmailAddress         | Kullanıcının e-posta adresi                           |
+| externalId           | Kullanıcının Azure AD nesnesi kimliği                      |
+| ConnectionID         | Blok zinciri bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion | Mesajlaşma şema sürümü                            |
+| messageName          | **CreateUserRequest**                               |
+
+Örnek:
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bbbb-edba8e44562d",
+    "firstName": "Ali",
+    "lastName": "Alio",
+    "emailAddress": "aa@contoso.com",
+    "externalId": "6a9b7f65-ffff-442f-b3b8-58a35abd1bcd",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateUserRequest"
+}
+```
+
+Blockchain Workbench'i şu alanlara sahip bir yanıt döndürür:
+
+| **Ad**              | **Açıklama**                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| requestId             | İstemci tarafından sağlanan GUID |
+| userId                | Oluşturulan kullanıcının kimliği |
+| UserChainIdentifier   | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum, kullanıcının adresidir **zincir** adresi. |
+| ConnectionID          | Blok zinciri bağlantı için benzersiz tanımlayıcı|
+| messageSchemaVersion  | Mesajlaşma şema sürümü |
+| messageName           | **CreateUserUpdate** |
+| durum                | Kullanıcı oluşturma isteği durumu.  Başarılı, değer olup olmadığını **başarı**. Hata durumunda değerdir **hatası**.     |
+| AdditionalInformation | Ek bilgi sağlanan temel durumu |
+
+Örnek başarılı **oluşturacağı** Blockchain Workbench'i gelen yanıt:
+
+``` json
+{ 
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Success", 
+    "additionalInformation": { } 
+} 
+```
+
+İstek başarısız oldu, hata hakkındaki ayrıntılar olan dahil ek bilgiler.
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": null, 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Failure", 
+    "additionalInformation": { 
+        "errorCode": 4000, 
+        "errorMessage": "User cannot be provisioned on connection." 
+    }
+}
+```
+
+### <a name="create-contract"></a>Sözleşmesi oluşturma
+
+Yeni bir sözleşmeyi oluşturur.
+
+İstek, aşağıdaki alanları gerektirir:
+
+| **Ad**             | **Açıklama**                                                                                                           |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId            | İstemci tarafından sağlanan GUID |
+| UserChainIdentifier  | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum bu kullanıcının adresidir **zincirinde** adresi. |
+| ApplicationName      | Uygulamanın adı |
+| WorkflowName         | İş akışının adı |
+| parametreler           | Sözleşme oluşturma için giriş parametreleri |
+| ConnectionID         | Blok zinciri bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion | Mesajlaşma şema sürümü |
+| messageName          | **CreateContractRequest** |
+
+Örnek:
+
+``` json
+{ 
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "applicationName": "AssetTransfer", 
+    "workflowName": "AssetTransfer", 
+    "parameters": [ 
+        { 
+            "name": "description", 
+            "value": "a 1969 dodge charger" 
+        }, 
+        { 
+            "name": "price", 
+            "value": "12345" 
+        } 
+    ], 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateContractRequest" 
+}
+```
+
+Blockchain Workbench'i şu alanlara sahip bir yanıt döndürür:
+
+| **Ad**                 | **Açıklama**                                                                   |
+|--------------------------|-----------------------------------------------------------------------------------|
+| requestId                | İstemci tarafından sağlanan GUID                                                             |
+| ContractId               | Azure Blockchain Workbench içinde sözleşme için benzersiz tanımlayıcı |
+| ContractLedgerIdentifier | Genel muhasebe sözleşme adresi                                            |
+| ConnectionID             | Blok zinciri bağlantı için benzersiz tanımlayıcı                               |
+| messageSchemaVersion     | Mesajlaşma şema sürümü                                                         |
+| messageName              | **CreateContractUpdate**                                                      |
+| durum                   | Sözleşme oluşturma isteği durumu.  Olası değerler: **gönderildi**, **kabul edilen**, **hatası**.  |
+| AdditionalInformation    | Ek bilgi sağlanan temel durumu                              |
+
+Gönderilen bir örneği **sözleşmesi oluşturma** Blockchain Workbench'i gelen yanıt:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Submitted"
+    "additionalInformation": { }
+}
+```
+
+Örnek bir taahhüt **sözleşmesi oluşturma** Blockchain Workbench'i gelen yanıt:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Committed",
+    "additionalInformation": { }
+}
+```
+
+İstek başarısız oldu, hata hakkındaki ayrıntılar olan dahil ek bilgiler.
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": null,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="create-contract-action"></a>Sözleşme Eylem oluştur
+
+Yeni bir sözleşme eylem oluşturur.
+
+İstek, aşağıdaki alanları gerektirir:
+
+| **Ad**                 | **Açıklama**                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId                | İstemci tarafından sağlanan GUID |
+| UserChainIdentifier      | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Kullanıcının budur Ethereum **zincirinde** adresi. |
+| ContractLedgerIdentifier | Genel muhasebe sözleşme adresi |
+| WorkflowFunctionName     | İş akışı işlevinin adı |
+| parametreler               | Sözleşme oluşturma için giriş parametreleri |
+| ConnectionID             | Blok zinciri bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion     | Mesajlaşma şema sürümü |
+| messageName              | **CreateContractActionRequest** |
+
+Örnek:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "workflowFunctionName": "modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a 1969 dodge charger"
+        },
+        {
+            "name": "price",
+            "value": "12345"
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionRequest"
+}
+```
+
+Blockchain Workbench'i şu alanlara sahip bir yanıt döndürür:
+
+| **Ad**              | **Açıklama**                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------|
+| requestId             | İstemci tarafından sağlanan GUID|
+| ContractId            | Azure Blockchain Workbench içinde sözleşme için benzersiz tanımlayıcı |
+| ConnectionID          | Blok zinciri bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion  | Mesajlaşma şema sürümü |
+| messageName           | **CreateContractActionUpdate** |
+| durum                | Sözleşme eylem isteğinin durumu. Olası değerler: **gönderildi**, **kabul edilen**, **hatası**.                         |
+| AdditionalInformation | Ek bilgi sağlanan temel durumu |
+
+Gönderilen bir örneği **sözleşme Eylem oluştur** Blockchain Workbench'i gelen yanıt:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Submitted",
+    "additionalInformation": { }
+}
+```
+
+Örnek bir taahhüt **sözleşme Eylem oluştur** Blockchain Workbench'i gelen yanıt:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Committed"
+    "additionalInformation": { }
+}
+```
+
+İstek başarısız oldu, hata hakkındaki ayrıntılar olan dahil ek bilgiler.
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract action cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="input-api-error-codes-and-messages"></a>Giriş API'si hata kodları ve iletiler
+
+**Hata kodu 4000: Hatalı istek hatası**
+- Geçersiz ConnectionID
+- CreateUserRequest seri kaldırma başarısız oldu
+- CreateContractRequest seri kaldırma başarısız oldu
+- CreateContractActionRequest seri kaldırma başarısız oldu
+- {Uygulama adına göre tanımlanan} uygulaması yok
+- Uygulama {uygulama adına göre tanımlanan} iş akışı yok.
+- UserChainIdentifier yok
+- {Muhasebe tanımlayıcısı tarafından tanımlanan} sözleşme yok.
+- {Muhasebe tanımlayıcısı tarafından tanımlanan} sözleşme işlevi yok {iş akışı işlevi adı}
+- UserChainIdentifier yok
+
+**Hata kodu 4090: çakışma hatası**
+- Kullanıcı zaten var.
+- Sözleşme zaten var.
+- Sözleşme eylemi zaten var.
+
+**5000 hata kodu: İç sunucu hatası**
+- Özel durum iletileri
 
 ## <a name="event-notifications"></a>Olay bildirimleri
 
@@ -92,15 +396,15 @@ Bir istek eklemek veya dağıtılmış bir defter sözleşmesinde güncelleştir
 
 | Ad | Açıklama |
 |-----|--------------|
-| ChainID | İstekle ilişkili zinciri için benzersiz bir tanımlayıcı.|
-| Blockıd'si | Genel bir blok için benzersiz tanımlayıcı.|
-| ContractId | Anlaşma için benzersiz bir tanımlayıcı.|
-| ContractAddress |       Genel muhasebe sözleşme adresi.|
-| TransactionHash  |     Genel muhasebe üzerinde işlem karması.|
-| OriginatingAddress |   İşlem kaynağının adresi.|
-| actionName       |     Eylemin adı.|
-| IsUpdate        |      Bu güncelleştirme olup olmadığını tanımlar.|
-| Parametreler       |     Bir liste parametreleri için bir eylem gönderilen ada, değere ve veri türünü tanımlayan nesne.|
+| ChainID | İstekle ilişkili zinciri için benzersiz tanımlayıcı |
+| Blockıd'si | Genel bir blok için benzersiz tanımlayıcı |
+| ContractId | Anlaşma için benzersiz bir tanımlayıcı |
+| ContractAddress |       Genel muhasebe sözleşme adresi |
+| TransactionHash  |     Genel muhasebe üzerinde işlem karması |
+| OriginatingAddress |   İşlem gönderen adresi |
+| actionName       |     Eylemin adı |
+| IsUpdate        |      Bu güncelleştirme olup olmadığını tanımlar |
+| Parametreler       |     Parametreleri için bir eylem gönderilen ada, değere ve veri türünü tanımlayan nesnelerin bir listesini |
 | TopLevelInputParams |  Bir sözleşme bir veya daha fazla diğer sözleşmeleri nerede bağlı senaryolarda, üst düzey sözleşmesi Parametreler şunlardır. |
 
 ``` csharp
@@ -126,18 +430,17 @@ Belirli bir dağıtılmış bir defter sözleşmesinde bir eylem yürütme için
 
 | Ad                     | Açıklama                                                                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | Bu sözleşme eylem için benzersiz tanımlayıcı                                                                                                                                |
-| ChainIdentifier          | Zinciri için benzersiz tanımlayıcı                                                                                                                                           |
-| ConnectionID             | Bağlantı için benzersiz tanımlayıcı                                                                                                                                      |
-| UserChainIdentifier      | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum bu kullanıcının "üzerinde zinciri" adresini olacaktır.                                                     |
-| ContractLedgerIdentifier | Genel muhasebe sözleşme adresi.                                                                                                                                        |
-| WorkflowFunctionName     | İş akışı işlevinin adı.                                                                                                                                                |
-| WorkflowName             | İş akışının adı.                                                                                                                                                         |
-| WorkflowBlobStorageURL   | Blob depolama alanındaki sözleşme URL'si.                                                                                                                                      |
-| ContractActionParameters | Sözleşme eylemi için parametreleri.                                                                                                                                           |
-| TransactionHash          | Genel muhasebe üzerinde işlem karması.                                                                                                                                    |
-| Sağlama Durumu      | Eylem geçerli sağlama durumu.</br>0 – oluşturuldu</br>1 – işleminde</br>2 – tamamlayın</br> Eksiksiz bir onay defterinden gösterir, bu gibi başarıyla eklendi.                                               |
-|                          |                                                                                                                                                                               |
+| ContractActionId         | Bu sözleşme eylem için benzersiz tanımlayıcı |
+| ChainIdentifier          | Zinciri için benzersiz tanımlayıcı |
+| ConnectionID             | Bağlantı için benzersiz tanımlayıcı |
+| UserChainIdentifier      | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum bu kullanıcının adresidir **zincirinde** adresi. |
+| ContractLedgerIdentifier | Genel muhasebe sözleşme adresi |
+| WorkflowFunctionName     | İş akışı işlevinin adı |
+| WorkflowName             | İş akışının adı |
+| WorkflowBlobStorageURL   | Blob depolama alanındaki sözleşme URL'si |
+| ContractActionParameters | Sözleşme eylemi için parametreler |
+| TransactionHash          | Genel muhasebe üzerinde işlem karması |
+| Sağlama Durumu      | Eylem geçerli sağlama durumu.</br>0 – oluşturuldu</br>1 – işleminde</br>2 – tamamlayın</br> Eksiksiz bir onay defterinden gösterir, bu gibi başarıyla eklendi |
 
 ```csharp
 public class ContractActionRequest : MessageModelBase
@@ -165,9 +468,9 @@ Bir istek belirli bir dağıtılmış kayıt defteri kullanıcı bakiyeye günce
 
 | Ad    | Açıklama                              |
 |---------|------------------------------------------|
-| Adres | Fon kullanıcı adresi. |
+| Adres | Fon kullanıcının adresi |
 | Bakiye | Kullanıcı Bakiye bakiyesi         |
-| ChainID | Zincir benzersiz tanımlayıcısı.     |
+| ChainID | Zinciri için benzersiz tanımlayıcı     |
 
 
 ``` csharp
@@ -185,10 +488,10 @@ Bir istek üzerinde dağıtılmış bir defter bloğu eklemek üzere yapılan il
 
 | Ad           | Açıklama                                                            |
 |----------------|------------------------------------------------------------------------|
-| ChainId        | Blok eklendiği zinciri benzersiz tanımlayıcısı.             |
-| Blockıd'si        | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı. |
-| BlockHash      | Blok karma.                                                 |
-| BlockTimeStamp | Bloğun zaman damgası.                                            |
+| ChainId        | Blok eklendiği zinciri benzersiz tanıtıcısı             |
+| Blockıd'si        | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı |
+| BlockHash      | Blok karma                                                 |
+| BlockTimeStamp | Bloğun zaman damgası                                            |
 
 ``` csharp
 public class InsertBlockRequest : MessageModelBase
@@ -206,13 +509,13 @@ public class InsertBlockRequest : MessageModelBase
 
 | Ad            | Açıklama                                                            |
 |-----------------|------------------------------------------------------------------------|
-| ChainId         | Blok eklendiği zinciri benzersiz tanımlayıcısı.             |
-| Blockıd'si         | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı. |
-| TransactionHash | İşlem karması.                                           |
-| Kimden            | İşlem kaynağının adresi.                      |
-| Alıcı              | İşlem hedeflenen alıcı adresi.              |
-| Değer           | Harekete dahil değeri.                                 |
-| IsAppBuilderTx  | Bu Blockchain Workbench'i işlem olup olmadığını tanımlar.                         |
+| ChainId         | Blok eklendiği zinciri benzersiz tanıtıcısı             |
+| Blockıd'si         | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı |
+| TransactionHash | İşlem karması                                           |
+| Kimden            | İşlem gönderen adresi                      |
+| Alıcı              | İşlem hedeflenen alıcı adresi              |
+| Değer           | Harekete dahil değeri                                 |
+| IsAppBuilderTx  | Blockchain Workbench'i işlem bu olup olmadığını tanımlar                         |
 
 ``` csharp
 public class InsertTransactionRequest : MessageModelBase
@@ -233,8 +536,8 @@ Ayrıntılar zinciri tanımlayıcısı atamada sözleşme sağlar. Örneğin, Et
 
 | Ad            | Açıklama                                                                       |
 |-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | Azure Blockchain Workbench içinde sözleşme için benzersiz tanımlayıcı budur. |
-| ChainIdentifier | Bu zincir sözleşme tanımlayıcısıdır.                             |
+| ContractId      | Azure Blockchain Workbench içinde sözleşme için benzersiz tanımlayıcı |
+| ChainIdentifier | Zincir sözleşme tanımlayıcısı                             |
 
 ``` csharp
 public class AssignContractChainIdentifierRequest : MessageModelBase
@@ -252,8 +555,8 @@ Tüm iletileri için temel modeli.
 
 | Ad          | Açıklama                          |
 |---------------|--------------------------------------|
-| OperationName | İşlemin adı.           |
-| RequestId     | İstek için benzersiz bir tanımlayıcı. |
+| OperationName | İşlem adı           |
+| RequestId     | İstek için benzersiz tanımlayıcı |
 
 ``` csharp
 public class MessageModelBase
@@ -269,9 +572,9 @@ Ad, değer ve bir parametresinin türü içerir.
 
 | Ad  | Açıklama                 |
 |-------|-----------------------------|
-| Ad  | Parametrenin adı.  |
-| Değer | Parametre değeri. |
-| Tür  | Parametrenin türü.  |
+| Ad  | Parametrenin adı  |
+| Değer | Parametresinin değeri |
+| Tür  | Parametrenin türü  |
 
 ``` csharp
 public class ContractInputParameter
@@ -288,10 +591,10 @@ Kimlik, ad, değer ve bir özelliğin türünü içerir.
 
 | Ad  | Açıklama                |
 |-------|----------------------------|
-| Kimlik    | Özellik kimliği.    |
-| Ad  | Özelliğin adı.  |
-| Değer | Özelliğin değeri. |
-| Tür  | Özelliğin türü.  |
+| Kimlik    | Özellik kimliği    |
+| Ad  | Özelliğin adı  |
+| Değer | Özelliğin değeri |
+| Tür  | Özelliğin türü  |
 
 ``` csharp
 public class ContractProperty

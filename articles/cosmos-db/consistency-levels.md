@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963090"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624836"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeyleri
 
 Çoğaltma için yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi de bağlı olan dağıtılmış veritabanları kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı temel etmekten olun. Çoğu ticari olarak satışta dağıtılmış veritabanları iki aşırı tutarlılık modeller arasında seçim geliştiricilerin isteyin: güçlü tutarlılık ve nihai tutarlılık. Sırada [doğrusallaştırılabilirlik](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) veya güçlü tutarlılık modeli için veri programlama, altın standarttır, daha yüksek gecikme süresine (durağan) seyretmez fiyatı ekler ve kullanılabilirlik sınırlı (hataları sırasında). Öte yandan, nihai tutarlılık, daha yüksek kullanılabilirlik ve daha iyi performans sunar, ancak program uygulamaları zordur.
 
-Cosmos DB olarak içeren iki uç nokta yerine seçimleri, veri tutarlılığını yaklaşıyor. Güçlü tutarlılık ve nihai tutarlılık spektrumu iki ucunu olsa da, spektrumun boyunca birçok tutarlılık seçeneği vardır. Bu tutarlılık seçenekleri, geliştiricilerin kesin seçenekleri ve yüksek kullanılabilirlik veya performans ile ilgili ayrıntılı ödünler olanak sağlar. Cosmos DB, geliştiriciler (zayıf için en güçlü) – tutarlılık yelpazesinden arasında beş iyi tanımlanmış tutarlılık modeli seçmek etkin **güçlü**, **sınırlanmış eskime durumu**, **oturumu** , **tutarlı ön ek**, ve **nihai**. Bu tutarlılık modellerinin her biri, iyi tanımlanmış, sezgisel ve belirli gerçek dünya senaryoları için kullanılabilir. Her beş tutarlılık modeli sağlayan [kullanılabilirliğini ve performansını ödünler](consistency-levels-tradeoffs.md) ve kapsamlı SLA'lar ile desteklenen.
+Cosmos DB olarak içeren iki uç nokta yerine seçimleri, veri tutarlılığını yaklaşıyor. Güçlü tutarlılık ve nihai tutarlılık spektrumu iki ucunu olsa da, spektrumun boyunca birçok tutarlılık seçeneği vardır. Bu tutarlılık seçenekleri, geliştiricilerin kesin seçenekleri ve yüksek kullanılabilirlik veya performans ile ilgili ayrıntılı ödünler olanak sağlar. Cosmos DB, geliştiriciler (zayıf için en güçlü) – tutarlılık yelpazesinden arasında beş iyi tanımlanmış tutarlılık modeli seçmek etkin **güçlü**, **sınırlanmış eskime durumu**, **oturumu** , **tutarlı ön ek**, ve **nihai**. Bu tutarlılık modellerinin her biri, iyi tanımlanmış, sezgisel ve belirli gerçek dünya senaryoları için kullanılabilir. Her beş tutarlılık modeli sağlayan [kullanılabilirliğini ve performansını ödünler](consistency-levels-tradeoffs.md) ve kapsamlı SLA'lar ile desteklenen. Aşağıdaki görüntüde bir yelpaze farklı tutarlılık düzeyi gösterilmektedir:
 
 ![Tutarlılık spektrumu olarak](./media/consistency-levels/five-consistency-levels.png)
 
-Tutarlılık düzeyleri bölge bağımsızdır. Cosmos DB hesabınızın tutarlılık düzeyi aşağıdaki özellikleri bağımsız olarak tüm okuma işlemleri için garantili:
-
-- İçinden okuma ve yazma işlemleri hizmet bölgesi
-- Cosmos hesabınızla ilişkili bölge sayısı
-- Hesabınız tek bir veya birden çok yazma bölgeleri ile yapılandırıldı
+Tutarlılık düzeyleri bölge bağımsızdır. Tüm okuma işlemleri, okuma ve yazma işlemleri sunulan, Cosmos hesabınız veya tek bir hesabınız olup olmadığını yapılandırıldı ile ilişkili bölge sayısı uygulama bölgesine bakılmaksızın için Cosmos DB hesabınızın tutarlılık düzeyini garanti veya birden çok yazma bölgeleri.
 
 ## <a name="scope-of-the-read-consistency"></a>Okuma tutarlılığı kapsamı
 

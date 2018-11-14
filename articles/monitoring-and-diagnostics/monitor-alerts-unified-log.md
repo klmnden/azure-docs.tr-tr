@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 51bdc228e27d643cfda75d1e21bc8ea45fe09e3c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958162"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613299"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
-Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
+Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
 
 Günlük araması kuralları için oluşturulan günlük uyarı oluşur [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Kullanımı hakkında daha fazla bilgi için bkz. [Azure'da günlüğü uyarıları oluşturma](alert-log.md)
 
@@ -120,6 +120,6 @@ Günlük uyarıları fiyatlandırması geçerli belirtildikten adresindeki [Azur
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [azure'da günlüğü uyarıları oluşturma](alert-log.md).
 * Anlamak [günlük uyarıları azure'da Web kancalarıyla](monitor-alerts-unified-log-webhook.md).
-* Hakkında bilgi edinin [Azure uyarıları](monitoring-overview-unified-alerts.md).
+* Hakkında bilgi edinin [Azure uyarıları](monitoring-overview-alerts.md).
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md).
 * Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-queries.md).    

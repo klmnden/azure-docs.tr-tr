@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1b9afa89e5d355668defac30afe4c012b684c71e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914320"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614405"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -119,7 +119,7 @@ Gelen **abonelik** ve **kaynak grubu** açılan listeler, sanal makineleri içer
 * Kaç tane Vm'niz bir işlemci, disk, bellek veya ağ bağdaştırıcısı, sistem durumuna göre kategorilere algılanan bir sorun nedeniyle sağlıksız misiniz?  
 * Kaç tane Vm'niz hizmetiyle sistem durumuna göre kategorilere ayrılmış bir çekirdek işletim sistemi, algılanan bir sorun nedeniyle sağlıksız misiniz?
 
-Burada hızlı, proaktif olarak VM izleme durumu ölçütlerini tarafından algılanan en kritik sorunları belirlemek ve VM sistem durumu uyarı ayrıntılarını gözden geçirin ve tanılama ve düzeltme sorunun yardımcı olmak ilişkili Bilgi Bankası makalesi yöneliktir.  Açmak için önem derecelerinin birini seçin [tüm uyarıları](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) sayfası, önem derecesine göre filtrelendi.
+Burada hızlı, proaktif olarak VM izleme durumu ölçütlerini tarafından algılanan en kritik sorunları belirlemek ve VM sistem durumu uyarı ayrıntılarını gözden geçirin ve tanılama ve düzeltme sorunun yardımcı olmak ilişkili Bilgi Bankası makalesi yöneliktir.  Açmak için önem derecelerinin birini seçin [tüm uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) sayfası, önem derecesine göre filtrelendi.
 
 **İşletim sistemine göre VM Dağıtım** listede Windows sürümünü veya sürümlerini birlikte Linux dağıtımı tarafından listelenen VM'ler gösterilmektedir. Her işletim sistemi kategorisinde, Vm'leri başka ayrılmıştır VM Durumu'na göre. 
 
@@ -247,7 +247,7 @@ Yukarıdaki örnekte bir seçtiğinde **/mnt (Mantıksal Disk)**, durumu ölçü
 Güncelleştirilmiş durumunu görmek için sistem durumu tanılama sayfası tıklayarak yenileyebilirsiniz **Yenile** bağlantı.  Önceden tanımlanmış bir yoklama aralığı temel sistem durumu ölçütü'nın sistem durumu için bir güncelleştirme varsa, bu görevi bekleme sürelerinden kurtulun sağlar ve en son sistem durumu yansıtır.  **Durumu ölçütlerini** filtre vermektir - seçili sistem durumuna bağlıdır sonuçları kapsam için sağlam, uyarı ve kritik, bilinmeyen ve tüm.  **Son güncelleştirilen** sağ üst köşedeki zaman sistem durumu tanılama sayfası ne zaman yenilendiğini son zamanı temsil eder.  
 
 ## <a name="alerting-and-alert-management"></a>Uyarı ve uyarı Yönetimi 
-VM sistem durumu özelliği için Azure İzleyici ile tümleştirilir [Azure uyarıları](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) ve koşul algılandığında önceden tanımlanmış durumu ölçütlerini sağlıklıdan için kötü bir durum değiştiğinde bir uyarı başlatır. Uyarı önem derecesi - önem derecesi 0 ile 4, önem derecesi en yüksek önem derecesine temsil eden 0 ile tarafından kategorilere ayrılmıştır.  
+VM sistem durumu özelliği için Azure İzleyici ile tümleştirilir [Azure uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md) ve koşul algılandığında önceden tanımlanmış durumu ölçütlerini sağlıklıdan için kötü bir durum değiştiğinde bir uyarı başlatır. Uyarı önem derecesi - önem derecesi 0 ile 4, önem derecesi en yüksek önem derecesine temsil eden 0 ile tarafından kategorilere ayrılmıştır.  
 
 VM sistem durumu Uyarıları önem derecesine göre kategorilere toplam sayısı, üzerinde kullanılabilir **sistem durumu** bölümünde Pano **uyarılar**. Toplam uyarı sayısını veya bir önem derecesi düzeyine karşılık gelen sayısı seçtiğinizde **uyarılar** sayfası açılır ve seçiminizi eşleşen tüm uyarıları listeler.  Örneğin, satır karşılık gelen seçtiyseniz, **önem derecesi düzeyi 1**, aşağıdaki görmek sonra:
 

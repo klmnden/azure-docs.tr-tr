@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6bde2fb0fc9534d170be1d755856f6f779e47d7c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013063"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625870"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -126,7 +126,7 @@ Docker'ı yükledikten sonra aracıyı kullanmak için Docker ile yapılandırma
 
 **Tüm Linux kapsayıcı konaklar için CoreOS hariç:**
 
-- Daha fazla bilgi ve Linux için Log Analytics aracısını yüklemek adımları için bkz. [azure'da Linux bilgisayarlarını Log Analytics'e bağlama](log-analytics-concept-hybrid.md).
+- Daha fazla bilgi ve Linux için Log Analytics aracısını yüklemek adımları için bkz. [Log Analytics Aracısı genel bakış](log-analytics-agent-overview.md).
 
 **CoreOS dahil olmak üzere tüm Linux kapsayıcı konakları için:**
 

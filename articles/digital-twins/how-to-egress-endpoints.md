@@ -1,6 +1,6 @@
 ---
 title: Çıkış ve Azure dijital İkizlerini uç noktaların | Microsoft Docs
-description: Azure ile dijital İkizlerini uç noktaları oluşturma Kılavuzu
+description: Azure ile dijital İkizlerini uç noktaları oluşturma yönergeleri
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -8,173 +8,200 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e140ca46a18fcab2194adb213d723ab67d40b0a8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212259"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615169"
 ---
 # <a name="egress-and-endpoints"></a>Çıkış ve uç noktaları
 
-Azure dijital İkizlerini kavramını destekler _uç noktaları_ her uç nokta kullanıcının Azure aboneliğinde bir ileti/olay Aracısı burada temsil eder. Olayları ve iletileri göndermenin **olay hub'ı**, **Event Grid**, ve **hizmet veri yolu konuları**.
+Azure dijital İkizlerini kavramını destekler **uç noktaları**. Her uç nokta, kullanıcının Azure aboneliğinde bir ileti veya olay Aracısı temsil eder. Azure Event Hubs, Azure Event Grid ve Azure Service Bus konuları için olayları ve iletileri gönderilebilir.
 
-Olaylar, önceden tanımlı yönlendirme tercihlerini göre uç noktalarına gönderilir: kullanıcı, hangi uç noktaya aşağıdaki olaylardan herhangi biri alması gereken belirtebilirsiniz: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange**, veya **DeviceMessage**.
+Olaylar, önceden tanımlanmış yönlendirme tercihlerini göre uç noktalarına gönderilir. Kullanıcı, hangi uç noktaya aşağıdaki olaylardan herhangi biri alması gereken belirtebilirsiniz: 
+
+- TopologyOperation
+- UdfCustom
+- SensorChange
+- SpaceChange
+- DeviceMessage
 
 Yönlendirme olayları ve olay türleri temel anlamak için bkz [yönlendirme olayları ve iletileri](concepts-events-routing.md).
 
 ## <a name="event-types-description"></a>Olay türleri açıklaması
 
-Olay türlerinin her biri için olay biçimler şunlardır:
+Olay biçimlerini olay türlerinin her biri için aşağıdaki bölümlerde açıklanmıştır.
 
-- **TopologyOperation**
+### <a name="topologyoperation"></a>TopologyOperation
 
-  Graf değişiklikleri uygular. *Konu* özelliği, etkilenen nesne türünü belirtir. Bu olay tetikleyebilir nesne türleri şunlardır: **cihaz**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **rapor**, **RoleDefinition**, **algılayıcısı**, **SensorBlobMetadata**, **SensorExtendedProperty**, **alanı**, **SpaceBlobMetadata**,  **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **sistem**, **kullanıcı**, **UserBlobMetadata**, **UserExtendedProperty**.
+**TopologyOperation** grafiği değişiklikleri uygular. **Konu** özelliği, etkilenen nesne türünü belirtir. Aşağıdaki nesne türlerini, bu olay tetikleyebilir: 
 
-  Örnek:
+- Cihaz
+- DeviceBlobMetadata
+- DeviceExtendedProperty
+- ExtendedPropertyKey
+- ExtendedType
+- Anahtar deposu
+- Rapor
+- RoleDefinition
+- Algılayıcı
+- SensorBlobMetadata
+- SensorExtendedProperty
+- Uzay
+- SpaceBlobMetadata
+- SpaceExtendedProperty
+- SpaceResource
+- SpaceRoleAssignment
+- Sistem
+- Kullanıcı
+- UserBlobMetadata
+- UserExtendedProperty
 
-  ```JSON
-  {
-    "id": "00000000-0000-0000-0000-000000000000",
-    "subject": "ExtendedPropertyKey",
-    "data": {
-      "SpacesToNotify": [
-        "3a16d146-ca39-49ee-b803-17a18a12ba36"
-      ],
-      "Id": "00000000-0000-0000-0000-000000000000",
+#### <a name="example"></a>Örnek
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
       "Type": "ExtendedPropertyKey",
-      "AccessType": "Create"
-    },
-    "eventType": "TopologyOperation",
-    "eventTime": "2018-04-17T17:41:54.9400177Z",
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/yourTopicName"
+}
+```
 
-    | Özel öznitelik adı | Değiştirin |
-    | --- | --- |
-    | *yourTopicName* | Özelleştirilmiş, konu adı |
+| Özel öznitelik adı | Şununla değiştir |
+| --- | --- |
+| yourTopicName | Özelleştirilmiş, konu adı |
 
-- **UdfCustom**
+### <a name="udfcustom"></a>UdfCustom
 
-  Kullanıcı tanımlı işlev tarafından (UDF) gönderilen bir olay. 
+**UdfCustom** kullanıcı tanımlı işlev tarafından (UDF) gönderilen bir olay. 
   
-  > [!IMPORTANT]
-  > Bu olay UDF'yi açıkça gönderilmesi gerekir.
+> [!IMPORTANT]  
+> Bu olay, açıkça UDF'yi gönderilmelidir.
 
-  Örnek:
+#### <a name="example"></a>Örnek
 
-  ```JSON
-  {
-    "id": "568fd394-380b-46fa-925a-ebb96f658cce",
-    "subject": "UdfCustom",
-    "data": {
-      "TopologyObjectId": "7c799bfc-1bff-4b9e-b15a-669933969d20",
-      "ResourceType": "Space",
-      "Payload": "\"Room is not available or air quality is poor\"",
-      "CorrelationId": "568fd394-380b-46fa-925a-ebb96f658cce"
-    },
-    "eventType": "UdfCustom",
-    "eventTime": "2018-10-02T06:50:15.198Z",
-    "dataVersion": "1.0",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+```JSON
+{
+  "id": "568fd394-380b-46fa-925a-ebb96f658cce",
+  "subject": "UdfCustom",
+  "data": {
+    "TopologyObjectId": "7c799bfc-1bff-4b9e-b15a-669933969d20",
+    "ResourceType": "Space",
+    "Payload": "\"Room is not available or air quality is poor\"",
+    "CorrelationId": "568fd394-380b-46fa-925a-ebb96f658cce"
+  },
+  "eventType": "UdfCustom",
+  "eventTime": "2018-10-02T06:50:15.198Z",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/yourTopicName"
+}
+```
 
-    | Özel öznitelik adı | Değiştirin |
-    | --- | --- |
-    | *yourTopicName* | Özelleştirilmiş, konu adı |
+| Özel öznitelik adı | Şununla değiştir |
+| --- | --- |
+| yourTopicName | Özelleştirilmiş, konu adı |
 
-- **SensorChange**
+### <a name="sensorchange"></a>SensorChange
 
-  Bir algılayıcının durumu telemetri değişikliklere dayalı bir güncelleştirme.
+**SensorChange** telemetri değişikliklere dayalı bir algılayıcının durumu bir güncelleştirmedir.
 
-  Örnek:
+#### <a name="example"></a>Örnek
 
-  ```JSON
-  {
-    "id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
-    "subject": "SensorChange",
-    "data": {
-      "Type": "Classic",
-      "DataType": "Motion",
-      "Id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
-      "Value": "False",
-      "PreviousValue": "True",
-      "EventTimestamp": "2018-04-17T17:46:15.4964262Z",
-      "MessageType": "sensor",
-      "Properties": {
-        "ms-client-request-id": "c9e576b7-5eea-4f61-8617-92a57add5179",
-        "ms-activity-id": "ct22YwXEGJ5u.605.0"
-      }
-    },
-    "eventType": "SensorChange",
-    "eventTime": "2018-04-17T17:46:18.5452993Z",
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+```JSON
+{
+  "id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
+  "subject": "SensorChange",
+  "data": {
+    "Type": "Classic",
+    "DataType": "Motion",
+    "Id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
+    "Value": "False",
+    "PreviousValue": "True",
+    "EventTimestamp": "2018-04-17T17:46:15.4964262Z",
+    "MessageType": "sensor",
+    "Properties": {
+      "ms-client-request-id": "c9e576b7-5eea-4f61-8617-92a57add5179",
+      "ms-activity-id": "ct22YwXEGJ5u.605.0"
+    }
+  },
+  "eventType": "SensorChange",
+  "eventTime": "2018-04-17T17:46:18.5452993Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/yourTopicName"
+}
+```
 
-    | Özel öznitelik adı | Değiştirin |
-    | --- | --- |
-    | *yourTopicName* | Özelleştirilmiş, konu adı |
+| Özel öznitelik adı | Şununla değiştir |
+| --- | --- |
+| yourTopicName | Özelleştirilmiş, konu adı |
 
-- **SpaceChange**
+### <a name="spacechange"></a>SpaceChange
 
-  Telemetri değişikliklere dayalı bir alanı'nın durumunu güncelleştirme.
+**SpaceChange** boşlukla ait durum telemetri değişikliklere dayalı bir güncelleştirmedir.
 
-  Örnek:
+#### <a name="example"></a>Örnek
 
-  ```JSON
-  {
-    "id": "42522e10-b1aa-42ff-a5e7-7181788ffc4b",
-    "subject": "SpaceChange",
-    "data": {
-      "Type": null,
-      "DataType": "AvailableAndFresh",
-      "Id": "7c799bfc-1bff-4b9e-b15a-669933969d20",
-      "Value": "Room is not available or air quality is poor",
-      "PreviousValue": null,
-      "RawData": null,
-      "transactionId": null,
-      "EventTimestamp": null,
-      "MessageType": null,
-      "Properties": null,
-      "CorrelationId": "42522e10-b1aa-42ff-a5e7-7181788ffc4b"
-    },
-    "eventType": "SpaceChange",
-    "eventTime": "2018-10-02T06:50:20.128Z",
-    "dataVersion": "1.0",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+```JSON
+{
+  "id": "42522e10-b1aa-42ff-a5e7-7181788ffc4b",
+  "subject": "SpaceChange",
+  "data": {
+    "Type": null,
+    "DataType": "AvailableAndFresh",
+    "Id": "7c799bfc-1bff-4b9e-b15a-669933969d20",
+    "Value": "Room is not available or air quality is poor",
+    "PreviousValue": null,
+    "RawData": null,
+    "transactionId": null,
+    "EventTimestamp": null,
+    "MessageType": null,
+    "Properties": null,
+    "CorrelationId": "42522e10-b1aa-42ff-a5e7-7181788ffc4b"
+  },
+  "eventType": "SpaceChange",
+  "eventTime": "2018-10-02T06:50:20.128Z",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/yourTopicName"
+}
+```
 
-    | Özel öznitelik adı | Değiştirin |
-    | --- | --- |
-    | *yourTopicName* | Özelleştirilmiş, konu adı |
+| Özel öznitelik adı | Şununla değiştir |
+| --- | --- |
+| yourTopicName | Özelleştirilmiş, konu adı |
 
-- **DeviceMessage**
+### <a name="devicemessage"></a>DeviceMessage
 
-  Belirtmenizi sağlar bir **EventHub** için ham telemetri olayları yönlendirilir de Azure dijital İkizlerini bağlantı.
+Kullanarak **DeviceMessage**, belirtebileceğiniz bir **EventHub** için ham telemetri olayları yönlendirilir de Azure dijital İkizlerini bağlantı.
 
 > [!NOTE]
-> - **DeviceMessage** combinable ile yalnızca olan **EventHub**; birleştirmek mümkün olmayacaktır **DeviceMessage** herhangi bir olay türü.
-> - Tek bir uç nokta türü bileşimi belirlemek mümkün olacaktır **EventHub** veya **DeviceMessage**.
+> - **DeviceMessage** combinable ile yalnızca olan **EventHub**. Birleştirmeniz mümkün olmayacaktır **DeviceMessage** herhangi bir olay türü.
+> - Tek bir uç nokta türü bileşimi belirtebilirsiniz **EventHub** veya **DeviceMessage**.
 
-## <a name="configuring-endpoints"></a>Uç noktalarını yapılandırma
+## <a name="configure-endpoints"></a>Uç noktaları yapılandırma
 
-Uç nokta yönetim uç noktalarını API aracılığıyla Uygula. Farklı desteklenen uç noktalarını yapılandırma hakkında bazı örnekleri aşağıda verilmiştir. Yönlendirme için uç nokta tanımlar gibi özel olay türleri dizisi dikkat edin:
+Uç nokta yönetim uç noktalarını API aracılığıyla Uygula. Aşağıdaki örnekler, farklı desteklenen uç noktalar yapılandırmak nasıl ekleyebileceğiniz gösterilmektedir. Yönlendirme için uç nokta tanımlar gibi özel olay türleri dizisi dikkat edin:
 
 ```plaintext
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Yönlendirme **Service Bus** olay türleri: **SensorChange**, **SpaceChange**, **TopologyOperation**
+- Service Bus olay türleri için rota **SensorChange**, **SpaceChange**, ve **TopologyOperation**:
 
   ```JSON
   {
@@ -190,14 +217,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Özel öznitelik adı | Değiştirin |
+    | Özel öznitelik adı | Şununla değiştir |
     | --- | --- |
-    | *AdAlanınız* | Uç noktanız için ad alanı |
-    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | *yourTopicName* | Özelleştirilmiş, konu adı |
+    | AdAlanınız | Uç noktanız için ad alanı |
+    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | yourTopicName | Özelleştirilmiş, konu adı |
 
-- Yönlendirme **Event Grid** olay türleri: **SensorChange**, **SpaceChange**, **TopologyOperation**
+- Event Grid olay türleri için rota **SensorChange**, **SpaceChange**, ve **TopologyOperation**:
 
   ```JSON
   {
@@ -213,13 +240,13 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Özel öznitelik adı | Değiştirin |
+    | Özel öznitelik adı | Şununla değiştir |
     | --- | --- |
-    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi|
-    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | *yourTopicName* | Özelleştirilmiş, konu adı |
+    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi|
+    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | yourTopicName | Özelleştirilmiş, konu adı |
 
-- Yönlendirme **olay hub'ı** olay türleri: **SensorChange**, **SpaceChange**, **TopologyOperation**
+- Event Hubs olay türleri için rota **SensorChange**, **SpaceChange**, ve **TopologyOperation**:
 
   ```JSON
   {
@@ -235,14 +262,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Özel öznitelik adı | Değiştirin |
+    | Özel öznitelik adı | Şununla değiştir |
     | --- | --- |
-    | *AdAlanınız* | Uç noktanız için ad alanı |
-    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | *yourEventHubName* | Adı, **olay hub'ı** |
+    | AdAlanınız | Uç noktanız için ad alanı |
+    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | yourEventHubName | Olay hub'ınızın adı |
 
-- Yönlendirme **olay hub'ı** olay türü: **DeviceMessage**. Eklenmesi, `EntityPath` içinde **connectionString** zorunludur.
+- Event Hubs olay türü için rota **DeviceMessage**. Eklenmesi, `EntityPath` içinde **connectionString** zorunludur:
 
   ```JSON
   {
@@ -256,30 +283,30 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Özel öznitelik adı | Değiştirin |
+    | Özel öznitelik adı | Şununla değiştir |
     | --- | --- |
-    | *AdAlanınız* | Uç noktanız için ad alanı |
-    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | *yourEventHubName* | Adı, **olay hub'ı** |
+    | AdAlanınız | Uç noktanız için ad alanı |
+    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | yourEventHubName | Olay hub'ınızın adı |
 
-> [!NOTE]
+> [!NOTE]  
 > Yeni bir uç nokta oluşturulduktan sonra en fazla 5 uç noktasında olayları almaya başlaması için 10 dakika sürebilir.
 
 ## <a name="primary-and-secondary-connection-keys"></a>Birincil ve ikincil bağlantı anahtarları
 
 Birincil bağlantı anahtar yetkisiz duruma geldiğinde, sistem otomatik olarak ikincil bağlantı anahtar çalışır. Bir yedekleme sağlar ve düzgün bir şekilde kimlik doğrulaması ve API uç noktaları aracılığıyla birincil anahtarı güncelleştirmek olanağı sağlar.
 
-Birincil ve ikincil bağlantı anahtarları yetkisiz, sistemin bir üstel geri alma bekleme süresi en fazla 30 dakika girer. Olayları, geri alma tetiklenen bekleme her seferinde bırakılır.
+Birincil ve ikincil bağlantı anahtarları yetkisiz ise sistem 30 dakikaya kadar bir üstel geri alma bekleme süresini girer. Olayları, geri alma tetiklenen bekleme her seferinde bırakılır.
 
 Sistem olduğunda bekleme durumu bir geri alma, güncelleştirme bağlantıları anahtarları uç API'sinden etkili 30 dakika kadar sürebilir.
 
 ## <a name="unreachable-endpoints"></a>Erişilemeyen uç noktaları
 
-Bir uç nokta ulaşılamaz duruma gelmediği, sistemin bir üstel geri alma bekleme süresi en fazla 30 dakika girer. Olayları, geri alma tetiklenen bekleme her seferinde bırakılır.
+Bir uç nokta ulaşılamaz duruma gelmediği sistem 30 dakikaya kadar bir üstel geri alma bekleme süresini girer. Olayları, geri alma tetiklenen bekleme her seferinde bırakılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure dijital İkizlerini Swagger kullanmayı öğrenmek için [Azure İkizlerini dijital Swagger](how-to-use-swagger.md).
+- Bilgi [Azure dijital Swagger İkizlerini kullanma](how-to-use-swagger.md).
 
-Yönlendirme iletilerini Azure dijital çiftleri ve olaylar hakkında daha fazla bilgi edinmek için [yönlendirme olayları ve iletileri](concepts-events-routing.md).
+- Daha fazla bilgi edinin [yönlendirme olayları ve iletileri](concepts-events-routing.md) Azure dijital İkizlerini içinde.

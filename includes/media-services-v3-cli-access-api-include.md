@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: f4600413e05950446db71f988c4c4302f0dcacb3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: 4dde0a47f0452da2dd951df86ccb6e02a44521ed
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39063066"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616648"
 ---
 ## <a name="access-the-media-services-api"></a>Media Services API’sine erişim
 
@@ -23,7 +23,7 @@ Betiği çalıştırmadan önce, `amsaccount` ve `amsResourceGroup` değerlerini
 
 Aşağıdaki komut bir `json` çıkışı döndürür:
 
-```azurecli-interactive
+```azurecli
 az ams account sp create --account-name amsaccount --resource-group amsResourceGroup
 ```
 
@@ -46,6 +46,6 @@ Bu komut, aşağıdakine benzer bir yanıt oluşturur:
 
 Yanıtta bir `xml` almak istiyorsanız, aşağıdaki komutu kullanın:
 
-```azurecli-interactive
+```azurecli
 az ams account sp create --account-name amsaccount --resource-group amsResourceGroup --xml
 ```

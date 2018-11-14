@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457227"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623812"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
-Sürekli tümleştirme, sistemi, yapılan her değişikliği testin uygulamadır, otomatik olarak ve mümkün olduğunca erken kod tabanı. Sürekli teslim, test sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sistemine gönderim izler.
+Sürekli tümleştirme, sistemi, yapılan her değişikliği testin uygulamadır, otomatik olarak ve mümkün olduğunca erken kod tabanı. Sürekli teslim, test sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sistemine gönderim izler.
 
 Azure Data Factory için sürekli tümleştirme ve teslim taşıma Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine gösterir. Sürekli tümleştirme ve teslim yapmak için Azure Resource Manager şablonları ile tümleştirme Data Factory kullanıcı Arabirimi kullanabilirsiniz. Data Factory kullanıcı arabirimini seçtiğinizde bir Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **dışarı ARM şablonu**, portalda Resource Manager şablonu için veri fabrikasını ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası oluşturur. Ardından, bir yapılandırma dosyası her bir ortamda (geliştirme, test ve üretim) oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
 
@@ -75,11 +75,11 @@ Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir
 
 ### <a name="requirements"></a>Gereksinimler
 
--   Bir Azure aboneliğine bağlı Team Foundation Server veya Azure depoları kullanarak [ *Azure Resource Manager hizmet uç noktası*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Bir Azure aboneliğine bağlı Team Foundation Server veya Azure depoları kullanarak [*Azure Resource Manager hizmet uç noktası*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   Data Factory ile Azure depoları Git tümleştirmesi.
 
--   Bir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) gizli dizileri içeren.
+-   Bir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) gizli dizileri içeren.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Bir Azure işlem hatları yayını Ayarla
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Özel Parametreler ile Resource Manager şablonu kullanma
 
 Resource Manager şablonuna yönelik özel parametreler tanımlayabilirsiniz. Adlı bir dosya yeterlidir `arm-template-parameters-definition.json` deposunun kök klasörüne. (Dosya adı tam olarak burada gösterilen adı eşleşmelidir.) Veri Fabrikası dosya, çalışmakta olduğunuz hangi daldan, işbirliği dalından yalnızca okumaya çalışır. Dosya bulunamazsa, Data Factory varsayılan parametreleri ve değerleri kullanır.
+
+### <a name="syntax-of-a-custom-parameters-file"></a>Özel Parametreler dosyasının söz dizimi
+
+Özel parametre dosyasını yazarken kullanmak için bazı yönergeler aşağıda verilmiştir. Bu söz dizimi örneklerini görmek için aşağıdaki bölüme bakın [örnek özel parametreler dosyası](#sample).
+
+1. Dizi tanımı dosyasında belirttiğinizde, şablonda eşleşen özellik dizisi olduğunu belirtir. Veri Fabrikası ilk dizi nesnesinde belirtilen tanım kullanarak dizi içindeki tüm nesneler gezinir. Dize, ikinci nesne, her yineleme için parametre adı olarak kullanılan özelliğin adı olur.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. Bir özellik adı ayarlandığında `*`, o düzeyde açıkça tanımlanmış olanlar dışındaki tüm özellikleri kullanmak için şablon istediğinizi belirtin.
+
+3. Bir özelliğin değerini bir dize olarak ayarladığınızda, özellik parametreleştirmek istediğiniz gösterir. `<action>:<name>:<stype>` biçimini kullanın.
+    1.  `<action>` şu karakterlerden biri olabilir: 
+        1.  `=`  yol geçerli değer parametresi için varsayılan değer olarak tutun.
+        2.  `-` yol parametresi için varsayılan değer tutma.
+        3.  `|` Azure Key vault'tan bir gizli bir bağlantı dizesi için özel bir durumdur.
+    2.  `<name>` parametrenin adıdır. Varsa `<name`> olan boş, bu parametrenin adını alır 
+    3.  `<stype>` parametre türüdür. Varsa `<stype>` olan boş, varsayılan türü olduğu bir dizedir.
+4.  Girerseniz bir `-` tam Kaynak Yöneticisi'nin parametre adı için kısaltılmış bir parametre adı başındaki karakter `<objectName>_<propertyName>`.
+Örneğin, `AzureStorage1_properties_typeProperties_connectionString` için kısaltılmış `AzureStorage1_connectionString`.
+
+
+### <a name="sample"></a> Örnek özel parametreler dosyası
 
 Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kendi özel parametre dosyasını oluşturmak için bir başvuru olarak kullanın. Sağladığınız dosya JSON biçimi doğru değil, Data Factory tarayıcı konsolunu bir hata iletisi verir ve varsayılan parametreleri ve Data Factory kullanıcı Arabiriminde gösterilen değerler döner.
 

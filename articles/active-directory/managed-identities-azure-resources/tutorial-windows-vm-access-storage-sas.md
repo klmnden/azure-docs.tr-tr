@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f8f65cbbf3f2583e43416fc36050de6c55f105dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161722"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625496"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: Azure depolama bir SAS kimlik bilgisi erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -36,16 +36,7 @@ Hizmet SAS, bir hesap erişim anahtarına sokmadan sınırlı süre için bir de
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Azure portal'da oturum açma](https://portal.azure.com)
-
-- [Windows sanal makinesi oluşturma](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Sistem tarafından atanan kimlik sanal makinenizde etkinleştir](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
-
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
@@ -71,9 +62,9 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 
     ![Depolama kapsayıcısı oluşturma](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Bir SAS depolama kullanmak için sanal makinenin yönetilen kimlik sistem tarafından atanan erişim 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Depolama SAS değerini kullanmak için VM'nize sistem tarafından atanan yönetilen kimliği erişimi verme 
 
-Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için yönetilen bir kimlik kullanın. ardından depolamaya erişmek için SAS'ı kullanın.  Bu adımda, depolama hesabınıza SAS sanal makinenin yönetilen kimlik sistem tarafından atanan erişim verin.   
+Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için yönetilen bir kimlik kullanın. ardından depolamaya erişmek için SAS'ı kullanın.  Bu adımda, VM sistem tarafından atanan yönetilen kimliğinize depolama hesabının SAS değeri için erişim verirsiniz.   
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.   
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
@@ -85,7 +76,7 @@ Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Ancak, K
 
     ![Alternatif resim metni](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM kimliğini kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapmak için bunu kullanma 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM kimliğini kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapmak için bunu kullanma 
 
 Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğumuz VM'den çalışacağız.
 
@@ -94,7 +85,7 @@ Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gere
 1. Azure portalında **Sanal Makineler**'e gidin, Windows sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın.
 2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
 3. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda PowerShell'i açın. 
-4. PowerShell'in Invoke-WebRequest kullanarak, Azure Resource Manager için bir erişim belirteci almak Azure kaynaklarını uç noktası için yönetilen yerel kimliği için istekte bulunmak.
+4. PowerShell’in Invoke-WebRequest komutunu kullanarak, Azure kaynakları uç noktası için yerel yönetilen kimliğe Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

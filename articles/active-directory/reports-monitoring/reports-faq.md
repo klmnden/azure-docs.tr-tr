@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory raporlama hakkında SSS | Microsoft Docs
-description: Azure Active Directory raporlama hakkında SSS.
+title: Azure Active Directory rapor ile ilgili SSS | Microsoft Docs
+description: Azure Active Directory raporlarını geçici quesitons sık sorulan.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -12,55 +12,55 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/10/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5cbf0895274672c053158cf07acb344908b37831
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294229"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623477"
 ---
-# <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory raporlama hakkında SSS
+# <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Sık sorulan sorular Azure Active Directory raporlarını geçici bir çözüm
 
 Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular raporlama yanıtlarını içerir. Daha fazla bilgi için bkz. [Azure Active Directory raporlaması](overview-reports.md). 
 
 ## <a name="getting-started"></a>Başlarken 
 
-**S: kullanıyorum https://graph.windows.net/&lt; Kiracı adı&gt;/reports/ uç nokta API'leri çekme Azure AD denetim ve tümleşik uygulama kullanım için raporlama sistemlerimizde programlı olarak bildirir. Ne için geçiş miyim?**
+**S: kullanmakta https://graph.windows.net/&lt; Kiracı adı&gt;/reports/ uç nokta API'leri çekme Azure AD denetim ve tümleşik uygulama kullanım için raporlama sistemlerimizde programlı olarak bildirir. Ne için geçiş miyim?**
 
-**Y:** aramak [API başvuru belgeleri](https://developer.microsoft.com/graph/) erişmek için yeni API'leri nasıl kullanabileceğinizi görmek için [Etkinlik raporlarını](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Bu uç nokta eski API uç noktası ' var olan tüm verileri sağlayan iki rapor (Denetim ve oturum açma) sahiptir. Bu yeni uç nokta da, uygulama kullanımını, Aygıt kullanımı ve kullanıcı oturum açma bilgilerini almak için kullanabileceğiniz bir Azure AD Premium lisansına sahip bir oturum açma işlemleri raporu vardır.
+**Y:** aramak [API Başvurusu](https://developer.microsoft.com/graph/) öğrenmek için [etkinliği raporlarına erişmek için API'leri kullanan](concept-reporting-api.md). Bu uç noktaya sahip iki rapor (**denetim** ve **oturum açma işlemleri**) eski API uç noktası aldığınız tüm verileri sağlar. Bu yeni uç nokta da, uygulama kullanımını, Aygıt kullanımı ve kullanıcı oturum açma bilgilerini almak için kullanabileceğiniz bir Azure AD Premium lisansına sahip bir oturum açma işlemleri raporu vardır.
 
 --- 
 
-**S: kullanıyorum https://graph.windows.net/&lt; Kiracı adı&gt;/reports/ uç nokta API'leri, Azure AD güvenlik raporları (belirli tür algılamadan dışlanmasını, sızan kimlik bilgileri veya anonim IP adreslerinden oturum açma işlemleri gibi) raporlama sistemlerimizde çekmek için Program aracılığıyla. Ne için geçiş miyim?**
+**S: kullanmakta https://graph.windows.net/&lt; Kiracı adı&gt;/reports/ uç nokta API'leri, Azure AD güvenlik raporları (belirli tür algılamadan dışlanmasını, sızan kimlik bilgileri veya anonim IP adreslerinden oturum açma işlemleri gibi) raporlama sistemlerimizde çekmek için Program aracılığıyla. Ne için geçiş miyim?**
 
-**Y:** kullanabileceğiniz [kimlik koruması risk olayları API](../identity-protection/graph-get-started.md) Microsoft Graph üzerinden erişim güvenlik algılamaları için. Bu yeni biçim, Gelişmiş filtreleme, alan seçimi ve diğer verileri nasıl Sorgulayabileceğiniz büyük esneklik sağlar ve daha kolay tümleştirmeye Sıem'lerden ve diğer veri toplama araçları için bir tür içinde risk olayları standartlaştırır. Verileri farklı bir biçimde olduğundan, yeni bir sorgu için eski sorgularınızı yerine geçemez. Ancak, [Microsoft Graph yeni API'yi kullanan](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), olduğu gibi API'ler olarak O365 veya Azure AD için Microsoft standart. MS Graph mevcut yatırımlarınızdan veya Yardım ya da genişletebilirsiniz iş gerekli şekilde bu yeni standart platformu geçişinizi başlayın.
+**Y:** kullanabileceğiniz [kimlik koruması risk olayları API](../identity-protection/graph-get-started.md) Microsoft Graph üzerinden erişim güvenlik algılamaları için. Bu yeni biçim, Gelişmiş filtreleme, alan seçimi ve diğer verileri nasıl Sorgulayabileceğiniz büyük esneklik sağlar ve daha kolay tümleştirmeye Sıem'lerden ve diğer veri toplama araçları için bir tür içinde risk olayları standartlaştırır. Verileri farklı bir biçimde olduğundan, yeni bir sorgu için eski sorgularınızı yerine geçemez. Ancak, [Microsoft Graph yeni API'yi kullanan](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), olduğu gibi API'ler olarak O365 veya Azure AD için Microsoft standart. MS Graph mevcut yatırımlarınızdan veya Yardım ya da genişletebilirsiniz iş gerekli şekilde bu yeni standart platformu geçişinizi başlayın.
 
 --- 
 
 **S: bir premium lisansı nasıl alabilirim?**
 
-**Y:** bkz [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) Bu soruya yanıt.
+**Y:** bkz [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için.
 
 ---
 
 **S: ne kadar kısa sürede etkinliği verileri bir premium lisansı aldıktan sonra görüyorum?**
 
-**Y:** ücretsiz lisans gibi etkinlikler veriler zaten varsa aynı verileri görebilirsiniz. Ardından herhangi bir veri yoksa, bir veya iki gün sürebilir.
+**Y:** ücretsiz lisans gibi etkinlikler veriler zaten varsa hemen görebilirsiniz. Herhangi bir veri yoksa, veriler raporlarda görünmesi için bir veya iki gün sürebilir.
 
 ---
 
-**S: son aya ilişkin verileri bir Azure AD premium lisansı aldıktan sonra bkz?**
+**Son aya ilişkin verileri bir Azure AD premium lisansı aldıktan sonra görebilir miyim?**
 
-**Y:** (deneme sürümü dahil) bir Premium sürümü için yakın zamanda çalıştıysanız, veri yedekleme 7 gün için başlangıçta görebilirsiniz. Verileri toplanır, 30 güne kadar görürsünüz.
+**Y:** (deneme sürümü dahil) bir Premium sürümü için yakın zamanda çalıştıysanız, veri yedekleme 7 gün için başlangıçta görebilirsiniz. Verileri toplanır, son 30 güne ilişkin verileri görebilirsiniz.
 
 ---
 
-**Azure portalında etkinlik oturum açma işlemleri görmek veya API üzerinden veri almak için genel yönetici olmanız gerekiyor s:?**
+**S: Azure portalında etkinlik oturum açma işlemleri görmek veya API üzerinden veri almak için genel yönetici olmanız gerekiyor?**
 
-**C:** Hayır. Olmalıdır bir **güvenlik okuyucusu**, **Güvenlik Yöneticisi**, veya bir **genel yönetici** raporlama API'si aracılığıyla veya Azure portalında verilerini almak için.
+**Y:** olduğunuz Hayır, aynı zamanda raporlama verilerini portalı veya API üzerinden erişebilirsiniz bir **güvenlik okuyucusu** veya **Güvenlik Yöneticisi** Kiracı. Elbette, **genel Yöneticiler** de bu verilere erişebilir.
 
 ---
 
@@ -70,16 +70,21 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 
 **S: veri saklama için etkinlik günlüklerini (Denetim ve oturum açma) Azure portalında nedir?** 
 
-**Y:** bkz [toplanan verileri ne kadar süreyle saklanır?](reference-reports-data-retention.md#q-for-how-long-is-the-collected-data-stored) Bu soruya yanıt.
+**Y:** veri saklama süresi etkinlik günlükleri için aşağıdaki tabloda listelenmiştir. Daha fazla bilgi için [veri bekletme ilkeleri için Azure AD raporlar](reference-reports-data-retention.md).
+
+| Rapor                 | Azure AD Ücretsiz | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Denetim günlükleri             | 7 gün        | 30 gün             | 30 gün             |
+| Oturum açma işlemleri               | Yok           | 30 gün             | 30 gün             |
+| Azure MFA kullanımı        | 30 gün       | 30 gün             | 30 gün             |
 
 --- 
 
 **S: my görevi tamamladığınızda etkinlik verileri görene kadar ne kadar sürer?**
 
-**Y:** denetim etkinlik günlüklerini 15 dakika veya saat arasında bir gecikme vardır. Oturum açma etkinlik günlüklerini 15 dakika veya bazı kayıtları 2 saate kadar sürebilir.
+**Y:** denetim günlüklerini 15 dakika veya saat arasında bir gecikme vardır. Oturum açma etkinlik günlüklerini 15 dakika veya bazı kayıtları 2 saate kadar sürebilir.
 
 ---
-
 
 **Office 365 etkinlik günlüğü bilgilerini Azure portalı üzerinden almam miyim?**
 
@@ -87,10 +92,9 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 
 ---
 
-
 **S: hangi API'ler Office 365 etkinlik günlükleri hakkında daha fazla bilgi almak için kullanabilirim?**
 
-**Y:** erişmek için Office 365 Yönetim API'leri kullanan [Office 365 etkinlik günlükleri bir API aracılığıyla](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview).
+**Y:** kullanım [Office 365 Yönetim API'leri](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) bir API aracılığıyla Office 365 etkinlik günlüklerine erişmek için.
 
 ---
 
@@ -102,39 +106,27 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 
 ## <a name="risky-sign-ins"></a>Riskli oturum açma işlemleri
 
-**S: bir risk olayını kimlik koruması yoktur ama tüm oturum açma işlemleri ilgili oturum içindeki görüyorum değil. Bu beklenen bir durumdur?**
+**S: bir risk olayını kimlik koruması yoktur ama karşılık gelen oturum açma, oturum açma işlemleri raporu görüyorum değil. Bu beklenen bir durumdur?**
 
 **Y:** etkileşimli veya etkileşimli olmayan kimlik koruması risk tüm kimlik doğrulama akışları için Evet, değerlendirir. Ancak, tüm oturum açma işlemleri yalnızca rapor yalnızca etkileşimli oturum açma işlemleri gösterir.
 
 ---
 
-**S: Azure portalında "Riskli oldukları belirlenen kullanıcılar" raporu indirebilir miyim?**
-
-**Y:** yükleme seçeneği *risk için işaretlenen kullanıcılar* raporu yakında eklenecektir.
-
----
-
 **S: neden bir oturum açma veya bir kullanıcıya Azure portalında riskli bayrak eklenmiş olan biliyor musunuz?**
 
-**Y:** Premium edition müşterileri bulabilir temel risk olayları hakkında daha fazla "Riskli oldukları belirlenen kullanıcılar" kullanıcının tıklayarak veya "riskli oturum açma işlemleri üzerinde" tıklayarak. Ücretsiz ve temel edition müşterileri, temel alınan risk olayı bilgilerini olmadan oturum açma ve risk altında bulunan kullanıcıları görmek alın.
+**Y:** varsa bir **Azure AD Premium** abonelik edinebilirsiniz temel risk olayları hakkında daha fazla kullanıcı seçerek **risk için işaretlenen kullanıcılar** veya bir kayıt seçerek **Riskli oturum açma işlemleri** rapor. Varsa bir **ücretsiz** veya **temel** abonelik olduktan sonra kullanıcılar, risk ve riskli oturum açma işlemleri raporları görüntüleyebilir, ancak temel alınan risk olayı bilgilerini göremez.
 
 ---
 
 **S: nasıl IP adresleri oturum açma ve riskli oturum açma işlemleri raporu hesaplanır?**
 
-**Y:** IP adresleri, bir IP adresi ve bilgisayarın bu adresine sahip fiziksel olarak bulunduğu yeri arasında kesin bağlantı yoktur şekilde verilir. Bu mobil sağlayıcıları ve VPN istemci cihaz gerçekten kullanıldığı gölgeden uzak IP adresleri merkezi havuzlarından genellikle çok verme gibi faktörlere tarafından karmaşık. Yukarıdaki göz önünde bulundurulduğunda, IP adresi fiziksel bir konuma dönüştürme izlemeleri, kayıt defteri verisi, geriye doğru arama ve diğer bilgilere göre en iyi çaba ilkesi var. 
+**Y:** IP adresleri, bir IP adresi ve bilgisayarın bu adresine sahip fiziksel olarak bulunduğu yeri arasında kesin bağlantı yoktur şekilde verilir. IP adreslerini eşleme daha fazla mobil sağlayıcıları ve VPN istemci cihaz gerçekten kullanıldığı gölgeden uzak IP adresleri merkezi havuzlarından genellikle çok verme gibi faktörlere tarafından karmaşık. Şu anda Azure AD raporlarında, IP adresi fiziksel bir konuma dönüştürme izlemeleri, kayıt defteri verisi, geriye doğru arama ve diğer bilgilere göre en iyi çaba ilkesi var. 
 
 ---
 
 **S: "Oturum açma algılandı ek risk içeren" geldiğiniz risk olayı nedir?**
 
-**Y:** ortamınızda tüm riskli oturum açmaların bir anlayış vermek için "oturum açma ile ek risk algılandı" oturum açma işlemleri için Azure AD kimlik koruması aboneleri için özel olan algılama için yer tutucu işlevini görür.
-
----
-
-**S: "Oturum açma algılandı ek risk içeren" geldiğiniz risk olayı nedir?**
-
-**Y:** ortamınızda tüm riskli oturum açmaların bir anlayış vermek için "oturum açma ile ek risk algılandı" oturum açma işlemleri için Azure AD kimlik koruması aboneleri için özel olan algılama için yer tutucu işlevini görür.
+**Y:** ortamınızda tüm riskli oturum açma hakkında bilgi vermek için "oturum açma ile ek risk algılandı" oturum açma işlemleri için Azure AD kimlik koruması aboneleri için özel olan algılama için yer tutucu işlevini görür.
 
 ---
 

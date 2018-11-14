@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: f531be5a814ed1805a2938daec1d210f9daccfa5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 400ac3232b7e7dcd594734d818e3cafef09188fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949783"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614557"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure kullanılabilirlik alanları bölgesel olarak yedekli sanal ağ geçidi oluşturma
 
-VPN ve ExpressRoute ağ geçitleri With Azure kullanılabilirlik alanlarında dağıtabilirsiniz. Bu seçenek, dayanıklılık, ölçeklenebilirlik ve yüksek kullanılabilirlik için sanal ağ geçitleri getirir. Ağ geçitleri Azure kullanılabilirlik alanları, fiziksel ve mantıksal olarak dağıtma, ağ geçitleri bir bölge içinde bölge düzeyinde hatalardan Azure'a, şirket içi ağ bağlantısını korurken ayırır. Bilgi için [bölgesel olarak yedekli sanal ağ geçitleri hakkında](about-zone-redundant-vnet-gateways.md) ve [Azure kullanılabilirlik alanları hakkında](../availability-zones/az-overview.md).
+Azure kullanılabilirlik alanları, VPN ve ExpressRoute ağ geçitleri dağıtabilirsiniz. Bu seçenek, dayanıklılık, ölçeklenebilirlik ve yüksek kullanılabilirlik için sanal ağ geçitleri getirir. Ağ geçitleri Azure kullanılabilirlik alanları, fiziksel ve mantıksal olarak dağıtma, ağ geçitleri bir bölge içinde bölge düzeyinde hatalardan Azure'a, şirket içi ağ bağlantısını korurken ayırır. Bilgi için [bölgesel olarak yedekli sanal ağ geçitleri hakkında](about-zone-redundant-vnet-gateways.md) ve [Azure kullanılabilirlik alanları hakkında](../availability-zones/az-overview.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

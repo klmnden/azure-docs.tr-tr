@@ -1,0 +1,55 @@
+---
+title: Sık sorulan sorular - özel Translator
+titleSuffix: Azure Cognitive Services
+description: Özel Translator hakkında sık sorulan soruların yanıtlarını sağlar.
+author: rajdeep-in
+manager: christw
+ms.service: cognitive-services
+ms.component: custom-translator
+ms.date: 11/13/2018
+ms.author: v-rada
+ms.topic: reference
+ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51627583"
+---
+# <a name="frequently-asked-questions"></a>Sık sorulan sorular
+
+Bu makale, hakkında sık sorulan soruların yanıtlarını içerir. [özel Translator](https://portal.customtranslator.azure.ai).
+
+## <a name="what-are-the-current-restrictions-in-custom-translator"></a>Geçerli özel Translator sınırlamaları nelerdir?
+
+Kısıtlamaları ve dosya boyutu, model eğitiminin ve model dağıtımı ile ilgili sınırları vardır. Oluşturan eğitim özel Translator bir model oluşturmak için ayarlarken, bu kısıtlamaları göz önünde bulundurun.
+
+- Gönderilen dosya boyutu 100 MB'den az olmalıdır.
+
+- Tek dilli Kinsoku'ya veri desteklenmiyor.
+
+## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Dağıtım için eğitim vermiş bir çeviri sistemi istediğinizde?
+
+Bu, projeniz için en uygun çeviri sistemi oluşturmak için birkaç eğitimleri sürebilir. BLEU puanı ve / veya test sonuçlarını kabul edilebilir değilse, daha fazla eğitim verileri veya daha dikkatli bir şekilde filtrelenmiş verileri kullanarak denemek isteyebilirsiniz. Katı olmalıdır ve dikkatli tasarlama, kümenizi ayarlama ve testinizi, terminolojisi ve malzeme çevirmek istediğiniz stili tam temsili olarak ayarlanmalıdır. Eğitim verilerinizi oluşturma içinde daha serbest ve farklı seçeneklerle denemeler yapın. Sistem test sonuçlarında çevirilerinizi memnun olduğunuzda, bir sistem dağıtım talep eğitilen sisteminizi geliştirmek için eğitim eklemek için daha fazla veri içermeyen ve eğitilen model API'leri aracılığıyla erişmesini istediğiniz.
+
+## <a name="how-many-trained-systems-can-be-deployed-in-a-project"></a>Kaç eğitilen sistemleri bir proje içinde dağıtılabilir mi?
+
+Proje yalnızca bir eğitilen sistem dağıtılabilir. Projeniz için bir uygun çeviri sistemi oluşturmak için birkaç eğitimleri alabilir ve en iyi sonuç veren bir eğitim dağıtımını istemenizi öneririz. Eğitim kalitesini BLEU puana göre belirleyebilirsiniz (yüksek değer daha iyi) ve çevirilerin kalitesini dağıtımına uygun olduğuna karar vermeyle ilgili önce gözden geçirenlerle danışmanlık.
+
+## <a name="when-can-i-expect-my-trainings-to-be-deployed"></a>Dağıtılacak my eğitimleri ne beklemeliyim?
+
+Dağıtım, genellikle bir saatten az sürer.
+
+## <a name="how-do-you-access-a-deployed-system"></a>Dağıtılmış bir sistemde nasıl erişim sağlanır?
+
+Dağıtılmış sistemler CategoryID belirterek Microsoft Translator Text API v3 sürümüne erişilebilir. Translator metin çevirisi API'si hakkında daha fazla bilgi bulunabilir [API Başvurusu](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) Web sayfası.
+
+## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Nasıl miyim hizalama ve verilerimi hizalı cümle ise bozucu cümle atlamaz?
+
+Tümce hizalama ve cümle bozucu metin dosyalarını ve TMX dosyaları için özel Translator atlar `.align` uzantısı. `.align` dosyaları kullanıcılara bir seçenek bozucu özel Translator'ın cümle ve hizalama işlemi için mükemmel bir şekilde hizalı olup ve başka işlem ihtiyaç dosyaları verin. Kullanmanızı öneririz `.align` mükemmel bir şekilde hizalı dosyalarının uzantısı.
+
+Ayıklanan cümleler sayısı aynı temel ada sahip iki dosya eşleşmiyorsa, özel Translator hala cümle aligner çalıştıracağı `.align` dosyaları.
+
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>My TMX karşıya çalıştım, ancak "Belge işleme başarısız oldu" diyor.
+
+TMX TMX 1.4b uymasını sağlamak belirtimi, <https://www.gala-global.org/tmx-14b>.

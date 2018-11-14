@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: da9319934068709d5635352fdbd52c3ca6ac49be
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d7dcf27e106f73c828c2c46d4d7180b1f906e4d8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568895"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614863"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -51,7 +51,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 5. İçinde Hyper-V konağınız varsa bir **bağlantısı kesilmiş** belirtin ve ardından kaldırdığınız her Hyper-V konağı üzerinde aşağıdaki betiği çalıştırın. Betik, sunucudaki ayarları temizler ve kasadan kaydını iptal eder.
 
 
-
+```powershell
         pushd .
         try
         {
@@ -112,7 +112,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
                 "Registry keys removed."
             }
 
-            # First retrive all the certificates to be deleted
+            # First retrieve all the certificates to be deleted
             $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
             # Open a cert store object
             $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
@@ -131,7 +131,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
             Write-Host "FAILED" -ForegroundColor "Red"
         }
         popd
-
+```
 
 
 ## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Bir VMware VM veya fiziksel sunucu (Vmware'den azure'a) için korumayı devre dışı bırak
@@ -158,10 +158,12 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
     > Seçerseniz, **Kaldır** sonra aşağıdaki komut kümesini çalıştırmak seçeneği çoğaltma ayarları temizlemek için şirket içi Hyper-V sunucusu.
 1. Sanal makine için çoğaltmayı kaldırmak için kaynak Hyper-V konak sunucusu üzerinde. SQLVM1 sanal makinenizin adıyla değiştirin ve bir yönetici bir PowerShell üzerinden betiği çalıştırın
 
-
-    
-    $vmName = "SQLVM1"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  $replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
+```powershell
+    $vmName = "SQLVM1"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>System Center VMM Azure'a senaryosu kullanarak azure'da çoğaltma bir Hyper-V sanal makine için korumayı devre dışı bırak
 
@@ -179,11 +181,14 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. Yukarıdaki adımları, VMM sunucusundaki çoğaltma ayarlarını temizleyin. Hyper-V konak sunucusunda çalışan sanal makine için çoğaltmayı durdurmak için bu betiği çalıştırın. SQLVM1 Hyper-V konak sunucusu adı sanal makine ve host01.contoso.com adıyla değiştirin.
 
-    
-    $vmName "SQLVM1" = $hostName "host01.contoso.com" $vm = Get-WmiObject - Namespace "root\virtualization\v2" =-sorgu "seçin * Msvm_ComputerSystem gelen burada ElementName '$vmName' =" - computername $hostName $replicationService = Get-WmiObject - Namespace "root\virtualization\v2"-"Seçin * öğesinden Msvm_ReplicationService" - computername $hostName $replicationService.RemoveReplicationRelationship($vm.__PATH) sorgulama
-    
-       
- 
+```powershell
+    $vmName = "SQLVM1"
+    $hostName  = "host01.contoso.com"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
+
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>System Center VMM'vmm senaryosu kullanarak VMM sunucusuna ikincil çoğaltma bir Hyper-V sanal makine için korumayı devre dışı bırak
 
 1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.

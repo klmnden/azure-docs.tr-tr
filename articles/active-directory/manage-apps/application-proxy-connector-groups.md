@@ -2,7 +2,6 @@
 title: Ayrı ağlarda ve Azure AD uygulama proxy'sinde bağlayıcı grupları kullanarak konumlara uygulamaları yayımlama | Microsoft Docs
 description: Azure AD uygulama proxy'sinde bağlayıcı gruplarını oluşturma ve yönetme konusunu kapsar.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364982"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622642"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Ayrı ağlarda ve konumları bağlayıcı grupları kullanarak uygulama yayımlama
 
@@ -86,14 +84,14 @@ Azure AD uygulama ara sunucusu Bağlayıcısı gruplarıyla şirket ağınızda 
 Uygulama Ara sunucusu dağıtan çoğu müşteri, Kerberos Kısıtlı temsilci (KCD) uygulayarak, çoklu oturum açma (SSO) özellikleri kullanıyor. Bunu başarmak için bağlayıcının makinelerin uygulamaya yönelik kullanıcı temsilcileri seçebilir bir etki alanına katılması gerekir. KCD, orman özelliklerini destekler. Ancak, aralarında hiçbir güven ile ayrı çok ormanlı ortamları olan şirketler için tek bir bağlayıcıyı tüm ormanlar için kullanılamaz. 
 
 Bu durumda, özel bağlayıcılar orman dağıtılabilir ve yalnızca belirli söz konusu ormanın kullanıcılara hizmet vermesi için yayımlanan uygulamalar sunmak için ayarlayın. Her bir bağlayıcı grubu farklı bir ormana temsil eder. Tüm ormanlar için birleşik Kiracı ve en iyi deneyimi sırasında Azure AD grupları kullanarak orman uygulamalarını kullanıcılara atanabilir.
- 
+ 
 ### <a name="disaster-recovery-sites"></a>Olağanüstü durum kurtarma sitelerinde
 
 Sitelerinizi nasıl uygulandığını bağlı olarak bir olağanüstü durum kurtarma (DR) site ile yapabileceğiniz iki farklı yaklaşım vardır:
 
 * DR siteniz nerede gibi tam olarak ana site ve aynı ağ ve AD ayarları etkin-etkin modda oluşturulduysa, ana site ile aynı bağlayıcı grubunda DR sitesinde bağlayıcılar oluşturabilirsiniz. Bu, yük devretme işlemleri sizin yerinize algılamak Azure AD sağlar.
 * DR sitenizin ana siteden ayrı, DR sitedeki farklı bağlayıcı grubu oluşturabilirsiniz ve 1) yedekleme uygulamaları sahip olmanız veya 2) el ile gerektiği gibi varolan bir DR bağlayıcı grubu uygulamaya yöneltmektir.
- 
+ 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Tek bir kiracıdan birden çok şirket hizmet
 
 İlgili birden çok şirket Hizmetleri tek hizmet sağlayıcısı dağıtır ve Azure AD tutan bir modeli uygulamak için birçok farklı yolu vardır. Bağlayıcı grupları bağlayıcılar ve uygulamaları farklı gruplar halinde ayırmak yönetici yardımcı olur. Küçük şirketler için uygun olan bir şekilde tek bir Azure AD farklı şirketlerin kendi etki alanı adı ve ağları varken Kiracı sağlamaktır. Bu da tek bir BT bölümü birkaç şirketin yasal veya iş nedenleriyle nerede hizmet M & A senaryoları ve durumlar için geçerlidir. 
@@ -101,7 +99,7 @@ Sitelerinizi nasıl uygulandığını bağlı olarak bir olağanüstü durum kur
 ## <a name="sample-configurations"></a>Örnek yapılandırmaları
 
 Aşağıdaki bağlayıcı grupları uygulayabileceğiniz, örnek olarak verilebilir.
- 
+ 
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Varsayılan yapılandırma – bağlayıcı grupları için herhangi bir kullanıma
 
 Bağlayıcı grupları kullanmazsanız, yapılandırmanızı şöyle görünebilir:
@@ -109,7 +107,7 @@ Bağlayıcı grupları kullanmazsanız, yapılandırmanızı şöyle görünebil
 ![AzureAD bağlayıcı grubu yok](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
 Bu yapılandırma, küçük dağıtımları ve testler için yeterlidir. İyi kuruluşunuzun bir düz ağ topolojisi varsa da çalışır.
- 
+ 
 ### <a name="default-configuration-and-an-isolated-network"></a>Varsayılan yapılandırma ve yalıtılmış ağ
 
 Bu yapılandırma, varsayılan bir Iaas sanal ağ gibi yalıtılmış bir ağda çalışan belirli bir uygulama olduğu bir halidir şöyledir: 
@@ -127,6 +125,6 @@ Aşağıdaki örnekte, iki veri merkezleri, A ve B ile hizmet her site iki bağl
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure AD uygulama ara sunucusu bağlayıcıları anlama](application-proxy-connectors.md)
-* [Çoklu oturum açmayı etkinleştirme](application-proxy-single-sign-on.md)
+* [Çoklu oturum açmayı etkinleştirme](what-is-single-sign-on.md)
 
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471450"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622525"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -45,7 +45,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  yüksek giriş | Hintçe (Hindistan) | Hayır | Evet | Hayır
  İt-IT | İtalyanca (İtalya) | Evet | Evet | Hayır
  ja-JP | Japonca (Japonya) | Hayır | Evet | Hayır
- ko-KR | Korece (Kore) | Hayır | Evet | Hayır
+ ko-KR | Korece (Güney Kore) | Hayır | Evet | Hayır
  NB-yok | Norveççe (Bokmal) (Norveç) | Hayır | Hayır | Hayır
  NL-NL | Hollanda dili (Hollanda) | Hayır | Evet | Hayır
  pl-PL | Lehçe (Polonya) | Hayır | Hayır | Hayır
@@ -56,7 +56,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  zh-CN | Çince (Basitleştirilmiş Mandarin) | Evet | Evet | Hayır
  zh-HK | Çince (Mandarin, Geleneksel) | Hayır | Evet | Hayır
  zh-TW | Çince (Tayvan Mandarin) | Hayır | Evet | Hayır
- TH TH | Tay dili (Tayland) | Hayır | Hayır | Hayır
+ TH TH | Tayca (Tayland) | Hayır | Hayır | Hayır
 
 
 ## <a name="text-to-speech"></a>Metin Okuma
@@ -119,10 +119,10 @@ ID | Endonezya dili| Erkek | "Microsoft Server Konuşma metin konuşma ses (-ID,
 ja-JP | Japonca |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ayumi, Apollo)"
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ichiro, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, HarukaRUS)"
-ko-KR | Kore dili |Kadın | "Microsoft Server Konuşma metin konuşma ses (ko-KR, HeamiRUS)"
+ko-KR | Korece |Kadın | "Microsoft Server Konuşma metin konuşma ses (ko-KR, HeamiRUS)"
 ms-MY | Malay dili | Erkek | "Microsoft Server Konuşma metin okuma ses (ms MY, Rizwan)"
 NB-yok | Norveççe | Kadın | "Microsoft Server Konuşma metin okuma ses (nb-yok, HuldaRUS)"
-NL-NL | Hollanda dili | Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
+NL-NL | Felemenkçe | Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
 pl-PL | Lehçe | Kadın | "Microsoft Server Konuşma metin okuma ses (pl-PL, PaulinaRUS)"
 pt-BR | Portekizce (Brezilya) | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-BR, HeloisaRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (pt-BR, Daniel, Apollo)"
@@ -133,8 +133,8 @@ ru-RU |Rusça| Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, Irina
 | | |Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, EkaterinaRUS)"
 SK-SK | Slovakça|Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
 SL SI | Slovence|Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)"
-sv-SE | İsveç dili|Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
-Veri-ın | Tamil dili (Hindistan) |Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
+sv-SE | İsveççe|Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
+Veri-ın | Tamilce (Hindistan) |Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
 metin-giriş | Telugu dili (Hindistan) |Kadın | "Microsoft Server Konuşma metin konuşma ses (metin-IN, Chitra)"
 TH TH | Tay Dili|Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
 tr-TR |Türkçe| Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)"
@@ -160,7 +160,7 @@ Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca
 
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 
-**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir.
+**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir. Gelen konuşmaya Çevir birden fazla [60 diller](https://www.microsoft.com/translator/business/languages/). Bu dillerin bir alt kümesi için kullanılabilir [konuşma sentezi](language-support.md#text-languages). 
 
 ### <a name="speech-languages"></a>Konuşma dillerini
 
@@ -169,13 +169,13 @@ Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca
 | Arapça (Modern standart)      | `ar` |
 | Çince (Mandarin)      | `zh` |
 | Türkçe      | `en` |
-| Fransızca      | `fr` |
-| Almanca      | `de` |
+| Fransızca       | `fr` |
+| Almanca       | `de` |
 | İtalyanca      | `it` |
 | Japonca      | `jp` |
 | Portekizce (Brezilya)     | `pt` |
 | Rusça      | `ru` |
-| İspanyolca      |  `es` |
+| İspanyolca       |  `es` |
 
 ### <a name="text-languages"></a>Metin dilleri
 
@@ -193,14 +193,14 @@ Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca
 | Hırvatça      | `hr`          |
 | Çekçe      | `cs`          |
 | Danca      | `da`          |
-| Hollanda dili      | `nl`          |
+| Felemenkçe      | `nl`          |
 | Türkçe      | `en`          |
 | Estonca      | `et`          |
 | Fiji Adaları dili      | `fj`          |
 | Filipin dili      | `fil`          |
 | Fince      | `fi`          |
-| Fransızca      | `fr`          |
-| Almanca      | `de`          |
+| Fransızca       | `fr`          |
+| Almanca       | `de`          |
 | Yunanca      | `el`          |
 | Haiti Kreyolu      | `ht`          |
 | İbranice      | `he`          |
@@ -213,7 +213,7 @@ Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca
 | Svahili dili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
-| Kore dili      | `ko`          |
+| Korece      | `ko`          |
 | Letonca      | `lv`          |
 | Litvanca      | `lt`          |
 | Malgaşça      | `mg`          |
@@ -231,8 +231,8 @@ Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca      | `es`          |
-| İsveç dili      | `sv`          |
+| İspanyolca       | `es`          |
+| İsveççe      | `sv`          |
 | Tahitian      | `ty`          |
 | Tamil dili      | `ta`          |
 | Tay Dili      | `th`          |

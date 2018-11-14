@@ -8,65 +8,64 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: alinast
-ms.openlocfilehash: 9b861f0991b11637c7b27b645d4506e658ea53b3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324382"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615356"
 ---
 # <a name="routing-events-and-messages"></a>Yönlendirme olayları ve iletileri
 
-IOT çözümleri, depolama, analiz ve daha fazlası dahil olmak üzere çeşitli güçlü Hizmetleri genellikle birleştiren. Bu makalede, Azure dijital İkizlerini uygulamaları daha ayrıntılı Öngörüler ve İşlevler zenginleştirmek için Azure depolama analizi ve yapay ZEKA hizmetlerine bağlanmak açıklar.
+IOT çözümleri, depolama, analiz ve daha fazlasını içeren çeşitli güçlü Hizmetleri genellikle birleştiren. Bu makalede, Azure dijital İkizlerini uygulamaları daha ayrıntılı Öngörüler ve İşlevler sağlamak için Azure depolama analizi ve yapay ZEKA hizmetlerine bağlanmak açıklar.
 
-## <a name="route-types"></a>Yol türü
+## <a name="route-types"></a>Yol türü  
 
-Dijital çiftleri, IOT olayları diğer Azure Hizmetleri veya iş uygulamalarınızla tümleştirmek için iki yol sunar:
+Azure dijital çiftleri, IOT olayları diğer Azure Hizmetleri veya iş uygulamalarınızla tümleştirmek için iki yol sunar:
 
-* **Yönlendirme dijital İkizlerini olayları**: Azure dijital İkizlerini olayları tetiklenen telemetri verilerini alındığında veya kullanıcı tanımlı işlev, uzamsal grafiği değişiklikleri bir nesne oluşturur, önceden tanımlanmış koşullara göre bir bildirim. Kullanıcılara bu olayları gönderme [Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Service Bus konu başlıklarını](https://azure.microsoft.com/services/service-bus/), veya [olay Kılavuzlar](https://azure.microsoft.com/services/event-grid/) daha fazla işleme için.
+* **Azure dijital İkizlerini olaylarını yönlendirme**: bir nesneyi uzamsal graf alındığında, telemetri verilerini bu değişiklikleri veya önceden tanımlanmış koşullara göre bir uyarı oluşturan bir kullanıcı tanımlı işlev Azure dijital İkizlerini olayları tetikleyebilir. Kullanıcılara bu olayları gönderme [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus konu başlıklarını](https://azure.microsoft.com/services/service-bus/), veya [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) daha fazla işleme için.
 
-* **Yönlendirme cihaz telemetrisi**: Yönlendirme olaylarına ilaveten, Azure dijital İkizlerini aynı zamanda ham cihaz telemetri iletilerini Event Hubs'a daha fazla öngörü ve analizler için yönlendirebilirsiniz. Bu tür iletileri dijital İkizlerini tarafından işlenen değildir ve bunlar yalnızca iletilir **olay hub'ı**.
+* **Yönlendirme cihaz telemetrisi**: Yönlendirme olaylarına ilaveten, Azure dijital İkizlerini aynı zamanda ham cihaz telemetri iletilerini Event Hubs'a daha fazla öngörü ve analizler için yönlendirebilirsiniz. Bu tür iletileri Azure dijital İkizlerini tarafından işlenen değil. Ve olay hub'ına yalnızca iletilen.
 
-Kullanıcılar, olayları veya iletme iletileri göndermek için bir veya daha fazla çıkış uç noktası belirtebilir. Olayları ve iletileri bu önceden tanımlanmış yönlendirme tercihlerini göre uç noktalarına gönderilir. Diğer bir deyişle, kullanıcılar, grafik işlem olaylarını almak için belirli bir uç nokta başka bir cihaz telemetri olaylarını almak ve benzeri belirtebilirsiniz.
+Kullanıcılar, olayları veya iletme iletileri göndermek için bir veya daha fazla çıkış uç noktası belirtebilir. Olayları ve iletileri bu önceden tanımlanmış yönlendirme tercihlerini göre uç noktalarına gönderilir. Diğer bir deyişle, kullanıcılar, grafik işlem olaylarını almak için bir belirli uç noktasına başka bir cihaz telemetri olaylarını almak ve benzeri belirtebilir.
 
-![Dijital İkizlerini olaylarını yönlendirme][1]
+![Azure dijital İkizlerini olaylarını yönlendirme][1]
 
-Yönlendirme **Event Hubs** siparişin hangi telemetriyi iletileri gönderilir, böylece özgün alındıkları gibi aynı sıradaki uç noktasında ulaştıkları korur. **Event Grid** ve **Service Bus** uç noktalar aynı sırada, gerçekleşen olayları alacaksınız garanti etmez. Ancak, olay şeması uç noktasında olayları geldikten sonra sırasını belirlemek için kullanılan bir zaman damgası içerir.
+Event Hubs için üretim telemetri iletilerini gönderilme sırasını korur. Bu nedenle başlangıçta alındıkları gibi aynı sıradaki uç noktasında gelen. Event Grid ve Service Bus uç noktaları aynı sırada, gerçekleşen olayları alacaksınız garanti etmez. Ancak, olay şeması uç noktasında olayları geldikten sonra sırasını belirlemek için kullanılan bir zaman damgası içerir.
 
 ## <a name="route-implementation"></a>Rota uygulaması
 
 Azure dijital İkizlerini hizmeti şu anda aşağıdaki desteklemektedir **EndpointTypes**:
 
-* **EventHub**: olay hub'ı bağlantı dizesi uç noktadır.
-* **ServiceBus**: Service Bus bağlantı dizesi uç noktadır.
-* **EventGrid**: Event Grid bağlantı dizesi uç noktadır.
+* **EventHub** Event Hubs bağlantı dizesi uç noktadır.
+* **ServiceBus** Service Bus bağlantı dizesi uç noktadır.
+* **EventGrid** Event Grid bağlantı dizesi uç noktadır.
 
 Azure dijital İkizlerini şu anda aşağıdaki destekler **EventTypes** seçilen uç noktasına gönderilir:
 
-* **DeviceMessages**: telemetri iletilerini kullanıcıların cihazlarından gönderilir ve sistem tarafından iletilir.
-* **TopologyOperation**: grafik veya graf meta verileri değiştirme işlemleri. Örneğin, ekleme veya silme gibi bir alan bir varlık.
-* **SpaceChange**: olan bir alana ait değişiklikleri hesaplanan değer sonucunda bir cihaz telemetri iletisi.
-* **SensorChange**: olan bir algılayıcının değişiklikleri hesaplanan bir cihaz telemetrisi ileti sonucu olarak değer.
-* **UdfCustom**: kullanıcı tanımlı bir işlevden özel bildirimleri.
+* **DeviceMessages** telemetri iletilerini kullanıcıların cihazlarından gönderilir ve sistem tarafından iletilir.
+* **TopologyOperation** grafik veya graf meta verileri değiştiren bir işlemdir. Bir örnek ekleme veya bir boşluk gibi bir varlık siliniyor.
+* **SpaceChange** gelen cihaz telemetrisi iletiyi sonuçları hesaplanan değeri boşlukla ait bir değişikliktir.
+* **SensorChange** gelen cihaz telemetrisi iletiyi sonuçları bir algılayıcının hesaplanan değeri bir değişikliktir.
+* **UdfCustom** kullanıcı tanımlı bir işlevden bir özel bildirimidir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tüm **EndpointTypes** tüm destek **EventTypes**.
-> Aşağıdaki tabloya bakın **EventTypes** izin verilen her biri için **EndpointType**.
+> İçin aşağıdaki tabloya bakın **EventTypes** izin verilen her biri için **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
-| **eventHub**|     X          |         X         |     X       |      X       |   X       |
-| **ServiceBus**|              |         X         |     X       |      X       |   X       |
-| **EventGrid**|               |         X         |     X       |      X       |   X       |
+| EventHub|     X          |         X         |     X       |      X       |   X       |
+| ServiceBus|              |         X         |     X       |      X       |   X       |
+| EventGrid|               |         X         |     X       |      X       |   X       |
 
->[!NOTE]
->Uç noktaları ve olay ' şema örnekleri oluşturma hakkında daha fazla ayrıntı için lütfen bkz [uç noktaları ve çıkış](how-to-egress-endpoints.md).
+>[!NOTE]  
+>Uç noktaları ve olay ' şema örnekleri nasıl oluşturulacağı hakkında daha fazla bilgi için bkz. [çıkış ve uç noktaları](how-to-egress-endpoints.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Genel Önizleme sınırları hakkında bilgi edinmek için [Azure dijital İkizlerini Önizleme sınırları](concepts-service-limits.md).
-
-Bir Azure dijital İkizlerini örnek denemek için okuma [kullanılabilir odaları bulmak için Hızlı Başlangıç](quickstart-view-occupancy-dotnet.md).
+- Önizleme sınırları Azure dijital İkizleri hakkında bilgi edinmek için [genel Önizleme hizmet sınırları](concepts-service-limits.md).
+- Bir Azure dijital İkizlerini örnek denemek için bkz [kullanılabilir odaları bulmak için Hızlı Başlangıç](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-events-routing.png

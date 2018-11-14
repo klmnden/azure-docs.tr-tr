@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6050771ee1d129edd4370079c07da721f60d2065
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008343"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613554"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı'ndan Nagios ve Zabbix'ten Log analytics'te uyarıları Topla 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
  
 ## <a name="prerequisites"></a>Önkoşullar
 Linux için Log Analytics aracısını sürümüne Nagios toplama uyarıları destekleyen 4.2.x ve Zabbix sürümüne 2.x.
@@ -118,5 +118,5 @@ Zabbix tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) Log analytics'te.
+* Hakkında bilgi edinin [uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) Log analytics'te.
 * Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

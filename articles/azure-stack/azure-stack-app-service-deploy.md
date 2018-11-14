@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166891"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614064"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166891"
 Azure Stack'te App Service'e dağıtım yapmak, bu makaledeki yönergeleri kullanın.
 
 > [!IMPORTANT]  
-> Azure Stack tümleşik sisteminize 1807 güncelleştirmeyi veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
+> Azure Stack tümleşik sisteminize 1809 güncelleştirmeyi veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
 
 Kullanıcılarınız, web ve API uygulamaları oluşturma olanağı verebilirsiniz. Kullanıcıların bu uygulamaları oluşturmak için gerekir:
 
@@ -74,8 +74,8 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
    b. İçinde **Azure Stack aboneliklerini**seçin **varsayılan sağlayıcı aboneliği**.
 
-     >[!NOTE]
-     >Şu anda, App Service yalnızca dağıtılabilir **varsayılan sağlayıcı aboneliği**.
+     > [!IMPORTANT]  
+     > App Service **gerekir** dağıtılacağını **varsayılan sağlayıcı aboneliği**.
 
    c. İçinde **Azure Stack konumları**, için dağıtmakta bölgesine karşılık gelen konum seçin. Örneğin, **yerel** , Azure Stack Geliştirme Seti için dağıtma.
 
@@ -198,7 +198,7 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
 1. Azure Stack Yönetim Portalı'nda Git **yönetim - App Service**.
 
-2. Genel bakış sayfasında durumu altında denetleyin **durumu** gösterir **tüm roller hazır**.
+2. Durumu altında genel bakış, görmek için iade **durumu** görüntüler **tüm roller hazır**.
 
     ![App Service Yönetimi](media/azure-stack-app-service-deploy/image12.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914337"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625309"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -27,7 +27,7 @@ Bir Azure dosya eşitleme dağıtımı planlama ayrıntılarını almadan önce 
 Depolama eşitleme hizmeti Azure dosya eşitleme için üst düzey Azure kaynağıdır. Depolama eşitleme hizmeti kaynak depolama hesabı kaynağı eşdüzeyde ve Azure kaynak grupları için benzer şekilde dağıtılabilir. Depolama hesabı kaynağı farklı bir üst düzey kaynaktan gerekir çünkü depolama eşitleme hizmeti birden çok eşitleme grupları aracılığıyla birden fazla depolama hesabı ile eşitleme ilişkisi oluşturabilirsiniz. Bir abonelikte dağıtılmış birden çok depolama eşitleme hizmeti kaynakları olabilir.
 
 ### <a name="sync-group"></a>Eşitleme grubu
-Eşitleme grubu, bir dosya kümesi için eşitleme topolojisini tanımlar. Bir eşitleme grubu içindeki uç noktalar birbiriyle eşitlenmiş olarak tutulur. Örneğin, iki ayrı Azure dosya eşitleme ile yönetmek istediğiniz dosyaları kümesi varsa, iki eşitleme grubu oluşturma ve farklı uç noktaları her eşitleme grubuna ekleyin. Depolama eşitleme hizmeti, ihtiyacınız kadar eşitleme grupları barındırabilirsiniz.  
+Eşitleme grubu, bir dosya kümesi için eşitleme topolojisini tanımlar. Bir eşitleme grubu içindeki uç noktaları birbiriyle eşitlenir. Örneğin, iki ayrı Azure dosya eşitleme ile yönetmek istediğiniz dosyaları kümesi varsa, iki eşitleme grubu oluşturma ve farklı uç noktaları her eşitleme grubuna ekleyin. Depolama eşitleme hizmeti, ihtiyacınız kadar eşitleme grupları barındırabilirsiniz.  
 
 ### <a name="registered-server"></a>Kayıtlı sunucu
 Sunucu (veya küme) arasında bir güven ilişkisi kayıtlı sunucu nesnesini temsil eder ve depolama eşitleme hizmeti. Depolama eşitleme hizmeti örneğine istediğiniz sayıda sunucusu kaydedebilirsiniz. Ancak, bir sunucu (veya küme) aynı anda yalnızca bir depolama eşitleme hizmeti ile kaydedilebilir.
@@ -191,19 +191,9 @@ Sysprep kullanarak Azure dosya eşitleme aracısının yüklü olduğu bir sunuc
 Bulut katmanlaması bir sunucu uç noktasında etkinleştirildiğinde, katmanlı halde bulunan dosyaları atlandı ve tarafından Windows Search dizin değil. Düzgün olmayan katmanlı dosyaları dizine eklenir.
 
 ### <a name="antivirus-solutions"></a>Virüsten koruma çözümleri
-Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma çalıştığı için bir virüsten koruma ürününüzün katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Katmanlı dosyaların "Çevrimdışı" özniteliği olmadığından, çevrimdışı dosyaları okuma atlamak için çözümün nasıl yapılandırılacağını öğrenmek için yazılım satıcınıza danışmanlık öneririz. 
+Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma çalıştığı için bir virüsten koruma ürününüzün katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Sürümlerinde 4.0 ve Azure dosya eşitleme aracısının, yukarıda güvenli Windows öznitelik FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS kümesi katmanlı dosyalar sahip. Bu öznitelik kümesi (çoğu otomatik olarak bunu) okuma dosyalarıyla atlamak için çözümün nasıl yapılandırılacağını öğrenmek için yazılım satıcınıza danışmanlık öneririz.
 
-Çevrimdışı dosyalar atlanıyor desteklemek için aşağıdaki çözümleri bilinmektedir:
-
-- [Windows Defender'ı](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender Çevrimdışı özniteliği ayarlanmış okuma dosyaları otomatik olarak atlar. Biz Defender test ve küçük bir sorun belirledik: var olan bir eşitleme grubuna bir sunucu eklediğinizde, 800 bayt (yeni sunucuda indirilen) çekilir küçük dosyaları. Bu dosyalar yeni sunucuda kalır ve katmanlama boyut gereksinimini karşılamayan beri katmanlanmış olmaz değil (> 64kb).
-- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - SCEP Defender çalışır; yukarıya bakın
-- [Symantec uç nokta koruması](https://support.symantec.com/en_US/article.tech173752.html)
-- [McAfee uç nokta güvenliği](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) ("Tarama yalnızca gerekenler" PDF 90 sayfasında bakın)
-- [Kaspersky virüsten koruma](https://support.kaspersky.com/4684)
-- [Sophos uç nokta koruması](https://community.sophos.com/kb/en-us/40102)
-- [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
+Microsoft'un şirket içi virüsten koruma çözümleri, Windows Defender ve System Center Endpoint Protection (SCEP) hem de otomatik olarak ayarlanmış bu özniteliğe sahip okuma dosyaları atla. Biz bunları test ve küçük bir sorun belirledik: var olan bir eşitleme grubuna bir sunucu eklediğinizde, 800 bayt (yeni sunucuda indirilen) çekilir küçük dosyaları. Bu dosyalar yeni sunucuda kalır ve katmanlama boyut gereksinimini karşılamayan beri katmanlanmış olmaz değil (> 64kb).
 
 ### <a name="backup-solutions"></a>Yedekleme çözümleri
 Virüsten koruma çözümleri gibi yedekleme çözümleri, katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Bulut yedekleme çözümü yerine şirket içi yedekleme ürün Azure dosya paylaşımını yedekleme kullanmanızı öneririz.

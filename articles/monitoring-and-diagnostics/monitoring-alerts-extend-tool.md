@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957430"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614965"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
 Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
@@ -479,5 +479,5 @@ Her hata için düzeltme adımları şunlardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yeni hakkında daha fazla bilgi [Azure Uyarıları'deneyimi](monitoring-overview-unified-alerts.md).
+* Yeni hakkında daha fazla bilgi [Azure Uyarıları'deneyimi](monitoring-overview-alerts.md).
 * Hakkında bilgi edinin [uyarılar Azure Uyarıları'nda oturum](monitor-alerts-unified-log.md).

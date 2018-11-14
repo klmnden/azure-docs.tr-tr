@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9b6fd9a1eb9e5b27f62507e58f9b1a85caa92dea
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283384"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625428"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
-Bu makalede, Azure sanal makinelerinizin işletim sistemi durumunu izleyin ve keşfedin ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme VM'ler için Azure İzleyici'kurmak açıklar.  
+Bu makalede, Azure bulma gibi ve uygulama bağımlılıklarını eşleyerek İzleyicisi sanal makinelerin Azure sanal makineler ve sanal makine ölçek kümeleri ve sanal makineler, ortamınızda işletim sistem durumunu izlemek ayarlama işlemi açıklanmaktadır bunlar üzerinde barındırılabilir.  
 
 VM'ler için Azure İzleyicisi'ni etkinleştirmek aşağıdaki yöntemlerden birini kullanarak elde edilir ve her yöntemle ilgili ayrıntılar, makalenin sonraki bölümlerinde sağlanır.  
 
@@ -50,16 +50,12 @@ Bir Log Analytics çalışma alanında aşağıdaki bölgeler şu anda desteklen
 
 Bir çalışma alanı yoksa, üzerinden oluşturabilirsiniz [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md)temellidir [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md), veya [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Azure portalında tek bir Azure VM için izleme etkinleştirirseniz, bu işlem sırasında bir çalışma alanı oluşturma seçeneğiniz vardır.  
 
-Çözümü etkinleştirmek için Log Analytics katkıda bulunan rolünün bir üyesi olmanız gerekir. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md).
-
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-
 Çözümü etkinleştirme ölçekte senaryo ilk Log Analytics çalışma alanınızda aşağıdaki yapılandırma gerektirir:
 
-* Yükleme **ServiceMap** ve **InfrastructureInsights** çözümleri
-* Performans sayaçları toplamak için Log Analytics çalışma alanını yapılandırma
+* Yükleme **ServiceMap** ve **InfrastructureInsights** çözümler. Bu, bu makalede sağlanan bir Azure Resource Manager şablonu kullanarak yalnızca gerçekleştirilebilir.   
+* Performans sayaçları toplamak için Log Analytics çalışma alanı yapılandırın.
 
-Çalışma alanınız bu senaryo için yapılandırmak üzere bkz [Kurulum Log Analytics çalışma alanı](#setup-log-analytics-workspace).
+Çalışma alanınız için yapılandırmak için ölçek senaryo ' bkz [Kurulum Log Analytics çalışma alanı için ölçek dağıtım sırasında](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
@@ -148,20 +144,16 @@ Aşağıdaki tabloda, VM'ler için Azure İzleyici ile desteklenen Windows ve Li
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
 
-### <a name="hybrid-environment-connected-sources"></a>Hibrit ortamı bağlı kaynakları
-Azure İzleyici Vm'leri harita verilerini Microsoft Dependency Aracıdan alır. Log Analytics bağlantısı Log Analytics ve bu nedenle, bir sistem için bir aracı yüklenmiş ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olmalıdır bağımlılık Aracısı'nı kullanır. Aşağıdaki tabloda, karma bir ortamda, eşleme özelliğini destekleyen bağlı kaynaklar açıklanmaktadır.
+### <a name="microsoft-dependency-agent"></a>Microsoft Dependency aracı
+Azure İzleyici Vm'leri harita verilerini Microsoft Dependency Aracıdan alır. Log Analytics bağlantısı Log Analytics ve bu nedenle, bir sistem için bir aracı yüklenmiş ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olmalıdır bağımlılık Aracısı'nı kullanır. Etkinleştirdiğinizde Azure İzleyici VM'ler için tek bir Azure VM için veya yöntemlerini kullanırken ölçek dağıtım sırasında bu ekleme deneyimi bir parçası olarak aracıyı yüklemek için Azure VM bağımlılık aracı uzantısı kullanılır. Karma bir ortamınız ile bağımlılık aracısını indirilir ve el ile yüklenir veya bu sanal makineler için bir otomatik dağıtım yöntemi kullanarak Azure dışında barındırılabilir.  
+
+Aşağıdaki tabloda, karma bir ortamda, eşleme özelliğini destekleyen bağlı kaynaklar açıklanmaktadır.
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Ek olarak [Windows için Log Analytics aracısını](../log-analytics/log-analytics-concept-hybrid.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
-| Linux aracıları | Evet | Ek olarak [Linux için Log Analytics aracısını](../log-analytics/log-analytics-concept-hybrid.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Windows aracıları | Evet | Ek olarak [Windows için Log Analytics aracısını](../log-analytics/log-analytics-agent-overview.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Linux aracıları | Evet | Ek olarak [Linux için Log Analytics aracısını](../log-analytics/log-analytics-agent-overview.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
 | System Center Operations Manager yönetim grubu | Hayır | |  
-
-Windows üzerinde Microsoft Monitoring Agent (MMA) hem System Center Operations Manager hem de Log Analytics tarafından toplayın ve göndermek için kullanılan izleme verileri. System Center Operations Manager ve Log Analytics Aracısı'nın farklı çıkış-hazır sürümlerini sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.  
-
-Linux üzerinde Log Analytics aracısını Linux toplar ve izleme verilerini Log analytics'e gönderir.   
-
-Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamıyor, OMS ağ geçidi kullanarak Log Analytics'e bağlanmak için Log Analytics aracısını yapılandırmanız gerekir. OMS ağ geçidi yapılandırmak ve dağıtmak hakkında daha fazla bilgi için bkz. [OMS ağ geçidi kullanarak Internet erişimi bilgisayarları bağlama](../log-analytics/log-analytics-oms-gateway.md).  
 
 Bağımlılık Aracısı'nı şu konumdan indirilebilir.
 
@@ -170,63 +162,23 @@ Bağımlılık Aracısı'nı şu konumdan indirilebilir.
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
-## <a name="diagnostic-and-usage-data"></a>Tanılama ve kullanım verileri
-Microsoft, Azure İzleyici hizmeti kullanımınız vasıtasıyla kullanım ve performans verilerini otomatik olarak toplar. Microsoft, kalite, güvenlik ve bütünlüğünü hizmeti geliştirmek için bu verileri kullanır. Doğru ve etkili sorun giderme özellikleri sağlamak üzere eşleme özelliğini verilerden işletim sistemi ve sürümü, IP adresi, DNS adı ve iş istasyonu adı gibi yazılımınızın yapılandırması hakkında bilgiler içerir. Microsoft, ad, adres veya diğer iletişim bilgilerinizi toplamaz.
+## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
+Aşağıdaki erişim ve VM'ler için Azure İzleyici özelliklerinde erişim etkinleştirmek için kullanıcılarınıza verilmesi gerekir.  
+  
+- Çözümü etkinleştirmek için Log Analytics katkıda bulunan rolü üyesi olarak eklenmesi gerekir.  
 
-Veri toplama ve kullanım hakkında daha fazla bilgi için bkz: [Microsoft Online Services gizlilik bildirimi](https://go.microsoft.com/fwlink/?LinkId=512132).
+- Performans sistem durumu, görüntüleme ve harita verileri için eklenen izleme okuyucu rolünün bir üyesi Azure VM ve VM'ler için Azure İzleyici ile yapılandırılmış Log Analytics çalışma alanı için gerekir.   
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
-## <a name="performance-counters-enabled"></a>Performans sayaçları etkinleştirildi
-VM'ler için Azure İzleyici, bir çözüm tarafından kullanılan performans sayaçları toplamak için Log Analytics çalışma alanı yapılandırır.  Aşağıdaki tabloda, 60 saniyede toplanan çözüm tarafından yapılandırılan sayaçlarını ve nesneleri listeler.
-
-### <a name="windows-performance-counters"></a>Windows performans sayaçları
-
-|Nesne adı |Sayaç adı |  
-|------------|-------------|  
-|MantıksalDisk |% Boş alan |  
-|MantıksalDisk |Ort. Disk sn/Okuma |  
-|MantıksalDisk |Ort. Disk sn/Aktarım |  
-|MantıksalDisk |Ort. Disk sn/yazma |  
-|MantıksalDisk |Disk Bayt/sn |  
-|MantıksalDisk |Disk Okuma Bayt/sn |  
-|MantıksalDisk |Disk Okuma/sn |  
-|MantıksalDisk |Disk aktarımı/sn |  
-|MantıksalDisk |Disk Yazma Bayt/sn |  
-|MantıksalDisk |Disk Yazma/sn |  
-|MantıksalDisk |Boş megabayt |  
-|Bellek |Kullanılabilir MBayt |  
-|Ağ bağdaştırıcısı |Alınan Bayt/sn |  
-|Ağ bağdaştırıcısı |Gönderilen bayt/sn |  
-|İşlemci |% İşlemci zamanı |  
-
-### <a name="linux-performance-counters"></a>Linux performans sayaçları
-
-|Nesne adı |Sayaç adı |  
-|------------|-------------|  
-|Mantıksal Disk |% Kullanılan alan |  
-|Mantıksal Disk |Disk Okuma Bayt/sn |  
-|Mantıksal Disk |Disk Okuma/sn |  
-|Mantıksal Disk |Disk aktarımı/sn |  
-|Mantıksal Disk |Disk Yazma Bayt/sn |  
-|Mantıksal Disk |Disk Yazma/sn |  
-|Mantıksal Disk |Boş megabayt |  
-|Mantıksal Disk |Mantıksal Disk Bayt/sn |  
-|Bellek |Kullanılabilir MBayt belleği |  
-|Ağ |Alınan toplam bayt sayısı |  
-|Ağ |Aktarılan toplam bayt |  
-|İşlemci |% İşlemci zamanı |  
-
-## <a name="sign-in-to-azure-portal"></a>Azure portalda oturum açın
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
+Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Azure portalından etkinleştirme
 Azure portalında Azure sanal makinenizin izlemeyi etkinleştirmek için aşağıdakileri yapın:
 
-1. Azure portalında **sanal makineler**. 
-2. Listeden bir VM seçin. 
-3. VM sayfasında içinde **izleme** bölümünden **Insights (Önizleme)**.
-4. Üzerinde **Insights (Önizleme)** sayfasında **şimdi deneyin**.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
+2. Azure portalında **sanal makineler**. 
+3. Listeden bir VM seçin. 
+4. VM sayfasında içinde **izleme** bölümünden **Insights (Önizleme)**.
+5. Üzerinde **Insights (Önizleme)** sayfasında **şimdi deneyin**.
 
     ![Bir VM için sanal makineler için Azure İzleyici etkinleştir](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
@@ -241,7 +193,13 @@ Azure portalında Azure sanal makinenizin izlemeyi etkinleştirmek için aşağ�
 
 
 ## <a name="on-boarding-at-scale"></a>Kolaylaşmasına uygun ölçekte
-Bu bölümde yönergelerinde gerçekleştirmek için Azure İzleyici ya da Azure İlkesi kullanarak bir VM için veya Azure PowerShell ile ölçek dağıtım sırasında.  Gereken ilk adım, Log Analytics çalışma alanınızın yapılandırmaktır.  
+Bu bölümde yönergelerinde gerçekleştirmek için Azure İzleyici ya da Azure İlkesi kullanarak bir VM için veya Azure PowerShell ile ölçek dağıtım sırasında.  
+
+Özetlenen, sanal makinelerinizi ekleme ile devam etmeden önce Log Analytics çalışma alanınızın önceden yapılandırmak için gerçekleştirmeniz gereken adımlar yer almaktadır.
+
+1. Yeni bir tane zaten, mevcut değilse çalışma alanı, VM'ler için Azure İzleyici desteklemek için kullanılabilir. Gözden geçirme [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) devam etmeden önce maliyeti, yönetim ve uyumluluk konuları anlamak için yeni bir çalışma alanı oluşturmadan önce.       
+2. Çalışma alanı koleksiyonu Linux ve Windows Vm'leri için performans sayaçları sağlar.
+3. Yükleme ve etkinleştirme **ServiceMap** ve **InfrastructureInsights** çalışma alanınızda çözümün.  
 
 ### <a name="setup-log-analytics-workspace"></a>Log Analytics çalışma alanı Kurulumu
 Bir Log Analytics çalışma alanı yoksa, altında önerilen yöntemi inceleyin [önkoşulları](#log-analytics) bölümü oluşturun.  
@@ -337,7 +295,7 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
     ```
 
 ### <a name="enable-using-azure-policy"></a>Azure İlkesi'ni kullanarak etkinleştirme
-Tutarlı uyumluluk ve sağlanan, yeni sanal makineler için Otomatik etkinleştirme sağlar ölçekte VM'ler için Azure İzleyicisi'ni etkinleştirmek için [Azure İlkesi](../governance/policy/overview.md) önerilir. Bu ilkeler:
+Tutarlı uyumluluk ve sağlanan, yeni sanal makineler için Otomatik etkinleştirme sağlar ölçekte VM'ler için Azure İzleyicisi'ni etkinleştirmek için [Azure İlkesi](../azure-policy/azure-policy-introduction.md) önerilir. Bu ilkeler:
 
 * Log Analytics aracısını ve bağımlılık aracısını dağıtma 
 * Uyumluluk sonuçları raporu 
@@ -575,12 +533,14 @@ Bu bölümde, nasıl sanal makine veya fiziksel bilgisayarlar veri merkezinizi v
 
 Azure İzleyici Vm'leri harita bağımlılık aracısı için tüm veriler aktarmaz ve güvenlik duvarları ya da bağlantı noktalarını herhangi bir değişiklik gerektirmez. Harita verileri her zaman doğrudan Azure İzleyici'hizmetine veya üzerinden Log Analytics aracısını tarafından aktarılan [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa.
 
-Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../log-analytics/log-analytics-concept-hybrid.md).
+Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../log-analytics/log-analytics-agent-overview.md).  
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 Özetlenen adımları:
 
 1. Windows veya Linux için log Analytics aracısını yükleme
-2. Azure İzleyici için Vm'leri harita bağımlılık aracısını yükleme
+2. Azure İzleyici için Vm'leri harita bağımlılık aracısını yükleyebilir ve indirme [Windows](https://aka.ms/dependencyagentwindows) veya [Linux](https://aka.ms/dependencyagentlinux).
 3. Performans sayaçlarını toplamayı etkinleştir
 4. Sanal makineler için yerleşik Azure izleme
 
@@ -723,6 +683,52 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
     ```
 İzleme etkinleştirdikten sonra sistem durumunu ve karma bilgisayar için ölçümleri görmeden önce yaklaşık 10 dakika sürebilir. 
 
+## <a name="performance-counters-enabled"></a>Performans sayaçları etkinleştirildi
+VM'ler için Azure İzleyici, bir çözüm tarafından kullanılan performans sayaçları toplamak için Log Analytics çalışma alanı yapılandırır.  Aşağıdaki tabloda, 60 saniyede toplanan çözüm tarafından yapılandırılan sayaçlarını ve nesneleri listeler.
+
+### <a name="windows-performance-counters"></a>Windows performans sayaçları
+
+|Nesne adı |Sayaç adı |  
+|------------|-------------|  
+|MantıksalDisk |% Boş alan |  
+|MantıksalDisk |Ort. Disk sn/Okuma |  
+|MantıksalDisk |Ort. Disk sn/Aktarım |  
+|MantıksalDisk |Ort. Disk sn/yazma |  
+|MantıksalDisk |Disk Bayt/sn |  
+|MantıksalDisk |Disk Okuma Bayt/sn |  
+|MantıksalDisk |Disk Okuma/sn |  
+|MantıksalDisk |Disk aktarımı/sn |  
+|MantıksalDisk |Disk Yazma Bayt/sn |  
+|MantıksalDisk |Disk Yazma/sn |  
+|MantıksalDisk |Boş megabayt |  
+|Bellek |Kullanılabilir MBayt |  
+|Ağ bağdaştırıcısı |Alınan Bayt/sn |  
+|Ağ bağdaştırıcısı |Gönderilen bayt/sn |  
+|İşlemci |% İşlemci zamanı |  
+
+### <a name="linux-performance-counters"></a>Linux performans sayaçları
+
+|Nesne adı |Sayaç adı |  
+|------------|-------------|  
+|Mantıksal Disk |% Kullanılan alan |  
+|Mantıksal Disk |Disk Okuma Bayt/sn |  
+|Mantıksal Disk |Disk Okuma/sn |  
+|Mantıksal Disk |Disk aktarımı/sn |  
+|Mantıksal Disk |Disk Yazma Bayt/sn |  
+|Mantıksal Disk |Disk Yazma/sn |  
+|Mantıksal Disk |Boş megabayt |  
+|Mantıksal Disk |Mantıksal Disk Bayt/sn |  
+|Bellek |Kullanılabilir MBayt belleği |  
+|Ağ |Alınan toplam bayt sayısı |  
+|Ağ |Aktarılan toplam bayt |  
+|İşlemci |% İşlemci zamanı |  
+
+## <a name="diagnostic-and-usage-data"></a>Tanılama ve kullanım verileri
+Microsoft, Azure İzleyici hizmeti kullanımınız vasıtasıyla kullanım ve performans verilerini otomatik olarak toplar. Microsoft, kalite, güvenlik ve bütünlüğünü hizmeti geliştirmek için bu verileri kullanır. Doğru ve etkili sorun giderme özellikleri sağlamak üzere eşleme özelliğini verilerden işletim sistemi ve sürümü, IP adresi, DNS adı ve iş istasyonu adı gibi yazılımınızın yapılandırması hakkında bilgiler içerir. Microsoft, ad, adres veya diğer iletişim bilgilerinizi toplamaz.
+
+Veri toplama ve kullanım hakkında daha fazla bilgi için bkz: [Microsoft Online Services gizlilik bildirimi](https://go.microsoft.com/fwlink/?LinkId=512132).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Sanal makineniz için etkin izleme ile bu bilgileri analiz için sanal makineler için Azure İzleyici ile kullanılabilir.  Sistem durumu özelliği kullanmayı öğrenmek için bkz [görünümü VM sistem durumu için Azure İzleyici](monitoring-vminsights-health.md), veya bulunan Uygulama bağımlılıklarını görüntülemek için bkz. [Vm'leri harita görünümü Azure İzleyici](monitoring-vminsights-maps.md).  

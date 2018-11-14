@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cd0ee37643e92ba37a9b14408b85a3437fb40d38
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: fd00fb8da3cf36518f9e28e827e59fd7ff45d687
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269318"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622219"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği için temsilci davetleri
 
@@ -31,6 +31,8 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 ```
 
 ## <a name="control-who-can-invite"></a>Davet edebilir denetimi
+
+Azure Active Directory'ye gidin > Kullanıcı Ayarları > Dış işbirliği ayarlarını yönetin
 
 ![externalusers](https://user-images.githubusercontent.com/13383753/45905128-2c47f680-bda4-11e8-955d-6219c67935e0.PNG)
 

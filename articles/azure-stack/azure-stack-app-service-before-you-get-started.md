@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240877"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615883"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -28,7 +28,7 @@ ms.locfileid: "50240877"
 Azure Stack'te Azure App Service'ı dağıtmadan önce bu makalede bölümündeki önkoşul adımlarını tamamlamanız gerekir.
 
 > [!IMPORTANT]
-> Azure Stack tümleşik sisteminize 1807 güncelleştirmeyi veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
+> Azure Stack tümleşik sisteminize 1809 güncelleştirmeyi veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Yükleyici ve yardımcı betikleri indirin
 
@@ -44,6 +44,10 @@ Azure Stack'te Azure App Service'ı dağıtmadan önce bu makalede bölümündek
    - Remove-AppService.ps1
    - Modülleri klasöründe
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Marketten özel betik uzantısı entegratörlerine dağıtın
+
+Azure Stack'te Azure App Service özel betik uzantısı v1.9.0 gerektirir.  Uzantı olmalıdır [marketten dağıtılmış](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) Azure Stack'te Azure App Service'in yükseltme ve dağıtım başlamadan önce
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
@@ -61,7 +65,7 @@ Ayrıcalıklı uç noktada Azure Stack tümleşik sistemi veya Azure Stack Geli�
 
 Çalıştırma *Get-AzureStackRootCert.ps1* yardımcı betikleri ayıkladığınız klasöre betikten. Betik, App Service sertifikaları oluşturmak için gereken betik ile aynı klasörde bir kök sertifika oluşturur.
 
-Aşağıdaki PowerShell komutunu çalıştırdığınızda AzureStack\CloudAdmin için ayrıcalıklı uç noktasını ve kimlik bilgilerini sağlamanız gerekir.
+Aşağıdaki PowerShell komutunu çalıştırdığınızda, AzureStack\CloudAdmin için ayrıcalıklı uç noktasını ve kimlik bilgilerini sağlamanız gerekir.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -151,6 +155,9 @@ Sertifika kimliği şu biçimde eşleşen bir konu içermelidir.
 
 ## <a name="virtual-network"></a>Sanal ağ
 
+> [!NOTE]
+> Azure Stack'te Azure App Service, gerekli sanal ağ oluşturabilirsiniz ancak SQL ve genel IP adresleri aracılığıyla dosya sunucusu ile iletişim kurmak gerekir, özel bir sanal ağın ön oluşturma isteğe bağlıdır.
+
 Azure Stack'te Azure App Service kaynak sağlayıcısı için mevcut bir sanal ağı dağıtmanıza olanak tanır veya dağıtımın bir parçası bir sanal ağ oluşturmanıza olanak sağlar. Mevcut bir sanal ağ kullanarak dosya sunucusu ve Azure Stack'te Azure App Service için gerekli SQL Server'a bağlanmak için iç IP'ler kullanımını etkinleştirir. Sanal ağ aşağıdaki adres aralığını ve alt ağlar ile Azure Stack'te Azure App Service yüklemeden önce yapılandırılmalıdır:
 
 Sanal ağ - /16
@@ -167,12 +174,20 @@ Alt ağlar
 
 Azure App Service, bir dosya sunucusu kullanılmasını gerektirir. Üretim dağıtımları için dosya sunucusu yüksek oranda kullanılabilir ve hataları işleme yeteneğine sahip olacak şekilde yapılandırılması gerekir.
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Azure App Service'in ASDK dağıtımlar için dosya sunucusu için Hızlı Başlangıç şablonu.
+
 Yalnızca Azure Stack geliştirme Seti'ni dağıtımlar için kullandığınız [örnek Azure Resource Manager dağıtım şablonu](https://aka.ms/appsvconmasdkfstemplate) yapılandırılmış tek düğümlü dosya sunucusu dağıtmak için. Tek düğümlü dosya sunucusu bir çalışma grubunda olacaktır.
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Yüksek oranda kullanılabilir bir dosya sunucusu ve SQL Server Hızlı Başlangıç şablonu
+
+A [başvuru mimarisi, Hızlı Başlangıç şablonu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) artık kullanımda dosya sunucusu, SQL Server dağıtacağınız, Active Directory destekleyen bir sanal ağ altyapısında yüksek oranda kullanılabilir bir dağıtımını destekleyecek şekilde yapılandırılmış Azure Stack'te Azure App Service.  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>Bir özel dosya sunucusu dağıtma adımları
 
 >[!IMPORTANT]
 > App Service'ta da mevcut bir sanal ağ dağıtmayı seçerseniz, dosya sunucusu App Service'ten ayrı bir alt ağa dağıtılması gerekir.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Gruplar ve Active Directory hesaplarını sağlama
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>Gruplar ve Active Directory hesaplarını sağlama
 
 1. Aşağıdaki Active Directory genel güvenlik gruplarını oluşturun:
 
@@ -195,7 +210,7 @@ Yalnızca Azure Stack geliştirme Seti'ni dağıtımlar için kullandığınız 
    - Ekleme **FileShareOwner** için **FileShareOwners** grubu.
    - Ekleme **FileShareUser** için **FileShareUsers** grubu.
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Gruplar ve hesaplar bir çalışma grubunda sağlama
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Gruplar ve hesaplar bir çalışma grubunda sağlama
 
 >[!NOTE]
 > Ne zaman yapılandırmakta olduğunuz tüm aşağıdaki komutları çalıştırın, bir dosya sunucusu bir **yönetici komut istemi**. <br>***PowerShell kullanmayın.***
@@ -225,7 +240,7 @@ Azure Resource Manager şablonunu kullandığınızda, kullanıcılar zaten olu�
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>İçerik paylaşımı sağlama
+#### <a name="provision-the-content-share"></a>İçerik paylaşımı sağlama
 
 İçerik paylaşımı Kiracı Web sitesi içeriğini içerir. Tek dosya sunucusunda içerik paylaşımı sağlama yordamı, Active Directory ve çalışma grubu ortamları için aynıdır. Ancak, Active Directory'deki bir yük devretme kümesi için farklıdır.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a16230b6f51f0ce93f4a9bf53591abbcd6b4bd3b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4e99656319f543fb40d8509cb4ae9e1c25cfc75b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283691"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622491"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
@@ -35,7 +35,7 @@ Aracı, aşağıdaki yöntemlerden birini kullanarak yüklenebilir. Çoğu yükl
 * PowerShell Betiği.
 * Windows Şirket içi Azure Stack'te çalışan sanal makineler için Resource Manager şablonu.  
 
-Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-concept-hybrid.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements) inceleyin.
+Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-agent-overview.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-agent-overview.md#network-firewall-requirements) inceleyin.
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
 Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics çalışma alanınızın kimliği ve anahtarına ihtiyacınız olacak.  Bu bilgiler, her bir yükleme yöntemi, aracıyı düzgün bir şekilde yapılandırıp başarıyla Log Analytics'te Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir.  

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 653ed7e4cdbd2df166e21acfd1e376638cad6290
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52476488307b9467665b1b8df35c92419825078f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257233"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622389"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -133,8 +133,8 @@ Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Anal
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Hizmet eşlemesi, analiz eder ve Windows bilgisayarlardan verileri toplar. <br><br>Ek olarak [Windows için Log Analytics aracısını](../log-analytics/log-analytics-concept-hybrid.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
-| Linux aracıları | Evet | Hizmet eşlemesi, analiz eder ve Linux bilgisayarlardan verileri toplar. <br><br>Ek olarak [Linux için Log Analytics aracısını](../log-analytics/log-analytics-concept-hybrid.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Windows aracıları | Evet | Hizmet eşlemesi, analiz eder ve Windows bilgisayarlardan verileri toplar. <br><br>Ek olarak [Windows için Log Analytics aracısını](../log-analytics/log-analytics-agent-overview.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Linux aracıları | Evet | Hizmet eşlemesi, analiz eder ve Linux bilgisayarlardan verileri toplar. <br><br>Ek olarak [Linux için Log Analytics aracısını](../log-analytics/log-analytics-agent-overview.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
 | System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi analiz eder ve Windows ve Linux aracılarını bir bağlı olarak veri toplar [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
 | Azure depolama hesabı | Hayır | Azure Depolama'dan toplamak için hiçbir veri bu nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
 
@@ -230,7 +230,7 @@ Bağımlılık aracısını el ile Windows bilgisayarlarda çalıştırarak yük
 
 Bağımlılık Aracısı'nı her bir Windows bilgisayara yüklemek için aşağıdaki adımları kullanın:
 
-1.  Açıklanan yöntemlerden birini uygulayarak Windows için Log Analytics aracısını yükleme [Log Analytics aracısını ile karma bir ortamda veri toplama](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Açıklanan yöntemlerden birini uygulayarak Windows için Log Analytics aracısını yükleme [Log Analytics Aracısı genel bakış](../log-analytics/log-analytics-agent-overview.md).
 2.  Windows Aracısı'nı indirin ve aşağıdaki komutu kullanarak çalıştırabilirsiniz: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ Bağımlılık Aracısı'nı Linux bilgisayarlardan yüklenir `InstallDependency
 
 Bağımlılık Aracısı'nı her Linux bilgisayara yüklemek için aşağıdaki adımları kullanın:
 
-1.  Açıklanan yöntemlerden birini uygulayarak Log Analytics aracısını yükleme [Log Analytics aracısını ile karma bir ortamda veri toplama](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Açıklanan yöntemlerden birini uygulayarak Log Analytics aracısını yükleme [Log Analytics Aracısı genel bakış](../log-analytics/log-analytics-agent-overview.md).
 2.  Linux bağımlılık aracısını kök olarak aşağıdaki komutu çalıştırarak yükleyin:
     
     `sh InstallDependencyAgent-Linux64.bin`

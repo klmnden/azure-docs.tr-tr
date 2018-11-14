@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945069"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625803"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme
 
@@ -99,17 +99,13 @@ Blob Depolama alanında ortak bir kapsayıcı oluşturmak için aşağıdakileri
 
 BLOB Depolama aşağıdakileri yaparak çıkış noktaları arası kaynak paylaşımı için yapılandırın:
 
->[!NOTE]
->Bizim örnek HTML ve CSS içeriği kullanarak kullanıcı Arabirimi özelleştirme özelliği denemek ister misiniz? Sağladık [basit Yardımcısı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md) yükler ve Blob Depolama hesabınıza örnek içeriklerimizde yapılandırır. Aracı kullanmanız durumunda atlayın [kaydolma veya oturum açma özel ilkesini değiştirmek](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. Üzerinde **depolama** dikey altında **ayarları**açın **CORS**.
-2. **Ekle**'ye tıklayın.
-3. İçin **çıkış noktaları**, bir yıldız işareti girin (\*).
-4. İçinde **fiillere izin** açılır listede, select **alma** ve **seçenekleri**.
-5. İçin **üst bilgiye izin**, bir yıldız işareti girin (\*).
-6. İçin **kullanıma sunulan üst bilgiler**, bir yıldız işareti girin (\*).
-7. İçin **en uzun geçerlilik süresi (saniye)**, türü **200**.
-8. **Ekle**'ye tıklayın.
+1. Menüde **CORS**.
+2. İçin **çıkış noktaları**, girin `your-tenant-name.b2clogin.com`. Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı. Örneğin, `fabrikam.b2clogin.com`.
+3. İçin **izin verilen yöntemleri**, her ikisini de seçin `GET` ve `OPTIONS`.
+4. İçin **izin verilen üstbilgileri**, yıldız işareti (*) girin.
+5. İçin **kullanıma sunulan üst bilgiler**, yıldız işareti (*) girin.
+6. İçin **Maksimum yaş**, 200 girin.
+7. **Kaydet**’e tıklayın.
 
 ## <a name="test-cors"></a>CORS'yi test etme
 
