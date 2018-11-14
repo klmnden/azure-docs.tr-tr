@@ -5,22 +5,23 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/29/2018
+ms.date: 11/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 03af5efcd4a37203a82db503f8bc602b33de734d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b698dd03473dd3cb708c47c6554869eebba48bf9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226724"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597666"
 ---
-|**SKU**   | **S2S/VNet-VNet<br>Tünelleri** | **P2S<br> SSTP Bağlantıları** | **P2S<br> IKEv2 Bağlantıları** | **Toplam<br>Aktarım Hızı Kıyaslaması** |
-|---       | ---        | ---       | ---            | ---       |
-|**VpnGw1**| En çok, 30*   | En çok, 128  | En çok, 250       | 650 Mbps  |
-|**VpnGw2**| En çok, 30*   | En çok, 128  | En çok, 500       | 1 Gbps    |
-|**VpnGw3**| En çok, 30*   | En çok, 128  | En çok, 1000      | 1,25 Gb/sn |
-|**Temel** | En çok, 10    | En çok, 128  | Desteklenmiyor  | 100 Mbps  | 
+|**SKU**   | **S2S/VNet-VNet<br>Tünelleri** | **P2S<br> SSTP Bağlantıları** | **P2S<br> IKEv2 Bağlantıları** | **Toplam<br>Aktarım Hızı Kıyaslaması** | **BGP** |
+|---       | ---        | ---       | ---            | ---       | --- |
+|**Temel** | En çok, 10    | En çok, 128  | Desteklenmiyor  | 100 Mbps  | Desteklenmiyor|
+|**VpnGw1**| En çok, 30*   | En çok, 128  | En çok, 250       | 650 Mbps  | Destekleniyor |
+|**VpnGw2**| En çok, 30*   | En çok, 128  | En çok, 500       | 1 Gbps    | Destekleniyor |
+|**VpnGw3**| En çok, 30*   | En çok, 128  | En çok, 1000      | 1,25 Gb/sn | Destekleniyor |
+
 
 (*) 30'dan fazla S2S VPN tüneline ihtiyacınız varsa [Sanal WAN](../articles/virtual-wan/virtual-wan-about.md) kullanın.
 

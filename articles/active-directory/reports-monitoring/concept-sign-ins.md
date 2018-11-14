@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056535"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623809"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
-[Azure portalında](https://portal.azure.com) Azure Active Directory (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
-
-Azure Active Directory'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
+Azure Active Directory (Azure AD) raporlama mimarisi aşağıdaki bileşenlerden oluşur:
 
 - **Etkinlik** 
-    - **Oturum açma etkinlikleri**: Yönetilen uygulamaların kullanımı ve kullanıcıların oturum açma etkinlikleri hakkında bilgiler
-    - **Denetim günlükleri**: Kullanıcılar ve grup yönetimi, yönetilen uygulamalarınız ve dizin etkinlikleriniz hakkında sistem etkinliği bilgileri.
+    - **Oturum açma işlemleri** – yönetilen uygulamalar ve kullanıcı oturum açma etkinlikleri kullanımı hakkında bilgi.
+    - **Denetim günlükleri** - [denetim günlükleri](concept-audit-logs.md) kullanıcılar ve Grup Yönetimi, yönetilen uygulamalar ve dizin etkinlikleriniz hakkında sistem etkinliği bilgileri sağlar.
 - **Güvenlik** 
-    - **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. Riskli oturum açma işlemleri.
-    - **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. Riskli oldukları belirlenen kullanıcılar.
+    - **Riskli oturum açma işlemleri** - [riskli oturum açma](concept-risky-sign-ins.md) bir kullanıcı hesabının meşru sahibi olmayan biri tarafından gerçekleştirilmiş olabilecek bir oturum açma girişiminin göstergesidir.
+    - **Risk için işaretlenen kullanıcılar** - [riskli kullanıcı](concept-user-at-risk.md) gizliliği bozulmuş olabilecek bir kullanıcı hesabının göstergesidir.
 
-Bu konu başlığı oturum açma etkinliklerine genel bakış sunmaktadır.
+Bu konu, oturum açma işlemleri raporu genel bir bakış sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
-* Güvenlik Yöneticisi, güvenlik Okuyucu, rapor okuyucu rolüne kullanıcılar
+* Güvenlik Yöneticisi, güvenlik okuyucu ve rapor okuyucu rolleri
 * Genel Yöneticiler
-* Tüm kullanıcılar (yönetici olmayan) kendi oturum açma etkinliklerine erişebilirler 
+* Ayrıca, herhangi bir kullanıcı (Yönetici olmayanlar) kendi oturum açma etkinliklerine erişebilir 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Oturum açma etkinliğine erişebilmek için hangi Azure AD lisansınızın olması gerekir?
 * Oturum açma etkinliği raporunun tamamını görebilmek için kiracınız ile ilişkili bir Azure AD Premium lisansınızın olması gerekir
 
+## <a name="sign-ins-report"></a>Oturum açma işlemleri raporu
 
-## <a name="sign-in-activities"></a>Oturum açma etkinlikleri
-
-Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
+Kullanıcı oturum açma işlemleri raporu aşağıdaki soruların yanıtlarını sağlar:
 
 * Belirli bir kullanıcının oturum açma düzeni nedir?
 * Bir hafta içerisinde kaç kullanıcı oturum açtı?
 * Bu açılan oturumların durumu nedir?
 
-Tüm oturum açma etkinliği verilerine ilk giriş noktanız **oturum açma işlemleri** etkinlik bölümünde **Azure Active Directory**.
-
+Oturum açma işlemleri raporu seçerek erişebilirsiniz **oturum açma işlemleri** içinde **etkinlik** bölümünü **Azure Active Directory** dikey penceresinde [Azureportalı](https://portal.azure.com).
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/61.png "oturum açma etkinliği")
-
 
 Oturum açma günlüklerinin aşağıdakileri gösteren bir varsayılan liste görünümü vardır:
 
@@ -82,7 +77,7 @@ Bu sayede ek alanları görüntüleyebilir ya da zaten görüntülenen alanları
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/02.png "oturum açma etkinliği")
 
-Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan tüm ayrıntıları yatay bir görünümde alabilirsiniz.
+Daha ayrıntılı bilgi almak için liste görünümünde bir öğe seçin.
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/03.png "oturum açma etkinliği")
 
@@ -100,7 +95,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 - Kullanıcı
 - Uygulama
 - Oturum açma durumu
-- Risk algılama durumu
+- Koşullu Erişim
 - Tarih
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/04.png "oturum açma etkinliği")
@@ -115,11 +110,12 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 - Başarılı
 - Hata
 
-**Algılanan Risk** filtresi aşağıdakilerden birini seçmenize imkan tanır:
+**Koşullu erişim** filtre oturum açma için CA ilke durumu seçmenize imkan tanır:
 
 - Tümü
-- Evet
-- Hayır
+- Uygulanmadı
+- Başarılı
+- Hata
 
 **Tarih** filtresi, döndürülen veriler için bir zaman çerçevesi tanımlamanıza olanak sağlar.  
 Olası değerler şunlardır:
@@ -149,11 +145,14 @@ Oturum açma görünümüne başka alanlar eklerseniz bu alanlar filtre listesin
 
 ## <a name="download-sign-in-activities"></a>Oturum açma etkinliklerini indirme
 
-Azure portalının dışında çalışmak istiyorsanız oturum açma etkinlik verilerini indirebilirsiniz. **İndir**’e tıkladığınızda en son 5 bin kaydı içeren bir CSV dosyası oluşturulur.  Azure portalında İndir düğmesine ek olarak verilerinizi indirmek için bir betik oluşturma seçeneği sunulur.  
+Yapabilecekleriniz [oturum açma verilerini indirmek](quickstart-download-sign-in-report.md) dışında Azure portal ile çalışmak istiyorsanız. **İndir**’e tıkladığınızda en son 5 bin kaydı içeren bir CSV dosyası oluşturulur.  İndir düğmesine ek olarak, Azure portalı ayrıca size şu seçeneği sağlar [verilerinizi yüklemek için bir komut dosyası oluşturmayı](tutorial-signin-logs-download-script.md).  
 
 ![İndir](./media/concept-sign-ins/71.png "İndir")
 
 Daha fazla esneklik gerekiyorsa betik çözümünü kullanabilirsiniz. Tıklayarak **betik** ayarladığınız tüm filtreleri içeren bir PowerShell Betiği oluşturur. Bu betik indirip çalıştırmak **Yönetici modunda** CSV dosyası oluşturmak için. 
+
+> [!IMPORTANT]
+> İndirebilirsiniz kayıt sayısı tarafından sınırlı [Azure Active Directory rapor saklama ilkeleri](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Komut dosyasını bir Windows 10 makinesi üzerinde çalıştırma
 
@@ -164,28 +163,18 @@ Betiği çalıştırmak istiyorsanız bir **Windows 10** makine, ilk birkaç ek 
 3. Çalıştırma **Set-ExecutionPolicy sınırsız** ve **Tümüne Evet**. 
 4. Artık Yönetici modunda bir CSV dosyası oluşturmak için indirilen PowerShell betiğini çalıştırabilirsiniz.
 
-Teknik uygulamaya ek olarak, indirebileceğiniz kayıt sayısı aynı zamanda [Azure Active Directory rapor saklama ilkeleri](reference-reports-data-retention.md) ile kısıtlanır.  
+## <a name="sign-ins-data-shortcuts"></a>Oturum açma verileri kısayolları
 
-
-## <a name="sign-in-activities-shortcuts"></a>Oturum açma etkinlikleri kısayolları
-
-Yanı sıra Azure Active Directory, Azure portalı, oturum açma için ek giriş noktası sağlar etkinliklerini verileri:
+Azure AD ek olarak, Azure portalında oturum açma verilerini için ek giriş noktaları sağlar:
 
 - Kimlik güvenliği korumasına genel bakış
 - Kullanıcılar
 - Gruplar
 - Kurumsal uygulamalar
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Kimlik güvenliği koruması kullanıcıların oturum açma verileri
 
-### <a name="users-sign-ins-activities"></a>Kullanıcıların oturum açma etkinlikleri
-
-Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
-
-- Belirli bir kullanıcının oturum açma düzeni nedir?
-- Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
-- Bu açılan oturumların durumu nedir?
-
-Bu verilere giriş noktanız, **kimlik güvenliği koruması** genel bakış sayfasındaki kullanıcı oturum açma grafiğidir. Kullanıcı oturum açma grafiği, belirli bir zaman dönemi içerisinde tüm kullanıcılara ait oturum açma işlemlerinin haftalık olarak toplanmış halini gösterir. Zaman dönemi için varsayılan süre 30 gündür.
+Kullanıcı oturum açma grafiğinde **kimlik güvenliği koruması** genel bakış sayfasında oturum haftalık olarak toplanmış halini gösterir belirli bir süre içinde tüm kullanıcılar için işlemleri. Zaman dönemi için varsayılan süre 30 gündür.
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/06.png "oturum açma etkinliği")
 
@@ -211,7 +200,6 @@ Bir öğeye tıklayarak oturum açma işlemi hakkında daha fazla bilgi alabilir
 - Tarih
 - MFA Gerekli
 - Oturum açma durumu
-
  
 **Kullanıcılar** sayfasında, **Etkinlik** bölümündeki **Oturum açma** öğesine tıklayarak tüm kullanıcı oturum açma işlemlerine eksiksiz bir genel bakış elde edebilirsiniz.
 
@@ -243,9 +231,9 @@ Uygulama kullanımı grafiğinde bir güne tıkladığınızda, oturum açma etk
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/11.png "oturum açma etkinliği")
 
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Oturum açma etkinliği hata kodları hakkında daha fazla bilgi edinmek isterseniz, bkz. [Azure Active Directory portalındaki oturum açma işlemleri etkinlik raporu hata kodları](reference-sign-ins-error-codes.md).
+* [Oturum açma etkinlik raporundaki hata kodları](reference-sign-ins-error-codes.md)
+* [Azure AD veri bekletme ilkeleri](reference-reports-data-retention.md)
+* [Azure AD rapor gecikmeleri](reference-reports-latencies.md)
 
