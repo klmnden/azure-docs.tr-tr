@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306704"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636484"
 ---
 # <a name="import-an-api-app-as-an-api"></a>API Uygulamasını bir API olarak içeri aktarma
 
@@ -31,10 +31,10 @@ Bu makalede şunları öğreneceksiniz:
 > * Azure portalında API’yi test etme
 > * Geliştirici portalında API’yi test etme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
-+ Aboneliğinizde bir API Uygulaması olduğundan emin olun. Daha fazla bilgi için bkz. [App Service Belgeleri][https://docs.microsoft.com/azure/app-service/]
++ Aboneliğinizde bir API Uygulaması olduğundan emin olun. Daha fazla bilgi için [App Service belgeleri](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -43,7 +43,7 @@ Bu makalede şunları öğreneceksiniz:
 1. **API YÖNETİMİ** bölümünden **API’ler** öğesini seçin.
 2. **Yeni API ekleyin** listesinden **API Uygulaması**’nı seçin.
 
-    !(API app)[./media/import-api-app-as-api/api-app.png]
+    ![API uygulaması](./media/import-api-app-as-api/api-app.png)
 3. Aboneliğinizdeki API Uygulamalarının listesini görmek için **Gözat**’a basın.
 4. Uygulamayı seçin. APIM, seçili uygulamayla ilişkili swagger’ı bulur, getirir ve içeri aktarır. 
 

@@ -1,6 +1,6 @@
 ---
-title: Hadoop korumalı alanı - öykünücüsü - Azure HDInsight'ı kullanarak bilgi edinin
-description: 'Hadoop ekosistemi kullanma hakkında öğrenmeye başlayın için bir Azure sanal makinesinde Hortonworks Hadoop korumalı alan ayarlayabilirsiniz. '
+title: Bir Apache Hadoop korumalı alanı - öykünücüsü - Azure HDInsight'ı kullanarak bilgi edinin
+description: 'Apache Hadoop ekosistemindeki kullanma hakkında öğrenmeye başlayın için bir Azure sanal makinesinde Hortonworks Hadoop korumalı alan ayarlayabilirsiniz. '
 keywords: hadoop öykünücüsü, hadoop korumalı alanı
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: add1833671b995e747af6a447c65114d1add76e9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013114"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631566"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
+# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bir Apache Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
 
-Hadoop ekosistemi hakkında bilgi edinmek için bir sanal makinede Hortonworks Hadoop korumalı alanı yüklemeyi öğrenin. Korumalı alan, Hadoop, Hadoop dağıtılmış dosya sistemi (HDFS) ve iş gönderme hakkında bilgi edinmek için bir yerel geliştirme ortamı sağlar. Hadoop ile ilgili bilgi sahibi olduktan sonra bir HDInsight kümesi oluşturarak Azure üzerinde Hadoop kullanmaya başlayabilirsiniz. Nasıl başlayacağınızı hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
+Apache Hadoop korumalı alanı Hortonworks Hadoop ekosistemi hakkında bilgi edinmek için bir sanal makineye yükleme konusunda bilgi edinin. Korumalı alan, Hadoop, Hadoop dağıtılmış dosya sistemi (HDFS) ve iş gönderme hakkında bilgi edinmek için bir yerel geliştirme ortamı sağlar. Hadoop ile ilgili bilgi sahibi olduktan sonra bir HDInsight kümesi oluşturarak Azure üzerinde Hadoop kullanmaya başlayabilirsiniz. Nasıl başlayacağınızı hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Oracle VirtualBox](https://www.virtualbox.org/). Buradan indirip [burada](https://www.virtualbox.org/wiki/Downloads).

@@ -58,10 +58,14 @@ items:
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Videoları gerçek zamanlı olarak analiz etme
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
-  - name: Visual Studio ile çalışma
+  - name: Kapsayıcıları kullanma
     items:
-    - name: Yüz Tanıma API'si Bağlı Hizmetini kullanma
-      href: vs-face-connected-service.md
+    - name: Kapsayıcıları yükleme ve çalıştırma
+      href: face-how-to-install-containers.md
+    - name: Kapsayıcıları yapılandırma
+      href: face-resource-container-config.md
+  - name: Yüz Tanıma API'si Bağlı Hizmetini kullanma
+    href: vs-face-connected-service.md
 - name: Başvuru
   items:
   - name: Yüz Tanıma API'si
@@ -100,9 +104,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Sürüm notları
     href: ReleaseNotes.md
-ms.openlocfilehash: 406348e52df7f7dc62f3642333111338aef2176c
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 46fc3f747b6b9048ac0422ae30fc538fdcbc33f8
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578034"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631414"

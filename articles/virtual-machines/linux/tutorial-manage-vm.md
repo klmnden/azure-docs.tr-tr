@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981255"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613435"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Öğretici: Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
 
@@ -262,7 +262,7 @@ Bir Azure VM’si birçok güç durumuna sahip olabilir. Bu durum VM’nin hiper
 | Serbest bırakıldı | Sanal makinenin hiper yöneticiden kaldırıldığını ancak denetim masasında hala kullanılabilir olduğunu gösterir. Serbest bırakıldı durumundaki sanal makinelere bilgi işlem ücretleri uygulanmaz. |
 | - | Sanal makinenin güç durumunun bilinmediğini gösterir. |
 
-### <a name="find-power-state"></a>Güç durumunu bulma
+### <a name="find-the-power-state"></a>Güç durumunu bulma
 
 Belirli bir VM’nin durumunu almak için, [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) komutunu kullanın. Sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
 

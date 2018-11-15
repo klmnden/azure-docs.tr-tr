@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024470"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634660"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack VPN kullanarak Azure'a bağlanma
 
@@ -62,7 +62,7 @@ Ağ Yapılandırma örnekleri tablo, bu makaledeki örnekler için kullanılan d
 1. Oturum [Azure portalında](https://portal.azure.com/) Azure hesabınızı kullanarak.
 2. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 3. Git **Market**ve ardından **ağ**.
-4. Seçin **sanal ağ**.
+4. **Sanal ağ**'ı seçin.
 5. Azure için değerleri belirlemek için ağ yapılandırma tabloda yer alan bilgileri kullanın. **adı**, **adres alanı**, **alt ağ adı**, ve **alt ağ adresi Aralık**.
 6. İçin **kaynak grubu**, yeni bir kaynak grubu oluşturun veya zaten bir hesabınız varsa seçin **var olanı kullan**.
 7. Seçin **konumu** ağınızın.  Örnek değerleri kullanıyorsanız seçin **Doğu ABD** veya başka bir konum kullanın.
@@ -89,7 +89,7 @@ Ağ Yapılandırma örnekleri tablo, bu makaledeki örnekler için kullanılan d
 3. Ağ kaynakları listesinden **sanal ağ geçidi**.
 4. İçinde **adı**, türü **Azure-GW**.
 5. Bir sanal ağ seçmek için Seç **sanal ağ**. Ardından **AzureVnet** listeden.
-6. Seçin **genel IP adresi**. Zaman **genel IP adresi seçin** bölümü açılır, select **Yeni Oluştur**.
+6. **Genel IP adresi**'ni seçin. Zaman **genel IP adresi seçin** bölümü açılır, select **Yeni Oluştur**.
 7. İçinde **adı**, türü **Azure GW PiP**ve ardından **Tamam**.
 8. Varsayılan olarak, için **VPN türü**, **rota tabanlı** seçilir. Tutun **rota tabanlı** VPN türü.
 9. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. Kaynağı panoya sabitleyebilirsiniz. **Oluştur**’u seçin.
@@ -127,7 +127,7 @@ Artık Azure'da bir sanal makine oluşturma ve sanal ağınızdaki VM alt yerle�
 
 1. Azure portalında **+ kaynak Oluştur**.
 2. Git **Market**ve ardından **işlem**.
-3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter Oval** görüntü.
+3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 4. Üzerinde **Temelleri** bölüm için **adı**, türü **AzureVM**.
 5. Geçerli kullanıcı adı ve parola yazın. Oluşturulduktan sonra sanal makineye oturum açmak için bu hesabı kullanın.
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu**ve ardından **Tamam**.
@@ -157,7 +157,7 @@ Hizmet Yöneticisi kullanıcı planları, teklifleri ve kendi kullanıcıların 
     ![Yeni sanal ağ oluştur](media/azure-stack-connect-vpn/image3.png)
 
 3. Git **Market**ve ardından **ağ**.
-4. Seçin **sanal ağ**.
+4. **Sanal ağ**'ı seçin.
 5. İçin **adı**, **adres alanı**, **alt ağ adı**, ve **alt ağ adres aralığı**, ağ yapılandırma tablodaki değerleri kullanın.
 6. İçinde **abonelik**, daha önce oluşturduğunuz aboneliği görüntülenir.
 7. İçin **kaynak grubu**, bir kaynak grubu oluşturabilir veya zaten bir varsa seçin **var olanı kullan**.
@@ -227,7 +227,7 @@ VPN bağlantısını denetlemek için iki VM oluşturun: biri azure'da ve Azure 
 
 1. Azure portalında **+ kaynak Oluştur**.
 2. Git **Market**ve ardından **işlem**.
-3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter Oval** görüntü.
+3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 4. Üzerinde **Temelleri** bölümünde **adı**, türü **Azs-VM**.
 5. Geçerli kullanıcı adı ve parola yazın. Oluşturulduktan sonra VM'de oturum açmak için bu hesabı kullanın.
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu**ve ardından **Tamam**.

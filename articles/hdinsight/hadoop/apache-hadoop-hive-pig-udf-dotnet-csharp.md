@@ -1,6 +1,6 @@
 ---
-title: Hive ve Pig üzerinde HDInsight - Azure Hadoop ile C# kullanma
-description: Hive ve Pig akış Azure HDInsight ile C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.
+title: Kullanım C# Apache Hive ve HDInsight - Azure, Apache hadoop'un Apache Pig
+description: Nasıl kullanacağınızı öğrenin C# kullanıcı tanımlı işlevler (UDF) ile Apache Hive ve Apache Pig Azure HDInsight akış.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8011a9b8009abd2688d76dc3f1cda84ca453fde1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014695"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633844"
 ---
-# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Hive ve Pig, HDInsight, Hadoop üzerinde akış ile kullanıcı tanımlı C# işlevlerini kullanma
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Kullanım C# Apache Hive ve Apache Pig, HDInsight, Apache Hadoop üzerinde akış ile kullanıcı tanımlı işlevler
 
-Apache Hive ve Pig HDInsight üzerinde C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.
+Nasıl kullanacağınızı öğrenin C# kullanıcı tanımlı işlevler (UDF) Apache Hive ve HDInsight üzerinde Apache Pig ile.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar hem Linux hem de Windows tabanlı HDInsight kümeleri ile çalışma. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md).

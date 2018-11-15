@@ -1,6 +1,6 @@
 ---
 title: Python akış HDInsight - Azure ile MapReduce işlerini geliştirme
-description: Python MapReduce işleri akışında kullanmayı öğrenin. Hadoop, MapReduce için Java dışındaki dillerde yazmak için bir akış API'sini sağlar.
+description: Python MapReduce işleri akışında kullanmayı öğrenin. Bir akış API'sini, Apache Hadoop MapReduce için Java dışındaki dillerde yazmak için sağlar.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 author: hrasheed-msft
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ed61eb05d0aa4360e042097d6b8c632c17ea59c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008734"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634031"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python için HDInsight akış MapReduce programları geliştirme
 
-Python MapReduce operations akışında kullanmayı öğrenin. Hadoop, harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlayan bir MapReduce için bir akış API'sini sağlar. Bu belgedeki adımlarda, harita uygulamak ve python'da altına düşürün.
+Python MapReduce operations akışında kullanmayı öğrenin. Apache Hadoop, harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlayan bir MapReduce için bir akış API'sini sağlar. Bu belgedeki adımlarda, harita uygulamak ve python'da altına düşürün.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir HDInsight kümesinde Linux tabanlı Hadoop
+* Bir HDInsight kümesinde Linux tabanlı Apache Hadoop
 
   > [!IMPORTANT]
   > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

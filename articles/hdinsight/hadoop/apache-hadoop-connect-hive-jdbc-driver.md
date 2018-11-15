@@ -1,6 +1,6 @@
 ---
-title: Hive JDBC sürücüsü - Azure HDInsight ile sorgulama
-description: HDInsight üzerinde hadoop Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanın. Programlı bir şekilde ve SQuirrel SQL istemcisi bağlanın.
+title: Apache Hive JDBC sürücüsü - Azure HDInsight ile sorgulama
+description: HDInsight üzerindeki hadoop, Apache Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanın. Programlı bir şekilde ve SQuirrel SQL istemcisi bağlanın.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014423"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633453"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Hive JDBC sürücüsü, HDInsight ile sorgulama
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive JDBC sürücüsü, HDInsight ile sorgulama
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Azure HDInsight hadoop Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanmayı öğrenin. Bu belgedeki bilgiler programlı bir şekilde ve SQuirrel SQL istemcisi na nasıl bağlanacağınız gösterilmiştir.
+Azure HDInsight Apache hadoop, Apache Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanmayı öğrenin. Bu belgedeki bilgiler programlı bir şekilde ve SQuirrel SQL istemcisi na nasıl bağlanacağınız gösterilmiştir.
 
 Hive JDBC arabirimi hakkında daha fazla bilgi için bkz. [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
@@ -111,7 +111,7 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
         **CLUSTERNAME** değerini HDInsight kümenizin adıyla değiştirin.
 
-    * **Kullanıcı adı**: HDInsight kümeniz için küme oturum açma hesabı adı. Varsayılan, `admin` değeridir.
+    * **Kullanıcı adı**: HDInsight kümeniz için küme oturum açma hesabı adı. Varsayılan değer: `admin`.
 
     * **Parola**: küme oturum açma hesabı için parola.
 

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: 66e937e92528e2f0a1fca9d9aac78f7265eef4f7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: f79455166ef0d1bec9a2fb1d6045005f844e55ac
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741241"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636756"
 ---
 # <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API verilerini yönetmek için Async Java SDK'sı ile bir Java uygulaması oluşturma
 
@@ -39,7 +39,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * JSON belgeleri oluşturma
 > * Koleksiyonu sorgulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki kaynaklara sahip olduğunuzdan emin olun:
 
@@ -116,7 +116,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>5. Adım: Veritabanı oluşturma
 
-Azure Cosmos DB [veritabanınız](sql-api-resources.md#databases), DocumentClient sınıfının createDatabaseIfNotExists() yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
+Azure Cosmos DB [veritabanınız](databases-containers-items.md#azure-cosmos-databases), DocumentClient sınıfının createDatabaseIfNotExists() yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -203,7 +203,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>7. Adım: JSON belgeleri oluşturma
 
-Bir [belge](sql-api-resources.md#documents), DocumentClient sınıfının createDocument metodu kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" JSON belgeleri ailesini tanımlar 
+Bir belge DocumentClient sınıfının createDocument yöntemi kullanarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" JSON belgeleri ailesini tanımlar 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

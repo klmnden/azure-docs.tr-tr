@@ -15,24 +15,38 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406475"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633657"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Python uygulamanızı Linux'ta Azure App Service için yapılandırma
 
 Bu makalede [Linux'ta Azure App Service](app-service-linux-intro.md) hizmetinin Python uygulamalarını nasıl çalıştırdığı ve gerektiğinde App Service davranışlarını özelleştirme adımları anlatılmaktadır.
 
+## <a name="set-python-version"></a>Python sürümünü ayarlama
+
+İki temel görüntüleri kullanılabilir: Python 3.6 ve Python 3.7. İstenen Python tabanlı görüntü ile bir uygulama oluşturabilirsiniz. Örneğin, Python 3.7 ile bir uygulama oluşturmak için Cloud Shell'de aşağıdaki komutu çalıştırın:
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+Python sürümü (temel görüntü) için Python 3.6 değiştirmek için örneğin, Cloud Shell'de aşağıdaki komutu çalıştırın:
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+Farklı bir Python sürümüne ihtiyacınız varsa bunu kullanmak yerine kendi kapsayıcı görüntünüzü derleyip dağıtmanız gerekir. Daha fazla bilgi için bkz. [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](tutorial-custom-docker-image.md).
+
 ## <a name="container-characteristics"></a>Kapsayıcı özellikleri
 
-Linux'ta App Service hizmetine dağıtılan Python uygulamaları GitHub deposunda tanımlı bir Docker kapsayıcısında çalışır: [Azure-App-Service/python kapsayıcısı](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Dağıtılan GitHub deposunda tanımlanan bir Docker kapsayıcısı içinde çalıştırmak için Linux üzerinde App Service'e Python uygulamaları [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) veya [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
 Bu kapsayıcı aşağıdaki özelliklere sahiptir:
-
-- Temel kapsayıcı görüntüsü `python-3.7.0-slim-stretch` şeklindedir ve bu da uygulamaların Python 3.7 ile çalıştırıldığını gösterir. Farklı bir Python sürümüne ihtiyacınız varsa bunu kullanmak yerine kendi kapsayıcı görüntünüzü derleyip dağıtmanız gerekir. Daha fazla bilgi için bkz. [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](tutorial-custom-docker-image.md).
 
 - Uygulamalar ek `--bind=0.0.0.0 --timeout 600` bağımsız değişkenleri kullanılarak [Gunicorn WSGI HTTP Server](http://gunicorn.org/) ile çalıştırılır.
 

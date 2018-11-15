@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: b094df367d4396533d368b9fdbcb4b78ec1673de
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e6711a5595c6b7c6caaff97f4c1996817be1abce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008904"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634558"
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Microsoft Power BI'ın ODBC kullanarak Azure HDInsight ile Hive verileri Görselleştirme
+# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>ODBC kullanarak Azure HDInsight Microsoft Power BI ile Apache Hive verileri Görselleştirme
 
-Hive verileri Görselleştirme ve ODBC kullanarak Azure HDInsight için Microsoft Power BI'ı bağlama hakkında bilgi edinin. 
+Apache Hive verileri Görselleştirme ve ODBC kullanarak Azure HDInsight için Microsoft Power BI'ı bağlama hakkında bilgi edinin. 
 
 >[!IMPORTANT]
 > Power BI Desktop'ta genel ODBC bağlayıcısı aracılığıyla içe aktarmak için Hive ODBC sürücüsünü yararlanabilirsiniz. Ancak etkileşimli Hive sorgu altyapısı göz önünde bulundurulduğunda BI iş yükleri için önerilmez. [HDInsight Interactive Query Bağlayıcısı](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) ve [HDInsight Spark Bağlayıcısı](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) performanslarını için daha iyi Seçenekler.
@@ -40,7 +40,7 @@ Bu makalede geçmeden önce aşağıdaki öğelere sahip olmanız gerekir:
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC veri kaynağı oluşturma
 
-Bkz: [oluşturma Hive ODBC veri kaynağı](apache-hadoop-connect-excel-hive-odbc-driver.md#create-hive-odbc-data-source).
+Bkz: [oluşturma Hive ODBC veri kaynağı](apache-hadoop-connect-excel-hive-odbc-driver.md#create-apache-hive-odbc-data-source).
 
 ## <a name="load-data-from-hdinsight"></a>HDInsight yük verileri
 

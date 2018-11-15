@@ -1,6 +1,6 @@
 ---
-title: HDInsight - Azure geri KALANI ile Hadoop Pig kullanma
-description: Azure HDInsight Hadoop kümesinde Pig Latin işlerini çalıştırmak için REST kullanma konusunda bilgi edinin.
+title: HDInsight - Azure geri KALANI ile Apache Hadoop Pig kullanma
+description: Azure HDInsight, Apache Hadoop kümesinde Pig Latin işlerini çalıştırmak için REST kullanma konusunda bilgi edinin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: bd729d0d2cd095339a82b8a7f38a17a20b709c15
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cb96933569c18b8c70d8991c9ba19f9f3e1243e6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013097"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633708"
 ---
-# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Pig işleri, REST kullanarak HDInsight üzerinde Hadoop ile çalıştırın
+# <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Pig işleri, REST kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Bir Azure HDInsight kümesi için REST istekleri yaparak pig Latin işleri çalıştırmayı öğrenin. Curl WebHCat REST API'yi kullanarak HDInsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
+Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işleri çalıştırmayı öğrenin. Curl WebHCat REST API'yi kullanarak HDInsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
 
 > [!NOTE]
-> Zaten Linux tabanlı Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz. [Linux tabanlı HDInsight ipuçları](../hdinsight-hadoop-linux-information.md).
+> Zaten Linux tabanlı Apache Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz. [Linux tabanlı HDInsight ipuçları](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Önkoşullar
 

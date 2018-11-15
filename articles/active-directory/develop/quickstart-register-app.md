@@ -16,18 +16,18 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: 1809e7f72afd99de38387317daf2ecb92dbe3cf0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913003"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298730"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Hızlı Başlangıç: Microsoft kimlik platformu ile uygulama kaydetme (Önizleme)
 
 Kurumsal geliştiriciler ve hizmet olarak yazılım (SaaS) sağlayıcıları, hizmetleri için güvenli oturum açma ve yetkilendirme imkanı sunmak için Microsoft kimlik platformu ile tümleştirilebilen ticari bulut hizmetleri veya iş kolu uygulamaları geliştirebilir.
 
-Bu hızlı başlangıçta, uygulamanızı Microsoft kimlik platformuyla tümleştirilebilmesi için Azure portalında **Uygulama kayıtları (Önizleme)** deneyimini kullanarak uygulama ekleme ve kaydetme işlemleri gösterilir.
+Bu hızlı başlangıçta, uygulamanızı Microsoft kimlik platformuyla tümleştirilebilmesi için Azure portalında **Uygulama kayıtları (Önizleme)** deneyimini kullanarak uygulama ekleme ve kaydetme işlemleri gösterilir. Yeni uygulama kaydı deneyimi geliştirmeleri ve yeni özellikleri hakkında daha fazla bilgi için bkz: [bu blog gönderisini](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
 
 ## <a name="prerequisite"></a>Önkoşul
 

@@ -1,6 +1,6 @@
 ---
-title: HDInsight - Azure PowerShell ile Hadoop Pig kullanma
-description: Azure PowerShell kullanarak HDInsight üzerinde Hadoop kümesi için pig işleri göndermeyi öğrenin.
+title: HDInsight - Azure PowerShell ile Apache Pig kullanma
+description: Azure PowerShell kullanarak HDInsight üzerinde Apache Hadoop kümesi için Apache Pig işleri göndermeyi öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e50c551381a065e8651ab7970ef9cf18c6c3a765
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011026"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634541"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>HDInsight ile Pig işleri çalıştırmak için Azure PowerShell'i kullanma
+# <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>HDInsight ile Apache Pig işleri çalıştırmak için Azure PowerShell'i kullanma
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Bu belgede, HDInsight kümesinde bir Hadoop için Pig işleri göndermek için Azure PowerShell kullanarak bir örnek sağlar. Pig, MapReduce işleri bir dil (Pig Latin) kullanarak söz konusu model veri dönüşümleri yazmaya yerine eşleyin ve işlevleri azaltılmasına olanak tanır.
+Bu belgede, HDInsight kümesinde bir Apache Hadoop için Apache Pig işleri göndermek için Azure PowerShell kullanarak bir örnek sağlar. Pig, MapReduce işleri bir dil (Pig Latin) kullanarak söz konusu model veri dönüşümleri yazmaya yerine eşleyin ve işlevleri azaltılmasına olanak tanır.
 
 > [!NOTE]
 > Bu belgede ayrıntılı açıklamasını örneklerde kullanılan Pig Latin açıklamaları neler sağlamaz. Bu örnekte kullanılan Pig Latin hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md).

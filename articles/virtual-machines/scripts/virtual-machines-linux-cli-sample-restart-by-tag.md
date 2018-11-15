@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 4c409dfcfba14093d5e2cf28df4bb6c5d1bd9533
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725981"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622950"
 ---
 # <a name="restart-vms"></a>VM’leri yeniden başlatma
 
@@ -37,7 +37,7 @@ Birinci yol, kaynak grubundaki tüm VM’leri yeniden başlatır.
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-İkinci yol ise `az resouce list` kullanarak etiketlenmiş VM’leri alır ve VM olan kaynaklarla filtreleyip bu VM’leri yeniden başlatır.
+İkinci yol ise `az resource list` kullanarak etiketlenmiş VM’leri alır ve VM olan kaynaklarla filtreleyip bu VM’leri yeniden başlatır.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)

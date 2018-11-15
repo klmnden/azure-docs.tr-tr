@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: 1e101e308ec350e9900c1347da730ca02b16c7bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 55f32c403da179a0b7babc2172a80c2168cfab17
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377480"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636926"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -46,6 +46,8 @@ Evet, Azure otomatik olarak güvenlik yamaları düğümleri gecelik bir zamanla
 - El ile Azure portal veya Azure CLI ile.
 - AKS kümenizi yükseltme tarafından. Yükseltme otomatik olarak küme [kordon altına alma ve düğüm boşaltma][cordon-drain], ardından her düğümü en son Ubuntu görüntüsünü ve yeni bir düzeltme eki sürümü veya ikincil bir Kubernetes sürümü ile çevrimiçine yedekleyin. Daha fazla bilgi için [AKS kümesini yükseltme][aks-upgrade].
 - Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. İşletim sistemi yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi] [ cordon-drain] olarak bir küme yükseltmesi.
+
+Kured kullanma hakkında daha fazla bilgi için bkz. [AKS düğümleri için güvenlik ve çekirdek güncelleştirmeleri uygulamak][node-updates-kured].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>İki kaynak grubu, AKS ile neden oluşturulur?
 
@@ -97,6 +99,7 @@ Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düz
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-advanced-networking.md
 [aks-rbac-aad]: ./aad-integration.md
+[node-updates-kured]: node-updates-kured.md
 
 <!-- LINKS - external -->
 
@@ -105,3 +108,4 @@ Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düz
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+

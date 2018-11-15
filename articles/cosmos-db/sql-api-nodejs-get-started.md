@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 7eeb4fdba8272d9bc2b67d8a33dd7b1d210f5e47
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278608"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636501"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API verilerini yönetmek için JavaScript SDK’sını kullanarak bir Node.js konsol uygulaması oluşturma
 
@@ -41,7 +41,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Uygulamayı oluşturmak için zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started )'da bulabilirsiniz. Hızlı yönergeler için bu makalenin [Tam çözümü edinme bölümüne](#GetSolution) atlayın.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 Aşağıdaki kaynaklara sahip olduğunuzdan emin olun:
 
@@ -218,7 +218,7 @@ Artık Azure Cosmos DB istemcisini başlatmaya yarayacak koda sahip olduğunuza 
    const containerId = config.container.id;
    ```
 
-   [Veritabanı](sql-api-resources.md#databases), **Databases** sınıfının [createIfNotExists](/javascript/api/%40azure/cosmos/databases) veya [create](/javascript/api/%40azure/cosmos/databases) işlevi kullanılarak oluşturulabilir. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır. 
+   Bir veritabanını kullanarak oluşturulabilir [Createıfnotexists](/javascript/api/%40azure/cosmos/databases) veya [oluşturma](/javascript/api/%40azure/cosmos/databases) işlevi **veritabanları** sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır. 
 
 2. **createDatabase** ve **readDatabase** yöntemlerini kopyalayıp app.js dosyasında ```databaseId``` ve ```containerId``` tanımlarının altına yapıştırın. **createDatabase** işlevi mevcut değilse ```config``` nesnesiyle belirtilen ```FamilyDatabase``` kimliğine sahip yeni bir veritabanı oluşturur. **readDatabase** işlevi, veritabanının mevcut olduğundan emin olmak için veritabanı tanımını okur.
 

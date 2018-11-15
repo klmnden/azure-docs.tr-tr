@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/9/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 02805f676a5ea9edbfa619c625bb11e94e16c12e
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278591"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300005"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -149,7 +149,7 @@ Güvenlik duvarını sanal ağa dağıtın.
    
    |Ayar  |Değer  |
    |---------|---------|
-   |Adı     |Test-FW01|
+   |Ad     |Test-FW01|
    |Abonelik     |\<aboneliğiniz\>|
    |Kaynak grubu     |**Var olanı kullan**: Test-FW-RG |
    |Konum     |Önceden kullandığınız konumu seçin|
@@ -196,15 +196,16 @@ Bu, github.com adresine giden erişime izin veren bir uygulama kuralıdır.
 
 1. **Test-FW-RG** öğesini açın ve **Test-FW01** güvenlik duvarına tıklayın.
 2. **Test-FW01** sayfasının **Ayarlar** bölümünde **Kurallar**'a tıklayın.
-3. **Uygulama kuralı koleksiyonu ekle**'ye tıklayın.
-4. **Ad** alanına **App-Coll01** yazın.
-5. **Öncelik** alanına **200** yazın.
-6. **Eylem** alanında **İzin ver**'i seçin.
-7. **Kurallar** bölümünde **Ad** alanında **AllowGH** yazın.
-8. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
-9. **Protokol:bağlantı noktası** alanına **http, https** yazın.
-10. **Hedef FQDNS** alanına **github.com** yazın.
-11. **Ekle**'ye tıklayın.
+3. Tıklayın **uygulama kuralı koleksiyonu** sekmesi.
+4. **Uygulama kuralı koleksiyonu ekle**'ye tıklayın.
+5. **Ad** alanına **App-Coll01** yazın.
+6. **Öncelik** alanına **200** yazın.
+7. **Eylem** alanında **İzin ver**'i seçin.
+8. Altında **kuralları**, **hedef FQDN**, için **adı**, türü **AllowGH**.
+9. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
+10. **Protokol:bağlantı noktası** alanına **http, https** yazın.
+11. **Hedef FQDNS** alanına **github.com** yazın.
+12. **Ekle**'ye tıklayın.
 
 Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri için yerleşik bir kural koleksiyonu bulunur. Bu FQDN'ler platforma özgüdür ve başka amaçlarla kullanılamaz. Daha fazla bilgi için bkz. [Altyapı FQDN'leri](infrastructure-fqdns.md).
 
@@ -212,6 +213,7 @@ Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri i
 
 Bu, bağlantı noktası 53’deki (DNS) iki IP adresine giden erişime izin veren ağ kuralıdır.
 
+1. Tıklayın **ağ kural koleksiyonu** sekmesi.
 1. **Ağ kuralı koleksiyonu ekle**'ye tıklayın.
 2. **Ad** alanına **Net-Coll01** yazın.
 3. **Öncelik** alanına **200** yazın.

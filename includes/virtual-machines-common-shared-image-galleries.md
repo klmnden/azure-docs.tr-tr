@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51209699"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678232"
 ---
 Paylaşılan görüntü Galerisi yapısı ve özel VM görüntülerinizi etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan görüntü Galerisi üç temel değer önermeleri sağlar:
 - Basit yönetim
@@ -98,7 +98,7 @@ Paylaşılan görüntü Galerisi bu hizmeti kullanmak için fazladan bir ücret 
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -name Microsoft.Compute
+az provider register --name Microsoft.Compute
 ```
 
 **PowerShell**: 

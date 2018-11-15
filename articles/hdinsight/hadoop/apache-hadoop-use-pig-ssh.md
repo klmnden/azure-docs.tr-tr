@@ -1,6 +1,6 @@
 ---
-title: -Azure HDInsight kümesinde SSH ile Hadoop Pig kullanma
-description: Bilgi nasıl Linux tabanlı Hadoop ile SSH ve Pig Latin açıklamaları etkileşimli olarak çalışacak şekilde Pig komutunu kullanın veya toplu iş olarak kümeye bağlanın.
+title: -Azure HDInsight kümesinde SSH ile Apache Pig kullanma
+description: Bilgi nasıl bir Apache Hadoop, Linux tabanlı küme ile SSH ve Pig Latin açıklamaları etkileşimli olarak çalışacak şekilde Pig komutunu kullanın veya toplu iş olarak bağlanın.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1deb44fecad6c120dd1e8f82cec36bff6353fc0b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51003889"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632232"
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig komut (SSH) ile bir Linux tabanlı kümesinde pig işleri çalıştırma
+# <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig komut (SSH) ile bir Linux tabanlı kümesinde Apache Pig işleri çalıştırma
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Etkileşimli SSH bağlantısından Pig işleri HDInsight kümenize çalıştırmayı öğrenin. Pig Latin'i programlama dili, istenen çıkış üretmek üzere giriş verilerini için uygulanan dönüşümler açıklamak sağlar.
+Apache Pig işleri SSH bağlantısından HDInsight kümenize etkileşimli olarak çalıştırmayı öğrenin. Pig Latin'i programlama dili, istenen çıkış üretmek üzere giriş verilerini için uygulanan dönüşümler açıklamak sağlar.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar, Linux tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

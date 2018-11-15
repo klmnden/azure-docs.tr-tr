@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241744"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621274"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme
 
@@ -47,7 +47,7 @@ contoso.com’daki AD FS’nin fabrikam.com’da kullanıcıların kimliklerini 
  
 AD FS ile birleştirilmiş tek bir etki alanı için ayarlanan varsayılan veren şudur: "http://ADFSServiceFQDN/adfs/services/trust". Örneğin,"http://fs.contoso.com/adfs/services/trust". Azure Active Directory, federasyona eklenen her etki alanı için benzersiz bir veren gerektirir. İki etki alanı aynı AD FS tarafından federasyona ekleneceğinden, AD FS’nin Azure Active Directory ile birleştirdiği her etki alanında benzersiz olması için veren değerinin değiştirilmesi gerekir. 
  
-AD FS sunucusunda Azure AD PowerShell’i açın ve aşağıdaki adımları gerçekleştirin:
+AD FS sunucusunda Azure AD PowerShell'i açın (MSOnline modülünün yüklendiğinden emin olun) ve aşağıdaki adımları gerçekleştirin:
  
 contoso.com etki alanını içeren Azure Active Directory’ye bağlanın: Connect-MsolService contoso.com için federasyon ayarlarını güncelleştirin: Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  

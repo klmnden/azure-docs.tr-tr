@@ -10,18 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985718"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612773"
 ---
-# <a name="tutorial-analyze-videos-with-azure-media-services"></a>Öğretici: Azure Media Services ile videoları analiz etme 
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Öğretici: API kullanarak videoları Media Services v3 ile analiz
 
-Bu öğreticide Azure Media Services ile videoları analiz etme işlemi gösterilir. Kayıtlı videolar veya ses içerikleri hakkında derin içgörüler kazanmak isteyebileceğiniz çok sayıda senaryo mevcuttur. Örneğin, daha yüksek müşteri memnuniyeti elde etmek isteyen kuruluşlar, müşteri destek kayıtlarını dizinler ve panolarla aranabilir bir katalog haline getirmek için konuşmayı metne dönüştürme işlemini çalıştırabilir. Daha sonra, şirketleri hakkında yaygın şikayetlerin listesi, bu şikayetlerin kaynakları gibi içgörüler elde edebilir.
+Bu öğreticide Azure Media Services ile videoları analiz etme işlemi gösterilir. Kayıtlı videolar veya ses içerikleri hakkında derin içgörüler kazanmak isteyebileceğiniz çok sayıda senaryo mevcuttur. Örneğin, daha yüksek müşteri memnuniyeti elde etmek isteyen kuruluşlar, müşteri destek kayıtlarını dizinler ve panolarla aranabilir bir katalog haline getirmek için konuşmayı metne dönüştürme işlemini çalıştırabilir. Ardından, kendi iş yaygın şikayetlerinden listesi, kaynaklarına böyle şikayetlerinin ve diğer yararlı bilgiler gibi Öngörüler elde edebilirsiniz.
 
 Bu öğretici şunların nasıl yapıldığını gösterir:    
 
@@ -36,9 +36,16 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Visual Studio yüklü değilse, [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)’yi edinebilirsiniz.
+- Visual Studio yüklü değilse, [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)’yi edinebilirsiniz.
+- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+
+    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
+
+- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
+
+    Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun.
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
@@ -49,10 +56,6 @@ Aşağıdaki komutu kullanarak, .NET örneğini içeren bir GitHub havuzunu maki
  ```
 
 Örnek, [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) klasöründe yer alır.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -154,11 +157,11 @@ Analiz edilen videoların çıktı dosyası insights.json olarak adlandırılır
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğreticide oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki kaynaklardan herhangi birine artık ihtiyacınız yoksa kaynak grubunu silebilirsiniz. **CloudShell** aracını kullanabilirsiniz.
+Bu öğreticide oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki kaynaklardan herhangi birine artık ihtiyacınız yoksa kaynak grubunu silebilirsiniz. 
 
-**CloudShell**’de aşağıdaki komutu yürütün:
+Aşağıdaki CLI komutunu yürütün:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

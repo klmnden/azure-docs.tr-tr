@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614388"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636977"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -159,7 +159,9 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **--yolu*
 
 ## <a name="understandlogs"></a> Nasıl yapılır: Tanılama günlükleri anlama
 ### <a name="application-diagnostics-logs"></a>Uygulama tanılama günlükleri
-Uygulama tanılama günlüklerinin dosya sistemi veya blob depolamaya depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Temel depolanan veriler aynı depolama üç arasında - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği kümesidir.
+Uygulama tanılama günlüklerinin dosya sistemi veya blob depolamaya depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. 
+
+Depolanan veri kümesini temel her iki depolama türlerinde - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği aynıdır. Günlük depolama için dosya sistemini kullanarak günlük dosyalarını neredeyse anında güncelleştirildiğinden bir sorunu gidermek için anında erişim gerektiğinde yararlıdır. Dosyaları önbelleğe alınır ve ardından depolama kapsayıcısına bir zamanlamaya göre Temizlenen için blob depolama arşivleme amacıyla kullanılır.
 
 **Dosya sistemi**
 
@@ -195,7 +197,7 @@ Blob olarak depolanan veriler aşağıdaki örneğe benzer olacaktır:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Günlük ilk satırını sütun üst bilgilerini bu örnekte gösterilen şekilde içerir.
+> ASP.NET Core için günlük kaydı kullanılarak gerçekleştirilir [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) bu sağlayıcı mevduatlarını ek günlük dosyaları blob kapsayıcısına sağlayıcısı. Daha fazla bilgi için [ASP.NET Core Azure'da oturum](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 531866ece1c4acacb926c9e9c6598158c1aa077f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572822"
+---
 ### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
 `listener.js` adlı yeni bir JavaScript dosyası oluşturun.

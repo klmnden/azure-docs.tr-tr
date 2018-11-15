@@ -1,60 +1,65 @@
 ---
-title: 'Hızlı Başlangıç: REST API ve cURL kullanarak bir görüntüdeki yüzleri algılama'
+title: 'Hızlı Başlangıç: bir resim cURL ve Azure REST API ile yüzleri algılayın'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, cURL ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+description: Bu hızlı başlangıçta, bir resimdeki yüz algılama için Azure yüz REST API ile cURL kullanır.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953357"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578055"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Hızlı Başlangıç: REST API ve cURL kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Hızlı Başlangıç: cURL ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
 
-Bu hızlı başlangıçta, Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için cURL ile Azure yüz REST API'sini kullanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="detect-faces-in-an-image"></a>Bir görüntüdeki yüzleri algılama
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
 
-[Yüz - Algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yöntemini kullanarak bir görüntüdeki yüzleri algılayın ve aşağıdaki yüz özniteliklerini döndürün:
-
-* Face ID: Birkaç Yüz Tanıma API'si senaryosunda kullanılan benzersiz kimlik.
-* Yüz Dikdörtgeni: Görüntüdeki yüzün konumunu gösteren sol kısım, üst kısım, genişlik ve yükseklik.
-* Yer İşaretleri: Yüz bileşenlerinin önemli konumlarına işaret eden 27 noktalık yüz yer işareti dizisi.
-* Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
-
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Bir Komut İstemi açın.
-2. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-3. Gerekirse URL’yi (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin.
-4. İsteğe bağlı olarak, analiz etmek için görüntüyü (`"{\"url\":...`) değiştirin.
-5. Kodu komut penceresine yapıştırın.
-6. Komutu çalıştırın.
-
-### <a name="face---detect-request"></a>Yüz - Algılama isteği
-
-> [!NOTE]
-> REST çağrınızda abonelik anahtarlarınızı almak için kullandığınız konumu kullanmanız gerekir. Örneğin, abonelik anahtarlarınızı westus konumundan aldıysanız, aşağıdaki URL’de "westcentralus" değerini "westus" olarak değiştirin.
+## <a name="write-the-command"></a>Komut yazma
+ 
+Yüz tanıma API'sini çağırmak ve bir görüntüden yüz özniteliği veri almak için aşağıdakine benzer bir komut kullanın. İlk olarak, kodu bir metin düzenleyicisine kopyalayın&mdash;çalışabilmesi için önce belirli bölümlerini komutu için değişiklik yapmanız.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>Yüz - Algılama yanıtı
+### <a name="subscription-key"></a>Abonelik anahtarı
+Değiştirin `<Subscription Key>` geçerli yüz abonelik anahtarınız ile.
 
-Başarılı bir yanıt JSON biçiminde döndürülür.
+### <a name="face-endpoint-url"></a>Yüz tanıma uç nokta URL'si
+
+URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` Azure yüz uç noktaya sorgu gösterir. İlk kısmı (zaten doğru olmadığı sürece) için abonelik anahtarınızı karşılık gelen bölgeyi eşleşmesi için bu URL'yi değiştirmeniz gerekecektir.
+
+### <a name="url-query-string"></a>URL sorgu dizesi
+
+Yüz tanıma uç nokta URL'sinin sorgu dizesini almak için hangi yüz öznitelikleri belirtir. Öngörülen kullanımınıza bağlı olarak bu dize değiştirmek isteyebilirsiniz.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>Görüntü kaynağı URL'si
+Kaynak URL, giriş olarak kullanılacak görüntüyü gösterir. Bu, çözümlemek istediğiniz herhangi bir görüntüye işaret edecek şekilde değiştirebilirsiniz.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>Komutunu çalıştırın
+
+Değişikliklerinizi yaptıktan sonra bir komut istemi açın ve yeni bir komut girin. Konsol penceresinde JASON verileri olarak görüntülenen yüz bilgileri görmeniz gerekir. Örneğin:
 
 ```json
 [
@@ -150,7 +155,7 @@ Başarılı bir yanıt JSON biçiminde döndürülür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir görüntüdeki insan yüzlerini algılamak, yüzleri dikdörtgenlerle ayırmak ve yaş ve cinsiyet gibi öznitelikleri döndürmek için kullanılan Yüz Tanıma API'sini keşfedin.
+Bu hızlı başlangıçta, bir resimdeki yüz algılama ve onların öznitelikleri döndürmek için Azure yüz tanıma API'si çağıran bir cURL komutu yazıldı. Ardından, daha fazla bilgi için yüz API başvuru belgeleri keşfedin.
 
 > [!div class="nextstepaction"]
-> [Yüz Tanıma API’leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Yüz Tanıma API’si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

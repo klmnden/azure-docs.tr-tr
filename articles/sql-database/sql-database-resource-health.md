@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/13/2018
-ms.openlocfilehash: 520656297fd2f31f02d127e8662c26617a42db83
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/14/2018
+ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629276"
+ms.locfileid: "51632637"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Azure SQL veritabanı için bağlantı sorunlarını gidermek için kaynak durumu kullanın
 
@@ -27,7 +27,7 @@ ms.locfileid: "51629276"
 
 ![Genel Bakış](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
-## <a name="health-checks"></a>Durum Denetimleri
+## <a name="health-checks"></a>Sistem durumu denetimleri
 
 Kaynak durumu, SQL kaynak durumu, başarı ve başarısızlık kaynağa oturumlarının inceleyerek belirler. Şu anda, SQL veritabanı kaynağınızın kaynak durumu, yalnızca sistem hatası ve kullanıcı hatası nedeniyle oturum açma hataları inceler. Kaynak sistem durumu, 1-2 dakikada bir güncelleştirilir.
 
@@ -65,7 +65,7 @@ Kaynak durumu sistem durumu geçmişi bölümünde sistem durumu geçmiş 14 gü
 
 SQL veritabanınız kesinti yaşandığında analiz bir nedenini belirlemek için gerçekleştirilir. Kullanılabilir olduğunda, kapalı kalma süresi nedeni kaynak durumu sistem durumu geçmişi bölümünde raporlanır. Kapalı kalma süresi, genellikle yayınlanan 30 dakika sonra bir olay nedenleridir.
 
-#### <a name="planned-maintenance"></a>Planlı Bakım
+#### <a name="planned-maintenance"></a>Planlı bakım
 
 Azure altyapısı, düzenli olarak planlanan bakım – veri merkezindeki donanım veya yazılım bileşenlerini yükseltme yapar. Bakım veritabanı uygulanır, ancak SQL var olan bazı bağlantılar sonlandırmak ve yenilerini reddet. Planlanan bakım sırasında karşılaşılan hataları genellikle geçicidir ve yeniden deneme mantığı oturum açma etkisini azaltmaya yardımcı olur. Oturum açma hataları yaşamaya devam ederseniz Lütfen desteğe başvurun.
 
@@ -73,7 +73,7 @@ Azure altyapısı, düzenli olarak planlanan bakım – veri merkezindeki donan�
 
 Yeniden yapılandırmalar, geçici koşullar kabul edilir ve zaman zaman beklenir. Bu olaylar, Yük Dengeleme veya yazılım/donanım arızaları tetiklenebilir. Bu gibi durumlarda azaltılmasına yardımcı olur ve genellikle hatalarını saydam son kullanıcıya olmanız gerekir bir bulut veritabanı hizmeti için bağlanan her istemci üretim uygulama geri alma mantığıyla bir güçlü bağlantı yeniden deneme mantığı uygulamalıdır.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinin [geçici hatalar için yeniden deneme mantığı](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [Sorun giderme, tanılama ve SQL bağlantı hatalarını önleme](./sql-database-connectivity-issues.md)

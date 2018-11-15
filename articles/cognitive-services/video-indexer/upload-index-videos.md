@@ -8,21 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: sample
-ms.date: 09/15/2018
+ms.date: 11/12/2018
 ms.author: juliako
-ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 513c64ba7c9dad29fbef4a4010f5320dadda3c82
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377838"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625190"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
 Bu makalede, Azure Video Indexer ile karşıya video yükleme gösterilmektedir. Video Indexer API’si, iki adet karşıya yükleme seçeneği sağlar: 
 
 * Videonuzu bir URL'den karşıya yükleyin (tercih edilir).
-* Videoyu isteğin gövdesinde bir bayt dizisi olarak gönderin.
+* İstek gövdesinde bir bayt dizisi olarak video dosyasını gönderin,
+* Var olan Azure Media Services varlığını sağlayarak kullanan [varlık kimliği](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (yalnızca ücretli hesaplarında desteklenir).
 
 Bu makalede, videolarınızı bir URL’ye dayalı olarak karşıya yüklemek ve dizinlemek için [Karşıya video yükleme](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API’sinin nasıl kullanılacağı açıklanmaktadır. Makaledeki kod örneği, bayt dizisinin nasıl yükleneceğini gösteren, açıklama satırı haline getirilmiş kod içerir.  
 
@@ -50,6 +51,35 @@ Bu bölümde, isteğe bağlı parametrelerin bazıları ve ayarlanmalarının ne
 
 Bu parametre, video ile ilişkilendirilecek bir kimlik belirtmenize olanak sağlar. Bu kimlik, dış "Video İçerik Yönetimi" (VCM) sistemiyle tümleştirmede kullanılabilir. Video Indexer portalında bulunan videolar, belirtilen dış kimlik kullanılarak aranabilir.
 
+### <a name="callbackurl"></a>callbackUrl
+
+Müşterinin (bir POST isteği kullanılarak) aşağıdaki olaylar hakkında bilgilendirmek için kullanılan URL:
+
+- Dizin oluşturma durumu değişikliği: 
+    - Özellikler:    
+    
+        |Ad|Açıklama|
+        |---|---|
+        |id|Video kimliği|
+        |durum|Video durumu|  
+    - Örnek: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+- Videoda tanımlanan kişi:
+    - Özellikler
+    
+        |Ad|Açıklama|
+        |---|---|
+        |id| Video kimliği|
+        |Faceıd|Video dizinde görünür face ID|
+        |knownPersonId|Yüz tanıma model içinde benzersiz olan kişinin kimliği|
+        |PersonName|Kişinin adı|
+        
+     - Örnek: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+
+#### <a name="notes"></a>Notlar
+
+- Video Indexer özgün URL'de sağlanan herhangi bir mevcut parametre döndürür.
+- Sağlanan URL kodlanmış olması gerekir.
+
 ### <a name="indexingpreset"></a>indexingPreset
 
 Ham veya dış kayıtlar arka plan gürültüsü içeriyorsa bu parametreyi kullanın. Bu parametre, dizinleme işlemini yapılandırmak için kullanılır. Aşağıdaki değerleri belirtebilirsiniz:
@@ -60,11 +90,11 @@ Ham veya dış kayıtlar arka plan gürültüsü içeriyorsa bu parametreyi kull
 
 Fiyat, seçilen dizinleme seçeneğine bağlıdır.  
 
-### <a name="callbackurl"></a>callbackUrl
+### <a name="priority"></a>öncelik
 
-Dizinleme işleminin tamamlandığını bildirmeye yönelik bir POST URL'si. Video Indexer bu URL’ye iki sorgu dizesi parametresi ekler: id (kimlik) ve state (durum). Örneğin, geri arama URL'si “https://test.com/notifyme?projectName=MyProject” ise bildirim ek parametreler ile “https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed” adresine gönderilir.
+Videolar, önceliklerine göre Video Indexer tarafından dizine eklenir. Kullanım **öncelik** dizin önceliğini belirtmek için parametre. Aşağıdaki değerler geçerlidir: **düşük**, **Normal** (varsayılan), ve **yüksek**.
 
-Çağrıyı POST yöntemiyle Video Indexer’a göndermeden önce URL'ye başka parametreler de ekleyebilirsiniz ve bu parametreler geri aramaya dahil edilir. Daha sonra, kodunuzda sorgu dizesini ayrıştırabilir ve sorgu dizesinde belirtilen tüm parametreleri (ilk başta URL’ye eklediğiniz veriler ve Video Indexer tarafından sağlanan bilgiler) geri alabilirsiniz. URL’nin kodlanması gerekir.
+**Öncelik** parametresi yalnızca ücretli hesapları için desteklenir.
 
 ### <a name="streamingpreset"></a>streamingPreset
 

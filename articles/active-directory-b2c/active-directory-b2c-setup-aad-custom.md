@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 820fd904ac4ab983f4bd9858f3cf1ecff147876e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a4519484c3319ca73bef2862db4d279ba117c4f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386629"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636739"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak bir Azure Active Directory hesabı ile oturum açma özelliğini ayarlama 
 
@@ -31,20 +31,19 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri Azure Active Directory B
 
 Belirli kullanıcılar için oturum açma etkinleştirmek için Azure AD kuruluş ihtiyacınız kuruluş içinde bir uygulamayı kaydetmek Azure AD kiracısı.
 
->[!NOTE]
->`Contoso.com` Kuruluş için kullanılan Azure AD kiracısı ve `fabrikamb2c.onmicrosoft.com` aşağıdaki yönergeler, Azure AD B2C kiracısı olarak kullanılır.
-
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Kuruluş Azure içeren dizine kullandığınızdan emin olun tıklayarak AD Kiracı (contoso.com) **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **uygulama kayıtları**.
 4. **Yeni uygulama kaydı**’nı seçin.
 5. Uygulamanız için bir ad girin. Örneğin, `Azure AD B2C App`.
 6. İçin **uygulama türü**seçin `Web app / API`.
-7. İçin **oturum açma URL'si**, tüm küçük harfleri, aşağıdaki URL'yi girin burada `your-tenant` (fabrikamb2c.onmicrosoft.com) Azure AD B2C kiracınızın adı ile değiştirilir:
+7. İçin **oturum açma URL'si**, tüm küçük harfleri, aşağıdaki URL'yi girin burada `your-B2C-tenant-name` Azure AD B2C kiracınızın adı ile değiştirilir:
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    Örneğin, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 8. **Oluştur**’a tıklayın. Kopyalama **uygulama kimliği** daha sonra kullanılacak.
 9. Uygulamayı seçin ve ardından **ayarları**.
@@ -85,7 +84,7 @@ Azure AD'ye ekleyerek bir talep sağlayıcısı olarak Azure AD'ye tanımlayabil
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -119,7 +118,7 @@ Azure AD'ye ekleyerek bir talep sağlayıcısı olarak Azure AD'ye tanımlayabil
     </ClaimsProvider>
     ```
 
-4. Altında **ClaimsProvider** öğesi için değeri güncelleştirin **etki alanı** diğer kimlik sağlayıcılardan ayırmak için kullanılan benzersiz bir değer.
+4. Altında **ClaimsProvider** öğesi için değeri güncelleştirin **etki alanı** diğer kimlik sağlayıcılardan ayırmak için kullanılan benzersiz bir değer. Örneğin, `Contoso`. Put olmayan bir `.com` sonunda, bu etki alanı ayarı.
 5. Altında **ClaimsProvider** öğesi için değeri güncelleştirin **DisplayName** için talep sağlayıcısı için bir kolay ad. Bu değer şu anda kullanılmıyor.
 
 ### <a name="update-the-technical-profile"></a>Teknik profilini güncelleştir
@@ -130,7 +129,7 @@ Azure AD uç noktasından bir belirteç almak için Azure AD B2C, Azure AD ile i
 2. Değerini güncelleştirin **DisplayName**. Bu değer, oturum açma ekranında oturum açın düğmesinde görüntülenir.
 3. Değerini güncelleştirin **açıklama**.
 4. Azure AD, Openıd Connect protokolünü kullanır, böylece emin değeri **Protokolü** olduğu `OpenIdConnect`.
-5. Değerini ayarlamak **meta verileri** için `https://login.windows.net/your-tenant/.well-known/openid-configuration`burada `your-tenant` , Azure AD Kiracı adı (contoso.com).
+5. Değerini ayarlamak **meta verileri** için `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`burada `your-AD-tenant-name` , Azure AD Kiracı adı. Örneğin, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Tarayıcınızı açın ve gidin **meta verileri** güncelleştirdiğiniz, arama için URL **veren** nesne, kopyalama ve değer için değerine yapıştırın **ProviderName** XML dosyasında.
 8. Ayarlama **client_id** ve **IdTokenAudience** için uygulama kaydı uygulama kimliği.
 9. Altında **CryptograhicKeys**, değerini güncelleştirin **Storagereferenceıd** tanımladığınız ilke anahtarı. Örneğin, `ContosoAppSecret`.
@@ -158,7 +157,7 @@ Bu noktada, kimlik sağlayıcısı ayarlandı, ancak oturumu-kaydolma/oturum aç
 **ClaimsProviderSelection** öğedir oturumu-kaydolma/oturum açma ekranı bir kimlik sağlayıcısının düğmesine benzer. Eklerseniz bir **ClaimsProviderSelection** öğesi Azure AD için yeni bir düğme gösterilir sayfasında bir kullanıcı gölünüzdeki olduğunda.
 
 1. Bulma **OrchestrationStep** içeren öğe `Order="1"` , oluşturduğunuz kullanıcı giden.
-2. Altında **ClaimsProviderSelects**, şu öğeyi ekleyin. Değerini **TargetClaimsExchangeId** örneğin uygun bir değere `ContosoExchange`:
+2. Altında **ClaimsProviderSelections**, şu öğeyi ekleyin. Değerini **TargetClaimsExchangeId** örneğin uygun bir değere `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />

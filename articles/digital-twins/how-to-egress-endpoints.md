@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: e140ca46a18fcab2194adb213d723ab67d40b0a8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615169"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636314"
 ---
 # <a name="egress-and-endpoints"></a>Çıkış ve uç noktaları
 
@@ -76,13 +76,13 @@ Olay biçimlerini olay türlerinin her biri için aşağıdaki bölümlerde aç�
   "eventTime": "2018-04-17T17:41:54.9400177Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Özel öznitelik adı | Şununla değiştir |
+| Değer | Şununla değiştir |
 | --- | --- |
-| yourTopicName | Özelleştirilmiş, konu adı |
+| YOUR_TOPIC_NAME | Özelleştirilmiş, konu adı |
 
 ### <a name="udfcustom"></a>UdfCustom
 
@@ -107,13 +107,13 @@ Olay biçimlerini olay türlerinin her biri için aşağıdaki bölümlerde aç�
   "eventTime": "2018-10-02T06:50:15.198Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Özel öznitelik adı | Şununla değiştir |
+| Değer | Şununla değiştir |
 | --- | --- |
-| yourTopicName | Özelleştirilmiş, konu adı |
+| YOUR_TOPIC_NAME | Özelleştirilmiş, konu adı |
 
 ### <a name="sensorchange"></a>SensorChange
 
@@ -142,13 +142,13 @@ Olay biçimlerini olay türlerinin her biri için aşağıdaki bölümlerde aç�
   "eventTime": "2018-04-17T17:46:18.5452993Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Özel öznitelik adı | Şununla değiştir |
+| Değer | Şununla değiştir |
 | --- | --- |
-| yourTopicName | Özelleştirilmiş, konu adı |
+| YOUR_TOPIC_NAME | Özelleştirilmiş, konu adı |
 
 ### <a name="spacechange"></a>SpaceChange
 
@@ -177,13 +177,13 @@ Olay biçimlerini olay türlerinin her biri için aşağıdaki bölümlerde aç�
   "eventTime": "2018-10-02T06:50:20.128Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Özel öznitelik adı | Şununla değiştir |
+| Değer | Şununla değiştir |
 | --- | --- |
-| yourTopicName | Özelleştirilmiş, konu adı |
+| YOUR_TOPIC_NAME | Özelleştirilmiş, konu adı |
 
 ### <a name="devicemessage"></a>DeviceMessage
 
@@ -211,18 +211,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourTopicName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME"
   }
   ```
 
-    | Özel öznitelik adı | Şununla değiştir |
+    | Değer | Şununla değiştir |
     | --- | --- |
-    | AdAlanınız | Uç noktanız için ad alanı |
-    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | yourTopicName | Özelleştirilmiş, konu adı |
+    | YOUR_NAMESPACE | Uç noktanız için ad alanı |
+    | YOUR_PRIMARY_KEY | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | YOUR_SECONDARY_KEY | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | YOUR_TOPIC_NAME | Özelleştirilmiş, konu adı |
 
 - Event Grid olay türleri için rota **SensorChange**, **SpaceChange**, ve **TopologyOperation**:
 
@@ -234,17 +234,17 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "yourPrimaryKey",
-    "secondaryConnectionString": "yourSecondaryKey",
-    "path": "yourTopicName.westus-1.eventgrid.azure.net"
+    "connectionString": "YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME.westus-1.eventgrid.azure.net"
   }
   ```
 
-    | Özel öznitelik adı | Şununla değiştir |
+    | Değer | Şununla değiştir |
     | --- | --- |
-    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi|
-    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | yourTopicName | Özelleştirilmiş, konu adı |
+    | YOUR_PRIMARY_KEY | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi|
+    | YOUR_SECONDARY_KEY | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | YOUR_TOPIC_NAME | Özelleştirilmiş, konu adı |
 
 - Event Hubs olay türleri için rota **SensorChange**, **SpaceChange**, ve **TopologyOperation**:
 
@@ -256,18 +256,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Özel öznitelik adı | Şununla değiştir |
+    | Değer | Şununla değiştir |
     | --- | --- |
-    | AdAlanınız | Uç noktanız için ad alanı |
-    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | yourEventHubName | Olay hub'ınızın adı |
+    | YOUR_NAMESPACE | Uç noktanız için ad alanı |
+    | YOUR_PRIMARY_KEY | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | YOUR_SECONDARY_KEY | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | YOUR_EVENT_HUB_NAME | Olay hub'ınızın adı |
 
 - Event Hubs olay türü için rota **DeviceMessage**. Eklenmesi, `EntityPath` içinde **connectionString** zorunludur:
 
@@ -277,18 +277,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     "eventTypes": [
       "DeviceMessage"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey;EntityPath=yourEventHubName",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey;EntityPath=yourEventHubName",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Özel öznitelik adı | Şununla değiştir |
+    | Değer | Şununla değiştir |
     | --- | --- |
-    | AdAlanınız | Uç noktanız için ad alanı |
-    | yourPrimaryKey | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | yourSecondaryKey | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | yourEventHubName | Olay hub'ınızın adı |
+    | YOUR_NAMESPACE | Uç noktanız için ad alanı |
+    | YOUR_PRIMARY_KEY | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | YOUR_SECONDARY_KEY | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | YOUR_EVENT_HUB_NAME | Olay hub'ınızın adı |
 
 > [!NOTE]  
 > Yeni bir uç nokta oluşturulduktan sonra en fazla 5 uç noktasında olayları almaya başlaması için 10 dakika sürebilir.

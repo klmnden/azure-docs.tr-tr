@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 1f537a381bbd595e519aaeb4cadb5b9be4657b6b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210474"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566576"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008 çalıştıran sunucuları Azure'a geçirme
 
@@ -44,7 +44,7 @@ Sınırlamalar ve bilinen sorunlar bölümünde bazı sınırlamalar Windows Ser
 > - Geçiş öncesinde en son hizmet paketini ve Windows güncelleştirmelerini yüklediğinizden emin olun.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce [VMware ve Fiziksel sunucu geçişi](vmware-azure-architecture.md) veya [Hyper-V sanal makinesi geçişi](hyper-v-azure-architecture.md) için Azure Site Recovery mimarisini gözden geçirmeniz faydalı olabilir. 
 
@@ -71,7 +71,7 @@ Bu öğreticinin geri kalan bölümünde Windows Server 2008 veya 2008 R2 çalı
 
 - 32 bit işletim sistemi çalıştıran Windows Server 2008 SP2 sunuculara Azure'a yük devretme işleminin veya yük devretme testinin hemen sonrasında RDP ile bağlantı kuramayabilirsiniz. Yük devreden sanal makineyi Azure portalda yeniden başlatın ve bağlanmayı tekrar deneyin. Yine bağlanamıyorsanız sunucunun uzak masaüstü bağlantılarına izin verecek şekilde yapılandırılıp yapılandırılmadığını denetleyin ve bağlantıyı engelleyen güvenlik duvarı kuralı veya ağ güvenlik grubu olmadığından emin olun. 
   > [!TIP]
-  > Sunucuları geçirmeden önce yük devretme testi gerçekleştirmeniz önerilir. Geçirdiğiniz her sunucuda en az bir kez başarılı yük devretme testi gerçekleştirdiğinizden emin olun. Yük devretme testinin bir parçası olarak yük devretme testi gerçekleştirilen makineye bağlanın ve tüm bileşenlerin beklendiği gibi çalıştığından emin olun.
+  > Sunucuları geçirmeden önce yük devretme testi gerçekleştirmeniz önerilir. Geçirdiğiniz her sunucuda en az bir başarılı test yük devretmesi gerçekleştirdiğiniz emin olun. Yük devretme testinin bir parçası olarak yük devretme testi gerçekleştirilen makineye bağlanın ve tüm bileşenlerin beklendiği gibi çalıştığından emin olun.
   >
   >Yük devretme testi işlemi kesintiye neden olmaz ve kendi seçtiğiniz yalıtılmış bir ağda sanal makine oluşturarak geçiş testi yapmanıza yardımcı olur. Yük devretme işleminden farklı olarak yük devretme testi sırasında veri çoğaltma devam eder. Geçişe hazır olduğunuzdan emin olana kadar istediğiniz sayıda yük devretme testi gerçekleştirebilirsiniz. 
   >
@@ -154,7 +154,10 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 2. **Yük devretme**’de yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. En son kurtarma noktasını seçin.
 3. **Yük devretmeyi başlatmadan önce makineyi kapatın** seçeneğini belirleyin. Site Recovery, yük devretmeyi tetiklemeden önce sunucuyu kapatmaya çalışır. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
 4. Azure VM’nin Azure’da beklendiği gibi görüntülenip görüntülenmediğini kontrol edin.
-5. **Çoğaltılan öğeler** bölümünde VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Böylece geçiş işlemi tamamlanır, VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
+5. **Çoğaltılan öğeler** bölümünde VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Bu, şunları yapar:
+
+    - Geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery Faturalaması durdurulur.
+    - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez.
 
    ![Geçişi tamamlama](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

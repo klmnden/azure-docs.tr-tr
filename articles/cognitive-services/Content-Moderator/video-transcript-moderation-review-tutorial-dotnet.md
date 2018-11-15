@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227580"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567120"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve transkript denetimi
 
@@ -35,13 +35,13 @@ Bu öğretici için [C# konsol uygulamasını](https://github.com/MicrosoftConte
 
 ## <a name="sample-program-outputs"></a>Örnek program çıkışları
 
-Daha fazla ilerlemeden, programdan alınan aşağıdaki örnek çıkışları gözden geçirelim:
+Daha fazla geçmeden önce aşağıdaki örnek çıkışlara programından göz atalım:
 
 - [Konsol çıkışı](#program-output)
 - [Video incelemesi](#video-review-default-view)
 - [Transkript görünümü](#video-review-transcript-view)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. [Content Moderator inceleme aracı](https://contentmoderator.cognitive.microsoft.com/) web sitesine kaydolun ve C# konsol uygulamasının kodun içinden atadığı [özel etiketler oluşturun](Review-Tool-User-Guide/tags.md). Aşağıdaki ekranda özel etiketler gösterilir.
 
@@ -629,7 +629,7 @@ Ardından, VTT biçimindeki transkripti açıklamalı alt yazılar ve zaman damg
 Ardından, ayrıştırılmış metin açıklamalı alt yazıları Content Moderator'ın metin API'siyle tararız.
 
 > [!NOTE]
-> Content Moderator hizmet anahtarınızın saniyede istek sayısı (RPS) hız sınırı vardır. Sınırı aşarsanız, SDK 429 hata koduyla bir özel durum oluşturur. 
+> Content Moderator hizmet anahtarınızın saniyede istek sayısı (RPS) hız sınırı vardır. Sınırı aşarsanız, SDK 429 hata koduyla bir özel durum oluşturulur. 
 >
 > Ücretsiz katmanı anahtarı bir RPS’lik hız sınırına sahiptir.
 

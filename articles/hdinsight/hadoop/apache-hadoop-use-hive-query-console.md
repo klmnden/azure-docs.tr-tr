@@ -1,6 +1,6 @@
 ---
-title: HDInsight - Azure sorgu konsolunda üzerinde Hadoop Hive kullanma
-description: Tarayıcınızdan bir HDInsight Hadoop kümesinde Hive sorguları çalıştırmak için web tabanlı sorgu Konsolu kullanma konusunda bilgi edinin.
+title: Apache Hive HDInsight - Azure sorgu konsolunda kullanın
+description: Apache Hive sorguları bir HDInsight Hadoop kümesinde tarayıcınızdan çalıştırmak için web tabanlı sorgu Konsolu kullanma konusunda bilgi edinin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4083ceca8c9181c8acb1a90e782cb5bca981e684
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013981"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634603"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Sorgu Konsolu kullanarak Hive sorguları çalıştırma
+# <a name="run-apache-hive-queries-using-the-query-console"></a>Sorgu Konsolu kullanarak Apache Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Bu makalede, tarayıcınızdan bir HDInsight Hadoop kümesinde Hive sorguları çalıştırmak için HDInsight sorgu Konsolu kullanma öğreneceksiniz.
+Bu makalede, Apache Hive sorguları bir HDInsight Hadoop kümesinde tarayıcınızdan çalıştırmak için HDInsight sorgu Konsolu kullanma öğreneceksiniz.
 
 > [!IMPORTANT]
 > HDInsight sorgu konsolu yalnızca Windows tabanlı HDInsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

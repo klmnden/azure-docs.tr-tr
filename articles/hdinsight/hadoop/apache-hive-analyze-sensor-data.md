@@ -1,6 +1,6 @@
 ---
-title: Hive ve Hadoop - Azure HDInsight'ı kullanarak sensör verilerini çözümleme
-description: Hive sorgu Konsolu kullanarak HDInsight (Hadoop) ile algılayıcı verilerini çözümlemeyi öğrenin ve ardından verileri Microsoft Excel'de PowerView ile görselleştirin.
+title: Apache Hive ve Apache Hadoop - Azure HDInsight'ı kullanarak sensör verilerini çözümleme
+description: HDInsight (Hadoop) ile Apache Hive sorgu konsolunu kullanarak algılayıcı verilerini çözümlemeyi öğrenin ve ardından verileri Microsoft Excel'de PowerView ile görselleştirin.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfc4d930f185c36c3ba0c869494ba0e7dee64cac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249413"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634422"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>HDInsight Hadoop Hive sorgu Konsolu kullanarak sensör verilerini çözümleme
+# <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop üzerinde Apache Hive sorgu konsolunu kullanarak sensör verilerini çözümleme
 
-Hive sorgu Konsolu kullanarak HDInsight (Hadoop) ile algılayıcı verilerini çözümlemeyi öğrenin ve ardından Power View'ı kullanarak verileri Microsoft Excel'de görselleştirin.
+(Apache Hadoop) HDInsight ile Hive sorgu Konsolu kullanarak algılayıcı verilerini çözümlemeyi öğrenin ve ardından Power View'ı kullanarak verileri Microsoft Excel'de görselleştirin.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

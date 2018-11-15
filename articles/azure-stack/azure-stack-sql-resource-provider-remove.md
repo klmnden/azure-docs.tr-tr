@@ -11,31 +11,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f5aa67ad0588e3f42e68056c8ffca97767975e8b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361490"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684035"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını kaldırma
 
 SQL kaynak sağlayıcısı kaldırmadan önce tüm sağlayıcısı bağımlılıklarını kaldırmanız gerekir. Kaynak sağlayıcısını yüklemek için kullanılan dağıtım paketinin bir kopyasını da gerekir.
 
-Çalıştırmadan önce uygulamanız gereken birkaç temizleme görev _DeploySqlProvider.ps1_ kaynak sağlayıcısını kaldırma komut dosyası.
-Kiracılar için aşağıdaki temizleme görevlerini sorumludur:
+  |Azure Stack en düşük sürüm|SQL RP sürümü|
+  |-----|-----|
+  |Sürüm 1808 (1.1808.0.97)|[SQL RP 1.1.30.0 sürümü](https://aka.ms/azurestacksqlrp11300)|
+  |Sürüm 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 sürümü](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
+
+## <a name="dependency-cleanup"></a>Bağımlılık temizleme
+
+Kaynak Sağlayıcısı'nı kaldırmak için DeploySqlProvider.ps1 betik çalıştırılmadan önce yapmak için birkaç temizleme görevi vardır.
+
+Azure Stack Kiracı kullanıcıları için aşağıdaki temizleme görevlerini sorumludur:
 
 * Tüm veritabanları, kaynak Sağlayıcısı'ndan silin. (Kiracı veritabanlarını silerek verileri silmez.)
-* Kaynak sağlayıcısı ad alanından kaydını silin.
+* Sağlayıcı ad alanından kaydını silin.
 
-Yönetici için aşağıdaki temizleme görevlerini sorumludur:
+Azure Stack operatörü için aşağıdaki temizleme görevlerini sorumludur:
 
-* SQL kaynak Sağlayıcısı'ndan barındırma sunucuları siler.
-* SQL kaynak sağlayıcısı referans planları siler.
-* SQL kaynak sağlayıcısı ile ilişkili olan herhangi bir kota siler.
+* Barındırma sunucusu MySQL bağdaştırıcısından siler.
+* MySQL bağdaştırıcı başvuru planları siler.
+* MySQL bağdaştırıcısı ile ilişkili olan herhangi bir kota siler.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>SQL kaynak Sağlayıcısı'nı kaldırmak için
 

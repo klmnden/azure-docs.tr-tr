@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 33190472215e7a02b94951a73054ebe3e1994e54
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6a757dca48dc3ff41adfe6f8802fad40e7a4ca81
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623919"
+ms.locfileid: "51636841"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevler kullanma
 
@@ -44,7 +44,7 @@ Matchers ne için belirli bir telemetri iletisi kullanıcı tanımlı işlevleri
 Aşağıdaki örnek Eşleştiricisi herhangi bir algılayıcı telemetri olay üzerinde true değerlendirir `"Temperature"` veri türü değeri olarak. Bir kullanıcı tanımlı işlev üzerinde birden fazla matchers oluşturabilirsiniz:
 
 ```plaintext
-POST yourManagementApiUrl/matchers
+POST YOUR_MANAGEMENT_API_URL/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -59,7 +59,7 @@ POST yourManagementApiUrl/matchers
 }
 ```
 
-| Değeriniz | Şununla değiştir |
+| Değer | Şununla değiştir |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
 
@@ -72,20 +72,20 @@ POST yourManagementApiUrl/matchers
 > - Çok bölümlü gövde:
 >   - İlk UDF için gerekli meta veriler hakkında bir parçasıdır.
 >   - JavaScript işlem mantığı ikinci bölümüdür.
-> - İçinde **userDefinedBoundary** bölümünde, değiştirin **SpaceId** ve **Machers** değerleri.
+> - İçinde **USER_DEFINED_BOUNDARY** bölümünde, değiştirin **SpaceId** ve **Machers** değerleri.
 
 ```plaintext
-POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 ```
 
 | Parametre değeri | Şununla değiştir |
 | --- | --- |
-| *userDefinedBoundary* | Çok parçalı içerik sınır adı |
+| *USER_DEFINED_BOUNDARY* | Çok bölümlü içerik sınır adı |
 
 ### <a name="body"></a>Gövde
 
 ```plaintext
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
@@ -95,7 +95,7 @@ Content-Disposition: form-data; name="metadata"
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
   "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
 Content-Type: text/javascript
 
@@ -103,10 +103,10 @@ function process(telemetry, executionContext) {
   // Code goes here.
 }
 
---userDefinedBoundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| Değeriniz | Şununla değiştir |
+| Değer | Şununla değiştir |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Alanı tanımlayıcısı  |
 | YOUR_MATCHER_IDENTIFIER | Kullanmak istediğiniz Eşleştiricisi kimliği |
@@ -189,7 +189,7 @@ Biz altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol ata
 1. Roller için sorgulama ve UDF için atamak istediğiniz rolü Kimliğini alın. Geçirin **Roleıd**:
 
     ```plaintext
-    GET yourManagementApiUrl/system/roles
+    GET YOUR_MANAGEMENT_API_URL/system/roles
     ```
 
 1. **ObjectID** daha önce oluşturulan UDF kimliği olacaktır.
@@ -197,17 +197,17 @@ Biz altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol ata
 1. Döndürülen kopyalama `spacePaths` değeri. Aşağıdaki kodda, kullanacaksınız:
 
     ```plaintext
-    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
     | Parametre değeri | Şununla değiştir |
     | --- | --- |
-    | *yourSpaceName* | Kullanmak istediğiniz alanı adı |
+    | *YOUR_SPACE_NAME* | Kullanmak istediğiniz alanı adı |
 
 1. Döndürülen yapıştırın `spacePaths` içine değer **yolu** UDF rol ataması oluşturmak için:
 
     ```plaintext
-    POST yourManagementApiUrl/roleassignments
+    POST YOUR_MANAGEMENT_API_URL/roleassignments
     {
       "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
       "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",

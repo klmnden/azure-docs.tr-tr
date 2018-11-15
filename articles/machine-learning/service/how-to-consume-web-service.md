@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 0ad39048a6b175a30ac7c5cdc346d0858c3719ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621879"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685183"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 
 Bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma, bir REST API oluşturur. Bu API için veri göndermek ve modeli tarafından döndürülen tahmin alırsınız. Bu belgede, web hizmeti kullanmak için istemcileri oluşturmayı öğrenin C#, Go, Java ve Python.
 
-Bir web hizmeti, görüntüyü Azure Container örneği, Azure Kubernetes hizmeti veya Project Brainwave (alanda programlanabilir kapı dizileri) dağıttığınızda oluşturulur. Görüntüleri, kayıtlı bir model ve puanlama dosyaları oluşturulur. Bir web hizmetine erişmek için kullanılan URI kullanılarak alınabilir [Azure Machine Learning SDK'sı](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
+Bir web hizmeti, görüntüyü Azure Container örneği, Azure Kubernetes hizmeti veya Project Brainwave (alanda programlanabilir kapı dizileri) dağıttığınızda oluşturulur. Görüntüleri, kayıtlı bir model ve puanlama dosyaları oluşturulur. Bir web hizmetine erişmek için kullanılan URI kullanılarak alınabilir [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
 
 Bir XML web hizmeti kullanan bir istemci oluşturma, genel iş akışı şöyledir:
 
@@ -33,7 +33,7 @@ Bir XML web hizmeti kullanan bir istemci oluşturma, genel iş akışı şöyled
 > [!NOTE]
 > Azure Machine Learning SDK'sı, web hizmeti bilgileri almak için kullanılır. Bir Python SDK'sı budur. Web hizmetleri hakkında bilgi almak için kullanılır, ancak bir istemci hizmeti oluşturmak için herhangi bir dil kullanabilirsiniz.
 
-Web hizmeti bağlantı bilgileri, Azure Machine Learning SDK'sı kullanılarak alınabilir. [Azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı, bir istemci oluşturmak için gereken bilgileri sağlar. Aşağıdaki `Webservice` bir istemci uygulaması oluştururken yararlı olan özellikler:
+Web hizmeti bağlantı bilgileri, Azure Machine Learning SDK'sı kullanılarak alınabilir. [Azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı, bir istemci oluşturmak için gereken bilgileri sağlar. Aşağıdaki `Webservice` bir istemci uygulaması oluştururken yararlı olan özellikler:
 
 * `auth_enabled` -Kimlik doğrulama etkinse `True`; Aksi takdirde `False`.
 * `scoring_uri` -REST API adresi.
@@ -51,7 +51,7 @@ Dağıtılan web hizmetleri için bu bilgileri almak için üç yol vardır:
     print(service.scoring_uri)
     ```
 
-* Kullanabileceğiniz `Webservice.list` bir listesini almak için çalışma alanınızdaki modelleri için web hizmetleri dağıtıldı. Döndürülen bilgileri listesini daraltmak için filtre ekleyebilirsiniz. Ne hakkında daha fazla bilgi filtrelenebilen için bkz: [Webservice.list](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) başvuru belgeleri.
+* Kullanabileceğiniz `Webservice.list` bir listesini almak için çalışma alanınızdaki modelleri için web hizmetleri dağıtıldı. Döndürülen bilgileri listesini daraltmak için filtre ekleyebilirsiniz. Ne hakkında daha fazla bilgi filtrelenebilen için bkz: [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) başvuru belgeleri.
 
     ```python
     services = Webservice.list(ws)
@@ -82,7 +82,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Bir anahtarı yeniden oluşturmak ihtiyacınız varsa [ `service.regen_key` ](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
+> Bir anahtarı yeniden oluşturmak ihtiyacınız varsa [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
 
 ## <a name="request-data"></a>İstek verileri
 

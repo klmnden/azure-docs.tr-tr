@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: a62ecd0201d6b29686abc186ee69f3d26dc5ca4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516294"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686152"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Maliyet Yönetimi verilerine erişim atama
 
-Çoğu kullanıcı için Azure portalında hem de kurumsal (EA) portalında verilen izinler, Azure maliyet Yönetimi verilerine bir kullanıcının erişim düzeyini tanımlayın. Bu makalede, maliyet Yönetimi verilerine erişim atama rağmen gösterilmektedir. Maliyet Yönetimi'nde kullanıcı görünümleri verileri için ve Azure Portalı'nda seçtiğiniz kapsamda erişime sahip oldukları kapsamına göre bu izinleri birleşimi atandıktan sonra.
+Çoğu kullanıcı için Azure portalında hem de kurumsal (EA) portalında verilen izinler, Azure maliyet Yönetimi verilerine bir kullanıcının erişim düzeyini tanımlayın. Bu makalede, maliyet Yönetimi verilerine erişim atama aracılığıyla gösterilmektedir. Maliyet Yönetimi'nde kullanıcı görünümleri verileri için ve Azure Portalı'nda seçtiğiniz kapsamda erişime sahip oldukları kapsamına göre bu izinleri birleşimi atandıktan sonra.
 
 Bir kullanıcının seçtiği kapsam maliyet yönetimi, veri birleştirme sağlamak ve maliyet bilgilerini erişimi denetlemek için kullanılır. Kapsamları kullanırken, kullanıcılar çoklu seçim yoksa bunları. Bunun yerine, alt kapsamlar kadar geri alma ve sonra bunlar filtre görüntülemek istediklerini için aşağı daha büyük bir kapsam seçin. Veri birleştirme, bazı kişiler, alt kapsamlar aktarma hedefi bir üst kapsama erişimi olmaması nedeniyle anlamak önemlidir.
 

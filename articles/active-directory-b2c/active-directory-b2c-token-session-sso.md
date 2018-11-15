@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012454"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636909"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Belirteç, oturum ve Azure Active Directory B2C, çoklu oturum açma yapılandırması
 
@@ -26,9 +26,9 @@ Bu özellik, hassas bir denetim üzerinde sağlar bir [ilkeye temel](active-dire
 - Azure AD B2C tarafından yayılan güvenlik belirteçlerini önemli Taleplerde biçimleri.
 - Çoklu oturum açma (SSO) davranışı birden fazla uygulama ve ilkeleri, Azure AD B2C kiracınızdaki.
 
-Yerleşik ilkeler için bu özelliği Azure AD B2C dizininizde aşağıdaki gibi kullanabilirsiniz:
+Herhangi bir ilke türü bu özelliği kullanabilirsiniz, ancak bu örnek bir kaydolma veya oturum açma ilkesi ile bu özelliği kullanmak nasıl gösterir. Yerleşik ilkeler için bu özelliği Azure AD B2C dizininizde aşağıdaki gibi kullanabilirsiniz:
 
-1. Tıklayın **oturum açma veya kaydolma ilkeleri'ni**. * Not: Bu özellik herhangi bir ilke türü üzerinde değil yalnızca üzerinde kullanabileceğiniz ** kaydolma veya oturum açma ilkeleri ***.
+1. Tıklayın **oturum açma veya kaydolma ilkeleri'ni**.
 2. Tıklayarak bir ilkeyi açın. Örneğin, tıklayarak **b2c_1_siupın**.
 3. Tıklayın **Düzenle** menüsünün üstünde.
 4. Tıklayın **belirteç, oturum ve çoklu oturum açma yapılandırması**.

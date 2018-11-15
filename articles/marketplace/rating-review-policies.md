@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: qianw211
-ms.openlocfilehash: 3679981a335c380b54d7349d16f94bb7e5e1fee3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ab00e51aa8677f71990cf3da8bf01c9ab62ce4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258876"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683147"
 ---
 # <a name="azure-appsource-and-marketplace-review-policies"></a>Azure AppSource ve Market ilkelerini gözden geçirme
 
@@ -52,12 +52,3 @@ Azure AppSource ve Market derecelendirme ve gözden geçirme ilkeler burada list
 * Gözden geçirmenize ifade bakış açılarını Dengeli ve dilden bağımsız olduğundan emin olun.
 * Genel bir forum postaladığınız ve buna göre hareket unutmayın.
 
-## <a name="review-guidelines-for-publishers"></a>Yayımcılar için gözden geçirme yönergeleri
-
-* İhlal olabilecek herhangi bir içerik göndermeyin [AppSource ve Azure Marketi'nde incelemesi İlkesi](./rating-review-policies.md).
-* Herhangi bir pazarlama içeriği veya reklam açıklamanızda içermez.
-* Diğer uygulamalar veya hizmetler, yorum yükseltmek değil.
-* Yanıtınız doğrudan gözden geçirme ve belirli bir uygulama için ilişkili olmalıdır.
-* Tamamlanmış yanıtları kullanmayın ve tamamlanmış açıklamalar arasında birden fazla değerlendirme göndermeyin.
-* Derecelendirmeleri veya incelemeleri değiştirmek için gözden geçirenler tazminat veya teşvikleri sunan gibi hiçbir şekilde incelemeleri değiştiremez.
-* Her zaman yumuşak ve müşterileri memnun uygulamanızın en iyi nefreti olduğunu göz önünde bulundurun.

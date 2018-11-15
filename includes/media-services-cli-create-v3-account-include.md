@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 9ecb07a2cb278f6cde4ffdc3b252cb9e816d08da
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 513d9a3a044daacd84b810e4795522c2bd6763f8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733311"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616580"
 ---
 ## <a name="create-a-media-services-account"></a>Media Services hesabı oluşturma
 
@@ -23,7 +23,7 @@ ms.locfileid: "38733311"
 
 Aşağıdaki komutu kullanarak bir kaynak grubu oluşturun. Azure kaynak grubu; Azure Media Services hesapları ve ilişkili Depolama hesapları gibi kaynakların dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-```azurecli-interactive
+```azurecli
 az group create --name amsResourceGroup --location westus2
 ```
 
@@ -37,7 +37,7 @@ Depolama hesaplarının Media Services’ta nasıl kullanıldığı hakkında da
 
 Aşağıdaki komut, Media Services Hesabı ile ilişkilendirilecek Depolama hesabını oluşturur. Aşağıdaki betikte `storageaccountforams` öğesini kendi değeriniz ile değiştirebilirsiniz. Hesap adı en fazla 24 karakter uzunluğunda olmalıdır.
 
-```azurecli-interactive
+```azurecli
 az storage account create --name storageaccountforams \  
 --kind StorageV2 \
 --sku Standard_RAGRS \
@@ -48,6 +48,6 @@ az storage account create --name storageaccountforams \
 
 Aşağıdaki Azure CLI komutu yeni bir Media Services hesabı oluşturur. Aşağıdaki değerleri değiştirebilirsiniz: `amsaccount` `storageaccountforams` (depolama hesabınız için verdiğiniz değerle eşleşmelidir) ve `amsResourceGroup` (kaynak grubu için verdiğiniz değerle eşleşmelidir).
 
-```azurecli-interactive
+```azurecli
 az ams account create --name amsaccount --resource-group amsResourceGroup --storage-account storageaccountforams
 ```

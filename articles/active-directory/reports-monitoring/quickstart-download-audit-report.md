@@ -13,26 +13,26 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d6ecf62b46c25ec7cf4ab80219d1bc220e4eb4cc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367415"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620743"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalı kullanarak denetim raporu indirme
 
 Bu hızlı başlangıçta, son 24 saat boyunca kiracınız için denetim günlüklerinin nasıl indirileceğini öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Gerekenler:
 
 * Bir Azure Active Directory kiracısı. 
-* Kiracı için Güvenlik Yöneticisi, Güvenlik Okuyucusu veya Genel Yönetici rolünde olan bir kullanıcı. Ayrıca, kiracıdaki tüm kullanıcılar kendi denetim günlüklerine erişebilir.
+* İçinde olan bir kullanıcı **Güvenlik Yöneticisi**, **güvenlik okuyucusu**, veya **genel yönetici** kiracının rol. Ayrıca, kiracıdaki tüm kullanıcılar kendi denetim günlüklerine erişebilir.
 
 ## <a name="quickstart-download-an-audit-report"></a>Hızlı Başlangıç: Denetim raporunu indirme
 

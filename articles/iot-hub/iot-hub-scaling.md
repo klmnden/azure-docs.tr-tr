@@ -1,19 +1,19 @@
 ---
 title: Azure IOT Hub ile ölçeklendirme | Microsoft Docs
 description: Beklenen bir ileti aktarım hızı ve istenen özellikleri desteklemek için IOT hub'ını ölçeklendirmek nasıl. Her katman için desteklenen üretilen iş ve parçalara ayırma için seçenekleri bir özetini içerir.
-author: kgremban
+author: wesmc7777
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: kgremban
-ms.openlocfilehash: d98a890cfb6bd388477ff3f14b81c8df02ece879
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.author: wesmc
+ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287974"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633385"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -31,7 +31,7 @@ Her IOT Hub katmanını göre üç boyutlarında kullanılabilir ne kadar veri i
 
 Standart katman IOT Hub'ın tüm özelliklerini etkinleştirir ve devre dışı hale getirmek istediğiniz tüm IOT çözümleri için gereklidir çift yönlü iletişim yeteneklerini kullanın. Temel katman özelliklerinin bir alt kümesi sağlar ve buluta cihazlardan gelen tek yönlü iletişimi yalnızca ihtiyacınız olan IOT çözümleri için tasarlanmıştır. Her iki katmanda aynı güvenlik ve kimlik doğrulama özellikleri sunar.
 
-IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Temel katmandan standart katmana yükseltebilirsiniz. Daha fazla bilgi için [IOT hub'ınıza yükseltme](iot-hub-upgrade.md). Temel katman IOT hub'ı için en yüksek bölüm sınırı 8'dir ve standart katman için 32'dir. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. IOT hub'ı oluşturulduğunda ve CİHAZDAN buluta iletileri bu iletileri eşzamanlı okuyucu sayısıyla ilgilidir'ün bölüm sınırından seçilir. Bu değer, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır. Ayrıca, bu yalnızca bir tür unutmayın [edition](https://azure.microsoft.com/pricing/details/iot-hub/) IOT hub'ı bir katman içinde seçilebilir. Örneğin, birden çok S1 birimi olan, ancak bir karışımını birimleri S1 ve B3 ya da S1 ve S2 gibi farklı sürümleri ile değil, bir IOT hub'ı oluşturabilirsiniz.
+Yalnızca bir tür [edition](https://azure.microsoft.com/pricing/details/iot-hub/) IOT hub'ı bir katman içinde seçilebilir. Örneğin, birden çok S1 birimi olan, ancak bir karışımını birimleri S1 ve B3 ya da S1 ve S2 gibi farklı sürümleri ile değil, bir IOT hub'ı oluşturabilirsiniz.
 
 | Özellik | Temel katman | Standart katman |
 | ---------- | ---------- | ------------- |
@@ -47,7 +47,22 @@ IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Tem
 
 IOT Hub ayrıca test ve değerlendirme için tasarlanmıştır ücretsiz bir katmanı sunar. Bu, standart katman, ancak sınırlı Mesajlaşma kesintileri tüm özelliklerine sahiptir. Ücretsiz katmanındaki temel veya standart olarak yükseltemezsiniz. 
 
-### <a name="iot-hub-rest-apis"></a>IoT Hub REST API’leri
+
+## <a name="partitions"></a>Bölümler
+
+Azure IOT hub'ları içeren birçok temel bileşenleri [Azure Event Hubs](../event-hubs/event-hubs-features.md)de dahil olmak üzere [bölümler](../event-hubs/event-hubs-features.md#partitions). IOT hub'ları için olay akışları, genellikle çeşitli IOT cihazlar tarafından bildirilen gelen telemetri verilerini ile doldurulur. Bölümleme olay akışını aynı anda okuma ve olay akışlara yazmak oluşan çakışmaları azaltmak için kullanılır. 
+
+IOT hub'ı oluşturulduğunda ve değiştirilemez ' ün bölüm sınırından seçilir. Temel katman IOT hub'ları için en yüksek bölüm sınırının 8 olup ve standart katman için en fazla 32'dir. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. Event Hubs SSS Sayfasındaki bölümleri belirleme hakkında daha fazla bilgi için bkz. [kaç bölümler yapmam gerekir mi?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+
+
+## <a name="tier-upgrade"></a>Katmanı yükseltme
+
+IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Temel katmandan standart katmana yükseltebilirsiniz. Daha fazla bilgi için [IOT hub'ınıza yükseltme](iot-hub-upgrade.md).
+
+Birim yapılandırması, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır.
+
+
+## <a name="iot-hub-rest-apis"></a>IoT Hub REST API’leri
 
 Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki farkı, bazı API çağrıları, temel katmanı hub'ları ile çalışmaz anlamına gelir. Aşağıdaki tabloda, hangi API'ler kullanılabilir olduğunu gösterir: 
 

@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 91f24bf90f3e1a8a0c383a5820c6816748090807
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629258"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685999"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>PostgreSQL için Azure veritabanı autovacuum en iyi duruma getirme 
 Bu makalede, etkili bir şekilde PostgreSQL için Azure veritabanı autovacuum en iyi duruma getirme açıklanır.
@@ -50,7 +50,7 @@ autovacuum_vacuum_cost_limit|Otomatik ELEKTRİKLİ işlemlerinde kullanılacak o
 autovacuum_vacuum_cost_delay|Otomatik ELEKTRİKLİ işlemlerinde kullanılacak maliyet gecikme değeri belirtir. -1 belirtilirse, bu normal vacuum_cost_delay değeri kullanılır. Varsayılan değer 20 milisaniyedir. Bu parametre yalnızca postgresql.conf dosyası veya sunucu komut satırında ayarlanabilir. Ayar tek tek tablolar için Tablo depolama parametrelerinin değiştirilmesi tarafından geçersiz kılınabilir.|20 ms
 autovacuum_nap_time|Autovacuum arasındaki en düşük gecikmeyi herhangi belirli bir veritabanı üzerinde çalışan belirtir. Her hepsini arka plan programı veritabanı inceler ve bu veritabanındaki tablolar için gerektiği şekilde ELEKTRİKLİ ve ANALİZ komutlar verir. Gecikme süresini saniye cinsinden ölçülür ve bir dakika (1 dak) varsayılandır. Bu parametre yalnızca postgresql.conf dosyası veya sunucu komut satırında ayarlanabilir.|15 s
 autovacuum_max_workers|Herhangi bir anda çalışan autovacuum işlemleri (autovacuum Başlatıcısı dışında) en fazla sayısını belirtir. Varsayılan üçüncü bölümüdür. Bu parametre yalnızca sunucu başlangıcında ayarlayabilirsiniz.|3
-Azure portalı veya Azure CLI kullanarak yukarıdaki yapılandırmaları güncelleştirilebilir.
+Yukarıdaki ayarları tek tek tablolar için Tablo depolama parametrelerinin değiştirilmesi tarafından geçersiz kılınabilir.  
 
 ## <a name="autovacuum-cost"></a>Autovacuum maliyeti
 "Süpür işlemi çalıştırmanın maliyetlerini" aşağıda verilmiştir:

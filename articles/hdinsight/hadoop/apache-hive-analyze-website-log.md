@@ -1,6 +1,6 @@
 ---
-title: Web sitesi günlüğü çözümlemesi - Azure HDInsight Hadoop ile Hive kullanma
-description: Web sitesi günlüklerini çözümlemek için HDInsight ile Hive kullanma konusunda bilgi edinin. Bir HDInsight tablosuna giriş olarak bir günlük dosyası kullanın ve verileri sorgulamak için HiveQL kullanın.
+title: Web sitesi günlüğü çözümlemesi - Azure HDInsight için Apache Hadoop ile Hive kullanma
+description: Apache Hive Web sitesi günlüklerini çözümlemek için HDInsight ile kullanmayı öğrenin. Bir HDInsight tablosuna giriş olarak bir günlük dosyası kullanın ve verileri sorgulamak için HiveQL kullanın.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233607"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634354"
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Web sitesi günlüklerini çözümlemek için Windows tabanlı HDInsight ile Hive kullanma
+# <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Apache Hive Windows tabanlı HDInsight ile Web sitesi günlüklerini çözümlemek için kullanın
 Bir Web sitesi günlüklerini çözümlemek için HDInsight ile HiveQL kullanmayı öğrenin. Web sitesi günlüğü çözümlemesi benzer etkinliklere dayalı hedef kitlenizi segmentlere ayırın, site ziyaretçilerinin demografik bilgilere göre kategorilere ayırın ve bulmak için içeriği teslim bunlar görünümü, Web siteleri geliyorlar ve benzeri kullanılabilir.
 
 > [!IMPORTANT]

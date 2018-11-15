@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d99f077449529fb4a4a7f124fe1c0263d4113dee
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 49d0840ff7a41ed48151b65e1351628d32d46d24
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363454"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623257"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory’de adlandırılmış konumları yapılandırma
 
@@ -30,7 +30,7 @@ Adlandırılmış konumlar ile, kuruluşunuzda güvenilir IP adresi aralıkları
 
 Bu hızlı başlangıçta, ortamınızda adlandırılmış konumları nasıl yapılandıracağınızı öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
@@ -62,8 +62,6 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 Daha fazla bilgi için bkz.
 
-- [Azure Active Directory’de koşullu erişim](../active-directory-conditional-access-azure-portal.md).
-
+- [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md).
 - [Azure AD koşullu erişiminde konum koşulları](../conditional-access/location-condition.md)
-
-- [Azure Active Directory portalındaki riskli oturum açma işlemleri raporu](concept-risky-sign-ins.md).  
+- [Riskli oturum açma işlemleri raporu](concept-risky-sign-ins.md).  

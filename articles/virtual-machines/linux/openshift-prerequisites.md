@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085884"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636627"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Azure'da OpenShift dağıtmak için genel Önkoşullar
 
@@ -99,12 +99,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma 
-OpenShift, bir kullanıcı adı ve parola veya hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu, uygulamaları, hizmetleri ve OpenShift gibi Otomasyon araçları ile kullanabileceğiniz bir güvenlik kimliğidir. Denetleyebilir ve hangi işlemleri için Azure'da hizmet sorumlusu gerçekleştirebilir izinleri tanımlayın. Yalnızca bir kullanıcı adı ve parola sağlayan ötesinde güvenliğini artırmak için bu örnek bir temel hizmet sorumlusu oluşturur.
+OpenShift, bir kullanıcı adı ve parola veya hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu, uygulamaları, hizmetleri ve OpenShift gibi Otomasyon araçları ile kullanabileceğiniz bir güvenlik kimliğidir. Denetleyebilir ve hangi işlemleri için Azure'da hizmet sorumlusu gerçekleştirebilir izinleri tanımlayın. Aboneliğin tümü yerine hizmet sorumlusu belirli kaynak gruplarına izinler kapsam en iyisidir.
 
 Bir hizmet sorumlusu oluşturma [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) ve OpenShift gereken kimlik bilgilerini çıktı.
 
 Aşağıdaki örnek, bir hizmet sorumlusu oluşturur ve openshiftrg adlı bir kaynak grubuna katkıda bulunan izinleri atar.
-ayrı olarak ve çıkış akışına kapsam seçeneği.
 
 İlk olarak openshiftrg adlı kaynak grubunu oluşturun:
 

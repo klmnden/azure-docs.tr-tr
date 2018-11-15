@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: ff41bbe796b561234ce5d09abfc8eb5da0e0a6b5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 07e13930b5778c94bc85097668b9a793fae8773f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220330"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625564"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB'ye erişmek için Linux VM sistem tarafından atanan yönetilen kimliği kullanma 
 
@@ -36,17 +36,9 @@ Bu öğreticide Azure Cosmos DB'ye erişmek amacıyla bir Linux sanal makinesi (
 > * Erişim belirteci alma ve bunu kullanarak Azure Resource Manager çağrısı yapma
 > * Cosmos DB çağrıları yapmak için Azure Resource Manager'dan erişim anahtarları alma
 
-## <a name="prerequisites"></a>Ön koşullar
-
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Azure portal'da oturum açma](https://portal.azure.com)
-
-- [Linux sanal makinesi oluşturma](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Sanal makinenizde sistem tarafından atanan yönetilen kimlik etkinleştirme](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 Bu öğreticideki CLI betiği örneklerini çalıştırmak için iki seçeneğiniz vardır:
 

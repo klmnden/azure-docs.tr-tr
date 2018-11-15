@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
 ms.date: 11/07/2018
-ms.openlocfilehash: 75ec6a3fbfdd45575c46b763f1f5d0b69376e7a7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285280"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300974"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Hızlı başlangıç: Azure SQL Veritabanı'nda Machine Learning Services'i (R ile) kullanma (önizleme)
 
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-up-for-the-preview"></a>Önizleme için kaydolun
 
-Machine Learning Services (R ile) genel önizleme sürümü, SQL Veritabanı'nda varsayılan olarak etkin değildir. Genel önizlemeye kaydolmak için [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) adresinden Microsoft'a bir e-posta gönderin.
+Machine Learning Services (R ile) genel önizleme sürümü, SQL Veritabanı'nda varsayılan olarak etkin değildir. Microsoft'ta bir e-posta göndermek [ sqldbml@microsoft.com ](mailto:sqldbml@microsoft.com) genel önizlemeye kaydolmak için.
 
 Programa kaydınız alındıktan sonra Microsoft sizi genel önizleme sürümüne alacak ve var olan veritabanınızı geçirecek veya R özellikli bir hizmette yeni bir veritabanı oluşturacaktır.
 
@@ -39,7 +39,7 @@ Machine Learning Services (R ile), SQL veritabanınız için etkinleştirildikte
 
 Şu an için yalnızca R dili desteklenmektedir. Python desteği yoktur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu alıştırmalardaki örnek kodu çalıştırmak için Machine Learning Services (R ile) özelliğinin etkinleştirilmiş olduğu bir SQL veritabanına sahip olmanız gerekir. Genel önizleme sırasında Microsoft sizi programa alacak ve yukarıda anlatılan şekilde var olan veya yeni bir veritabanında makine öğrenmesi özelliklerini etkinleştirecektir.
 
@@ -441,7 +441,7 @@ SQL veritabanınızda yüklü olmayan bir paketi kullanmanız gerekiyorsa [sqlml
 
     **'R' iç ya da dış komut, çalıştırılabilir program ya da toplu iş dosyası olarak tanınmıyor.** gibi bir hatayla karşılaşmanız R.exe dosyasının Windows **PATH** ortam değişkenine dahil edilmediğini gösterir. Dizini ortam değişkenine ekleyebilir veya komut isteminde ilgili dizine gidebilirsiniz (örneğin, `cd C:\Program Files\R\R-3.5.1\bin`).
 
-1. **R CMD INSTALL** komutunu kullanarak **sqlmlutils** dosyasını yükleyin. Zip dosyasını indirdiğiniz dizini ve dosyanın adını belirtin. Örnek:
+1. **R CMD INSTALL** komutunu kullanarak **sqlmlutils** dosyasını yükleyin. Zip dosyasını indirdiğiniz dizini ve dosyanın adını belirtin. Örneğin:
 
     ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip

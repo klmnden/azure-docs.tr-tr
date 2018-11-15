@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: e002f99cc16721b78d85284105ce22ee7d1eb9a3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: 45d299e2d5e1f9c9c454e6b2f77df7cdf8295e5f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574836"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568718"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Hızlı başlangıç: Azure Cosmos DB: .NET ve Azure portalı ile bir MongoDB API'si Xamarin.Forms uygulaması derleme
 
@@ -79,7 +79,7 @@ Git kullanmak istemiyorsanız [projeyi ZIP dosyası olarak da indirebilirsiniz](
 
 Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz.
 
-Aşağıdaki kod parçacıklarının tümü şu dizinde bulunan `MongoService` sınıfından alınmıştır: src/TaskList.Core/Services/MongoService.cs.
+Aşağıdaki kod parçacıklarının tümü alınmıştır `MongoService` sınıfı, şu yolda bulunamadı: src/TaskList.Core/Services/MongoService.cs.
 
 * Mongo İstemcisini başlatın.
     ```cs

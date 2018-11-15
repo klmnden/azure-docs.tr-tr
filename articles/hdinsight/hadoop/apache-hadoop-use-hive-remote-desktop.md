@@ -1,5 +1,5 @@
 ---
-title: -Azure HDInsight, Hadoop Hive ve Uzak Masaüstü kullanma
+title: -Azure HDInsight Apache Hive ve Uzak Masaüstü kullanma
 description: Uzak Masaüstü'nü kullanarak, HDInsight Hadoop kümesine bağlanma hakkında bilgi almak ve ardından Hive komut satırı arabirimi kullanarak Hive sorguları çalıştırın.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32fb2bc9514b911d0a1ce295eee651e4b6b6388a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015086"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634218"
 ---
-# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Uzak Masaüstü kullanarak HDInsight üzerinde Hadoop ile Hive kullanma
+# <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Uzak Masaüstü kullanarak HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Bu makalede, Uzak Masaüstü kullanarak bir HDInsight kümesine bağlanma hakkında bilgi almak ve ardından Hive komut satırı arabirimi (CLI) kullanarak Hive sorguları çalıştırın.

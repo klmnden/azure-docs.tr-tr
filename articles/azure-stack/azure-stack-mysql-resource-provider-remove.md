@@ -11,30 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dcd1c40717cb35fe4daa9ab9e2c66f334ffff5fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361507"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686815"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısını kaldırma
 
 MySQL kaynak sağlayıcısı kaldırmadan önce tüm sağlayıcısı bağımlılıklarını kaldırmanız gerekir. Kaynak sağlayıcısını yüklemek için kullanılan dağıtım paketinin bir kopyasını da gerekir.
 
+  |Azure Stack en düşük sürüm|RP MySQL sürümü|
+  |-----|-----|
+  |Sürüm 1808 (1.1808.0.97)|[MySQL RP 1.1.30.0 sürümü](https://aka.ms/azurestacksqlrp11300)|
+  |Sürüm 1804 (1.0.180513.1)|[MySQL RP 1.1.24.0 sürümü](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
+
 ## <a name="dependency-cleanup"></a>Bağımlılık temizleme
 
 Kaynak Sağlayıcısı'nı kaldırmak için DeployMySqlProvider.ps1 betik çalıştırılmadan önce yapmak için birkaç temizleme görevi vardır.
 
-Kiracılar için aşağıdaki temizleme görevlerini sorumludur:
+Azure Stack Kiracı kullanıcıları için aşağıdaki temizleme görevlerini sorumludur:
 
 * Tüm veritabanları, kaynak Sağlayıcısı'ndan silin. (Kiracı veritabanlarını silerek verileri silmez.)
 * Sağlayıcı ad alanından kaydını silin.
 
-Yönetici için aşağıdaki temizleme görevlerini sorumludur:
+Azure Stack operatörü için aşağıdaki temizleme görevlerini sorumludur:
 
 * Barındırma sunucusu MySQL bağdaştırıcısından siler.
 * MySQL bağdaştırıcı başvuru planları siler.

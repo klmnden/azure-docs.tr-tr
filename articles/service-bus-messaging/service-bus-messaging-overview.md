@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342216"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636603"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
 
-Microsoft Azure Service Bus tam olarak yönetilen bir kurumsal tümleştirme ileti aracısıdır. Service Bus, en sık olarak uygulamaları ve hizmetleri birbirinden ayırmak için kullanılır ve zaman uyumsuz veri ve durum aktarımı için güvenilir ve güvenli bir platformdur. Veriler, farklı uygulamalar ve hizmetler arasında *iletiler* kullanılarak aktarılır. İletiler JSON, XML veya yalnızca metin içerebilen ikili dosya biçimindedir. 
+Microsoft Azure Service Bus tam olarak yönetilen bir kurumsal tümleştirme ileti aracısıdır. Service Bus, en sık olarak uygulamaları ve hizmetleri birbirinden ayırmak için kullanılır ve zaman uyumsuz veri ve durum aktarımı için güvenilir ve güvenli bir platformdur. Veriler, farklı uygulamalar ve hizmetler arasında *iletiler* kullanılarak aktarılır. JSON, XML veya yalnızca metin içerebilir, ikili biçimde bir iletidir. 
 
 Yaygın olarak kullanılan bazı mesajlaşma senaryoları:
 
@@ -39,7 +39,7 @@ Ad alanı, tüm mesajlaşma bileşenlerini kapsayan bir kapsayıcıdır. Tek bir
 
 ![Kuyruk](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Kuyruklardaki iletiler geldiklerinde sıralanır ve zaman damgası alır. Kabul edildikten sonra ileti yedekli depolama alanında güvenli bir şekilde tutulur. İletiler, bunları istek üzerine teslim eden *çekme* modunda teslim edilir.
+Kuyruklardaki iletiler geldiklerinde sıralanır ve zaman damgası alır. Kabul edildikten sonra ileti güvenli bir şekilde yedekli depolama alanında tutulur. İletileri teslim edilir *çekme* istek iletileri sunan modu.
 
 ## <a name="topics"></a>Konu başlıkları
 
@@ -93,7 +93,7 @@ Aboneler, bir konu başlığından hangi iletileri almak istediklerini tanımlay
 
 ### <a name="duplicate-detection"></a>Yineleme algılama
 
-İstemcinin bir gönderme işleminin sonucu konusunda kuşkulanmasına neden olacak bir hata oluşursa, [yineleme algılama](duplicate-detection.md) kuralı, gönderenin aynı iletiyi yeniden göndermesini ve kuyruk ya da konu başlığının yinelenen kopyaları atmasını sağlayarak bu kuşkuyu giderir.
+Bir hata oluşursa, istemcinin bir gönderme işleminin sonucu hakkında herhangi bir şüpheli neden [yinelenen algılama](duplicate-detection.md) aynı iletinin ve kuyruk veya konuda yeniden göndermesini sağlayarak bu durumlar dışında şüpheli alır Yinelenen kopyalar atar.
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Azure kaynakları için SAS, RBAC ve Yönetilen kimlikler
 
@@ -115,9 +115,9 @@ Service Bus, [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/maste
 
 Service Bus, aşağıdaki Azure hizmetleriyle tam olarak tümleşiktir:
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [İşlevler](https://azure.microsoft.com/services/functions/) 
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [İşlevler](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Akış Analizi](https://azure.microsoft.com/services/stream-analytics/)
  

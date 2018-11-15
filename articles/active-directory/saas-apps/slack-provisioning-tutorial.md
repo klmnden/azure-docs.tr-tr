@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348914"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636552"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Slack yapılandırın.
 
@@ -57,7 +57,7 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 
 Bu bölümde, Azure AD sağlama API'si Slack'ın kullanıcı hesabına bağlanma aracılığıyla size yol gösterir ve kullanıcı hesapları, kullanıcı ve Grup ataması Azure AD'de göre Slack atanan sağlama hizmeti oluşturma, güncelleştirme ve devre dışı bırakmak için yapılandırma.
 
-**İpucu:** SAML tabanlı çoklu oturum açma için Slack (Azure portalında) sağlanan yönergeleri izleyerek, etkin olarak tercih edebilirsiniz [https://portal.azure.com]. Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+**İpucu:** SAML tabanlı çoklu oturum açma için Slack bölümlerinde sağlanan yönergeleri izleyerek, etkin olarak tercih edebilirsiniz [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Otomatik kullanıcı hesabı için Slack Azure AD'de sağlama yapılandırmak için:

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: a224ba7030542108e521d5699e2a86f07381a1bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282569"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346567"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -38,7 +38,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -333,7 +333,7 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
 ![Databricks kümesini durdurma](./media/handle-data-using-databricks/terminate-databricks-cluster.png "Databricks kümesini durdurma")
 
-Kümeyi oluştururken **__ dakika etkinsizlik süresinden sonra sonlandır** onay kutusunu seçtiyseniz, kümeyi kendiniz sonlandırmazsanız küme otomatik olarak durdurulur. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
+El ile otomatik olarak durdurur küme sonlandırmazsanız, seçtiğiniz sağlanan **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** küme oluşturulurken onay kutusu. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

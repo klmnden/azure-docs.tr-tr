@@ -1,5 +1,5 @@
 ---
-title: Excel'i Power Query - Azure HDInsight ile hadoop'a bağlama
+title: Excel'i Power Query - Azure HDInsight ile Apache hadoop'a bağlama
 description: İş Zekası bileşenleri avantajlarından yararlanın ve HDInsight üzerinde Hadoop depolanan verilere erişmek için Excel için Power Query kullanın hakkında bilgi edinin.
 services: hdinsight
 author: hrasheed-msft
@@ -9,15 +9,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 7335e4370d25b7cc404d93ad6f2c9ff524d928e0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: dc287325b3ef0fc951dab127e0def5f4023534ca
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016310"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632501"
 ---
-# <a name="connect-excel-to-hadoop-by-using-power-query"></a>Power Query kullanarak Excel'i Hadoop'a bağlama
-Temel özelliklerinden biri, Microsoft büyük veri çözümü, Azure HDInsight Hadoop kümelerini Microsoft iş zekası (BI) bileşenleriyle tümleştirmedir. Excel için Excel eklentisi, Microsoft Power Query kullanarak Hadoop kümenizle ilişkili verileri içeren Azure depolama hesabına bağlanma olanağı buna birincil bir örnektir. Bu makalede, ayarlama ve HDInsight ile yönetilen Hadoop kümesi ile ilişkili verileri sorgulamak için Power Query kullanma konusunda yol göstermektedir.
+# <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Excel'i Power Query kullanarak Apache Hadoop'a bağlama
+Temel özelliklerinden biri, Microsoft büyük veri çözümü, Azure HDInsight, Apache Hadoop kümelerini Microsoft iş zekası (BI) bileşenleriyle tümleştirmedir. Excel için Excel eklentisi, Microsoft Power Query kullanarak Hadoop kümenizle ilişkili verileri içeren Azure depolama hesabına bağlanma olanağı buna birincil bir örnektir. Bu makalede, ayarlama ve HDInsight ile yönetilen Hadoop kümesi ile ilişkili verileri sorgulamak için Power Query kullanma konusunda yol göstermektedir.
 
 ### <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:

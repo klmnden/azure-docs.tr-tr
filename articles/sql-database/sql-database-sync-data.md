@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362246"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687495"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -82,6 +82,7 @@ Veri eşitleme, aşağıdaki senaryolar için tercih edilen bir çözüm değil:
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Azure portalında Data Sync'i Ayarla
 
 -   [Azure SQL Data Sync’i ayarlama](sql-database-get-started-sql-data-sync.md)
+-   Veri Eşitleme Aracısı - [veri Aracısı Azure SQL Data Sync için eşitleme](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>PowerShell ile Data Sync'i ayarlama
 

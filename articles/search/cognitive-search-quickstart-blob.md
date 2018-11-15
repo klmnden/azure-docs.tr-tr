@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730001"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288042"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Becerileri ve örnek verileri kullanarak bilişsel arama işlem hattı oluşturma
 
@@ -26,17 +26,23 @@ Bu hızlı başlangıçta, tek bir kod satırı yazmadan önce [Azure portalınd
 * Sihirbazı çalıştırma (bir varlık becerisi, kişileri, konumu ve kuruluşları algılar)
 * Zenginleştirilmiş verileri sorgulamak için [Arama gezgini](search-explorer.md)’ni kullanın.
 
+## <a name="supported-regions"></a> Desteklenen bölgeler
+
 Aşağıdaki bölgelerde oluşturulan bir Azure Search hizmetinde bilişsel aramayı deneyebilirsiniz:
 
+* Batı Orta ABD
 * Orta Güney ABD
+* Doğu ABD
 * Batı Avrupa
+* Kuzey Avrupa
+* Güneydoğu Asya
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 > [!NOTE]
 > Bilişsel Arama, genel önizleme aşamasındadır. Şu anda becerileri yürütme ve görüntü ayıklama ve normalleştirme ücretsiz olarak sunulmaktadır. İlerleyen zamanlarda bu özelliklerin fiyatları duyurulacaktır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [“Bilişsel arama nedir?”](cognitive-search-concept-intro.md) zenginleştirme mimarisi ve bileşenleri sunar. 
 
@@ -57,7 +63,7 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
 
 1. Kaynak grubu için, bu hızlı başlangıçta oluşturduğunuz tüm kaynakları içerecek bir kaynak grubu oluşturun. Böylece, hızlı başlangıcı tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
 
-1. Konum için **Orta Güney ABD**’yi veya **Batı Avrupa**’yı seçin. Şu anda önizleme yalnızca bu bölgelerde kullanılabilir.
+1. Konum için aşağıdakilerden birini seçin [desteklenen bölgeler](#supported-regions) Bilişsel arama için.
 
 1. Fiyatlandırma katmanı için, **Ücretsiz** bir hizmet oluşturarak öğreticileri ve hızlı başlangıçları tamamlayabilirsiniz. Kendi verilerinizi kullanarak daha ayrıntılı araştırma yapmak için **Temel** veya **Standart** gibi bir [ücretli hizmet](https://azure.microsoft.com/pricing/details/search/) oluşturun. 
 

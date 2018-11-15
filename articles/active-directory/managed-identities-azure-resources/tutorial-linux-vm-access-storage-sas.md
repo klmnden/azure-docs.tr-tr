@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0840f1abb05e97ca8f55cb0003e4f3cd2383e8c7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 32fa417d5fcb5c8547dfc7c10b34b3c97ed70559
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222532"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626074"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: SAS kimlik bilgisiyle Azure Depolama'ya erişmek için Linux VM sistem tarafından atanan kimliğini kullanma
 
@@ -36,17 +36,9 @@ Hizmet SAS, bir hesap erişim anahtarı göstermeden sınırlı bir süre boyunc
 > * VM'nize Resource Manager'da yer alan depolama hesabı SAS için erişim verme 
 > * VM'nizin kimliğini kullanarak erişim belirteci alma ve Resource Manager'dan SAS almak için bu belirteci kullanma 
 
-## <a name="prerequisites"></a>Ön koşullar
-
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Azure portal'da oturum açma](https://portal.azure.com)
-
-- [Linux sanal makinesi oluşturma](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Sanal makinenizde sistem tarafından atanan yönetilen kimlik etkinleştirme](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 

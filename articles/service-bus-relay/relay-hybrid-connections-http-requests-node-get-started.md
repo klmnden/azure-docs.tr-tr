@@ -12,62 +12,51 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: 2bc923650425c76562161dd6f44f3a5722b5cefe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a25ca0c10b66f6881f2423306564d7d37124c33a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630455"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616189"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Node’da Relay Karma Bağlantılar HTTP istekleri ile çalışmaya başlama
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Bu öğretici [Azure Relay Karma Bağlantılar HTTP isteklerini](relay-what-is-it.md#hybrid-connections) tanıtır ve Node.js kullanarak ilgili dinleyici uygulamasına ileti gönderen bir istemci uygulaması oluşturma işlemini gösterir.
+Bu hızlı başlangıçta, HTTP protokolünü kullanarak ileti alma ve gönderme Node.js gönderen ve alıcı uygulamalar oluşturun. Uygulamaları Azure geçiş karma bağlantılar özelliğini kullanın. Azure geçişi hakkında genel bilgi edinmek için [Azure geçişi](relay-what-is-it.md). 
 
-## <a name="what-will-be-accomplished"></a>Ne elde edilecek
+Bu hızlı başlangıçta, aşağıdaki adımları uygulayın:
 
-Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturun. Adımlar aşağıdaki gibidir:
+1. Azure portalını kullanarak Geçiş ad alanı oluşturma.
+2. Azure portalını kullanarak o ad alanında karma bağlantı oluşturma.
+3. İleti almak için bir sunucu (dinleyici) konsol uygulaması yazma.
+4. İleti göndermek için bir istemci (gönderen) konsol uygulaması yazma.
+5. Uygulamalar çalıştırın.
 
-1. Azure portalı kullanılarak Geçiş ad alanı oluşturma.
-2. Azure portalı kullanılarak karma bağlantı oluşturma.
-3. İleti almak için bir sunucu konsol uygulaması yazma.
-4. İleti göndermek için bir istemci konsol uygulaması yazma.
+## <a name="prerequisites"></a>Önkoşullar
+- [Node.js](https://nodejs.org/en/).
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
-
-1. [Node.js](https://nodejs.org/en/).
-2. Azure aboneliği.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
-
-Daha önce oluşturduğunuz bir Geçiş ad alanı varsa [Azure portalını kullanarak karma bağlantı oluşturma](#2-create-a-hybrid-connection-using-the-azure-portal) bölümüne atlayın.
-
+## <a name="create-a-namespace-using-the-azure-portal"></a>Azure portalı kullanılarak ad alanı oluşturma
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Azure portalını kullanarak karma bağlantı oluşturma
-
-Daha önce bir karma bağlantı oluşturduysanız [Sunucu uygulaması oluşturma](#3-create-a-server-application-listener) bölümüne atlayın.
-
+## <a name="create-a-hybrid-connection-using-the-azure-portal"></a>Azure portalını kullanarak karma bağlantı oluşturma
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="3-create-a-server-application-listener"></a>3. Sunucu uygulaması (dinleyici) oluşturma
-
+## <a name="create-a-server-application-listener"></a>Sunucu uygulaması (dinleyici) oluşturma
 Geçiş hizmetinden ileti dinleyip almak için bir Node.js konsol uygulaması yazın.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-http-requests-node-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4. İstemci uygulaması (gönderici) oluşturma
+## <a name="create-a-client-application-sender"></a>İstemci uygulaması (gönderici) oluşturma
 
 Relay hizmetine ileti göndermek için herhangi bir HTTP istemcisini kullanabilir veya bir Node.js konsol uygulaması yazabilirsiniz.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-http-requests-node-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. Uygulamaları çalıştırma
+## <a name="run-the-applications"></a>Uygulamaları çalıştırma
 
 1. Sunucu uygulamasını çalıştırın: Node.js komut istemine `node listener.js` yazın.
 2. İstemci uygulamasını çalıştırın: Node.js komut istemine `node sender.js` yazın ve bazı metinler girin.
@@ -76,9 +65,6 @@ Relay hizmetine ileti göndermek için herhangi bir HTTP istemcisini kullanabili
 Tebrikler, Node.js kullanarak uçtan uca bir Karma Bağlantılar uygulaması oluşturdunuz!
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Bu hızlı başlangıçta, HTTP iletileri gönderip almak için kullanılan Node.js istemci ve sunucu uygulamaları oluşturuldu. Azure geçişi karma bağlantılar özelliği, ileti göndermek ve almak için WebSockets kullanarak da destekler. WebSockets Azure geçiş karma bağlantıları ile kullanmayı öğrenmek için bkz [WebSockets hızlı](relay-hybrid-connections-node-get-started.md).
 
-* [Geçiş hakkında SSS](relay-faq.md)
-* [Ad alanı oluşturma](relay-create-namespace-portal.md)
-* [.NET kullanmaya başlama](relay-hybrid-connections-dotnet-get-started.md)
-* [Node kullanmaya başlama](relay-hybrid-connections-node-get-started.md)
-
+Bu hızlı başlangıçta, Node.js istemci ve sunucu uygulamaları oluşturmak için kullanılır. .NET Framework kullanarak istemci ve sunucu uygulamaları yazmak öğrenmek için bkz: [.NET WebSockets hızlı](relay-hybrid-connections-dotnet-get-started.md) veya [.NET HTTP hızlı](relay-hybrid-connections-http-requests-dotnet-get-started.md).

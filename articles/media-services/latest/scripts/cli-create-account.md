@@ -12,22 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 9e6279b2f93cb68043fa96866d8269b7d60b9b25
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: a0ca9d8b51bc3cd5ed46b56a4d7fedb45211b136
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379255"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613499"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI örneği: Azure Media Services hesabı oluşturma
 
 Bu konudaki Azure CLI betiği, Azure Media Services hesabı oluşturmayı gösterir.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Önkoşullar 
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0.20 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). 
+Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+
+Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
 
 ## <a name="example-script"></a>Örnek betik
 
@@ -37,7 +39,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure
 
 Kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

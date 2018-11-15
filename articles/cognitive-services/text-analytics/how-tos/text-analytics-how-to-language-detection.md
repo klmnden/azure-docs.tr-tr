@@ -1,7 +1,6 @@
 ---
-title: 'Örnek: Metin Analizi REST API’si ile dil algılama'
-titleSuffix: Azure Cognitive Services
-description: Metin Analizi REST API’si kullanılarak dilin nasıl algılanacağını öğrenin.
+title: Metin analizi REST API (Azure üzerinde Microsoft Bilişsel hizmetler) ile ilgili nasıl yapılır dil algılama | Microsoft Docs
+description: İzlenecek yol Bu öğreticide Azure üzerinde Microsoft Bilişsel hizmetler metin analizi REST API kullanarak dil tespit etme.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,18 +9,21 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604561"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633573"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Örnek: Metin Analizi’nde dili algılama
 
 [Dil Algılama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7), metin girişini değerlendirir ve her bir belge için analizin gücünü belirten bir puan ile dil tanımlayıcılarını döndürür. Metin Analizi 120’ye kadar dili tanır.
 
 Bu özellik, dilin bilinmediği rastgele metni toplayan içerik depoları için kullanışlıdır. Giriş belgesinde hangi dilin kullanıldığını belirlemek için bu analizin sonuçlarını ayrıştırabilirsiniz. Yanıt ayrıca modelin güvenilirliğini yansıtan bir puan da (0 ile 1 arasında bir değer) döndürür.
+
+> [!TIP]
+> Metin analizi de Linux tabanlı bir Docker kapsayıcı görüntüsü dil için algılama sağlar, böylece [yükleyin ve metin analizi kapsayıcı çalıştırın](text-analytics-how-to-install-containers.md) verilerinizi yakın.
 
 ## <a name="preparation"></a>Hazırlık
 
@@ -62,7 +64,7 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 
 + Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Dil Algılama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
-+ Dil algılama için HTTP uç noktasını ayarlayın. `/languages` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Dil algılama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/languages` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 

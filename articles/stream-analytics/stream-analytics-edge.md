@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985072"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687444"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IOT Edge (Önizleme) üzerinde Azure Stream Analytics
 
@@ -71,13 +71,17 @@ Bir depolama kapsayıcısı derlenmiş ASA sorgu ve işlem yapılandırmasını 
 
 1. Azure portalında yeni bir "Stream Analytics işi" oluşturun. [Burada yeni bir ASA işi oluşturmak için doğrudan bağlantı](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
-2. Oluşturma ekranında seçin **Edge** olarak **barındırma ortamı** (aşağıdaki resme bakın) ![proje oluşturma](media/stream-analytics-edge/ASAEdge_create.png)
+2. Oluşturma ekranında seçin **Edge** olarak **barındırma ortamı** (aşağıdaki resme bakın)
+
+   ![İş oluşturma](media/stream-analytics-edge/ASAEdge_create.png)
 3. İş tanımı
     1. **Giriş pencereler tanımlamak**. İşiniz için bir veya birden çok giriş akışları tanımlayın.
     2. (İsteğe bağlı) başvuru verileri tanımlar.
     3. **Çıkış pencereler tanımlamak**. İşiniz için bir veya birden çok çıkış akışları tanımlayın. 
     4. **Sorgu tanımlama**. ASA sorgu değiştirici kullanarak bulutta tanımlayın. Derleyici, ASA edge için etkin söz dizimi otomatik olarak denetler. Örnek verileri karşıya yükleyerek, sorgunuzu test edebilirsiniz. 
+
 4. Depolama kapsayıcısı bilgi kümesinde **IOT Edge ayarları** menüsü.
+
 5. İsteğe bağlı ayarlar
     1. **Olay sıralama**. Portalda, sırası ilkesi yapılandırabilirsiniz. Belgelere [burada](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Yerel ayar**. İnternalization biçimini ayarlayın.
@@ -181,20 +185,27 @@ Akış girişi AT var, yalnızca desteklenen ve Edge hub'ı stream çıktı tür
 
 
 ##### <a name="reference-data"></a>Başvuru verileri
-Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği değiştirme sınırlı bir veri kümesi var. Bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılır. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. Daha fazla bilgi için [başvuru verilerini ASA belgelerine](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği değiştirme sınırlı bir veri kümesi var. Bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılır. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) sorgunuzda. Daha fazla bilgi için [kullanarak başvuru verilerini Stream analytics'te aramaları için](stream-analytics-use-reference-data.md).
 
-IOT Edge üzerinde ASA için başvuru verilerini kullanması için bu adımları izleyin: 
-1. İşiniz için yeni bir girdi oluşturma
+Yalnızca yerel başvuru verileri desteklenir. IOT Edge cihazı için bir Proje dağıtıldığında, kullanıcı tanımlı dosya yolundan başvuru verileri yükler.
+
+Başvuru verilerinde Edge ile bir iş oluşturmak için:
+
+1. İşiniz için yeni bir giriş oluşturun.
+
 2. Seçin **başvuru verileri** olarak **kaynak türü**.
-3. Dosya yolunu ayarlayın. Dosya yolu olmalıdır bir **mutlak** cihazdaki dosya yolu ![başvuru veri oluşturma](media/stream-analytics-edge/ReferenceData.png)
-4. Etkinleştirme **paylaşılan sürücüleri** , Docker yapılandırmasını ve emin sürücü dağıtımınıza başlamadan önce etkinleştirilir.
 
-Daha fazla bilgi için [burada Docker için Windows belgelerine](https://docs.docker.com/docker-for-windows/#shared-drives).
+3. Bir başvuru veri dosyasının hazır cihaza sahip. Bir Windows kapsayıcı için başvuru veri dosyasının yerel bir sürücüye yerleştirin ve yerel diske Docker kapsayıcısı ile paylaşın. Bir Linux kapsayıcı için Docker birim oluşturma ve birim veri dosyasına doldurun.
 
-> [!Note]
-> Şu anda yalnızca yerel başvuru verilerini desteklenir.
+4. Dosya yolunu ayarlayın. Bir windows cihazı için mutlak yol kullanın. Bir Linux cihaz için birimin yolunu kullanın.
 
+![IOT Edge üzerinde Azure Stream Analytics işine ilişkin yeni başvuru veri girişi](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+IOT Edge güncelleştirme başvuru verilerinde bir dağıtım tarafından tetiklenir. ASA modülü tetiklenen sonra çalışan işlemi durdurmadan güncelleştirilmiş veriler seçer.
+
+Başvuru verileri güncelleştirmek için iki yolu vardır:
+* Azure portalından, ASA işi başvuru veri yoluna güncelleştirin.
+* IOT Edge dağıtımı güncelleştirin.
 
 
 ## <a name="license-and-third-party-notices"></a>Lisans ve üçüncü taraf bildirimleri

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391787"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687003"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızı için iş ortağı Kimliğini bağlama
 
@@ -136,4 +136,4 @@ Evet, bağlantılı iş ortağı kimliği değişti, eklenen veya kaldırılacak
 
 **Diğer iş ortağı veya müşterinin düzenleyebilir veya iş ortağı Kimliğini bağlantısını kaldırmak?**
 
-Hesap düzeyinde bağlantıyı ilişkilidir. Yalnızca düzenlemek veya iş ortağı kimliğini bağlantısını Kaldır Müşteri ve diğer iş ortağı bağlantısını için iş ortağı kimliğini değiştiremezsiniz 
+Bağlantı kullanıcı hesabı düzeyinde ilişkili değil. Yalnızca düzenlemek veya iş ortağı kimliğini bağlantısını Kaldır Müşteri ve diğer iş ortağı bağlantısını için iş ortağı kimliğini değiştiremezsiniz 

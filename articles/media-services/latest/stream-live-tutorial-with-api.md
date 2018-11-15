@@ -1,5 +1,5 @@
 ---
-title: .NET Core kullanarak Azure Media Services v3 ile canlı akış yapma | Microsoft Belgeler
+title: Azure Media Services v3 ile canlı Stream | Microsoft Docs
 description: Bu öğretici, .NET Core kullanarak Media Services v3 ile canlı akış yapmayı adım adım anlatılmaktadır.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392344"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613401"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>.NET Core kullanarak Azure Media Services v3 ile canlı akış yapma
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Öğretici: Stream Canlı Media Services v3 ile API'leri kullanma
 
-Media Services'de canlı akış içeriğini işlemekten [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) sorumludur. Bir LiveEvent, daha sonra canlı bir kodlayıcıya sağladığınız bir giriş uç noktası (alma URL'si) sağlar. LiveEvent, canlı giriş akışlarını canlı kodlayıcıdan alır ve bir veya daha fazla [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) aracılığıyla akış için kullanıma açar. LiveEvent'ler, ayrıca, akışınızı yapılacak başka işlemlerden ve sunumdan önce doğrulamak amacıyla incelemek için kullanacağınız bir önizleme uç noktası (önizleme URL'si) sağlar. Bu öğretici, **geçiş** türü bir canlı olay oluşturmak için .NET Core kullanmayı göstermektedir. 
+Azure Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) canlı akış içeriğinin işlemekten sorumludur. Bir LiveEvent, daha sonra canlı bir kodlayıcıya sağladığınız bir giriş uç noktası (alma URL'si) sağlar. LiveEvent, canlı giriş akışlarını canlı kodlayıcıdan alır ve bir veya daha fazla [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) aracılığıyla akış için kullanıma açar. LiveEvent'ler, ayrıca, akışınızı yapılacak başka işlemlerden ve sunumdan önce doğrulamak amacıyla incelemek için kullanacağınız bir önizleme uç noktası (önizleme URL'si) sağlar. Bu öğretici, **geçiş** türü bir canlı olay oluşturmak için .NET Core kullanmayı göstermektedir. 
 
 > [!NOTE]
 > Devam etmeden önce [Media Services v3 ile canlı akış](live-streaming-overview.md) konusunu gözden geçirmeyi unutmayın. 
@@ -31,7 +31,6 @@ Media Services'de canlı akış içeriğini işlemekten [LiveEvents](https://doc
 Öğretici şunların nasıl yapıldığını göstermektedir:    
 
 > [!div class="checklist"]
-> * Media Services hesabı oluşturma
 > * Media Services API’sine erişim
 > * Örnek uygulamayı yapılandırma
 > * Canlı akışı gerçekleştiren kodu inceleme
@@ -40,13 +39,21 @@ Media Services'de canlı akış içeriğini işlemekten [LiveEvents](https://doc
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
-* Visual Studio Code veya Visual Studio yükleme
-* Etkinlik yayınlamak için kullanılan bir kamera veya (dizüstü gibi) bir cihaz.
-* Şirket içi bir canlı kodlayıcı, kameradan alınan sinyalleri Media Services canlı akış hizmetine gönderilen akışlara dönüştürür. Akışın **RTMP** veya **Kesintisiz Akış** biçiminde olması gerekir.
+- Visual Studio Code veya Visual Studio yükleyin.
+- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+
+    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
+
+- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
+
+    Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun
+
+- Etkinlik yayınlamak için kullanılan bir kamera veya (dizüstü gibi) bir cihaz.
+- Şirket içi bir canlı kodlayıcı, kameradan alınan sinyalleri Media Services canlı akış hizmetine gönderilen akışlara dönüştürür. Akışın **RTMP** veya **Kesintisiz Akış** biçiminde olması gerekir.
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
@@ -61,10 +68,6 @@ Canlı akış örneği [Live](https://github.com/Azure-Samples/media-services-v3
 > [!IMPORTANT]
 > Bu örnek, her kaynak için benzersiz bir sonek kullanır. Hata ayıklamayı iptal eder veya uygulamayı baştan sona çalıştırmadan sonlandırırsanız, hesabınızda birden çok LiveEvent oluşur. <br/>
 > Çalışan LiveEvent'leri durdurduğunuzdan emin olun. Aksi takdirde **faturalandırılırsınız**!
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ Canlı olay durduğunda otomatik olarak isteğe bağlı içeriğe dönüşür. O
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğreticide oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki kaynaklardan herhangi birine artık ihtiyacınız yoksa kaynak grubunu silebilirsiniz. **CloudShell** aracını kullanabilirsiniz.
+Bu öğreticide oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki kaynaklardan herhangi birine artık ihtiyacınız yoksa kaynak grubunu silebilirsiniz.
 
-**CloudShell**’de aşağıdaki komutu yürütün:
+Aşağıdaki CLI komutunu yürütün:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

@@ -1,6 +1,6 @@
 ---
-title: MapReduce kullanma ve Curl ile HDInsight - Azure Hadoop
-description: Uzaktan Hadoop ile MapReduce işleri Curl kullanarak HDInsight üzerinde çalıştırmayı öğrenin.
+title: MapReduce kullanma ve Apache Hadoop HDInsight - Azure ile Curl
+description: Uzaktan Apache Hadoop ile MapReduce işleri Curl kullanarak HDInsight üzerinde çalıştırmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 496b7dacdb30507fe5eb2d4d7c5602003a944269
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010907"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632303"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Hadoop MapReduce işlerle çalışma
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Apache Hadoop MapReduce işlerle çalışma
 
-HDInsight kümesi üzerinde bir Hadoop MapReduce işlerini çalıştırmak için WebHCat REST API'sini kullanmayı öğrenin. Curl MapReduce işlerini çalıştırmak için ham HTTP isteklerini kullanarak HDInsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
+HDInsight kümesi üzerinde bir Apache Hadoop MapReduce işlerini çalıştırmak için WebHCat REST API'sini kullanmayı öğrenin. Curl MapReduce işlerini çalıştırmak için ham HTTP isteklerini kullanarak HDInsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
 
 > [!NOTE]
 > Zaten Linux tabanlı Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz [Linux tabanlı HDInsight üzerinde Hadoop hakkında bilmeniz gerekenler](../hdinsight-hadoop-linux-information.md) belge.

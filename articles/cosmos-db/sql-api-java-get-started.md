@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 0cf42245981afb44415b9709be9d45c44255f295
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 158bfedc8c0eb7d49c72d40cda08588d7377d17d
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417523"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636858"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL öğreticisi: SQL API Java konsol uygulaması derleme
 
@@ -46,7 +46,7 @@ Kapsanan konular:
 
 Şimdi başlayalım!
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
@@ -91,7 +91,7 @@ Azure Portal'da Azure Cosmos DB hesabınıza gidin ve ardından **Anahtarlar**�
 ![Bir Java konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure Portal’ın ekran görüntüsü. Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
 
 ## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
-Azure Cosmos DB [veritabanınız](sql-api-resources.md#databases), **DocumentClient** sınıfının [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
+Azure Cosmos DB [veritabanınız](databases-containers-items.md#azure-cosmos-databases), **DocumentClient** sınıfının [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
 
     Database database = new Database();
     database.setId("familydb");
@@ -103,7 +103,7 @@ Azure Cosmos DB [veritabanınız](sql-api-resources.md#databases), **DocumentCli
 > 
 > 
 
-Bir [koleksiyon](sql-api-resources.md#collections), **DocumentClient** sınıfının [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) metodu kullanılarak oluşturulabilir. Koleksiyon, JSON belgelerinin ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır.
+Bir koleksiyon kullanarak oluşturulabilir [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) yöntemi **DocumentClient** sınıfı. Koleksiyon, JSON belgelerinin ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -117,7 +117,7 @@ Bir [koleksiyon](sql-api-resources.md#collections), **DocumentClient** sınıfı
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
-Bir [belge](sql-api-resources.md#documents), **DocumentClient** sınıfının [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) metodu kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, verileri bir veritabanına içeri aktarmak için Azure Cosmos DB’nin [Veri Geçişi aracını](import-data.md) kullanabilirsiniz.
+Bir belge kullanarak oluşturulabilir [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) yöntemi **DocumentClient** sınıfı. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, verileri bir veritabanına içeri aktarmak için Azure Cosmos DB’nin [Veri Geçişi aracını](import-data.md) kullanabilirsiniz.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();

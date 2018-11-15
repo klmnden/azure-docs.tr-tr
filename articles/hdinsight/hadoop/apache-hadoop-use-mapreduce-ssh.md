@@ -1,6 +1,6 @@
 ---
-title: HDInsight - Azure, Hadoop ile MapReduce ve SSH bağlantısı
-description: HDInsight üzerinde Hadoop kullanarak MapReduce işlerini çalıştırmak için SSH'ı kullanmayı öğrenin.
+title: HDInsight - Azure, Apache Hadoop ile MapReduce ve SSH bağlantısı
+description: HDInsight üzerinde Apache Hadoop kullanarak MapReduce işlerini çalıştırmak için SSH'ı kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8c3fb1a5474d0546dc06dfea681e6229b563ccc0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: df6a96d8bbf1c77d279806e69e7aa7f65387dd4b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014355"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632535"
 ---
-# <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>HDInsight ile SSH üzerinde Hadoop ile MapReduce kullanma
+# <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>SSH ile HDInsight üzerinde Apache Hadoop ile MapReduce kullanma
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 Güvenli Kabuk (SSH) bağlantısı HDInsight MapReduce işlerini gönderme hakkında bilgi edinin.
 
 > [!NOTE]
-> Zaten Linux tabanlı Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz [Linux tabanlı HDInsight ipuçları](../hdinsight-hadoop-linux-information.md).
+> Zaten Linux tabanlı Apache Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz [Linux tabanlı HDInsight ipuçları](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Önkoşullar
 

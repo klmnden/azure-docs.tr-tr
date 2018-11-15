@@ -1,5 +1,5 @@
 ---
-title: Kurumsal Güvenlik Paketi ile HDInsight içinde Kafka ilkeleri yapılandırma - Azure
+title: HDInsight, Kurumsal güvenlik paketi - Azure ile Apache Kafka ilkeleri yapılandırma
 description: Kurumsal Güvenlik Paketi ile Azure HDInsight içinde Kafka için Apache Ranger ilkelerini yapılandırmayı öğrenin.
 services: hdinsight
 ms.service: hdinsight
@@ -8,16 +8,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037150"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633057"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Öğretici: Kurumsal Güvenlik Paketi ile HDInsight içinde Kafka ilkeleri yapılandırma (Önizleme)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Öğretici: HDInsight, Kurumsal güvenlik paketi (Önizleme) ile Apache Kafka ilkeleri yapılandırma
 
-Kurumsal Güvenlik Paketi (ESP) ile Kafka kümeleri için Apache Ranger ilkelerini yapılandırmayı öğrenin. ESP kümeleri bir etki alanına bağlıdır ve kullanıcıların etki alanı kimlik bilgileriyle kimlik doğrulaması yapmasına olanak sağlar. Bu öğreticide, `sales*` ve `marketingspend` konularına erişimi kısıtlamak için iki Ranger ilkesi oluşturacaksınız.
+Kurumsal güvenlik paketi (ESP) Apache Kafka kümeleri için Apache Ranger ilkelerini yapılandırmayı öğrenin. ESP kümeleri bir etki alanına bağlıdır ve kullanıcıların etki alanı kimlik bilgileriyle kimlik doğrulaması yapmasına olanak sağlar. Bu öğreticide, `sales*` ve `marketingspend` konularına erişimi kısıtlamak için iki Ranger ilkesi oluşturacaksınız.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 

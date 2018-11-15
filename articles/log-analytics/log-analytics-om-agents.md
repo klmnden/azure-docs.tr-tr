@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6ed1d9fc810bfa14beed83609d13c1010d479ed9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c8bba283a0c3fde75966ae123023e50d497abd5a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622254"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687563"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 Mevcut yatırımınızı korumak için [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) ve Log Analytics ile genişletilmiş özellikleri kullanmak için Operations Manager ile Log Analytics çalışma alanınızın tümleştirebilirsiniz. Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
@@ -44,7 +44,7 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 
 * Log Analytics'e yalnızca System Center Operations Manager 1807, Operations Manager 1801'e, Operations Manager 2016, Operations Manager 2012 SP1 UR6 destekler veya sonraki bir sürümü ve Operations Manager 2012 R2 UR2 veya üzeri. Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir.
 * Tüm Operations Manager aracılarının en düşük destek gereksinimlerini karşılaması gerekir. En düşük güncelleştirmeyi aracılardır Windows aracı iletişimi Aksi halde ve başarısız Operations Manager olay günlüğündeki hatalara neden emin olun.
-* Log Analytics çalışma alanı. Daha fazla bilgi için gözden [Log Analytics çalışma alanına genel bakış](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) ).
+* Log Analytics çalışma alanı. Daha fazla bilgi için gözden [Log Analytics çalışma alanına genel bakış](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json).
 * Azure'de bir üyesi olan bir hesapla kimlik doğrulamasını [Log Analytics katkıda bulunan rolü](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
@@ -52,7 +52,7 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 >Yeni bir Yönetim Paketi Operations Manager her sürümü için yayımlanmıştır.  
 >* System Center Operations Manager 1801'için yönetim paketinden indirme [burada](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* System Center 2016 - Operations Manager uygulamasının yönetim paketinden indirme [burada](https://www.microsoft.com/download/details.aspx?id=57172)  
->* System Center Operations Manager 2012 R2 için yönetim paketinden indirme [burada](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+>* System Center Operations Manager 2012 R2 için yönetim paketinden indirme [burada](https://www.microsoft.com/download/details.aspx?id=57171)  
 
 ### <a name="network"></a>Ağ
 Aşağıda Log Analytics'le iletişim kurmak için Operations Manager aracısı, yönetim sunucuları ve İşletim konsolu için gereken ara sunucu ve güvenlik duvarı yapılandırma bilgileri listelenmiştir. Her bileşenden gelen trafik, ağınızdan Log Analytics hizmetine giden trafiktir.   
@@ -101,7 +101,7 @@ Log Analytics ile tümleştirmek için aşağıdaki adımları tamamladıktan so
 1. Operations Manager konsolunda **Yönetim** çalışma alanını seçin.
 1. Operations Management Suite düğümünü genişletin ve **Bağlantı**'ya tıklayın.
 1. **Operations Management Suite'e kaydolun** bağlantısına tıklayın.
-1. Üzerinde **Operations Magement Suite Ekleme Sihirbazı: kimlik doğrulaması** sayfasında, e-posta adresi veya telefon numarası ve OMS aboneliğinizle ilişkili yönetici hesabının parolasını girin ve tıklayın  **Oturum**.
+1. **Operations Management Suite Ekleme Sihirbazı: Kimlik Doğrulama** sayfasında, OMS aboneliğinizle ilişkilendirilmiş yönetici hesabının e-posta adresi veya telefon numarasını ve parolasını girin ve **Oturum aç**'a tıklayın.
 
    >[!NOTE]
    >OMS, artık Log Analytics da adlandırılır.

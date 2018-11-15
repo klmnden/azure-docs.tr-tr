@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-registry
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 286159aee00b018d0cacae3858f92cdf0e79cfbc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572872"
+---
 | SKU | Açıklama |
 |---|---|
 | Temel | Azure Container Registry hakkında bilgi edinen geliştiriciler için düşük maliyetli bir giriş noktası. Temel kayıt defterleri, Standart ve Premium ile aynı programlama özelliklerine sahiptir (Azure Active Directory kimlik doğrulaması tümleştirmesi, görüntü silme ve web kancaları), ancak boyut ve kullanım kısıtlamaları vardır. |

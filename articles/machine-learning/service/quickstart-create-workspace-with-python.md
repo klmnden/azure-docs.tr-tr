@@ -8,17 +8,18 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 09/24/2018
-ms.openlocfilehash: e4624b115143f9f2e6dd77aa8ee79597c86ba31c
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: HT
+ms.date: 11/09/2018
+ms.openlocfilehash: fff08131af277b20034ad23c354b70e73ae32f2e
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456218"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578289"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Machine Learning hizmetini kullanmaya başlamak için Python'ı kullanma
 
-Bu hızlı başlangıçta Python için Azure Machine Learning SDK'sını kullanarak bir Machine Learning hizmeti [çalışma alanı](concept-azure-machine-learning-architecture.md) oluşturup kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir.
+Bu hızlı başlangıçta Python için Azure Machine Learning SDK'sını kullanarak bir Machine Learning hizmeti [çalışma alanı](concept-azure-machine-learning-architecture.md) oluşturup kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta ilk olarak kendi Python ortamınızı ve Jupyter notebook sunucunuzu yapılandıracaksınız. Uygulamaları yükleme yapmadan çalıştırmak için bkz. [Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning'i kullanmaya başlama](quickstart-get-started.md).
+
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,6 +39,9 @@ Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma al
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Anahtar Kasası.](https://azure.microsoft.com/services/key-vault/)
 
+>[!NOTE]
+> Bu makalede kod Azure Machine Learning SDK sürüm 0.1.74 ile test edilmiştir 
+
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 
@@ -56,28 +60,31 @@ Miniconda'yı [indirin](https://conda.io/miniconda.html) ve yükleyin. Python 3.
 
 Komut satırı penceresi açın. Python 3.6 ile `myenv` adlı yeni bir conda ortamı oluşturun.
 
-```sh
+```shell
 conda create -n myenv -y Python=3.6
 ```
 
 Ortamı etkinleştirin.
 
-  ```sh
+  ```shell
   conda activate myenv
   ```
 
 ### <a name="install-the-sdk"></a>SDK yükle
 
-Etkinleştirilen conda ortamına SDK'yı yükleyin. Bu kod, Machine Learning SDK'sının temel bileşenlerini yükler. Ayrıca `myenv` conda ortamında bir Jupyter Notebook sunucusu da yükler. Yüklemenin tamamlanması **yaklaşık dört dakika** sürer.
+Etkinleştirilen conda ortamına SDK'yı yükleyin. Komut makine öğrenimi SDK'ın temel bileşenleri yükler. Ayrıca `myenv` conda ortamında bir Jupyter Notebook sunucusu da yükler. Yüklemenin tamamlanması makinenizin yapılandırmasına bağlı olarak birkaç dakika sürer.
 
-```sh
+```shell
+# install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
 ```
+
+
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
 
 Jupyter Notebook'u başlatmak için bu komutu girin.
-```sh
+```shell
 jupyter notebook
 ```
 
@@ -85,10 +92,7 @@ Tarayıcı penceresinde varsayılan `Python 3` çekirdeğini kullanarak yeni bir
 
 SDK sürümünü görüntülemek için aşağıdaki Python kodunu bir notebook hücresine yazın ve yürütün.
 
-```python
-import azureml.core
-print(azureml.core.VERSION)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
 Yeni bir Azure kaynak grubu ve yeni bir çalışma alanı oluşturun.
 
@@ -97,10 +101,10 @@ Yeni bir Azure kaynak grubu ve yeni bir çalışma alanı oluşturun.
 ```python
 from azureml.core import Workspace
 ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>',
+                      subscription_id='<azure-subscription-id>',    
                       resource_group='myresourcegroup',
                       create_resource_group=True,
-                      location='eastus2' # or other supported Azure region
+                      location='eastus2' # or other supported Azure region  
                      )
 ```
 
@@ -108,9 +112,8 @@ Yukarıdaki kodu yürüttüğünüzde Azure hesabınızda oturum açmanızı ist
 
 Depolama alanı, kapsayıcı kayıt defteri ve anahtar kasası dahil olmak üzere çalışma alanının ayrıntılarını görmek için aşağıdaki kodu girin.
 
-```python
-ws.get_details()
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
+
 
 ## <a name="write-a-configuration-file"></a>Yapılandırma dosyası yazma
 
@@ -118,14 +121,8 @@ ws.get_details()
 
 Bu çalışma alanı yapılandırma dosyası, bu çalışma alanını daha sonra yüklemeyi kolaylaştırır. Bunu başka notebook'lar ve betiklerle aynı dizine veya bir alt dizine yükleyebilirsiniz. 
 
-```python
-# Create the configuration file.
-ws.write_config()
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-# Use this code to load the workspace from 
-# other scripts and notebooks in this directory.
-# ws = Workspace.from_config()
-```
 
 `write_config()` API çağrısı geçerli dizinde yapılandırma dosyası oluşturur. `config.json` dosyası aşağıdaki betiği içerir.
 
@@ -141,24 +138,8 @@ ws.write_config()
 
 Deneme çalıştırmalarını izlemek için SDK'nın temel API'lerini kullanan bir kod yazın.
 
-```python
-from azureml.core import Experiment
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
-# create a new experiment
-exp = Experiment(workspace=ws, name='myexp')
-
-# start a run
-run = exp.start_logging()
-
-# log a number
-run.log('my magic number', 42)
-
-# log a list (Fibonacci numbers)
-run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
-
-# finish the run
-run.complete()
-```
 
 ## <a name="view-logged-results"></a>Günlüğe kaydedilen sonuçları görüntüleme
 Çalıştırma tamamlandığında deneme çalıştırmasının sonucunu Azure portalda görüntüleyebilirsiniz. Son çalıştırmanın sonuçlarını içeren bir URL yazdırmak için aşağıdaki kodu kullanın.
@@ -177,9 +158,8 @@ Bağlantıyı kullanarak Azure portala kaydedilen değerleri tarayıcınızda g�
 
 Burada oluşturduğunuz kaynakları daha sonra kullanmayı planlamıyorsanız silerek ücret tahsil edilmesini engelleyebilirsiniz.
 
-```python
-ws.delete(delete_dependent_resources=True)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -191,10 +171,34 @@ Ortamınızı Machine Learning öğreticilerinde kullanabilmek için birkaç pak
 1. Komut satırı penceresinde `Ctrl`+`C` komutunu kullanarak notebook sunucusunu durdurun.
 1. Ek paketleri yükleyin.
 
-    ```sh
+    ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
+
+    # install run history widget
+    jupyter nbextension install --py --user azureml.train.widgets
+
+    # enable run history widget
+    jupyter nbextension enable --py --user azureml.train.widgets
     ```
+
+    Farklı "fazladan" anahtar sözcükler, SDK'sının ek bileşenleri yüklemek için de kullanabilirsiniz.
+
+    ```shell
+    # install the base SDK and auto ml components
+    pip install azureml-sdk[automl]
+
+    # install the base SDK and model explainability component
+    pip install azureml-sdk[explain]
+
+    # install the base SDK and experimental components
+    pip install azureml-sdk[contrib]
+
+    # install the base SDK and automl components in Azure Databricks environment
+    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+    pip install azureml-sdk[databricks]
+    ```
+
 
 Bu paketleri yükledikten sonra model eğitme ve dağıtma öğreticilerini izleyin. 
 

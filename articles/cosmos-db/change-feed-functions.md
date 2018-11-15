@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
-ms.openlocfilehash: ece1c123cad8403358dcc3b3626bf4b2cd756e25
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 943cd79237290cd91d56cc1c51f5d773cdb16634
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629252"
+ms.locfileid: "51636399"
 ---
 # <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Azure Cosmos DB değişiklik akışı ile Azure işlevleri'ni kullanma
 
@@ -41,7 +41,7 @@ Azure işlevleri, değişiklik değişiklikler için sürekli olarak 5 saniye il
 
 Belgenizi yeni değişikliklerini yoklamak için tetikleyici geçen aynı aralığa birden çok değişiklik alırsa, belge ve Ara bir en son sürümünü alabilirsiniz.
 
-Çok değişiklik akışı 5 saniyeden kısa bir süre için yoklama istiyorsanız, örneğin, her saniye için yoklama süresi "feedPollDelay" yapılandırmak, bakın [yapılandırmanın tamamı](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Varsayılan değer 5000 milisaniye cinsinden tanımlanır. 1 saniyeden az mümkündür, ancak daha fazla CPU belleği'ni kullanmaya başlar çünkü önerilmez için yoklanıyor.
+Değişiklik akışı 5 saniyeden kısa bir süre için yoklama istiyorsanız, örneğin, her saniye için yoklama süresi "feedPollDelay" yapılandırmak, bkz: [yapılandırmanın tamamı](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Varsayılan değer 5000 milisaniye cinsinden tanımlanır. 1 saniyeden az mümkündür, ancak daha fazla CPU belleği'ni kullanmaya başlar çünkü önerilmez için yoklanıyor.
 
 ### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>Birden çok Azure işlevleri, bir kapsayıcının değişiklik akışı okuyabilir miyim?
 

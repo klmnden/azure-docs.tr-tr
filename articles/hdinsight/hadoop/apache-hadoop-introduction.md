@@ -1,6 +1,6 @@
 ---
-title: HDInsight ile Hadoop ve Spark teknoloji yığını nedir? - Azure
-description: HDInsight ile Hadoop ve Spark teknoloji yığını ve bileşenlerine (büyük veri analizi için Kafka, Hive, Storm ve HBase dahil) giriş.
+title: HDInsight ve Apache Hadoop ve Apache Spark teknoloji yığını nedir? - Azure
+description: HDInsight ve Apache Hadoop ve Apache Spark teknoloji yığını ve büyük veri analizi için Kafka, Hive, Storm ve HBase dahil bileşenlerine giriş.
 keywords: azure hadoop, hadoop azure, hadoop giriş, hadoop’a giriş, hadoop teknoloji yığını, yeni başlayanlar için hadoop, temel hadoop bilgileri, hadoop kümesi nedir, hadoop kümeleri nedir, hadoop ne için kullanılır
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 0c617f09c846811f876206e6045b640e63ad90b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007065"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634524"
 ---
-# <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Azure HDInsight ve Hadoop teknoloji yığını nedir?
+# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Azure HDInsight ve Apache Hadoop teknoloji yığını nedir
 
 Bu makalede, Azure HDInsight üzerinde Apache Hadoop için bir tanıtım sunulmaktadır. Azure HDInsight kuruluşlara yönelik tam yönetilen, tam spektrumlu ve açık kaynaklı bir analiz hizmetidir. Hadoop, Spark, Hive, LLAP, Kafka, Storm, R ve daha fazla açık kaynak çerçeveyi kullanabilirsiniz. 
 

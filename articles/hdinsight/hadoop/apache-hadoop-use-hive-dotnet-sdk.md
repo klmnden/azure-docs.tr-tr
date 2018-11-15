@@ -1,6 +1,6 @@
 ---
-title: HDInsight .NET SDK - Azure kullanarak Hive sorguları çalıştırma
-description: HDInsight .NET SDK kullanarak Azure HDInsight hadoop, Hadoop işlerini gönderme hakkında bilgi edinin.
+title: HDInsight .NET SDK - Azure kullanarak Apache Hive sorguları çalıştırma
+description: HDInsight .NET SDK kullanarak Azure HDInsight Apache hadoop, Apache Hadoop işlerini gönderme hakkında bilgi edinin.
 ms.reviewer: jasonh
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5cababaa7c808969e6e24a70581f54639f269621
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 790cc11e3d4cf1d0260b1099efd82bdddec85785
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016021"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634575"
 ---
-# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK kullanarak Hive sorguları çalıştırma
+# <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK kullanarak Apache Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-HDInsight .NET SDK kullanarak Hive sorguları göndermek öğrenin. Hive tablolarını listelemek için bir Hive sorgusu göndermek için bir C# programı yazma ve sonuçları görüntüler.
+HDInsight .NET SDK kullanarak Apache Hive sorguları göndermek öğrenin. Hive tablolarını listelemek için bir Hive sorgusu göndermek için bir C# programı yazma ve sonuçları görüntüler.
 
 > [!NOTE]
 > Bu makaledeki adımlarda, bir Windows istemcisinden gerçekleştirilmelidir. Hive ile çalışmak için Linux, OS X veya UNIX istemcisi kullanma hakkında daha fazla bilgi için gösterilen makalenin üst kısmındaki sekme seçicisini kullanın.
@@ -27,7 +27,7 @@ HDInsight .NET SDK kullanarak Hive sorguları göndermek öğrenin. Hive tablola
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Bir HDInsight Hadoop kümesinde**. Bkz: [HDInsight içinde Linux tabanlı Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
+* **HDInsight, Apache Hadoop kümesi**. Bkz: [HDInsight içinde Linux tabanlı Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
 
     > [!WARNING]
     > 15 Eylül 2017'den itibaren HDInsight .NET SDK'sı, Azure depolama hesaplarından döndüren Hive sorgu sonuçları yalnızca destekler. Bu örnekte, birincil depolama olarak Azure Data Lake Store kullanan bir HDInsight kümesi ile kullanırsanız, .NET SDK kullanarak arama sonuçlarını alınamıyor.

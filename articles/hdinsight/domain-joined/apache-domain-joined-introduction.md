@@ -1,5 +1,5 @@
 ---
-title: Kurumsal güvenlik paketi ile Hadoop güvenliğine giriş
+title: Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş
 description: Kurumsal güvenlik paketi, Kuruluş güvenliği dört yapı taşları nasıl desteklediğini öğrenin.
 services: hdinsight
 ms.service: hdinsight
@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a1b4565d4875b60ce36d74f8c99e4c7d79999c36
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578272"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632008"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Hadoop güvenliğine giriş
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş
 
-Geçmişte, Azure HDInsight yalnızca tek bir kullanıcı desteklenen: yerel yönetici Bu durum küçük çaplı uygulama ekipleri veya departmanları için idealdi. Active Directory tabanlı kimlik doğrulaması, çok kullanıcılı gibi Kurumsal düzeydeki özellikleri desteği ve rol tabanlı erişim denetimi gittikçe daha önemli hale geldi gereken Kurumsal sektörde daha popüler Hadoop tabanlı iş yüklerini kazanılan gibi. 
+Geçmişte, Azure HDInsight yalnızca tek bir kullanıcı desteklenen: yerel yönetici Bu durum küçük çaplı uygulama ekipleri veya departmanları için idealdi. Active Directory tabanlı kimlik doğrulaması, çok kullanıcılı gibi Kurumsal düzeydeki özellikleri desteği ve rol tabanlı erişim denetimi gittikçe daha önemli hale geldi gereken Kurumsal sektörde daha popüler Apache Hadoop tabanlı iş yüklerini kazanılan gibi. 
 
 Kurumsal güvenlik paketi'ile (ESP), bir Active Directory etki alanına katılmış bir HDInsight kümesi oluşturabilirsiniz. Ardından HDInsight kümesinde oturum açmak için Azure Active Directory aracılığıyla doğrulayabilir çalışanların kurumsal bir listesini yapılandırabilirsiniz. Hiç bir kuruluş dışına oturum açın veya HDInsight küme erişim. 
 
-Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) Hive güvenliği kullanarak yapılandırabilirsiniz [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
+Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache Hive kullanarak yapılandırabilirsiniz [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
 
 > [!NOTE]
 > Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).

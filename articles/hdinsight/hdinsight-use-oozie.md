@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5611830d4d9950a7781062997b13555d95d8e703
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625972"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684231"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -63,7 +63,7 @@ Bu öğreticiye başlamadan önce aşağıdaki öğe olmalıdır:
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie iş akışının ve ilgili HiveQL betiğini tanımlayın
 Oozie iş akışı tanımları hPDL (XML işlem tanımı dili) yazılır. Varsayılan iş akışı dosya adı *workflow.xml*. Bu öğreticide kullandığınız iş akışı dosyası verilmiştir.
-
+```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -118,7 +118,7 @@ Oozie iş akışı tanımları hPDL (XML işlem tanımı dili) yazılır. Varsay
 
         <end name="end"/>
     </workflow-app>
-
+```
 İş akışında tanımlanan iki eylemler vardır. Başlangıç için eylem *RunHiveScript*. Eylem başarıyla çalışırsa, sonraki eylem ise *RunSqoopExport*.
 
 RunHiveScript birkaç değişkeni yok. Azure PowerShell kullanarak Oozie iş istasyonunuzdan gönderdiğinizde değerlerini geçirirsiniz.
@@ -191,7 +191,7 @@ Bu bölümdeki PowerShell Betiği aşağıdaki adımları gerçekleştirir:
     OOzie iş sonuçlarını incelemek için Azure SQL veritabanı'na bağlanmak için Visual Studio ya da başka Araçlar'ı kullanın.
 
 Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE'den betiği çalıştırabilirsiniz. Yalnızca ilk 7 değişkenleri yapılandırmanız gerekir.
-
+```powershell
     #region - provide the following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
@@ -200,7 +200,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE'den betiği çal
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
@@ -529,8 +529,8 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE'den betiği çal
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $httpCredential -OutVariable $OozieServerStatus
 
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-    $oozieServerSatus = $jsonResponse[0].("systemMode")
-    Write-Host "Oozie server status is $oozieServerSatus."
+    $oozieServerStatus = $jsonResponse[0].("systemMode")
+    Write-Host "Oozie server status is $oozieServerStatus."
 
     # create Oozie job
     Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -570,7 +570,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE'den betiği çal
     Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
     #endregion
-
+```
 
 **Öğreticiyi yeniden çalıştırmak için**
 
@@ -580,7 +580,7 @@ Komut dosyası aşağıda verilmiştir.  Windows PowerShell ISE'den betiği çal
 * Log4jLogsCount tablodaki verileri
 
 Aşağıda, kullanabileceğiniz örnek bir PowerShell Betiği verilmiştir:
-
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
 
     $defaultStorageAccountName = "<AzureStorageAccountName>"
@@ -610,6 +610,7 @@ Aşağıda, kullanabileceğiniz örnek bir PowerShell Betiği verilmiştir:
     $cmd.executenonquery()
 
     $conn.close()
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, bir Oozie iş akışının tanımlayın ve PowerShell kullanarak bir Oozie işi çalıştırmak nasıl öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
@@ -647,7 +648,6 @@ Bu öğreticide, bir Oozie iş akışının tanımlayın ve PowerShell kullanara
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/

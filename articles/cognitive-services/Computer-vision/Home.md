@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250623"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634337"
 ---
 # <a name="what-is-computer-vision"></a>Görüntü İşleme nedir?
 
@@ -53,6 +53,10 @@ Ayrıca görüntülerdeki [basılı veya el yazısıyla yazılmış metinleri de
 ## <a name="moderating-content-in-images"></a>Görüntü içeriklerini denetleme
 
 Görüntü İşleme'yi, görüntüde yetişkinlere yönelik veya müstehcen içerik bulunup bulunmama olasılığını derecelendirerek ve her ikisi için güvenilirlik puanı oluşturarak [yetişkinlere yönelik veya müstehcen içerikleri algılamak](concept-detecting-adult-content.md) üzere kullanabilirsiniz. Yetişkinlere yönelik veya müstehcen içeriklerin algılanmasına yönelik filtre, tercihleriniz doğrultusunda bir kaydırıcı ölçeği üzerinde ayarlanabilir.
+
+## <a name="using-containers"></a>Kapsayıcıları kullanma
+
+[Görüntü işleme kapsayıcılarını](computer-vision-how-to-install-containers.md) verilerinize yakın standartlaştırılmış bir Docker kapsayıcısı yükleyerek yazdırılan ve el yazısı metinleri yerel olarak tanınması için.
 
 ## <a name="image-requirements"></a>Görüntü gereksinimleri
 

@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 2034616d7c701dfe03761d5a01848171fd264903
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 545723a020609766b9556746e6547eb8b93e5de9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625124"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687529"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Windows Iaas Vm'leri için Azure Disk şifrelemesini etkinleştirme 
 
@@ -125,7 +125,7 @@ Mevcut veya sanal makineleri çalıştırmak için Resource Manager şablon para
 | Parametre | Açıklama |
 | --- | --- |
 | vmName | Şifreleme işlemi çalıştırmak için sanal makinenin adı. |
-| keyVaultName | BitLocker anahtarı karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edeceğinizi `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` veya Azure CLI komutunu ' az keyvault list--resource-group "MySecureGroup" |Convertfrom-JSON'|
+| keyVaultName | BitLocker anahtarı karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edeceğinizi `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` veya Azure CLI komutunu ' az keyvault list--resource-group "MySecureGroup" |ConvertFrom-JSON'|
 | keyVaultResourceGroup | Anahtar kasasını içeren kaynak grubunun adı|
 |  KeyEncryptionKeyURL | Oluşturulan BitLocker anahtarı şifrelemek için kullanılan anahtar şifreleme anahtarı URL'si. Bu seçerseniz isteğe bağlı bir parametredir **nokek** UseExistingKek aşağı açılan listesinde. Seçerseniz **kek** UseExistingKek aşağı açılan listeden girmelisiniz _keyEncryptionKeyURL_ değeri. |
 | VolumeType | Şifreleme işlemi gerçekleştirilir birim türü. Geçerli değerler _işletim sistemi_, _veri_, ve _tüm_. 
@@ -145,7 +145,7 @@ Mevcut veya sanal makineleri çalıştırmak için Resource Manager şablon para
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Zaman `RegistrationState` raporları *kayıtlı*, yeniden kaydetmeniz *Mirosoft.Compute* sağlayıcısıyla [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Zaman `RegistrationState` raporları *kayıtlı*, yeniden kaydetmeniz *Microsoft.Compute* sağlayıcısıyla [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -200,7 +200,7 @@ Kullanım [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.co
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [az özelliği show](/cli/azure/feature#az_feature_show). Zaman `State` raporları *kayıtlı*, yeniden kaydetmeniz *Mirosoft.Compute* sağlayıcısıyla [az provider register](/cli/azure/provider#az_provider_register):
+Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [az özelliği show](/cli/azure/feature#az_feature_show). Zaman `State` raporları *kayıtlı*, yeniden kaydetmeniz *Microsoft.Compute* sağlayıcısıyla [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

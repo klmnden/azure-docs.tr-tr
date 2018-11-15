@@ -10,19 +10,19 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
-ms.openlocfilehash: be9d68db3a2de6327d94a73af58b669583db3f00
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 27f60f9624af2819663990aeba99b4044045540b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287039"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687376"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Soru-cevap oluşturucu ve LUIS bilgi bankanızı dağıtmak için tümleştirin
 Soru-cevap Oluşturucu bankanızı büyük büyüdükçe, tek tek parça bir ayarlayın ve Bilgi Bankası daha küçük mantıksal parçalara bölmek için gerekir bakımını yapmak zor hale gelir.
 
 Soru-cevap oluşturucu içinde birden çok bilgi bankaları oluşturmak kolay olsa da, uygun Bilgi Bankası'na gelen soru yönlendirmek için mantığa ihtiyacınız olacak. LUIS kullanarak bunu yapabilirsiniz.
 
-Bu makalede, Bot Framework v3 SDK'sını kullanır. Lütfen bu makaleye [Bot Framework makale](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), Bot Framework v4 SDK sürümünde bu bilgilerin ilgileniyorsanız.
+Bu makalede, Bot Framework v3 SDK'sını kullanır. Lütfen bu makaleye [Bot Framework makale](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), Bot Framework v4 SDK sürümünde bu bilgilerin ilgileniyorsanız.
 
 ## <a name="architecture"></a>Mimari
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services kullanarak karşıya yükleme, kodlama ve akışla aktarma | Microsoft Docs
+title: Karşıya yükleme, kodlama ve Azure Media Services - REST kullanarak akış | Microsoft Docs
 description: REST kullanarak Azure Media Services ile bir dosyayı karşıya yüklemek, videoyu kodlamak ve içeriğinizi akışla aktarmak için bu öğreticinin adımlarını izleyin.
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377444"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615781"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Öğretici: REST ile karşıya video yükleme, bunları kodlama ve akışla aktarma
 
-Bu öğreticide Azure Media Services ile video dosyalarını karşıya yükleme, kodlama ve akışla aktarma işlemleri gösterilmektedir.
+Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlerini kullanarak medya dosyalarınızı kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Akışla göndermeden önce yüksek kaliteli dijital medya dosyanızı kodlamanız gerekir. Kodlama yönergeleri için bkz. [Kodlama kavramı](encoding-concept.md).
 
-Media Services, medya dosyalarınızı pek çok tarayıcı ve cihazda oynatılabilecek biçimlerde kodlamanızı sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Akışla göndermeden önce yüksek kaliteli dijital medya dosyanızı kodlamanız gerekir. Kodlama yönergeleri için bkz. [Kodlama kavramı](encoding-concept.md).
+Bu öğretici, REST kullanarak karşıya yükleme, kodlama ve Azure Media Services ile video dosyalarını akışla işlemini göstermektedir. 
 
 ![Videoyu yürütme](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -40,7 +40,15 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
+
+- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+
+    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
+
+- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
+
+    Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun
 
 - AMS REST öğreticilerinden bazılarında gösterilen REST API'lerini yürütmek için [Postman](https://www.getpostman.com/) REST istemcisini yükleyin. 
 
@@ -53,10 +61,6 @@ Postman koleksiyonunu ve ortam dosyalarını içeren bir GitHub deposunu kopyala
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -316,7 +320,7 @@ Bu bölümde HLS akış URL'sini derleyeceğiz. URL'ler aşağıdaki değerlerde
 
 2. StreamingEndpoint'in konak adı. Burada "amsaccount-usw22.streaming.media.azure.net".
 
-    Konak adını almak için aşağıdaki GET işlemini kullanabilirsiniz:
+    Ana bilgisayar adını almak için aşağıdaki alma işlemi kullanabilirsiniz:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
@@ -352,11 +356,11 @@ Bir kaynağı silmek için, silmek istediğiniz kaynağın altından "Sil ..." i
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğreticide oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki kaynaklardan herhangi birine artık ihtiyacınız yoksa kaynak grubunu silebilirsiniz. **CloudShell** aracını kullanabilirsiniz.
+Bu öğreticide oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki kaynaklardan herhangi birine artık ihtiyacınız yoksa kaynak grubunu silebilirsiniz.  
 
-**CloudShell**’de aşağıdaki komutu yürütün:
+Aşağıdaki CLI komutunu yürütün:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 
