@@ -1,293 +1,44 @@
 ---
-title: 'Hızlı Başlangıç: REST API ve Python kullanarak bir görüntüdeki yüzleri algılama'
+title: "Hızlı Başlangıç: Python ve Azure REST API'si ile bir görüntüdeki yüzleri algılayın"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Python ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+description: Bu hızlı başlangıçta, bir resimdeki yüz algılama için Python ile Azure yüz REST API'sini kullanır.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/24/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 6e6f5b61f3e5e99d08e377bd5a78398a05fb4321
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957284"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577899"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>Hızlı Başlangıç: REST API ve Python kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Hızlı Başlangıç: Python ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
 
-Bu hızlı başlangıçta, Yüz Tanıma hizmetini kullanarak bir uzak görüntüdeki insan yüzlerini algılayacaksınız. Algılanan yüzler, dikdörtgen içine alınır ve her bir kişinin cinsiyeti ve yaşı eklenir. Yerel görüntü kullanmak için, [Görüntü İşleme: Python ile yerel görüntüyü analiz etme](../../Computer-vision/QuickStarts/python-disk.md) bölümündeki sözdizimine bakın.
+Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Python ile Azure yüz REST API'sini kullanır. Betik çerçevelerinin çevresinde yüzleri çizmek ve cinsiyet ve yaş bilgi görüntüsüne eklemek.
 
-[MyBinder](https://mybinder.org)’da Jupyter not defteri olarak bu hızlı başlangıcı çalıştırabilirsiniz. Bağlayıcıyı başlatmak için aşağıdaki düğmeyi seçin:
+![Bir adam ile bir kadın, her biri kendi yüzleri ve yaş ve görüntünün üzerinde görüntülenen seks çizilmiş bir dikdörtgen](../media/labelled-faces-python.png)
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
+
+
+## <a name="prerequisites"></a>Önkoşullar
+
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+
+## <a name="run-the-jupyter-notebook"></a>Jupyter not defteri çalıştırma
+
+[MyBinder](https://mybinder.org)’da Jupyter not defteri olarak bu hızlı başlangıcı çalıştırabilirsiniz. Bağlayıcı başlatmak için aşağıdaki düğmeyi seçin. Not defterindeki yönergeleri izleyin.
 
 [![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
-## <a name="prerequisites"></a>Ön koşullar
-
-Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
-
-## <a name="detect-faces-in-an-image"></a>Bir görüntüdeki yüzleri algılama
-
-[Yüz - Algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yöntemini kullanarak bir görüntüdeki yüzleri algılayın ve aşağıdaki yüz özniteliklerini döndürün:
-
-* Face ID: Birkaç Yüz Tanıma API'si senaryosunda kullanılan benzersiz kimlik.
-* Yüz Dikdörtgeni: Görüntüdeki yüzün konumunu gösteren sol kısım, üst kısım, genişlik ve yükseklik.
-* Yer İşaretleri: Yüz bileşenlerinin önemli konumlarına işaret eden 27 noktalık yüz yer işareti dizisi.
-* Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
-
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu yeni bir Python betik dosyasına kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `face_api_url` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsterseniz `image_url` değerini başka bir görüntüyle değiştirin.
-1. Betiği çalıştırın.
-
-### <a name="face---detect-request"></a>Yüz - Algılama isteği
-
-Aşağıdaki kod, Yüz Tanıma API’sine çağrı yapmak için Python `requests` kitaplığını kullanır. Sonuçları JSON nesnesi olarak döndürür. API anahtarı `headers` sözlüğü aracılığıyla geçirilir. Tanınacak özelliklerin türleri `params` sözlüğü aracılığıyla geçirilir.
-
-```python
-import requests
-# If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
-import matplotlib.pyplot as plt
-from PIL import Image
-from matplotlib import patches
-from io import BytesIO
-
-# Replace <Subscription Key> with your valid subscription key.
-subscription_key = "<Subscription Key>"
-assert subscription_key
-
-# You must use the same region in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from
-# westus, replace "westcentralus" in the URI below with "westus".
-#
-# Free trial subscription keys are generated in the westcentralus region.
-# If you use a free trial subscription key, you shouldn't need to change
-# this region.
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
-
-# Set image_url to the URL of an image that you want to analyze.
-image_url = 'https://how-old.net/Images/faces2/main007.jpg'
-
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,' +
-    'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-}
-data = {'url': image_url}
-response = requests.post(face_api_url, params=params, headers=headers, json=data)
-faces = response.json()
-
-# Display the original image and overlay it with the face information.
-image = Image.open(BytesIO(requests.get(image_url).content))
-plt.figure(figsize=(8, 8))
-ax = plt.imshow(image, alpha=0.6)
-for face in faces:
-    fr = face["faceRectangle"]
-    fa = face["faceAttributes"]
-    origin = (fr["left"], fr["top"])
-    p = patches.Rectangle(
-        origin, fr["width"], fr["height"], fill=False, linewidth=2, color='b')
-    ax.axes.add_patch(p)
-    plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]),
-             fontsize=20, weight="bold", va="bottom")
-_ = plt.axis("off")
-```
-
-### <a name="face---detect-response"></a>Yüz - Algılama yanıtı
-
-Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
-
-```json
-[
-  {
-    "faceId": "35102aa8-4263-4139-bfd6-185bb0f52d88",
-    "faceRectangle": {
-      "top": 208,
-      "left": 228,
-      "width": 91,
-      "height": 91
-    },
-    "faceAttributes": {
-      "smile": 1,
-      "headPose": {
-        "pitch": 0,
-        "roll": 4.3,
-        "yaw": -0.3
-      },
-      "gender": "female",
-      "age": 27,
-      "facialHair": {
-        "moustache": 0,
-        "beard": 0,
-        "sideburns": 0
-      },
-      "glasses": "NoGlasses",
-      "emotion": {
-        "anger": 0,
-        "contempt": 0,
-        "disgust": 0,
-        "fear": 0,
-        "happiness": 1,
-        "neutral": 0,
-        "sadness": 0,
-        "surprise": 0
-      },
-      "blur": {
-        "blurLevel": "low",
-        "value": 0
-      },
-      "exposure": {
-        "exposureLevel": "goodExposure",
-        "value": 0.65
-      },
-      "noise": {
-        "noiseLevel": "low",
-        "value": 0
-      },
-      "makeup": {
-        "eyeMakeup": true,
-        "lipMakeup": true
-      },
-      "accessories": [],
-      "occlusion": {
-        "foreheadOccluded": false,
-        "eyeOccluded": false,
-        "mouthOccluded": false
-      },
-      "hair": {
-        "bald": 0.06,
-        "invisible": false,
-        "hairColor": [
-          {
-            "color": "brown",
-            "confidence": 1
-          },
-          {
-            "color": "blond",
-            "confidence": 0.5
-          },
-          {
-            "color": "black",
-            "confidence": 0.34
-          },
-          {
-            "color": "red",
-            "confidence": 0.32
-          },
-          {
-            "color": "gray",
-            "confidence": 0.14
-          },
-          {
-            "color": "other",
-            "confidence": 0.03
-          }
-        ]
-      }
-    }
-  },
-  {
-    "faceId": "42502166-31bb-4ac8-81c0-a7adcb3b3e70",
-    "faceRectangle": {
-      "top": 109,
-      "left": 125,
-      "width": 79,
-      "height": 79
-    },
-    "faceAttributes": {
-      "smile": 1,
-      "headPose": {
-        "pitch": 0,
-        "roll": 1.7,
-        "yaw": 2.1
-      },
-      "gender": "male",
-      "age": 32,
-      "facialHair": {
-        "moustache": 0.4,
-        "beard": 0.4,
-        "sideburns": 0.4
-      },
-      "glasses": "NoGlasses",
-      "emotion": {
-        "anger": 0,
-        "contempt": 0,
-        "disgust": 0,
-        "fear": 0,
-        "happiness": 1,
-        "neutral": 0,
-        "sadness": 0,
-        "surprise": 0
-      },
-      "blur": {
-        "blurLevel": "low",
-        "value": 0.11
-      },
-      "exposure": {
-        "exposureLevel": "goodExposure",
-        "value": 0.74
-      },
-      "noise": {
-        "noiseLevel": "low",
-        "value": 0
-      },
-      "makeup": {
-        "eyeMakeup": false,
-        "lipMakeup": true
-      },
-      "accessories": [],
-      "occlusion": {
-        "foreheadOccluded": false,
-        "eyeOccluded": false,
-        "mouthOccluded": false
-      },
-      "hair": {
-        "bald": 0.02,
-        "invisible": false,
-        "hairColor": [
-          {
-            "color": "brown",
-            "confidence": 1
-          },
-          {
-            "color": "blond",
-            "confidence": 0.94
-          },
-          {
-            "color": "red",
-            "confidence": 0.76
-          },
-          {
-            "color": "gray",
-            "confidence": 0.2
-          },
-          {
-            "color": "other",
-            "confidence": 0.03
-          },
-          {
-            "color": "black",
-            "confidence": 0.01
-          }
-        ]
-      }
-    }
-  }
-]
-```
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir görüntüdeki insan yüzlerini algılamak, yüzleri dikdörtgenlerle ayırmak ve yaş ve cinsiyet gibi öznitelikleri döndürmek için kullanılan Yüz Tanıma API'sini keşfedin.
+Ardından, desteklenen senaryolar hakkında daha fazla bilgi edinmek için yüz API başvuru belgeleri keşfedin.
 
 > [!div class="nextstepaction"]
-> [Yüz Tanıma API’leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Yüz Tanıma API’si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

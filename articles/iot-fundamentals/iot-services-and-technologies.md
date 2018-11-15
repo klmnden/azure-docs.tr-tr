@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365365"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288722"
 ---
-# <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT teknolojileri ve çözümleri: PaaS ve SaaS
+# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Nesnelerin interneti (IOT) teknolojilerini ve çözümlerini: PaaS ve SaaS
 
 Microsoft, tüm müşterilerin ihtiyaçlarını karşılayacak bir portföy oluşturarak herkese dijital dönüşüm avantajlarından faydalanma olanağı tanıyor. Azure IoT ürün portföyü, kullanılabilir PaaS/SaaS teknolojileri ve çözümlerine genel bir bakıştır. Kendi çözümünüzü oluşturmak için kullanılabilen iki yol sunar:
 
@@ -24,7 +24,7 @@ Microsoft, tüm müşterilerin ihtiyaçlarını karşılayacak bir portföy olu�
 
 - Hizmet Olarak Yazılım (SaaS): IoT çözümünün karmaşıklığından etkilenmeden IoT uygulamaları geliştirmeye yönelik yeni SaaS çözümü olan [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)’ı hemen kullanmaya başlayın. Kuruluşunuz kendi IoT çözümünüzü oluşturacak kaynaklara sahip değilse, Azure IoT Central, dakikalar içinde cihaz modelleri, panolar ve kurallar oluşturabilecek kodsuz bir IoT çözümüdür.
 
-![Azure IoT teknolojileri ve çözümleri](./media/iot-comparison/paas-saas-technologies-solutions.png)
+![Azure IoT teknolojileri ve çözümleri](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>Çözümler
 

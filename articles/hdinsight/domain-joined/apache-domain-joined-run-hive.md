@@ -9,15 +9,15 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: bdad0bac0d320b641359df4093ae10c9505b7de2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43b3e293bf2990c953aeb2947b1113ee30175dee
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993434"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632824"
 ---
-# <a name="configure-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile HDInsight Hive ilkelerini yapılandırma
-Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hivesampletable erişimini kısıtlamak için iki Ranger ilkesi oluşturacaksınız. hivesampletable, HDInsight kümelerine sahiptir. İlkeleri yapılandırdıktan sonra Excel ve ODBC sürücüsünü kullanarak HDInsight’taki Hive tablolarına bağlanabilirsiniz.
+# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile HDInsight, Apache Hive ilkelerini yapılandırma
+Apache Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hivesampletable erişimini kısıtlamak için iki Ranger ilkesi oluşturacaksınız. hivesampletable, HDInsight kümelerine sahiptir. İlkeleri yapılandırdıktan sonra Excel ve ODBC sürücüsünü kullanarak HDInsight’taki Hive tablolarına bağlanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Kurumsal güvenlik paketi ile HDInsight kümesi. Bkz: [yapılandırma HDInsight kümeleri ile ESP](apache-domain-joined-configure.md).

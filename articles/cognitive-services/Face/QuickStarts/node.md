@@ -1,47 +1,35 @@
 ---
-title: 'Hızlı Başlangıç: REST API ve Node.js kullanarak bir görüntüdeki yüzleri algılama'
+title: "Hızlı Başlangıç: Node.js ve Azure REST API'si ile bir görüntüdeki yüzleri algılayın"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Node.js ile Yüz Tanıma API'sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+description: Bu hızlı başlangıçta, bir resimdeki yüz algılama için Node.js ile Azure yüz REST API'sini kullanır.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b5258f1c465732df257a7db85e828effff200ee0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954115"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578004"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-nodejs"></a>Hızlı Başlangıç: REST API ve Node.js kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Hızlı Başlangıç: Node.js ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
 
-Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
+Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Node.js ile Azure yüz REST API'sini kullanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="face---detect-request"></a>Yüz - Algılama isteği
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
 
-[Yüz - Algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yöntemini kullanarak bir görüntüdeki yüzleri algılayın ve aşağıdaki yüz özniteliklerini döndürün:
+## <a name="create-the-nodejs-script"></a>Node.js komut dosyası oluşturma
 
-* Face ID: Birkaç Yüz Tanıma API'si senaryosunda kullanılan benzersiz kimlik.
-* Yüz Dikdörtgeni: Görüntüdeki yüzün konumunu gösteren sol kısım, üst kısım, genişlik ve yükseklik.
-* Yer İşaretleri: Yüz bileşenlerinin önemli konumlarına işaret eden 27 noktalık yüz yer işareti dizisi.
-* Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
-
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsteğe bağlı olarak, `imageUri` öğesini analiz etmek istediğiniz görüntü olarak ayarlayın.
-1. Dosyayı `.js` uzantısıyla kaydedin.
-1. Node.js komut istemini açın ve dosyayı çalıştırın, örneğin: `node myfile.js`.
+Aşağıdaki kod yüz tanıma API'sini çağırmak ve bir görüntüden yüz özniteliği veri alın. İlk olarak, kodu bir metin düzenleyicisine kopyalayın&mdash;çalışabilmesi için önce bazı değişiklikler yapmanız gerekir.
 
 ```nodejs
 'use strict';
@@ -88,9 +76,29 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Yüz - Algılama yanıtı
+### <a name="subscription-key"></a>Abonelik anahtarı
+Değiştirin `<Subscription Key>` geçerli yüz abonelik anahtarınız ile.
 
-Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
+### <a name="face-endpoint-url"></a>Yüz tanıma uç nokta URL'si
+
+URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` Azure yüz uç noktaya sorgu gösterir. İlk kısmı (zaten doğru olmadığı sürece) için abonelik anahtarınızı karşılık gelen bölgeyi eşleşmesi için bu URL'yi değiştirmeniz gerekecektir.
+
+### <a name="url-query-string"></a>URL sorgu dizesi
+
+`returnFaceAttributes` Alanı almak için hangi yüz öznitelikleri belirtir. Öngörülen kullanımınıza bağlı olarak bu dize değiştirmek isteyebilirsiniz.
+
+### <a name="image-source-url"></a>Görüntü kaynağı URL'si
+`imageUrl` Alan, giriş olarak kullanılacak görüntüyü gösterir. Bu, çözümlemek istediğiniz herhangi bir görüntüye işaret edecek şekilde değiştirebilirsiniz.
+
+## <a name="save-and-run-the-script"></a>Kaydet ve betiği çalıştırın
+
+Değişikliklerinizi yaptıktan sonra dosyayı bir JavaScript (.js) dosyası olarak kaydedin. Ardından bir komut istemi açın ve ile çalıştırır `node` komutu.
+
+```
+node myfile.js
+```
+
+Konsol penceresinde JASON verileri olarak görüntülenen yüz bilgileri görmeniz gerekir. Örneğin:
 
 ```json
 [
@@ -273,7 +281,7 @@ Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir görüntüdeki insan yüzlerini algılamak, yüzleri dikdörtgenlerle ayırmak ve yaş ve cinsiyet gibi öznitelikleri döndürmek için kullanılan Yüz Tanıma API'sini keşfedin.
+Bu hızlı başlangıçta, bir resimdeki yüz algılama ve onların öznitelikleri döndürmek için Azure yüz tanıma API'si çağıran bir cURL komutu yazıldı. Ardından, daha fazla bilgi için yüz API başvuru belgeleri keşfedin.
 
 > [!div class="nextstepaction"]
-> [Yüz Tanıma API’leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Yüz Tanıma API’si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -9,91 +9,103 @@ ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 85b67683730c8352051b4d6b48f813576b11615b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322944"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287379"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins'e genel bakış
 
-Azure Digital Twins, fiziksel ortamların kapsamlı modellerini oluşturan bir Azure IoT hizmetidir. İnsanlar, alanlar ve cihazlar arasındaki ilişkileri ve etkileşimleri modellemek için uzamsal zeka grafları oluşturma, bu hizmetin özelliklerinden bazılarıdır.
+Azure Digital Twins, fiziksel ortamların kapsamlı modellerini oluşturan bir Azure IoT hizmetidir. Bu kişiler, boşluk ve cihazlar arasındaki etkileşimler ve ilişkileri modellemek için uzamsal zeka grafikler oluşturabilirsiniz.
 
-Azure Digital Twins, ayrı sensörler yerine fiziksel alandaki verileri sorgulamanızı sağlar. Bu hizmet dijital ve fiziksel dünyadaki akış verileri arasında bağlantı oluşturan yeniden kullanılabilir, yüksek oranda ölçeklenebilir ve uzamsal farkındalığa sahip deneyimler oluşturmanıza yardımcı olur. Bir fabrikanın bakım gereksinimlerini belirleme, bir elektrik şebekesinin gerçek zamanlı enerji gereksinimlerini analiz etme veya bir ofis için kullanılabilir alanı en iyi duruma getirme gibi görevler için uygulamalarınız bu benzersiz olarak ilişkilendirilen bağlamsal özelliklerle zenginleştirilir.
+Azure ile dijital İkizlerini, fiziksel bir boşluk yerine birçok farklı sensörlerden alınan verileri sorgulayabilirsiniz. Bu hizmet dijital ve fiziksel dünya genelindeki akış veri bağlantısı yeniden kullanılabilir, ölçeklenebilir, mekan kullanan deneyimleri oluşturmanıza yardımcı olur. Uygulamalarınızı bu benzersiz olarak ilgili bağlamsal özellikler tarafından geliştirilmiştir. Azure dijital çiftleri için aşağıdaki örnek görevler için kullanılabilir:
 
-Azure Digital Twins depolar, ofisler, okullar, hastaneler, bankalar, stadyumlar, fabrikalar, otoparklar, parklar, akıllı şebekeler ve şehirler gibi her türlü ortam için uygundur. Birden fazla eyaletteki günlük sıcaklığı takip etme, meşgul insansız hava aracı yollarını izleme, otonom araçları tanımlama, bir binanın doluluk düzeylerini analiz etme veya mağazanızdaki en yoğun kasayı belirleme gibi senaryolarda bu hizmetten faydalanabilirsiniz. Gerçek dünyadaki iş senaryonuz ne olursa olsun Azure Digital Twins ile uygun bir dijital örnek sağlanabilir.
+- İçin bir Fabrika bakım ihtiyaçlarını tahmin edin.
+- Bir Elektrik şebekesi için gerçek zamanlı enerji gereksinimleri analiz edin.
+- Office için kullanılabilir alan kullanımı iyileştirin.
 
-Aşağıdaki videoda Digital Twins ayrıntılı bir şekilde incelenmiştir:
+Azure dijital İkizlerini ortamları tüm türleri için geçerlidir. Ambar, ofisleri, okullar, hastaneler ve bankalar bunun yalnızca birkaç örnektir. Hatta kurucular, fabrikaları, park, parka, Akıllı Kılavuzlar ve şehir için kullanılabilir. Azure dijital çiftleri için aşağıdaki örnek senaryolarda kullanılabilir:
+ 
+- Günlük sıcaklık arasında çeşitli durumları izler. 
+- Meşgul bir insansız hava aracı yolları izleyin.
+- Otonom taşıtlardan belirleyin. 
+- Bir yapı için sahiplik düzeyleri analiz edin. 
+- En yoğun saatinde Yazar Kasa deponuzda bulun. 
+
+Gerçek dünyadaki iş senaryonuz ne olursa olsun Azure Digital Twins ile uygun bir dijital örnek sağlanabilir.
+
+Aşağıdaki video Azure dijital İkizlerini ayrıntılı olarak ele alır.
 
 > [!VIDEO https://www.youtube.com/embed/TvN_NxpgyzQ]
 
 ## <a name="key-capabilities"></a>Temel işlevler
 
-Azure Digital Twins hizmetinin özellikleri şunlardır:
+Azure dijital İkizlerini aşağıdaki temel özellikleri vardır.
 
 ### <a name="spatial-intelligence-graph"></a>Uzamsal zeka grafı
 
-[*Uzamsal zeka grafı*](./concepts-objectmodel-spatialgraph.md) veya *uzamsal graf*, fiziksel ortamın görsel temsilidir ve insanlar, yerler ve cihazlar arasındaki ilişkileri modellemenizi sağlar.
+[ *Uzamsal zeka grafik*](./concepts-objectmodel-spatialgraph.md), veya *uzamsal graf*, fiziksel ortam sanal bir gösterimidir. Kişiler, yerler ve cihazlar arasındaki ilişkileri modellemek için kullanabilirsiniz.
 
-Bir mahalleye dağıtılmış olan elektrik sayaçlarından oluşan bir akıllı hizmet uygulamasını düşünün. Elektrik kullanımını ve faturaları doğru şekilde izlemek ve tahmin etmek için akıllı hizmet şirketinin her cihazı ve sensörü konum ile fatura düzenlenecek müşteri bağlamında modellemesi gerekir. Uzamsal zeka grafı, bu tür karmaşık ilişkileri modellemenizi sağlar.
+Bir Komşuları bağlı birkaç elektrik kullanım ölçümleri içeren bir akıllı yardımcı uygulama göz önünde bulundurun. Akıllı yardımcı şirket gerekir doğru bir şekilde izleyin ve elektrik kullanımını tahmin edin ve faturalandırma. Her bir cihaz ve algılayıcıyı konumu ve faturalandırılmaya müşteri hakkında bağlam ile modellenmesi gerekir. Bu tür karmaşık ilişkileri modellemek için uzamsal zeka Grafiği'ni kullanabilirsiniz.
 
 ### <a name="digital-twin-object-models"></a>Dijital ikiz nesne modelleri
 
-[Dijital ikiz nesne modelleri](./concepts-objectmodel-spatialgraph.md), geliştirme süreçlerini hızlandırmak ve kolaylaştırmak için çözümünüzün etki alanına uygun ihtiyaçlarını karşılayan önceden tanımlanmış cihaz protokolleri ve veri şemalarıdır.
+[Dijital ikizini nesne modellerini](./concepts-objectmodel-spatialgraph.md) önceden tanımlanmış cihaz protokolleri ve veri şeması. Bunlar, geliştirme işlemini basitleştirin ve hızlandırın, çözümünüzün gereksinimlerini karşılayacak etki alanına özgü hizalayın.
 
-Örneğin bir oda doluluk durumu uygulamasında kampüs, bina, kat, oda vb. önceden tanımlı alan türleri kullanabilir.
+Bir oda doluluk uygulama kampüs, bina, kat ve yer gibi önceden tanımlanmış alan türlerini kullanabilir bir örnektir.
 
 ### <a name="multiple-and-nested-tenants"></a>Birden çok ve iç içe yerleştirilmiş kiracılar
 
-Güvenli bir şekilde ölçeklendirilen ve birden fazla kiracı için yeniden kullanılabilen çözümler oluşturabilirsiniz. Ayrıca yalıtılmış ve güvenli bir şekilde erişilebilen ve kullanılabilen birden fazla alt kiracı da oluşturabilirsiniz.
+Birden çok Kiracı için yeniden kullanılabilir ve güvenli bir şekilde ölçeklendirme çözümleri oluşturabilirsiniz. Erişilen ve yalıtılmış ve güvenli bir şekilde kullanılan birden fazla subtenants de oluşturabilirsiniz.
 
-Örneğin bir alan kullanım uygulaması, belirli bir binada bulunan bir kiracının verilerini diğer kiracı verilerinden yalıtacak veya tek bir kiracının verilerini birden fazla binayla birleştirecek şekilde yapılandırılabilir.
+Örnek, bir kiracının verileri tek bir yapı içinde diğer kiracıların verilerinden yalıtmak için yapılandırılmış bir alanı kullanımı uygulamadır. Veya uygulama verileri için tek bir kiracı ile çok sayıda binalar birleştirmek için kullanılır.
 
 ### <a name="advanced-compute-capabilities"></a>Gelişmiş işlem özellikleri
 
-[Kullanıcı tanımlı işlevler](./concepts-user-defined-functions.md) olarak adlandırılan gelişmiş işlem özellikleri, önceden tanımlı uç noktalara sinyal göndermek için gelen [cihaz verileriyle](./concepts-device-ingress.md) özel işlev tanımlayıp çalıştırmanızı sağlar. Bu özellik, cihaz görevlerini özelleştirme ve otomasyon açısından geliştirir.
+İle [kullanıcı tanımlı işlevleri](./concepts-user-defined-functions.md), tanımlamak ve gelen özel işlevleri çalıştırma [cihaz verilerini](./concepts-device-ingress.md) önceden tanımlı uç nokta için sinyaller göndermek için. Bu özellik Gelişmiş özelleştirme ve cihaz görevlerin Otomasyonu artırır.
 
-Örneğin bir akıllı tarım uygulaması, topraktaki nem miktarı sensöründen gelen değerlere ek olarak hava tahminlerini değerlendirerek sulama gereksinimleriyle ilgili sinyaller gönderen bir kullanıcı tanımlı işleve sahip olabilir.
+Örneği Toprak nem sensör okumaları ve hava durumu tahminini değerlendirmek için bir kullanıcı tanımlı işlev içeren bir akıllı Tarım uygulamasıdır. Uygulama, ardından sinyalleri Sulama ihtiyaçları hakkında gönderir.
 
 ### <a name="built-in-access-control"></a>Yerleşik erişim denetimi
 
-[Rol tabanlı erişim denetimi](./security-role-based-access-control.md) ve [Azure Active Directory](./security-authenticating-apis.md) gibi erişim ve kimlik yönetim özellikleri, kişilerin ve cihazların erişimini güvenli bir şekilde denetlemenizi sağlar.
+Erişim ve kimlik yönetimi özellikleri gibi kullanarak [rol tabanlı erişim denetimi](./security-role-based-access-control.md) ve [Azure Active Directory](./security-authenticating-apis.md), güvenli bir şekilde kişiler ve cihazlar için erişimi denetleyebilirsiniz.
 
-Örneği bir tesis yönetim uygulaması, odayı kullananların sıcaklığı belirli bir aralıkta ayarlamasına, tesis yöneticilerinin ise sıcaklığı herhangi bir değere ayarlamasına izin verecek şekilde yapılandırılabilir.
+Örnek belirtilen bir aralıktaki sıcaklık ayarlamak bir yer occupants izin verecek şekilde yapılandırılmış bir tesis Yönetimi uygulamasıdır. Tesis yöneticileri sıcaklık her yerde herhangi bir değere ayarlamak için izin verilir.
 
 ### <a name="ecosystem"></a>Ekosistem
 
-Bir Azure Digital Twins örneğini şunlar gibi birçok güçlü Azure hizmetine bağlayabilirsiniz: Azure Stream Analytics, yapay zeka, depolama hizmetleri, Azure Haritalar, Microsoft Karma Gerçeklik, Dynamics 365 veya Office 365.
+Azure dijital İkizlerini örneği çok sayıda güçlü Azure hizmetlerine bağlanabilirsiniz. Bu hizmetler, Azure Stream Analytics, Azure yapay ZEKA ve Azure Storage içerir. Ayrıca Azure haritalar, Microsoft karma gerçeklik, Dynamics 365 veya Office 365 içerirler.
 
-Örneğin bir akıllı bina uygulaması, Azure Digital Twins'i kullanarak ayrı katlardaki ekipleri ve cihazları gösterebilir. Cihazlar, sağlanan Digital Twins örneğine canlı veri akışı yaptıkça Azure Stream Analytics bu verilere göre eyleme dönüştürülebilir önemli içgörüler sağlayabilir. Ardından bu veriler Azure Depolama hizmetinde depolanıp Office 365 ile kuruluşun tamamına dağıtılabilecek paylaşılabilir dosya biçimine dönüştürülebilir.
+Bir akıllı office takımlar ve birçok Katlar üzerinde bulunan aygıtları göstermek için dijital İkizlerini Azure kullanan uygulama oluşturmaya bir örnektir. Stream Analytics, cihazları sağlanan dijital ikizini örneğine canlı veri akışı olarak anahtar eyleme dönüştürülebilir Öngörüler sağlamak için bu verileri işler. Veriler Azure Depolama'da depolanan ve paylaşılabilir dosya biçimine dönüştürülür. Dosya, Office 365'i kullanarak tüm kuruluş genelinde dağıtılır.
 
 ## <a name="solutions-that-benefit-from-azure-digital-twins"></a>Azure Digital Twins'den yararlanan çözümler
 
-Azure Digital Twins IoT modelleme, veri işleme, olay işleme ve cihaz izleme süreçlerini kolaylaştırdığından fiziksel dünyayı ve ilişkileri gösterme açısından kullanışlıdır. Aşağıda verilen bu hizmetin kullanılabileceği farklı sektör senaryolarına göz atın:
+Azure dijital İkizlerini Fiziksel dünyadaki ve birçok ilişkilerini temsil etmek için kullanışlıdır. IOT modelleme, veri işleme, olay işleme ve izleme aygıtın kolaylaştırır. Aşağıdaki senaryolardan birkaçı çeşitli sektörlerde göz önünde bulundurun. Bunlar hizmetin kullanımı için yararlanın:
 
-* Bir tesis yönetim şirketine ofis binasını yapılandırmayla ilgili en iyi yöntemler hakkında içgörüler sağlamak için belirli alanların zaman içindeki doluluk düzeylerini gösterme.
-* Güvenlik görevlisi ayarlama ve bakım hizmetleri zamanlama gibi bir mağazadaki ya da spor salonundaki hizmetleri gerçekleştiren bir mobil uygulama için iş emri biletlerini tetikleme.
-* Bina sakinlerine gerçek zamanlı oda kullanım durumunu gösterme. Ardından kişinin ihtiyaçlarına uygun çalışma alanlarını ayırmasına yardımcı olma.
-* Bir alan içinde varlıkların bulunduğu konumu izleme.
-* Kullanıcı tercihlerini ve enerji şebekesi kısıtlamalarını modelleyerek elektrikli araç şarj işlemlerini iyileştirme.
+* Emlak yönetim şirketi, ofis binasının yapılandırmak için en iyi yöntemleri hakkında Öngörüler elde zamanla boşlukla doluluk düzeylerini gösterir.
+* Bir mobil uygulama için tetikleyici iş sırası bilet. Güvenlik koruyucuları ve zamanlama temizlik ve diğer hizmetlerde perakende boşluk veya spor mekan gönderileceği kullanın.
+* Bir yapı occupant hangi odaları gerçek zamanlı bir binada kapladığı gösterir. Ardından, kendi ihtiyaçlarına uygun çalışma alanları rezerve occupant yardımcı olur.
+* Varlıklar bir alanı içinde bulunduğu yere izleyin.
+* Kullanıcı tercihleri ve enerji şebekesi kısıtlamaları modelleme tarafından ücretlendirme elektrik vehicle iyileştirin.
 
-## <a name="azure-digital-twins-in-the-context-of-other-iot-services"></a>Diğer IoT Hizmetleri bağlamında Azure Digital Twins
+## <a name="azure-digital-twins-in-the-context-of-other-iot-services"></a>Azure dijital İkizlerini bağlamında, diğer IOT Hizmetleri
 
-Azure Digital Twins, verileri fiziksel dünyayla eşitlemek için Azure IoT Hub'ı kullanarak IoT cihazlarına ve sensörlerine bağlanır. Aşağıdaki diyagramda Azure Digital Twins ile diğer Azure IoT hizmetler arasındaki ilişki gösterilmiştir:
+Azure Digital Twins, verileri fiziksel dünyayla eşitlemek için Azure IoT Hub'ı kullanarak IoT cihazlarına ve sensörlerine bağlanır. Aşağıdaki diyagramda Azure dijital çiftleri için diğer Azure IOT Hizmetleri ilişkisini gösterir.
 
 ![Azure Digital Twins, Azure IoT Hub üzerinde geliştirilmiş olan bir hizmettir](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
 
-IoT ekosisteminin diğer bileşenleriyle ilgili ayrıntılı açıklamalar için bkz. [Azure IoT teknolojileri ve çözümleri](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
+IOT hakkında daha fazla bilgi için bkz: [Azure IOT teknolojilerini ve çözümlerini](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Digital Twins özellikleriyle ilgili kısa tanıtıma geçin:
+Azure dijital İkizleri hakkında kısa bir tanıtım gidin:
 
 > [!div class="nextstepaction"]
-> [Hızlı başlangıç: Azure Digital Twins'i kullanarak uygun odaları bulma](./quickstart-view-occupancy-dotnet.md)
+> [Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları bulun.](./quickstart-view-occupancy-dotnet.md)
 
-Azure Digital Twins'i kullanan bir tesis yönetim uygulamasının ayrıntılarını inceleyin:
+Azure dijital İkizlerini kullanarak yakından tesis yönetimi uygulaması bakın:
 
 > [!div class="nextstepaction"]
 > [Öğretici: Azure Digital Twins'i dağıtma ve uzamsal graf yapılandırma](./tutorial-facilities-setup.md)
@@ -101,4 +113,4 @@ Azure Digital Twins'i kullanan bir tesis yönetim uygulamasının ayrıntıları
 Temel Azure Digital Twins kavramları hakkında bilgi edinin:
 
 > [!div class="nextstepaction"]
-> [Digital Twins nesne modelini ve uzamsal zeka grafını anlama](./concepts-objectmodel-spatialgraph.md)
+> [Dijital İkizlerini nesne modeli ve uzamsal zeka graf anlama](./concepts-objectmodel-spatialgraph.md)

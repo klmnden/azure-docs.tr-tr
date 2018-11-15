@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 83acdb320e0be0837ec5188a11cb86b91ed077fa
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979820"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683987"
 ---
 # <a name="container-skus-tab"></a>Kapsayıcı SKU'ları sekmesi
 
@@ -46,7 +46,7 @@ SKU kapsayıcı listeleme için mağaza görüntüleme bilgileri içerir.
 
 ### <a name="container-metadata"></a>Kapsayıcı meta verileri
 
-Kapsayıcı meta verileri, görüntü deposu ayrıntılarının içinde Azure Container Registry (ACR) başvuru bilgilerini içerir. Azure Market genel Market kayıt defterine bu görüntüyü kopyalar ve müşteriler için sertifika sonra kullandırılır. Market kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü kullanmak için Azure kullanıcı gelen tüm isteklerin sunulur.
+Kapsayıcı meta verileri, görüntü deposu ayrıntılarının içinde Azure Container Registry (ACR) başvuru bilgilerini içerir. Azure Market Market özel, genel bir kayıt defterine bu görüntüyü kopyalar ve ardından görüntüyü müşteriler için sonra sertifika kullanımına. Azure Market kapsayıcı görüntüsü kullanmak için Azure kullanıcı gelen tüm isteklerin Market'ın genel kayıt defterinden değil ACR sunulur.
 
 ![Kapsayıcı meta verileri](./media/containers-image-repository.png)
     

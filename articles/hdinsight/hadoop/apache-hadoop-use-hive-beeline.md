@@ -1,5 +1,5 @@
 ---
-title: Apache Hive - Azure HDInsight ile Beeline kullanma
+title: Apache Hive - Azure HDInsight ile Apache Beeline kullanma
 description: Beeline istemci HDInsight Hadoop ile Hive sorguları çalıştırmak için kullanmayı öğrenin. Beeline JDBC HiveServer2 ile çalışmak için bir yardımcı programdır.
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1edf0a33db7df2435be55d5a9b36276e2702bd69
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1516c1a2802046b526688de703b565513789851b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013930"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633283"
 ---
-# <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive Beeline istemci kullanın
+# <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive ile Apache Beeline istemcisini kullanma
 
-Nasıl kullanacağınızı öğrenin [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) üzerinde HDInsight Hive sorguları çalıştırmak için.
+Nasıl kullanacağınızı öğrenin [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) HDInsight üzerinde Apache Hive sorguları çalıştırmak için.
 
 Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemcisidir. Beeline JDBC HiveServer2, HDInsight kümeniz üzerinde barındırılan bir hizmete bağlanmak için kullanır. Beeline HDInsight üzerindeki Hive'a internet üzerinden uzaktan erişmek için de kullanabilirsiniz. Aşağıdaki örneklerde, HDInsight için Beeline bağlanmak için kullanılan en yaygın bağlantı dizelerini sağlanır:
 

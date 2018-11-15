@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361720"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345717"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Bing Yazım Denetimi API'si nedir?
 
@@ -42,9 +42,12 @@ API, `Proof` ve `Spell` olmak üzere iki denetleme modunu destekler.  Örnekleri
 <br /><br/>**NOT:**   Uzunluğu 4096 karakteri aşan sorgular, 4096 karakter olacak şekilde kesildikten sonra işlenir. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Yazım (Web araması/sorgusu senaryosu için)
 `Spell`, daha iyi arama sonuçları döndürmek için daha agresif şekilde çalışır. `Spell` modu, çoğu yazım hatasını bulur ancak `Proof` modunda yakalanan, gibi bazı dil bilgisi hatalarını (örneğin, büyük/küçük harf kullanımı ve yinelenen sözcükler ile ilgili hatalar) saptayamaz.
-<br /></br>**NOT:** Desteklenen maksimum sorgu uzunluğu aşağıda belirtilmiştir. Sorgu sınırı aşarsa, sonuçta sorgunun değiştirilmediği görüntülenir.
-<ul><li>en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh ve ko dil kodları için 130 karakter. </li>
-<li>Diğer dil kodları için 65 karakter</li></ul>
+
+> [!NOTE]
+> * Maksimum desteklenen sorgu uzunluğu aşağıda verilmiştir. Sorgu en fazla uzunluğu aşıyor, sorgu ve sonuçları değiştirilmeyecek.
+>    * Aşağıdaki dil kodları 130 karakter: tr, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
+>    * diğer tüm 65 karakter.
+> * Yazım modu köşeli ayraç karakterleri desteklemez (`[` ve `]`), sorgu ve tutarsız sonuçlara neden olabilir. Bunları Yazım modunu kullanırken, sorgularından kaldırma öneririz.
 
 ## <a name="market-setting"></a>Pazar ayarı
 Pazarın, istek URL'sinde belirtilmesi gerekir. Aksi halde; yazım denetleyici, IP adresine göre varsayılan pazarı dikkate alır.

@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: c67a223a95e73161b58f8cd4f2aeba2614a9ee76
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419088"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615526"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
-Bu öğreticide, Azure Databricks kullanarak ETL (verileri ayıklama, dönüştürme ve yükleme) işlemi yaparsınız. Verileri Azure Data Lake Store'dan Azure Databricks'e ayıklar, Azure Databricks'te veriler üzerinde dönüştürmeler çalıştırır ve ardından dönüştürülmüş verileri Azure SQL Veri Ambarı'na yüklersiniz. 
+Bu öğreticide, Azure Databricks kullanarak ETL (verileri ayıklama, dönüştürme ve yükleme) işlemi yaparsınız. Verileri Azure Data Lake Store'dan Azure Databricks'e ayıklar, Azure Databricks'te veriler üzerinde dönüştürmeler çalıştırır ve ardından dönüştürülmüş verileri Azure SQL Veri Ambarı'na yüklersiniz.
 
 Bu öğreticideki adımlarda, verileri Azure Databricks'e aktarmak üzere Azure Databricks için SQL Veri Ambarı bağlayıcısı kullanılır. Bu bağlayıcı da, Azure Databricks kümesiyle Azure SQL Veri Ambarı arasında aktarılan veriler için geçici depolama alanı olarak Azure Blob Depolama'yı kullanır.
 
@@ -27,7 +27,7 @@ Aşağıdaki şekilde uygulama akışı gösterilmektedir:
 
 ![Data Lake Store ve SQL Veri Ambarı ile Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Data Lake Store ve SQL Veri Ambarı ile Azure Databricks")
 
-Bu öğretici aşağıdaki görevleri kapsar: 
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Azure Databricks çalışma alanı oluşturma
@@ -64,7 +64,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
     ![Azure Databricks çalışma alanı oluşturma](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    Aşağıdaki değerleri sağlayın: 
+    Aşağıdaki değerleri sağlayın:
      
     |Özellik  |Açıklama  |
     |---------|---------|
@@ -95,14 +95,14 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     Aşağıdakiler dışında diğer tüm varsayılan değerleri kabul edin:
 
     * Küme için bir ad girin.
-    * Bu makale için **4.0** çalışma zamanıyla bir küme oluşturun. 
+    * Bu makale için **4.0** çalışma zamanıyla bir küme oluşturun.
     * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
     
     **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
 
-Bu bölümde, Azure Data Lake Store hesabı oluşturur ve bir Azure Active Directory hizmet sorumlusunu bu hesapla ilişkilendirirsiniz. Bu öğreticinin devamında, Azure Data Lake Store'a erişmek için Azure Databricks'te bu hizmet sorumlusunu kullanacaksınız. 
+Bu bölümde, Azure Data Lake Store hesabı oluşturur ve bir Azure Active Directory hizmet sorumlusunu bu hesapla ilişkilendirirsiniz. Bu öğreticinin devamında, Azure Data Lake Store'a erişmek için Azure Databricks'te bu hizmet sorumlusunu kullanacaksınız.
 
 1. [Azure portalında](https://portal.azure.com) **Kaynak oluşturun** > **Depolama** > **Data Lake Store**'u seçin.
 3. **Yeni Data Lake Store** dikey penceresinde, aşağıdaki ekran görüntüsünde gösterilen değerleri sağlayın:
@@ -189,7 +189,7 @@ Programlamayla oturum açılırken, kimlik doğrulama isteğinizle birlikte kira
 
 1. **Dizin kimliği**'ni kopyalayın. Bu değer kiracı kimliğinizdir.
 
-   ![kiracı kimliği](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
+   ![kiracı kimliği](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png)
 
 ## <a name="upload-data-to-data-lake-store"></a>Data Lake Store'a veri yükleme
 
@@ -306,7 +306,7 @@ Artık verileri Azure Data Lake Store'dan Azure Databricks'e ayıkladınız.
 
 ## <a name="transform-data-in-azure-databricks"></a>Azure Databricks'te verileri dönüştürme
 
-Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesini yakalar ve çeşitli sütunları vardır. Bu bölümde, veri kümesinden yalnızca belirli sütunları içeri almak için verileri dönüştürürsünüz. 
+Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesini yakalar ve çeşitli sütunları vardır. Bu bölümde, veri kümesinden yalnızca belirli sütunları içeri almak için verileri dönüştürürsünüz.
 
 1. Oluşturduğunuz veri çerçevesinden yalnızca *firstName*, *lastName*, *gender*, *location* ve *level* sütunlarını alarak başlayın.
 
@@ -340,7 +340,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
         |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
         +---------+----------+------+--------------------+-----+
 
-2.  Bu verilerde başka dönüştürmeler de yaparak **level** sütununun adını **subscription_type** olarak değiştirebilirsiniz.
+2. Bu verilerde başka dönüştürmeler de yaparak **level** sütununun adını **subscription_type** olarak değiştirebilirsiniz.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDf.show()
@@ -382,7 +382,7 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
-        val blobAccessKey =  "<ACCESS KEY>"
+        val blobAccessKey = "<ACCESS KEY>"
 
 2. Verileri Azure Databricks ile Azure SQL Veri Ambarı arasında taşırken kullanılacak geçici klasörü belirtin.
 
@@ -397,15 +397,15 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
         //SQL Data Warehouse related settings
         val dwDatabase = "<DATABASE NAME>"
-        val dwServer = "<DATABASE SERVER NAME>" 
+        val dwServer = "<DATABASE SERVER NAME>"
         val dwUser = "<USER NAME>"
         val dwPass = "<PASSWORD>"
-        val dwJdbcPort =  "1433"
+        val dwJdbcPort = "1433"
         val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Dönüştürülmüş veri çerçevesi **renamedColumnsDf**'yi SQL veri ambarına tablo olarak yüklemek için aşağıdaki kod parçacığını çalıştırın. Bu kod parçacığı SQL veritabanında **SampleTable** adlı bir tablo oluşturur. Azure SQL DW için ana anahtar gerekir.  SQL Server Management Studio'da "CREATE MASTER KEY;" komutunu yürüterek bir ana anahtar oluşturabilirsiniz.
+5. Dönüştürülmüş veri çerçevesi **renamedColumnsDf**'yi SQL veri ambarına tablo olarak yüklemek için aşağıdaki kod parçacığını çalıştırın. Bu kod parçacığı SQL veritabanında **SampleTable** adlı bir tablo oluşturur. Azure SQL DW için ana anahtar gerekir. SQL Server Management Studio'da "CREATE MASTER KEY;" komutunu yürüterek bir ana anahtar oluşturabilirsiniz.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
@@ -413,7 +413,7 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
         
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
-            .option("url", sqlDwUrlSmall) 
+            .option("url", sqlDwUrlSmall)
             .option("dbtable", "SampleTable")
             .option( "forward_spark_azure_storage_credentials","True")
             .option("tempdir", tempDir)
@@ -434,9 +434,9 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
 ![Databricks kümesini durdurma](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Databricks kümesini durdurma")
 
-Kümeyi oluştururken **__ dakika etkinsizlik süresinden sonra sonlandır** onay kutusunu seçtiyseniz, kümeyi kendiniz sonlandırmazsanız küme otomatik olarak durdurulur. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
+El ile otomatik olarak durdurur küme sonlandırmazsanız, seçtiğiniz sağlanan **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** küme oluşturulurken onay kutusu. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
 
-## <a name="next-steps"></a>Sonraki adımlar 
+## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]

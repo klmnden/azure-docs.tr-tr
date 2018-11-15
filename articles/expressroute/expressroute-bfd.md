@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 97ac49ff5cc50621fd902f77c2543a428c7e8bae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384761"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631668"
 ---
 # <a name="configure-bfd-over-expressroute"></a>ExpressRoute üzerinden BFD yapılandırın
 
@@ -67,7 +67,7 @@ Bir örnek (Cisco IOS XE kullanarak) PE yapılandırması aşağıda gösterilmi
 
 ## <a name="bfd-timer-negotiation"></a>BFD Zamanlayıcı anlaşması
 
-BFD eşleri arasında iki eş daha yavaş aktarım hızını belirler. Msee BFD aktarım/alma aralıkları 300 milisaniye olarak ayarlanır. Yüksek değerler yapılandırarak, daha uzun olacak şekilde Bu aralıklar zorunlu kılabilirsiniz; Ancak, daha kısa değil.
+BFD eşleri arasında iki eş daha yavaş aktarım hızını belirler. Msee BFD aktarım/alma aralıkları 300 milisaniye olarak ayarlanır. Belirli senaryolarda aralığı 750 milisaniye olarak daha yüksek bir değer ayarlanabilir. Yüksek değerler yapılandırarak, daha uzun olacak şekilde Bu aralıklar zorunlu kılabilirsiniz; Ancak, daha kısa değil.
 
 >[!NOTE]
 >Coğrafi olarak yedekli ExpressRoute özel eşlemesi devreler yapılandırmış olmanız veya siteden siteye IPSec VPN bağlantısını ExpressRoute özel eşlemesi için; yedekleme Özel eşleme üzerinden BFD etkinleştirme, bir ExpressRoute bağlantı hatası aşağıdaki daha hızlı yük devretme yardımcı olacaktır. 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 596bb31ea2734b389ac8b2d6741907da04730648
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3168593e30a7f5acf49960c8479da75529860a65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629376"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684554"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Okuma Azure Cosmos DB değişiklik akışı
 
@@ -27,7 +27,7 @@ Azure işlevleri, basit ve önerilen seçenektir. Azure işlevleri uygulamayı b
 
 ## <a name="using-the-change-feed-processor-library"></a>Kullanarak değişiklik akışı işlemci kitaplığı
 
-Değişiklik akışı işlemci kitaplığı karmaşıklığını gizler ve yine de bir değişiklik akışı denetimini sağlar. Kitaplığı, kitaplık için işleme işlevinizi burada çağrılır gözlemci deseni izler. Bir yüksek aktarım hızı değişiklik akışı varsa, değişiklik akışını okumak için birden çok istemci örneği oluşturabilir. Değişiklik akışı işlemci kitaplığı kullandığımızdan, otomatik olarak yükü farklı istemciler arasında bu mantığı uygulamasına gerek kalmadan böler. Tüm karmaşıklığı kitaplığı tarafından işlenir. Yük dengeleyicinizi olmasını istediğiniz sonra uygulayabileceğiniz `IParitionLoadBalancingStrategy` stratejisi değişiklik işlemek için özel bir bölümü için akış. Daha fazla bilgi için bkz. [kullanarak değişiklik akışı işlemci Kitaplığı](change-feed-processor.md).
+Değişiklik akışı işlemci kitaplığı karmaşıklığını gizler ve yine de bir değişiklik akışı denetimini sağlar. Kitaplığı, kitaplık için işleme işlevinizi burada çağrılır gözlemci deseni izler. Bir yüksek aktarım hızı değişiklik akışı varsa, değişiklik akışını okumak için birden çok istemci örneği oluşturabilir. Değişiklik akışı işlemci kitaplığı kullandığımızdan, otomatik olarak yükü farklı istemciler arasında bu mantığı uygulamasına gerek kalmadan böler. Tüm karmaşıklığı kitaplığı tarafından işlenir. Yük dengeleyicinizi olmasını istediğiniz sonra uygulayabileceğiniz `IPartitionLoadBalancingStrategy` stratejisi değişiklik işlemek için özel bir bölümü için akış. Daha fazla bilgi için bkz. [kullanarak değişiklik akışı işlemci Kitaplığı](change-feed-processor.md).
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Azure Cosmos DB SQL API SDK'sını kullanma
 

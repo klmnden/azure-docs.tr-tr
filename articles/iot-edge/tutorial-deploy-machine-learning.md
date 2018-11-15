@@ -2,19 +2,19 @@
 title: Azure IoT Edge ile Azure Machine Learning dağıtma | Microsoft Belgeleri
 description: Bu öğreticide Azure Machine Learning'i modül olarak bir Edge cihazına dağıtacaksınız.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 59ce51ba4b015c7236df9e20416832e877dd26c6
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.openlocfilehash: 692dce4c3fcb31bcfbffbba06e5a69722b5fb5fa
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748383"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566121"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma (önizleme)
 
@@ -36,7 +36,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bir Azure IoT Edge cihazı:
 
@@ -66,14 +66,14 @@ IoT Edge daemon yapılandırma dosyasını düzenleyin:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Yapılandırmanın **connect** bölümünü IP adresinizle güncelleştirin. Örnek:
+Yapılandırmanın **connect** bölümünü IP adresinizle güncelleştirin. Örneğin:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-Aynı adresleri yapılandırmanın **listen** bölümüne girin. Örnek:
+Aynı adresleri yapılandırmanın **listen** bölümüne girin. Örneğin:
 
 ```yaml
 listen:

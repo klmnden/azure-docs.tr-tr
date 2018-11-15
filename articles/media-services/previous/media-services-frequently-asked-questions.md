@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353551"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685727"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -28,7 +28,7 @@ Bu makalede Azure Media Services (AMS) kullanıcı topluluğu tarafından hareke
 
 S: nasıl Apple iOS cihazlarına akışla
 
-Y: ekleyin "(format = m3u8-aapl)" "/ MANIFEST" bölümüne (Ayrıntılar için bkz: (içerik teslim etme) [yerel cihazlar Apple iOS arka HLS içerik tüketimi için döndürülecek akış kaynağı sunucusu bildirmek için URL'nin yol Media-services-teslim-içerik-overview.md]),
+Y: Ekle "(biçim = m3u8-aapl)" yerel cihazlar Apple iOS arka HLS içerik tüketimi için döndürülecek akış kaynağı sunucusu bildirmek için URL "/ bildirimi" bölümünü yoluna (Ayrıntılar için bkz [içerik sağlama konusuna](media-services-deliver-content-overview.md)),
 
 S: nasıl dizinleme ölçeklendirme?
 

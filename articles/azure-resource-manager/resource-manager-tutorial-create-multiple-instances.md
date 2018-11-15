@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/30/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 14dd76e60f615bce4e5b5aa52e6237615071779c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241932"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616156"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Öğretici: Resource Manager şablonlarıyla birden çok kaynak örneği oluşturma
 
@@ -31,7 +31,7 @@ Bir Azure Kaynağı’nın birden çok örneğini oluşturmak için Azure Resour
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaleyi tamamlamak için gerekenler:
 

@@ -14,25 +14,26 @@ ms.date: 08/02/2017
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bfb04f596a61ff79c75cd38473c9480a29b0e6c4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5a224d7a78e35776b36b162228f6ba4c72677069
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139899"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636212"
 ---
-#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application ınsights'ta kullanım deneyimlerini etkinleştirmelerine olanak kimlikleri kullanıcı bağlamı gönderme
+# <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application ınsights'ta kullanım deneyimlerini etkinleştirmelerine olanak kimlikleri kullanıcı bağlamı gönderme
 
 ## <a name="tracking-users"></a>Kullanıcılar izleme
 
-Application Insights izlemek ve ürün kullanım araçlar kümesi yoluyla kullanıcılarınıza izlemenize olanak sağlar: 
-* [Kullanıcılar, Oturumlar, Etkinlikler](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-* [Huniler](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-* [Bekletme](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-* Kohortlar
-* [Çalışma kitapları](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+Application Insights izlemek ve ürün kullanım araçlar kümesi yoluyla kullanıcılarınıza izlemenize olanak sağlar:
+
+- [Kullanıcılar, Oturumlar, Etkinlikler](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
+- [Huniler](https://docs.microsoft.com/azure/application-insights/usage-funnels)
+- [Bekletme](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Kohortlar
+- [Çalışma kitapları](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
 Zaman içinde bir kullanıcı ne yaptığını izlemek için her bir kullanıcı veya oturum için Application Insights bir kimliği gerekir. Aşağıdaki kimlikler her özel olay veya sayfa görünümünde içerir.
+
 - Kullanıcılar, Huniler, bekletme ve Kohortlar: kullanıcı kimliğini içerir
 - Oturumlarının: oturum kimliği Ekle
 
@@ -41,6 +42,7 @@ Uygulamanız ile tümleşikse [JavaScript SDK'sı](https://docs.microsoft.com/az
 ## <a name="choosing-user-ids"></a>Kullanıcı kimliklerini seçme
 
 Kullanıcı kimliklerini kullanıcıları zaman içinde nasıl davranacağını izlemek için kullanıcı oturumları arasında kalıcı olması. Kimliği kalıcı hale getirmeniz için çeşitli yaklaşımlar bulunmaktadır.
+
 - Zaten sahip olduğunuz hizmetinizde kullanıcı tanımı.
 - Hizmet, bir tarayıcı erişimi varsa, bu tarayıcı bir tanımlama bilgisi kimliği içine geçirebilirsiniz. Tanımlama bilgisi kullanıcının tarayıcısında kaldığı sürece kimliği için açık kalır.
 - Gerekirse, yeni bir kimliği her oturumda kullanabilirsiniz, ancak kullanıcılar hakkında sonuçları sınırlı olacaktır. Örneğin, bir kullanıcının davranışını zamanla nasıl değiştiğini görmek mümkün olmayacaktır.
@@ -51,50 +53,92 @@ Kimliği kullanıcıyla ilgili kişisel tanımlama bilgileri içeriyorsa, bu App
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET uygulamaları: kullanıcı bağlamı içinde bir ITelemetryInitializer ayarlama
 
-Ayrıntılı olarak açıklandığı bir telemetri Başlatıcısı oluşturma [burada](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), Context.User.Id ve Context.Session.Id ayarlayın.
+Ayrıntılı olarak açıklandığı bir telemetri Başlatıcısı oluşturma [burada](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Oturum kimliği istek telemetrisi aracılığıyla geçirin ve Context.User.Id Context.Session.Id ayarlayın.
 
 Bu örnek, süresi dolan sonra oturumun tanımlayıcı kullanıcı Kimliğini ayarlar. Mümkünse, oturumu arasında kalıcıdır bir kullanıcı kimliği kullanın.
 
+### <a name="telemetry-initializer"></a>Telemetri başlatıcısını
+
 ```csharp
+using System;
+using System.Web;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
 
-    using System;
-    using System.Web;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MvcWebRole.Telemetry
+namespace MvcWebRole.Telemetry
+{
+  /*
+   * Custom TelemetryInitializer that sets the user ID.
+   *
+   */
+  public class MyTelemetryInitializer : ITelemetryInitializer
+  {
+    public void Initialize(ITelemetry telemetry)
     {
-      /*
-       * Custom TelemetryInitializer that sets the user ID.
-       *
-       */
-      public class MyTelemetryInitializer : ITelemetryInitializer
-      {
-        public void Initialize(ITelemetry telemetry)
+        var ctx = HttpContext.Current;
+
+        // If telemetry initializer is called as part of request execution and not from some async thread
+        if (ctx != null)
         {
-            // For a full experience, track each user across sessions. For an incomplete view of user 
-            // behavior within a session, store user ID on the HttpContext Session.
-            // Set the user ID if we haven't done so yet.
-            if (HttpContext.Current.Session["UserId"] == null)
+            var requestTelemetry = ctx.GetRequestTelemetry();
+ 
+            // Set the user and session ids from requestTelemetry.Context.User.Id, which is populated in Application_PostAcquireRequestState in Global.asax.cs.
+            if (requestTelemetry != null && !string.IsNullOrEmpty(requestTelemetry.Context.User.Id) &&
+                (string.IsNullOrEmpty(telemetry.Context.User.Id) || string.IsNullOrEmpty(telemetry.Context.Session.Id)))
             {
-                HttpContext.Current.Session["UserId"] = Guid.NewGuid();
+                // Set the user id on the Application Insights telemetry item.
+                telemetry.Context.User.Id = requestTelemetry.Context.User.Id;
+ 
+                // Set the session id on the Application Insights telemetry item.
+                telemetry.Context.Session.Id = requestTelemetry.Context.User.Id;
             }
-
-            // Set the user id on the Application Insights telemetry item.
-            telemetry.Context.User.Id = (string)HttpContext.Current.Session["UserId"];
-
-            // Set the session id on the Application Insights telemetry item.
-            telemetry.Context.Session.Id = HttpContext.Current.Session.SessionID;
         }
-      }
     }
+  }
+}
+```
+
+### <a name="globalasaxcs"></a>Global.asax.cs
+
+```csharp
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace MvcWebRole.Telemetry
+{
+    public class MvcApplication : HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+ 
+        protected void Application_PostAcquireRequestState()
+        {
+            var requestTelemetry = Context.GetRequestTelemetry();
+ 
+            if (HttpContext.Current.Session != null && requestTelemetry != null && string.IsNullOrEmpty(requestTelemetry.Context.User.Id))
+            {
+                requestTelemetry.Context.User.Id = Session.SessionID;
+            }
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Kullanım deneyimlerini etkinleştirmek için göndermeye başlayın [özel olaylar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) veya [sayfa görünümleri](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Özel olay veya sayfa görüntülemesi zaten gönderirseniz, kullanıcıların hizmetinizin nasıl öğrenmek için kullanım araçları keşfedin.
-    * [Kullanıma genel bakış](app-insights-usage-overview.md)
-    * [Kullanıcılar, oturumlar ve olaylar](app-insights-usage-segmentation.md)
-    * [Huniler](usage-funnels.md)
-    * [Bekletme](app-insights-usage-retention.md)
-    * [Çalışma kitapları](app-insights-usage-workbooks.md)
+    - [Kullanıma genel bakış](app-insights-usage-overview.md)
+    - [Kullanıcılar, oturumlar ve olaylar](app-insights-usage-segmentation.md)
+    - [Huniler](usage-funnels.md)
+    - [Bekletme](app-insights-usage-retention.md)
+    - [Çalışma kitapları](app-insights-usage-workbooks.md)

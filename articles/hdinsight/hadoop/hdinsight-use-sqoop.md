@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight (Hadoop) ile Apache Sqoop işleri çalıştırma
+title: Azure HDInsight (Apache Hadoop) ile Apache Sqoop işleri çalıştırma
 description: Bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve için bir iş istasyonundan Azure PowerShell'i kullanma konusunda bilgi edinin.
 ms.reviewer: jasonh
 services: hdinsight
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c02fca7ba1ee5b7a93e54b4898290f0b84d88304
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622457"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684996"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Sqoop kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Sqoop alma ve HDInsight kümesi ve Azure SQL veritabanı veya SQL Server veritabanı arasında dışa aktarmak için HDInsight kullanmayı öğrenin.
+Apache Sqoop alma ve HDInsight kümesi ve Azure SQL veritabanı veya SQL Server veritabanı arasında dışa aktarmak için HDInsight kullanmayı öğrenin.
 
-Hadoop günlüklerini ve dosyaları gibi yapılandırılmamış ve yarı yapılandırılmış verileri işlemek için doğal bir seçim olsa da olabilir ilişkisel veritabanlarının depolanan yapılandırılmış verileri işlemek için bir gereksinim.
+Apache Hadoop günlüklerini ve dosyaları gibi yapılandırılmamış ve yarı yapılandırılmış verileri işlemek için doğal bir seçim olsa da olabilir ilişkisel veritabanlarının depolanan yapılandırılmış verileri işlemek için bir gereksinim.
 
-[Sqoop] [ sqoop-user-guide-1.4.4] Hadoop kümeleri ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL veya Oracle Hadoop dağıtılmış dosya sistemi (HDFS) ile Hadoop MapReduce veya Hive ile verileri dönüştürün ve ardından bir RDBMS'de geri verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemi (RDBMS) verileri içeri aktarmak için kullanabilirsiniz. Bu öğreticide, bir SQL Server veritabanı ilişkisel veritabanınız için kullanırsınız.
+[Apache Sqoop] [ sqoop-user-guide-1.4.4] Hadoop kümeleri ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL veya Oracle Hadoop dağıtılmış dosya sistemi (HDFS) ile Hadoop MapReduce veya Hive ile verileri dönüştürün ve ardından bir RDBMS'de geri verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemi (RDBMS) verileri içeri aktarmak için kullanabilirsiniz. Bu öğreticide, bir SQL Server veritabanı ilişkisel veritabanınız için kullanırsınız.
 
 HDInsight kümelerinde desteklenir Sqoop sürümleri için bkz: [HDInsight tarafından sağlanan küme sürümlerindeki yenilikler nelerdir?][hdinsight-versions]
 
@@ -90,7 +90,7 @@ Küme ve SQL veritabanı oluşturacağınızı öğrenmek için Azure PowerShell
         
         |Ad|Değer|
         |----|-----|
-        | Varsayılan depolama hesabı adı | &lt;CluterName > depolayın |
+        | Varsayılan depolama hesabı adı | &lt;ClusterName > depolayın |
         | Azure SQL veritabanı sunucu adı | &lt;ClusterName > dbserver |
         | Azure SQL veritabanı adı | &lt;ClusterName > db |
      
@@ -102,7 +102,7 @@ Mevcut Azure SQL veritabanı ya da Microsoft SQL Server kullanmayı tercih eders
 * **Azure SQL veritabanı**: istasyonunuzdan erişime izin vermek Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarını yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanı ile çalışmaya başlamak][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Varsayılan olarak, bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden gelen bağlantıları sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure portalından etkinleştirmek gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarı kurallarını yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-create-configue].
+  > Varsayılan olarak, bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden gelen bağlantıları sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure portalından etkinleştirmek gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarı kurallarını yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-create-configure].
   > 
   > 
 * **SQL Server**: HDInsight kümenizin aynı sanal ağda bulunan azure'da SQL Server ise, adımlar bu makalede almak ve verileri bir SQL Server veritabanına dışarı aktarmak için kullanabilirsiniz.
@@ -636,7 +636,7 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../../sql-database/sql-database-get-started.md
+[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 11/13/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: beffdb0dcfc080bbb6c66a04f8a66454564db25d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 983ecd9973e3c4c0a74b0986317dcae75a023c79
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626159"
+ms.locfileid: "51637028"
 ---
-Aşağıdaki örneklerde `yourManagementApiUrl` dijital İkizlerini API URI'sini belirtir:
+Aşağıdaki örneklerde `YOUR_MANAGEMENT_API_URL` dijital İkizlerini API URI'sini belirtir:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/api/v1.0/
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/
 ```
 
-| Özel ad | Şununla değiştir |
+| Ad | Şununla değiştir |
 | --- | --- |
-| örneğinizinadı | Azure dijital İkizlerini örneğinizin adı |
-| yourLocation | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
+| YOUR_INSTANCE_NAME | Azure dijital İkizlerini örneğinizin adı |
+| YOUR_LOCATION | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |

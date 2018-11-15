@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0dc7daebe91199cc6c54ac5e3a2d8f43e1592a73
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282433"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687512"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API'si için Azure Cosmos DB Node.js SDK: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "51282433"
 * Çeşitli yazım düzeltmeleri
 
 ### <a name="2.0.4"/>2.0.4</a>
-* Düzeltmeleri 2.0.3 sürümünü içinde tanıtılan defenition sorun türü
+* Düzeltmeleri 2.0.3 sürümünü içinde tanıtılan tanımı sorun türü
 
 ### <a name="2.0.3"/>2.0.3</a>
 * Kaldırma `big-integer` bağımlılık
@@ -153,7 +153,7 @@ ms.locfileid: "51282433"
 * Burada bir hatalı concat sonuçlarının nedeniyle bağlantıları döndürmeden değil RangePartitionResolver.resolveForRead hata düzeltildi.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* HashParitionResolver resolveForRead() düzeltildi: ne zaman sağlanan bölüm anahtarı yok atma kayıtlı tüm bağlantıların listesini döndürmek yerine özel durumu.
+* HashPartitionResolver resolveForRead() düzeltildi: ne zaman sağlanan bölüm anahtarı yok atma kayıtlı tüm bağlantıların listesini döndürmek yerine özel durumu.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * Sorunu giderir [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -adanmış HTTPS aracı: Azure Cosmos DB amacıyla genel aracı değiştirmekten kaçının. Adanmış bir aracı tüm lib'ın istekleri için kullanın.

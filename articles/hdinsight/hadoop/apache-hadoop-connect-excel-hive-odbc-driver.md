@@ -1,5 +1,5 @@
 ---
-title: Excel - Azure HDInsight Hive ODBC sürücüsü ile Hadoop'a bağlama
+title: Apache Hadoop - Azure HDInsight Hive ODBC sürücüsü ile Excel'i bağlama
 description: Ayarlama ve Microsoft Hive ODBC sürücüsü kullanma Microsoft Excel'den Excel için HDInsight kümelerinde veri öğrenin.
 keywords: hadoop, excel, hive excel, hive odbc
 services: hdinsight
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ecdde9b5ac4c6c303edf553af3eb33986d4fb199
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005096"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632518"
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Azure HDInsight hadoop Excel'i Microsoft Hive ODBC sürücüsü ile bağlama
+# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Azure HDInsight, Apache Hadoop Excel'i Microsoft Hive ODBC sürücüsü ile bağlama
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -39,7 +39,7 @@ Microsoft Hive ODBC sürücüsünü yükleyip [İndirme Merkezi][hive-odbc-drive
 
 Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 ve Windows Server 2012, 32 bit veya 64 bit sürümlerinde bu sürücüye yüklenebilir. Sürücü, Azure HDInsight için bağlantı sağlar. ODBC sürücüsü kullandığınız uygulama sürümüyle eşleşen sürümünü yüklemeniz. Bu öğreticide, sürücü Office Excel'den kullanılır.
 
-## <a name="create-hive-odbc-data-source"></a>Hive ODBC veri kaynağı oluşturma
+## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC veri kaynağı oluşturma
 Aşağıdaki adımlar bir Hive ODBC veri kaynağı oluşturma işlemini gösterir.
 
 1. Windows 8 veya Windows 10, başlangıç ekranını açmak için Windows tuşuna basın ve ardından yazın **veri kaynakları**.

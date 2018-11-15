@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
-ms.translationtype: HT
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702415"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615237"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak sanal makinelerde yük dengelemesi için Standart Yük Dengeleyici oluşturma
 
@@ -43,10 +43,10 @@ Bu bölümde, sanal makinelerde yük dengelemesine yardımcı olan bir genel yü
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Adı                   | *myLoadBalancer*                                   |
+    | Ad                   | *myLoadBalancer*                                   |
     | Tür          | Genel                                        |
     | SKU           | Standart                          |
-    | Genel IP adresi | **Yeni oluştur**'u seçip metin kutusuna *myPublicIP* yazın. Genel IP adresi için Standart SKU varsayılan olarak seçilir. **Kullanılabilirlik bölgesi** olarak **Bölgesel olarak yedekli**’yi seçin. |
+    | Genel IP adresi | **Yeni oluştur**'u seçip metin kutusuna *myPublicIP* yazın. Genel IP adresi için Standart SKU varsayılan olarak seçilir. **Kullanılabilirlik bölgesi** olarak **Alanlar arası yedekli**’yi seçin. |
     | Abonelik               | Aboneliğinizi seçin.    |
     |Kaynak grubu | **Yeni oluştur**'u seçip *myResourceGroupSLB* yazın.    |
     | Konum           | **Batı Avrupa**'yı seçin.                          |
@@ -145,6 +145,7 @@ Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum 
     - Durum araştırmasının adı için *myHealthProbe*.
     - Protokol türü için **HTTP**.
     - Bağlantı noktası numarası için *80*.
+    - *Healthprobe.aspx* - URI yolu. Bu değeri başka bir URI ile değiştirin veya varsayılan yol değerini tutmak **"\\"** varsayılan URI.
     - Araştırma denemeleri arasındaki saniye cinsinden **Aralık** için *15*.
     - Bir sanal makinenin sağlıksız olduğu kanısına varılmadan önce gerçekleşmesi gereken ardışık araştırma hatası veya **Sağlıksız eşik** sayısı için *2*.
 4. **Tamam** düğmesine tıklayın.

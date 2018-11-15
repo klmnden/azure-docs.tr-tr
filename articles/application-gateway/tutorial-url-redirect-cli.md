@@ -1,6 +1,6 @@
 ---
-title: URL yolu tabanlı yeniden yönlendirme ile bir uygulama ağ geçidi oluşturma - Azure CLI
-description: Azure CLI kullanarak URL yolu tabanlı yeniden yönlendirme ile bir uygulama ağ geçidi oluşturma hakkında bilgi edinin.
+title: Öğretici - URL yolu tabanlı yönlendirme ile - Azure CLI bir uygulama ağ geçidi oluşturma
+description: Bu öğreticide, Azure CLI kullanarak URL yolu tabanlı yeniden yönlendirilen trafik ile application gateway oluşturmayı öğrenin.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947559"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568157"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak URL yolu tabanlı yeniden yönlendirme ile bir uygulama ağ geçidi oluşturma
 
@@ -313,14 +313,6 @@ Artık gerekli olmadığında kaynak grubunu, uygulama ağ geçidini ve tüm ilg
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Ağı ayarlama
-> * Uygulama ağ geçidi oluşturma
-> * Dinleyiciler ve yönlendirme kuralları ekleme
-> * Arka uç havuzları için sanal makine ölçek kümeleri oluşturma
 
 > [!div class="nextstepaction"]
 > [Uygulama ağ geçidi ile neler yapabileceğiniz hakkında daha fazla bilgi edinin](application-gateway-introduction.md)

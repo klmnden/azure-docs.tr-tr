@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408073"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685676"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
 
@@ -92,7 +92,7 @@ Kimlik doğrulaması ve yetkilendirme ile bu sağlayıcılardan birini etkinleş
 Kimlik doğrulama akışı, tüm sağlayıcılar için aynıdır, ancak oturum sağlayıcısının SDK imzalamak istediğinize bağlı olarak farklılık gösterir:
 
 - Sağlayıcı SDK olmadan: Federasyon oturum açma için App Service uygulama atar. Sağlayıcının oturum açma sayfasının kullanıcıya sunabilir tarayıcı uygulamaları, durum genellikle budur. Ayrıca çağrıldığı için sunucu kodunu oturum açma işlemi yönetir _sunucu yönlendirilmiş akış_ veya _sunucu akışı_. Bu durumda, web uygulamaları için geçerlidir. SDK'sı App Service kimlik doğrulaması kullanıcıların oturum açmak için bir web görünümü açar çünkü Mobile Apps istemci SDK'sı kullanarak kullanıcıların oturum yerel uygulamalar için de geçerlidir. 
-- SDK'sı sağlayıcısıyla: uygulamanın kullanıcı el ile açar ve ardından App Service doğrulaması için kimlik doğrulama belirteci gönderir. Sağlayıcının oturum açma sayfasının, kullanıcıya sunmak olamaz, tarayıcı olmayan uygulamaları ile durum genellikle budur. Ayrıca çağrıldığı için uygulama kodu oturum açma işlemini yönetir _istemci yönlendirilmiş akış_ veya _istemci akışı_. Bu durumda REST API'leri için geçerli [Azure işlevleri](../azure-functions/functions-overview.md)ve JavaScript tarayıcı istemcilerinin, hem de oturum açma işleminde daha fazla esnekliğe ihtiyacınız web uygulamaları. Sağlayıcının SDK'sını kullanarak kullanıcıların oturum yerel mobil uygulamalar için de geçerlidir.
+- SDK'sı sağlayıcısıyla: uygulama sağlayıcısı kullanıcılar el ile imzalar ve ardından App Service doğrulaması için kimlik doğrulama belirteci gönderir. Sağlayıcının oturum açma sayfasının, kullanıcıya sunmak olamaz, tarayıcı olmayan uygulamaları ile durum genellikle budur. Ayrıca çağrıldığı için uygulama kodu oturum açma işlemini yönetir _istemci yönlendirilmiş akış_ veya _istemci akışı_. Bu durumda REST API'leri için geçerli [Azure işlevleri](../azure-functions/functions-overview.md)ve JavaScript tarayıcı istemcilerinin, hem de oturum açma işleminde daha fazla esnekliğe ihtiyacınız web uygulamaları. Sağlayıcının SDK'sını kullanarak kullanıcıların oturum yerel mobil uygulamalar için de geçerlidir.
 
 > [!NOTE]
 > App Service güvenilen tarayıcı uygulamasında çağrılarından App Service'te başka bir REST API çağrıları veya [Azure işlevleri](../azure-functions/functions-overview.md) sunucu yönlendirilmiş akışını kullanarak kimlik doğrulaması yapılabilir. Daha fazla bilgi için [özelleştirme kimlik doğrulaması ve yetkilendirme App Service'te](app-service-authentication-how-to.md).
@@ -103,7 +103,7 @@ Aşağıdaki tabloda kimlik doğrulama akışının adımları gösterilmektedir
 | Adım | SDK sağlayıcısı | SDK sağlayıcısı ile |
 | - | - | - |
 | 1. Kullanıcı olarak oturum açın | İstemciye yönlendirir `/.auth/login/<provider>`. | İstemci kodu doğrudan sağlayıcısının SDK ile kullanıcı oturum açtığında ve bir kimlik doğrulama belirteci alır. Bilgi için sağlayıcının belgelerine bakın. |
-| 2. Kimlik doğrulaması sonrası | Sağlayıcı istemciye yönlendirir `/.auth/login/<provider>/callback`. | İstemci kodu gönderir belirteci için sağlayıcısından `/.auth/login/<provider>` doğrulama için. |
+| 2. Kimlik doğrulaması sonrası | Sağlayıcı istemciye yönlendirir `/.auth/login/<provider>/callback`. | İstemci kodu [sağlayıcısından belirteç gönderir](app-service-authentication-how-to.md#validate-tokens-from-providers) için `/.auth/login/<provider>` doğrulama için. |
 | 3. Kimliği doğrulanmış oturumu | App Service, kimliği doğrulanmış bir tanımlama bilgisi yanıta ekler. | App Service, istemci kodu için kendi kimlik doğrulama belirteci döndürür. |
 | 4. Kimliği doğrulanmış içerik sunma | İstemci kimlik doğrulama tanımlama bilgisi (tarayıcı tarafından otomatik olarak işlenir) sonraki istekleri içerir. | İstemci kodu sunan kimlik doğrulaması belirtecinde `X-ZUMO-AUTH` üst bilgisi (Mobile Apps istemci SDK'ları tarafından otomatik olarak işlenir). |
 

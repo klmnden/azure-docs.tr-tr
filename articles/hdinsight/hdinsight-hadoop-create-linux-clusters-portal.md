@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 42b0a2440fa459fa31a7d6e137d124883646c205
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278999"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686020"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>HDInsight'ı Azure portalını kullanarak Linux tabanlı kümeler oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -65,7 +65,7 @@ Azure portalı küme özelliklerin çoğu kullanıma sunar. Azure Resource Manag
 
     * **İleri**’ye tıklayın.
 
-4. İçinde **güvenlik ve ağ**, kümenizi sağlanan açılır menüyü kullanarak bir sanal ağa bağlanabilir. Bir sanal ağ kümesine yerleştirmek istiyorsanız bir Azure sanal ağı ve alt ağ seçin. Bir sanal ağıyla sanal ağ için belirli yapılandırma gereksinimlerini de dahil olmak üzere, HDInsight'ı kullanma hakkında bilgi için bkz. [kullanarak bir Azure sanal ağ genişletme HDInsight özellikleri](hdinsight-extend-hadoop-virtual-network.md). Kullanmak istiyorsanız **Kurumsal güvenlik paketi**, ayrıca Buradaki yönergeleri izleyebilirsiniz: [Azure Active Directory Domain ServiceskullanarakbirHDInsightkümesiileKurumsalgüvenlikpaketiyapılandırma](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+4. İçinde **güvenlik ve ağ**, kümenizi sağlanan açılır menüyü kullanarak bir sanal ağa bağlanabilir. Bir sanal ağ kümesine yerleştirmek istiyorsanız bir Azure sanal ağı ve alt ağ seçin. Bir sanal ağıyla sanal ağ için belirli yapılandırma gereksinimlerini de dahil olmak üzere, HDInsight'ı kullanma hakkında bilgi için bkz. [kullanarak bir Azure sanal ağ genişletme HDInsight özellikleri](hdinsight-extend-hadoop-virtual-network.md). Kullanmak istiyorsanız **Kurumsal güvenlik paketi**, ayrıca Buradaki yönergeleri izleyebilirsiniz: [Azure Active Directory Domain ServiceskullanarakbirHDInsightkümesiileKurumsalgüvenlikpaketiyapılandırma](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
 5. İçin **depolama**, varsayılan depolama alanı olarak Azure Storage (WASB) veya Data Lake Storage istediğinizi belirtin. Daha fazla bilgi için aşağıdaki tabloya bakın.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037966"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567460"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Öğretici: Azure Data Box Disk (Önizleme) siparişi verme
 
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 > [!IMPORTANT]
 > - Data Box Disk önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
-> - Önizleme sırasında Data Box Disk, ABD, Batı ve Kuzey Avrupa, Kanada ve Avustralya ülkelerindeki müşterilere gönderilebilir. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](data-box-disk-overview.md#region-availability).
+> - Önizleme sırasında ABD, Batı ve Kuzey Avrupa, Kanada ve Avustralya'da bulunan müşteriler için Data Box Disk gönderilebilir. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Kaydolma
 
@@ -72,12 +72,12 @@ Data Box Disk sipariş etmek için [Azure portalda](https://aka.ms/azuredataboxf
 
     |Ayar|Değer|
     |---|---|
-    |Adı|Siparişi takip etmek için kullanılacak kolay bir ad girin.<br> Ad harf, rakam ve tirelerden oluşan 3-24 karakter arası uzunlukta olabilir. <br> Ad bir harf veya sayıyla başlamalı ve bitmelidir. |
+    |Ad|Siparişi takip etmek için kullanılacak kolay bir ad girin.<br> Ad harf, rakam ve tirelerden oluşan 3-24 karakter arası uzunlukta olabilir. <br> Ad bir harf veya sayıyla başlamalı ve bitmelidir. |
     |Kaynak grubu| Var olan bir taneyi kullanın veya yenisini oluşturun. <br> Kaynak grubu, birlikte yönetilebilen ve ya dağıtılabilen kaynaklardan oluşan mantıksal kapsayıcıdır. |
     |Hedef Azure bölgesi| Depolama hesabınız için bir bölge seçin.<br> Şu anda depolama hesapları ABD, Batı ve Kuzey Avrupa, Kanada ve Avustralya’nın tüm bölgelerinde desteklenmektedir. |
     |Depolama hesapları|Belirtilen Azure bölgesine göre filtrelenen listeden var olan bir depolama hesabını seçin. <br>Dilerseniz yeni bir Genel amaçlı v1 veya Genel amaçlı v2 hesabı da oluşturabilirsiniz. |
     |TB cinsinden tahmini veri boyutu| TB cinsinden tahmini veri boyutunu girin. <br>Microsoft, veri boyutuna uygun sayıda 8 TB boyuta sahip SSD'ler (7 TB kullanılabilir kapasite) gönderir. <br>5 diskin maksimum kullanılabilir kapasitesi 35 TB olacaktır. |
-    |Disk geçiş anahtarı| **Azure tarafından oluşturulan geçiş anahtarı yerine özel anahtar kullanın** seçeneğini işaretlerseniz disk geçiş anahtarını sağlayın. <br> En az bir sayısal ve bir özel karakter içeren ve 12 ile 32 arası karakterden oluşan alfasayısal bir anahtar sağlayın. İzin verilen karakterler: `@?_+`. <br> Bu seçeneği atlayabilir ve disklerinizin kilidini açmak için Azure tarafından oluşturulan destek anahtarını kullanabilirsiniz.|
+    |Disk geçiş anahtarı| **Azure tarafından oluşturulan geçiş anahtarı yerine özel anahtar kullanın** seçeneğini işaretlerseniz disk geçiş anahtarını sağlayın. <br> En az bir sayısal ve bir özel karakter olan 12-ile 32 karakter alfasayısal bir anahtar sağlar. İzin verilen karakterler: `@?_+`. <br> Bu seçeneği atlayabilir ve disklerinizin kilidini açmak için Azure tarafından oluşturulan destek anahtarını kullanabilirsiniz.|
 
 13. **İleri**’ye tıklayın. 
 

@@ -5,25 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296168"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685812"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory akıllı kilitleme
 
 Akıllı kilitleme da bulut zekasından kullanıcılarınızın parolaları tahmin veya almak için deneme yanılma yöntemleri kullanmak için çalışan bir kötü aktörleri kullanıma kilitlemek için kullanır. O gösterimi geçerli kullanıcılardan gelen oturum açma tanıyabilir ve bunları farklı olanları saldırganlar ve bilinmeyen diğer kaynakları ele almanız. Akıllı kilitleme saldırganlar, izin vermek, kullanıcılarınızın hesaplarına erişmek ve üretken devam ederken kullanıma kilitler.
 
-Varsayılan olarak, akıllı kilitleme oturum açma denemesi on girişimi başarısız olduktan sonra bir dakika hesabından kilitler. Sonraki başarısız oturum açma girişimleri, ilk ve sonraki denemeler de daha uzun bir dakika sonra yeniden hesabı kilitler.
+Varsayılan olarak, akıllı kilitleme oturum açma denemeleri başarısız olan 10 denemeden sonra bir dakika hesabından kilitler. Sonraki başarısız oturum açma girişimleri, ilk ve sonraki denemeler de daha uzun bir dakika sonra yeniden hesabı kilitler.
+
+* Akıllı kilitleme kilidi açma sayacı reincrementing önlemek için son üç hatalı parola karmaları izler. Birisi birden çok kez aynı yanlış parola girerse, bu davranış, hesap kilitleme için neden olmaz.
+   * Bu işlev etkin geçişli kimlik doğrulaması ile müşteriler için kullanılamıyor.
 
 Akıllı kilitleme her zaman doğru karışımını güvenlik ve kullanılabilirlik sunan bu varsayılan ayarları olan tüm Azure AD müşterileri için açıktır. Akıllı kilitleme ayarları, kuruluşunuza özgü değerlerle özelleştirmesini kullanıcılarınız için Azure AD temel veya daha yüksek lisansı gerektirir.
+
+Akıllı kilitleme kullanarak orijinal bir kullanıcı hiçbir zaman kilitlenir garanti etmez. Bir kullanıcı hesabı akıllı kilitleme kilitler biz kilitleme orijinal kullanıcı için elimizden geleni deneyin. Kötü aktörleri orijinal kullanıcı hesabı için erişim sağlayamadığı emin olmak kilitleme hizmeti çalışır.  
+
+* Her Azure Active Directory veri merkezi kilitleme bağımsız olarak izler. Kullanıcı (threshold_limit * datacenter_count) kullanıcı, her veri merkezi değerse deneme sayısı.
+* Akıllı kilitleme tanıdık vs bilinmeyen konum kötü bir aktör ve orijinal kullanıcı arasında ayırt etmek için kullanır. Tanınmayan ve tanıdık konumları ayrı kilitleme sayaçları sahip olur.
 
 Akıllı kilitleme, saldırganlar tarafından kilitli şirket içi Active Directory hesapları korumak için parola karması eşitleme veya doğrudan kimlik doğrulaması'nı kullanarak, karma dağıtımlar ile tümleştirilebilir. Şirket içi Active Directory ulaşmadan önce akıllı kilitleme ilkeleri Azure AD'de uygun şekilde ayarlayarak saldırıları filtrelenebilen.
 

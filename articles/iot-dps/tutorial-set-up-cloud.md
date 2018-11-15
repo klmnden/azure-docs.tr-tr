@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919459"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514851"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti ile cihaz sağlama için bulut kaynaklarını yapılandırma
 
@@ -37,8 +37,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Yeni bir Cihaz Sağlama Hizmeti örneği oluşturmak için şu adımları izleyin.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
+
 2. Arama kutusuna **cihaz sağlama** yazın. 
+
 3. **IoT Hub Cihazı Sağlama Hizmeti**’ne tıklayın.
+
 4. **IoT Hub Cihazı Sağlama Hizmeti**’ni aşağıdaki bilgilerle doldurun:
     
    | Ayar       | Önerilen değer | Açıklama | 
@@ -51,10 +54,18 @@ Yeni bir Cihaz Sağlama Hizmeti örneği oluşturmak için şu adımları izleyi
    ![Portalda Cihaz Sağlama hizmeti ile ilgili temel bilgileri girin](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. **Oluştur**’a tıklayın. Birkaç dakika sonra Cihaz Sağlama Hizmeti örneği oluşturulur ve **Genel bakış** sayfası görüntülenir.
+
 6. Yeni hizmet örneğinin **Genel bakış** sayfasındaki **Kimlik kapsamı** değerini daha sonra kullanmak üzere kopyalayın. Bu değer, kayıt kimliklerini belirlemek için kullanılır ve kayıt kimliğinin benzersiz olduğuna dair bir garanti sağlar.
+
 7. **Hizmet uç noktası** değerini de daha sonra kullanmak üzere kopyalayın. 
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>IOT hub için bağlantı dizesi alma
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 IoT hub'ınızı oluşturdunuz ve bu öğreticinin geri kalanını tamamlamak için gereken ana bilgisayar adı ve IoT Hub bağlantı dizesine sahipsiniz.
 
@@ -63,22 +74,29 @@ IoT hub'ınızı oluşturdunuz ve bu öğreticinin geri kalanını tamamlamak i�
 Sonraki adım, IoT Hub Cihazı Sağlama Hizmeti’nin cihazları söz konusu hub’a kaydedebilmesi için Cihaz Sağlama Hizmeti ile IoT hub’ın bağlanmasıdır. Hizmet yalnızca Cihaz Sağlama Hizmeti’ne bağlanmış olan IoT hub’lara cihazları sağlayabilir. Şu adımları izleyin.
 
 1. **Tüm kaynaklar** sayfasında, önceden oluşturduğunuz Cihaz Sağlama Hizmeti örneğine tıklayın.
+
 2. Cihaz Sağlama Hizmeti sayfasında **Bağlı IoT hub’lar** seçeneğine tıklayın.
+
 3. **Ekle**'ye tıklayın.
+
 4. **IoT hub'ına bağlantı ekleme** sayfasına aşağıdaki bilgileri girin ve **Kaydet**'e tıklayın:
 
     * **Abonelik:** IoT hub'ı içeren aboneliği seçtiğinizden emin olun. Farklı bir abonelikte bulunan IoT hub'a bağlantı verebilirsiniz.
+
     * **IoT hub:** Bu Cihaz Sağlama Hizmeti örneğine bağlamak istediğiniz IoT hub'ın adını seçin.
+
     * **Erişim İlkesi:** IoT hub'ı ile bağlantı oluşturmak için kullanılacak kimlik bilgileri olarak **iothubowner** öğesini seçin.
 
    ![Portalda Cihaz Sağlama Hizmeti'ne bağlanmak için hub adını bağlayın](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Cihaz Sağlama Hizmeti’nde ayırma ilkesini ayarlama
 
-Ayırma ilkesi, bir IoT hub’a cihazların nasıl atandığını belirleyen bir IoT Hub Cihazı Sağlama Hizmeti ayarıdır. Desteklenen üç ayırma ilkesi vardır: 
+Ayırma ilkesi, bir IoT hub’a cihazların nasıl atandığını belirleyen bir IoT Hub Cihazı Sağlama Hizmeti ayarıdır. Desteklenen üç ayırma ilkesi vardır: 
 
 1. **En düşük gecikme**: Cihaza yönelik en düşük gecikme ile hub’a dayalı bir IoT hub’a cihazlar sağlanabilir.
-2. **Eşit ağırlıklı dağılım** (varsayılan): Bağlı IoT hub’lara cihaz sağlanma olasılığı eşittir. Bu varsayılan ayardır. Yalnızca bir IoT hub'a aygıtları sağlıyorsanız bu ayarı değiştirmeyebilirsiniz. 
+
+2. **Eşit ağırlıklı dağılım** (varsayılan): Bağlı IoT hub’lara cihaz sağlanma olasılığı eşittir. Bu varsayılan ayardır. Yalnızca bir IoT hub'a aygıtları sağlıyorsanız bu ayarı değiştirmeyebilirsiniz. 
+
 3. **Kayıt listesi aracılığıyla statik yapılandırma**: Kayıt listesindeki istenen IoT hub’ın belirtimi, Cihaz Sağlama Hizmeti düzeyindeki ayırma ilkesinden önceliklidir.
 
 Ayırma ilkesini ayarlamak için Cihaz Sağlama Hizmeti sayfasında **Ayırma ilkesini yönetme** seçeneğine tıklayın. Ayırma ilkesinin **Eşit ağırlıklı dağılım** (varsayılan) olarak ayarlandığından emin olun. Herhangi bir değişiklik yaparsanız işiniz bittiğinde **Kaydet**’e tıklayın.
@@ -90,6 +108,7 @@ Ayırma ilkesini ayarlamak için Cihaz Sağlama Hizmeti sayfasında **Ayırma il
 Bu koleksiyondaki diğer öğreticiler, bu öğreticiyi temel alır. Sonraki hızlı başlangıçlar veya öğreticilerle çalışmaya devam etmeyi planlıyorsanız, bu öğreticide oluşturulan kaynakları silmeyin. Devam etmeyi planlamıyorsanız Azure portalında bu öğretici tarafından oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
 
 1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve sonra IoT Hub Cihazı Sağlama Hizmeti örneğinizi seçin. **Tüm kaynaklar** sayfasının en üstündeki **Sil** seçeneğine tıklayın.  
+
 2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından IoT hub’ınızı seçin. **Tüm kaynaklar** sayfasının en üstündeki **Sil** seçeneğine tıklayın.
  
 ## <a name="next-steps"></a>Sonraki adımlar

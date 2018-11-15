@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: c85d3ce6ab3e84d454ddbc2550f430b87705c192
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962019"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622185"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Hibrit Azure Active Directory'ye katılmış cihazları elle yapılandırma 
 
@@ -36,7 +36,7 @@ Azure Active Directory’de (Azure AD) cihaz yönetimi ile, kullanıcılarınız
 Şirket içi Active Directory ortamınız varsa ve etki alanınıza katılmış cihazları Azure AD'ye katmak istiyorsanız hibrit Azure AD'ye katılmış cihazları yapılandırarak bunu gerçekleştirebilirsiniz. Bu öğreticide, cihazlarınız için hibrit Azure AD'ye katılımı elle nasıl yapılandıracağınızı öğrenirsiniz.
 
 > [!div class="checklist"]
-> * Ön koşullar
+> * Önkoşullar
 > * Yapılandırma adımları
 > * Hizmet bağlantı noktasını yapılandırma
 > * Talep verme Kurulumu
@@ -48,7 +48,7 @@ Azure Active Directory’de (Azure AD) cihaz yönetimi ile, kullanıcılarınız
 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
     
@@ -520,7 +520,7 @@ Aşağıdaki ilke **Tümü** olarak ayarlanmalıdır: **Kullanıcılar cihazlar�
 
 ### <a name="configure-on-premises-federation-service"></a>Şirket içi federasyon hizmetini yapılandırma 
 
-Şirket içi federasyon hizmetinizin, aşağıda gösterildiği şekilde kodlanmış bir değer içeren resouce_params parametresini içeren Azure AD bağlı olan tarafa kimlik doğrulaması isteği alırken **authenticationmethod** ve **wiaormultiauthn** taleplerini vermeyi desteklemesi gerekir.
+Şirket içi Federasyon hizmetinizin verme desteklemelidir **authenticationmethod** ve **wiaormultiauthn** talep tutan Azure AD bağlı olan taraf için kimlik doğrulama isteği aldığında bir resource_params parametre gösterildiği gibi kodlanmış bir değer ile aşağıda:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
@@ -545,7 +545,7 @@ AD FS'de kimlik doğrulama yöntemi ile geçen bir verme aktarım kuralı ekleme
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. Federasyon sunucunuzda, **\<RPObjectName\>** öğesini Azure AD bağlı olan taraf güven nesnenizin bağlı olan taraf nesne adı ile değiştirdikten sonra aşağıdaki PowerShell komutunu yazın. Bu nesne genellikle **Microsoft Office 365 Identity Platform** olarak adlandırılır.
+8. Federasyon sunucunuzda değiştirdikten sonra aşağıdaki PowerShell komutunu yazın **\<RPObjectName\>** ile bağlı olan taraf nesne adı, Azure AD bağlı olan taraf güven nesnesi. Bu nesne genellikle **Microsoft Office 365 Identity Platform** olarak adlandırılır.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 

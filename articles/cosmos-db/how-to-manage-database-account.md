@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 67cd78d4900b8ce53cf0c50116c02a9c1b967687
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 0683516d16bf1501eee83901c5171811b8c0e44d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958772"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621556"
 ---
 # <a name="manage-database-accounts-in-azure-cosmos-db"></a>Azure Cosmos DB'de veritabanı hesaplarını yönetme
 
-Bu makalede birden çok giriş ayarlarını yapma, bölge ekleme/kaldırma, birden çok yazma bölgesi yapılandırma ve kurulum yük devretme öncelikleri gibi Cosmos DB hesabı ayarlarını yönetme adımları açıklanır. 
+Bu makalede, çoklu yönlendirmeyi ayarlayın, bir bölge Ekle/Kaldır, birden fazla yazma bölgesini yapılandırmak ve yük devretme önceliklerini kurulumu için Azure Cosmos DB hesabınızı yönetmek açıklar. 
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -28,7 +28,7 @@ Bu makalede birden çok giriş ayarlarını yapma, bölge ekleme/kaldırma, bird
 
 ```bash
 # Create an account
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group Name>
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group Name>
 ```
 
 ## <a name="configure-clients-for-multi-homing"></a>İstemcileri birden çok giriş için yapılandırma
@@ -122,13 +122,13 @@ Tek bölgeli yazma modunda yazma bölgesini kaldıramazsınız. Geçerli yazma b
 
 ```bash
 # Given an account created with 1 region like so
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0'
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0'
 
 # Add a new region by adding another region to the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
 
 # Remove a region by removing a region from the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'westus=0'
 ```
 
 ## <a name="configure-multiple-write-regions"></a>Birden fazla yazma bölgesi yapılandırma
@@ -137,17 +137,17 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 Bir veritabanı oluşturduğunuzda **Çok bölgeli yazma** ayarının etkin olduğundan emin olun.
 
-![Cosmos DB hesabı oluşturma ekran görüntüsü](./media/how-to-manage-database-account/account-create.png)
+![Azure Cosmos hesap oluşturma ekran görüntüsü](./media/how-to-manage-database-account/account-create.png)
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
 ```
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager şablonu
 
-Aşağıdaki JSON kodu örnek bir Resource Manager şablonudur. Bunu kullanarak Sınırlanmış Eskime Durumu tutarlılık ilkesine, 5 saniyelik maksimum eskime durumu aralığına ve maksimum 100 eskime istek toleransına sahip bir Azure Cosmos DB hesabı dağıtabilirsiniz. Resource Manager şablon biçimi ve söz dizimi hakkında bilgi edinmek için [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) belgelerine bakın.
+Aşağıdaki JSON kodu örnek bir Resource Manager şablonudur. Sınırlanmış eskime durumu, en fazla eskime aralığı 5 saniye ile en fazla 100 kaydırmadan kaçınma şansınız eski istek sayısı olarak bir Azure Cosmos hesapla tutarlılık İlkesi dağıtmak için kullanabilirsiniz. Resource Manager şablon biçimi ve söz dizimi hakkında bilgi edinmek için [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) belgelerine bakın.
 
 ```json
 {
@@ -202,11 +202,11 @@ Aşağıdaki JSON kodu örnek bir Resource Manager şablonudur. Bunu kullanarak 
 ```
 
 
-## <a name="enable-manual-failover-for-your-cosmos-account"></a>Cosmos hesabınız için el ile yük devretmeyi etkinleştirme
+## <a id="manual-failover"></a>Azure Cosmos hesabınız için el ile yük devretme etkinleştir
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
-1. Azure Cosmos DB hesabınıza gidip **"Verileri genel olarak çoğaltma"** menüsünü açın.
+1. Azure Cosmos hesabınıza gidin ve açmak **"verileri genel olarak çoğaltma"** menüsü.
 
 2. Menünün en üstündeki **"El ile Yük Devretme"** düğmesine tıklayın.
 
@@ -223,14 +223,14 @@ Aşağıdaki JSON kodu örnek bir Resource Manager şablonudur. Bunu kullanarak 
 ```bash
 # Given your account currently has regions with priority like so: 'eastus=0 westus=1'
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
 ```
 
-## <a name="enable-automatic-failover-for-your-cosmos-account"></a>Cosmos hesabınız için otomatik yük devretmeyi etkinleştirme
+## <a id="automatic-failover"></a>Azure Cosmos hesabınız için otomatik yük devretmeyi etkinleştir
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure portal
 
-1. Azure Cosmos DB hesabınızdan **"Verileri genel olarak çoğaltma"** menüsünü açın. 
+1. Azure Cosmos hesabınızdan açın **"verileri genel olarak çoğaltma"** bölmesi. 
 
 2. Bölmenin en üstündeki **"Otomatik Yük Devretme"** düğmesine tıklayın.
 
@@ -248,20 +248,20 @@ Bu menüde yük devretme önceliklerinizi de ayarlayabilirsiniz.
 
 ```bash
 # Enable automatic failover on account creation
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Enable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Disable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover false
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-cosmos-account"></a>Cosmos hesabınız için yük devretme önceliklerini ayarlama
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Azure Cosmos hesabınız için yük devretme önceliklerini ayarlayın
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure portal
 
-1. Azure Cosmos DB hesabınızdan **"Verileri genel olarak çoğaltma"** menüsünü açın. 
+1. Azure Cosmos hesabınızdan açın **"verileri genel olarak çoğaltma"** bölmesi. 
 
 2. Bölmenin en üstündeki **"Otomatik Yük Devretme"** düğmesine tıklayın.
 
@@ -280,12 +280,12 @@ Bu menüden yazma bölgesini değiştiremezsiniz. Yazma bölgesini el ile deği�
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
+az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Cosmos DB'deki tutarlılık düzeylerini ve veri çakışmalarını yönetme hakkında daha fazla bilgi edinmek için aşağıdaki belgeleri inceleyin:
+Aşağıdaki belgeleri kullanarak Azure Cosmos DB'deki tutarlılık düzeyleri ve veri çakışmalarını yönetme hakkında bilgi edinebilirsiniz:
 
 * [Tutarlılığı yönetme](how-to-manage-consistency.md)
 * [Bölgeler arasındaki çakışmaları yönetme](how-to-manage-conflicts.md)

@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946105"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636280"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini içinde kullanıcı tanımlı işlevlerle sorunlarında hata ayıklama
 
@@ -42,12 +42,12 @@ Telemetri gönderdikten sonra sorgulamak için günlükleri kullanarak Azure Log
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Özel öznitelik adı | Değiştirin |
+| Sorgu değeri | Şununla değiştir |
 | --- | --- |
-| *yourCorrelationIdentifier* | Olay verileri üzerinde belirtilen bağıntı kimliği |
+| YOUR_CORRELATION_IDENTIFIER | Olay verileri üzerinde belirtilen bağıntı kimliği |
 
 Kullanıcı tanımlı işlevinizi oturum açarsanız, bu günlükleri kategori Azure Log Analytics örneğinizle görünür `UserDefinedFunction`. Bunları almak için Azure Log Analytics'te şu sorgu koşulunu girin:
 
@@ -62,6 +62,8 @@ Güçlü sorgu işlemleri hakkında daha fazla bilgi için bkz: [sorguları ile 
 
 Tanılama hem ortak sorunları belirlemenize, çözüme giderirken önemlidir. Bazı yaygın sorunları karşılaşılan geliştirme kullanıcı tanımlı işlevleri aşağıda özetlenmiştir.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>Rol atamasının oluşturulduğu emin olun.
 
 Yönetim API'si içinde oluşturulan bir rol ataması olmadan kullanıcı tanımlı işlev bildirimleri, meta verileri alınırken gönderme gibi eylemleri gerçekleştirmek için erişim sahip değil ve ayarı topolojisi içindeki değerleri hesaplanan.
@@ -69,13 +71,12 @@ Yönetim API'si içinde oluşturulan bir rol ataması olmadan kullanıcı tanım
 Bir rol ataması, yönetim API'si aracılığıyla kullanıcı tanımlı işleviniz için mevcut olup olmadığını denetleyin:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Özel öznitelik adı | Değiştirin |
+| Parametre | Şununla değiştir |
 | --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
-| *yourUserDefinedFunctionId* | Rol atamalarını almak için kullanıcı tanımlı işlev kimliği|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | Rol atamalarını almak için kullanıcı tanımlı işlev kimliği|
 
 Hiçbir rol ataması alınır, bu makaleyi takip [kullanıcı tanımlı işleviniz için bir rol ataması oluşturma](./how-to-user-defined-functions.md).
 
@@ -84,14 +85,13 @@ Hiçbir rol ataması alınır, bu makaleyi takip [kullanıcı tanımlı işlevin
 Azure dijital İkizlerini örneklerinizin yönetim API'sine aşağıdaki çağrısı ile verilen Eşleştiricisi için verilen algılayıcı geçerliyse belirlemek mümkün olacaktır.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Özel öznitelik adı | Değiştirin |
+| Parametre | Şununla değiştir |
 | --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
-| *yourMatcherIdentifier* | Değerlendirmek istediğiniz Eşleştiricisi kimliği |
-| *yourSensorIdentifier* | Değerlendirmek istediğiniz algılayıcı kimliği |
+| *YOUR_MATCHER_IDENTIFIER* | Değerlendirmek istediğiniz Eşleştiricisi kimliği |
+| *YOUR_SENSOR_IDENTIFIER* | Değerlendirmek istediğiniz algılayıcı kimliği |
 
 Yanıt:
 
@@ -109,13 +109,12 @@ Yanıt:
 Azure dijital İkizlerini örneklerinizin yönetim API'sine aşağıdaki çağrısı ile verilen algılayıcının gelen telemetriyi tarafından tetiklenen kullanıcı tanımlı işlevleri tanımlayıcıların belirlemek mümkün olacaktır:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Özel öznitelik adı | Değiştirin |
+| Parametre | Şununla değiştir |
 | --- | --- |
-| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
-| *yourSensorIdentifier* | Telemetri gönderdiği algılayıcı kimliği |
+| *YOUR_SENSOR_IDENTIFIER* | Telemetri gönderdiği algılayıcı kimliği |
 
 Yanıt:
 

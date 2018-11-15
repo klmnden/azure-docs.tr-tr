@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115548"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632739"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight Kurumsal güvenlik paketi kullanma
 
@@ -24,11 +24,11 @@ Standart Azure HDInsight küme tek kullanıcılı bir kümedir. Büyük veri iş
 
 HDInsight, yönetilen bir şekilde Active Directory--bir popüler kimlik sağlayıcısını kullanır. HDInsight ile tümleştirerek [Azure Active Directory etki alanı Hizmetleri (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), kümeleri, etki alanı kimlik bilgilerinizi kullanarak erişebilir. 
 
-Sağlanan, etki alanına katılmış HDInsight sanal makinelerin (VM'ler) var. Bunu, HDInsight üzerinde çalışan tüm hizmetler (Ambari, Hive sunucusu, Ranger, Spark thrift sunucusu ve diğerleri) kimliği doğrulanan kullanıcı için sorunsuz bir şekilde çalışır. Yöneticiler, daha sonra kümedeki kaynaklar için rol tabanlı erişim denetimi sağlamak için Apache Ranger'ı kullanarak güçlü yetkilendirme ilkeleri oluşturabilirsiniz.
+Sağlanan, etki alanına katılmış HDInsight sanal makinelerin (VM'ler) var. Bu nedenle, HDInsight (Apache Ambari, Apache Hive sunucusu, Apache Ranger, Apache Spark thrift sunucusu ve diğerleri) üzerinde çalışan tüm hizmetler, kimliği doğrulanmış kullanıcı için sorunsuz bir şekilde çalışır. Yöneticiler, daha sonra kümedeki kaynaklar için rol tabanlı erişim denetimi sağlamak için Apache Ranger'ı kullanarak güçlü yetkilendirme ilkeleri oluşturabilirsiniz.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>HDInsight’ı Active Directory ile tümleştirin
 
-Açık kaynaklı Hadoop üzerinde Kerberos kimlik doğrulaması ve güvenlik için kullanır. Bu nedenle, HDInsight küme düğümleri Kurumsal güvenlik paketi (ESP) ile Azure AD DS tarafından yönetilen bir etki alanına katılır. Kerberos güvenlik küme üzerindeki Hadoop bileşenleri için yapılandırılır. 
+Açık kaynaklı Apache Hadoop üzerinde Kerberos kimlik doğrulaması ve güvenlik için kullanır. Bu nedenle, HDInsight küme düğümleri Kurumsal güvenlik paketi (ESP) ile Azure AD DS tarafından yönetilen bir etki alanına katılır. Kerberos güvenlik küme üzerindeki Hadoop bileşenleri için yapılandırılır. 
 
 Aşağıdaki öğeleri otomatik olarak oluşturulur:
 - Her bir Hadoop bileşeni için bir hizmet sorumlusu 

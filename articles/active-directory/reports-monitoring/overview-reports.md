@@ -13,20 +13,19 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 01/15/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 220f27ccf2d3eaefd8347e1d52824be2d601d9c9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 0c3c9b23ac3383eb7e2eda256af4fb92f7f5e0b5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364423"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622168"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory raporları nelerdir?
 
-Azure Active Directory raporları ile, ortamınızın nasıl çalıştığıyla ilgili fikir edinebilirsiniz.  
-Sağlanan verilerle:
+Azure Active Directory (Azure AD) raporlar, ortamınızda etkinlik kapsamlı bir görünümünü sağlar. Sağlanan verilerle:
 
 - Uygulama ve hizmetlerinizin kullanıcılarınız tarafından nasıl kullanıldığını saptayabilirsiniz
 - Ortamınızın durumunu etkileyebilecek olası riskleri algılayabilirsiniz
@@ -34,27 +33,25 @@ Sağlanan verilerle:
 
 Raporlama mimarisinin iki ana dayanağı vardır:
 
-- Güvenlik raporları
-- Etkinlik raporları
+- [Güvenlik raporları](#security-reports)
+- [Etkinlik raporları](#activity-reports)
 
 ![Raporlama](./media/overview-reports/01.png)
 
 
 ## <a name="security-reports"></a>Güvenlik raporları
 
-Azure Active Directory'deki güvenlik raporları kuruluşunuzun kimliklerini korumanıza yardımcı olur.  
-Azure Active Directory'de iki tür güvenlik raporu vardır:
+Güvenlik raporları kuruluşunuzun kimliklerini korumanıza yardımcı olur. İki tür güvenlik raporu vardır:
 
 - **Riskli oldukları belirlenen kullanıcılar** - [Riskli oldukları belirlenen kullanıcılar güvenlik raporundan](concept-user-at-risk.md), gizliliği bozulmuş olabilecek kullanıcı hesaplarına genel bir bakış elde edersiniz.
 
 - **Riskli oturum açma işlemleri** - [Riskli oturum açma işlemleri güvenlik raporuyla](concept-risky-sign-ins.md), kullanıcı hesabının meşru sahibi olmayan biri tarafından gerçekleştirilmiş olabilecek oturum açma işlemleriyle ilgili göstergeler elde edersiniz. 
 
-**Güvenlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
+### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Güvenlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?  
 
-Azure Active Directory'nin tüm sürümlerinde size riskli oldukları belirlenen kullanıcılar ve riskli oturum açma işlemleri raporları sağlanır.  
-Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik gösterir: 
+Azure AD'in tüm sürümlerinde risk ve riskli oturum açma işlemleri raporları için işaretlenmiş kullanıcılar sağlar. Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik gösterir: 
 
-- **Azure Active Directory Ücretsiz ve Temel sürümlerinde**, riskli olduğu belirlenen kullanıcıların ve riskli oturum açma işlemlerinin listesini zaten alırsınız. 
+- İçinde **Azure Active Directory ücretsiz ve temel sürümlerinde**, risk ve riskli oturum açma işlemleri için işaretlenmiş kullanıcılar listesini alın. 
 
 - **Azure Active Directory Premium 1** sürümü bu modeli genişleterek her raporda algılanmış olan temel risk olaylarından bazılarını incelemenize olanak tanır. 
 
@@ -63,14 +60,16 @@ Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik 
 
 ## <a name="activity-reports"></a>Etkinlik raporları
 
-Azure Active Directory'de iki tür etkinlik raporu vardır:
+Etkinlik raporları, kuruluşunuzdaki kullanıcılardan davranışını anlamanıza yardımcı olur. Azure AD'de iki tür Etkinlik Raporu vardır:
 
 - **Denetim günlükleri** - [Denetim günlükleri etkinlik raporu](concept-audit-logs.md), kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
 
 - **Oturum açma işlemleri** - [Oturum açma işlemleri etkinlik raporuyla](concept-sign-ins.md), denetim günlükleri raporunda bildirilen görevleri kimlerin gerçekleştirdiğini saptayabilirsiniz.
 
 
-**Denetim günlükleri raporu** uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar. Bu veriler, şu yaygın senaryolara çözüm getirmenize olanak sağlar:
+### <a name="audit-logs-report"></a>Denetim günlükleri raporu 
+
+[Denetim günlükleri raporu](concept-audit-logs.md) uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar. Bu veriler, şu yaygın senaryolara çözüm getirmenize olanak sağlar:
 
 - Kiracımda birisi yönetici grubuna erişim aldı. Ona kim erişim verdi? 
 
@@ -79,28 +78,25 @@ Azure Active Directory'de iki tür etkinlik raporu vardır:
 - Kiracımda kaç parola sıfırlama işlemi yapıldığını bilmek istiyorum
 
 
-**Denetim günlükleri raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
+#### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Hangi Azure AD lisansınızın denetim günlükleri raporuna erişebilmek gerekiyor mu?  
 
-Denetim günlükleri raporu, lisansınız olan özellikler için sağlanır. Belirli bir özelliğin lisansına sahipseniz, o özelliğin denetim günlüğü bilgilerine de erişebilirsiniz.
+Denetim günlükleri raporu, lisansınız olan özellikler için sağlanır. Belirli bir özelliğin lisansına sahipseniz, o özelliğin denetim günlüğü bilgilerine de erişebilirsiniz. Daha fazla ayrıntı için [Azure Active Directory özellikleri ve yetenekleri](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
-Diğer ayrıntılar için, [Azure Active Directory özellikleri ve becerileri](https://www.microsoft.com/cloud-platform/azure-active-directory-features) altında **Ücretsiz, Temel ve Premium sürümlerinin genel olarak sağlanan özelliklerini karşılaştırma** konusuna bakın.   
+### <a name="sign-ins-report"></a>Oturum açma işlemleri raporu
 
-
-**Oturum açma işlemleri etkinlik raporu**, aşağıda örnekleri verilen soruların yanıtlarını bulmanıza olanak sağlar:
+[Oturum açma işlemleri raporu](concept-sign-ins.md) gibi soruların yanıtlarını bulmanızı sağlar:
 
 - Belirli bir kullanıcının oturum açma düzeni nedir?
 - Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
 - Bu açılan oturumların durumu nedir?
 
-
-**Oturum açma işlemleri etkinlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
+#### <a name="what-azure-ad-license-do-you-need-to-access-the-sign-ins-activity-report"></a>Hangi Azure AD lisansınızın oturum açma işlemleri etkinlik raporuna erişebilmek gerekiyor mu?  
 
 Oturum açma işlemleri etkinlik raporuna erişebilmek için, kiracınızın ilişkili bir Azure AD Premium lisansı olması gerekir.
 
 ## <a name="programmatic-access"></a>Programlı erişim
 
-Kullanıcı arabirimine ek olarak, Azure Active Directory raporlaması [programlı erişim](concept-reporting-api.md) yoluyla da raporlama verileri sağlar. Bu raporların verileri SIEM sistemleri, denetim ve iş zekası araçları gibi uygulamalarınız için çok yararlı olabilir. Azure AD raporlama API'leri, bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz. 
-
+Kullanıcı arabirimine ek olarak, Azure AD aynı zamanda size sağlar [programlı erişim](concept-reporting-api.md) raporları verilerine bir dizi REST tabanlı API'leri aracılığıyla. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,21 +13,21 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 9d41c0ceeed2a69884b8ef481c79feb495fc89c0
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394264"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621217"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Öğretici: Azure AD günlüklerini bir Azure depolama hesabında arşivleme (önizleme)
 
 Bu öğreticide bir Azure depolama hesabına Azure Active Directory (Azure AD) günlüğü yönlendirme amacıyla Azure İzleyici tanılama ayarlarını yapmayı öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 
@@ -68,9 +68,8 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 
     ![Tanılama ayarları](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. Yaklaşık 15 dakika sonra günlüklerin depolama hesabınıza gönderilip gönderilmediğini kontrol edin. [Azure portala](https://portal.azure.com) gidin, **Depolama hesapları**'nı seçin, önceki adımlarda kullandığınız depolama hesabını ve ardından **Bloblar**'ı seçin. 
+12. Yaklaşık 15 dakika sonra günlüklerin depolama hesabınıza gönderilip gönderilmediğini kontrol edin. [Azure portala](https://portal.azure.com) gidin, **Depolama hesapları**'nı seçin, önceki adımlarda kullandığınız depolama hesabını ve ardından **Bloblar**'ı seçin. **Denetim günlükleri** için **insights-log-audit** girişini seçin. **Oturum açma günlükleri** için **insights-logs-signin** girişini seçin.
 
-13. **Denetim günlükleri** için **insights-log-audit** girişini seçin. **Oturum açma günlükleri** için **insights-logs-signin** girişini seçin.
     ![Depolama hesabı](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar

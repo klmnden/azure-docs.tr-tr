@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 499ffdf7e91d4ff6926f59ff534142e0a1c5d6c5
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 13e99f1dc84c5345ba04fcfc412b8ef4237cc581
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222233"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285802"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Azure portalından kimlik bilgilerinizi kopyalama
 
-Örnek uygulamanın, depolama hesabınıza erişim yetkisi vermesi gerekir. Depolama hesabınızın kimlik bilgilerini bir bağlantı dizesi biçiminde uygulamaya sağlayın. Depolama hesabınızın kimlik bilgilerini görüntülemek için:
+Örnek uygulamanın, depolama hesabınıza erişim yetkisi vermesi gerekir. Bir bağlantı dizesi şeklinde uygulamaya depolama hesabı kimlik bilgilerinizi sağlayın. Depolama hesabınızın kimlik bilgilerini görüntülemek için:
 
 1. [Azure portalına](https://portal.azure.com) gidin.
 2. Depolama hesabınızı bulun.

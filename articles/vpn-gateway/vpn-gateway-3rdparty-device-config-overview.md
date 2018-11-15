@@ -1,6 +1,6 @@
 ---
-title: İş ortağı Azure VPN ağ geçitleri için bağlanmak için VPN cihaz yapılandırmalarını | Microsoft Docs
-description: Bu makale Azure VPN ağ geçitleri için bağlamak için iş ortağı VPN cihaz yapılandırmalarını genel bir bakış sağlar.
+title: İş ortağı, Azure VPN ağ geçitlerine bağlanmak için VPN cihazı yapılandırmaları | Microsoft Docs
+description: Bu makalede Azure VPN ağ geçitlerine bağlanmak için VPN cihazı yapılandırmaları iş ortağı genel bakış sağlar.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,49 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: dd9ca3937d688170798c42fce45dbcd7711773d1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 901de2ac3d80b3ee529d89a22afae7e823437b9b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599620"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685217"
 ---
-# <a name="overview-of-partner-vpn-device-configurations"></a>İş ortağı VPN cihaz yapılandırmalarını genel bakış
-Bu makale Azure VPN ağ geçitleri için bağlamak için şirket içi VPN aygıtları yapılandırma genel bir bakış sağlar. Bir Azure sanal ağı örnek ve VPN ağ geçidi için farklı şirket içi VPN cihaz yapılandırmalarını aynı parametreleri kullanarak bağlanmak nasıl göstermek için kullanılır.
+# <a name="overview-of-partner-vpn-device-configurations"></a>VPN cihaz yapılandırmalarını iş ortağı genel bakış
+Bu makalede Azure VPN ağ geçitlerine bağlanmak için şirket içi VPN cihazları yapılandırmaya genel bakış sağlar. Bir Azure sanal ağı örnek ve VPN ağ geçidi, aynı parametreleri kullanarak için farklı şirket içi VPN cihazı yapılandırmaları bağlanma göstermek için kullanılır.
 
 ## <a name="device-requirements"></a>Cihaz gereksinimleri
-Azure VPN ağ geçitleri kullanmak standart IPSec/IKE protokolü paketleri için siteden siteye (S2S) VPN tüneli. IPSec/IKE parametreleri ve Azure VPN ağ geçitleri için şifreleme algoritmaları listesi için bkz: [VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md). Ayrıca tam algoritmaları ve anahtar gücü belirli bir bağlantı için açıklandığı gibi belirtebilirsiniz [şifreleme gereksinimleri hakkında](vpn-gateway-about-compliance-crypto.md).
+Azure VPN ağ geçitleri kullanan standart IPSec/IKE protokolü paketleri için siteden siteye (S2S) VPN tünelleri. IPSec/IKE parametreleri ve Azure VPN ağ geçitleri için şifreleme algoritmaları listesi için bkz: [VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md). Tam algoritmalar ve anahtar güçleriyle belirli bir bağlantı için açıklandığı gibi belirtebilirsiniz [şifreleme gereksinimleri hakkında](vpn-gateway-about-compliance-crypto.md).
 
-## <a name ="singletunnel"></a>Tek VPN tüneli
-Örnekteki ilk yapılandırmasını Azure VPN ağ geçidi ve bir şirket içi VPN cihazı arasında tek bir S2S VPN tüneli oluşur. İsteğe bağlı olarak yapılandırabilirsiniz [sınır ağ geçidi Protokolü (BGP) VPN tüneli üzerinden](#bgp).
+## <a name ="singletunnel"></a>Tek bir VPN tüneli
+İlk örnek yapılandırmada bir Azure VPN gateway ile bir şirket içi VPN cihazınız arasındaki tek S2S VPN tüneli oluşur. İsteğe bağlı olarak yapılandırabileceğiniz [Border Gateway Protocol (BGP) VPN tüneli üzerinden](#bgp).
 
-![Tek S2S VPN tüneli diyagramı](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
+![Tek bir S2S VPN tüneli diyagramı](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Tek bir VPN tüneli ayarlamak adım adım yönergeler için bkz: [siteden siteye bağlantı yapılandırma](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Aşağıdaki bölümlerde örnek yapılandırması için bağlantı parametrelerini belirtin ve başlamanıza yardımcı olmak için bir PowerShell komut dosyası sağlar.
+Tek bir VPN tüneli ayarlamak adım adım yönergeler için bkz: [siteden siteye bağlantı yapılandırma](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Aşağıdaki bölümlerde örnek yapılandırması için bağlantı parametrelerini belirtin ve başlamanıza yardımcı olmak için bir PowerShell Betiği belirtin.
 
-### <a name="connection-parameters"></a>Bağlantı parametrelerini
-Bu bölümde önceki bölümlerde açıklanan örnekler için parametreleri listeler.
+### <a name="connection-parameters"></a>Bağlantı parametreleri
+Bu bölümde, önceki bölümlerde açıklanan örnekler için parametreleri listeler.
 
 | **Parametre**                | **Değer**                    |
 | ---                          | ---                          |
-| Sanal ağ adres önekleri        | 10.11.0.0/16<br>10.12.0.0/16 |
+| Sanal ağ adres ön ekleri        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure VPN ağ geçidi IP         | Azure VPN ağ geçidi IP         |
-| Şirket içi adres önekleri | 10.51.0.0/16<br>10.52.0.0/16 |
+| Şirket içi adres ön ekleri | 10.51.0.0/16<br>10.52.0.0/16 |
 | Şirket içi VPN cihazının IP    | Şirket içi VPN cihazının IP    |
-| * Sanal ağ BGP ASN                | 65010                        |
+| * BGP ASN'sini sanal ağ                | 65010                        |
 | * Azure BGP eşdeğer IP           | 10.12.255.30                 |
-| * Şirket içi BGP ASN         | 65050                        |
+| * Şirket içi BGP ASN'sini         | 65050                        |
 | * Şirket içi BGP eşdeğer IP     | 10.52.255.254                |
 
-\* İsteğe bağlı parametresi BGP yalnızca.
+\* Yalnızca isteğe bağlı parametre için BGP.
 
-### <a name="sample-powershell-script"></a>Örnek PowerShell komut dosyası
-Bu bölüm başlamanıza yardımcı olmak için bir örnek komut dosyası sağlar. Ayrıntılı yönergeler için bkz: [PowerShell kullanarak bir S2S VPN bağlantısı oluşturma](vpn-gateway-create-site-to-site-rm-powershell.md).
+### <a name="sample-powershell-script"></a>Örnek PowerShell Betiği
+Bu bölümde, başlamanıza yardımcı olmak için örnek betik sağlanır. Ayrıntılı yönergeler için bkz. [PowerShell kullanarak bir S2S VPN bağlantısı oluşturma](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 ```powershell
 # Declare your variables
 
-$Sub1          = "Replace_With_Your_Subcription_Name"
+$Sub1          = "Replace_With_Your_Subscription_Name"
 $RG1           = "TestRG1"
 $Location1     = "East US 2"
 $VNetName1     = "TestVNet1"
@@ -118,17 +118,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="policybased"></a>(İsteğe bağlı) UsePolicyBasedTrafficSelectors ile özel IPSec/IKE İlkesi'ni kullanın
-VPN cihazlarınızı rota veya VTI tabanlı yapılandırmaları gibi herhangi herhangi trafik Seçici desteklemiyorsa ile özel bir IPSec/IKE ilke oluşturmak [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md) seçeneği.
+VPN cihazlarınız VTI tabanlı ya da rota tabanlı yapılandırmaları gibi herhangi bir ağdan herhangi bir trafik seçicileri desteklemiyorsa ile özel bir IPSec/IKE ilke oluşturma [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md) seçeneği.
 
 > [!IMPORTANT]
-> Etkinleştirmek için bir IPSec/IKE ilkesi oluşturmalısınız **UsePolicyBasedTrafficSelectors** bağlantı seçeneği.
+> Etkinleştirmek için bir IPSec/IKE ilke oluşturmalıdır **UsePolicyBasedTrafficSelectors** bağlantı seçeneği.
 
 
-Örnek komut dosyası için aşağıdaki algoritmaları ve parametrelerine sahip bir IPSec/IKE ilkesi oluşturur:
+Örnek betik, aşağıdaki algoritmaları ve parametrelerle bir IPSec/IKE ilkesi oluşturur:
 * Ikev2: AES256, SHA384 DHGroup24
-* IPSec: AES256, SHA1, PFS24, SA ömrü 7.200 saniye ve 20,480,000 KB (20 GB)
+* IPSec: AES256, SHA1, PFS24, SA yaşam süresi 7.200 saniye ve 20,480,000 KB (20 GB)
 
-Komut dosyası IPSec/IKE ilke uygulanır ve sağlayan **UsePolicyBasedTrafficSelectors** bağlantı seçeneği.
+Betik IPSec/IKE ilke uygulanır ve sağlayan **UsePolicyBasedTrafficSelectors** bağlantı seçeneği.
 
 ```powershell
 $ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
@@ -139,21 +139,21 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name ="bgp"></a>(İsteğe bağlı) BGP S2S VPN bağlantısı kullan
-S2S VPN bağlantısı oluşturduğunuzda, isteğe bağlı olarak kullanabileceğiniz [VPN ağ geçidi için BGP](vpn-gateway-bgp-resource-manager-ps.md). Bu yaklaşımın iki farklar vardır:
+### <a name ="bgp"></a>(İsteğe bağlı) BGP S2S VPN bağlantısı kullanın.
+S2S VPN bağlantısı oluşturduğunuzda, isteğe bağlı olarak kullanabileceğiniz [VPN ağ geçidi için BGP](vpn-gateway-bgp-resource-manager-ps.md). Bu yaklaşımın iki fark vardır:
 
-* Şirket içi adres öneklerini tek ana bilgisayar adresi olabilir. Şirket içi BGP eş IP adresi gibi belirtilir:
+* Şirket içi adres ön ekleri tek ana bilgisayar adresi olabilir. Şirket içi BGP eş IP adresi şu şekilde belirlenir:
 
     ```powershell
     New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
     ```
 
-* Bağlantı oluşturduğunuzda, ayarlamalısınız **- EnableBGP** $True seçeneğini:
+* Bağlantı oluşturduğunuzda, ayarlamalısınız **- Enablebgp'yi** $True seçeneğini:
 
     ```powershell
     New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Etkin-etkin VPN ağ geçitleri ayarlamak adım adım yönergeler için bkz: [etkin-etkin VPN ağ geçitleri şirketler arası ve VNet-VNet bağlantıları için yapılandırma](vpn-gateway-activeactive-rm-powershell.md).
+Etkin-etkin VPN ağ geçitleri ayarlarsınız adım adım yönergeler için bkz: [etkin-etkin VPN ağ geçitlerini şirketler arası ve VNet-VNet bağlantıları için yapılandırma](vpn-gateway-activeactive-rm-powershell.md).
 

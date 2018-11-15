@@ -1,5 +1,5 @@
 ---
-title: Öğretici - Azure’da bir SQL&#47;IIS&#47;.NET yığını çalıştıran sanal makineler oluşturma | Microsoft Docs
+title: Öğretici - oluşturma Vm'leri bir SQL çalıştıran IIS, .NET ile Azure stack | Microsoft Docs
 description: Bu öğreticide, Azure’daki bir Windows sanal makinesinde Azure SQL, IIS, .NET yığını yüklemeyi öğrenirsiniz.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464920"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515497"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Öğretici: Azure PowerShell ile bir Windows sanal makinesinde SQL&#47;IIS&#47;.NET yığını yükleme
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Öğretici: SQL, IIS, .NET yükleme yığın Azure PowerShell ile bir Windows VM'de
 
-Bu öğreticide, Azure PowerShell kullanarak SQL&#47;IIS&#47;.NET yığını yüklüyoruz. Bu yığın, Windows Server 2016’da çalışan, biri IIS ve .NET, diğeri SQL Server’a sahip iki sanal makineden oluşur.
+Bu öğreticide, SQL, IIS, .NET yüklemesini Azure PowerShell kullanarak yığın. Bu yığın, Windows Server 2016’da çalışan, biri IIS ve .NET, diğeri SQL Server’a sahip iki sanal makineden oluşur.
 
 > [!div class="checklist"]
 > * VM oluşturma 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Özel betik uzantısı kullanarak IIS ve .NET Framework yükleyin.
+IIS ve .NET framework ile özel betik uzantısı kullanarak yükleme [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i.
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `

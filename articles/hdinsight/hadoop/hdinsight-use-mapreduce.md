@@ -1,6 +1,6 @@
 ---
-title: HDInsight üzerinde Hadoop ile MapReduce
-description: HDInsight kümelerinde üzerinde Hadoop MapReduce işleri çalıştırmayı öğrenin.
+title: HDInsight üzerinde Apache Hadoop ile MapReduce
+description: HDInsight kümelerinde Apache Hadoop MapReduce işleri çalıştırmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015171"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632671"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight üzerinde Hadoop MapReduce kullanma
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop MapReduce kullanma
 
 HDInsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce kullanılabilir çeşitli yollarını bulmak için aşağıdaki tabloyu kullanın. HDInsight ile:
 
@@ -32,7 +32,7 @@ HDInsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce 
 
 ## <a id="whatis"></a>MapReduce nedir
 
-Hadoop MapReduce, çok büyük miktarda veri işleyen işlerini yazmak için bir yazılım çerçevedir. Girdi verilerini bağımsız parçalara bölünür. Her bir öbeği kümenizdeki düğümler arasında paralel olarak işlenir. Bir MapReduce işi iki işlevlerini oluşur:
+Apache Hadoop MapReduce, çok büyük miktarda veri işleyen işlerini yazmak için bir yazılım çerçevedir. Girdi verilerini bağımsız parçalara bölünür. Her bir öbeği kümenizdeki düğümler arasında paralel olarak işlenir. Bir MapReduce işi iki işlevlerini oluşur:
 
 * **Eşleyici**: giriş verilerini kullanır (genellikle filtre ve sıralama işlemleri ile) analiz eder ve diziler (anahtar-değer çiftleri) yayar
 

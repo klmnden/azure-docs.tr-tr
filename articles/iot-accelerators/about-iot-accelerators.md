@@ -3,24 +3,24 @@ title: Azure IoT çözüm hızlandırıcılarına giriş | Microsoft Docs
 description: Azure IoT çözüm hızlandırıcıları hakkında bilgi edinin. IoT çözüm hızlandırıcıları, IoT çözümlerini dağıtmak için kullanılan tam kapsamlı, uçtan uca ve dağıtıma hazır sistemlerdir.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/24/2018
+ms.date: 11/09/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
-ms.translationtype: HT
+ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308121"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345122"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT çözüm hızlandırıcıları nedir?
 
-Bulut tabanlı bir IoT çözümünde genelde cihaz bağlantısı, veri işleme, veri analizi ve sunum yönetimi için özel kodlar ve birden fazla bulut hizmeti kullanılır.
+Bulut tabanlı bir IOT çözüm genellikle özel kod ve bulut Hizmetleri cihaz bağlantısı, veri işleme ve analiz ve sunu yönetmek için kullanır.
 
-IoT çözüm hızlandırıcıları uzaktan izleme, bağlı fabrika, tahmine dayalı bakım ve cihaz benzetimi gibi sık kullanılan IoT senaryolarını uygulayan tam kapsamlı ve dağıtıma hazır IoT çözümü koleksiyonudur. Bir çözüm hızlandırıcısını dağıttığınızda gerekli tüm bulut tabanlı hizmetler ve gerekli uygulama kodları dağıtılır.
+IOT Çözüm Hızlandırıcıları, ortak IOT senaryolarını uygulayan tam, dağıtımı hazır IOT çözümlerini kullanıyorsunuz. Uzaktan izleme, bağlı Fabrika, Tahmine dayalı Bakım ve cihaz benzetimi senaryolar içerir. Bir çözüm hızlandırıcısını dağıttığınızda gerekli tüm bulut tabanlı hizmetler ve gerekli uygulama kodları dağıtılır.
 
 Çözüm hızlandırıcıları, kendi IoT çözümlerinizi oluşturmak için başlangıç noktalarıdır. Tüm çözüm hızlandırıcılarının kaynak kodu açık kaynaktır ve GitHub üzerinde mevcuttur. Çözüm hızlandırıcılarını indirmeniz ve gereksinimlerinize göre özelleştirmeniz önerilir.
 
@@ -34,7 +34,7 @@ Her çözüm hızlandırıcısındaki uygulama kodunda çözüm hızlandırıcı
 
 ### <a name="remote-monitoring"></a>Uzaktan İzleme
 
-Birden fazla uzak cihazdan telemetri verileri almak ve bu cihazları denetlemek için bu çözüm hızlandırıcısını kullanabilirsiniz. Cihazlara örnek olarak müşterilerinizin tesislerindeki soğutma sistemleri veya uzak pompa istasyonlarındaki valfler verilebilir.
+Bu Çözüm Hızlandırıcısı, uzak cihazlardan telemetri toplamaya ve bunları denetlemek için kullanın. Cihazlara örnek olarak müşterilerinizin tesislerindeki soğutma sistemleri veya uzak pompa istasyonlarındaki valfler verilebilir.
 
 Uzaktan izleme panosunu kullanarak bağlı cihazlarınızdan gelen telemetri verilerini görüntüleyebilir, yeni cihazlar sağlayabilir veya bağlı cihazlarınızdaki üretici yazılımını yükseltebilirsiniz:
 
@@ -58,7 +58,7 @@ Tahmine dayalı bakım panosunu kullanarak tahmine dayalı bakım analizlerini g
 
 ### <a name="device-simulation"></a>Cihaz Benzetimi
 
-Gerçekçi telemetri verileri oluşturan sanal cihazları çalıştırmak için bu çözüm hızlandırıcısını kullanabilirsiniz. Bu çözüm hızlandırıcısını kullanarak diğer çözüm hızlandırıcılarının davranışını veya kendi IoT çözümlerinizi test edebilirsiniz.
+Bu Çözüm Hızlandırıcısı, gerçekçi telemetri oluşturmak sanal cihazlar çalıştırmak için kullanın. Bu çözüm hızlandırıcısını kullanarak diğer çözüm hızlandırıcılarının davranışını veya kendi IoT çözümlerinizi test edebilirsiniz.
 
 Cihaz benzetimi web uygulamasını kullanarak benzetimlerinizi yapılandırabilir ve çalıştırabilirsiniz:
 
@@ -93,7 +93,7 @@ Mikro hizmet mimarisi hakkında daha fazla bilgi için [.NET Uygulama Mimarisi](
 
 Uzaktan İzleme çözüm hızlandırıcısını aşağıdaki yapılandırmalarla dağıtabilirsiniz:
 
-* **Standart:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro hizmetleri birden fazla Azure sanal makinesine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
+* **Standart:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro Hizmetleri birden fazla Azure sanal makinelerine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
 * **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha düşük maliyetli sürüm. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
 * **Yerel:** Test ve geliştirme için yerel makineye dağıtma. Bu yaklaşımda mikro hizmetler yerel bir Docker kapsayıcısına dağıtılır ve buluttaki IoT Hub, Azure Cosmos DB ve Azure depolama hizmetlerine bağlanır.
 

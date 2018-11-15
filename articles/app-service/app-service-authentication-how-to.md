@@ -1,5 +1,5 @@
 ---
-title: Kimlik doğrulama ve yetkilendirme Azure App Service'te özelleştirme | Microsoft Docs
+title: Kullanım kimlik doğrulaması ve yetkilendirme Azure App Service'te Gelişmiş | Microsoft Docs
 description: Kimlik doğrulama ve yetkilendirme App Service'te özelleştirmek ve kullanıcı talepleri ve farklı bir belirteç almak nasıl gösterir.
 services: app-service
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344179"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685336"
 ---
-# <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelleştirme
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelliğinin Gelişmiş kullanımı
 
-Bu makalede nasıl özelleştirileceğini gösterir [kimlik doğrulama ve yetkilendirme App Service'te](app-service-authentication-overview.md), uygulamanızdan kimlik yönetmek için. 
+Bu makalede yerleşik özelleştirmek gösterilmektedir [kimlik doğrulama ve yetkilendirme App Service'te](app-service-authentication-overview.md), uygulamanızdan kimlik yönetmek için. 
 
 Hızlıca kullanmaya başlamak için aşağıdaki öğreticilerden birine bakın:
 
@@ -58,6 +58,48 @@ Kullanıcı sonrası-oturumu açma, bir özel URL'ye yeniden yönlendirmek için
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="validate-tokens-from-providers"></a>Sağlayıcılardan gelen belirteçleri doğrulamak
+
+Bir istemci yönelik oturum açma, uygulamayı el ile ve sağlayıcı kullanıcı oturum açar ve ardından App Service doğrulaması için kimlik doğrulama belirteci gönderir (bkz [kimlik doğrulama akışı](app-service-authentication-overview.md#authentication-flow)). Bu doğrulama gerçekten istenen uygulama kaynaklarına erişmek, ancak başarılı bir doğrulama uygulama kaynaklarına erişmek için kullanabileceğiniz bir oturum belirteci verir izni yoktur. 
+
+Sağlayıcı belirteci doğrulamak için App Service uygulaması istenen sağlayıcı ile önce yapılandırılması gerekir. Sağlayıcınızdan kimlik doğrulama belirteci aldıktan sonra çalışma zamanında belirtece sonrası `/.auth/login/<provider>` doğrulama için. Örneğin: 
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+Belirteç biçimi, sağlayıcıya göre biraz farklılık gösterir. Ayrıntılar için aşağıdaki tabloya bakın:
+
+| Değer sağlayıcı | İstek gövdesinde gerekli | Yorumlar |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` Özelliği, isteğe bağlıdır. <br/>Her zaman canlı hizmetlerinden belirteç isterken istek `wl.basic` kapsam. |
+| `google` | `{"id_token":"<id_token>"}` | `authorization_code` Özelliği, isteğe bağlıdır. Belirtildiğinde, isteğe bağlı olarak ayrıca eşlik `redirect_uri` özelliği. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Geçerli bir kullanın [kullanıcı erişim belirteci](https://developers.facebook.com/docs/facebook-login/access-tokens) facebook'taki. |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+Sağlayıcı belirteci başarıyla doğrulandığında ile API döndürür bir `authenticationToken` yanıt gövdesi içinde olduğu, oturum belirteci. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+Bu oturum belirteci aldıktan sonra ekleyerek korumalı uygulama kaynaklara erişebilir `X-ZUMO-AUTH` , HTTP isteği üstbilgisi. Örneğin: 
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
 ```
 
 ## <a name="sign-out-of-a-session"></a>Dışında bir oturumu oturum
@@ -119,7 +161,7 @@ Uygulamanızı Ayrıca kimliği doğrulanmış kullanıcı hakkında daha fazla 
 
 Sunucu kodunuzdan kolayca erişebilmeleri için sağlayıcıya özel belirteçler isteği üstbilgisine eklenmiş. Aşağıdaki tabloda olası belirteci üst bilgi adları gösterilmektedir:
 
-| | |
+| Sağlayıcı | Üst bilgi adları |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook belirteci | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |

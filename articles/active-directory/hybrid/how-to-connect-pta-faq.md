@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637874"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685659"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory geçişli kimlik doğrulaması: Sık sorulan sorular
 
@@ -79,6 +79,23 @@ Belirli bir kullanıcı için parola geri yazma özelliğini yapılandırmadıys
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Doğrudan kimlik doğrulama aracılarının bir giden web proxy sunucusu iletişim kurabilir?
 
 Evet. Web Proxy Otomatik Bulma (WPAD) şirket içi ortamınızda etkinleştirilirse, kimlik doğrulama aracılarının otomatik olarak bulun ve ağ üzerinde bir web proxy sunucusu kullanma girişimi.
+
+Ortamınızda WPAD yoksa, Azure AD ile iletişim kurmak geçişli kimlik doğrulaması Aracısı izin vermek için proxy bilgilerini (aşağıda gösterildiği gibi) ekleyebilirsiniz:
+- Geçişli kimlik doğrulaması Aracısı sunucuda yüklemeden önce Internet Explorer'da proxy bilgilerini yapılandırın. Bu, kimlik doğrulama Aracısı yüklemesinin tamamlanması izin verir, ancak bunu hala olarak görünecek **Inactive** Yönetici portalı.
+- Sunucusunda, "C:\Program Files\Microsoft Azure AD Connect kimlik doğrulaması aracısı için" gidin.
+- "AzureADConnectAuthenticationAgentService" yapılandırma dosyasını düzenleyin ve aşağıdaki satırları ekleyin (Değiştir "http://contosoproxy.com:8080", gerçek proxy adresine sahip):
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Aynı sunucuda iki veya daha fazla geçişli kimlik doğrulama aracılarının yükleyebilir miyim?
 

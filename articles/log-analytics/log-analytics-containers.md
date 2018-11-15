@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6bde2fb0fc9534d170be1d755856f6f779e47d7c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625870"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685948"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -108,7 +108,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
     - Bir Red Hat OpenShift ortamınız varsa, gözden [Red Hat OpenShift için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-red-hat-openshift).
     - Azure Container Service kullanan bir Kubernetes kümesi varsa:
        - Gözden geçirme [Kubernetes için bir Log Analytics Linux Aracısı'nı yapılandırma](#configure-an-oms-linux-agent-for-kubernetes).
-       - Gözden geçirme [Kubernetes için bir günlük analizi Windows aracı yapılandırma](#configure-an-oms-windows-agent-for-kubernetes).
+       - Gözden geçirme [Kubernetes için bir Log Analytics Windows aracı yapılandırma](#configure-an-oms-windows-agent-for-kubernetes).
        - Gözden geçirme [kullanmak Linux Kubernetes Log Analytics aracısını dağıtmak için Helm](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Bir Azure Container Service DC/OS kümeniz varsa, daha fazla bilgi [Log Analytics ile bir Azure Container Service DC/OS kümesini izleme](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Bir Docker Swarm modu ortamı varsa, daha fazla bilgi [Docker Swarm için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-docker-swarm).

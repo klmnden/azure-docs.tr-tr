@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6c9172140691f7107d3907ab86938d879989a6c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748247"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685421"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure işlevleri C# betiği (.csx) Geliştirici Başvurusu
 
@@ -376,34 +376,27 @@ Bölümüne bakın işlevi klasörünüze dosyaları karşıya yükleme hakkınd
 İşlev komut dosyasını içeren dizine otomatik olarak değişiklikler derlemeler için izlenen. Diğer dizinlerde derleme değişiklikleri izlemek üzere bunları Ekle `watchDirectories` listesinde [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>NuGet paketlerini kullanma
+NuGet paketlerini kullanmak için bir C# işlev, karşıya bir *extensions.csproj* işlevin klasörüne işlevi uygulamanın dosya sisteminde dosya. İşte bir örnek *extensions.csproj* bir başvuru ekler dosya *Microsoft.ProjectOxford.Face* sürüm *1.1.0*:
 
-Bir C# işlevinde NuGet paketlerini kullanmak için karşıya bir *project.json* işlevin klasörüne işlevi uygulamanın dosya sisteminde dosya. İşte bir örnek *project.json* Microsoft.ProjectOxford.Face 1.1.0 sürümü için bir başvuru ekler dosyası:
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net46</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
+    </ItemGroup>
+</Project>
 ```
-
-Azure'da 1.x işlevleri, yalnızca .NET Framework 4.6 desteklenir, dolayısıyla emin olun, *project.json* dosyasını belirtir `net46` burada gösterildiği gibi.
-
-Karşıya yüklerken, bir *project.json* dosya, çalışma zamanı paketlerini alır ve paket derlemelerine başvurular otomatik olarak ekler. Eklemenize gerek yoktur `#r "AssemblyName"` yönergeleri. NuGet paketleri içinde tanımlanan türler kullanmak için; yalnızca gerekli Ekle `using` deyimleriyle, *run.csx* dosya. 
-
-İşlevler çalışma zamanı NuGet geri yükleme çalışır karşılaştırarak `project.json` ve `project.lock.json`. Tarih ve saat damgası dosyaların **olmayan** eşleşme, NuGet geri yükleme çalıştırır ve indirmeleri NuGet paketleri güncelleştirildi. Ancak, tarih ve saat damgası dosyaların **yapmak** eşleşme, NuGet geri yükleme yapmaz. Bu nedenle, `project.lock.json` NuGet paketi geri yüklemeyi atlamak açacağından, dağıtılmamalıdır. Kilit dosyası dağıtma önlemek için ekleyin `project.lock.json` için `.gitignore` dosya.
 
 Akışta bir özel NuGet akışı kullanmak için belirtin bir *Nuget.Config* işlev uygulaması kök dosyasında. Daha fazla bilgi için [yapılandırma NuGet davranışını](/nuget/consume-packages/configuring-nuget-behavior).
 
-### <a name="using-a-projectjson-file"></a>Project.json dosyası kullanma
+### <a name="using-a-extensionscsproj-file"></a>Extensions.csproj dosyası kullanma
 
 1. İşlevi Azure portalında açın. Günlükleri sekmesi, paket yükleme çıkış görüntüler.
-2. Project.json dosyasını karşıya yüklemek için açıklanan yöntemlerden birini kullanın: [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate) konudaki Azure işlevleri Geliştirici Başvurusu.
-3. Sonra *project.json* dosyası, işlevinizde aşağıdaki örnekte olduğu gibi çıkış günlüğü akış bakın:
+2. Karşıya yüklenecek bir *extensions.csproj* dosya, açıklanan yöntemlerden birini kullanın [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate) Azure işlevleri Geliştirici Başvurusu konusunda.
+3. Sonra *extensions.csproj* dosyası, işlevinizde aşağıdaki örnekte olduğu gibi çıkış günlüğü akış bakın:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -413,7 +406,7 @@ Akışta bir özel NuGet akışı kullanmak için belirtin bir *Nuget.Config* i�
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
 2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.

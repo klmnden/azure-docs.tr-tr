@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6729a0e3ccbb96dc178925bbab4cfbf8189c4a14
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278268"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687223"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Hive sorguları en iyi duruma getirme
 
@@ -72,7 +72,7 @@ Bölümleme bazı önemli noktalar:
 
 * **Bölüm altında yapmak** -bazı bölümler yalnızca birkaç değerleri olan sütunlarda bölümleme neden olabilir. Örneğin, cinsiyet üzerinde bölümleme yalnızca (Erkek ve Kadın) oluşturulması, böylece gecikme süresini en çok yarısı yalnızca azaltmak için iki bölüm oluşturur.
 * **Olmayan bölüm yapmak** - diğer aşırı bir bölüm (örneğin, kullanıcı kimliği) benzersiz bir değere sahip bir sütun oluşturma birden çok bölüm neden olur. Çok sayıda dizin işlemeye sahip olduğundan bölüm kadar stres üzerinde Küme namenode neden olur.
-* **Veri dengesizliği önlemek** -tüm bölümleri bile boyutu olacak şekilde, bir bölümleme anahtarı dikkatle seçin. Örneğin, üzerinde bölümleme *durumu* sütun dağıtım veri dengesizliği. California eyaleti popülasyondaki bir örneğe neredeyse olduğundan 30 x Vermont bölümlendirmesini boyutu büyük olasılıkla dengesiz ve performans büyük ölçüde değişebilir.
+* **Veri dengesizliği önlemek** -tüm bölümleri bile boyutu olacak şekilde, bir bölümleme anahtarı dikkatle seçin. Örneğin, üzerinde bölümleme *durumu* sütun dağıtım veri dengesizliği. California eyaleti popülasyondaki bir örneğe neredeyse olduğundan 30 x Vermont bölüm boyutu büyük olasılıkla dengesiz ve performans büyük ölçüde değişebilir.
 
 Bölüm tablosu oluşturmak için kullanın *bölümlenmiş tarafından* yan tümcesi:
 

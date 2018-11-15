@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471297"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515735"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet analiziyle maliyetleri keşfetme ve analiz etme
 
@@ -30,29 +30,16 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 - Maliyet analizi verilerini indirme
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Maliyet verilerini görüntülemek için aşağıdaki kapsamlardan birine veya daha fazlasına en azından yazma erişiminiz olmalıdır.
+Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Maliyet verilerini görüntülemek için aşağıdaki kapsamlardan birine veya daha fazlasına en azından yazma erişiminiz olmalıdır. Maliyet Yönetimi verilerine erişim atama hakkında daha fazla bilgi için bkz. [verilerine erişim atama](assign-access-acm-data.md).
 
-
-|**Kapsam**|**Tanımlanma yeri**|**Kapsam maliyetlerini analiz etmek için gereken erişim**|**Önkoşul EA ayarı**|**Fatura verilerini şurada bir araya getirir**|
-|---                |---                  |---                   |---            |---           |
-|Faturalama hesabı<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Kuruluş Yöneticisi|None|Kurumsal sözleşmedeki tüm abonelikler|
-|Bölüm|[https://ea.azure.com ](https://ea.azure.com )|Bölüm Yöneticisi|DA ücretleri görüntüleme etkinleştirildi|Bölüme bağlı olan kayıt hesabına ait olan tüm abonelikler|
-|Kayıt hesabı<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Hesap Sahibi|AO ücretleri görüntüleme etkinleştirildi|Kayıt hesabındaki tüm abonelikler|
-|Yönetim grubu|[https://portal.azure.com ](https://portal.azure.com )|Maliyet Yönetimi Okuyucusu (veya Okuyucu)|AO ücretleri görüntüleme etkinleştirildi|Yönetim grubu altındaki tüm abonelikler|
-|Abonelik|[https://portal.azure.com ](https://portal.azure.com )|Maliyet Yönetimi Okuyucusu (veya Okuyucu)|AO ücretleri görüntüleme etkinleştirildi|Abonelikteki tüm kaynaklar/kaynak grupları|
-|Kaynak grubu|[https://portal.azure.com ](https://portal.azure.com )|Maliyet Yönetimi Okuyucusu (veya Okuyucu)|AO ücretleri görüntüleme etkinleştirildi|Kaynak grubundaki tüm kaynaklar|
-
-<sup>1</sup>Fatura hesabı genellikle Kurumsal Sözleşme veya Kayıt olarak nitelenir.
-
-<sup>2</sup>Kayıt hesabı genellikle hesap sahibi olarak nitelenir.
-
-**DA ücretleri görüntüleme** ve **AO ücretleri görüntüleme** ayarları hakkında daha fazla bilgi için bkz. [Maliyet erişimini etkinleştirme](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Fatura hesabı
+- Bölüm
+- Kayıt hesabı
+- Yönetim grubu
+- Abonelik
+- Kaynak grubu
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

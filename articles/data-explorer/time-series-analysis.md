@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 49aa1226de53a1d8f13e0f4f1e79f37f6bfa21ee
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300498"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636705"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure veri Gezgini'nde zaman serisi analizi
 
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Kullanım [ `make-series` ](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) üç zaman serisi, bir dizi oluşturmak için işleç burada:
+- Kullanım [ `make-series` ](/azure/kusto/query/make-seriesoperator) üç zaman serisi, bir dizi oluşturmak için işleç burada:
     - `num=count()`: zaman serisi trafik
     - `range(min_t, max_t, 1h)`: zaman serisi 1 saatlik zaman aralığı (eski ve yeni zaman damgalarının tablo kayıtlarını) depo oluşturuldu
-    - `default=0`: normal zaman serisi oluşturmak eksik depo için dolgu yöntemini belirtin. Alternatif olarak [ `series_fill_const()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [ `series_fill_forward()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [ `series_fill_backward()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) ve [ `series_fill_linear()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) değişiklikleri
+    - `default=0`: normal zaman serisi oluşturmak eksik depo için dolgu yöntemini belirtin. Alternatif olarak [ `series_fill_const()` ](/azure/kusto/query/series-fill-constfunction), [ `series_fill_forward()` ](/azure/kusto/query/series-fill-forwardfunction), [ `series_fill_backward()` ](/azure/kusto/query/series-fill-backwardfunction) ve [ `series_fill_linear()` ](/azure/kusto/query/series-fill-linearfunction) değişiklikleri
     - `byOsVer`: işletim sistemi bölümü
 - Gerçek zaman serisi veri yapısı, her saat başına toplanan değerinin sayısal bir dizidir. Kullandığımız `render timechart` görselleştirme için.
 
@@ -71,14 +71,14 @@ Yukarıdaki tabloda, üç bölüm sahibiz. Ayrı zaman serisi oluşturabiliriz: 
 ## <a name="time-series-analysis-functions"></a>Zaman serisi analiz işlevleri
 
 Bu bölümde, biz tipik serisi işlevleri işleme gerçekleştirir.
-Zaman serisi kümesi oluşturulduktan sonra ADX bulunabilir işlemek ve çözümlemek için işlevleri giderek büyüyen bir listesi destekler [zaman serisi belgeleri](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa). Biz işleme ve analiz etme zaman serisi birkaç temsili işlevleri açıklanmıştır.
+Zaman serisi kümesi oluşturulduktan sonra ADX bulunabilir işlemek ve çözümlemek için işlevleri giderek büyüyen bir listesi destekler [zaman serisi belgeleri](/azure/kusto/query/machine-learning-and-tsa). Biz işleme ve analiz etme zaman serisi birkaç temsili işlevleri açıklanmıştır.
 
 ### <a name="filtering"></a>Filtreleme
 
 Filtreleme, sinyal işleme ve yararlı işleme görevlerini zaman serisi için ortak bir uygulama olan (örneğin, gürültülü sinyal kesintisiz, algılama değiştirme).
 - İki genel filtre işlevleri vardır:
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction): ALANININ filtre uygulanıyor. Ortalama ve farklılaşmayı değişiklik algılama zaman serisinin taşıma basit hesaplaması için kullanılır.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction): IIR filtre uygulanıyor. Üstel Düzeltme ve kümülatif toplamı için kullanılır.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): ALANININ filtre uygulanıyor. Ortalama ve farklılaşmayı değişiklik algılama zaman serisinin taşıma basit hesaplaması için kullanılır.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): IIR filtre uygulanıyor. Üstel Düzeltme ve kümülatif toplamı için kullanılır.
 - `Extend` Yeni bir hareketli ortalama dizi ekleyerek ayarlayın zaman serisi 5 depo boyutu (adlı *ma_num*) sorgu için:
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>Gerileme analizini
 
 ADX destekleyen doğrusal regresyon analiz eğilimini ve hataların zaman serisi tahmin etmek için bölümlenmiş.
-- Kullanım [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) zaman serisi Genel eğilim algılama için en iyi satırına sığmayacak.
-- Kullanım [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) senaryoları izlemek için yararlı olan eğilim değişiklikleri, temel göre algılamak için.
+- Kullanım [series_fit_line()](/azure/kusto/query/series-fit-linefunction) zaman serisi Genel eğilim algılama için en iyi satırına sığmayacak.
+- Kullanım [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) senaryoları izlemek için yararlı olan eğilim değişiklikleri, temel göre algılamak için.
 
 Örnek `series_fit_line()` ve `series_fit_2lines()` zaman serisi sorguda İşlevler:
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![Zaman serisi mevsimsellik](media/time-series-analysis/time-series-seasonality.png)
 
-- Kullanım [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) dönemleri zaman serisi içinde otomatik olarak algılamak için. 
-- Kullanım [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) size bir ölçüm belirli ayrı period(s) olmalı ve bunlar mevcut olduğunu doğrulamak istediğimiz biliyorsanız.
+- Kullanım [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) dönemleri zaman serisi içinde otomatik olarak algılamak için. 
+- Kullanım [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) size bir ölçüm belirli ayrı period(s) olmalı ve bunlar mevcut olduğunu doğrulamak istediğimiz biliyorsanız.
+
 > [!NOTE]
 > Belirli ayrı nokta mevcut değilse bir anomali öyledir.
 
@@ -150,7 +151,7 @@ demo_series3
 
 ### <a name="element-wise-functions"></a>Aralığın öğe düzeyinde çarpımının işlevleri
 
-Zaman serisinde bulunan aritmetik ve mantıksal işlemler gerçekleştirilebilir. Kullanarak [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction) biz olan bir kalan zaman serisi, özgün ham ölçüm ve düzleştirilmiş bir arasındaki farkı hesaplamak ve anormallikleri gerçek kalan sinyal arayın:
+Zaman serisinde bulunan aritmetik ve mantıksal işlemler gerçekleştirilebilir. Kullanarak [series_subtract()](/azure/kusto/query/series-subtractfunction) biz olan bir kalan zaman serisi, özgün ham ölçüm ve düzleştirilmiş bir arasındaki farkı hesaplamak ve anormallikleri gerçek kalan sinyal arayın:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![Zaman serisi işlem](media/time-series-analysis/time-series-operations.png)
 
-Mavi: orijinal zaman serisi kırmızı: zaman serisi yeşil düzleştirilmiş: kalan zaman serisi
+- Mavi: orijinal zaman serisi
+- Kırmızı: zaman serisi düzleştirilmiş
+- Yeşil: kalan zaman serisi
 
 ## <a name="time-series-workflow-at-scale"></a>Zaman serisi iş akışını uygun ölçekte
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-İki dakikadan kısa sürede, iki olağan dışı zaman serisi (dışı 23115), okuma aniden bırakılan sayısı ADX olduğunu algıladı.
+İki dakikadan az ADX 20. 000'den zaman serisi analiz ve okuma sayısı aniden iptal edilen iki olağan dışı zaman serisi algılandı.
 
 ADX hızlı performans ile birlikte bu Gelişmiş Özellikler, zaman serisi analiz için benzersiz ve güçlü bir çözüm sağlar.

@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: sample
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: b15f4000d30b7b6c6f8055d596b9ab5336d173c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 375a2f14bdc6fc13d23b59ec71870cfe9c15517b
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126029"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514069"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Bing Web Araması SDK örnekleri
 
@@ -33,7 +33,7 @@ Tercih ettiğiniz dil için SDK’ya erişmek amacıyla bu bağlantıları kulla
 * [Python örneklerini](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) kullanmaya başlama
   * Tanımlar ve bağımlılıklar için ayrıca bkz. [Python kitaplıkları](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch).
 * [Node.js örneklerini](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) kullanmaya başlama
-  * Tanımlar ve bağımlılıklar için ayrıca bkz. [Node.js kitaplıkları](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch).
+  * Ayrıca bkz: [Node.js Web araması](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesWebSearch).
 * [.NET örneklerini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) kullanmaya başlama
   * [NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
   * Tanımlar ve bağımlılıklar için ayrıca bkz. [.NET kitaplıkları](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch).

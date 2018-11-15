@@ -1,5 +1,5 @@
 ---
-title: -Azure SQL veritabanı gibi geçici bir hata ile çalışma | Microsoft Docs
+title: Geçici hataları - Azure SQL veritabanı ile çalışma | Microsoft Docs
 description: Sorun giderme, tanılama ve bir SQL bağlantı hatası veya Azure SQL veritabanında geçici hata önleme konusunda bilgi edinin.
 keywords: SQL bağlantı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası
 services: sql-database
@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 08/01/2018
-ms.openlocfilehash: b44452907d6f9a275046d2e8e47d184b3c2c992b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/14/2018
+ms.openlocfilehash: 8c19022f168577cf65180357f280afd5a0e03073
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623444"
+ms.locfileid: "51634167"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL veritabanı bağlantı sorunlarını ve geçici hatalar ile çalışma
 

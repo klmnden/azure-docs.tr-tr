@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252148"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567103"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -31,7 +31,7 @@ Bu öğretici, Azure Site Recovery’yi kullanarak, Amazon Web Services (AWS) sa
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - Geçirmek istediğiniz VM’lerin desteklenen bir işletim sistemi sürümünü çalıştırdığından emin olun. Desteklenen sürümlere şunlar dahildir: 
   - Windows Server 2016 
   - Windows Server 2012 R2
@@ -241,7 +241,10 @@ EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devre
 1. **Korumalı öğeler** > **Çoğaltılan öğeler** bölümünde AWS örneklerini ve **Yük devretme**’yi seçin.
 2. **Yük devretme** bölümünde yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. En son kurtarma noktasını seçin ve yük devretmeyi başlatın. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
 1. Sanal makinenin, **Çoğaltılan öğeler** bölümünde görüntülendiğinden emin olun.
-2. Her bir sanal makineye sağ tıklayın ve **Geçişi Tamamla**’yı seçin. Böylece geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
+2. Her bir sanal makineye sağ tıklayın ve **Geçişi Tamamla**’yı seçin. Bu, şunları yapar:
+
+    - Böylece geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
+    - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez. 
 
     ![Geçişi tamamlama](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

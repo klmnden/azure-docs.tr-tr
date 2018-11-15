@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025031"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686901"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -24,11 +24,13 @@ ms.locfileid: "50025031"
 
 ## <a name="programming-model"></a>Programlama modeli 
 
-Azure işlevinizin giriş işleyen ve çıktıyı üretir bir durum bilgisi olmayan sınıf yöntemi olmalıdır. Örnek yöntemler yazabilirsiniz olsa da, işlevinizi sınıfının örneği alanlara bağlı olmamalı. Tüm işlev yöntemleri olmalıdır bir `public` erişim değiştiricisi.
+Kavramlarını [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md) Azure işlevleri için zorunludur. Tetikleyiciler, kodunuzu yürütmeye başlayın. Bağlamaları, verileri aktarmak ve özel veri erişim kodu yazmak zorunda kalmadan bir işlevden dönüş verileri için bir yol sağlar.
+
+Bir işlev giriş ve çıkış üretmek için durum bilgisi olmayan bir yöntem olmalıdır. İşlevinizi sınıfının örneği alanlara bağlı olmaması gerekir. Tüm işlev yöntemleri olmalıdır `public` ve ek açıklama yöntemiyle @FunctionName yöntemi adını tanımlayan bir işlev için giriş olarak benzersiz olması gerekir.
 
 ## <a name="folder-structure"></a>klasör yapısı
 
-Bir Java projesi klasör yapısı aşağıdaki gibi görünür:
+Bir Azure işlevi Java projesi klasör yapısı şu şekildedir:
 
 ```
 FunctionsProject
@@ -60,14 +62,12 @@ Bir projede birden fazla işlev koyabilirsiniz. Ayrı jar dosyaları dışındak
 
  Azure işlevleri, bir HTTP isteği, bir zamanlayıcı ya da veri güncelleştirme gibi bir tetikleyici tarafından çağrılır. Bu tetikleyici ve bir veya birden çok çıktı üretmek için başka bir giriş işlevinizi gerekmez.
 
-İçindeki Java ek açıklamalarını kullanma [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) giriş ve çıkışları için yöntemlerinizi bağlamak için paket. Ek açıklamalar kullanarak örnek kodu kullanılabilir [Java başvuru belgeleri](/java/api/com.microsoft.azure.functions.annotation) her eklenti için ve biri gibi Azure işlevleri bağlama başvuru belgelerinde [HTTP Tetikleyicileri](/azure/azure-functions/functions-bindings-http-webhook).
-
-Tetikleyici giriş ve çıkış olarak da tanımlanabilir [function.json](/azure/azure-functions/functions-reference#function-code) yerine işlevinizin ek açıklamalar aracılığıyla. Kullanarak `function.json` yerine bu şekilde ek açıklamalarda önerilmez.
+İçindeki Java ek açıklamalarını kullanma [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) giriş ve çıkışları için yöntemlerinizi bağlamak için paket. Daha fazla bilgi için [Java başvuru belgeleri](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
 > Bir Azure depolama hesabında yapılandırmanız gerekir, [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) Azure depolama Blob, kuyruk veya tablo Tetikleyiciler yerel olarak çalıştırın.
 
-Örnek: ek açıklamalarını kullanma
+Örnek:
 
 ```java
 public class Function {
@@ -79,24 +79,12 @@ public class Function {
 }
 ```
 
-Yazılan ek açıklamalar olmadan aynı işlev:
-
-```java
-package com.example;
-
-public class MyClass {
-    public static String echo(String in) {
-        return in;
-    }
-}
-```
-
-Buna karşılık gelen ile `function.json`:
+İşte oluşturulan karşılık gelen `function.json` tarafından [azure işlevleri maven plugin](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin):
 
 ```json
 {
   "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
+  "entryPoint": "com.example.Function.echo",
   "bindings": [
     {
       "type": "httpTrigger",
@@ -117,113 +105,113 @@ Buna karşılık gelen ile `function.json`:
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK çalışma zamanı kullanılabilirliği ve Destek 
 
-Karşıdan yükleme ve kullanma [Azure Azul Zulu](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK gelen [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) Java işlev uygulamaları, yerel geliştirme için. JDK Windows, Linux ve macOS için kullanılabilir ve [Azure Destek](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) ile geliştirme sırasında karşılaşılan sorunları için kullanılabilir bir [tam destek planı](https://azure.microsoft.com/support/plans/).
+Karşıdan yükleme ve kullanma [Azure Azul Zulu](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK gelen [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) Java işlev uygulamaları, yerel geliştirme için. JDK, Windows, Linux ve macOS için kullanılabilir. [Azure Destek](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) kullanıma hazır bir [tam destek planı](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Üçüncü taraf kitaplıklar 
 
-Azure işlevleri, üçüncü taraf kitaplıkların kullanımını destekler. Varsayılan olarak, tüm bağımlılıkları belirtilen projenizde `pom.xml` dosya otomatik olarak toplanmış sırasında `mvn package` hedefi. Bağımlılık olarak belirtilmemiş kitaplıkları `pom.xml` dosya, yerleştirebilirsiniz bir `lib` işlevin kök dizininde dizin. Bağımlılıkları yerleştirildiğinde `lib` dizin sistemi sınıf yükleyicisi zamanında eklenecektir.
+Azure işlevleri, üçüncü taraf kitaplıkların kullanımını destekler. Varsayılan olarak, tüm bağımlılıkları belirtilen projenizde `pom.xml` dosya otomatik olarak toplanmış sırasında [ `mvn package` ](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) hedefi. Bağımlılık olarak belirtilmemiş kitaplıkları `pom.xml` dosya, yerleştirebilirsiniz bir `lib` işlevin kök dizininde dizin. Bağımlılıkları yerleştirildiğinde `lib` dizin sistemi sınıf yükleyicisi zamanında eklenecektir.
 
-`com.microsoft.azure.functions:azure-functions-java-library` Bağımlılık sınıf üzerinde varsayılan olarak sağlanır ve dahil edilmesi gerekmez `lib` dizin.
+`com.microsoft.azure.functions:azure-functions-java-library` Bağımlılık sınıf üzerinde varsayılan olarak sağlanır ve dahil edilmesi gerekmez `lib` dizin. Ayrıca, bağımlılıkları listelenen [burada](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) sınıf tarafından eklenen [azure-işlevler-java-çalışan](https://github.com/Azure/azure-functions-java-worker).
 
 ## <a name="data-type-support"></a>Veri türü desteği
 
-Yerel türler içeren giriş ve çıkış verileri için herhangi bir veri türü Java'da kullanabilirsiniz; Java türleri ve özel Azure türleri içinde tanımlanan özelleştirilmiş `azure-functions-java-library` paket. Azure işlevleri çalışma zamanı çalışır, kodunuz tarafından istenen türüne içine alınan girişi dönüştürür.
-
-### <a name="strings"></a>Dizeler
-
-İşlevi yöntemlere geçirilen değerler değerine dizeleri için karşılık gelen giriş parametre türü işlev türü ise `String`. 
+Eski basit Java nesnelerini (Pojo'lar) kullanabilir, tanımlı türleri `azure-functions-java-library` veya ilkel veri türleri gibi dize, giriş/çıkış bağlamaları için bağlama için bir tamsayı.
 
 ### <a name="plain-old-java-objects-pojos"></a>Eski basit Java nesnelerini (Pojo'lar)
 
-İşlev giriş imzası Java türü bekliyorsa JSON biçimli dizeler için Java türleri dönüştürme. Bu dönüştürme, JSON'da geçirin ve Java türleriyle çalışmak sağlar.
-
-Aynı işlevlere giriş gerekir olarak kullanılan POJO'ya türleri `public` bunlar kullanıldığı içinde işlevi yöntemler olarak erişim değiştiricisi. POJO'ya sınıfı alanlar bildirmeniz gerekmez `public`. Örneğin, bir JSON dizesi `{ "x": 3 }` aşağıdaki POJO'ya türe dönüştürülüp yapabilir:
-
-```Java
-public class MyData {
-    private int x;
-}
-```
+POJO'ya, giriş verilerini dönüştürmek için [azure-işlevler-java-çalışan](https://github.com/Azure/azure-functions-java-worker) kullanan [gson](https://github.com/google/gson) kitaplığı. İşlevlere giriş olması gerektiği gibi kullanılan POJO'ya türleri `public`.
 
 ### <a name="binary-data"></a>İkili veriler
 
-İkili veri olarak temsil edilir bir `byte[]` Azure işlevleri kodunuzda. İkili giriş veya çıkış ayarlayarak, işlevlerine bağlama `dataType` için function.json alanındaki `binary`:
-
-```json
- {
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "blob",
-      "name": "content",
-      "direction": "in",
-      "dataType": "binary",
-      "path": "container/myfile.bin",
-      "connection": "ExampleStorageAccount"
-    },
-  ]
-}
-```
-
-Ardından işlev kodunuzu kullanın:
+İkili giriş veya çıkış için bağlama `byte[]` ayarlayarak `dataType` için function.json alanındaki `binary`:
 
 ```java
-// Class definition and imports are omitted here
-public static String echoLength(byte[] content) {
-}
+   @FunctionName("BlobTrigger")
+    @StorageAccount("AzureWebJobsStorage")
+     public void blobTrigger(
+        @BlobTrigger(name = "content", path = "myblob/{fileName}", dataType = "binary") byte[] content,
+        @BindingName("fileName") String fileName,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Blob trigger function processed a blob.\n Name: " + fileName + "\n Size: " + content.length + " Bytes");
+    }
 ```
 
-Boş giriş değerleri olabilir `null` işlevleri bağımsız değişkeniniz ancak boş değerler kullanmaktır olası ile uğraşmak için önerilen bir yöntem olarak `Optional<T>`.
+Kullanım `Optional<T>` boyunca null değerler bekleniyor
 
+## <a name="bindings"></a>Bağlamalar
 
-## <a name="function-method-overloading"></a>İşlev aşırı yüklemesi yöntemi
+Giriş ve çıkış bağlamaları, kod içindeki verilere bağlanmak için bildirim temelli bir yöntemini sağlar. Bir işlev birden fazla giriş ve çıkış bağlamaları kullanabilirsiniz.
 
-İşlev yöntemleri aynı adı taşıyan ancak farklı türleri ile aşırı yüklemeye izin verilir. Örneğin, her ikisi de olabilir `String echo(String s)` ve `String echo(MyType s)` sınıfında. Azure işlevleri çağırmak için hangi yöntemi giriş türüne göre karar (HTTP giriş, MIME türü için `text/plain` doğurur `String` sırada `application/json` temsil `MyType`).
-
-## <a name="inputs"></a>Girişler
-
-Giriş, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi biridir ve diğer ek girişi. Farklı olsa `function.json`, kullanım, Java kodu aynıdır. Aşağıdaki kod parçacığını bir örnek olarak alalım:
+### <a name="example-input-binding"></a>Örnek Giriş bağlama
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("echo")
     public static String echo(
-        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
     ) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+        testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
+        return "Hello, " + inputReq + " and " + inputData.getKey() + ".";
     }
 
-    public static class MyObject {
+    public static class TestInputData {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
+    public static class Person {
+        public String PartitionKey;
+        public String RowKey;
+        public String Name;
+
+        public Person(String p, String r, String n) {
+            this.PartitionKey = p;
+            this.RowKey = r;
+            this.Name = n;
+        }
+    }
 }
 ```
 
-Bu işlev tetiklendiğinde, HTTP isteği tarafından işlev geçirilir `String in`. Bir giriş getirelim olarak yapılan ve yönlendirme URL'si kimliği temel Azure tablo depolama alanından alınan `obj` işlev gövdesindeki.
+Bu işlev, bir HTTP isteğiyle çağrılır. 
+- HTTP isteği yükü olarak geçirilen bir `String` bağımsız değişkeni `inputReq`
+- Bir giriş Azure tablo depolama biriminden alınır ve olarak geçirilen `TestInputData` bağımsız değişkene `inputData`.
 
-## <a name="outputs"></a>Çıkışlar
+Bir batch girişlerinin almak, adlarınıza bağlayabileceğiniz `String[]`, `POJO[]`, `List<String>` veya `List<POJO>`.
 
-Çıkışlar hem dönüş değeri veya çıktı parametresi olarak ifade edilebilir. Yalnızca bir çıkış varsa, dönüş değeri kullanmak için önerilir. Çıktı parametreleri kullanmak zorunda birden çok çıkış için.
+```java
+@FunctionName("ProcessIotMessages")
+    public void processIotMessages(
+        @EventHubTrigger(name = "message", eventHubName = "%AzureWebJobsEventHubPath%", connection = "AzureWebJobsEventHubSender", cardinality = Cardinality.MANY) List<TestEventData> messages,
+        final ExecutionContext context)
+    {
+        context.getLogger().info("Java Event Hub trigger received messages. Batch size: " + messages.size());
+    }
+    
+    public class TestEventData {
+    public String id;
+}
 
-Dönüş değeri çıkış en basit biçimidir yalnızca herhangi bir tür değeri döndürmesi ve Azure işlevleri çalışma zamanı (örneğin, bir HTTP yanıtının) gerçek tür dön sıralamanız dener.  Çıktı ek açıklamaları (ek açıklama adı özniteliğinin sahip $return olmasını) işlevi yöntemi uygulayabilirsiniz dönüş değeri çıktısını tanımlamak için.
+```
 
-Birden çok çıktı değeri üretmek için kullanmak `OutputBinding<T>` içinde tanımlanan tür `azure-functions-java-library` paket. Bir HTTP yanıtı ve bir kuyruğuna bir ileti gönderme gerekiyorsa, benzer bir şey yazabilirsiniz:
+Bu işlev, yapılandırılmış olay hub'ında yeni veri olduğunda tetiklenen. Olarak `cardinality` ayarlanır `MANY`, işlevi, olay hub'ından toplu iletiler alır. Olay hub'ından EventData dönüştürülür `TestEventData` işlevi yürütme.
 
-Örneğin, bir blob içeriği işlevi kopyalama aşağıdaki kodun da tanımlanabilir. `@StorageAccount` ek açıklama buraya önlemek için her ikisi de bağlantı özelliği çoğaltma için kullanılan `@BlobTrigger` ve `@BlobOutput`.
+### <a name="example-output-binding"></a>Örnek çıktı bağlaması
+
+Dönüş değeri kullanarak bir çıkış bağlaması bağlayabilirsiniz. `$return` 
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("copy")
     @StorageAccount("AzureWebJobsStorage")
     @BlobOutput(name = "$return", path = "samples-output-java/{name}")
@@ -233,25 +221,57 @@ public class MyClass {
 }
 ```
 
-Kullanma `OutputBinding<byte[]`> çıkış (parametre); değeri bir ikili yapmak için dönüş değerleri için kullanmanız yeterlidir `byte[]`.
+Dönüş değeri, birden çok çıkış bağlamaları varsa, bunlardan yalnızca biri için kullanın.
 
-## <a name="specialized-types"></a>Özel türleri
+Birden çok çıkış değerleri göndermek için `OutputBinding<T>` tanımlanan `azure-functions-java-library` paket. 
 
-Bazen bir işlev giriş ve çıkışları denetime ayrıntılı olması gerekir. Özelleştirilmiş türlerinde `azure-functions-java-core` paket isteği bilgiyi işleyebilir ve bir HTTP tetikleyicisi dönüş durumu uyarlamak için sağlanır:
+```java
+@FunctionName("QueueOutputPOJOList")
+    public HttpResponseMessage QueueOutputPOJOList(@HttpTrigger(name = "req", methods = { HttpMethod.GET,
+            HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "itemsOut", queueName = "test-output-java-pojo", connection = "AzureWebJobsStorage") OutputBinding<List<TestData>> itemsOut, 
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+       
+        String query = request.getQueryParameters().get("queueMessageId");
+        String queueMessageId = request.getBody().orElse(query);
+        itemsOut.setValue(new ArrayList<TestData>());
+        if (queueMessageId != null) {
+            TestData testData1 = new TestData();
+            testData1.id = "msg1"+queueMessageId;
+            TestData testData2 = new TestData();
+            testData2.id = "msg2"+queueMessageId;
+
+            itemsOut.getValue().add(testData1);
+            itemsOut.getValue().add(testData2);
+
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + queueMessageId).build();
+        } else {
+            return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Did not find expected items in CosmosDB input list").build();
+        }
+    }
+
+     public static class TestData {
+        public String id;
+    }
+```
+
+İşlevi bir HTTP isteği üzerinde çağrılır ve birden çok değer Azure kuyruğuna yazma
+
+## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage ve HttpResponseMessage
+
+ HttpRequestMessage ve HttpResponseMessage türleri `azure-functions-java-library` HttpTrigger işlevleri ile çalışmaya yardımcı türleri
 
 | Özel tür      |       Hedef        | Tipik kullanım                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP Tetikleyicisi     | Yöntemi, üst bilgiler veya sorgu Al |
-| `HttpResponseMessage<T>` | HTTP çıkış bağlaması | 200 dışında dönüş durumu   |
+| `HttpResponseMessage` | HTTP çıkış bağlaması | 200 dışında dönüş durumu   |
 
-> [!NOTE] 
-> Ayrıca `@BindingName` HTTP üst bilgileri ve sorguları almak için ek açıklama. Örneğin, `@BindingName("name") String query` HTTP isteği üstbilgileri ve sorguları yinelenir ve bu değer yönteme geçirin. Örneğin, `query` olacaktır `"test"` istek URL'si ise `http://example.org/api/echo?name=test`.
+## <a name="metadata"></a>Meta Veriler
 
-### <a name="metadata"></a>Meta Veriler
+Birkaç tetikleyicilere göndermek [meta verileri tetikleme](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) giriş verileriyle birlikte. Ek açıklama kullanabileceğiniz `@BindingName` meta verileri tetiklemek için bağlamak için
 
-Meta veri gelen HTTP üst bilgileri, HTTP sorgular gibi farklı kaynaklardan gelen ve [meta verileri tetikleme](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Kullanım `@BindingName` ek açıklama değerini almak için meta veri adı ile birlikte.
-
-Örneğin, `queryValue` aşağıdaki kod parçacığı olacak `"test"` istenen URL `http://{example.host}/api/metadata?name=test`.
 
 ```Java
 package com.example;
@@ -260,7 +280,7 @@ import java.util.Optional;
 import com.microsoft.azure.functions.annotation.*;
 
 
-public class MyClass {
+public class Function {
     @FunctionName("metadata")
     public static String metadata(
         @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
@@ -270,16 +290,34 @@ public class MyClass {
     }
 }
 ```
+Yukarıdaki örnekte `queryValue` sorgu dizesi parametresi için bağlı `name` Http isteği URL'si `http://{example.host}/api/metadata?name=test`. Bağlama için başka bir örnek aşağıdadır `Id` kuyruğu tetikleyici meta verilerden
+
+```java
+ @FunctionName("QueueTriggerMetadata")
+    public void QueueTriggerMetadata(
+        @QueueTrigger(name = "message", queueName = "test-input-java-metadata", connection = "AzureWebJobsStorage") String message,@BindingName("Id") String metadataId,
+        @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        TestData testData = new TestData();
+        testData.id = metadataId;
+        output.setValue(testData);
+    }
+```
+
+> [!NOTE]
+> Ek açıklamada sağlanan adı, meta veri özelliği ile eşleşmesi gerekiyor
 
 ## <a name="execution-context"></a>Yürütme bağlamı
 
-Azure işlevleri yürütme ortamı etkileşim `ExecutionContext` içinde tanımlanan nesne `azure-functions-java-library` paket. Kullanma `ExecutionContext` çağırma ve İşlevler çalışma zamanı bilgileri, kodunuzda kullanılacak nesne.
+`ExecutionContext` tanımlanan `azure-functions-java-library` işlevler çalışma zamanı ile iletişim kurmak için yardımcı yöntemler içerir.
 
-### <a name="custom-logging"></a>Özel günlük
+### <a name="logger"></a>Günlükçü
 
-İşlevler çalışma zamanı Günlükçü erişimi aracılığıyla `ExecutionContext` nesne. Bu Günlükçü için Azure İzleyici bağlıdır ve bayrağını uyarılar ve işlev yürütme sırasında karşılaşılan hataları sağlar.
+Kullanım `getLogger` tanımlanan `ExecutionContext` işlev kodunu günlüklerini yazma izni.
 
-Alınan istek gövdesi boş olduğunda, aşağıdaki kod örneği bir uyarı iletisi günlüğe kaydeder.
+Örnek:
 
 ```java
 
@@ -298,7 +336,9 @@ public class Function {
 
 ## <a name="view-logs-and-trace"></a>Günlükleri görüntüleme ve izleme
 
-Diğer uygulama günlüğü yanı sıra stream Java standart çıkış ve hata günlüğü için Azure CLI'yı kullanabilirsiniz. İlk olarak, Azure CLI kullanarak uygulama günlükleri yazmak için işlev uygulamanızı yapılandırın:
+Diğer uygulama günlüğü yanı sıra stream Java stdout ve stderr günlük kaydı için Azure CLI'yı kullanabilirsiniz. 
+
+Azure CLI kullanarak uygulama günlükleri yazmak için işlev uygulamanızı yapılandırın:
 
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
@@ -321,26 +361,22 @@ Bu komutu çalıştırmadan önce Azure Portal veya Azure CLI günlüğü dosya 
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 
-Anahtarları veya güvenlik nedenleriyle, kaynak kodunun dışında belirteçleri gibi gizli bilgiler tutun. Anahtarları ve belirteçleri ortam değişkenlerinden okuyarak işlev kodunuzu kullanın.
+İşlevlerde, [uygulama ayarları](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), gibi hizmet bağlantısı dizeleri sunulur ortam değişkenleri olarak yürütme sırasında. Bu ayarları kullanarak erişebileceğiniz, `System.getenv("AzureWebJobsStorage")`
 
-Azure işlevleri çalıştırırken ortam değişkenlerini ayarlamak için yerel olarak, bu değişkenler local.settings.json dosyasına eklemek seçebilirsiniz. Bir işlev projenizin kök dizininde mevcut değilse, bir tane oluşturabilirsiniz. İşte dosyanın aşağıdaki gibi görünmelidir:
+Örnek:
 
-```xml
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "",
-    "AzureWebJobsDashboard": ""
-  }
+Ekleme [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) adı testAppSetting ve değer testAppSettingValue ile
+
+```java
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        context.getLogger().info("testAppSetting "+ System.getenv("testAppSettingValue"));
+        return String.format(req);
+    }
 }
+
 ```
-
-Her anahtar / değer eşlemede `values` harita oluşturulacak kullanılabilir çalışma zamanında çağrılarak erişilebilen bir ortam değişkeni olarak `System.getenv("<keyname>")`, örneğin, `System.getenv("AzureWebJobsStorage")`. Ekleme ek anahtar / değer çiftlerini kabul edilir ve önerilen uygulama.
-
-> [!NOTE]
-> Bu yaklaşım alınmışsa olması emin local.settings.json eklemek için deponuzu dosyasına yoksayma, taahhüt olmaması.
-
-Kodunuzu test etme, yerel olarak hem de Azure'da dağıtılan eşdeğer işlevlerinin artık bu ortam değişkenlerine bağlı olarak, kod ile aynı anahtarı / değer çiftlerini, işlev uygulaması ayarları Azure portalında oturum açabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

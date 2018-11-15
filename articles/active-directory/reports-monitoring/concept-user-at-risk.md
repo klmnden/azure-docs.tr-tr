@@ -11,56 +11,51 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/14/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578387"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621080"
 ---
-# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında risk güvenliği için işaretlenmiş kullanıcılar
+# <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Azure portalında risk için işaretlenmiş kullanıcılar
 
-Azure Active Directory’de (Azure AD) güvenlik raporları ile ortamınızda güvenliği tehlikeye girmiş kullanıcı hesaplarının olasılığı hakkında bilgi sahibi olabilirsiniz. 
+Azure Active Directory (Azure AD), kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılar. Algılanan her eylem için bir kaydı olarak adlandırılan bir [risk olayı](concept-risk-events.md) oluşturulur.
 
-Azure Active Directory, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılar. Algılanan her eylem için *risk olayı* adlı bir kayıt oluşturulur. Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](concept-risk-events.md). 
+Güvenlik raporlarını erişebileceğiniz [Azure portalında](https://portal.azure.com) seçerek **Azure Active Directory** dikey penceresinde ve ardından giderek **güvenlik** bölümü. 
 
 Algılanan risk olayları aşağıdakileri hesaplamak için kullanılır:
 
-- **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. [Oturum açma risk ilkesini yapılandırma](../identity-protection/howto-sign-in-risk-policy.md). 
+- **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. 
 
-- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. [Kullanıcı risk ilkesini yapılandırma](../identity-protection/howto-user-risk-policy.md).  
+- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. 
 
-Güvenlik raporlarını, Azure portalında **Azure Active Directory** dikey penceresindeki **Güvenlik** bölümünde bulabilirsiniz.  
+Bu risk olaylarını tetiklemek ilkelerinin nasıl yapılandırılacağını öğrenmek için bkz: [kullanıcı riski ilkesi yapılandırma](../identity-protection/howto-user-risk-policy.md). 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/10.png)
 
 
+## <a name="what-azure-ad-license-do-you-need-to-access-the-users-at-risk-report"></a>Hangi Azure AD lisansınızın risk altındaki kullanıcılar raporu erişmeye ihtiyacınız var?  
 
-## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Güvenlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?  
+Azure Active Directory'nin tüm sürümlerinde size riskli oldukları belirlenen kullanıcılar ve risk raporları sağlanır. Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik gösterir: 
 
-Azure Active Directory'nin tüm sürümlerinde size riskli oldukları belirlenen kullanıcılar ve risk raporları sağlanır.  
-Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik gösterir: 
+- İçinde **Azure Active Directory ücretsiz ve temel sürümlerinde**, riskli olduğu belirlenen kullanıcıların listesini alın. 
 
-- **Azure Active Directory Ücretsiz ve Temel sürümlerinde**, riskli olduğu belirlenen kullanıcıların listesini zaten alırsınız. 
+- Ayrıca, **Azure Active Directory Premium 1** edition, her raporda algılanmış temel risk olaylarından bazılarını incelemenize olanak sağlar. 
 
-- **Azure Active Directory Premium 1** sürümü bu modeli genişleterek her raporda algılanmış olan temel risk olaylarından bazılarını incelemenize olanak tanır. 
-
-- **Azure Active Directory Premium 2** sürümü, tüm temel risk olayları hakkında en ayrıntılı bilgileri sağlar ve yapılandırılmış risk düzeylerine otomatik olarak yanıt veren güvenlik ilkeleri yapılandırmanıza da olanak tanır.
+- **Azure Active Directory Premium 2** sürümü, tüm temel risk olayları hakkında en ayrıntılı bilgileri sağlar ve ayrıca, yapılandırılmış risk düzeylerine otomatik olarak yanıt veren güvenlik ilkeleri yapılandırmanıza da olanak tanır.
 
 
+## <a name="users-at-risk-report-for-azure-ad-free-and-basic-editions"></a>Risk altındaki kullanıcılar raporu için Azure AD ücretsiz ve temel sürümleri
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory ücretsiz ve temel sürümleri
-
-Azure Active Directory ücretsiz ve temel sürümlerinde risk için işaretlenmiş kullanıcılar raporu, tehlikeye girmiş olabilecek kullanıcı hesaplarının bir listesini sağlar. 
-
+Ücretsiz Azure AD'de risk raporu için işaretlenmiş kullanıcılar ve basic sürümleri, tehlikeye girmiş olabilecek kullanıcı hesaplarının bir listesini sağlar. 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/03.png)
 
-Bir kullanıcının seçilmesi, ilgili kullanıcı verileri dikey penceresini açar.
-Risk altındaki kullanıcılarla ilgili olarak kullanıcının oturum açma geçmişini gözden geçirebilir ve gerekirse parolasını sıfırlayabilirsiniz.
+Bir kullanıcının seçilmesi, ilgili kullanıcı verileri dikey penceresini açar. Risk altındaki kullanıcılarla ilgili olarak kullanıcının oturum açma geçmişini gözden geçirebilir ve gerekirse parolasını sıfırlayabilirsiniz.
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/46.png)
 
@@ -74,9 +69,9 @@ Bu iletişim kutusu size şu seçeneği sunar:
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/16.png)
 
 
-## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory premium sürümleri
+## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Risk altındaki kullanıcılar raporu için Azure AD premium sürümleri
 
-Azure Active Directory premium sürümlerinde risk için işaretlenmiş kullanıcılar raporu aşağıdakileri içerir:
+Azure AD premium sürümlerinde risk için işaretlenmiş kullanıcılar aşağıdakileri içerir:
 
 - Tehlikeye girmiş olabilecek kullanıcı hesaplarının listesi 
 
@@ -85,7 +80,6 @@ Azure Active Directory premium sürümlerinde risk için işaretlenmiş kullanı
 - Raporu indirme seçeneği
 
 - [Kullanıcı riskini azaltma ilkesi](../identity-protection/howto-user-risk-policy.md) yapılandırma seçeneği  
-
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/71.png)
 
@@ -99,18 +93,16 @@ Bir kullanıcıyı seçtiğinizde bu kullanıcıya ilişkin, aşağıdakileri ge
 
 - Kullanıcıya ilişkin bildirilmiş risk olaylarını araştırabilirsiniz. 
 
-
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/324.png)
 
-
 Bir risk olayını araştırmak için listeden bir olay seçerek bu olayın **Ayrıntılar** dikey penceresini açın. **Ayrıntılar** dikey penceresinde, risk olayını elle kapatma ve elle kapatılmış risk olayını yeniden etkinleştirme seçenekleri sunulur. 
-
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/325.png)
 
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure Active Directory Kimlik Koruması hakkında daha fazla bilgi için bkz. [Azure Active Directory Kimlik Koruması](../active-directory-identityprotection.md).
+- [Kullanıcı riski ilkesi yapılandırma](../identity-protection/howto-user-risk-policy.md)
+- [Riskini azaltma ilkesi yapılandırma](../identity-protection/howto-user-risk-policy.md)
+- [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md)
 

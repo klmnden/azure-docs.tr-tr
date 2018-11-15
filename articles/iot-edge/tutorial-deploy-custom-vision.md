@@ -3,18 +3,18 @@ title: Azure IoT Edge cihazına Özel Görüntü İşleme Hizmeti dağıtma | Mi
 description: Özel Görüntü İşleme ve IoT Edge hizmetlerini kullanarak bir özel görüntü işleme hizmetini kapsayıcı olarak çalıştırmayı öğrenin.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a3bd7cf5e7c29ee44d696c0a27566b1a73436794
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749824"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566491"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Öğretici: Özel Görüntü İşleme Hizmeti ile uçta görüntü sınıflandırması gerçekleştirme
 
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bir Azure IoT Edge cihazı:
 
@@ -72,7 +72,7 @@ Görüntü sınıflandırıcıyı derleyip eğittikten sonra Docker kapsayıcıs
 
    | Alan | Değer |
    | ----- | ----- |
-   | Adı | Projeniz için bir ad belirleyin, örneğin: **EdgeTreeClassifier**. |
+   | Ad | Projeniz için bir ad belirleyin, örneğin: **EdgeTreeClassifier**. |
    | Açıklama | İsteğe bağlı proje açıklaması. |
    | Kaynak Grubu | Varsayılan **Limited trial** (Sınırlı deneme sürümü) ayarını kabul edin. |
    | Proje Türleri | **Classification** (Sınıflandırma) |

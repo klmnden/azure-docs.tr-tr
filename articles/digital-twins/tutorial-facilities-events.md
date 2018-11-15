@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins alanından olay yakalama | Microsoft Docs
+title: Azure dijital İkizlerini alanı olayları yakalama | Microsoft Docs
 description: Azure Digital Twins'i Logic Apps ile tümleştirerek alanlarınızdan bildirim almayı öğrenmek için bu öğreticideki adımları izleyin.
 services: digital-twins
 author: dsk-2015
@@ -7,61 +7,63 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 91dd16938efbd1e24419352f66e3238646a77e8a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 994c864f04980dc963f9e7c4eb99b33382ad17e4
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323437"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614914"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-using-logic-apps"></a>Öğretici: Logic Apps'i kullanarak Azure Digital Twins alanlarınızdan bildirim alma
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Öğretici: Azure dijital İkizlerini alanlarınıza Logic Apps'i kullanarak bildirimlerin
 
-Azure Digital Twins örneğinizi dağıttıktan, alanlarınızı sağladıktan ve belirli koşulları izlemek için özel işlevler uyguladıktan sonra izlenen koşullar ortaya çıktığında ofis yöneticinizi e-posta ile bilgilendirebilirsiniz. 
+Azure dijital İkizlerini örneğinizi dağıtma alanlarınıza sağlama ve belirli koşulları izlemek için özel işlevler uygulamak sonra izlenen koşulların gerçekleşmesine office yöneticinizin e-posta ile bildirimde bulunabilir. 
 
-[Birinci öğreticide](tutorial-facilities-setup.md) hareket, karbondioksit ve sıcaklık sensörleri bulunan bir odaya sahip olan hayali bir binanın uzamsal grafını yapılandırdınız. [İkinci öğreticide](tutorial-facilities-udf.md) grafınızı ve bu sensör değerlerini izleyip oda boş olduğunda ve sıcaklık ile karbondioksit düzeyleri uygun aralıkta olduğunda bildirimleri tetikleyen kullanıcı tanımlı işlevi çağıran özel bir işlev sağladınız. Bu öğreticide, oda uygun olduğunda e-posta göndermek için bu bildirimleri Azure Logic Apps ile tümleştirme adımları gösterilmektedir. Bir ofis yöneticisi bu bilgileri kullanarak çalışanların en verimli toplantı odasını ayırmalarına yardımcı olabilir. 
+İçinde [ilk öğreticide](tutorial-facilities-setup.md), sanal bir yapı uzamsal grafiği yapılandırılmış. Yapı odada hareket, tasarruf edilen karbon dioksit ve sıcaklık algılayıcıları içerir. İçinde [ikinci öğreticide](tutorial-facilities-udf.md), grafiğiniz ve bu algılayıcı değerlerini izlemek için bir kullanıcı tanımlı işlev sağladığınız ve odası, boş ve sıcaklık ve tasarruf edilen karbon dioksit olduğunda bildirimlerini tetiklemesini deneyimli bir aralık içinde olan. 
+
+Bu öğreticide, oda uygun olduğunda e-posta göndermek için bu bildirimleri Azure Logic Apps ile tümleştirme adımları gösterilmektedir. Bir ofis yöneticisi bu bilgileri kullanarak çalışanların en verimli toplantı odasını ayırmalarına yardımcı olabilir. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Olayları Event Grid ile tümleştirme
-> * Mantıksal Uygulama ile olaylardan bildirim oluşturma
+> * Olayları Azure Event Grid ile tümleştirin.
+> * Logic Apps ile olayları bildirin.
     
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide Azure Digital Twins kurulumunu [yapılandırmış](tutorial-facilities-setup.md) ve [sağlamış](tutorial-facilities-udf.md) olduğunuz kabul edilmektedir. Devam etmeden önce aşağıdakilere sahip olduğunuzdan emin olun:
 - Bir [Azure hesabı](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Çalışan bir Digital Twins örneği.
 - Çalışma makinenize indirilmiş ve ayıklanmış [Digital Twins C# örnekleri](https://github.com/Azure-Samples/digital-twins-samples-csharp).
-- Örneği çalıştırmak için geliştirme makinenize yüklenmiş [.NET Core SDK sürüm 2.1.403 veya üzeri](https://www.microsoft.com/net/download). Doğru sürümün yüklü olup olmadığını denetlemek için `dotnet --version` komutunu çalıştırın. 
+- [.NET core SDK'sı sürüm 2.1.403 veya üzeri](https://www.microsoft.com/net/download) geliştirme makinenizde örneği çalıştırmak için. Çalıştırma `dotnet --version` doğru sürümünün yüklü olduğunu doğrulayın. 
 - Bildirim e-postalarını göndermek için Office 365 hesabı.
 
 ## <a name="integrate-events-with-event-grid"></a>Olayları Event Grid ile tümleştirme 
-Bu bölümde bir [Event Grid](../event-grid/overview.md) örneği oluşturarak Digital Twins örneğinizden gelen olayları toplayacak ve bunları Logic Apps gibi bir [olay işleyicisine](../event-grid/event-handlers.md) yönlendireceksiniz.
+Bu bölümde, ayarladığınız [Event Grid](../event-grid/overview.md) Azure dijital İkizlerini örneğinizin olaylarını toplayan ve bunları yeniden yönlendirmek için bir [olay işleyicisi](../event-grid/event-handlers.md) Logic Apps gibi.
 
-### <a name="create-event-grid-topic"></a>Event Grid konu başlığı oluşturma
-[Event Grid Konu Başlıkları](../event-grid/concepts.md#topics), kullanıcı tanımlı işlev tarafından oluşturulan olayların yönlendirilmesi için kullanılabilecek bir arabirim sağlar. 
+### <a name="create-an-event-grid-topic"></a>Bir olay Kılavuzu konusu oluşturma
+Bir [olay Kılavuzu konusu](../event-grid/concepts.md#topics) kullanıcı tanımlı işlev tarafından oluşturulan olayları yönlendirmek için bir arabirim sağlar. 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-1. Sol gezinti panelinde **Kaynak oluştur**'a tıklayın. 
+1. Sol bölmede seçin **kaynak Oluştur**. 
 
-1. **Event Grid Konu Başlığı** araması yapın ve sonuçlardan seçin. **Oluştur**’a tıklayın.
+1. **Event Grid Konu Başlığı** araması yapın ve sonuçlardan seçin. **Oluştur**’u seçin.
 
-1. Event Grid konu başlığınız için bir **Ad** girin ve **Abonelik** seçimi yapın. Digital Twins örneğiniz için kullandığınız veya oluşturduğunuz **Kaynak grubu** ve **Konum** girişlerini seçin. **Oluştur**’a tıklayın. 
+1. Event Grid konu başlığınız için bir **Ad** girin ve **Abonelik** seçimi yapın. Seçin **kaynak grubu** kullanılan veya dijital İkizlerini Örneğiniz için oluşturulan ve **konumu**. **Oluştur**’u seçin. 
 
-    ![Event Grid konu başlığı oluşturma](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    ![Bir olay Kılavuzu konusu oluşturma](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
-1. Kaynak grubunuzdan Event Grid konu başlığına gidin, **Genel bakış**'a tıklayın ve **Konu Başlığı Uç Noktası** değerini geçici bir dosyaya kopyalayın. Bu URL'yi aşağıdaki bölümde kullanacaksınız. 
+1. Olay Kılavuzu konu başlığına göz atın, kaynak grubunuzdan, select **genel bakış**ve değeri kopyalayın **konu başlığı uç noktası** geçici bir dosya için. Sonraki bölümde bu URL gerekir. 
 
-1. **Erişim anahtarları**'na tıklayıp **Anahtar 1** ve **Anahtar 2** değerlerini geçici bir dosyaya kopyalayın. Bu değerleri aşağıdaki bölümde uç noktayı oluştururken kullanacaksınız.
+1. Seçin **erişim anahtarları**, kopyalayıp **anahtar 1** ve **anahtar 2** geçici bir dosya için. Sonraki bölümde uç noktası oluşturmak için bu değerlere ihtiyacınız olacak.
 
-    ![Event Grid Anahtarları](./media/tutorial-facilities-events/event-grid-keys.png)
+    ![Event Grid anahtarları](./media/tutorial-facilities-events/event-grid-keys.png)
 
-### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Event Grid Konu Başlığı için uç nokta oluşturma
+### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Olay Kılavuzu konusu için bir uç nokta oluşturma
 
-1. Komut penceresinde Digital Twins örneğinizin **_occupancy-quickstart\src_** klasöründe olduğunuzdan emin olun.
+1. Komut penceresinde nde olduğunuzdan emin olun **doluluk quickstart\src** dijital İkizlerini örnek klasörü.
 
-1. **_actions\createEndpoints.yaml_** adlı dosyayı Visual Studio Code düzenleyicinizde açın. Aşağıdaki içeriğe sahip olduğundan emin olun:
+1. Dosyayı açmak **actions\createEndpoints.yaml** , Visual Studio Kod Düzenleyicisi'nde. Aşağıdaki içeriğe sahip olduğundan emin olun:
 
     ```yaml
     - type: EventGrid
@@ -79,10 +81,10 @@ Bu bölümde bir [Event Grid](../event-grid/overview.md) örneği oluşturarak D
 
 1. `Secondary_connection_string_for_your_Event_Grid` yer tutucusunu **Anahtar 2** değeriyle değiştirin.
 
-1. `Event_Grid_Topic_Path` yer tutucusunu Event Grid konu başlığının yoluyla değiştirin. Bu yolu almak için **Konu Başlığı Uç Noktası** URL'sinin *https://* bölümünü ve sonrasındaki kaynak yollarını silin. Şu biçime benzer görünmelidir: **EventGridAdı.Konumunuz.eventgrid.azure.net**. 
+1. `Event_Grid_Topic_Path` yer tutucusunu Event Grid konu başlığının yoluyla değiştirin. Bu yolu kaldırarak almak **https://** ve sondaki kaynak yolları **konu başlığı uç noktası** URL'si. Şu biçime benzer görünmelidir: *EventGridAdı.Konumunuz.eventgrid.azure.net*. 
 
     > [!IMPORTANT]
-    > Değerleri girerken tırnak işaretlerini dahil etmeyin. *YAML* dosyasında iki nokta sonrasında en az bir boşluk karakteri olduğundan emin olun. *YAML* dosyanızın içeriğini [bu araç](https://onlineyamltools.com/validate-yaml) gibi çevrimiçi YAML doğrulayıcılarını kullanarak da doğrulayabilirsiniz.
+    > Değerleri girerken tırnak işaretlerini dahil etmeyin. YAML dosyası iki nokta üst üste sonra en az bir boşluk karakteri olduğundan emin olun. Tüm çevrimiçi YAML Doğrulayıcı gibi kullanarak, YAML dosyası içeriği doğrulayabilirsiniz [bu araç](https://onlineyamltools.com/validate-yaml).
 
 1. Dosyayı kaydedin ve kapatın. Komut penceresinde aşağıdaki komutu çalıştırın ve istendiğinde oturum açın. 
 
@@ -90,43 +92,45 @@ Bu bölümde bir [Event Grid](../event-grid/overview.md) örneği oluşturarak D
     dotnet run CreateEndpoints
     ```
 
-   Bu komut Event Grid için gerekli uç noktayı oluşturur. 
+   Bu komut, Event Grid için uç nokta oluşturur. 
 
    ![Event Grid uç noktaları](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
 
 
-## <a name="notify-events-with-logic-app"></a>Mantıksal Uygulama ile olaylardan bildirim oluşturma
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) hizmeti, diğer hizmetlerden alınan olaylar için otomatik görev oluşturmanızı sağlar. Bu bölümde bir [Event Grid Konu Başlığının](../event-grid/overview.md) yardımıyla uzamsal sensörlerinizden yönlendirilen olaylar için e-posta bildirimleri oluşturmak üzere gerekli Logic Apps ayarlarını yapılandıracaksınız.
+## <a name="notify-events-with-logic-apps"></a>Logic Apps ile olayları bildir
+Kullanabileceğiniz [Azure Logic Apps](../logic-apps/logic-apps-overview.md) diğer hizmetlerden alınan olayları için otomatik görevler oluşturmak için hizmet. Bu bölümde, Yardım, uzamsal, sensörlerden alınan yönlendirilmiş olaylar için e-posta bildirimleri oluşturmak için mantıksal uygulamalarını ayarlama bir [olay Kılavuzu konusu](../event-grid/overview.md).
 
-1. [Azure portalın](https://portal.azure.com) sol gezinti bölmesinde **Kaynak oluştur**'a tıklayın.
+1. Sol bölmesinde [Azure portalında](https://portal.azure.com)seçin **kaynak Oluştur**.
 
-1. **Mantıksal Uygulama** araması yapın ve yeni bir kaynak oluşturun. **Oluştur**’a tıklayın.
+1. **Mantıksal Uygulama** araması yapın ve yeni bir kaynak oluşturun. **Oluştur**’u seçin.
 
-1. Mantıksal Uygulamanız için bir **Ad** girin ve ardından **Abonelik**, **Kaynak grubu** ve **Konum** seçimlerinizi yapın. **Oluştur**’a tıklayın.
+1. Girin bir **adı** seçin ve mantıksal uygulama kaynağı için kendi **abonelik**, **kaynak grubu**, ve **konumu**. **Oluştur**’u seçin.
 
-    ![Mantıksal Uygulama oluşturma](./media/tutorial-facilities-events/create-logic-app.png)
+    ![Logic Apps kaynak oluştur](./media/tutorial-facilities-events/create-logic-app.png)
 
-1. Dağıtılan Mantıksal Uygulamanızı ve ardından **Mantıksal Uygulama Tasarımcısı** bölmesini açın. 
+1. Açık dağıtıldığında, Logic Apps kaynak ve açın **mantıksal Uygulama Tasarımcısı** bölmesi. 
 
-1. **When an Event Grid event occurs** (Bir Event Grid olayı gerçekleştiğinde) tetikleyicisini seçin. İstendiğinde Azure hesabınızla kiracınızda **oturum açın**. İstendiğinde Event Grid için **erişime izin verin**. **Devam**’a tıklayın.
+1. **When an Event Grid event occurs** (Bir Event Grid olayı gerçekleştiğinde) tetikleyicisini seçin. Kiracınızın istendiğinde Azure hesabınızda oturum açın. Seçin **erişime izin ver** istendiğinde, Event Grid kaynağınız için. **Devam**'ı seçin.
 
-1. **When a resource event occurs (Preview)** (Bir kaynak olayı gerçekleştiğinde (Önizleme)) penceresinde, 
-    1. Event Grid için kullandığınız **Abonelik** girişini seçin,
+1. İçinde **(Önizleme) kaynak olayı gerçekleştiğinde** penceresi: 
+   
+   a. Seçin **abonelik** olay Kılavuzu konusu oluşturma için kullanılan.
 
-    1. **Kaynak Türü** olarak **Microsoft.EventGrid.Topics** seçeneğini belirleyin,
+   b. Seçin **Microsoft.EventGrid.Topics** için **kaynak türü**.
 
-    1. **Kaynak Adı** açılan kutusunda Event Grid kaynağınızı seçin.
+   c. Aşağı açılan kutudan için Event Grid kaynağınızı seçin **kaynak adı**.
 
-    ![Mantıksal Uygulama oluşturma](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   ![Mantıksal Uygulama Tasarımcısı bölmesi](./media/tutorial-facilities-events/logic-app-resource-event.png)
 
-1. **Yeni adım** düğmesine tıklayın.
+1. Seçin **yeni adım** düğmesi.
 
-1. **Eylem seçin** penceresinde,
-    1. *parse json* araması yapın ve **JSON Ayrıştır** eylemini seçin.
+1. İçinde **eylem seçin** penceresi:
+    
+   a. **parse json** araması yapın ve **JSON Ayrıştır** eylemini seçin.
 
-    1. **İçerik** alanına tıklayın ve **Dinamik içerik** listesinden **Gövde** girişini seçin.
+   b. İçinde **içeriği** alanın, Seç **gövdesi** gelen **dinamik içerik** listesi.
 
-    1. **Şema oluşturmak için örnek yük kullanma** girişine tıklayın. Aşağıdaki JSON yükünü yapıştırın ve **Bitti**'ye tıklayın.
+   c. Seçin **şema oluşturmak için yük kullanım örneğine**. Aşağıdaki JSON yükü yapıştırın ve ardından **Bitti**.
 
         ```JSON
         {
@@ -146,57 +150,59 @@ Bu bölümde bir [Event Grid](../event-grid/overview.md) örneği oluşturarak D
         }
         ```
     
-    Bu yükte kurgusal değerler bulunur. Mantıksal Uygulama, bu örneği kullanarak bir **Şema** oluşturur.
+    Bu yükte kurgusal değerler bulunur. Mantıksal uygulamalar oluşturmak için bu örnek yük kullanan bir *şema*.
     
-    ![Mantıksal Uygulama Event Grid için JSON Ayrıştırma](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    ![Event Grid için Logic Apps JSON Ayrıştır penceresi](./media/tutorial-facilities-events/logic-app-parse-json.png)
 
-1. **Yeni adım** düğmesine tıklayın.
+1. Seçin **yeni adım** düğmesi.
 
-1. **Eylem seçin** penceresinde,
-    1. **Koşul Denetimi** araması yapın ve **Eylemler** listesinden seçin. 
+1. İçinde **eylem seçin** penceresi:
 
-    1. İlk **Bir değer seçin** metin kutusunun içine tıklayın ve **JSON Ayrıştır** penceresinin **Dinamik içerik** listesinden **eventType** girişini seçin.
+   a. Arayın ve seçin **koşul denetimi** gelen **eylemleri** listesi. 
 
-    1. İkinci **Bir değer seçin** metin kutusunun içine tıklayın ve *UdfCustom* yazın.
+   b. İlk **bir değer seçin** metin kutusunda **eventType** gelen **dinamik içerik** için liste **JSON Ayrıştır** penceresi.
 
-    ![Mantıksal Uygulama Event Grid için JSON Ayrıştırma](./media/tutorial-facilities-events/logic-app-condition.png)
+   c. İkinci **bir değer seçin** metin kutusuna **UdfCustom**.
 
-1. **Doğruysa** penceresinde,
-    1. **Eylem ekle**'ye tıklayıp *Office 365 Outlook*'u seçin.
+   ![Seçili koşulları](./media/tutorial-facilities-events/logic-app-condition.png)
 
-    1. **Eylemler** listesinden **E-posta gönder**'i seçin. **Oturum aç**'a tıklayıp e-posta hesabınızın kimlik bilgilerini girin. Sorulduğunda **Erişime izin ver**'e tıklayın.
+1. İçinde **doğruysa** penceresi:
+   
+   a. Seçin **Eylem Ekle**seçip **Office 365 Outlook**.
 
-    1. **Alıcı** kutusuna bildirimlerin gönderilmesi için e-posta adresinizi yazın. **Konu** alanına *Digital Twins alanda düşük hava kalitesi bildirimi* metnini girin ve **JSON Ayrıştır** için **Dinamik içerik** listesinden **TopologyObjectId** girişini seçin.
+   b. Gelen **eylemleri** listesinden **bir e-posta**. Seçin **oturum** ve e-posta hesabı kimlik bilgilerinizi kullanın. Seçin **erişime izin ver** istendiğinde.
 
-    1. Aynı penceredeki **Gövde** bölümüne şuna benzer bir metin girin: *Odalardan birinde düşük hava kalitesi algılandı ve sıcaklığın ayarlanması gerekiyor*. Aşağıda gösterilen şekilde **Dinamik içerik** listesindeki diğer öğeleri de kullanabilirsiniz.
+   c. **Alıcı** kutusuna bildirimlerin gönderilmesi için e-posta adresinizi yazın. İçinde **konu**, metin girin **dijital İkizlerini bildirim alanında kötü uzaktan kalite için**. Ardından **TopologyObjectId** gelen **dinamik içerik** için liste **JSON Ayrıştır**.
 
-    ![Mantıksal Uygulama E-posta gönderme](./media/tutorial-facilities-events/logic-app-send-email.png)
+   d. Altında **gövdesi** aynı penceresinde şuna benzer bir metin girin: **zayıf uzaktan kalite bir odada algılandı ve sıcaklık ayarlanması gerekiyor**. Öğeleri kullanarak özenli çekinmeyin **dinamik içerik** listesi.
 
-1. **Mantıksal Uygulama Tasarımcısı** bölmesinin en üstünde bulunan **Kaydet** düğmesine tıklayın.
+   ![Logic Apps "e-posta Gönder" seçimleri](./media/tutorial-facilities-events/logic-app-send-email.png)
 
-1. Bir komut penceresinde Digital Twins örneğinin **_device-connectivity_** klasörüne gidip `dotnet run` komutunu çalıştırarak sensör verilerinin simülasyonunu yapmayı unutmayın.
+1. Seçin **Kaydet** üst kısmındaki düğmeye **mantıksal Uygulama Tasarımcısı** bölmesi.
 
-Bu Mantıksal Uygulama birkaç dakika içinde e-posta göndermeye başlamalıdır. 
+1. Sensör verilerini göz atarak benzetimini yapmak emin **cihaz bağlantısı** dijital İkizlerini örnek bir komut penceresi ve çalışan klasörü `dotnet run`.
 
-   ![Mantıksal Uygulama E-posta gönderme](./media/tutorial-facilities-events/logic-app-notification.png)
+Birkaç dakika içinde e-posta bildirimleri bu Logic Apps kaynak alma başlamanız gerekir. 
 
-Bu e-postaları almayı durdurmak için portalda **Mantıksal Uygulamanıza** gidin ve **Genel bakış** bölmesini seçin. **Devre dışı bırak**'ı seçin.
+   ![E-posta ile bildirim](./media/tutorial-facilities-events/logic-app-notification.png)
+
+Bu e-postaları almayı durdurmak için portalında Logic Apps kaynağınıza gidin ve seçin **genel bakış** bölmesi. Seçin **devre dışı**.
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu kadar Azure Digital Twins incelemesi sizin için yeterliyse bu öğreticide oluşturulan kaynakları silebilirsiniz:
+Bu noktada Azure dijital İkizlerini keşfetmeye durdurmak istiyorsanız, bu öğreticide oluşturulan kaynakları silmek çekinmeyin:
 
-1. [Azure portalda](http://portal.azure.com) sol taraftaki menüden **Tüm kaynaklar**'a tıklayın, Digital Twins kaynak grubunuzu ve ardından **Sil**'i seçin.
-2. Gerekirse çalışma makinenizdeki örnek uygulamaları da silebilirsiniz. 
+1. Sol menüden [Azure portalında](http://portal.azure.com)seçin **tüm kaynakları**dijital İkizlerini kaynak grubunuzu seçin ve seçin **Sil**.
+2. Gerekirse, iş makinenizde örnek uygulamaları silin. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sensör verilerinizi görselleştirmeyi, eğilimleri analiz etmeyi ve anomalileri bulmayı öğrenmek için bir sonraki öğreticiye geçebilirsiniz. 
+Sensör verilerinizi görselleştirin, eğilimleri ve anormallikleri analiz öğrenmek için sonraki öğreticiye geçin: 
 > [!div class="nextstepaction"]
 > [Öğretici: Time Series Insights'ı kullanarak Azure Digital Twins alanlarınızdan gelen olayları görselleştirme ve analiz etme](tutorial-facilities-analyze.md)
 
-Ayrıca dilerseniz Azure Digital Twins hizmetindeki uzamsal zeka grafları ve nesne modelleri hakkında daha fazla bilgi edinebilirsiniz. 
+Ayrıca Azure dijital İkizlerini nesne modellerinde ve uzamsal zeka grafikler hakkında daha fazla bilgi edinebilirsiniz: 
 > [!div class="nextstepaction"]
 > [Digital Twins nesne modellerini ve uzamsal zeka grafını anlama](concepts-objectmodel-spatialgraph.md)

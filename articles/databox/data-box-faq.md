@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649406"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568039"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Sık Sorulan Sorular
 
@@ -28,7 +28,7 @@ Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
 - Veri kopyalama 
 - Cihaz gönderme
 - Verileri doğrulama ve yükleme 
-- Delil zinciri desteği
+- Koruma zinciri desteği
 
 ## <a name="about-the-service"></a>Hizmet hakkında
 
@@ -46,7 +46,7 @@ A. Azure'a aktarmak istediğiniz 40-500 TB arası veriniz varsa Data Box'tan fay
 ### <a name="q-what-is-the-price-of-data-box"></a>S. Data Box'ın maliyeti nedir?
 A. Data Box için 10 gün boyunca nominal bir ücret tahsil edilir. Azure portalda sipariş oluştururken ürün modelini seçme aşamasında cihaz ücretleri görüntülenir. Sevkiyat da ücretsizdir ancak Azure depolama ücretleri tahsil edilecektir. Daha fazla bilgi için bkz. [Azure Data Box fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/databox/). 
 
-### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>S. Data Box'a tek seferde en fazla ne kadar veri aktarabilirim?
+### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>S. Data Box ile tek seferde en fazla ne kadar veri aktarabilirim?
 A. Data Box toplamda 100 TB, kullanılabilir alan olarak ise 80 TB kapasiteye sahiptir. Data Box ile 80 TB'a kadar veri aktarabilirsiniz. Daha fazla veri aktarmak için daha fazla cihaz sipariş etmeniz gerekir.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>S. Data Box'ın bulunduğum bölgede kullanılabilir durumda olup olmadığını nasıl kontrol edebilirim? 
@@ -89,7 +89,7 @@ A. Önceki siparişinizi kopyalayabilirsiniz. Kopyalama işlemi, bir öncekiyle 
 A.  Azure portalda Data Box siparişinize ve **Cihaz ayrıntıları**'na gidin. Kilit açma parolasını kopyalayın. Bu parolayı kullanarak Data Box cihazınızın yerel web arabiriminde oturum açabilirsiniz. Daha fazla bilgi için bkz. [Öğretici: Azure Data Box'ın paketini açma, kablolarını takma ve bağlantılarını yapma](data-box-deploy-set-up.md).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>S. Data Box'a bağlanmak ve veri kopyalamak için Linux ana bilgisayarı kullanabilir miyim?
-A.  Evet. Data Box ile SMB ve NFS istemcilerine bağlanabilirsiniz. Daha fazla bilgi için ana bilgisayarınıza ilişkin [Desteklenen işletim sistemleri](data-box-system-requirements.md) listesine gidin.
+A.  Evet. Data Box ile SMB ve NFS istemcilerine bağlanabilirsiniz. Daha fazla bilgi için ana bilgisayarınızın [Desteklenen işletim sistemleri](data-box-system-requirements.md) listesine gidin.
 
 ### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>S. Data Box'ım yola çıktı ancak şimdi siparişimi iptal etmek istiyorum. Neden iptal düğmesi kullanılamıyor?
 A.  Siparişi yalnızca Data Box siparişi verdikten sonra ancak sipariş işleme alınmadan önce iptal edebilirsiniz. Data Box siparişi işleme alındıktan sonra iptal edemezsiniz. 
@@ -113,7 +113,7 @@ A.-->
 A. Sistem hatası göstergesi LED ışığının yanması sisteminizin iyi durumda olmadığını gösterir. Sonraki adımlar için [Microsoft Desteği](data-box-disk-contact-microsoft-support.md)'ne başvurun.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>S. Azure portalda Data Box kilit açma parolasına erişemiyorum. Neden olabilir?
-A. Azure portalda kilit açma parolasına erişemiyorsanız aboneliğinizin ve depolama hesabınızın izinlerini kontrol edin. Kaynak grubu düzeyinde katkıda bulunan veya sahip izinlerine sahip olduğunuzdan emin olun. Bu izinlere sahip değilseniz kimlik bilgilerine erişmek için en azından Data Box Operatörü rolü izinlerine sahip olmanız gerekir.
+A. Azure portalda kilit açma parolasına erişemiyorsanız aboneliğinizin ve depolama hesabınızın izinlerini kontrol edin. Kaynak grubu düzeyinde katkıda bulunan veya sahip izinlerine sahip olduğunuzdan emin olun. Ardından, en az olması gerekiyorsa, erişim kimlik bilgileri görmek için veri kutusu operatörü rolü izni.
 
 ## <a name="track-status"></a>Durumu izleme
 
@@ -135,7 +135,7 @@ A.  Data Box'ın 80 TB kullanılabilir depolama kapasitesi vardır. 40 TB-80 TB 
 A.  Maksimum boyutlar Azure Depolama sınırları ile belirlenir. Maksimum blok blobu yaklaşık 4,768 TiB, maksimum sayfa blobu boyutu ise 8 TiB olarak belirlenmiştir. Daha fazla bilgi için bkz. [Azure Depolama Ölçeklenebilirlik ve Performans Hedefleri](../storage/common/storage-scalability-targets.md). 
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>S. Verilerimin aktarım sırasında güvende olduğundan nasıl emin olabilirim? 
-A. Data Box'ınızın taşıma sırasındaki güvenliğini sağlamak için kullanılan birçok güvenlik özelliği vardır. Bunların bazıları kurcalamaları gösteren mühürler, donanım ve yazılım kurcalama algılama sistemleri ve cihaz parolasıdır. Daha fazla bilgi için bkz. [Azure Data Box güvenliği ve veri koruması](data-box-security.md).
+A. Data Box'ınızın taşıma sırasındaki güvenliğini sağlamak için kullanılan birçok güvenlik özelliği vardır. Bunların bazıları kurcalamaları gösteren mühürler, donanım ve yazılım kurcalama algılaması ve cihaz kilidini açma parolasıdır. Daha fazla bilgi için bkz. [Azure Data Box güvenliği ve veri koruması](data-box-security.md).
 
 ### <a name="q-how-do-i-copy-the-data-to-the-data-box"></a>S. Data Box'a nasıl veri kopyalayabilirim? 
 A.  SMB istemcisi kullanıyorsanız Robocopy, Diskboss veya Windows Dosya Gezgini gibi bir SMB kopyalama aracı kullanarak verileri sürükleyip cihaza bırakın. 
@@ -172,7 +172,7 @@ A.  Evet. Data Box ile genel amaçlı, klasik veya blob depolama olmak üzere en
 A. Hasarlı bir şekilde ulaşan veya bariz kurcalama izleri bulunan cihazları kullanmayın. [Microsoft Desteğine başvurun](data-box-disk-contact-microsoft-support.md) ve cihazı mümkün olan en kısa sürede geri gönderin. Yenisinin gönderilmesi için yeni bir Data Box siparişi de oluşturabilirsiniz. Bu durumda yeni cihaz için ayrıca ücret alınmaz.
 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>S. Data Box'ı göndermek için kendi gönderim şirketimi kullanabilir miyim?
-A. Data Box hizmetinde cihazların Azure veri merkezine geliş gidişi Microsoft tarafından koordine edilir. Kendi gönderim şirketinizi kullanmak istiyorsanız Azure İçeri/Dışarı Aktarma hizmetini kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure İçeti/Dışarı Aktarma hizmeti nedir?](../storage/common/storage-import-export-service.md)
+A. Data Box hizmetinde cihazların Azure veri merkezine geliş gidişi Microsoft tarafından koordine edilir. Kendi gönderim şirketinizi kullanmak istiyorsanız Azure İçeri/Dışarı Aktarma hizmetini kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure İçeri/Dışarı Aktarma hizmeti nedir?](../storage/common/storage-import-export-service.md)
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>S. E-mürekkep üzerinde iade sevkiyat etiketi gösterilmiyor. Ne yapmalıyım?
 A. E-mürekkepte iade sevkiyat etiketi gösterilmiyorsa aşağıdaki adımları uygulayın:
@@ -220,8 +220,8 @@ A.  Veriler Azure'a kopyalandıktan sonra Data Box disklerindeki veriler NIST SP
 A.  Azure Data Box hizmeti delil zinciri belgeleri için kullanabileceğiniz raporlar sunar. Denetleme ve kopyalama günlükleri Azure'daki depolama hesabınızda mevcuttur ve siparişler tamamlandıktan sonra Azure portalda [sipariş geçmişini indirebilirsiniz](data-box-portal-admin.md#download-order-history).
 
 
-### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Delil zinciri desteği için sunulan rapor türleri nelerdir?
-A.  Delil zinciri desteği için aşağıdaki rapor türleri sunulur:
+### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Koruma zinciri desteği için sunulan rapor türleri nelerdir?
+A.  Koruma zinciri desteği için aşağıdaki rapor türleri sunulur:
 
 - DHL ve UPS şirketlerinden taşıma lojistik süreçleri.
 - Cihazı açma ve kullanıcı paylaşımı erişimi günlükleri.

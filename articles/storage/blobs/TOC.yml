@@ -115,7 +115,8 @@ items:
     items:
     - name: Yerel olarak yedekli depolama
       href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Bölgesel olarak yedekli depolama
+    - name: >
+        Alanlar arası yedekli depolama
       href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Coğrafi olarak yedekli depolama
       href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -405,8 +406,8 @@ items:
       href: /rest/api/storageimportexport
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
-    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Azure yol haritası
+    href: https://azure.microsoft.com/roadmap/?product=storage
   - name: Azure Depolama istemci araçları
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Forum
@@ -415,8 +416,6 @@ items:
     href: https://azure.microsoft.com/pricing/details/storage/blobs/
   - name: Fiyatlandırma hesaplayıcı
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Hizmet güncelleştirmeleri
-    href: https://azure.microsoft.com/updates/?product=storage
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Videolar
@@ -463,9 +462,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: ceea876907057181aa12363c836e117b0485cb87
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: b4dbce75cab97213cdee9f248c245e4dd9fcf74f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753993"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634048"

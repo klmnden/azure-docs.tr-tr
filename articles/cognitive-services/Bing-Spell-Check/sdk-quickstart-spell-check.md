@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3a6f7511407ba29b8fc6d8d3a41369bcd8cf18bc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 406936200a39e21d7377e7b2dba19a7ee745de57
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803113"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568844"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>Hızlı başlangıç: C# ile Bing Yazım Denetimi SDK'sı
 
@@ -25,7 +25,7 @@ Bing Yazım Denetimi SDK’sı, yazım denetimi için REST API’sinin işlevsel
 
 Bing Yazım Denetimi SDK’sını kullanarak bir konsol uygulaması ayarlamak için, Visual Studio’da Çözüm Gezgini’nden `Manage NuGet Packages` seçeneğine gidin. `Microsoft.Azure.CognitiveServices.SpellCheck` paketini ekleyin.
 
-[SpellCheck SDK paketini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) yüklemek aşağıdakileri içeren bağımlılıkları da yükler:
+[SpellCheck SDK paketini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/1.2.0) yüklemek aşağıdakileri içeren bağımlılıkları da yükler:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.AZure

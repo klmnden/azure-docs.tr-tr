@@ -2,19 +2,19 @@
 title: Azure IoT Edge için Hızlı Başlangıç + Windows | Microsoft Docs
 description: Bir sanal edge cihazında analiz çalıştırarak Azure IoT Edge’i deneme
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 50c430d22f58ce9d2c122c630df1689c18e50aad
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: HT
+ms.openlocfilehash: 16c5b15612acebacfa034c6c55dd053a21eac0d2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946173"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566339"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IoT Edge modülünüzü Azure portalından bir Windows cihaza dağıtma - önizleme
 
@@ -46,7 +46,7 @@ Azure IoT uzantısını cloud shell örneğine ekleyin.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bulut kaynakları:
 

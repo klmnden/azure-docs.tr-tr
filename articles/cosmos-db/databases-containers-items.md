@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 195686a924d784327c72bcd09a1a50a563e444de
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629221"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684867"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma
 
@@ -94,12 +94,10 @@ Bir Azure Cosmos kapsayıcı herhangi bir Azure Cosmos API'lerini kullanarak şu
 | **İşlem** | **Azure CLI** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Bir veritabanı kapsayıcılarda listeleme | Evet* | Evet | Evet | Evet | NA | NA |
-| Bir kapsayıcı okuyun | Evet* | Evet | Evet | Evet | NA | NA |
-| Yeni bir kapsayıcı oluşturma | Evet* | Evet | Evet | Evet | NA | NA |
-| Kapsayıcıyı güncelleştir | Evet* | Evet | Evet | Evet | NA | NA |
-| Kapsayıcıyı Sil | Evet* | Evet | Evet | Evet | NA | NA |
-
-\* Ocak 2019 ' kullanıma sunulacaktır.
+| Bir kapsayıcı okuyun | Evet | Evet | Evet | Evet | NA | NA |
+| Yeni bir kapsayıcı oluşturma | Evet | Evet | Evet | Evet | NA | NA |
+| Kapsayıcıyı güncelleştir | Evet | Evet | Evet | Evet | NA | NA |
+| Kapsayıcıyı Sil | Evet | Evet | Evet | Evet | NA | NA |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos öğeleri
 

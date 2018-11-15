@@ -2,19 +2,19 @@
 title: 'Öğretici: ASA işlerini Azure IoT Edge cihazlarına dağıtma | Microsoft Docs'
 description: Bu öğreticide Azure Stream Analytics’i bir IoT Edge cihazına modül olarak dağıtacaksınız.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b85fe520bf29d10bb3dac1246349abbdadaf6df3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158746"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566950"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Öğretici: Azure Stream Analytics’i bir IoT Edge modülüne dağıtma (önizleme)
 
@@ -42,7 +42,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bir Azure IoT Edge cihazı:
 
@@ -67,7 +67,7 @@ IoT Edge cihazında çalıştırmak üzere oluşturduğunuz Azure Stream Analyti
 
    | Alan | Değer |
    | ----- | ----- |
-   | Adı | Depolama hesabınıza benzersiz bir ad verin. | 
+   | Ad | Depolama hesabınıza benzersiz bir ad verin. | 
    | Konum | Size yakın bir konum seçin. |
    | Abonelik | IoT hub'ınızla aynı aboneliği seçin. |
    | Kaynak grubu | IoT Edge hızlı başlangıçlarında ve öğreticilerinde oluşturduğunuz tüm test kaynakları için aynı kaynak grubunu kullanmanızı öneririz. Örneğin, **IoTEdgeResources**. |
