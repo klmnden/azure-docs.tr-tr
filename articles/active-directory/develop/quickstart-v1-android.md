@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970195"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287243"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı başlangıç: Android uygulamasından kullanıcıların oturum açma ve Microsoft Graph API'sini çağırma
 
@@ -30,7 +30,7 @@ ms.locfileid: "46970195"
 
 Android uygulaması geliştiriyorsanız, Microsoft Azure Active Directory (Azure AD) kullanıcılarının oturum açmasını kolaylaştırıyor ve basit hale getirir. Azure AD, Microsoft Graph veya kendi korumalı web API’niz üzerinden uygulamanızın kullanıcı verilerine erişmesini sağlar.
 
-Azure AD Authentication Library (ADAL) Android kitaplığı, endüstri standardı OAuth 2.0 ve OpenID Connect'i kullanarak [Microsoft Azure Active Directory hesapları](https://azure.microsoft.com/services/active-directory/) için destek sağladığından, uygulamanıza [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API'si](https://graph.microsoft.io) kullanabilme olanağı getirir.
+Azure AD Authentication Library (ADAL) Android kitaplığı, endüstri standardı OAuth 2.0 ve OpenID Connect'i kullanarak [Microsoft Azure Active Directory hesapları](https://azure.microsoft.com/services/active-directory/) için destek sağladığından, uygulamanıza [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API'si](https://developer.microsoft.com/graph) kullanabilme olanağı getirir.
 
 Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
 
@@ -39,7 +39,7 @@ Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
 * Microsoft Graph'ı çağırma
 * Kullanıcının oturumu kapatma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için, kullanıcıları oluşturabildiğiniz ve uygulama kaydedebildiğiniz bir Azure AD kiracısına ihtiyacınız vardır. Henüz kiracınız yoksa, [nasıl alabileceğinizi öğrenin](quickstart-create-new-tenant.md).
 

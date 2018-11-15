@@ -6,25 +6,24 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: cherylmc
-ms.openlocfilehash: 8776a07f4fb1ffcc573bfedace38280576fa3184
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.author: mialdrid
+ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622984"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684775"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
-Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Kullanabileceğiniz bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanılabilir. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır.
+Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanabilirsiniz. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır.
 
 ## <a name="gateway-types"></a>Ağ geçidi türleri
 
-Bir sanal ağ geçidi kaynağı oluştururken birkaç ayar belirtirsiniz. Gerekli ayarlardan biri '-GatewayType', ağ geçidini ExpressRoute için kullanılıp kullanılmayacağını belirtir ya da VPN trafiği. İki ağ geçidi türleri şunlardır: 
+Bir sanal ağ geçidi oluştururken birkaç ayar yapılandırırsınız gerekir. Gerekli ayarlardan biri '-GatewayType', ağ geçidini ExpressRoute için kullanılıp kullanılmayacağını belirtir ya da VPN trafiği. İki ağ geçidi türleri şunlardır:
 
 * **VPN** - genel Internet şifrelenmiş trafik göndermek için 'Vpn' ağ geçidi türünü kullanın. Bu VPN ağ geçidi olarak da adlandırılır. Siteden Siteye, Noktadan Siteye ve Sanal Ağdan Sanal Ağa bağlantıların tümü VPN ağ geçidi kullanır.
 
-* **ExpressRoute** - özel bir bağlantı üzerinde ağ trafiği göndermek için 'ExpressRoute' ağ geçidi türünü kullanın. Bu, bir ExpressRoute ağ geçidi olarak da adlandırılır ve ExpressRoute yapılandırırken kullandığınız ağ geçidi türüdür.
-
+* **ExpressRoute** - özel bir bağlantı üzerinde ağ trafiği göndermek için 'ExpressRoute' ağ geçidi türünü kullanın. Bu, bir ExpressRoute ağ geçidi olarak da adlandırılır ve ExpressRoute yapılandırma sırasında kullanılan ağ geçidi türüdür.
 
 Bir sanal ağın her ağ geçidi türü için yalnızca bir sanal ağ geçidi olabilir. Örneğin, GatewayType Vpn kullanan bir sanal ağ geçidiniz ve GatewayType ExpressRoute kullanan bir sanal ağ geçidiniz olabilir.
 
@@ -39,8 +38,8 @@ Aşağıdaki tabloda, ağ geçidi türleri ve tahmini performanslarını göster
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Uygulama performansını uçtan uca gecikme süresi ve trafik akışları uygulama açılır sayısı gibi birden çok etkene bağlıdır. Tablo sayılar uygulama teorik olarak ideal bir ortam elde edebilirsiniz üst sınırını ifade eder. 
-> 
+> Uygulama performansını uçtan uca gecikme süresi ve trafik akışları uygulama açılır sayısı gibi birden çok etkene bağlıdır. Tablo sayılar uygulama teorik olarak ideal bir ortam elde edebilirsiniz üst sınırını ifade eder.
+>
 >
 
 ### <a name="zrgw"></a>Bölgesel olarak yedekli ağ geçidi SKU'ları
@@ -55,7 +54,7 @@ Bölgesel olarak yedekli ağ geçitleri, ExpressRoute ağ geçidi için belirli 
 * ErGw2AZ
 * ErGw3AZ
 
-Yeni ağ geçidi SKU'ları, en iyi sonucu gereksinimlerinize uyacak şekilde diğer dağıtım seçenekleri de destekler. Yeni ağ geçidi SKU'ları kullanarak bir sanal ağ geçidi oluştururken, aynı zamanda belirli bir bölgenin ağ geçidi dağıtmak için seçeneğiniz vardır. Bu, bölgesel bir ağ geçidi olarak adlandırılır. Bölgesel bir ağ geçidi dağıttığınızda, ağ geçidinin tüm örnekleri aynı kullanılabilirlik alanında dağıtılır. 
+Yeni ağ geçidi SKU'ları, en iyi sonucu gereksinimlerinize uyacak şekilde diğer dağıtım seçenekleri de destekler. Yeni ağ geçidi SKU'ları kullanarak bir sanal ağ geçidi oluştururken, aynı zamanda belirli bir bölgenin ağ geçidi dağıtmak için seçeneğiniz vardır. Bu, bölgesel bir ağ geçidi olarak adlandırılır. Bölgesel bir ağ geçidi dağıttığınızda, ağ geçidinin tüm örnekleri aynı kullanılabilirlik alanında dağıtılır.
 
 ## <a name="resources"></a>REST API ve PowerShell cmdlet'leri
 Ek teknik kaynaklar ve sanal ağ geçidi yapılandırması için REST API'ler ve PowerShell cmdlet'lerini kullanırken, belirli bir söz dizimi gereksinimler için şu sayfalara bakın:

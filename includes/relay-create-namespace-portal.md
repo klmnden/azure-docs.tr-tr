@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572827"
+---
 1. [Azure portalında][Azure portal] oturum açın.
 2. Soldaki menüden **+ Kaynak oluştur**'u seçin. Ardından **Tümleştirme** > **Geçiş**'i seçin. Listede **Geçiş**'i görmüyorsanız sağ üst köşedeki **Tümünü Gör**'ü seçin. 
 3. **Ad alanı oluştur** bölümüne bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.

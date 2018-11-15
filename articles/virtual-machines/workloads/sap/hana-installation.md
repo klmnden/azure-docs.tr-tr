@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 160cc4fb3ccdabfd76e228c447ad179b3616d195
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231109"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633963"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırın
 
@@ -170,7 +170,7 @@ HANA/log/yedekleme birimi veritabanı yedeklemeleri için birimin olması beklen
 
 Sağlanan depolama alanına ek 1 TB'lik artışlarla ek depolama kapasitesi satın alabilirsiniz. Bu ek depolama alanı yeni birimleri, HANA büyük örneği için eklenebilir.
 
-Azure hizmet yönetimi üzerinde SAP HANA ile ekleme sırasında kullanıcı kimliği (UID) ve Grup Kimliği (GID) sidadm kullanıcı ve sapsys grubu için müşteri belirtir (örneğin: 1000,500) SAP HANA sistem yüklemesi sırasında aynı değerler kullanmanız gerekir. Bir birim birden çok HANA örneklerine dağıtmak istediğiniz çünkü birden fazla birimler (her örneği için bir küme) alın. Sonuç olarak, dağıtım sırasında aşağıdakileri tanımlamanız gerekir:
+Azure hizmet yönetimi üzerinde SAP HANA ile ekleme sırasında kullanıcı kimliği (UID) ve Grup Kimliği (GID) sidadm kullanıcı ve sapsys grubu için müşteri belirtir (örneğin: 1000,500). SAP HANA sistem yüklemesi sırasında aynı değerler kullanmanız gerekir. Bir birim birden çok HANA örneklerine dağıtmak istediğiniz çünkü birden fazla birimler (her örneği için bir küme) alın. Sonuç olarak, dağıtım sırasında aşağıdakileri tanımlamanız gerekir:
 
 - (Sidadm ondan türetilir) farklı HANA örnekleri SID'si.
 - Bellek boyutları farklı HANA örnekleri. Örnek başına bellek boyutu, her bir tek birim kümesi birimlerin boyutunu tanımlar.

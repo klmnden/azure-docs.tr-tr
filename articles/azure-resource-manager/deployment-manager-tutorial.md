@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/04/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394491"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345581"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Öğretici: Azure Deployment Manager’ı Resource Manager şablonlarıyla kullanma (Özel önizleme)
 
@@ -43,7 +43,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaleyi tamamlamak için gerekenler:
 
@@ -52,7 +52,7 @@ Bu makaleyi tamamlamak için gerekenler:
 * Azure PowerShell. Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager cmdlet'leri. Bu yayın öncesi cmdlet’leri yüklemek için PowerShellGet’in en son sürümü gereklidir. En son sürümü edinmek için bkz. [PowerShellGet’i Yükleme](/powershell/gallery/installing-psget). PowerShellGet’i yükledikten sonra PowerShell penceresini kapatın. Bir PowerShell penceresi açın ve şu komutu çalıştırın:
 
-    ```
+    ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
 * [Microsoft Azure Depolama Gezgini](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Azure Depolama Gezgini gerekli değildir, ancak işinizi kolaylaştırır.
@@ -287,7 +287,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
 1. Hizmet topolojisini dağıtmak için betiği çalıştırın.
 
-    ```powershell
+    ```azurepowershell-interactive
     $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
@@ -312,7 +312,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
 3. Piyasaya çıkarma şablonunu dağıtın:
 
-    ```powershell
+    ```azurepowershell-interactive
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -Name $deploymentName `
@@ -323,7 +323,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
 4. Aşağıdaki PowerShell betiğini kullanarak piyasaya çıkarma ilerleme durumunu kontrol edin:
 
-    ```powershell
+    ```azurepowershell-interactive
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>"
     Get-AzureRmDeploymentManagerRollout `

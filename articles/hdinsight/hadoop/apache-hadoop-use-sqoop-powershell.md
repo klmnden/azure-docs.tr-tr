@@ -1,6 +1,6 @@
 ---
-title: PowerShell ve Azure HDInsight'ı kullanarak Sqoop işleri çalıştırma
-description: Bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve için bir iş istasyonundan Azure PowerShell'i kullanma konusunda bilgi edinin.
+title: PowerShell ve Azure HDInsight'ı kullanarak Apache Sqoop işleri çalıştırma
+description: Apache Sqoop alma ve bir Apache Hadoop kümesi ile bir Azure SQL veritabanı arasında için bir iş istasyonundan Azure PowerShell'i kullanmayı öğrenin.
 ms.reviewer: jasonh
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 34c857ceef385e2089937b64d4f88dd434a347dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 23dae8a6f0651ee6b753c4b29112eb733103b9e1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010669"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631453"
 ---
-# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>HDInsight, Hadoop için Azure PowerShell kullanarak Sqoop işleri çalıştırma
+# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Apache Sqoop işleri, HDInsight, Apache Hadoop için Azure PowerShell kullanarak çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Azure HDInsight'ın bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında vermek ve almak için Sqoop işleri çalıştırmak için Azure PowerShell kullanmayı öğrenin.
+Azure HDInsight'ın bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında vermek ve almak için Apache Sqoop'u işleri çalıştırmak için Azure PowerShell kullanmayı öğrenin.
 
 > [!NOTE]
 > Bu makalede yer alan yordamları bir Windows tabanlı veya Linux tabanlı HDInsight kümesi ile birlikte kullanabilirsiniz, ancak yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin başında sekme seçicisini kullanın. 

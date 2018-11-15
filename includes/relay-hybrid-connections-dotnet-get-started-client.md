@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: d92f94836fd789f0d97d83abd9ac9683d378497a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572860"
+---
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşturun.

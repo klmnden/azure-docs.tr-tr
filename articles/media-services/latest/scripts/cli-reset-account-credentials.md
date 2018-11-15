@@ -12,22 +12,26 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: f97cf87288f5efbeef11a27e98ab3fc2caf27b40
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 1c70441ea5b35a55ba39f934e74a6512d783fcf0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376422"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615397"
 ---
 # <a name="cli-example-reset-the-account-credentials"></a>CLI örneği: Hesap kimlik bilgilerini sıfırlama
 
 Bu makaledeki Azure CLI betiği, hesabınızın kimlik bilgilerini sıfırlamayı ve app.config ayarlarını geri almayı gösterir.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Önkoşullar 
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0.20 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+
+    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
+
+- [Bir Media Services hesabı oluşturma](../create-account-cli-how-to.md).
 
 ## <a name="example-script"></a>Örnek betik
 

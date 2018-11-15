@@ -1,139 +1,130 @@
 ---
-title: Azure ve Nesnelerin İnterneti (IoT) Tanıtımı
-description: Azure IoT'ye ve içindeki hizmetlere genel bakış
+title: Nesnelerin interneti (IOT) Azure İnternet'e giriş
+description: Azure IOT ve Yardım örnekler de dahil olmak üzere IOT hizmetleriyle temelleri açıklayan giriş IOT kullanımını göstermektedir.
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: d7e5949be9ea09f94ff6ee86c9f996f2e203eac7
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
-ms.translationtype: HT
+ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069446"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288756"
 ---
-# <a name="introduction-to-azure-and-the-internet-of-things"></a>Azure ve Nesnelerin İnterneti Tanıtımı
+# <a name="what-is-azure-internet-of-things-iot"></a>Azure nesnelerin interneti (IOT) nedir?
 
-Azure IoT, üç teknoloji ve çözüm alanından oluşur. Çözümler, platform hizmetleri ve edge’in tamamı, IoT uygulamanızın uçtan uca gelişimini kolaylaştırmak için tasarlanmıştır. Bu makale, buluttaki bir IoT çözümünün genel özelliklerinin açıklanmasıyla başlar, ardından Azure IoT’un, IoT projelerindeki zorluklara nasıl yanıt verdiğine ve neden Azure IoT’u benimsemeniz gerektiğine dair bir genel bakışla devam eder.
+Azure nesnelerin interneti (IOT), Denetim milyarlarca IOT varlığını bağlayın, izleyin ve Microsoft tarafından yönetilen bir bulut Hizmetleri koleksiyonudur. Daha basit bir deyişle bir IOT çözümündeki bir veya daha fazla IOT cihazları ve birbirleri ile iletişim kuran bulutta çalışan bir veya daha fazla arka uç Hizmetleri oluşur. 
 
-## <a name="iot-solution-architecture"></a>IOT çözüm mimarisi
+Bu makalede, IOT temelleri açıklanır, kullanım örnekleri hakkında konuşuyor ve sekiz farklı hizmetler kullanılabilir kısaca açıklanmaktadır. Nelerin kullanılabildiğini anlama tarafından yakından yardımcı olmak üzere daha senaryonuz aramak istediğiniz anlayabilir.
 
-IoT çözümleri, sayıları milyonları bulabilecek cihazlar arasında güvenli, çift yönlü iletişim ve çözüm arka ucu gerektirir. Örneğin, bir çözüm cihazdan buluta olay akışınızdan bilgileri açığa çıkarmak için otomatik, tahmine dayalı analizleri kullanabilir. 
+## <a name="introduction"></a>Giriş
 
-Aşağıdaki diyagram tipik bir IoT çözüm mimarisinin temel öğelerini göstermektedir. Diyagram, kullanılan Azure hizmetleri ve cihaz işletim sistemleri gibi belirli uygulama ayrıntılarından bağımsızdır. Bu mimaride, IoT cihazları bulut ağ geçidine gönderdikleri verileri toplar. Bulut ağ geçidi, verileri diğer arka uç hizmetleri tarafından işlenebilir hale getirir. Bu arka uç hizmetleri şuralara veri iletebilir:
+Bir IOT çözümü ana bölümleri şunlardır: cihazları, arka uç Hizmetleri ve ikisi arasındaki iletişim. 
 
-* Diğer iş kolu uygulamaları.
-* Pano veya başka bir sunu cihazı üzerinden insan kullanıcılar.
+### <a name="iot-devices"></a>IoT cihazları
 
-![IOT çözüm mimarisi](./media/iot-introduction/iot-reference-architecture.png)
+Cihazlar genellikle İnternet'e bir bağlantı hattı panonun bağlı censors ile oluşur. Çok sayıda cihaz, bir Wi-Fi yonga iletişim kurar. IOT cihazları bazı örnekleri aşağıda verilmiştir:
 
-> [!NOTE]
-> IoT mimarisinin ayrıntılı incelemesi için bkz. [Microsoft Azure IoT Başvuru Mimarisi](https://aka.ms/iotrefarchitecture).
+* bir uzak Petrol pompası baskısı sensörlerini
+* Sıcaklık ve nem sensörlerden air-conditioning birim
+* ivmeölçer bir Asansör içinde
+* Durum algılayıcılar odada
 
-### <a name="device-connectivity"></a>Cihaz bağlantısı
+Prototip oluşturma için sık kullanılan iki temel MX yonga IOT Devkit cihazlardan, Microsoft ile Raspberry PI cihazlardır. MX yonga Devkit sıcaklık, baskısı, nem, hem de bir ilgili jiroskop ve ivme ölçer, bir magnetometer ve Wi-Fi yonga için yerleşik algılayıcılara sahiptir. Raspberry PI senaryonuz için gerekenleri tam olarak seçebilmeniz için sensörlerden, birçok farklı türde ekleyebilirsiniz, IOT bir cihazdır. 
 
-Bir IoT çözüm mimarisinde cihazlar genellikle depolama ve işleme amacıyla buluta telemetri gönderir. Örneğin, Tahmine dayalı bakım senaryosunda çözüm arka ucu, belirli bir pompanın ne zaman bakıma gerek duyacağını saptamak için sensör verilerinin akışını kullanabilir. Cihazlar, bulut uç noktasına ait iletileri okuyarak buluttan cihaza iletileri de alıp yanıtlayabilir. Aynı örnekte çözüm arka ucu, bakımın başlamasından hemen önce akışların yeniden yönlendirilmesini başlatmak amacıyla pompa istasyonundaki diğer pompalara da ileti gönderebilir. Bu yordam, bakım mühendisinin ulaşır ulaşmaz işe başlamasını sağlar.
+[IOT cihaz SDK'ları](../iot-hub/iot-hub-devguide-sdks.md) , gereksinim duyduğunuz görevleri yapabilmeniz cihazlarınızda çalışan uygulamalar oluşturmanıza olanak tanır. SDK'ları ile IOT hub'ınıza telemetri göndermek, IOT Hub'ından iletiler ve güncelleştirmeleri almak ve benzeri.
 
-IoT çözümlerinde görülen en büyük zorluk genellikle cihazları güvenli ve güvenilir bir şekilde bağlamaktır. Bunun nedeni, tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında IoT cihazlarında farklı özelliklerin bulunmasıdır. IoT cihazları şu özelliklere sahiptir:
+### <a name="communication"></a>İletişim
+
+Cihazınız, her iki yönde de arka uç Hizmetleri ile iletişim kurabilir. Arka uç çözümüyle cihaz kuran gösteren örnekleri aşağıda verilmiştir.
+
+#### <a name="examples"></a>Örnekler 
+
+* Cihazınızı sıcaklık bir mobil soğutma kamyon 5 dakikada bir IOT hub'a gönderebilir. 
+
+* Arka uç hizmeti, bir sorunun tanılanmasına yardımcı olmak için daha sık telemetri göndermek için cihaz sorabilirsiniz. 
+
+* Cihazınız, algılayıcılardan okuma değerlere göre uyarıları gönderebilirsiniz. Örneğin, bir batch reaktör bulunan bir kimyasal izliyorsanız, Sıcaklıkların belirli bir değeri aştığında bir uyarı göndermek isteyebilirsiniz.
+
+* Cihazınızı bilgileri için bir Pano için İnsan operatörler tarafından görüntüleme gönderebilirsiniz. Örneğin, bir refinery denetim odasında sıcaklığı ve Basıncı izlemesini işlece izin vermeme bu kanalı üzerinden akan birim yanı sıra her kanal gösterebilir. 
+
+Bu görevler ve daha fazlasını kullanarak uygulanabilir [IOT cihaz SDK'ları](../iot-hub/iot-hub-devguide-sdks.md).
+
+#### <a name="connection-considerations"></a>Bağlantı konuları
+
+IoT çözümlerinde görülen en büyük zorluk genellikle cihazları güvenli ve güvenilir bir şekilde bağlamaktır. IOT cihazları tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında farklı özelliklere sahip olmasıdır. IoT cihazları şu özelliklere sahiptir:
 
 * Genellikle insan kullanıcısı bulunmayan katıştırılmış sistemlerdir (bir telefonun aksine).
+
 * Fiziksel erişimin pahalı olduğu uzak konumlarda dağıtılabilir.
+
 * Yalnızca çözüm arka ucu aracılığıyla erişilebilir. Cihazla etkileşime geçmek için başka bir yol yoktur.
+
 * Sınırlı güç ve işleme kaynaklarına sahip olabilir.
+
 * Aralıklı, yavaş veya pahalı bir ağ bağlantısına sahip olabilir.
+
 * Mülkiyete ait, özel veya sektöre özgü uygulama protokolleri kullanması gerekebilir.
-* Büyük bir popüler donanım ve yazılım platformu kümesi kullanılarak oluşturulabilir.
 
-Önceki kısıtlamalara ek olarak, tüm IoT çözümlerinin aynı zamanda ölçeklenebilir, güvenli ve güvenilir olması gerekir.
+### <a name="back-end-services"></a>Arka uç Hizmetleri 
 
-İletişim protokolüne ve ağ kullanılabilirliğine bağlı olarak, bir cihaz doğrudan veya bir ara ağ geçidi üzerinden bulutla iletişim kurabilir. IoT mimarileri genellikle bu iki iletişim deseninin bir karışımını kullanır.
+Arka uç hizmetinin sağlayabileceği işlevlerin bazıları aşağıda verilmiştir.
 
-### <a name="data-processing-and-analytics"></a>Veri işleme ve analizi
+* Cihazlarınızdan ölçekleyerek telemetri alma ve bu veri depolamak ve işlemek nasıl belirleme.
 
-Modern IoT çözümlerinde veri işleme, bulutta veya cihaz tarafında gerçekleşebilir. Cihaz tarafında işleme, *Uç bilgi işlem* olarak adlandırılır. Verilerin işleneceği yerle ilgili seçim aşağıdaki gibi etkenlere bağlıdır:
+* Gerçek zamanlı veya olaydan sonra Öngörüler sağlamak için telemetriyi analiz etme.
 
-* Ağ kısıtlamaları. Cihazlar ile bulut arasındaki bant genişliği sınırlı ise, daha fazla uç işleme yapmak için teşvik vardır.
-* Yanıt süresi. Neredeyse gerçek zamanlı olarak cihaz üzerinde işlem yapma gereksinimi varsa, yanıtı cihazın içinde işlemek daha iyi olabilir. Örneğin, acil durumda durdurulması gereken bir robot kolu.
-* Yasal ortam. Bazı veriler buluta gönderilemez.
+* Komutları buluttan belirli bir cihaza gönderme. 
 
-Genel olarak, hem uç hem de bulutta veri işleme aşağıdaki özelliklerin bir birleşimidir:
+* Cihazlar ve hangi cihazların altyapıya bağlanabilir denetim sağlama.
 
-* Telemetriyi cihazlarınızdan ölçekli alma ve bu verilerin nasıl işleneceğini ve depolanacağını saptama.
-* Gerçek zamanlı veya olaydan sonra olmasına bakılmaksızın öngörüler sağlamak için telemetriyi analiz etme.
-* Buluttan veya bir ağ geçidi cihazından belirli bir cihaza komut gönderme.
+* Cihazlarınızın durumunu denetleyebilir ve bunların etkinliklerini izleyin.
 
-Ayrıca, bir IoT bulut arka ucu şunları sağlamalıdır:
+Örneğin, bir Tahmine dayalı bakım senaryosunda bulut arka ucu geçmiş telemetri depolar. Çözüm, bu verileri kullanarak belirli pompalardaki anormal davranışları gerçek bir soruna neden olmadan önce tanımlar. Veri analizi kullanarak, önleyici çözümün düzeltici bir eylem gerçekleştirmek için cihaza yeniden komut göndermek olduğunu belirleyebilir. Bu işlem, cihaz ile bulut arasında çözüm verimliliğini önemli ölçüde artıran otomatik bir geri bildirim döngüsü oluşturur.
 
-* Aşağıdakileri yapmanıza olanak tanıyan cihaz kayıt özellikleri:
-    * Cihaz sağlama.
-    * Altyapınıza bağlanmasına izin verilen cihazları denetleme.
-* Cihazlarınızın durumunu denetlemeye ve etkinliklerini izlemenize yönelik cihaz yönetimi.
+## <a name="an-iot-example"></a>IOT örneği
 
-Örneğin, tahmine dayalı bakım senaryosunda bulut arka ucu geçmiş telemetri verilerini depolar. Çözüm, bu verileri kullanarak belirli pompalardaki anormal davranışları gerçek bir soruna neden olmadan önce tanımlar. Veri analizi kullanarak, önleyici çözümün düzeltici bir eylem gerçekleştirmek için cihaza yeniden komut göndermek olduğunu belirleyebilir. Bu işlem, cihaz ile bulut arasında çözüm verimliliğini önemli ölçüde artıran otomatik bir geri bildirim döngüsü oluşturur.
+İşte bir şirket örneği IOT milyonlarca dolar tasarruf için kullanılır. 
 
-### <a name="presentation-and-business-connectivity"></a>Sunu ve iş bağlantısı
+Bir büyük cattle ranch yüz binlerce İnekler yoktur. Bu, diğer birçok İnekler izlemenize ve nasıl bunlar yapılması ve çok sayıda geçici sürüş gerektirir bildiğiniz bir sorun teşkil olur. Bir arka uç hizmeti veritabanına yazılması GPS koordinatlarını ve sıcaklık gibi bilgileri göndermesini her tek inek sensörlerden iliştirilmiş.
 
-Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlarla etkileşime geçmesini sağlar. Kullanıcıların kendi cihazlarından toplanan verileri görüntülemelerini ve çözümlemelerini sağlar. Bu görünümler panolar veya hem geçmiş verileri, hem de yakın gerçek zamanlı verileri görüntüleyebilen BI raporu biçiminde olabilir. Örneğin, bir kullanıcı belirli bir pompa istasyonunun durumunu denetleyebilir ve sistem tarafından gerçekleştirilen tüm uyarıları görebilir. Bu katman, kurumsal iş süreçlerine veya iş akışlarına bağlanmak üzere var olan iş kolu uygulamalarına sahip IoT çözüm arka ucunun tümleştirilmesini de sağlar. Örneğin, tahmine dayalı bakım bir çözümü bir pompaya bakım gerektiğini tanımladığında mühendisin pompayı ziyaretini ayarlayan zamanlama sistemiyle tümleştirilebilir.
+Ardından gelen veri tarayan ve aşağıdaki gibi sorulara denetlemek her inek verileri analiz eden analitik bir hizmet vardır:
 
-## <a name="why-azure-iot"></a>Neden Azure IoT?
+* Bir sıcaklık inek çalışıyor mu? Ne kadar süreyle inek bir sıcaklık çalıştırıldıktan? Bir günden daha uzun süredir, GPS koordinatlarını edinmek ve inek bulun ve uygunsa antibiyotikleri ile ele almanız gidin. 
 
-Azure IoT, IoT projelerinin karmaşıklığını kolaylaştırır ve güvenlik, altyapı uyumsuzluğu ve IoT çözümünüzü ölçeklendirme gibi zorluklara yanıt verir. Nasıl olacağı aşağıda verilmiştir:
+* İnek aynı yerde birden fazla bir gün için mi? Bu durumda, GPS koordinatlarını edinmek ve inek Bul gidin. İnek bir Uçurum dışına düştükten? İnek yapılan saldırıda? İnek Yardım gerekiyor mu? 
 
-### <a name="agile"></a>Çevik
+Bu IOT çözüm uygulama çok fazla para kaydetmeden kendi hayvanlar üzerinde denetimi etrafında sürüş harcayabileceğiniz sahip oldukları süreyi Kes denetleyin ve İnekler hızlı bir şekilde ele almanız şirket için mümkün kıldı. Şirketler IOT kullanma daha fazla gerçek zamanlı konuşmaların örnekler için bkz [Microsoft Teknik örnek olay incelemeleri için IOT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
-IoT yolculuğunuza hız kazandırın.
+## <a name="iot-services"></a>IoT Hizmetleri
 
-* Ölçek: Küçük bir ölçekle başlayın, dünyanın birçok bölgesinde her zaman her yerde milyonlarca cihaz ve terabaytlarca veriyle istediğiniz boyuta yükseltin.
+Azure IOT ile ilgili birkaç hizmet mevcuttur ve kullanmak istediğiniz hangi birini anlamak kafa karıştırıcı olabilir. IOT Central hem de IOT Çözüm Hızlandırıcıları gibi bazı kendi çözümünüzü oluşturabilir ve hızla işe koyulun yardımcı olması için şablonlar sağlar. Kullanılabilir diğer hizmetleri kullanarak kendi çözümlerinizi da tam olarak geliştirebilirsiniz--bağlıdır ne kadar Yardım istediğiniz ve ne kadar denetim. Kullanılabilir hizmetlerin listesini İşte yanı sıra bunları için kullandığınız.
 
-* Açık: Sahip olduklarınızı kullanın veya istediğiniz cihaza, yazılıma ya da hizmete bağlanarak, gelecek için modernleşme gerçekleştirin.
+1. [**IOT Central**](../iot-central/overview-iot-central.md): Bu bağlayın, izleyin ve IOT cihazlarınızı yönetmenize yardımcı olan bir SaaS çözümüdür. Başlamak için oluşturma ve cihazın işleçleri kullanan temel bir IOT Central uygulamasına test cihaz türünüz için bir şablon seçin. IOT Central uygulamasına aygıtlarını izlemek ve yeni cihazları hazırlama de olanak sağlar. Ayrıntılı hizmet özelleştirmesi gerektirmeyen basit çözümleri hizmetidir. 
 
-* Hibrit: Edge üzerinde, bulutta veya bunların arasında bir yerde IoT çözümünüzü dağıtarak ihtiyaçlarınıza göre derleme yapın.
+2. [**IOT Çözüm Hızlandırıcıları**](/azure/iot-suite): Bu PaaS çözümleri, bir IOT çözümü geliştirme sürecinizi hızlandırmak için kullanabileceğiniz bir koleksiyon oluşturulur. Sağlanan bir IOT çözüm ile Başlat ve bu çözüm gereksinimlerinizi tam olarak özelleştirebilirsiniz. Arka uç özelleştirmek için Java veya .NET becerileri ve görselleştirmeyi özelleştirmek için JavaScript becerileri gerekir. 
 
-* Hız: Çözüm hızlandırıcıları ve IoT alanındaki yenilik hızı lideri sayesinde daha hızlı dağıtım gerçekleştirin, pazara giriş süresini hızlandırın ve rekabette öne çıkın.
+3. [**IOT hub'ı**](/azure/iot-hub/): Bu hizmet, cihazlardan bir IOT hub'ına bağlanmak ve milyarlarca IOT cihazını izleyin ve denetlemenizi sağlar. IOT cihazlarınızı ve arka ucunuz çift yönlü iletişimi gerekiyorsa bu özellikle yararlıdır. IOT Central hem de IOT Çözüm Hızlandırıcıları için temel alınan hizmete budur. 
 
-### <a name="comprehensive"></a>Kapsamlı
+4. [**IOT Hub cihazı sağlama hizmeti**](/azure/iot-dps/): IOT Hub, IOT hub'ınıza cihazların güvenli bir şekilde sağlamak için kullanabileceğiniz bir yardımcı hizmettir budur. Bu hizmet ile kolayca milyonlarca cihaza hızla, birer birer sağlama yerine sağlayabilirsiniz. 
 
-İşletmeniz için etki yaratın.
+5. [**IOT Edge**](/azure/iot-edge/): Bu hizmet, IOT Hub temelinde geliştirilen. IOT cihazları yerine buluttaki verileri çözümlemek için kullanılabilir. İş yükünüz bölümlerini uca taşıyarak, daha az ileti buluta gönderilmesi gerekir. 
 
-* Tam: Microsoft, cihazdan buluta ve büyük verilerden, gelişmiş analize ve yönetilen hizmetlere kadar yayılan eksiksiz bir platform sunan tek IoT çözüm sağlayıcısıdır.
+6. [**Azure dijital İkizlerini**](/azure/azure-digital-twins/): Bu hizmet, kapsamlı modelleri, fiziksel ortam oluşturmanıza olanak sağlar. Kişiler, boşluk ve cihazlar arasındaki etkileşimler ve ilişkiler modelleyebilirsiniz. Örneğin, bakım için bir Fabrika, bir Elektrik şebekesi için gerçek zamanlı enerji gereksinimlerini çözümlemek veya bir office için kullanılabilir alanı kullanımını en iyi duruma getirme tahmin edebilirsiniz.
 
-* Başarıya götüren iş ortağı: Dünyanın en büyük iş ortağı ekosisteminin gücünden yararlanın ve sektörde ve dünyada iş kolunu ve teknolojiyi hayata geçirin.
+7. [**Zaman serisi öngörüleri**](/azure/time-series-insights): Bu hizmeti, zaman serisi verilerini IOT cihazlar tarafından oluşturulan büyük miktarda sorgu depolamak ve görselleştirmenize olanak sağlar. Bu hizmeti ile IOT hub'ı kullanabilirsiniz. 
 
-* Veri odaklı: IoT, verilerle ilgilidir ve en iyi IoT çözümleri, verileri depolamak, yorumlamak, dönüştürmek, analiz etmek ve doğru zamanda, doğru yerde, doğru kullanıcıya sunmak için ihtiyaç duyduğunuz tüm araçları bir arada sunar.
-
-* Cihaz odaklı: Microsoft IoT, eski ekipmandan çok geniş bir sertifikalı donanım ekosistemine kadar her şeyin bağlantısını oluşturmanıza olanak sağlar ve edge, mobil ve tümleşik sistemlerde kendi cihazlarınızı derleme yeteneği sunar.
-
-### <a name="secure"></a>Güvenlik
-
-IoT’un en zorlu kısmını oluşturan güvenlik konusunu çözün.
-
-* Güç kazandırma: Microsoft IoT sayesinde, teknoloji, en iyi uygulamalar ve IoT’un en zorlu kısmını oluşturan güvenlik konusunu çözme yetenekleriyle vizyonunuzu bir araya getirebilirsiniz.
-
-* Harekete geçme: Kimlik ve erişim yönetimi, tehdit ve bilgi koruması ve güvenlik yönetimi ile IoT verilerinizin güvenliğini sağlayın ve riski yönetin.
-
-* İç rahatlığı: Cihazlar, yazılımlar, uygulamalar, bulut hizmetleri ve şirket içi ortamlar arasında hassas bilgilerin güvenliğini sağlayın.
-
-* Uyumluluk: Microsoft, IoT cihazları, verileri ve hizmetleri için geniş çapta uluslararası ve sektöre özgü standartları karşılayan güvenlik gereksinimleri oluşturma konusunda sektör lideridir.
+8. [**Azure haritalar**](/azure/azure-maps): Bu hizmet, web ve mobil uygulamalara coğrafi bilgileri sağlar. Tam bir dizi REST API'leri ve bunun yanı sıra hem Apple hem de Windows cihazlar için masaüstü ve mobil uygulamalar üzerinde çalışan esnek uygulamalar oluşturmak için kullanılan web tabanlı bir JavaScript denetimiyle yoktur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki teknoloji ve çözüm alanlarını keşfedin.
+Bazı gerçek iş örnekleri ve kullanılan mimarisi için bkz: [Microsoft Azure IOT teknik incelemeleri](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
 
-**Çözümler**
+İle bir IOT DevKit deneyebileceğiniz bazı örnek projeler için bkz: [IOT DevKit proje Kataloğu](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
-* [IoT çözüm hızlandırıcıları](/azure/iot-suite)
-* [IoT Central](/azure/iot-central)
+Farklı Hizmetleri ve nasıl kullanıldıkları daha kapsamlı bir açıklama için bkz. [Azure IOT Hizmetleri ve teknolojileri](iot-services-and-technologies.md).
 
-**Platform hizmetleri**
-
-* [IoT Hub’ı](/azure/iot-hub)
-* [IoT Hub Cihazı Sağlama Hizmeti](/azure/iot-dps)
-* [Azure Haritalar](/azure/azure-maps/)
-* [Time Series Insights](/azure/time-series-insights)
-
-**Edge**
-
-* [IoT Edge'e Genel Bakış](/azure/iot-edge)
-* [IoT Edge Nedir?](/azure/how-iot-edge-works)
+IoT mimarisinin ayrıntılı incelemesi için bkz. [Microsoft Azure IoT Başvuru Mimarisi](https://aka.ms/iotrefarchitecture).

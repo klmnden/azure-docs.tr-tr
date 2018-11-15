@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/02/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: c6e090fe7e79de7b08e77fe7bb08d5f2bf53c9d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: dc7fbce18bc6593c561b2b3ed2563573879f89d2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282773"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625751"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Log Analytics aracısını hibrit ortamlardaki Linux bilgisayarlar için yapılandırma
 [Azure Log Analytics](log-analytics-agent-windows.md), doğrudan veri merkezinizdeki veya diğer bulut ortamlarındaki fiziksel veya sanal Linux bilgisayarlarınızda bulunan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Linux bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Linux VM’leri için [Azure Sanal Makineler hakkında veri toplama](log-analytics-quick-collect-azurevm.md) konusuna bakın.  
 
-Desteklenen yapılandırmayı anlamak için [desteklenen Linux işletim sistemlerini](log-analytics-concept-hybrid.md#supported-linux-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements) inceleyin.
+Desteklenen yapılandırmayı anlamak için [desteklenen Linux işletim sistemlerini](log-analytics-agent-overview.md#supported-linux-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-agent-overview.md#network-firewall-requirements) inceleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
-1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure Portal](media/log-analytics-quick-collect-linux-computer/azure-portal-01.png)<br><br>  
+1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-quick-collect-linux-computer/azure-portal-01.png)<br><br>  
 2. **Oluştur**’a tıklayın, ardından şu öğeler için seçim yapın:
 
   * Yeni **Log Analytics çalışma alanı** için *DefaultLAWorkspace* gibi bir ad sağlayın. OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.   

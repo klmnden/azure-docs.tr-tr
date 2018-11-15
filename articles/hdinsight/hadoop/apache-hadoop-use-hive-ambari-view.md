@@ -1,5 +1,5 @@
 ---
-title: Hive HDInsight (Hadoop) - Azure üzerinde çalışmak için Ambari görünümlerini kullanma
+title: Hive (Apache Hadoop) - Azure HDInsight üzerinde çalışmak için Apache Ambari görünümlerini kullanma
 description: Hive sorguları göndermek için web tarayıcınızdan Hive görünümü kullanmayı öğrenin. Hive görünümü Ambari Web kullanıcı Arabirimi ile Linux tabanlı HDInsight kümenizi sağlanan bir parçasıdır.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c481889eda53ff46a8899676da2529fe4165dfd5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233167"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632756"
 ---
-# <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Ambari Hive görünümünü kullanırsınız.
+# <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop ile Apache Ambari Hive görünümünü kullanırsınız.
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı öğrenin. Hive görünümü yazmak için en iyi duruma getirmek ve web tarayıcınızdan Hive sorguları çalıştırmak sağlar.
+Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı öğrenin. Hive görünümü yazmak için en iyi duruma getirmek ve web tarayıcınızdan Hive sorguları çalıştırmak sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Linux tabanlı Hadoop HDInsight kümesi sürüm 3.4 üzerindeki.
+* Bir Linux tabanlı Apache Hadoop üzerine HDInsight kümesi sürüm 3.4.
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

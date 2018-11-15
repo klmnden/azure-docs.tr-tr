@@ -95,12 +95,11 @@
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure yol haritası](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Data Lake Store Blogu](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [UserVoice üzerinden geri bildirim gönderin](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Stack Overflow Forumu](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

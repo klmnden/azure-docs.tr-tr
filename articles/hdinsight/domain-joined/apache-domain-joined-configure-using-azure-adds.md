@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: f0727d7ad415c718c01361cba8e8822a43298f66
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300736"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684758"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -22,7 +22,7 @@ Kurumsal güvenlik paketi (ESP) kümeleri, Azure HDInsight kümelerinde birden �
 Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullanarak bir HDInsight kümesi ile ESP yapılandırma konusunda bilgi edinin.
 
 >[!NOTE]
->ESP HDI 3.6 için Hadoop Spark ve etkileşimli olarak GA ' dir. ESP HBase ve Kafka küme türleri için Önizleme aşamasındadır.
+>ESP HDI 3.6 için Spark, etkileşimli ve Apache Hadoop, genel kullanım ' dir. ESP HBase ve Kafka küme türleri için Önizleme aşamasındadır.
 
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
 
@@ -66,7 +66,7 @@ Yönetilen kimlik oluşturup doğru rolü verilmiş olan bu yönetilen kimlik ku
 ## <a name="networking-considerations"></a>Ağ konusunda dikkat edilmesi gerekenler
 
 > [!NOTE]
-> Azure AD DS, bir Azure Resource Manager (ARM) tabanlı sanal ağda dağıtılmalıdır. Klasik sanal ağlar için Azure AD DS desteklenmez. Lütfen [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-network) daha fazla ayrıntı için.
+> Azure AD DS, bir Azure Resource Manager (ARM) tabanlı sanal ağda dağıtılmalıdır. Klasik sanal ağlar için Azure AD DS desteklenmez. Lütfen [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) daha fazla ayrıntı için.
 
 Azure AD DS'yi etkinleştirdikten sonra yerel bir etki alanı adı hizmeti (DNS) sunucusu AD sanal makinelerde (VM) çalışır. Azure AD DS sanal ağ (Bu özel DNS sunucuları kullanılacak sanal) yapılandırın. Doğru IP adreslerini bulmak için seçin **özellikleri** altında **Yönet** kategorisi ve IP adreslerini göz listelenen altındaki **sanal ağdaki IP adresi**.
 

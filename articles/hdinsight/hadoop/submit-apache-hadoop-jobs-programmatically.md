@@ -1,6 +1,6 @@
 ---
-title: HDInsight'ta Hadoop işlerini gönderme
-description: Azure HDInsight, Hadoop işlerini gönderme hakkında bilgi edinin.
+title: HDInsight, Apache Hadoop işlerini gönderme
+description: Azure HDInsight, Apache Hadoop işlerini gönderme hakkında bilgi edinin.
 ms.reviewer: jasonh
 services: hdinsight
 ms.author: hrasheed
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 9a764814028c1858139e2439c674c176d4e754ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 633a5c26711b7ef9f891455c6712b77238fd3a62
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009149"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631975"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>HDInsight'ta Hadoop işlerini gönderme
 
-HDInsight, curl ve Azure PowerShell için Microsoft .NET SDK kullanarak Azure HDInsight Hadoop işlerinde gönderebilirsiniz.
+HDInsight, curl ve Azure PowerShell için Microsoft .NET SDK kullanarak Azure HDInsight için Apache Hadoop işlerinde gönderebilirsiniz.
 
 ## <a name="resources"></a>Kaynaklar
 

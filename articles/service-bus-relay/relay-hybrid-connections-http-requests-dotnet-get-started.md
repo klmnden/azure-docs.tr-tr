@@ -12,72 +12,65 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 55e97ff95245ce222ccbc2a99f6ae2882cef3715
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: de905466d47774decf864ace5464bb2a68e5e6bc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248784"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612007"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET’te Relay Karma Bağlantılar HTTP istekleri ile çalışmaya başlama
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Bu öğreticide [Azure Geçişi Karma Bağlantıları](relay-what-is-it.md#hybrid-connections) hakkında tanıtıcı bilgilere yer verilmiştir. Microsoft .NET uygulamasını karşılık gelen bir dinleyici uygulamasına istek gönderen bir istemci uygulaması oluşturmak için kullanmayı öğrenin. 
+Bu hızlı başlangıçta, HTTP protokolünü kullanarak ileti alma ve gönderme .NET gönderen ve alıcı uygulamalar oluşturun. Uygulamaları Azure geçiş karma bağlantılar özelliğini kullanın. Azure geçişi hakkında genel bilgi edinmek için [Azure geçişi](relay-what-is-it.md). 
 
-## <a name="what-will-be-accomplished"></a>Ne elde edilecek
-Karma Bağlantılar hem istemci hem de sunucu bileşenine ihtiyaç duyar. Bu öğreticideki adımları tamamlayarak iki konsol uygulaması oluşturursunuz:
+Bu hızlı başlangıçta, aşağıdaki adımları uygulayın:
 
 1. Azure portalını kullanarak Geçiş ad alanı oluşturma.
 2. Azure portalını kullanarak o ad alanında karma bağlantı oluşturma.
-3. İstek almak için bir sunucu (dinleyici) konsol uygulaması yazma.
-4. İstek göndermek için bir istemci (gönderen) konsol uygulaması yazma.
+3. İleti almak için bir sunucu (dinleyici) konsol uygulaması yazma.
+4. İleti göndermek için bir istemci (gönderen) konsol uygulaması yazma.
+5. Uygulamalar çalıştırın. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* [Visual Studio 2015 veya üzeri](https://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
-* Azure aboneliği.
+* [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
+* Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-## <a name="1-create-a-namespace-by-using-the-azure-portal"></a>1. Azure portalını kullanarak ad alanı oluşturma
-Daha önce oluşturduğunuz bir Geçiş ad alanı varsa [Azure portalını kullanarak karma bağlantı oluşturma](#2-create-a-hybrid-connection-using-the-azure-portal) bölümüne gidin.
-
+## <a name="create-a-namespace"></a>Ad alanı oluşturma
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-by-using-the-azure-portal"></a>2. Azure portalını kullanarak karma bağlantı oluşturma
-Daha önce bir karma bağlantı oluşturduysanız [Sunucu uygulaması oluşturma](#3-create-a-server-application-listener) bölümüne gidin.
-
+## <a name="create-a-hybrid-connection"></a>Karma bağlantı oluşturma
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="3-create-a-server-application-listener"></a>3. Sunucu uygulaması (dinleyici) oluşturma
+## <a name="create-a-server-application-listener"></a>Sunucu uygulaması (dinleyici) oluşturma
 Geçiş hizmetinden ileti dinleyip almak için Visual Studio kullanarak bir C# konsol uygulaması yazın.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4. İstemci uygulaması (gönderici) oluşturma
+## <a name="create-a-client-application-sender"></a>İstemci uygulaması (gönderici) oluşturma
 Geçiş hizmetine ileti göndermek Visual Studio kullanarak bir C# konsol uygulaması yazın.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. Uygulamaları çalıştırma
+## <a name="run-the-applications"></a>Uygulamaları çalıştırma
 1. Sunucu uygulamasını çalıştırın. Konsol penceresinde aşağıdaki metni görürsünüz:
 
     ```
     Online
     Server listening
     ```
-1. İstemci uygulamasını çalıştırın. İstemci penceresinde `hello!` görürsünüz. İstemci, sunucuya bir HTTP isteği gönderir ve sunucu bir `hello!` ile yanıt verir. 
+1. İstemci uygulamasını çalıştırın. İstemci penceresinde `hello!` görürsünüz. İstemci bir HTTP isteği sunucuya gönderilen ve sunucu yanıtı ile bir `hello!`. 
 3. Şimdi, konsol pencerelerini kapatmak için her iki pencerede **ENTER**’a basın. 
 
 Tebrikler, uçtan uca bir Karma Bağlantılar uygulaması oluşturdunuz!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Geçiş hakkında SSS](relay-faq.md)
-* [Ad alanı oluşturma](relay-create-namespace-portal.md)
-* [Node kullanmaya başlama](relay-hybrid-connections-node-get-started.md)
+Bu hızlı başlangıçta, HTTP iletileri gönderip almak için kullanılan .NET istemci ve sunucu uygulamaları oluşturuldu. Azure geçişi karma bağlantılar özelliği, ileti göndermek ve almak için WebSockets kullanarak da destekler. WebSockets Azure geçiş karma bağlantıları ile kullanmayı öğrenmek için bkz [WebSockets hızlı](relay-hybrid-connections-dotnet-get-started.md).
 
+Bu hızlı başlangıçta, .NET Framework istemci ve sunucu uygulamaları oluşturmak için kullanılır. Node.js kullanarak istemci ve sunucu uygulamaları yazmak öğrenmek için bkz: [Node.js WebSockets hızlı](relay-hybrid-connections-node-get-started.md) veya [Node.js HTTP hızlı](relay-hybrid-connections-http-requests-dotnet-get-started.md).

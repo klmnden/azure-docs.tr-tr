@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311020"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687410"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: ayrıntılı Teknik İnceleme
 
@@ -79,8 +79,8 @@ Yerel bir istemci oturum açma akışı aşağıdaki gibidir:
 
 1. Kullanıcı bir etki alanına katılmış Kurumsal CİHAZDAN Kurumsal ağınızdaki (örneğin, Outlook istemcisi) yerel bir uygulamaya erişmeye çalışır.
 2. Kullanıcı zaten oturum açmamış, yerel uygulama cihazın Windows oturumu kullanıcı adını alır.
-3. Uygulama, kullanıcı adını Azure AD'ye gönderir ve kiracınızın MEX WS-Trust uç noktasını alır.
-4. Uygulama daha sonra WS-Trust MEX uç nokta kimlik doğrulama uç noktası kullanılabilir Tümleşik olmadığını görmek için sorgular.
+3. Uygulama, kullanıcı adını Azure AD'ye gönderir ve kiracınızın MEX WS-Trust uç noktasını alır. Bu WS-Trust uç noktası yalnızca sorunsuz çoklu oturum açma özelliği tarafından kullanılan ve WS-Trust Protokolü Azure AD'de genel bir uygulama değildir.
+4. Uygulama daha sonra WS-Trust MEX uç nokta kimlik doğrulama uç noktası kullanılabilir Tümleşik olmadığını görmek için sorgular. Tümleşik kimlik doğrulaması uç noktası yalnızca sorunsuz çoklu oturum açma özelliği tarafından kullanılır.
 5. Adım 4 başarılı olursa, bir Kerberos challenge verilir.
 6. Uygulama Kerberos anahtarını almak mümkün ise, bunu Azure AD'nin tümleşik kimlik doğrulama uç noktası kadar iletir.
 7. Azure AD, Kerberos anahtarı şifresini çözer ve bunu doğrular.

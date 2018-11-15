@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394599"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578358"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
@@ -24,7 +24,7 @@ Bu makalede, AKS kümeleriniz için bir hizmet sorumlusunun nasıl oluşturulaca
 
 Azure AD hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip değilseniz Azure AD veya abonelik yöneticinizden gerekli izinleri atamasını istemeniz veya AKS kümesiyle kullanmanız için bir hizmet sorumlusu oluşturma ön işlemlerini tamamlamanız gerekebilir.
 
-Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Otomatik olarak bir hizmet sorumlusu oluşturma ve kullanma
 
@@ -75,6 +75,45 @@ Azure portalı kullanarak bir AKS kümesi dağıtırsanız, **Kubernetes kümesi
 
 ![Azure Vote’a göz atma görüntüsü](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## <a name="delegate-access-to-other-azure-resources"></a>Diğer Azure kaynakları için temsilci erişimi
+
+Hizmet sorumlusu AKS kümesi, diğer kaynaklarına erişmek için kullanılabilir. Örneğin, Gelişmiş ağ için var olan sanal ağları birbirine bağlama veya Azure Container Registry (ACR) bağlanmak için kullanmak istiyorsanız, hizmet sorumlusu erişimi devretmek gerekir.
+
+Temsilci izinleri için rol atama kullanarak oluşturduğunuz [az rol ataması oluşturma] [ az-role-assignment-create] komutu. Atadığınız `appId` bir kaynak grubu ya da sanal ağ kaynağı gibi belirli bir kapsamda. Bir rol, ardından aşağıdaki örnekte gösterildiği gibi kaynak, hizmet sorumlusu sahip izinleri tanımlar:
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+`--scope` Bir tam kaynak kimliği gibi olacak şekilde bir kaynak ihtiyaçları için */subscriptions/\<GUID\>/resourceGroups/myResourceGroup* veya */subscriptions/\<GUID \>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+Aşağıdaki bölümlerde yapmanız gerekebilir genel temsilcileri ayrıntılı olarak açıklanmaktadır.
+
+### <a name="azure-container-registry"></a>Azure Container Registry
+
+Kapsayıcı görüntüsünü deponuz olarak Azure Container Registry (ACR) kullanırsanız, okumak ve görüntüleri çekmek AKS kümenizin izinleri vermeniz gerekir. Hizmet sorumlusu AKS kümesi, temsilci *okuyucu* kayıt defterindeki rol. Ayrıntılı adımlar için bkz. [ACR erişimi verme AKS][aks-to-acr].
+
+### <a name="networking"></a>Ağ
+
+Gelişmiş Ağ, sanal ağ ve alt ağı veya genel IP adresleri başka bir kaynak grubunda olduğu kullanabilir. Rol izinleri aşağıdaki kümesinin atayın:
+
+- Oluşturma bir [özel rol] [ rbac-custom-role] ve aşağıdaki rol izinleri tanımlayın:
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- Veya atama [ağ Katılımcısı] [ rbac-network-contributor] sanal ağ içindeki alt ağ üzerinde yerleşik rol
+
+### <a name="storage"></a>Depolama
+
+Başka bir kaynak grubunda mevcut Disk kaynaklarına erişmek gerekebilir. Rol izinleri aşağıdaki kümesinin atayın:
+
+- Oluşturma bir [özel rol] [ rbac-custom-role] ve aşağıdaki rol izinleri tanımlayın:
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- Veya atama [depolama hesabı Katılımcısı] [ rbac-storage-contributor] kaynak grubunda yerleşik rol
+
 ## <a name="additional-considerations"></a>Diğer konular
 
 AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara dikkat edin.
@@ -107,3 +146,8 @@ Azure Active Directory hizmet sorumluları hakkında daha fazla bilgi için, bkz
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr

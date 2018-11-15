@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319345"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621039"
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
-Azure Relay hizmeti, kurumsal ağınızda çalışan hizmetleri güvenli bir şekilde genel buluta açmanızı sağlar. Bunun için bir güvenlik duvarı bağlantısı açmanıza ya da kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek yoktur. 
+Azure Relay hizmeti, kurumsal ağınızda çalışan hizmetleri güvenli bir şekilde genel buluta açmanızı sağlar. Güvenlik duvarınızda bir bağlantı noktası açma veya, kurumsal ağ altyapısına müdahale eden değişiklikler olmadan bunu yapabilirsiniz. 
 
 Geçiş hizmeti, şirket içi hizmetler ile bulutta veya başka bir şirket içi ortamda çalışan uygulamalar arasında aşağıdaki senaryoları destekler. 
 
@@ -56,7 +56,7 @@ Karma Bağlantılar protokolü hakkında ayrıntılı bilgi için bkz.[Karma Ba�
 > Azure Relay hizmetinin Karma Bağlantılar özelliği, eski BizTalk Services Karma Bağlantılar özelliğinin yerini almıştır. BizTalk Services Karma Bağlantılar özelliği, Azure Service Bus WCF Geçişi üzerine geliştirilmişti. Azure Relay hizmetindeki Karma Bağlantılar özelliği önceki WCF Geçişi özelliğini tamamlamaktadır. Bu iki hizmet özelliği (WCF Geçişi ve Karma Bağlantılar), Azure Relay hizmetinde birlikte kullanılabilir. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
 
 ## <a name="wcf-relay"></a>WCF Geçişi
-WCF Geçişi tam .NET Framework ve WCF ile birlikte çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir. Daha fazla bilgi için bkz. [WCF Geçişi ile çalışmaya başlama](relay-wcf-dotnet-get-started.md).
+WCF Geçişi tam .NET Framework ve WCF ile birlikte çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Geçiş bağlamaları bulutta Service Bus ile tümleşen WCF kanalı bileşenleri oluşturmak için tasarlanan yeni aktarım bağlama öğeleriyle eşleşir. Daha fazla bilgi için bkz. [WCF Geçişi ile çalışmaya başlama](relay-wcf-dotnet-get-started.md).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Karma Bağlantılar ve WCF Geçişi
 Hem Karma Bağlantılar hem de WCF Geçişi bir kuruluş ağı içinde bulunan varlıklara güvenli bağlantı olanağı sağlar. Hangisinin diğerine tercih edileceği, aşağıdaki tabloda açıklandığı gibi özel gereksinimlerinize bağlıdır:
@@ -68,7 +68,7 @@ Hem Karma Bağlantılar hem de WCF Geçişi bir kuruluş ağı içinde bulunan v
 | **.NET Framework** |x |x |
 | **Java script/Node.JS** | |x |
 | **Standart Tabanlı açık protokol** | |x |
-| **Birden çok RPC programlama modeli** | |x |
+| **RPC programlama modelleri** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Mimari: Gelen geçiş isteklerinin işlenmesi
 Aşağıdaki diyagramda gelen geçiş isteklerinin Azure Relay tarafından nasıl işlendiği gösterilmektedir:
@@ -86,9 +86,9 @@ Aşağıdaki diyagramda gelen geçiş isteklerinin Azure Relay tarafından nası
 9. Ağ geçidi gönderen istemcideki iletileri gönderen dinleyen istemciye yönlendirir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [.NET Web Yuvaları kullanmaya başlayın](relay-hybrid-connections-dotnet-get-started.md)
+* [.NET WebSockets ile çalışmaya başlama](relay-hybrid-connections-dotnet-get-started.md)
 * [.NET HTTP İstekleri kullanmaya başlayın](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Node Web Yuvaları kullanmaya başlayın](relay-hybrid-connections-node-get-started.md)
+* [Düğüm WebSockets ile çalışmaya başlama](relay-hybrid-connections-node-get-started.md)
 * [Node HTTP İstekleri kullanmaya başlayın](relay-hybrid-connections-http-requests-node-get-started.md)
 * [Geçiş hakkında SSS](relay-faq.md)
 

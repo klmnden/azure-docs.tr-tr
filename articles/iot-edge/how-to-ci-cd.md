@@ -8,16 +8,16 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a110c0a938e56c8ac276e0efed22ea3af23f111a
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 06dec64a55aaece4cd67ebf0485e34aa206a8936
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578544"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633742"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
-Bu makalede, derleme, test etme ve uygulamaları, Azure IOT Edge için hızlı ve verimli bir şekilde dağıtmak için sürekli tümleştirme ve sürekli dağıtım Özelliği Azure DevOps Hizmetleri ve Microsoft Team Foundation Server (TFS) nasıl kullanabileceğinizi gösterir. 
+DevOps ile uygulamalarınızı Azure IOT Edge ile kolayca benimseyebilirsiniz [Azure IOT Edge için Azure işlem hatları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) veya [Jenkins için Azure IOT Edge eklentisi](https://plugins.jenkins.io/azure-iot-edge). Bu makalede, sürekli tümleştirme nasıl kullanabileceğinizi gösterir ve sürekli dağıtım özelliklerini Azure işlem hatları ve Microsoft Team Foundation Server (TFS) oluşturmak için test ve uygulamaları hızla ve verimli bir şekilde dağıtmak için Azure IOT Edge. 
 
 Bu makalede, öğreneceksiniz nasıl yapılır:
 * Oluşturun ve IOT Edge çözümü bir örnek denetleyin.
@@ -42,28 +42,28 @@ Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim
 
 3. Artık IOT Edge çözüm örneğinizi hazırdır. Varsayılan C# modülü kanal iletisi modül olarak görev yapar. İçinde `deployment.template.json`, bu çözümü içeren iki modül görürsünüz. İleti kaynaklandığı `tempSensor` modülü ve aracılığıyla doğrudan yöneltilen `FilterModule`, ardından IOT hub'ına gönderilen.
 
-4. Bu projeler kaydettikten sonra Azure DevOps veya TFS depoya denetleyin.
+4. Bu projeler kaydettikten sonra Azure depoları veya TFS depoya denetleyin.
     
 > [!NOTE]
 > Azure depoları kullanma hakkında daha fazla bilgi için bkz. [Visual Studio ve Azure depoları ile kodunuzu paylaşmaya](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
-## <a name="configure-azure-pipeline-for-continuous-integration"></a>Azure işlem hattı için sürekli tümleştirmeyi yapılandırın
-Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomatik olarak çalışacak şekilde yapılandırılmış bir derleme işlem hattı oluşturur ve Azure işlem hattı, yapı günlükleri gösterilir.
+## <a name="configure-azure-pipelines-for-continuous-integration"></a>Azure işlem hatları için sürekli tümleştirmeyi yapılandırın
+Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomatik olarak çalışacak şekilde yapılandırılmış bir derleme işlem hattı oluşturacaksınız ve Azure işlem hatlarında Derleme günlüklerini gösterir.
 
-1. Azure DevOps kuruluşunuz oturum (**https://**_hesabınızı_**. visualstudio.com**) ve örnek uygulamada nereye iade projeyi açın.
+1. Azure DevOps kuruluşunuz oturum ( **https://dev.azure.com/{your kuruluş} /**) ve örnek uygulamada nereye iade projeyi açın.
 
     ![Kod iade etme](./media/how-to-ci-cd/init-project.png)
 
-1. Ziyaret [Azure işlem hattı için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) Azure DevOps Market'te. Tıklayın **Ücretsiz edinin** ve Azure DevOps kuruluşunuz veya indirmek için TFS için bu uzantıyı yüklemek için sihirbazı izleyin.
+1. Ziyaret [Azure işlem hatları için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) Azure DevOps Market'te. Tıklayın **Ücretsiz edinin** ve Azure DevOps kuruluşunuz veya indirmek için TFS için bu uzantıyı yüklemek için sihirbazı izleyin.
 
     ![Uzantıyı yükleme](./media/how-to-ci-cd/install-extension.png)
 
-1. Azure DevOps açın **derleme ve yayınlama** hub hem de **yapılar** sekmesini, **+ yeni işlem hattı**. Ya da derleme işlem hatlarını zaten varsa, seçin **+ yeni** düğmesi.
+1. Azure işlem hatlarınız açın **derleme ve yayınlama** hub hem de **yapılar** sekmesini, **+ yeni işlem hattı**. Ya da derleme işlem hatlarını zaten varsa, seçin **+ yeni** düğmesi.
 
     ![Yeni ardışık düzen](./media/how-to-ci-cd/add-new-build.png)
 
-1. İstenirse, seçin **Azure DevOps Git** kaynak türü. Ardından, proje, depo ve dal kodunuzu bulunduğu seçin. Seçin **devam**.
+1. İstenirse, seçin **Git** kaynak türü. Ardından, proje, depo ve dal kodunuzu bulunduğu seçin. Seçin **devam**.
 
     ![Gıt'i seçin](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -98,8 +98,8 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
     Yeni derleme işlem hattı kaydedin. **Kaydet** düğmesine tıklayın.
 
 
-## <a name="configure-azure-pipeline-for-continuous-deployment"></a>Azure işlem hattı için sürekli dağıtımı yapılandırma
-Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak çalışacak şekilde yapılandırılmış bir yayın işlem hattı oluşturacaksınız ve Azure işlem hattı, dağıtım günlükleri gösterilir.
+## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Azure işlem hatları için sürekli dağıtımı yapılandırma
+Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak çalışacak şekilde yapılandırılmış bir yayın işlem hattı oluşturacaksınız ve Azure işlem hatlarında dağıtım günlükleri gösterilir.
 
 1. İçinde **yayınlar** sekmesini, **+ yeni işlem hattı**. Veya, yayın işlem hatları zaten varsa, seçin **+ yeni** düğmesi.  
 
@@ -165,7 +165,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
     
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>IOT Edge CI/CD ile yapı doğrulayın ve yayın işlem hatları
 
-Bu bölümde, iş CI/CD işlem hattı yapmak için bir derleme tetikler. Ardından Azure DevOps portalıyla sonucu doğrulayın. 
+Bu bölümde, iş CI/CD işlem hattı yapmak için bir derleme tetikler. Dağıtım başarılı olduktan sonra doğrulayın.
 
 1. Bir derleme işi tetiklemek için kaynak kodu deposu için bir işleme için gönderim veya el ile tetiklersiniz. Tıklayarak, derleme işlem hattı, bir derleme işi tetikleyebilirsiniz **kuyruk** aşağıdaki ekran görüntüsünde gösterildiği gibi düğmesi.
 

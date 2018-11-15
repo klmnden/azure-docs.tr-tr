@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0d76aa5091e77d8713290e6da8908e15ad3ef995
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277367"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684576"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store’u Azure HDInsight kümeleriyle kullanma
 
@@ -47,7 +47,7 @@ HDInsight kümeleri Data Lake Store’u iki şekilde kullanabilir:
 | HDInsight sürümü 3.2 | Hayır | Evet | |
 | Storm | | |Data Lake Store’u kullanarak bir Storm topolojisinden veri yazabilirsiniz. Data Lake Store’u daha sonra bir Storm topolojisinden okunabilecek başvuru verileri için de kullanabilirsiniz.|
 
-[!WARNING]
+> [!WARNING]
 > HDInsight HBase, Azure Data Lake depolama Gen 1 ile desteklenmiyor
 
 Data Lake Store’un ek depolama hesabı olarak kullanılması, kümeden Azure depolamaya yazma veya buradan okuma performansını ya da bu özelliğin kullanılabilirliğini etkilemez.

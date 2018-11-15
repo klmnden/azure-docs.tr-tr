@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c99099c9b0fdf485bcf1db1d00b23e1e119ec557
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 347a437a9f45f29348e97c616c985764135e5427
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614166"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687478"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel İlkesi'nde bir SAML teknik profili tanımlama
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C, SAML 2.0 kimlik sağlayıcısı için destek sağlar. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. AD FS ve kendi mevcut sosyal veya Kurumsal kimlik ile oturum açmak, kullanıcıların Salesforce gibi bir temel SAML kimlik sağlayıcısı ile federasyona SAML teknik profili ile.
+Azure Active Directory (Azure AD) B2C, SAML 2.0 kimlik sağlayıcısı için destek sağlar. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. Gibi kimlik sağlayıcısı SAML ile federasyona ile SAML teknik profili alarak [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) ve [Salesforce](active-directory-b2c-setup-sf-app-custom.md), kullanıcılarınız kendi mevcut sosyal veya Kurumsal kimlik ile oturum açmanız izin verme.
 
 ## <a name="metadata-exchange"></a>Meta veri değişimi
 
-SAML Protokolü gibi bir hizmet sağlayıcısı veya kimlik sağlayıcısı SAML partinin yapılandırmasını kullanıma sunmak için kullanılan bilgileri meta verilerdir. Meta verileri, hizmetleri, oturum açma ve oturum kapatma, sertifikaları, oturum açma yöntemi ve diğer konumunu tanımlar. Kimlik sağlayıcısı, Azure AD B2C ile iletişim kurma bilmek meta verileri kullanır. Meta veri XML biçiminde yapılandırılır ve böylece tarafa meta verilerin bütünlüğünü doğrulamak için bir dijital imza ile imzalanmış. SAML kimlik sağlayıcısı ile Azure AD B2C birleştiriyor, bir SAML isteğini başlatarak ve SAML yanıt bekleyen bir hizmet sağlayıcısı olarak görev yapar. Ayrıca, bazı durumlarda, başlatılan kimlik sağlayıcısı olarak da bilinen olan istenmeyen SAML kimlik doğrulaması, excepts. 
+SAML Protokolü gibi bir hizmet sağlayıcısı veya kimlik sağlayıcısı SAML partinin yapılandırmasını kullanıma sunmak için kullanılan bilgileri meta verilerdir. Meta verileri, hizmetleri, oturum açma ve oturum kapatma, sertifikaları, oturum açma yöntemi ve diğer konumunu tanımlar. Kimlik sağlayıcısı, Azure AD B2C ile iletişim kurma bilmek meta verileri kullanır. Meta veri XML biçiminde yapılandırılır ve böylece tarafa meta verilerin bütünlüğünü doğrulamak için bir dijital imza ile imzalanmış. SAML kimlik sağlayıcısı ile Azure AD B2C birleştiriyor, bir SAML isteğini başlatarak ve SAML yanıt bekleyen bir hizmet sağlayıcısı olarak görev yapar. Ve bazı durumlarda, başlatılan kimlik sağlayıcısı olarak da bilinen olan istenmeyen SAML kimlik doğrulaması, kabul eder. 
 
 Meta veriler her iki taraf "Statik meta veri" veya "Dinamik meta veriler" olarak yapılandırılabilir. Statik modunda, bir taraftan tüm meta verileri kopyalayın ve tarafa ayarlayın. Diğer taraf yapılandırmasını dinamik olarak okurken dinamik modunda, URL için meta verileri ayarlayın. İlkeleri aynıdır, kimlik sağlayıcınızda Azure AD B2C teknik profil meta verileri ayarlama ve Azure AD B2C'de kimlik sağlayıcısı meta verileri ayarlama.
 
@@ -34,14 +34,14 @@ Her bir SAML kimlik sağlayıcısı, kullanıma ve hizmet sağlayıcısı, bu du
 Aşağıdaki örnek, bir URL adresi için bir Azure AD B2C'Teknik profili SAML meta verilerini gösterir:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Aşağıdaki değerleri değiştirin:
 
-- **Kiracı Your** tenant.onmicrosoft.com bilgisayarınızı gibi Kiracı adınızla
+- **Kiracı adı Your** Kiracı adınızla fabrikam.b2clogin.com gibi.
 - **ilke Your** ilke adınızla. İlke sağlayıcısı SAML teknik profili yapılandırdığınız veya bu ilkeden devralan bir ilke kullanın.
-- **Teknik profil Your** SAML kimlik sağlayıcısı teknik profil adı ile
+- **Teknik profil Your** SAML kimlik sağlayıcısı teknik profil adı ile.
 
 ## <a name="digital-signing-certificates-exchange"></a>Dijital imza sertifikaları exchange
 

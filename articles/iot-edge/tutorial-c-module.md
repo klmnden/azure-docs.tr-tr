@@ -3,18 +3,18 @@ title: Azure IoT Edge C öğreticisi | Microsoft Docs
 description: Bu öğreticide C koduyla IoT Edge modülü oluşturma ve bir Edge cihazına dağıtma adımları gösterilir
 services: iot-edge
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a7151f8b681b0e6129308b194008742986d6a358
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e5c6b523a098bef4bb40ccd924750cc8aefd0e87
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155703"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567375"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: C IoT Edge modülü geliştirme ve simülasyon cihazınıza dağıtma
 
@@ -32,7 +32,7 @@ Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından o
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bir Azure IoT Edge cihazı:
 

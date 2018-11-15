@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854958"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634388"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR görevleri başvurusu: YAML
 
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-`build` Adım türü aşağıdaki parametreleri destekler:
+`build` Adım türü parametreleri aşağıdaki tabloda destekler. `build` Adım türü de destekler, tüm derleme seçenekleri [docker derleme](https://docs.docker.com/engine/reference/commandline/build/) komutu gibi `--build-arg` derleme zamanı değişkenlerini ayarlamak için.
 
 | Parametre | Açıklama | İsteğe bağlı |
 | --------- | ----------- | :-------: |
@@ -122,7 +122,7 @@ steps:
 
 ### <a name="properties-build"></a>Özellikler: derleme
 
-`build` Adım türü, bu özellikleri ayrıntılarını bulabilirsiniz aşağıdaki özellikleri destekler [görev adım özellikleri](#task-step-properties) bu makalenin.
+`build` Adım türü aşağıdaki özellikleri destekler. Bu özellikleri ayrıntılarını bulabilirsiniz [görev adım özellikleri](#task-step-properties) bu makalenin.
 
 | | | |
 | -------- | ---- | -------- |

@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412457"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632569"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda okunur çoğaltmalar
 
@@ -60,12 +60,15 @@ Bir ana ve çoğaltma sunucusu arasında çoğaltmayı durdurmak seçebilirsiniz
 - Yedekleme bekletme süresi
 - Fazladan yedek seçeneği
 - MySQL altyapısı sürümü
+- Güvenlik duvarı kuralları
 
 Bir çoğaltma oluşturulduktan sonra fiyatlandırma katmanını değiştirebilirsiniz (Basic gelen ve giden hariç), işlem oluşturma, sanal çekirdek, depolama ve bağımsız olarak ana sunucudan yedekleme bekletme.
 
 ### <a name="master-server-configuration"></a>Ana sunucu yapılandırması
 
-Asıl varsa ait sunucu yapılandırması (ör. Sanal çekirdek ve depolama) güncelleştirilir, çoğaltmaları yapılandırma da eşit veya daha büyük değerler için güncelleştirilmesi gerekir. Bu, olmadan çoğaltma sunucusu ana dala yapılan değişiklikleri takip edin mümkün olmayabilir ve sonuç olarak kilitlenebilir. 
+Asıl varsa ait sunucu yapılandırması (ör. Sanal çekirdek ve depolama) güncelleştirilir, çoğaltmaları yapılandırma da eşit veya daha büyük değerler için güncelleştirilmesi gerekir. Bu, olmadan çoğaltma sunucusu ana dala yapılan değişiklikleri takip edin mümkün olmayabilir ve sonuç olarak kilitlenebilir.
+
+Bir çoğaltma sunucusu oluşturulduktan sonra ana sunucu için eklenen yeni güvenlik duvarı kuralları çoğaltmaya çoğaltılmaz. Çoğaltma bu yeni bir güvenlik duvarı kuralı da güncelleştirilmelidir.
 
 ### <a name="deleting-the-master-server"></a>Ana sunucu siliniyor
 
@@ -87,7 +90,4 @@ Ana sunucu üzerinde kullanıcılar, salt okunur kopyaya çoğaltılır. Yalnız
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bilgi edinmek için nasıl [oluşturma ve salt okunur çoğaltmalar Azure portalını kullanarak yönetme](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Bilgi edinmek için nasıl [oluşturma ve salt okunur çoğaltmalar Azure CLI kullanarak yönetme](howto-read-replicas-cli.md)

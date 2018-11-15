@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: a543561658d593398ca74f8ae68dd6d0d27bcdaa
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354118"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636469"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
 
@@ -41,7 +41,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!NOTE]
 > Özel bir SSL sertifikası almanız gerekirse, doğrudan Azure portalından bir tane edinerek web uygulamanıza bağlayabilirsiniz. [App Service Sertifikaları öğreticisini](web-sites-purchase-ssl-web-site.md) takip edin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -193,7 +193,7 @@ Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı se�
 
 ![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-İşlem tamamlandığında, uygulamanıza işaret eden HTTP URL'lerinden herhangi birine gidin. Örnek:
+İşlem tamamlandığında, uygulamanıza işaret eden HTTP URL'lerinden herhangi birine gidin. Örneğin:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -260,7 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Ortak sertifikalar (isteğe bağlı)
-Web uygulamanızın sertifika doğrulaması gerektiren bir dış hizmete erişebilmesi için, uygulamanıza [ortak sertifikalar](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) yükleyebilirsiniz.  Uygulamanızda ortak sertifika yükleme ve kullanma hakkında daha fazla bilgi için bkz. [Azure App Service’deki uygulama kodunda SSL sertifikası kullanma](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load).  Ayrıca ortak sertifikaları App Service Ortamlarındaki uygulamalarla birlikte de kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service Ortamında bir web uygulaması kullanmanız gerekir. Daha fazla bilgi için bkz. [Web Uygulamanızda ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Uygulamanızı bir istemci olarak uzak kaynaklara erişmesi ve uzak kaynak sertifika doğrulaması gerektiren, karşıya yüklediğiniz [Ortak Sertifikalar](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) web uygulamanıza. Ortak Sertifikalar, uygulamanızın SSL bağlamaları için gerekli değildir.
+
+Uygulamanızda ortak sertifika yükleme ve kullanma hakkında daha fazla bilgi için bkz. [Azure App Service’deki uygulama kodunda SSL sertifikası kullanma](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load). Ortak sertifikaları App Service ortamlarındaki uygulamalarla çok kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service Ortamında bir web uygulaması kullanmanız gerekir. Daha fazla bilgi için bkz. [Web Uygulamanızda ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Ortak Sertifikayı Karşıya Yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

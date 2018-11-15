@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 4b209953e957d0c2892bc5c6bca7a577992c5dee
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843583"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51628222"
 ---
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="azure-subscription"></a>Azure aboneliği
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
@@ -63,7 +63,7 @@ Bu bölümde, Azure Blob depolama alanında **adftutorial** adlı bir blob kapsa
    ![Kapsayıcı adını girin](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
 4. Kapsayıcılar listesinde **adftutorial**’ı seçin. 
 
-   ![Kapsayıcıyı seçin](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
+   ![Kapsayıcıyı seçin](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)
 5. **Kapsayıcı** sayfasında araç çubuğundaki **Karşıya Yükle** öğesini seçin.  
 
    ![Karşıya yükle düğmesi](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)

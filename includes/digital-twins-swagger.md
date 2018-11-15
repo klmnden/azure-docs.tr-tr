@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: beae54dc36225dd26b4eb1d1a8f89d1005a33e93
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa99fa3b6ae9e809718121787cc986d02bcf824b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626346"
+ms.locfileid: "51678231"
 ---
 > [!TIP]
 > Swagger önizlemesi API özelliği göstermek için sağlanmıştır.
@@ -22,10 +22,10 @@ ms.locfileid: "51626346"
 Oluşturulan kendi yönetim API'si Swagger belgelerimize erişebilirsiniz:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Özel ad | Şununla değiştir |
+| Ad | Şununla değiştir |
 | --- | --- |
-| örneğinizinadı | Azure dijital İkizlerini örneğinizin adı |
-| yourLocation | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
+| YOUR_INSTANCE_NAME | Azure dijital İkizlerini örneğinizin adı |
+| YOUR_LOCATION | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |

@@ -1,5 +1,5 @@
 ---
-title: Visual Studio - Azure HDInsight (Hadoop) Data Lake araçları ile hive
+title: Apache (Apache Hadoop) Data Lake araçları ile Visual Studio - Azure HDInsight Hive
 description: Azure HDInsight üzerinde Apache Hadoop ile Apache Hive sorguları çalıştırmayı Visual Studio için Data Lake Araçları'nı kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cc2012e40fad9e1343804149cdffaa3a1ab9db4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011094"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634116"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Hive sorguları çalıştırma
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Hive sorguları çalıştırma
 
-Sorgu Apache Hive Visual Studio için Data Lake araçları kullanmayı öğrenin. Data Lake araçları, kolayca oluşturun, gönderin ve Hive sorgularını Azure HDInsight üzerinde Hadoop için izleme sağlar.
+Sorgu Apache Hive Visual Studio için Data Lake araçları kullanmayı öğrenin. Data Lake araçları, kolayca oluşturun, gönderin ve Hive sorgularını Azure HDInsight üzerinde Apache Hadoop için izlemenize olanak tanır.
 
 ## <a id="prereq"></a>Önkoşullar
 
-* Bir Azure HDInsight (Hadoop HDInsight üzerinde) kümesi
+* Bir Azure HDInsight (HDInsight üzerinde Apache Hadoop) kümesi
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

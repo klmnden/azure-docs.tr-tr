@@ -13,21 +13,21 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c8157820f7137eb06a0fe10c42645ec91f33edbc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364096"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623795"
 ---
-# <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>Öğretici: Bir Azure olay hub'ına Azure AD günlüğü akışı yapma (önizleme)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Öğretici: Bir Azure olay hub'ına Azure Active Directory günlüğü akışı yapma (önizleme)
 
-Bu öğreticide bir Azure olay hub'ına Azure Active Directory (Azure AD) günlüğü akışı yapma amacıyla Azure İzleyici tanılama ayarlarını yapmayı öğreneceksiniz. Bu mekanizmayı kullanarak günlüklerinizi Splunk ve QRadar gibi üçüncü taraf Güvenlik Bilgileri ve Olay Yönetimi (SIEM) araçlarıyla tümleştirebilirsiniz.
+Bu öğreticide, Azure İzleyici tanılama ayarları günlüklerinin akışını Azure Active Directory (Azure AD) bir Azure olay hub'ı için ayarlama konusunda bilgi edinin. Bu mekanizmayı kullanarak günlüklerinizi Splunk ve QRadar gibi üçüncü taraf Güvenlik Bilgileri ve Olay Yönetimi (SIEM) araçlarıyla tümleştirebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 
@@ -36,7 +36,7 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 * Azure AD kiracısında *genel yönetici* veya *güvenlik yöneticisi* olan bir kullanıcı.
 * Azure aboneliğinizde bir Event Hubs ad alanı ve bir olay hub'ı. [Olay hub'ı oluşturma](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) hakkında bilgi edinin.
 
-## <a name="archive-logs-to-an-event-hub"></a>Günlükleri olay hub'ında arşivleme
+## <a name="stream-logs-to-an-event-hub"></a>Olay hub'ına Stream günlükleri
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 

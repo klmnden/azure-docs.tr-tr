@@ -1,7 +1,6 @@
 ---
-title: Örnek:Metin Analizi REST API’si ile yaklaşımı analiz etme
-titleSuffix: Azure Cognitive Services
-description: Metin Analizi REST API’sini kullanarak yaklaşımın nasıl algılanacağını öğrenin.
+title: Metin analizi REST API (Azure üzerinde Microsoft Bilişsel hizmetler) ile ilgili nasıl yapılır yaklaşım analizi | Microsoft Docs
+description: İzlenecek yol Bu öğreticide Azure üzerinde Microsoft Bilişsel hizmetler metin analizi REST API kullanarak duyarlılığını algılamak nasıl.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605904"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632875"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Örnek: Metin Analizi’nde yaklaşımı algılama
 
@@ -24,6 +23,9 @@ ms.locfileid: "45605904"
 Bu yetenek; sosyal medya, müşteri incelemeleri ve tartışma forumlarında pozitif ve negatif yaklaşımları algılamak için kullanışlıdır. İçerik sizin tarafınızdan sağlanır; modeller ve eğitim verileri hizmet tarafından sağlanır.
 
 Şu anda Yaklaşım Analizi, İngilizce, Almanca, İspanyolca ve Fransızca dillerini destekler. Diğer diller önizleme aşamasındadır. Daha fazla bilgi için bkz. [Desteklenen diller](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Metin analizi de sağlar Linux tabanlı bir Docker kapsayıcı görüntüsü yaklaşım analizi için böylece [yükleyin ve metin analizi kapsayıcı çalıştırın](text-analytics-how-to-install-containers.md) verilerinizi yakın.
 
 ## <a name="concepts"></a>Kavramlar
 
@@ -77,7 +79,7 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 
 + Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Yaklaşım Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Anahtar ifade ayıklaması için HTTP uç noktasını ayarlayın. `/sentiment` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Yaklaşım analizi, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/sentiment` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 

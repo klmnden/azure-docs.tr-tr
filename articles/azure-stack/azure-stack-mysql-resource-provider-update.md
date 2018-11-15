@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f58ba1af301379810d5072f55c7b9365f205911f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 46671a559f4db9aaa798e2c0d8cc668794687a58
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364702"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686339"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısını güncelle 
 
@@ -41,9 +41,6 @@ Kullandığınız kaynak Sağlayıcısı'nı güncelleştirmek için **UpdateMyS
 >[!NOTE]
 >En son Windows Server 2016 Core görüntüyü Market Yönetimi'nden indirmenizi öneririz. Bir güncelleştirme yüklemeniz gerekiyorsa, yerleştirebilirsiniz bir **tek** MSU paketinde bağımlılık yerel yolu. Bu konumda birden fazla MSU dosyası yoksa, betiği başarısız olur.
 
->[!NOTE]  
-> 
-
 Betik DeployMySqlProvider.ps1 betik için tanımlanan aynı bağımsız değişkenleri kullanımını gerektirir. Sertifikayı buradan de sağlar.  
 
 Aşağıdaki örneğidir *UpdateMySQLProvider.ps1* PowerShell İstemi'nden çalıştırabileceğiniz bir betik. Hesap bilgileri ve gerektiği gibi parolalar değiştirdiğinizden emin olun:  
@@ -52,9 +49,10 @@ Aşağıdaki örneğidir *UpdateMySQLProvider.ps1* PowerShell İstemi'nden çal�
 > Güncelleştirme işlemi, yalnızca tümleşik sistemleri için geçerlidir. 
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module and set the profile. 
-Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2017-03-09-profile 
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 

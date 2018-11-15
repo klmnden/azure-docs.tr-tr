@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: ea1e3ca76f779f442c9d22478ea93de3d5ab83f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088115"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614533"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -66,7 +66,7 @@ Bu çözümü oluşturmak için önemli adımlar şunlardır:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **SQL Server**. Bu öğreticide şirket içi SQL Server veritabanını kaynak veri deposu olarak kullanırsınız. 
 * **Azure SQL Veritabanı**. SQL veritabanını havuz veri deposu olarak kullanırsınız. SQL veritabanınız yoksa, oluşturma adımları için bkz. [Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md). 
 
@@ -279,7 +279,7 @@ END
    ![Şirket içinde barındırılan IR adı](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. **1. Seçenek: Hızlı kurulum** bölümünde **Bu bilgisayarda hızlı kurulumu başlatmak için buraya tıklayın** seçeneğine tıklayın. 
 
-   ![Hızlı kurulum bağlantısına tıklayın](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![Hızlı kurulum bağlantısına tıklayın](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. **Tümleştirme Çalışma Zamanı (Şirket İçinde Barındırılan) Hızlı Kurulum** penceresinde **Kapat**’a tıklayın. 
 
    ![Tümleştirme çalışma zamanı kurulumu - başarılı](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
@@ -509,7 +509,7 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
     1. **Parametreyi içeri aktar**’ı seçin. 
     1. Parametreler için aşağıdaki değerleri belirtin: 
 
-        | Adı | Tür | Değer | 
+        | Ad | Tür | Değer | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Dize | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |

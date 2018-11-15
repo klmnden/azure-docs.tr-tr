@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: ecdc6ae6c7e0c8a89d97611f41146d168bc74741
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c318411fe17fb60c1c0bf991a07b46a515252952
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344119"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683229"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL Bölüm Tabloları Kullanarak Paralel Toplu Veri Alma
 
@@ -82,7 +82,7 @@ Aşağıdaki örnek, üç birincil dışındaki dosya grupları ve günlük grup
   İşlevi/düzeni göre her bir bölümdeki geçerli aralıklar doğrulamak için aşağıdaki sorguyu çalıştırın:
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id

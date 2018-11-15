@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: a6c17fc897dae765f9789840262cb001d598b731
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 91c6939e42f0a8a5126883e5258017b2c38e6f2a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297755"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613979"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Veri Kopyalama aracını kullanarak şirket içi bir SQL Server veritabanındaki verileri Azure Blob depolamaya kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,6 +27,7 @@ Bu öğreticide, Azure portalını kullanarak bir veri fabrikası oluşturursunu
 
 > [!NOTE]
 > - Azure Data Factory’yi ilk kez kullanıyorsanız bkz. [Data Factory'ye giriş](introduction.md).
+
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 > [!div class="checklist"]
@@ -34,7 +35,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 > * Veri Kopyalama aracını kullanarak bir işlem hattı oluşturun.
 > * İşlem hattı ve etkinlik çalıştırmalarını izleme.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 ### <a name="azure-subscription"></a>Azure aboneliği
 Başlamadan önce, mevcut bir Azure aboneliğiniz yoksa [ücretsiz hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -107,7 +108,7 @@ Bu bölümde, Blob depolama alanınızda **adftutorial** adlı bir blob kapsayı
 
 1. Kapsayıcılar listesinde **adftutorial**’ı seçin.
 
-    ![Kapsayıcı seçimi](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Kapsayıcı seçimi](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. **adftutorial** öğesine ait **Kapsayıcı** penceresini açık tutun. Öğreticinin sonundaki çıktıyı doğrulamak için bu sayfayı kullanırsınız. Data Factory bu kapsayıcıda çıktı klasörünü otomatik olarak oluşturduğundan sizin oluşturmanız gerekmez.
 

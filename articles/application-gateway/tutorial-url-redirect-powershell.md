@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 11cd052ca07e074ce8303891f7a372890fdf7291
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580608"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566917"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Azure PowerShell kullanarak URL yolu tabanlı yönlendirme ile bir uygulama ağ geçidi oluşturma
 
@@ -32,6 +32,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Aşağıdaki örnekte, 8080 ve 8081 numaralı bağlantı noktalarından gelen ve aynı arka uç havuzlarına yönlendirilmekte olan site trafiği gösterilir:
 
 ![URL yönlendirme örneği](./media/tutorial-url-redirect-powershell/scenario.png)
+
+Tercih ederseniz, [Azure CLI](tutorial-url-redirect-cli.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -516,14 +518,6 @@ Artık gerekli olmadığında, [Remove-AzureRmResourceGroup](/powershell/module/
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Ağı ayarlama
-> * Uygulama ağ geçidi oluşturma
-> * Dinleyiciler ve yönlendirme kuralları ekleme
-> * Arka uç havuzları için sanal makine ölçek kümeleri oluşturma
 
 > [!div class="nextstepaction"]
 > [Uygulama ağ geçidi ile neler yapabileceğiniz hakkında daha fazla bilgi edinin](application-gateway-introduction.md)

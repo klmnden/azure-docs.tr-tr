@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric kümesini ölçekleme | Microsoft Docs
-description: Service Fabric kümeleri veya çıkış ve yukarı veya aşağı ölçeklendirme hakkında bilgi edinin.
+description: Azure Service Fabric kümeleri veya çıkış ve yukarı veya aşağı ölçeklendirme hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,32 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/09/2018
+ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0890ce0342024229b99d92a2eddba5b49cc59595
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815656"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633946"
 ---
-# <a name="scaling-service-fabric-clusters"></a>Ölçeklendirme Service Fabric kümeleri
+# <a name="scaling-azure-service-fabric-clusters"></a>Ölçeklendirme Azure Service Fabric kümeleri
 Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir düğüm denir. Kümeler, potansiyel olarak binlerce düğümde içerebilir. Service Fabric kümesi oluşturduktan sonra küme yatay yönde ölçeklendirebilirsiniz (düğüm sayısını değiştirme) ya da dikey yönde (düğümlerin kaynakları değiştirin).  Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz.  Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.
 
 Neden bir kümenin ölçeğini? Uygulama talepleri zamanla değişir.  Daha yüksek uygulama iş yükü veya ağ trafiği karşılamak ya da küme kaynaklarını talep düştüğünde azaltmak için küme kaynaklarını artırmam gerekiyor.
 
-### <a name="scaling-in-and-out-or-horizontal-scaling"></a>Giriş ve çıkış ölçeklendirme ve yatay ölçeklendirme
+## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Giriş ve çıkış ölçeklendirme ve yatay ölçeklendirme
 Kümedeki düğüm sayısını değiştirir.  Yeni düğüm, kümeye katılmak sonra [Küme Kaynak Yöneticisi](service-fabric-cluster-resource-manager-introduction.md) Hizmetleri için var olan düğümleri üzerindeki yükü azaltan taşır.  Küme kaynaklarını verimli bir şekilde kullanılmayan, düğüm sayısını da azaltabilirsiniz.  Küme düğümleri bırakın gibi hizmetleri devre dışı düğümleri taşıyın ve yük arttıkça Kalan düğümlerde.  Sanal makine sayısı için kullanmak ve iş yükü değil Bu vm'lerdeki ödeme olduğundan Azure'da çalışan bir kümedeki düğüm sayısını azaltma, para tasarrufu yapabileceğiniz.  
 
 - Avantajları: Sonsuz bir ölçekte, teorik.  Uygulamanız için ölçeklenebilirlik tasarlanmışsa, daha fazla düğüm ekleyerek sınırsız büyüme etkinleştirebilirsiniz.  Bulut ortamlarında araçları ekleme veya düğümleri, kapasiteyi ayarlamak daha kolaydır ve yalnızca kullandığınız kaynaklar için ödeme yaparsınız kaldırma daha kolay hale getirir.  
 - Olumsuz: Uygulamaları olmalıdır [ölçeklendirilebilirlik için tasarlanmış](service-fabric-concepts-scalability.md).  Uygulama veritabanları ve kalıcı olarak iyi ölçeklendirme yapmasını ek mimari iş gerektirebilir.  [Güvenilir koleksiyonlar](service-fabric-reliable-services-reliable-collections.md) Service Fabric durum bilgisi olan hizmetler, ancak çok uygulama verilerinizi ölçeklendirme kolaylaştırır.
 
-### <a name="scaling-up-and-down-or-vertical-scaling"></a>Ölçeği artırmayı veya dikey ölçeklendirme 
-Kümedeki düğümler kaynakları (CPU, bellek veya depolama) değiştirir.
-- Avantajları: Yazılım ve uygulama mimarisi aynı kalır.
-- Olumsuz: kaynakları tek tek düğümlere ne kadar artırmak için bir sınır olduğundan sınırlı ölçek. Kapalı kalma süresi, fiziksel veya sanal kaynak ekleme veya kaldırma için makineleri çevrimdışına almak ihtiyacınız olacağı için.
-
-## <a name="scaling-an-azure-cluster-in-or-out"></a>Azure kümesine veya dışa ölçeklendirme
 Sanal makine ölçek kümeleri, dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Bir Azure kümesinde tanımlanan her düğüm türü [ayrı ölçek kümesi olarak ayarlanan](service-fabric-cluster-nodetypes.md). Her düğüm türü, ölçeklendirilebilir veya out bağımsız olarak, farklı bağlantı noktası kümeleri açık olan ve farklı kapasite ölçümleri yapılabilir. 
 
 Azure kümesine ölçeklendirme, aşağıdaki yönergeleri göz önünde bulundurun:
@@ -70,23 +64,11 @@ Kullanılan sanal makine ölçek kümesi için etkileşimlerini (hem de geçerli
 
 Bağlı olarak bu sınırlamalar, isteyebilirsiniz [uygulama, otomatik ölçekleme modelleri daha fazla özelleştirilmiş](service-fabric-cluster-programmatic-scaling.md).
 
+## <a name="scaling-up-and-down-or-vertical-scaling"></a>Ölçeği artırmayı veya dikey ölçeklendirme 
+Kümedeki düğümler kaynakları (CPU, bellek veya depolama) değiştirir.
+- Avantajları: Yazılım ve uygulama mimarisi aynı kalır.
+- Olumsuz: kaynakları tek tek düğümlere ne kadar artırmak için bir sınır olduğundan sınırlı ölçek. Kapalı kalma süresi, fiziksel veya sanal kaynak ekleme veya kaldırma için makineleri çevrimdışına almak ihtiyacınız olacağı için.
 
-## <a name="scaling-a-standalone-cluster-in-or-out"></a>Tek başına küme içe veya dışa ölçeklendirme
-Tek başına kümeler, Service Fabric kümenizi şirket içinde dağıtmanıza izin ver veya tercih ettiğiniz bulut sağlayıcısı.  Düğüm türleri, dağıtımınıza bağlı olarak sanal makineleri veya fiziksel makineler oluşur. Azure'da çalışan kümelerle karşılaştırıldığında, tek başına küme ölçeklendirme işleminin biraz daha karmaşıktır.  Kümedeki düğüm sayısını el ile değiştirin ve ardından bir küme yapılandırma yükseltmesi çalıştırın gerekir.
-
-Birden fazla yükseltme düğümleri kaldırma işlemi başlatabilir. Bazı düğümler ile işaretlenmiş `IsSeedNode=”true”` etiketi ve küme sorgulayarak tanımlanabilir kullanarak bildirim [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Böyle senaryolarda taşınmasını çekirdek düğümleri olduğundan bu düğümleri kaldırılmasını diğerlerinden daha uzun sürebilir. Küme en az üç birincil düğüm türü düğümünden sürdürmeniz gerekir.
-
-> [!WARNING]
-> Aşağıdaki düğüm sayısı alt değil öneririz [güvenilirlik katmanını küme boyutunu](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) küme için. Bu, küme arasında çoğaltılması kararlılığını ve büyük olasılıkla kümeyi yok etmek için Service Fabric sistem hizmetlerinin açabilme haklarını etkinleştirir ile çalışmasını engeller.
->
-
-Tek başına küme ölçeklendirme, aşağıdaki yönergeleri göz önünde bulundurun:
-- Birincil düğüm değiştirme ardına kaldırarak ve ardından toplu olarak ekleme yerine gerçekleştirilen bir düğüm olmalıdır.
-- Düğüm türü kaldırmadan önce tüm düğümleri düğüm türüne başvuru olup olmadığını denetleyin. Bu düğümler, ilgili düğüm türü kaldırmadan önce kaldırın. Tüm ilgili düğümleri kaldırdıktan sonra küme yapılandırmasından NodeType kaldırın ve bir yapılandırmaya başlamadan kullanarak yükseltme [başlangıç ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
-
-Daha fazla bilgi için [bir tek başına kümenin ölçeğini](service-fabric-cluster-windows-server-add-remove-nodes.md).
-
-## <a name="scaling-an-azure-cluster-up-or-down"></a>Azure kümesine ölçeği artırılabilen veya azaltılabilen
 Sanal makine ölçek kümeleri, dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Bir Azure kümesinde tanımlanan her düğüm türü [ayrı ölçek kümesi olarak ayarlanan](service-fabric-cluster-nodetypes.md). Ardından her düğüm türü ayrı olarak yönetilebilir.  Ölçeği artırılabilen veya azaltılabilen bir düğüm türü, Ölçek kümesindeki sanal makine örnekleri SKU'su değiştirilmesini kapsar. 
 
 > [!WARNING]

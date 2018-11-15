@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f344424c372f65cd8bfe5779cc65f0e866e58a11
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252556"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633980"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Nasıl alternatif girişlerini kullan
 
@@ -137,9 +137,11 @@ Bu durumda, iletişim kutuları için alternatif bir giriş eklemek yardımcı o
     3. Değişiklikleri Gönder'e tıklayın.
 4. Sol bölmede 'denver' seçmek için tıklayın:
     1. Ekle alternatif girişinde 'denver için' girin.
-    2. 'Austin için tahmini' girin.
-        - Tam tümceciği vurgulanır. İfade, sonra kırmızı x tıklayın. Ardından austin seçip üzerinde Şehir'i tıklatın.
-        - Değişiklikleri Gönder'e tıklayın
+    1. 'Austin için tahmini' girin.
+        - Bir hata iletisi görüntülenir: 'Metin çeşitlemeleri özgün giriş metni olarak aynı algılanan varlıkları içermelidir.'
+        - ' % S'sözcük 'austin' tıklayın.
+        - Varlık 'austin için' seçmenize izin veren bir açılır pencere görünür. Tıklayın **Şehir**.
+        - Değişiklikleri Gönder'e tıklayın.
     1. Modeli yeniden eğitme neden olacak Bitti'ye tıklayın.
 
 ![](../media/tutorial8_altcities.png)

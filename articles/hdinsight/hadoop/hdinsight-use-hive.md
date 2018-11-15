@@ -1,6 +1,6 @@
 ---
 title: Apache Hive ve HiveQL - Azure HDInsight nedir
-description: Apache Hive bir veri ambarı için Hadoop sistemidir. Hive kullanarak HiveQL, depolanan verileri sorgulayabilir, Transact-SQL'e benzer. Bu belgede, Azure HDInsight ile Hive ve HiveQL kullanmayı öğrenin.
+description: Apache Hive, Apache Hadoop için bir veri ambarı sistem olduğu. Hive kullanarak HiveQL, depolanan verileri sorgulayabilir, Transact-SQL'e benzer. Bu belgede, Azure HDInsight ile Hive ve HiveQL kullanmayı öğrenin.
 keywords: hiveql yığını, hadoop hiveql nedir, nasıl hive kullanma, hive, hive nedir öğrenme
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241115"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633725"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?
 
-[Apache Hive](http://hive.apache.org/) Hadoop için veri ambarı sistemidir. Hive veri özetleme, sorgulama ve veri çözümleme sağlar. Hive sorguları SQL'e benzer bir sorgu dili olan HiveQL yazılır.
+[Apache Hive](http://hive.apache.org/) Apache Hadoop için veri ambarı sistemidir. Hive veri özetleme, sorgulama ve veri çözümleme sağlar. Hive sorguları SQL'e benzer bir sorgu dili olan HiveQL yazılır.
 
 Hive, büyük ölçüde yapılandırılmamış veriler üzerinde Proje yapısı sağlar. Yapı tanımladıktan sonra Java MapReduce veya bilgisi olmadan verileri sorgulamak için HiveQL kullanın.
 

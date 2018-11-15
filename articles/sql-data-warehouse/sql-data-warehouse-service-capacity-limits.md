@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 07/26/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302052"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686611"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değerleri.
@@ -35,7 +35,7 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 |:--- |:--- |:--- |
 | Database |Maksimum boyut | Gen1: 240 disk üzerinde sıkıştırılmış TB. Bu alanı, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış.  Kümelenmiş columnstore sıkıştırması, 5 X tahmin edilir.  Bu sıkıştırma sağlar veritabanına yaklaşık 1 büyütme tüm tablolarda kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. <br/><br/> Gen2: 240TB rowstore ve columnstore tabloları için sınırsız depolama |
 | Tablo |Maksimum boyut |Diskte sıkıştırılmış 60 TB |
-| Tablo |Her bir veritabanı tabloları |10,000 |
+| Tablo |Her bir veritabanı tabloları | 100.000 |
 | Tablo |Her tablo sütunları |1024 sütunları |
 | Tablo |Sütun başına bayt |Sütun bağımlı [veri türü](sql-data-warehouse-tables-data-types.md). Karakter veri türleri için 8000 nvarchar için 4000 veya en fazla veri türleri için 2 GB sınırdır. |
 | Tablo |Satır, tanımlanmış boyut başına bayt |Açıklama 8060 baytlık<br/><br/>SQL Server için sayfa sıkıştırmayı ile olduğu gibi aynı şekilde satır başına bayt sayısı hesaplanır. SQL Server gibi SQL veri ambarı sağlayan satır taşma depolama destekler **değişken uzunluğu sütununa** satır dışı gönderilecek. Değişken uzunluklu satır satır dışı itildiğinde yalnızca 24 bayt kök ana kayıt içinde depolanır. Daha fazla bilgi için [veri satırı taşma aşan 8 KB'lık](https://msdn.microsoft.com/library/ms186981.aspx). |
@@ -69,7 +69,7 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | SELECT |Sütun başına birleştirme |1024 sütunları<br/><br/>Hiçbir zaman 1024'ten fazla sütun birleştirme işleminde sahip olabilir. Her zaman 1024 olabilir bir garanti yoktur. Birleştirme planı birleştirme sonucunu çok sütun içeren geçici bir tablo gerektiriyorsa, 1024 sınırı geçici tablo için geçerlidir. |
 | SELECT |GROUP BY sütunları başına bayt sayısı. |8060<br/><br/>GROUP BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
 | SELECT |ORDER BY sütunları başına bayt |Açıklama 8060 baytlık<br/><br/>ORDER BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
-| İfade başına tanımlayıcıları |Başvurulan tanımlayıcı sayısı |65,535<br/><br/>SQL veri ambarı, bir tek bir sorgu ifadesinde bulunan tanımlayıcı sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor. Daha fazla bilgi için bkz. [iç hata: deyim Hizmetleri sınırına ulaşıldı] [iç hata: deyim Hizmetleri sınırına ulaşıldı]. |
+| İfade başına tanımlayıcıları |Başvurulan tanımlayıcı sayısı |65,535<br/><br/>SQL veri ambarı, bir tek bir sorgu ifadesinde bulunan tanımlayıcı sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor. Daha fazla bilgi için [iç hata: deyim Hizmetleri sınırına ulaşıldı](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Dize değişmez değerleri | Dize sabit bir ifade sayısı | 20,000 <br/><br/>SQL veri ambarı, sorgu tek bir ifade içinde dize sabitleri sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor.|
 
 ## <a name="metadata"></a>Meta Veriler

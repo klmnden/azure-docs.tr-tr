@@ -1,6 +1,6 @@
 ---
-title: Hadoop Hive ile HDInsight - Azure PowerShell kullanma
-description: HDInsight üzerinde Hadoop Hive sorguları çalıştırmak için PowerShell kullanın.
+title: Apache Hive ile HDInsight - Azure PowerShell kullanma
+description: HDInsight üzerinde Apache Hadoop Hive sorguları çalıştırmak için PowerShell kullanın.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257876"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633120"
 ---
-# <a name="run-hive-queries-using-powershell"></a>PowerShell kullanarak Hive sorguları çalıştırma
+# <a name="run-apache-hive-queries-using-powershell"></a>PowerShell kullanarak Apache Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Bu belgede, HDInsight kümesinde bir Hadoop Hive sorguları çalıştırmak için Azure kaynak grubu moduna Azure PowerShell kullanarak bir örnek sağlar.
+Bu belgede, HDInsight kümesinde bir Apache Hadoop Hive sorguları çalıştırmak için Azure kaynak grubu moduna Azure PowerShell kullanarak bir örnek sağlar.
 
 > [!NOTE]
 > Bu belgede ayrıntılı açıklamasını örneklerde kullanılan HiveQL ifadelerini ne sağlamaz. Bu örnekte kullanılan HiveQL hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Linux tabanlı Hadoop HDInsight kümesi sürüm 3.4 üzerindeki.
+* Bir Linux tabanlı Apache Hadoop üzerine HDInsight kümesi sürüm 3.4.
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

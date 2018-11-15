@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914099"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687342"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -91,7 +91,7 @@ Sorunsuz çoklu oturum açma doğru etkinleştirdiğinizden emin doğrulamak iç
 ![Azure portalı: Azure AD Connect bölmesi](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sorunsuz çoklu oturum açma adlı bir bilgisayar hesabı oluşturur `AZUREADSSOACC` (temsil eden Azure AD) şirket içi AD ormanındaki Active Directory (AD) içinde. Bu bilgisayar hesabı, özelliğin çalışması için gereklidir. Taşıma `AZUREADSSOACC` bilgisayar hesabı için bir kuruluş birimi (aynı şekilde yönetilir ve silinmediğinden emin olmak için diğer bilgisayar hesapları depolandığı OU).
+> Sorunsuz çoklu oturum açma adlı bir bilgisayar hesabı oluşturur `AZUREADSSOACC` (temsil eden Azure AD) şirket içi AD ormanındaki Active Directory (AD) içinde. Bu bilgisayar hesabı, özelliğin çalışması için gereklidir. Pass--Hash ve kimlik bilgisi Hırsızlıklarını azaltma mimarileri, şirket içi ortamınızda kullanıyorsanız, emin `AZUREADSSOACC` bilgisayar hesabı bitmiyor karantina kapsayıcısında. Bilgisayar kapsayıcısında bilgisayar hesabını oluşturmak için gerekli değişiklikleri yapın. Sorunsuz çoklu oturum açma Azure AD Connect Sihirbazı'nın başarıyla etkinleştirildikten sonra Taşı `AZUREADSSOACC` bilgisayar hesabı için bir kuruluş birimi (burada diğer bilgisayar hesapları yönetilen, yanlışlıkla silinmediğinden emin olmak için OU).
 
 ## <a name="step-3-roll-out-the-feature"></a>3. adım: özelliği kullanıma alma
 

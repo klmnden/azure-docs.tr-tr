@@ -1,5 +1,5 @@
 ---
-title: -Microsoft Avro Library - Hadoop Azure içinde verileri seri hale getirme
+title: Apache Hadoop - Microsoft Avro Library - azure'da verileri seri hale getirme
 description: Hadoop bellek, veritabanı veya dosya kalıcı hale getirmek için Microsoft Avro Library kullanarak HDInsight üzerinde verileri seri hale getrime ve öğrenin.
 keywords: Avro, hadoop avro
 services: hdinsight
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5928c6490c9de6c48b75800158b8298007d7b8ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246914"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634014"
 ---
-# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro library hadoop'ta verileri seri hale getirme
+# <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro library Apache Hadoop, verileri seri hale getirme
 
 >[!NOTE]
 >Avro SDK'sı artık Microsoft tarafından desteklenir. Desteklenen açık kaynak topluluğu kitaplığıdır. Kitaplık kaynaklarını bulunan [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
@@ -52,17 +52,8 @@ Kitaplık yüklemeden önce aşağıdakiler gereklidir:
 * <a href="https://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 veya üzeri)
 
-Microsoft.Developer.accountmanagement bağımlılık Microsoft Avro Library yüklemesi ile otomatik olarak indirilir unutmayın. Yordamı, aşağıdaki bölümde sağlanır:
-
-Visual Studio'dan yordamı yüklenebilir bir NuGet paketi olarak Microsoft Avro Library dağıtılır:
-
-1. Seçin **proje** sekmesi -> **NuGet paketlerini Yönet...**
-2. Arama "Microsoft.Hadoop.Avro için" **çevrimiçi Ara** kutusu.
-3. Tıklayın **yükleme** düğmesinin yanındaki **Microsoft Azure HDInsight Avro Kitaplığı**.
-
-Unutmayın Microsoft.Developer.accountmanagement (> = 6.0.4) bağımlılık da karşıdan otomatik olarak Microsoft Avro Library ile.
-
-Microsoft Avro Library kaynak kodu kullanılabilir [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+> [!Note]
+> Microsoft Avro Library artık bir NuGet paketi olarak kullanılabilir. Avro kitaplığı kopya kullanmak istiyorsanız, [Microsoft.Hadoop.Avro Github deposu](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) ve kod makinenizde derleyin.
 
 ## <a name="compile-schemas-using-avro-library"></a>Avro kitaplığı kullanarak şemaları derleme
 Microsoft Avro Library önceden tanımlanmış JSON şemasını temel alınarak otomatik olarak C# türleri oluşturma olanak sağlayan bir kod oluşturma yardımcı içerir. Kod oluşturma yardımcı programı, ikili bir yürütülebilir dosya olarak dağıtılmaz, ancak aşağıdaki yordamı kolayca oluşturulabilir:

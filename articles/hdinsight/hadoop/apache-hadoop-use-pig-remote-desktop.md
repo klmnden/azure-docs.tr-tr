@@ -1,6 +1,6 @@
 ---
-title: HDInsight - Azure Uzak Masaüstü ile Hadoop Pig kullanma
-description: Bir Uzak Masaüstü Bağlantısı'ndan bir Windows tabanlı bir Hadoop kümesinde HDInsight Pig Latin açıklamaları çalıştırmak için Pig komut kullanmayı öğrenin.
+title: HDInsight - Azure Uzak Masaüstü ile Apache Pig kullanma
+description: Apache Pig Latin açıklamaları HDInsight bir Windows tabanlı Apache Hadoop kümesi için bir Uzak Masaüstü Bağlantısı'ndan çalıştırmak için Pig komut kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007238"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633351"
 ---
-# <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Bir Uzak Masaüstü Bağlantısı'ndan pig işleri çalıştırma
+# <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Uzak Masaüstü bağlantısı üzerinden Apache Pig işleri çalıştırma
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Bu belge, bir Uzak Masaüstü Bağlantısı'ndan bir Windows tabanlı HDInsight kümesi için Pig Latin açıklamaları çalıştırılacak Pig komutunu kullanarak bir kılavuz sağlar. Pig Latin'i veri dönüşümleri açıklayarak MapReduce uygulamaları oluşturmak, İşlevler azaltmak ve yerine eşleme sağlar.
+Bu belge, Pig Latin açıklamaları, bir Windows tabanlı HDInsight kümesi için bir Uzak Masaüstü Bağlantısı'ndan çalıştırmak için Apache Pig komutunu kullanarak için bir kılavuz sağlar. Pig Latin'i veri dönüşümleri açıklayarak MapReduce uygulamaları oluşturmak, İşlevler azaltmak ve yerine eşleme sağlar.
 
 > [!IMPORTANT]
 > Uzak Masaüstü, yalnızca Windows işletim sistemi olarak kullandığınız HDInsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d341f7328eb4a977d266c25f6746d4173393b54e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887232"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636943"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Oturum açma için çok kiracılı Azure özel ilkeleri Azure Active Directory B2C kullanarak Active Directory ayarlayın
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, oturum açma kullanarak Azure Active Directory (Azure AD) çok Kiracı uç noktası kullanan kullanıcılar için etkinleştirme işlemini göstermektedir [özel ilkeler](active-directory-b2c-overview-custom.md) Azure AD B2c'de. Bu, kullanıcıların Azure AD B2C'ye her Kiracı için teknik bir sağlayıcı yapılandırması olmadan oturum açmak için birden çok Azure AD kiracısından sağlar. Ancak, bu kiracının tüm üyeleri Konuk **yapmamayı** oturum açmak kullanabilirsiniz. Bunun için şunları yapmanız [tek tek her Kiracı yapılandırma](active-directory-b2c-setup-aad-custom.md).
+Bu makalede, oturum açma kullanarak Azure Active Directory (Azure AD) çok Kiracı uç noktası kullanan kullanıcılar için etkinleştirme işlemini göstermektedir [özel ilkeler](active-directory-b2c-overview-custom.md) Azure AD B2C'de. Bu, kullanıcıların Azure AD B2C'ye her Kiracı için teknik bir sağlayıcı yapılandırması olmadan oturum açmak için birden çok Azure AD kiracısından sağlar. Ancak, bu kiracının tüm üyeleri Konuk **yapmamayı** oturum açmak kullanabilirsiniz. Bunun için şunları yapmanız [tek tek her Kiracı yapılandırma](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 >`Contoso.com` Kuruluş için kullanılan Azure AD kiracısı ve `fabrikamb2c.onmicrosoft.com` aşağıdaki yönergeler, Azure AD B2C kiracısı olarak kullanılır.
@@ -185,7 +185,7 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C'yi uygulama oluşturma
 
-Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
+Azure AD B2C ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.

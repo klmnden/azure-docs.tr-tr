@@ -5,21 +5,21 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036674"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634235"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme
 
-Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaşırsanız, daha hızlı bir çözüm ulaşmak için bu makaleyi kullanın. 
+Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaşırsanız, daha hızlı bir çözüm ulaşmak için bu makaleyi kullanın. NPS uzantı günlükleri altında Olay Görüntüleyicisi'nde bulunur **özel görünümler** > **sunucu rolleri** > **Ağ İlkesi ve Erişim Hizmetleri** üzerinde NPS uzantısı, yüklü olduğu sunucu.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Sık karşılaşılan hatalar için sorun giderme adımları
 
@@ -36,9 +36,6 @@ Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaş
 | **REQUEST_MISSING_CODE** | Parola şifreleme protokolünü NPS ve NAS sunucuları arasında kullanmakta olduğunuz ikincil kimlik doğrulama yöntemini desteklediğinden emin olun. **PAP** bulutta Azure MFA'ın tüm kimlik doğrulama yöntemleri destekler: telefon araması, tek yönlü SMS mesajı, mobil uygulama bildirimi ve mobil uygulama doğrulama kodu. **CHAPV2** ve **EAP** telefon araması ve mobil uygulama bildirimi destekler. |
 | **USERNAME_CANONICALIZATION_ERROR** | Kullanıcının şirket içi Active Directory Örneğinizde mevcut olduğunu ve NPS hizmetini dizine erişim izni olduğunu doğrulayın. Ormanlar arası güven kullanıyorsanız [desteğe](#contact-microsoft-support) daha fazla yardım için. |
 
-
-   
-
 ### <a name="alternate-login-id-errors"></a>Alternatif bir oturum açma kimliği hataları
 
 | Hata kodu | Hata iletisi | Sorun giderme adımları |
@@ -46,7 +43,6 @@ Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaş
 | **ALTERNATE_LOGIN_ID_ERROR** | Hata: userObjectSid arama başarısız oldu | Kullanıcının şirket içi Active Directory Örneğinizde var olduğunu doğrulayın. Ormanlar arası güven kullanıyorsanız [desteğe](#contact-microsoft-support) daha fazla yardım için. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Hata: Diğer Loginıd araması başarısız oldu | LDAP_ALTERNATE_LOGINID_ATTRIBUTE değerine ayarlandığını doğrulayın bir [geçerli active directory özniteliğini](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> LDAP_FORCE_GLOBAL_CATALOG True olarak ayarlandığında veya LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, bir genel katalog yapılandırdıktan ve AlternateLoginId öznitelik kendisine eklenir doğrulayın. <br><br> LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, değerin doğru olduğunu doğrulayın. Birden fazla orman adı varsa, adları noktalı virgül, boşluk ile ayrılması gerekir. <br><br> Bu adımları, sorunu yoksa, [desteğe](#contact-microsoft-support) daha fazla yardım için. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Hata: Diğer Loginıd değeri boştur | AlternateLoginId öznitelik kullanıcı için yapılandırılmış olduğunu doğrulayın. |
-
 
 ## <a name="errors-your-users-may-encounter"></a>Kullanıcılarınızın hatalarla karşılaşabilirsiniz
 
@@ -97,7 +93,7 @@ Bazı durumlarda, kendi kimlik doğrulama isteği başarısız olduğundan, kull
 
 ### <a name="troubleshoot-user-accounts"></a>Kullanıcı hesaplarıyla ilgili sorunları giderme
 
-Kullanıcılarınız varsa [iki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](../user-help/multi-factor-authentication-end-user-troubleshoot.md), bunları kendi kendine tanılama sorunlarını yardımcı olur. 
+Kullanıcılarınız varsa [iki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](../user-help/multi-factor-authentication-end-user-troubleshoot.md), bunları kendi kendine tanılama sorunlarını yardımcı olur.
 
 ### <a name="contact-microsoft-support"></a>Microsoft desteğine başvurun
 
@@ -131,5 +127,3 @@ Hata ayıklama Desteği Tanılama günlüklerini toplamak için NPS sunucusunda 
 
 5. Kayıt Defteri Düzenleyicisi'ni açın ve Gözat HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa kümesine **VERBOSE_LOG** için **FALSE**
 6. Zip C:\NPS klasörünün içeriğini ve sıkıştırılmış dosya için destek talebi ekleyin.
-
-

@@ -1,192 +1,91 @@
 ---
-title: 'Hızlı Başlangıç: C# ile .NET SDK’sını kullanarak bir görüntüdeki yüzleri algılama'
+title: "Hızlı Başlangıç: Azure yüz .NET SDK'sı ile görüntüdeki yüzleri algılayın"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Yüz Tanıma Windows C# istemci kitaplığını kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+description: Bu hızlı başlangıçta, Azure yüz SDK'sı ile kullanacağınız C# görüntüdeki yüzleri algılamak için.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954972"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578170"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Hızlı Başlangıç: C# ile .NET SDK’sını kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Hızlı Başlangıç: yüz .NET SDK'sı ile bir resimdeki yüz algılama
 
-Bu hızlı başlangıçta, Yüz Tanıma Windows istemci kitaplığını kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
+Bu hızlı başlangıçta, yüz tanıma kullanacağı hizmeti SDK'sı ile C# bir resimdeki İnsan yüzlerini algılamak için. Yüz tanıma projede bu hızlı başlangıçtaki kod çalışma örneği için bkz [Bilişsel hizmetler görüntü csharp hızlı başlangıçlar](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) github deposu.
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-* Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
-* [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="detectwithurlasync-method"></a>DetectWithUrlAsync yöntemi
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+- [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü.
 
-> [!TIP]
-> Güncel kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)'dan Visual Studio çözümü olarak alın.
+## <a name="create-the-visual-studio-project"></a>Visual Studio projesini oluşturma
 
-`DetectWithUrlAsync` ve `DetectWithStreamAsync` yöntemleri, sırasıyla uzak ve yerel görüntüler için [Yüz - Algılama API’sini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) sarmalar. Bu yöntemleri kullanarak bir görüntüdeki yüzleri algılayabilir ve aşağıdaki yüz özniteliklerini döndürebilirsiniz:
+1. Visual Studio'da yeni bir oluşturma **konsol uygulaması (.NET Framework)** adlandırın ve proje **FaceDetection**. 
+1. Çözümünüzde başka projeler de varsa, tek başlangıç projesi olarak bunu seçin.
+1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**. Tıklayın **Gözat** sekmenize **ön sürümü dahil et**; ardından bulun ve aşağıdaki paketi yükleyin:
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-* Face ID: Birkaç Yüz Tanıma API'si senaryosunda kullanılan benzersiz kimlik.
-* Yüz Dikdörtgeni: Görüntüdeki yüzün konumunu gösteren sol kısım, üst kısım, genişlik ve yükseklik.
-* Yer İşaretleri: Yüz bileşenlerinin önemli konumlarına işaret eden 27 noktalık yüz yer işareti dizisi.
-* Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
+## <a name="add-face-detection-code"></a>Yüz algılama kodu ekleyin
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
+Yeni projenin açın *Program.cs* dosya. Burada, görüntülerini yükle ve yüz algılama için gereken kodu ekleyeceksiniz.
 
-1. Visual Studio'da yeni bir Visual C# Konsol Uygulaması oluşturun.
-1. Yüz Tanıma istemci kitaplığı NuGet paketini yükleyin.
-    1. Üst menüde **Araçlar**’a tıklayın, **NuGet Paket Yöneticisi**’ni ve ardından **Çözüm için NuGet Paketlerini Yönet**’i seçin.
-    1. **Gözat** sekmesine tıklayın ve **Ön sürümü dahil et**’i seçin.
-    1. **Ara** kutusuna "Microsoft.Azure.CognitiveServices.Vision.Face" yazın.
-    1. Görüntülendiğinde **Microsoft.Azure.CognitiveServices.Vision.Face** seçeneğini belirleyin ve sonra proje adınızın yanındaki onay kutusuna ve **Yükleyin**.
-1. *Program.cs* öğesini aşağıdaki kodla değiştirin.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `faceEndpoint` değerini abonelik anahtarlarınız ile ilişkili Azure bölgesi ile değiştirin.
-1. İsteğe bağlı olarak, <`LocalImage>` değerini yerel bir görüntünün yolu ve dosya adı ile değiştirin (ayarlanmazsa yoksayılır).
-1. İsteğe bağlı olarak, `remoteImageUrl` öğesini farklı bir görüntüye ayarlayın.
-1. Programı çalıştırın.
+### <a name="include-namespaces"></a>Ad alanlarını ekleme
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+Aşağıdaki `using` deyimlerini *Program.cs* dosyanızın en üstüne ekleyin.
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
-namespace DetectFace
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
+### <a name="add-essential-fields"></a>Gerekli alanları ekleyin
 
-        // You must use the same region as you used to get your subscription
-        // keys. For example, if you got your subscription keys from westus,
-        // replace "westcentralus" with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus
-        // region. If you use a free trial subscription key, you shouldn't
-        // need to change the region.
-        // Specify the Azure region
-        private const string faceEndpoint =
-            "https://westcentralus.api.cognitive.microsoft.com";
+**Program** sınıfına aşağıdaki alanları ekleyin. Bu veriler yüz tanıma Hizmeti'ne bağlanmayı ve giriş verilerinin alınacağı belirtir. Güncellemeniz gerekecektir `subscriptionKey` abonelik anahtarınız ve değerini bir alanla değiştirme gerekebilir `faceEndpoint` doğru bölge tanımlayıcısı içeren dize. Ayrıca ayarlamanız gerekir `localImagePath` ve/veya `remoteImageUrl` gerçek işaret yollara değerleri görüntü dosyaları.
 
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
+`faceAttributes` Belirli tür öznitelik yalnızca bir dizi bir alandır. Algılanan yüzeylere hakkında almak için hangi bilgilerin, belirtin.
 
-        private const string remoteImageUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
-        private static readonly FaceAttributeType[] faceAttributes =
-            { FaceAttributeType.Age, FaceAttributeType.Gender };
+### <a name="create-and-use-the-face-client"></a>Oluşturma ve yüz istemci kullanma
 
-        static void Main(string[] args)
-        {
-            FaceClient faceClient = new FaceClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-            faceClient.Endpoint = faceEndpoint;
+Ardından, aşağıdaki kodu ekleyin **ana** yöntemi **Program** sınıfı. Bu, yüz tanıma API'si istemci ayarlama ayarlar.
 
-            Console.WriteLine("Faces being detected ...");
-            var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
-            var t2 = DetectLocalAsync(faceClient, localImagePath);
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
 
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
-        }
+Ayrıca **ana** yöntemi, bir uzak ve yerel görüntüde yüz algılama için yeni oluşturulan yüz istemci kullanmak için aşağıdaki kodu ekleyin. Algılama yöntemleri sonraki tanımlanır. 
 
-        // Detect faces in a remote image
-        private static async Task DetectRemoteAsync(
-            FaceClient faceClient, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine("\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
 
-            try
-            {
-                IList<DetectedFace> faceList =
-                    await faceClient.Face.DetectWithUrlAsync(
-                        imageUrl, true, false, faceAttributes);
+### <a name="detect-faces"></a>Yüz algılama
 
-                DisplayAttributes(GetFaceAttributes(faceList, imageUrl), imageUrl);
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imageUrl + ": " + e.Message);
-            }
-        }
+**Program** sınıfına aşağıdaki yöntemi ekleyin. Yüz tanıma hizmeti istemcisi, bir URL tarafından başvurulan uzak bir görüntüdeki yüzleri algılamak için kullanır. Bunu kullanan Not `faceAttributes` alan&mdash; **DetectedFace** eklenen nesneleri `faceList` (Bu durumda, geçerlilik süresi ve cinsiyet içinde) belirtilen özniteliğe sahip olacaktır.
 
-        // Detect faces in a local image
-        private static async Task DetectLocalAsync(FaceClient faceClient, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
-            try
-            {
-                using (Stream imageStream = File.OpenRead(imagePath))
-                {
-                    IList<DetectedFace> faceList =
-                            await faceClient.Face.DetectWithStreamAsync(
-                                imageStream, true, false, faceAttributes);
-                    DisplayAttributes(
-                        GetFaceAttributes(faceList, imagePath), imagePath);
-                }
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imagePath + ": " + e.Message);
-            }
-        }
+Benzer şekilde, eklemek **DetectLocalAsync** yöntemi. Yüz tanıma hizmeti istemcisi, bir dosya yolu tarafından başvurulan bir yerel görüntüdeki yüzleri algılamak için kullanır.
 
-        private static string GetFaceAttributes(
-            IList<DetectedFace> faceList, string imagePath)
-        {
-            string attributes = string.Empty;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
 
-            foreach (DetectedFace face in faceList)
-            {
-                double? age = face.FaceAttributes.Age;
-                string gender = face.FaceAttributes.Gender.ToString();
-                attributes += gender + " " + age + "   ";
-            }
+### <a name="retrieve-and-display-face-attributes"></a>Alıp yüz öznitelikleri görüntüleyin
 
-            return attributes;
-        }
+Ardından, tanımlama **GetFaceAttributes** yöntemi. Öznitelik ilgili bilgileri içeren bir dize döndürür.
 
-        // Display the face attributes
-        private static void DisplayAttributes(string attributes, string imageUri)
-        {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(attributes + "\n");
-        }
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-### <a name="detectwithurlasync-response"></a>DetectWithUrlAsync yanıtı
+Son olarak, tanımlama **DisplayAttributes** konsol çıktısı için yüz özniteliği veri yazmak için yöntemi.
 
-Başarılı bir yanıt, görüntüdeki her bir yüz için cinsiyeti ve yaşı görüntüler.
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
 
-Ham JSON çıktısı örneği için bkz. [API Hızlı Başlangıçları: C# kullanarak bir görüntüdeki yüzleri algılama](CSharp.md).
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
+
+Başarılı bir yanıt cinsiyet ve yaş her yüz için görüntüyü görüntüler. Örneğin:
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg
@@ -195,7 +94,7 @@ Male 37   Female 56
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir görüntüde yüzleri algılamak için Yüz Tanıma hizmetini kullanan bir WPF Windows uygulamasının nasıl oluşturulacağını öğreneceksiniz. Uygulama, her yüzün çevresine bir çerçeve çizer ve durum çubuğunda yüzün açıklamasını görüntüler.
+Bu hızlı başlangıçta, yüz tanıma API'si hizmeti, hem yerel hem de uzak görüntülerde yüzleri algılamak için kullanabileceğiniz basit bir .NET konsol uygulaması oluşturdunuz. Ardından, nasıl, yüz tanıma bilgileri kullanıcıya sezgisel bir şekilde sunabilirsiniz görmek için daha kapsamlı bir öğreticiyi izleyin.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Görüntüdeki yüzleri algılamak ve çerçeve içine almak için WPF uygulaması oluşturma](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Öğretici: algılamak ve bir görüntüdeki yüzleri analiz etmek için bir WPF uygulaması oluşturma](../Tutorials/FaceAPIinCSharpTutorial.md)

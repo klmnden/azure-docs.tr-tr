@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238838"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632943"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullanırken sorunlarını giderme
 Bu makale ortak sorunları, geçici çözümler, tanılama adımları ve araçları kullanırken kapsar [Java zaman uyumsuz ADK](sql-api-sdk-async-java.md) ile Azure Cosmos DB SQL API hesabı.
@@ -148,7 +148,7 @@ Cosmos DB öykünücüsü'nü HTTPS sertifikası otomatik olarak imzalanır. Öy
 
 ## <a name="enable-client-sice-logging"></a>İstemci SDK'sı günlüğe yazmayı etkinleştir
 
-Log4j ve logback gibi popüler günlük altyapılarına oturum destekleyen günlük cephe olarak SLF4j async Java SDK'sını kullanır.
+Log4j ve logback gibi popüler günlük altyapılarına oturum destekleyen günlük cephe olarak SLF4j Async Java SDK'sını kullanır.
 
 Örneğin, log4j günlük altyapısının kullanmak istiyorsanız, aşağıdaki kitaplıklar içinde Java sınıf yolunuza ekleyin:
 

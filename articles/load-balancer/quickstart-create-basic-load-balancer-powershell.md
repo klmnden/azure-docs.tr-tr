@@ -4,24 +4,22 @@ description: Bu hızlı başlangıçta, PowerShell kullanarak bir Temel Yük Den
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: bfd0c8a60c909076809a6a727677cdc4f10046f2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: c675b6d50cf6bf5c4e7ea064f3741cae7a091946
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320447"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578329"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak genel yük dengeleyici oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın.
@@ -199,10 +197,10 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig `
 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) ile bir ağ güvenlik grubu oluşturun.
 
 ```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup`
+$nsg = New-AzureRmNetworkSecurityGroup `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'myNetworkSecurityGroup'`
+-Name 'myNetworkSecurityGroup' `
 -SecurityRules $rule1,$rule2
 ```
 

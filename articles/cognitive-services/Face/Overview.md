@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914201"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633470"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Yüz Tanıma API’si nedir?
 
@@ -52,7 +52,7 @@ Dört benzer yüzü bulmak için **matchPerson** modu, hedef yüz olarak aynı k
 
 Gruplama API'si, bilinmeyen bir dizi yüzü benzerlik temelinde birkaç gruba ayırır. Her grup, özgün yüz kümesinin kopuk bir alt kümesidir. Gruptaki yüzlerin tümü büyük olasılıkla aynı kişiye aittir ama tek bir kişi için birkaç farklı grup olabilir (başka bir faktöre, örneğin ifadeye göre ayrıştırılabilir). Daha fazla bilgi için bkz. [Gruplama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-## <a name="person-identification"></a>Kişileri tanımlama
+## <a name="person-identification"></a>Kişileri tanıma
 
 Tanımlama API'si, algılanan yüzü bir kişi veritabanına göre tanımlamak için kullanılabilir. Bu özellik, fotoğraf yönetimi yazılımında otomatik görüntü etiketleme için yararlı olabilir. Veritabanını önceden oluşturabilir ve zaman içinde düzenleyebilirsiniz.
 
@@ -63,6 +63,10 @@ Aşağıdaki görüntüde "myfriends" adlı bir veritabanı örneği gösterilir
 Veritabanı oluşturulup eğitildikten sonra, yeni algılanan yüzün bulunduğu grupta tanımlama yapabilirsiniz. Yüz, grupta bir kişi olarak belirlenirse kişi nesnesi döndürülür.
 
 Kişi tanımlama hakkında daha fazla bilgi için bkz. [Tanımlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+
+## <a name="use-containers"></a>Kapsayıcılar kullanma
+
+[Yüz tanıma kapsayıcınızı kullanmak](face-how-to-install-containers.md) algılamak için tanı ve yüzleri, verilerinizi daha yakın standartlaştırılmış bir Docker kapsayıcısı yükleyerek belirleyin.
 
 ## <a name="sample-apps"></a>Örnek uygulamalar
 

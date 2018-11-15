@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: victorh
-ms.openlocfilehash: ba4ab7e488de4a8d3c9fa702c6b33f9ea31b2c2a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d8ab49bc988060533bc5ff65d414dcba6245be48
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615968"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631918"
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Azure portalını kullanarak bir uygulama ağ geçidi oluşturma
 
-Azure portalı, oluşturmak veya uygulama ağ geçitleri yönetmek için kullanabilirsiniz. Bu hızlı başlangıçta, ağ kaynakları ve arka uç sunucuları uygulama ağ geçidi oluşturulacağını gösterir.
+Azure portalı, oluşturmak veya uygulama ağ geçitleri yönetmek için kullanabilirsiniz. Bu makalede, ağ kaynakları ve arka uç sunucuları uygulama ağ geçidi oluşturulacağını gösterir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -28,34 +28,42 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklidir. Bu örnekte iki alt ağ oluşturulmuştur: biri uygulama ağ geçidi ve diğeri de arka uç sunucuları içindir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz.
 
-1. Tıklayın **yeni** Azure portalının sol üst köşedeki üzerinde bulunamadı.
-2. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
-3. Uygulama ağ geçidi için şu değerleri girin:
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
+2. Tıklayın **ağ** ve ardından **Application Gateway** Öne çıkanlar listesinde.
+
+### <a name="basics"></a>Temel Bilgiler
+
+1. Uygulama ağ geçidi için şu değerleri girin:
 
     - *myAppGateway* - Uygulama ağ geçidinin adı.
     - *myResourceGroupAG* - Yeni kaynak grubu.
 
     ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
-5. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
+2. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
+
+### <a name="settings"></a>Ayarlar
+
+1. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
     - *myVNet* - Sanal ağın adı.
     - *10.0.0.0/16* - Sanal ağın adres alanı.
     - *myAGSubnet* - Alt ağın adı.
-    - *10.0.0.0/24* - Alt ağın adres alanı.
+    - *10.0.0.0/24* - alt ağ adres aralığı.
 
     ![Sanal ağ oluşturma](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
-6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
-6. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
-8. Dinleyici yapılandırması için varsayılan değerleri kabul edin, Web uygulaması güvenlik duvarı devre dışı bırakın ve ardından **Tamam**.
-9. Özet sayfasında ayarları gözden geçirin ve sonra **Tamam**’a tıklayarak sanal ağı, genel IP adresini ve uygulama ağ geçidini oluşturun. Bu, uygulama ağ geçidinin oluşturulması, sonraki bölüme geçmeden önce dağıtımın başarıyla tamamlanana kadar bekleyin birkaç dakika sürebilir.
+6. Tıklayın **Tamam** ayarlar sayfasına geri gidin.
+7. Altında **ön uç IP yapılandırması** olun **IP adresi türü** ayarlanır **genel**, altında **genel IP adresi**, sağlamak**Yeni Oluştur** seçilir. Tür *myAGPublicIPAddress* için genel IP adresi adı. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 
-### <a name="add-a-subnet"></a>Alt ağ ekleme
+### <a name="summary"></a>Özet
+
+Özet sayfasında ayarları gözden geçirin ve sonra **Tamam**’a tıklayarak sanal ağı, genel IP adresini ve uygulama ağ geçidini oluşturun. Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Sonraki bölüme geçmeden önce dağıtımın başarıyla tamamlanana kadar bekleyin.
+
+## <a name="add-a-subnet"></a>Alt ağ ekleme
 
 1. Sol taraftaki menüde **Tüm kaynaklar**’a ve sonra kaynaklar listesinden **myVNet** öğesine tıklayın.
-2. Tıklayın **alt ağlar**ve ardından **alt**.
+2. Tıklayın **alt ağlar**ve ardından **+ alt ağ**.
 
     ![Alt ağ oluşturma](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
@@ -67,20 +75,22 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanan iki sa
 
 ### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-1. **Yeni**’ye tıklayın.
+1. Azure portalında **Kaynak oluştur**’a tıklayın.
 2. Tıklayın **işlem** seçip **Windows Server 2016 Datacenter** Öne çıkanlar listesinde.
 3. Sanal makine için şu değerleri girin:
 
+    - *myResourceGroupAG* kaynak grubu için.
     - *myVM* - Sanal makinenin adı.
     - Yönetici kullanıcı adı için *azureuser*.
-    - *Azure123456!* Parola.
-    - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
+    - *Azure123456!* girin.
 
-4. **Tamam** düğmesine tıklayın.
-5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
-6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun. 
-7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
-8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
+   Diğer varsayılan değerleri kabul edin ve tıklayın **sonraki: diskleri**.
+4. Disk Varsayılanları kabul edin ve tıklayın **sonraki: ağ**.
+5. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun.
+6. Diğer varsayılan değerleri kabul edin ve tıklayın **sonraki: Yönetim**.
+7. Tıklayın **kapalı** önyükleme tanılaması devre dışı bırakmak için. Diğer varsayılan değerleri kabul edin ve tıklayın **gözden geçir + Oluştur**.
+8. Özet sayfasında ayarları gözden geçirin ve ardından **Oluştur**.
+9. Sanal makine oluşturma işlemi devam etmeden önce tamamlanmasını bekleyin.
 
 ### <a name="install-iis"></a>IIS yükleme
 
@@ -106,9 +116,10 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanan iki sa
 
 ### <a name="add-backend-servers"></a>Arka uç sunucuları ekleme
 
-3. Tıklayın **tüm kaynakları**ve ardından **myAppGateway**.
+1. Tıklayın **tüm kaynakları**ve ardından **myAppGateway**.
 4. **Arka uç havuzları** öğesine tıklayın. Uygulama ağ geçidi ile varsayılan bir havuz otomatik olarak oluşturulur. **appGatewayBackendPool** öğesine tıklayın.
-5. Tıklayın **Ekle hedef** arka uç havuzu için oluşturduğunuz her sanal makineye eklenecek.
+5. Altında **hedefleri**, tıklayın **IP adresi veya FQDN** seçin **sanal makine**.
+6. Altında **sanal makine**, myVM ve myVM2 sanal makineleri ve bunların ilişkili ağ arabirimleri ekleyin.
 
     ![Arka uç sunucuları ekleme](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
@@ -124,11 +135,10 @@ Bu örnekte, application gateway için arka uç sunucular olarak kullanan iki sa
 
     ![Uygulama ağ geçidini test etme](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Artık gerekli olmadığında kaynak grubunu, uygulama ağ geçidi ve tüm ilgili kaynakları silin. Bunu yapmak için, uygulama ağ geçidini içeren kaynak grubunu seçin ve **Sil**’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta bir kaynak grubu, ağ kaynakları ve arka uç sunucuları oluşturdunuz. Bir uygulama ağ geçidi oluşturmak için bu kaynakları kullanılır. Uygulama ağ geçitleri ve bunların ilişkili kaynakları hakkında daha fazla bilgi edinmek için nasıl yapılır makaleleriyle devam edin.
+Bu makalede, bir kaynak grubu, ağ kaynaklarının ve arka uç sunucuları oluşturdunuz. Bir uygulama ağ geçidi oluşturmak için bu kaynakları kullanılır. Uygulama ağ geçitleri ve bunların ilişkili kaynakları hakkında daha fazla bilgi için bkz: [Azure Application Gateway nedir?](overview.md)

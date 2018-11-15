@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 3137b86dd186e628508111a932140fd9c1f59b5d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cfd59c3e64e019feb4efe4546872012a02402ad7
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161446"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684340"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme
 
@@ -217,3 +217,20 @@ Bu konuda açıklanan çoğaltma mantığı makale durdurur çalışan bazı dur
 -   Yeniden çekirdek oluşturma DBCC CHECKIDENT kullanılarak kimlik sütunu yok.
 
 -   TRUNCATE şema değişiklik izleme tabloda verileri temizlemek için kullanmayın.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+SQL Data Sync hakkında daha fazla bilgi için bkz.:
+
+-   Genel Bakış - [verileri Eşitle birden fazla Bulut ve şirket içi veritabanı arasında Azure SQL Data Sync ile](sql-database-sync-data.md)
+-   Data Sync'i Ayarla
+    - Portalda - [öğretici: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
+    - PowerShell ile
+        -  [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Veri Eşitleme Aracısı - [veri Aracısı Azure SQL Data Sync için eşitleme](sql-database-data-sync-agent.md)
+-   En iyi uygulamalar - [en iyi uygulamalar için Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   İzleyici - [SQL Data Sync'i Log Analytics ile izleme](sql-database-sync-monitor-oms.md)
+-   Sorun giderme - [Azure SQL Data Sync ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
+-   Eşitleme şemasını güncelleştirmek
+    -   PowerShell ile- [var olan bir eşitleme grubunda eşitleme şemasını güncelleştirmek için PowerShell kullanma](scripts/sql-database-sync-update-schema.md)

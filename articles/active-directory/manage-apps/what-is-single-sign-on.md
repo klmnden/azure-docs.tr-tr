@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 5dedef82fcae2b50a58af924f5748c900adf96e0
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624616"
+ms.locfileid: "51633521"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Uygulamaları Azure Active Directory (Azure AD) yapılandırırken en uygun çoklu oturum açma yöntemi seçin öğrenin. 
@@ -44,7 +44,7 @@ Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrın
 | :------ | :------- | :----- |
 | [SAML](#saml-sso) | Yalnızca bulut | SAML mümkün olduğunca kullanın. SAML uygulamaları SAML protokollerden birini kullanmak için yapılandırıldığı zaman çalışır.|
 | [Parola tabanlı](#password-based-sso) | Bulut ve şirket içi | Uygulama, kullanıcı adı ve parola ile kimlik doğrulamasını gerçekleştirdiğinde kullanın. Parola tabanlı çoklu oturum açma güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Bu yöntem, uygulama tarafından sağlanan mevcut oturum açma işlemi kullanır, ancak yönetici parolaları yönetmek etkinleştirir. |
-| [Bağlı](#linked-sso) | Bulut ve şirket içi | Uygulama sağlayıcısı hizmeti başka bir çoklu oturum açmayı tanımlamak için yapılandırıldığında bağlı çoklu oturum açma kullanın. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
+| [Bağlı](#linked-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı başka bir kimlik sağlayıcı hizmetine de yapılandırıldığında bağlı çoklu oturum açma kullanın. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
 | [Devre dışı](#disabled-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı yapılandırılmaya hazır değilken, çoklu oturum açma devre dışı. Kullanıcıların, bunlar bu uygulamayı başlatmak her seferinde kullanıcı adı ve parola girmeniz gerekir.|
 | [Tümleşik Windows kimlik doğrulaması (IWA)](#integrated-windows-authentication-iwa-sso) | yalnızca şirket içi | Bu çoklu oturum açma yöntemi kullanan uygulamalar için kullanmak [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. Uygulama Ara sunucusu bağlayıcıları, bir uygulama kullanıcıların kimliğini doğrulamak için Kerberos Kısıtlı temsilci (KCD) kullanın. | 
 | [Üst bilgi tabanlı](#header-based-sso) | yalnızca şirket içi | Uygulama için kimlik doğrulama üst bilgileri kullandığında üst bilgi tabanlı çoklu oturum açma kullanın. Üst bilgi tabanlı çoklu oturum açma Azure Active Directory için PingAccess gerektirir. Uygulama Ara sunucusu kullanıcının kimliğini doğrulamak için Azure AD kullanır ve ardından bağlayıcı hizmetini üzerinden geçen trafik geçirir.  | 
