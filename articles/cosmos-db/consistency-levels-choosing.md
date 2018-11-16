@@ -11,7 +11,7 @@ ms.date: 10/23/2018
 ms.author: mjbrown
 ms.openlocfilehash: f51673e628798f2c92e4ef7cf9327f4d5c6e5370
 ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2018
 ms.locfileid: "51704691"
