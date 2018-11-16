@@ -1,21 +1,21 @@
 ---
 title: Bulutta Kubernetes geliştirme alanı oluşturma | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: iainfoulds
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: iainfou
+ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: de30cc01dedbba9177c2a67fe1147b9ae767280e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: eebec24702456ec1062a1ac4b3cb9bc6d6580c29
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978170"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705081"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Hızlı Başlangıç: Azure Dev Spaces ile bir Kubernetes geliştirme alanı oluşturma (.NET Core ve Visual Studio)
 
@@ -28,7 +28,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 > [!Note]
 > Herhangi bir zamanda **kilitlenirseniz** [Sorun giderme](troubleshooting.md) bölümüne başvurun veya bu sayfada bir yorum paylaşın. Daha ayrıntılı bir [öğreticiyi](get-started-netcore-visualstudio.md) de deneyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.9.6 veya üzerini çalıştıran, Http Uygulama Yönlendirmesi etkinleştirilmiş bir Kubernetes kümesi.
 

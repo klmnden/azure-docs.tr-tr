@@ -1,372 +1,134 @@
 ---
 title: 'Öğretici: Android SDK ile görüntüdeki yüzleri algılama ve çerçeveleme'
 titleSuffix: Azure Cognitive Services
-description: Bu öğreticide, bir görüntüdeki yüzleri algılamak ve çerçevelemek için Yüz Tanıma API’sini kullanan basit bir Android uygulaması oluşturacaksınız.
+description: Bu öğreticide, algılamak ve bir görüntüdeki yüzleri çerçeve için yüz tanıma API'sini kullanan basit bir Android uygulaması oluşturacaksınız.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
-ms.date: 07/12/2018
+ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 99b2734745df722f45443b5347ae6dd054c8aa31
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957046"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686237"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Öğretici: Resimdeki yüzleri algılamak ve çerçeve içine almak için Android uygulaması oluşturma
 
-Bu öğreticide, resimdeki insan yüzlerini algılamak için Yüz Tanıma hizmeti Java sınıf kitaplığını kullanan basit bir Android uygulaması oluşturursunuz. Uygulama, seçilen her resmi algılanan yüzler dikdörtgen bir çerçeve içine alınmış olarak gösterir. Örnek kodun tamamı GitHub'da [Android'de resimdeki yüzleri algılama ve çerçeve içine alma](https://github.com/Azure-Samples/cognitive-services-face-android-sample).
-
-![Yüzleri kırmızı dikdörtgenle çerçeve içine alınmış bir fotoğrafın Android ekran görüntüsü](../Images/android_getstarted2.1.PNG)
+Bu öğreticide, bir resimdeki İnsan yüzlerini algılamak için Java SDK'sı aracılığıyla Azure yüz tanıma API'sini kullanan basit bir Android uygulaması oluşturacaksınız. Uygulama, seçilen görüntü görüntüler ve algılanan her yüz etrafında bir çerçeve çizer.
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
 > [!div class="checklist"]
 > - Android uygulaması oluşturma
-> - Yüz Tanıma hizmeti istemci kitaplığını yükleme
+> - Yüz tanıma API'si istemci Kitaplığı'nı yükleyin
 > - İstemci kitaplığını kullanarak resimdeki yüzleri algılama
 > - Algılanan her yüzün çevresine bir çerçeve çizme
 
-## <a name="prerequisites"></a>Ön koşullar
+![Yüzleri kırmızı dikdörtgenle çerçeve içine alınmış bir fotoğrafın Android ekran görüntüsü](../Images/android_getstarted2.1.PNG)
 
-- Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
-- [Android Studio](https://developer.android.com/studio/) minimum SDK 22 ile (Yüz Tanıma istemci kitaplığı için gerekir).
-- Maven'den [com.microsoft.projectoxford:face:1.4.3](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.projectoxford%22) Yüz Tanıma istemci kitaplığı. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
+Tam örnek kodu [Bilişsel hizmetler yüz tanıma Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample) github deposu.
 
-## <a name="create-the-project"></a>Proje oluşturma
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. 
 
-Aşağıdaki adımları izleyerek Android uygulama projenizi oluşturun:
+## <a name="prerequisites"></a>Önkoşullar
 
-1. Android Studio’yu açın. Bu öğreticide Android Studio 3.1 kullanılır.
-1. **Yeni Android Studio projesi başlat**'ı seçin.
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+- [Android Studio](https://developer.android.com/studio/) API düzeyi 22 veya sonraki bir sürümü ile (yüz istemci kitaplığının gerektirdiği).
+
+## <a name="create-the-android-studio-project"></a>Android Studio projesi oluşturma
+
+Yeni bir Android uygulaması projesi oluşturmak için aşağıdaki adımları izleyin.
+
+1. Android Studio'da **yeni bir Android Studio projesi Başlat**.
 1. **Android Projesi Oluştur** ekranında, gerekirse varsayılan alanları değiştirin ve sonra da **İleri**'ye tıklayın.
-1. **Hedef Android Cihazları** ekranında, aşağı açılan seçiciyi kullanarak **API 22** veya üstünü seçin, sonra da **İleri**'ye tıklayın.
+1. Üzerinde **hedef Android cihazları** ekranında, seçmek için açılır Seçici kullanın **API 22** veya daha sonra ardından **sonraki**.
 1. **Boş Etkinlik** öğesini seçin ve **İleri**'ye tıklayın.
 1. **Geriye Dönük Uyumluluk** öğesinin işaretini kaldırın ve **Son**'a tıklayın.
 
-## <a name="create-the-ui-for-selecting-and-displaying-the-image"></a>Resmi seçmek ve görüntülemek için kullanıcı arabirimi oluşturma
+## <a name="add-the-initial-code"></a>Başlangıç kodunu ekleme
 
-*Activity_main.xml* dosyasını açın; Yerleşim Düzenleyicisi'ni görüyor olmalısınız. **Metin** sekmesini seçin ve içeriği aşağıdaki kodla değiştirin.
+### <a name="create-the-ui"></a>Kullanıcı Arabirimi oluşturma
 
-```xml
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+Açık *activity_main.xml*. Düzen Düzenleyicisi'ndeki **metin** sekmesine ve ardından içeriğini aşağıdaki kodla değiştirin.
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView1"
-        android:layout_above="@+id/button1"
-        android:contentDescription="Image with faces to analyze"/>
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Browse for face image"
-        android:id="@+id/button1"
-        android:layout_alignParentBottom="true"/>
-</RelativeLayout>
-```
+### <a name="create-the-main-class"></a>Ana sınıfı oluşturma
 
-*MainActivity.java*'yı açın ve ilk `package` deyimi dışındaki her şeyi aşağıdaki kodla değiştirin.
+Açık *MainActivity.java* ve varolan `import` aşağıdaki kodla deyimleri.
 
-Kod, olay işleyicisinde kullanıcının resim seçmesini sağlamak için yeni bir etkinlik başlatan `Button` öğesini ayarlar. Bir kez seçildikten sonra, resim `ImageView` içinde görüntülenir.
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
 
-```java
-import java.io.*;
-import android.app.*;
-import android.content.*;
-import android.net.*;
-import android.os.*;
-import android.view.*;
-import android.graphics.*;
-import android.widget.*;
-import android.provider.*;
+Ardından, içeriği değiştirin **MainActivity** aşağıdaki kodla sınıfı. Bu olay işleyicisi oluşturur **düğmesi** bir resim seçmek izin vermek için yeni bir etkinlik başlar. Resim görüntüler **ImageView**.
 
-public class MainActivity extends Activity {
-    private final int PICK_IMAGE = 1;
-    private ProgressDialog detectionProgressDialog;
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            Button button1 = (Button)findViewById(R.id.button1);
-            button1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(
-                        intent, "Select Picture"), PICK_IMAGE);
-            }
-        });
+### <a name="try-the-app"></a>Uygulamayı deneyin
 
-        detectionProgressDialog = new ProgressDialog(this);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
-                data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(
-                        getContentResolver(), uri);
-                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-                imageView.setImageBitmap(bitmap);
-
-                // Uncomment
-                //detectAndFrame(bitmap);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-        }
-    }
-}
-```
-
-Artık uygulamanız bir fotoğraf bulabilir ve aşağıdaki görüntüde gösterildiği gibi bunu pencerede görüntüler.
+Çağrı yorum **detectAndFrame** içinde **onActivityResult** yöntemi. Tuşuna basarak **çalıştırma** menüsünde uygulamanızı test edin. Bir öykünücü veya bağlı bir cihaz, uygulama açıldığında tıklayın **Gözat** alt. Cihazın dosya seçme iletişim kutusu görüntülenmelidir. Bir görüntü seçin ve pencerenin görüntülendiğini doğrulayın. Ardından, sonraki adıma ilerleyin ve uygulamayı kapatın.
 
 ![Yüzler içeren bir fotoğrafın Android ekran görüntüsü](../Images/android_getstarted1.1.PNG)
 
-## <a name="configure-the-face-client-library"></a>Yüz Tanıma istemci kitaplığını yapılandırma
+## <a name="add-the-face-sdk"></a>Yüz tanıma SDK'sı ekleyin
 
-Yüz Tanıma API'si, HTTPS isteklerini kullanarak çağırabileceğiniz bir bulut API'sidir. Bu öğreticide, çalışmanızı basitleştirmek için bu web isteklerini kapsülleyen Yüz Tanıma istemci kitaplığı kullanılır.
+### <a name="add-the-gradle-dependency"></a>Gradle bağımlılık Ekle
 
-**Proje** bölmesinde, aşağı açılan seçiciyi kullanarak **Android**'i seçin. **Gradle Scripts**'i genişletin, sonra *build.gradle (Modül: uygulama)* öğesini açın.
-
-Aşağıdaki ekran görüntüsünde gösterildiği gibi Yüz Tanıma istemci kitaplığı `com.microsoft.projectoxford:face:1.4.3` için bir bağımlılık ekleyin, sonra da **Şimdi Eşitle**'ye tıklayın.
+**Proje** bölmesinde, aşağı açılan seçiciyi kullanarak **Android**'i seçin. **Gradle Scripts**'i genişletin, sonra *build.gradle (Modül: uygulama)* öğesini açın. Aşağıdaki ekran görüntüsünde gösterildiği gibi Yüz Tanıma istemci kitaplığı `com.microsoft.projectoxford:face:1.4.3` için bir bağımlılık ekleyin, sonra da **Şimdi Eşitle**'ye tıklayın.
 
 ![Uygulama build.gradle dosyasının Android Studio ekran görüntüsü](../Images/face-tut-java-gradle.png)
 
-**MainActivity.java**'yı açın ve aşağıdaki içeri aktarma yönergelerini ekleyin:
+### <a name="add-the-face-related-project-code"></a>Yüz tanıma ile ilgili proje kodunu ekleyin
+
+Geri Git **MainActivity.java** ve aşağıdakileri ekleyin `import` ifadeleri:
+
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=13-14)]
+
+Sonra aşağıdaki kodu ekleyin **MainActivity** sınıfı, yukarıdaki **onCreate** yöntemi:
+
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
+
+Değiştirmeniz gerekecektir `<Subscription Key>` abonelik. Ayrıca, değiştirin `<API endpoint>` ile anahtarınız için uygun bir bölge tanımlayıcısı kullanılarak, yüz tanıma API'si uç noktası. Ücretsiz deneme aboneliği anahtarları oluşturulur **westus** bölge. Örnek API uç noktası değeri şu şekilde olur:
 
 ```java
-import com.microsoft.projectoxford.face.*;
-import com.microsoft.projectoxford.face.contract.*;
+apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
 ```
 
-## <a name="add-the-face-client-library-code"></a>Yüz Tanıma istemci kitaplığı kodunu ekleme
+**Proje** bölmesinde **uygulamayı**, sonra da **bildirimleri** genişletin ve *AndroidManifest.xml* dosyasını açın. Aşağıdaki öğeyi `manifest` öğesinin doğrudan alt öğesi olarak ekleyin:
 
-Aşağıdaki kodu `MainActivity` sınıfına, `onCreate` yönteminin üst kısmına ekleyin:
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
 
-```java
-private final String apiEndpoint = "<API endpoint>";
-private final String subscriptionKey = "<Subscription Key>";
+## <a name="upload-image-and-detect-faces"></a>Görüntü karşıya yükleme ve yüz algılama
 
-private final FaceServiceClient faceServiceClient =
-        new FaceServiceRestClient(apiEndpoint, subscriptionKey);
-```
+Uygulamanızı çağırarak yüzleri algılar **FaceServiceClient.detect** sarmalar yöntemi [Algıla](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API ve bir listesini döndürür **yüz** örnekleri.
 
-`<API endpoint>` değerini anahtarınıza atanmış olan API uç noktasıyla değiştirin. Ücretsiz deneme abonelik anahtarları **westcentralus** bölgesinde oluşturulur. Dolayısıyla, ücretsiz bir deneme abonelik anahtarı kullanıyorsanız, deyim aşağıdaki gibi olabilir:
+Her döndürülen **yüz** isteğe bağlı yüz öznitelikleri bir dizi ile birlikte konumunu belirtmek için bir dikdörtgen içerir. Bu örnekte, yalnızca yüz dikdörtgenler istenir.
 
-```java
-apiEndpoint = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
-```
+Aşağıdaki iki yöntemden içine Ekle **MainActivity** sınıfı. Yüz algılama tamamlandığında uygulamayı çağırır Not **drawFaceRectanglesOnBitmap** değiştirmek için yöntem **ImageView**. Bu yöntem sonraki tanımlayacaksınız.
 
-`<Subscription Key>` değerini abonelik anahtarınızla değiştirin. Örnek:
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
 
-```java
-subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-```
+## <a name="draw-face-rectangles"></a>Yüz tanıma dikdörtgenler çizme
 
-**Proje** bölmesinde **uygulamayı**, sonra da **bildirimleri** genişletin ve *AndroidManifest.xml* dosyasını açın.
+Aşağıdaki yardımcı yöntemini içine Ekle **MainActivity** sınıfı. Bu yöntem her dikdörtgen koordinatlar kullanarak algılanan her yüz tanıma, çevresinde bir dikdörtgen çizer **yüz** örneği.
 
-Aşağıdaki öğeyi `manifest` öğesinin doğrudan alt öğesi olarak ekleyin:
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=152-173)]
 
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-```
-
-Projenizi derleyip hataları denetleyin. Artık Yüz Tanıma hizmetini çağırmaya hazırsınız.
-
-## <a name="upload-an-image-to-detect-faces"></a>Yüzlerin algılanması için resmi karşıya yükleme
-
-Yüzleri algılamanın en kolay yolu `FaceServiceClient.detect` yöntemini çağırmaktır. Bu yöntem [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API yöntemini sarmalar ve bir `Face` dizisi döndürür.
-
-Döndürülen her `Face`, konumunu göstermek için bir dikdörtgen ile birlikte bir dizi isteğe bağlı yüz özniteliği içerir. Bu örnekte, yalnızca yüzlerin konumları gereklidir.
-
-Hata oluşursa, bir `AlertDialog` temel nedeni görüntüler.
-
-Aşağıdaki yöntemleri `MainActivity` sınıfına ekleyin.
-
-```java
-// Detect faces by uploading a face image.
-// Frame faces after detection.
-private void detectAndFrame(final Bitmap imageBitmap) {
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-    ByteArrayInputStream inputStream =
-            new ByteArrayInputStream(outputStream.toByteArray());
-
-    AsyncTask<InputStream, String, Face[]> detectTask =
-            new AsyncTask<InputStream, String, Face[]>() {
-                String exceptionMessage = "";
-
-                @Override
-                protected Face[] doInBackground(InputStream... params) {
-                    try {
-                        publishProgress("Detecting...");
-                        Face[] result = faceServiceClient.detect(
-                                params[0],
-                                true,         // returnFaceId
-                                false,        // returnFaceLandmarks
-                                null          // returnFaceAttributes:
-                                /* new FaceServiceClient.FaceAttributeType[] {
-                                    FaceServiceClient.FaceAttributeType.Age,
-                                    FaceServiceClient.FaceAttributeType.Gender }
-                                */
-                        );
-                        if (result == null){
-                            publishProgress(
-                                    "Detection Finished. Nothing detected");
-                            return null;
-                        }
-                        publishProgress(String.format(
-                                "Detection Finished. %d face(s) detected",
-                                result.length));
-                        return result;
-                    } catch (Exception e) {
-                        exceptionMessage = String.format(
-                                "Detection failed: %s", e.getMessage());
-                        return null;
-                    }
-                }
-
-                @Override
-                protected void onPreExecute() {
-                    //TODO: show progress dialog
-                }
-                @Override
-                protected void onProgressUpdate(String... progress) {
-                    //TODO: update progress
-                }
-                @Override
-                protected void onPostExecute(Face[] result) {
-                    //TODO: update face frames
-                }
-            };
-
-    detectTask.execute(inputStream);
-}
-
-private void showError(String message) {
-    new AlertDialog.Builder(this)
-    .setTitle("Error")
-    .setMessage(message)
-    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-        }})
-    .create().show();
-}
-```
-
-## <a name="frame-faces-in-the-image"></a>Resimdeki yüzleri çerçeve içine alma
-
-Aşağıdaki yardımcı yöntemi `MainActivity` sınıfına ekleyin. Bu yöntem, algılanan her yüzün çevresine bir dikdörtgen çizer.
-
-```java
-private static Bitmap drawFaceRectanglesOnBitmap(
-        Bitmap originalBitmap, Face[] faces) {
-    Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-    Canvas canvas = new Canvas(bitmap);
-    Paint paint = new Paint();
-    paint.setAntiAlias(true);
-    paint.setStyle(Paint.Style.STROKE);
-    paint.setColor(Color.RED);
-    paint.setStrokeWidth(10);
-    if (faces != null) {
-        for (Face face : faces) {
-            FaceRectangle faceRectangle = face.faceRectangle;
-            canvas.drawRect(
-                    faceRectangle.left,
-                    faceRectangle.top,
-                    faceRectangle.left + faceRectangle.width,
-                    faceRectangle.top + faceRectangle.height,
-                    paint);
-        }
-    }
-    return bitmap;
-}
-```
-
-`detectAndFrame` yönteminde `TODO` açıklamalarıyla gösterilen `AsyncTask` yöntemlerini tamamlayın. Başarılı olduğunda, seçilen resim `ImageView` içinde çerçeve içine alınmış yüzlerle görüntülenir.
-
-```java
-@Override
-protected void onPreExecute() {
-    detectionProgressDialog.show();
-}
-@Override
-protected void onProgressUpdate(String... progress) {
-    detectionProgressDialog.setMessage(progress[0]);
-}
-@Override
-protected void onPostExecute(Face[] result) {
-    detectionProgressDialog.dismiss();
-    if(!exceptionMessage.equals("")){
-        showError(exceptionMessage);
-    }
-    if (result == null) return;
-    ImageView imageView = findViewById(R.id.imageView1);
-    imageView.setImageBitmap(
-            drawFaceRectanglesOnBitmap(imageBitmap, result));
-    imageBitmap.recycle();
-}
-```
-
-Son olarak, `onActivityResult` yönteminde `detectAndFrame` yöntemine yapılan çağrıyı aşağıda gösterildiği gibi açıklama olmaktan çıkarın.
-
-```java
-@Override
-protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-
-    if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
-                data != null && data.getData() != null) {
-        Uri uri = data.getData();
-        try {
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
-                    getContentResolver(), uri);
-            ImageView imageView = findViewById(R.id.imageView1);
-            imageView.setImageBitmap(bitmap);
-
-            // Uncomment
-            detectAndFrame(bitmap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
+Son olarak, çağrı açıklamadan çıkarın **detectAndFrame** yönteminde **onActivityResult**.
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-Uygulamayı çalıştırın ve içinde yüzlerin yer aldığı bir resim bulun. Yüz Tanıma hizmetinin yanıt vermesi için birkaç saniye bekleyin. Bundan sonra, aşağıdaki resme benzer bir sonuç elde edersiniz:
+Uygulamayı çalıştırın ve içinde yüzlerin yer aldığı bir resim bulun. Yüz Tanıma hizmetinin yanıt vermesi için birkaç saniye bekleyin. Her bir görüntüdeki yüzleri kırmızı bir dikdörtgen görmeniz gerekir.
 
-![GettingStartAndroid](../Images/android_getstarted2.1.PNG)
-
-## <a name="summary"></a>Özet
-
-Bu öğreticide, Yüz Tanıma hizmetini kullanmanın temel sürecini öğrendiniz ve resimde çerçeve içine almak yüzleri görüntüleyen bir uygulama oluşturdunuz.
+![Çizilen etrafında kırmızı dikdörtgenler ile yüzleri Android ekran görüntüsü](../Images/android_getstarted2.1.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yüz işaretlerini algılama ve kullanma hakkında bilgi edinin.
+Bu öğreticide, temel işlemi, yüz tanıma API'si Java SDK'sını kullanma hakkında bilgi edindiniz ve algılamak ve bir görüntüdeki yüzleri çerçeve için bir uygulama oluşturdunuz. Ardından, yüz algılama ayrıntıları hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
 > [Resimdeki Yüzleri Tanıma](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
-
-Yüzleri algılamak için kullanılan Yüz Tanıma API'lerini ve poz, cinsiyet, yaş, kafa duruşu, sakal, bıyık ve gözlükler gibi bunların özniteliklerini inceleyin.
-
-> [!div class="nextstepaction"]
-> [Yüz Tanıma API'si Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).

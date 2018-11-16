@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: alkohli
-ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232215"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685965"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>Azure Data Box Edge (Önizleme) nedir? 
 
@@ -84,7 +84,7 @@ Data Box Edge fiziksel cihazı aşağıdaki özelliklere sahiptir:
 | Bellek| 64 GB RAM|
 | Diskler| 8 NVMe SSD, her disk 1,6 TB <br> Bir NVMe SSD başarısız olursa sistem başarısız olur. |
 | Yerel depolama kapasitesi| 12,8 TB toplam kapasite|
-| Ağ arabirimleri| 2 X 1 GbE arabirimleri – 1 yönetim için, kullanıcı tarafından yapılandırılamaz, ilk kurulumda kullanılır. Diğer veri arabirimi kullanıcı tarafından yapılandırılabilir ve varsayılan olarak DHCP'dir. <br>2 X 25 GbE arabirimleri – Bunlar 10 GbE arabirimleri olarak da çalıştırılabilir. Bu veri arabirimleri kullanıcı tarafından DHCP (varsayılan) veya statik olarak yapılandırılabilir. <br> 2 X 25 GbE arabirimleri - Bu veri arabirimleri kullanıcı tarafından DHCP (varsayılan) veya statik olarak yapılandırılabilir.|
+| Ağ arabirimleri| 2 X 1 GbE arabirimleri – 1 yönetim için, kullanıcı tarafından yapılandırılamaz, ilk kurulumda kullanılır. Diğer arabirimi kullanıcı tarafından yapılandırılabilir, veri aktarımı için kullanılan ve DHCP varsayılan olarak açıktır. <br>2 X 25 GbE arabirimleri – Bunlar 10 GbE arabirimleri olarak da çalıştırılabilir. Bu veri arabirimleri kullanıcı tarafından DHCP (varsayılan) veya statik olarak yapılandırılabilir. <br> 2 X 25 GbE arabirimleri - Bu veri arabirimleri kullanıcı tarafından DHCP (varsayılan) veya statik olarak yapılandırılabilir.|
 
 ## <a name="components"></a>Bileşenler
 

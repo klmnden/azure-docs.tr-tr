@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd5817cd2c6c3ce3e1205136232253c42a6b1ab6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 96efb64ce7d77da567d587857e4a25ae334a3ffc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298567"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707121"
 documentType: LandingData
 title: Azure Machine Learning hizmeti (önizleme) Belgeleri
 metadata:
@@ -52,14 +52,14 @@ sections:
     - html: <a href="tutorial-auto-train-models">Sizin için otomatik olarak bir model oluşturmamıza ve ayarlamamıza izin verin</a>
     - html: <a href="tutorial-deploy-models-with-aml">Modeli web hizmeti olarak dağıtın</a>
   - type: paragraph
-    text: '<b>Örnek not defterleri</b>: GitHub’da bulabileceğiniz <a href="http://aka.ms/aml-notebooks">bu Jupyter notebook’lar</a> ile Azure Machine Learning’i keşfedin.'
+    text: '<b>Örnek not defterleri</b>: GitHub’da bulabileceğiniz <a href="https://aka.ms/aml-notebooks">bu Jupyter notebook’lar</a> ile Azure Machine Learning’i keşfedin.'
 - title: Başvuru
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="http://aka.ms/data-prep-sdk">Azure Machine Learning Veri Hazırlama SDK'sı</a>
-    - html: <a href="http://aka.ms/aml-sdk">Python için Azure Machine Learning SDK'sı (ana SDK)</a>
+    - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning Veri Hazırlama SDK'sı</a>
+    - html: <a href="https://aka.ms/aml-sdk">Python için Azure Machine Learning SDK'sı (ana SDK)</a>
     - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning İzleme SDK’sı</a>
 - title: Diğer Azure Machine Learning Teknolojileri
   items:

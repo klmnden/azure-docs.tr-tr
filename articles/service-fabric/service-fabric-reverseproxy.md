@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344634"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711472"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
 Azure Service Fabric'te yerleşik ters proxy bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma bir Service Fabric kümesinde çalışan mikro hizmetler yardımcı olur.
@@ -161,7 +161,7 @@ Docker Compose kapsayıcılarda çalıştırılan bir Service Fabric hizmetleri 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir kümede ters proxy ayarlarını yapılandırma ve ayarlama](service-fabric-reverseproxy-setup.md).
 * [Güvenli HTTP hizmetine ileten ters proxy ile ayarlama](service-fabric-reverseproxy-configure-secure-communication.md)
-* [Diagose ters proxy olayları](service-fabric-reverse-proxy-diagnostics.md)
+* [Olayları ters proxy tanılama](service-fabric-reverse-proxy-diagnostics.md)
 * HTTP iletişim hizmetleri arasında bir örneğini görmek bir [GitHub üzerinde örnek proje](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Reliable Services uzaktan iletişimi ile uzak yordam çağrıları](service-fabric-reliable-services-communication-remoting.md)
 * [OWIN güvenilir hizmetler kullanan Web](service-fabric-reliable-services-communication-webapi.md)

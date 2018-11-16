@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: article
 description: Hızlı bir şekilde Azure geliştirme alanları için doğrudan tarayıcınızdan herhangi bir şey yüklemeden etkin bir Kubernetes kümesi oluşturmayı öğrenin.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 47c467e020a7a9253daa636352352d9a57dddf28
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 61a466efdacb56889a7e437d84d3c9de43927e65
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978162"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705761"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Azure Cloud Shell kullanarak bir Kubernetes kümesi oluşturma
 
@@ -23,7 +23,7 @@ Kullanabileceğiniz [Azure Cloud Shell](/azure/cloud-shell) kullanarak Azure gel
 
 ## <a name="create-the-cluster"></a>Kümeyi oluşturma
 
-İlk olarak, kaynak grubu oluşturun. Şu anda desteklenen bölgeler (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast) birini kullanın.
+İlk olarak, kaynak grubu oluşturun. Şu an için desteklenen bölgelerden birini (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast) kullanın.
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>

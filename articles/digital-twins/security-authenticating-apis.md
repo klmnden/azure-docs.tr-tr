@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: f85ab05e785ea559962490b43e75b196d1602159
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016225"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711064"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Bağlanıp API'lerine kimlikleri
 
@@ -35,39 +35,18 @@ Windows Azure kimlik doğrulama kitaplığı, Active Directory belirteçlerini a
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Dijital İkizlerini bir orta katman web API'si çağırma
 
-Geliştiriciler dijital İkizlerini çözümleri tasarlama, bunlar genellikle bir orta katman uygulama veya API oluşturun. Daha sonra dijital İkizlerini API uygulaması veya API aşağı yönde çağırır. Kullanıcılar, Orta katmanda uygulamaya ilk kimlik doğrulaması ve ardından bir on-behalf-of belirteci akış aşağı akış çağırmak için kullanılır. On-behalf-of akışı düzenlemek nasıl hakkında yönergeler için bkz: [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Kod örnekleri üzerinde görüntüleyebilirsiniz [bu sayfayı](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+Geliştiriciler dijital İkizlerini çözümleri tasarlama, bunlar genellikle bir orta katman uygulama veya API oluşturun. Daha sonra dijital İkizlerini API uygulaması veya API aşağı yönde çağırır. Bu standart web çözümü mimari desteklemek için emin kullanıcıların ilk:
 
+1. Orta katman uygulama ile kimlik doğrulaması
 
-## <a name="test-with-the-postman-client"></a>Postman istemciyle test etme
+1. Bir OAuth 2.0 On-Behalf-Of belirteci kimlik doğrulaması sırasında alınır
 
-Dijital İkizlerini API'lerini kullanmaya başlamak için Postman gibi bir istemci bir API ortam kullanabilirsiniz. Postman, karmaşık HTTP isteklerine hızlı bir şekilde oluşturmanıza yardımcı olur. Aşağıdaki adımlarda, dijital İkizlerini Postman UI içinde çağırmak için gerekli olan Azure AD belirteçlerini almak gösterilmektedir.
+1. Alınan belirteç kimlik doğrulaması veya daha fazla On-Behalf-Of akışı aşağı yönde kullandığınız API'leri çağırmak için kullanılır
 
-
-1. Git https://www.getpostman.com/ uygulamayı indirmek için.
-1. Bağlantısındaki [Bu hızlı başlangıçta](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) bir Azure AD uygulaması oluşturmak için. Veya mevcut bir kayıt yeniden kullanabilirsiniz. 
-1. Altında **gerekli izinler**, "Azure dijital İkizlerini" girin ve seçin **Temsilcili izinler**. Ardından **izinler**.
-1. Uygulama bildirimi açın ve ayarlayın **oauth2AllowImplicitFlow** true.
-1. Bir yanıt URL'si için yapılandırma [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
-1. Seçin **yetkilendirme** sekmesinde **OAuth 2.0**ve ardından **yeni erişim belirteci Al**.
-
-    |**Alan**  |**Değer** |
-    |---------|---------|
-    | İzin verme türü | Örtük |
-    | Geri çağırma URL'si | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Kimlik doğrulama URL'si | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/Authorize?Resource=0b07f429-9F4B-4714-9392-cc5e8e80c8b0 |
-    | İstemci Kimliği | Uygulama Kimliği oluşturulmuş veya adım 2'den başka bir amaçla kullanılması Azure AD uygulamasını kullanın. |
-    | Kapsam | Boş bırakın. |
-    | Durum | Boş bırakın. |
-    | İstemci kimlik doğrulaması | Temel kimlik doğrulama üst bilgi olarak gönderin. |
-
-1. Seçin **belirteç iste**.
-
-    >[!NOTE]
-    >"2 OAuth tamamlanamadı" hata iletisini alırsanız, aşağıdakileri deneyin:
-    > * Postman, kapatın ve yeniden açın ve yeniden deneyin.
-   
-1. Aşağı kaydırın ve select **kullanım belirteci**.
+On-behalf-of akışı düzenlemek nasıl hakkında yönergeler için bkz: [OAuth 2.0 On-Behalf-Of akış](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Kod örnekleri de görüntüleyebilirsiniz [Aşağı Akış web API'si çağırma](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Yapılandırma ve Azure dijital OAuth 2.0 örtülü izin akışı kullanarak çiftlerini sınamak için okuma [Postman yapılandırma](./how-to-configure-postman.md).
 
 Azure dijital İkizlerini güvenliği hakkında bilgi edinmek için [oluşturma ve rol atamalarını yönetmek](./security-create-manage-role-assignments.md).

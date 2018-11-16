@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: 43cf9f5ec0f9c265efa0e59eadbf6c9bbe4f7c3f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085385"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51682888"
 ---
 # <a name="advanced-resource-graph-queries"></a>Gelişmiş Kaynak Grafiği sorguları
 
@@ -72,7 +72,7 @@ Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Normal ifade tarafından eşleştirilen sanal makineler
 
 Bu sorgu, [normal ifadeyle](/dotnet/standard/base-types/regular-expression-language-quick-reference) (_regex_ olarak bilinir) eşleşen sanal makineleri arar.
-**Eşleşir normal ifade @**, eşleşecek normal ifadeyi, yani **^Contoso(.*)[0-9]+$** ifadesini tanımlamamızı sağlar. Bu normal ifade tanımı şöyle açıklanmıştır:
+**Eşleşen normal ifade @** olan eşleştirmek için normal ifade tanımlamak sağlıyor `^Contoso(.*)[0-9]+$`. Bu normal ifade tanımı şöyle açıklanmıştır:
 
 - `^` - Eşleşme dizenin başında başlamalıdır.
 - `Contoso` - Büyük/küçük harfe duyarlı dize.

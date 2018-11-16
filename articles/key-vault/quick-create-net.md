@@ -1,6 +1,6 @@
 ---
 title: "Hızlı Başlangıç: Node web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma| Microsoft Docs"
-description: "Hızlı Başlangıç: Node web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma"
+description: "Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma"
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230940"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686679"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma
 
@@ -35,7 +35,7 @@ Bu hızlı başlangıçta, bir Azure web uygulamasının Azure kaynakları için
 >
 >[Azure kaynakları için yönetilen hizmet kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) ile, Azure’da çalıştırılan uygulamalara otomatik olarak Azure’ın yönettiği bir kimlik verilir. Bu, *gizli dizi belirleme sorununu* çözerek kullanıcıların ve uygulamaların en iyi yöntemleri uygulayabilmesini ve ilk gizli diziyi döndürme konusunda endişelenmemesini sağlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Windows'da:
   * [Visual Studio 2017 sürüm 15.7.3 veya üzeri](https://www.microsoft.com/net/download/windows), aşağıdaki iş yükleriyle birlikte:
@@ -175,7 +175,6 @@ Uygulamayı çalıştırdığınızda gizli dizi değerinizin alındığını g�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Key Vault ana sayfası](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault belgeleri](https://docs.microsoft.com/azure/key-vault/)
+* [Key Vault hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 * [.NET için Azure SDK](https://github.com/Azure/azure-sdk-for-net)
 * [Azure REST API başvurusu](https://docs.microsoft.com/rest/api/keyvault/)

@@ -6,24 +6,24 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 89beae63564c9a3f80b92b8a496a452114304718
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 13d28e43f9f712f5e597da8171ba9ebf4118bd49
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963710"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712050"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak blobları yükleme, indirme ve listeleme
 
 Azure kaynaklarını oluşturmak ve yönetmek için Azure PowerShell modülünü kullanın. Azure kaynaklarını oluşturma ve yönetme işlemleri PowerShell komut satırından veya betiklerden gerçekleştirilebilir. Bu kılavuzda yerel disk ile Azure Blob depolama arasında dosyaları aktarmak için PowerShell kullanma hakkında bilgi sağlanır.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
-
-[!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 

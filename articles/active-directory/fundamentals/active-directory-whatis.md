@@ -1,82 +1,103 @@
 ---
-title: Azure Active Directory (Azure AD) nedir? | Microsoft Docs
-description: Azure Active Directory’yi kullanarak mevcut şirket içi kimliklerinizi buluta taşıma veya Azure AD ile tümleşik uygulamalar geliştirme hakkında bilgi edinin.
+title: Azure Active Directory genel bakış | Microsoft Docs
+description: Azure Active gerekli terminoloji, hedef kitle dahil olmak üzere temel unsurlarını ve ilgili özellikleri lisanslama Directory hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
 manager: mtillman
-ms.author: lizross
-ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
-ms.component: fundamentals
-ms.workload: identity
 ms.topic: overview
-ms.date: 09/13/2018
-ms.custom: it-pro
-ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.date: 11/13/2018
+ms.author: lizross
+ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957556"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686594"
 ---
-# <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir?
-Azure Active Directory (Azure AD), Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure AD, temel dizin hizmetlerini, uygulama erişimi yönetimini ve kimlik korumasını tek bir çözümde birleştirerek geliştiricilerin merkezi ilke ve kurallara göre uygulamalarına yönelik erişim denetimi sunmasına yardımcı olan standartlara dayalı bir platform sunar.
+# <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir? 
+Azure Active Directory (Azure AD), Microsoft'un bulut tabanlı kimlik ve erişim yönetimi hizmetidir. Azure AD, çalışanlarınızın oturum açın ve kaynaklara erişmesine yardımcı olur:
 
-![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
+- Microsoft Office 365, Azure portalı ve diğer SaaS uygulamalarına binlerce gibi dış kaynaklar.
 
-## <a name="benefits-of-azure-ad"></a>Azure AD’nin avantajları
-Azure AD aşağıdakileri yapmanıza yardımcı olur:
+- Şirket ağına ve intranet, kendi kuruluşunuzun içinde geliştirilen bir bulut uygulamalarının yanı sıra uygulamaları gibi iç kaynaklara.
 
--   Kuruluşunuzdaki kullanıcılar için tek bir kimlik oluşturup yönetebilir; kullanıcıları, grupları ve cihazları [Azure AD Connect](../connect/active-directory-aadconnect.md) ile eşitleyebilirsiniz.
+Çeşitli kullanabileceğiniz [Kurumsal mimarlara serisi için Microsoft Cloud](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) temel kimlik hizmetlerini azure'da, Azure AD'nin ötesine geçerek, daha iyi anlamak için Posterler ve Office 365.
 
--   Binlerce önceden tümleştirilmiş SaaS uygulaması dahil olmak üzere uygulamalarınızda çoklu oturum açma özelliğini kullanabilir ve [Azure AD Uygulama Ara Sunucusu](../manage-apps/application-proxy.md) ile şirket içi SaaS uygulamalarına güvenli uzaktan erişim sağlayabilirsiniz.
+## <a name="who-uses-azure-ad"></a>Azure AD kullanan?
+Azure AD için tasarlanmıştır:
 
--   Hem şirket içi hem de bulut uygulamaları için kural tabanlı [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) ilkeleri uygulayarak uygulama erişimi güvenliğini sağlayabilirsiniz.
+- **BT yöneticileri.** BT yöneticisi, uygulamalarınızın ve iş gereksinimlerinize göre uygulama kaynaklarınızı erişimi denetlemek için Azure AD kullanabilirsiniz. Örneğin, önemli kurumsal kaynaklara erişirken çok faktörlü kimlik doğrulaması gerektirmek için Azure AD kullanın. Ayrıca, Azure AD kullanıcı sağlama, mevcut Windows Server AD ve Office 365 dahil olmak üzere bulut uygulamalarınız arasında otomatik hale getirmek için kullanabilirsiniz. Son olarak, Azure AD'ye otomatik olarak kullanıcı kimliklerini ve kimlik bilgilerinin korunmasına yardımcı olmak ve erişim yönetimi gereksinimlerinizi karşılamak için güçlü araçlar sağlar. Başlamak için oturum açmak için bir [Ücretsiz 30 günlük Azure Active Directory Premium deneme](https://azure.microsoft.com/trial/get-started-active-directory/).
 
--   [Self servis parola sıfırlama](../user-help/user-help-reset-password.md) ile kullanıcı üretkenliğini, [MyApps portalını](../user-help/active-directory-saas-access-panel-introduction.md) kullanarak grup ve uygulama erişimini geliştirebilirsiniz.
+- **Uygulama geliştiricileri.** Uygulama geliştiricisi olarak, Azure AD, standartlara dayalı bir yaklaşım çoklu oturum açma (SSO) uygulamanıza eklemek için önceden var olan bir kullanıcının kimlik bilgileriyle çalışmaya izin verir. Azure AD yardımcı olabilecek API'leri mevcut kurumsal veri yararlanarak kişiselleştirilmiş uygulama deneyimleri oluşturmak da sağlar. Başlamak için oturum açmak için bir [Ücretsiz 30 günlük Azure Active Directory Premium deneme](https://azure.microsoft.com/trial/get-started-active-directory/). Daha fazla bilgi için atabilirsiniz [geliştiriciler için Azure Active Directory](../develop/index.yml).
 
--   Dünya çapında, kurumsal düzeyde bulut tabanlı kimlik ve erişim yönetimi çözümünün [yüksek düzeyde kullanılabilirlik ve güvenilirlik](https://docs.microsoft.com/azure/architecture/checklist/availability) özelliklerinden faydalanabilirsiniz.
+- **Microsoft 365, Office 365, Azure veya Dynamics CRM Online aboneleri.** Abone olarak, Azure AD zaten kullanıyorsunuz. Microsoft 365, Office 365, Azure ve Dynamics CRM Online her kiracıya otomatik olarak Azure AD kiracısı olur. Tümleşik bulut uygulamalarınıza erişimi yönetmek hemen başlayabilirsiniz.
 
-## <a name="who-uses-azure-ad"></a>Kimler Azure AD kullanır?
-Azure AD; BT yöneticileri, uygulama geliştiricileri ve Office 365, Azure veya Dynamics CRM Online kullanıcıları için tasarlanmıştır.
+## <a name="what-are-the-azure-ad-licenses"></a>Azure AD lisansı nedir?
+Office 365 veya Microsoft Azure gibi Microsoft Online iş Hizmetleri için oturum açma ve kimlik koruması ile yardımcı olmak için Azure AD gerektirir. Bu nedenle, herhangi bir Microsoft Online iş hizmete abone olursanız, otomatik olarak Azure AD ücretsiz tüm özelliklerine erişim olanağı ile alın.
 
-- **BT yöneticileri.** Azure AD binlerce [bulut tabanlı SaaS uygulamaları](../saas-apps/tutorial-list.md) ve şirket içi uygulamalar için sunduğu daha güçlü kimlik yönetimi ve çoklu oturum açma (SSO) erişimi sayesinde kuruluşunuz için daha güvenli bir çözüm sunar. Bu uygulamaları kullanarak kullanıcılarınız için bulut tabanlı uygulama güvenliği, sorunsuz erişim, gelişmiş işbirliği ve kimlik yaşam döngüsü otomasyonu özelliklerinden faydalanabilir, bu sayede hem güvenlik hem de uyumluluk alanında gelişme sağlayabilirsiniz.
+Azure AD uygulamanızı geliştirmek için de Azure Active Directory temel, Premium P1 veya Premium P2 lisansı için yükselterek Ücretli özellikleri ekleyebilirsiniz. Lisansları Ücretli azure AD yerleşiktir mevcut ücretsiz directory en üstünde, mobil iş gücüne yönelik Self Servis, Gelişmiş izleme, güvenlik raporlama ve güvenli erişim sağlama.
 
-    Ayrıca [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md)’i kullanarak Azure AD'yi mevcut Windows Server Active Directory ile tümleştirebilir, bulut tabanlı SaaS erişimini kuruluşunuzun mevcut şirket içi kimlik yatırımlarını kullanabilirsiniz.
+>[!Note]
+>Bu lisanslar için fiyatlandırma seçeneklerini görmek [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).<br><br>Azure Active Directory Premium P1, Premium P2 ve Azure Active Directory Temel şu an için Çin'de desteklenmemektedir. Azure AD fiyatlandırma hakkında daha fazla bilgi için sizinle [Azure Active Directory Forumu](https://azure.microsoft.com/support/community/?product=active-directory).
 
-- **Uygulama geliştiricileri için.** Azure AD, dünya üzerinde milyonlarca kuruluş tarafından kullanılan bir kimlik yönetimi çözümü ile tümleştirme sağlayarak uygulamalarınızı derlemeye odaklanmanıza yardımcı olur.
+- **Ücretsiz Azure Active Directory.** Kullanıcı ve Grup Yönetimi, şirket içi dizin eşitleme, temel raporları ve çoklu oturum açma, Azure, Office 365 ve çok sayıda popüler SaaS uygulamaları arasında sağlar.
 
-- **Office 365, Azure veya Dynamics CRM Online müşterileri için.** Azure AD'yi zaten kullanıyorsunuz. Office 365, Azure ve Dynamics CRM Online kiracıları aslında birer Azure AD kiracısıdır ve tümleşik bulut uygulamalarınıza kullanıcı erişimini yönetmeye hemen başlayabilirsiniz.
+- **Azure Active Directory Temel.** Temel, ücretsiz özelliklerin yanı sıra, bulut odaklı uygulama erişimi, Grup tabanlı erişim yönetimi, Self Servis parola sıfırlama bulut uygulamaları ve Azure AD uygulama yayımladığınız sayesinde şirket içi Azure AD kullanarak web uygulamaları proxy'si de sağlar.
 
-## <a name="how-reliable-is-azure-ad"></a>Azure AD ne kadar güvenilir?
-Çok kiracılı, coğrafi olarak dağıtılan ve yüksek kullanılabilirlik özellikli bir tasarıma sahip olan Azure AD'ye en kritik iş gereksinimlerinizde bile güvenebilirsiniz. Azure AD, otomatik yük devretme ile yaklaşık 28 veri merkezini çalıştırır. Başka bir deyişle, bir veri merkezi bozulsa bile dizin verilerinizin kopyaları en az iki başka bölgesel olarak dağınık veri merkezinde canlıdır ve anında erişilebilir.
+- **Azure Active Directory Premium P1.** Ücretsiz ve temel özelliklerine ek olarak, P1 ayrıca hem şirket içi ve bulut kaynaklarında karma olanak tanır. Gelişmiş yönetimini de destekler, dinamik gruplar, Self Servis Grup Yönetimi, Microsoft Identity Manager (bir şirket içi kimlik ve erişim Yönetim Paketi) ve bulut geri yazma özellikleri gibi Self Servis parola sıfırlama için ver Şirket içi kullanıcılarınızın.
 
-Hizmet düzeyi sözleşmeleri hakkında daha fazla bilgi için bkz. [Hizmet Düzeyi Sözleşmeleri](https://azure.microsoft.com/support/legal/sla/).
+- **Azure Active Directory Premium P2.** Ücretsiz, temel ve P1 özelliklerin yanı sıra, P2 sunduğu [Azure Active Directory kimlik koruması](../identity-protection/enable.md) uygulamalarınızı ve kritik şirket verileri için risk tabanlı koşullu erişim sağlamak için ve [ayrıcalıklı kimlik Yönetim](../privileged-identity-management/pim-getting-started.md) bulmak, kısıtlamak ve yöneticiler ve bu kimliklerin kaynaklara erişimini izlemenize yardımcı olması için ve gerektiğinde tam zamanında erişim sağlamak için.
 
-## <a name="choose-an-edition"></a>Sürüm seçin
-Tüm Microsoft Online iş hizmetlerinde oturum açma ve diğer kimlik gereksinimleri için Azure AD kullanılır. Microsoft Online iş hizmetlerinden herhangi birine (örneğin, Office 365 veya Microsoft Azure) abone olursanız Azure AD’nin tüm Ücretsiz özelliklerine otomatik olarak erişim sahibi olursunuz. Azure Active Directory Ücretsiz sürümünü kullanarak kullanıcıları ve grupları yönetebilir, şirket içi dizinlerle eşitleyebilir, Azure, Office 365 ve Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox gibi binlerce popüler SaaS uygulamasında çoklu oturum açma imkanına sahip olabilirsiniz. 
+- **"Kullandıkça Öde" özelliği lisanslar.** Ayrıca, Azure Active Directory iş müşteriye (B2C) gibi ek özellik lisans alabilirsiniz. B2C kimlik sağlama ve erişim yönetimi çözümleri, müşteriye dönük uygulamalarınız için yardımcı olabilir. Daha fazla bilgi için [Azure Active Directory B2C belgeleri](../../active-directory-b2c/index.yml).
 
-Azure AD uygulamanızı geliştirmek için Azure Active Directory Temel, Premium P1 veya Premium P2 sürümlerine yükseltme yaparak ücretli özellikler ekleyebilirsiniz. Azure AD’nin ücretli sürümleri, mevcut ücretsiz dizin üzerinde derlenir ve self servis, gelişmiş izleme, güvenlik raporlaması, Multi-Factor Authentication (MFA) ve mobil iş gücünüz için güvenli erişim gibi kurumsal sınıf özellikler sunar.
+Azure aboneliğinin Azure AD'ye ilişkilendirme hakkında daha fazla bilgi için bkz. [nasıl yapılır: ilişkilendirmek veya Azure Active Directory'ye bir Azure aboneliği ekleme](active-directory-how-subscriptions-associated-directory.md) ve kullanıcılarınızalisanslarıatamahakkındadahafazlabilgiiçinbkz.[Nasıl yapılır: atamak veya Azure Active Directory lisansları kaldırabilir](license-users-groups.md).
 
-> [!NOTE]
-> Bu sürümlerin fiyatlandırma seçenekleri için bkz. [Azure Active Directory Fiyatlandırması](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, Premium P2 ve Azure Active Directory Temel şu an için Çin'de desteklenmemektedir. Azure AD fiyatlandırması hakkında daha fazla bilgi için Azure Active Directory Forum sayfasından iletişime geçebilirsiniz.
+## <a name="terminology"></a>Terminoloji
+Azure AD daha iyi anlamak için ve kendi belgeleri, aşağıdaki koşulları gözden geçirmeniz gerekir.
 
-- **Azure Active Directory Temel.** Buluta yönelik ihtiyaçları öncelikli olan görev çalışanları için tasarlanan bu sürüm, bulut odaklı uygulama erişimi ve self servis kimlik yönetimi çözümleri sağlar. Temel sürümü size grup tabanlı erişim yönetimi, bulut uygulamaları için self servis parola sıfırlama ve Azure Active Directory Uygulama Ara Sunucusu (Azure AD’yi kullanarak şirket içi web uygulamalarında yayımlama için) gibi üretkenliği geliştiren ve maliyeti düşüren özellikler sunar. Bu özelliklerin tamamı, %99,9 oranındaki kurumsal düzeyde çalışma süresi SLA’sı ile desteklenir.
+|Kavram veya sözleşme|Açıklama|
+|---------------|-----------|
+|Azure aboneliği| Azure bulut Hizmetleri için kullandığınız ödeme yöntemi için kullanılır. Birçok abonelik olabilir ve bir kredi kartına bağlı.|
+|Azure kiracısı| Kuruluşunuz Microsoft Azure, Microsoft Intune veya Office 365 gibi Microsoft bulut hizmeti aboneliği kaydolduğunda otomatik olarak oluşturulan Azure ad ayrılmış ve güvenilir bir örneği. Bir Azure kiracısı, tek bir kuruluşu temsil eder.|
+|Tek kiracılı| Ayrılmış bir ortamda diğer hizmetlere erişmek azure kiracılarında, tek bir kiracı olarak kabul edilir.|
+|Çok Kiracılı| Diğer hizmetler paylaşılan bir ortamda birden çok kuruluşta, erişimi azure kiracılarında, çok kiracılı olarak kabul edilir.|
+|Azure AD dizini|Her bir Azure kiracısına sahip adanmış ve güvenilir bir Azure AD dizini. Azure AD dizini, kiracının kullanıcıları, grupları ve uygulamaları içerir ve kimliği gerçekleştirin ve yönetim işlevleri için Kiracı kaynaklarına erişmek için kullanılır.|
+|Azure AD hesabı | Azure AD oluşturulan bir kimlik veya Office 365 gibi başka bir Microsoft bulut hizmeti. Azure AD'de depolanan ve kuruluşunuzun bulut hizmeti abonelikleri için erişilebilir Kimlikleridir. Bu hesap bazen çalışma adlandırılır ya da Okul hesabı.|
+|Özel etki alanı|Her yeni Azure AD dizini bir ilk etki alanı adı ile gelir domainname.onmicrosoft.com. Buna ek olarak, ilk adı listesi için kuruluşunuzun kaynaklarına erişmek için iş ve kullanıcılarınızı yapmak için kullandığınız adlarında adlarını kullanın, kuruluşunuzun etki alanı da ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için alain@contoso.com.|
+|Hesap Yöneticisi|Bu Klasik Abonelik Yöneticisi rolü kavramsal olarak bir abonelik fatura sahibidir. Bu rolün erişimi olan [Azure hesap Merkezi](https://account.azure.com/Subscriptions) ve bir hesaptaki tüm abonelikleri yönetmenize imkan sağlar. Daha fazla bilgi için [Klasik Abonelik Yöneticisi rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerini](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Hizmet Yöneticisi|Bu Klasik Abonelik Yöneticisi rolü erişim dahil olmak üzere tüm Azure kaynaklarını yönetmenizi sağlar. Bu rol, abonelik kapsamında sahip rolüne atanan kullanıcı eşdeğer erişebilir. Daha fazla bilgi için [Klasik Abonelik Yöneticisi rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerini](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Sahip|Bu rolü dahil olmak üzere tüm Azure kaynaklarını yönetmenize yardımcı olur. Bu rol, Azure kaynaklarına ayrıntılı erişim yönetimi sağlar, rol tabanlı erişim denetimi (RBAC) adı verilen yeni bir yetkilendirme sistemine yerleşik olarak bulunur. Daha fazla bilgi için [Klasik Abonelik Yöneticisi rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerini](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Azure AD Genel yöneticisi|Bu yönetici rolü otomatik olarak, Azure AD kiracısını oluşturan kişiye atandı. Genel Yöneticiler, tüm Azure AD için yönetim işlevlerini ve Exchange Online, SharePoint Online ve Skype gibi Azure ad Federasyonu çevrimiçi hizmetlerin gerçekleştirebilirsiniz. Birden çok genel Yöneticiler olabilir, ancak yalnızca genel Yöneticiler, kullanıcılara yönetici rolleri (başka genel Yöneticiler atama dahil olmak üzere) atayabilirsiniz.<br><br>**Not**<br>Bu yönetici rolü genel yönetici Azure Portalı'nda çağrılır, ancak adlandırılır **şirket Yöneticisi** Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell.<br><br>Çeşitli yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure Active Directory'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md).|
+|Microsoft hesabı (olarak da bilinen MSA)|Tüketici yönelimli Microsoft ürünlerine erişim sağlar ve bulut Hizmetleri, Outlook, OneDrive, Xbox LIVE veya Office 365 gibi kişisel hesaplar. Microsoft hesabınızı oluşturulur ve Microsoft tarafından çalıştırılan Microsoft tüketici kimlik hesap sistemi depolanır.|
 
-- **Azure Active Directory Premium P1.** Kimlik ve erişim yönetimine yönelik gereksinimleri daha yoğun olan kurumları desteklemek için tasarlanan Azure Active Directory Premium sürümü, özellik açısından zengin, kurumsal düzeyde kimlik yönetimi olanakları eklemenin yanı sıra karma kullanıcıların şirket içindeki ve buluttaki özelliklere sorunsuz bir şekilde erişmesine olanak tanır. Bu sürüm, karma ortamlarda bilgi çalışanı ve kimlik yöneticileri için gerekli olan; bulutta uygulama erişimi, self servis kimlik ve erişim yönetimi (IAM), kimlik koruma ve güvenlik gibi özelliklerin tamamını içerir. Dinamik gruplar ve self servis grup yönetimi gibi gelişmiş kaynak yönetimi ve devretme özelliklerini destekler. Microsoft Identity Manager'ı (şirket içi kimlik ve erişim yönetimi paketi) içerir ve şirket içi kullanıcılarınız için self servis parola sıfırlama gibi çözümler sunan bulut geri yazma özelliklerine sahiptir.
+## <a name="what-features-work-in-azure-ad"></a>Hangi özellikleri Azure AD'de çalışıyor?
+Azure AD lisansınızın seçtikten sonra kuruluşunuz için bazılarını veya tümünü aşağıdaki özelliklere erişim alırsınız:
 
-- **Azure Active Directory Premium P2.** Tüm kullanıcılarınız ve yöneticileriniz için gelişmiş koruma özellikleriyle tasarlanmış olan bu yeni teklif, Azure AD Premium P1’in tüm özelliklerinin yanı sıra Identity Protection ve Privileged Identity Management özelliklerini de içerir. Azure Active Directory Kimlik Koruması, uygulamalarınıza ve kritik şirket verilerinize risk tabanlı koşullu erişim sağlamak için milyarlarca sinyali kullanır. Azure Active Directory Privileged Identity Management ile ayrıca ayrıcalıklı hesaplarınızı yönetmek ve korumak için sunulan destek sayesinde yöneticileri ve onların kaynaklara erişimlerini keşfedebilir, kısıtlayabilir ve izleyebilir, gerektiğinde anlık erişim sağlayabilirsiniz.  
+|Kategori|Açıklama|
+|-------|-----------|
+|Uygulama yönetimi|Uygulama Ara sunucusu kullanarak Bulut ve şirket içi uygulamalarınızı yönetin çoklu oturum açma, uygulamalarım portalında (erişim paneli olarak da bilinir) ve yazılım hizmet (SaaS) uygulamaları olarak. Daha fazla bilgi için [güvenli uzaktan erişim sağlamak şirket içi uygulamalara](../manage-apps/application-proxy.md) ve [uygulama yönetimi belgeleri](../manage-apps/index.yml).|
+|Kimlik Doğrulaması|Azure Active Directory Self Servis parola sıfırlama, çok faktörlü kimlik doğrulaması, özel yasaklı parola listesi ve akıllı kilitleme yönetin. Daha fazla bilgi için [Azure AD kimlik doğrulaması belgeleri](../authentication/index.yml).|
+|İşletmeden işletmeye (B2B)|Konuk kullanıcıları ve dış iş ortakları, şirket verilerinizin kontrolünü korurken yönetin. Daha fazla bilgi için [Azure Active Directory B2B belgelerini](../b2b/index.yml).|
+|Müşteriye (B2C)|Özelleştirme ve denetim nasıl, kullanıcıların oturum açın ve uygulamalarınızı kullanırken profillerini yönetme. Daha fazla bilgi için [Azure Active Directory B2C belgeleri](../../active-directory-b2c/index.yml).|
+|Koşullu erişim|Bulut uygulamalarınıza erişimi yönetin. Daha fazla bilgi için [Azure AD koşullu erişim belgelerine](../conditional-access/index.yml).|
+|Geliştiriciler için Azure Active Directory|Tüm Microsoft kimliklerini oturum, Microsoft Graph, diğer Microsoft APIs veya özel API'leri çağırmak için belirteçleri almak uygulamalar oluşturun. Daha fazla bilgi için [Microsoft kimlik Platformu (geliştiriciler için Azure Active Directory)](../develop/index.yml).|
+|Cihaz Yönetimi|Bulutta veya şirket içi cihazlarınızı şirket verilerinize nasıl erişim yönetin. Daha fazla bilgi için [Azure AD cihaz Yönetimi belgeleri](../devices/index.yml).|
+|Etki alanı hizmetleri|Azure sanal makinelerini, etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına katılın. Daha fazla bilgi için [Azure AD Domain Services belgeleri](../../active-directory-domain-services/index.yml).|
+|Kurumsal kullanıcılar|Lisans ataması, uygulamalara erişimi yönetme ve temsilciler gruplar ve yönetici rolleri kullanarak ayarlayın. Daha fazla bilgi için [Azure Active Directory kullanıcı yönetimi belgeleri](../users-groups-roles/index.yml).|
+|Karma kimlik|Kimlik doğrulaması ve yetkilendirme (Bulut veya şirket içi) konumdan bağımsız olarak tüm kaynaklar için bir tek kullanıcı kimlik sağlamak için Azure Active Directory Connect ve Connect Health kullanın. Daha fazla bilgi için [karma kimlik belgeleri](../hybrid/index.yml).|
+|Kimlik idaresi|Kuruluşunuzun kimlik çalışan, iş ortağı, satıcı, hizmet ve uygulama erişim denetimleri aracılığıyla yönetin. Erişim gözden geçirmeleri de gerçekleştirebilirsiniz. Daha fazla bilgi için [Azure AD kimlik İdaresi belgelerinde](../governance/identity-governance-overview.md) ve [Azure AD erişim gözden geçirmeleri](../governance/access-reviews-overview.md).|
+|Kimlik koruması|Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını kuşkulu eylemleri için yanıt vermek için ilkeler yapılandırın ve ardından bunları gidermek için uygun eylemi gerçekleştirin algılayın. Daha fazla bilgi için [Azure AD kimlik koruması](../identity-protection/index.yml).|
+|Azure kaynakları için yönetilen kimlikler|Azure hizmetlerinizi otomatik olarak yönetilen bir kimlik ile anahtar kasası dahil olmak üzere, herhangi bir Azure AD tarafından desteklenen kimlik doğrulama hizmeti kimlik doğrulaması Azure AD'de sağlar. Daha fazla bilgi için [Azure kaynakları için yönetilen kimlikleri nedir?](../managed-identities-azure-resources/overview.md).|
+|Privileged Identity management (PIM)|Yönetebilir, denetleyebilir ve erişimi kuruluşunuz içinde izleyin. Bu özellik, Azure ad'deki, Azure kaynaklarını ve Office 365 veya Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi içerir. Daha fazla bilgi için [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml).|
+|Raporlar ve izleme|Ortamınızdaki güvenlik ve kullanım desenleri hakkında Öngörüler elde edin. Daha fazla bilgi için [Azure Active Directory raporlar ve izleme](../reports-monitoring/index.yml).|
 
-> [!NOTE]
-> Bazı Azure Active Directory özellikleri "kullandıkça öde" sürümüne de sahiptir:<ul><li>**Azure Active Directory B2C.** Tüketicilere yönelik uygulamalarınız için kullanabileceğiniz kimlik ve erişim yönetimi çözümüdür. Daha fazla bilgi için bkz. [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).</li><li>**Azure Multi-Factor Authentication.** Kullanıcı başına veya kimlik doğrulaması sağlayıcısı başına kullanılır. Daha fazla bilgi için bkz. [Azure Multi-Factor Authentication nedir?](../authentication/multi-factor-authentication.md)
-
-## <a name="as-an-admin-how-do-i-get-started"></a>Yönetici olarak nasıl kullanmaya başlayabilirim?
-Ücretsiz 30 günlük deneme için kaydolmak ve ilk bulut çözümünüzü dağıtmak için bkz [Azure Active Directory Premium denemesi](https://azure.microsoft.com/trial/get-started-active-directory/).
-
-## <a name="as-a-developer-how-do-i-get-started"></a>Geliştirici olarak nasıl kullanmaya başlarım?
-Ücretsiz 30 günlük deneme için kaydolmak ve uygulamalarınızı Azure AD ile tümleştirmeye başlamak için bkz. [Azure Active Directory Premium denemesi](https://azure.microsoft.com/trial/get-started-active-directory/). Daha fazla bilgi için Azure Active Directory’nin [Geliştirici Kılavuzu](../develop/v1-overview.md)’na da bakabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Azure kimlik ve erişim yönetiminin temelleri hakkında daha fazla bilgi edinin](identity-fundamentals.md).
+- [Azure Active Directory Premium'a kaydolma](active-directory-get-started-premium.md)
 
-- [Azure AD’yi Windows Server Active Directory ile tümleştirin](../hybrid/how-to-connect-install-express.md).
+- [Azure aboneliğinin Azure Active Directory'ye ilişkilendirin](active-directory-how-subscriptions-associated-directory.md)
+
+- [Azure Active Directory'ye erişmek ve yeni Kiracı oluşturma](active-directory-access-create-new-tenant.md)
+
+- [Azure Active Directory Premium P2 özellik dağıtım denetim listesi](active-directory-deployment-checklist-p2.md)

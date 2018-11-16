@@ -6,29 +6,27 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: ea94a4e537a46ac8287e4454a2cfd10c59db590b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 43db4ca12fbdf8ee637ca86e1a90cc3baf4ec572
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416877"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713291"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Hızlı başlangıç: Java Depolama SDK'sı V10 kullanarak blobları yükleme, indirme ve listeleme
 
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için yeni Java Depolama SDK’sını nasıl kullanabileceğinizi öğreneceksiniz. Yeni Java SDK'sı RxJava ile duyarlı programlama modelini kullanarak zaman uyumsuz işlemler sağlar. [Java VM için RxJava duyarlı uzantıları](https://github.com/ReactiveX/RxJava) hakkında daha fazla bilgi edinin. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Şu uygulamaları yükleyin ve yapılandırın:
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-* Komut satırından çalışmak için [Maven](http://maven.apache.org/download.cgi) veya tercih ettiğiniz başka bir Java ile tümleşik geliştirme ortamı
+Aşağıdaki ek önkoşulların yüklü olduğundan emin olun:
+
+* [Maven](http://maven.apache.org/download.cgi) komut satırı veya tercih ettiğiniz herhangi bir Java tümleşik geliştirme ortamında çalışmaya.
 * [JDK](https://aka.ms/azure-jdks)
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 

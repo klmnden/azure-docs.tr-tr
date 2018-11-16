@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0956e88bd293b62935f5c8e2b9ef2d30466af8e4
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: HT
+ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456618"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685982"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Hızlı Başlangıç: Node Bing Görsel Arama SDK'sı 
 
@@ -26,13 +26,15 @@ Kod senaryoları aşağıdaki başlıklar altında belgelenmiştir:
 * [Görsel Arama istemcisi](#client)
 * [Tam konsol uygulaması](#complete)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * SDK çağrılarının kimliğini doğrulamak için bir Bilişsel Hizmetler API anahtarı gerekir. [Ücretsiz deneme anahtarına](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7) kaydolun. Deneme anahtarı yedi gün boyunca saniyede bir çağrı için kullanılabilir. Üretim senaryoları için [bir erişim anahtarı satın alın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz: [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-* `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch` öğesini çalıştırın.
+Bing görsel arama SDK'sını kullanarak bir konsol uygulaması ayarlamak için:
+* `npm install ms-rest-azure` öğesini çalıştırın
+* `npm install azure-cognitiveservices-search-visualSearch` öğesini çalıştırın.
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>Görsel Arama istemcisi

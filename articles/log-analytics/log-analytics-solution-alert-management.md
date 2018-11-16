@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bba008bc6d1214aa4b2ca7cc609586a3d18159fd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 534c47e1c3189258617505808f7a8c7b2e3a3c6e
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613622"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711047"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log analytics'teki uyarı yönetimi çözümü
 
@@ -36,7 +36,7 @@ Uyarı yönetimi çözümü tüm uyarıları Log Analytics deponuzdaki analiz et
 - System Center Operations Manager uyarıları için [Operations Manager yönetim grubunuzu Log Analytics çalışma alanınıza bağlanmak](log-analytics-om-agents.md).  System Center Operations Manager'da oluşturulan tüm uyarılar, Log Analytics'e aktarılır.  
 
 ## <a name="configuration"></a>Yapılandırma
-Uyarı yönetimi çözümü açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [çözüm ekleme](../monitoring/monitoring-solutions.md). Başka bir yapılandırma işlemi gerekmez.
+Uyarı yönetimi çözümü açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [çözüm ekleme](../azure-monitor/insights/solutions.md). Başka bir yapılandırma işlemi gerekmez.
 
 ## <a name="management-packs"></a>Yönetim paketleri
 Ardından System Center Operations Manager yönetim grubunuzun Log Analytics çalışma alanınıza bağlıysa, bu çözümü eklediğinizde, aşağıdaki yönetim paketlerini System Center Operations Manager'da yüklenir.  Yapılandırma veya bakım gerekli yönetim paketleri yoktur.

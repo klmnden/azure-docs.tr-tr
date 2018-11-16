@@ -9,17 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/13/2018
-ms.openlocfilehash: c41ac2246386b8838d1310a9cd5c03dd0cf5d8e4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1c6a83626f86724bcaa61de03a49b5327af19d88
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244517"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706543"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde işler tanımlamak ve Data Lake Analytics hizmetine iş göndermek için Visual Studio’nun nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
+Azure Data Lake ve Stream Analytics araçları iki Azure hizmetlerine ilişkin Azure Data Lake Analytics ve Azure Stream Analytics işlevselliğini içerir. Azure Stream Analytics senaryoları hakkında daha fazla bilgi için bkz. [Visual Studio için Azure Stream Analytics Araçları](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
+
+Bu makalede, Azure Data Lake Analytics hesapları oluşturmak, içinde işler tanımlamak için Visual Studio kullanmayı açıklar [U-SQL](data-lake-analytics-u-sql-get-started.md)ve Data Lake Analytics hizmetine iş göndermek. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 >[!IMPORTANT]
 > Microsoft, Visual Studio için Azure Data Lake Araçları 2.3.3000.4 veya sonraki bir sürümüne yükseltmenizi önerir. Önceki sürümler artık indirilemiyor ve kullanım dışı. 

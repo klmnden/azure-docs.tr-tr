@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a298a49c5bdf28b30da05c1b6296fc211ec14c1d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945561"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713155"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>AI için VS Code araçları: Visual Studio code'dan Azure Machine Learning ile çalışmaya başlama
 
@@ -28,7 +28,7 @@ Kullanım, veri, eğitin ve test ML hazırlama için Azure Machine Learning hizm
 
 + [Python 3.5 veya daha fazla yükleme](https://www.anaconda.com/download/).
 
-+ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
++ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 ## <a name="install-vs-code-tools-for-ai-extension"></a>VS Code araçları için yapay ZEKA uzantısını yükleme
 
@@ -40,7 +40,7 @@ Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirm
 
 1. VS Code'u başlatın.
 
-1. Bir tarayıcıda ziyaret edin: http://aka.ms/vscodetoolsforai. 
+1. Bir tarayıcıda ziyaret edin: https://aka.ms/vscodetoolsforai. 
 
 1. Bu web sayfasında tıklatın **yükleme**. 
 

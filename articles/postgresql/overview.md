@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092166"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685863"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı nedir?
 
-PostgreSQL için Azure Veritabanı, açık kaynak [PostgreSQL](https://www.postgresql.org/) veritabanı altyapısının topluluk sürümünü temel alan, Microsoft bulutunda geliştiriciler için oluşturulmuş ilişkisel bir veritabanı hizmetidir. PostgreSQL için Azure Veritabanı şunları getirir:
+PostgreSQL için Azure veritabanı, açık kaynak topluluk sürümünü alan geliştiriciler için oluşturulmuş Microsoft bulutunda bir ilişkisel veritabanı hizmetidir [PostgreSQL](https://www.postgresql.org/) veritabanı altyapısı, sürümler 9.5 9.6 ve 10. PostgreSQL için Azure Veritabanı şunları getirir:
 
 - Ek ücret ödemeden yerleşik yüksek kullanılabilirlik
 - Kapsamlı kullandıkça öde fiyatlandırması kullanılarak öngörülebilir performans
@@ -40,7 +40,7 @@ Azure CLI örnekleri için bkz:
 - [PostgreSQL için Azure Veritabanı Azure CLI örnekleri](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Saniyeler içinde performansı ve ölçeği ayarlama
-PostgreSQL için Azure Veritabanı hizmeti üç fiyatlandırma katmanında sunulur: Temel, Genel Amaçlı ve Bellek için İyileştirilmiş. Her katman veritabanı iş yükünüzü desteklemek için farklı kaynak özellikleri sunar. İlk uygulamanızı aylık birkaç dolar ücretle küçük bir veritabanı üzerinde oluşturabilir ve sonra çözümünüzün gereksinimlerine göre ölçeği ayarlayabilirsiniz. Dinamik ölçeklendirebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine saydam bir şekilde yanıt verebilmesini sağlar. Yalnızca ihtiyacınız olan kaynaklar için ve yalnızca bunlara ihtiyacınız olduğunda ödeme yaparsınız. Ayrıntılar için bkz. [Fiyatlandırma katmanları](concepts-pricing-tiers.md).
+PostgreSQL için Azure Veritabanı hizmeti üç fiyatlandırma katmanında sunulur: Temel, Genel Amaçlı ve Bellek için İyileştirilmiş. Her katman veritabanı iş yükünüzü desteklemek için farklı kaynak özellikleri sunar. İlk uygulamanızı aylık birkaç dolar ücretle küçük bir veritabanı üzerinde oluşturabilir ve sonra çözümünüzün gereksinimlerine göre ölçeği ayarlayabilirsiniz. Dinamik ölçeklendirebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine saydam bir şekilde yanıt verebilmesini sağlar. Yalnızca ihtiyacınız olan kaynaklar için ve yalnızca bunlara ihtiyacınız olduğunda ödeme yaparsınız. Bkz: [fiyatlandırma katmanları](concepts-pricing-tiers.md) Ayrıntılar için.
 
 ## <a name="monitoring-and-alerting"></a>İzleme ve uyarı
 Ölçeğin ne zaman artırılacağına veya azaltılacağına nasıl karar verirsiniz? Yerleşik Azure izleme ve uyarı özelliklerini kullanarak. Bu araçları kullanarak geçerli veya tahmini performans veya depolama ihtiyaçlarınıza göre ölçeği büyütme veya küçültme işlemlerinin etkisini hızla değerlendirebilirsiniz. Ayrıntılar için bkz. [Uyarılar](howto-alert-on-metric.md).

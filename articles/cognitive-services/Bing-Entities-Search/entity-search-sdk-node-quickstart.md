@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814891"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684129"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>Hızlı Başlangıç: Node ile Bing Varlık Arama SDK'sı
 
@@ -24,7 +24,9 @@ Bing Varlık Arama SDK'sı, varlık sorguları ve sonuçları ayrıştırmak iç
 [C# Bing Varlık Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) Git Hub'dan edinilebilir.
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Varlık Arama SDK'sını kullanan bir konsol uygulaması kurmak için geliştirme ortamınızda `npm install azure-cognitiveservices-entitysearch` komutunu çalıştırın.
+Bing varlık arama SDK'sını kullanarak bir konsol uygulaması ayarlamak için:
+* Çalıştırma `npm install ms-rest-azure` geliştirme ortamınızda.
+* Çalıştırma `npm install azure-cognitiveservices-entitysearch` geliştirme ortamınızda.
 
 ## <a name="entity-search-client"></a>Varlık Arama istemcisi
 *Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun:

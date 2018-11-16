@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: rosh
-ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 9a2544fe5a3c0bac763b9aee79c36893ec56f351
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225625"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686696"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-node"></a>Hızlı Başlangıç: Node ile Bing Video Arama SDK'sı
 
@@ -25,7 +25,9 @@ Bing Video Arama SDK'sı, video sorguları ve sonuçları ayrıştırma için RE
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Video Arama SDK'sını kullanan bir konsol uygulaması kurmak için geliştirme ortamınızda `npm install azure-cognitiveservices-videosearch` komutunu çalıştırın.
+Bing Video arama SDK'sını kullanarak bir konsol uygulaması ayarlamak için:
+* Çalıştırma `npm install ms-rest-azure` geliştirme ortamınızda.
+* Çalıştırma `npm install azure-cognitiveservices-videosearch` geliştirme ortamınızda.
 
 ## <a name="video-search-client"></a>Video Arama istemcisi
 *Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun:

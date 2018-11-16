@@ -6,24 +6,22 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/22/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: e615585fbdbef634a13a19aca4b85eef5b21815f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 84753f2c3ab19a0cc9d72ef8ce5011dfc8e5a8da
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740383"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711897"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Hızlı Başlangıç: Azure portalla kullanarak blobları yükleme, indirme ve listeleme
 
 Bu hızlı başlangıçta, [Azure portalını](https://portal.azure.com/) kullanarak Azure Depolamada bir kapsayıcı oluşturma ve bu kapsayıcı içinde blok bloblarını karşıya yükleme ve indirme hakkında bilgi edineceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 

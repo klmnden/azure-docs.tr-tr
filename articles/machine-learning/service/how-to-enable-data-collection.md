@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: bb3dca56583296bab42fe9804a32e0690ace5897
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: f4340d1ef30bb4317e658c9a9a936f009054e784
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578238"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710639"
 ---
 # <a name="collect-data-for-models-in-production"></a>Üretimde modelleri için veri toplama
 
@@ -50,7 +50,7 @@ Aşağıdaki veriler toplanabilir:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 - Bir Azure Machine Learning hizmeti çalışma alanında, yüklü Python için betikleri ve Azure Machine Learning SDK'sını içeren yerel bir dizin. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
 

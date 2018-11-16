@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281303"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683513"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Hızlı Başlangıç: Konuşma Tanıma SDK'sı ile .NET Framework'ü kullanarak konuşmayı tanıma ve dökümünü alma
 
@@ -23,9 +23,9 @@ ms.locfileid: "51281303"
 
 Windows için .NET Framework ve Konuşma Tanıma SDK'sını kullanarak bir konuşmayı metne dönüştürme konsol uygulaması oluşturmak için bu kılavuzu kullanın. İşiniz bittiğinde konuşmayı metne gerçek zamanlı dönüştürmek için bilgisayarınızın mikrofonunu kullanabilirsiniz.
 
-Bu hızlı başlangıç Microsoft Speech'in etkinleştirildiği bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) kullanabilirsiniz.
+Bu hızlı başlangıç Microsoft Speech'in etkinleştirildiği bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu projeyi tamamlamak için şunlar gerekir:
 

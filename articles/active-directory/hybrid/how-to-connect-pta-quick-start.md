@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 70c19b394b5c5702a0ec0f18aa3bbd0c05e39dfd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: caffa1f1a3684de3a7514e1ce1a4fe3014a7dbf8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249804"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706152"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı Başlangıç
 
@@ -29,7 +29,7 @@ ms.locfileid: "51249804"
 Azure Active Directory (Azure AD) geçişli kimlik doğrulaması sayesinde kullanıcılarınız şirket içi ve bulut tabanlı uygulamalar için aynı parolayı kullanarak oturum açın. Geçişli kimlik doğrulaması kullanıcıların parolalarını şirket içi Active Directory karşı doğrudan doğrulayarak oturum açar.
 
 >[!IMPORTANT]
->Geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçiriyorsanız, yayımlanan ayrıntılı dağıtım kılavuzunu izleyin öneririz [burada](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçiriyorsanız, yayımlanan ayrıntılı dağıtım kılavuzunu izleyin öneririz [burada](https://aka.ms/adfstoPTADPDownload).
 
 Kiracınızda geçişli kimlik doğrulaması dağıtmak için aşağıdaki yönergeleri izleyin:
 

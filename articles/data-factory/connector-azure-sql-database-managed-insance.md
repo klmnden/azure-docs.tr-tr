@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 87ca7c10095f12c82137b6287fbb895c97676062
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49459064"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706730"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Azure SQL veritabanı yönetilen kullanarak Azure Data Factory örneği gelen ve giden veri kopyalama
 
@@ -115,7 +115,7 @@ Verileri Azure BLOB'dan/Azure SQL veritabanı yönetilen örneği kopyalamak iç
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır: **SqlServerTable** | Evet |
-| tableName |Tablo veya Görünüm veritabanı örneğinde başvuran bağlı hizmetin adı. | Evet |
+| tableName |Tablo veya Görünüm veritabanı örneğinde başvuran bağlı hizmetin adı. | Kaynak, havuz için Evet Hayır |
 
 **Örnek**
 
@@ -155,7 +155,6 @@ Verileri Azure SQL veritabanı yönetilen örneği kopyalamak için kopyalama et
 
 - Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği çalıştığında bu sorgu veri almak için yönetilen örneği kaynağında. Alternatif olarak, bir saklı yordam belirterek belirtebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordamın parametreleri sürerse).
 - "SqlReaderQuery" veya "sqlReaderStoredProcedureName" özelliğini belirtmezseniz, sütunları veri kümesi JSON "yapı" bölümünde tanımlanan bir sorgu oluşturmak için kullanılır (`select column1, column2 from mytable`) yönetilen örneğine karşı çalıştırılacak. Veri kümesi tanımı "yapı" yoksa, tüm sütunları tablodan seçilir.
-- Kullanırken **sqlReaderStoredProcedureName**, yine de bir kukla belirtmeniz gerekiyorsa **tableName** veri kümesi JSON özelliğinde.
 
 **Örnek: bir SQL sorgusu kullanma**
 
@@ -491,7 +490,7 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliğini (varbinary(max)) |Bayt] |
-| kayan nokta |çift |
+| Kayan |çift |
 | image |Bayt] |
 | int |Int32 |
 | para |Ondalık |

@@ -35,7 +35,7 @@
 # Nasıl yapılır
 ## İnternet bağlantısı
 ### [Ağ yük dengelemesi ortak sunucuları](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Uygulama yük dengelemesi ortak sunucuları](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Uygulama yük dengelemesi ortak sunucuları](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Web uygulamalarını koruma](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Konumlar arasında trafiği dağıtma](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## İç bağlantı

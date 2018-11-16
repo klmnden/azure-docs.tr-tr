@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245078"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712271"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Data Box Disk'i dağıtma (Önizleme)
 
@@ -27,7 +27,7 @@ Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free
 > [!IMPORTANT]
 > Data Box Disk önizleme aşamasındadır. Bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce:
 
@@ -67,7 +67,7 @@ Bu adım yaklaşık 5 dakika sürer.
 
     1. Azure portalında **Genel > Cihaz Ayrıntıları**'na gidin ve destek anahtarını alın.
     2. İşletim sistemine özgü Data Box Disk kilit açma aracını disklere veri kopyalamak için kullanılacak bilgisayara indirin ve ayıklayın. 
-    3. Data Box Disk kilit açma aracını çalıştırın ve destek anahtarını sağlayın. Yeniden takılan tüm diskler için kilit açma aracını tekrar çalıştırın ve destek anahtarını sağlayın. **Disk kilidini açmak için BitLocker iletişim kutusunu veya BitLocker anahtarını kullanmayın.** Disk kilitlerinin açılması hakkında daha fazla bilgi için, [Windows istemcisinde disk kilidi açma]()'ya veya [Linux istemcisinde disk kilidi açma]()'ya gidin.
+    3. Data Box Disk kilit açma aracını çalıştırın ve destek anahtarını sağlayın. Yeniden takılan tüm diskler için kilit açma aracını tekrar çalıştırın ve destek anahtarını sağlayın. **Disk kilidini açmak için BitLocker iletişim kutusunu veya BitLocker anahtarını kullanmayın.** Diskleri kilidini açma hakkında daha fazla bilgi için Git [Windows istemci disklerde kilidini](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) veya [Linux istemci disklerde kilidini](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
     4. Diske araç tarafından atanan sürücü harfi görüntülenir. Disk sürücü harfini not edin. Bu harf sonraki adımlarda kullanılacaktır.
 
 ## <a name="copy-data-and-validate"></a>Verileri kopyalama ve doğrulama
@@ -85,7 +85,6 @@ Bu işlemi tamamlamak için gereken süre verilerinizin boyutuna göre değişir
 2. (İsteğe bağlı) Kopyalama işlemini tamamladıktan sonra *DataBoxDiskImport* klasöründe bulunan `DataBoxDiskValidation.cmd` uygulamasını çalıştırarak doğrulama için sağlama toplamı oluşturmanız önerilir. Bu adım verilerinizin boyutuna bağlı olarak uzun sürebilir. 
 3. Sürücüyü çıkarın. 
 
-
 ## <a name="ship-to-azure"></a>Azure'a gönderme
 
 Bu adımın tamamlanması yaklaşık 5-7 dakika sürer.
@@ -94,7 +93,6 @@ Bu adımın tamamlanması yaklaşık 5-7 dakika sürer.
 2. Kapattığınız paketi kargoya verin.  
 
 Data Box Disk hizmeti bir e-posta bildirimi gönderir ve Azure portalında sipariş durumunu güncelleştirir.
-
 
 ## <a name="verify-your-data"></a>Verilerinizi doğrulama
 
@@ -126,5 +124,3 @@ Bu hızlı başlangıçta Azure'a veri aktarımı konusunda yardım almak için 
 
 > [!div class="nextstepaction"]
 > [Azure portalı kullanarak Data Box Disk'i yönetme](data-box-portal-ui-admin.md)
-
-

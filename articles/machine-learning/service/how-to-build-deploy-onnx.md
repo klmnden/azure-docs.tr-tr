@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 97350c90ab4ce9c3623a293c3a6637edc65ced08
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345479"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706067"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
-[Açın sinir ağı Exchange](http://onnx.ai) (ONNX) biçimidir açık bir standart machine learning modellerini temsil etmek için. ONNX tarafından desteklenen bir [iş ortaklarının topluluk](http://onnx.ai/supported-tools), uyumlu çerçeveleri ve araçları oluşturan Microsoft, dahil. Böylece veri bilimcileri ve geliştiricileri için Microsoft açık ve birlikte çalışabilen yapay ZEKA taahhüt etmektedir:
+[Açın sinir ağı Exchange](https://onnx.ai) (ONNX) biçimidir açık bir standart machine learning modellerini temsil etmek için. ONNX tarafından desteklenen bir [iş ortaklarının topluluk](https://onnx.ai/supported-tools), uyumlu çerçeveleri ve araçları oluşturan Microsoft, dahil. Böylece veri bilimcileri ve geliştiricileri için Microsoft açık ve birlikte çalışabilen yapay ZEKA taahhüt etmektedir:
 
 + Oluşturma ve eğitme modelleri için kendi seçtikleri çerçevesini kullanın
 + Modelleri platformlar en az bir tümleştirme çalışma ile dağıtma
@@ -207,6 +207,6 @@ Bu not defterlerini alın:
 ## <a name="more-info"></a>Daha fazla bilgi
 
 ONNX hakkında daha fazla bilgi edinin veya projeye katkıda:
-+ [ONNX proje Web sitesi](http://onnx.ai)
++ [ONNX proje Web sitesi](https://onnx.ai)
 
 + [Github'da ONNX kod](https://github.com/onnx/onnx)

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7f69659767d9e98c9cf6ddf283c66dde65c74a36
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345785"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706635"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure Blob depolamadan/depolamaya veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Herhangi bir desteklenen kaynak veri deposundan Blob Depolama'ya veri kopyalayab
 
 - Gelen genel amaçlı Azure depolama hesapları ve sık/seyrek erişimli blob depolama ve BLOB'ları kopyalanıyor. 
 - Azure kaynaklarında kimlik doğrulamaları için hesap anahtarı, hizmet paylaşılan erişim imzası, asıl veya yönetilen hizmet kimliği kullanarak BLOB'ları kopyalanıyor.
-- Blok kopyalama bloblarından eklemek ya da blok blobları, sayfa blobları ve yalnızca veriler kopyalanıyor. Azure Premium depolama, sayfa blobları tarafından yedeklenir olduğundan havuz olarak desteklenmiyor.
+- Blok kopyalama bloblarından eklemek ya da blok blobları, sayfa blobları ve yalnızca veriler kopyalanıyor.
 - Veya ayrıştırma veya oluşturma gibi blobları kopyalama blobları ile [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: danlep
-ms.openlocfilehash: e2f0d90a0a4384560c0a4126c028761765cb9e45
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e060d8cf1ec16ac3c900180c01eb3384a56d5e13
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288875"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713036"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -44,6 +44,7 @@ Bu özellik Önizleme aşamasında olduğu sürece, bir sanal ağa container Ins
 
 **Desteklenen** bölgeler:
 
+* Kuzey Avrupa (northeurope)
 * Batı Avrupa (westeurope)
 * Batı ABD (westus)
 

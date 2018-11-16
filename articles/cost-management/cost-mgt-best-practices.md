@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8958d2cde9f40aa1a7370894614a54bbd604bce7
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515361"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706339"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure maliyet yönetimi ile bulut yatırımınızdan en iyi duruma getirme
 
@@ -26,12 +26,12 @@ Azure maliyet yönetimi için planlama, analiz ve bulut yatırımınızdan en ü
 Maliyet yönetimi, kurumsal bir sorundur ve bulut kaynaklarında para harcamanız önce başlayan devam eden bir uygulama olmalıdır. Başarıyla maliyet Yönetimi uygulamak ve maliyetleri iyileştirmek için kuruluşunuz gerekir:
 
 - Başarı için uygun araçları ile hazırlıklı olun
-- Maliyetleri sorumlu
+- Maliyetleri için sorumlu olabilir
 - Harcama iyileştirmek için uygun eylemi gerçekleştirin
 
 Aşağıda özetlenen, üç anahtar gruplarını başarıyla maliyetleri yönetme emin olmak için kuruluşunuzda hizalanması gerekir.
 
-- **Finans** -onaylama için sorumlu olan kişiler, bulutta harcama tahminleri temel kuruluş çapında istekleri budge. Bunlar, karşılık gelen fatura ödemek ve maliyetleri çeşitli ekipler için sorumluluk atayın.
+- **Finans** -kuruluşta bütçesi isteklerini onaylama için sorumlu alarak harcama tahminleri bulutta. Bunlar, karşılık gelen fatura ödemek ve maliyetleri çeşitli ekipler için sorumluluk atayın.
 - **Yöneticileri** - Kurumsal karar alıcılar bir kuruluşta en iyi sonuçları harcama bulmak için harcama bulut anlamanız gerekir.
 - **Uygulama ekipleri** - bulut kaynaklarını günlük aralıklarla yönetme mühendisleri kuruluşun gereksinimlerini karşılamak için hizmetler geliştirmeye. Bu takımlar kendi tanımlanmış bütçelerini en yüksek değeri sunabilecek esnekliğe gerekir.
 
@@ -46,7 +46,7 @@ Kapsamlı, önceden planlama, bulut kullanımı belirli iş gereksinimlerinize u
 - Hangi iş sorununu miyim çözme?
 - Hangi kullanım düzenlerini miyim kaynaklarımı bekliyorsunuz?
 
-Yanıtlarınızı sizin için uygun olan teklif seçmenize yardımcı olur. Bunlar, altyapı ve Azure verimliliğinizi en üst düzeye çıkarmak için nasıl kullanılacağını belirler.
+Yanıtlarınızı sizin için doğru teklifler seçmenize yardımcı olur. Bunlar, altyapı ve Azure verimliliğinizi en üst düzeye çıkarmak için nasıl kullanılacağını belirler.
 
 #### <a name="visibility"></a>Görünürlük
 
@@ -62,7 +62,7 @@ Harcamalarınızı azaltmak için harekete geçin. En iyi şekilde planlama ve m
 
 #### <a name="iteration"></a>Yineleme
 
-Kuruluşunuzdaki herkes, maliyet Yönetimi yaşam döngüsündeki ilgisini gerekir. Maliyetleri uygun duruma getirmek için sürekli olarak katılan kalmak gerekir. Bu yinelemeli süreci hakkında ayrıntılı ve kuruluşunuzda bir anahtar Kiracı sorumlu bulut yönetimin yapın.
+Kuruluşunuzdaki herkes, maliyet Yönetimi yaşam döngüsündeki ilgisini gerekir. Maliyetleri uygun duruma getirmek için sürekli olarak katılan kalmak gerekir. Bu yinelemeli süreci hakkında ayrıntılı ve kuruluşunuzda sorumlu bulut idare anahtar de aynen geçerli yapın.
 
 ![Temel ilkeler](./media/cost-mgt-best-practices/principles.png)
 
@@ -105,7 +105,7 @@ Maliyet Yönetimi içinde deneyiminizi en üst düzeye ilk adımı, araştırman
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Çözümünüzü maliyetini tahmin etmek
 
-Herhangi bir altyapının dağıtmadan önce ne kadar çözümünüzü maliyetini değerlendirin. Değerlendirme iş yükü için ön kuruluşunuz için bir bütçe oluşturmanıza yardımcı olur. Ardından, ilk tahmin geçerliliğini karşılaştırılmasıdır zamanla bütçe kullanabilirsiniz. Ve dağıtılan çözümünüzün gerçek maliyet ile karşılaştırın.
+Herhangi bir altyapının dağıtmadan önce ne kadar çözümünüzü maliyetini değerlendirin. Değerlendirme iş yükü için ön kuruluşunuz için bir bütçe oluşturmanıza yardımcı olur. Ardından, ilk tahmin geçerliliğini Kıyaslama için zaman içinde bir bütçe kullanabilirsiniz. Ve dağıtılan çözümünüzün gerçek maliyet ile karşılaştırın.
 
 ### <a name="azure-pricing-calculator"></a>Azure fiyatlandırma hesaplayıcısı
 
@@ -125,7 +125,7 @@ Kuruluşunuzun maliyetleri zamanla gelişmesinin nasıl hakkında haberdar edin.
 
 ### <a name="organize-and-tag-your-resources"></a>Düzenleme ve kaynaklarınıza etiket
 
-Maliyet aklınızda kaynaklarınızla düzenleyin. Abonelikler ve kaynak grupları oluştururken, ilişkili tüm maliyetler için sorumlu takımlar düşünün. Kuruluşunuz aklınızda tutar, raporlama emin olun. Abonelikler ve kaynak gruplarını düzenlemek ve kuruluşunuz genelinde harcama özniteliği için iyi bir demet sağlar. Etiketleri özniteliği maliyet için iyi bir yol sağlar. Filtre olarak etiketleri kullanabilirsiniz. Ve verileri analiz etmek ve maliyetlerini incelemenize gruplandırma ölçütü için kullanabilirsiniz. Kurumsal Anlaşma müşterileri de bölümler oluşturabilir ve bunları kapsamında abonelikleri yerleştirin. Azure maliyet tabanlı kuruluşta, ilgili kişi kuruluşunuzda sorumlu ekip harcamalarınızı azaltmak için'e tutmaya yardımcı olur.
+Maliyet aklınızda kaynaklarınızla düzenleyin. Abonelikler ve kaynak grupları oluştururken, ilişkili tüm maliyetler için sorumlu takımlar düşünün. Kuruluşunuz aklınızda tutar, raporlama emin olun. Abonelikler ve kaynak gruplarını düzenlemek ve kuruluşunuz genelinde harcama özniteliği için iyi bir demet sağlar. Etiketleri özniteliği maliyet için iyi bir yol sağlar. Filtre olarak etiketleri kullanabilirsiniz. Ve verileri analiz etmek ve maliyetlerini incelemenize gruplandırma ölçütü için kullanabilirsiniz. Kurumsal Anlaşma müşterileri, ayrıca departmanlar oluşturabilir ve bunları kapsamında abonelikleri yerleştirin. Azure maliyet tabanlı kuruluşta, ilgili kişi kuruluşunuzda sorumlu ekip harcamalarınızı azaltmak için'e tutmaya yardımcı olur.
 
 ### <a name="use-cost-analysis"></a>Maliyet analizi kullanma
 
@@ -157,7 +157,7 @@ Harcama en iyi duruma getirmek için aşağıdaki yöntemleri kullanın.
 
 ### <a name="cut-out-waste"></a>Atık Kes
 
-Altyapınızı azure'da dağıttıktan sonra kullanıldığı emin olmak önemlidir. Hemen başlayabileceğinizi en kolay yolu, kaynakları gözden geçirin ve kullanılmayan kaldırmak sağlamaktır. Burada, kaynaklarınızı mümkün olduğunca verimli bir şekilde kullanıldığını belirlemeniz gerekir.
+Altyapınızı azure'da dağıttıktan sonra kullanıldığı emin olmak önemlidir. Hemen başlayabileceğinizi en kolay yolu, kaynakları gözden geçirin ve kullanılmayan kaldırmak sağlamaktır. Burada, kaynaklarınızı mümkün olduğunca verimli bir şekilde kullanılıp kullanılmayacağını belirlemeniz gerekir.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 
@@ -177,7 +177,7 @@ Azure, kuruluşunuzun avantajı Tasarruf için gerçekleştirmesi gereken birço
 
 #### <a name="azure-reservations"></a>Azure ayırmalar
 
-Azure ayırmaları, için bir yıllık ön ödeme veya üç yıl, sanal makine veya SQL veritabanı, işlem kapasitesi sağlar. Önceden ödeme kullandığınız kaynaklar üzerinde bir indirim almak izin verir. Azure ayırmaları, sanal makine veya SQL veritabanı işlem maliyetleri önemli ölçüde azaltabilirsiniz — Kullandıkça Öde fiyatlarında yüzde 72'ye varan – yıllık veya üç yıllık ön taahhüt. Rezervasyon faturalandırma indirim sağlar ve sanal makine veya SQL veritabanları çalışma zamanı durumunu etkilemez.
+Azure ayırmaları için bir yıllık ön ödeme yapmanızı sağlar veya üç yıl, sanal makine veya SQL veritabanı, işlem kapasitesi. Önceden ödeme kullandığınız kaynaklar üzerinde bir indirim almak izin verir. Azure ayırmaları, sanal makine veya SQL veritabanı işlem maliyetleri önemli ölçüde azaltabilirsiniz — yıllık veya üç yıllık ön taahhüt ile Kullandıkça Öde fiyatlarında yüzde 72'ye kadar. Rezervasyon faturalandırma indirim sağlar ve sanal makine veya SQL veritabanları çalışma zamanı durumunu etkilemez.
 
 Daha fazla bilgi için [Azure ayırmaları nelerdir?](../billing/billing-save-compute-costs-reservations.md).
 

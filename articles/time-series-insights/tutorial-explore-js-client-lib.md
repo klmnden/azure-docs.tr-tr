@@ -8,12 +8,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366055"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707002"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Öğretici: Azure Time Series Insights JavaScript istemci kitaplığını keşfetme
 
@@ -34,9 +34,9 @@ Bu öğreticide şunları öğrenirsiniz:
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide, [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) dahil modern web tarayıcılarının çoğunda bulunan "Geliştirici Araçları" özelliği (DevTools veya F12 olarak da bilinir) kullanılır. Bu özelliği henüz tanımıyorsanız, devam etmeden önce tarayıcınızda incelemek isteyebilirsiniz.
+Bu öğreticide dahil olmak üzere Çoğu modern web tarayıcılarında bulunamadı "Geliştirici Araçları" özelliğini (DevTools veya F12 olarak da bilinir) [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)ve diğerleri. Bu özelliği henüz tanımıyorsanız, devam etmeden önce tarayıcınızda incelemek isteyebilirsiniz.
 
 ## <a name="time-series-insights-sample-application"></a>Time Series Insights örnek uygulaması
 

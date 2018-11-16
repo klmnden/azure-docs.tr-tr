@@ -16,17 +16,18 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e5377078010e899c41b27ef0ea5248ff4a09df8e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 545ec1d4f5cd817b1fa02a135d305b997c9945bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301794"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705404"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
 ## <a name="introduction"></a>Giriş
 Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory arasında eşitleme sağlar.
-Şu anda [Microsoft Bulut Almanya](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx)’daki senaryoların çoğunun operatör tarafından yürütülmesi gerekmektedir. Microsoft Bulut Almanya’yı kullanırken aşağıdakilerin farkında olmanız gerekir:
+Şu anda [Microsoft Bulut Almanya](https://azure.microsoft.com/global-infrastructure/germany/
+)’daki senaryoların çoğunun operatör tarafından yürütülmesi gerekmektedir. Microsoft Cloud Almanya'yı kullanırken aşağıdaki bilgilerden haberdar olmanız gerekir:
 
 * Eşitlemenin başarıyla gerçekleştirilebilmesi için aşağıdaki URL'lerin bir ara sunucuda açılması gerekir:
   
@@ -40,13 +41,13 @@ Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory
 Azure AD Connect’i portalın içerisindeki Azure AD Connect dikey penceresinden indirebilirsiniz.  Azure AD Connect dikey penceresini bulmak için aşağıdaki yönergeleri kullanın.
 
 ### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect Dikey Penceresi
-Azure portalda oturum açtıktan sonra şunları yapın:
+Bir kez Azure portalında açtığınız:
 
 1. Gözat’a gidin
 2. Azure Active Directory'yi seçin
 3. Azure AD Connect'i seçin
 
-Şunları görmeniz gerekir:
+Bu ayrıntıları görürsünüz:
 
 ![Azure AD Connect Dikey Penceresi](./media/reference-connect-germany/germany1.png)
 
@@ -62,5 +63,5 @@ Aşağıdaki tabloda, dikey pencerede gösterilen özellikler açıklanmaktadır
 Azure AD Connect'i yüklemek için [buradaki](how-to-connect-install-roadmap.md) belgeleri kullanabilirsiniz.
 
 ## <a name="advanced-features-and-additional-information"></a>Gelişmiş özellikler ve Ek Bilgiler
-Özel ayarlar veya gelişmiş yapılandırmalar hakkında ek bilgiler ya da kılavuzluk edinmek için [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md) (Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme) makalesinden başlayın.  Bu sayfada, bilgiler ve ek rehberlik sağlayan diğer sayfalara bağlantılar bulabilirsiniz.
+Özel ayarlar veya gelişmiş yapılandırmalar hakkında ek bilgi için Git [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md). Bu sayfada, bilgiler ve ek rehberlik sağlayan diğer sayfalara bağlantılar bulabilirsiniz.
 

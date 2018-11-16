@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: d5385ad5142c402a04bb6d5272573917b830754b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: fa322ee685d09717ac5b98398d4d1d61de2be1e9
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142626"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706645"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Hızlı Başlangıç: Azure Veri Gezgini Node kitaplığını kullanarak verileri alma
 
@@ -21,7 +21,7 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için Azure aboneliğine ek olarak aşağıdakilere de ihtiyacınız vardır:
 
@@ -149,8 +149,8 @@ kustoClient.execute(kustoDatabse, query, (err, results) => {
 [https://dataexplorer.azure.com](https://dataexplorer.azure.com) adresinde oturum açın ve kümenize bağlanın. Son dört saatte hiç veri alımı hatası olup olmadığını görmek için veritabanınızda aşağıdaki komutu çalıştırın. Çalıştırmadan önce veritabanı adını değiştirin.
     
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Son dört saatteki tüm veri alım işlemlerinin durumunu görüntülemek için aşağıdaki komutu çalıştırın. Çalıştırmadan önce veritabanı adını değiştirin.

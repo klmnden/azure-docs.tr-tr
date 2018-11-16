@@ -1,21 +1,21 @@
 ---
 title: Bulutta Kubernetes geliştirme alanı oluşturma | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: iainfoulds
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: iainfou
+ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: fb33eb2ce1d494191f589e78637d886339e595be
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: efb3e63841dbe88bd8711881b373ab505468eabd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978953"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704775"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Hızlı Başlangıç: Azure Dev Spaces ile bir Kubernetes geliştirme alanı oluşturma (Node.js)
 
@@ -28,7 +28,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 > [!Note]
 > Herhangi bir zamanda **kilitlenirseniz** [Sorun giderme](troubleshooting.md) bölümüne başvurun veya bu sayfada bir yorum paylaşın. Daha ayrıntılı bir [öğreticiyi](get-started-nodejs.md) de deneyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Azure aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
 - [Visual Studio Code](https://code.visualstudio.com/download).
