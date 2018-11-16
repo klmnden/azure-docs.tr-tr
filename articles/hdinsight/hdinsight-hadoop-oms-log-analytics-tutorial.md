@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 531cfb32b3433e0a376845a81a3ea5e13e6f1d11
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 23c8098927a051da48c7da2bac0c96173da1d2f2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278693"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713308"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için kullanın
 
@@ -91,7 +91,7 @@ Var olan HDInsight çözümlerinin şunlardır:
 * HDInsight Spark İzleme
 * HDInsight Storm Monitoring
 
-Bir yönetim çözümü yüklemek yönergeler için bkz. [Azure yönetim çözümlerine](../monitoring/monitoring-solutions.md#install-a-management-solution). Denemeler yapmak için bir HDInsight Hadoop Monotiring çözüm yükleyin. İşlem tamamlandığında, gördüğünüz bir **HDInsightHadoop** kutucuğu altında listelenen **özeti**. Seçin **HDInsightHadoop** Döşe. HDInsightHadoop çözüm şuna benzer:
+Bir yönetim çözümü yüklemek yönergeler için bkz. [Azure yönetim çözümlerine](../azure-monitor/insights/solutions.md#install-a-management-solution). Denemeler yapmak için bir HDInsight Hadoop Monotiring çözüm yükleyin. İşlem tamamlandığında, gördüğünüz bir **HDInsightHadoop** kutucuğu altında listelenen **özeti**. Seçin **HDInsightHadoop** Döşe. HDInsightHadoop çözüm şuna benzer:
 
 ![HDInsight izleme çözüm görünümü](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

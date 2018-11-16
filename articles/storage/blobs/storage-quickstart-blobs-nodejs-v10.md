@@ -6,22 +6,22 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 09/19/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4aa78fe91d5813e9b1fa8abd30c8b8720ea510e4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 68d03a5e37559c6db2955cc966d4f074c9adbe64
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278411"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711251"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Hızlı başlangıç: JavaScript için Azure Depolama v10 SDK'sını kullanarak blob yükleme, indirme, listeleme ve silme (önizleme)
 
 Bu hızlı başlangıçta blob yükleme, indirme, listeleme ve silme ile kapsayıcıları yönetme amacıyla Node.js'de [JavaScript için Azure Storage v10 SDK'sını](https://github.com/Azure/azure-storage-js) kullanmayı öğreneceksiniz.
 
-Bu hızlı başlangıcı tamamlamak bir [Azure aboneliğinizin](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) olması gerekir.
+## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 
@@ -349,4 +349,4 @@ Bu hızlı başlangıçta Node.js kullanarak Azure Blob depolamadaki blobları v
 
 > [!div class="nextstepaction"]
 > [JavaScript deposu için Azure Depolama v10 SDK’sı](https://github.com/Azure/azure-storage-js)
-> [JavaScript API’si Başvurusu](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage/client?view=azure-node-preview)
+> [JavaScript API’si Başvurusu](https://docs.microsoft.com/javascript/api/overview/azure/storage/client?view=azure-node-preview)

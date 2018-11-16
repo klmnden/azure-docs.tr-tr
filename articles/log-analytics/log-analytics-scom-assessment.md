@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 210e8a80d19f84058a059a3cfe34a14e037507db
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006524"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712373"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -212,7 +212,7 @@ Her öneri neden önemli olduğu ile ilgili yönergeler içerir. Öneri uyguland
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Odak alanı önerileri kullanım durumunu denetleme
 
-Log Analytics'te bir sistem durumu denetimi çözümü kullanabilmeniz için önce çözümü yüklenmiş olması gerekir. Daha fazla bilgi için çözüm yükleme hakkında bkz [yönetim çözümü yüklemek](../monitoring/monitoring-solutions.md). Yüklendikten sonra sistem Center Operations Manager sistem durumu denetimi kutucuk kullanarak önerileri özetini görüntüleyebilirsiniz **genel bakış** Azure portalında çalışma sayfası.
+Log Analytics'te bir sistem durumu denetimi çözümü kullanabilmeniz için önce çözümü yüklenmiş olması gerekir. Daha fazla bilgi için çözüm yükleme hakkında bkz [yönetim çözümü yüklemek](../azure-monitor/insights/solutions.md). Yüklendikten sonra sistem Center Operations Manager sistem durumu denetimi kutucuk kullanarak önerileri özetini görüntüleyebilirsiniz **genel bakış** Azure portalında çalışma sayfası.
 
 Altyapınız ve ardından-ayrıntıya önerileri için Özet uyumluluk değerlendirmesi görüntüleyin.
 

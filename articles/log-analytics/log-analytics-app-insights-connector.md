@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 554159f0eb22f2aaa1e45e69de7741f8764be0b3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014831"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711863"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -57,7 +57,7 @@ Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanı
 
 ## <a name="configuration"></a>Yapılandırma
 
-1. Azure Web Apps Analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
+1. Azure Web Apps Analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md).
 2. [Azure portala](https://portal.azure.com) gidin. Seçin **tüm hizmetleri** Application Insights'ı açın. Ardından Application ınsights'ı arayın. 
 3. Altında **abonelikleri**, Application Insights kaynaklarını içeren bir aboneliği seçin ve ardından altındaki **adı**, bir veya daha fazla uygulama seçin.
 4. **Kaydet**’e tıklayın.

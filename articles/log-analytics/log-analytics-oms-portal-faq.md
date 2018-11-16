@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283453"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712254"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -82,7 +82,7 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 | Linux sunucuları   | **Gelişmiş ayarlar** çalışma alanı için menü. |
 | Azure Storage     | **Gelişmiş ayarlar** çalışma alanı için menü. |
 | System Center     | **Gelişmiş ayarlar** çalışma alanı için menü. |
-| Office 365        | Bkz: [belgeleri Office 365 yönetim çözümü](../monitoring/monitoring-solution-office-365.md) yapılandırma ayrıntıları için. |
+| Office 365        | Bkz: [belgeleri Office 365 yönetim çözümü](../azure-monitor/insights/solution-office-365.md) yapılandırma ayrıntıları için. |
 | Windows Telemetrisi | Çözüm ayarları menüsü. Bkz: [Azure portalında Windows Analytics](/windows/deployment/update/windows-analytics-azure-portal) yapılandırma ayrıntıları için. |
 | ITSM Bağlayıcısı    | Bkz: [bağlanma ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile](../log-analytics/log-analytics-itsmc-connections.md) ITSM hizmetine Log Analytics ile ilgili yönergeler için. |
 
@@ -107,7 +107,7 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 Çözümleri yönetme **çözümleri** çalışma alanı için menü. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Nasıl yükleyin ve yönetim çözümleri Kaldır?
-OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunları kaldırıldı **ayarları**. Azure portalında [yönetim çözümlerini yükleme](../monitoring/monitoring-solutions.md#install-a-management-solution) Azure Market'ten. [Çözümleri kaldırma](../monitoring/monitoring-solutions.md#remove-a-management-solution) yüklü çözümleri listesinden.
+OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunları kaldırıldı **ayarları**. Azure portalında [yönetim çözümlerini yükleme](../azure-monitor/insights/solutions.md#install-a-management-solution) Azure Market'ten. [Çözümleri kaldırma](../azure-monitor/insights/solutions.md#remove-a-management-solution) yüklü çözümleri listesinden.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Nasıl oluştururum ve Uyarıları yönetme?
 Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../monitoring-and-diagnostics/alert-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
@@ -126,5 +126,5 @@ Sınırlı bir süre için portal bu URL, kendi çalışma alanı adı ile eriş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bulma ve yönetim çözümlerini yükleme](../monitoring/monitoring-solutions.md) Azure portalını kullanarak.
+- [Bulma ve yönetim çözümlerini yükleme](../azure-monitor/insights/solutions.md) Azure portalını kullanarak.
 - Hakkında bilgi edinin [Azure portalında günlük araması](log-analytics-log-search-portals.md).

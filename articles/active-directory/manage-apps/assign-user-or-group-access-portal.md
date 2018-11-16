@@ -2,25 +2,21 @@
 title: Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama | Microsoft Docs
 description: Azure Active Directory'de bir kullanıcı veya grup için atama için kurumsal uygulama seçme
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037983"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711319"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama
 Bir kullanıcı veya grup için kurumsal bir uygulamayı atamak için Kurumsal uygulamasını yönetmek için uygun izinlere sahip ve dizin için genel yönetici olması gerekir.
@@ -32,7 +28,7 @@ Bir kullanıcı veya grup için kurumsal bir uygulamayı atamak için Kurumsal u
 > (Örneğin, Office 365 uygulamaları) Microsoft Applications, kullanıcıları kurumsal bir uygulamayı atamak için PowerShell'i kullanın.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Nasıl kullanıcı erişimi için Azure portalında kurumsal bir uygulamanın atarım?
+## <a name="assign-a-user-to-an-app---portal"></a>Bir kullanıcı atamak için bir app - portal
 1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri**, Azure Active Directory metin kutusuna girin ve ardından **Enter**.
 3. Seçin **kurumsal uygulamalar**.
@@ -51,7 +47,25 @@ Bir kullanıcı veya grup için kurumsal bir uygulamayı atamak için Kurumsal u
 10. Üzerinde **atama Ekle** dikey penceresinde **rol**. Ardından **rolü Seç** dikey penceresinde, seçilen kullanıcılarla veya gruplarla için geçerlidir ve ardından seçmek için rolü seçin **Tamam** dikey pencerenin alt kısmındaki düğmesi.
 11. Üzerinde **atama Ekle** dikey penceresinde **atama** dikey pencerenin alt kısmındaki düğmesi. Atanan kullanıcılar veya gruplar bu kurumsal uygulama için seçili rolü tarafından tanımlanan izinlere sahiptir.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>PowerShell kullanarak kurumsal uygulama için bir kullanıcı nasıl atarım?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Tüm kullanıcıların bir uygulama - erişmesine izin vermek portalı
+Tüm kullanıcıların uygulamaya erişmesine izin vermek için:
+
+1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
+2. Seçin **tüm hizmetleri**, Azure Active Directory metin kutusuna girin ve ardından **Enter**.
+3. Seçin **kurumsal uygulamalar**.
+4. Üzerinde **kurumsal uygulamalar** dikey penceresinde **tüm uygulamaları**. Bu, yönettiğiniz uygulamaları listeler.
+5. Üzerinde **kurumsal uygulamalar - tüm uygulamalar** dikey penceresinde bir uygulama seçin.
+6. Üzerinde ***appname*** dikey penceresinde **özellikleri**.
+7. Üzerinde  ***appname* -Özellikler** dikey penceresinde ayarlayın **kullanıcı ataması gerekli mi?** ayarını **Hayır**. 
+
+**Kullanıcı ataması gerekli mi?** seçeneği:
+
+- Bir uygulamanın uygulama erişim panelinde görünür olup olmadığını etkilemez. Uygulama erişim panelinde göstermek için bir uygun kullanıcı veya grubun uygulamaya atamanız gerekir.
+- Yalnızca SAML çoklu oturum açma için yapılandırılan bulut uygulamalarıyla çalışır ve şirket içi uygulamalarda uygulama ara sunucusu ile yapılandırılmış. Bkz: [çoklu oturum açma uygulamaları için](what-is-single-sign-on.md).
+- Kullanıcılar uygulama onay gerektirir. Bir yönetici, tüm kullanıcılar için izin verebilirsiniz.  Bkz: [yapılandırma yolu son kullanıcılardan uygulama onay](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>-PowerShell uygulamaya kullanıcı atama
 
 1. Yükseltilmiş bir Windows PowerShell komut istemi açın.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a881ea18558e49656dc165d1545250bffeac4303
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006507"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713089"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -163,19 +163,19 @@ Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
 | Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> - Toplanan olay günlüklerinin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
 | Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> - Toplanan tesislerin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
 | AzureDiagnostics           | Aşağıdaki amaçlarla kaynak günlüğü koleksiyonunu değiştirin: <br> - Log Analytics’e günlük gönderen kaynak sayısını azaltma <br> - Yalnızca gerekli günlükleri toplama |
-| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın. |
+| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../azure-monitor/insights/solution-targeting.md) özelliğini kullanın. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
 Kullanıyorsanız *(Log Analytics) düğüm başına* düğüm ve çözüm sayısına göre temel fiyatlandırma katmanındaysanız ödersiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.<br><br> ![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görüntülemek için **Tümünü göster...** öğesine tıklayın.
 
-Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın.
+Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../azure-monitor/insights/solution-targeting.md) özelliğini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-queries.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
 * Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/alert-metric.md) başlığı altında açıklanan adımları kullanın.
-* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../monitoring/monitoring-solution-targeting.md) özelliğini kullanın.
+* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../azure-monitor/insights/solution-targeting.md) özelliğini kullanın.
 * Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin.
 * [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin.
 * Olay toplama ayarlarınızda değişiklik yapmak için, [olay günlüğü yapılandırması](log-analytics-data-sources-windows-events.md) konusunu gözden geçirin.

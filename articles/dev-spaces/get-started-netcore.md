@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 616895db281efe802c93c7ee0009e7b28d0f6092
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: bb3ddb0ffe16746a44318ea8d0bf0f1e3b3c3de1
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515072"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705591"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>.NET Core ile Azure Dev Spaces'da Çalışmaya Başlama
 
@@ -84,6 +84,9 @@ AKS kümenizi içeren kaynak grubuyla AKS kümesi adınızı kullanarak aşağı
    ```cmd
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
+   
+> [!IMPORTANT]
+> Azure geliştirme alanları yapılandırma işlemini kaldıracak `azds` kümedeki varsa, ad alanı.
 
 ## <a name="get-kubernetes-debugging-for-vs-code"></a>VS Code için Kubernetes hata ayıklaması edinin
 Kubernetes hata ayıklaması gibi zengin özellikler VS Code kullanarak .NET Core ve Node.js geliştiricileri için kullanılabilir.

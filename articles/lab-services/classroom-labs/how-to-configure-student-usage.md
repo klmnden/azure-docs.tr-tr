@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: a91d5826f52b2beb05f2d9a08f3646bd776b294e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 30c033b487fe58d017080b02c257502f82338164
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142478"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710049"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
 Bu makalede, Laboratuvar için kullanıcıların sayısını yapılandırın, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
@@ -32,16 +32,21 @@ Bu makalede, Laboratuvar için kullanıcıların sayısını yapılandırın, bu
 
     ![Kullanım ilkesi](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
 
-## <a name="send-registration-link-to-users"></a>Kullanıcılara kayıt bağlantısı Gönder
+## <a name="send-registration-link-to-students"></a>Öğrencilere kayıt bağlantısı gönderme
 
-1. **Pano** görünümüne geçin. 
-2. **Kullanıcı kaydı** kutucuğunu seçin.
+1. Geçiş **kullanıcılar** görünümü seçerek **kullanıcılar** sol menüsünde. 
+2. Seçin **kayıt bağlantı alma** Döşe.
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. **Kullanıcı kaydı** iletişim kutusunda **Kopyala** düğmesini seçin. Bağlantı, panoya kopyalanır. Bağlantıyı bir e-posta düzenleyiciye yapıştırın ve öğrenciye e-posta gönderin. Öğrenciler, laboratuvarla kaydetme ile yardımcı olan bir sayfaya gitmek için bağlantıyı kullanın. 
+1. **Kullanıcı kaydı** iletişim kutusunda **Kopyala** düğmesini seçin. Bağlantı, panoya kopyalanır. Bağlantıyı bir e-posta düzenleyiciye yapıştırın ve öğrenciye e-posta gönderin. 
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. **Kullanıcı kaydı** iletişim kutusunda **Kapat**'ı seçin. 
+4. Kayıt bağlantısını sınıfa kaydolmasını istediğiniz öğrencilerle paylaşın. Varsa **seçeneği kısıtlama** ayarı etkin ve kullanıcıların listesini listesinde olması, aşağıdaki eylemleri gerçekleştirin:
+    1. Seçin **e-posta adresi** listesinde kullanıcının. 
+    2. Bir pencere varsayılan e-posta programınızı görmek **Kime** adresi doldurulur. 
+    3. Yapıştırma **kayıt URL'si** daha önce kopyaladığınız. 
+    4. Gönderme **e-posta**. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Laboratuvara kayıtlı kullanıcıları görüntüleme
 
@@ -51,15 +56,33 @@ Seçin **kullanıcılar** kullanıcıların listesini görmek için sol taraftak
 
 ## <a name="set-quotas-per-user"></a>Kullanıcı başına kota ayarlama
 
-1. Seçin **kullanıcı ayarları** sol menüsünde.
-2. Seçin **kullanıcı başına Quta** Döşe. 
-3. Seçin **bir kullanıcının, bir VM kullanabileceği süreyi sınırlamak**. 
-4. İçin **kaç saat her kullanıcıya vermek istediğiniz?** saat sayısını girin ve seçin **Kaydet**. 
+1. Seçin **kullanıcılar** sol menüsünde.
+2. Seçin **kullanıcı başına kota: sınırsız** araç. 
+3. Üzerinde **kullanıcı başına kotası** sayfasında **bir kullanıcının, bir VM kullanabileceği süreyi sınırlamak**. 
+4. İçin **kaç saat her kullanıcıya vermek istediğiniz**saat sayısını girin ve seçin **Kaydet**. 
 
     ![Saat başına kullanıcı sayısı](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Saat sayısına bakın **kullanıcı başına kotası** artık Döşe. 
+5. Saat araç çubuğundaki göreceksiniz: **kullanıcı başına kota: &lt;saat sayısı&gt;**. 
 
     ![Kullanıcı başına kotası](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## <a name="add-users-to-the-lab"></a>Kullanıcılar laboratuvara ekleme
+Varsa **erişimi kısıtlama** etkin kullanıcılar (e-posta adresleri) listeye ekleyin.
+
+1. Seçin **kullanıcılar** sol menüsünde.
+2. Seçin **kullanıcı ekleme** araç. 
+3. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
+
+    ![Kullanıcı e-posta ekleyin](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. **Kaydet**’i seçin. E-posta adreslerini kullanıcıları ve bunların durumlarını (veya kayıtlı) listesinde görürsünüz. 
+
+    ![Kullanıcı listesi](../media/how-to-configure-student-usage/users-list-new.png)
+
+### <a name="add-users-by-uploading-a-csv-file"></a>Bir CSV dosyasını karşıya yükleyerek kullanıcı ekleme
+Kullanıcıların e-posta adreslerini içeren bir CSV dosyası karşıya yükleyerek, kullanıcılar da ekleyebilirsiniz.
+
+1. Seçin **karşıya CSV** araç.
+2. Kullanıcı e-posta adreslerini içeren CSV dosyası seçin. Excel'de açtığınızda, bir sütundaki tüm e-posta adresleri olmalıdır. 
 
 ## <a name="manage-user-vms"></a>Kullanıcı Vm'leri yönetme
 Azure Lab Services'i kullanarak kayıt Öğrenciler kaydı bağladıktan sonra Öğrenciler için tarihinde atanmış Vm'leri, gördüğünüz sağlanan **sanal makineler** sekmesi. 
@@ -76,7 +99,9 @@ Bir öğrenci VM üzerinde aşağıdaki görevleri gerçekleştirebilirsiniz:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:
+Aşağıdaki makalelere bakın:
 
-- [Bir sınıf laboratuvarı ayarlama](how-to-manage-classroom-labs.md)
-- [Laboratuvar ayarlama](../tutorial-create-custom-lab.md)
+- [Bir yönetici olarak oluşturun ve Laboratuvar hesaplarını yönetme](how-to-manage-lab-accounts.md)
+- [Laboratuvar sahibi olarak oluşturun ve Laboratuvarları yönetin](how-to-manage-classroom-labs.md)
+- [Laboratuvar sahibi olarak ayarlama ve şablonları Yayımlama](how-to-create-manage-template.md)
+- [Bir laboratuvar kullanıcı olarak sınıf laboratuvarlarına erişim](how-to-use-classroom-lab.md)

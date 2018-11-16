@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 78d081fe3ba2bfa4b598dfb0cc62c03d66d3d356
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011060"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712322"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -103,7 +103,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
 
 ### <a name="configure-the-solution"></a>Çözümü yapılandırma 
 
-1. Çalışma alanınızdan Ağ Performansı İzleyicisi çözüm ekleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md). 
+1. Çalışma alanınızdan Ağ Performansı İzleyicisi çözüm ekleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md). 
 2. Log Analytics çalışma alanınızın açın ve seçin **genel bakış** Döşe. 
 3. Seçin **Ağ Performansı İzleyicisi** döşeme iletinin *çözüm ek yapılandırma gerektirir*.
 

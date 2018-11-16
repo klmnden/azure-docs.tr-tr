@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741037"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706985"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Öğretici: Verilerinizi Azure Cosmos DB MongoDB API hesabına geçirme
 
@@ -36,13 +36,13 @@ Verileri MongoDB API'si hesabına geçirmeden önce örnek MongoDB verilerine sa
 
 1. Koleksiyonlarınızı önceden oluşturup ölçeklendirin:
         
-    * Varsayılan olarak, Azure Cosmos DB yeni bir MongoDB koleksiyonun saniyede 1.000 istek birimiyle (RU/sn) sağlar. Mongoimport veya mongorestore'u kullanarak geçişi başlatmadan önce, [Azure portal](https://portal.azure.com)'dan veya MongoDB sürücülerinden ve araçlarından tüm koleksiyonlarınızı önceden oluşturun. Veri boyutu 10 GB'ın üzerindeyse uygun bir parça anahtarıyla [bölümlenmiş koleksiyon](partition-data.md) oluşturduğunuzdan emin olun.
+   * Varsayılan olarak, Azure Cosmos DB yeni bir MongoDB koleksiyonun saniyede 1.000 istek birimiyle (RU/sn) sağlar. Mongoimport veya mongorestore'u kullanarak geçişi başlatmadan önce, [Azure portal](https://portal.azure.com)'dan veya MongoDB sürücülerinden ve araçlarından tüm koleksiyonlarınızı önceden oluşturun. Veri boyutu 10 GB'ın üzerindeyse uygun bir parça anahtarıyla [bölümlenmiş koleksiyon](partition-data.md) oluşturduğunuzdan emin olun. İçindeki koleksiyonlar varlık verilerini depolamak için MongoDB önerir. Azure Cosmos veritabanı düzeyinde karşılaştırılabilir boyutu ve sağlama aktarım hızının varlıklarına genel birlikte bulundurabilirsiniz.
 
-    * [Azure portal](https://portal.azure.com)'dan, yalnızca geçiş için, koleksiyonunuzun aktarım hızını tek bir bölüm koleksiyonu için 1.000 RU/sn üzeri, parçalı koleksiyon için 2.500 RU/sn üzeri olacak şekilde artırın. Daha yüksek aktarım hızı ile, hız sınırlamayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Maliyetlerden tasarruf etmek için geçişten hemen sonra aktarım hızını düşürebilirsiniz.
+   * Gelen [Azure portalında](https://portal.azure.com), tek bölümlü bir koleksiyon için 1000 RU/sn ve 2.500 RU/sn geçiş süresince yalnızca bir parçalı koleksiyon için koleksiyon aktarım hızınızı artırın. Daha yüksek aktarım hızı ile, hız sınırlamayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Maliyetlerden tasarruf etmek için geçişten hemen sonra aktarım hızını düşürebilirsiniz.
 
-    * Koleksiyon düzeyinde RU/sn sağlamaya ek olarak, üst veritabanı düzeyinde bir koleksiyon kümesi için RU/sn de sağlayabilirsiniz. Bu, veritabanı ve koleksiyonların önceden oluşturulmasını ve her koleksiyon için bir parça anahtarı tanımlanmasını gerektirir.
+   * Koleksiyon düzeyinde RU/sn sağlamaya ek olarak, üst veritabanı düzeyinde bir koleksiyon kümesi için RU/sn de sağlayabilirsiniz. Bu, veritabanı ve koleksiyonların önceden oluşturulmasını ve her koleksiyon için bir parça anahtarı tanımlanmasını gerektirir.
 
-    * En sevdiğiniz araç, sürücü veya SDK üzerinden parçalı koleksiyonlar oluşturabilirsiniz. Bu örnekte, parçalı bir koleksiyon oluşturmak için Mongo Shell kullanacağız:
+   * En sevdiğiniz araç, sürücü veya SDK üzerinden parçalı koleksiyonlar oluşturabilirsiniz. Bu örnekte, parçalı bir koleksiyon oluşturmak için Mongo Shell kullanacağız:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

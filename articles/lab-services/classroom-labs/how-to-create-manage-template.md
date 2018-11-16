@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142513"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706866"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Oluşturma ve bir sınıf şablonunda Azure Lab Services'ı yönetme
 Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın. Laboratuvar kullanıcılarının görebileceği bir ad ve açıklama belirtebilirsiniz. Ardından, VM şablonu örneklerini Laboratuvar kullanıcılarınız için kullanılabilir hale getirmek için şablonu yayımlayın. Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak laboratuvarda sanal makineler oluşturur. Bu işlemde oluşturulan sanal makine sayısı, laboratuvarda izin verilen maksimum kullanıcı sayısıyla aynıdır. Laboratuvarın kullanım ilkesinde bu maksimum değeri ayarlayabilirsiniz. Tüm sanal makineler, şablonla aynı yapılandırmaya sahiptir.
@@ -88,16 +88,14 @@ Bu makalede, oluşturmak ve bir sınıf laboratuvarına Azure Lab Services'ın b
 ## <a name="set-up-a-template-after-creating-a-lab"></a>Bir laboratuvarı oluşturduktan sonra bir şablonu ayarlama 
 Laboratuvarı oluşturduktan sonra şablon de ayarlayabilirsiniz.   
 
-### <a name="set-template-title-and-description"></a>Set şablon başlığı ve açıklaması
-1. **Şablon** bölümünde, şablon için **Düzenle**’yi (kalem simgesi) seçin. 
-2. **Kullanıcı görünümü** penceresinde, şablon için bir **başlık** girin.
-3. Şablon için **açıklama** girin.
-4. **Kaydet**’i seçin.
+## <a name="set-or-update-template-title-and-description"></a>Ayarlayın veya şablon başlığı ve açıklamayı güncelleştirme
+Başlık ve açıklama ilk kez ayarlamak için aşağıdaki adımları kullanın ve daha sonra güncelleştirebilirsiniz. 
 
-    ![Sınıf laboratuvarı açıklaması](../media/how-to-manage-classroom-labs/lab-description.png)
+1. İçinde **şablon** fareyi hareket ettirin bölümünde **adı** şablonunun veya **açıklama** şablonunun ve bu seçeneği belirleyin. 
+2. Girin **yeni adı** veya **yeni açıklama** tuşuna basın ve şablon için **ENTER**.
 
-### <a name="set-up-the-template-vm"></a>Şablon VM'yi ayarlama
- Şablon VM'yi öğrencilerinizin kullanımına sunmadan önce bağlanıp gerekli yazılımları yüklemeniz gerekir. 
+## <a name="set-up-or-update-a-template-vm"></a>Ayarlayın veya bir VM şablonunu güncelleştirme
+ Şablon VM'yi öğrencilerinizin kullanımına sunmadan önce bağlanıp gerekli yazılımları yüklemeniz gerekir. VM şablon ilk kez ayarlama veya VM güncelleştirmek için aşağıdaki adımları kullanın. 
 
 1. Şablon sanal makine hazır olana kadar bekleyin. Hazır olduktan sonra **Başlat** düğmesinin etkinleştirilmesi gerekir. VM'yi başlatmak için **Başlat**'ı seçin.
 
@@ -112,7 +110,7 @@ Laboratuvarı oluşturduktan sonra şablon de ayarlayabilirsiniz.
     ![Şablon VM'yi durdurma](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>Şablonu yayımlama 
+## <a name="publish-the-template-vm"></a>Şablon VM'yi yayımlama
 Laboratuvar oluşturulurken bir şablon yayımlama, daha sonra yayımlayabilirsiniz. Yayımlamadan önce şablona VM bağlanmak ve herhangi bir yazılım güncelleştirme isteyebilirsiniz. Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak laboratuvarda sanal makineler oluşturur. Bu işlemde oluşturulan sanal makine sayısı, laboratuvarda izin verilen maksimum kullanıcı sayısıyla aynıdır. Laboratuvarın kullanım ilkesinde bu maksimum değeri ayarlayabilirsiniz. Tüm sanal makineler, şablonla aynı yapılandırmaya sahiptir. 
 
 1. **Şablon** bölümünden **Yayımla**'yı seçin. 
@@ -125,7 +123,7 @@ Laboratuvar oluşturulurken bir şablon yayımlama, daha sonra yayımlayabilirsi
 4. **Sanal makineler** sayfasına geçin ve **Atanmamış** durumundaki sanal makineleri gördüğünüzü doğrulayın. Bu VM’ler henüz bir öğrenciye atanmamıştır. 
 
     ![Sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. VM'ler oluşturulana kadar bekleyin. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. VM'leri bu sayfadan başlatabilir veya öğrencilerinizin başlatmasını sağlayabilirsiniz. 
+5. VM'ler oluşturulana kadar bekleyin. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. Bu sayfada başlatın veya VM'lerin başlatma Öğrencilerinize olanak tanır. 
 
     ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -147,7 +145,9 @@ Laboratuvar oluşturulurken bir şablon yayımlama, daha sonra yayımlayabilirsi
     ![Yeniden yayımlama başarılı](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:
+Aşağıdaki makalelere bakın:
 
-- [Bir sınıf laboratuvarı ayarlama](how-to-manage-classroom-labs.md)
-- [Laboratuvar ayarlama](../tutorial-create-custom-lab.md)
+- [Bir yönetici olarak oluşturun ve Laboratuvar hesaplarını yönetme](how-to-manage-lab-accounts.md)
+- [Laboratuvar sahibi olarak oluşturun ve Laboratuvarları yönetin](how-to-manage-classroom-labs.md)
+- [Laboratuvar sahibi olarak yapılandırın ve Laboratuvar kullanımını denetleme](how-to-configure-student-usage.md)
+- [Bir laboratuvar kullanıcı olarak sınıf laboratuvarlarına erişim](how-to-use-classroom-lab.md)

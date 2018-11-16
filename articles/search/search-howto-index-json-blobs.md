@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405711"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711081"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search blob dizin oluşturucu ile JSON bloblarını dizine ekleme
 Bu makalede bir Azure Search blob dizin oluşturucu JSON BLOB'ları Azure Blob storage'da yapılandırılmış içeriği ayıklamak için yapılandırma gösterilmektedir.
@@ -24,11 +24,8 @@ Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya
 | JSON belgesi | parsingMode | Açıklama | Kullanılabilirlik |
 |--------------|-------------|--------------|--------------|
 | Bir blob başına | `json` | JSON BLOB'ları, tek bir metin parçası ayrıştırır. Her bir JSON blob tek bir Azure Search belge olur. | Hem de genel kullanıma [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) ve [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API'leri. |
-| Birden çok blob başına | `jsonArray` | Burada dizideki her öğe ayrı bir Azure Search belge olur ve blob'daki bir JSON dizisi ayrıştırır.  | Önizleme aşamasında içinde [REST API-version =`2017-11-11-Preview` ](search-api-2017-11-11-preview.md) ve [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Birden çok blob başına | `jsonArray` | Burada dizideki her öğe ayrı bir Azure Search belge olur ve blob'daki bir JSON dizisi ayrıştırır.  | Hem de genel kullanıma [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) ve [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API'leri. |
 
-> [!Note]
-> Önizleme API'leri, test ve değerlendirme içindir ve üretim ortamlarında kullanılmamalıdır.
->
 
 ## <a name="setting-up-json-indexing"></a>JSON dizin oluşturma ayarlama
 JSON bloblarını dizine ekleme, üç bölümü iş akışı ortak normal belge ayıklama Azure Search'te tüm dizin oluşturucular için benzer.
@@ -103,9 +100,9 @@ Tam olarak belirtilen bir istek gibi görünebilir:
 
 Alan eşlemelerini belirtildiği gibi gerekli değildir. Dizin ile "metin" verilen "datePublished ve"etiketleri"alanları, blob dizin oluşturucu tanım Çıkarsama doğru eşleme olmadan bir alan istekteki eşleme.
 
-## <a name="how-to-parse-json-arrays-preview"></a>Nasıl ayrıştıracağını JSON dizileri (Önizleme)
+## <a name="how-to-parse-json-arrays"></a>JSON dizileri ayrıştırmayı
 
-Alternatif olarak, JSON dizisi önizleme özelliği için seçebilirsiniz. Bu özellik bloblar içerdiğinde yararlıdır bir *JSON nesne dizisi*, ve her öğe ayrı bir Azure Search belge olmasını istiyorsanız. Örneğin, aşağıdaki JSON blob göz önünde bulundurulduğunda, Azure Search dizininizi "id" ve "metin" alanları her üç ayrı belgeler ile doldurabilirsiniz.  
+Alternatif olarak, JSON dizisi özelliğini seçebilirsiniz. Bu özellik bloblar içerdiğinde yararlıdır bir *JSON nesne dizisi*, ve her öğe ayrı bir Azure Search belge olmasını istiyorsanız. Örneğin, aşağıdaki JSON blob göz önünde bulundurulduğunda, Azure Search dizininizi "id" ve "metin" alanları her üç ayrı belgeler ile doldurabilirsiniz.  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -115,9 +112,9 @@ Alternatif olarak, JSON dizisi önizleme özelliği için seçebilirsiniz. Bu ö
 
 ### <a name="indexer-definition-for-a-json-array"></a>Bir JSON dizisi için dizin oluşturucu tanımı
 
-Bir JSON dizisi için dizin oluşturucu istek API Önizleme kullanır ve `jsonArray` ayrıştırıcı. JSON bloblarını dizine ekleme için yalnızca iki dizi özgü gereksinimler şunlardır.
+Dizin Oluşturucu isteği bir JSON dizisi için kullandığı `jsonArray` ayrıştırıcı. JSON bloblarını dizine ekleme için yalnızca iki dizi özgü gereksinimler şunlardır.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

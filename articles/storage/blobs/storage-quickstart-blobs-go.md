@@ -6,32 +6,35 @@ author: seguler
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: d3f6f2c9a1ca5016eb9a6597ba32dc1471f77cb4
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038333"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711166"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Hızlı Başlangıç: Go kullanarak blobları yükleme, indirme ve listeleme
 
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Go programlama dilini nasıl kullanabileceğinizi öğreneceksiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için: 
-* [Go 1.8 veya üstünü ](https://golang.org/dl/) yükleyin.
-* `go get -u github.com/Azure/azure-storage-blob-go/azblob` kullanarak [Go için Azure Depolama Blobu SDK'sını](https://github.com/azure/azure-storage-blob-go/) indirin ve yükleyin. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE]
-> URL’de Azure sözcüğünün ilk harfini büyük yazdığınızdan emin olun. Aksi takdirde bu, SDK ile çalışırken büyük/küçük harfle ilgili içeri aktarma sorunlarına neden olabilir. İçeri aktarma deyimlerinizde de Azure sözcüğünün ilk harfini büyük yazmanız gerekir.
+Aşağıdaki ek önkoşulların yüklü olduğundan emin olun:
+ 
+* [Go 1.8 veya üzeri](https://golang.org/dl/)
+* [Go için Azure depolama blobu SDK](https://github.com/azure/azure-storage-blob-go/), aşağıdaki komutu kullanarak:
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+    ```
+    go get -u github.com/Azure/azure-storage-blob-go/azblob
+    ``` 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    > [!NOTE]
+    > Büyüt emin `Azure` SDK ile çalışırken, içeri aktarma durumu ile ilgili sorunları önlemek için URL. Ayrıca büyük harfe çevirme `Azure` içeri aktarma Deyimlerinizde de.
+    
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 Bu [hızlı başlangıçta](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) kullanılan örnek uygulama, temel bir Go uygulamasıdır.  
 

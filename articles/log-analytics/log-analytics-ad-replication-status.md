@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3092e8edf16e271826aef95575d92749b29f8b56
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009751"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711523"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics ile Active Directory çoğaltma durumunu izleme
 
@@ -34,7 +34,7 @@ AD çoğaltma durumu çözüm paketi, Active Directory ortamınızı çoğaltma 
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
 * Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyin ve AD çoğaltma verilerini Log Analytics'e göndermek için aracıları yapılandırmanız gerekir. Windows bilgisayarlarını Log Analytics'e bağlama anlamak için bkz. [bağlanmak Windows bilgisayarlarını Log Analytics'e](log-analytics-windows-agent.md). Etki alanı denetleyicinizi Log Analytics'e bağlama, görmek istediğiniz mevcut bir System Center Operations Manager ortamının bir parçası ise [Log Analytics için Operations Manager'ı bağlama](log-analytics-om-agents.md).
-* Active Directory çoğaltma durumu çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
+* Active Directory çoğaltma durumu çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md).  Başka bir yapılandırma işlemi gerekmez.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları
 Veri toplama metotlarını ve verileri için AD çoğaltma durumu nasıl toplanır hakkında diğer ayrıntıları aşağıdaki tabloda gösterilmektedir.

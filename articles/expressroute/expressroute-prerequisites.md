@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
-ms.author: cherylmc
-ms.openlocfilehash: 24cb21e81d2b4385423512ae58de2d6c0f94b93b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 11/15/2018
+ms.author: mialdrid
+ms.openlocfilehash: 3e597e4f8be0af6e42f8ccc09c058cda619764a7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251909"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713444"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute önkoşulları ve denetim listesi
 ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıdaki bölümlerde listelenen gereksinimlerin karşılanmış olduğunu doğrulamanız gerekir.
@@ -37,8 +37,8 @@ ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıd
 
 ## <a name="network-requirements"></a>Ağ gereksinimleri
 * **Yedekli bağlantı**: Siz ve sağlayıcınız arasında fiziksel bağlantıda yedekleme gereksinimi yoktur. Microsoft, [bir bulut değişimine yalnızca bir fiziksel bağlantınız](expressroute-faqs.md#onep2plink) olsa bile, yedekli BGP oturumlarının Microsoft yönlendiricileri ve eşleme yönlendiricileri arasında kurulu olmasını gerektirir.
-* **Yönlendirme**: Microsoft Bulut’a nasıl bağlandığınıza bağlı olarak, [yönlendirme etki alanları](expressroute-circuit-peerings.md) için BGP oturumlarının siz veya sağlayıcınız tarafından kurulup yönetilmesi gerekir. Bazı Ethernet bağlantı sunucuları veya bulut değişim sunucuları değer ekleme hizmeti olarak BGP yönetimi sunabilir.
-* **NAT**: Microsoft genel IP adreslerini sadece Microsoft eşleme yoluyla kabul eder. Şirket içi ağınızda özel IP adresleri kullanıyorsanız, özel IP adreslerinin [NAT kullanarak](expressroute-nat.md) genel IP adreslerine siz veya sağlayıcınız tarafından çevrilmesi gerekir.
+* **Yönlendirme**: Microsoft Cloud için nasıl bağlandığınıza bağlı olarak, siz veya sağlayıcınız ayarlamak ve yönetmek için BGP oturumları gereken [Yönlendirme etki alanları](expressroute-circuit-peerings.md). Bazı Ethernet bağlantı sağlayıcıları veya Bulut exchange sağlayıcıları olarak BGP Yönetimi sunabilir bir değer ekleme hizmeti.
+* **NAT**: Microsoft genel IP adreslerini sadece Microsoft eşleme yoluyla kabul eder. Şirket içi ağınızda özel IP adresleri kullanıyorsanız, özel IP adreslerini genel IP adreslerine çevirmek siz veya sağlayıcınız gereken [NAT kullanarak](expressroute-nat.md).
 * **QoS**: Skype Kurumsal’da farklı QoS davranışları gerektiren çeşitli hizmetler (ör. ses, video, mesaj) vardır. [Qos gereksinimleri](expressroute-qos.md)ne siz ve sağlayıcınız tarafından uyulmalıdır.
 * **Ağ Güvenliği**: ExpressRoute ile Microsoft Bulut'a bağlanırken [ağ güvenliğine](../best-practices-network-security.md) dikkat edin.
 

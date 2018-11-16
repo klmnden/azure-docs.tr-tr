@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 285486d5fe641d49ee21d7340b62f83d75862553
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 71dc7c0dbb2400802235da4f1bb952c7863a1862
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578311"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713223"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Azure Machine Learning Modellerinizi üretimde Application Insights ile izleme
 
@@ -30,7 +30,7 @@ Bu makalede, Azure Application ınsights'ı, Azure Machine Learning hizmeti içi
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+* Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 * Bir Azure Machine Learning çalışma alanı, yüklü Python için betikleri ve Azure Machine Learning SDK'sını içeren yerel bir dizin. Bu Önkoşullar alma hakkında bilgi için bkz: [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md).
 * Azure Kubernetes Service (AKS) dağıtılması için eğitilen makine öğrenme modeli. Yoksa, bkz. [görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) öğretici.
 * Bir [AKS kümesi](how-to-deploy-to-aks.md).

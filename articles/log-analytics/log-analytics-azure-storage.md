@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d7359c4c151d93dcd40bd475e865c76399ff5355
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006541"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711793"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmet Günlükleri ve Log Analytics kullanım ölçümlerini Topla
 
@@ -158,5 +158,5 @@ Azure şablonu galeri sahip [Azure Otomasyonu kullanma örnekleri](https://azure
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Olaylar için IIS ve tablo depolama için BLOB Depolama kullanma](log-analytics-azure-storage-iis-table.md) Azure tablo depolama veya BLOB depolamaya yazılan IIS günlükler, yazma tanılama Hizmetleri için günlüklerini okumak için.
-* [Çözümlerle](../monitoring/monitoring-solutions.md) veri Öngörüler sağlar.
+* [Çözümlerle](../azure-monitor/insights/solutions.md) veri Öngörüler sağlar.
 * [Arama sorguları kullanılır](log-analytics-queries.md) verileri çözümlemek için.

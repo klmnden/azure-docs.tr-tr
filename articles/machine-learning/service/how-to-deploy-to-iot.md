@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091632"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710010"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>IOT Edge üzerinde modelleri dağıtmaya hazırlanma
 
@@ -27,7 +27,7 @@ Edge cihazına bir model dağıtmadan önce model ve cihazı hazırlamak için b
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+* Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 * Bir Azure Machine Learning hizmeti çalışma alanı. Oluşturmak için adımları kullanın. [Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md) belge.
 

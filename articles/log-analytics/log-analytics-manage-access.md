@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 14a33a6480cdb2dbc19b912d51eebda386c55d75
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625632"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713172"
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -241,5 +241,5 @@ Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: [Log Analytics Aracısı genel bakış](log-analytics-agent-overview.md) veri merkezinizde veya diğer bulut ortamında bulunan bilgisayarlardaki verileri toplamak için.
 * Azure VM’lerden veri toplamayı yapılandırmak için bkz. [Azure Sanal Makineler hakkında veri toplama](log-analytics-quick-collect-azurevm.md).  
-* İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](../monitoring/monitoring-solutions.md).
+* İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](../azure-monitor/insights/solutions.md).
 

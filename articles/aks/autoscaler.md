@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 6ec39116596c7abb7b1d26f864cdb57d839c88be
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365144"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713104"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Otomatik Ölçeklendiricinin küme Azure Kubernetes hizmeti üzerinde (AKS) - Önizleme
 
@@ -26,11 +26,22 @@ Bu makalede, aracı düğümlerdeki Küme ölçeklendiriciyi dağıtmayı açık
 > Azure Kubernetes Service (AKS) kümesi ölçeklendiriciyi tümleştirmesi, şu anda **Önizleme**. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
 >
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites-and-considerations"></a>Önkoşullar ve önemli noktalar
 
 Bu belge, RBAC özellikli bir AKS kümesi olduğunu varsayar. Bir AKS kümesi gerekirse bkz [Azure Kubernetes Service (AKS) hızlı başlangıç][aks-quick-start].
 
  Küme ölçeklendiriciyi kullanmak için kümenizi Kubernetes v1.10.X kullanarak veya üzeri ve RBAC etkinleştirilmiş olması gerekir. Kümenizi yükseltmek için makaleye bakın [AKS kümesini yükseltme][aks-upgrade].
+
+Pod kaynak isteklerini tanımlayın. Hangi kaynak istekleri sırasında küme ölçeklendiriciyi görünüyor, pod'ları, kaynakları gerçekten yatay pod otomatik ölçeklendiricinin gibi kullanılan değil tarafından yapılır. İçinde `spec: containers` bölümde dağıtım tanımınız, CPU ve bellek gereksinimleri tanımlayın. Aşağıdaki örnek kod parçacığı 0,5 vCPU ve bellek düğümde 64 Mb ister:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+Küme otomatik ölçeklendiricinin kullanıldığında, düğüm sayısını el ile ölçeklendirme kaçının. Küme otomatik ölçeklendiricinin manuel olarak tanımlamayı düğüm sayısı ile çakışan ve doğru gerekli işlem kaynaklarının miktarını belirlemek mümkün olmayabilir.
 
 ## <a name="gather-information"></a>Bilgi toplayın
 
@@ -221,7 +232,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:

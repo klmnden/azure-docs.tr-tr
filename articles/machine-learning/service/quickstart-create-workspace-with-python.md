@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 11/09/2018
-ms.openlocfilehash: fff08131af277b20034ad23c354b70e73ae32f2e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 6258717e5c068c910ad9faac3b03f13df8030487
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578289"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710656"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Machine Learning hizmetini kullanmaya başlamak için Python'ı kullanma
 
@@ -42,7 +42,7 @@ Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma al
 >[!NOTE]
 > Bu makalede kod Azure Machine Learning SDK sürüm 0.1.74 ile test edilmiştir 
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 
 ## <a name="install-the-sdk"></a>SDK yükle

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427871"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711914"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Hizmet güncelleştirmeleri ve Bakım yönetmek için bakım zamanlamaları kullanın
 
@@ -27,7 +27,7 @@ Tüm yeni Azure SQL veri ambarı oluşturulan dağıtım sırasında uygulanan b
 
 Her bir bakım penceresi için üç sekiz saat olabilir. Bakım penceresi içinde herhangi bir zamanda meydana gelebilir. Hizmet, veri ambarınızı yeni kod dağıtır gibi kısa bir bağlantı kaybı beklemelisiniz. 
 
-Özellik önizlemesi sırasında birincil ve ikincil pencereleri içinde ayrı bir gün aralığı belirleyin. Tüm bakım işlemleri zamanlanmış bakım pencereleri içinde tamamlanmalıdır. Herhangi bir bakım önceden bildirimde bulunmadan belirtilen bakım penceresi dışında yer alacak. Planlanan bakım sırasında veri ambarınız duraklatıldığı, sürdürme işlemi sırasında güncelleştirilir.  
+Bu özelliği kullanmak için birincil ve ikincil bir pencere içinde ayrı bir gün aralığı tanımlamak gerekir. Tüm bakım işlemleri zamanlanmış bakım pencereleri içinde tamamlanmalıdır. Herhangi bir bakım önceden bildirimde bulunmadan belirtilen bakım penceresi dışında yer alacak. Planlanan bakım sırasında veri ambarınız duraklatıldığı, sürdürme işlemi sırasında güncelleştirilir.  
 
 
 ## <a name="alerts-and-monitoring"></a>Uyarı ve izleme

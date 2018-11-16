@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258927"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712152"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -427,7 +427,7 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 
 Her yönetilen örneği 35 TB depolama alanı Azure Premium Disk alanı için ayrılmış olan ve her veritabanını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan değil ücretlendirilir, ancak Azure Premium Disk boyutları toplam 35 TB aşamaz. Bazı durumlarda, yönetilen örneğe 8 TB toplam gerekmeyen 35 TB Azure sınırlama nedeniyle iç parçalanma depolama boyutu aşabilir.
 
-Örneğin, bir yönetilen örnek bir olabilir bir 4 TB diskine yerleştirilen boyutu ve ayrı 128 GB diskler üzerinde yerleştirilen 248 dosyaları 1 GB bileşenler boyutunu 1,2 TB dosyası. Bu örnekte:
+Örneğin, bir yönetilen örnek bir olabilir 1,2 TB boyutunda 4 TB disk ve 248 dosyaları her 1 GB boyutunda ayrı 128 GB diskler üzerinde yerleştirilen yerleştirilir dosya. Bu örnekte:
 
 - Toplam disk depolama boyutudur 4 x 1 TB + 248 x 128 GB = 35 TB.
 - örneğindeki veritabanları için ayrılan toplam alan olan 1.2 x 1 TB + 248 x 1 GB = 1,4 TB.

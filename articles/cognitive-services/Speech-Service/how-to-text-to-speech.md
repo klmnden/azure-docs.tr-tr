@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469930"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712016"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
@@ -92,7 +92,7 @@ Bir hata oluşursa, aşağıdaki durum kodları kullanılır. Hatanın yanıt g�
 429|Çok Fazla İstek|Kota veya aboneliğiniz için izin isteği sayısını aştınız.
 |502|Hatalı Ağ Geçidi    | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir.
 
-Metni konuşma REST API'si hakkında daha fazla bilgi için bkz. [REST API'leri](rest-apis.md#text-to-speech).
+Metni konuşma REST API'si hakkında daha fazla bilgi için bkz. [REST API'leri](rest-apis.md#text-to-speech-api).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126321"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706135"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch hizmeti API'si ile Azure depolama için görev verileri kalıcı hale
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Batch hizmeti API 2017-05-01 sürümü ile başlayarak, görevleri ve havuzları ile sanal makine yapılandırması üzerinde çalışan iş yöneticisi görevleri için çıktı verilerini Azure Depolama'da kalıcı destekler. Bir görev eklediğinizde, Azure Depolama'da kapsayıcı görev çıkışı için hedef olarak belirtebilirsiniz. Görev tamamlandığında, Batch hizmeti herhangi bir çıktı veri ardından kapsayıcıya yazar.
+Batch hizmeti API'si, görevleri ve havuzları ile sanal makine yapılandırması üzerinde çalışan iş yöneticisi görevleri için çıktı verilerini Azure Depolama'da kalıcı destekler. Bir görev eklediğinizde, Azure Depolama'da kapsayıcı görev çıkışı için hedef olarak belirtebilirsiniz. Görev tamamlandığında, Batch hizmeti herhangi bir çıktı veri ardından kapsayıcıya yazar.
 
-Görev çıktısını kalıcı hale getirmek için Batch hizmeti API'sini kullanmanın bir avantajı, görevin çalıştığı uygulama değiştirmek gerekmez ' dir. Bunun yerine, istemci uygulamanız için bazı basit değişiklikler ile görev çıktısı görevi oluşturan kodu devam edebilir.   
+Görev çıktısını kalıcı hale getirmek için Batch hizmeti API'sini kullanmanın bir avantajı, görevin çalıştığı uygulama değiştirmek gerekmez ' dir. Bunun yerine, istemci uygulamanız için bazı değişikliklerle, görev çıktısı görevi oluşturan aynı kodu devam edebilir.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Batch hizmeti API'si görev çıktısını kalıcı hale getirmek için ne zaman kullanırım?
 
@@ -36,7 +36,10 @@ Azure Batch, görev çıktısını kalıcı hale getirmek için birden fazla yol
 - Rastgele bir ada sahip bir Azure depolama kapsayıcısı çıkışı kalıcı hale getirmek istediğiniz.
 - Çıkış göre adlı bir Azure depolama kapsayıcısına kalıcı hale getirmek istediğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
-Senaryonuz yukarıda listelenenlerden farklıysa, farklı bir yaklaşım dikkate almanız gerekebilir. Örneğin, Görev yürütülürken Batch hizmeti API'si akış çıkışı Azure depolama şu anda desteklemiyor. Çıkış akış için kullanılabilen .NET için Batch dosya kuralları kitaplığı kullanmayı düşünün. Diğer diller için kendi çözümünüzü uygulamak gerekir. Görev çıktısını kalıcı hale getirme için diğer seçenekler hakkında daha fazla bilgi için bkz. [Azure Depolama'ya iş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md). 
+> [!NOTE]
+> Batch hizmeti API'si, bulut hizmeti yapılandırmasıyla oluşturulan havuzlar, çalışan görevleri kalıcı verileri desteklemez. Cloud services yapılandırması çalıştıran havuzlarından çıktısını kalıcı hale getirme görevi hakkında daha fazla bilgi için bkz. [iş ve görev verilerini Azure Depolama'da kalıcı hale getirmek .NET için Batch dosya kuralları kitaplığı ile kalıcı ](batch-task-output-file-conventions.md).
+
+Senaryonuz yukarıda listelenenlerden farklıysa, farklı bir yaklaşım dikkate almanız gerekebilir. Örneğin, Görev yürütülürken Batch hizmeti API'si akış çıkışı Azure depolama şu anda desteklemiyor. Çıkış akış için kullanılabilen .NET için Batch dosya kuralları kitaplığı kullanmayı düşünün. Diğer diller için kendi çözümünüzü uygulamak gerekir. Görev çıktısını kalıcı hale getirme için diğer seçenekler hakkında daha fazla bilgi için bkz. [Azure Depolama'ya iş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Azure Depolama'da kapsayıcı oluşturma
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>Görev çıktısı için çıktı dosyaları belirtin
 
-Bir görevin çıkış dosyaları belirtmek için bir koleksiyonunu oluşturmak [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) nesneleri ve atamanıza [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) görev oluşturduğunuzda özelliği. 
+Bir görevin çıkış dosyaları belirtmek için bir koleksiyonunu oluşturmak [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) nesneleri ve atamanıza [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) görev oluşturduğunuzda özelliği.
 
-Rastgele sayılar adlı bir dosyaya yazan bir görev aşağıdaki .NET kod örneği oluşturur `output.txt`. Bu örnek için bir çıktı dosyası oluşturur `output.txt` kapsayıcıya yazılacak. Örnek ayrıca dosya deseniyle eşleşen tüm günlük dosyaları için Çıkış dosyalarını oluşturur `std*.txt` (_örn_, `stdout.txt` ve `stderr.txt`). Oluşturulan SAS, kapsayıcı URL'si için kapsayıcı önceden gerektirir. Batch hizmeti, kapsayıcı kimlik doğrulaması yapmak için SAS kullanır: 
+Aşağıdaki C# kod örneği, rastgele sayılar adlı bir dosyaya yazan bir görev oluşturduğunda `output.txt`. Bu örnek için bir çıktı dosyası oluşturur `output.txt` kapsayıcıya yazılacak. Örnek ayrıca dosya deseniyle eşleşen tüm günlük dosyaları için Çıkış dosyalarını oluşturur `std*.txt` (_örn_, `stdout.txt` ve `stderr.txt`). Oluşturulan SAS, kapsayıcı URL'si için kapsayıcı önceden gerektirir. Batch hizmeti, kapsayıcı kimlik doğrulaması yapmak için SAS kullanır:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Bir çıkış dosyası belirttiğinizde, kullanabileceğiniz [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) özelliğini eşleştirmek için bir dosya deseni belirtin. Dosya deseni sıfır dosyaları, tek bir dosyayı veya bir dizi görev tarafından oluşturulan dosyaları eşleşmiyor olabilir.
 
-**FilePattern** özelliğini destekleyen standart dosya sistemi joker karakterler gibi `*` (yinelemesiz eşleşen için) ve `**` (yinelemeli eşleşen için). Örneğin, yukarıdaki kod örneğinde eşleştirilecek dosya desenini belirtir. `std*.txt` öz yinelemeli olmayan: 
+**FilePattern** özelliğini destekleyen standart dosya sistemi joker karakterler gibi `*` (yinelemesiz eşleşen için) ve `**` (yinelemeli eşleşen için). Örneğin, yukarıdaki kod örneğinde eşleştirilecek dosya desenini belirtir. `std*.txt` öz yinelemeli olmayan:
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ Tek bir dosyayı karşıya yüklemek için joker karakterleri bir dosya deseni b
 
 [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) özelliği verir koşullu'nın çıktı dosyalarını karşıya yükleniyor. Başarısız olursa, görev başarılı olursa dosya bir kümesini ve farklı bir dosya kümesini karşıya yaygın bir senaryodur. Örneğin, sadece görev başarısız olur ve sıfır olmayan çıkış kodu ile çıkar ayrıntılı günlük dosyalarını karşıya yüklemek isteyebilirsiniz. Benzer şekilde, yalnızca görev başarılı olursa, bu dosyaları ya da görev başarısız olursa eksik gibi sonuç dosyalarını karşıya yüklemek isteyebilirsiniz.
 
-Kod örneği kümeleri üstündeki **UploadCondition** özelliğini **Net_offline_option**. Bu ayar, görevler tamamlandıktan sonra çıkış kodu değerini bağımsız olarak karşıya yüklenecek dosyanın olduğunu belirtir. 
+Kod örneği kümeleri üstündeki **UploadCondition** özelliğini **Net_offline_option**. Bu ayar, görevler tamamlandıktan sonra çıkış kodu değerini bağımsız olarak karşıya yüklenecek dosyanın olduğunu belirtir.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 Azure depolama alanında sanal dizinleri hakkında daha fazla bilgi için bkz. [bir kapsayıcıdaki blobları listelemek](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
-
 ## <a name="diagnose-file-upload-errors"></a>Dosya karşıya yükleme hatalarını tanılama
 
-Çıktı dosyaları Azure Storage'a yüklemeden başarısız durumunda görev taşır **tamamlandı** durumu ve [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) özelliği ayarlanmış. İnceleme **FailureInformation** hangi hatanın oluştuğunu belirlemek için özellik. Örneğin, kapsayıcı bulunamazsa dosya karşıya yükleme sırasında oluşan bir hatayı şu şekildedir: 
+Çıktı dosyaları Azure Storage'a yüklemeden başarısız durumunda görev taşır **tamamlandı** durumu ve [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) özelliği ayarlanmış. İnceleme **FailureInformation** hangi hatanın oluştuğunu belirlemek için özellik. Örneğin, kapsayıcı bulunamazsa dosya karşıya yükleme sırasında oluşan bir hatayı şu şekildedir:
 
 ```
 Category: UserError

@@ -28,8 +28,8 @@
 ### [Web temel değerlendirmesi](../security-center/security-center-customize-os-security-config.md)
 
 ## Çözümleri kullanma
-### [Yönetim çözümleri](../monitoring/monitoring-solutions.md)
-### [Hedef çözümler](../monitoring/monitoring-solution-targeting.md)
+### [Yönetim çözümleri](../azure-monitor/insights/solutions.md)
+### [Hedef çözümler](../azure-monitor/insights/solution-targeting.md)
 ### Içgörü ve analiz
 #### [AD Değerlendirmesi](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Çoğaltma Durumu](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [Kötü amaçlı yazılımdan koruma değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Çözüm oluşturma
-### [Tasarım ve derleme](../monitoring/monitoring-solutions-creating.md)
-### [Çözüm dosyası](../monitoring/monitoring-solutions-solution-file.md)
-### [Otomasyon kaynakları](../monitoring/monitoring-solutions-resources-automation.md)
-### [Günlük aramaları ve uyarıları](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [Görünümler](../monitoring/monitoring-solutions-resources-views.md)
-### [En iyi uygulamalar](../monitoring/monitoring-solutions-best-practices.md)
+### [Tasarım ve derleme](../azure-monitor/insights/solutions-creating.md)
+### [Çözüm dosyası](../azure-monitor/insights/solutions-solution-file.md)
+### [Otomasyon kaynakları](../azure-monitor/insights/solutions-resources-automation.md)
+### [Günlük aramaları ve uyarıları](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [Görünümler](../azure-monitor/insights/solutions-resources-views.md)
+### [En iyi uygulamalar](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Yönetim senaryoları
 ### [Runbook'tan analiz verileri toplama](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

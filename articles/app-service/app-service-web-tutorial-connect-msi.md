@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376439"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685693"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service’tan Azure SQL Veritabanı bağlantısını güvenli hale getirme
 
@@ -38,11 +38,11 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 > * SQL Veritabanında yönetilen kimliğe en düşük ayrıcalıkları verme
 
 > [!NOTE]
-> Azure Active Directory kimlik doğrulaması, şirket içi Active Directory’deki (AD DS) [Tümleşik Windows kimlik doğrulamasından](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) _farklıdır_. AD DS ve Azure Active Directory tamamen farklı kimlik doğrulama protokolleri kullanır. Daha fazla bilgi için bkz. [Windows Server AD DS ile Azure AD arasındaki fark](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+>Azure Active Directory kimlik doğrulaması, şirket içi Active Directory’deki (AD DS) [Tümleşik Windows kimlik doğrulamasından](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) _farklıdır_. AD DS ve Azure Active Directory tamamen farklı kimlik doğrulama protokolleri kullanır. Daha fazla bilgi için [Azure AD Domain Services belgeleri](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makale, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md) bölümünde bıraktığınız yerden devam eder. Henüz yapmadıysanız önce o öğreticiyi takip edin. Alternatif olarak, adımları SQL Veritabanı ile kendi ASP.NET uygulamanıza uyarlayabilirsiniz.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7bfcbf2c72dbe33727097841f34f3f6869e9d2d8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053140"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706475"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang ve Azure portalıyla bir MongoDB API'si konsol uygulaması oluşturma
 
@@ -35,14 +35,14 @@ Bu hızlı başlangıçta, [MongoDB API](mongodb-introduction.md) kullanarak [Go
 
 Diğer bir deyişle, Golang uygulamanız yalnızca MongoDB API’lerini kullanarak bir veritabanına bağlandığını bilir. Verilerin Azure Cosmos DB'de depolandığı uygulamaya açıkça gösterilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun. 
 
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) ve [Go](https://golang.org/) dilinde temel bilgi düzeyi.
-- Bir IDE: Jetbrains tarafından sağlanan [Gogland](https://www.jetbrains.com/go/), Microsoft tarafından sağlanan [Visual Studio Code](https://code.visualstudio.com/) veya [Atom](https://atom.io/). Bu öğreticide Goglang’i kullanıyorum.
+- Bir IDE: [GoLand](https://www.jetbrains.com/go/) jetbrains [Visual Studio Code'u](https://code.visualstudio.com/) Microsoft tarafından veya [Atom](https://atom.io/). Bu öğreticide Goglang’i kullanıyorum.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
@@ -65,7 +65,7 @@ Diğer bir deyişle, Golang uygulamanız yalnızca MongoDB API’lerini kullanar
     go get gopkg.in/mgo.v2
     ```
 
-[Mgo](http://labix.org/mgo) sürücüsü (*mango* olarak telaffuz edilir), standart Go deyimlerini izleyen çok basit bir API altında zengin ve kendini kanıtlamış bir dizi özelliği uygulayan [Go diline](http://golang.org/) yönelik bir [MongoDB](http://www.mongodb.org/) sürücüsüdür.
+[Mgo](http://labix.org/mgo) sürücüsü olan bir [MongoDB](http://www.mongodb.org/) sürücüsü [Go diline](http://golang.org/) özellikleri standart Go izleyen çok basit bir API altında zengin ve seçimi uygular deyimleri.
 
 <a id="connection-string"></a>
 

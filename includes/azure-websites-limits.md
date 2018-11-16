@@ -12,6 +12,8 @@
 | Uygulama mimarisi |32 bit |32 bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web yuvaları örnek başına<sup>7</sup> |5 |35 |350 |Sınırsız |Sınırsız |Sınırsız |
 | Eş zamanlı [hata ayıklayıcı bağlantıları](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) uygulama başına |1 |1 |1 |5 |5 |5 |
+| App Service sertifikaları, abonelik başına<sup>10</sup>| Desteklenmiyor | Desteklenmiyor |10 |10 |10 |10 |
+| Uygulama başına özel etki alanları</a> |0 (azurewebsites.net alt etki alanı yalnızca)|500 |500 |500 |500 |500 |
 | Özel etki alanı [SSL desteği](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Desteklenmiyor. Joker karakter sertifikası için *. azurewebsites.net varsayılan olarak kullanılabilir.|Desteklenmiyor. Joker karakter sertifikası için *. azurewebsites.net varsayılan olarak kullanılabilir.|Sınırsız SNI SSL bağlantıları |Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir |Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir | Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir|
 | Tümleşik Yük Dengeleyici | |X |X |X |X |X<sup>9</sup> |
 | [Her zaman açık](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
@@ -21,15 +23,15 @@
 | [Azure Zamanlayıcı](https://azure.microsoft.com/services/scheduler/) desteği | |X |X |X |X |X |
 | [Uç Nokta izleme](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Hazırlama yuvaları](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |20 |
-| Uygulama başına özel etki alanları</a> |0 (azurewebsites.net alt etki alanı yalnızca)|500 |500 |500 |500 |500 |
-| SLA | |  |%99,9 |%99,95|%99,95|%99,95|
+| SLA | |  |%99,9 |%99,95|%99,95|%99,95|  
 
-<sup>1</sup>uygulamaları ve depolama kotalarını aksi belirtilmediği sürece App Service planı markalarıdır.  
-<sup>2</sup>etkinlik uygulamaları, makine örnekleri ve ilgili kaynak kullanımını boyutu, bu makinelere barındırabilirsiniz uygulamaları gerçek sayısına bağlıdır.  
-<sup>3</sup>ayrılmış örnekler, farklı boyutlarda olabilir. Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/) daha fazla ayrıntı için.  
-<sup>4</sup>istek üzerine daha fazla izin verilir.
-<sup>5</sup>depolama toplam içerik boyutu tüm uygulamalar arasında aynı App Service planında sınırlıdır. Daha fazla depolama seçenekleri kullanılabilir [App Service ortamı](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
-<sup>6</sup>bu kaynakları ayrılmış örneklerin (örnek boyutu ve örnek sayısını) üzerinde fiziksel kaynaklar tarafından kısıtlanmıştır.  
-<sup>7</sup>iki örneği için temel katmanda bir uygulamayı ölçeklendirme, 350 eşzamanlı bağlantı her iki örneği vardır.  
-<sup>8</sup>çalıştırma özel yürütülebilir uygulamalar ve/veya betikler isteğe bağlı, bir programa göre veya sürekli bir App Service arka plan görevi olarak örnek. WebJob'ların sürekli yürütülebilmesi için Her Zaman Açık özelliği gereklidir. Zamanlanan WebJob'lar için Azure Zamanlayıcı Ücretsiz veya Standart gereklidir. App Service örneği çalıştırmak WebJobs sayısı önceden tanımlanmış bir sınır yoktur ancak hangi uygulama kodunun yapmaya çalıştığını bağımlı pratik sınırları vardır.   
-<sup>9</sup>app Service yalıtılmış SKU'ları sahip olması, dahili olarak yük dengeli (ILB) Azure Load genel bağlantı yani Balancer ile internet'ten olanağı. Bunun sonucunda, ILB Yalıtılmış App Service’in bazı özelliklerin, ILB ağ uç noktasına doğrudan erişimi olan makinelerden kullanılması gerekir.
+<sup>1</sup> uygulamaları ve depolama kotalarını aksi belirtilmediği sürece App Service planı markalarıdır.  
+<sup>2</sup> etkinlik uygulamaları, makine örnekleri ve ilgili kaynak kullanımını boyutu, bu makinelere barındırabilirsiniz uygulamaları gerçek sayısına bağlıdır.  
+<sup>3</sup> ayrılmış örnekler, farklı boyutlarda olabilir. Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/) daha fazla ayrıntı için.  
+<sup>4</sup> istek üzerine daha fazla izin verilir.  
+<sup>5</sup> depolama toplam içerik boyutu tüm uygulamalar arasında aynı App Service planında sınırlıdır.  
+<sup>6</sup> bu kaynakları ayrılmış örneklerin (örnek boyutu ve örnek sayısını) üzerinde fiziksel kaynaklar tarafından kısıtlanmıştır.  
+<sup>7</sup> iki örneği için temel katmanda bir uygulamayı ölçeklendirme, 350 eşzamanlı bağlantı her iki örneği vardır.  
+<sup>8</sup> çalıştırma özel yürütülebilir uygulamalar ve/veya betikler isteğe bağlı, bir programa göre veya sürekli bir App Service arka plan görevi olarak örnek. WebJob'ların sürekli yürütülebilmesi için Her Zaman Açık özelliği gereklidir. Zamanlanan WebJob'lar için Azure Zamanlayıcı Ücretsiz veya Standart gereklidir. App Service örneği çalıştırmak WebJobs sayısı önceden tanımlanmış bir sınır yoktur ancak hangi uygulama kodunun yapmaya çalıştığını bağımlı pratik sınırları vardır.  
+<sup>9</sup> app Service yalıtılmış SKU'ları sahip olması, dahili olarak yük dengeli (ILB) Azure Load genel bağlantı yani Balancer ile internet'ten olanağı. Bunun sonucunda, ILB Yalıtılmış App Service’in bazı özelliklerin, ILB ağ uç noktasına doğrudan erişimi olan makinelerden kullanılması gerekir.  
+<sup>10</sup> App Service sertifikası kota sınırı abonelik başına 200 bir üst sınır bir destek isteği ile artırılabilir.  

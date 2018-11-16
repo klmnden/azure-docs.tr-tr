@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 1887004b2a83ca5778ccb29cf996bcf2720ce3b8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343767"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711421"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici 1: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme
 
@@ -33,7 +33,7 @@ Bu öğretici, Azure Machine Learning hizmeti ile [MNIST](http://yann.lecun.com/
 
 Daha sonra [bu öğreticinin ikinci bölümünde](tutorial-deploy-models-with-aml.md) model seçmeyi ve dağıtmayı öğreneceksiniz. 
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 

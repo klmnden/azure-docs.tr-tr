@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269420"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707189"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB Bağlayıcısı için Apache Spark'ı kullanarak büyük veri analizi hızlandırın
  
-Apache Spark Bağlayıcısı Azure Cosmos DB için Azure Cosmos DB, bir giriş veya çıkış için Apache Spark işleri olmasını sağlar. Bağlanma [Spark](http://spark.apache.org/) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı ilerleyen veri bilimi çözmekte hızlı şekilde. Azure Cosmos DB, hızlı bir şekilde kalıcı hale getirmek ve veri sorgulamak için kullanabilirsiniz. Bağlayıcı, Azure Cosmos DB tarafından yönetilen yerel dizinleri verimli bir şekilde kullanır. Analiz ve karşı hızlı biçimde değişen, küresel olarak dağıtılan veri filtreleme göndererek koşul gerçekleştirdiğinizde güncelleştirilebilir sütunlara dizinler etkinleştirin. Bu türdeki nesnelerin Internet ' (IOT) veri bilimi ve analiz senaryolarına değişebilir.
+Apache Spark Azure Cosmos DB bağlayıcısı, Azure Cosmos DB'nin Apache Spark işleri için giriş veya çıkış olmasını sağlar. Bağlanma [Spark](http://spark.apache.org/) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı ilerleyen veri bilimi çözmekte hızlı şekilde. Azure Cosmos DB, hızlı bir şekilde kalıcı hale getirmek ve veri sorgulamak için kullanabilirsiniz. Bağlayıcı, Azure Cosmos DB tarafından yönetilen dizinleri verimli bir şekilde kullanır. Dizinler hızla değişen ve genel olarak dağıtılmış verilerde analiz ve koşullu filtreleme gerçekleştirdiğinizde güncelleştirilebilir sütunları kullanmanızı sağlar. Bu türdeki nesnelerin Internet ' (IOT) veri bilimi ve analiz senaryolarına değişebilir.
 
 ## <a name="connector-components"></a>Bağlayıcı bileşenleri
 
@@ -83,7 +83,7 @@ Spark pyDocumentDB SDK kullanarak Azure Cosmos DB'ye bağlanmak için aşağıda
 
 6. İçinde **Not Defteri Oluştur** iletişim kutusunda, kullanıcı dostu bir ad girin ve seçin **Python** dili olarak. Aşağı açılan listeden, daha önce oluşturduğunuz kümeyi seçip **Oluştur**.  
 
-7. "Doctorwho içinde" Azure Cosmos DB hesabı barındırılan veri uçuşlar kullanarak birkaç Spark sorgu örneği çalıştırın. (Bu hesap, genel olarak erişilebilir.) [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposunu barındıran not defterini HTML sürümü. Dosyalarını indirin ve Git `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. Azure Databricks hesabınıza not alın ve çalıştırın. Aşağıdaki bölümde ayrıntılı kod blokları işlevselliğini açıklar.
+7. "Doctorwho içinde" Azure Cosmos DB hesabı barındırılan veri uçuşlar kullanarak birkaç Spark sorgu örneği çalıştırın. Bu hesap, genel olarak erişilebilir. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu konakları [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb) dizüstü bilgisayar. Azure Databricks hesabınıza not alın ve çalıştırın. Aşağıdaki bölümde ayrıntılı kod blokları işlevselliğini açıklar.
 
 Aşağıdaki kod parçacığı, pyDocumentDB SDK içeri aktarma ve Spark bağlamında sorgu çalıştırma işlemi gösterilmektedir. Kod parçacığında belirtildiği gibi pyDocumentDB SDK Azure Cosmos DB hesabına bağlanmak için gereken bağlantı parametrelerini içerir. Gerekli kitaplıkları alır ve ana anahtarı hem de Azure Cosmos DB istemci (pydocumentdb.document_client) oluşturmak için konak yapılandırır.
 
@@ -209,7 +209,7 @@ Bu makalede, aşağıdaki senaryolarda Spark Bağlayıcısı Java SDK'sı kullan
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den twitter verilerini okuyun
  
-Bu bölümde, Spark Azure Cosmos DB'den toplu Twitter verilerini okumak için sorgular çalıştırın. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposunu barındıran not defterini HTML sürümü. Dosyalarını indirin ve Git `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
+Bu bölümde, Spark Azure Cosmos DB'den toplu Twitter verilerini okumak için sorgular çalıştırın. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu konakları [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb) dizüstü bilgisayar. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
 
 1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**. 
 
@@ -268,7 +268,7 @@ Senaryoya bağlı olarak, aktarım hızı ve performansı iyileştirmek için fa
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Azure Cosmos DB için akış okuma Twitter veri
 
-Bu bölümde, Spark bir değişiklik akışı, akış Twitter verilerini okumak için sorgular çalıştırın. Bu bölümde sorguları çalıştırırken, Twitter akışınızı uygulaması çalıştıran ve Azure Cosmos DB'ye veri Pompalama emin olun. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposunu barındıran not defterini HTML sürümü. Dosyalarını indirin ve Git `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
+Bu bölümde, Spark bir değişiklik akışı, akış Twitter verilerini okumak için sorgular çalıştırın. Bu bölümde sorguları çalıştırırken, Twitter akışınızı uygulaması çalıştıran ve Azure Cosmos DB'ye veri Pompalama emin olun. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu konakları [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala) dizüstü bilgisayar. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
 
 1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**.  
 
@@ -335,7 +335,7 @@ Java SDK'sı aşağıdaki bağlantı ayarları destekler:
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>Twitter verilerini Azure Cosmos DB'ye yazılmak 
 
-Bu bölümde, Spark aynı veritabanında yeni bir koleksiyon için Twitter verilerini toplu yazmak için sorgular çalıştırın. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposunu barındıran not defterini HTML sürümü. Dosyalarını indirin ve Git `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
+Bu bölümde, Spark aynı veritabanında yeni bir koleksiyon için Twitter verilerini toplu yazmak için sorgular çalıştırın. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu konakları [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb) dizüstü bilgisayar. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
 
 1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**.  
 
@@ -428,7 +428,7 @@ Java SDK'sı için yapılandırma eşlemesi aşağıdaki değerlerini destekler:
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Azure Cosmos DB'ye akışa Twitter verilerini Yaz 
 
-Bu bölümde, Spark akış Twitter verilerini aynı veritabanında yeni bir koleksiyon için bir değişiklik akış yazmak için sorgular çalıştırın. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposunu barındıran not defterini HTML sürümü. Dosyalarını indirin ve Git `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
+Bu bölümde, Spark akış Twitter verilerini aynı veritabanında yeni bir koleksiyon için bir değişiklik akış yazmak için sorgular çalıştırın. [Azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu konakları [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala) dizüstü bilgisayar. Azure Databricks hesabınıza not defteri içeri aktarabilir ve hesabı URI'si, ana anahtar, veritabanı ve koleksiyon adları güncelleştirin. Not Defteri çalıştırmak veya şu şekilde oluşturun:
 
 1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**.  
 

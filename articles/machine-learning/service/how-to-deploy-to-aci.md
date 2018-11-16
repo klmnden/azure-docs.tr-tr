@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3c07f39a6c6c4ce244ba49a26617b3e645c57acb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345055"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710384"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Azure Container Instances'a Web hizmetlerini dağıtma 
 
@@ -28,7 +28,7 @@ Bu makalede, bir model üzerinde ACI dağıtmanın üç farklı yolu gösterilme
 * Kayıtlı modeli kullanarak dağıtım `Webservice.deploy_from_model()`
 * Yansıma kullanarak kayıtlı model dağıtma `Webservice.deploy_from_image()`
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 
 ## <a name="prerequisites"></a>Önkoşullar

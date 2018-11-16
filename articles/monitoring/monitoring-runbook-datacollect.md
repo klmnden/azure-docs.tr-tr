@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f9acdacfad25a2154a23055dce136984177242e0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282688"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713019"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
 Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../log-analytics/log-analytics-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
@@ -213,7 +213,7 @@ Bir runbook her başlatıldığında [bir iş oluşturulur](../automation/automa
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Kullanım [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) Log Analytics deposuna derledik verileri görüntüleyen bir görünüm oluşturmak için.
-- Runbook'unuza paketini bir [yönetimi çözümü](monitoring-solutions-creating.md) müşterilere dağıtmak için.
+- Runbook'unuza paketini bir [yönetimi çözümü](../azure-monitor/insights/solutions-creating.md) müşterilere dağıtmak için.
 - Daha fazla bilgi edinin [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Daha fazla bilgi edinin [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/).
 - Daha fazla bilgi edinin [HTTP veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md).

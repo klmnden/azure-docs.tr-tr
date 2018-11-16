@@ -12,28 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128058"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706611"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET için Azure Depolama'ya iş ve görev veri Batch dosya kuralları kitaplığı ile kalıcı 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET için Azure Depolama'ya iş ve görev veri Batch dosya kuralları kitaplığı ile kalıcı
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Görev verileri kalıcı hale getirmek için tek bir yolu [.NET için Azure Batch dosya kuralları Kitaplığı][nuget_package]. Dosya kuralları Kitaplığı görev çıktı verileri Azure depolama için depolama işlemi basitleştirir ve alınması. Dosya kuralları Kitaplığı hem görev hem de istemci kod kullanabileceğiniz &mdash; dosyaları kalıcı görev kodunu ve listelemek ve onları almak için istemci kodu. Görev kodunuz içinde olduğu gibi Yukarı Akış görev çıktısını almak için de kitaplığı kullanabilirsiniz bir [görev bağımlılıkları](batch-task-dependencies.md) senaryo. 
+Görev verileri kalıcı hale getirmek için tek bir yolu [.NET için Azure Batch dosya kuralları Kitaplığı][nuget_package]. Dosya kuralları Kitaplığı görev çıktı verileri Azure depolama için depolama işlemi basitleştirir ve alınması. Dosya kuralları Kitaplığı hem görev hem de istemci kod kullanabileceğiniz &mdash; dosyaları kalıcı görev kodunu ve listelemek ve onları almak için istemci kodu. Görev kodunuz içinde olduğu gibi Yukarı Akış görev çıktısını almak için de kitaplığı kullanabilirsiniz bir [görev bağımlılıkları](batch-task-dependencies.md) senaryo.
 
 Dosya kuralları kitaplığı ile çıkış dosyalarını almak için belirli bir işin veya görevin dosyalarını amaçlı kimliği ile listeleyerek bulabilirsiniz. Adlar veya konumlar dosyaların bilmeniz gerekmez. Örneğin, belirli bir görev için tüm ara dosyaları listelemek için dosya kuralları kitaplığı kullanın veya belirli bir işin bir önizleme dosyası alın.
 
 > [!TIP]
 > Batch hizmeti API 2017-05-01 sürümü ile başlayarak, görevleri ve sanal makine yapılandırmasıyla oluşturulan havuzlar üzerinde çalışan iş yöneticisi görevleri için çıktı verilerini Azure Depolama'da kalıcı destekler. Batch hizmeti API'si, bir görev oluşturan ve alternatif dosya kuralları kitaplığı görevi gören kodundaki çıktısını kalıcı hale getirmek için basit bir yol sağlar. Göreviniz çalışmakta olan uygulamayı güncelleştirmek gerek kalmadan çıktılarını kalıcı hale getirme için Batch istemci uygulamalarınızı değiştirebilirsiniz. Daha fazla bilgi için [kalan görev veri Batch ile Azure depolama hizmeti API](batch-task-output-files.md).
-> 
-> 
 
 ## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Dosya kuralları Kitaplığı görev çıktısını kalıcı hale getirmek için ne zaman kullanırım?
 
@@ -42,27 +40,27 @@ Azure Batch, görev çıktısını kalıcı hale getirmek için birden fazla yol
 - Dosya kuralları kitaplığı kullanarak dosyaları kalıcı hale getirmek için görevi çalıştıran uygulama kodunu kolayca değiştirebilirsiniz.
 - Görevin çalışmaya devam ederken akışı verilerini Azure Depolama'da istiyorsunuz.
 - Bulut hizmeti yapılandırmasını veya sanal makine yapılandırması ile oluşturulan havuzlar verileri kalıcı hale getirmek istediğiniz.
-- İstemci uygulamanız veya işteki diğer görevler bulun ve Kimliğine veya amacına göre Görev çıkış dosyalarını indirmek gerekir. 
+- İstemci uygulamanız veya işteki diğer görevler bulun ve Kimliğine veya amacına göre Görev çıkış dosyalarını indirmek gerekir.
 - Görev çıktısını Azure portalında görüntülemek istiyorsunuz.
 
-Senaryonuz yukarıda listelenenlerden farklıysa, farklı bir yaklaşım dikkate almanız gerekebilir. Görev çıktısını kalıcı hale getirme için diğer seçenekler hakkında daha fazla bilgi için bkz. [Azure Depolama'ya iş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md). 
+Senaryonuz yukarıda listelenenlerden farklıysa, farklı bir yaklaşım dikkate almanız gerekebilir. Görev çıktısını kalıcı hale getirme için diğer seçenekler hakkında daha fazla bilgi için bkz. [Azure Depolama'ya iş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md).
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Standart Batch dosya kuralları nedir?
 
 [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) blob yollarının çıktı dosyalarınızı yazılır ve hedef kapsayıcı için bir adlandırma düzeni sağlar. Dosyaları kalıcı dosyası kuralları standardını kullanan Azure depolama için Azure portalında görüntülemek için otomatik olarak kullanılabilir. Portal adlandırma kuralının farkındadır ve bu nedenle ona bağlı dosyalar görüntüleyebilirsiniz.
 
-.NET için dosya kuralları kitaplığı, depolama kapsayıcıları ve Görev çıkış dosyalarını standart dosya kurallarına göre otomatik olarak adlandırır. Dosya kuralları kitaplığı, ayrıca Çıkış dosyalarını Azure storage'da iş kimliği, görev kimliği veya amaçlı göre sorgulamak için yöntemler sağlar.   
+.NET için dosya kuralları kitaplığı, depolama kapsayıcıları ve Görev çıkış dosyalarını standart dosya kurallarına göre otomatik olarak adlandırır. Dosya kuralları kitaplığı, ayrıca Çıkış dosyalarını Azure storage'da iş kimliği, görev kimliği veya amaçlı göre sorgulamak için yöntemler sağlar.
 
-.NET dışında bir dil ile geliştiriyorsanız, uygulamanızı kendiniz dosya kuralları standart uygulayabilirsiniz. Daha fazla bilgi için [Batch dosya kuralları hakkında standart](batch-task-output.md#about-the-batch-file-conventions-standard).
+.NET dışında bir dil ile geliştiriyorsanız, uygulamanızı kendiniz dosya kuralları standart uygulayabilirsiniz. Daha fazla bilgi için [Batch dosya kuralları standart uygulama](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
 ## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Bir Azure depolama hesabını Batch hesabınıza bağlayın.
 
 Dosya kuralları kitaplığı kullanarak Azure depolama için çıktı verilerini kalıcı hale getirmek için bir Azure depolama hesabını Batch hesabınıza bağlamanız gerekir. Henüz yapmadıysanız, bir depolama hesabını Batch hesabınıza kullanarak bağlantı [Azure portalında](https://portal.azure.com):
 
-1. Azure portalında Batch hesabınıza gidin. 
-2. Altında **ayarları**seçin **depolama hesabı**.
-3. Batch hesabınızla ilişkili bir depolama hesabı zaten yoksa tıklayın **depolama hesabı (hiçbiri)**.
-4. Aboneliğiniz için listeden bir depolama hesabı seçin. En iyi performans için görevlerinizin çalıştığı aynı bölgede Batch hesabı olarak bir Azure depolama hesabı kullanın.
+1. Azure portalında Batch hesabınıza gidin.
+1. Altında **ayarları**seçin **depolama hesabı**.
+1. Batch hesabınızla ilişkili bir depolama hesabı zaten yoksa tıklayın **depolama hesabı (hiçbiri)**.
+1. Aboneliğiniz için listeden bir depolama hesabı seçin. En iyi performans için görevlerinizin çalıştığı aynı bölgede Batch hesabı olarak bir Azure depolama hesabı kullanın.
 
 ## <a name="persist-output-data"></a>Çıktı verilerini kalıcı
 
@@ -72,8 +70,6 @@ Kapsayıcılar ve Azure Depolama'da bloblar ile çalışma hakkında daha fazla 
 
 > [!WARNING]
 > Dosya kuralları kitaplığı aynı kapsayıcıda depolanan ile tüm iş ve görev çıktıları kalıcı. Aynı zamanda, dosyaların kalıcı olması çok sayıda görev çalışırsanız [depolama sınırları](../storage/common/storage-performance-checklist.md#blobs) zorlanabilir.
-> 
-> 
 
 ### <a name="create-storage-container"></a>Depolama kapsayıcısı oluşturma
 
@@ -120,8 +116,6 @@ Bu çıktı türleri, belirli bir görevin kalıcı çıktısı için daha sonra
 
 > [!TIP]
 > Çıkış türü de Azure portalında, belirli bir dosya göründüğü belirler: *TaskOutput*-sınıflandırılmış dosyalar görünür altında **bir görevin çıkış dosyaları**, ve *TaskLog* dosyalar görünür altında **görev günlükleri**.
-> 
-> 
 
 ### <a name="store-job-outputs"></a>İş çıkışları Store
 
@@ -174,8 +168,6 @@ Düğüm Aracısı, havuzdaki her düğümde çalışan ve Batch hizmeti düğü
 
 > [!NOTE]
 > İle izleme dosyası etkinleştirdiğinizde **SaveTrackedAsync**, yalnızca *ekler* izlenen dosyayı Azure Depolama'ya kalıcıdır. Yalnızca günlük dosyalarını döndürme olmayan veya dosyanın sonuna ekleme işlemleri ile yazılan diğer dosyaları izlemek için bu yöntemi kullanın.
-> 
-> 
 
 ## <a name="retrieve-output-data"></a>Çıktı verilerini alma
 
@@ -206,7 +198,7 @@ Görev çıkış dosyalarını Azure portalında görüntülenir ve bağlı bir 
 Çıktı dosyalarınızı portalında görüntülenmesini etkinleştirmek için aşağıdaki gereksinimleri karşılamanız gerekir:
 
 1. [Bir Azure depolama hesabı bağlantı](#requirement-linked-storage-account) Batch hesabınıza.
-2. Depolama kapsayıcıları ve dosya için önceden tanımlanmış adlandırma kuralları çıkışları kalıcı olduğunda izliyor. Dosya kuralları Kitaplığı'nda bu kuralları tanımını bulabilirsiniz [Benioku][github_file_conventions_readme]. Kullanırsanız [Azure Batch dosya kuralları] [ nuget_package] , çıkışı kalıcı hale getirmek için kitaplık dosyası kuralları standardına göre dosyalarınızı kalıcı.
+1. Depolama kapsayıcıları ve dosya için önceden tanımlanmış adlandırma kuralları çıkışları kalıcı olduğunda izliyor. Dosya kuralları Kitaplığı'nda bu kuralları tanımını bulabilirsiniz [Benioku][github_file_conventions_readme]. Kullanırsanız [Azure Batch dosya kuralları] [ nuget_package] , çıkışı kalıcı hale getirmek için kitaplık dosyası kuralları standardına göre dosyalarınızı kalıcı.
 
 Görev çıkış dosyalarını ve günlükleri, Azure portalında görüntülemek için ilgilendiğiniz, çıktısı'a tıklayın ya da görev için gidin **kaydedilen çıktı dosyaları** veya **günlükleri kaydedilmiş**. Bu görüntüde gösterilmektedir **kaydedilen çıktı dosyaları** "007" Kimliğine sahip görev için:
 

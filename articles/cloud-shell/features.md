@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 9a6f7aeea799787becf0bb99cdfa08bed4e9d355
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 63cd7935a649973ae72e074d546f48c7d316e388
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867468"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706747"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -64,7 +64,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |Metin düzenleyiciler           |vim<br> nano<br> emacs<br> Kod       |
 |Kaynak denetimi         |git                    |
 |Derleme araçları            |Olun<br> Maven<br> npm<br> pip         |
-|Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker makinesi](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI'Sİ](https://github.com/dcos/dcos-cli)         |
+|Kapsayıcılar             |[Docker Makinesi](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI'Sİ](https://github.com/dcos/dcos-cli)         |
 |Veritabanları              |MySQL istemci<br> PostgreSql istemcisi<br> [SQLCMD yardımcı programı](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Diğer                  |Ipython istemci<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
 

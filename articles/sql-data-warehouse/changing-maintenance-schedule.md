@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425970"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713274"
 ---
 # <a name="change-a-maintenance-schedule"></a>Bakım zamanlamasını değiştirme 
 
 ## <a name="portal"></a>Portal
 Bakım zamanlaması güncelleştirilemiyor veya herhangi bir zamanda değiştirilebilir. Seçilen örnek bir etkin bakım döngüsü boyunca olacaksa, ayarları kaydedilir. Bunlar sonraki tanımlanan bakım süresi boyunca etkin hale gelirler. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/service-health/resource-health-overview) bir etkin bir bakım olayı sırasında veri ambarınızın izlenmesine dair. 
 
-Azure bakım zamanlamaları önizlemede olsa da, yedi günlük süre içinde iki bakım penceresi seçin. Her bir bakım penceresi için üç sekiz saat olabilir. Bakım bir bakım penceresi içinde herhangi bir zamanda gerçekleşebilir ancak önceden bildirimde bulunmadan zaman pencereleri dışında karşılaşılmaz. Hizmet, veri ambarınızı yeni kod dağıtır gibi kısa bir bağlantı kaybı ayrıca deneyeceksiniz. 
+Bakım zamanlamaları kullanmak için yedi günlük süre içinde iki bakım pencereleri seçmeniz gerekir. Her bir bakım penceresi için üç sekiz saat olabilir. Bakım bir bakım penceresi içinde herhangi bir zamanda gerçekleşebilir ancak önceden bildirimde bulunmadan zaman pencereleri dışında karşılaşılmaz. Hizmet, veri ambarınızı yeni kod dağıtır gibi kısa bir bağlantı kaybı ayrıca deneyeceksiniz. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Birincil ve ikincil windows tanımlama
 

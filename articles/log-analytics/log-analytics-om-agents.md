@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c8bba283a0c3fde75966ae123023e50d497abd5a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ebd5c06b8174c9838a398e97439671e4d3f4c518
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687563"
+ms.locfileid: "51713495"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 Mevcut yatırımınızı korumak için [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) ve Log Analytics ile genişletilmiş özellikleri kullanmak için Operations Manager ile Log Analytics çalışma alanınızın tümleştirebilirsiniz. Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
@@ -331,6 +331,6 @@ Yönetim grubunuza bir Log Analytics çalışma alanı yeniden bağlanmayı üze
 * Yönetim grubunuza uygulanan en son güncelleştirme dağıtımından. Kaynak klasör Operations Manager 2012 için ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` klasörüdür ve 2012 R2 için `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` altında yer alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../monitoring/monitoring-solutions.md).
+İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../azure-monitor/insights/solutions.md).
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0cdc0b69405d726a7a661fb3e204e4f3ff8e50a5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282842"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713206"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../azure-monitor/overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -140,7 +140,7 @@ Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynak
 - [Etkinlik günlükleri](../log-analytics/log-analytics-activity.md) Azure kaynaklarından, yapılandırmaları ve sistem durumu hakkında bilgiler içerir ve [tanılama günlükleri](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) işleyişlerini Öngörüler sağlayın.
 - Aracılarda [Windows](../log-analytics/log-analytics-windows-agent.md) ve [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) konuk işletim sistemi ve uygulamaları şunlara göre Log analytics'e telemetri gönderen sanal makineler [veri kaynakları](../log-analytics/log-analytics-data-sources.md) , siz yapılandırırsınız.
 - Uygulama verileri tarafından toplanan [Application Insights](https://docs.microsoft.com/azure/application-insights/).
-- Belirli bir uygulama veya hizmetten Öngörüler sağlayan veri [izleme çözümleri](../monitoring/monitoring-solutions.md) veya kapsayıcı öngörüleri, VM Insights veya kaynak grubu Insights gibi özellikleri.
+- Belirli bir uygulama veya hizmetten Öngörüler sağlayan veri [izleme çözümleri](../monitoring/../azure-monitor/insights/solutions.md) veya kapsayıcı öngörüleri, VM Insights veya kaynak grubu Insights gibi özellikleri.
 - Tarafından toplanan güvenlik verileri [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/).
 - [Ölçümleri](#metrics) Azure kaynaklarından. Bu, ölçümleri 93 günden daha uzun süre saklamak için ve diğer günlük verilerinizi çözümlemenizi sağlar.
 - Yazılan telemetri [Azure depolama](../log-analytics/log-analytics-azure-storage-iis-table.md).

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 710d157dcf4c6d060e59bcfbb69455e2ddc91bdd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450139"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707104"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Öğretici: Azure Lab Services’teki bir laboratuvarın kullanımını izleme
 Bu öğreticide bir laboratuvar oluşturanın/sahibinin bir laboratuvarın kullanımını nasıl izleyebileceği gösterilmektedir.
@@ -44,23 +44,19 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Laboratuvarınızdaki VM'lerin kullanımını görüntüleme 
 
 1. Soldaki menüden **Sanal makineler**'i seçin. 
-2. VM'lerin durumunu ve VM'lerin çalışma süresini gördüğünüzden emin olun. Öğrenci VM'sinde sizin harcadığınız süre, son sütunda gösterilen kullanım süresine dahil edilmez. 
+2. VM'lerin durumunu ve VM'lerin çalışma süresini gördüğünüzden emin olun. VM son sütununda gösterilen kullanım zamana karşı sayılmaz bir öğrenci harcadığınız zamanı. 
 
     ![VM kullanımı](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Öğrenci VM'lerini yönetme 
-Farenizi sanal makine listesindeki bir sıranın üzerine getirdiğinizde aşağıdaki görevlerle ilgili denetimleri görürsünüz: 
+Fare bir sanal makinenin üzerinde listedeki satıra getirin (önceki bölümde görüntüde gösterildiği gibi) aşağıdaki görevleri gerçekleştirmek için denetimleri görmeniz: 
 
 - Bir VM’ye bağlanma
 - VM başlatma
 - VM durdurma
 - VM silme
 
-![VM denetimleri](../media/tutorial-track-usage/vm-controls.png) 
-
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide laboratuvara kaydolan kullanıcıları bulmayı, laboratuvardaki VM'lerin kullanımını izlemeyi ve laboratuvardaki VM'leri yönetmeyi öğrendiniz.
-
-Sınıf laboratuvarları hakkında daha fazla bilgi edinmek için bkz. [Nasıl yapılır kılavuzları](how-to-manage-lab-accounts.md).
+Sınıf laboratuvarlarını hakkında daha fazla bilgi için altında makalelerine bakın [nasıl yapılır kılavuzları](how-to-manage-lab-accounts.md).

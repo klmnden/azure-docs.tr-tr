@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 7d93b8e37c2025ebe47f9351da26f0913107585d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c58f4f825effbd62d141b417f78c420ba08d921
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009377"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711217"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure ağ Log Analytics çözümleri izleme
 
@@ -86,7 +86,7 @@ Aşağıdaki ölçümler Application Gateway'ler için desteklenir: yeniden
 ### <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Yükleme ve Azure Application Gateway analytics çözümü yapılandırmak için aşağıdaki yönergeleri kullanın:
 
-1. Azure Application Gateway analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
+1. Azure Application Gateway analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md).
 2. Etkinleştirmek için günlüğe kaydetme tanılama [Application Gateway'ler](../application-gateway/application-gateway-diagnostics.md) izlemek istediğiniz.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Portalda Azure Application Gateway tanılamayı etkinleştirme
@@ -157,7 +157,7 @@ Günlükleri, ağ güvenlik grupları için desteklenir:
 ### <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Yükleme ve Azure ağ analizi çözümü yapılandırmak için aşağıdaki yönergeleri kullanın:
 
-1. Azure ağ güvenlik grubu analizi çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
+1. Azure ağ güvenlik grubu analizi çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md).
 2. Etkinleştirmek için günlüğe kaydetme tanılama [ağ güvenlik grubu](../virtual-network/virtual-network-nsg-manage-log.md) izlemek istediğiniz kaynakları.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Portalda Azure ağ güvenlik grubu tanılamayı etkinleştirme
@@ -215,7 +215,7 @@ Güncelleştirilmiş çözümlerini kullanmak için:
 
 1. [Azure Application Gateway'ler aracılığıyla doğrudan Log Analytics'e gönderilecek tanılama Yapılandır](#enable-azure-application-gateway-diagnostics-in-the-portal)
 2. [Azure ağ güvenlik grupları'ndan doğrudan Log Analytics'e gönderilecek tanılama Yapılandır](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Etkinleştirme *Azure Application Gateway Analytics* ve *Azure ağ güvenlik grubu analizi* açıklanan işlemi kullanarak çözüm [ekleme Log Analytics çözümleri Çözüm Galerisi](../monitoring/monitoring-solutions.md)
+2. Etkinleştirme *Azure Application Gateway Analytics* ve *Azure ağ güvenlik grubu analizi* açıklanan işlemi kullanarak çözüm [ekleme Log Analytics çözümleri Çözüm Galerisi](../azure-monitor/insights/solutions.md)
 3. Tüm kaydedilmiş sorgular, panolar veya yeni veri türü kullanılacağını uyarıları güncelleştirme
   + AzureDiagnostics için türüdür. Kaynak türü için Azure ağ bağlantısı günlükleri filtrelemek için kullanabilirsiniz.
 

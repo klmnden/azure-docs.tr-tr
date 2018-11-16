@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 78ffa42bcf57b7163afc13b2550abdbae240ef00
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cf27864d691fe2fe13c9483348fb2abed121874d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729250"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713512"
 ---
 # <a name="show-search-results-on-the-map"></a>Harita üzerinde arama sonuçlarını göster
 
@@ -31,7 +31,7 @@ Bu makalede ilgi konumu aramak ve arama sonuçlarını haritada gösterme göste
 
 İkinci kod bloğunu kullanır [Azure haritalar belirsiz arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) için ilgi noktası arama. Belirsiz arama API'si benzer girişler herhangi bir birleşimini başa çıkabilir. GeoJSON biçiminde kullanarak belirsiz arama hizmetinden gelen yanıt ayrıştırılır [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) yöntemi. PIN, ardından ilgi çekici noktalar haritada gösterilecek eşlemesine eklenir.
 
-Haritanın kullanarak son blok kod eşlemesi için kamera sınırları ayarlar [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliği.
+Haritanın kullanarak son blok kod eşlemesi için kamera sınırları ayarlar [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) özelliği.
 
 ## <a name="make-a-search-request-via-xmlhttprequest"></a>Arama isteği aracılığıyla XMLHttpRequest olun
 
@@ -44,7 +44,7 @@ Haritanın kullanarak son blok kod eşlemesi için kamera sınırları ayarlar [
 
 Üçüncü kod bloğunu gönderen bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) için [Azure haritalar belirsiz arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) ilgi noktası için aranacak. Belirsiz arama API'si benzer girişler herhangi bir birleşimini başa çıkabilir.
 
-Son kod bloğunu yanıt ayrıştırır ve ayarlar harita kamera sınırları haritanın kullanarak ayarlar [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) sonucu PIN'ler işlemek için.
+Son kod bloğunu yanıt ayrıştırır ve ayarlar harita kamera sınırları haritanın kullanarak ayarlar [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) sonucu PIN'ler işlemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -62,6 +62,6 @@ Tam kod örnekleri için aşağıdaki makalelere bakın:
 
 > [!div class="nextstepaction"]
 > [Bir Koordinattan bilgi alma](./map-get-information-from-coordinate.md)
-
+<!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
 > [Yönergeleri A'dan B'ye yönleri gösterme](./map-route.md)

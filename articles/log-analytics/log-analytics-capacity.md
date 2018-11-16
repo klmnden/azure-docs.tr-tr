@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5ec4ba5f51837e879ba5106c40d466dafb571825
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961951"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711812"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlama
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 Kapasite ve performans çözümü, çalışma alanınıza eklemek için aşağıdaki adımı uygulayın.
 
-- Kapasite ve performans çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
+- Kapasite ve performans çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Yönetim paketleri
 

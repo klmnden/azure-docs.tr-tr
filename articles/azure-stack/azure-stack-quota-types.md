@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299428"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711540"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
@@ -31,10 +31,12 @@ ms.locfileid: "51299428"
 ## <a name="compute-quota-types"></a>Kota türleri işlem 
 | **Tür** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| En fazla sanal makine sayısı | 50 | Bu konumda bir abonelik oluşturan sanal makineler en fazla sayısı. |
-| En fazla sanal makine çekirdeklerinin sayısı | 100 | Bu konumda abonelik oluşturup oluşturamayacağını çekirdek sayısı (örneğin, bir A3 VM dört çekirdek vardır). |
-| Maks. kullanılabilirlik kümesi sayısı | 10 | Bu konumda oluşturulabilir kullanılabilirlik kümelerinin maksimum sayısı. |
-| Sanal makine ölçek maksimum sayısını ayarlar | 100 | Bu konumda oluşturulan sanal makine ölçek kümeleri en fazla sayısı. |
+| Sanal makine sayısı | 50 | Bu konumda bir abonelik oluşturan sanal makineler en fazla sayısı. |
+| Sanal makine çekirdeklerinin sayısı | 100 | Bu konumda abonelik oluşturup oluşturamayacağını çekirdek sayısı (örneğin, bir A3 VM dört çekirdek vardır). |
+| Kullanılabilirlik kümelerinin maksimum sayısı | 10 | Bu konumda oluşturulabilir kullanılabilirlik kümelerinin maksimum sayısı. |
+| Sanal makine ölçek en fazla sayısını ayarlar | 100 | Bu konumda oluşturulan sanal makine ölçek kümeleri en fazla sayısı. |
+| Standart yönetilen disk maksimum kapasite (GB cinsinden) | 2048 | Bu konumda oluşturulabilen standart yönetilen diskler hizmetin maksimum kapasitesi. |
+| Premium yönetilen disk maksimum kapasite (GB cinsinden) | 2048 | Premium kapasite üst sınırı bu konumda oluşturulan disklerini yönetilen. |
 
 ## <a name="storage-quota-types"></a>Depolama kota türleri 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
@@ -50,10 +52,10 @@ ms.locfileid: "51299428"
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
 | En büyük ortak IP'ler |50 |Bu konumda abonelik oluşturup oluşturamayacağını genel IP'ler maksimum sayısı. |
-| En fazla sanal ağlar |50 |Bu konumda bir abonelik oluşturan sanal ağlar maksimum sayısı. |
+| En yüksek sanal ağlar |50 |Bu konumda bir abonelik oluşturan sanal ağlar maksimum sayısı. |
 | En fazla sanal ağ geçitleri |1 |Bu konumda bir abonelik oluşturan, sanal ağ geçitleri (VPN ağ geçitleri) sayısı. |
 | En fazla ağ bağlantıları |2 |Bu konumdaki tüm sanal ağ geçitleri arasında abonelik oluşturup oluşturamayacağını olan ağ bağlantıları (Noktadan noktaya veya siteden siteye) sayısı. |
-| En fazla yük Dengeleyiciler |50 |Bu konumda abonelik oluşturup oluşturamayacağını yük Dengeleyiciler maksimum sayısı. |
+| En yüksek yük Dengeleyiciler |50 |Bu konumda abonelik oluşturup oluşturamayacağını yük Dengeleyiciler maksimum sayısı. |
 | En fazla NIC |100 |Bu konumda bir abonelik oluşturan ağ arabirimleri sayısı. |
 | En fazla ağ güvenlik grupları |50 |Bu konumda bir abonelik oluşturan ağ güvenlik grupları maksimum sayısı. |
 

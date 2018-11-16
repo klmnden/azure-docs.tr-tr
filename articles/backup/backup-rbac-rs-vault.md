@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011332"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704656"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Azure Backup kurtarma noktaları yönetmek için rol tabanlı erişim denetimi kullanma
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere sadece erişim miktarını verebilirsiniz.
@@ -41,7 +41,7 @@ Aşağıdaki tabloda, yedekleme yönetim eylemleri ve bu işlemi gerçekleştirm
 | | Sanal Makine Katılımcısı | VM kaynağı |
 | İsteğe bağlı yedekleme VM | Yedekleme İşleci | Kurtarma kasası kaynağı |
 | VM'yi geri yükle | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
-| | Sanal Makine Katılımcısı | VM'nin dağıtılacağı kaynak grubu |
+| | Katılımcı | VM'nin dağıtılacağı kaynak grubu |
 | | Sanal Makine Katılımcısı | Kaynak yedeklenen sanal makine |
 | Yönetilmeyen diskler VM yedeklemesini geri yükleme | Yedekleme İşleci | Kurtarma kasası kaynağı |
 | | Sanal Makine Katılımcısı | Kaynak yedeklenen sanal makine |

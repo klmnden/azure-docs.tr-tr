@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721101"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712985"
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik teknik incelemeler
 | | |
 |-|-|
 |[Giriş&nbsp;için&nbsp;Azure&nbsp;güvenlik](azure-security.md)|Hem müşterinin hem de Microsoft Operasyon perspektiften Azure'da gerçekleştirilen güvenlik denetimleri koleksiyonunu açıklar. Azure ile kullanılabilir olan müşterilere yönelik güvenlik denetimleri en kapsamlı bir bakış sağlar.|
 |[Azure çözümleri için önerilen güvenlik uygulamaları](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Tasarlama, dağıtma ve Azure'ı kullanarak bulut çözümlerinizi yönetme kullanmak için en iyi güvenlik yöntemleri topluluğu.|
+|[Azure'da güvenli uygulamalar geliştirme](abstract-develop-secure-apps.md)|Güvenlik sorularını ve denetimlerine genel bir kılavuz yazılım geliştirme yaşam döngüsünün her aşamada bulut için uygulamalar geliştirirken dikkate almalısınız.|
 |[Gelişmiş tehdit algılama](azure-threat-detection.md)|Azure size tehdit güvenlik açığı değerlendirmesi, tanılama ve analiz yaklaşıyor Kılavuzlar. Gelişmiş tehdit algılama mekanizması Microsoft'un platform güvenliğini sağlamak için nasıl kullandığını açıklar. Ayrıca, genel kullanıma yönelik özellikler ve Hizmetler Microsoft bu mekanizmaların nasıl içerir açıklar.|
 |[Azure veri şifreleme bekleyen](azure-security-encryption-atrest.md)|Verileri Azure ve veri koruma uygulamasında bölümü alma çeşitli bileşenleri bekleyen nasıl korunduğunu üzerinde odaklanılmıştır. Artıları ve eksileri farklı anahtar yönetimi koruma yaklaşımların inceler.|
 |[Azure günlük kaydı ve denetim](azure-log-audit.md)|Oluşturma, toplama ve Azure'da barındırılan hizmetlerden çözümlenirken güvenlik günlükleri için bir giriş sağlar. Bu günlükler, Azure dağıtımlarınızı güvenlik Öngörüler yardımcı olabilir. |

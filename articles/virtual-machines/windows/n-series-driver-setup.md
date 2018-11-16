@@ -2,8 +2,7 @@
 title: Windows için Azure N serisi GPU sürücü kurulumu | Microsoft Docs
 description: Azure'da Windows Server veya Windows çalıştıran N serisi VM'ler için NVIDIA GPU sürücülerini ayarlama
 services: virtual-machines-windows
-documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 551d9da51abaeddfd22c72748a552ba0ae155de6
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033269"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707020"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows çalıştıran N serisi Vm'lerde NVIDIA GPU sürücüleri yükleyin 
 
@@ -51,13 +50,13 @@ GPU cihaz durumunu sorgulamak için aşağıdaki komutu çalıştırın [NVIDIA 
 
 1. Bir komut istemi açın ve değiştirmek **C:\Program Files\NVIDIA Corporation\NVSMI** dizin.
 
-2. `nvidia-smi` öğesini çalıştırın. Sürücü yüklediyseniz aşağıdakine benzer bir çıktı görürsünüz. Unutmayın **GPU kullanımı** gösterir **%0** sürece sanal makinede bir GPU iş yükü şu anda çalışıyor. Sürücü sürümü ve GPU ayrıntıları gösterilen anlatılanlardan farklı olabilir.
+2. `nvidia-smi` öğesini çalıştırın. Sürücü yüklediyseniz aşağıdakine benzer bir çıktı görürsünüz. **GPU kullanımı** gösterir **%0** sürece sanal makinede bir GPU iş yükü şu anda çalışıyor. Sürücü sürümü ve GPU ayrıntıları gösterilen anlatılanlardan farklı olabilir.
 
 ![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA ağ bağlantısı
 
-Aynı kullanılabilirlik kümesine veya VM ölçek kümesindeki bir tek bir yerleştirme grubu NC24r dağıtılmış gibi RDMA özellikli N serisi Vm'lerde RDMA ağ bağlantısı etkin hale getirilebilir. RDMA bağlantı sağlayan Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısı eklenmesi gerekir. RDMA özellikli bir N-serisi VM için VM uzantısı eklemek için [Azure PowerShell](/powershell/azure/overview) cmdlet'leri için Azure Resource Manager.
+Aynı kullanılabilirlik kümesinde veya sanal makine ölçek kümesindeki bir tek bir yerleştirme grubu içinde dağıtılan NC24r gibi RDMA özellikli N serisi vm'lerde RDMA ağ bağlantısı etkin hale getirilebilir. RDMA bağlantı sağlayan Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısı eklenmesi gerekir. RDMA özellikli bir N-serisi VM için VM uzantısı eklemek için [Azure PowerShell](/powershell/azure/overview) cmdlet'leri için Azure Resource Manager.
 
 En son sürüm 1.1 yüklemek için HpcVMDrivers uzantısı mevcut RDMA özellikli VM'yi Batı ABD bölgesinde myVM adlı:
   ```PowerShell

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140832"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707138"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services Laboratuvar hesaplarını yönetme 
 Azure Lab Services içinde bir laboratuvar hesabı sınıf laboratuvarlarını gibi yönetilen Laboratuvarları için bir kapsayıcıdır. Yönetici Azure Lab Services ile bir laboratuvar hesabı ayarlama ayarlar ve Laboratuvarları hesabı oluşturabilirsiniz Laboratuvar sahipleri erişim sağlar. Bu makalede bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesaplarını görüntülemek veya bir laboratuvar hesabı silme işlemini açıklamaktadır.
@@ -114,7 +114,9 @@ Labs'de bir laboratuvar hesabı listesini görmek için önceki bölümdeki yön
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:
+Aşağıdaki makalelere bakın:
 
-- [Bir sınıf laboratuvarı ayarlama](tutorial-setup-classroom-lab.md)
-- [Laboratuvar ayarlama](../tutorial-create-custom-lab.md)
+- [Laboratuvar sahibi olarak oluşturun ve Laboratuvarları yönetin](how-to-manage-classroom-labs.md)
+- [Laboratuvar sahibi olarak ayarlama ve şablonları Yayımlama](how-to-create-manage-template.md)
+- [Laboratuvar sahibi olarak yapılandırın ve Laboratuvar kullanımını denetleme](how-to-configure-student-usage.md)
+- [Bir laboratuvar kullanıcı olarak sınıf laboratuvarlarına erişim](how-to-use-classroom-lab.md)

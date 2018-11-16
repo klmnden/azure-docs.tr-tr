@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: b60c1e84eb5b62bfce0eb2ba96129deeee2fc3c3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 72acc4fe0febaa09d6deb82043795b6003af683f
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345317"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706788"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Öğretici: Azure Lab Services ile bir laboratuvar hesabı ayarlama
 Azure Lab Services’te, bir laboratuvar hesabı, kuruluşunuzdaki laboratuvarların yönetildiği merkezi hesap olarak görev yapar. Laboratuvar hesabınızda, laboratuvar oluşturmak üzere başkalarına izin verin ve laboratuvar hesabı altındaki tüm laboratuvarlara uygulanan ilkeler ayarlayın. Bu öğreticide, laboratuvar yöneticisi olarak bir laboratuvar hesabı oluşturmayı öğrenin. 

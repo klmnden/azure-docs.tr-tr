@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856651"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706016"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -31,7 +31,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 > * Sınıf laboratuvarını yapılandırma
 > * Öğrencilere kayıt bağlantısı gönderme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratuvar hesabında **Laboratuvar Oluşturan** rolünün üyesi olmanız gerekir. Laboratuvar hesabını oluşturmak için kullandığınız hesap otomatik olarak bu role eklenir. Laboratuvar sahibi, şu makaledeki adımları kullanarak Laboratuvar Oluşturan rolüne kullanıcı ekleyebilir: [Laboratuvar Oluşturan rolüne kullanıcı ekleme](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
@@ -81,7 +81,7 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 
         > [!WARNING]
         > Yayımlama işlemini geri alamazsınız. 
-    2. Daha sonra yayımlamak istiyorsanız **Sonrası için kaydet**'i seçin. Şablon VM'sini sihirbaz tamamlandıktan sonra yayımlayabilirsiniz. Sihirbaz tamamlandıktan sonra yapılandırma ve yayımlama adımları için [Sınıf laboratuvarlarını yönetme](how-to-manage-classroom-labs.md) makalesindeki [Şablonu yayımlama](how-to-manage-classroom-labs.md#publish-the-template) bölümüne bakın.
+    2. Daha sonra yayımlamak istiyorsanız **Sonrası için kaydet**'i seçin. Şablon VM'sini sihirbaz tamamlandıktan sonra yayımlayabilirsiniz. Sihirbaz tamamlandıktan sonra yapılandırma ve yayımlama adımları için [Sınıf laboratuvarlarını yönetme](how-to-manage-classroom-labs.md) makalesindeki [Şablonu yayımlama](how-to-create-manage-template.md#publish-the-template-vm) bölümüne bakın.
 
         ![Şablonu yayımlama](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Şablonun **yayımlama ilerleme durumunu** görürsünüz. Bu işlemin tamamlanması bir saat sürebilir. 
@@ -97,17 +97,33 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 
     ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>Kullanıcılar laboratuvara ekleme
+
+1. Seçin **kullanıcılar** sol menüsünde. Varsayılan olarak, **erişimi kısıtlama** seçeneği etkinleştirilir. Bu ayar etkin olduğunda, kullanıcı listesinde kullanıcı değilse kullanıcı kayıt bağlantıya sahip olsa bile, bir kullanıcı laboratuvarla kaydedilemiyor. Yalnızca bu listedeki kullanıcılar laboratuvarla gönderdiğiniz kayıt bağlantıyı kullanarak kaydedebilirsiniz. Bu yordamda, kullanıcıların listesine ekleyin. Alternatif olarak, kapatabilirsiniz **erişimi kısıtlama**, kullanıcıların kayıt bağlantıya sahip oldukları sürece laboratuvarla kaydolmasını sağlar. 
+2. Seçin **kullanıcı ekleme** araç. 
+3. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
+
+    ![Kullanıcı e-posta ekleyin](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. **Kaydet**’i seçin. E-posta adreslerini kullanıcıları ve bunların durumlarını (veya kayıtlı) listesinde görürsünüz. 
+
+    ![Kullanıcı listesi](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>Öğrencilere kayıt bağlantısı gönderme
 
-1. Soldaki menüden **Pano**'yu seçerek **Pano** görünümüne geçin. 
-2. **Kullanıcı kaydı** kutucuğunu seçin.
+1. Geçiş **kullanıcılar** sayfada zaten kök kullanıcı değilseniz görüntüleyin. 
+2. Seçin **kayıt bağlantı alma** Döşe.
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. **Kullanıcı kaydı** iletişim kutusunda **Kopyala** düğmesini seçin. Bağlantı, panoya kopyalanır. Bağlantıyı bir e-posta düzenleyiciye yapıştırın ve öğrenciye e-posta gönderin. 
+1. **Kullanıcı kaydı** iletişim kutusunda **Kopyala** düğmesini seçin. Bağlantı, panoya kopyalanır. 
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. **Kullanıcı kaydı** iletişim kutusunda **Kapat**'ı seçin. 
-3. Kayıt bağlantısını sınıfa kaydolmasını istediğiniz öğrencilerle paylaşın. 
+4. Kayıt bağlantısını sınıfa kaydolmasını istediğiniz öğrencilerle paylaşın. Varsa **seçeneği kısıtlama** ayarı etkin ve kullanıcıların listesini listesinde olması, aşağıdaki eylemleri gerçekleştirin:
+    1. Seçin **e-posta adresi** listesinde kullanıcının. 
+    2. Bir pencere varsayılan e-posta programınızı görmek **Kime** adresi doldurulur. 
+    3. Yapıştırma **kayıt URL'si** daha önce kopyaladığınız. 
+    4. Gönderme **e-posta**.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

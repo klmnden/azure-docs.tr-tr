@@ -2,25 +2,21 @@
 title: Azure AD uygulama ara sunucusu bağlayıcıları anlama | Microsoft Docs
 description: Azure AD uygulama ara sunucusu bağlayıcıları ile ilgili temel bilgileri kapsar.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 66fb98c166c8a0f4cec9f3b7e7be73fce6466b50
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036046"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713121"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -32,7 +28,23 @@ Bağlayıcılar, şirket içi yaslanın ve uygulama proxy'si Hizmeti giden bağl
 
 ## <a name="requirements-and-deployment"></a>Gereksinimler ve dağıtım
 
-Uygulama proxy'si başarıyla dağıtmak için en az bir bağlayıcı gerekir, ancak iki veya daha fazla dayanıklılık için daha fazla öneririz. Bağlayıcı, Windows Server 2012 R2 veya 2016 makinesine yükleyin. Bağlayıcısının yayımladığınız şirket içi uygulamaların yanı sıra uygulama proxy'si hizmeti ile iletişim kurabilmesi gerekir. Uygulama Ara sunucusu, ayrıca temel işletim sistemi üzerinde çalışan TLS 1.2 gerektirir. TLS 1.2 değiştirmek için adımları izleyin. [etkinleştirme TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Azure AD Connect için içeriği olmakla birlikte, bu yordamı tüm .NET istemcileri için aynıdır.
+Uygulama proxy'si başarıyla dağıtmak için en az bir bağlayıcı gerekir, ancak iki veya daha fazla dayanıklılık için daha fazla öneririz. Bağlayıcı, Windows Server 2012 R2 veya 2016 makinesine yükleyin. Bağlayıcısının yayımladığınız şirket içi uygulamaların yanı sıra uygulama proxy'si hizmeti ile iletişim kurabilmesi gerekir. 
+
+### <a name="windows-server"></a>Windows server
+Windows Server 2012 R2 çalıştıran bir sunucuya ihtiyacınız veya daha sonra uygulama ara sunucusu Bağlayıcısı'nı yükleyebilirsiniz. Azure'da uygulama ara sunucusu hizmetlerini ve yayımlamakta olduğunuz şirket içi uygulamalara bağlanmak sunucunun gerekir.
+
+Windows server TLS 1.2 uygulama ara sunucusu bağlayıcısını yüklemeden önce etkin olmalıdır. Var olan Bağlayıcılarla 1.5.612.0 sürümleri yapılana kadar önceki TLS sürümlerini üzerinde çalışmaya devam eder. TLS 1.2 etkinleştirmek için:
+
+1. Aşağıdaki kayıt defteri anahtarlarını ayarlayın:
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Sunucuyu yeniden başlatın
+
 
 Bağlayıcı sunucusu için ağ gereksinimleri hakkında daha fazla bilgi için bkz: [uygulaması Ara sunucusu ile çalışmaya başlama ve bir bağlayıcı yükleme](application-proxy-enable.md).
 

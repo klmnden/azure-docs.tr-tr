@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Standard Load Balancer'ı oluşturma ve yönetme - Azure portalı | Microsoft Docs"
+title: "Öğretici: Yük Dengeleme internet trafiği Vm'lere - Azure portalı | Microsoft Docs"
 description: Bu öğreticide, Azure portalını kullanarak Standard Load Balancer'ın nasıl oluşturulacağı ve yönetileceği gösterilir.
 services: load-balancer
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
-ms.translationtype: HT
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380055"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687325"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Standard Load Balancer'ı oluşturma ve yönetme
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal makineleri internet trafiğini Yük Dengelemesi
 
-Yük dengeleme, gelen istekleri birden fazla sanal makineye yayarak daha yüksek bir kullanılabilirlik ve ölçek düzeyi sağlar. Bu öğreticide, Azure Standard Load Balancer'ın trafiği dağıtan ve yüksek kullanılabilirlik sağlayan farklı bileşenleri hakkında bilgi edinebilirsiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Yük dengeleme, gelen istekleri birden fazla sanal makineye yayarak daha yüksek bir kullanılabilirlik ve ölçek düzeyi sağlar. Bu öğreticide, internet trafiği vm'lere dağıtmak ve yüksek kullanılabilirlik sağlayan farklı bileşenleri Azure Standard Load Balancer hakkında bilgi edinin. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 
 > [!div class="checklist"]
@@ -51,10 +51,10 @@ Bu bölümde, sanal makinelerde yük dengelemesine yardımcı olan bir genel yü
     
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Adı                   | *myLoadBalancer*                                   |
+    | Ad                   | *myLoadBalancer*                                   |
     | Tür          | Genel                                        |
     | SKU           | Standart                          |
-    | Genel IP adresi | **Yeni oluştur**'u seçip metin kutusuna *myPublicIP* yazın. Genel IP adresi için Standart SKU varsayılan olarak seçilir. **Kullanılabilirlik bölgesi** olarak **Bölgesel olarak yedekli**’yi seçin. |
+    | Genel IP adresi | **Yeni oluştur**'u seçip metin kutusuna *myPublicIP* yazın. Genel IP adresi için Standart SKU varsayılan olarak seçilir. **Kullanılabilirlik bölgesi** olarak **Alanlar arası yedekli**’yi seçin. |
     | Abonelik               | Aboneliğinizi seçin.    |
     |Kaynak grubu | **Yeni oluştur**'u seçip *myResourceGroupSLB* yazın.    |
     | Konum           | **Batı Avrupa**'yı seçin.                          |
@@ -70,7 +70,7 @@ Bu bölümde, bir sanal ağ oluşturur, yük dengeleyicinizin arka uç havuzu i�
 1. Azure portalın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Sanal ağ**'ı seçin ve sanal ağ için şu değerleri girin:
     |Ayar|Değer|
     |---|---|
-    |Adı|*myVNet* yazın.|
+    |Ad|*myVNet* yazın.|
     |Abonelik| Aboneliğinizi seçin.|
     |Kaynak grubu| **Var olanı kullan**’ı seçin ve sonra *myResourceGroupSLB* öğesini seçin.|
     |Alt ağ adı| *myBackendSubnet* yazın.|

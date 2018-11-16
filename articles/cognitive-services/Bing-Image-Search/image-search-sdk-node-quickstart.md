@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 2fa3a221d42a522f19b00a4cb5596d93039a85ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: fcef8d29ae7154633e19c118fd03d98d6489df6f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220243"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686577"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-nodejs"></a>Hızlı Başlangıç: Bing Görüntü Arama SDK'sı ve Node.js ile görüntü arama
 
@@ -23,7 +23,7 @@ Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren B
 
 Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js)'da bulunabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Node.js için Bilişsel Hizmetler Görüntü Arama SDK'sı](https://www.npmjs.com/package/azure-cognitiveservices-imagesearch)
     * `npm install azure-cognitiveservices-imagesearch` kullanarak yükleme
@@ -38,7 +38,6 @@ Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](ht
 
     ```javascript
     'use strict';
-    https = require('https');
     const Search = require('azure-cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
@@ -94,13 +93,13 @@ Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](ht
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Görüntü Arama tek sayfalı uygulama öğreticisi](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Resim Arama tek sayfalı uygulama öğreticisi](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing Görüntü Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Azure Bilişsel Hizmetler SDK'sı için Node.js örnekleri](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Görüntü Arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6f4f2f6a7999b2d26e198a11bb7cee27991a775b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685948"
+ms.locfileid: "51711965"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -36,7 +36,7 @@ Bu makalede ayarlamak ve Docker ve Windows görüntüleme ve yönetme yardımcı
 - Service Fabric
 - Red Hat OpenShift
 
-Dağıtılmış iş yüklerinizin performansını izleme ilgileniyorsanız Kubernetes ortamlarını barındırılan Azure Kubernetes Service (AKS), bkz: [İzleyici Azure Kubernetes hizmeti](../monitoring/monitoring-container-insights-overview.md). Kapsayıcı izleme çözümü, platform izlemek için destek içermez.  
+Dağıtılmış iş yüklerinizin performansını izleme ilgileniyorsanız Kubernetes ortamlarını barındırılan Azure Kubernetes Service (AKS), bkz: [İzleyici Azure Kubernetes hizmeti](../azure-monitor/insights/container-insights-overview.md). Kapsayıcı izleme çözümü, platform izlemek için destek içermez.  
 
 Aşağıdaki diyagram çeşitli kapsayıcı konağında ve Log Analytics ile aracıları arasındaki ilişkiler gösterilmektedir.
 
@@ -97,7 +97,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
 ## <a name="installing-and-configuring-the-solution"></a>Çözümünü yükleme ve yapılandırma
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
-1. Log Analytics çalışma alanınızdan kapsayıcı izleme çözümünü ekleyin [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
+1. Log Analytics çalışma alanınızdan kapsayıcı izleme çözümünü ekleyin [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md).
 
 2. Yükleyin ve Docker ile bir Log Analytics aracısını kullanın. İşletim sistemi ve Docker orchestrator bağlı olarak, aracınızı yapılandırmak için aşağıdaki yöntemleri kullanabilirsiniz.
   - Tek başına konakları için:

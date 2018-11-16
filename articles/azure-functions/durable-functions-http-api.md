@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/15/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6d4a6b7aa2ad236fba6a8ea0b01578b4843d11f3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354266"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712934"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -95,6 +95,7 @@ Tüm HTTP API'lerini aşağıdaki parametreleri uzantısı sınav zamanı taraf�
 | createdTimeFrom  | Sorgu dizesi    | İsteğe bağlı parametre. Belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından sonra oluşturulan döndürülen örneklerinin listesini filtreler.|
 | createdTimeTo    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından önce oluşturulan döndürülen örneklerinin listesini filtreler.|
 | runtimeStatus    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, filtreleri döndürülen örneklerinin listesini çalışma zamanı durumlarına göre. Olası çalışma zamanı durum değerlerinin listesini görmek için bkz: [örnekleri sorgulama](durable-functions-instance-management.md) konu. |
+| Sayfanın Üstü    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, sorgunun sonuçlarını sayfalara bölmek ve sayfa başına sonuç sayısı üst sınırını. |
 
 `systemKey` Azure işlevleri ana bilgisayar tarafından otomatik olarak oluşturulmuş bir yetkilendirme anahtardır. Özellikle dayanıklı görev uzantısı API'ler için erişim verir ve aynı şekilde yönetilebilir [diğer yetkilendirme anahtarları](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Bulunacak en basit yolu `systemKey` değerdir kullanarak `CreateCheckStatusResponse` API daha önce bahsedilen.
 
@@ -291,6 +292,26 @@ Yanıt yükü düzenleme durumu (okunabilmesi için biçimlendirilmiştir) dahil
 > [!NOTE]
 > Çok sayıda örnek tablosundaki satırları varsa bu işlem Azure depolama g/ç açısından çok pahalı olabilir. Örnek tablo hakkında daha fazla ayrıntı bulunabilir [performansı ve ölçeği dayanıklı işlevler (Azure işlevleri) içinde](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) belgeleri.
 > 
+
+#### <a name="request-with-paging"></a>Disk belleği ile istek
+
+Ayarlayabileceğiniz `top` sorgunun sonuçlarını sayfalara bölmek için parametre.
+
+İşlevleri 1.0 için istek biçimi aşağıdaki gibidir:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+Sonraki sayfaya varsa, bir devamlılık belirteci yanıt üst bilgisinde döndürülür.  Üst bilgi adı `x-ms-continuation-token`.
+
+Sonraki istek üst bilgisinde devamlılık belirteci değeri ayarlarsanız, sonraki sayfaya alabilirsiniz.  Bu anahtar istek üst `x-ms-continuation-token`.
 
 
 ### <a name="raise-event"></a>Olayı

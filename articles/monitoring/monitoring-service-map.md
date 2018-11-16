@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ea804899b04dad88ceeac14793d226cca47fc5c1
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252930"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713257"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
@@ -27,7 +27,7 @@ Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerin
 Bu makalede, ekleme ve hizmet eşlemesi kullanarak ayrıntılarını açıklar. Hizmet eşlemesi ve aracı ekleme işlemi yapılandırma hakkında daha fazla bilgi için bkz: [yapılandırma hizmet eşlemesi çözümünü azure'da]( monitoring-service-map-configure.md).
 
 >[!NOTE]
->Hizmet eşlemesi zaten dağıttıysanız, artık Ayrıca, maps Azure İzleyici'de VM'ler için VM durumunu ve performansını izlemek için ek özellikler içeren görüntüleyebilirsiniz. Daha fazla bilgi için bkz. [Vm'lere genel bakış için Azure İzleyici](monitoring-vminsights-overview.md).
+>Hizmet eşlemesi zaten dağıttıysanız, artık Ayrıca, maps Azure İzleyici'de VM'ler için VM durumunu ve performansını izlemek için ek özellikler içeren görüntüleyebilirsiniz. Daha fazla bilgi için bkz. [Vm'lere genel bakış için Azure İzleyici](../azure-monitor/insights/vminsights-overview.md).
 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma

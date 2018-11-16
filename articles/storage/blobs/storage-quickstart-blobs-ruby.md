@@ -6,33 +6,32 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 88394d7da1aab52b752aee68de60e638d0c7e7f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: f6a163b151a6b9066ea58c5834204ed54e51cfc2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992771"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711234"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Hızlı Başlangıç: Ruby kullanarak blobları yükleme, indirme ve listeleme
 
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Ruby'yi nasıl kullanabileceğinizi öğreneceksiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için: 
-* [Ruby](https://www.ruby-lang.org/en/downloads/)'yi yükleyin
-* rubygem paketini kullanarak [Ruby için Azure Depolama kitaplığını](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) yükleyin. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+Aşağıdaki ek önkoşulların yüklü olduğundan emin olun:
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [Ruby için Azure depolama kitaplığını](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage), rubygem paketini kullanarak: 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    ```
+    gem install azure-storage-blob
+    ```
+    
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 Bu [hızlı başlangıçta](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) kullanılan örnek uygulama, temel bir Ruby uygulamasıdır.  
 

@@ -6,18 +6,18 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 83f38d6a04b90cfd8e056686f1a1539fd15e98b3
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: aeaa56d192899ef12b698ebbc5f19305f79f4ff1
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978306"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706271"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>.NET Core ve Visual Studio ile Azure Dev Spaces’ı Kullanmaya Başlama
 
@@ -103,6 +103,9 @@ Azure Dev Spaces ile çalışacak şekilde etkinleştirilmemiş bir küme seçer
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 **Tamam**’ı seçin.
+
+> [!IMPORTANT]
+> Azure geliştirme alanları yapılandırma işlemini kaldıracak `azds` kümedeki varsa, ad alanı.
 
  Bunu gerçekleştirmek için bir arka plan görevi başlatılır. Tamamlanması birkaç dakika sürer. Oluşturma işleminin devam edip etmediğini görmek için, aşağıdaki görüntüde gösterildiği gibi işaretçinizi durum çubuğunun sol alt köşesindeki **Arka plan görevleri** simgesinin üzerine getirin.
 

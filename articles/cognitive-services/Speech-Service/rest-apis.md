@@ -1,317 +1,63 @@
 ---
-title: Konuşma hizmeti REST API'leri
-description: Konuşma hizmeti için REST API referansı.
+title: Konuşma hizmeti REST API - konuşma hizmeti
+titleSuffix: Azure Cognitive Services
+description: Konuşmayı metne ve metin okuma REST API'lerini kullanmayı öğrenin. Bu makalede, sorgu seçenekleri, yetkilendirme seçenekleri hakkında bilgi edineceksiniz yapısı bir istek ve yanıt.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: erhopf
-ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5522b076fdf3d4e339f5e170679f389259ff1359
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566627"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713138"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
-Azure Bilişsel hizmetler konuşma hizmeti REST API'leri tarafından sağlanan API'leri benzerdir [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/Speech). Bing konuşma hizmeti tarafından kullanılan uç noktalarını uç noktalarına farklıdır. Bölgesel uç noktaları kullanılabilir ve kullanmakta olduğunuz uç noktaya karşılık gelen bir abonelik anahtarı kullanması gerekir.
-
-## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
-
-Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda gösterilmektedir. Eşleşen abonelik bölgenizi kullanın.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
-
-> [!NOTE]
-> Akustik model veya dil modeli ya da telaffuz özelleştirdiyseniz, özel uç noktanıza kullanın.
-
-Bu API yalnızca kısa konuşma destekler. İstekleri 10 saniyeye kadar ses içeren ve en son 14 saniyede toplam en fazla. REST API, kısmi veya Ara sonuçlar yalnızca Nihai sonuç döndürür. Konuşma hizmeti de sahip bir [toplu transkripsiyonu](batch-transcription.md) uzun ses özelliği API.
-
-
-### <a name="query-parameters"></a>Sorgu parametreleri
-
-REST isteğinin sorgu dizesinde aşağıdaki parametreleri eklenebilir.
-
-|Parametre adı|Gerekli/isteğe bağlı|Anlamı|
-|-|-|-|
-|`language`|Gerekli|Tanınması için bir dil tanımlayıcısı. Bkz: [desteklenen diller](language-support.md#speech-to-text).|
-|`format`|İsteğe bağlı<br>Varsayılan: `simple`|Sonuç biçimi `simple` veya `detailed`. Basit sonuçlarında `RecognitionStatus`, `DisplayText`, `Offset`ve süresi. Ayrıntılı sonuçları güvenle değerleri ve dört farklı temsilleri ile birden çok aday içerir.|
-|`profanity`|İsteğe bağlı<br>Varsayılan: `masked`|Küfür tanıma sonuçları işlemek nasıl. Olabilir `masked` (küfür yıldız işareti ile değiştirir), `removed` (kaldırır. tüm küfür), veya `raw` (küfür içerir).
-
-### <a name="request-headers"></a>İstek üst bilgileri
-
-Aşağıdaki alanlar, HTTP istek bağlığında gönderilir.
-
-|Üst bilgi|Anlamı|
-|------|-------|
-|`Ocp-Apim-Subscription-Key`|Konuşma hizmeti abonelik anahtarınızı. Ya da bu üst bilgi veya `Authorization` sağlanmalıdır.|
-|`Authorization`|Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Ya da bu üst bilgi veya `Ocp-Apim-Subscription-Key` sağlanmalıdır. Bkz: [kimlik doğrulaması](#authentication).|
-|`Content-type`|Biçimi ve verilerin ses codec açıklar. Şu anda, bu değer olmalıdır `audio/wav; codec=audio/pcm; samplerate=16000`.|
-|`Transfer-Encoding`|İsteğe bağlı. Verilen olmalıdır `chunked` yerine tek bir dosyayı birden çok küçük öbekler halinde gönderilmesi ses verilerin sağlamak için.|
-|`Expect`|Öbekli aktarım kullanıyorsanız, gönderme `Expect: 100-continue`. Konuşma hizmeti, ilk istek bildirir ve ek veri bekler.|
-|`Accept`|İsteğe bağlı. Sağlanırsa, içermelidir `application/json`gibi konuşma tanıma hizmeti sonuçları JSON biçiminde sağlar. (Bir uyumsuz varsayılan değer her zaman için iyi bir uygulama, bu nedenle, bir belirtmezseniz dahil bazı Web isteği çerçeveleri sağlar `Accept`.)|
-
-### <a name="audio-format"></a>Ses biçimi
-
-Ses HTTP gövdesi gönderilen `POST` isteği. Bu tabloda biçimlerden birinde olmalıdır:
-
-| Biçimlendir | Codec bileşeni | Bit hızı | Örnek hızı |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 16 kHz, mono |
-| OGG | GEÇERLİ | 16-bit | 16 kHz, mono |
-
->[!NOTE]
->Yukarıdaki biçimleri, REST API ve konuşma hizmeti, WebSocket üzerinden desteklenir. [Speech SDK'sı](/index.yml) WAV PCM codec ile biçim şu anda yalnızca destekler.
-
-### <a name="chunked-transfer"></a>Öbekli aktarım
-
-Öbekli aktarım (`Transfer-Encoding: chunked`) tanıma gecikme süresi, aktarım sırasında ses dosyası işlemesi konuşma tanıma hizmeti izin verdiğinden azaltmaya yardımcı olabilir. REST API, kısmi veya Ara sonuçlar sağlamaz. Bu seçenek, yalnızca yanıt verme hızını artırmak için tasarlanmıştır.
-
-Aşağıdaki kod öbekler halinde ses gönderme işlemini gösterir. Yalnızca ilk öbekte ses dosyanın üst bilgisi içermelidir. `request` HTTPWebRequest nesneyi uygun REST uç noktasına bağlanır. `audioFile` ses dosyası diskte yoludur.
-
-```csharp
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
-{
-
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
-    byte[] buffer = null;
-    int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
-    {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
-        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
-        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
-        {
-            requestStream.Write(buffer, 0, bytesRead);
-        }
-
-        // Flush
-        requestStream.Flush();
-    }
-}
-```
-
-### <a name="example-request"></a>Örnek istek
-
-Tipik bir istek verilmiştir.
-
-```HTTP
-POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
-Accept: application/json;text/xml
-Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.stt.speech.microsoft.com
-Transfer-Encoding: chunked
-Expect: 100-continue
-```
-
-### <a name="http-status"></a>HTTP durumu
-
-Yanıtın HTTP durum, başarı veya sık karşılaşılan hata koşulları belirtir.
-
-HTTP kodu|Anlamı|Olası neden
--|-|-|
-100|Devam|İlk istek kabul edildi. Kalan verileri göndermek ile devam edin. (İle öbekli aktarım kullanılır.)
-200|Tamam|İstek başarılı oldu; yanıt gövdesi bir JSON nesnesidir.
-400|Hatalı istek|Dil kodu yok veya sağlanan desteklenen bir dil değil; ses dosyası geçersiz.
-401|Yetkilendirilmemiş|Abonelik anahtarı veya yetkilendirme belirteci, belirtilen bölge veya geçersiz uç nokta geçersiz.
-403|Yasak|Eksik abonelik anahtarı veya yetkilendirme belirteci.
-
-### <a name="json-response"></a>JSON yanıtı
-
-Sonuçları JSON biçiminde döndürülür. Sorgu parametrelerinizin bağlı olarak bir `simple` veya `detailed` biçiminde döndürülür.
-
-#### <a name="the-simple-format"></a>`simple` Biçimi 
-
-Bu biçim, aşağıdaki üst düzey alanları içerir.
-
-|Alan adı|İçerik|
-|-|-|
-|`RecognitionStatus`|Durumu gibi `Success` başarılı tanıma. Bkz. Bu [tablo](rest-apis.md#recognitionstatus).|
-|`DisplayText`|Harf, noktalama işaretleri, ters metin normalleştirme (dönüştürme konuşulan metnin gibi 200 "iki yüz" veya "Dr kısa form sonra tanınan metin. Smith"için"doktor smith") ve küfür maskeleme. Yalnızca başarı sunar.|
-|`Offset`|Tanınan konuşma tanıma ses akışı başlar süre (100 nanosaniyelik birimleri).|
-|`Duration`|Ses akışı olarak tanınan konuşma süresi (100 nanosaniyelik birimlerindeki).|
-
-#### <a name="the-detailed-format"></a>`detailed` Biçimi 
-
-Bu biçim, aşağıdaki üst düzey alanları içerir.
-
-|Alan adı|İçerik|
-|-|-|
-|`RecognitionStatus`|Durumu gibi `Success` başarılı tanıma. Bkz. Bu [tablo](rest-apis.md#recognition-status).|
-|`Offset`|Tanınan konuşma tanıma ses akışı başlar süre (100 nanosaniyelik birimleri).|
-|`Duration`|Ses akışı olarak tanınan konuşma süresi (100 nanosaniyelik birimlerindeki).|
-|`NBest`|Büyük olasılıkla en yüksek dereceye sahip aynı konuşma alternatif yorum listesi. Bkz: [NBest açıklama](rest-apis.md#nbest).|
-
-#### <a name="nbest"></a>NBest
-
-`NBest` Alan büyük olasılıkla'den az büyük olasılıkla sıralanmış aynı konuşma alternatif ınterpretations listesi verilmiştir. İlk giriş ana tanıma işleminin sonucu aynıdır. Her girişin aşağıdaki alanları içerir:
-
-|Alan adı|İçerik|
-|-|-|
-|`Confidence`|Güvenilirlik puanı 1.0 (tam güven) girişinin 0,0 (güven yok)
-|`Lexical`|Sözcük şeklinde tanınan metin: Gerçek sözcüklerin tanınır.
-|`ITN`|Ters metin normalleştirilmiş ("") kurallı tanınan metinle telefon numaraları, sayılar, kısaltmaları ("doktor smith" için "dr smith") ve uygulanan diğer dönüşümler.
-|`MaskedITN`| Edemezsiniz formun, istenmesi halinde uygulanan küfür maskeleme ile.
-|`Display`| Noktalama işaretleri ve eklenen büyük/küçük harf ile tanınan metin görüntüleme formu.
-
-#### <a name="recognitionstatus"></a>RecognitionStatus
-
-`RecognitionStatus` Alan aşağıdaki değerleri içerebilir.
-
-|Durum değeri|Açıklama
-|-|-|
-| `Success` | Tanıma başarılı oldu ve görüntü metni alanı yok. |
-| `NoMatch` | Konuşma Tanıma Ses akışında algılandı, ancak hiçbir hedef dil sözcükleri eşleştirilmiş olan. Genellikle kullanıcı Konuşmayı olandan farklı bir dil tanıma dilidir anlamına gelir. |
-| `InitialSilenceTimeout` | Ses akışı başlangıcını yalnızca sessizlik ve konuşma için beklerken zaman aşımına hizmetini içeriyordu. |
-| `BabbleTimeout` | Ses akışı başlangıcını yalnızca gürültü ve konuşma için beklerken zaman aşımına hizmetini içeriyordu. |
-| `Error` | Tanıma hizmeti bir iç hatayla karşılaştı ve çalışmaya devam edemedi. Mümkün olduğunda yeniden deneyin. |
-
-> [!NOTE]
-> Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez.
-
-### <a name="sample-responses"></a>Örnek yanıt
-
-Tipik bir yanıt için verilmiştir `simple` tanıma.
-
-```json
-{
-  "RecognitionStatus": "Success",
-  "DisplayText": "Remind me to buy 5 pencils.",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289"
-}
-```
-
-Tipik bir yanıt için verilmiştir `detailed` tanıma.
-
-```json
-{
-  "RecognitionStatus": "Success",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289",
-  "NBest": [
-      {
-        "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five pencils",
-        "ITN" : "remind me to buy 5 pencils",
-        "MaskedITN" : "remind me to buy 5 pencils",
-        "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
-      }
-  ]
-}
-```
-
-## <a name="text-to-speech"></a>Metin Okuma
-
-Konuşma hizmetin metin okuma API REST uç noktaları verilmiştir. Eşleşen abonelik bölgenizi uç noktası kullanma.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-Konuşma hizmeti, Bing konuşma tarafından desteklenen 16Khz çıkış ek olarak 24-KHz ses çıkış destekler. Kullanmak için dört 24-KHz Çıkış biçimleri kullanılabilir `X-Microsoft-OutputFormat` HTTP üst bilgisi, iki 24-KHz sesleri olarak `Jessa24kRUS` ve `Guy24kRUS`.
-
-Yerel Ayar | Dil   | Cinsiyet | Hizmet adı eşleme
--------|------------|--------|------------
-tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)"
-tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)"
-
-Kullanılabilir seslerini tam listesi kullanılabilir [desteklenen diller](language-support.md#text-to-speech).
-
-### <a name="request-headers"></a>İstek üst bilgileri
-
-Aşağıdaki alanlar, HTTP istek bağlığında gönderilir.
-
-|Üst bilgi|Anlamı|
-|------|-------|
-|`Authorization`|Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Gereklidir. Bkz: [kimlik doğrulaması](#authentication).|
-|`Content-Type`|Giriş içerik türü: `application/ssml+xml`.|
-|`X-Microsoft-OutputFormat`|Çıkış ses biçimi. Sonraki tabloya bakın.|
-|`User-Agent`|Uygulama adı. Gerekli; 255'den az karakter içermelidir.|
-
-Kullanılabilir ses çıkış biçimleri (`X-Microsoft-OutputFormat`) bir bit hızı ve bir kodlama dahil edilip derecelendirilir.
-
-|||
-|-|-|
-`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
-`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
-`audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
-`audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
-`riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
-`audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
-
-> [!NOTE]
-> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24khz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri.
-
-### <a name="request-body"></a>İstek gövdesi
-
-Metni konuşmaya dönüştürülecek bir HTTP gövdesi olarak gönderilen `POST` istek ya da düz metin (ASCII veya UTF-8) veya [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md) (SSML'yi) biçimi (UTF-8). Düz metin istekleri, hizmetin varsayılan ses ve dil kullanın. Farklı bir ses kullanmak için SSML'yi gönderin.
-
-### <a name="sample-request"></a>Örnek istek
-
-Aşağıdaki HTTP isteği bir SSML'yi gövdesi ses seçmek için kullanır. Gövde 1000 karakter uzunluğunda olmalıdır.
-
-```xml
-POST /cognitiveservices/v1 HTTP/1.1
-
-X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
-Content-Type: application/ssml+xml
-Host: westus.tts.speech.microsoft.com
-Content-Length: 225
-Authorization: Bearer [Base64 access_token]
-
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
-        Microsoft Speech Service Text-to-Speech API
-</voice></speak>
-```
-
-### <a name="http-response"></a>HTTP yanıtı
-
-Yanıtın HTTP durum, başarı veya sık karşılaşılan hata koşulları belirtir.
-
-HTTP kodu|Anlamı|Olası neden
--|-|-|
-200|Tamam|İstek başarılı oldu; ses dosyası yanıt gövdesidir.
-400 |Bozuk İstek |Gerekli parametre eksik, boş veya null. Veya, gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. Çok uzun üstbilgi buna yaygın bir sorundur.
-401|Yetkilendirilmemiş |İstek yetkili değil. Abonelik anahtarı veya belirteç geçerli ve doğru bölgesinde olduğundan emin olmak için kontrol edin.
-413|İstek varlığı çok büyük|SSML'yi giriş metni, 1024 karakterden uzun.
-429|Çok Fazla İstek|Kota veya aboneliğiniz için izin isteği sayısını aştınız.
-502|Hatalı Ağ Geçidi | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir.
-
-HTTP durum ise `200 OK`, yanıt gövdesi istenen biçiminde bir ses dosyası içerir. Bu dosya, aktarılan veya bir arabellek veya daha sonra kayıttan yürütmek ya da diğer kullanım için Dosya kaydedildi çalınabilir.
+Alternatif olarak [Speech SDK'sı](speech-sdk.md), konuşma hizmeti, bir dizi REST API'si ile metin okuma Konuşmayı metne dönüştürme sağlar. Her erişilebilen bir uç noktaya bir bölge ile ilişkilidir. Uygulamanızı kullanmayı planladığınız uç nokta için bir abonelik anahtarı gerektirir.
+
+REST API'lerini kullanarak önce anlayın:
+* REST API kullanarak konuşma metin istekleri yalnızca kaydedilen ses 10 saniyelik içerebilir.
+* Konuşmayı metne REST API, yalnızca son sonuçları döndürür. Kısmi sonuçlar sağlanmaz.
+* Metin okuma REST API, bir yetkilendirme üst bilgisi gerektirir. Bu, hizmete erişmek için bir belirteç değişimi tamamlanması gerektiği anlamına gelir. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication).
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Konuşma hizmetin REST API'sine bir istek göndermek için bir abonelik anahtarı ya da bir erişim belirteci gerektirir. Genel olarak, abonelik anahtarını doğrudan göndermek en kolay yoldur. Konuşma hizmeti erişim belirteci, ardından alır. Yanıt süresi en aza indirmek için bir erişim belirteci yerine kullanmak isteyebilirsiniz.
+Ya da Konuşmayı metne veya metinden konuşmaya REST API'sine yapılan her isteğin yetkilendirme üst bilgisi gerektirir. Bu tablo, hangi üstbilgileri her hizmet için desteklenen gösterilmektedir:
 
-Bir belirteç almak için bölgesel bir konuşma hizmeti için abonelik anahtarınızı sunmak `issueToken` uç noktası, aşağıdaki tabloda gösterildiği gibi. Eşleşen abonelik bölgenizi uç noktası kullanma.
+| Desteklenen yetkilendirme üstbilgileri | Konuşmayı Metne Dönüştürme | Metin Okuma |
+|------------------------|----------------|----------------|
+| Ocp-Apim-Subscription-Key | Evet | Hayır |
+| Yetkilendirme: taşıyıcı | Evet | Evet |
+
+Kullanırken `Ocp-Apim-Subscription-Key` üst bilgi, yalnızca abonelik anahtarınızı girin isteniyor. Örneğin:
+
+```
+'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
+```
+
+Kullanırken `Authorization: Bearer` üst bilgi, işiniz için istekte bulunmak için gereken `issueToken` uç noktası. Bu istekte 10 dakika için geçerli olan bir erişim belirteci için abonelik anahtarınızı exchange. Sonraki birkaç bölümde bir belirteç almak, bir belirteç kullanın ve bir belirteç yenileme öğreneceksiniz.
+
+### <a name="how-to-get-an-access-token"></a>Bir erişim belirteci alma
+
+Erişim belirteci almak için bir isteğin yapılacağı gerekecektir `issueToken` uç noktayı kullanarak `Ocp-Apim-Subscription-Key` ve abonelik anahtarınız.
+
+Bu bölgeler ve uç noktaları desteklenir:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Her bir erişim belirteci 10 dakika için geçerlidir. Dilediğiniz zaman yeni bir belirteç elde edebilirsiniz. İsterseniz, her konuşma REST API isteği hemen önce bir belirteç elde edebilirsiniz. Ağ trafiğini ve gecikme süresini en aza indirmek için aynı belirteci dokuz dakikalığına kullanmanızı öneririz.
+Erişim belirteci isteği oluşturmak için aşağıdaki örnekleri kullanın.
 
-Aşağıdaki bölümlerde, bir belirteç almak üzere nasıl ve bir istekte kullanma işlemini gösterir.
+#### <a name="http-sample"></a>HTTP örnek
 
-### <a name="get-a-token-http"></a>Bir belirteç almak: HTTP
+Bu örnek, bir belirteç almak için basit bir HTTP isteği içindir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz Batı ABD bölgesinde değil, yerini `Host` üst bilgi, bölgenin ana bilgisayar adına sahip.
 
-Aşağıdaki örnek, bir belirteç almak için bir örnek HTTP isteğidir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz Batı ABD bölgesinde değil, yerini `Host` üst bilgi, bölgenin ana bilgisayar adına sahip.
-
-```
+```http
 POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.api.cognitive.microsoft.com
@@ -319,11 +65,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-Bu istek için yanıt gövdesinin Java Web Token (JWT) biçiminde bir erişim belirtecidir.
+Yanıt gövdesinin Java Web Token (JWT) biçimlerindeki erişim belirteci içerir.
 
-### <a name="get-a-token-powershell"></a>Bir belirteç almak: PowerShell
+#### <a name="powershell-sample"></a>PowerShell örneği
 
-Aşağıdaki Windows PowerShell Betiği, bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Verilen URI ana bilgisayar adını, Batı ABD bölgesinde aboneliğiniz yoksa, buna göre değişir.
+Bu örnek, bir erişim belirteci almak için basit bir PowerShell Betiği verilmiştir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Doğru uç noktaya aboneliğinizi eşleşen bölgeyi kullandığınızdan emin olun. Bu örnek, şu anda Batı ABD için ayarlanmış.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -340,24 +86,21 @@ $OAuthToken
 
 ```
 
-### <a name="get-a-token-curl"></a>Bir belirteç almak: cURL
+#### <a name="curl-sample"></a>cURL örnek
 
-cURL Linux (ve Linux için Windows alt sistemi) kullanılabilir komut satırı aracıdır. Aşağıdaki cURL komutu bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Verilen URI ana bilgisayar adını, Batı ABD bölgesinde aboneliğiniz yoksa, buna göre değişir.
+cURL Linux (ve Linux için Windows alt sistemi) kullanılabilir komut satırı aracıdır. Bu cURL komutu bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Doğru uç noktaya aboneliğinizi eşleşen bölgeyi kullandığınızdan emin olun. Bu örnek, şu anda Batı ABD için ayarlanmış.
 
-> [!NOTE]
-> Komut okunabilirlik için birden çok satırda gösterilir, ancak bir kabuk isteminde tek bir satıra girin.
-
-```
+```cli
 curl -v -X POST
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
- -H "Content-type: application/x-www-form-urlencoded"
- -H "Content-Length: 0"
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+ -H "Content-type: application/x-www-form-urlencoded" \
+ -H "Content-Length: 0" \
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### <a name="get-a-token-c"></a>Bir belirteç almak: C#
+#### <a name="c-sample"></a>C# örneği
 
-Aşağıdaki C# sınıfı, bir erişim belirteci almak nasıl gösterir. Konuşma hizmeti abonelik anahtarınızı sınıfı başlattığınızda geçirin. Batı ABD bölgesinde aboneliğiniz yoksa, ana bilgisayar adını değiştirmek `FetchTokenUri` uygun şekilde.
+Bu C# sınıfı bir erişim belirteci almak nasıl gösterir. Konuşma hizmeti abonelik anahtarınızı sınıfı başlattığınızda geçirin. Aboneliğiniz Batı ABD bölgesinde değilse değiştirin `FetchTokenUri` aboneliğiniz için bölge eşleştirilecek.
 
 ```cs
 /*
@@ -396,11 +139,13 @@ public class Authentication
 }
 ```
 
-### <a name="use-a-token"></a>Bir belirteç kullanın
+### <a name="how-to-use-an-access-token"></a>Bir erişim belirteci kullanma
 
-Bir REST API isteğinde bir belirteç kullanmak için bunu sağlamak `Authorization` sözcüğü aşağıdaki üst bilgi, `Bearer`. Bir belirteç içeren konuşma REST istekleri için metin örneği aşağıdadır. Gerçek belirtecinizin yerine `YOUR_ACCESS_TOKEN`. Doğru konak adında kullanmak `Host` başlığı.
+Hizmet olarak erişim belirtecinin gönderilmesi gereken `Authorization: Bearer <TOKEN>` başlığı. Her bir erişim belirteci 10 dakika için geçerlidir. Dilediğiniz zaman yeni bir belirteç elde edebilirsiniz, ancak ağ trafiğini ve gecikme süresini en aza indirmek için aynı belirteci dokuz dakikalığına kullanmanızı öneririz.
 
-```xml
+Metin okuma REST API için örnek bir HTTP isteği şu şekildedir:
+
+```http
 POST /cognitiveservices/v1 HTTP/1.1
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Host: westus.tts.speech.microsoft.com
@@ -414,11 +159,9 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renew-authorization"></a>Yetkilendirmeyi yenile
+### <a name="how-to-renew-an-access-token-using-c"></a>Kullanarak bir erişim belirteci yenilemeC#
 
-Yetkilendirme belirtecini, 10 dakika sonra süresi dolar. Süresi dolmadan önce yeni bir belirteç elde yetki yenileyin. Örneğin, dokuz dakika sonra yeni bir belirteç elde edebilirsiniz.
-
-Aşağıdaki C# kod daha önce gösterilen sınıfı mongodb'nin ' dir. `Authentication` Sınıfı otomatik olarak edinir yeni bir erişim belirteci dokuz dakikada bir zamanlayıcı kullanarak. Bu yaklaşım, program çalışırken geçerli bir belirteç her zaman kullanılabilir olmasını sağlar.
+Bu C# kodudur, mongodb'nin daha önce gösterilen sınıfı. `Authentication` Sınıfı otomatik olarak alır yeni bir erişim belirteci dokuz dakikada bir zamanlayıcı kullanarak. Bu yaklaşım, program çalışırken geçerli bir belirteç her zaman kullanılabilir olmasını sağlar.
 
 > [!NOTE]
 > Bir zamanlayıcı kullanmak yerine, bir zaman damgası, son belirteç zaman edinilen depolayabilirsiniz. Yalnızca, süresi dolmak üzere olduğunda yeni bir talep edebilir. Bu yaklaşım yeni belirteçleri gereksiz yere isteyen önler ve seyrek konuşma isteklerde programları için daha uygun olabilir.
@@ -426,9 +169,6 @@ Aşağıdaki C# kod daha önce gösterilen sınıfı mongodb'nin ' dir. `Authent
 Önceki örneklerde olduğu gibi emin `FetchTokenUri` değerle eşleşen abonelik bölgenizi. Abonelik anahtarınızı sınıfı başlattığınızda geçirin.
 
 ```cs
-/*
-    * This class demonstrates how to maintain a valid access token.
-    */
 public class Authentication
 {
     public static readonly string FetchTokenUri =
@@ -500,6 +240,268 @@ public class Authentication
     }
 }
 ```
+
+## <a name="speech-to-text-api"></a>Konuşma metin çevirisi API'si
+
+Konuşmayı metne REST API, yalnızca kısa konuşma destekler. İstekleri en fazla 10 saniye ses toplam süre 14 saniye içerebilir. REST API, son sonuçları, kısmi ya da Ara sonuçlar yalnızca döndürür.
+
+Uzun ses uygulamanız için bir gereksinim gönderdiği kullanmayı [Speech SDK'sı](speech-sdk.md) veya [toplu transkripsiyonu](batch-transcription.md).
+
+### <a name="regions-and-endpoints"></a>Bölgeler ve uç noktaları
+
+Bu bölgeler, REST API kullanarak konuşma metin döküm için desteklenir. Eşleşen abonelik bölgenizi uç nokta seçtiğinizden emin olun.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### <a name="query-parameters"></a>Sorgu parametreleri
+
+Bu parametreleri REST isteğinin sorgu dizesinde eklenebilir.
+
+| Parametre | Açıklama | Gerekli / isteğe bağlı |
+|-----------|-------------|---------------------|
+| `language` | Tanınan konuşulan dil tanımlar. Bkz: [desteklenen diller](language-support.md#speech-to-text). | Gerekli |
+| `format` | Sonuç biçimi belirtir. Kabul edilen değerler `simple` ve `detailed`. Basit sonuçlarında `RecognitionStatus`, `DisplayText`, `Offset`, ve `Duration`. Ayrıntılı yanıtlar, birden çok sonuçla güvenle değerleri ve dört farklı temsilleri içerir. Varsayılan ayar `simple`. | İsteğe bağlı |
+| `profanity` | Tanıma sonuçları küfür nasıl ele alınacağını belirtir. Değerler kabul `masked`, yıldız işareti ile küfür değiştirir `removed`, sonuç, tüm küfür kaldırın veya `raw`, sonuçta küfür içerir. Varsayılan ayar `masked`. | İsteğe bağlı |
+
+### <a name="request-headers"></a>İstek üst bilgileri
+
+Bu tablo, Konuşmayı metne istekler için gerekli ve isteğe bağlı üst bilgileri listeler.
+
+|Üst bilgi| Açıklama | Gerekli / isteğe bağlı |
+|------|-------------|---------------------|
+| `Ocp-Apim-Subscription-Key` | Konuşma hizmeti abonelik anahtarınız. | Ya da bu üst bilgi veya `Authorization` gereklidir. |
+| `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication). | Ya da bu üst bilgi veya `Ocp-Apim-Subscription-Key` gereklidir. |
+| `Content-type` | Sağlanan ses verisi codec ve biçim açıklar. Kabul edilen değerler `audio/wav; codec=audio/pcm; samplerate=16000` ve `audio/ogg; codec=audio/pcm; samplerate=16000`. | Gerekli |
+| `Transfer-Encoding` | Öbekli ses, tek bir dosya yerine gönderilen veri olduğunu belirtir. Yalnızca ses verileri varsa bu üstbilgiyi kullanır. | İsteğe bağlı |
+| `Expect` | Öbekli aktarım kullanıyorsanız, gönderme `Expect: 100-continue`. Konuşma hizmeti, ilk istek bildirir ve ek veri bekler.| Öbekli ses veri gönderen gereklidir. |
+| `Accept` | Sağlanırsa, olmalıdır `application/json`. Konuşma hizmeti, json'da sonuçlar sağlar. Bir uyumsuz varsayılan değer her zaman için iyi bir uygulama, bu nedenle, bir belirtmezseniz dahil bazı Web isteği çerçeveleri sağlar `Accept`. | İsteğe bağlı, ancak önerilir. |
+
+### <a name="audio-formats"></a>Ses biçimleri
+
+Ses HTTP gövdesi gönderilen `POST` isteği. Bu tabloda biçimlerden birinde olmalıdır:
+
+| Biçimlendir | Codec bileşeni | Bit hızı | Örnek hızı |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 16 kHz, mono |
+| OGG | GEÇERLİ | 16-bit | 16 kHz, mono |
+
+>[!NOTE]
+>Yukarıdaki biçimleri, REST API ve konuşma hizmeti, WebSocket üzerinden desteklenir. [Speech SDK'sı](/index.yml) WAV PCM codec ile biçim şu anda yalnızca destekler.
+
+### <a name="sample-request"></a>Örnek istek
+
+Bu tipik bir HTTP isteğidir. Aşağıdaki örnek, ana bilgisayar adı ve gerekli üst bilgileri içerir. Hizmet bu örnekte yer almayan ses veri girmeniz gerektiğini unutmayın. Belirtildiği gibi daha önce parçalama, ancak gerekli değildir önerilir.
+
+```HTTP
+POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+Accept: application/json;text/xml
+Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.stt.speech.microsoft.com
+Transfer-Encoding: chunked
+Expect: 100-continue
+```
+
+### <a name="http-status-codes"></a>HTTP durum kodları
+
+Her yanıt için HTTP durum kodu, başarı veya sık karşılaşılan hataları gösterir.
+
+| HTTP durum kodu | Açıklama | Olası neden |
+|------------------|-------------|-----------------|
+| 100 | Devam | İlk istek kabul edildi. Kalan verileri göndermek ile devam edin. (İle öbekli aktarım kullanılır.) |
+| 200 | Tamam | İstek başarılı oldu; yanıt gövdesi bir JSON nesnesidir. |
+| 400 | Hatalı istek | Dil kodu yok veya sağlanan desteklenen bir dil değil; ses dosyası geçersiz. |
+| 401 | Yetkilendirilmemiş | Abonelik anahtarı veya yetkilendirme belirteci, belirtilen bölge veya geçersiz uç nokta geçersiz. |
+| 403 | Yasak | Eksik abonelik anahtarı veya yetkilendirme belirteci. |
+
+### <a name="chunked-transfer"></a>Öbekli aktarım
+
+Öbekli aktarım (`Transfer-Encoding: chunked`) tanıma gecikme süresi, aktarım sırasında ses dosyası işlemesi konuşma hizmeti izin verdiğinden azaltmaya yardımcı olabilir. REST API, kısmi veya Ara sonuçlar sağlamaz. Bu seçenek, yalnızca yanıt verme hızını artırmak için tasarlanmıştır.
+
+Bu kod örneği, nasıl öbekler halinde ses gönderileceğini gösterir. Yalnızca ilk öbekte ses dosyanın üst bilgisi içermelidir. `request` HTTPWebRequest nesneyi uygun REST uç noktasına bağlanır. `audioFile` ses dosyası diskte yoludur.
+
+```csharp
+using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+{
+
+    /*
+    * Open a request stream and write 1024 byte chunks in the stream one at a time.
+    */
+    byte[] buffer = null;
+    int bytesRead = 0;
+    using (Stream requestStream = request.GetRequestStream())
+    {
+        /*
+        * Read 1024 raw bytes from the input audio file.
+        */
+        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
+        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
+        {
+            requestStream.Write(buffer, 0, bytesRead);
+        }
+
+        // Flush
+        requestStream.Flush();
+    }
+}
+```
+
+### <a name="response-parameters"></a>Yanıt parametreleri
+
+Sonuçları JSON olarak sağlanır. `simple` Biçimi bu üst düzey alanlar içerir.
+
+| Parametre | Açıklama  |
+|-----------|--------------|
+|`RecognitionStatus`|Durumu gibi `Success` başarılı tanıma. Sonraki tabloya bakın.|
+|`DisplayText`|Harf, noktalama işaretleri, ters metin normalleştirme (dönüştürme konuşulan metnin gibi 200 "iki yüz" veya "Dr kısa form sonra tanınan metin. Smith"için"doktor smith") ve küfür maskeleme. Yalnızca başarı sunar.|
+|`Offset`|Tanınan konuşma tanıma ses akışı başlar süre (100 nanosaniyelik birimleri).|
+|`Duration`|Ses akışı olarak tanınan konuşma süresi (100 nanosaniyelik birimlerindeki).|
+
+`RecognitionStatus` Alan, bu değerleri içerebilir:
+
+| Durum | Açıklama |
+|--------|-------------|
+| `Success` | Tanıma başarılı oldu ve `DisplayText` alanının olduğunu farkedin. |
+| `NoMatch` | Konuşma Tanıma Ses akışında algılandı, ancak hiçbir hedef dil sözcükleri eşleştirilmiş olan. Genellikle kullanıcı Konuşmayı olandan farklı bir dil tanıma dilidir anlamına gelir. |
+| `InitialSilenceTimeout` | Ses akışı başlangıcını yalnızca sessizlik ve konuşma için beklerken zaman aşımına hizmetini içeriyordu. |
+| `BabbleTimeout` | Ses akışı başlangıcını yalnızca gürültü ve konuşma için beklerken zaman aşımına hizmetini içeriyordu. |
+| `Error` | Tanıma hizmeti bir iç hatayla karşılaştı ve çalışmaya devam edemedi. Mümkün olduğunda yeniden deneyin. |
+
+> [!NOTE]
+> Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez.
+
+`detailed` Biçimi aynı verileri içeren `simple` , bunların ile biçimde `NBest`, aynı konuşma tanıma sonucun alternatif yorum listesi. Bu sonuçları büyük olasılıkla'nden alınarak sıralanır az büyük olasılıkla ilk giriş ana tanıma işleminin sonucu aynıdır.  Kullanırken `detailed` biçimi `DisplayText` olarak sağlanan `Display` her sonucu için `NBest` listesi.
+
+Her bir nesnenin `NBest` liste aşağıdakileri içerir:
+
+| Parametre | Açıklama |
+|-----------|-------------|
+| `Confidence` | Güvenilirlik puanı 1.0 (tam güven) girişinin 0,0 (güven yok) |
+| `Lexical` | Sözcük şeklinde tanınan metin: Gerçek sözcüklerin tanınır. |
+| `ITN` | Ters metin normalleştirilmiş ("") kurallı tanınan metinle telefon numaraları, sayılar, kısaltmaları ("doktor smith" için "dr smith") ve uygulanan diğer dönüşümler. |
+| `MaskedITN` | Edemezsiniz formun, istenmesi halinde uygulanan küfür maskeleme ile. |
+| `Display` | Noktalama işaretleri ve eklenen büyük/küçük harf ile tanınan metin görüntüleme formu. Bu parametre aynı olan `DisplayText` biçimi ayarlandığında sağlanan `simple`. |
+
+### <a name="sample-responses"></a>Örnek yanıt
+
+Bu tipik bir yanıt için olan `simple` tanıma.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "DisplayText": "Remind me to buy 5 pencils.",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289"
+}
+```
+
+Bu tipik bir yanıt için olan `detailed` tanıma.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
+      },
+      {
+        "Confidence" : "0.54",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
+## <a name="text-to-speech-api"></a>Metin okuma API'si
+
+Bu bölgeler, REST API kullanarak metin okuma için desteklenir. Eşleşen abonelik bölgenizi uç nokta seçtiğinizden emin olun.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+Konuşma hizmeti, Bing konuşma tarafından desteklenen 16 Khz çıkışları birlikte 24-KHz ses çıkış destekler. Dört 24-KHz Çıkış biçimleri ve iki 24-KHz sesleri desteklenir.
+
+### <a name="voices"></a>Sesler
+
+| Yerel Ayar | Dil   | Cinsiyet | Eşleme |
+|--------|------------|--------|---------|
+| tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" |
+| tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)" |
+
+Kullanılabilir seslerini tam listesini görmek [desteklenen diller](language-support.md#text-to-speech).
+
+### <a name="request-headers"></a>İstek üst bilgileri
+
+Bu tablo, Konuşmayı metne istekler için gerekli ve isteğe bağlı üst bilgileri listeler.
+
+| Üst bilgi | Açıklama | Gerekli / isteğe bağlı |
+|--------|-------------|---------------------|
+| `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Ek bilgi için bkz: [kimlik doğrulaması](#authentication). | Gerekli |
+| `Content-Type` | Sağlanan metin için içerik türünü belirtir. Kabul değeri: `application/ssml+xml`. | Gerekli |
+| `X-Microsoft-OutputFormat` | Ses çıkış biçimini belirtir. Kabul edilen değerlerin tam listesi için bkz. [ses çıkış](#audio-outputs). | Gerekli |
+| `User-Agent` | Uygulama adı. 255 karakterden kısa olmalıdır. | Gerekli |
+
+### <a name="audio-outputs"></a>Ses çıkarır
+
+Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Microsoft-OutputFormat` başlığı. Her bir bit hızı ve kodlama türünü içerir.
+
+|||
+|-|-|
+| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
+| `riff-8khz-8bit-mono-mulaw` | `riff-16khz-16bit-mono-pcm` |
+| `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3` |
+| `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm` |
+| `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3` |
+| `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3` |
+
+> [!NOTE]
+> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24khz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri.
+
+### <a name="request-body"></a>İstek gövdesi
+
+Metin bir HTTP gövdesi olarak gönderilen `POST` isteği. Düz metin (ASCII veya UTF-8) olabilir veya [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md) (SSML'yi) biçimi (UTF-8). Düz metin istekleri konuşma hizmetin varsayılan ses ve dil kullanın. SSML'yi ile dil ve ses belirtebilirsiniz.
+
+### <a name="sample-request"></a>Örnek istek
+
+Bu HTTP isteğinin SSML ses ve dil belirtmek için kullanır. Gövde 1.000 karakterden uzun olamaz.
+
+```http
+POST /cognitiveservices/v1 HTTP/1.1
+
+X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+Content-Type: application/ssml+xml
+Host: westus.tts.speech.microsoft.com
+Content-Length: 225
+Authorization: Bearer [Base64 access_token]
+
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
+    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+        Microsoft Speech Service Text-to-Speech API
+</voice></speak>
+```
+
+### <a name="http-status-codes"></a>HTTP durum kodları
+
+Her yanıt için HTTP durum kodu, başarı veya sık karşılaşılan hataları gösterir.
+
+| HTTP durum kodu | Açıklama | Olası neden |
+|------------------|-------------|-----------------|
+| 200 | Tamam | İstek başarılı oldu; ses dosyası yanıt gövdesidir. |
+| 400 | Bozuk İstek | Gerekli parametre eksik, boş veya null. Veya, gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. Çok uzun üstbilgi buna yaygın bir sorundur. |
+| 401 | Yetkilendirilmemiş | İstek yetkili değil. Abonelik anahtarı veya belirteç geçerli ve doğru bölgesinde olduğundan emin olmak için kontrol edin. |
+| 413 | İstek varlığı çok büyük | SSML'yi giriş metni, 1024 karakterden uzun. |
+| 429 | Çok Fazla İstek | Kota veya aboneliğiniz için izin isteği sayısını aştınız. |
+| 502 | Hatalı Ağ Geçidi | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir. |
+
+HTTP durum ise `200 OK`, yanıt gövdesi istenen biçiminde bir ses dosyası içerir. Bu dosya, aktarılan, arabellek için kaydedildi veya bir dosyaya kaydedilebilir olarak yürütülebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

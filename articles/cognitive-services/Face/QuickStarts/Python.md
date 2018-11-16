@@ -10,18 +10,18 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 6e6f5b61f3e5e99d08e377bd5a78398a05fb4321
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
-ms.translationtype: HT
+ms.openlocfilehash: d2a98226895bbe5996785ca4726f20df9b98ffdd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577899"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683619"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Hızlı Başlangıç: Python ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
 
 Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Python ile Azure yüz REST API'sini kullanır. Betik çerçevelerinin çevresinde yüzleri çizmek ve cinsiyet ve yaş bilgi görüntüsüne eklemek.
 
-![Bir adam ile bir kadın, her biri kendi yüzleri ve yaş ve görüntünün üzerinde görüntülenen seks çizilmiş bir dikdörtgen](../media/labelled-faces-python.png)
+![Bir adam ile bir kadın, her biri kendi yüzleri ve yaş ve görüntünün üzerinde görüntülenen seks çizilmiş bir dikdörtgen](../images/labelled-faces-python.png)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 

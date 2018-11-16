@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e3944defa24437fdddf8b61189034d330f89dd4c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ae34cc869dfb286a5a60f59fdab8733f611a6ec7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011961"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712169"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics'te Wire Data 2.0 (Önizleme) çözümü
 
@@ -31,7 +31,7 @@ Kablo, birleştirilmiş ağ ve performans verileri, ortamınızda Operations Man
 Log Analytics aracısını ek olarak kablo verileri çözüm BT altyapınıza bilgisayarlara yüklemek Microsoft bağımlılık Aracısı kullanır. Bağımlılık Aracıları [OSI modelinde](https://en.wikipedia.org/wiki/OSI_model) 2-3 ağ düzeyleri için bilgisayarlarınıza ve bilgisayarlarınızdan gönderilen ağ verilerini, ayrıca kullanılan çeşitli protokollerle bağlantı noktalarını izler. Ardından aracılar kullanılarak veriler Log Analytics'e gönderilir.  
 
 >[!NOTE]
->Hizmet eşlemesi zaten dağıtmış olan veya hizmet eşlemesi dikkate veya [VM'ler için Azure İzleyici](../monitoring/monitoring-vminsights-overview.md), yeni bir bağlantı ölçümleri veri toplamak ve iletilen verilerle karşılaştırılabilir bilgi sağlayan bir Log Analytics deposunda kümesi yok.
+>Hizmet eşlemesi zaten dağıtmış olan veya hizmet eşlemesi dikkate veya [VM'ler için Azure İzleyici](../azure-monitor/insights/vminsights-overview.md), yeni bir bağlantı ölçümleri veri toplamak ve iletilen verilerle karşılaştırılabilir bilgi sağlayan bir Log Analytics deposunda kümesi yok.
 
 Varsayılan olarak, Log Analytics Windows ve Linux'ın yerleşik sayaçlarıyla belirttiğiniz diğer performans sayaçlarından gelen CPU, bellek, disk ve ağ performansına ilişkin verileri günlüğe kaydeder. Her aracı için, alt ağlar ve bilgisayar tarafından kullanılmakta olan uygulama düzeyi protokoller de dahil olmak üzere, ağ ve diğer verileri toplama işlemi gerçek zamanlı olarak yapılır.  Wire Data, alttaki TCP aktarım katmanında değil uygulama düzeyindeki ağ verilerine bakar.  Çözüm tek tek ACK'lere ve SYN'lere bakmaz.  Karşılıklı anlaşma tamamlandıktan sonra, bu canlı bir bağlantı olarak kabul edilir ve Bağlandı olarak işaretlenir. Söz konusu bağlantı, her iki taraf da yuvanın açık olduğunu ve verilerin ileri ve geri geçiş yapabildiğini kabul ettiği sürece canlı kalır.  İki taraftan biri bağlantıyı kapatınca Bağlantı Kesildi olarak işaretlenir.  Bu nedenle, yalnızca başarıyla tamamlanan paketlerin bant genişliğini sayar; yeniden göndermeleri veya başarısız paketleri raporlamaz.
 
@@ -197,7 +197,7 @@ Aşağıdaki bölümlerde Bağımlılık Aracısı için desteklenen işletim si
 
 Çalışma alanlarınızda Wire Data çözümünü yapılandırmak için aşağıdaki adımları uygulayın.
 
-1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../monitoring/monitoring-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
+1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../azure-monitor/insights/solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
 2. Veri almak istediğiniz her bilgisayara Bağımlılık Aracısı'nı yükleyin. Bağımlılık Aracısı en yakındaki komşularla bağlantıları izleyebildiğinden her bilgisayarda bir aracıya ihtiyacınız olmayabilir.
 
 > [!NOTE]
@@ -373,7 +373,7 @@ Yönetim paketinin adı Microsoft.IntelligencePacks.ApplicationDependencyMonitor
 
 - Wire Data çözümü Windows Server 2012 R2, Windows 8.1 ve daha sonraki işletim sistemlerini çalıştıran bilgisayarlardan veri alır.
 - Sinyal verilerini almak istediğiniz bilgisayarlarda Microsoft .NET Framework 4.0 veya üstü bulunmalıdır.
-- [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../monitoring/monitoring-solutions.md) başlığı altında açıklanan işlemi kullanarak Wire Data çözümünü Log Analytics çalışma alanınıza ekleyin. Başka bir yapılandırma işlemi gerekmez.
+- [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](../azure-monitor/insights/solutions.md) başlığı altında açıklanan işlemi kullanarak Wire Data çözümünü Log Analytics çalışma alanınıza ekleyin. Başka bir yapılandırma işlemi gerekmez.
 - Belirli bir çözümle ilişkili sinyal verilerini görüntülemek istiyorsanız, çözümün çalışma alanınıza önceden eklenmiş olması gerekir.
 
 Aracılarınız yüklendikten ve siz çözümü yükledikten sonra, çalışma alanınızda Wire Data 2.0 kutucuğu gösterilir.

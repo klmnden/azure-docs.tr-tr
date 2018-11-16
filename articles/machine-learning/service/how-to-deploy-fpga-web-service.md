@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/29/2018
-ms.openlocfilehash: 35b24dc2f21e2504432521c53e2d0f41caa0eeb7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344068"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711727"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Model bir FPGA Azure Machine Learning ile bir web hizmeti olarak dağıtma
 
@@ -22,7 +22,7 @@ Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanab
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 - Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 74b9673d7ef9dedbcc34682d4707103e696bece3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279118"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711710"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -132,7 +132,7 @@ Bu nedenle aşağıdaki bölümde ayrıntıları sağlayın kaynak şablonu içi
 ### <a name="azure-resource-template-for-log-analytics"></a>Log Analytics için Azure kaynak şablonu
 Günlük uyarıları için Log Analytics kayıtlı bir aramayı düzenli aralıklarla çalıştıran uyarı kuralları tarafından oluşturulur. Sorgu eşleşmenin sonuçlarını ölçütleri belirtilirse, bir uyarı kaydı oluşturulur ve bir veya daha fazla Eylemler çalıştırılır. 
 
-Kaynak şablonu Log analytics arama ve Log analytics uyarılarını kayıtlı için Log Analytics belgeleri bölümünde kullanılabilir. Daha fazla bilgi için bkz, [ekleme Log Analytics kayıtlı aramaları ve Uyarıları](../monitoring/monitoring-solutions-resources-searches-alerts.md); yalnızca tanım örnekleri ve bunun yanı sıra şema ayrıntılarını içerir.
+Kaynak şablonu Log analytics arama ve Log analytics uyarılarını kayıtlı için Log Analytics belgeleri bölümünde kullanılabilir. Daha fazla bilgi için bkz, [ekleme Log Analytics kayıtlı aramaları ve Uyarıları](../azure-monitor/insights/solutions-resources-searches-alerts.md); yalnızca tanım örnekleri ve bunun yanı sıra şema ayrıntılarını içerir.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Application Insights için Azure kaynak şablonu
 Application Insights kaynakları için günlük uyarı sahip bir tür `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).

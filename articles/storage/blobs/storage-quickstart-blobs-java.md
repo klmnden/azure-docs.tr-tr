@@ -1,41 +1,41 @@
 ---
-title: Azure Hızlı Başlangıç - Java Depolama SDK’sı V7 kullanarak nesne depolamada blob oluşturma | Microsoft Docs
-description: Bu hızlı başlangıçta, nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Java için depolama istemcisi kitaplığını kullanırsınız.
+title: Java depolama SDK'sı v7 sürümünü kullanarak Azure depolamada blob oluşturma | Microsoft Docs
+description: Nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturun. Ardından Azure Depolama'ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek için Java v7 için Azure depolama istemci kitaplığı kullanın.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 10/23/2018
+ms.topic: conceptual
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 8aa56d8363fe96d58d6fb12f163f468e37dd0462
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 342b19927d290f5ff519d3fae5b84bcfa2b9d9cf
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961866"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711761"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Hızlı Başlangıç: Java SDK V7 kullanarak blobları karşıya yükleme, indirme ve listeleme
+# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Karşıya yükleme, indirme ve Java SDK'sı v7 sürümünü kullanarak blobları Listele
 
-Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Java’yı nasıl kullanabileceğinizi öğreneceksiniz.
+Bu nasıl yapılır kılavuzunda Java yüklemek, indirmek ve Azure Blob depolamadaki bir kapsayıcıda blok bloblarını listelemek için nasıl kullanılacağını öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için:
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+Ayrıca bir Azure depolama hesabı oluşturun [Azure portalında](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hesap oluşturmayla ilgili yardım için bkz. [Depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
+
+Aşağıdaki önkoşulların karşılandığından emin olun:
 
 * Maven tümleştirmesine sahip bir IDE yükleyin.
 
 * Alernatif olarak, Maven’ı yükleyip komut satırından çalışacak şekilde de yapılandırabilirsiniz.
 
-Bu öğreticide, "Java Geliştiriciler için Eclipse IDE" ile [Eclipse](http://www.eclipse.org/downloads/) kullanılmaktadır.
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+Bu kılavuzda kullanan [Eclipse](http://www.eclipse.org/downloads/) "Eclipse IDE Java geliştiriciler için" yapılandırmaya sahip.
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 
-Bu hızlı başlangıçta kullanılan [örnek uygulama](https://github.com/Azure-Samples/storage-blobs-java-quickstart), temel bir konsol uygulamasıdır.  
+[Örnek uygulama](https://github.com/Azure-Samples/storage-blobs-java-quickstart) temel bir konsol uygulamasıdır.  
 
 Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https://git-scm.com/)'i kullanın. 
 
@@ -130,9 +130,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 
-Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en sık kullanılan bloblardır ve bu hızlı başlangıçta bu bloblar kullanılmıştır. 
-
-Dosyayı bloba yüklemek için, hedef kapsayıcıda bloba bir başvuru alın. Blob başvurusunu aldıktan sonra, [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long) kullanarak verileri karşıya yükleyebilirsiniz. Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob zaten varsa blobun üzerine yazılır.
+Bir dosyayı bir blok blobuna yüklemek için hedef kapsayıcıda bloba bir başvuru alın. Blob başvurusunu aldıktan sonra, [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long) kullanarak verileri karşıya yükleyebilirsiniz. Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob zaten varsa blobun üzerine yazılır.
 
 Örnek kod, karşıya yükleme ve indirme için kullanılacak yerel bir dosya oluşturur, karşıya yüklenecek dosyayı **kaynak** olarak ve blob adını **blob** olarak depolar. Aşağıdaki örnek, dosyayı **quickstartcontainer** adlı kapsayıcınıza yükler.
 
@@ -184,7 +182,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu hızlı başlangıçta karşıya yüklenen bloblara artık ihtiyacınız kalmadığında, [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists) kullanarak kapsayıcının tamamını silebilirsiniz. Bu yöntem, kapsayıcıdaki dosyaları da siler.
+Karşıya yüklediğiniz bloblara artık ihtiyacınız yoksa kullanarak kapsayıcının tamamını silebilirsiniz [Cloudblobcontainer.deleteıfexists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Bu yöntem, kapsayıcıdaki dosyaları da siler.
 
 ```java
 try {
@@ -205,7 +203,7 @@ sourceFile.deleteOnExit();
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, dosyaları Java kullanarak yerel bir disk ve Azure Blob depolama arasında aktarmayı öğrendiniz. Java ile çalışma hakkında daha fazla bilgi edinmek için GitHub kaynak kod depomuza devam edin.
+Bu makalede, dosyaları yerel bir disk ve Java kullanarak Azure Blob Depolama arasında aktarmayı öğrendiniz. Java ile çalışma hakkında daha fazla bilgi edinmek için GitHub kaynak kod depomuza devam edin.
 
 > [!div class="nextstepaction"]
 > [Java için Azure Depolama SDK'sı](https://github.com/azure/azure-storage-java) 

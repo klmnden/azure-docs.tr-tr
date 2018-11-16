@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 38a7a4e80542551057b230e9d0217d1cecbc5c42
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945255"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710316"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>AI için VS Code araçları: eğitme ve VS koddan ML modelleri dağıtma
 Bu makalede, nasıl kullanılacağını öğreneceksiniz **yapay ZEKA için VS Code Araçları** eğitmek ve makine öğrenimi ve derin öğrenme modelleri VS code'da Azure Machine Learning hizmeti ile dağıtmak için uzantı.
@@ -29,7 +29,7 @@ Ve bu modeli, test ve üretim gereksinimlerine göre dağıtabilirsiniz.
 
 + Sahip [yüklü Python için Azure Machine Learning SDK](how-to-vscode-tools.md) VS Code ile.
 
-+ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
++ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 ## <a name="create-and-manage-compute-targets"></a>Oluşturma ve yönetme işlem hedefleri
 

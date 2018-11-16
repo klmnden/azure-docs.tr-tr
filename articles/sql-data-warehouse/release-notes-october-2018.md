@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 82f55c87c54fa5197a2bd5c24ea3863da1700c7b
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579729"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705387"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Ekim 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Ekim 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -32,7 +32,7 @@ Gelişmiş Azure SQL veri ambarı (SQL DW) yalnızca ayarlama ek veri ambarı ö
 2.  Dağıtım tablosu: veri taşıma azaltmak ve iş yükü performansı artırmak için tablolar çoğaltmak ne zaman belirleme. 
 3.  Tempdb – tempdb çekişmeyi azaltmak için ölçeği ve kaynak yapılandırmak için sınıfları olduğunda anlayın.
 
-Veri ambarı ölçümleri ile daha ayrıntılı bir tümleştirme yoktur [Azure İzleyici](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) genel bakış dikey penceresinde bir Gelişmiş özelleştirilebilir izleme grafiğine için neredeyse gerçek zamanlı ölçümler de dahil olmak üzere. Artık, kullanım, izleme veya doğrulama ve veri ambarı önerilerini uygulayarak Azure İzleyici ölçümleri erişmek için veri ambarı genel bakış dikey bırakmanız gerekir. Ayrıca, yeni ölçüm vardır tempdb ve performans önerilerinizi tamamlamak üzere Uyarlamalı önbellek kullanımı gibi kullanılabilir.
+Veri ambarı ölçümleri ile daha ayrıntılı bir tümleştirme yoktur [Azure İzleyici](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) genel bakış dikey penceresinde bir Gelişmiş özelleştirilebilir izleme grafiğine için neredeyse gerçek zamanlı ölçümler de dahil olmak üzere. Artık kullanımı izlerken veya veri ambarı önerilerini doğrulayıp uygularken Azure İzleyici ölçümlerine erişmek için veri ambarı genel bakış dikey penceresinden ayrılmanız gerekmez. Ayrıca, yeni ölçüm vardır tempdb ve performans önerilerinizi tamamlamak üzere Uyarlamalı önbellek kullanımı gibi kullanılabilir.
 
 ## <a name="advanced-tuning-with-integrated-advisors"></a>Gelişmiş tümleşik Danışmanlarıyla ayarlama
 Gelişmiş Azure SQL veri ambarı (SQL DW) yalnızca ayarlama ek veri ambarı öneriler, ölçümleri ve Azure Danışmanı'nı ve Azure İzleyici ile tümleşik bir deneyim sağlayan portalına genel bakış dikey penceresinde yeniden tasarlanmış basit alındı.
@@ -41,7 +41,7 @@ Gelişmiş Azure SQL veri ambarı (SQL DW) yalnızca ayarlama ek veri ambarı ö
 Azure SQL veri ambarı hızlandırılmış veritabanı kurtarma (ADR), artık genel Önizleme aşamasındadır. ADR bir yeni SQL Server tamamen geçerli kurtarma işlemini baştan yedekleme WINS'i tarafından veritabanı kullanılabilirlik, özellikle uzun süre çalışan işlemler varlığını önemli ölçüde artıran altyapısıdır. ADR başlıca yararları şunlardır: hızlı ve tutarlı bir veritabanını kurtarma ve anlık bir işlem geri alma.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Azure İzleyici tanılama günlükleri
-SQL veri ambarı'nı (SQL DW) artık doğrudan Azure İzleyici tanılama günlükleri ile tümleştirerek analitik iş yükleri hakkında gelişmiş Öngörüler sağlar. Bu yeni özellik, geliştiricilerin uzun bir süre boyunca iş yükü davranışını analiz edin ve bilgiye dayalı kararlar sorgu iyileştirme veya kapasite yönetimi sağlar. Artık bir dış günlüğe kaydetme işlemi aracılığıyla ekledik [Azure İzleyici tanılama günlükleri](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) , veri ambarı iş yükü ek Öngörüler sağlar. Tek bir düğmeye tıklatma ile artık özelliklerini kullanarak sorun giderme geçmiş sorgu performansı için tanılama günlüklerini yapılandırmak için [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure İzleyici tanılama günlükleri denetim amacıyla, bir depolama hesabına neredeyse gerçek zamanlı telemetri ınsights ve Log Analytics kullanarak günlüklerini çözümleme özelliği, event hubs'a akış günlükleri yeteneği günlükleri kaydederek özelleştirilebilir bekletme süreleri destekler. ile [oturum sorguları](). Tanılama günlükleri, veri ambarınızın Dmv'leri SQL veri ambarı için sorun giderme en yaygın olarak kullanılan performans eşdeğer telemetri görünümleri oluşur. Bu ilk sürümde aşağıdaki sistem dinamik yönetim görünümleri için görünümleri etkinleştirdik:
+SQL veri ambarı'nı (SQL DW) artık doğrudan Azure İzleyici tanılama günlükleri ile tümleştirerek analitik iş yükleri hakkında gelişmiş Öngörüler sağlar. Bu yeni özellik, geliştiricilerin uzun bir süre boyunca iş yükü davranışını analiz edin ve bilgiye dayalı kararlar sorgu iyileştirme veya kapasite yönetimi sağlar. Artık bir dış günlüğe kaydetme işlemi aracılığıyla ekledik [Azure İzleyici tanılama günlükleri](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) , veri ambarı iş yükü ek Öngörüler sağlar. Tek bir düğmeye tıklatma ile artık özelliklerini kullanarak sorun giderme geçmiş sorgu performansı için tanılama günlüklerini yapılandırmak için [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure İzleyici tanılama günlükleri denetim amacıyla, bir depolama hesabına neredeyse gerçek zamanlı telemetri ınsights ve Log Analytics kullanarak günlüklerini çözümleme özelliği, event hubs'a akış günlükleri yeteneği günlükleri kaydederek özelleştirilebilir bekletme süreleri destekler. ile [oturum sorguları](). Tanılama günlükleri, veri ambarınızın SQL Veri Ambarı için en sık kullanılan performans sorunlarını giderme DMV’lerine eşdeğer telemetri görünümlerinden oluşur. Bu ilk sürümde aşağıdaki sistem dinamik yönetim görünümleri için görünümleri etkinleştirdik:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)
@@ -49,11 +49,8 @@ SQL veri ambarı'nı (SQL DW) artık doğrudan Azure İzleyici tanılama günlü
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## <a name="instant-data-movement"></a>Anında veri taşıma 
-Shuffle ek olarak, yayın ve taşıma bölmek için anında veri taşıma şimdi genişletir.
-
-## <a name="scale-up-column-store-columnstore-metadata-memory-management-sql-server"></a>Ölçeği artırma sütun Store: Columnstore meta verileri bellek yönetimi (SQL Server)
-Sütun meta veri depolama için iyileştirilmiş bir bellek yönetimi 
+## <a name="columnstore-memory-management"></a>Columnstore bellek yönetimi
+Sıkıştırılmış sütun deposu satır grubu sayısı arttıkça, bu satır grupları için iç sütun segmenti meta verileri yönetmek için gerekli bellek artırır.  Sonuç olarak, sorgu performansı ve bazı Columnstore dinamik yönetim görünümlerini (Dmv'ler) karşı yürütülen sorgular düşürebilir.  Geliştirmeleri, geliştirilmiş deneyim ve performans gibi sorguları için önde gelen bu gibi durumlarda, iç meta veri boyutu en iyi duruma getirmek için bu sürümde yapıldı. 
 
 ## <a name="azure-data-lake-storage-gen2-integration-ga"></a>Azure Data Lake depolama Gen2 tümleştirme (GA)
 Azure SQL veri ambarı (SQL DW) artık yerel tümleştirme sayesinde Azure Data Lake depolama Gen2'ye sahiptir. Müşteriler, artık SQL DW'ye ABFS dış tabloları kullanarak veri yükleyebilir. Data Lake depolama Gen2'de, veri gölleri tümleştirmek müşterilerin bu işlevi etkinleştirir. 

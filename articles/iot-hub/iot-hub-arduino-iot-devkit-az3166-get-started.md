@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d6cbd2992968a57cfba99117e9f1fc1ab9b5b5b3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182850"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711846"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -195,7 +195,7 @@ Artık geliştirme ortamınızı yapılandırma ve hazırlama ile hazırsınız.
 1. Yeni Proje açılan penceresinde tıklayın `F1` komut paleti, türü ve select açmak için **IOT Workbench: Bulut**, ardından **Azure sağlama**. Azure IOT Hub'ınıza sağlama ve cihaz oluşturmayı tamamlamak için adım adım kılavuzu izleyin.
     ![Bulut sağlama](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. Tıklayın `F1` komut paleti, türü ve select açmak için **IOT Workbench: cihaz**, ardından **yapılandırma cihaz Ayarları > IOT Hub cihaz bağlantı dizesini seçin**.
+1. Tıklayın `F1` komut paleti, türü ve select açmak için **IOT Workbench: cihaz**, ardından **yapılandırma cihaz Ayarları > yapılandırma cihaz bağlantı dizesi > seçin IOT Hub cihaz bağlantı dizesini**.
 
 1. DevKit üzerinde basılı **bir düğme**, gönderme ve yayın **sıfırlama** düğmesini ve ardından sürüm **bir düğme**. DevKit yapılandırma moduna girer ve bağlantı dizesini kaydeder.
     ![Bağlantı dizesi](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)

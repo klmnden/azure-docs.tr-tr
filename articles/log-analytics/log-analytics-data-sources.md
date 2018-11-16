@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6f5296844541db774610f5a46161f2e06673d99e
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613877"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711574"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log analytics'te veri kaynakları
 Log Analytics bağlı kaynaklardan veri toplar ve Log Analytics çalışma alanınızda depolar.  Her birinden toplanan veriler, yapılandırdığınız veri kaynakları tarafından tanımlanır.  Log analytics'te verileri, bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belli bir türdeki kayıtları oluşturur.
 
 ![Analytics veri toplama oturum](./media/log-analytics-data-sources/overview.png)
 
-Veri kaynakları farklı [yönetim çözümleri](../monitoring/monitoring-solutions.md), ayrıca bağlı kaynaklardan gelen verileri toplamak ve Log Analytics'te kayıtları oluşturun.  Veri çözümleri genellikle toplamaya ek olarak, günlük aramaları ve belirli bir uygulama veya hizmet işlemi analiz etmenize yardımcı olacak görünümler içerir.
+Veri kaynakları farklı [yönetim çözümleri](../azure-monitor/insights/solutions.md), ayrıca bağlı kaynaklardan gelen verileri toplamak ve Log Analytics'te kayıtları oluşturun.  Veri çözümleri genellikle toplamaya ek olarak, günlük aramaları ve belirli bir uygulama veya hizmet işlemi analiz etmenize yardımcı olacak görünümler içerir.
 
 
 ## <a name="summary-of-data-sources"></a>Veri kaynakları özeti
-Aşağıdaki tabloda, Log Analytics'te şu anda kullanılabilir veri kaynaklarını listeler.  Bu veri kaynağı için ayrıntı sağlayan ayrı bir makale için bir bağlantı vardır.   Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. Sütunların açıklamaları için bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../monitoring/monitoring-solutions-inventory.md).
+Aşağıdaki tabloda, Log Analytics'te şu anda kullanılabilir veri kaynaklarını listeler.  Bu veri kaynağı için ayrıntı sağlayan ayrı bir makale için bir bağlantı vardır.   Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. Sütunların açıklamaları için bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../azure-monitor/insights/solutions-inventory.md).
 
 
 | Veri kaynağı | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager aracısı veri yönetim grubu gönderilir. | Toplama sıklığı |
@@ -59,7 +59,7 @@ Veri kaynaklarından yapılandırma **veri** Log Analytics menüde **Gelişmiş 
 ## <a name="data-collection"></a>Veri toplama
 Veri kaynağı yapılandırmalarını birkaç dakika içinde doğrudan Log Analytics'e bağlı aracılara teslim edilir.  Belirtilen verileri Aracıdan toplanan ve her bir veri kaynağı için belirli aralıklarla doğrudan Log Analytics'e teslim.  Bu özellikleri için her veri kaynağı için belgelere bakın.
 
-System Center Operations Manager aracıları için bir bağlı yönetim grubu, veri kaynağı yapılandırmalarını yönetim paketleri çevrilen ve yönetim grubuna varsayılan olarak 5 dakikada bir teslim.  Aracı gibi diğer yönetim paketi indirir ve belirtilen verileri toplar. Veri kaynağına bağlı olarak ya da Log Analytics'e veri ileten bir yönetim sunucusuna gönderilen veriler olacaktır ya da aracı verileri Log Analytics için yönetim sunucusu üzerinden geçmeden gönderir. Bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../monitoring/monitoring-solutions-inventory.md) Ayrıntılar için.  Operations Manager ve Log Analytics'e bağlama ve sıklığını değiştirme hakkında ayrıntılar bu yapılandırma okuyabilir, teslim [System Center Operations Manager tümleştirmesini yapılandırma](log-analytics-om-agents.md).
+System Center Operations Manager aracıları için bir bağlı yönetim grubu, veri kaynağı yapılandırmalarını yönetim paketleri çevrilen ve yönetim grubuna varsayılan olarak 5 dakikada bir teslim.  Aracı gibi diğer yönetim paketi indirir ve belirtilen verileri toplar. Veri kaynağına bağlı olarak ya da Log Analytics'e veri ileten bir yönetim sunucusuna gönderilen veriler olacaktır ya da aracı verileri Log Analytics için yönetim sunucusu üzerinden geçmeden gönderir. Bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../azure-monitor/insights/solutions-inventory.md) Ayrıntılar için.  Operations Manager ve Log Analytics'e bağlama ve sıklığını değiştirme hakkında ayrıntılar bu yapılandırma okuyabilir, teslim [System Center Operations Manager tümleştirmesini yapılandırma](log-analytics-om-agents.md).
 
 Aracının Log Analytics ya da Operations Manager bağlanamıyor ise, bağlantı kurduğunda teslim eder veri toplamaya devam eder.  Veri miktarı istemci için en yüksek önbellek boyutunu ulaşırsa veya aracıyı 24 saat içinde bir bağlantı kurmak mümkün değilse, verileri kaybolabilir.
 
@@ -67,6 +67,6 @@ Aracının Log Analytics ya da Operations Manager bağlanamıyor ise, bağlantı
 Log Analytics tarafından toplanan tüm veriler, çalışma alanında kayıt olarak depolanır.  Farklı veri kaynağı tarafından toplanan kayıtlarını kendi özellikler kümeniz ve tarafından tanımlanan kendi **türü** özelliği.  Her bir kayıt türü, her veri kaynağı için belgeler ve Ayrıntılar için çözüm bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [çözümleri](../monitoring/monitoring-solutions.md) Log Analytics'e işlev eklemek ve ayrıca çalışma alanına veri toplayın.
+* Hakkında bilgi edinin [çözümleri](../azure-monitor/insights/solutions.md) Log Analytics'e işlev eklemek ve ayrıca çalışma alanına veri toplayın.
 * Hakkında bilgi edinin [günlük aramaları](log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
 * Yapılandırma [uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proaktif olarak size, veri kaynakları ve çözümlerinden toplanan kritik veri bildirmek için.

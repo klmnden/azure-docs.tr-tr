@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 0b61b107e495bb42c6c4cadda35fe9099c612948
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426898"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711744"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Öğretici: Azure Machine Learning hizmetinde bir sınıflandırma modelini otomatikleştirilmiş makine öğrenmesiyle eğitme
 
@@ -34,7 +34,7 @@ Bu öğreticide, otomatikleştirilmiş makine öğrenmesi (otomatikleştirilmiş
 > * Eğitim sonuçlarını gözden geçirme
 > * En iyi modeli kaydetme
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 

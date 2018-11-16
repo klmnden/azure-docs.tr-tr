@@ -11,34 +11,34 @@ items:
   items:
   - name: Depolama hesabı oluşturma
     href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Bloblarla çalışma - Azure portal
-    href: storage-quickstart-blobs-portal.md
-  - name: Bloblarla çalışma - Depolama Gezgini
-    href: storage-quickstart-blobs-storage-explorer.md
-  - name: Blob’larla çalışma - PowerShell
-    href: storage-quickstart-blobs-powershell.md
-  - name: Blob’larla çalışma - CLI
-    href: storage-quickstart-blobs-cli.md
-  - name: Blob’larla çalışma - .NET
-    href: storage-quickstart-blobs-dotnet.md
-  - name: Blob’larla çalışma - Java (Depolama SDK V10)
-    href: storage-quickstart-blobs-java-v10.md
-  - name: Blob’larla çalışma - Java (Depolama SDK V7)
-    href: storage-quickstart-blobs-java.md
-  - name: Bloblarla çalışma - Python
-    href: storage-quickstart-blobs-python.md
-  - name: Blob’larla çalışma - Go
-    href: storage-quickstart-blobs-go.md
-  - name: Blob’larla çalışma - Ruby
-    href: storage-quickstart-blobs-ruby.md
-  - name: Blob’larla çalışma - Node.js (Depolama SDK v10)
-    href: storage-quickstart-blobs-nodejs-v10.md
-  - name: Blob’larla çalışma - Node.js (Depolama SDK v2)
-    href: storage-quickstart-blobs-nodejs.md
-  - name: Blob’larla çalışma - JS/HTML
-    href: storage-quickstart-blobs-javascript-client-libraries.md
-  - name: Blob’larla çalışma - PHP
-    href: storage-quickstart-blobs-php.md
+  - name: Blobları kod olmadan yönetme
+    items:
+    - name: Azure portal
+      href: storage-quickstart-blobs-portal.md
+    - name: Depolama Gezgini
+      href: storage-quickstart-blobs-storage-explorer.md
+    - name: PowerShell
+      href: storage-quickstart-blobs-powershell.md
+    - name: CLI
+      href: storage-quickstart-blobs-cli.md
+  - name: Bloblarla geliştirme
+    items:
+    - name: .NET
+      href: storage-quickstart-blobs-dotnet.md
+    - name: Java (Depolama SDK v10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Python
+      href: storage-quickstart-blobs-python.md
+    - name: Başlayın
+      href: storage-quickstart-blobs-go.md
+    - name: Ruby
+      href: storage-quickstart-blobs-ruby.md
+    - name: Node.js (Depolama SDK v10)
+      href: storage-quickstart-blobs-nodejs-v10.md
+    - name: JS/HTML
+      href: storage-quickstart-blobs-javascript-client-libraries.md
+    - name: PHP
+      href: storage-quickstart-blobs-php.md
 - name: Öğreticiler
   items:
   - name: Görüntüyü karşıya yükleme ve işleme
@@ -296,7 +296,7 @@ items:
         href: ../common/storage-import-export-file-format-log.md
 - name: Nasıl yapılır
   items:
-  - name: Geliştirme
+  - name: Bloblarla geliştirme
     items:
     - name: REST
       href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -306,6 +306,12 @@ items:
       href: storage-ios-how-to-use-blob-storage.md
     - name: Xamarin
       href: storage-xamarin-blob-storage.md
+    - name: Eski SDK’lar
+      items:
+      - name: Java (Depolama SDK v7)
+        href: storage-quickstart-blobs-java.md
+      - name: Node.js (Depolama SDK v2)
+        href: storage-quickstart-blobs-nodejs.md
   - name: Yönetme
     items:
     - name: Azure Depolama için PowerShell
@@ -462,9 +468,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: b4dbce75cab97213cdee9f248c245e4dd9fcf74f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d0273edd4660fb0b646844022205243a0af3b6b9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634048"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712084"

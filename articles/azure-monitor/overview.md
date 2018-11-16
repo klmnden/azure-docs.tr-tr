@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 3de1939ec4004c2709fb0e366fb492462cf2d216
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068715"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710775"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -67,7 +67,7 @@ Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük veriler
 
 
 ## <a name="insights"></a>Insights
-İzleme verileri yalnızca, bilgi işlem ortamınızın işlemi görünürlük artırabilirsiniz yararlıdır. Azure İzleyici, çeşitli özellikler ve uygulamalarınızın ve bağımlı oldukları diğer kaynakları değerli Öngörüler sağlayan araçları içerir. [İzleme çözümleri](../monitoring/monitoring-solutions.md) ve gibi özellikleri [Application Insights](../application-insights/app-insights-overview.md) ve kapsayıcı öngörüleri, uygulama ve belirli Azure hizmetlerinin farklı yönlerini derin Öngörüler sağlayın. 
+İzleme verileri yalnızca, bilgi işlem ortamınızın işlemi görünürlük artırabilirsiniz yararlıdır. Azure İzleyici, çeşitli özellikler ve uygulamalarınızın ve bağımlı oldukları diğer kaynakları değerli Öngörüler sağlayan araçları içerir. [İzleme çözümleri](../azure-monitor/insights/solutions.md) ve gibi özellikleri [Application Insights](../application-insights/app-insights-overview.md) ve kapsayıcı öngörüleri, uygulama ve belirli Azure hizmetlerinin farklı yönlerini derin Öngörüler sağlayın. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](../application-insights/app-insights-overview.md) kullanılabilirliğine, performansına ve kullanımına web uygulamalarınızı bulutta veya şirket içinde barındırılan olup olmadığını izler. Bu, uygulamanızın işlem derin Öngörüler sağlar ve bunları rapor bir kullanıcının bildirmesini beklemeden hataları tanılamak için Log analytics'te güçlü veri analizi platformu yararlanır. Application Insights, geliştirme araçları çeşitli bağlantı noktaları içerir ve DevOps işlemlerinizi desteklemek için Visual Studio ile tümleşir.
@@ -86,9 +86,9 @@ Azure İzleyici VM içgörüler izler, Azure sanal makineleri (VM) uygun ölçek
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>İzleme çözümleri
-[İzleme çözümleri](../monitoring/monitoring-solutions.md) Azure İzleyici'de belirli bir uygulama veya hizmet için Öngörüler sağlayan paketlenmiş mantık kümeleridir. Bunlar verileri Log Analytics'e kullanarak diğer izleme verilerinin yanı sıra toplama [sorguları](../log-analytics/log-analytics-queries.md) analiz ve [görünümleri](../log-analytics/log-analytics-view-designer.md) görselleştirme için. İzleme çözümleri [Microsoft'tan kullanılabilir](../monitoring/monitoring-solutions-inventory.md) ve iş ortakları, çeşitli Azure Hizmetleri ve diğer uygulamalar için izleme sağlamak için.
+[İzleme çözümleri](../azure-monitor/insights/solutions.md) Azure İzleyici'de belirli bir uygulama veya hizmet için Öngörüler sağlayan paketlenmiş mantık kümeleridir. Bunlar verileri Log Analytics'e kullanarak diğer izleme verilerinin yanı sıra toplama [sorguları](../log-analytics/log-analytics-queries.md) analiz ve [görünümleri](../log-analytics/log-analytics-view-designer.md) görselleştirme için. İzleme çözümleri [Microsoft'tan kullanılabilir](../azure-monitor/insights/solutions-inventory.md) ve iş ortakları, çeşitli Azure Hizmetleri ve diğer uygulamalar için izleme sağlamak için.
 
-![İzleme çözümleri](../monitoring/media/monitoring-solutions/overview.png)
+![İzleme çözümleri](media/overview/solutions-overview.png)
 
 ## <a name="responding-to-critical-situations"></a>Kritik durumlar için yanıtlama
 İzleme verileri etkileşimli olarak çözümlemek için yayımlamanızı etkili bir izleme çözümü topladığı verileri tanımlanan kritik koşulları proaktif olarak yanıt mümkün olması gerekir. Bu bir metin veya posta yönetici olarak bir sorunu araştırmaya sorumlu gönderemiyor. Veya bir hata koşulu gidermek için deneyen otomatik bir işlem başlatabilir.

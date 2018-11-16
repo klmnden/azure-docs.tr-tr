@@ -1,41 +1,43 @@
 ---
-title: "Öğretici: Bir görüntüdeki yüzleri algılama ve çerçeveleme - Yüz Tanıma API'si, Python"
+title: "Hızlı Başlangıç: Algılamak ve Python SDK'sı ile bir görüntüdeki yüzleri çerçeve"
 titleSuffix: Azure Cognitive Services
-description: Bir görüntüdeki insan yüzlerini algılamak için Python SDK’sı ile Yüz Tanıma API’sinin nasıl kullanılacağını öğrenin.
+description: Bu hızlı başlangıçta, algılamak ve uzak bir görüntüdeki yüzleri çerçeve için yüz tanıma API'sini kullanan basit bir Python betiğini oluşturur.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-ms.date: 03/01/2018
+ms.topic: quickstart
+ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127746"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684010"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Öğretici: Yüz Tanıma API’si ve Python ile yüzleri algılama ve çerçeveleme 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Hızlı Başlangıç: algılamak için bir Python betiği oluşturmak ve çerçevenin bir resimdeki yüz
 
-Bu öğreticide, bir görüntüdeki insan yüzlerini algılamak için Python SDK’sı aracılığıyla Yüz Tanıma API’sinin nasıl çağrılacağını öğreneceksiniz.
+Bu hızlı başlangıçta, uzak bir görüntüde İnsan yüzlerini algılamak için Python SDK'sı aracılığıyla Azure yüz tanıma API'sini kullanan basit bir Python betiğini oluşturur. Uygulama, seçilen görüntü görüntüler ve algılanan her yüz etrafında bir çerçeve çizer.
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-Öğreticiyi kullanmak için aşağıdakileri yapmanız gerekir:
+## <a name="prerequisites"></a>Önkoşullar
 
-- Python 2.7+ veya Python 3.5+ yükleyin.
-- Pip yükleyin.
-- Aşağıdaki adımları izleyerek Yüz Tanıma API’si için Python SDK’sını yükleyin:
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+- [Python 2.7+ veya 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) aracı
+- Yüz tanıma API'si Python SDK'sı. Aşağıdaki komutu çalıştırarak yükleyebilirsiniz:
+    ```bash
+    pip install cognitive_face
+    ```
 
-```bash
-pip install cognitive_face
-```
+## <a name="detect-faces-in-an-image"></a>Görüntüdeki yüzleri algılayın
 
-- Microsoft Bilişsel Hizmetler için bir [abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. Bu öğreticide, birincil veya ikincil anahtarınızı kullanabilirsiniz. (Herhangi bir Yüz Tanıma API’sini kullanmak için geçerli bir abonelik anahtarınız olması gerektiğini unutmayın.)
+Yeni bir Python betiği oluşturmak _FaceQuickstart.py_. Aşağıdaki kodu ekleyin. Yüz algılama temel işlevlerini budur. Değiştirmeniz gerekecektir `<Subscription Key>` anahtarınızı değerine sahip. Değerini değiştirmeniz gerekebilir `BASE_URL` doğru bölge tanımlayıcısı anahtarınız için kullanılacak. Ücretsiz deneme aboneliği anahtarları oluşturulur **westus** bölge. İsteğe bağlı olarak, `img_url` kullanmak istediğiniz herhangi bir görüntü URL'si.
 
-## <a name="detect-a-face-in-an-image"></a>Bir Görüntüdeki Yüzü algılama
+Betik çağırarak yüzleri algılar **cognitive_face.face.detect** sarmalar yöntemi [Algıla](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API'si ve yüz listesini döndürür.
 
 ```python
 import cognitive_face as CF
@@ -52,15 +54,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Aşağıda örnek bir sonuç verilmiştir. Bu, algılanan yüzlerin `list` öğesidir. Listedeki her bir öğe `dict` örneği olup burada `faceId`, algılanan yüzün benzersiz kimliğidir ve `faceRectangle` ise, algılanan yüzün konumunu açıklar. 24 saat içinde yüz kimliğinin süresi dolar.
+### <a name="try-the-app"></a>Uygulamayı deneyin
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+Komutuyla uygulamayı çalıştırın `python FaceQuickstart.py`. Konsol penceresinde, aşağıdaki gibi bir metin yanıtı almanız gerekir:
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>Yüzlerin çevresine dikdörtgen çizme
+Algılanan yüzeylere listesidir. Listedeki her bir öğe bir **dict** örneğinde `faceId` algılanan yüz için benzersiz bir kimliği ve `faceRectangle` algılanan yüz konumu açıklar. 
 
-Önceki komuttan aldığınız json koordinatlarını kullanarak, her bir yüzü görsel olarak temsil etmek için görüntüye dikdörtgenler çizebilirsiniz. `PIL` görüntüleme modülünü kullanmak için `pip install Pillow` işlemini yapmanız gerekir.  Dosyanın en üstüne aşağıdakileri ekleyin:
+> [!NOTE]
+> Yüz tanıma kimlikleri 24 saat sonra süresi dolacak; uzun süreli saklamak istiyorsanız açıkça yüz verileri depolamak gerekir.
+
+## <a name="draw-face-rectangles"></a>Yüz tanıma dikdörtgenler çizme
+
+Önceki komutta aldığınız koordinatlar kullanarak, her yüzü görsel olarak sunmak üzere görüntünün dikdörtgen çizebilirsiniz. Pillow yüklemeniz gerekir (`pip install pillow`) Pillow görüntü modülü kullanmak için. Üst kısmındaki *FaceQuickstart.py*, aşağıdaki kodu ekleyin:
 
 ```python
 import requests
@@ -68,7 +77,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Ardından `print(faces)` sonrasında betiğinize aşağıdakileri ekleyin:
+Sonra kodunuzu sonunda, aşağıdaki kodu ekleyin. Bu durum, dikdörtgen koordinatları ayrıştırmak için basit bir işlev oluşturur ve orijinal görüntünün dikdörtgen çizmek için Pillow kullanır. Sonra görüntüyü varsayılan Resim Görüntüleyicisi'nde görüntüler.
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,21 +102,15 @@ for face in faces:
 img.show()
 ```
 
-## <a name="further-exploration"></a>Daha Fazla Keşif
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-Yüz Tanıma API’sini daha fazla keşfetmenize yardımcı olması için bu öğreticide bir GUI örneği verilmiştir. Bunu çalıştırmak için önce [wxPython](https://wxpython.org/pages/downloads/) öğesini, sonra da aşağıdaki komutları çalıştırın.
+Varsayılan Image viewer seçmeniz istenebilir. Ardından, aşağıdaki gibi bir görüntü görmeniz gerekir. Ayrıca, konsol penceresinde yazdırılır dikdörtgen veri görmeniz gerekir.
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![Yüz tanıma geçici olarak çizilen kırmızı bir dikdörtgen genç bir kadın](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>Özet
+## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Python SDK’sı çağrısı aracılığıyla Yüz Tanıma API’sini kullanmaya ilişkin temel işlemi öğrendiniz. API ayrıntıları hakkında daha fazla bilgi için lütfen Nasıl Yapılır ve [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)’na bakın.
+Bu hızlı başlangıçta, yüz tanıma API'si Python SDK'ları kullanmak için temel işlemi hakkında bilgi edindiniz ve algılayın ve bir görüntüdeki yüzleri çerçeve için bir komut dosyası oluşturuldu. Ardından, daha karmaşık bir örnek Python SDK'ın kullanımını keşfedin. Github'da Bilişsel yüz tanıma Python örnek için proje klasörünüze kopyalayın ve yönergeleri _README.md_ dosya.
 
-## <a name="related-topics"></a>İlgili Konular
-
-- [CSharp’ta Yüz Tanıma API’sini Kullanmaya Başlama](FaceAPIinCSharpTutorial.md)
-- [Android için Java’da Yüz Tanıma API’sini Kullanmaya Başlama](FaceAPIinJavaForAndroidTutorial.md)
+> [!div class="nextstepaction"]
+> [Bilişsel yüz tanıma Python örneği](https://github.com/Microsoft/Cognitive-Face-Python)

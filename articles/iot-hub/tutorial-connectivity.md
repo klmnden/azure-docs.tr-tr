@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 5a09211dc134cdb372a9712c1f45d7c44660a759
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966869"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685375"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Öğretici: IoT hub’ınızla bağlantıyı test etmek için bir simülasyon cihazı kullanma
 
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide çalıştırdığınız CLI betikleri [Azure CLI için Microsoft Azure IoT uzantısını](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) kullanır. Bu uzantıyı yüklemek için aşağıdaki CLI komutunu çalıştırın:
 
@@ -77,7 +77,7 @@ Yeni bir cihaz kaydetmek için **+ Ekle**’ye tıklayın, **Cihaz Kimliği**’
 
 Geliştirme makinenizdeki terminal penceresinde, indirdiğiniz örnek Node.js projesinin kök klasörüne gidin. Daha sonra **iot-hub\Tutorials\ConnectivityTests\simulated-device** klasörüne gidin.
 
-Terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve simülasyon cihazı uygulamasını çalıştırın. Cihazı portalda eklerken not aldığınız cihaz bağlantı dizesini kullanın.
+Terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve simülasyon cihazı uygulamasını çalıştırın. Cihaz Portalı'nda ne zaman eklediğiniz Not yapılan cihaz bağlantı dizesini kullanın.
 
 ```cmd/sh
 npm install

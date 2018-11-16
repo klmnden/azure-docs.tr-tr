@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: bd72b93d31a25a6aa848fc08a7db4d9d0fcece9f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ed91c60393badcde1d3f31c86b1e4381788db17b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010754"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712101"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -58,7 +58,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 Çözümü yapılandırmak için aşağıdaki bilgileri kullanın:
 
 - Olmalıdır bir [Windows](log-analytics-agent-windows.md) veya [Operations Manager](log-analytics-om-agents.md) aracıyı izlemek istediğiniz her bir DNS sunucusunda.
-- DNS analizi çözümü Log Analytics çalışma alanınızdan ekleyebileceğiniz [Azure Marketi](https://aka.ms/dnsanalyticsazuremarketplace). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md).
+- DNS analizi çözümü Log Analytics çalışma alanınızdan ekleyebileceğiniz [Azure Marketi](https://aka.ms/dnsanalyticsazuremarketplace). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md).
 
 Çözüm, daha fazla yapılandırma gerek olmadan veri toplamaya başlar. Ancak, veri toplamayı Özelleştir için şu yapılandırmayı kullanabilirsiniz.
 

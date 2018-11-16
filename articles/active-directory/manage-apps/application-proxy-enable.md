@@ -8,34 +8,51 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 11/14/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9a869055613da6465a9beda9b8edc1bf812b6dfe
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034975"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712118"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Bağlayıcıyı yükleyin ve uygulama ara sunucusu ile çalışmaya başlama
-Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
+Bu makale için Azure Active Directory'de (Azure AD) uygulama ara sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
 
 Gerekmez ancak uygulama proxy'si kuruluşunuz için güvenlik ve üretkenlik avantajlarıyla farkında getirir, daha fazla bilgi edinin [güvenli uzaktan erişim sağlamak şirket içi uygulamalara](application-proxy.md).
 
-## <a name="application-proxy-prerequisites"></a>Uygulama Ara Sunucusu önkoşulları
-Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara sahip olmanız gerekir:
+## <a name="prerequisites"></a>Önkoşullar
+Uygulama proxy'sini etkinleştirmek için gerekir:
 
-* [Microsoft Azure AD temel veya premium aboneliği](../fundamentals/active-directory-whatis.md) ve genel yöneticisi olduğunuz bir Azure AD dizini.
-* Windows Server 2012 R2 veya uygulama ara sunucusu bağlayıcısını yüklemek, 2016 çalıştıran bir sunucu. Sunucu, Bulut ve yayımlamakta olduğunuz şirket içi uygulamalarda uygulama ara sunucusu hizmetlerine bağlanabilir olması gerekiyor.
-  * Çoklu oturum açma için Kerberos kısıtlanmış temsil kullanarak yayımladığınız uygulamalarda, bu makinenin etki alanı-yayımlamakta olduğunuz uygulamalarla aynı AD etki alanına katılması. Bilgi için [uygulama proxy'si ile çoklu oturum açma için KCD](application-proxy-configure-single-sign-on-with-kcd.md).
-* TLS 1.2 temel işletim sistemi üzerinde çalışan. TLS 1.2 değiştirmek için adımları izleyin. [etkinleştirme TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Azure AD Connect için içeriği olmakla birlikte, bu yordamı tüm .NET istemcileri için aynıdır.
+* A [Microsoft Azure AD temel veya premium aboneliği](https://azure.microsoft.com/pricing/details/active-directory). 
+* Uygulama yönetici hesabı.
 
-Kuruluşunuz internet'e bağlanmak için proxy sunucuları kullanıyorsa, okuma [iş mevcut şirket içi proxy sunucuları](application-proxy-configure-connectors-with-proxy-servers.md) uygulaması Ara sunucusu ile çalışmaya başlamadan önce bunları yapılandırma hakkında daha fazla ayrıntı için.
+### <a name="windows-server"></a>Windows server
+Windows Server 2012 R2 çalıştıran bir sunucuya ihtiyacınız veya daha sonra uygulama ara sunucusu Bağlayıcısı'nı yükleyebilirsiniz. Azure'da uygulama ara sunucusu hizmetlerini ve yayımlamakta olduğunuz şirket içi uygulamalara bağlanmak sunucunun gerekir.
+
+Windows server TLS 1.2 uygulama ara sunucusu bağlayıcısını yüklemeden önce etkin olmalıdır. Var olan Bağlayıcılarla 1.5.612.0 sürümleri yapılana kadar önceki TLS sürümlerini üzerinde çalışmaya devam eder. TLS 1.2 etkinleştirmek için:
+
+1. Aşağıdaki kayıt defteri anahtarlarını ayarlayın:
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Sunucuyu yeniden başlatın
+
+Çoklu oturum açma için Kerberos Contrained temsilci (KCD) kullanan uygulamalar için Windows server ve yayımladığınız uygulamalar aynı Active Directory etki alanında olması gerekir. Daha fazla bilgi için [uygulama proxy'si ile çoklu oturum açma için KCD](application-proxy-configure-single-sign-on-with-kcd.md).
+  
+### <a name="proxy-servers"></a>Proxy sunucuları
+
+Kuruluşunuz internet'e bağlanmak için proxy sunucuları kullanıyorsa bunları için uygulama ara sunucusunu yapılandırmanız gerekir.  Daha fazla bilgi için [iş mevcut şirket içi proxy sunucuları](application-proxy-configure-connectors-with-proxy-servers.md). 
+
+
 
 ## <a name="open-your-ports"></a>Bağlantı noktalarını açma
 

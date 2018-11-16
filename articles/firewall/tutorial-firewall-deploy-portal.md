@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/9/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 02805f676a5ea9edbfa619c625bb11e94e16c12e
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.openlocfilehash: 1d7c880a56c79d516c3904c3f532eb7006f0b68c
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300005"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705846"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -97,46 +97,36 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
 
 Şimdi atlama ve iş yükü sanal makinelerini oluşturup uygun alt ağlara yerleştirin.
 
-1. Azure portal giriş sayfasında **Tüm hizmetler**'e tıklayın.
-2. **İşlem** bölümünde **Sanal makineler**'e tıklayın.
-3. **Ekle** > **Windows Server** > **Windows Server 2016 Datacenter** > **Oluştur**’a tıklayın.
+1. Azure portalında **Kaynak oluştur**’a tıklayın.
+2. Tıklayın **işlem** seçip **Windows Server 2016 Datacenter** Öne çıkanlar listesinde.
+3. Sanal makine için şu değerleri girin:
 
-**Temel Bilgiler**
+    - *Test FW RG* kaynak grubu için.
+    - *SRV atlama* - sanal makinenin adı.
+    - Yönetici kullanıcı adı için *azureuser*.
+    - *Azure123456!* girin.
 
-1. **Ad** alanına **Srv-Jump** yazın.
-5. Bir kullanıcı adı ve parola girin.
-6. **Abonelik** bölümünde aboneliğinizi seçin.
-7. **Kaynak grubu** olarak **Var olanı kullan** > **Test-FW-RG**’yi seçin.
-8. **Konum** alanında önceden kullandığınız konumu seçin.
-9. **Tamam** düğmesine tıklayın.
+4. Altında **gelen bağlantı noktası kuralları**, için **ortak gelen bağlantı noktası**, tıklayın **Seçili bağlantı noktalarına izin**.
+5. İçin **seçin gelen bağlantı noktalarının**seçin **RDP (3389)**.
 
-**Boyut**
-
-1. Windows Server çalıştıran test amaçlı sanal makine için uygun bir boyut seçin. Örneğin: **B2ms** (8 GB RAM, 16 GB depolama alanı).
-2. **Seç**'e tıklayın.
-
-**Ayarlar**
-
-1. **Ağ** bölümünde **Sanal ağ** için **Test-FW-VN** öğesini seçin.
-2. **Alt ağ** için **Jump-SN** öğesini seçin.
-3. **Ortak gelen bağlantı noktası seçin** bölümünde **RDP (3389)** girişini seçin. 
-
-    Genel IP adresinize erişimi sınırlamanız ancak atlama sunucusuna uzak masaüstü bağlantısı kurabilmek için 3389 numaralı bağlantı noktasını açmanız gerekir. 
-2. Diğer varsayılan ayarları değiştirmeden **Tamam**'a tıklayın.
-
-**Özet**
-
-Özeti gözden geçirin ve **Oluştur**'a tıklayın. İşlemin tamamlanması birkaç dakika sürebilir.
+6. Diğer varsayılan değerleri kabul edin ve tıklayın **sonraki: diskleri**.
+7. Disk Varsayılanları kabul edin ve tıklayın **sonraki: ağ**.
+8. Emin olun **Test FW VN** sanal ağı ve alt ağ için seçili olduğu **atlama SN**.
+9. İçin **genel IP**, tıklayın **Yeni Oluştur**.
+10. Tür **Srv atlama PIP** genel IP adresi adı ve tıklatın **Tamam**.
+11. Diğer varsayılan değerleri kabul edin ve tıklayın **sonraki: Yönetim**.
+12. Tıklayın **kapalı** önyükleme tanılaması devre dışı bırakmak için. Diğer varsayılan değerleri kabul edin ve tıklayın **gözden geçir + Oluştur**.
+13. Özet sayfasında ayarları gözden geçirin ve ardından **Oluştur**.
 
 Bu işlemleri tekrarlayarak **Srv-Work** adlı başka bir sanal makine oluşturun.
 
-Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın. Yapılandırmanın geri kalanı Srv-Jump sanal makinesiyle aynıdır.
+Bilgileri aşağıdaki tabloda Srv iş sanal makineyi yapılandırmak için kullanın. Yapılandırmanın geri kalanı Srv-Jump sanal makinesiyle aynıdır.
 
 |Ayar  |Değer  |
 |---------|---------|
 |Alt ağ|Workload-SN|
-|Genel IP adresi|None|
-|Ortak gelen bağlantı noktası seçin|Ortak gelen bağlantı noktası yok|
+|Genel IP|None|
+|Ortak gelen bağlantı noktası|None|
 
 ## <a name="deploy-the-firewall"></a>Güvenlik duvarını dağıtma
 

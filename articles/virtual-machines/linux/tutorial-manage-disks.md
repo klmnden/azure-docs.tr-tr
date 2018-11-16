@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978327"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685387"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Öğretici - Azure CLI ile Azure disklerini yönetme
 
@@ -36,9 +36,6 @@ Azure sanal makineleri (VM) işletim sistemini, uygulamalarını ve verilerini d
 > * Diskleri yeniden boyutlandırma
 > * Disk anlık görüntüleri
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Varsayılan Azure diskleri
 
@@ -48,35 +45,15 @@ Azure sanal makinesi oluşturulduğunda, sanal makineye otomatik olarak iki disk
 
 **Geçici disk** - Geçici diskler, VM ile aynı Azure konağında bulunan bir katı hal sürücüsünü kullanır. Geçici diskler yüksek performansa sahiptir ve geçici veri işleme gibi işlemler için kullanılabilir. Ancak VM yeni bir konağa taşındığında, geçici diskte depolanan tüm veriler kaldırılır. Geçici diskin boyutu, VM boyutu tarafından belirlenir. Geçici diskler */dev/sdb* etiketine ve */mnt* bağlama noktasına sahiptir.
 
-### <a name="temporary-disk-sizes"></a>Geçici disk boyutları
-
-| Tür | Ortak boyutlar | En yüksek geçici disk boyutu (GiB) |
-|----|----|----|
-| [Genel amaçlı](sizes-general.md) | A, B ve D serisi | 1600 |
-| [İşlem için iyileştirilmiş](sizes-compute.md) | F serisi | 576 |
-| [Bellek için iyileştirilmiş](sizes-memory.md) | D, E, G ve M serisi | 6144 |
-| [Depolama için iyileştirilmiş](sizes-storage.md) | L serisi | 5630 |
-| [GPU](sizes-gpu.md) | N serisi | 1440 |
-| [Yüksek performans](sizes-hpc.md) | A ve H serisi | 2000 |
 
 ## <a name="azure-data-disks"></a>Azure veri diskleri
 
-Uygulamaları yüklemek ve verileri depolamak için başka veri diskleri eklenebilir. Dayanıklı ve duyarlı veri depolama gerektiren her koşulda veri diskleri kullanılmalıdır. Her veri diski maksimum 4 TB kapasiteye sahiptir. Sanal makinenin boyutu, bir VM’ye kaç veri diskinin eklenebileceğini belirler. Her VM vCPU için iki veri diski eklenebilir.
+Uygulamaları yüklemek ve verileri depolamak için başka veri diskleri eklenebilir. Dayanıklı ve duyarlı veri depolama gerektiren her koşulda veri diskleri kullanılmalıdır. Her veri diski maksimum 4 TB kapasiteye sahiptir. Sanal makinenin boyutu, bir VM’ye kaç veri diskinin eklenebileceğini belirler. Her VM vCPU için dört veri diski eklenebilir.
 
-### <a name="max-data-disks-per-vm"></a>VM başına en fazla veri diski
-
-| Tür | VM Boyutu | VM başına en fazla veri diski |
-|----|----|----|
-| [Genel amaçlı](sizes-general.md) | A, B ve D serisi | 64 |
-| [İşlem için iyileştirilmiş](sizes-compute.md) | F serisi | 64 |
-| [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md) | D, E ve G serileri | 64 |
-| [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md) | L serisi | 64 |
-| [GPU](sizes-gpu.md) | N serisi | 64 |
-| [Yüksek performans](sizes-hpc.md) | A ve H serisi | 64 |
 
 ## <a name="vm-disk-types"></a>VM disk türleri
 
-Azure iki disk türü sunar.
+Azure diskleri, iki tür sağlar standart ve Premium.
 
 ### <a name="standard-disk"></a>Standart disk
 
@@ -88,13 +65,20 @@ Premium diskler SSD tabanlı, yüksek performanslı ve düşük gecikme süreli 
 
 ### <a name="premium-disk-performance"></a>Premium disk performansı
 
-|Premium depolama diski türü | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Disk boyutu (yuvarlanmış değer) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Disk başına en fazla IOPS | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
-Disk başına aktarım hızı | 25 MB/sn | 50 MB/sn | 100 MB/s | 150 MB/s | 200 MB/sn | 250 MB/sn | 250 MB/sn |
+|Premium depolama diski türü | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Disk boyutu (yuvarlanmış değer) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB)
+| Disk başına en fazla IOPS | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12,500 |
+Disk başına aktarım hızı | 25 MB/sn | 50 MB/sn | 100 MB/s | 150 MB/s | 200 MB/sn | 250 MB/sn | 250 MB/sn | 480 MB/sn |
 
 Yukarıdaki tabloda, disk başına maksimum IOPS tanımlanmış olsa da birden çok veri diski bölümlenerek daha yüksek performansa ulaşılabilir. Örneğin bir Standard_GS5 VM’si en fazla 80.000 IOPS’ye ulaşabilir. VM başına IOPS üst sınırı hakkında ayrıntılı bilgi için bkz. [Linux VM türleri](sizes.md).
+
+
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
+
+Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. 
+
+Cloud Shell'i açmak için kod bloğunun sağ üst köşesinden **Deneyin**'i seçmeniz yeterlidir. İsterseniz [https://shell.azure.com/powershell](https://shell.azure.com/bash) adresine giderek Cloud Shell'i ayrı bir tarayıcı sekmesinde de başlatabilirsiniz. **Kopyala**’yı seçerek kod bloğunu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın.
 
 ## <a name="create-and-attach-disks"></a>Disk oluşturma ve ekleme
 
@@ -116,7 +100,6 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
@@ -139,7 +122,6 @@ az vm disk attach \
 
 Bir disk sanal makineye eklendikten sonra, diskin kullanılması için işletim sisteminin yapılandırılması gerekir. Aşağıdaki örnekte bir diskin el ile nasıl yapılandırılacağı gösterilmektedir. Bu işlem aynı zamanda cloud-init kullanılarak otomatikleştirilebilir. Bu konu [sonraki öğreticide](./tutorial-automate-vm-deployment.md) açıklanacak.
 
-### <a name="manual-configuration"></a>El ile yapılandırma
 
 Sanal makine ile bir SSH bağlantısı oluşturun. Örnek IP adresini, sanal makinenin genel IP adresiyle değiştirin.
 
@@ -204,42 +186,10 @@ Artık disk yapılandırıldığında göre SSH oturumunu kapatabilirsiniz.
 exit
 ```
 
-## <a name="resize-vm-disk"></a>VM diskini yeniden boyutlandırma
 
-VM dağıtıldıktan sonra işletim sistemi diskinin veya eklenmiş herhangi bir diskin boyutu artırabilir. Daha fazla alana veya daha yüksek düzeyde performansa (P10, P20 veya P30 gibi) ihtiyaç duyduğunuzda diskin boyunu artırmak yararlı olur. Disk boyutunu azaltılamaz.
+## <a name="snapshot-a-disk"></a>Bir diskin anlık görüntüsünü alma
 
-Disk boyutunu artırmadan önce diskin kimliği veya adı gerekir. Kaynak gruptaki tüm diskleri döndürmek için [az disk list](/cli/azure/disk#az-disk-list) komutunu kullanın. Yeniden boyutlandırmak istediğiniz diskin adını not alın.
-
-```azurecli-interactive
-az disk list \
-    --resource-group myResourceGroupDisk \
-    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-    --output table
-```
-
-VM serbest bırakılmalıdır. VM’yi durdurup serbest bırakmak için [az vm deallocate](/cli/azure/vm#az-vm-deallocate) komutunu kullanın.
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroupDisk --name myVM
-```
-
-Diski yeniden boyutlandırmak için [az disk update](/cli/azure/vm/disk#az-vm-disk-update) komutunu kullanın. Bu örnek *myDataDisk* adındaki bir diski 1 terabayt olarak yeniden boyutlandırır.
-
-```azurecli-interactive
-az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
-```
-
-Yeniden boyutlandırma tamamlandıktan sonra VM’yi başlatın.
-
-```azurecli-interactive
-az vm start --resource-group myResourceGroupDisk --name myVM
-```
-
-İşletim sistemi diskini yeniden boyutlandırırsanız disk bölümü otomatik olarak genişletilir. Veri diskini yeniden boyutlandırırsanız, geçerli bölümlerin tümünün VM’lerin işletim sisteminde genişletilmesi gerekir.
-
-## <a name="snapshot-azure-disks"></a>Azure disklerinin anlık görüntülerini alma
-
-Bir disk anlık görüntüsü aldığınızda, Azure diskin belirli bir noktadaki salt okunur kopyasını oluşturur. Azure VM anlık görüntüleri, yapılandırma değişiklikleri yapmadan önce VM’nin durumunu hızla kaydetmenize yardımcı olur. Yapılandırma değişiklikleri istenmeyen sonuçlar ortaya çıkardığında, VM durumu anlık görüntü kullanılarak geri yüklenebilir. VM birden fazla disk içeriyorsa her bir disk için diğerlerinden bağımsız olarak bir anlık görüntü alınır. Uygulamayla tutarlı yedekler almak için disk anlık görüntülerini almadan önce VM’yi durdurmayı göz önünde bulundurun. Bunun yerine VM çalışırken otomatik olarak yedeklemeyi sağlayan [Azure Backup hizmetini](/azure/backup/) kullanabilirsiniz.
+Bir disk anlık görüntüsü aldığınızda, Azure diskin belirli bir noktadaki salt okunur kopyasını oluşturur. Azure VM anlık görüntüleri, yapılandırma değişiklikleri yapmadan önce VM’nin durumunu hızla kaydetmenize yardımcı olur. Bir sorun veya hata durumunda, sanal makine bir anlık görüntü kullanılarak geri yüklenebilir. VM birden fazla disk içeriyorsa her bir disk için diğerlerinden bağımsız olarak bir anlık görüntü alınır. Uygulamayla tutarlı yedekler almak için disk anlık görüntülerini almadan önce VM’yi durdurmayı göz önünde bulundurun. Bunun yerine VM çalışırken otomatik olarak yedeklemeyi sağlayan [Azure Backup hizmetini](/azure/backup/) kullanabilirsiniz.
 
 ### <a name="create-snapshot"></a>Anlık görüntü oluşturma
 

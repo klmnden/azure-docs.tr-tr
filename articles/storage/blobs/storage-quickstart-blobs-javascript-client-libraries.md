@@ -7,22 +7,25 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.author: tamram
-ms.date: 10/18/2018
+ms.date: 11/14/2018
 ms.topic: quickstart
 ms.component: blobs
-ms.openlocfilehash: 3b4bf95b0f5d275f6c8b4325e88a7ac326efa16b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139467"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711491"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Hızlı Başlangıç: Tarayıcıda JavaScript/HTML kullanarak blobları karşıya yükleme, listeleme ve silme
+
 Bu hızlı başlangıçta, tamamen tarayıcıdan çalıştırılan koddan blobların nasıl yönetileceği gösterilmektedir. Burada kullanılan yaklaşım, blob depolama hesabınıza korumalı erişimi güvence altına almak için gerekli güvenlik önlemlerinin nasıl kullanılacağını göstermektedir. Bu hızlı başlangıcı tamamlamak bir [Azure aboneliğinizin](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) olması gerekir.
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Depolama hesabı CORS kurallarını ayarlama 
 Web uygulamanızın istemciden bir blob depolamaya erişebilmesi için hesabın [çıkış noktaları arası kaynak paylaşma](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) veya CORS özelliğini etkinleştirecek şekilde yapılandırılmış olması gerekir. 

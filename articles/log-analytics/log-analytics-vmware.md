@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dd56a55789952be0c1f72fb2d31b08b95ad10c8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613996"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712441"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
 
@@ -36,7 +36,7 @@ Log analytics'te VMware izleme çözümü, Merkezi günlük kaydı ve büyük VM
 ## <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
-* VMware izleme çözümü, açıklanan işlemi kullanarak aboneliğinize ekleyin [yönetim çözümü yüklemek](../monitoring/monitoring-solutions.md#install-a-management-solution).
+* VMware izleme çözümü, açıklanan işlemi kullanarak aboneliğinize ekleyin [yönetim çözümü yüklemek](../azure-monitor/insights/solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Desteklenen VMware ESXi konakları
 vSphere ESXi konağına 5.5, 6.0 ve 6.5

@@ -6,24 +6,22 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734142"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712033"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: Nesne depolamada blob oluşturmak için .NET kullanma
 
 Bu hızlı başlangıçta, Blob (nesne) depolama alanında bir blob ve kapsayıcı oluşturmak amacıyla .NET için Azure Depolama istemci kitaplığının nasıl kullanılacağını öğreneceksiniz. Ardından, blob’u yerel bilgisayarınıza indirmeyi ve bir kapsayıcıdaki tüm blobların listesini görüntülemeyi öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-Bu hızlı başlangıcı tamamlamak için ilk olarak [Azure portalında](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) bir Azure depolama hesabı oluşturun. Hesap oluşturmayla ilgili yardım için bkz. [Depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 Ardından, işletim sisteminiz için .NET Core 2.0’ı indirip yükleyin. Windows kullanıyorsanız, isterseniz Visual Studio yükleyip .NET Framework kullanabilirsiniz. Ayrıca, işletim sisteminizle birlikte kullanmak için bir düzenleyici yüklemeyi seçebilirsiniz.
 

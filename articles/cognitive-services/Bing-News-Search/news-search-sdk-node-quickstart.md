@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: bc168cf696d6280ce4c0e7cb46f90af4a2ad7aa0
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803010"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686507"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-node"></a>Hızlı başlangıç: Node ile Bing Haber Arama SDK'sı
 
@@ -25,7 +25,9 @@ Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırmak için R
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Haber Arama SDK'sını kullanan bir konsol uygulaması kurmak için geliştirme ortamınızda `npm install azure-cognitiveservices-newssearch` komutunu çalıştırın.
+Bing haber arama SDK'sını kullanarak bir konsol uygulaması ayarlamak için:
+* Çalıştırma `npm install ms-rest-azure` geliştirme ortamınızda.
+* Çalıştırma `npm install azure-cognitiveservices-newssearch` geliştirme ortamınızda.
 
 ## <a name="news-search-client"></a>Haber Arama istemcisi
 *Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun:

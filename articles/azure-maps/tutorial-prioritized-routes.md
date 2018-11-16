@@ -3,18 +3,18 @@ title: Azure Haritalar ile birden fazla yol | Microsoft Docs
 description: Azure Haritalar’ı kullanarak farklı seyahat modları için yolları bulma
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 67b68489f2e06b9149f842f293a769fa7f688be0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412712"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705288"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Haritalar’ı kullanarak farklı seyahat modları için yolları bulma
 
@@ -26,7 +26,7 @@ Bu öğreticide, istediğiniz konuma yönelik ve ulaşım yönteminize göre ön
 > * Seyahat modunu bildiren yol sorguları oluşturma
 > * Haritanızda birden fazla yol görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Devam etmeden önce, [Azure Haritalar hesabınızı oluşturmak](./tutorial-search-location.md#createaccount) ve [hesabınızın abonelik anahtarını almak](./tutorial-search-location.md#getkey) için ilk öğreticide yer alan adımları izleyin.
 
@@ -291,12 +291,7 @@ Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
 
 [Burada canlı örneği inceleyin](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-Azure Haritalar'ın kapsamı ve özellikleri hakkında daha fazla bilgi edinmek için:
+Sonraki öğretici, Azure haritalar'ı kullanarak bir basit deposu Bulucu oluşturma işlemini gösterir.
 
 > [!div class="nextstepaction"]
-> [Yakınlaştırma düzeyleri ve kutucuk kılavuzu](zoom-levels-and-tile-grid.md)
-
-Daha fazla kod örneği ve etkileşimli bir kodlama deneyimi için:
-
-> [!div class="nextstepaction"]
-> [Harita denetimini kullanma](how-to-use-map-control.md)
+> [Azure haritalar'ı kullanarak bir depolama Bulucu](./tutorial-create-store-locator.md)

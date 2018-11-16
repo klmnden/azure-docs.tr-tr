@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4220af0a93bd48074c29c7b8e25a822d28a8161b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244483"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712390"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belge özelliği hakkında bilgiler tamamlamak için Azure İzleyici, Log Analytics, özel bilgiler sağlamak için tasarlanmıştır [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -158,7 +158,7 @@ Operations Manager için Operations Manager yönetim grubu Log Analytics hizmeti
 
 Log Analytics hizmetine bağlı sistemler arasındaki tüm iletişimler şifrelenir. TLS (HTTPS) protokolü, şifreleme için kullanılır.  Log Analytics ile şifreleme protokollerine en son gelişmelerden en güncel olduğundan emin olmak için Microsoft SDL işlemine izler.
 
-Aracısı'nın her tür için Log Analytics verilerini toplar. Toplanan veri türünde kullanılan çözümleri türlerine bağlıdır. Veri toplamayı durdurmak özetini görebilirsiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../monitoring/monitoring-solutions.md). Ayrıca, daha ayrıntılı bilgilerin toplanması için çözümlerinin çoğunda kullanılabilir. Bir çözüm önceden tanımlanmış görünümleri, günlük arama sorguları, veri toplama kuralları ve işleme mantığı paketidir. Yalnızca Yöneticiler, Log Analytics çözümü içeri aktarma için kullanabilirsiniz. Çözüm içeri aktardıktan sonra (kullanılıyorsa) Operations Manager yönetim sunucularına ve seçmiş olduğunuz tüm aracılara taşınır. Daha sonra aracıları, verilerini toplayın.
+Aracısı'nın her tür için Log Analytics verilerini toplar. Toplanan veri türünde kullanılan çözümleri türlerine bağlıdır. Veri toplamayı durdurmak özetini görebilirsiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../azure-monitor/insights/solutions.md). Ayrıca, daha ayrıntılı bilgilerin toplanması için çözümlerinin çoğunda kullanılabilir. Bir çözüm önceden tanımlanmış görünümleri, günlük arama sorguları, veri toplama kuralları ve işleme mantığı paketidir. Yalnızca Yöneticiler, Log Analytics çözümü içeri aktarma için kullanabilirsiniz. Çözüm içeri aktardıktan sonra (kullanılıyorsa) Operations Manager yönetim sunucularına ve seçmiş olduğunuz tüm aracılara taşınır. Daha sonra aracıları, verilerini toplayın.
 
 ## <a name="2-send-data-from-agents"></a>2. Aracılarından veri gönderme
 Bir kayıt anahtarı ile tüm aracı türleri Kaydet ve aracı ve sertifika tabanlı kimlik doğrulaması ve SSL bağlantı noktası 443 ile kullanarak Log Analytics hizmeti arasında güvenli bir bağlantı kurulur. Log Analytics, oluşturmak ve anahtarlarını korumak için bir gizli dizi deposu kullanır. Özel anahtarlar Azure'da depolanır her 90 günde döndürülür ve katı yasal ve uyumluluğa yöntemler izleyen Azure işlemleri tarafından yönetilen.

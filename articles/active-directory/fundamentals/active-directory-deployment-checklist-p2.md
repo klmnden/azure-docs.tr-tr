@@ -10,35 +10,35 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315122"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705660"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 lisans özelliği denetim listesi
 
-Kuruluşunuz için Azure Active Directory (Azure AD) dağıtma ve güvenli tutmaya göz korkutucu görünebilir. Bu makalede bazı genel görevleri tanımlar müşterilere 30 gün sonra 90 gün boyunca tamamlanması veya sonrasını kendi güvenlik duruşunu geliştirmek için yararlı bulabilirsiniz. Azure AD zaten dağıtmış olan kuruluşlar bile, bunlar en iyi yatırımları aldıklarından emin olmak için bu denetim listesini kullanabilirsiniz.
+Kuruluşunuz için Azure Active Directory (Azure AD) dağıtın ve güvende tutun zor görünebilir. Bu makale, müşterilerin yararlı bulabileceğiniz bazı ortak görevler tanımlar. Müşteriler genellikle bu görevleri 90 gün 30 gün içinde veya dışında kursu üzerinden kendi güvenlik duruşunu geliştirmek için tamamlayın. Azure AD zaten dağıtmış olan kuruluşlar bile, bunlar en iyi yatırımları aldığınızdan emin olmak için bu denetim listesini kullanabilirsiniz.
 
 İyi planlanmış ve yürütülen kimlik altyapısını daha güvenli erişim için üretkenlik iş yüklerini ve verileri yalnızca kimliği doğrulanmış kullanıcılar ve cihazlar tarafından bir hazırlık niteliğindedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kılavuzda, Azure AD Premium P2 lisansı, Enterprise Mobility + Security E5, Microsoft 365 E5'e veya bir eşdeğer lisans paketi sahip olduğunuz varsayılmaktadır.
+Bu kılavuzda, Azure AD Premium P2 lisansı, Enterprise Mobility + Security E5, Microsoft 365 E5'e veya benzer bir lisans paketi sahip olduğunuz varsayılmaktadır.
 
 [Azure AD lisanslama](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Kurumsal](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Kurumsal](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>Planlama ve dağıtma: 1-30 gün
 
 - Birden fazla genel yönetici (kesme cam hesabı) belirtme
    - [Azure AD'de Acil Durum erişimi yönetici hesaplarını yönetme](../users-groups-roles/directory-emergency-access.md)
 - Azure AD Privileged Identity Management (PIM) raporları görüntülemek için üzerinde Aç
-   - [PIM kullanmaya başlayın](../privileged-identity-management/pim-getting-started.md)
+   - [PIM kullanmaya başlama](../privileged-identity-management/pim-getting-started.md)
 - Mümkün olduğunda genel olmayan yönetici rollerini kullanın.
    - [Azure Active Directory’de yönetici rolü atama](../users-groups-roles/directory-assign-admin-roles.md)
 - Kimlik Doğrulaması

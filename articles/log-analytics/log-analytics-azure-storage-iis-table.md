@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3d1170845968cd5c9d4a4c09c9906dea962138d7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278659"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712968"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics ile olayları için IIS ve Azure tablo depolama için Azure blob depolama kullanma
 
@@ -194,5 +194,5 @@ Aşağıdaki kod örneği gözden geçirin, kopyalayın, gerektiği gibi değiş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Günlükleri ve Azure Hizmetleri için ölçümleri toplamak](log-analytics-azure-storage.md) desteklenen Azure Hizmetleri.
-* [Çözümlerle](../monitoring/monitoring-solutions.md) veri Öngörüler sağlar.
+* [Çözümlerle](../azure-monitor/insights/solutions.md) veri Öngörüler sağlar.
 * [Arama sorguları kullanılır](log-analytics-queries.md) verileri çözümlemek için.

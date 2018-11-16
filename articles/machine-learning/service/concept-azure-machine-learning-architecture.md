@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210695"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706815"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -156,9 +156,9 @@ Bir deney, belirli bir betik birçok çalıştırmalardan gruplandırmasıdır. 
 
 Bir deney kullanma örneği için bkz. [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md) belge.
 
-## <a name="pipelines"></a>İşlem hatları
+## <a name="pipeline"></a>İşlem hattı
 
-İşlem hatları oluşturup birleştirmek iş akışları yönetmek için kullanılan makine öğrenimi aşamaları. Örneğin, bir işlem hattı, veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım aşamaları içerebilir. Her aşamada, her biri çeşitli işlem hedeflerini katılımsız çalışabilir, birden çok adım kapsayabilir.
+Machine learning işlem hatlarını oluşturmak ve birleştirmek iş akışları yönetmek için kullanılan makine öğrenimi aşamaları. Örneğin, bir işlem hattı, veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım aşamaları içerebilir. Her aşamada, her biri çeşitli işlem hedeflerini katılımsız çalışabilir, birden çok adım kapsayabilir.
 
 Machine learning işlem hatlarını bu hizmeti hakkında daha fazla bilgi için bkz [işlem hatları ve Azure Machine Learning](concept-ml-pipelines.md).
 

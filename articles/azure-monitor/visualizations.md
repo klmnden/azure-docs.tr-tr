@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973584"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711931"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../monitoring/monitoring-data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../monitoring/monitoring-data-collection.md#logs). 
@@ -50,7 +50,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 - Sınırlı bağlamsal detaya gitme.
 
 ## <a name="azure-monitor-views"></a>Azure İzleyici görünümleri
-[Azure İzleyici görünümlerde](../log-analytics/log-analytics-view-designer.md) günlük verileri Log Analytics içinde depolanan özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](../monitoring/monitoring-solutions.md) bunlar topladığı verileri sunmak için.
+[Azure İzleyici görünümlerde](../log-analytics/log-analytics-view-designer.md) günlük verileri Log Analytics içinde depolanan özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](../azure-monitor/insights/solutions.md) bunlar topladığı verileri sunmak için.
 
 ![Görünüm](media/visualizations/view.png)
 
