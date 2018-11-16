@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 82cd29cf1a635d1cd613d289a5d8db6ef54ee661
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49398759"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623216"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Azure Active Directory izleme nedir? (önizleme)
 
@@ -32,7 +32,6 @@ Günlükleri şu an için şu hedeflere yönlendirebilirsiniz:
 - Bir Azure depolama hesabı.
 - Splunk ve Sumologic örneklerinizle tümleştirmek üzere bir Azure olay hub'ı.
 - Verileri analiz edip belirli olaylar için pano ve uyarı oluşturabileceğiniz Azure Log Analytics çalışma alanı
-
 
 ## <a name="diagnostic-settings-configuration"></a>Tanılama ayarlarını yapılandırma
 
@@ -53,7 +52,7 @@ Günlükleri bir Azure depolama hesabına yönlendirerek [saklama ilkelerimizde]
 
 ## <a name="stream-logs-to-event-hub"></a>Günlükleri olay hub’ına aktarma
 
-Günlükleri bir Azure olay hub'ına aktarmak, Sumologic ve Splunk gibi üçüncü taraf SIEM araçlarına tümleştirmenizi sağlar. Bu tümleştirme, Azure AD etkinlik günlüğü verilerinizi SIEM tarafından yönetilen diğer verilerle birleştirerek ortamınızla ilgili daha gelişmiş içgörüler elde etmenizi sağlar. [Olay hub'ına günlük akışı yapmayı](tutorial-azure-monitor-stream-logs-to-event-hub.md) öğrenin.
+Günlükleri bir Azure olay hub'ına aktarmak, Sumologic ve Splunk gibi üçüncü taraf SIEM araçlarına tümleştirmenizi sağlar. Bu tümleştirme, Azure AD etkinlik günlüğü verileri ortamınızı daha zengin Öngörüler sağlamak için SIEM tarafından yönetilen diğer verilerle birleştirmek sağlar. [Olay hub'ına günlük akışı yapmayı](tutorial-azure-monitor-stream-logs-to-event-hub.md) öğrenin.
 
 ## <a name="send-logs-to-log-analytics"></a>Günlükleri Log Analytics’e gönderme
 

@@ -1,5 +1,5 @@
 ---
-title: 'HDInsight Hadoop hata ayıklama: günlükleri görüntüleyebilir ve hata iletilerini - Azure yorumlama '
+title: 'HDInsight, Apache Hadoop hata ayıklama: günlükleri görüntüleyebilir ve hata iletilerini - Azure yorumlama '
 description: Hata iletileri, PowerShell kullanarak HDInsight yönetirken alabilirsiniz ve kurtarmak için attığınız adımlar hakkında bilgi edinin.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261158"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634643"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop günlüklerini analiz etme
 
-Her Azure HDInsight Hadoop kümesinin varsayılan dosya sistemi olarak kullanılan bir Azure depolama hesabına sahiptir. Depolama hesabı varsayılan depolama hesabı olarak adlandırılır. Küme, günlükleri depolamak için varsayılan depolama hesabı Azure tablo depolama ve Blob Depolama kullanır.  Kümeniz için varsayılan depolama hesabını öğrenmek için bkz: [yönetme Hadoop kümeleri HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Hatta kümesi silindikten sonra depolama hesabında günlükleri korur.
+Her Azure HDInsight Apache Hadoop kümesinin varsayılan dosya sistemi olarak kullanılan bir Azure depolama hesabına sahiptir. Depolama hesabı varsayılan depolama hesabı olarak adlandırılır. Küme, günlükleri depolamak için varsayılan depolama hesabı Azure tablo depolama ve Blob Depolama kullanır.  Kümeniz için varsayılan depolama hesabını öğrenmek için bkz: [yönetme Hadoop kümeleri HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Hatta kümesi silindikten sonra depolama hesabında günlükleri korur.
 
 ## <a name="logs-written-to-azure-tables"></a>Azure tabloları yazılan günlükleri
 
@@ -131,7 +131,7 @@ Bu bölümde listelenen hata iletileri, Azure HDInsight Hadoop kullanıcıları 
 
 HDInsight kümelerini yönetmek için kullanıldığında bu hata iletileri bazıları aynı zamanda Azure Portalı'nda görülebilir. Ancak karşılaşabileceğiniz diğer hata iletileri vardır bu bağlamda olası düzeltici eylemlerde kısıtlamaları nedeniyle daha az ayrıntılı. Diğer hata iletileri, risk azaltma açık olduğu bağlamlarda sağlanır. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Açıklama**: Hive ve Oozie meta depolar için özel ayarları kullanmak için lütfen en az bir bileşen için Azure SQL veritabanı ayrıntılarını belirtin.
 * **Risk azaltma**: kullanıcının erişmesi geçerli bir SQL Azure meta veri deposu sağlayın ve isteği yeniden deneyin.  
 
@@ -315,4 +315,4 @@ HDInsight kümelerini yönetmek için kullanıldığında bu hata iletileri baz�
 
 * [HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Ambari görünümlerini kullanma](../hdinsight-debug-ambari-tez-view.md)
 * [Linux tabanlı HDInsight üzerinde Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak yönetme](../hdinsight-hadoop-manage-ambari.md)
+* [HDInsight kümelerini Ambari Web arabiriminden yönetme](../hdinsight-hadoop-manage-ambari.md)

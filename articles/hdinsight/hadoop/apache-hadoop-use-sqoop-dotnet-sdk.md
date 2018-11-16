@@ -1,6 +1,6 @@
 ---
-title: .NET ve HDInsight - Azure'ı kullanarak Sqoop işleri çalıştırma
-description: HDInsight .NET SDK'sı bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve kullanacağınızı öğrenin.
+title: .NET ve HDInsight - Azure'ı kullanarak Apache Sqoop işleri çalıştırma
+description: Apache Sqoop alma ve bir Apache Hadoop kümesi ile bir Azure SQL veritabanı arasında için HDInsight .NET SDK'sını kullanmayı öğrenin.
 keywords: sqoop işi
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 423934dee0b490bb12522cec6d37393a1ec5e2f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014882"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633047"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight, Hadoop için .NET SDK kullanarak Sqoop işleri çalıştırma
+# <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop için .NET SDK kullanarak Apache Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-İçeri aktarma ve bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında dışa aktarmak için HDInsight Sqoop işleri çalıştırmak için Azure HDInsight .NET SDK'sını kullanmayı öğrenin.
+İçeri aktarma ve bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında dışa aktarmak için HDInsight, Apache Sqoop işlerini çalıştırmak için Azure HDInsight .NET SDK'sını kullanmayı öğrenin.
 
 > [!NOTE]
 > Bu makalede yer alan yordamları bir Windows tabanlı veya Linux tabanlı HDInsight kümesi ile birlikte kullanabilirsiniz, ancak yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin başında sekme seçicisini kullanın.

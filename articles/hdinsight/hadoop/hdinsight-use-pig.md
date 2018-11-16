@@ -1,6 +1,6 @@
 ---
-title: HDInsight, Hadoop Pig kullanma
-description: HDInsight üzerinde Hadoop ile pig kullanma konusunda bilgi edinin.
+title: HDInsight Apache Pig kullanma
+description: HDInsight üzerinde Apache Hadoop ile pig kullanma konusunda bilgi edinin.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 921f4747dcaf9ad302c37930ca09903e345bfdb0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016429"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633640"
 ---
-# <a name="use-pig-with-hadoop-on-hdinsight"></a>HDInsight üzerinde Hadoop ile Pig kullanma
+# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma
 
 Nasıl kullanacağınızı öğrenin [Apache Pig](http://pig.apache.org/) HDInsight ile.
 
-Pig olarak bilinen bir yordam dilini kullanarak Hadoop için programlar oluşturmak için bir platform olan *Pig Latin*. Pig oluşturmak için Java alternatif olan *MapReduce* çözümleri ve bu, Azure HDInsight ile birlikte. HDInsight ile Pig çeşitli şekillerde kullanılabilir bulmak için aşağıdaki tabloyu kullanın:
+Apache Pig olarak bilinen bir yordam dilini kullanarak Apache Hadoop için programlar oluşturmak için bir platform olan *Pig Latin*. Pig oluşturmak için Java alternatif olan *MapReduce* çözümleri ve bu, Azure HDInsight ile birlikte. HDInsight ile Pig çeşitli şekillerde kullanılabilir bulmak için aşağıdaki tabloyu kullanın:
 
 | **Bu** isterseniz... | ...an **etkileşimli** Kabuk | ...**toplu** işleme | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
 |:--- |:---:|:---:|:--- |:--- |

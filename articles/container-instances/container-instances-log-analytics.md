@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 5d3ba4ac4a86b6051ea5dafbff8c038c9198108c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279560"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614013"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics ile kapsayıcı örneği
 
@@ -20,7 +20,7 @@ Log Analytics çalışma alanları yalnızca Azure kaynaklarından değil şirke
 
 Kapsayıcı örneği verilerini Log Analytics’e göndermek için, Azure CLI (veya Cloud Shell) ve bir YAML dosyası kullanarak bir kapsayıcı grubu oluşturmanız gerekir. Aşağıdaki bölümlerde, günlüğe yazma etkin bir kapsayıcı grubu ve sorgulama günlükleri oluşturma açıklanmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Kapsayıcı örneklerinizde oturum açmayı etkinleştirmek için aşağıdakiler gerekir:
 
@@ -134,8 +134,9 @@ ContainerInstanceLog_CL
 
 Azure Log Analytics’te günlükleri sorgulama ve uyarıları yapılandırma hakkında daha fazla bilgi için bkz.
 
-* [Log Analytics’te günlük aramalarını anlama](../log-analytics/log-analytics-queries.md)
-* [Azure İzleyici’de birleştirilmiş uyarılar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+* [Log Analytics’te günlük aramalarını anlama](../log-analytics/log-analytics-log-search.md)
+* [Azure İzleyici’de birleştirilmiş uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 
 ### <a name="monitor-container-cpu-and-memory"></a>Kapsayıcı CPU ve belleğini izleme
 

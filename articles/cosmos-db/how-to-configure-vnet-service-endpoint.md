@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: b788490d588c217d97786f9306baad3083a9c03f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a7c2d1e41fa4ac26854e2e6ab57184cd6ed0bd0c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629384"
+ms.locfileid: "51633691"
 ---
 # <a name="how-to-access-azure-cosmos-db-resources-from-virtual-networks"></a>Azure Cosmos DB kaynaklarını sanal ağlardan erişme
 
@@ -31,7 +31,7 @@ Aşağıdaki bölümlerde, sanal ağ hizmet uç noktası için bir Azure Cosmos 
 
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Bir mevcut Azure sanal ağı ve alt ağ için hizmet uç noktası yapılandırma
 
-1. Gelen **tüm kaynakları** Bul sanal ağ dikey penceresinde istediğiniz güvenliğini sağlamak.
+1. Gelen **tüm kaynakları** Azure Cosmos hesabına Bul dikey penceresinde istediğiniz güvenliğini sağlamak.
 
 1. Seçin **güvenlik duvarları ve sanal ağlar** Ayarlar menüsünden ve erişime izin verecek **seçili ağlar**.
 
@@ -42,7 +42,7 @@ Aşağıdaki bölümlerde, sanal ağ hizmet uç noktası için bir Azure Cosmos 
    ![Sanal ağ ve alt ağ seçin](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
 
-1. Azure Cosmos hesabı etkinleştirildikten sonra yalnızca bu alt ağ seçilen gelen trafiğe izin verir. Sanal ağ ve alt eklediğiniz aşağıdaki ekran görüntüsünde gösterildiği gibi görünmelidir:
+1. Sanal ağ üzerinden erişmek için Azure Cosmos hesabı etkinleştirildikten sonra yalnızca bu seçilen alt ağa gelen trafiğe izin verir. Sanal ağ ve alt eklediğiniz aşağıdaki ekran görüntüsünde gösterildiği gibi görünmelidir:
 
    ![sanal ağ ve alt ağı başarıyla yapılandırıldı](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -183,6 +183,10 @@ Azure PowerShell kullanarak bir Azure Cosmos DB hesabı için hizmet uç noktas�
 1. Var olan Azure Cosmos hesabı ACL'ler alt ağ ile güncelleştirme
 
    ```azurecli-interactive
+
+   name="<Azure Cosmos account name>"
+   resourceGroupName="<Resource group name>"
+
    az cosmosdb update \
       --name $name \
     --resource-group $resourceGroupName \

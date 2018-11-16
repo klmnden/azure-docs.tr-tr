@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 49d68a28180c384a181f29e41c12a5e32bd76aee
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625224"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685710"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -59,12 +59,13 @@ Bir genel benzersiz tanıtıcısı (GUID) eklemek için ana şablon dosyası iç
 1. [Şablon dağıtımı'nda GUID başarısını doğrulama](#verify-the-guid-deployment).
 
 ### <a name="sample-resource-manager-template-code"></a>Örnek Resource Manager şablonu kodu
-Lütfen değiştirdiğinizden emin olun. ana şablon dosyasına eklerken kendi giriş içeren örnek kodlar aşağıda.
+
+Şablonunuz için izleme kaynakları etkinleştirmek için Kaynaklar bölümü altında aşağıdaki ek kaynak eklemeniz gerekir. Lütfen değiştirdiğinizden emin olun. ana şablon dosyasına eklerken kendi giriş içeren örnek kodlar aşağıda.
 Kaynak olarak eklenmesi gerekir **mainTemplate.json** veya **azuredeploy.json** dosya yalnızca ve, tüm iç içe veya bağlı şablonları.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",

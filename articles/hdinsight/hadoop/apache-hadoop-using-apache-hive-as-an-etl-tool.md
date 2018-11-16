@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: cd62083bc7bd0254084f0fc209540de929c25d06
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042262"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632552"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive ayıklama, dönüştürme ve yükleme (ETL) aracı olarak kullanma
 
-Genelde temizlemek ve analiz için uygun bir hedef içine yüklemeden önce gelen verileri dönüştürmek gerekir. Ayıklama, dönüştürme ve yükleme (ETL) işlemleri, veri hazırlama ve veri hedefe yüklemek için kullanılır.  HDInsight üzerindeki hive'a yapılandırılmamış verileri okuma, gerektiği gibi verileri işlemek ve ardından karar destek sistemleri için bir ilişkisel veri ambarı'na veri yükleme. Bu yaklaşımda, veri kaynağından ayıklanan ve ölçeklenebilir depolama, Azure depolama blobları veya Azure Data Lake Store gibi depolanır. Veriler ardından Hive sorguları bir dizi kullanarak dönüştürülür ve içinde Hive toplu hedef veri deposuna yükleme hazırlığı kapsamında son hazırlanır.
+Genelde temizlemek ve analiz için uygun bir hedef içine yüklemeden önce gelen verileri dönüştürmek gerekir. Ayıklama, dönüştürme ve yükleme (ETL) işlemleri, veri hazırlama ve veri hedefe yüklemek için kullanılır.  HDInsight üzerinde Apache Hive yapılandırılmamış verileri okuma, gerektiği gibi verileri işlemek ve ardından karar destek sistemleri için bir ilişkisel veri ambarı'na veri yükleme. Bu yaklaşımda, veri kaynağından ayıklanan ve ölçeklenebilir depolama, Azure depolama blobları veya Azure Data Lake Store gibi depolanır. Veriler ardından Hive sorguları bir dizi kullanarak dönüştürülür ve içinde Hive toplu hedef veri deposuna yükleme hazırlığı kapsamında son hazırlanır.
 
 ## <a name="use-case-and-model-overview"></a>Büyük/küçük harf ve model genel bakış kullanın
 

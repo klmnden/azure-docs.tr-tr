@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263761"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686271"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hataları ve Azure Logic apps'te özel durumları işleme
 
@@ -73,7 +73,7 @@ Veya el ile yeniden deneme ilkesinde belirtebileceğiniz `inputs` bölüm için 
 
 | Değer | Tür | Açıklama |
 |-------|------|-------------|
-| <*yeniden deneme ilkesi türü*> | Dize | Kullanmak istediğiniz yeniden deneme ilkesi türü: "varsayılan", "none", "sabit" veya "üstel" | 
+| <*yeniden deneme ilkesi türü*> | Dize | Kullanmak istediğiniz yeniden deneme ilkesi türü: `default`, `none`, `fixed`, veya `exponential` | 
 | <*yeniden deneme aralığı*> | Dize | Yeniden deneme aralığı değeri burada kullanmalıdır [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Varsayılan en düşük aralık `PT5S` ve en büyük aralık `PT1D`. Üstel aralık İlkesi kullandığınızda, farklı minimum ve maksimum değerleri belirtebilirsiniz. | 
 | <*yeniden deneme girişimleri*> | Tamsayı | 1 ile 90 arasında olmalıdır, yeniden deneme sayısı | 
 ||||
@@ -221,9 +221,9 @@ Kapsamlar hakkında daha fazla limitleri için bkz [limitler ve yapılandırma](
 
 ### <a name="get-context-and-results-for-failures"></a>Hataları için bağlam ve sonuçları alın
 
-Bir kapsam hatalarını yakalama kullanışlı olsa da, tam olarak hangi eylemlerin herhangi bir hata veya döndürüldü durum kodları başarısız anlamanıza yardımcı olması için bağlam da isteyebilirsiniz. "@result()" İfadesi sonucu bir kapsam içindeki tüm eylemleri hakkında bir bağlam sağlar.
+Bir kapsam hatalarını yakalama kullanışlı olsa da, tam olarak hangi eylemlerin herhangi bir hata veya döndürüldü durum kodları başarısız anlamanıza yardımcı olması için bağlam da isteyebilirsiniz. `@result()` İfade sonucu bir kapsam içindeki tüm eylemleri hakkında bir bağlam sağlar.
 
-"@result()" İfadesi (kapsamın adı) tek bir parametre kabul eder ve tüm eylem sonuçlarına ilişkin bu kapsam içinde bir dizi döndürür. Bu eylem nesneler aynı özniteliklere içerir  **@actions()** eylemin başlangıç zamanı, bitiş zamanı, durum, girişler, bağıntı kimlikleri ve çıktılar gibi bir nesne. Bir kapsam içinde başarısız olan herhangi bir eylem için bağlamı göndermek için kolayca eşleşebileceğini denetleyebilmesi bir  **@result()** işleviyle bir **runAfter** özelliği.
+`@result()` İfade (kapsamın adı) tek bir parametre kabul eder ve tüm eylem sonuçlarına ilişkin bu kapsam içinde bir dizi döndürür. Bu eylem nesneler aynı özniteliklere içerir  **@actions()** eylemin başlangıç zamanı, bitiş zamanı, durum, girişler, bağıntı kimlikleri ve çıktılar gibi bir nesne. Bir kapsam içinde başarısız olan herhangi bir eylem için bağlamı göndermek için kolayca eşleşebileceğini denetleyebilmesi bir  **@result()** işleviyle bir **runAfter** özelliği.
 
 Her eylem için eylem olan bir kapsam içinde çalıştırmak için bir **başarısız** sonucu, ve sonuçları aşağı başarısız Eylemler dizisi filtrelemek için eşleştirilebileceği  **@result()** ile bir **[Filtre dizisi](../connectors/connectors-native-query.md)** eylem ve [ **her** ](../logic-apps/logic-apps-control-flow-loops.md) döngü. Filtrelenmiş Sonuç dizisi alın ve her hata kullanmak için bir eylem gerçekleştirmek **her** döngü. 
 
@@ -270,22 +270,22 @@ Her eylem için eylem olan bir kapsam içinde çalıştırmak için bir **başar
 
 Bu örnekte ne açıklayan ayrıntılı bilgileri aşağıda verilmiştir:
 
-1. "My_Scope" içindeki tüm eylemler sonucu alma **filtre dizisi** eylemi bu filtre ifadesi kullanır: "@result('My_Scope')"
+1. "My_Scope" içindeki tüm eylemler sonucu alma **filtre dizisi** eylemi bu filtre ifadesi kullanır: `@result('My_Scope')`
 
-2. Koşul için **filtre dizisi** herhangi "@result()" durumuna eşit olan öğe **başarısız**. Bu durum, tüm eylem sonuçlardan "My_Scope" bir dizi aşağı yalnızca başarısız olan eylem sonuçları içeren dizi filtreler.
+2. Koşul için **filtre dizisi** herhangi `@result()` Durum eşit olan öğe **başarısız**. Bu durum, tüm eylem sonuçlardan "My_Scope" bir dizi aşağı yalnızca başarısız olan eylem sonuçları içeren dizi filtreler.
 
 3. Gerçekleştirmek bir **her** döngüye eylem *filtrelenmiş bir dizi* çıkarır. Bu adım, daha önce Filtre her başarısız olan eylem sonucu için bir eylem gerçekleştirir.
 
    Kapsamı tek bir eylemle başarısız olduysa, Eylemler **her** döngü yalnızca bir kez çalıştırın. 
    Birden çok başarısız Eylemler hatası başına tek bir eylemle neden olur.
 
-4. Bir HTTP POST gönderme **her** öğesi olan yanıt gövdesi "@item() ['çıkışlar'] ['Gövde']" ifadesi. 
+4. Bir HTTP POST gönderme **her** öğesi olan yanıt gövdesi `@item()['outputs']['body']` ifade. 
 
-   "@result()" Öğesi şekli aynı olup "@actions()" şekillendirme ve aynı şekilde ayrıştırılır.
+   `@result()` Öğe şekli aynıdır `@actions()` şekillendirme ve aynı şekilde ayrıştırılır.
 
-5. Başarısız olan eylem adlı iki özel üst bilgiler dahil ("@item() ['name']") ve istemci izleme kimliği çalıştırma başarısız ("@item() ['clientTrackingId']").
+5. Başarısız olan eylem adlı iki özel üst bilgiler dahil (`@item()['name']`) ve istemci izleme kimliği çalıştırma başarısız (`@item()['clientTrackingId']`).
 
-Başvuru için tek bir örneği aşağıda verilmiştir "@result()" öğesini, gösteren **adı**, **gövdesi**, ve **clientTrackingId** önceki Ayrıştırılan özellikleri örnek. Dışında bir **her** eylemi, "@result()" Bu nesneler dizisi döndürür.
+Başvuru için tek bir örneği aşağıda verilmiştir `@result()` gösteren öğesi **adı**, **gövdesi**, ve **clientTrackingId** önceki Ayrıştırılan özellikleri örnek. Dışında bir **her** eylem `@result()` bu nesneler dizisi döndürür.
 
 ```json
 {

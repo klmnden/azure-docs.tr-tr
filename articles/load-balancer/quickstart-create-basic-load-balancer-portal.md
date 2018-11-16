@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
-ms.translationtype: HT
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378440"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616036"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak genel bir Temel yük dengeleyici oluşturma
 
@@ -159,6 +159,7 @@ Temel yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için 
    - Durum araştırmasının adı için **myHealthProbe**
    - Protokol türü için **HTTP**
    - Bağlantı noktası numarası için **80**
+   - **Healthprobe.aspx** için URI yolu. Bu değeri başka bir URI ile değiştirin veya varsayılan yol değerini tutmak **"\\"** varsayılan URI.
    - Araştırma denemeleri arasındaki saniye cinsinden süreyi ifade eden **Aralık** için **15**
    - Bir sanal makinenin sağlıksız olduğu kanısına varılmadan önce gerçekleşmesi gereken ardışık araştırma hatası sayısını ifade eden **Sağlıksız eşik** sayısı için **2**
 

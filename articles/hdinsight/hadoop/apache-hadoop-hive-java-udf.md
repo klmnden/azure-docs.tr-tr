@@ -1,6 +1,6 @@
 ---
-title: Java kullanıcı tanımlı işlev (UDF ile HDInsight - Azure'da Hive)
-description: Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnek, bir küçük metin dizesi tablosunu UDF dönüştürür.
+title: Java kullanıcı tanımlı işlev (UDF Apache Hive, HDInsight - Azure)
+description: Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnek, bir küçük metin dizesi tablosunu UDF dönüştürür.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3d8f1d75b8e61bd611f58ed953a8357fb4a47c78
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006252"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634082"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Bir Java kullanma HDInsight Hive ile UDF
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Bir Java kullanma UDF ile Apache Hive HDInsight
 
-Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnekte Java UDF bir metin dizesi tablosunu tümü küçük harf karakterlere dönüştürür.
+Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnekte Java UDF bir metin dizesi tablosunu tümü küçük harf karakterlere dönüştürür.
 
 ## <a name="requirements"></a>Gereksinimler
 

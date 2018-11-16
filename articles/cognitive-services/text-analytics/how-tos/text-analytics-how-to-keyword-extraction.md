@@ -1,7 +1,6 @@
 ---
-title: 'Örnek: Metin Analizi’nde anahtar ifadeleri ayıklama'
-titleSuffix: Azure Cognitive Services
-description: Metin Analizi REST API’sini kullanarak anahtar ifadeleri ayıklama.
+title: Nasıl yapılır anahtar ifade ayıklama metin Analytics REST API (Azure'da Microsoft Bilişsel hizmetler) | Microsoft Docs
+description: İzlenecek yol Bu öğreticide Azure üzerinde Microsoft Bilişsel hizmetler metin analizi REST API kullanarak anahtar tümcecikleri ayıklayın yapma.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605496"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632399"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Örnek: Metin Analizi’nde anahtar ifadeleri ayıklama
 
@@ -24,6 +23,9 @@ ms.locfileid: "45605496"
 Bir belge koleksiyonundaki ana noktaları hızlı şekilde belirlemeniz gerekiyorsa bu özellik kullanışlıdır. Örneğin, "The food was delicious and there were wonderful staff" (Yemek lezizdi ve müthiş personel hizmeti vardı) giriş metni olduğunda hizmet, "food" (yemek) ve "wonderful staff" (müthiş personel) ana konuşma noktalarını döndürür.
 
 Şu anda Anahtar İfade Ayıklama, İngilizce, Almanca, İspanyolca ve Japonca dillerini destekler. Diğer diller önizleme aşamasındadır. Daha fazla bilgi için bkz. [Desteklenen diller](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Metin analizi de sağlar Linux tabanlı bir Docker kapsayıcı görüntüsü anahtar ifade ayıklama için böylece [yükleyin ve metin analizi kapsayıcı çalıştırın](text-analytics-how-to-install-containers.md) verilerinizi yakın.
 
 ## <a name="preparation"></a>Hazırlık
 
@@ -71,7 +73,7 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 
 + Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Anahtar İfadeler API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Anahtar ifade ayıklaması için HTTP uç noktasını ayarlayın. `/keyphrases` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Anahtar ifade ayıklama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/keyPhrases` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 

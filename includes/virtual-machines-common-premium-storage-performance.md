@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746814"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678229"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Depolama: Yüksek performans tasarımı
 
@@ -32,8 +32,8 @@ Bu makalede, Azure Premium depolama üzerinde uygulama performansını iyileşti
 Premium depolama alanında çalışan iş yükleri yüksek performans duyarlı olduğu için özel olarak Premium depolama için bu yönergeleri sağladık. Uygun yerlerde örnek sağladık. Ayrıca standart depolama diskleri ile Iaas Vm'lerinde çalışan uygulamaları bu yönergeleri bazıları uygulayabilirsiniz.
 
 > [!NOTE]
-> Bazen, bir performans sorunu görünüyor ne aslında bir ağ sorunu olabilir. Bu gibi durumlarda, iyileştirmek, [ağ performansı](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Ayrıca, hızlandırılmış ağ, sanal Makinenizin destekler emin olmalısınız. Aksi halde, hem de dağıtım sonra bile etkinleştirebilirsiniz [windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) ve [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) VM'ler.
+> Bazen, bir disk performans sorunu görünüyor ne aslında bir ağ sorunu olabilir. Bu gibi durumlarda, iyileştirmek, [ağ performansı](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Hızlandırılmış ağ, sanal Makinenizin destekliyorsa, etkin olduğundan emin olun. Etkinleştirilmezse, hem de zaten dağıtılmış vm'lerde etkinleştirebilirsiniz [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) ve [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 Premium depolamaya bilginiz yoksa, başlamadan önce okumanız [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md) ve [Azure depolama ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md)makaleler.
 
@@ -227,8 +227,8 @@ Azure Premium depolama, sekiz GA disk boyutları ve şu anda Önizleme aşaması
 
 | Premium disk türü  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Disk boyutu           | 32 giB | 64 giB | 128 GiB| 256 giB| 512 GB            | 1024 (1 TiB) giB    | 2.048 giB (2 tib'a kadar)    | 4.095 giB (4 tib'a kadar)    | Olmak üzere 8.192 giB (8 tib'a kadar)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 GiB)    |
-| Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20,000              |
+| Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 giB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 GiB)    |
+| Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15.000              | 20,000              |
 | Disk başına aktarım hızı | Saniye başına 25 MiB  | Saniye başına 50 MiB  | Saniye başına 100 MiB |Saniye başına 125 MiB | Saniye başına 150 MiB | Saniye başına 200 MiB | Saniye başına 250 MiB | Saniye başına 250 MiB | Saniye başına 480 MiB | Saniye başına 750 MiB | Saniye başına 750 MiB |
 
 Seçilen diskte bağlıdır seçtiğiniz kaç diskinin boyutu. Uygulama dağıtımı gereksinimi karşılamak için tek bir P50 disk veya birden çok P10 disk kullanabilirsiniz. Seçim yaparken, aşağıda listelenen hesabında dikkate alınacak noktalar alın.

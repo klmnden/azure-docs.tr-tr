@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 30efb963f34ff567c70d845a4a8891ead285b178
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572829"
+---
 Bu uygulamayı kullanmaya devam etmeyecekseniz, herhangi bir ücret ödememek için aşağıdaki adımları kullanarak bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:
 
 1. Azure portalında, en solda bulunan **Kaynak grupları**’nı ve ardından oluşturduğunuz kaynak grubunu seçin.  

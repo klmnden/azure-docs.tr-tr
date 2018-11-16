@@ -1,51 +1,46 @@
 ---
-title: 'Hızlı Başlangıç: REST API ve Java kullanarak bir görüntüdeki yüzleri algılama'
+title: "Hızlı Başlangıç: Java ve Azure REST API'si ile bir görüntüdeki yüzleri algılayın"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Java ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+description: Bu hızlı başlangıçta, bir resimdeki yüz algılama için Java ile Azure yüz REST API'sini kullanır.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: df9490a3ee2af115b48dafd323e1afdec24b392d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 0a8a97be89893dbf072942501be51b82d20c1ef4
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956230"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578077"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Hızlı Başlangıç: REST API ve Java kullanarak bir görüntüdeki yüzleri algılama
 
-Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
+Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Java ile Azure yüz REST API'sini kullanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="detect-faces-in-an-image"></a>Bir görüntüdeki yüzleri algılama
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+- Herhangi bir Java IDE, tercih ettiğiniz.
 
-[Yüz - Algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yöntemini kullanarak bir görüntüdeki yüzleri algılayın ve aşağıdaki yüz özniteliklerini döndürün:
+## <a name="create-the-java-project"></a>Java projesi oluşturma
 
-* Face ID: Birkaç Yüz Tanıma API'si senaryosunda kullanılan benzersiz kimlik.
-* Yüz Dikdörtgeni: Görüntüdeki yüzün konumunu gösteren sol kısım, üst kısım, genişlik ve yükseklik.
-* Yer İşaretleri: Yüz bileşenlerinin önemli konumlarına işaret eden 27 noktalık yüz yer işareti dizisi.
-* Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
+IDE'nizi içinde yeni bir komut satırı Java uygulaması oluşturma ve ekleme bir **ana** sınıfıyla birlikte bir **ana** yöntemi. Ardından, aşağıdaki genel kitaplıkları Maven deposuna indirmesine `lib` projenizin dizin:
+* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.json:json:20170516`
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
+## <a name="add-face-detection-code"></a>Yüz algılama kodu ekleyin
 
-1. Sık kullandığınız Java IDE’de yeni bir komut satırı uygulaması oluşturun.
-2. Main sınıfını aşağıdaki kod ile değiştirin (tüm `package` deyimlerini tutun).
-3. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-4. Gerekirse abonelik anahtarlarınızı aldığınız konumu kullanmak için `uriBase` değerini değiştirin.
-5. Bu genel kitaplıkları Maven Deposu’ndan projenizdeki `lib` dizinine indirin:
-   * `org.apache.httpcomponents:httpclient:4.2.4`
-   * `org.json:json:20170516`
-6. 'Main' komutunu çalıştırın.
+Projenizin ana sınıfı açın. Burada, görüntülerini yükle ve yüz algılama için gereken kodu ekleyeceksiniz.
 
-### <a name="face---detect-request"></a>Yüz - Algılama isteği
+### <a name="import-packages"></a>Paketleri içeri aktarma
+
+Aşağıdaki `import` deyimlerini dosyanın üstüne.
 
 ```java
 // This sample uses Apache HttpComponents:
@@ -63,87 +58,101 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+```
 
-public class Main
+### <a name="add-essential-fields"></a>Gerekli alanları ekleyin
+
+Aşağıdaki alanları ekleyin **ana** sınıfı. Bu veriler yüz tanıma Hizmeti'ne bağlanmayı ve giriş verilerinin alınacağı belirtir. Güncellemeniz gerekecektir `subscriptionKey` abonelik anahtarınız ve değerini bir alanla değiştirme gerekebilir `uriBase` doğru bölge tanımlayıcısı içeren dize. Ayarlamak isteyebilirsiniz `imageWithFaces` değeri farklı bir resim dosyasına işaret eden bir yolu.
+
+`faceAttributes` Alanı yalnızca belirli tür öznitelik listesi verilmiştir. Algılanan yüzeylere hakkında almak için hangi bilgilerin, belirtin.
+
+```Java
+// Replace <Subscription Key> with your valid subscription key.
+private static final String subscriptionKey = "<Subscription Key>";
+
+// NOTE: You must use the same region in your REST call as you used to
+// obtain your subscription keys. For example, if you obtained your
+// subscription keys from westus, replace "westcentralus" in the URL
+// below with "westus".
+//
+// Free trial subscription keys are generated in the westcentralus region. If you
+// use a free trial subscription key, you shouldn't need to change this region.
+private static final String uriBase =
+    "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+
+private static final String imageWithFaces =
+    "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+
+private static final String faceAttributes =
+    "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+```
+
+### <a name="call-the-face-detection-rest-api"></a>Yüz algılama REST API çağrısı
+
+Aşağıdaki yöntemi ekleyin **ana** yöntemi. Uzak görüntüde yüz bilgilerini algılamak için yüz tanıma API'si için REST çağrısı oluşturur ( `faceAttributes` dizesini almak için hangi yüz öznitelikleri belirtir). Ardından bir JSON dizesine çıktı verilerini yazar.
+
+```Java
+HttpClient httpclient = new DefaultHttpClient();
+
+try
 {
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    URIBuilder builder = new URIBuilder(uriBase);
 
-    // NOTE: You must use the same region in your REST call as you used to
-    // obtain your subscription keys. For example, if you obtained your
-    // subscription keys from westus, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
-    private static final String uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+    // Request parameters. All of them are optional.
+    builder.setParameter("returnFaceId", "true");
+    builder.setParameter("returnFaceLandmarks", "false");
+    builder.setParameter("returnFaceAttributes", faceAttributes);
 
-    private static final String imageWithFaces =
-        "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+    // Prepare the URI for the REST API call.
+    URI uri = builder.build();
+    HttpPost request = new HttpPost(uri);
 
-    private static final String faceAttributes =
-        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+    // Request headers.
+    request.setHeader("Content-Type", "application/json");
+    request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-    public static void main(String[] args)
+    // Request body.
+    StringEntity reqEntity = new StringEntity(imageWithFaces);
+    request.setEntity(reqEntity);
+
+    // Execute the REST API call and get the response entity.
+    HttpResponse response = httpclient.execute(request);
+    HttpEntity entity = response.getEntity();
+```
+
+### <a name="parse-the-json-response"></a>JSON yanıtı ayrıştırılamadı
+
+Doğrudan konsola yazdırmadan önce döndürülen JSON verilerini daha kolay okunabilir bir biçimine dönüştürür aşağıdaki bloğu önceki kodun altına ekleyin. Son olarak, try-catch bloğu kapatın.
+
+```Java
+    if (entity != null)
     {
-        HttpClient httpclient = new DefaultHttpClient();
+        // Format and display the JSON response.
+        System.out.println("REST Response:\n");
 
-        try
-        {
-            URIBuilder builder = new URIBuilder(uriBase);
-
-            // Request parameters. All of them are optional.
-            builder.setParameter("returnFaceId", "true");
-            builder.setParameter("returnFaceLandmarks", "false");
-            builder.setParameter("returnFaceAttributes", faceAttributes);
-
-            // Prepare the URI for the REST API call.
-            URI uri = builder.build();
-            HttpPost request = new HttpPost(uri);
-
-            // Request headers.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            // Request body.
-            StringEntity reqEntity = new StringEntity(imageWithFaces);
-            request.setEntity(reqEntity);
-
-            // Execute the REST API call and get the response entity.
-            HttpResponse response = httpclient.execute(request);
-            HttpEntity entity = response.getEntity();
-
-            if (entity != null)
-            {
-                // Format and display the JSON response.
-                System.out.println("REST Response:\n");
-
-                String jsonString = EntityUtils.toString(entity).trim();
-                if (jsonString.charAt(0) == '[') {
-                    JSONArray jsonArray = new JSONArray(jsonString);
-                    System.out.println(jsonArray.toString(2));
-                }
-                else if (jsonString.charAt(0) == '{') {
-                    JSONObject jsonObject = new JSONObject(jsonString);
-                    System.out.println(jsonObject.toString(2));
-                } else {
-                    System.out.println(jsonString);
-                }
-            }
+        String jsonString = EntityUtils.toString(entity).trim();
+        if (jsonString.charAt(0) == '[') {
+            JSONArray jsonArray = new JSONArray(jsonString);
+            System.out.println(jsonArray.toString(2));
         }
-        catch (Exception e)
-        {
-            // Display error message.
-            System.out.println(e.getMessage());
+        else if (jsonString.charAt(0) == '{') {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            System.out.println(jsonObject.toString(2));
+        } else {
+            System.out.println(jsonString);
         }
     }
 }
+catch (Exception e)
+{
+    // Display error message.
+    System.out.println(e.getMessage());
+}
 ```
 
-### <a name="face---detect-response"></a>Yüz - Algılama yanıtı
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-Başarılı bir yanıt JSON biçiminde döndürülür.
+Kodu derleyin ve çalıştırın. Başarılı bir yanıt yüz verileri kolay okunabilir JSON biçiminde konsol penceresinde görüntüler. Örneğin:
 
 ```json
 [{
@@ -237,7 +246,7 @@ Başarılı bir yanıt JSON biçiminde döndürülür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir görüntüde yüzleri algılamak için Yüz Tanıma hizmetini kullanan bir Android uygulamasının nasıl oluşturulacağını öğreneceksiniz. Uygulama, her yüzün çevresine bir çerçeve çizilmiş şekilde görüntüyü görüntüler.
+Bu hızlı başlangıçta, bir resimdeki yüz algılama ve onların öznitelikleri döndürmek için Azure yüz tanıma API'SİYLE REST çağrılarını kullanan basit bir Java konsol uygulaması oluşturdunuz. Ardından, daha fazlasını yapma hakkında bilgi bu işleviyle bir Android uygulaması.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Android’de Yüz Tanıma API’sini Kullanmaya Başlama](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Öğretici: algılayıp yüzleri çerçeve için bir Android uygulaması oluşturma](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

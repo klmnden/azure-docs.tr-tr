@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea806a1004cf268fb7da75fa45013bdbaf882d86
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227510"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687087"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Yükleme ve Presto HDInsight Hadoop kümelerini kullanma
 
 Bu belgede, Script Action kullanarak HDInsight Hadoop kümelerini Presto yükleme konusunda bilgi edinin. Ayrıca var olan bir Presto HDInsight kümesinde Airpal yüklemeyi öğrenin.
 
-HDInsight için Apache Hadoop kümelerini Presto Yıldız Yağmuru uygulama de sunar. Daha fazla bilgi için [Azure HDInsight üzerinde üçüncü taraf uygulamaları yükleme](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apps-install-applications)
+HDInsight için Apache Hadoop kümelerini Presto Yıldız Yağmuru uygulama de sunar. Daha fazla bilgi için [Azure HDInsight üzerinde üçüncü taraf uygulamaları yükleme](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
 
 > [!IMPORTANT]
 > Bu belgedeki adımlarda gerektiren bir **HDInsight 3.5 Hadoop kümesi** , Linux kullanır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight sürümleri](hdinsight-component-versioning.md).

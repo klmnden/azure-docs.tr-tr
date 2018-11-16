@@ -1,6 +1,6 @@
 ---
-title: MapReduce ve Uzak Masaüstü ile HDInsight - Azure Hadoop
-description: HDInsight üzerinde Hadoop bağlanmak ve MapReduce işlerini çalıştırmak için Uzak Masaüstü'ı kullanmayı öğrenin.
+title: MapReduce ve Apache Hadoop HDInsight - Azure ile Uzak Masaüstü
+description: HDInsight üzerinde Apache hadoop'a bağlama ve MapReduce işleri çalıştırmak için Uzak Masaüstü'ı kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee87bd5743307ea5b9ee3ca1258e8cd985a095c5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012937"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634490"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Uzak Masaüstü kullanarak HDInsight üzerinde Hadoop MapReduce kullanma
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Uzak Masaüstü kullanarak HDInsight üzerinde Apache Hadoop MapReduce kullanma
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Bu makalede, HDInsight kümesinde bir Hadoop için Uzak Masaüstü'nü kullanarak bağlanın ve ardından MapReduce işleri Hadoop komutunu kullanarak öğreneceksiniz.
+Bu makalede, HDInsight kümesinde bir Apache Hadoop için Uzak Masaüstü kullanarak bağlanmak ve ardından Hadoop komutunu kullanarak MapReduce işleri çalıştırmak öğreneceksiniz.
 
 > [!IMPORTANT]
 > Uzak Masaüstü, yalnızca Windows tabanlı HDInsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

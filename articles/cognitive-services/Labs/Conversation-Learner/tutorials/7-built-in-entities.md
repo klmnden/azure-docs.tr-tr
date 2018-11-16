@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cdd9ad16096c85db21829840b2bfd7acaced5942
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260066"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683517"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Önceden derlenmiş varlıklar ekleme
 Bu öğreticide, "önceden oluşturulmuş" varlıkları konuşma Öğrenici modelinize eklemek gösterilir.
@@ -44,27 +44,28 @@ Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
 1. Varlıklar ve ardından yeni bir varlık tıklayın.
 2. EntityType açılır listesini tıklatın ve datetimev2 seçin.
-    - Programlanabilir ve Negatable seçenekleri devre dışıdır, bu varlıkları derleme öncesi geçerli değildir.
+    - Programlanabilir ve Negatable seçenekleri devre dışıdır ve önceden derlenmiş varlıklar için geçerli değildir.
 3. Oluştur’a tıklayın.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### <a name="create-two-actions"></a>İki eylem oluşturma
 
-1. Eylemler ve ardından yeni bir eylem tıklayın
-2. Yanıt olarak, türü ' $luis tarihtir-datetimev2'.
-3. Oluştur’a tıklayın.
+1. Eylemler ve ardından yeni bir eylem tıklayın.
+1. Yanıt olarak, türü ' $builtin tarihtir-datetimev2'.
+1. Gerekli varlıklarda girin ' $builtin-datetimev2'.
+1. Oluştur’a tıklayın.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 Ardından ikinci bir eylem oluşturun:
 
 1. Eylemler ve ardından yeni bir eylem ikinci bir eylem oluşturmak için tıklayın.
-3. Yanıtta 'tarih nedir?' yazın.
-4. 'Datetimev2 luıs' nitelemesini varlıklarda girin.
-4. Oluştur’a tıklayın
+1. Yanıtta 'tarih nedir?' yazın.
+1. Eleyerek varlıklarda girin ' $builtin-datetimev2'.
+1. Oluştur’a tıklayın.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 Artık iki eylem var.
 
@@ -75,11 +76,11 @@ Artık iki eylem var.
 3. Puan Eylemler ve 'tarih nedir?' seçin
 2. 'Bugün' girin. 
     - Bildirim bugün etiketlenmiş ve ikinci satırında, önceden oluşturulmuş bir varlık olduğundan gösterilir ve düzenlenemez.
-5. Puan Eylemler
+5. Puan eylemleri tıklayın.
     - Artık tarih varlığı bellek bölümünde göründüğüne dikkat edin. 
     - Tarih üzerinde fare, kullanılabilir LUIS tarafından sağlanan ek verileri görürsünüz ve kodda daha yönetilebilir. 
-6. Seç ' $luis tarihtir-datetimev2'.
-7. Öğretim bitti seçeneğine tıklayın
+6. Seç ' $builtin tarihtir-datetimev2'.
+7. Öğretim Bitti'ye tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

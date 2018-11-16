@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 069a3022cf9b6423b95e8f9f35686965d2654be7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: abef73a477355d89236b1f62cffc1f3d05ba03d0
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631087"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687240"
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Machine Learning Yönetimi PowerShell cmdlet'lerini kullanarak yeni Resource Manager tabanlı web hizmetini yeniden eğitme
 Yeni bir web hizmetini yeniden eğitme, Tahmine dayalı web hizmeti tanımının yeni eğitim modeli başvuru güncelleştirin.
@@ -69,7 +69,7 @@ Mevcut bir web hizmetini kaynak grubu adını belirlemek için aboneliğinizde w
 
 Alternatif olarak, mevcut bir web hizmetini kaynak grubu adını belirlemek için Microsoft Azure Machine Learning Web Hizmetleri portalında oturum açın. Web hizmeti seçin. Kaynak grubu adı beşinci web hizmetinin URL'sini hemen sonra öğesidir *resourceGroups* öğesi. Aşağıdaki örnekte kaynak grubu adı varsayılan MachineLearning SouthCentralUS ' dir.
 
-    https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
 ## <a name="export-the-web-service-definition-as-json"></a>Web hizmet tanımı JSON olarak dışarı aktarma

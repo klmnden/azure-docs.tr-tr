@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409688"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684622"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync'i Log Analytics ile izleme 
 
@@ -196,14 +196,18 @@ Bu makalede aşağıdaki konumlardan açıklanan kod örnekleri indirin:
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
--   [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md)
--   [Azure SQL Data Sync’i ayarlama](sql-database-get-started-sql-data-sync.md)
--   [Azure SQL Data Sync için en iyi yöntemler](sql-database-best-practices-data-sync.md)
--   [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)
-
--   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
-    -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Genel Bakış - [verileri Eşitle birden fazla Bulut ve şirket içi veritabanı arasında Azure SQL Data Sync ile](sql-database-sync-data.md)
+-   Data Sync'i Ayarla
+    - Portalda - [öğretici: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
+    - PowerShell ile
+        -  [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Veri Eşitleme Aracısı - [veri Aracısı Azure SQL Data Sync için eşitleme](sql-database-data-sync-agent.md)
+-   En iyi uygulamalar - [en iyi uygulamalar için Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Sorun giderme - [Azure SQL Data Sync ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
+-   Eşitleme şemasını güncelleştirmek
+    -   Transact-SQL ile- [Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme](sql-database-update-sync-schema.md)
+    -   PowerShell ile- [var olan bir eşitleme grubunda eşitleme şemasını güncelleştirmek için PowerShell kullanma](scripts/sql-database-sync-update-schema.md)
 
 SQL Veritabanı hakkında daha fazla bilgi için bkz.:
 

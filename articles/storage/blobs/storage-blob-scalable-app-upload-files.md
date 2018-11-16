@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: d5eb450386419c68d06bbb98ac4e33076d11ab2d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009462"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565743"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Büyük miktarda rastgele verileri paralel şekilde Azure Depolama’ya yükleme
 
@@ -33,7 +33,7 @@ Azure blob depolama, verilerinizi depolamak için ölçeklenebilir bir hizmet sa
 
 [Bölüm adlandırma](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47), bloblar kullanılarak yüksek performanslı bir uygulama tasarlanırken dikkate alınan bir diğer önemli faktördür. Azure depolama, ölçeklemek ve yük dengelemesi yapmak için aralık temelinde bir bölümleme şeması kullanır. Bu yapılandırma, benzer adlandırma kurallarına veya ön eklere sahip dosyaların aynı bölüme gideceği anlamına gelir. Bu mantık, dosyaların yüklendiği kapsayıcının adını içerir. Bu öğreticide, rastgele oluşturulan içerik ve adlar için GUID’e sahip olan dosyaları kullanırsınız. Bunlar daha sonra rastgele adlarla beş farklı kapsayıcıya yüklenir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için önceki şu Depolama öğreticisini tamamlamış olmanız gerekir: [Ölçeklenebilir uygulama için sanal makine ve depolama hesabı oluşturma][previous-tutorial].
 
@@ -95,7 +95,7 @@ private static async Task UploadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Define the BlobRequestionOptions on the upload.
+        // Define the BlobRequestOptions on the upload.
         // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
         // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
         // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled for this example, this improves the upload speed.

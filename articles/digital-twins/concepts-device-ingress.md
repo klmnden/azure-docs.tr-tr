@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: c15ce88bbd55becaf30098f2e3302d2e65bc11d2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9ce2f65af89e186a3cd32bd2900b5444fb556b08
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625734"
+ms.locfileid: "51636722"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Cihaz bağlantısı ve telemetri sorunları
 
@@ -37,21 +37,25 @@ Aşağıdaki bölümlerde, dijital İkizlerini yönetim API'SİNDEN IOT Hub ciha
 
 ## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>Yönetim API'SİNDEN IOT Hub cihaz bağlantı dizesini alın
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 Cihaz API'si ile temel bir GET çağrısı yapmak bir `includes=ConnectionString` parametresini kullanarak IOT Hub cihaz bağlantı dizesini alın. Cihaz tarafından GUID veya donanım Kimliğini belirli bir cihaz bulmak için filtre.
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
+
+| Parametre | Şununla değiştir |
+| --- | --- |
+| *YOUR_DEVICE_GUID* | Cihaz kimliği |
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
-| Özel öznitelik adı | Şununla değiştir |
+| Parametre değeri | Şununla değiştir |
 | --- | --- |
-| **yourManagementApiUrl** | Yönetim API'niz için tam URL yolu |
-| **yourDeviceGuid** | Cihaz kimliği |
-| **yourDeviceHardwareId** | Cihaz donanım kimliği |
+| *YOUR_DEVICE_HARDWARE_ID* | Cihaz donanım kimliği |
 
 Cihazın yanıt yükünde kopyalama **connectionString** özelliği. Azure IOT cihaz SDK'sı için dijital İkizlerini veri göndermek için çağırdığınızda kullanın.
 

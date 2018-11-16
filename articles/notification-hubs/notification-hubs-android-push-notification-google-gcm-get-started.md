@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: ab47db7629c92b0e6a5b268c9d233135485a37a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: dc2535bb8cae91e5df4554cdbc4239a5e81a4d90
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237731"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616274"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -43,7 +43,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 > * Uygulamanızı bildirim hub'ına bağlama
 > * Uygulamayı test edin
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. 
 - [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
@@ -56,7 +56,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 
 ### <a name="configure-gcm-setting-for-the-notification-hub"></a>Bildirim hub’ı için GCM ayarını yapılandırma
 
-1. **BİLDİRİM AYARLARI** bölümünde **Google (GCM)** seçeneğini belirleyin. 
+1. Seçin **Google (GCM)** içinde **bildirim ayarları**. 
 2. Google Cloud Console’dan aldığınız **API Anahtarını** girin. 
 3. Araç çubuğunda **Kaydet**’i seçin. 
 
@@ -148,8 +148,8 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
     Aşağıdaki kodda `NotificationSettings` sınıfı için üç yer tutucuyu güncelleştirin:
    
    * **SenderId**: Daha önce [Google Cloud Console](http://cloud.google.com/console)'da elde ettiğiniz proje numarası.
-   * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure Portal] hub’ınızın **Ayarlar** sayfasında bulunan **Erişim İlkeleri**’ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
-   * **HubName**: [Azure Portal] hub sayfasında görüntülenen bildirim hub’ınızın adını kullanın.
+   * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure portal] hub’ınızın **Ayarlar** sayfasında bulunan **Erişim İlkeleri**’ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
+   * **HubName**: [Azure portal] hub sayfasında görüntülenen bildirim hub’ınızın adını kullanın.
      
      `NotificationSettings` kodu:
      
@@ -447,7 +447,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
       ![Android'de test etme - bildirimler][21]
 
 ### <a name="test-send-push-notifications-from-the-azure-portal"></a>Azure portalından anında iletme bildirimleri göndermeyi test etme
-[Azure Portal] anında iletme bildirimleri göndererek uygulamanızda anında iletme bildirimi alma testi gerçekleştirebilirsiniz. 
+[Azure portal] anında iletme bildirimleri göndererek uygulamanızda anında iletme bildirimi alma testi gerçekleştirebilirsiniz. 
 
 1. **Sorun Giderme** bölümünde **Test Gönderimi**’ni seçin. 
 2. **Platformlar** için **Android**’i seçin.
@@ -496,7 +496,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
     ```
 3. `NotificationSetting.java` dosyanızda `NotificationSettings` sınıfına aşağıdaki ayarı ekleyin.
    
-    `HubFullAccess` öğesini, **DefaultFullSharedAccessSignature** bağlantı dizesiyle hub'ınız için güncelleştirin. Bu bağlantı dizesi, bildirim hub’ınızın **Ayarlar** sayfasında **Erişim İlkeleri**’ne tıklanarak [Azure Portal] kopyalanabilir.
+    `HubFullAccess` öğesini, **DefaultFullSharedAccessSignature** bağlantı dizesiyle hub'ınız için güncelleştirin. Bu bağlantı dizesi, bildirim hub’ınızın **Ayarlar** sayfasında **Erişim İlkeleri**’ne tıklanarak [Azure portal] kopyalanabilir.
    
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
@@ -663,7 +663,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
                         bodyStream.write(json.getBytes());
                         bodyStream.close();
 
-                        // Get reponse
+                        // Get response
                         urlConnection.connect();
                         int responseCode = urlConnection.getResponseCode();
                         if ((responseCode != 200) && (responseCode != 201)) {
@@ -731,4 +731,4 @@ Bu öğreticide, arka uca kayıtlı olan tüm Android cihazlarınıza yayın bil
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

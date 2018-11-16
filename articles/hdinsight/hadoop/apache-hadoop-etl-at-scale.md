@@ -1,6 +1,6 @@
 ---
 title: Ayıklama, dönüştürme ve yükleme (ETL) uygun ölçekte - Azure HDInsight
-description: ETL HDInsight Hadoop ile nasıl kullanıldığını öğrenin.
+description: ETL HDInsight Apache Hadoop ile nasıl kullanıldığını öğrenin.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049011"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633334"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Ayıklama, dönüştürme ve yükleme (ETL) uygun ölçekte
 
-Ayıklama, dönüştürme ve yükleme (ETL), veriler çeşitli kaynaklardan alınan, standart bir konumda toplanır, temizlenen ve işlenen ve sonuçta da sorgulanabilir bir veri deposu yüklenen işlem olduğu. Eski ETL işlemleri verileri içeri aktarmak, yerinde temizlemek ve ardından bir ilişkisel veri altyapısı saklayın. HDInsight ile çok çeşitli Hadoop ekosistemi bileşenlerini destekleyen uygun ölçekte ETL gerçekleştirme. 
+Ayıklama, dönüştürme ve yükleme (ETL), veriler çeşitli kaynaklardan alınan, standart bir konumda toplanır, temizlenen ve işlenen ve sonuçta da sorgulanabilir bir veri deposu yüklenen işlem olduğu. Eski ETL işlemleri verileri içeri aktarmak, yerinde temizlemek ve ardından bir ilişkisel veri altyapısı saklayın. HDInsight ile çok çeşitli Apache Hadoop ekosistemi bileşenlerini destekleyen uygun ölçekte ETL gerçekleştirme. 
 
 Bu işlem hattı tarafından HDInsight ETL işlemi kullanımını özetlenebilir:
 

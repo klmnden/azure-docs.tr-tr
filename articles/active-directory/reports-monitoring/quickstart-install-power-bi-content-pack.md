@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816659"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622543"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Hızlı başlangıç: Azure Active Directory Power BI içerik paketini yükleme
 
@@ -29,11 +29,11 @@ ms.locfileid: "48816659"
 |Azure AD Power BI içerik paketi şu anda Azure AD kiracınızdaki verileri almak için Azure AD Graph API'lerini kullanmaktadır. Sonuç olarak içerik paketinde mevcut olan verilerle [raporlama için Microsoft Graph API'lerini](concept-reporting-api.md) kullanarak aldığınız veriler arasında farklılık olabilir. |
 |  |
 
-Azure Active Directory için Power BI içerik paketi, Active Directory ortamınızda gerçekleşen işlemlerle ilgili ayrıntılı içgörüler elde etmenizi sağlar. Önceden oluşturulmuş içerik paketini indirip Power BI tarafından sunulan zengin görselleştirme deneyiminden faydalanarak dizininizdeki tüm etkinlikleri raporlayabilirsiniz. Ayrıca kendi panonuzu oluşturabilir ve kuruluşunuzdaki herkesle kolayca paylaşabilirsiniz. 
+Power BI İçerik Paketi için Azure Active Directory (Azure AD) ortamınızı raporlama verileri görselleştirme olanağı sağlar. Önceden oluşturulmuş içerik paketini indirip Power BI tarafından sunulan zengin görselleştirme deneyiminden faydalanarak dizininizdeki tüm etkinlikleri raporlayabilirsiniz. Ayrıca kendi panonuzu oluşturabilir ve kuruluşunuzdaki herkesle kolayca paylaşabilirsiniz. 
 
 Bu hızlı başlangıçta içerik paketini yüklemeyi öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 

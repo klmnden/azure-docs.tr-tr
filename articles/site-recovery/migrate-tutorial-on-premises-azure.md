@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0134f6c83548ae5ffb4924ecf7d652ce89910340
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 176f8bb6fbb7a1a6bb81525cd3833d57bf9a5086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210627"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568810"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -37,7 +37,7 @@ Bu, serideki üçüncü öğreticidir. Bu öğreticide, önceki öğreticilerdek
 Başlamadan önce olağanüstü durum kurtarma için [VMware](vmware-azure-architecture.md) veya [Hyper-V](hyper-v-azure-architecture.md) mimarilerini gözden geçirmeniz yararlı olabilir.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 
@@ -110,7 +110,10 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 3. Şifreleme anahtarı ayarı, bu senaryo için geçerli değildir.
 4. **Yük devretmeyi başlatmadan önce makineyi kapatın** seçeneğini belirleyin. Site Recovery yük devretmeyi tetiklemeden önce sanal makineleri kapatmayı dener. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
 5. Azure VM’nin Azure’da beklendiği gibi görüntülenip görüntülenmediğini kontrol edin.
-6. **Çoğaltılan öğeler** bölümünde VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Böylece geçiş işlemi tamamlanır, VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
+6. **Çoğaltılan öğeler** bölümünde VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Bu, şunları yapar:
+
+    - Geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery Faturalaması durdurulur.
+    - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez.
 
     ![Geçişi tamamlama](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 

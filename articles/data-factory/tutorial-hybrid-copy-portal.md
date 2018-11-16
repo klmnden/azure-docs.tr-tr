@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304144"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614030"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Verileri şirket içi SQL Server veritabanından Azure Blob depolamaya kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak verileri şirket içi bir SQL Server veritabanından Azure Blob depolama alanına kopyalayan bir veri fabrikası işlem hattı oluşturursunuz. Verileri şirket içi ile bulut veri depoları arasında taşıyan, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup kullanabilirsiniz.
@@ -111,7 +111,7 @@ Bu bölümde, Blob depolama alanınızda **adftutorial** adlı bir blob kapsayı
 
 1. Kapsayıcılar listesinde **adftutorial**’ı seçin.
 
-    ![Kapsayıcı seçimi](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Kapsayıcı seçimi](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. **adftutorial** öğesine ait **kapsayıcı** penceresini açık tutun. Öğreticinin sonundaki çıktıyı doğrulamak için bu sayfayı kullanırsınız. Data Factory bu kapsayıcıda çıktı klasörünü otomatik olarak oluşturduğundan sizin oluşturmanız gerekmez.
 
@@ -197,7 +197,7 @@ Veri fabrikasının adı *genel olarak benzersiz* olmalıdır. Ad alanı için a
 
 1. **1. Seçenek: Hızlı kurulum** bölümünde **Bu bilgisayarda hızlı kurulumu başlatmak için buraya tıklayın** seçeneğini belirleyin. 
 
-    ![Hızlı kurulum bağlantısı](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Hızlı kurulum bağlantısı](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. **Integration Runtime (Şirket İçinde Barındırılan) Hızlı Kurulum** penceresinde **Kapat**’ı seçin. 
 
@@ -237,7 +237,7 @@ Veri fabrikasının adı *genel olarak benzersiz* olmalıdır. Ad alanı için a
 
 1. **SQLServerToBlobPipeline**’ı içeren sekmeye gidin veya ağaç görünümünden **SQLServerToBlobPipeline**’ı seçin. 
 
-    ![İşlem hattı sekmesi](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![İşlem hattı sekmesi](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. **Özellikler** penceresinin altındaki **Havuz** sekmesine gidin ve **+ Yeni**’yi seçin. 
 

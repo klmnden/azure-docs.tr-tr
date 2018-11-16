@@ -1,6 +1,6 @@
 ---
 title: C# ile HDInsight - Azure Hadoop MapReduce kullanma
-description: C# Azure HDInsight, Hadoop ile MapReduce çözümleri oluşturmak için kullanmayı öğrenin.
+description: Nasıl kullanacağınızı öğrenin C# Azure HDInsight, Apache Hadoop ile MapReduce çözümleri oluşturmak için.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cf68ba16cf19a20686f323832ccd7e7d1b543bb
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010958"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632603"
 ---
-# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>C# üzerinde HDInsight Hadoop akışı MapReduce ile kullanma
+# <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Kullanım C# üzerindeki HDInsight, Apache Hadoop akışı MapReduce ile
 
 C# üzerinde HDInsight MapReduce çözüm oluşturmak için kullanmayı öğrenin.
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md).
 
-Hadoop akışı MapReduce işlerinizi bir betik veya yürütülebilir dosya kullanarak olanak tanıyan bir aracıdır. Bu örnekte, .NET Eşleyici ve bir sözcük sayımı çözümün için Azaltıcı uygulamak için kullanılır.
+Apache Hadoop akışı MapReduce işlerinizi bir betik veya yürütülebilir dosya kullanarak olanak tanıyan bir aracıdır. Bu örnekte, .NET Eşleyici ve bir sözcük sayımı çözümün için Azaltıcı uygulamak için kullanılır.
 
 ## <a name="net-on-hdinsight"></a>HDInsight üzerinde .NET
 

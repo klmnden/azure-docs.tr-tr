@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 11/08/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 6cbc7779cc437db5dbe5f406ff5f5c1f9205a0a9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 75ab381d481e51483db5661fe2f6d473f21670fc
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470192"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514800"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Öğretici: Azure PowerShell ile sanal makine ölçek kümelerine uygulama yükleme
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Önceki bir öğreticide, sanal makine örneklerinizi dağıtmak için nasıl özel sanal makine görüntüsü oluşturulacağını ve kullanılacağını öğrendiniz. Bu özel görüntüde, el ile uygulama yüklemeleri ve yapılandırmaları yer alıyordu. Her sanal makine örneği dağıtıldıktan sonra bir ölçek kümesine uygulamaların yüklenmesini otomatikleştirebilir veya önceden ölçek kümesinde çalıştırılan bir uygulamayı güncelleştirebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -41,13 +41,13 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz, bu öğretici 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Azure Özel Betik Uzantısı nedir?
 Özel Betik Uzantısı, Azure VM’lerinde betik indirir ve yürütür. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Betikler Azure depolama veya GitHub konumlarından indirilebilir ya da Azure portalına uzantı çalışma zamanında iletilebilir.
 
-Özel Betik uzantısı, Azure Resource Manager şablonları ile tümleştirilir ve Azure CLI, Azure PowerShell, Azure portalı veya REST API’si ile de kullanılabilir. Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/windows/extensions-customscript.md).
+Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir. Ayrıca Azure CLI, Azure PowerShell, Azure portalı veya REST API ile kullanılabilir. Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/windows/extensions-customscript.md).
 
 Özel Betik Uzantısı’nı çalışır halde görmek için, IIS web sunucusunu yükleyen ve ölçek kümesi sanal makine örneğinin ana bilgisayar adını veren bir ölçek kümesi oluşturun. Özel Betik Uzantısı tanımı, GitHub’dan bir örnek betiği indirir, gerekli paketleri yükler, sonra sanal makine örneği ana bilgisayar adını bir temel HTML sayfasına yazar.
 
 
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
-Bu adımda [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) ile bir sanal makine ölçek kümesi oluşturun. Tek tek sanal makine örneklerine trafiği dağıtmak için bir yük dengeleyici de oluşturulur. Yük dengeleyici hem 80 numaralı TCP bağlantı noktasında trafiği dağıtmak hem de 3389 numaralı TCP bağlantı noktasında uzak masaüstü trafiğine ve 5985 numaralı TCP bağlantı noktasında PowerShell uzaktan iletişimine olanak tanımak için kurallar içerir. İstendiğinde, ölçek kümesindeki sanal makine örnekleri için kendi istediğiniz yönetici kimlik bilgilerini sağlayın:
+Bu adımda [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) ile bir sanal makine ölçek kümesi oluşturun. Tek tek sanal makine örneklerine trafiği dağıtmak için bir yük dengeleyici de oluşturulur. Yük Dengeleyici 80 numaralı TCP bağlantı noktasında trafiği dağıtmak için kurallar içerir. Ayrıca 3389 numaralı TCP bağlantı noktasında uzak masaüstü trafiğine ve TCP bağlantı noktası 5985'tir PowerShell uzaktan iletişim sağlar. İstendiğinde ölçek kümesindeki VM örnekleri için yönetici kimlik bilgilerinizi kendi ayarlayabilirsiniz:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -101,8 +101,60 @@ Update-AzureRmVmss `
 Ölçek kümesindeki her sanal makine örneği, GitHub’dan betiği indirip çalıştırır. Daha karmaşık bir örnekte, birden fazla uygulama bileşeni ve dosya yüklenebilir. Ölçek kümesinin ölçeği genişletilirse yeni sanal makine örnekleri otomatik olarak aynı Özel Betik Uzantısı tanımını uygular ve gerekli uygulamayı yükler.
 
 
+## <a name="allow-traffic-to-application"></a>Uygulamaya giden trafiğe izin verme
+
+Temel bir web uygulamasına erişim izni vermek için bir ağ güvenlik grubu oluşturma [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) ve [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup). Daha fazla bilgi için [Azure sanal makine ölçek kümeleri için ağ](virtual-machine-scale-sets-networking.md).
+
+```azurepowershell-interactive
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+            -ResourceGroupName "myResourceGroup" `
+            -VMScaleSetName "myScaleSet"
+
+#Create a rule to allow traffic over port 80
+$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+  -Name myFrontendNSGRule `
+  -Protocol Tcp `
+  -Direction Inbound `
+  -Priority 200 `
+  -SourceAddressPrefix * `
+  -SourcePortRange * `
+  -DestinationAddressPrefix * `
+  -DestinationPortRange 80 `
+  -Access Allow
+
+#Create a network security group and associate it with the rule
+$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+  -ResourceGroupName  "myResourceGroup" `
+  -Location EastUS `
+  -Name myFrontendNSG `
+  -SecurityRules $nsgFrontendRule
+
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName  "myResourceGroup" `
+  -Name myVnet
+
+$frontendSubnet = $vnet.Subnets[0]
+
+$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
+  -Name mySubnet `
+  -AddressPrefix $frontendSubnet.AddressPrefix `
+  -NetworkSecurityGroup $nsgFrontend
+
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+
+
 ## <a name="test-your-scale-set"></a>Ölçek kümenizi test etme
-Web sunucunuzu çalışır halde görmek için [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek *myResourceGroup* kaynak grubunda oluşturulan IP adresini alır:
+Web sunucusunu çalışır halde görmek için ile yük dengeleyicinizin genel IP adresini alma [Get-Azurermpublicıpaddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Aşağıdaki örnek, oluşturduğunuz IP adresini görüntüler. *myResourceGroup* kaynak grubu:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
@@ -127,19 +179,15 @@ $customConfigv2 = @{
 }
 ```
 
-[Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension) komutunu kullanarak ölçek kümenizdeki sanal makine örneklerine Özel Betik Uzantısı yapılandırmasını tekrar uygulayın. Uygulamanın güncelleştirilmiş sürümünü uygulamak için *customConfigv2* tanımı kullanılır:
+Ölçek kümenizdeki sanal makine örneklerine özel betik uzantısı yapılandırmasını güncelleştirin. Uygulamanın güncelleştirilmiş sürümünü uygulamak için *customConfigv2* tanımı kullanılır:
 
 ```azurepowershell-interactive
-# Reapply the Custom Script Extension to install the updated website
-$vmss = Add-AzureRmVmssExtension `
-  -VirtualMachineScaleSet $vmss `
-  -Name "customScript" `
-  -Publisher "Microsoft.Compute" `
-  -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.9 `
-  -Setting $customConfigv2
-
-# Update the scale set and reapply the Custom Script Extension to the VM instances
+$vmss = Get-AzureRmVmss `
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
+ 
+$vmss.VirtualMachineProfile.ExtensionProfile[0].Extensions[0].Settings = $customConfigv2
+ 
 Update-AzureRmVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
