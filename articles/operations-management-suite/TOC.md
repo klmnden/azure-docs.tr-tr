@@ -42,9 +42,9 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analizi](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Hizmet Eşlemesi
-##### [Kullanma](../monitoring/monitoring-service-map.md)
-##### [Yapılandırma](../monitoring/monitoring-service-map-configure.md)
-##### [Operations Manager ile tümleştirme](../monitoring/monitoring-service-map-scom.md)
+##### [Kullanma](../azure-monitor/insights/service-map.md)
+##### [Yapılandırma](../azure-monitor/insights/service-map-configure.md)
+##### [Operations Manager ile tümleştirme](../azure-monitor/insights/service-map-scom.md)
 #### [SQL Değerlendirmesi](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -65,7 +65,7 @@
 ### [En iyi uygulamalar](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Yönetim senaryoları
-### [Runbook'tan analiz verileri toplama](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Runbook'tan analiz verileri toplama](../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

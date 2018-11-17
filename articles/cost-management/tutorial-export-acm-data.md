@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913572"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822373"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Dışarı aktarılan verileri oluşturma ve yönetme
 
-Maliyet Analizi öğreticisini okuduysanız, Maliyet Yönetimi verilerinizi el ile indirme konusunda bilgi sahibisiniz. Ancak, otomatik olarak Maliyet Yönetimi verilerinizi Azure depolama alanına günlük aktaran, günlük yinelenen bir görev oluşturabilirsiniz. Dışarı aktarılan veriler CSV biçimindedir ve Maliyet Yönetimi tarafından toplanan tüm bilgileri içerir. Daha sonra Azure depolama alanındaki dışarı aktarılan verileri dış sistemlerle kullanabilir ve kendi özel verilerinizle birleştirebilirsiniz. Ayrıca dışarı aktarılan verilerinizi pano gibi bir dış sistemde veya diğer mali sistemde kullanabilirsiniz.
+Maliyet Analizi öğreticisini okuduysanız, Maliyet Yönetimi verilerinizi el ile indirme konusunda bilgi sahibisiniz. Ancak, günlük, haftalık veya aylık olarak Azure depolama için maliyet Yönetimi verilerinizi otomatik olarak dışarı aktarır, yinelenen bir görev oluşturun. Dışarı aktarılan veriler CSV biçimindedir ve Maliyet Yönetimi tarafından toplanan tüm bilgileri içerir. Daha sonra Azure depolama alanındaki dışarı aktarılan verileri dış sistemlerle kullanabilir ve kendi özel verilerinizle birleştirebilirsiniz. Ayrıca dışarı aktarılan verilerinizi pano gibi bir dış sistemde veya diğer mali sistemde kullanabilirsiniz.
 
 Bu öğreticideki örnek, maliyet yönetimi verilerinizi dışarı aktarmada ve ardından verilerin başarılı bir şekilde dışarı aktarıldığını doğrulamada size yol gösterir.
 
@@ -29,7 +29,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Günlük bir dışarı aktarma oluşturma
 > * Verilerin toplandığını doğrulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Veri dışarı aktarma tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Aşağıdaki Azure izinleri abonelik başına kullanıcı ve grup tarafından yapılan veri dışarı aktarımı için desteklenir:
 
@@ -48,11 +48,17 @@ Azure Depolama hesapları için:
 
 Maliyet Yönetimi + Faturalama &gt; Maliyet Yönetimi &gt; bir abonelik veya bir abonelikteki kaynak grubunu &gt; seçin &gt; Dışarı Aktar **Ekle**.
 
-Dışarı aktarma için bir ad yazın ve abonelik, Azure depolama hesabı, kapsayıcı ve dosya depolama dizini veya blob kapsayıcısını belirtin ve ardından **Oluştur**’a tıklayın.
+Dışarı aktarma için bir ad yazın ve "Günlük ay başından bu yana maliyetlerini ver" seçeneğini belirleyin. **İleri**’ye tıklayın.
 
-![Yeni dışarı aktarma](./media/tutorial-export-acm-data/new-export01.png)
+![Yeni dışarı aktarma: türünü dışarı aktarın](./media/tutorial-export-acm-data/basics_exports.png)
 
-Yeni dışarı aktarmanız, dışarı aktarma listesinde görünür. Varsayılan olarak, yeni dışarı aktarmalar etkinleştirilir ve günlük çalıştırılır. Zamanlanmış bir dışarı aktarmayı devre dışı bırakmak veya silmek istiyorsanız, listedeki herhangi bir öğeye ve ardından **Devre dışı bırak** veya **Sil** seçeneklerinden birine tıklayın.
+Azure depolama hesabınız için bir abonelik belirtin, ardından depolama hesabınızı seçin.  Depolama kapsayıcısı ve dışarı aktarma dosyası gitmek istediğiniz dizin yolunu belirtin.  **İleri**’ye tıklayın.
+
+![Yeni dışarı aktarma: depolama](./media/tutorial-export-acm-data/storage_exports.png)
+
+Dışarı aktarma ayrıntılarını gözden geçirin ve tıklayın **Oluştur**.
+
+Yeni dışarı aktarmanız, dışarı aktarma listesinde görünür. Varsayılan olarak, yeni dışarı aktarmaları etkinleştirilir. Zamanlanmış bir dışarı aktarmayı devre dışı bırakmak veya silmek istiyorsanız, listedeki herhangi bir öğeye ve ardından **Devre dışı bırak** veya **Sil** seçeneklerinden birine tıklayın.
 
 Başlangıçta, dışarı aktarmanın çalışmaya başlaması bir ila iki saat arası sürebilir. Ancak, verilerin dışarı aktarılan dosyalarda gösterilmesi en fazla dört saat sürebilir.
 

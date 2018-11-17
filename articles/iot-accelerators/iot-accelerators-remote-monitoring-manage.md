@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222158"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821091"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Öğretici: İzleme çözümünüze bağlı cihazları yapılandırma ve yönetme
 
@@ -63,7 +63,7 @@ Ayrıntılı tanılama bilgilerini görüntülemek için **Device Details** (Cih
 
 ## <a name="act-on-a-device"></a>Cihazda eylem gerçekleştirme
 
-Sanal motor cihazının panodan başlatılan eylemlere doğru yanıt verip vermediğini test etmek için **FirmwareUpdate** metodunu çağırın. Bir metot çalıştırarak cihazda eylem gerçekleştirmek için cihazı listeden seçip **Jobs** (İşler) öğesine tıklayın. Birden fazla cihazda eylem gerçekleştirme istiyorsanız birden fazla cihaz seçebilirsiniz. **Jobs** (İşler) panelinde **Run method** (Metodu çalıştır) öğesini seçin. **Engine** (Motor) cihaz modeli üç metot belirtir: **FirmwareUpdate**, **FillTank** ve **EmptyTank**:
+Sanal motor cihazının panodan başlatılan eylemlere doğru yanıt verip vermediğini test etmek için **FirmwareUpdate** metodunu çağırın. Bir metot çalıştırarak cihazda eylem gerçekleştirmek için cihazı listeden seçip **Jobs** (İşler) öğesine tıklayın. Birden fazla cihazda eylem gerçekleştirme istiyorsanız birden fazla cihaz seçebilirsiniz. İçinde **işleri** paneli, select **yöntemleri**. **Engine** (Motor) cihaz modeli üç metot belirtir: **FirmwareUpdate**, **FillTank** ve **EmptyTank**:
 
 [![Motor metotları](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Sanal motor cihazının panodan başlatılan eylemlere doğru yanıt verip verme
 
 ## <a name="reconfigure-a-device"></a>Cihazı yeniden yapılandırma
 
-Motorun yapılandırma özelliklerini güncelleştirip güncelleştiremeyeceğinizi test etmek için cihazı **Devices** (Cihazlar) sayfasındaki listeden seçin. Ardından **Jobs** (İşler) öğesine tıklayıp **Reconfigure** (Yeniden yapılandır) öğesini seçin. İşler panelinde seçilen cihaz için güncelleştirilebilecek özellik değerleri gösterilir:
+Motorun yapılandırma özelliklerini güncelleştirip güncelleştiremeyeceğinizi test etmek için cihazı **Devices** (Cihazlar) sayfasındaki listeden seçin. Ardından **işleri**ve ardından **özellikleri**. İşler panelinde seçilen cihaz için güncelleştirilebilecek özellik değerleri gösterilir:
 
 [![Cihazı yeniden yapılandırma](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

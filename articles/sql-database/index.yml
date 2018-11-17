@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89399d59504328d40c08b9926b4ddb3fad3f8530
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d7111b5faaa5276c65219db8ddd35fca64081a72
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978769"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853056"
 documentType: LandingData
 title: Azure SQL Veritabanı Belgeleri
 metadata:
@@ -63,7 +63,7 @@ sections:
       image:
         src: media/index/i_elasticpool.svg
       title: Esnek havuzlar
-    - href: /azure/sql-database/sql-database-managed-instance
+    - href: /azure/sql-database/sql-database-managed-instance-index
       html: <p>Şirket içi veritabanlarınızı, tam olarak yönetilen Azure PaaS veritabanı hizmeti üzerinde veritabanında neredeyse hiç kod değişikliği gerekmeden kolayca geçirmek için Yönetilen Örnek kullanın.</p>
       image:
         src: media/index/i_mi.svg

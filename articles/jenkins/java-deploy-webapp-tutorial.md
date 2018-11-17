@@ -3,17 +3,17 @@ title: Web uygulamalarınızı Azure’a dağıtmak için Jenkins’i kullanma
 description: Jenkins ve Docker’ı kullanarak Java web uygulamalarınız için GitHub’dan Azure App Service’e sürekli tümleştirme ayarlarını yapın.
 ms.service: jenkins
 keywords: jenkins, azure, devops, app service, sürekli tümleştirme, ci, sürekli geliştirme, cd
-author: tomarcher
+author: ecfan
 manager: jeconnoc
-ms.author: tarcher
+ms.author: estfan
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 81959159d4860512c184ada25930da814b5ae044
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: de1d89da041ede13741a804b3e77018fb48b4aa3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946587"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822067"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins ile Azure App Service’e sürekli tümleştirme ve dağıtım ayarlama
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41919845"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822475"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal makineye gelen ve sanal makineden giden ağ trafiğini günlüğe kaydetme
 
@@ -37,6 +37,9 @@ Ağ güvenlik grubu (NSG), bir sanal makineye gelen trafiği ve sanal makineden 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
+> [!NOTE] 
+> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Yapılandırma, Azure portalı ve REST API kullanılabilir. Sürüm 2 etkinleştirme sürüm 1 günlükleri depolama hesabınız için kaydedilen günlükleri desteklenmeyen bir bölgede de neden olur.
+
 ## <a name="create-a-vm"></a>VM oluşturma
 
 1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
@@ -45,7 +48,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     |Ayar|Değer|
     |---|---|
-    |Adı|myVm|
+    |Ad|myVm|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Abonelik| Aboneliğinizi seçin.|
@@ -88,7 +91,7 @@ NSG akış günlüğü kaydı için **Microsoft.Insights** sağlayıcısı gerek
 
     | Ayar        | Değer                                                        |
     | ---            | ---   |
-    | Adı           | 3-24 karakter uzunluğundadır. Yalnızca küçük harfler ve rakamlar içerebilir ve tüm Azure Depolama hesapları arasında benzersiz olmalıdır.                                                               |
+    | Ad           | 3-24 karakter uzunluğundadır. Yalnızca küçük harfler ve rakamlar içerebilir ve tüm Azure Depolama hesapları arasında benzersiz olmalıdır.                                                               |
     | Konum       | **Doğu ABD**’yi seçin                                           |
     | Kaynak grubu | **Var olanı kullan**’ı seçin ve sonra **myResourceGroup** seçeneğini belirleyin |
 
@@ -100,8 +103,9 @@ NSG akış günlüğü kaydı için **Microsoft.Insights** sağlayıcısı gerek
 
 6. NSG listesinden **myVm-nsg** adlı NSG’yi seçin.
 7. **Akış günlükleri ayarları** bölümünde **Açık** seçeneğini belirleyin.
-8. 3. adımda oluşturduğunuz depolama hesabını seçin.
-9. **Bekletme (gün)** değerini 5 olarak ayarlayın ve **Kaydet**’i seçin.
+8. Akış günlüğü sürümünü seçin. Sürüm 2, flow oturumu istatistikleri (bayt ve paketleri) içeren bir. ![Akış günlükleri sürümü seçin](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. 3. adımda oluşturduğunuz depolama hesabını seçin.
+10. **Bekletme (gün)** değerini 5 olarak ayarlayın ve **Kaydet**’i seçin.
 
 ## <a name="download-flow-log"></a>Akış günlüğünü indirme
 
@@ -126,6 +130,7 @@ NSG akış günlüğü kaydı için **Microsoft.Insights** sağlayıcısı gerek
 
 Aşağıdaki json, verileri günlüğe kaydedilen her akış için PT1H.json dosyasında göreceklerinize bir örnektir:
 
+### <a name="version-1-flow-log-event"></a>Sürüm 1 akış olayını günlüğe kaydet
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -135,29 +140,83 @@ Aşağıdaki json, verileri günlüğe kaydedilen her akış için PT1H.json dos
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
-        "flows": [{
-            "rule": "UserRule_default-allow-rdp",
-            "flows": [{
-                "mac": "000D3A170C69",
-                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-            }]
-        }]
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
+### <a name="version-2-flow-log-event"></a>Sürüm 2 akış olayını günlüğe kaydet
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 Önceki çıktıda yer alan **mac** değeri, sanal makine oluşturulurken oluşturulan ağ arabiriminin MAC adresidir. **flowTuples** için virgülle ayrılmış bilgiler aşağıdaki gibidir:
 
 | Örnek veriler | Verilerin temsil ettiği   | Açıklama                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | Zaman damgası             | Akışın oluştuğu zamanın UNIX EPOCH biçiminde zaman damgası. Önceki örnekte tarih, 1 Mayıs 2018, 14:59:05 GMT olarak dönüştürülür.                                                                                    |
-| 192.168.1.4  | Kaynak IP adresi      | Akışın geldiği kaynak IP adresi.
-| 10.0.0.4     | Hedef IP adresi | Akışın hedeflendiği hedef IP adresi. 10.0.0.4, [Sanal makine oluşturma](#create-a-vm) bölümünde oluşturduğunuz sanal makinenin özel IP adresidir.                                                                                 |
-| 55960        | Kaynak bağlantı noktası            | Akışın geldiği kaynak bağlantı noktası.                                           |
-| 3389         | Hedef bağlantı noktası       | Akışın hedeflendiği hedef bağlantı noktası. Trafik, 3389 numaralı bağlantı noktasını hedeflediğinden, günlük dosyasında **UserRule_default-allow-rdp** adlı kural, akışı işlemiştir.                                                |
+| 1542110377   | Zaman damgası             | Akışın oluştuğu zamanın UNIX EPOCH biçiminde zaman damgası. Önceki örnekte tarih, 1 Mayıs 2018, 14:59:05 GMT olarak dönüştürülür.                                                                                    |
+| 10.0.0.4  | Kaynak IP adresi      | Akışın geldiği kaynak IP adresi. 10.0.0.4, [Sanal makine oluşturma](#create-a-vm) bölümünde oluşturduğunuz sanal makinenin özel IP adresidir.
+| 13.67.143.118     | Hedef IP adresi | Akışın hedeflendiği hedef IP adresi.                                                                                  |
+| 44931        | Kaynak bağlantı noktası            | Akışın geldiği kaynak bağlantı noktası.                                           |
+| 443         | Hedef bağlantı noktası       | Akışın hedeflendiği hedef bağlantı noktası. Trafik bağlantı noktası 443'ü hedefleyen olduğundan, kuralın adlı **UserRule_default izin rdp**, oturum açma akışı dosya işlendi.                                                |
 | T            | Protokol               | Akış protokolünün TCP (T) mi yoksa UDP (U) mi olduğu.                                  |
-| I            | Yön              | Trafiğin gelen (I) mi yoksa giden (O) mi olduğu.                                     |
-| A            | Eylem                 | Trafiğe izin mi verildiği (A) yoksa trafiğin ret mi edildiği (D).                                           |
+| O            | Yön              | Trafiğin gelen (I) mi yoksa giden (O) mi olduğu.                                     |
+| A            | Eylem                 | Trafiğe izin mi verildiği (A) yoksa trafiğin ret mi edildiği (D).  
+| C            | Akış durumu **yalnızca sürüm 2** | Akış durumunu yakalar. Olası durumlar şunlardır **B**: bir akış oluşturulduğunda başlayın. İstatistikleri sağlanmayan. **C**: devam eden bir akış için devam. İstatistikleri, 5 dakikalık aralıklarla sağlanır. **E**: akış sonlandırıldığında son. İstatistikleri sağlanır. |
+| 30 | Gönderilen - paketleri kaynaktan hedefe **yalnızca sürüm 2** | Kaynaktan hedefe son güncelleştirmeden bu yana gönderilen TCP veya UDP paketlerinin toplam sayısı. |
+| 16978 | Bayt gönderilen - kaynaktan hedefe **yalnızca sürüm 2** | Kaynaktan hedefe son güncelleştirmeden bu yana TCP veya UDP paket baytlarının toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir. | 
+| 24 | Gönderilen - paket kaynağı hedefe **yalnızca sürüm 2** | TCP veya UDP paketlerini hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı. |
+| 14008| Bayt gönderilen - kaynak hedefe **yalnızca sürüm 2** | TCP ve UDP paket bayt hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir.| |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

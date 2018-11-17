@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393721"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854110"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Öğretici: Azure Veri Gezgini verilerini Power BI'da görselleştirme
 
@@ -30,15 +30,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Görsel içeren rapor oluşturma
 > * Raporu yayımlama ve paylaşma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için Azure ve Power BI aboneliklerine ek olarak aşağıdakilere ihtiyacınız vardır:
 
 * [Test kümesi ve veritabanı](create-cluster-database-portal.md)
 
-* [StormEvents örnek verileri](ingest-sample-data.md)
+* [Örnek verileri StormEvents](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (**ÜCRETSİZ İNDİRİN**)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (seçin **DOWNLOAD FREE**)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Azure Veri Gezgini'nde görsel oluşturma
 
@@ -82,17 +82,17 @@ Artık Power BI'a geçebiliriz ancak Azure Veri Gezgini'nde yapabileceklerinizin
 
 Artık Power BI Desktop'tan Azure Veri Gezgini'ne bağlanabilirsiniz.
 
-1. Power BI Desktop'ta **Veri Al**'ı ve **Daha fazla**'yı seçin.
+1. Power BI Desktop'ta üzerinde **giriş** sekmesinde **Veri Al** ardından **daha fazla**.
 
     ![Verileri alma](media/visualize-power-bi/get-data-more.png)
 
-1. *Kusto* aratın, **Azure Kusto (Beta)** girişini ve ardından **Bağlan**'ı seçin.
+1. Arama *Azure Veri Gezgini*seçin **Azure Veri Gezgini (Beta)**, ardından **Connect**.
 
     ![Arama ve veri alma](media/visualize-power-bi/search-get-data.png)
 
 1. **Bağlayıcıyı önizle** ekranında **Devam**'ı seçin.
 
-1. **Kusto** ekranında test kümenizin ve veritabanınızın adını girin. Küme `https://<ClusterName>.<Region>.kusto.windows.net` biçiminde olmalıdır. Tablo adı olarak *StormEvents* yazın. Diğer seçenekleri varsayılan değerleriyle bırakın ve **Tamam**'ı seçin.
+1. Sonraki ekranda, test kümesi ve veritabanı adını girin. Küme `https://<ClusterName>.<Region>.kusto.windows.net` biçiminde olmalıdır. Tablo adı olarak *StormEvents* yazın. Diğer seçenekleri varsayılan değerleriyle bırakın ve **Tamam**'ı seçin.
 
     ![Küme, veritabanı, tablo seçenekleri](media/visualize-power-bi/cluster-database-table.png)
 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: f3600c5cf64614bcb5600b664147c9f5abb3865b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 271a37ffc4ae60bf7bfc1605c36b6b29d358118a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417265"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852274"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve Java kullanarak el yazısı metni ayıklama
 
@@ -26,7 +26,7 @@ Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [Java&trade; Platform, Standard Edition Geliştirme Seti 7 veya 8](https://aka.ms/azure-jdks) (JDK 7 veya 8) yüklü olmalıdır.
 - Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -78,7 +78,7 @@ public class Main {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the West Central US region.
+    // Free trial subscription keys are generated in the "westus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     private static final String uriBase =

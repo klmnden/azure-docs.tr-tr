@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 55ea5adc9ca6378367cf26ac679d8fa63c2ab5f6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 67f42954828b318262abcb600c58e5ea0675d52d
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340384"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853760"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve Go kullanarak yazdırılan metni ayıklama (OCR)
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [Go](https://golang.org/dl/) yüklenmiş olmalıdır.
 - Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -63,7 +63,7 @@ func main() {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the West Central US region.
+    // Free trial subscription keys are generated in the "westus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     const uriBase =

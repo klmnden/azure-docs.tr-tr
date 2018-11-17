@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: ba42cc7ede2ab790e5f50f3db525e48ebd21f522
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578004"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852512"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Hızlı Başlangıç: Node.js ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
 
@@ -81,7 +81,7 @@ Değiştirin `<Subscription Key>` geçerli yüz abonelik anahtarınız ile.
 
 ### <a name="face-endpoint-url"></a>Yüz tanıma uç nokta URL'si
 
-URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` Azure yüz uç noktaya sorgu gösterir. İlk kısmı (zaten doğru olmadığı sürece) için abonelik anahtarınızı karşılık gelen bölgeyi eşleşmesi için bu URL'yi değiştirmeniz gerekecektir.
+URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` Azure yüz uç noktaya sorgu gösterir. Bu URL, abonelik anahtarınızı karşılık gelen bölge eşleştirilecek ilk bölümünü değiştirmeniz gerekebilir (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi).
 
 ### <a name="url-query-string"></a>URL sorgu dizesi
 

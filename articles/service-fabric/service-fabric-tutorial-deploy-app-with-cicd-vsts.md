@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
-ms.translationtype: HT
+ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380157"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853754"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile uygulama dağıtma
 
@@ -42,7 +42,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * Azure Pipelines kullanarak CI/CD yapılandırma
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -94,23 +94,23 @@ Azure DevOps yayın işlem hattı, kümeye uygulama paketi dağıtan bir iş ak�
 
 Web tarayıcısını açın ve şu adresteki yeni projenize gidin: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-**Derleme ve yayın** sekmesini ve **Derlemeler**'i seçip **Yeni İşlem Hattı**'na tıklayın.
+Seçin **işlem hatları** sekmesini, ardından **yapılar**, ardından **yeni işlem hattı**.
 
 ![Yeni İşlem Hattı][new-pipeline]
 
-Kaynak olarak **Azure DevOps Git**'i, **Voting** Projesini, **Voting** Deposunu ve **ana** Varsayılan dalını veya el ile ve zamanlanmış derlemeleri seçin.  Daha sonra **Devam**’a tıklayın.
+Seçin **Azure depoları Git** kaynağı olarak **oylama** takım projesi **oylama** deposu ve **ana** el ile için varsayılan dal ve Zamanlanmış yapılar.  Daha sonra **Devam**’a tıklayın.
+
+![Depo seçin][select-repo]
 
 **Şablon seç** alanında **Azure Service Fabric uygulaması** şablonunu seçin ve **Uygula**'ya tıklayın.
 
 ![Derleme şablonu seçme][select-build-template]
 
-**Görevler**’de **Aracı kuyruğu** olarak "Hosted VS2017" girin.
+İçinde **görevleri**, olarak "Hosted VS2017" girin **aracı havuzu**.
 
 ![Görevleri seçme][save-and-queue]
 
-**Tetikleyiciler**’in altında **Sürekli tümleştirmeyi etkinleştir**'i işaretleyerek sürekli tümleştirmeyi etkinleştirin. **Dal filtreleri** bölümünde **+ Ekle**'ye tıklayın, **Dal belirtimi** **ana** varsayılan değerine döner. Derlemeyi el ile başlatmak için **Kaydet ve kuyruğa al**’ı seçin.
-
-**Derleme işlem hattını ve kuyruğu kaydet iletişim kutusunda** **Kaydet ve kuyruğa al**'a tıklayın.
+**Tetikleyiciler**’in altında **Sürekli tümleştirmeyi etkinleştir**'i işaretleyerek sürekli tümleştirmeyi etkinleştirin. İçinde **dal filtreleri**, **dal belirtimi** varsayılan olarak **ana**. Derlemeyi el ile başlatmak için **Kaydet ve kuyruğa al**’ı seçin.
 
 ![Tetikleyicileri seçme][save-and-queue2]
 
@@ -118,7 +118,7 @@ Derlemeler gönderme veya iade işlemleriyle de tetiklenir. Derlemenizin ilerlem
 
 ### <a name="create-a-release-pipeline"></a>Yayın işlem hattı oluşturma
 
-**Derleme ve Yayın** sekmesini, ardından **Yayınlar**’ı ve **+ Yeni işlem hattı**’nı seçin.  **Şablon seç** alanında, listeden **Azure Service Fabric Dağıtımı** şablonunu ve sonra da **Uygula**'yı seçin.
+Seçin **işlem hatları** sekmesini, ardından **yayınlar**, ardından **+ yeni işlem hattı**.  **Şablon seç** alanında, listeden **Azure Service Fabric Dağıtımı** şablonunu ve sonra da **Uygula**'yı seçin.
 
 ![Yayın şablonunu seçme][select-release-template]
 
@@ -198,6 +198,7 @@ Sonraki öğreticiye ilerleyin:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

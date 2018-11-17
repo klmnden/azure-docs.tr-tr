@@ -3,18 +3,18 @@ title: Azure haritalar'ı kullanarak bir depolama Bulucu | Microsoft Docs
 description: Azure haritalar'ı kullanarak bir depolama Bulucu oluşturun.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7ee75b88863173a169d02b9e6b7a5ac1b0950578
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708153"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820282"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir depolama Bulucu
 
@@ -943,6 +943,12 @@ Bu öğreticide, Azure haritalar'ı kullanarak bir temel deposu Bulucu oluşturm
 * Bir sorgu dizesi kullanarak bir ilk arama değeri belirtmek için destek eklendi. Bu seçenek, depolama Konumlandırıcı, eklediğinizde, kullanıcıların yer işareti ekleyebilirsiniz ve aramalar paylaşın. Ayrıca, başka bir sayfadan aramaları bu sayfaya geçirilecek için kolay bir yöntemini sağlar.  
 * Depolama Bulucu olarak dağıtma bir [Azure App Service Web uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 * Bir veritabanı ve yakında konumları için arama verilerinizi Store. Daha fazla bilgi için bkz. [SQL Server uzamsal veri türleri özeti](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) ve [en yakın komşu için uzamsal veri sorgulama](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+
+Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
+
+> [Azure haritalar'ı kullanarak bir depolama Bulucu](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
+
+[Burada canlı örneği inceleyin](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Azure Haritalar'ın kapsamı ve özellikleri hakkında daha fazla bilgi edinmek için:
 

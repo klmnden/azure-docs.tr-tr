@@ -10,18 +10,18 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 355d3258392fa722fbdc3762a9125a22e8a69b67
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 0d0ff627ad2549ff9b6f09b6c934c5a17a102962
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954314"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852383"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Hızlı Başlangıç: REST API ve JavaScript kullanarak bir görüntüdeki yüzleri algılama
 
 Bu hızlı başlangıçta, Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
 
@@ -37,10 +37,10 @@ Bu hızlı başlangıçta, Yüz Tanıma API’sini kullanarak bir görüntüdeki
 Örneği çalıştırmak için aşağıdaki adımları uygulayın:
 
 1. Aşağıdakini kopyalayın ve `detectFaces.html` gibi bir dosyaya kaydedin.
-2. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-3. Gerekirse abonelik anahtarlarınızı aldığınız konumu kullanmak için `uriBase` değerini değiştirin.
-4. Dosyayı tarayıcınıza sürükleyin ve bırakın.
-5. `Analyze faces` düğmesine tıklayın.
+1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
+1. Gerekirse, değiştirme `uriBase` abonelik anahtarlarınızın aldığınız yere konumu kullanmak üzere değeri (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi için).
+1. Dosyayı tarayıcınıza sürükleyin ve bırakın.
+1. `Analyze faces` düğmesine tıklayın.
 
 ### <a name="face---detect-request"></a>Yüz - Algılama isteği
 
@@ -63,7 +63,7 @@ Bu hızlı başlangıçta, Yüz Tanıma API’sini kullanarak bir görüntüdeki
         // subscription keys from westus, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change 
         // this region.
         var uriBase =

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2018
 ms.author: danlep
-ms.openlocfilehash: ef9a710694c21dde934d1ce1454ea355d7034d72
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: c4834d7f9c63735fe08ddc8d023ad9bf34b891cc
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853901"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822509"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances’taki kapsayıcı kaynaklarını izleme
 
@@ -143,4 +143,4 @@ Timestamp            Name          Containername             Average
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
-[monitor-dimension]: ../monitoring/monitoring-data-collection.md#multi-dimensional-metrics
+[monitor-dimension]: ../azure-monitor/platform/data-collection.md#multi-dimensional-metrics

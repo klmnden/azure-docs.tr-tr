@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
-ms.openlocfilehash: d819aee7c42759e2427e27e0f640d79536069ccb
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: c1b25db440023618d3d633f9a2b2ebcd5c0a6293
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343614"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852495"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sı ve C# kullanarak metin ayıklama
 
 Bu hızlı başlangıçta Görüntü İşleme Windows istemci kitaplığını kullanarak bir görüntüden el yazısı veya basılı metin ayıklayacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 * [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü.
@@ -88,7 +88,7 @@ namespace ExtractText
             // keys. For example, if you got your subscription keys from westus,
             // replace "westcentralus" with "westus".
             //
-            // Free trial subscription keys are generated in the westcentralus
+            // Free trial subscription keys are generated in the "westus"
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 

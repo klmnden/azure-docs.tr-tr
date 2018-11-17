@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: f0849bf82acfd6bc72cd35fb1fc18bdb8aac2282
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091701"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819196"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Data Box Disk'inizi (Önizleme) yönetmek için Azure portal'ı kullanma
 
@@ -129,7 +129,7 @@ Bildirim ayrıntılarını düzenlemek için aşağıdaki adımları gerçekleş
 |İşlendi     | Siparişin işlenmesi tamamlandı. <br> Sipariş sırasında aşağıdaki eylemler gerçekleştirilir:<li>Diskler AES-128 BitLocker şifrelemesi kullanılarak şifrelenir. </li> <li>Data Box Disk, yetkisiz erişimi önlemek için kilitlenir.</li><li>Bu işlem sırasında disklerin kilidini açan destek anahtarı oluşturulur.</li>        |
 |Yola çıktı     | Sipariş sevk edildi. Siparişin 1-2 gün içinde elinize geçmesi gerekir.        |
 |Teslim Edildi     | Sipariş, belirtilen adrese teslim edildi.        |
-|Teslim alındı     |İade gönderiniz teslim alındı. <br> Gönderi Azure veri merkezine ulaştığında otomatik olarak Azure'a yüklenir.         |
+|Teslim alındı     |İade gönderiniz teslim alındı. <br> Sevkiyat Azure veri merkezinde alındıktan sonra verileri Azure'a otomatik olarak yüklenir.         |
 |Alındı     | Diskleriniz Azure veri merkezine alındı. Veri kopyalama işlemi yakında başlayacak.        |
 |Veriler kopyalandı     |Veri kopyalama işlemi devam ediyor.<br> Veri kopyalama işlemi tamamlanana kadar bekleyin.         |
 |Tamamlandı       |Sipariş başarıyla tamamlandı.<br> Şirket içi verileri sunuculardan silmeden önce verilerinizin Azure'a kopyalandığından emin olun.         |

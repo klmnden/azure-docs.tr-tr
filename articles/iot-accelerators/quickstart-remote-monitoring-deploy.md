@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140866"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824787"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı başlangıç: Bulut tabanlı uzaktan izleme çözümünü deneme
 
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Azure hesabınızın kimlik bilgilerini kullanarak [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) adresinden oturum açın.
 
-**Uzaktan İzleme** kutucuğunda **Şimdi Deneyin**'e tıklayın.
+Tıklayın **Uzaktan izleme** Döşe. Üzerinde **Uzaktan izleme** sayfasında **şimdi deneyin**:
 
 ![Uzaktan İzlemeyi Seçme](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ Azure hesabınızın kimlik bilgilerini kullanarak [azureiotsolutions.com](https
 
 Dil olarak **.NET**'i seçin. Java ve .NET uygulamaları aynı özelliklere sahiptir.
 
-Uzaktan İzleme çözümü hızlandırıcınız için benzersiz bir **Solution name** (Çözüm adı) değeri girin. Bu hızlı başlangıçta kendimizinkini **contoso-rm2** olarak adlandırdık.
+Uzaktan İzleme çözümü hızlandırıcınız için benzersiz bir **Solution name** (Çözüm adı) değeri girin. Bu hızlı başlangıçta biz bizim arıyoruz **contoso-rm**.
 
-Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Batı Avrupa** kullanıyoruz. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
+Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta kullanıyoruz **Doğu ABD**.
+Seçebileceğiniz **Visual Studio Enterprise**, ancak siz bir [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) Bunu yapmak için.
 
 Dağıtımınızı başlatmak için **Çözüm Oluştur**'a tıklayın. Bu işlemin çalışması en az beş dakika sürer:
 

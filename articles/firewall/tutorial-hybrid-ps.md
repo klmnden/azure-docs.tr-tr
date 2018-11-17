@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
+title: "Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma"
 description: Bu öğreticide Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtmayı ve yapılandırmayı öğreneceksiniz.
 services: firewall
 author: vhorne
@@ -7,32 +7,44 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158967"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854178"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
+
+Şirket içi ağınızı bir hibrit ağ oluşturmak için bir Azure sanal ağına bağlama, Azure ağ kaynaklarınıza erişimi denetleme olanağı genel bir güvenlik planı önemli bir parçasıdır.
+
+İzin verilen ve reddedilen ağ trafiğini tanımlayan kuralları kullanarak hibrit ağ içindeki ağ erişimi denetlemek için Azure Güvenlik Duvarı'nı kullanabilirsiniz.
+
+Bu öğreticide, üç sanal ağlar oluşturun:
+
+- **VNet-Hub** -bu sanal ağda güvenlik duvarıdır.
+- **VNet-uç** -uç sanal ağ, Azure üzerinde bulunan iş yükünü temsil eder.
+- **VNet-Onprem** -şirket içi sanal ağı şirket içi ağı temsil eder. Gerçek bir dağıtımda, VPN veya Express Route bağlantısıyla bağlanabilir. Kolaylık olması için Bu öğretici, bir VPN gateway bağlantısı kullanır ve Azure bulunan bir sanal ağ ile şirket içi ağ temsil etmek için kullanılır.
+
+![Hibrit ağda güvenlik duvarı](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Ağ ortamını oluşturma
+> * Değişkenleri tanımlama
+> * Güvenlik Duvarı hub sanal ağ oluşturma
+> * Uç sanal ağ oluşturma
+> * Şirket içi sanal ağ oluşturma
 > * Güvenlik duvarını yapılandırma ve dağıtma
+> * VPN ağ geçitlerini oluşturma ve bağlama
+> * Eş merkez ve uç sanal ağları
 > * Yolları oluşturma
 > * Sanal makineleri oluşturma
 > * Güvenlik duvarını test etme
 
-Bu öğretici için üç sanal ağ oluşturursunuz:
-- **VNet-Hub** - güvenlik duvarı bu sanal ağ içindedir.
-- **VNet-Spoke** - Uç sanal ağ, Azure'da bulunan iş yükünü temsil eder.
-- **VNet-Onprem** - OnPrem sanal ağ, şirket içi ağ temsil eder. Gerçek bir dağıtımda, VPN veya Express Route bağlantısıyla bağlanabilir. Kolaylık olması için, bu öğreticide VPN ağ geçidi bağlantısı kullanılır ve şirket içi ağı temsil etmesi için de Azure'da bulunan bir sanal ağ kullanılır.
+## <a name="prerequisites"></a>Önkoşullar
 
-![Hibrit ağda güvenlik duvarı](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
-
-## <a name="key-requirements"></a>Önemli gereksinimler
+Bu öğreticide PowerShell'i yerel olarak çalıştırmanızı gerektirir. Sonraki bir sürümünün yüklü veya Azure PowerShell modülü sürüm 6.12.0 olmalıdır. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
 
 Bu senaryonun doğru çalışması için üç önemli gereksinimi vardır:
 
@@ -45,11 +57,9 @@ Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#creat
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 ## <a name="declare-the-variables"></a>Değişkenleri tanımlama
 
-Aşağıdaki örnekte bu öğreticiye yönelik değerleri kullanan değişkenler bildirilmektedir. Çoğu durumda değerleri kendi değerlerinizle değiştirmeniz gerekir. Ancak, bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Gerekirse değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
+Aşağıdaki örnekte bu öğreticiye yönelik değerleri kullanan değişkenler bildirilmektedir. Bazı durumlarda, bazı değerler, aboneliğinize çalışacak şekilde kendi değerlerinizle değiştirmeniz gerekebilir. Gerekirse değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -67,7 +77,7 @@ $GWHubpipName = "VNet-hub-GW-pip"
 $GWIPconfNameHub = "GW-ipconf-hub"
 $ConnectionNameHub = "hub-to-Onprem"
 
-# Variables for the spoke VNet
+# Variables for the spoke virtual network
 
 $VnetNameSpoke = "VNet-Spoke"
 $SNnameSpoke = "SN-Workload"
@@ -75,7 +85,7 @@ $VNetSpokePrefix = "10.6.0.0/16"
 $SNSpokePrefix = "10.6.0.0/24"
 $SNSpokeGWPrefix = "10.6.1.0/24"
 
-# Variables for the OnPrem VNet
+# Variables for the on-premises virtual network
 
 $VNetnameOnprem = "Vnet-Onprem"
 $SNNameOnprem = "SN-Corp"
@@ -90,24 +100,23 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bu öğreticide gereken tüm kaynakları içerecek bir kaynak grubu oluşturun:
+## <a name="create-the-firewall-hub-virtual-network"></a>Güvenlik Duvarı hub sanal ağ oluşturma
+
+İlk olarak, Bu öğretici için kaynakları içeren kaynak grubunu oluşturun:
 
 ```azurepowershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
 
-## <a name="create-and-configure-the-firewall-hub-vnet"></a>Güvenlik duvarı hub'ı sanal ağını oluşturma ve yapılandırma
-
-Sanal ağa eklenecek alt ağları tanımlayın:
+Alt ağlar sanal ağ içinde dahil edilecek tanımlayın:
 
 ```azurepowershell
 $FWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameHub -AddressPrefix $SNHubPrefix
 $GWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWHubPrefix
 ```
 
-Şimdi güvenlik duvarı hub'ı sanal ağını oluşturun:
+Şimdi, güvenlik duvarı hub sanal ağı oluşturun:
 
 ```azurepowershell
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
@@ -121,32 +130,32 @@ Sanal ağınız için oluşturacağınız VPN ağ geçidine ayrılacak genel IP 
   -Location $Location1 -AllocationMethod Dynamic
 ```
 
-## <a name="create-and-configure-the-spoke-vnet"></a>Uç sanal ağı oluşturma ve yapılandırma
+## <a name="create-the-spoke-virtual-network"></a>Uç sanal ağ oluşturma
 
-Uç sanal ağa eklenecek alt ağları tanımlayın:
+Uç sanal ağ dahil edilecek alt ağları tanımlayın:
 
 ```azurepowershell
 $Spokesub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameSpoke -AddressPrefix $SNSpokePrefix
 $GWsubSpoke = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNSpokeGWPrefix
 ```
 
-Uç sanal ağı oluşturun:
+Uç sanal ağ oluşturun:
 
 ```azurepowershell
 $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>OnPrem sanal ağını oluşturma ve yapılandırma
+## <a name="create-the-on-premises-virtual-network"></a>Şirket içi sanal ağ oluşturma
 
-Sanal ağa eklenecek alt ağları tanımlayın:
+Alt ağlar sanal ağ içinde dahil edilecek tanımlayın:
 
 ```azurepowershell
 $Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
 $GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
 ```
 
-Şimdi OnPrem sanal ağını oluşturun:
+Artık, şirket içi sanal ağ oluşturun:
 
 ```azurepowershell
 $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
@@ -162,7 +171,7 @@ Sanal ağ için oluşturacağınız ağ geçidine ayrılacak genel IP adresi ist
 
 ## <a name="configure-and-deploy-the-firewall"></a>Güvenlik duvarını yapılandırma ve dağıtma
 
-Şimdi güvenlik duvarını hab sanal ağına dağıtın.
+Şimdi merkez sanal ağa Güvenlik Duvarı'nı dağıtın.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -198,9 +207,9 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>VPN ağ geçitlerini oluşturma ve bağlama
 
-Hub ve OnPrem sanal ağları VPN ağ geçitleri üzerinden bağlanır.
+Hub ve şirket içi sanal ağlara VPN ağ geçitleri bağlanır.
 
-### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>Hub sanal ağı için VPN ağ geçidini oluşturma
+### <a name="create-a-vpn-gateway-for-the-hub-virtual-network"></a>Merkez sanal ağ için VPN gateway oluşturma
 
 VPN ağ geçidi yapılandırmasını oluşturun. VPN ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar.
 
@@ -211,7 +220,7 @@ VPN ağ geçidi yapılandırmasını oluşturun. VPN ağ geçidi yapılandırmas
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 
-Şimdi hub sanal ağı için VPN ağ geçidini oluşturun. Sanal Ağdan Sanal Ağa yapılandırmaları, RouteBased bir VPNType gerektirir. VPN ağ geçidinin oluşturulması, seçili VPN ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
+Şimdi hub sanal ağ için VPN ağ geçidi oluşturun. Ağ ve ağ yapılandırmaları, RouteBased bir VpnType gerektirir. VPN ağ geçidinin oluşturulması, seçili VPN ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
@@ -219,7 +228,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
 -VpnType RouteBased -GatewaySku basic
 ```
 
-### <a name="create-a-vpn-gateway-for-the-onprem-vnet"></a>OnPrem sanal ağı için VPN ağ geçidini oluşturma
+### <a name="create-a-vpn-gateway-for-the-on-premises-virtual-network"></a>Şirket içi sanal ağ için VPN gateway oluşturma
 
 VPN ağ geçidi yapılandırmasını oluşturun. VPN ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar.
 
@@ -230,7 +239,7 @@ $gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem 
   -Subnet $subnet2 -PublicIpAddress $gwOnprempip
   ```
 
-Şimdi OnPrem sanal ağı için VPN ağ geçidini oluşturun. Sanal Ağdan Sanal Ağa yapılandırmaları, RouteBased bir VPNType gerektirir. VPN ağ geçidinin oluşturulması, seçili VPN ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
+Şimdi şirket içi sanal ağ için VPN ağ geçidi oluşturun. Ağ ve ağ yapılandırmaları, RouteBased bir VpnType gerektirir. VPN ağ geçidinin oluşturulması, seçili VPN ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
@@ -240,7 +249,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
 
 ### <a name="create-the-vpn-connections"></a>VPN bağlantılarını oluşturma
 
-Şimdi hub ile OnPrem ağ geçitleri arasında VPN bağlantılarını oluşturabilirsiniz
+Hub ve şirket içi ağ geçitleri arasındaki VPN bağlantıları artık oluşturabilirsiniz
 
 #### <a name="get-the-vpn-gateways"></a>VPN ağ geçitlerini alma
 
@@ -251,14 +260,14 @@ $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGr
 
 #### <a name="create-the-connections"></a>Bağlantıları oluşturma
 
-Bu adımda, hub sanal ağından OnPrem sanal ağına bağlantı oluşturursunuz. Örneklerde paylaşılan bir anahtar göreceksiniz. Paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz. Paylaşılan anahtarın her iki bağlantıyla da eşleşiyor olması önemlidir. Bir bağlantı oluşturmak çok zaman almaz.
+Bu adımda, bağlantı şirket içi sanal ağa hub sanal ağı oluşturun. Örneklerde paylaşılan bir anahtar göreceksiniz. Paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz. Paylaşılan anahtarın her iki bağlantıyla da eşleşiyor olması önemlidir. Bir bağlantı oluşturmak çok zaman almaz.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
 -VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 ```
-OnPrem sanal ağından hub sanal ağına bağlantı oluşturun. Bu adım bir öncekine benzer; tek farkı bağlantıyı Vnet-Onprem'den VNet-hub'a oluşturmanızdır. Paylaşılan anahtarların eşleştiğinden emin olun. Bağlantı birkaç dakika içerisinde kurulacaktır.
+Şirket içi hub sanal ağ bağlantısı oluşturun. VNet-hub'ına VNet-Onprem gelen bağlantı oluşturma dışında bu Öncekine, benzer bir adımdır. Paylaşılan anahtarların eşleştiğinden emin olun. Bağlantı birkaç dakika içerisinde kurulacaktır.
 
   ```azurepowershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
@@ -282,9 +291,9 @@ Cmdlet tamamlandıktan sonra değerleri görüntüleyin. Aşağıdaki örnekte, 
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="peer-the-hub-and-spoke-vnets"></a>Hub ve uç sanal ağlarını eşleme
+## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Eş merkez ve uç sanal ağları
 
-Artık uç ve hub sanal ağlarını eşleyin.
+Artık eş hub ve uç sanal ağları.
 
 ```azurepowershell
 # Peer hub to spoke
@@ -294,7 +303,7 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
 
-## <a name="create-routes"></a>Yolları oluşturma
+## <a name="create-the-routes"></a>Yolları oluşturma
 
 Şimdi birkaç yol oluşturun:
 
@@ -302,7 +311,7 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 - Güvenlik duvarı IP adresi üzerinden uç alt ağından gelen varsayılan yol
 
 > [!NOTE]
-> Azure Güvenlik Duvarı, BGP kullanarak şirket içi ağlarınızı öğrenir. Buna İnternet trafiğini şirket içi ağınızdan yönlendirecek varsayılan rota dahil olabilir. Bunun yerine İnternet trafiğinin güvenlik duvarından doğrudan İnternete gönderilmesini isterseniz AzureFirewallSubnet üzerine **İnternet** atlama türüne sahip kullanıcı tanımlı varsayılan rota (0.0.0.0/0) ekleyin. Hedefi şirket içi ortam olan trafik BGP ile öğrenilen yollar kullanılarak zorla VPN/ExpressRoute ağ geçidinden geçirilir.
+> Azure güvenlik duvarı, BGP kullanarak şirket içi ağlarınızı öğrenir. Bu, hangi rotalar Internet trafiğini şirket içi ağınızdan geri bir varsayılan rota içerebilir. Bir üretim dağıtımında, Internet trafiğini Internet'e doğrudan güvenlik duvarı gönderilmesini isteyebilirsiniz. Sonraki atlama türü ile bir varsayılan kullanıcı tanımlı yol (0.0.0.0/0) üzerinde AzureFirewallSubnet ekleyebilirsiniz **Internet**. Şirket içinde hedefleyen trafik, hala zorunlu zorlamalı tünel BGP öğrenilen daha belirli yollar kullanarak VPN/ExpressRoute ağ geçidi üzerinden.
 
 ```azurepowershell
 #Create a route table
@@ -363,11 +372,11 @@ Set-AzureRmVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Şimdi uç iş yükü ve OnPrem sanal makinelerini oluşturup bunları uygun alt ağlara yerleştirin.
+Artık uç iş yükü ve şirket içi sanal makineleri oluşturun ve bunları uygun alt ağlarına yerleştirin.
 
 ### <a name="create-the-workload-virtual-machine"></a>İş yükü sanal makinesi oluşturma
 
-Uç sanal ağda IIS çalıştıran, genel IP adresi olmayan ve içeri ping işlemlerine izin veren bir sanal makine oluşturun.
+Uç sanal ağdaki hiçbir genel IP adresi ile IIS çalıştıran bir sanal makine oluşturun ve ping de sağlar.
 İstendiğinde, sanal makine için bir kullanıcı adı ve parola yazın.
 
 ```azurepowershell
@@ -415,9 +424,9 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-### <a name="create-the-onprem-virtual-machine"></a>OnPrem sanal makinesi oluşturma
+### <a name="create-the-on-premises-virtual-machine"></a>Şirket içi sanal makine oluşturma
 
-Bu, Uzak Masaüstü kullanarak genel IP adresine bağlanmak için kullanılabilecek basit bir sanal makinedir. Buradan, güvenlik duvarı aracılığıyla OnPrem sunucusuna bağlanabilirsiniz. İstendiğinde, sanal makine için bir kullanıcı adı ve parola yazın.
+Genel IP adresi için Uzak Masaüstü kullanarak bağlanmak için kullandığınız basit bir sanal makine budur. Buradan sonra şirket içi sunucunun güvenlik duvarı üzerinden bağlanır. İstendiğinde, sanal makine için bir kullanıcı adı ve parola yazın.
 
 ```azurepowershell
 New-AzureRmVm `
@@ -432,29 +441,29 @@ New-AzureRmVm `
 
 ## <a name="test-the-firewall"></a>Güvenlik duvarını test etme
 
-İlk olarak, **VM-spoke-01** sanal makinesi için özel IP adresini alın ve not edin.
+İlk olarak, alma ve özel IP adresini not edin **VM-uç-01** sanal makine.
 
 ```azurepowershell
 $NIC.IpConfigurations.privateipaddress
 ```
 
-1. Azure portalından, **VM-Onprem** sanal makinesine bağlanın.
+Azure portalından, **VM-Onprem** sanal makinesine bağlanın.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-2. **VM-Onprem** sanal makinesinde web tarayıcısını açın ve http://\<VM-spoke-01 private IP\> adresine göz atın
+Bir web tarayıcısı açmak **VM-Onprem**ve http:// Gözat\<VM-uç-01 özel IP\>.
 
-   Internet Information Services varsayılan sayfasını görmelisiniz.
+Internet Information Services varsayılan sayfasını görmelisiniz.
 
-3. **VM-Onprem** sanal makinesinden özel IP adresinde **VM-spoke-01**'e uzak masaüstü açın.
+**VM-Onprem** sanal makinesinden özel IP adresinde **VM-spoke-01**'e uzak masaüstü açın.
 
-   Bağlantınız başarılı olmalı ve seçtiğiniz kullanıcı adıyla parolayı kullanarak oturum açabilmelisiniz.
+Bağlantınız başarılı olmalı ve seçtiğiniz kullanıcı adıyla parolayı kullanarak oturum açabilmelisiniz.
 
 Güvenlik duvarı kurallarının çalıştığını doğruladığınıza göre:
 
 <!---- You can ping the server on the spoke VNet.--->
-- Uç sanal ağda web sunucusuna göz atabilirsiniz.
-- RDP kullanarak uç sanal ağda sunucuya bağlanabilirsiniz.
+- Web sunucusu uç sanal ağ üzerinde göz atabilirsiniz.
+- Sunucu üzerinde RDP kullanarak uç sanal ağa bağlanabilir.
 
 Ardından, güvenlik duvarı kurallarının beklendiği gibi çalıştığını doğrulamak için güvenlik duvarı ağ kuralı koleksiyonu eylemini **Reddet** olarak değiştirin. Kural koleksiyonu eylemini **Reddet** olarak değiştirmek için aşağıdaki betiği çalıştırın.
 
@@ -472,15 +481,6 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 Güvenlik duvarı kaynaklarını bir sonraki öğretici için tutabilirsiniz veya artık gerekli değilse **FW-Hybrid-Test** kaynak grubunu silerek güvenlik duvarıyla ilgili tüm kaynakları silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Ağ ortamını oluşturma
-> * Güvenlik duvarını yapılandırma ve dağıtma
-> * Yolları oluşturma
-> * Sanal makineleri oluşturma
-> * Güvenlik duvarını test etme
 
 Şimdi Azure Güvenlik Duvarı günlüklerini izleyebilirsiniz.
 

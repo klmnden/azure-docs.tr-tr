@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345122"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824549"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT çözüm hızlandırıcıları nedir?
 
@@ -50,7 +50,7 @@ Bağlı fabrika panonuzu kullanarak endüstriyel cihazlarınızı izleyebilir ve
 
 ### <a name="predictive-maintenance"></a>Tahmine Dayalı Bakım
 
-Tahmin edilen arıza ortaya çıkmadan önce bakım çalışmalarını tamamlama amacıyla uzak bir cihazın arıza verebileceği zamanı tahmin etmek için bu çözüm hızlandırıcısını kullanabilirsiniz. Bu çözüm hızlandırıcısı, cihazların telemetri verilerini kullanarak arıza tahmini gerçekleştirmek için makine öğrenimi algoritmalarını kullanır. Örnek cihazlar uçak motorları veya asansörler olabilir.
+Bu Çözüm Hızlandırıcısı, uzak cihaz, cihaz başarısız olmadan önce bakım gerçekleştirmek için başarısız beklenmektedir tahmin etmek için kullanın. Bu çözüm hızlandırıcısı, cihazların telemetri verilerini kullanarak arıza tahmini gerçekleştirmek için makine öğrenimi algoritmalarını kullanır. Örnek cihazlar uçak motorları veya asansörler olabilir.
 
 Tahmine dayalı bakım panosunu kullanarak tahmine dayalı bakım analizlerini görüntüleyebilirsiniz:
 
@@ -97,7 +97,7 @@ Uzaktan İzleme çözüm hızlandırıcısını aşağıdaki yapılandırmalarla
 * **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha düşük maliyetli sürüm. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
 * **Yerel:** Test ve geliştirme için yerel makineye dağıtma. Bu yaklaşımda mikro hizmetler yerel bir Docker kapsayıcısına dağıtılır ve buluttaki IoT Hub, Azure Cosmos DB ve Azure depolama hizmetlerine bağlanır.
 
-Çözüm hızlandırıcısını çalıştırmanın maliyeti [arka planda çalışan Azure hizmetlerinin maliyetinin](https://azure.microsoft.com/pricing) toplamıdır. Kullanılan Azure hizmetlerinin ayrıntılarını dağıtım seçeneklerinizi belirlerken görebilirsiniz.
+Çözüm Hızlandırıcısını çalıştırma maliyeti birleşik, [temel alınan Azure Hizmetleri çalıştıran maliyeti](https://azure.microsoft.com/pricing). Kullanılan Azure hizmetlerinin ayrıntılarını dağıtım seçeneklerinizi belirlerken görebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
