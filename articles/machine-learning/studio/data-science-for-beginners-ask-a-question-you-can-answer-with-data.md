@@ -1,11 +1,12 @@
 ---
-title: Bir soru verileri yanıt - veri bilimi sorunlarını - Azure Machine Learning isteyin | Microsoft Docs
-description: Video 3 yeni başlayanlar için veri bilimi sharp veri bilimi sorusuna formüle öğrenin. Sınıflandırma ve regresyon soruları karşılaştırması içerir.
-keywords: Veri bilimi sorunları, veri bilimi soruları formüle sorular, regresyon sorular, sınıflandırma sorular, sharp soru
+title: Bir soru veri yanıtlarını alabileceğiniz - veri bilimi sorunları - Azure Machine Learning isteyin | Microsoft Docs
+description: Video 3 yeni başlayanlar için veri bilimi sharp veri bilimi soru formüle öğrenin. Sınıflandırma ve regresyon sorular karşılaştırması içerir.
+keywords: Veri bilimi sorunları, veri bilimi sorular sorular, regresyon sorular, sınıflandırma sorular, soru sharp formüle
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
@@ -16,18 +17,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2078f7e84522a40cf6fcf6dff860d24307084467
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 34d47c284b06a59f738d7a56071b9227d204cc2f
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833810"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821088"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Verilerle yanıtlayabileceğiniz bir soru sorun
-## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Yeni başlayanlar seri için veri bilimi
-Video 3 yeni başlayanlar için veri bilimi sorusuna içine veri bilimi sorunu formüle öğrenin. Bu videoda, Sınıflandırma ve regresyon algoritmalar için sorular karşılaştırması içerir.
+## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Seri yeni başlayanlar için veri bilimi
+Soru-video 3 yeni başlayanlar için veri bilimi uygulamasına bir veri bilimi sorun formüle öğrenin. Bu videoda, soru sınıflandırma ve regresyon algoritmalar için bir karşılaştırma içerir.
 
-Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#other-videos-in-this-series)
+En yetersiz serisi almak için tüm bunları izleyin. [Videoları listesine Git](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
@@ -35,68 +36,68 @@ Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#o
 >
 
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
-*Yeni başlayanlar için veri bilimi* veri bilimi beş kısa videolar içindeki bir giriş değil.
+*Yeni başlayanlar için veri bilimi* beş kısa videoyu veri bilimine hızlı bir giriş niteliğindedir.
 
-* Video 1: [5 veri bilimi yanıtlar sorular](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 dakika 14 saniye)*
-* Video 2: [verileriniz için veri bilimi hazır?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sn)*
-* Video 3: verilerle yanıtlayabilir bir soru sorun
-* Video 4: [basit bir modelle bir yanıt tahmin](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sn)*
-* Video 5: [veri bilimi yapmak için diğer kişilerin çalışma kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dakika 18 saniye)*
+* Video 1: [ilgili 5 veri biliminin yanıtladığı](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
+* Video 2: [verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
+* Video 3: verilerle yanıtlayabileceğiniz bir soru sorun
+* Video 4: [basit model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
+* Video 5: [veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Dökümü: verilerle yanıtlayabilir bir soru sorun
-Serideki üçüncü video "Yeni başlayanlar için veri bilimi." Hoş Geldiniz  
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transkript: verilerle yanıtlayabileceğiniz bir soru sorun
+Serinin üçüncü videoda "Yeni başlayanlar için veri bilimi." Hoş Geldiniz  
 
-Bu birinde verilerle yanıtlayabilir soru formulating için bazı ipuçları elde edersiniz.
+Bunu, verilerle yanıtlayabileceğiniz bir soru formulating için bazı ipuçları elde edersiniz.
 
-İki önceki videolar bu serideki ilk izleme, bu videoda dışında daha fazla bilgi alabilirsiniz: "5 soruları veri bilimi yanıtlayabilir" ve "verileriniz için veri bilimi hazır mı?"
+İlk iki önceki video bu serisini izleyin, bu video dışında daha fazla bilgi alabilirsiniz: "5 sorular veri bilimi neredeyse tümünü cevaplayabilir" ve "verileriniz veri bilimi için hazır mı?"
 
 ## <a name="ask-a-sharp-question"></a>NET bir soru sorun
-Veri bilimi bir yanıtını tahmin etmek için (kategorileri veya etiketleri olarak da adlandırılır) adlarını ve numaralarını kullanma işlemi nasıl olduğu hakkında açıklandı. Ancak herhangi bir soru olamaz; olmak zorundadır bir *sharp soru.*
+Veri bilimi (kategorileri veya etiketleri olarak da bilinir) adlarını ve numaralarını kullanarak bir soruya yanıtı tahmin etme işleminin ne olduğu hakkında konuştuk. Ancak herhangi bir soru olamaz. olmak zorundadır bir *sharp soru.*
 
-Belirsiz bir soru bir ad veya sayı ile yanıtlanması gereken sahip değil. Sharp soru gerekir.
+Bir ad veya sayı ile yanıtlanması unutmayacağınız bir soru yok. Bir bir sharp soru gerekir.
 
-Sihirli ampul istenir soru truthfully yanıtlayacak bir genie ile bulunan düşünün. Ancak yaramaz genie olan ve kendisine kendisi yerine ile alabilirsiniz gibi kendi yanıt belirsiz ve karmaşık hale getirmek deneyeceksiniz. Bir soruyla kendisi olamaz yardımcı olur ancak bilmek istediğiniz söyleyin, bu nedenle airtight sabitlemek ona istediğiniz.
+Imagine Beyanları, sormak istediğiniz soru yanıt bir genie ile Sihirli bir lamp bulunamadı. Ancak yaramaz genie olduğu ve he kendisinin hemen kullanmaya başlayabilirsiniz gibi kendi yanıt belirsiz ve karmaşık hale deneyin. İlişkiyi kendisi olamaz yardımcı ancak öğrenmek istediklerinizi söyleyin, bu nedenle airtight soru sabitlemek istediğiniz.
 
-Genie yanıt "Benim hisse olmasını neler olduğunu?", "fiyat değişir" gibi belirsiz bir soru sormak için olsaydı. Gerçek bir yanıt olan, ancak çok yararlı değildir.
+Genie yanıt "my hisse olmasını neler oluyor?", "fiyat değişir" gibi belirsiz bir soru sormak için olsaydı. Doğru yanıt olan, ancak bu çok yararlı değildir.
 
-Ancak "ne my hisse senedi 's satış fiyatı sonraki hafta?", genie olamaz Yardım ancak belirli bir size gibi keskin bir soru sorun olsaydı yanıtlayın ve satış fiyatını tahmin etmek.
+Ancak gibi "ne my stok ait satış fiyatı sonraki hafta?", genie olamaz yardımcı ancak size belirli bir bir sharp soru sorun olsaydı yanıt ve satış fiyatı tahmin edin.
 
 ## <a name="examples-of-your-answer-target-data"></a>Yanıtınız örnekleri: hedef veri
-Sorunuzun yanıtını formüle sonra verilerinizi yanıt örnekleri yüklü olup olmadığını denetleyin.
+Sorunuzu formüle sonra verilerinizi yanıt örnekleri sahip olup olmadığını denetleyin.
 
-Bizim Soru "Ne my hisse senedi 's satış fiyatı sonraki hafta olacak?" ise ardından verilerimizi stok fiyat geçmişi içerdiğinden emin olmak sahibiz.
+Bizim soru ise "Ne my stok ait satış fiyatı sonraki hafta olacak?" ardından hisse senedi fiyatı geçmişi verilerimizi içerdiğinden emin olmak sahibiz.
 
-Bizim Soru "hangi otomobil my Donanma içinde ilk başarısız olacağını?" ise ardından verilerimizi önceki hataları hakkında bilgi içeren emin olmak sahibiz.
+Bizim soru ise "my fleet hangi Arabada ilk başarısız olmasına geçiyor?" ardından verilerimizi önceki hatalarıyla ilgili bilgiler içerdiğinden emin olmak sahibiz.
 
-![Hedef verileri - yanıtınız örnekleri. Bir veri bilimi soru formüle.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
+![Hedef veri - yanıtınız örnekleri. Veri bilimi soru düzenleyin.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
-Bu örnek yanıt olarak bir hedef adı verilir. Bir kategori veya bir sayı olup olmadığını ne numaralı gelecekteki veri noktaları hakkında tahmin etmek çalışıyoruz hata hedefidir.
+Bu örnekler yanıtların bir hedef olarak adlandırılır. Bir kategori veya bir sayı olup olmadığını ne gelecekteki veri noktaları hakkında tahmin çalışıyoruz bir hedeftir.
 
-Herhangi bir hedef veri yoksa, bazı almanız gerekir. Sorunuzu olmadan yanıt vermiyor.
+Herhangi bir hedef veri yoksa, bazı almanız gerekir. Bu olmadan, sorunuzun yanıtlanması mümkün olmayacaktır.
 
-## <a name="reformulate-your-question"></a>Sorunuzu reformulate
-Bazen, sorunuzu daha kullanışlı bir yanıt almak için yeniden ifade et.
+## <a name="reformulate-your-question"></a>Sorunuzu yeniden oluşturun
+Bazen, sorunuza daha kullanışlı bir yanıt almak için yeniden ifade et.
 
-"Bu veri noktası A veya B mi?" sorusunu Kategori (adını veya etiketi), bir şeyin tahmin eder. Yanıt için kullanırız bir *sınıflandırma algoritmasıdır*.
+"Bu veri noktası A veya B nedir?" sorusu Kategori (adını veya etiket) herhangi bir şeyin tahmin eder. Yanıt için kullandığımız bir *sınıflandırma algoritmasıdır*.
 
-Soru "Ne kadar?" veya "Kaç?" bir miktar tahmin eder. Yanıt için kullanırız bir *regresyon algoritması*.
+Soruya "Ne kadar?" veya "Kaç?" miktarı tahmin eder. Yanıt için kullandığımız bir *regresyon algoritması*.
 
-Biz bu nasıl dönüştürebilirsiniz görmek için "hangi haber öykü bu okuyucuya en ilginç mi?" sorusunu bakalım Bu çok sayıda olasılıklar - arasından tek bir seçim tahminini diğer bir deyişle "Bu A veya B veya C D mi?" ister - ve bir sınıflandırma algoritmasıdır kullanırsınız.
+Biz bu nasıl dönüştürebileceğinizi öğrenmek için "hangi haber hikayesi bu okuyucu en ilginç nedir?" sorusunun göz atalım Bu tahmin birçok olasılıklar - arasından tek bir seçim, diğer bir deyişle "Bu A veya B veya C D mı?" ister - ve bir sınıflandırma algoritmasıdır kullanırsınız.
 
-Ancak, bu soruyu "Bu okuyucu için bu listede her hikaye nasıl ilginç?" olarak yeniden ifade et varsa yanıt daha kolay olabilir Şimdi her makale sayısal bir puan verebilirsiniz ve sonra Puanlama yüksek makaleyi tanımlamak kolaydır. Sınıflandırma soru regresyon soru içine yeniden budur veya ne kadar?
+Ancak, bu soruyu "Bu okuyucu için bu listedeki her hikaye nasıl ilginç nedir?" olarak yeniden ifade et, yanıt daha kolay olabilir Artık her bir makaleyi sayısal bir puan verebilirsiniz ve sonra yüksek puanlı makaleyi kolayca olur. Bu regresyon soru içine sınıflandırma soru anlayamadım, veya ne kadar?
 
-![Sorunuzu reformulate. Sınıflandırma soru regresyon soru karşılaştırması.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
+![Sorunuzu yeniden oluşturun. Sınıflandırma soru regresyon soru karşılaştırması.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
-Bir soru algoritmayı bir ipucu olan isteyin nasıl yanıt verebilirsiniz.
+Nasıl bir ipucudur hangi algoritmasına bir soru sorun, yanıt verebilirsiniz.
 
-Algoritma - haber Öykü örneğimizde - olanlar gibi bazı aileleri yakından ilişkilidir bulabilirsiniz. Sorunuzu en yararlı yanıt verir algoritmayı reformulate.
+Algoritma - haber hikayesi örneğimizde - olanlar gibi bazı aileleri yakından ilişkili olduğunu bulabilirsiniz. Sorunuzu en kullanışlı yanıt veren algoritmasını kullanabilmesi için yeniden oluşturun.
 
-Ancak, en önemlisi, o sharp soru - verilerle yanıtlayabilir soru sorun. Ve yanıtlamak için doğru verilere sahip olduğundan emin olun.
+Ancak, en önemli - sharp soruya verilerle yanıtlayabileceğiniz bir soru sorun. Ve yanıtlamak için doğru verilere sahip olduğunuzdan emin olun.
 
-Verilerle yanıtlayabilir bir soru sormak bazı temel ilkeleri hakkında açıklandı.
+Verilerle yanıtlayabileceğiniz bir soru sormaya yönelik bazı temel ilkeler hakkında konuştuk.
 
 "Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları kullanıma emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [İlk veri bilimi denemeyi Machine Learning Studio'da deneyin](create-experiment.md)
-* [Microsoft Azure Machine Learning giriş Al](what-is-machine-learning.md)
+* [Bir Machine Learning Studio'da ilk veri bilimi deneyinde deneyin](create-experiment.md)
+* [Microsoft Azure'da Machine learning'e giriş yapın](what-is-machine-learning.md)

@@ -10,16 +10,16 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260015"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852699"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Hızlı Başlangıç: Content Moderator ile tanıdık Al
 
-Bu hızlı başlangıçta, herhangi bir kod yazmak zorunda kalmadan Content Moderator temel işlevselliğini test etmek için çevrimiçi Content Moderator İnceleme aracını kullanır. Diğer hızlı başlangıçlar, bu hizmet, daha hızlı bir şekilde uygulamanızla tümleştirmek istiyorsanız bkz [sonraki adımlar](#next-steps) bölümü.
+Bu hızlı başlangıçta, herhangi bir kod yazmak zorunda kalmadan Content Moderator temel işlevselliğini test etmek için çevrimiçi Content Moderator gözden geçirme Aracı'nı kullanır. Diğer hızlı başlangıçlar, bu hizmet, daha hızlı bir şekilde uygulamanızla tümleştirmek istiyorsanız bkz [sonraki adımlar](#next-steps) bölümü.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -58,7 +58,7 @@ Bu noktada, Content Moderator hizmet neler yapabileceğinizi örnekler görmek i
 
 ## <a name="learn-more-about-the-review-tool"></a>Gözden geçirme aracı hakkında daha fazla bilgi edinin
 
-Content Moderator gözden geçirin Aracı'nı kullanma hakkında daha fazla bilgi için göz atın [İnsan içinde--döngüsü](Review-Tool-User-Guide/human-in-the-loop.md) yönlendirmesine ve gözden geçirme aracı API'leri insan tarafından İnceleme deneyimi ince ayar yapma hakkında bilgi edinmek için bkz:
+Content Moderator gözden geçirme Aracı'nı kullanma hakkında daha fazla bilgi için göz atın [gözden geçirme aracı](Review-Tool-User-Guide/human-in-the-loop.md) yönlendirmesine ve gözden geçirme aracı API'lerini, insan tarafından İnceleme deneyimi ince ayar yapma hakkında bilgi edinmek için bkz:
 - [İş API](try-review-api-job.md) yönetim API'lerini kullanarak içeriğinizi tarar ve gözden geçirmeleri gözden geçirme Aracı'nda oluşturur. 
 - [Gözden geçirme API](try-review-api-review.md) doğrudan görüntü, metin veya görüntü incelemeleri İnsan Moderatörler için içerik taramadan oluşturur. 
 - [İş akışı API](try-review-api-workflow.md) oluşturur, güncelleştirir ve ekibinizin oluşturduğu özel iş akışlarını ayrıntılarını alır.

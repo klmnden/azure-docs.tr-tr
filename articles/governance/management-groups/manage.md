@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rithorn
-ms.openlocfilehash: a3de0df8fde3b271b7ba9bb9aab01dbcd5c3bf08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 627ef0123f05e768dd8a83c197b25da7f161a37c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991238"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853005"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -207,7 +207,7 @@ Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri
 
 ### <a name="move-subscriptions-in-powershell"></a>PowerShell'de abonelikler taşıma
 
-PowerShell'de bir aboneliği taşımak için AzureRmManagementGroupSubscription Ekle komutunu kullanabilirsiniz.  
+PowerShell'de bir aboneliği taşımak için yeni AzureRmManagementGroupSubscription komutunu kullanın.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -277,7 +277,7 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 Yönetim grupları hakkında daha fazla bilgi için bkz:
 
 - [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](overview.md)
-- [Azure kaynaklarını düzenlemek için Yönetim grupları oluşturma](create.md)
+- [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
 - [Azure Powershell modülünü yükleme](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [REST API Belirtimi gözden geçirin](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [REST API Belirtimini gözden geçirme](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Azure CLI uzantısını yükleme](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

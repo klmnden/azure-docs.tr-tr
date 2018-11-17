@@ -1,10 +1,11 @@
 ---
-title: Machine Learning kullanarak müşteri karmaşıklığı çözümleme | Microsoft Docs
-description: Çözümleme ve müşteri karmaşası Puanlama için tümleşik bir model geliştirerek, örnek olay incelemesi
+title: Machine Learning ile müşteri değişim sıklığını çözümleme | Microsoft Docs
+description: Örnek olay incelemesi analiz etme ve müşteri dalgalanması puanlamaya yönelik tümleşik bir model geliştirme
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
@@ -15,95 +16,95 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1beba951a6785aa90eef22a63a8064e9da1bb27f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 66c8fcb54ef348ca9414d14eb80d00fa75e89ad9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835126"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823223"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Azure Machine Learning kullanarak müşteri karmaşıklığı analiz etme
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Azure Machine Learning ile müşteri değişim sıklığını çözümleme
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, Azure Machine Learning kullanılarak oluşturulmuş bir müşteri karmaşası analiz proje başvurusu uyarlamasını gösterir. Bu makalede, bütünsel endüstriyel müşteri karmaşası sorunu çözmek için ilişkili genel modelleri tartışın. Biz de Machine Learning kullanılarak oluşturulan modelleri doğruluğunu ölçmek ve daha fazla geliştirme için yol tarifi değerlendirin.  
+Bu makalede, Azure Machine Learning kullanılarak oluşturulan bir müşteri karmaşıklığı çözümleme projesinin referans uygulaması gösterir. Bu makalede, ilişkili genel modellerini bütünlüklü olarak endüstriyel müşteri karmaşıklığı sorununu çözmek için ele alır. Biz de Machine Learning kullanılarak oluşturulan model doğruluğunu ölçmek ve daha fazla geliştirme yönergeleri değerlendirin.  
 
 ### <a name="acknowledgements"></a>Bildirimler
-Bu deneme geliştirilmiş ve Serge Berger, asıl veri Bilimcisi Microsoft'ta ve Roger Barga, önceden Microsoft Azure Machine Learning için ürün Yöneticisi test. Azure belgelerine takım minnettar uzmanlara kabul ettikten ve bu teknik incelemede paylaşmak için teşekkürler.
+Bu deneyde geliştirildiği ve Serge Berger, Microsoft'ta asıl veri uzmanı ve eski Microsoft Azure Machine Learning için ürün yöneticisi olan Roger Barga test. Azure belgeleri takımının minnettar uzmanlıklarını bildirir ve bu teknik incelemeyi paylaşmak için teşekkürler.
 
 > [!NOTE]
-> Bu deneme için kullanılan verileri genel kullanıma açık değil. Karmaşası çözümleme için makine öğrenimi modeli oluşturmak nasıl bir örnek için bkz: [perakende karmaşıklığı model şablonunun](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Galerisi](http://gallery.cortanaintelligence.com/)
+> Bu deneme için kullanılan verileri genel olarak kullanılabilir değil. Değişim sıklığı analiz için makine öğrenme modeli oluşturmak nasıl bir örnek için bkz: [perakende karmaşıklığı model şablonunun](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="the-problem-of-customer-churn"></a>Müşteri karmaşası sorunu
-İşletmeler tüketici Pazar ve tüm kurumsal kesimler karmaşası ile gerekir. Bazen karmaşası aşırı ve ilke kararlarını etkiler. Geleneksel yüksek propensity churners tahmin etmek ve gereksinimlerine, pazarlama kampanyalarının bir danışman hizmeti aracılığıyla veya özel dispensations uygulayarak adres için çözümüdür. Bu yaklaşım, endüstri endüstri farklılık gösterebilir. Bunlar bile belirli tüketici kümeden bir endüstri (örneğin, telekomünikasyon) içinde başka bir farklılık gösterebilir.
+## <a name="the-problem-of-customer-churn"></a>Müşteri karmaşıklığı sorununu
+İşletmeler tüketici pazarında ve tüm kurumsal kesimde, değişim sıklığı ile uğraşmak zorunda. Bazen değişim sıklığı aşırı ve ilke kararlarını etkiler. Geleneksel bir çözümün yüksek eğilimini churners tahmin edin ve kendi ihtiyaçlarına özel dispensations uygulayarak veya pazarlama kampanyaları, bir concierge hizmetini aracılığıyla adres sağlamaktır. Bu yaklaşım, sektör sektör farklılık gösterebilir. Bunlar bile belirli tüketicinin kümeden bir endüstri (örneğin, telekomünikasyon) içinde başka bir farklılık gösterebilir.
 
-İşletmeler bu özel müşteri bekletme çalışmalarını en aza indirmek gereken ortak faktördür. Bu nedenle, bir doğal Metodoloji karmaşası olasılığını her müşteriyle Puanlama ve üst N olanları adresini olacaktır. En iyi müşteriler En Karlı olanları olabilir. Örneğin, daha karmaşık senaryolarda, kar işlevi özel dispensation için aday seçim sırasında kullanılmaz. Ancak, bu noktalar karmaşası ilgilenmek için tam stratejisi yalnızca bir parçası değildir. İşletmeler ayrıca hesap risk (ve ilişkili risk toleransınıza), düzeyini ve maliyetini müdahalesi ve yatkýn müşteri kesimleme gitmesi.  
+İşletmeler, bu özel müşteri elde tutma çalışmaları en aza indirmek gereken ortak faktördür. Bu nedenle, her müşteri dalgalanması olasılığını ile puan ve üst N olanları adres için doğal bir Metodoloji olacaktır. En iyi müşteriler En Karlı olanları olabilir. Örneğin, daha karmaşık senaryolarda, kar işlevi özel dispensation için adayları seçim sırasında kullanılır. Ancak, bu tam stratejisi karmaşası başa çıkmak için yalnızca bir kısmını faktörlerdir. İşletmelerin de hesap risk (ve ilişkili risk toleransınıza) düzeyini ve müdahale ve yatkýn müşteri Segmentasyonu maliyetini uygulamanız gerekir.  
 
-## <a name="industry-outlook-and-approaches"></a>Endüstri outlook ve yaklaşımlar
-Karmaşası Gelişmiş şekilde işlenmesi, olgun sektör işaretidir. Klasik telekomünikasyon endüstri burada aboneleri bir sağlayıcıdan sık geçiş bilinen bir örnektir. Bu gönüllü karmaşası prime bir konudur. Ayrıca, sağlayıcıları önemli bilgi hakkında toplanan *sürücüleri karmaşıklığı*, geçiş yapmak için müşteriler sürücü etken bulunmaktadır.
+## <a name="industry-outlook-and-approaches"></a>Sektör outlook ve yaklaşımları
+Gelişmiş işleme değişim olgun bir sektör bir işarettir. Klasik örnek, sıklıkla bir sağlayıcısından diğerine geçmek için aboneleri burada bilinen telekomünikasyon endüstri standardıdır. Gönüllü Bu karmaşıklığı prime bir konudur. Sağlayıcılar hakkında önemli bilgileri ayrıca, birikti *sürücüleri karmaşıklığı*, müşterilerin geçiş sürücü etkenler şunlardır.
 
-Örneğin, ahize veya aygıt cep telefonu iş karmaşası, iyi bilinen bir sürücü seçimdir. Sonuç olarak, bir popüler ahize fiyat yeni aboneler için subsidize ve yükseltme için var olan müşteriler için tam bir fiyat uyguladığınız ilkesidir. Tarihsel olarak, bu ilkeyi yeni indirim almak için başka bir sağlayıcıdan atlamalı müşterilere açmıştır. Bu, buna karşılık, kendi stratejileri iyileştirmek için sağlayıcıları istemde.
+Cep telefonu iş değişim ahize veya cihaz seçim örneği için bilinen bir sürücüdür. Sonuç olarak, bir popüler ahize fiyatı subsidize yeni abonelere yönelik ve mevcut müşteriler bir yükseltme için tam bir fiyat uyguladığınız ilkesidir. Tarihsel olarak, bu ilke, yeni indirim almak için bir sağlayıcısından diğerine atlamalı müşterilere açmıştır. Bu, istenir, kendi stratejileri iyileştirmek için sağlayıcıları.
 
-Ahize teklifleri içinde yüksek volatilite karmaşası geçerli ahize modellerinde dayalı modelleri hızla geçersiz kılan bir faktördür. Ayrıca, cep telefonları yalnızca telekomünikasyon cihazlar olmayan, ayrıca şekilde deyimleri (iPhone göz önünde bulundurun) oldukları. Bu sosyal predictors normal telekomünikasyon veri kümesi kapsamı dışında ' dir.
+Yüksek dalgalanma ahize tekliflere değişim geçerli ahize modellerde dayalı modelleri hızla çıkarır bir faktördür. Ayrıca, cep telefonları yalnızca telekomünikasyon cihazları değil; bunlar da biçimde deyimleri (iPhone göz önünde bulundurun). Bu sosyal adaylarının normal telekomünikasyon veri kümesi kapsamı dışında olan.
 
-Net modelleme için bilinen nedenlerle karmaşıklığı ortadan kaldırarak bir ses İlkesi insanlara olamaz sonucudur. Aslında, (örneğin, karar ağaçları), kategorik değişkenleri ölçme Klasik modelleri de dahil olmak üzere bir sürekli modelleme, stratejidir **zorunlu**.
+Net modelleme için bilinen nedenlerle karmaşıklığı ortadan kaldırarak bir ses ilke insanlara olamaz sonucudur. Aslında, ölçme kategorik değişkenleri (örneğin, karar ağaçları), Klasik modeli de dahil olmak üzere bir sürekli modelleme, stratejidir **zorunlu**.
 
-Büyük veri kümeleri müşterilerinin kullanarak, kuruluşlar, etkili bir yaklaşım soruna yönelik olarak büyük veri analizi (özellikle, büyük veri dayalı karmaşası algılama içinde) yapıyorsunuz. ETL bölümünde önerileri karmaşıklık sorun büyük veri yaklaşımı hakkında daha fazla bilgi bulabilirsiniz.  
+Müşterilerinin büyük veri kümelerini kullanarak, kuruluşların büyük veri analizi (özellikle, büyük verilere dayalı değişim saptama içinde) sorun yönelik etkili bir yaklaşım olarak çalışıp çalışmadığını denetleyin. ETL bölümüne önerileri karmaşıklığı sorununu büyük veri yaklaşımı hakkında daha fazla bilgi bulabilirsiniz.  
 
-## <a name="methodology-to-model-customer-churn"></a>Model müşteri karmaşası yöntemi
-Şekil 1-3'te Müşteri karmaşası çözmek için ortak bir sorunu çözme işlemi belirtilmiştir:  
+## <a name="methodology-to-model-customer-churn"></a>Model müşteri kaybı için yöntemi
+Şekil 1-3'te Müşteri dalgalanması çözmek için yaygın bir sorun çözme işlemi gösterilmiştir:  
 
-1. Risk modeli Eylemler olasılık ve risk nasıl etkilediğini dikkate almanız gereken sağlar.
-2. Bir araya modeli araya düzeyini karmaşası ve müşteri miktarını olasılığını nasıl etkileyebilecek dikkate almanız gereken yaşam döngüsü değerinden (CLV) sağlar.
-3. Bu çözümleme kendisini en iyi teklif sunmak için müşteri kesimine hedefleyen öngörülü bir pazarlama kampanyası için ilerletilen qualitative analiz için uygundur.  
+1. Bir risk modeli olasılığını ve risk eylemleri nasıl etkileyeceğini göz önünde bulundurun sağlar.
+2. Bir araya modeli, değişim sıklığı ve müşteri miktarını olasılığını müdahale düzeyini nasıl etkileyebilecek göz önünde bulundurun (CLV) ömrü değeri sağlar.
+3. Bu analiz, kendisini en iyi öneri sunmak için müşteri segmentlerini hedefleyen proaktif bir pazarlama kampanyası için ilerletilmiş bir quantitative analiz için uygundur.  
 
 ![][1]
 
-İleri görünümlü bu yaklaşım karmaşası işlemek için en iyi yoludur ancak karmaşıklık ile gelir: birden çok model archetype ve modelleri arasındaki bağımlılıkları izlemenizi geliştirme gerekir. Modelleri arasındaki etkileşim aşağıdaki çizimde gösterildiği gibi kapsüllenmiş:  
+İleri görünümlü bu yaklaşım karmaşası değerlendirmek için en iyi yoludur, ancak karmaşıklığı ile gelir: çok modelli archetype ve modelleri arasındaki bağımlılıkları izleme geliştirmek sunuyoruz. Aşağıdaki diyagramda gösterildiği gibi modelleri arasındaki etkileşimi kapsüllenmiş:  
 
 ![][2]
 
-*Şekil 4: çok model archetype birleşik*  
+*Şekil 4: çok modelli archetype birleşik*  
 
-Müşteri bekletme bütünsel bir yaklaşım sunmak için varsa modelleri arasındaki etkileşim anahtardır. Her model mutlaka zamanla düşürür; Bu nedenle, bir örtük döngü mimarisidir (benzer şekilde NET-DM veri araştırma standardına göre ayarlamak archetype [***3***]).  
+Müşteri bekletme için bütünsel bir yaklaşım sunmak için ise modelleri arasındaki etkileşimi anahtardır. Her model, zaman içinde mutlaka düşürür; Bu nedenle, örtük bir döngü mimaridir (benzer şekilde NET-DM veri araştırma standardına göre ayarlama archetype [***3***]).  
 
-Genel döngü riski karar pazarlama kesimleme/ayrıştırma hala birçok iş sorunlarını için geçerli olan bir genelleştirilmiş, yapısıdır. Basitleştirilmiş Tahmine dayalı bir çözüm izin vermeyen bir karmaşık iş sorunun tüm nitelikler sergilediğinden karmaşası analiz yalnızca bir güçlü, bu grubun sorunları temsilcisidir. Modern yaklaşım karmaşıklığı sosyal yönlerini özellikle yaklaşım vurgulanmış değil, ancak tüm modelde olduğu gibi sosyal yönlerini modelleme archetype içinde kapsüllenir.  
+Risk karar pazarlama kesimleme/ayrıştırma genel döngüsü hala birçok iş sorunlarını için geçerli olan bir genelleştirilmiş, yapısıdır. Basitleştirilmiş Tahmine dayalı bir çözüm izin vermeyen bir karmaşık iş sorunun tüm nitelikler sergilediğinden karmaşıklığı analizi yalnızca bir güçlü sorunları bu grubun temsilcisidir. Değişim sıklığı için modern yaklaşımı sosyal yönlerini özellikle yaklaşımda vurgulanmış değil, ancak bunlar herhangi bir modelde olduğu gibi sosyal özelliklerini modelleme archetype içinde kapsüllenir.  
 
-Bir ilginç burada büyük veri analizi ektir. Günümüzün telekomünikasyon ve perakende işletmeler müşterilerine hakkında ayrıntılı verileri toplamak ve biz kolayca birden çok model bağlantı gereksinimini nesnelerin interneti ve birden çok katman akıllı çözümleri kullanmayı iş izin bulunabilen cihazlar gibi ortaya çıkan eğilimleri verilen ortak bir eğilim olacak öngörüyor.  
+Burada ilginç bir ayrıca büyük veri analizi ' dir. Günümüzün telekomünikasyon ve perakende işletmeler, müşterilerine hakkında ayrıntılı verileri toplamak ve biz kolayca çok modelli bağlantısı için gereken belirli eğilimler nesnelerin interneti gibi Gelişmekte olan ve her yerde bulunan bir genel eğilim olacak öngörüyor birden çok katman akıllı çözümler kullanmak istemiyorsunuz iş izin cihazlar.  
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Machine Learning Studio'da modelleme archetype uygulama
-Yalnızca sorunun verildiğinde, tümleşik bir model oluşturma ve yaklaşım Puanlama uygulamak için en iyi yolu nedir? Bu bölümde, nasıl Biz bu Azure Machine Learning Studio kullanılarak başarılır gösterecek.  
+## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Machine Learning Studio'da model oluşturma archetype uygulama
+Az önce açıklanan sorunu göz önünde bulundurulduğunda, tümleşik bir model ve puanlama yaklaşımı uygulamak için en iyi yolu nedir? Bu bölümde, nasıl size bu Azure Machine Learning Studio kullanılarak gerçekleştirilen gösterilecektir.  
 
-Birden çok model şart karmaşası için genel bir archetype tasarlarken yaklaşımdır. Yaklaşım bile Puanlama (Tahmine dayalı) parçası çok model olması gerekir.  
+Çok modelli bir yaklaşım genel bir archetype değişim sıklığı için tasarlarken zorunluluktur. Çok modelli bir yaklaşım bile Puanlama (Tahmine dayalı) parçası olması gerekir.  
 
-Aşağıdaki diyagramda, hangi karmaşası tahmin etmek için Machine Learning Studio'da dört Puanlama algoritmalar kullanır oluşturduğumuz prototip gösterir. Birden çok model bir yaklaşım kullanarak nedeni değil yalnızca doğruluk artırmak için ancak ayrıca atlayarak sığdırma karşı korumak ve düzenleyici özellik seçimi artırmak için bir ensemble sınıflandırıcı oluşturmaktır.  
+Aşağıdaki çizimde, dört Puanlama algoritmaları dalgalanmasını tahmin Machine Learning Studio'da hangi kullanan oluşturduğumuz prototip gösterir. Çok modelli bir yaklaşım kullanarak nedenini değil yalnızca bir topluluğu Sınıflandırıcısı, doğruluğunu artırmak için ancak de aşırı sığdırma karşı korumak ve öngörücü özellik seçimi artırmak için oluşturmaktır.  
 
 ![][3]
 
-*Şekil 5: Prototipi yaklaşım modelleme karmaşası*  
+*Şekil 5: Prototip yaklaşım modelleme bir değişim*  
 
-Aşağıdaki bölümler, Machine Learning Studio kullanılarak uygulanan modeli Puanlama prototip hakkında daha fazla ayrıntı sağlar.  
+Aşağıdaki bölümler, Machine Learning Studio kullanılarak uygulanan model Puanlama prototip hakkında daha fazla ayrıntı sağlar.  
 
-### <a name="data-selection-and-preparation"></a>Veri seçimi ve hazırlık
-Veri modelleri oluşturmak için kullanılan ve puanı müşterilerin müşteri gizliliğini korumak için gizlenmiş verilerle CRM dikey çözümden elde. Verileri ABD 8.000 abonelikleri hakkında bilgi içerir ve üç kaynağı birleştirir: verileri (abonelik meta verileri), etkinlik verileri (kullanım sisteminin) ve müşteri destek verileri sağlama. Herhangi bir şirket verilerini içermez ilgili müşteriler hakkında; bilgi Örneğin, bağlılık meta veriler veya kredi puanları içermez.  
+### <a name="data-selection-and-preparation"></a>Veri seçimi ve hazırlama
+Veri modelleri oluşturmak için kullanılan ve puanı müşterilerin müşteri gizliliğini korumak için farklı verilerle CRM dikey çözümden elde. Veri ABD'deki 8000 abonelikler hakkında bilgi içerir ve üç kaynağı birleştirir: veri (abonelik meta veriler), etkinlik verileri (kullanım sistemin) ve müşteri destek verileri sağlama. Herhangi bir iş verileri içermez ilgili; müşterilerle ilgili bilgileri Örneğin, bağlılık programı meta veriler ya da kredi puanları içermez.  
 
-Verileri hazırlama zaten olduğunu varsayıyoruz çünkü kolaylık sağlamak için ETL ve işlemler temizleme veri kapsamının dışında başka bir yerde yapılır.   
+Veri hazırlama zaten sahip olduğunu varsaydığından kolaylık olması için ETL ve verileri temizleme işlemleri kapsam dışına başka bir yerde yapılır.   
 
-Modelleme için özellik seçimi başlangıç anlamlı rastgele orman modülü kullanan işlemine dahil predictors kümesinin Puanlama temel alır. Machine Learning Studio'da uygulama için ortalama, Orta ve temsili özellikleri aralıklarını hesaplanır. Örneğin, toplamalar nitel verisi için kullanıcı etkinliği için minimum ve maksimum değerleri gibi eklendi.    
+Modelleme için özellik seçimi adaylarının, rastgele orman modülü kullanan işlemine dahil kümesinin başlangıç anlam Puanlama temel alır. Machine Learning Studio'da bir uygulama için ortalama, ORTANCA ve aralıkları temsilcisi özellikleri için hesaplanır. Örneğin, kullanıcı etkinliği için minimum ve maksimum değerleri gibi nitel veri toplamaları ekledik.    
 
-Biz de en son altı ay boyunca zamana bağlı bilgi yakalandı. Verileri bir yıl için analiz ettik ve olmasa bile istatistiksel olarak önemli eğilimleri, karmaşıklık üzerindeki etkisini önemli ölçüde altı ay sonra düşer kuruldu.  
+Ayrıca en son altı ay boyunca zamana bağlı bilgileri yakaladığımız. Verileri bir yıl boyunca analiz ettik ve olmasa bile istatistiksel olarak önemli eğilimleri, değişim sıklığı üzerindeki etkisini önemli ölçüde altı ay sonra düşer kuruldu.  
 
-En önemli bütün işlem ETL, özellik seçimi de dahil olmak üzere ve modelleme, Machine Learning Studio'da, Microsoft Azure veri kaynaklarında kullanarak uygulanmıştır noktasıdır.   
+Microsoft azure'da veri kaynakları kullanarak Machine Learning Studio'da model oluşturma ve ETL, özellik seçimi dahil olmak üzere sürecin tamamı uygulanmıştır en önemli noktasıdır.   
 
-Aşağıdaki diyagramlarda kullanılan veri gösterilmektedir.  
+Aşağıdaki diyagramlarda kullanılan verileri gösterilmektedir.  
 
 ![][4]
 
-*Şekil 6: Alıntı (gizlenmiş) veri kaynağının*  
+*Şekil 6: Alıntı (farklı) veri kaynağının*  
 
 ![][5]
 
@@ -111,126 +112,126 @@ Aşağıdaki diyagramlarda kullanılan veri gösterilmektedir.
  
 
 > Bu veriler özeldir ve bu nedenle modeli ve veri paylaşılamaz unutmayın.
-> Ancak, genel kullanıma açık verileri kullanarak bir benzer modeli için bu örnek, denemeler bkz [Azure AI galeri](http://gallery.cortanaintelligence.com/): [Telco müşteri karmaşıklığı](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Ancak bu örnek deneme herkese verileri kullanarak benzer bir model için bkz [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [telekomünikasyon müşteri karmaşıklığı](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Cortana Intelligence Suite kullanarak karmaşası analiz modeli nasıl uygulayacağınıza dair hakkında daha fazla bilgi için ayrıca öneririz [bu videoyu](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) üst düzey Program Yöneticisi Wee Hyong Tok tarafından. 
+> Cortana Intelligence Suite'i kullanarak bir değişim analiz modeli nasıl uygulayacağınıza dair hakkında daha fazla bilgi için ayrıca öneririz [bu videoyu](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) Kıdemli Program Yöneticisi Wee Hyong Tok tarafından. 
 > 
 > 
 
-### <a name="algorithms-used-in-the-prototype"></a>Prototip kullanılan algoritmaları
-Prototip (özelleştirme yok) oluşturmak için aşağıdaki dört machine learning algoritmaları kullanılır:  
+### <a name="algorithms-used-in-the-prototype"></a>Prototip kullanılan algoritmalar
+Prototip (özelleştirme yok) oluşturmak için aşağıdaki dört makine öğrenimi algoritmaları kullanılır:  
 
 1. Lojistik regresyon (LR)
-2. Artırılmış karar ağacı (BT)
+2. Artırmalı karar ağacı (BT)
 3. Ortalama perceptron (AP)
-4. Vektör makinesi (SVM) desteği  
+4. Destekli vektör makinesi (SVM)  
 
-Aşağıdaki diyagramda bir kısmı modelleri oluşturulduğu dizisini gösterir deneme tasarım yüzeyi gösterilmektedir:  
+Aşağıdaki diyagram, modelleri oluşturulduğu dizisini gösterir deneme tasarım yüzeyine bir bölümünü gösterir:  
 
 ![][6]  
 
-*Şekil 8: Machine Learning Studio'da modelleri oluşturma*  
+*Şekil 8: Machine Learning Studio'da model oluşturma*  
 
 ### <a name="scoring-methods"></a>Puanlama yöntemleri
-Biz, dört modeli etiketli eğitim veri kümesi kullanarak skoru.  
+Biz olan dört model oluşturduğunuz bir etiketli bir eğitim veri kümesi kullanarak puanlanmış.  
 
-Biz de SAS Kurumsal araştırıcısı 12 Masaüstü sürümü kullanılarak oluşturulmuş bir karşılaştırılabilir modeli Puanlama kümesine gönderildi. Biz SAS modelini ve tüm dört Machine Learning Studio'da modelleri doğruluğunu ölçülür.  
+Biz de SAS Kurumsal Miner 12 Masaüstü sürümü kullanılarak oluşturulan bir karşılaştırılabilir modeli Puanlama veri kümesine gönderilen. Biz, SAS modelini ve tüm dört Machine Learning Studio'da model doğruluğunu ölçülür.  
 
 ## <a name="results"></a>Sonuçlar
-Bu bölümde, Puanlama veri kümesine dayalı modeller, doğruluğunu hakkında bizim bulgularını sunar.  
+Bu bölümde, bizim bulguları Puanlama veri kümesini temel alan bir model doğruluğunu hakkında size sunar.  
 
-### <a name="accuracy-and-precision-of-scoring"></a>Doğruluk ve puanlama, duyarlık
-Genellikle, Azure Machine Learning uygulamasında SAS doğruluğu yaklaşık 10-%15 (alanı altında eğri veya AUC) tarafından kullanılıyor.  
+### <a name="accuracy-and-precision-of-scoring"></a>Doğruluk ve puanlamasını duyarlık
+Genellikle, Azure Machine learning'de SAS doğruluğu yaklaşık 10-%15 (alanı altında eğri veya AUC) içinde uygulamasıdır.  
 
-Ancak, en önemli ölçüm karmaşıklığı içinde misclassification oranıdır: başka bir deyişle, tahmin edilen sınıflandırıcı tarafından olarak ilk N churners hangisinin gerçekte vermedi **değil** karmaşıklığı ve henüz özel işleme alınan? Aşağıdaki diyagramda bu misclassification oranı tüm modelleri için karşılaştırılır:  
+Ancak, en önemli değişim sıklığı ölçümü misclassification oranıdır: diğer bir deyişle, tahmin edilen sınıflandırıcı tarafından olarak üst N churners hangisinin gerçekten yaptığınız **değil** karmaşıklığı ve özel olarak değerlendirilmesi henüz alınan? Aşağıdaki diyagram bu modelleri misclassification ücretine karşılaştırılır:  
 
 ![][7]
 
 *Şekil 9: Passau prototip eğri alanında*
 
 ### <a name="using-auc-to-compare-results"></a>Sonuçları karşılaştırmak için AUC kullanma
-Alanı altında eğri (AUC) olan genel bir ölçü temsil eden bir ölçüm *separability* pozitif ve negatif ortalamaya puanlarını dağıtımlar arasında. Geleneksel alıcı işleci karakteristiğini (ROC) grafiğe benzer, ancak bir önemli AUC ölçüm bir eşik değeri seçmenizi gerektirmediği farktır. Bunun yerine, üzerinden sonuçları özetlenmektedir **tüm** olası seçenekler. Buna karşılık, geleneksel ROC grafik pozitif oranı dikey eksen ve yanlış pozitif oranı yatay eksende gösterir ve sınıflandırma eşik değişir.   
+Alanı altında eğri (AUC) genel bir ölçü temsil eden bir ölçüm olan *separability* puanlar pozitif ve negatif yerleştirme için dağıtımlar arasında. Geleneksel alıcı işleci özellikleri (ROC) grafiğe benzer, ancak AUC ölçüm eşiği değeri seçmenizi gerektirmeyeceğini bir önemli fark vardır. Bunun yerine, üzerinden sonuçları özetler **tüm** olası seçenekler. Buna karşılık, dikey eksen ve hatalı pozitif sonuç oranı yatay eksende pozitif sonuç oranı geleneksel ROC grafik gösterir ve sınıflandırma eşiği değişir.   
 
-AUC değerlerine yoluyla Karşılaştırılacak modelleri izin verdiğinden AUC genellikle oluşan bir ölçüyü olarak farklı algoritmalar (ya da farklı sistemleri) için kullanılır. Bu, endüstriler meteorology ve biosciences gibi popüler bir yaklaşımdır. Bu nedenle, AUC sınıflandırıcı performansını değerlendirmek için popüler bir araç temsil eder.  
+AUC değerlerine yoluyla Karşılaştırılacak modelleri izin verdiğinden AUC genellikle bir ölçü olarak farklı algoritmalar (veya farklı sistemler için) kullanılır. Bu, sektörde meteorology ve biosciences gibi popüler bir yaklaşımdır. Bu nedenle, AUC sınıflandırıcı performansını değerlendirmek için popüler bir aracı temsil eder.  
 
-### <a name="comparing-misclassification-rates"></a>Misclassification oranları karşılaştırma
-Biz, söz konusu veri kümesi misclassification oranlarına yaklaşık 8000 aboneliklerin CRM verileri kullanarak karşılaştırılan.  
+### <a name="comparing-misclassification-rates"></a>Karşılaştırma misclassification oranları
+Biz misclassification ücretler söz konusu veri kümesinde yaklaşık 8000 aboneliklerinin CRM verilerinizi kullanarak karşılaştırılır.  
 
-* SAS misclassification oranı % 10-15 oluştu.
-* Machine Learning Studio misclassification oranı ilk 200-300'ü churners 15-%20 oluştu.  
+* 10-%15 SAS misclassification gönderebilme hızıydı.
+* Machine Learning Studio misclassification oranı ilk 200-300 churners 15-%20 oluştu.  
 
-Telekomünikasyon endüstrideki en yüksek riskli bir danışman hizmeti veya diğer özel işleme sunarak karmaşıklığı yükleyen müşterileri adres önemlidir. Bu bakımdan, Machine Learning Studio uygulaması SAS modelini ile eşit düzeye sonuçları elde eder.  
+Telekomünikasyon sektörün concierge hizmetini veya diğer özel olarak değerlendirilmesi sunarak olasılığı en yüksek riskli sahip müşteriler ele almak önemlidir. Bu bakımdan, Machine Learning Studio uygulamasını sonuçları SAS modelini aynı düzeye ulaşır.  
 
-Biz çoğunlukla doğru olası churners sınıflandırma ilgilendiğiniz aynı şekilde, doğruluk duyarlık daha önemlidir.  
+Biz genellikle olası churners doğru sınıflandırma ilgilendiğiniz aynı şekilde, doğruluk duyarlığından daha fazla önemlidir.  
 
-Aşağıdaki diyagram Wikipedia gelen canlı, kolay anlaşılır bir grafik ilişkisinde gösterir:  
+Aşağıdaki Wikipedia diyagramdan canlı, anlaşılması kolay bir grafik ilişkiyi göstermektedir:  
 
 ![][8]
 
-*Şekil 10: Kolaylığını doğruluğunu ve duyarlık arasında*
+*Şekil 10: Etmekten doğruluk ve duyarlık*
 
-### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Artırılmış karar ağacı modeli için doğruluğunu ve duyarlık sonuçları
-Aşağıdaki grafikte dört modelleri arasında en doğru olması için artırılmış karar ağacı modeli için Machine Learning prototipi kullanarak Puanlama ham sonuçları görüntüler:  
+### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Artırmalı karar ağacı modeli doğruluğu ve duyarlık sonuçları
+Aşağıdaki grafikte en doğru olan dört model arasında özelleştirmede artırmalı karar ağacı modeli için Machine Learning'i prototype kullanarak Puanlama ham sonuçları görüntüler:  
 
 ![][9]
 
-*Şekil 11: Artırılmış karar ağacı model özellikleri*
+*Şekil 11: Artırmalı karar ağacı model özellikleri*
 
 ## <a name="performance-comparison"></a>Performans karşılaştırma
-Biz, Machine Learning Studio'da modelleri ve SAS Kurumsal araştırıcısı 12,1 Masaüstü sürümü kullanılarak oluşturulmuş bir karşılaştırılabilir modeli kullanarak veri aktarılma skoru hızı karşılaştırılan.  
+Biz, Machine Learning Studio modelleri ve SAS Kurumsal Miner 12,1 Masaüstü sürümü kullanılarak oluşturulmuş bir karşılaştırılabilir modeli kullanarak verileri puanlanmış hız karşılaştırılır.  
 
-Aşağıdaki tabloda algoritmaları performansını özetlenmektedir:  
+Algoritmaların performansını aşağıdaki tabloda özetlenmiştir:  
 
-*Tablo 1. Genel performans (doğruluk) algoritmaları*
+*Tablo 1. Algoritmalar genel performansını (doğruluk)*
 
 | LR | BT | AP | SVM |
 | --- | --- | --- | --- |
-| Ortalama modeli |En iyi modeli |Underperforming |Ortalama modeli |
+| Ortalama modeli |En iyi modeli |Yeterli performansa sahip olmayan |Ortalama modeli |
 
-Machine Learning Studio'da büyük ölçüde nominal üzerinde yürütme ancak doğruluğu hızı için 15-25 oranında outperformed SAS olduğu barındırılan modeller.  
+Machine Learning Studio'da büyük ölçüde par üzerinde yürütme, ancak doğruluğunu hızı için % 15-25'ü geride bırakmıştır SAS olan barındırılan modeller.  
 
 ## <a name="discussion-and-recommendations"></a>Tartışma ve öneriler
-Telekomünikasyon sektörün karmaşası, analiz etmek için çeşitli yöntemler çıkmıştır dahil olmak üzere:  
+Telekomünikasyon sektörün değişim sıklığı, analiz etmek için çeşitli yöntemler çıkmıştır dahil olmak üzere:  
 
-* Dört temel kategorileri için ölçümleri türetir.
-  * **Varlık (örneğin, bir abonelik)**. Abonelik ve/veya karmaşası konu müşteri hakkındaki temel bilgileri sağlayın.
+* Dört temel kategorileri için ölçümleri türetilir:
+  * **Varlık (örneğin, bir abonelik)**. Abonelik ve/veya değişim konusu müşteri hakkındaki temel bilgileri sağlayın.
   * **Etkinlik**. Örneğin, oturum açma sayısı varlıkla ilgili tüm olası kullanım bilgilerini edinin.
-  * **Müşteri desteği**. Aboneliğin sorunlar veya müşteri desteği ile etkileşim var olup olmadığını belirtmek için müşteri destek günlükleri bilgileri elde etme.
-  * **Rekabet ve iş verileri**. Müşteri ile ilgili olası tüm bilgiler elde (örneğin, kullanılamıyor veya izlemek sabit olabilir).
-* Sürücü özellik seçimi için önem kullanın. Bu, artırılmış karar ağacı modeli taahhüdü bir yaklaşım her zaman olduğu anlamına gelir.  
+  * **Müşteri desteği**. Aboneliğin sorunları veya müşteri desteği ile etkileşim var olup olmadığını belirtmek için müşteri destek günlüklerinden bilgi toplar.
+  * **Rekabetçi ve iş verilerini**. Tüm olası müşteri bilgilerini elde (örneğin, kullanılamıyor veya izlemek zor olabilir).
+* Önem derecesi için sürücü özellik seçimi kullanın. Bu, artırmalı karar ağacı modeli her zaman taahhüdü bir yaklaşım olduğunu gösterir.  
 
-Bu dört kategorileri kullanımını çalışabilmesine oluşturan basit bir *belirleyici* her kategori, makul etkenlere biçimlendirilmiş dizinleri dayalı yaklaşım, yeterli karmaşası için risk müşterileri belirlemek için. Ne yazık ki, bu kavram yatkýn görünüyor rağmen yanlış anlama açıktır. , Karmaşıklık zamana bağlı bir etkisidir ve karmaşıklığı katkıda bulunan Etkenler genellikle geçici durumda nedenidir. Ne bugün bırakarak dikkate alınması gereken bir müşteri adaylarını yarın farklı olabilir ve bu kesinlikle altı ay şu andan itibaren farklı olacaktır. Bu nedenle, bir *probabilistic* zorunlu modelidir.  
+Bu dört kategoriden kullanımı, izlenimini yaratır basit *belirleyici* Kategori başına makul etkenlere biçimlendirilmiş dizinleri dayalı bir yaklaşım değişim sıklığı için riskli müşterileri belirlemek için yeterli. Ne yazık ki atayabiliyoruz yatkýn görünüyor olsa da, bu yanlış bir anlayış olur. , Değişim sıklığı geçici etkisidir ve karmaşıklığı süresini etkileyen faktörleri genellikle geçici bir durumda olmadığından nedenidir. Bugün bırakarak dikkate alınması gereken bir müşterinin ne müşteri adayları yarın farklı olabilir ve bu kesinlikle altı ay bundan farklı olacaktır. Bu nedenle, bir *olasılıklara* seçeneği modelidir.  
 
-Bu önemli gözlem genellikle genellikle iş zekası yönelimli bir yaklaşım analitik tercih iş atlamış, çoğunlukla olduğu için daha kolay bir satış ve basit Otomasyon admits.  
+Bu önemli gözlem genellikle iş zekası odaklı bir yaklaşım analizi için genellikle tercih ettiği iş kaçan, çoğunlukla, olduğundan daha kolay bir satış ve basit bir Otomasyon admits.  
 
-Bununla birlikte, Self Servis analizi, Machine Learning Studio kullanarak promise dört bilgi kategorileri arasında bölme veya departmanı tarafından türünden, machine learning karmaşası hakkında için değerli bir kaynak olmasıdır.  
+Bununla birlikte, Self Servis analizi, Machine Learning Studio'yu kullanarak bilgi, bölüm veya departmanı tarafından türünden dört kategorileri için machine learning değişim sıklığı hakkında değerli bir kaynağı haline vaattir.  
 
-Azure Machine Learning ile gelen başka bir heyecan verici özel bir modül zaten kullanılabilen önceden tanımlanmış modülleri depoya ekleme yeteneği bir özelliktir. Bu özelliği, aslında, kitaplığı seçin ve dikey pazarda şablonları oluşturmak için bir fırsat oluşturur. Bir önemli Azure Machine Learning fark yaratan Pazar yerinde olur.  
+Azure Machine Learning'de yakında başka bir heyecan verici özellik, özel bir modül zaten kullanılabilen önceden tanımlanmış modüllerinin depoya ekleme olanağı yöneliktir. Bu özellik, temelde, kitaplığı seçin ve dikey pazarları için şablonlar oluşturma fırsatı oluşturur. Bu bir önemli Azure Machine Learning market yerde avantajıdır.  
 
-Bu konu gelecekte devam etmek özellikle büyük veri analizi için ilgili umuyoruz.
+Bu konuda daha sonra devam etmek özellikle büyük veri analizi ile ilgili umuyoruz.
   
 
 ## <a name="conclusion"></a>Sonuç
-Bu raporda bir genel çerçeve kullanarak müşteri karmaşası yaygın sorun tackling duyarlı bir yaklaşım açıklar. Biz modelleri Puanlama için prototip olarak kabul ve Azure Machine Learning kullanarak uygulanmadı. Son olarak, SAS karşılaştırılabilir algoritmalara açısından prototip çözüm performansını ve doğruluğunu uygunluk.  
+Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorununu giderme mantıklı bir yaklaşım açıklanmaktadır. Biz Puanlama modelleri için prototip olarak kabul ve Azure Machine Learning kullanarak gerçekleştirmektedir. Son olarak, doğruluk ve performans SAS karşılaştırılabilir algoritmalar onaylamaz prototip çözümün değerlendirdik.  
 
  
 
 ## <a name="references"></a>Başvurular
-[1] Tahmine dayalı analiz: tahminleri, Batı McKnight bilgi yönetimi, Temmuz/Ağustos 2011, p.18-20 ötesinde.  
+[1] Tahmine dayalı analiz: Öngörüler, Batı McKnight bilgi yönetimi, Temmuz/Ağustos 2011 p.18 20 ötesinde.  
 
-[2] Wikipedia makale: [doğruluğunu ve duyarlılık](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia makalesinin: [doğruluk ve duyarlık](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [NET-DM 1.0: adım adım veri araştırma Kılavuzu](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [büyük veri pazarlama: müşterilerinize daha etkili bir şekilde gerçekleştirmesine ve sürücü değeri](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [büyük veri pazarlama: müşterilerinize daha etkili bir şekilde etkileşim kurun ve sürücü değeri](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco karmaşıklığı model şablonunun](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) içinde [Azure AI Galerisi](http://gallery.cortanaintelligence.com/) 
+[5] [Telco karmaşıklığı model şablonunun](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Ek
 ![][10]
 
-*Şekil 12: Anlık görüntüsünü karmaşası prototip sunu*
+*Şekil 12: Anlık görüntü karmaşası prototipinde sunu*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png

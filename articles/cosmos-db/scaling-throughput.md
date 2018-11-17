@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 597d94ce7be077dda6571048b560c9414ceb35ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 4da893f71f3bb91ba021dcf259d20ddd72bfbf90
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705251"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821999"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB'de ölçeklendirme aktarım hızı
 
@@ -23,7 +23,7 @@ Azure Cosmos DB'de sağlanan aktarım hızı birimi/saniye istek gösterilir (RU
 
 RUs Cosmos kapsayıcı veya Cosmos veritabanı sağlayabilirsiniz. Bir kapsayıcı RU, kapsayıcısı üzerinde gerçekleştirilen işlemler için özel olarak kullanılabilir. Bir veritabanı üzerinde RU (hariç tüm kapsayıcıları ile özel olarak atanan RU) Bu veritabanındaki tüm kapsayıcılar arasında paylaşılır.
 
-Esnek ölçeklendirme aktarım hızı için artırabilir veya sağlanan RU/sn istediğiniz zaman azaltabilirsiniz. Daha fazla bilgi için [yapılır sağlama aktarım hızı](set-throughput.md) ve Cosmos kapsayıcılar ve veritabanlarını esnek biçimde ölçeklendirin. Aktarım hızı ölçeklendirme için genel olarak, ekleme veya bölgeler, Cosmos hesabınızda herhangi bir zamanda kaldırın. Daha fazla bilgi için [Azure Cosmos DB hesabınızın ekleme veya kaldırma bölgelerden](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Bir Cosmos hesabıyla birden çok bölgede ilişkilendirme, düşük gecikme süresi elde etmek için pek çok senaryoda önemlidir ve [yüksek kullanılabilirlik](high-availability.md) dünyanın dört bir yanındaki.
+Esnek ölçeklendirme aktarım hızı için artırabilir veya sağlanan RU/sn istediğiniz zaman azaltabilirsiniz. Daha fazla bilgi için [yapılır sağlama aktarım hızı](set-throughput.md) ve Cosmos kapsayıcılar ve veritabanlarını esnek biçimde ölçeklendirin. Aktarım hızı ölçeklendirme için genel olarak, ekleme veya bölgeler, Cosmos hesabınızda herhangi bir zamanda kaldırın. Daha fazla bilgi için [veritabanı hesabınızı Ekle/Kaldır bölgelerden](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Bir Cosmos hesabıyla birden çok bölgede ilişkilendirme, düşük gecikme süresi elde etmek için pek çok senaryoda önemlidir ve [yüksek kullanılabilirlik](high-availability.md) dünyanın dört bir yanındaki.
 
 ## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>sağlanan aktarım hızı bölgede dağıtılır nasıl
 

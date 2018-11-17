@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
 ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 8096f1b5b29c0445d8bae85fb56e2735469184d4
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568463"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823954"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -222,9 +222,16 @@ Mayıs 2016 önce yapılandırma sunucusu dağıtımları için sertifika süre 
 2. Sona erme tarihi altında görünür **Configuration Server sistem durumu**.
 3. Seçin **sertifikalarını yenilemesi**.
 
-## <a name="update-windows-licence"></a>Güncelleştirme Windows lisans
+## <a name="refresh-configuration-server"></a>Yapılandırma sunucusunu Yenile
 
-OVF şablonu ile sağlanan lisans bir deneme lisans 180 gün boyunca geçerli olur. Kesintisiz olarak kullanım için bir tedarik edilen lisans ile Windows etkinleştirmeniz gerekir.
+1. Azure portalında gidin **kurtarma Hizmetleri kasası** > **Yönet** > **Site Recovery altyapısı**  >   **VMware ve fiziksel makineler için** > **yapılandırma sunucusu**
+2. Yenilemek istediğiniz yapılandırma sunucusuna tıklayın.
+3. Seçtiğiniz yapılandırma sunucusu ayrıntıları ile dikey penceresinde tıklayın **daha fazla** > **sunucusunu Yenile eylemi**.
+4. Altında işinin ilerleme durumunu izlemek **kurtarma Hizmetleri kasası** > **izleme** > **Site Recovery işleri**.
+
+## <a name="update-windows-license"></a>Windows lisansı güncelleştirme
+
+OVF şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. Kesintisiz olarak kullanım için Windows ile tedarik edilen lisans etkinleştirmeniz gerekir.
 
 ## <a name="failback-requirements"></a>Yeniden çalışma gereksinimleri
 

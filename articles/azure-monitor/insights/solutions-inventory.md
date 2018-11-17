@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: cb230dad22e6b0d67a4d6a589e9fba00560a9264
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: ebbedb38256c997f39e30e27aa29139dc2496fd1
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715853"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819262"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
 Bu makalede bir listesini içerir [yönetim çözümleri](solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
@@ -66,7 +66,7 @@ Sütunların açıklamaları aşağıdaki gibidir:
 | [Office 365 Analytics (Önizleme)](solution-office-365.md) |Windows | | | | | |bildirim |
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |
 | [Service Fabric Analizi](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 dakika |
-| [Hizmet Eşlemesi](../../monitoring/monitoring-service-map.md) | Windows ve Linux | &#8226; | &#8226; |  |  |  | 15 saniye |
+| [Hizmet Eşlemesi](../../azure-monitor/insights/service-map.md) | Windows ve Linux | &#8226; | &#8226; |  |  |  | 15 saniye |
 | [SQL Değerlendirmesi](../../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
 | [SurfaceHub](../../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |geldiğinde |
 | [System Center Operations Manager değerlendirmesi (Önizleme)](../../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | yedi gün |

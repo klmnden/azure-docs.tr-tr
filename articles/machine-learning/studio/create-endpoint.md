@@ -1,10 +1,11 @@
 ---
-title: Machine Learning Web Hizmeti uç noktalarını oluşturma | Microsoft Docs
-description: Azure Machine Learning Web Hizmeti uç noktaları oluşturma
+title: Web Hizmeti uç noktalarını Machine Learning'de oluşturma | Microsoft Docs
+description: Web Hizmeti uç noktalarını Azure Machine Learning'de oluşturma
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
@@ -15,47 +16,47 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 8cdf8c5ac3676d8abc9084fc842484aca5b6d1c7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 45115f0a987093d7e3816891fa5f4c242b449fb7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833555"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819245"
 ---
-# <a name="creating-endpoints"></a>Uç noktaları oluşturma
+# <a name="creating-endpoints"></a>Uç nokta oluşturma
 > [!NOTE]
 >  Bu konu, uygulanabilir teknikleri açıklar bir **Klasik** Machine Learning Web hizmeti.
 > 
 > 
 
-İleri müşterilerinize satış Web Hizmetleri oluşturduğunuzda, Web hizmeti oluşturulduğu deneme hala bağlı her bir müşteri için eğitilmiş modeller sağlamanız gerekir. Ayrıca, herhangi bir güncelleştirme deneme seçerek bir uç nokta özelleştirmeleri yazmadan uygulanmalıdır.
+Müşterilerinize İleri Satış Web Hizmetleri oluşturduğunuzda, Web hizmeti oluşturulduğu denemeye hala bağlı olan her müşteri için eğitilen modelleri vermeniz gerekir. Ayrıca, herhangi bir güncelleştirme deneme seçerek bir uç noktaya özelleştirmelerin üzerine yazmadan uygulanmalıdır.
 
-Bunu başarmak için Azure Machine Learning, dağıtılan Web hizmeti için birden fazla uç noktası oluşturmanıza olanak sağlar. Web hizmeti içindeki her bir uç nokta bağımsız olarak ele, kısıtlanan yönetilen ve. Bir benzersiz URL ve müşterilerinize dağıtabilirsiniz yetkilendirme anahtar her uç noktadır.
+Bunu yapmak için Azure Machine Learning, dağıtılan bir Web hizmeti için birden fazla uç nokta oluşturmanıza olanak sağlar. Her Web Hizmeti uç noktasını ayrı ayrı ele, kısıtlanan yönetilen ve. Her uç benzersiz URL'yi ve müşterilerinize dağıtabilirsiniz yetkilendirme anahtar noktasıdır.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Web hizmeti için uç noktaları ekleme
-Bir Web hizmeti için bir uç noktası eklemek için iki yolu vardır.
+Bir Web hizmeti için uç nokta ekleme iki yolu vardır.
 
 * Programlı olarak
-* Azure Machine Learning Web Hizmetleri Portalı aracılığıyla
+* Azure Machine Learning Web Hizmetleri portalından
 
-Uç nokta oluşturulduktan sonra zaman uyumlu API'leri, batch API'leri aracılığıyla kullanabilir ve excel çalışma sayfaları. Bu kullanıcı Arabirimi aracılığıyla uç noktaları ekleme ek olarak, uç nokta yönetim API'ları program aracılığıyla uç noktalarını eklemek için de kullanabilirsiniz.
+Uç nokta oluşturulduktan sonra zaman uyumlu API'leri aracılığıyla, batch API'leri, kullanma ve excel çalışma sayfaları. Bu kullanıcı Arabirimi aracılığıyla uç noktaları eklemenin yanı sıra, uç nokta yönetim API'lerini program aracılığıyla uç noktalarını eklemek için de kullanabilirsiniz.
 
 > [!NOTE]
-> Web hizmetine ek uç noktaları eklediyseniz, varsayılan uç silemezsiniz.
+> Web hizmetine ek uç noktalar eklediyseniz, varsayılan uç nokta nelze odstranit.
 > 
 > 
 
 ## <a name="adding-an-endpoint-programmatically"></a>Bir uç nokta programlı olarak ekleme
 Program aracılığıyla kullanarak Web hizmetiniz için bir uç nokta ekleyebilirsiniz [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) örnek kodu.
 
-## <a name="adding-an-endpoint-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir uç nokta ekleme
-1. Machine Learning Studio'da Web Hizmetleri sol gezinti sütunu,'ı tıklatın.
-2. Web hizmeti Pano altındaki tıklatın **uç yönetin**. Web Hizmeti uç noktaları sayfasına Azure Machine Learning Web Hizmetleri Portalı'nı açar.
+## <a name="adding-an-endpoint-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning Web Hizmetleri portalını kullanarak bir uç nokta ekleme
+1. Machine Learning Studio'da, sol gezinti sütununda, Web Hizmetleri.
+2. Web hizmeti Pano altındaki tıklatın **uç noktalarını yönetme**. Azure Machine Learning Web Hizmetleri portalında Web Hizmeti uç noktaları sayfası açılır.
 3. **Yeni**’ye tıklayın.
-4. Bir ad ve yeni uç noktası için bir açıklama yazın. Uç nokta adları 24 karakter veya daha az uzunlukta olmalı ve küçük harfler veya numaraların yapılmalıdır. Günlüğe kaydetme düzeyi ve örnek verileri etkinleştirilip etkinleştirilmediğini seçin. Günlüğe kaydetme hakkında daha fazla bilgi için bkz: [Machine Learning Web Hizmetleri için günlüğe kaydetmeyi etkinleştirmek](web-services-logging.md).
+4. Bir ad ve yeni uç nokta için bir açıklama yazın. Uç nokta adları 24 karakter veya uzunluğunda olmalıdır ve küçük harfler veya sayıdan bayraklardan gerekir. Günlüğe kaydetme düzeyini ve örnek veriler etkin olup olmadığını seçin. Günlüğe kaydetme hakkında daha fazla bilgi için bkz. [Machine Learning Web Hizmetleri için günlüğe kaydetmeyi etkinleştirme](web-services-logging.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bir Azure Machine Learning Web hizmeti kullanmak nasıl](consume-web-services.md).
+[Bir Azure Machine Learning Web hizmetini kullanma](consume-web-services.md).
 

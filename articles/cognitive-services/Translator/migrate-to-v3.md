@@ -10,16 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645243"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852852"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
-Microsoft Translator takım Translator metin çevirisi API'si, sürüm 3 (V3) kullanıma sundu. Bu sürüm, yeni özellikler, kullanım dışı yöntemler ve gönderme ve Microsoft Translator hizmetten veri almak için yeni bir biçim içerir. Bu belge V3 kullanan uygulamaları değiştirmek için bilgi sağlar. V2 30 Nisan 2018'de kullanım dışı kalacaktır ve 30 Nisan 2019 üzerinde durdurulacaktır.
+> [!NOTE]
+> V2 30 Nisan 2018'de kullanım dışı bırakıldı ve 30 Nisan 2019 üzerinde durdurulacaktır.
+
+Microsoft Translator takım Translator metin çevirisi API'si, sürüm 3 (V3) kullanıma sundu. Bu sürüm, yeni özellikler, kullanım dışı yöntemler ve gönderme ve Microsoft Translator hizmetten veri almak için yeni bir biçim içerir. Bu belge V3 kullanan uygulamaları değiştirmek için bilgi sağlar. 
 
 Bu belgenin sonuna, daha fazla bilgi edinmek için yararlı bağlantılar içerir.
 

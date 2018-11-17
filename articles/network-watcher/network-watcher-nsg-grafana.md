@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058314"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819043"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher ve Grafana kullanarak ağ güvenlik grubu akış günlüklerini analiz etme ve yönetme
 
 [Ağ güvenlik grubu (NSG) akış günlüklerini](network-watcher-nsg-flow-logging-overview.md) , giriş ve çıkış IP trafiğini ağ arabirimleri üzerinde anlamak için kullanılan bilgileri sağlar. Akışlar giden ve gelen bu akış günlüklerini göster bir NSG kuralı temelinde hesaplamaz NIC akışı, 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) akışla ilgili uygular ve trafiğin izin verilen veya reddedilen.
+
+> [!Warning]  
+> Aşağıdaki adımlar akış günlükleri sürüm 1 ile çalışır. Ayrıntılar için bkz [için ağ güvenlik grubu akış günlüğe kaydetme giriş](network-watcher-nsg-flow-logging-overview.md). Aşağıdaki yönergeler, değişiklik yapmadan günlük dosyalarının sürüm 2 ile çalışmaz.
 
 Ağınızda birçok Nsg akış günlüğe kaydetme etkin olabilir. Bu günlük veri miktarı ayrıştırılamadı ve günlüklerinizi verilerden Öngörüler elde etmeye zahmetli hale getirir. Bu makalede, bu NSG akış günlüklerini Grafana, açık kaynaklı bir aracı, ElasticSearch, bir dağıtılmış arama ve analiz altyapısı ve bir açık kaynak sunucu tarafı veri işleme işlem hattı olan Logstash grafiklerini kullanarak merkezi olarak yönetmek için bir çözüm sağlar.  
 

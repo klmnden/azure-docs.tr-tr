@@ -1,11 +1,12 @@
 ---
-title: Basit regresyon modeli - Azure Machine Learning ile bir yanıt tahmin | Microsoft Docs
-description: Video 4 yeni başlayanlar için veri bilimi fiyatına tahmin etmek için bir basit regresyon modeli oluşturma Hedef verilerle doğrusal regresyon içerir.
-keywords: bir model, basit modeli, fiyat tahmini, basit regresyon modeli oluşturma
+title: Basit bir regresyon modeli - Azure Machine Learning ile yanıtı tahmin etme | Microsoft Docs
+description: Nasıl bir veri bilimi video 4 yeni başlayanlar için fiyatı tahmin etmek için bir basit bir regresyon modeli oluşturun. Bir doğrusal regresyon hedef verilerle içerir.
+keywords: bir model, basit bir model, fiyat tahmini, basit bir regresyon modeli oluşturun
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
@@ -16,18 +17,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: ad1b8369358f7811a02d344fdc0306662413a404
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d1e7667d30eecab2e1a3328fdc68ef528823e695
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833834"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824209"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Basit model ile yanıtı tahmin etme
-## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Yeni başlayanlar seri için veri bilimi
-Veri bilimi video 4 yeni başlayanlar için de bir Karo fiyatını tahmin etmek için bir basit regresyon modeli oluşturmayı öğrenin. Biz hedef verilerle bir regresyon modeli çekersiniz.
+## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Seri yeni başlayanlar için veri bilimi
+Veri bilimi video 4 yeni başlayanlar için Karo fiyatı tahmin etmek için bir basit bir regresyon modeli oluşturmayı öğrenin. Biz bir regresyon modeli hedef verilerle çekersiniz.
 
-Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#other-videos-in-this-series)
+En yetersiz serisi almak için tüm bunları izleyin. [Videoları listesine Git](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
@@ -35,103 +36,103 @@ Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#o
 >
 
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
-*Yeni başlayanlar için veri bilimi* veri bilimi beş kısa videolar içindeki bir giriş değil.
+*Yeni başlayanlar için veri bilimi* beş kısa videoyu veri bilimine hızlı bir giriş niteliğindedir.
 
-* Video 1: [5 veri bilimi yanıtlar sorular](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 dakika 14 saniye)*
-* Video 2: [verileriniz için veri bilimi hazır?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sn)*
-* Video 3: [verilerle yanıt soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sn)*
-* Video 4: basit bir modelle bir yanıt tahmin etme
-* Video 5: [veri bilimi yapmak için diğer kişilerin çalışma kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dakika 18 saniye)*
+* Video 1: [ilgili 5 veri biliminin yanıtladığı](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
+* Video 2: [verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
+* Video 3: [verilerle yanıt soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
+* Video 4: basit bir model ile yanıtı tahmin etme
+* Video 5: [veri bilimi için başkalarının çalışmalarını kopyalama](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 dk 18 sn)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Dökümü: basit bir modelle bir yanıt tahmin
-"Veri bilimi için yeni başlayanlar" dördüncü videoda serisi Hoş Geldiniz. Bunu, biz basit bir model oluşturmak ve tahminde bulunmak.
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transkript: basit bir model ile yanıtı tahmin etme
+"Veri bilimi için yeni başlayanlar" içinde dördüncü video serisine Hoş Geldiniz. Bunu, biz basit bir model oluşturun ve tahminde bulunmak.
 
-A *modeli* verilerimizi ilgili basitleştirilmiş bir öykü olduğu. I ı anlamı göstereceğiz.
+A *modeli* verilerimizi hakkında basitleştirilmiş bir hikaye. Ben ne demek istediğimi anlıyor göstereceğiz.
 
-## <a name="collect-relevant-accurate-connected-enough-data"></a>İlgili, doğru bağlı, yeterli veri toplama
-Alışverişi yapmak için bir Karo istiyorum söyleyin. My adı 1,35 ayar elmas için bir ayar ile ait bir halka sahip ve ne kadar maliyetlidir hakkında bir fikir edinmek istiyorum. I not defteri ve Kalem mücevher deposuna alın ve ı tüm durum ve bunların içinde carats ne kadar tartmanız Karo fiyat yazın. İlk baklava - cihazın 1.01 carats ve $7,366 başlatılıyor.
+## <a name="collect-relevant-accurate-connected-enough-data"></a>İlgili, doğru bağlı, yeterli veri topla
+Söyleyin için elmas alışverişi yapmak istiyorum. My NO@LOC 1,35 ayar elmas için bir ayar ile ait bir halka sahibim ve ne kadara mal hakkında bir fikir edinmek istiyorum. Ben bir not defteri ve Kalem mücevher özelliklerine deposuna yararlanın ve tüm durum ve bunlar carats içinde ne kadar Tart Karo fiyatını aşağı yazdığım. İlk baklava - onun 1.01 carats ve $7,366 başlatılıyor.
 
-Şimdi geçtikleri ve diğer Karo deposundaki için bunu yap.
+Artık Git ve depodaki tüm diğer Karo için bunu.
 
-![Karo veri sütunlarının](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
+![Baklava veri sütunları](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
 
-Bizim listesi iki sütuna sahip olmadığına dikkat edin. Farklı bir öznitelik her sütununda - ağırlık carats ve fiyat - her satırda tek bir Karo temsil eden bir tek veri noktası.
+Listemize iki sütun olduğuna dikkat edin. Her sütunda farklı bir öznitelikle - ağırlık carats ve fiyat - her satırda tek bir baklava temsil eden bir tek bir veri noktasıdır.
 
-Küçük bir gerçekte oluşturduk veri kümesi burada - bir tablo. Kalite bizim ölçütlerini karşılayan dikkat edin:
+Küçük gerçekten oluşturduk veri kümesi burada - bir tablo. Bizim kalite ölçütlerini karşıladığını dikkat edin:
 
-* Veri **ilgili** -ağırlık kesinlikle ilgili fiyatı
-* Bunun **doğru** -biz biz yazma fiyatlar yeniden denetlediniz
-* Bunun **bağlı** -boş boşluk yoktur ya bu sütunlar
-* Ve anlatıldığı gibi var. **yeterli** bizim soruyu yanıtlamak için veri
+* Veriler **ilgili** -ağırlık kesinlikle ilgili fiyatı
+* Sahip **doğru** -biz size yazma fiyatları yeniden denetlediniz
+* Sahip **bağlı** -boş boşluk yoktur ya da bu sütunların
+* Ve anlatıldığı gibi sahip **yeterli** bizim cevap
 
 ## <a name="ask-a-sharp-question"></a>NET bir soru sorun
-Şimdi biz bizim soru NET bir şekilde neden: "nasıl maliyeti 1,35 ayar elmas satın almak için?"
+Şimdi biz bizim soru NET bir şekilde konusunda sizi uyarmayı: "ücreti ne kadardır 1,35 ayar elmas satın alınır?"
 
-Biz yanıtını almak için verilerimizi kalan kullanmanız gerekir böylece bizim listesi 1,35 ayar elmas içinde yok.
+Verilerimizi geri kalanını sorusuna bir cevap almak için kullanılacak gerekir böylece listemize 1,35 ayar elmas içinde yok.
 
-## <a name="plot-the-existing-data"></a>Var olan verileri Çiz
-Biz gerçekleştirirsiniz ilk ağırlıkları grafik eksen adı verilen yatay numarası çizgi, çizme şeydir. Biz, aralık ve yarı her ayar için çizgilerine put kapsayan bir satır çekersiniz şekilde ağırlıkları 0-2 aralığındadır.
+## <a name="plot-the-existing-data"></a>Mevcut veri çizimi
+Şimdi ilk şey, yatay numarası ağırlıkları grafiğe bağlı olarak, bir eksen adı, çizgi çizme ' dir. Ağırlıkları aralığının 0-2 olduğundan biz aralığı ve saat döngüsü yarım her ayar için put kapsayan bir satır çekersiniz.
 
-Sonraki biz fiyat kaydetmek ve yatay ağırlık eksene bağlanmak için dikey eksen çekersiniz. Bu, ABD Doları birimlerinde olacaktır. Şimdi biz koordinat eksenleri kümesine sahiptir.
+Sonraki biz fiyat kaydetmek ve Ağırlık yatay eksene bağlamak için dikey eksen çekersiniz. Bu birimleri cinsinden ABD Doları olacaktır. Artık bir dizi koordinat eksenleri sahibiz.
 
 ![Ağırlık ve fiyat eksenler](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-Şimdi bu verileri alabilir ve içine kapatma oluşturacağız bir *dağılım çizim*. Sayısal veri kümelerini görselleştirmek için harika bir yoludur.
+Bu veriler artık alıp oturum açmak için yapacağız bir *dağılım grafiğinde noktalara*. Bu, sayısal veri kümeleri görselleştirmek için harika bir yoludur.
 
-İlk veri noktası için bir dikey satırında 1.01 carats eyeball. Ardından, $7,366 yatay satırında eyeball. Karşıladıklarından burada size bir nokta çizin. Bu bizim ilk elmas temsil eder.
+İlk veri noktası için size bir dikey çizgi 1.01 carats eyeball. Ardından, $7,366 yatay bir çizgi eyeball. Bunlar uygun olduğunda, size bir nokta çizin. Bu, bizim ilk elmas temsil eder.
 
-Şimdi Biz bu listede her elmas gidin ve aynı işlevi görür. Biz işiniz bittiğinde, biz alma budur: bir grup noktalar, her Karo.
+Şimdi Biz bu listede her elmas gidin ve aynı şeyi yapmak. Biz işiniz bittiğinde elde ederiz budur: bir sürü noktalar, her elmas.
 
-![Çizim dağılım](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
+![Dağılım](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
-## <a name="draw-the-model-through-the-data-points"></a>Modelin veri noktaları aracılığıyla çizme
-Nokta ve squint bakın, artık koleksiyon fat, benzer bir satır gibi durur. Bizim işaret alın ve düz bir çizgi geçen çizin.
+## <a name="draw-the-model-through-the-data-points"></a>Modeli aracılığıyla veri noktalarını çizin
+Şimdi noktalar ve squint bakarsanız, koleksiyonu gibi fat, benzer bir satır görünür. Bizim işaretçisi olması ve onun üzerinden düz bir çizgi çizin.
 
-Oluşturduğumuz bir satır çizerek bir *modeli*. Bu gerçek dünya alma ve bir simplistic çizgi sürümü yaparak olarak düşünün. Şimdi çizgi yanlış - satırın tüm veri noktaları aracılığıyla Git değil. Ancak yararlı basitleştirme değil.
+Oluşturduğumuz bir çizgi çizerek bir *model*. Gerçek dünyada almak ve bir alıyormuş çizgi sürümü yaparak olarak düşünün. Şimdi çizgi yanlış - satırı tüm veri noktalarına Git değil. Ancak, kullanışlı bir basitleştirme.
 
 ![Doğrusal regresyon satır](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-Tüm nokta tam olarak satırın geçmez, olgu normaldir. Veri bilimcilerine açıklayan Bu model - satır - ve ardından her nokta bazı olduğundan söyleyerek *gürültü* veya *farkı* kendisiyle ilişkilendirilmiş. Temel alınan kusursuz ilişkisi yoktur ve ardından gürültü ve belirsizlik ekler Görünüşün, gerçek dünya yok.
+Tüm noktaların tam olarak bir çizgi üzerinden gerçekleştirilmeyen olgu kurulabilir. Veri bilimcileri açıklayan bu - çizgidir - model ve bazı her nokta olduğundan diyerek *gürültü* veya *varyansı* ilişkili. Temel alınan mükemmel bir ilişki yoktur ve ardından gürültü ve belirsizlik ekler Görünüşün ve gerçek dünyadaki yoktur.
 
-Soruyu yanıtlamak çalıştığınız için *ne kadar?* bu adlı bir *regresyon*. Ve bir çizgide kullanmakta olduğunuz çünkü bu bir *doğrusal regresyon*.
+Soruyu yanıtlamak deniyoruz çünkü *ne kadar?* bu adlı bir *regresyon*. Ve düz bir çizgi kullandığımızdan olduğu bir *doğrusal regresyon*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Model yanıt bulmak için kullanın
-Bir model sahibiz ve biz bizim soru sorun artık: ne kadar 1,35 ayar elmas maliyetini?
+Şimdi bir model sunuyoruz ve biz bizim soru sorun: ne kadar 1,35 ayar elmas maliyeti?
 
-Bizim soruyu yanıtlamak için 1,35 carats göz Küresi ve dikey çizgi çizme. Burada model satır kestiği biz dolar eksende yatay çizgi eyeball. Sağ taraftaki 10.000 kadardır. Müzik! Yanıt olan: 1,35 ayar elmas yaklaşık 10.000 $ maliyetleri.
+Bizim soruyu yanıtlamak için biz 1,35 carats göz Küresi ve bir dikey çizgi çizin. Burada model satır kesme noktası biz dolar ekseni yatay çizgi eyeball. Bunu, sağ taraftaki 10.000 denk gelir. Müzik! Yanıt olmasıdır: 1,35 ayar elmas yaklaşık 10.000 ABD Doları değerindedir.
 
-![Model üzerinde yanıt Bul](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
+![Model üzerinde yanıt bulun](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
-## <a name="create-a-confidence-interval"></a>Güvenirlik aralığını oluşturma
-Bu tahmin nasıl hassas olduğunu merak ediyor doğal. 1,35 ayar elmas çok $10.000 yakın olup olmayacağını bilmek yararlı veya çok daha yüksek veya düşük. Bunu bulmak için şimdi nokta çoğunu içeren regresyon satırı geçici Zarf çizin. Bu Zarf adlı bizim *güvenirlik aralığını*: çünkü fiyatlar bu Zarf içinde kalan oldukça emin ki bunların geçmiş çoğunda sahip. Üst ve alt bu zarfın 1,35 ayar satır burada kestiği biz iki daha yatay çizgiler çizebilirsiniz.
+## <a name="create-a-confidence-interval"></a>Olasılık aralığı oluşturma
+Bu tahmin nasıl kesin mi merak ediyorsunuz doğaldır. 1,35 ayar elmas çok yakın 10.000 $ olup olmayacağını bilmek yararlı veya çok daha yüksek veya düşük olduğu. Bu şekil, şimdi Zarf nokta çoğunu içeren regresyon satırına yakın bir yerde çizin. Bu Zarf adlı bizim *olasılık aralığı*: çünkü fiyatlar bu Zarf içinde kalan oldukça emin olmamıza son çoğu, sahip. Üst ve alt kısmındaki bu zarfın 1,35 simgeyi seçtiğinizde satırın nereye aştığında size iki yatay olarak daha fazla satır çizebilirsiniz.
 
-![Güvenirlik aralığını](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
+![Olasılık aralığı](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Şimdi biz bir şeyler bizim güvenirlik aralığını hakkında söyleyin: güvenle 1,35 ayar elmas fiyat hakkında $10.000 - olur ancak 8000 kadar düşük olabilir ve 12.000 yüksek olabilir dediğimiz.
+Şimdi biz bir şeyler bizim olasılık aralığı hakkında söyleyin: güvenle 1,35 ayar elmas fiyatı hakkında $ 10. 000 - olan ancak 8000 kadar düşük olabilir ve 12.000 kadar yüksek olabilir dediğimiz.
 
-## <a name="were-done-with-no-math-or-computers"></a>Matematik ya da bilgisayarları bitmek
-Hangi veri bilimcilerine yapmak için ödeme yaptığımız ve onu yalnızca çizerek yaptığımız:
+## <a name="were-done-with-no-math-or-computers"></a>Hiçbir matematik veya bilgisayarlar ile tamamlandı
+Hangi veri bilimcileri yapmak için ödeme yaptığımız ve onu yalnızca çizerek yaptık:
 
-* Biz biz verilerle yanıt bir soru sorular
+* Biz size verilerle yanıt soru sorular
 * Oluşturduğumuz bir *modeli* kullanarak *doğrusal regresyon*
-* Biz yapılan bir *tahmin*ile tam bir *güvenirlik aralığını*
+* Yaptık bir *tahmin*ile tam bir *olasılık aralığı*
 
-Ve matematik veya bilgisayarlar yapmak için kullanırız alamadık.
+Ve matematik veya bilgisayarları yapmak için kullanırız kaydetmedi.
 
-Şimdi biz daha fazla bilgi olsaydı, ister...
+Size daha fazla bilgi olsaydı, şimdi nasıl görünüyor...
 
-* Karo Kes
-* renk değişimleri (nasıl elmas beyaz olmaya yaklaştığını)
-* elmas içindeki içermeler sayısı
+* Elmasın Kes
+* renk değişimleri (ne kadar yakın elmas beyaz olarak değer)
+* eklenen elmas içindeki sayısı
 
-...then biz olan daha fazla sütun. Bu durumda, Matematik yardımcı olur. İkiden fazla sütun varsa, kağıda noktalar çizmek zordur. Matematik, o satırdaki veya bu uçak verilerinize çok iyi sığacak olanak tanır.
+...then biz olan daha fazla sütun. Bu durumda, matematik yararlı olur. İkiden fazla sütununuz varsa, noktalar kağıda çizmek zordur. Matematik çok düzgün bir şekilde bu satırı veya bu uçak verilerinize uygun olanak sağlar.
 
-Ayrıca, yalnızca birkaç Karo varsa, yerine biz iki bin veya iki milyon vardı sonra çalışan bir bilgisayarla çok daha hızlı yapabilirsiniz.
+Ayrıca, yalnızca birkaç Karo ise, yerine iki bin veya milyon iki vardı sonra çalışan bir bilgisayarla çok daha hızlı yapabilirsiniz.
 
-Bugün, doğrusal regresyon yapmak hakkında açıklandı ve biz verileri kullanarak bir tahmini yapılır.
+Bugün, doğrusal regresyon yapmak hakkında konuştuk ve verileri kullanarak tahmin yaptık.
 
 "Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları kullanıma emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [İlk veri bilimi denemeyi Machine Learning Studio'da deneyin](create-experiment.md)
-* [Microsoft Azure Machine Learning giriş Al](what-is-machine-learning.md)
+* [Bir Machine Learning Studio'da ilk veri bilimi deneyinde deneyin](create-experiment.md)
+* [Microsoft Azure'da Machine learning'e giriş yapın](what-is-machine-learning.md)

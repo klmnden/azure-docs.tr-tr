@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 2fff332665652516e4ac25c4eb1a4612c15e2412
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711931"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824685"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
-Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../monitoring/monitoring-data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../monitoring/monitoring-data-collection.md#logs). 
+Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../azure-monitor/platform/data-collection.md#logs). 
 
 Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanımlamak için izleme verilerinizi analiz etmenize yardımcı olabilir. Kullandığınız araç bağlı olarak, görselleştirmeler içinde hem de kuruluşunuz dışındaki diğer kullanıcılarla paylaşmak için seçenek olabilir.
 
@@ -138,7 +138,7 @@ Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir RES
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hakkında bilgi edinin [Azure İzleyici tarafından toplanan veriler](../monitoring/monitoring-data-collection.md).
+- Hakkında bilgi edinin [Azure İzleyici tarafından toplanan veriler](../azure-monitor/platform/data-collection.md).
 - Hakkında bilgi edinin [Azure panoları](../azure-portal/azure-portal-dashboards.md).
 - Hakkında bilgi edinin [Azure İzleyici görünümlerde](../log-analytics/log-analytics-view-designer.md).
 - Hakkında bilgi edinin [Application Insights çalışma kitaplarında](../application-insights/app-insights-usage-workbooks.md).

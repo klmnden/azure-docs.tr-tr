@@ -4,7 +4,8 @@ description: Hızlı Başlangıç-Azure Machine learning'de özel R modülleri y
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
@@ -15,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b920f0ae3acd253c0f1f698ae4415e5b759ef762
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261119"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819347"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning'de özel R modülleri yazma
 Bu konuda, yazar ve Azure Machine learning'de özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Bu, bir modül tanımlama dosyaları oluşturmak nasıl ve dağıtım için modül bir Machine Learning çalışma alanında kaydetmeyi nasıl göstermektedir. Ardından, özel modül tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri ve dosyaları ve birden çok çıktı nasıl kullanılacağı da ele alınmıştır. 
@@ -132,7 +133,7 @@ Bir modülün sonuçları belirleyici olabilir veya nondeterministic.* * varsay�
 RAND veya geçerli bir tarih veya saat döndüren bir işlev gibi belirleyici işlevi vardır. Modülünüzün belirleyici olmayan bir işlev kullanıyorsa, isteğe bağlı olarak ayarlayarak, modülün belirleyici olduğunu belirtebilirsiniz **IsDeterministic** özniteliğini **FALSE**. Deneme çalıştırıldığında, parametreleri ve Giriş modülü değişip değişmediğini bile modülü yeniden çalıştırılır, oluşturmasını sağlar. 
 
 ### <a name="language-definition"></a>Dil tanımı
-**Dil** öğesi XML tanımı dosyasındaki özel modül dilini belirtmek için kullanılır. Şu anda, R yalnızca desteklenen dilidir. Değerini **Kaynakdosya** özniteliği içeren modül çalıştırılırken çağrılacak işlevin R dosyanın adı olmalıdır. Bu dosya, zip paketini bir parçası olmalıdır. Değerini **entryPoint** öznitelik çağrılan işlevin adını ve kaynak dosyasında tanımlanmış geçerli bir işlev ile eşleşmesi gerekir.
+**Dil** öğesi XML tanımı dosyasındaki özel modül dilini belirtmek için kullanılır. Şu an için yalnızca R dili desteklenmektedir. Değerini **Kaynakdosya** özniteliği içeren modül çalıştırılırken çağrılacak işlevin R dosyanın adı olmalıdır. Bu dosya, zip paketini bir parçası olmalıdır. Değerini **entryPoint** öznitelik çağrılan işlevin adını ve kaynak dosyasında tanımlanmış geçerli bir işlev ile eşleşmesi gerekir.
 
     <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
 

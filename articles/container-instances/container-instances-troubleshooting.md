@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978187"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820367"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container ınstances'da yaygın sorunlarını giderme
 
@@ -205,6 +205,9 @@ Bu hata, kapsayıcınız için belirtilen kaynaklara o anda ayrılamıyor dağı
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Temel alınan Docker API'ye bağlanmak veya ayrıcalıklı kapsayıcıları çalıştırmak olamaz
 
 Azure Container Instances'a kapsayıcı grupları barındıran altyapının doğrudan erişim kullanıma sunmuyor. Bu Docker kapsayıcının konakta çalışan ve çalışan kapsayıcılar ayrıcalıklı API erişimi içerir. Docker etkileşimi gerektiriyorsa, kontrol [REST başvuru belgeleri](https://aka.ms/aci/rest) ne ACI API'sini destekleyen görmek için. Varsa eksik bir şeyler üzerinde talebinizi [ACI geri bildirim forumları](https://aka.ms/aci/feedback).
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP'ler eşleşmeyen bağlantı noktaları nedeniyle erişilebilir olmayabilir
+Bu düzeltme yol haritasında ancak azure Container Instances şu anda normal docker yapılandırmasıyla gibi bağlantı noktası eşleme desteklemez. IP'ler olmayan erişilebilir olmalıdır düşündüğünüzde bulursanız, kapsayıcı grubu içinde ortaya çıkarttığınız aynı bağlantı noktalarını dinlemek için kapsayıcı görüntünüzü yapılandırdığınızdan emin olun `ports` özelliği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bilgi nasıl [kapsayıcı günlüklerini ve olayları almak](container-instances-get-logs.md) kapsayıcılarınızı hata ayıklama yardımcı olmak için.

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: 7b6752196d3512ab3ede4f5e339d681948e732e8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715936"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853770"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
 Bu makalede, Azure bulma gibi ve uygulama bağımlılıklarını eşleyerek İzleyicisi sanal makinelerin Azure sanal makineler ve sanal makine ölçek kümeleri ve sanal makineler, ortamınızda işletim sistem durumunu izlemek ayarlama işlemi açıklanmaktadır bunlar üzerinde barındırılabilir.  

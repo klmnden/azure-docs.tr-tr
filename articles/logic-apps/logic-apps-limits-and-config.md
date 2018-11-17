@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346714"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853838"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -323,9 +323,10 @@ Bir bölgede tüm logic apps, aynı IP adresi aralıklarını kullanın. Logic a
 
 ### <a name="managed-connectors"></a>Yönetilen bağlayıcılar
 
-Çağrıları desteklemek için [Microsoft tarafından yönetilen Bağlayıcılar](../connectors/apis-list.md) içerirler bu giden IP adresleri için güvenlik duvarı yapılandırmalarınızı ayarlama yapma, logic apps bulunduğu bölgelerine bağlı.
+Çağrıları desteklemek için [Microsoft tarafından yönetilen Bağlayıcılar](../connectors/apis-list.md) yapma, logic apps bulunduğu bölge için belirtilen tüm giden IP adresleri içerirler. Bu nedenle, güvenlik duvarı yapılandırmaları ayarlayın. İçin [Azure kamu](/azure-government/documentation-government-welcome) ve [Azure Çin 21Vianet](/azure/china/china-welcome), ayrılmış IP adresleri için bağlayıcılar şu anda kullanıma sunulmaz.
 
 > [!IMPORTANT]
+> 
 > Var olan yapılandırmaları varsa, lütfen güncelleştirmeniz **olabildiğince çabuk 1 Eylül 2018'den önce** içerir ve logic apps bulunduğu bölge için bu listedeki IP adresleriyle eşleşen. 
 > 
 > Logic Apps, doğrudan güvenlik duvarları üzerinden Azure depolama hesaplarınızı bağlama desteklemiyor. Bu depolama hesaplarından erişmeye, burada iki seçenekten birini kullanın: 

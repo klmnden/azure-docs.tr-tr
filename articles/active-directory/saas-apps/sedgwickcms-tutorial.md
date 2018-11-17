@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423598"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Öğretici: Azure Active Directory tümleştirmesiyle Sedgwick CMS
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Sedgwick CMS yapılandırmanız aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Sedgwick CMS çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Sedgwick CMS tümleştirmesini yapılandırmak için Sedgwick CMS Ga
 
 **Galeriden Sedgwick CMS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -134,7 +134,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. Çoklu oturum açmayı yapılandırma **Sedgwick CMS** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Sedgwick CMS Destek ekibine](https://www.sedgwick.com/contact/Pages/contactform.aspx). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **Sedgwick CMS** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Sedgwick CMS Destek ekibine](https://www.sedgwick.com/help). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>Sedgwick CMS test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Sedgwick CMS adlı bir kullanıcı oluşturun. Çalışmak [Sedgwick CMS Destek ekibine](https://www.sedgwick.com/contact/Pages/contactform.aspx) Sedgwick CMS platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.  
+Bu bölümde, Britta Simon Sedgwick CMS adlı bir kullanıcı oluşturun. Çalışmak [Sedgwick CMS Destek ekibine](https://www.sedgwick.com/help) Sedgwick CMS platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

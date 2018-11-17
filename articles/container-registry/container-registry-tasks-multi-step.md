@@ -5,23 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632701"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854331"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR görevleri çok adımlı derleme, test ve düzeltme eki görevleri Çalıştır
 
-Çok adımlı görevler tek görüntü derleme ve anında iletme özelliği ACR görevleri çok adımlı, çok container tabanlı iş akışları ile genişletin. Çok adımlı Görevler oluşturun ve birkaç görüntüyü serisindeki veya paralel göndermek için kullanın ve bu görüntüleri içinde tek bir görevi çalıştır komutları olarak çalıştırın. Her adım, bir kapsayıcı görüntüsü tanımlar oluşturun veya gönderme işlemi ve kapsayıcı yürütülmesini de tanımlayabilirsiniz. Çok adımlı görev her adımda bir kapsayıcı, yürütme ortamı olarak kullanır.
+Çok adımlı görevler tek görüntü derleme ve anında iletme özelliği ACR görevleri çok adımlı, çok container tabanlı iş akışları ile genişletin. Çok adımlı Görevler oluşturun ve birkaç görüntüyü serisindeki veya paralel göndermek için kullanır. Ardından bu görüntüleri olarak tek bir görevi çalıştırma komutlarını çalıştırın. Her adım, bir kapsayıcı görüntüsü tanımlar oluşturun veya gönderme işlemi ve kapsayıcı yürütülmesini de tanımlayabilirsiniz. Çok adımlı görev her adımda bir kapsayıcı, yürütme ortamı olarak kullanır.
 
 > [!IMPORTANT]
 > Önizlemede daha önce `az acr build-task` komutuyla görev oluşturduysanız [az acr task][az-acr-task] komutuyla bu görevleri yeniden oluşturmanız gerekebilir.
 
-Örneğin, aşağıdaki otomatikleştirmek adımlarla bir görev çalıştırabilirsiniz:
+Örneğin, aşağıdaki mantık otomatikleştirmek adımlarla bir görev çalıştırabilirsiniz:
 
 1. Bir web uygulama görüntüsü oluşturun
 1. Web uygulaması kapsayıcısını çalıştırın
@@ -37,11 +37,11 @@ Tüm adımlar, Azure, Azure'un işlem kaynakları için iş boşaltma ve altyap�
 
 ## <a name="common-task-scenarios"></a>Görev senaryoları
 
-Çok adımlı görevler senaryoları aşağıdaki gibi etkinleştirin:
+Çok adımlı görevler aşağıdaki mantık gibi senaryolara olanak tanır:
 
 * Derleme, etiketi ve bir veya daha fazla kapsayıcı görüntüleri, paralel veya seri gönderin.
 * Çalıştırın ve birim test ve kod kapsamı sonuçlarını yakalayın.
-* Çalıştırın ve işlevsel testleri yakalayın. ACR görevleri çalıştıran birden çok kapsayıcı bir dizi isteğin aralarında yürütülmesini destekler.
+* Çalıştırın ve işlevsel testleri yakalayın. ACR görevleri birden fazla kapsayıcı, çalışan bir dizi isteğin aralarında yürütülmesini destekler.
 * Kapsayıcı görüntü derlemesi ön/son adımları dahil olmak üzere, görev tabanlı yürütme gerçekleştirin.
 * Sık kullandığınız dağıtım altyapınız hedef ortamınız için bir veya daha fazla kapsayıcıları dağıtın.
 
@@ -176,5 +176,5 @@ ACR görevleri çok adımlı görev özelliği Önizleme aşamasında olduğu s�
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

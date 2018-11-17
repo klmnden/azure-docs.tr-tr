@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ac317eaa4c7e69e4a01fe932569b999e502bc3cf
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568861"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822441"
 ---
 # <a name="manage-process-servers"></a>İşlem sunucularını yönetme
 
@@ -31,7 +31,41 @@ Bu makalede, bu ek işlem sunucularının için tipik yönetim görevleri özetl
 > [!NOTE]
   Genellikle, bir işlem sunucusu Azure'da yeniden çalışma amacıyla oluşturmak üzere Azure Galerisi görüntüsünü kullandığınızda, kullanılabilir en son sürümü çalışıyor. Site Recovery yayın düzeltmeler ve geliştirmeler düzenli olarak ekiplerinin ve işlem sunucularının güncel tutmanızı öneririz.
 
+## <a name="balance-the-load-on-process-server"></a>İşlem sunucusu üzerindeki yük dengelemesi
 
+İki işlem sunucusu arasında yük dengelemek için
+
+1. Gidin **kurtarma Hizmetleri kasası** > **yönetme** > **Site Recovery altyapısı** > **için VMware ve fiziksel makineler** > **Configuration Servers**.
+2. İşlem sunucusu ile kaydedilen yapılandırma sunucusuna tıklayın.
+3. İşlem sunucusu için configuration servers kaydedildi Listesi sayfasında bulabilirsiniz.
+4. İş yükü değiştirmek istediğiniz işlem sunucusu tıklayın.
+
+    ![Yük Dengeleme](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. Kullanabilir **Yük Dengeleme** veya **anahtar** gereksinime göre aşağıda açıklandığı gibi seçenekleri.
+
+### <a name="load-balance"></a>Yük Dengeleme
+
+Bu seçeneği aracılığıyla bir veya daha fazla sanal makine seçebilirsiniz ve bunları başka bir işlem sunucusuna aktarabilirsiniz.
+
+1. Tıklayarak **Yük Dengeleme**, aşağı açılan listeden hedef işlem sunucusunu seçin. **Tamam**’a tıklayın.
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Tıklayarak **makineleri**, geçerli işlem sunucusundan hedef işlem sunucusuna taşımak istediğiniz sanal makineleri seçin. Ortalama veri değişikliği ayrıntılarını, her sanal makineye karşı görüntülenir.
+3. **Tamam** düğmesine tıklayın. Altında işinin ilerleme durumunu izlemek **kurtarma Hizmetleri kasası** > **izleme** > **Site Recovery işleri**.
+4. Bu işlem sonrası başarılı olarak tamamlanmasına yansıtacak şekilde değişir 15 dakika sürer veya [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server) etkisini hemen.
+
+### <a name="switch"></a>Anahtar
+
+Bu seçenek ile bir işlem sunucusu altında korunan tüm iş yükü farklı bir işlem sunucusuna taşınır.
+
+1. Tıklayarak **anahtar**, hedef işlem sunucusunu seçin, **Tamam**.
+
+    ![Anahtar](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. Altında işinin ilerleme durumunu izlemek **kurtarma Hizmetleri kasası** > **izleme** > **Site Recovery işleri**.
+3. Bu işlem sonrası başarılı olarak tamamlanmasına yansıtacak şekilde değişir 15 dakika sürer veya [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server) etkisini hemen.
 
 ## <a name="reregister-a-process-server"></a>İşlem sunucusu yeniden kaydettirin
 

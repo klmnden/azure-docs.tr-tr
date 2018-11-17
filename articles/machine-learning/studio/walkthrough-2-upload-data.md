@@ -1,10 +1,11 @@
 ---
-title: '2. adım: Verileri bir Machine Learning deneme yükleme | Microsoft Docs'
-description: "Adım 2 / geliştirme Tahmine dayalı bir çözüm izlenecek yol: karşıya yükleme Azure Machine Learning Studio'ya genel verilere depolanır."
+title: '2. adım: Verileri bir Machine Learning denemesine yükleme | Microsoft Docs'
+description: "Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: karşıya yükleme, Azure Machine Learning Studio'ya genel veri depolanan."
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
@@ -15,90 +16,90 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: dfa6ae8011da0299c270035b8b781d70a8e80119
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b320f7cfcad9a61d67c5785596744f5851313a1a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835799"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824668"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Kılavuz Adımı 2: Mevcut verileri bir Azure Machine Learning denemesine yükleme
-Bu izlenecek yol ikinci adımdır [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md)
+Bu kılavuz, ikinci adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)
 2. **Mevcut verileri yükleme**
 3. [Yeni bir deneme oluşturma](walkthrough-3-create-new-experiment.md)
 4. [Modelleri eğitme ve değerlendirme](walkthrough-4-train-and-evaluate-models.md)
 5. [Web hizmetini dağıtma](walkthrough-5-publish-web-service.md)
-6. [Web hizmetine erişim](walkthrough-6-access-web-service.md)
+6. [Web hizmetine erişme](walkthrough-6-access-web-service.md)
 
 - - -
-Kredi riski için Tahmine dayalı bir modeli geliştirmek için eğitmek ve modeli test etmek için kullanabileceğiniz veri gerekiyor. Bu kılavuzda UC Irvine Machine Learning depodan "UCI Statlog (Almanca kredi veri) veri kümesi" kullanacağız. Burada bulabilirsiniz:  
+Kredi riski için Tahmine dayalı bir modeli geliştirmek için eğitmek ve sonra da modeli test etmek için kullanabileceğiniz veri ihtiyacımız var. Bu kılavuz için UC Irvine Machine Learning depodan "UCI Statlog (Alman kredi veri) veri kümesi" kullanacağız. Burada bulabilirsiniz:  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
-Adlı dosyayı kullanacağız **german.data**. Bu dosyayı yerel sabit diskinize yükleyin.  
+Adlı dosyayı kullanacağız **german.data**. Bu dosya yerel sabit sürücünüze indirin.  
 
-**German.data** dataset kredi için son 1000 başvuran 20 değişkenlerin satırları içerir. Bu 20 değişkenleri veri kümesi'nin özellikler kümesini temsil eden ( *özelliği vektör*), her kredi başvuran için tanımlayıcı özellikleri sağlar. Her satırda ek bir sütun düşük kredi riski ve 300 yüksek riskli olarak tanımlanan 700 başvuran ile Başvuranın hesaplanan kredi riski temsil eder.
+**German.data** veri kümesi iade için son 1000 Başvuranlar için 20 değişkenlerin satırları içerir. 20 Bu değişkenleri temsil eden veri kümesinin özellikler kümesi ( *özellik vektör*), her iade başvuran için tanımlayıcı özellikleri sağlar. Her satırda başka bir sütuna Başvuranın hesaplanan kredi riski, düşük kredi riskini ve 300 bir yüksek riskli tanımlanmış 700 başvuran ile temsil eder.
 
-Bu veriler için özellik vektör özniteliklerini açıklamasını UCI sağlar. Bu, finansal bilgileri, kredi geçmişi, çalışma durumu ve kişisel bilgileri içerir. Her başvuran için ikili bir derecelendirme belirli bir düşük olup olmadığını gösteren veya yüksek olmuştur kredi riski. 
+UCI Web sitesi öznitelikleri özellik vektör bu veriler için bir açıklama sağlar. Bu, finansal bilgi, kredi geçmişi, iş durumu ve kişisel bilgileri içerir. Her başvuran için ikili bir derecelendirme düşük olup olmadığını gösteren belirli veya yüksek olan kredi riski. 
 
-Tahmine dayalı bir analiz modeli eğitmek için bu verileri kullanacağız. Biz bittiğinde, modelimizi özelliği vektör yeni bir kullanıcı için kabul edin ve çözemiyorsa düşük veya yüksek kredi riski olup olmadığını tahmin etmek mümkün olması gerekir.  
+Tahmine dayalı analiz modeli eğitmek için bu verileri kullanacağız. Modelimiz, işimiz bittiğinde, isterse bir düşük veya yüksek kredi riski mi olduğunu tahmin etmek ve yeni bir kullanıcı için bir özellik vektör kabul olmalıdır.  
 
-Burada, ilginç geçiş verilmiştir. Veri kümesi UCI Web sitesinde açıklaması ne değinmektedir biz bir kişinin kredi riski misclassify, maliyetleri.
-Model bir yüksek kredi riski gerçekten düşük kredi riski yapılandırabilecek için tahmin, model bir misclassification yaptı.
-Ancak ters misclassification finansal kuruluştan beş kez daha pahalıdır: model düşük kredi riski gerçekte bir yüksek kredi riski yapılandırabilecek için tahmin durumunda.
+İlginç bir sürpriz aşağıda verilmiştir. Açıklama UCI Web sitesinde veri kümesinin ne bahsetmeleri bir kişinin kredi riski misclassify biz, bunu maliyetlerini.
+Model gerçekten düşük kredi riski kişi için yüksek kredi riskini tahmin, modeli bir misclassification yaptı.
+Ancak ters misclassification Finans kurumu için beş kat daha maliyetlidir: model yüksek kredi riski aslında bir kişi için düşük kredi riskini tahmin durumunda.
 
-Bu nedenle, böylece bu türdeki misclassification maliyetini beş kez daha yüksek başka bir şekilde misclassifying daha bizim modeli eğitmek istiyoruz.
-Bu bizim deneme modelinde eğitimindeki yapmak için bir basit bir yüksek kredi riski birisiyle temsil eden (beş kez) girişler çoğaltarak yoludur. Gerçekte yüksek riskli olduğunuzda model birisi düşük kredi riski olarak misclassifies, daha sonra model, aynı misclassification beş kez kez için her yinelenen yapar. Bu, bu hata eğitim sonuçlarında maliyetini artırır.
+Bu nedenle bu türdeki misclassification maliyetini beş kat daha yüksek değerinden başka bir şekilde misclassifying böylece, modeli eğitmek istiyoruz.
+Bu bizim denemede modeli eğitimindeki yapmak için bir basit bir yüksek kredi riski biriyle temsil eden (beş) girişler çoğaltarak yoludur. Yüksek riskli gerçekten olduklarında model birisi düşük kredi riski olarak misclassifies, daha sonra modeli, aynı misclassification beş kat kez her yinelemesi için yapar. Bu, bu hata eğitim sonuçlarında maliyetini artırır.
 
 
 ## <a name="convert-the-dataset-format"></a>Veri kümesi biçimine dönüştürün
-Özgün veri kümesi boş ayrılmış bir biçim kullanır. Virgül ile alanları değiştirerek dataset biz dönüştürme machine Learning Studio'da bir virgülle ayrılmış değer (CSV) dosyası ile daha iyi çalışır.  
+Özgün veri kümesinden boşluk ayrılmış bir biçim kullanır. Veri kümesi alanları virgül ile değiştirerek biz dönüştürme machine Learning Studio'da daha iyi bir virgülle ayrılmış değer (CSV) dosyası ile çalışır.  
 
-Bu verileri dönüştürmek için birçok yolu vardır. Aşağıdaki Windows PowerShell komutunu kullanarak bir yöntemdir:   
+Bu verileri dönüştürmek için birçok yolu vardır. Aşağıdaki Windows PowerShell komutunu kullanarak bir yoludur:   
 
     cat german.data | %{$_ -replace " ",","} | sc german.csv  
 
-UNIX azaltılabilir komutunu kullanarak başka bir yöntemdir:  
+UNIX sed komutunu kullanarak başka bir yoludur:  
 
     sed 's/ /,/g' german.data > german.csv  
 
-Her iki durumda da adlı bir dosya verileri virgülle ayrılmış bir sürümünü oluşturduk **german.csv** , bizim deneme kullanırız.
+Her iki durumda da adlı dosyadaki verileri virgülle ayrılmış bir sürümünü oluşturduk **german.csv** , bizim deneme kullanabiliriz.
 
-## <a name="upload-the-dataset-to-machine-learning-studio"></a>Veri kümesi için Machine Learning Studio karşıya yükle
-CSV biçimi veri dönüştürüldükten sonra Machine Learning Studio'ya karşıya gerekir. 
+## <a name="upload-the-dataset-to-machine-learning-studio"></a>Machine Learning Studio'ya veri kümesini karşıya yükleme
+CSV biçiminde verilerin dönüştürüldükten sonra Machine Learning Studio'ya karşıya gerekir. 
 
-1. Machine Learning Studio giriş sayfasını açın ([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Machine Learning Studio'ya giriş sayfasını açın ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Menüsünü ![menü][1] penceresinin sol üst köşesinde tıklatın **Azure Machine Learning**seçin **Studio**ve oturum açın.
+2. Menüye tıklayarak ![menü][1] penceresinin sol üst köşesinde tıklayın **Azure Machine Learning**seçin **Studio**ve oturum açın.
 
-3. Tıklatın **+ yeni** pencerenin altındaki.
+3. Tıklayın **+ yeni** pencerenin alt kısmındaki.
 
-4. Seçin **DATASET**.
+4. Seçin **veri KÜMESİ**.
 
 5. Seçin **yerel DOSYADAN**.
 
-    ![Yerel bir dosyadan bir veri kümesi ekleyin][2]
+    ![Yerel bir dosyadan bir veri kümesi Ekle][2]
 
-6. İçinde **yeni bir veri kümesi karşıya** iletişim kutusunda, tıklatın **Gözat** ve bulma **german.csv** , oluşturduğunuz dosya.
+6. İçinde **yeni bir veri kümesi karşıya** iletişim kutusunda, tıklayın **Gözat** ve bulma **german.csv** oluşturduğunuz dosya.
 
-7. Veri kümesi için bir ad girin. Bu kılavuzda "UCI Almanca kredi kartı verileri" çağrısı.
+7. Veri kümesi için bir ad girin. Bu kılavuz için çağrı "UCI Almanca kredi kartı verileri".
 
-8. Veri türü için **üst bilgi içeren genel CSV dosyası (. nh.csv)**.
+8. Veri türü için **üst bilgi içeren genel bir CSV dosyası (. nh.csv)**.
 
 9. İsterseniz bir açıklama ekleyin.
 
-10. Tıklatın **Tamam** onay işareti.  
+10. Tıklayın **Tamam** işaretleyin.  
 
-    ![Veri kümesi karşıya yükle][3]
+    ![Veri kümesi karşıya yükleme][3]
 
-Bir deneme kullandığımız bir veri kümesi modüle veri yükler.
+Bu, bir deneme kullanabiliriz bir veri kümesi modüle verileri yükler.
 
-Tıklayarak Studio'ya yüklediğiniz veri kümeleri yönetebilir **veri KÜMELERİ** Studio penceresinin sol sekmesine.
+Tıklayarak Studio'ya yüklediğiniz veri kümelerini yönetebilirsiniz **veri KÜMELERİ** Studio penceresinin sol tarafında için sekmesinde.
 
-![Veri kümelerini yönetme][4]
+![Veri kümelerini Yönet][4]
 
-Bir deneme diğer veri türleri alma hakkında daha fazla bilgi için bkz: [eğitim verilerinizi Azure Machine Learning Studio'ya içeri](import-data.md).
+Bir denemenin diğer veri türleri içeri aktarma hakkında daha fazla bilgi için bkz. [eğitim verilerinizi Azure Machine Learning Studio'ya alma](import-data.md).
 
 **Sonraki: [yeni bir deneme oluşturma](walkthrough-3-create-new-experiment.md)**
 

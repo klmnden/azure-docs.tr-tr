@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 41b5383dd319f2cb6fad4316e963f86dd7a4bc61
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 128eff5f628a0a4bf9f67e988ab7d3e2f22ed767
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036617"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823750"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ses ve SMS özellikleri, Ruby için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -146,7 +146,7 @@ Açık yukarı, `http://yourdomain.cloudapp.net/make_call` bir tarayıcıda, tet
 
 Üçüncü parametre (`url`), Twilio arama bağlandıktan sonra yapmanız gerekenler üzerinde yönergeleri almak için istekleri URL'dir. Bu örnekte biz Kurulum bir URL (`http://yourdomain.cloudapp.net`) kullanır ve basit bir TwiML belge döndürür `<Say>` fiili bazı metin okuma yapmak ve çağrı alma kişiye "Hello Monkey" deyin.
 
-## <a id="howto_recieve_sms"></a>Nasıl yapılır: bir SMS mesajı alma
+## <a id="howto_receive_sms"></a>Nasıl yapılır: bir SMS iletisi alıyorsunuz
 Önceki örnekte biz başlatılan bir **giden** telefon araması. Bu kez, Twilio sırasında bize bildiren bir telefon numarası kullanalım kaydolma işlemine bir **gelen** SMS iletisi.
 
 İlk, oturum açma için sizin [Twilio Panosu][twilio_account]. Üst gezinti çubuğundaki "Numaralarında"'a tıklayın ve ardından, sağlanan Twilio sayısına tıklayın. Yapılandırabileceğiniz iki URL görürsünüz. Bir ses isteği URL'si belirtir ve bir SMS istek URL'si. Twilio telefon görüşmesi yapılır ya da SMS numaranızı gönderilen her çağıran URL'ler şunlardır. URL'leri de "web kancası" olarak bilinir.
@@ -164,7 +164,7 @@ Değişikliği yaptıktan sonra web uygulamanızı yeniden başlatmak istediğin
 ## <a id="additional_services"></a>Nasıl yapılır: ek Twilio hizmetlerini kullanma
 Burada gösterilen örneklerden yanı sıra, Twilio, Azure uygulamanızı ek Twilio işlevinden yararlanmak için kullanabileceğiniz web tabanlı API'ler sunar. Tüm Ayrıntılar için bkz. [Twilio API'si belgeleri][twilio_api_documentation].
 
-### <a id="NextSteps"></a>Sonraki adımlar
+### <a id="NextSteps"></a>Sonraki Adımlar
 Twilio hizmeti temel bilgileri öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin:
 
 * [Twilio güvenlik yönergeleri][twilio_security_guidelines]

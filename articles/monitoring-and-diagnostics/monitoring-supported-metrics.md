@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964195"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824923"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -819,7 +819,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |IsEngineAnsweringQuery|Canlı|Sayı|Ortalama|Sorgular için küme respondes sağlamlık onay gösterir|Boyut yok|
 |IngestCommandOriginalSizeInMb|Alma birim (MB cinsinden)|Sayı|Toplam|Genel (MB cinsinden) kümeye içe alınan veri hacmi|Boyut yok|
 |EventAgeSeconds|Alma gecikmesi (saniye cinsinden)|Saniye|Ortalama|Alma süresi (örneğin ileti içinde EventHub) kaynak kümeye saniye|Boyut yok|
-|EventRecievedFromEventHub|(Event Hubs için) işlenen olaylar|Sayı|Toplam|Olay Hub'ından başlayan kümeniz, küme tarafından işlenen olay sayısı|Boyut yok|
+|EventReceivedFromEventHub|(Event Hubs için) işlenen olaylar|Sayı|Toplam|Olay Hub'ından başlayan kümeniz, küme tarafından işlenen olay sayısı|Boyut yok|
 |IngestionResult|Alma sonucu|Sayı|Sayı|Alma işlemi sayısı|IngestionResultDetails|
 |EngineCPU|CPU|Yüzde|Ortalama|CPU kullanımı düzeyi|Boyut yok|
 
@@ -1570,6 +1570,6 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../monitoring/monitoring-data-collection.md)
+* [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../azure-monitor/platform/data-collection.md)
 * [Ölçümler üzerinde uyarı oluşturma](monitoring-overview-alerts.md)
 * [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](monitoring-overview-of-diagnostic-logs.md)

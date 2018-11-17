@@ -12,77 +12,23 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3186d580918d7451317ae58cac270556509c6e3e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884502"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854348"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
-Bu makalede, Service Fabric kümeniz için çeşitli yapı ayarları özelleştirmeyi açıklar. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Tek başına kümeler için ClusterConfig.json dosyası güncelleştiriliyor ve kümenizde bir yapılandırma yükseltme gerçekleştirme ayarlarını özelleştirin. 
+Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
 
-> [!NOTE]
-> Tüm ayarlar, portalda kullanılabilir değildir. Aşağıda listelenen bir ayar portalı üzerinden kullanılabilir değilse, bir Azure Resource Manager şablonu kullanarak bunu özelleştirin.
-> 
-
-## <a name="description-of-the-different-upgrade-policies"></a>Farklı yükseltme ilkeleri açıklaması
+Üç farklı yükseltme ilkesi vardır:
 
 - **Dinamik** – dinamik bir yapılandırmada değişiklik Service Fabric işlemleri veya, hizmet ana bilgisayarı işlemlerinin tüm işlem yeniden başlatmalar neden olmaz. 
 - **Statik** – statik bir yapılandırmada değişiklik değişiklik kullanmak yeniden başlatmak Service Fabric düğüm neden olur. Düğümler üzerinde hizmetleri yeniden başlatılır.
 - **Noktayla** – bu ayarlar değiştirilemez. Bu ayarları gerektiren küme yok edilecek değiştirme ve yeni bir kümesi. 
-
-## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak küme ayarlarını özelleştirme
-Yeni bir ayar ekleme adımları Göster *MaxDiskQuotaInMB* için *tanılama* Azure kaynak Gezgini'ni kullanarak bölümü.
-
-1. Şuraya gidin: https://resources.azure.com
-2. Aboneliğinize genişleterek gidin **abonelikleri** -> **\<aboneliğiniz >** -> **resourceGroups**  ->   **\<Uygulamanızın kaynak grubu >** -> **sağlayıcıları** -> **Microsoft.ServiceFabric**  ->  **kümeleri** -> **\<küme adınız >**
-3. Sağ alt köşesinde üst **okuma/yazma.**
-4. Seçin **Düzenle** ve güncelleştirme `fabricSettings` JSON öğesi ve yeni bir öğe ekleyin:
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-Ayrıca, Azure Resource Manager ile aşağıdaki yollardan biriyle küme ayarları özelleştirebilirsiniz:
-
-- Kullanım [Azure portalında](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) dışarı aktarma ve Kaynak Yöneticisi şablonu güncelleştirmek için.
-- Kullanım [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) dışarı aktarma ve Resource Manager şablonu güncelleştirmek için.
-- Kullanım [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) dışarı aktarma ve Resource Manager şablonu güncelleştirmek için.
-- Azure RM PowerShell kullanmak [kümesi AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) ve [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) ayarı değiştirmek için komutları doğrudan.
-- Azure clı'yi [az sf küme ayarı](https://docs.microsoft.com/cli/azure/sf/cluster/setting) ayarı değiştirmek için komutları doğrudan.
-
-## <a name="customize-cluster-settings-for-standalone-clusters"></a>Tek başına kümeler için küme ayarlarını özelleştirme
-Tek başına kümeler ClusterConfig.json dosyası aracılığıyla yapılandırılır. Daha fazla bilgi için bkz. [tek başına bir Windows kümesi için yapılandırma ayarlarını](./service-fabric-cluster-manifest.md).
-
-Ekleme, güncelleştirme veya ayarlarında kaldırma `fabricSettings` bölümüne [küme özelliklerini](./service-fabric-cluster-manifest.md#cluster-properties) ClusterConfig.json bölümünde. 
-
-Örneğin, aşağıdaki JSON yeni bir ayar ekler *MaxDiskQuotaInMB* için *tanılama* bölümüne `fabricSettings`:
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-ClusterConfig.json dosyanızda ayarlar değiştirildikten sonra yer alan yönergeleri izleyin [küme yapılandırmasını yükseltme](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) kümenize ayarları uygulamak için. 
-
 
 Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tarafından düzenlenir.
 
@@ -867,7 +813,4 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |X509StoreName | Varsayılan bir dize ise "My"|Dinamik|X509StoreName UpgradeService için. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Küme yönetimi hakkında daha fazla bilgi için bu makaleleri okuyun:
-
-[Eklemek için gece yarısında değil, Azure kümenizden sertifikaları kaldırın ](service-fabric-cluster-security-update-certs-azure.md) 
-
+Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md) ve [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958569"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854195"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Gelişmiş Log Analytics sorguları yazma
 
@@ -77,29 +77,7 @@ Event
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
 
-## <a name="functions"></a>İşlevler
-Diğer sorgular tarafından başvurulabilir, böylece sorgu bir işlev diğer adı ile kaydedebilirsiniz. Örneğin, aşağıdaki standart sorgu son gün içinde bildirilen tüm eksik güvenlik güncelleştirmelerini döndürür:
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-Bu sorguyu bir işlev olarak kaydetmek ve gibi bir diğer ad vermek _security_updates_last_day_. Ardından, başka bir sorguda SQL ile ilgili gerekli güvenlik güncelleştirmeleri aramak için kullanabilirsiniz:
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-Bir işlev olarak bir sorguyu kaydetmek için seçin **Kaydet** düğmesi portal ve değişiklik **Farklı Kaydet** için _işlevi_. İşlev diğer adı harf, rakam veya alt çizgi içerebilir, ancak bir harf veya alt çizgi ile başlamalıdır.
-
-> [!NOTE]
-> Bir işlev kaydetmek için sorgular Application ınsights'ı Log Analytics sorguları, ancak şu anda mümkündür.
-
-
-## <a name="print"></a>Yazdır
+## <a name="print"></a>Yazdırma
 `print` tek bir sütun ve hesaplama sonucunu gösteren tek bir satır içeren bir tablo döndürür. Bu genellikle, bir basit calcuation gereken durumlarda kullanılır. Örneğin, Pasifik saati geçerli zamanı bulup EST sahip bir sütun ekleyin:
 
 ```Kusto

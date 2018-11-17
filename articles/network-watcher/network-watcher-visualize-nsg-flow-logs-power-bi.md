@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032693"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822883"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI ile visualizing ağ güvenlik grubu akış günlüklerini
 
 Ağ güvenlik grubu akış günlüklerini üzerindeki ağ güvenlik gruplarının giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntülemek izin verin. Bu kural başına temelinde, akışı NIC giden ve gelen akışlar uygulandığı günlüklerini gösterme, 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) akışla ilgili ve trafiklere izin verildiğini veya, akış.
 
 Günlük dosyalarını el ile arama yaparak akış günlüğü verileri Öngörüler edinmek zor olabilir. Bu makalede, en son, akış günlüklerini Görselleştirme ve ağınızdaki trafiği hakkında bilgi edinmek için bir çözüm sunuyoruz.
+
+> [!Warning]  
+> Aşağıdaki adımlar akış günlükleri sürüm 1 ile çalışır. Ayrıntılar için bkz [için ağ güvenlik grubu akış günlüğe kaydetme giriş](network-watcher-nsg-flow-logging-overview.md). Aşağıdaki yönergeler, değişiklik yapmadan günlük dosyalarının sürüm 2 ile çalışmaz.
 
 ## <a name="scenario"></a>Senaryo
 

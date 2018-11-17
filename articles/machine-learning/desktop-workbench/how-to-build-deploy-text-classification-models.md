@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994947"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853022"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Azure Machine Learning ile metin sınıflandırma modellerini Derleme ve dağıtma
 
@@ -436,7 +436,7 @@ Genellikle, bir model uygun önce parametrelerini ayarlayın.
 
 Aşağıdaki kod örnekleri varsayılan işlem hattı ve model parametreleri kullanarak modeli eğitmek nasıl gösterir. 
 
-Parametreleri "text_word_ngrams için" dahil olduğunu görmek için kullanmak [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel). Bu işlev, vb. gibi küçük input_col, output_col parametreleri döndürür. 
+Parametreleri "text_word_ngrams için" dahil olduğunu görmek için kullanmak [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name). Bu işlev, vb. gibi küçük input_col, output_col parametreleri döndürür. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ Eğitilen metin Sınıflandırıcısı sınıfı tahminler üretmek için test v
 </div>
 
 ## <a name="evaluate-model-performance"></a>Model performansını değerlendirme
-[Değerlendirme Modülü](https://docs.microsoft.com/python/api/tatk.evaluation) test veri kümesinde eğitilen metin Sınıflandırıcısı doğruluğunu değerlendirir. Evaluate işlevi, bir karışıklık matrisi oluşturur ve bir makro F1 puanı sağlar.
+[Değerlendirme Modülü](/python/api/msft-tatk/tatk.evaluation) test veri kümesinde eğitilen metin Sınıflandırıcısı doğruluğunu değerlendirir. Evaluate işlevi, bir karışıklık matrisi oluşturur ve bir makro F1 puanı sağlar.
 
 ```python
  text_classifier.evaluate(df_test)          

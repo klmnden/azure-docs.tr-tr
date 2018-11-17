@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235284"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824311"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Azure Windows sanal makine etkinleştirme sorunlarını giderme
 
@@ -29,7 +29,7 @@ ms.locfileid: "51235284"
 KMS etkinleştirme VM'nin bulunduğu bulut bölgesi bağlı olarak farklı uç noktalar Azure'ı kullanır. Bu sorun giderme kılavuzu kullanırken, bölgeniz için geçerli uygun KMS uç noktayı kullanın.
 
 * Azure genel bulut bölgeleri: kms.core.windows.net:1688
-* Azure Çin'de Ulusal bulut bölgeleri: kms.core.chinacloudapi.cn:1688
+* Azure Çin 21Vianet Ulusal bulut bölgeleri: kms.core.chinacloudapi.cn:1688
 * Azure Almanya Ulusal bulut bölgeleri: kms.core.cloudapi.de:1688
 * Azure ABD Devleti Ulusal bulut bölgeleri: kms.core.usgovcloudapi.net:1688
 
@@ -84,8 +84,7 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
 3. VM doğru Azure KMS sunucusunu kullanacak şekilde yapılandırıldığından emin olun. Bunu yapmak için aşağıdaki komutu çalıştırın:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     Komut döndürmelidir: anahtar yönetimi hizmeti makine adı için kms.core.windows.net:1688 başarılı bir şekilde ayarlayın.
 

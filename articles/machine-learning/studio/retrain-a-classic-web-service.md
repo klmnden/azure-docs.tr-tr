@@ -4,7 +4,8 @@ description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machin
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: be4f1e4705d1f8357198f01e2fa6d5aae83159c7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963787"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820095"
 ---
 # <a name="retrain-a-classic-web-service"></a>Klasik web hizmetini yeniden eğitme
 Dağıttığınız Tahmine dayalı Web Hizmeti uç noktası Puanlama varsayılandır. Varsayılan uç noktalar özgün eğitim ve puanlama denemeleri ile eşitlenmiş olarak tutulur ve bu nedenle varsayılan uç nokta için eğitilen model değiştirilemez. Web hizmetini yeniden eğitme için web hizmetine yeni bir uç noktası eklemeniz gerekir. 

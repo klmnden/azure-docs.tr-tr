@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 885deca5efbd72b3d641c8c94837851340d752b9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957838"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824092"
 ---
 # <a name="monitor-batch-solutions"></a>Batch çözümlerini izleme
 
@@ -34,7 +34,7 @@ Etkinlik günlüğünüzü olaylarını almak için bir yolu, Azure portalı kul
 
 ## <a name="batch-account-level-monitoring"></a>Batch hesabı düzeyinde izleme
 
-Her Batch hesabı özelliklerini kullanarak izleme [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../monitoring/monitoring-data-collection.md#metrics) ve isteğe bağlı olarak [tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) havuzlar, işler ve görevler gibi Batch hesabı düzeyinde kapsamlı kaynaklar. Toplama ve bu verileri el ile veya programlama yoluyla kullanmak Batch hesabınızdaki etkinlikleri izlemek ve sorunlarını tanılamak için. Ayrıntılar için bkz [toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlüklerini](batch-diagnostics.md).
+Her Batch hesabı özelliklerini kullanarak izleme [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve isteğe bağlı olarak [tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) havuzlar, işler ve görevler gibi Batch hesabı düzeyinde kapsamlı kaynaklar. Toplama ve bu verileri el ile veya programlama yoluyla kullanmak Batch hesabınızdaki etkinlikleri izlemek ve sorunlarını tanılamak için. Ayrıntılar için bkz [toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlüklerini](batch-diagnostics.md).
  
 > [!NOTE]
 > Varsayılan olarak Batch hesabınıza ek yapılandırma olmadan ölçümler kullanılabilir ve 30 günlük çalışırken geçmişini sahiptirler. Bir Batch hesabı için tanılama günlük kaydını etkinleştirmeniz gerekir ve depolamak ya da tanılama günlük verilerini işlemek için ek ücrete neden. 

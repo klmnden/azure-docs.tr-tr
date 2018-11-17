@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056100"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822084"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka etkin event hubs'ı oluşturma
 
@@ -39,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
  
 3. Benzersiz bir ad belirtin ve ad alanında Kafka'yı etkinleştirin. **Oluştur**’a tıklayın.
     
-    ![Ad alanı oluşturma](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Ad alanı oluşturma](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Ad alanı oluşturulduktan sonra **Ayarlar** sekmesinde **Paylaşılan erişim ilkeleri**'ne tıklayarak bağlantı dizesini alın.
 
@@ -57,7 +57,7 @@ Artık Kafka protokolünü kullanan uygulamalarınızdaki olayların akışını
 
 Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 
-* [Kafka uygulamalarınızdan Event hubs'ta Stream](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Kafka uygulamalarınızdan Event Hubs'a akış yapma](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * [Kafka için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
 * [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
 

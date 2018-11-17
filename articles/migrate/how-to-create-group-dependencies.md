@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 2d2688799b1a0b4518b9c91bbc530936c834c5e3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 352ff105f5cd443fba74e05ebce22c14f08e63a0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407445"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823682"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Grubun bağımlılık eşlemesini kullanarak bir grubu daraltma
 
@@ -71,7 +71,7 @@ Bir Linux makinesinde aracıyı yüklemek için:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) ve [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) işletim sistemleri.
+Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) ve [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) işletim sistemleri.
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Bağımlılık görselleştirme üzerinde göre Grubu Daralt
 Grubun tüm makinelerde aracılarını yükledikten sonra Grup bağımlılıklarını görselleştirin ve izleyerek İyileştir aşağıdaki adımları.

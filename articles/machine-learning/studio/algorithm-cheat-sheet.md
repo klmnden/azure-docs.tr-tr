@@ -4,7 +4,8 @@ description: Bir yazdırılabilir makine öğrenimi algoritma bilgi sayfası Azu
 keywords: Makine öğrenimi algoritmasının algoritma bilgi sayfası, kural sayfası
 services: machine-learning
 author: pakalra
-ms.author: pakalra
+ms.custom: (previous ms.author pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
@@ -12,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 4a6fdfec4c4c95ba47f17efeb0dc87521a86c03c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b43cc1ea84eefc53c9d51d4c7acfb9dd7390836d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244993"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822254"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Makine öğrenimi algoritma bilgi sayfasına için Azure Machine Learning Studio
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364304"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820231"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm hızlandırıcısının rol tabanlı erişim denetimlerini yapılandırın
 
@@ -23,29 +23,33 @@ Bu makalede Uzaktan izleme çözüm hızlandırıcısının rol tabanlı erişim
 
 Uzaktan izleme çözümü ilk kez dağıttığınızda, iki rol vardır: **yönetici** ve **salt okunur**.
 
-Herhangi bir kullanıcının **yönetici** rolü çözüm tam erişime sahiptir. Bir kullanıcı **salt okunur** rolü aşağıdaki görevlerden herhangi birini yapamaz:
+Herhangi bir kullanıcının **yönetici** rolü aşağıdaki aşağıdaki izinleri de dahil olmak üzere, çözüm tam erişime sahiptir. Bir kullanıcı **salt okunur** rolü yalnızca çözüm görüntüleme erişimi olacaktır.
 
-- Güncelleştirme uyarıları
-- Uyarıları Sil
-- Cihazları oluşturun
-- Güncelleştirme cihazlar
-- Cihazları silme
-- Cihaz grupları oluşturma
-- Cihaz grupları güncelleştir
-- Cihaz grupları Sil
-- Kuralları oluşturma
-- Güncelleştirme kuralları
-- Kurallarını Sil
-- İş oluşturma
-- Güncelleştirme SIM Yönetimi
+| İzin            | Yönetim Bölgesi | Salt Okunur |
+|----------------       |-------|-----------|
+| Çözümü görüntüle         | Evet   | Evet       |
+| Güncelleştirme uyarıları         | Evet   | Hayır        |
+| Uyarıları Sil         | Evet   | Hayır        |
+| Cihazları oluşturun        | Evet   | Hayır        |
+| Güncelleştirme cihazlar        | Evet   | Hayır        |
+| Cihazları silme        | Evet   | Hayır        |
+| Cihaz grupları oluşturma  | Evet   | Hayır        |
+| Cihaz grupları güncelleştir  | Evet   | Hayır        |
+| Cihaz grupları Sil  | Evet   | Hayır        |
+| Kuralları oluşturma          | Evet   | Hayır        |
+| Güncelleştirme kuralları          | Evet   | Hayır        |
+| Kurallarını Sil          | Evet   | Hayır        |
+| İş oluşturma           | Evet   | Hayır        |
+| Güncelleştirme SIM Yönetimi | Evet   | Hayır        |
 
-Uzaktan izleme çözümü dağıtan kişiye otomatik olarak atanır **yönetici** rolü ve bir Azure Active Directory Uygulama sahibi. Bir uygulamanın sahibi olarak Azure portalındaki diğer kullanıcılara roller atayabilirsiniz.
+Varsayılan olarak, dağıtılan çözümü kullanıcıya otomatik olarak atanır **yönetici** rolü ve bir Azure Active Directory Uygulama sahibi. Bir uygulamanın sahibi olarak, Azure portalı üzerinden diğer kullanıcılara roller atayabilirsiniz. Çözümdeki rol atamak için başka bir kullanıcının isterseniz, Azure portalında bir uygulamanın sahibi olarak da ayarlanmalıdır.
 
-Çözümdeki rol atamak için başka bir kullanıcının isterseniz, Azure portalında bir uygulamanın sahibi olarak da ayarlanmalıdır.
+> [!NOTE]
+> Çözümü dağıtan kullanıcı **yalnızca kişi** kimler görüntüleyebilir, hemen sonra kendi edilmiş oluşturuldu. Vermek için uygulamayı salt okunur, yönetici veya bkz. aşağıdaki yönergeler aşağıda üzerinde kullanıcı eklemek veya kaldırmak bir özel rol olarak görüntülemek üzere başkalarının erişebileceği.
 
 ## <a name="add-or-remove-users"></a>Kullanıcı eklemek veya kaldırmak
 
-Eklemek veya bir kullanıcı uzaktan izleme çözümünden kaldırmak için Azure portalını kullanın. Aşağıdaki adımları kullanın [Azure Active Directory kuruluş uygulaması](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) oluşturulmuş, Uzaktan izleme çözümünü dağıttığınızda.
+Bir Azure Active Directory Uygulama sahibi ekleyip bir kullanıcı bir role Uzaktan izleme çözümü için Azure portalını kullanabilirsiniz. Aşağıdaki adımları kullanın [Azure Active Directory kuruluş uygulaması](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) Uzaktan izleme çözümünü dağıttığınızda oluşturuldu.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 

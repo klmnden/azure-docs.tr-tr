@@ -10,16 +10,16 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219660"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852716"
 ---
 # <a name="image-moderation"></a>Görüntü denetimi
 
-Content Moderator'ın makine Yardımlı resim denetimi kullanın ve [insan tarafından İnceleme aracı](Review-Tool-User-Guide/human-in-the-loop.md) yetişkinlere yönelik ve müstehcen içerikleri için görüntüleri denetlemek. Metin içeriği için görüntü tarama, metin ayıklama ve yüzleri algılayın. Başka bir işlem yapmanıza ve özel listeler karşı görüntüleri eşleşmiyor.
+Content Moderator'ın makine Yardımlı resim denetimi kullanın ve [İnsan içinde--döngüsü gözden geçirme aracı](Review-Tool-User-Guide/human-in-the-loop.md) yetişkinlere yönelik ve müstehcen içerikleri için görüntüleri denetlemek. Metin içeriği için görüntü tarama, metin ayıklama ve yüzleri algılayın. Başka bir işlem yapmanıza ve özel listeler karşı görüntüleri eşleşmiyor.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içeriğin denetimi için değerlendirme
 
@@ -36,8 +36,8 @@ Content Moderator'ın makine Yardımlı resim denetimi kullanın ve [insan taraf
 
 > [!NOTE]
 
-> - `isImageAdultClassified` olası görüntülerini cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul edilebilir varlığını temsil eder.
-> - `isImageRacyClassified` olası görüntülerini cinsel müstehcen veya bazı durumlarda olgun düşünülebilecek varlığını temsil eder.
+> - `isImageAdultClassified`, belirli durumlarda açık saçık veya yetişkinlere yönelik olarak değerlendirilebilecek görüntülerin mevcut olma olasılığını gösterir.
+> - `isImageRacyClassified`, belirli durumlarda davetkar veya yetişkinlere yönelik olarak değerlendirilebilecek görüntülerin mevcut olma olasılığını gösterir.
 > - Puanları 0 ile 1 arasındadır. Yüksek puanı, kategori uygun olabilir yüksek modeli tahmin etmektir. Bu önizleme, el ile kodlanmış sonuçları yerine istatistiksel bir model kullanır. Her kategori için gereksinimlerinizi nasıl hizalandığını belirlemek için kendi içeriğe sahip test etmenizi öneririz.
 > - Boole değerleri: true veya false iç puanına göre eşikleri bağlı olarak. Müşteriler, bu değeri kullanın veya kendi içerik ilkelere dayalı özel eşikler karar değerlendirmelisiniz.
 >
@@ -107,7 +107,7 @@ Görüntüleri veya diğer türdeki bir içeriği, kullanıcıların karşıya y
 Birden çok kez aynı görüntü yönetme yerine rahatsız edici görüntüleri özel engellenen içerik listenize ekleyin. Bu şekilde, içerik denetleme sistemi, özel listelerinizle gelen görüntüleri karşılaştırır ve herhangi başka bir işlemeye durdurur.
 
 > [!NOTE]
-> Bir maksimum sınırı **5 görüntü listeleri** her listesine ile **10.000 görüntüleri aşmayacak**.
+> Liste sayısı üst sınırı, her biri **10.000 görüntüyü aşmamak** kaydıyla **5 görüntü listesidir**.
 >
 
 Content Moderator eksiksiz [görüntü listesi Yönetimi API'sini](try-image-list-api.md) özel görüntüleri listesini yönetmek için işlemleri. İle başlayan [görüntü listeleri API Konsolu](try-image-list-api.md) ve REST API kod örnekleri kullanın. Ayrıca kullanıma [görüntü listesi .NET Hızlı Başlangıç](image-lists-quickstart-dotnet.md) Visual Studio ve C# ile deneyiminiz varsa.
@@ -140,11 +140,11 @@ Bir eşleşme bulunursa, işlem tanıtıcısı ve eşleşen görüntü denetimi 
     ....
     }
 
-## <a name="human-review-tool"></a>İnsan tarafından inceleme aracı
+## <a name="human-review-tool"></a>İnsan inceleme aracı
 
 Daha fazla bilgi için ince durumlarda Content Moderator'ı kullanın [İnceleme aracında](Review-Tool-User-Guide/human-in-the-loop.md) ve içeriği için İnsan, Moderatörler gözden geçirmesi ve denetleme sonuçları yüzey API'si. Bunlar, makine tarafından atanan etiketleri gözden geçirin ve son kararlarına onaylayın.
 
-![İnsan Moderatörler için resim incelemesi](images/moderation-reviews-quickstart-dotnet.PNG)
+![İnsan denetimciler için görüntü incelemesi](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

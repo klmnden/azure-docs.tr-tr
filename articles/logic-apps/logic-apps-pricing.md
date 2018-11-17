@@ -7,34 +7,38 @@ ms.suite: logic-apps
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
+manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/16/2018
+ms.openlocfilehash: 04fb86f9b8f8be2c013f9bd7449dd5a4b2bcf90c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159582"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854127"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
-Oluşturun ve Azure Logic Apps ile bulutta otomatik ölçeklenebilir tümleştirmesi iş akışlarınızı çalıştırın. Logic Apps için faturalama ve fiyatlandırma nasıl çalıştığı hakkında ayrıntılar aşağıda verilmiştir. 
+Oluşturun ve Azure Logic Apps kullandığınızda, bulutta ölçeklendirilebilir otomatik tümleştirmesi iş akışlarınızı çalıştırın. Logic Apps için faturalama ve fiyatlandırma nasıl çalıştığı hakkında ayrıntılar aşağıda verilmiştir. 
 
 <a name="consumption-pricing"></a>
 
 ## <a name="consumption-pricing-model"></a>Tüketim fiyatlandırma modeli
 
-Genel veya "Genel" Logic Apps hizmetini kullanarak oluşturduğunuz yeni mantıksal uygulamalar için yalnızca kullandığınız kadarı için ödeme yaparsınız. Bu mantıksal uygulamalar, bir tüketim tabanlı planı ve bir mantıksal uygulama tarafından gerçekleştirilen tüm eylem yürütmeleri ölçülür anlamına gelir fiyatlandırma modeli kullanın. Her bir mantıksal uygulama tanımını tetikleyicileri, denetim akışı adımlarını, yerleşik Eylemler çağrıları ve bağlayıcılar çağrıları içeren bir eylem adımdır. Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
+Genel veya "Genel" Logic Apps hizmetinde çalışan yeni logic apps için yalnızca kullandığınız kadarı için ödeme yaparsınız. Bu mantıksal uygulamalar, bir tüketim tabanlı plan ve fiyatlandırma modeli kullanın. Mantıksal uygulama tanımında her adımı bir eylemdir. Tetikleyici, bir denetim akışı adımlarını, yerleşik Eylemler ve bağlayıcı çağrıları Eylemler içerir. Logic Apps, mantıksal uygulamanızı çalıştıran tüm eylemleri ölçümleri.  
+Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="fixed-pricing"></a>
 
 ## <a name="fixed-pricing-model"></a>Sabit fiyatlandırma modeli
 
-> [!NOTE]
-> Tümleştirme hizmeti ortamı bulunduğu *özel Önizleme*. Erişim talep etmek [burada katılma isteğiniz oluşturma](https://aka.ms/iseprivatepreview).
+İçinde çalıştırılır ve yeni mantıksal uygulamalar için bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), yerleşik Eylemler ve standart ISE etiketli bağlayıcılar için aylık sabit fiyata ödeme yaparsınız. Bir işe bir Azure sanal ağdaki kaynaklara erişebilen yalıtılmış mantıksal uygulama oluşturma ve çalıştırma bir yol sağlar.  
 
-İle oluşturduğunuz yeni mantıksal uygulamalar için bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)ayrılmış kaynakları kullanan Logic Apps örneği yalıtılmış bir özel olan, sabit bir aylık fiyat için ödeme yapın Yerleşik Eylemler ve standart ISE etiketli bağlayıcılar. Bir kurumsal tüketim fiyatı temel alınarak Kurumsal bağlayıcı ek Kurumsal bağlayıcılar ücretlendirilirsiniz ancak ücretsiz, temel, işe içerir. Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
+İstediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı, işe içerir. Kullanımı için ek Kurumsal bağlayıcılar ücretlendirilir Kurumsal tüketim fiyatı temel alınarak temel. 
+
+> [!NOTE]
+> Tümleştirme hizmeti ortamı bulunduğu *özel Önizleme*. Erişim talep etmek [burada katılma isteğiniz oluşturma](https://aka.ms/iseprivatepreview). Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 
@@ -42,7 +46,7 @@ Genel veya "Genel" Logic Apps hizmetini kullanarak oluşturduğunuz yeni mantık
 
 Tetikleyiciler bir mantıksal uygulama örneği belirli bir olay meydana geldiğinde oluşturduğunuz özel eylemlerdir. Tetikleyiciler, mantıksal uygulamanın nasıl ölçülüp etkiler, farklı şekillerde işlevi görür.
 
-* **Yoklama tetikleyici** – bu tetikleyiciyi bir mantıksal uygulama örneği oluşturmak ve iş akışını başlatmak için ölçütleri karşılayan iletiler için bir uç nokta sürekli olarak denetler. Her yoklama isteği, bir yürütme olarak sayar ve bile hiçbir mantıksal uygulama örneği oluşturulduğunda, ölçülür. Yoklama aralığını belirtmek için mantıksal Uygulama Tasarımcısı aracılığıyla bir tetikleyici ayarlayın.
+* **Yoklama tetikleyici** – bu tetikleyiciyi bir mantıksal uygulama örneği oluşturmak ve iş akışını başlatmak için ölçütleri karşılayan iletiler için bir uç nokta sürekli olarak denetler. Logic Apps bile hiçbir mantıksal uygulama örneği oluştururken, bir yürütme olarak her bir yoklama isteği ölçümleri. Yoklama aralığını belirtmek için mantıksal Uygulama Tasarımcısı aracılığıyla bir tetikleyici ayarlayın.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
@@ -50,24 +54,28 @@ Tetikleyiciler bir mantıksal uygulama örneği belirli bir olay meydana geldiğ
 
 * **Yinelenme tetikleyicisini** – Bu tetikleyici, tetikleyici ayarladığınız yinelenme aralığı temel bir mantıksal uygulama örneği oluşturur. Örneğin, üç günde bir çalışır bir yinelenme tetikleyicisi veya daha karmaşık bir zamanlamaya göre ayarlayabilirsiniz.
 
-Tetikleyici yürütmelerinin mantıksal uygulamanızın genel bakış bölmesinde tetikleyici geçmişi bölümü altında bulabilirsiniz.
-
 ## <a name="actions"></a>Eylemler
 
-Yerleşik Eylemler, HTTP, Azure işlevleri veya API Management'ı çağırın ve ayrıca akış adımları denetim eylemleri gibi ilgili türleri olan yerel Eylemler ölçülür. Çağrı Eylemler [Bağlayıcılar](https://docs.microsoft.com/connectors) "ApiConnection" türüne sahip. Bu bağlayıcıları üzerinde kendi ilgili temel ölçülür, standart veya Kurumsal bağlayıcılar olarak sınıflandırılan [fiyatlandırma][pricing]. Kurumsal bağlayıcı *Önizleme* standart bağlayıcılar ücretlendirilir.
+Logic Apps, yerleşik Eylemler yerel eylemleri ölçümleri. Örneğin, Azure işlevleri veya API Management ve denetim akışı adımlarını döngüler ve koşullar gibi çağrılarından HTTP üzerinden çağrılarını yerleşik Eylemler içerir 
+- her biri kendi eylem türüne sahip. Çağrı Eylemler [Bağlayıcılar](https://docs.microsoft.com/connectors) "ApiConnection" türüne sahip. Bu bağlayıcıları üzerinde kendi ilgili temel ölçülür, standart veya Kurumsal bağlayıcılar olarak sınıflandırılan [fiyatlandırma][pricing]. Kurumsal bağlayıcı *Önizleme* standart bağlayıcılar ücretlendirilir.
 
-Tüm başarılı ve başarısız çalıştırma işlemleri olarak sayılır ve eylem yürütmeleri ölçülür. Ancak, mantıksal uygulama tamamlanmadan önce sonlandırıldığından karşılaşılmamış koşullar veya çalıştırma, Eylemler nedeniyle atlanır eylemleri eylem yürütmeleri sayılmaz. Bunlar devre dışı durumdayken ücret ödemediğiniz şekilde devre dışı logic apps yeni örnekleri örneği oluşturulamıyor.
+Logic Apps ölçümleri tüm başarılı ve başarısız Eylemler eylem yürütmeleri çalışır. Logic Apps bu işlemleri ölçüm değil: 
+
+* Karşılaşılmamış koşullar nedeniyle atlandı eylemleri
+* Mantıksal uygulama bitmeden önce durdurulduğundan çalıştırma eylemleri
+
+Devre dışı logic apps, yeni örneklerini oluşturamayacağınızdan sırasında devre dışı ücretlendirilmezsiniz.
 
 > [!NOTE]
 > Mantıksal uygulama devre dışı bıraktıktan sonra şu anda çalışan örnekleri tamamen durdurmadan önce biraz zaman alabilir.
 
-Döngü içinde çalışacak eylemleri, Döngüdeki her bir döngü başına sayılır. Örneğin, 10 öğe listesini işleme bir "for each" döngüsü tek bir eylemle liste öğelerini (10) sayısı (1) döngüsünde işlemlerinin sayısı artı bir döngü başlatmak için çarpılmasıyla hesaplanır. Bu nedenle, bu örnekte hesaplama (10 * 1), + 1, 11 eylem yürütmeleri içinde sonuçlanır.
+Döngü içinde çalışan işlemleri için Logic Apps döngü döngüsünde başına her bir işlem sayılır. Örneğin, bir liste işleyen bir "for each" döngüsü olduğunu varsayalım. Logic Apps ölçümleri bir liste sayısı tarafından bu döngü eylemi döngü eylem sayısı olan öğeler ve döngü başlatan bunu eylem ekler. Hesaplama için 10-öğe listesi olan (10 * 1) + 1, 11 eylem yürütmeleri içinde sonuçlanır.
 
 ## <a name="integration-account-usage"></a>Tümleştirme hesabı kullanımı
 
-Tüketim tabanlı kullanımını içeren bir [tümleştirme hesabı](logic-apps-enterprise-integration-create-integration-account.md) nerede keşfedin, geliştirebilir ve test [B2B/EDI](logic-apps-enterprise-integration-b2b.md) ve [XML işleme](logic-apps-enterprise-integration-xml.md) olmadan Logic Apps özellikleri ek bir maliyet. Bir tümleştirme hesabı başına bölge ve belirli en fazla depolama olabilir [yapıtları sayıda](../logic-apps/logic-apps-limits-and-config.md)EDI ticari iş ortakları ve anlaşmalar, haritalar, şemalar, derlemeleri, sertifikaları ve toplu iş yapılandırması gibi.
+Tüketim tabanlı kullanım uygulandığı [tümleştirme hesapları](logic-apps-enterprise-integration-create-integration-account.md) nerede keşfedin, geliştirebilir ve test [B2B/EDI](logic-apps-enterprise-integration-b2b.md) ve [XML işleme](logic-apps-enterprise-integration-xml.md) olmadan Logic Apps özellikleri ek bir maliyet. Bölge başına bir tümleştirme hesabı olabilir. Her tümleştirme hesabı belirli depolayabilirsiniz [yapıtları sayıda](../logic-apps/logic-apps-limits-and-config.md), iş ortakları, anlaşmalar, haritalar, şemalar, derlemeleri, sertifikaları, toplu iş yapılandırması ve benzeri ticari içerir.
 
-Logic Apps, ayrıca temel ve standart tümleştirme hesapları ile desteklenen Logic Apps SLA'sı sunar. Temel tümleştirme hesapları yalnızca ileti işleme kullanmak istiyorsanız, ya da daha büyük bir iş varlığı bir alım-satım iş ortağı ilişkisi olan küçük bir iş ortağı olarak davranacak kullanabilirsiniz. Standart tümleştirme hesapları daha karmaşık B2B ilişkileri destekler ve yönetebileceğiniz varlık sayısını artırın. Daha fazla bilgi için [Azure fiyatlandırması](https://azure.microsoft.com/pricing/details/logic-apps).
+Logic Apps, ayrıca temel ve standart tümleştirme hesapları ile desteklenen Logic Apps SLA'sı sunar. Temel tümleştirme hesapları yalnızca ileti işleme istediğiniz veya daha büyük bir iş varlığı bir alım-satım iş ortağı ilişkisi olan küçük bir iş ortağı olarak davranacak kullanabilirsiniz. Standart tümleştirme hesapları daha karmaşık B2B ilişkileri destekler ve yönetebileceğiniz varlık sayısını artırın. Daha fazla bilgi için [Azure fiyatlandırması](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

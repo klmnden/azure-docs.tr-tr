@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430043"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853362"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -135,6 +135,7 @@ Standart hata yanıtı ile ad/değer çifti adlı bir JSON nesnesidir `error`. A
 | 403000| İşleme izin verilmiyor.|
 | 403001| Abonelik, ücretsiz kotasını aştığı için işleme izin verilmiyor.|
 | 405000| İstenen kaynak için istek yöntemi desteklenmiyor.|
+| 408001| İstenen özel çeviri sistemi henüz kullanılamıyor. Lütfen birkaç dakika sonra yeniden deneyin.|
 | 415000| Content-Type üst bilgisi eksik veya geçersiz.|
 | 429000, 429001 429002| İstemci çok fazla istek gönderdiği için sunucu isteği reddetti. Azaltmayı önlemek için istekleri sıklığını azaltın.|
 | 500000| Beklenmeyen bir hata oluştu. Hata devam ederse, hatanın tarih/saat ile rapor istek tanımlayıcısı yanıt üst bilgisi X-RequestId ve istek üst bilgisi X-ClientTraceId alınan istemci tanımlayıcısı.|

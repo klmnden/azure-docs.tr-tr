@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/07/2018
+ms.date: 11/15/2018
 ms.author: juliako
-ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 41ad4b26247fa8037de01ff956921146a2238abc
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616019"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823399"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -65,9 +65,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 * Aşağıdaki varlıkların yeniden adlandırıldı
     * JobOutput görevi yerine geçer ve artık bir iş parçasıdır.
     * Bulucu StreamingLocator değiştirir.
-    * Livestream kanal değiştirir.
-        
-        Canlı kanal ölçümler üzerinde üzerinden LiveEvents faturalandırılır. Daha fazla bilgi için [Canlı akışa genel bakış](live-streaming-overview.md#billing) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
+    * Livestream kanal değiştirir.<br/>Canlı kanal ölçümler üzerinde üzerinden LiveEvents faturalandırılır. Daha fazla bilgi için [Canlı akışa genel bakış](live-streaming-overview.md#billing) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
     * Program LiveOutput değiştirir.
 * LiveOutputs açıkça başlatılması gerekmez, üzerinde oluşturma işlemini başlatmak ve silindiğinde durdurun. V2 API'leri farklı şekilde çalışan programlar, bunlar oluşturulduktan sonra başlatılmış olması gerekiyordu.
 
@@ -75,10 +73,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 
 V3 API v2 API'si ile ilgili aşağıdaki özellik boşluklarına sahiptir. Boşlukları Kapatma aşamasındadır.
 
-* [Premium Kodlayıcı](../previous/media-services-premium-workflow-encoder-formats.md) ve eski [medya analizi işlemcileri](../previous/media-services-analytics-overview.md) (Azure medya Hizmetleri Dizin Oluşturucu 2 Önizleme, Face Redactor, vb.) v3 erişilebilir değildir.
-
-    Media Indexer 1 veya 2 Önizleme geçirmek isteyen müşteriler, hemen v3 API'SİNDE önceden AudioAnalyzer kullanabilirsiniz.  Bu yeni hazır eski Media Indexer 1'den daha fazla özellik ya da 2 içerir. 
-
+* [Premium Kodlayıcı](../previous/media-services-premium-workflow-encoder-formats.md) ve eski [medya analizi işlemcileri](../previous/media-services-analytics-overview.md) (Azure medya Hizmetleri Dizin Oluşturucu 2 Önizleme, Face Redactor, vb.) v3 erişilebilir değildir.<br/>Media Indexer 1 veya 2 Önizleme geçirmek isteyen müşteriler, hemen v3 API'SİNDE önceden AudioAnalyzer kullanabilirsiniz.  Bu yeni hazır eski Media Indexer 1'den daha fazla özellik ya da 2 içerir. 
 * Media Encoder Standard v2 API'lerindeki Gelişmiş özelliklerinin birçoğunu şu anda gibi v3 sürümünde kullanılabilir değil:
     * (İsteğe bağlı ve canlı senaryoları için) kırpma
     * Varlıkları birleştirme
@@ -103,13 +98,12 @@ Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod fa
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 * Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
-* Bugün, medya ayrılmış birimi yalnızca Media Services v2 API'si kullanılarak yönetilebilir. Daha fazla bilgi için [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md).
+* Eşzamanlılık ve işlerinizin performansını, özellikle olanları Video veya ses analizi içeren denetlemek için hesabınızdaki medya ayrılmış birimi (MRU) sağlamak gerekir. Daha fazla bilgi için bkz. [Medya İşlemeyi Ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). MRU kullanarak yönetebileceğiniz [CLI 2.0 için Media Services v3](media-reserved-units-cli-how-to.md)kullanarak [Azure portalında](../previous/media-services-portal-scale-media-processing.md), veya bu adı kullanıyor[ v2 API'leri](../previous/media-services-dotnet-encoding-units.md). Media Services v2 veya v3 kullanıp kullanmadığınızı MRU, sağlama için gereken API.
 * Media Services, API v2 API'si tarafından yönetilemez v3 ile oluşturduğunuz varlıkları.  
 * V3 API'ler aracılığıyla v2 API ile oluşturulan varlıkları yönetmek için önerilmez. Varlıkları iki sürümde uyumsuz hale farklar örnekleri aşağıda verilmiştir:   
     * Dönüşüm ile ilişkili olmayan olarak işleri ve görevleri v2'de oluşturulan v3 sürümünde gösterilmez. V3 dönüşümler ve işler için geçmeniz önerilir. İzleyici Hareket halindeki v2 için geçiş sırasında işleri ihtiyaç duyan, bir çok daha kısa zaman dilimi olur.
-    * Kanallar ve (v3 sürümünde LiveOutputs LiveEvents ile eşlenir) v2 ile oluşturulan programları v3 ile yönetilen devam edemiyor. V3 LiveEvents ve kullanışlı bir kanalı durdurun, LiveOutputs geçmeniz önerilir.
-    
-        Şu anda, sürekli olarak çalışan kanalların geçiremezsiniz.  
+    * Kanallar ve (v3 sürümünde LiveOutputs LiveEvents ile eşlenir) v2 ile oluşturulan programları v3 ile yönetilen devam edemiyor. V3 LiveEvents ve kullanışlı bir kanalı durdurun, LiveOutputs geçmeniz önerilir.<br/>Şu anda, sürekli olarak çalışan kanalların geçiremezsiniz.  
+
 > [!NOTE]
 > Lütfen bu makalede yer işareti ve güncelleştirmeleri denetleme tutun.
 

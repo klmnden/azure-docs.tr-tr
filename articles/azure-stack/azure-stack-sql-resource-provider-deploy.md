@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8a1bae4a05a0054960771b61ac186c1a48c3aea1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 633597785d42f8bdd150a3b4a839a9595ebde7a4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686254"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852580"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack'te SQL Server Kaynak sağlayıcısı dağıtma
 
@@ -37,10 +37,11 @@ Azure Stack SQL kaynak sağlayıcısını dağıtmadan önce karşılanması ger
 - Gerekli Windows Server core VM için Azure Stack marketini indirerek ekleme **Windows Server 2016 Datacenter - Sunucu Çekirdeği** görüntü.
 - İkili SQL kaynak Sağlayıcısı'nı indirin ve geçici bir dizine içeriğini ayıklamak için ayıklayıcısı çalıştırın. Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir.
 
-    |Azure Stack en düşük sürüm|SQL RP sürümü|
-    |-----|-----|
-    |Sürüm 1808 (1.1808.0.97)|[SQL RP 1.1.30.0 sürümü](https://aka.ms/azurestacksqlrp11300)|
-    |     |     |
+  |Azure Stack en düşük sürüm|SQL RP sürümü|
+  |-----|-----|
+  |Sürüm 1808 (1.1808.0.97)|[SQL RP 1.1.30.0 sürümü](https://aka.ms/azurestacksqlrp11300)|
+  |Sürüm 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 sürümü](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
 
 - Veri Merkezi tümleştirmesi önkoşulların karşılandığından emin olun:
 

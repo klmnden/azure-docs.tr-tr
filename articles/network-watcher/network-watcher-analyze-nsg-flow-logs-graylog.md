@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414786"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823053"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Ağ İzleyicisi ile Graylog kullanarak azure'da ağ güvenlik grubu akış günlüklerini analiz etme ve yönetme
 
 [Ağ güvenlik grubu akış günlüklerini](network-watcher-nsg-flow-logging-overview.md) Azure ağ arabirimleri için giriş ve çıkış IP trafiğini anlamak için kullanabileceğiniz bilgileri sağlar. Akış günlüklerini göster giden ve gelen akışlar bir ağ güvenlik grubu kuralı temelinde hesaplamaz ağ arabirimini akışı, akış 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) uygular ve trafiğin izin verilen veya reddedilen .
 
 Birçok ağ güvenlik grubu akış günlüğe kaydetme etkin ağınızdaki olabilir. Akış günlüğe kaydetme etkin birden fazla ağ güvenlik gruplarıyla ayrıştırılamadı ve günlüklerinizi verilerden Öngörüler elde etmeye hantal yapabilirsiniz. Bu makalede Graylog, bir açık kaynak günlük yönetimi ve analiz aracı ve Logstash, bir açık kaynak sunucu tarafı veri işleme ardışık düzeni'ni kullanarak bu ağ güvenlik grubu akış günlüklerini merkezi olarak yönetmek için bir çözüm sağlar.
+
+> [!Warning]
+> Aşağıdaki adımlar akış günlükleri sürüm 1 ile çalışır. Ayrıntılar için bkz [için ağ güvenlik grubu akış günlüğe kaydetme giriş](network-watcher-nsg-flow-logging-overview.md). Aşağıdaki yönergeler, değişiklik yapmadan günlük dosyalarının sürüm 2 ile çalışmaz.
 
 ## <a name="scenario"></a>Senaryo
 

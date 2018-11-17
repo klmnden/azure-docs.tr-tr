@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: e88d38e6d95459cc1c41adecee6b7ece659eac99
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1a031ede814a963f25f1a3a3fc9725d9e5670a8e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957259"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824651"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure web uygulaması performansını izleme
 [Azure Portal](https://portal.azure.com)’da [Azure web uygulamalarınız](../app-service/app-service-web-overview.md) için uygulama performansını izleme özelliğini ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
@@ -101,7 +101,7 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 * [Canlı uygulamanızda profil oluşturucuyu çalıştırın](app-insights-profiler.md).
 * [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights ile Azure İşlevlerini izleyin
 * Application Insights’a gönderilmek üzere [Azure tanılamayı etkinleştirin](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
-* Hizmetinizin kullanılabilir ve yanıt verir durumda oluğundan emin olmak için [hizmet durumu ölçümlerini izleyin](../monitoring/monitoring-data-collection.md).
+* Hizmetinizin kullanılabilir ve yanıt verir durumda oluğundan emin olmak için [hizmet durumu ölçümlerini izleyin](../azure-monitor/platform/data-collection.md).
 * İşletimsel olaylar gerçekleştiğinde ya da ölçümler bir eşiği aştığında [uyarı bildirimleri alın](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 * Bir web sayfasını ziyaret eden tarayıcılardan istemci telemetrisi toplamak istiyorsanız [JavaScript uygulamaları ve web sayfaları için Application Insights](app-insights-javascript.md)’ı kullanın.
 * Sitenizin kapalı olması durumunda uyarı almak istiyorsanız [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) ayarlayın.

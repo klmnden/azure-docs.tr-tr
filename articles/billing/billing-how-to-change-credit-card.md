@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 68f987daff5bc0ef81c248f6f5e75aaf1318b025
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6a302c611b7c71dd8bc8c472330b79ea21504770
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395500"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824634"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ekleme, güncelleştirme veya Azure için bir kredi kartı veya banka kartı kaldırma
 
-Hesap Merkezi'nde yeni bir kredi kartı eklemeniz, kullanılan mevcut kredi kartını güncelleştirmek veya kullanmadığınız bir kredi kartı Sil. Siz [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa) bu değişiklikleri yapmak için.
+Hesap Merkezi'nde yeni bir kredi kartı eklemeniz, kullanılan mevcut kredi kartını güncelleştirmek veya kullanmadığınız bir kredi kartı Sil. Siz bir [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa) bu değişiklikleri yapmak için.
 
 **Fatura ile ödeme geçmek istiyorsunuz?** Bkz: [Azure abonelikleri için fatura ile ödeme](billing-how-to-pay-by-invoice.md).
  
@@ -40,7 +40,7 @@ Hesap Merkezi'nde yeni bir kredi kartı eklemeniz, kullanılan mevcut kredi kart
 1. Seçin "+" bir kart ekleyin.
 
     ![Ödeme yöntemini yanındaki Düzenle seçeneğini gösteren ekran görüntüsü.](./media/billing-how-to-change-credit-card/editcard_new.png)
-1. Kredi girin veya banka kartı ayrıntıları.
+1. Kredi veya banka kartının bilgilerini girin.
 1. **Kaydet**’i seçin. 
 
 Kredi kartı ekledikten sonra hata alırsanız bkz [Azure kayıt sırasında kredi kartı reddedildi](billing-credit-card-fails-during-azure-sign-up.md).
@@ -82,7 +82,7 @@ Aboneliğiniz devre dışı veya iptal edildikten sonra biz aboneliğinizi kalı
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Neden "oturumunuzun süresi doldu. almaya devam ediyorum Lütfen tekrar oturum için buraya tıklayın"?
 
-Zaten oturum kapalı olsa bile bu hata iletisini almaya devam ederseniz ve geri içinde özel tarama oturumla yeniden deneyin.
+Zaten oturum açmış olsa bile bu hata iletisini almaya devam ederseniz ve geri içinde özel tarama oturumla yeniden deneyin.
 
 ### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Farklı bir kartı sahibim her abonelik için nasıl kullanabilirim?
 

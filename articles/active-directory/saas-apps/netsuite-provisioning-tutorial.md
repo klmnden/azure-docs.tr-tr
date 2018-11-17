@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için muhasebesi yapılandırma | Microsoft Docs'
-description: Azure Active Directory ve muhasebesi arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için muhasebesi OneWorld yapılandırma | Microsoft Docs'
+description: Azure Active Directory ve muhasebesi OneWorld arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346755"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823868"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Öğretici: Muhasebesi otomatik kullanıcı hazırlama için yapılandırma
 
-Bu öğreticinin amacı muhasebesi ve Azure AD sağlama ve sağlamasını muhasebesi Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır.
+Bu öğreticinin amacı muhasebesi OneWorld ve Azure AD sağlama ve sağlamasını muhasebesi Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Azure Active directory kiracısı.
-*   Bir muhasebesi çoklu oturum açma etkin aboneliği.
-*   Muhasebesi takım Yöneticisi izinlerine sahip bir kullanıcı hesabı.
+*   Muhasebesi OneWorld aboneliği. Otomatik kullanıcı hazırlama şu anda olduğuna dikkat edin yalnızca muhasebesi OneWorld ile desteklenir.
+*   Muhasebesi yönetici izinlerine sahip bir kullanıcı hesabı.
 
-## <a name="assigning-users-to-netsuite"></a>Muhasebesi için kullanıcı atama
+## <a name="assigning-users-to-netsuite-oneworld"></a>Muhasebesi OneWorld için kullanıcı atama
 
 Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların, "Azure AD'de bir uygulama için atandı" eşitlenir.
 
@@ -41,7 +41,7 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 
 [Kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>Kullanıcılar için muhasebesi atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Kullanıcılar için muhasebesi OneWorld atamak için önemli ipuçları
 
 *   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmayı test etmek için muhasebesi atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 

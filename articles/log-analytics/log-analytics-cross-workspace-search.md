@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 11/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e06b9ff2134c0bd1fb1ee8515827e9e8c06a3108
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9c7a1ec33f82239a5b95e9bf116fe35694d9df36
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008479"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852869"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics'te kaynaklar arası günlük aramaları gerçekleştirme  
 
@@ -101,6 +101,36 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 | where UpdateState == "Needed"
 | summarize dcount(Computer) by Classification
 ```
+
+## <a name="using-cross-resource-query-for-multiple-resources"></a>Kaynaklar arası sorgu için birden çok kaynakları kullanma
+Kaynaklar arası sorgular birden fazla Log Analytics ve Application Insights kaynakları verileri ilişkilendirmek için kullanılırken, sorgu karmaşık ve sürdürülmesi zor hale gelebilir. Faydalanın [Log analytics'te işlevleri](query-language/functions.md) kapsamı sorgu yapısı basitleştiren sorgu kaynaklarından gelen sorgu mantığının ayırmak için. Aşağıdaki örnek nasıl birden fazla Application Insights kaynaklarını izleyebilir ve uygulama adına göre başarısız istek sayısını görselleştirmek gösterir. 
+
+Application Insights kaynakları kapsamını başvuran aşağıdaki gibi bir sorgu oluşturun. `withsource= SourceApp` Komut, uygulama adını belirten bir sütun gönderilen günlük ekler. [İşlevi sorguyu kaydetmek](query-language/functions.md#create-a-function) takma ad ile _applicationsScoping_.
+
+```Kusto
+// crossResource function that scopes my Application Insights resources
+union withsource= SourceApp
+app('Contoso-app1').requests, 
+app('Contoso-app2').requests,
+app('Contoso-app3').requests,
+app('Contoso-app4').requests,
+app('Contoso-app5').requests
+```
+
+
+
+Artık [bu işlevi kullanın](query-language/functions.md#use-a-function) kaynaklar arası sorguda aşağıdaki gibi. İşlev diğer adı _applicationsScoping_ tanımlanan tüm uygulamalardan requests tablosuna birleşimini döndürür. Sorgu daha sonra başarısız olan istekleri için filtreler ve uygulama tarafından eğilimleri görselleştirir. _Ayrıştırma_ işleci, bu örnekte isteğe bağlıdır. Uygulama adından ayıklar _SourceApp_ özelliği.
+
+```Kusto
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| sort by count_ desc 
+| render timechart
+```
+![zaman grafiğini](media/log-analytics-cross-workspace-search/chart.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

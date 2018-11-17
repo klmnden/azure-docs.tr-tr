@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: 533fbfc42939299f99699a13513cd3b55c89cabc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b3b4b1f637eae87e9b21c81cf645c642d2043d4c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957293"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821897"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Şimdi de Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklentisi, Azure İzleyici tarafından sağlanan altyapı verilerin yanı sıra Application Insights SDK'sı tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -128,4 +128,4 @@ VM'ler, bunları veya kullanıp kullanmadığınızı çalıştırırken ücretl
 2. Kaynak grubu sayfanızda tıklayın **Sil**, türü **Grafana** metin kutusuna ve ardından **Sil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure İzleyici ölçümlerine genel bakış](../monitoring/monitoring-data-collection.md)
+* [Azure İzleyici ölçümlerine genel bakış](../azure-monitor/platform/data-collection.md)

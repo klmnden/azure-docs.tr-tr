@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6debfaed28be2b5dee5e24a443b791f75f7bea8f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634201"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822917"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Açık kaynak araçlar kullanarak Azure Ağ İzleyicisi NSG akış günlüklerini Görselleştirme
 
 Ağ güvenlik grubu akış günlüklerini kullanılabilir bilgi sağlayan ağ güvenlik gruplarında giriş ve çıkış IP trafiğini anlayın. Bu akış günlüklerini giden ve gelen akışlar başına kural olarak, akış uygulandığı NIC, 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) akışla ilgili trafiklere izin verildiğini veya, gösterin.
 
 Bu akış günlüklerini el ile ayrıştırma ve Öngörüler elde etmek zor olabilir. Ancak, bu verileri görselleştirmenize yardımcı olabilecek birçok açık kaynak araçları vardır. Bu makale elastik hızla dizin ve akışınız görselleştirmenize olanak tanıyan yığını kullanarak bu günlükleri görselleştirmek için bir çözüm Kibana panosunda oturum sağlar.
+
+> [!Warning]  
+> Aşağıdaki adımlar akış günlükleri sürüm 1 ile çalışır. Ayrıntılar için bkz [için ağ güvenlik grubu akış günlüğe kaydetme giriş](network-watcher-nsg-flow-logging-overview.md). Aşağıdaki yönergeler, değişiklik yapmadan günlük dosyalarının sürüm 2 ile çalışmaz.
 
 ## <a name="scenario"></a>Senaryo
 

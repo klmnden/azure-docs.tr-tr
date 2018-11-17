@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409535"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822764"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlükleri
 
  
-Bu makalede, bir Batch hesabı özelliklerini kullanarak izlemek açıklanmaktadır [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../monitoring/monitoring-data-collection.md#metrics) ve [tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) Batch hesabınızdaki kaynaklara için. Toplama ve Batch hesabınızı izleme ve sorunlarını tanılamak için yol çeşitli bu verileri kullanır. Ayrıca [ölçüm uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md) bir ölçüm belirli bir değere ulaştığında bildirimleri almak için. 
+Bu makalede, bir Batch hesabı özelliklerini kullanarak izlemek açıklanmaktadır [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) Batch hesabınızdaki kaynaklara için. Toplama ve Batch hesabınızı izleme ve sorunlarını tanılamak için yol çeşitli bu verileri kullanır. Ayrıca [ölçüm uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md) bir ölçüm belirli bir değere ulaştığında bildirimleri almak için. 
 
 ## <a name="batch-metrics"></a>Toplu ölçümleri
 

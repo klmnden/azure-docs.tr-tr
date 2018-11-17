@@ -5,7 +5,8 @@ keywords: machine learning yeni başlayanlar, machine learning soruları, popül
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8292a3cf7c65ccb6809481a8f099dd9ce4f5e0d5
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253865"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820928"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir Bilgi Grafiği: Algoritma örnekleri ile machine learning temel bilgileri
 Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için bu bilgi grafiği anlaşılması kolay bakış indirin. Algoritma örnekleri hangi algoritmaları ve kullanıldıkları anlamak machine learning Acemi yardımcı olur.

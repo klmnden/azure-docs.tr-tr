@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 3ab0edf4483763c1048b7026175ddce821624ac0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989886"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821115"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure haritalar coğrafi kodlama kapsamı
 
@@ -30,13 +30,13 @@ Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimleriniz
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahamalar                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Belize                                              |                 |                |              |      ✓     |          ✓         |
+| Beliz                                              |                 |                |              |      ✓     |          ✓         |
 | Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolivya                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bonaire, Sint Eustatius ve Saba|                 |                |              |      ✓     |          ✓         |
 | Brezilya                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kanada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Cayman Adaları                                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Kayman Adaları                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Şili                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | $Clipperton Adası                                   |                 |                |              |      ✓     |                    |
 | Kolombiya                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -152,7 +152,7 @@ Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimleriniz
 | Belçika                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosna-Hersek                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgaristan                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belerus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belarus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Hırvatistan                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kıbrıs                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Çek Cumhuriyeti                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -178,8 +178,8 @@ Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimleriniz
 | Kosova                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Kırgızistan                                          |                 |                |              |      ✓     |          ✓         |
 | Letonya                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Lituanya                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Lihtenştayn                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Litvanya                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lüksemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Makedonya                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -247,7 +247,7 @@ Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimleriniz
 | Kenya                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Kuveyt                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lübnan                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Lesoto                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberya                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Libya|                 |                |       ✓      |      ✓     |          ✓         |
 | Madagaskar                                          |                 |                |       ✓      |      ✓     |          ✓         |
@@ -267,7 +267,7 @@ Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimleriniz
 | Umman                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Katar                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Réunion|                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ruanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Suudi Arabistan                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |

@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0c8fe0759e115288e9f8cc2ea313f6dc3dc89b6b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686135"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854015"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -179,11 +179,6 @@ Aşağıdaki tablolarda her rol için belirtilen Azure Active Directory'de özel
 ### <a name="application-administrator"></a>Uygulama Yöneticisi
 Tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunların tüm özelliklerini yönetebilir.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | Microsoft.aad.Directory/Applications/Audience/Update | Azure Active Directory'de applications.audience özelliğini güncelleştirin. |
@@ -223,11 +218,6 @@ Tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunlar�
 ### <a name="application-developer"></a>Uygulama Geliştirici
 Uygulama kayıtları 'kullanıcılar uygulamaları kaydedebilir' bağımsız oluşturabilirsiniz ayarı.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Azure Active Directory'de uygulamalar oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
@@ -237,11 +227,6 @@ Uygulama kayıtları 'kullanıcılar uygulamaları kaydedebilir' bağımsız olu
 
 ### <a name="billing-administrator"></a>Faturalama Yöneticisi
 Ödeme bilgilerini güncelleştirme gibi sık kullanılan faturalandırma görevlerini gerçekleştirebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -263,11 +248,6 @@ Uygulama kayıtları 'kullanıcılar uygulamaları kaydedebilir' bağımsız olu
 Erişebilir ve Masaüstü Yönetimi Araçları ve Hizmetleri Intune dahil olmak üzere yönetebilirsiniz.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -283,11 +263,6 @@ Erişebilir ve Masaüstü Yönetimi Araçları ve Hizmetleri Intune dahil olmak 
 
 ### <a name="cloud-application-administrator"></a>Bulut Uygulaması Yöneticisi
 Uygulama Ara Sunucusu hariç tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunların tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
@@ -327,11 +302,6 @@ Uygulama Ara Sunucusu hariç tüm uygulama kayıtlarını ve kurumsal uygulamala
 ### <a name="cloud-device-administrator"></a>Bulut cihaz Yöneticisi
 Azure AD'de cihazları yönetmek için tam erişim.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | Microsoft.aad.Directory/Devices/DELETE | Azure Active Directory'de cihazları silin. |
@@ -344,11 +314,6 @@ Azure AD'de cihazları yönetmek için tam erişim.
 
 ### <a name="company-administrator"></a>Şirket Yöneticisi
 Azure AD'nin ve Azure AD kimliklerini kullanan Microsoft hizmetlerinin tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol, rol ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -411,11 +376,6 @@ Azure AD'nin ve Azure AD kimliklerini kullanan Microsoft hizmetlerinin tüm öze
 Azure AD ve Office 365'te uyumluluk yapılandırmasını ve raporları okuyup yönetebilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -435,11 +395,6 @@ Azure AD ve Office 365'te uyumluluk yapılandırmasını ve raporları okuyup y�
 ### <a name="conditional-access-administrator"></a>Koşullu Erişim Yöneticisi
 Koşullu erişim özelliklerini yönetebilir.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Azure Active Directory'de policies.conditionalAccess ilkelerini okuyun. |
@@ -452,11 +407,6 @@ Koşullu erişim özelliklerini yönetebilir.
 
 ### <a name="crm-service-administrator"></a>CRM Hizmet Yöneticisi
 Dynamics 365 ürününün tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -476,11 +426,6 @@ Dynamics 365 ürününün tüm özelliklerini yönetebilir.
 Müşterinin kuruluş verilerine erişmek için Microsoft destek isteklerini onaylayabilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -493,11 +438,6 @@ Müşterinin kuruluş verilerine erişmek için Microsoft destek isteklerini ona
 ### <a name="device-administrators"></a>Cihaz Yöneticileri
 Bu rolün üyeleri, Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubuna eklenir.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Azure Active Directory'de groupSettings üzerindeki temel özellikleri okuyun. |
@@ -505,11 +445,6 @@ Bu rolün üyeleri, Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubun
 
 ### <a name="directory-readers"></a>Dizin Okuyucular
 Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için kullanıcılar için tasarlanmamıştır.
-
-  > [!NOTE]
-  > Bu rol, rol ek izinleri devralır.
-  >
-  >
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
@@ -570,11 +505,6 @@ Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için kullanıcıl
 ### <a name="directory-synchronization-accounts"></a>Dizin eşitlemesi hesapları
 Yalnızca Azure AD Connect hizmeti tarafından kullanılır.
 
-  > [!NOTE]
-  > Bu rol, rol ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Azure Active Directory'de organization.dirSync özelliğini güncelleştirin. |
@@ -604,11 +534,6 @@ Yalnızca Azure AD Connect hizmeti tarafından kullanılır.
 ### <a name="directory-writers"></a>Dizin Yazıcılar
 Okuma ve yazma temel dizin bilgileri kullanabilirsiniz. Uygulamalara erişim vermek için kullanıcılar için tasarlanmamıştır.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | Microsoft.aad.Directory/Groups/Create | Azure Active Directory'de gruplar oluşturun. |
@@ -630,11 +555,6 @@ Okuma ve yazma temel dizin bilgileri kullanabilirsiniz. Uygulamalara erişim ver
 
 ### <a name="exchange-service-administrator"></a>Exchange Hizmeti Yöneticisi
 Exchange ürününün tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -659,11 +579,6 @@ Exchange ürününün tüm özelliklerini yönetebilir.
 ### <a name="guest-inviter"></a>Konuk Davet Eden
 'Üyeler konuk davet edebilir' ayarından bağımsız olarak konuk kullanıcı davet edebilir.
 
-  > [!NOTE]
-  > Bu rol, rol ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Azure Active Directory'de users.appRoleAssignments özelliğini okuyun. |
@@ -682,11 +597,6 @@ Exchange ürününün tüm özelliklerini yönetebilir.
 ### <a name="helpdesk-administrator"></a>Yardım Masası Yöneticisi
 Yönetici olmayan kullanıcıların ve Yardım Masası Yöneticilerinin parolalarını sıfırlayabilir.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Azure Active Directory'de tüm kullanıcı yenileme belirteçlerini geçersiz kılın. |
@@ -699,11 +609,6 @@ Yönetici olmayan kullanıcıların ve Yardım Masası Yöneticilerinin parolala
 
 ### <a name="information-protection-administrator"></a>Bilgi Koruma Yöneticisi
 Azure Information Protection ürününün tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -720,11 +625,6 @@ Azure Information Protection ürününün tüm özelliklerini yönetebilir.
 
 ### <a name="intune-service-administrator"></a>Intune Hizmet Yöneticisi
 Intune ürününün tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -761,11 +661,6 @@ Intune ürününün tüm özelliklerini yönetebilir.
 ### <a name="license-administrator"></a>Lisans Yöneticisi
 Kullanıcılar ve gruplar ürün lisanslarını yönetebilir.
 
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Azure Active Directory'de kullanıcıların lisanslarını yönetin. |
@@ -776,11 +671,6 @@ Kullanıcılar ve gruplar ürün lisanslarını yönetebilir.
 
 ### <a name="lync-service-administrator"></a>Lync Hizmet Yöneticisi
 Skype Kurumsal ürününün tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -800,11 +690,6 @@ Skype Kurumsal ürününün tüm özelliklerini yönetebilir.
 Yalnızca Office 365 İleti Merkezi'nde kuruluşuna yönelik iletileri ve güncelleştirmeleri okuyabilir. 
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -816,11 +701,6 @@ Yalnızca Office 365 İleti Merkezi'nde kuruluşuna yönelik iletileri ve günce
 
 ### <a name="partner-tier1-support"></a>Partner Tier1 Desteği
 Kullanmayın - genel kullanım için tasarlanmamıştır.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -853,11 +733,6 @@ Kullanmayın - genel kullanım için tasarlanmamıştır.
 
 ### <a name="partner-tier2-support"></a>Partner Tier2 Desteği
 Kullanmayın - genel kullanım için tasarlanmamıştır.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -895,11 +770,6 @@ Kullanmayın - genel kullanım için tasarlanmamıştır.
 Power BI ürününün tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -917,11 +787,6 @@ Power BI ürününün tüm özelliklerini yönetebilir.
 Azure AD'de rol atamalarını ve ayrıcalıklı Kimlik Yönetimi'nin tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -933,11 +798,6 @@ Azure AD'de rol atamalarını ve ayrıcalıklı Kimlik Yönetimi'nin tüm özell
 
 ### <a name="reports-reader"></a>Rapor Okuyucu
 Oturum açma ve denetim raporlarını okuyabilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -954,11 +814,6 @@ Oturum açma ve denetim raporlarını okuyabilir.
 
 ### <a name="security-administrator"></a>Güvenlik Yöneticisi
 Güvenlik bilgilerini ve raporları okuma ve Azure AD'de yapılandırmasını yönetmek ve Office 365.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -988,11 +843,6 @@ Güvenlik bilgilerini ve raporları okuma ve Azure AD'de yapılandırmasını y�
 Azure AD ve Office 365'te güvenlik bilgilerini ve raporları okuyabilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -1012,11 +862,6 @@ Azure AD ve Office 365'te güvenlik bilgilerini ve raporları okuyabilir.
 Hizmet durumu bilgilerini okuyabilir ve destek biletlerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -1031,11 +876,6 @@ Hizmet durumu bilgilerini okuyabilir ve destek biletlerini yönetebilir.
 
 ### <a name="sharepoint-service-administrator"></a>SharePoint Hizmet Yöneticisi
 SharePoint hizmetinin tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -1061,11 +901,6 @@ SharePoint hizmetinin tüm özelliklerini yönetebilir.
 Microsoft Teams hizmeti içinde arama ve toplantı özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -1084,11 +919,6 @@ Microsoft Teams hizmeti içinde arama ve toplantı özelliklerini yönetebilir.
 Teams içinde gelişmiş araçları kullanarak iletişim sorunlarını giderebilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -1104,11 +934,6 @@ Teams içinde gelişmiş araçları kullanarak iletişim sorunlarını giderebil
 Teams içinde temel araçları kullanarak iletişim sorunlarını giderebilir.
 
   > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
   >
   >
@@ -1122,11 +947,6 @@ Teams içinde temel araçları kullanarak iletişim sorunlarını giderebilir.
 
 ### <a name="teams-service-administrator"></a>Teams Hizmet Yöneticisi
 Microsoft Teams hizmetini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.
@@ -1152,11 +972,6 @@ Microsoft Teams hizmetini yönetebilir.
 
 ### <a name="user-account-administrator"></a>Kullanıcı Hesabı Yöneticisi
 Sınırlı yöneticilerin parolalarını sıfırlama dahil olmak üzere kullanıcılar ve grupların tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |

@@ -1,10 +1,11 @@
 ---
-title: '3. adım: yeni bir Machine Learning deneme oluşturma | Microsoft Docs'
-description: "Adım 3 / geliştirme Tahmine dayalı bir çözüm izlenecek yol: Azure Machine Learning Studio'da yeni bir eğitim deneme oluşturun."
+title: '3. adım: yeni bir Machine Learning denemesi oluşturma | Microsoft Docs'
+description: "Adım 3 / geliştirme Tahmine dayalı çözüm Kılavuzu: Azure Machine Learning Studio'da yeni bir eğitim denemesini oluşturun."
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
@@ -15,124 +16,124 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95000f9fb57b95bf1edcda9abfba3668b5f5b523
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2fdeab83d1e668fbbb68155c1695ffb40d71c15b
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835748"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824447"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Kılavuz Adımı 3: Yeni bir Azure Machine Learning denemesi oluşturma
-Bu kılavuzu, üçüncü adımdır [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md)
+Bu kılavuz, üçüncü adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md)
 2. [Mevcut verileri yükleme](walkthrough-2-upload-data.md)
 3. **Yeni bir deneme oluşturma**
 4. [Modelleri eğitme ve değerlendirme](walkthrough-4-train-and-evaluate-models.md)
 5. [Web hizmetini dağıtma](walkthrough-5-publish-web-service.md)
-6. [Web hizmetine erişim](walkthrough-6-access-web-service.md)
+6. [Web hizmetine erişme](walkthrough-6-access-web-service.md)
 
 - - -
-Bu kılavuzda bir sonraki adım, Machine Learning Studio'da biz karşıya veri kümesi kullanan bir denemeyi oluşturmaktır.  
+Bu izlenecek yolda bir sonraki adım, bir denemeyi Machine Learning Studio'da dosyamızı veri kümesi kullanan oluşturmaktır.  
 
-1. Studio'da sırasıyla **+ yeni** pencerenin altındaki.
-2. Seçin **deneme**ve ardından "Boş deneme" seçin. 
+1. Studio'da **+ yeni** pencerenin alt kısmındaki.
+2. Seçin **deneme**ve ardından "Boş deneme"'i seçin. 
 
     ![Yeni bir deneme oluşturma][0]
 
-2. Tuvale üstündeki varsayılan deneme adını seçin ve anlamlı yeniden adlandırın.
+2. Tuvalin üst kısmındaki varsayılan deneme adını seçin ve anlamlı bir şekilde yeniden adlandırın.
 
     ![Denemeyi yeniden adlandırma][5]
    
    > [!TIP]
-   > Doldurmak için iyi bir uygulamadır **Özet** ve **açıklama** denemesinde için **özellikleri** bölmesi. Bu özellikler, böylece daha sonra görünüyor herkes amaçlar ve yöntemler anlayabileceği deneme belge şansı.
+   > Doldurmak için iyi bir uygulamadır **özeti** ve **açıklama** deneme için **özellikleri** bölmesi. Bu özellikler, böylece herkes daha sonra görünüyor hedeflerinizi ve yöntemleri anlayacaksınız deneme belge için bir şans verin.
    > 
    > ![Deneme özellikleri][6]
    > 
-3. Deneme tuvalinin solundaki modül paletindeki genişletin **kaydedilen veri kümeleri**.
-4. Altında oluşturduğunuz veri kümesi bulma **My veri kümeleri** ve tuvale sürükleyin. Veri kümesi adı girerek bulabileceğiniz **arama** kutusunun palet üstünde.  
+3. Deneme tuvalin solundaki modül paletindeki içinde genişletin **kaydedilmiş veri kümeleri**.
+4. Altında oluşturulan veri kümesi bulma **My veri kümeleri** ve tuvale sürükleyin. Adını girerek bir veri kümesi bulabilirsiniz **arama** kutusunun üstünde paleti.  
 
-    ![Veri kümesi için deneme ekleyin][7]
+    ![Deneme için veri kümesi Ekle][7]
 
 ## <a name="prepare-the-data"></a>Verileri hazırlama
-Veri ilk 100 satırı ve tüm veri kümesi için bazı istatistiksel bilgileri görüntüleyebilirsiniz: (küçük daire altındaki) kümesinin çıkış bağlantı noktasına tıklayın ve **Görselleştir**.  
+İlk 100 veri satırlarını ve tüm veri kümesi için bazı istatistiksel bilgileri görüntüleyebilirsiniz: (küçük daire altındaki) veri kümesinin çıkış bağlantı noktasına tıklayıp **Görselleştir**.  
 
-Veri dosyasındaki sütun başlıkları ile eşleşmedi geldiğinden Studio genel başlıkları sağlamıştır (Col1, Col2, *vb.*). İyi başlıkları bir model oluşturmak için gerekli değildir, ancak bunlar denemede verilerle çalışmayı kolaylaştırır. Ayrıca, biz sonunda bu model bir web hizmeti yayımladığınızda, başlıkları hizmetinin kullanıcı sütunlara tanımlamaya yardımcı olur.  
+Veri dosyasındaki sütun başlıkları ile gelmemiştir olduğundan, genel başlıkları Studio sağlanan (Sütun1, Sütun2, *vb.*). İyi başlıkları bir model oluşturmak için gerekli değildir, ancak bunlar denemede verilerle çalışmayı kolaylaştırır. Ayrıca, biz sonunda bu modeli bir web hizmetinde yayımladığınızda, başlıkları hizmetinin kullanıcı sütunlara tanımlamaya yardımcı.  
 
-Sütun başlıklarını kullanarak ekleyebiliriz [Düzenle meta veri] [ edit-metadata] modülü.
-Kullandığınız [Düzenle meta veri] [ edit-metadata] modülü bir veri kümesi ile ilişkili meta verileri değiştirmek için. Bu durumda, bu sütun başlıkları için daha fazla kolay adlar sağlamak için kullanırız. 
+Sütun başlıkları kullanarak ekleyebiliriz [meta verileri Düzenle] [ edit-metadata] modülü.
+Kullandığınız [meta verileri Düzenle] [ edit-metadata] modülü bir veri kümesi ile ilişkili meta verileri değiştirmek için. Bu durumda, bu sütun başlıkları için daha kolay adlar sağlamak için kullanacağız. 
 
-Kullanılacak [Düzenle meta veri][edit-metadata], (Bu durumda, bunların tümünün.) değiştirmek için hangi sütunların ilk belirtin Ardından, bu sütunları (sütun başlıklarını değiştirme bu durumda,.) üzerinde gerçekleştirilecek eylemi belirtin
+Kullanılacak [meta verileri Düzenle][edit-metadata], hangi sütunların (Bu durumda, bunların tümünün.) değiştirileceğini ilk belirtin Ardından, sizin (sütun başlıklarını değiştirme bu durumda,.) Bu sütunlarda gerçekleştirilecek eylemi belirtin
 
-1. Modül paletindeki "meta veri" yazın **arama** kutusu. [Düzenle meta veri] [ edit-metadata] modül listesinde görünür.
+1. "Meta veri" yazın modül paletinde **arama** kutusu. [Meta verileri Düzenle] [ edit-metadata] modül listesinde görünür.
 
-2. ' I tıklatın ve sürükleyin [Düzenle meta veri] [ edit-metadata] tuvale modülü ve daha önce eklediğimiz dataset bırakın.
+2. Tıklayın ve sürükleyin [meta verileri Düzenle] [ edit-metadata] tuvale modülü daha önce eklediğimiz veri kümesi bırakın.
 
-3. Veri kümesine Bağlan [Düzenle meta veri][edit-metadata]: (küçük daire alt kümesi) kümesinin çıkış bağlantı noktasına tıklayın, giriş bağlantı noktasına sürükleyin [Düzenle meta veri] [ edit-metadata] (modül üstündeki küçük daire) fare düğmesini bırakın. Ya da tuval üzerinde hareket ettirin olsa bile veri kümesi ve modül bağlı kalır.
+3. Veri kümesine bağlanmak [meta verileri Düzenle][edit-metadata]: (veri kümesinin alt kısmındaki küçük daire) veri kümesinin çıkış bağlantı noktasına tıklayın, giriş bağlantı noktasına sürükleyin [meta verileri Düzenle] [ edit-metadata] (üst modülünün küçük daire), ardından fare düğmesini bırakın. Veri kümesi ve modül, ya da tuvalde yerleri bile bağlı kalır.
    
-   Denemeyi bu gibi görünmelidir:  
+   Deneme şimdi aşağıdakine benzer görünmelidir:  
    
-   ![Düzen meta verileri ekleme][1]
+   ![Düzenleme meta verileri ekleme][1]
    
-   Kırmızı bir ünlem işareti Biz bu modül için özellikler henüz ayarlamadıysanız olduğunu gösterir. Biz bu sonraki gerçekleştirirsiniz.
+   Kırmızı ünlem işareti, biz bu modül için özellikleri henüz ayarlamasını yapmadığınızı fark gösterir. Biz bu İleri yaparsınız.
    
    > [!TIP]
-   > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, çift [Düzenle meta veri] [ edit-metadata] modülü ve Açıklama "Ekle sütun başlıkları" türü. Metin kutusunu kapatmak için tuval üzerinde başka bir yerde'ı tıklatın. Açıklamayı görüntülemek için modülü aşağı oka tıklayın.
+   > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, çift [meta verileri Düzenle] [ edit-metadata] modülü ve yorum "Ekle sütun başlıklarının" yazın. Metin kutusunu kapatmak için tuvalde başka bir yerde tıklayın. Açıklamayı görüntülemek için modülü aşağı oka tıklayın.
    > 
-   > ![Meta veriler modülü açıklama eklendi Düzenle][8]
+   > ![Meta veri modülü ile açıklama eklendi Düzenle][8]
    > 
-4. Seçin [Düzenle meta veri][edit-metadata]hem de **özellikleri** tuvalin sağındaki bölmesi **başlatma Sütun seçiciyi**.
+4. Seçin [meta verileri Düzenle][edit-metadata]hem de **özellikleri** tuvalin sağındaki bölmesi **Sütun seçiciyi Başlat**.
 
-5. İçinde **seçin sütunları** iletişim kutusunda, tüm satırları seçin **kullanılabilir sütunlar** tıklatıp > taşımak için **seçili sütun**.
-   İletişim kutusu aşağıdaki gibi görünmelidir:
+5. İçinde **sütunları seçin** iletişim kutusunda, tüm satırları Seç **kullanılabilir sütunlar** tıklayın > taşımak için **seçili sütun**.
+   İletişim kutusu şu şekilde görünmelidir:
 
-   ![Seçili tüm sütunlarla Sütun Seçici][2]
+   ![Seçili tüm sütunları içeren sütun Seçici][2]
 
-6. Tıklatın **Tamam** onay işareti.
+6. Tıklayın **Tamam** işaretleyin.
 
-7. Geri **özellikleri** bölmesinde, Ara **yeni sütun adları** parametresi. Bu alanda virgülle ve sütun sırasını ayrılmış kümesindeki 21 sütunların adlarının bir listesini girin. Veri kümesi belgelerindeki UCI Web sitesinde sütun adları elde edebilirsiniz veya kolaylık sağlamak için kopyalama ve yapıştırma aşağıdaki listede:  
+7. Geri **özellikleri** bölmesinde Ara **yeni sütun adları** parametresi. Bu alanda 21 sütunlar ve sütun sırasını virgülle ayrılmış veri kümesi için adlarının listesini girin. Sütun adları UCI Web sitesinde veri kümesi belgelerinden elde edebilirsiniz veya kolaylık sağlamak için kopyalama ve yapıştırma aşağıdaki listede:  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
-   Özellikler bölmesinde şöyle görünür:
+   Özellikler bölmesi şöyle görünür:
    
-   ![Özellikleri düzenleme meta veriler için][3]
+   ![Özellikleri Düzenle meta veriler için][3]
 
 > [!TIP]
-> Sütun başlıklarını doğrulamak istiyorsanız, denemeyi çalıştırın (tıklatın **çalıştırmak** deneme tuvalinin altında). Çalışan bittiğinde (yeşil bir onay işareti görünür [Düzenle meta veri][edit-metadata]), çıkış bağlantı noktasına tıklayın [Düzenle meta veri] [ edit-metadata] modülü ve select **Görselleştir**. Denemeyi verilerine ilerlemesini görüntülemek için aynı şekilde herhangi bir modül çıktısını görüntüleyin.
+> Sütun başlıkları doğrulamak istiyorsanız, denemeyi çalıştırma (tıklayın **ÇALIŞTIRMA** deneme tuvalinin altında). Çalıştırma tamamlandığında (yeşil bir onay işareti görünür [meta verileri Düzenle][edit-metadata]), çıkış bağlantı noktasına tıklayın [meta verileri Düzenle] [ edit-metadata] Modülü seçip **Görselleştir**. Herhangi bir modülün çıkışına denemeyi verilerine ilerlemesini görüntülemek için aynı şekilde görüntüleyebilirsiniz.
 > 
 > 
 
-## <a name="create-training-and-test-datasets"></a>Eğitim oluşturmak ve veri kümelerini test etme
-Modeli eğitmek için bazı veriler ve bazı test etmek için ihtiyacımız var.
-Denemeyi sonraki adımda size dataset iki ayrı kümelerine bölünmüş şekilde: modelimizi ve test için bir tane eğitim için bir tane.
+## <a name="create-training-and-test-datasets"></a>Eğitim oluşturun ve veri kümeleri test
+Modeli eğitmek için bazı veriler ve test etmek için bazı ihtiyacımız var.
+Denemeyi sonraki adımda size veri kümesini iki ayrı veri kümelerine bölmek için: modelimizi ve test için bir eğitim için bir tane.
 
-Bunu yapmak için kullanırız [bölünmüş veri] [ split] modülü.  
+Bunu yapmak için kullandığımız [verileri bölme] [ split] modülü.  
 
-1. Bul [bölünmüş veri] [ split] modülünü tuvale sürükleyin ve buna bağlanmak [Düzenle meta veri] [ edit-metadata] modülü.
+1. Bulma [verileri bölme] [ split] modülünü tuvale sürükleyin ve buna bağlanmak [meta verileri Düzenle] [ edit-metadata] modülü.
 
-2. Varsayılan olarak, 0,5 bölünmüş orandır ve **Randomized bölünmüş** parametrenin ayarlanmış. Bu rastgele yarı veri çıkışı bir bağlantı noktası üzerinden olduğu anlamına gelir [bölünmüş veri] [ split] modülü ve yarısı diğer aracılığıyla. Bu parametreleri ayarlayabilirsiniz yanı sıra **rastgele doldurma** eğitim ve test verileri arasında bölünmüş değiştirmek için parametre. Bu örnekte, biz bunları olarak bırakın-değil.
+2. Varsayılan olarak, 0,5 bölünmüş oranıdır ve **Randomized bölünmüş** parametrenin ayarlanmış. Bu rastgele yarım veri çıkışı bir bağlantı noktası üzerinden olduğu anlamına gelir [verileri bölme] [ split] modülü ve yarısı üzerinden diğer. Bu parametreleri ayarlayabilirsiniz yanı sıra **rastgele doldurma** parametresi, eğitim ve test verileri arasında bölünmüş değiştirmek için. Bu örnekte, biz bunları olarak bırakın-olduğu.
    
    > [!TIP]
-   > Özellik **ilk çıkış veri kümesinde satır kesir** çıkışı üzerinden verilerin ne kadar olacağını belirler *sol* çıkış bağlantı noktası. İçin 0,7 oranını ayarlamak, örneği için % 70 ' veri çıkış sol bağlantı noktası üzerinden ve doğru bağlantı noktası üzerinden % 30 olur.  
+   > Özellik **ilk çıkış veri kümesinde satır kesiri** çıkışını verilerin ne kadar belirler *sol* çıkış bağlantı noktası. İçin 0,7 oranını ayarlamak, örneği için verilerin %70 çıkış sol bağlantı noktası üzerinden ve doğru bağlantı noktası üzerinden % 30 olur.  
    > 
    > 
 
-3. Çift [bölünmüş veri] [ split] modülü ve açıklama girin, "eğitim ve test veri Böl % 50". 
+3. Çift [verileri bölme] [ split] modülü ve açıklamayı girin, "% 50, eğitim ve test verileri bölme". 
 
-Çıkışları kullanırız [bölünmüş veri] [ split] modülü ancak biz gibi çalışır, ancak şimdi eğitim verilerini ve sağa çıktı olarak test verilerini sol çıkış kullanacak şekilde seçin.  
+Çıktıları kullanabiliriz [verileri bölme] [ split] modülü ancak biz gibi ancak eğitim verilerini ve sağa çıktı olarak test verilerini sol çıkış kullanacak şekilde seçelim.  
 
-Bölümünde belirtildiği gibi [önceki adımı](walkthrough-2-upload-data.md), düşük olarak yüksek kredi riski misclassifying maliyetidir beş kez yüksek olarak düşük kredi riski misclassifying maliyeti daha yüksek. Bu hesap için Biz bu maliyet işlevi yansıtır yeni bir veri kümesi oluşturur. Yeni veri kümesi her düşük riskli örnek çoğaltılmaz sırasında beş kez her yüksek riskli örnek çoğaltılır.   
+Belirtildiği gibi [önceki adımda](walkthrough-2-upload-data.md), düşük olarak yüksek kredi riski misclassifying maliyeti, beş kat daha yüksek bir düşük kredi riski yüksek olarak misclassifying maliyeti. Bu hesap için Biz bu maliyet işlevi yansıtan yeni bir veri kümesi oluşturur. Yeni veri kümesi her düşük riskli örnek çoğaltılmaz sırada her yüksek riskli örnek beş kez çoğaltılır.   
 
-Bu çoğaltma yapabiliriz R kodu kullanarak:  
+Bu çoğaltma yapabileceğimiz R kodunu kullanarak:  
 
-1. Bulma ve sürükleyin [R betiği yürütün] [ execute-r-script] deneme tuvale modülü. 
+1. Bulun ve sürükleyin [R betiği yürütme] [ execute-r-script] modülünü deneme tuvaline sürükleyin. 
 
-2. Sol çıkış bağlantı noktasına bağlanmak [bölünmüş veri] [ split] ilk giriş bağlantı noktasını ("Dataset1") modülüne [R betiği yürütün] [ execute-r-script] modülü.
+2. Sol çıkış bağlantı noktasına bağlanmak [verileri bölme] [ split] ilk giriş bağlantı noktasına ("Dataset1") Modülü [R betiği yürütme] [ execute-r-script] modülü.
 
-3. Çift [R betiği yürütün] [ execute-r-script] modülü ve açıklamayı girin "maliyet ayarlaması Ayarla".
+3. Çift [R betiği yürütme] [ execute-r-script] modülü ve açıklamayı girin "kümesi, maliyet ayarlaması".
 
-4. İçinde **özellikleri** bölmesinde, varsayılan metinde silme **R betiği** parametre ve bu komut dosyasını girin:
+4. İçinde **özellikleri** bölmesinde, varsayılan metni silmek **R betiği** parametresi bu betiği girin:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]
@@ -140,30 +141,30 @@ Bu çoğaltma yapabiliriz R kodu kullanarak:
        for (i in 1:5) data.set<-rbind(data.set,pos)
        maml.mapOutputPort("data.set")
 
-    ![R betiği R betiği yürütün Modülü][9]
+    ![R betiği yürütme modülünde R betiği][9]
 
-Bu aynı her çıktısını çoğaltma işlemi yapmak ihtiyacımız [bölünmüş veri] [ split] modülü böylece eğitim ve test verileri aynı maliyet ayarlama. Bunu yapmanın en kolay çoğaltarak yoludur [R betiği yürütün] [ execute-r-script] biz yalnızca yapılan modülü ve diğer bağlanma çıkış bağlantı noktasına [bölünmüş veri] [ split] modülü.
+Bu aynı çoğaltma işlemi her çıktısı için yapmanız gereken [verileri bölme] [ split] modülü eğitim ve test verilerini aynı maliyet ayarlaması edinecek olmanızdır. Bunu yapmanın en kolay yolu çoğaltarak olan [R betiği yürütme] [ execute-r-script] modülü yalnızca yaptık ve diğer bağlanma çıkış bağlantı noktasına [verileri bölme] [ split] modülü.
 
-1. Sağ [R betiği yürütün] [ execute-r-script] modülü ve select **kopya**.
+1. Sağ [R betiği yürütme] [ execute-r-script] modülü ve select **kopyalama**.
 
-2. Deneme tuvalinin sağ tıklatıp **Yapıştır**.
+2. Deneme tuvalinin sağ tıklayıp **Yapıştır**.
 
-3. Yeni modül yerine sürükleyin ve doğru çıkış bağlantı noktasına bağlayın [bölünmüş veri] [ split] ilk giriş bağlantı noktası için bu yeni modül [R betiği yürütün] [ execute-r-script] modülü. 
+3. Yeni modül istediğiniz konuma sürükleyin ve ardından sağ çıkış bağlantı noktasına bağlanın [verileri bölme] [ split] ilk giriş bağlantı noktasına bu yeni modül [R betiği yürütme] [ execute-r-script] modülü. 
 
-4. Tuvalin altındaki tıklatın **çalıştırmak**. 
+4. Tuvalin altındaki tıklatın **çalıştırma**. 
 
 > [!TIP]
-> R betiği yürütün modülü kopyasını özgün modül olarak aynı komut dosyasını içerir. Tuvalde bir modül kopyalayıp, kopya özgün tüm özelliklerini korur.  
+> R betiği yürütme modül kopyası, özgün modül olarak aynı betiği içerir. Tuvalde bir modül kopyalayıp, özgün tüm özelliklerini kopyalama korur.  
 > 
 > 
 
-Bizim denemeyi şimdi şuna benzer:
+Bizim deneme şimdi aşağıdakine benzer:
 
-![Bölünmüş modülü ve R betiklerini ekleme][4]
+![Bölünmüş modülü ve R betikleri ekleme][4]
 
-Denemelerinizi içinde R betiklerini kullanma hakkında daha fazla bilgi için bkz: [denemenizi R ile genişletme](extend-your-experiment-with-r.md).
+Denemelerinizi içinde R betikleri kullanma hakkında daha fazla bilgi için bkz. [R ile denemenizi genişletme](extend-your-experiment-with-r.md).
 
-**Sonraki: [eğitimi ve modelleri değerlendir](walkthrough-4-train-and-evaluate-models.md)**
+**Sonraki: [eğitme modelleri ve değerlendirme](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

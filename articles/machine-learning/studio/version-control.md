@@ -5,7 +5,8 @@ keywords: ALM, AML, Azure ML, uygulama yaşam döngüsü yönetimi, sürüm dene
 services: machine-learning
 documentationcenter: ''
 author: hning86
-ms.author: haining
+ms.custom: (previous ms.author haining)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbb2d4b61992b559ce6b29e51e51a69809b93c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259199"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824736"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da uygulama yaşam döngüsü yönetimi
 Azure Machine Learning Studio, Azure bulut platformunda Çalıştır duruma getirdiniz makine öğrenimi denemeleri geliştirmek için kullanılan bir araçtır. Tek bir platformda Visual Studio IDE ve ölçeklenebilir bir bulut hizmeti gibi birleştirilir. Azure Machine Learning Studio'ya çeşitli varlıklar otomatik yürütme ve dağıtım, sürüm oluşturma standart uygulama yaşam döngüsü yönetimi (ALM) yöntemleri birleştirebilirsiniz. Bu makalede bazı seçenekleri ve yaklaşımları açıklanmaktadır.

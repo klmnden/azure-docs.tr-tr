@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: f51673e628798f2c92e4ef7cf9327f4d5c6e5370
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 2fc21ffde5f3f4b84b2ed025cba5d228e592343f
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704691"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823427"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Uygulamanız için doğru tutarlılık düzeyi seçme
 
@@ -52,7 +52,7 @@ Uygulamada güçlü tutarlılık garantisi elde edebilirsiniz. Tutarlılık gara
 
 * Kalan üç tutarlılık düzeylerini eskime durumu penceresi, iş yüküne büyük ölçüde büyük/küçük harf bağlıdır. Örneğin, bir okuma işlemi ile veritabanında yazma işlemi varsa **nihai**, **oturumu**, veya **tutarlı ön ek** tutarlılık düzeyleri getirebilir güçlü tutarlılık düzeyi okuma işlemi olarak aynı sonuçları.
 
-Cosmos DB hesabınızı güçlü tutarlılık dışındaki bir tutarlılık düzeyi ile yapılandırılmışsa, istemcilerinize güçlü alma olasılığını ve iş yükleriniz için tutarlı okumaların olasılığa dayalı sınırlanmış eskime durumu (PBS konumunda) bakarak bulabilirsiniz Ölçüm. Bu ölçüm, Azure portalında sunulur, daha fazla bilgi için bkz. [probabilistically sınırlanmış eskime durumu ölçümü izleme](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Cosmos DB hesabınızı güçlü tutarlılık dışındaki bir tutarlılık düzeyi ile yapılandırılmışsa, istemcilerinize güçlü alma olasılığını ve iş yükleriniz için tutarlı okumaların olasılığa dayalı sınırlanmış eskime durumu (PBS konumunda) bakarak bulabilirsiniz Ölçüm. Bu ölçüm, Azure portalında sunulur, daha fazla bilgi için bkz. [İzleyici Probabilistically sınırlanmış eskime durumu (PBS) ölçüm](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 Olasılığa dayalı sınırlanmış eskime durumu, nihai tutarlılık öğelerinizi nasıl nihai olduğunu gösterir. Bu ölçüm, Cosmos DB hesabınızda şu anda yapılandırılmış tutarlılık düzeyi daha güçlü tutarlılık elde edebilirsiniz ne sıklıkta Öngörüler sağlar. Diğer bir deyişle, yazma birleşimi için kesinlikle tutarlı okumaların alma olasılığı (milisaniye cinsinden ölçülür) görebilir ve okuma bölgeleri.
 
@@ -63,4 +63,4 @@ Aşağıdaki makalelerde tutarlılık düzeyleri hakkında daha fazlasını okuy
 * [Cosmos DB API'ları arasında tutarlılık düzeyi eşleme](consistency-levels-across-apis.md)
 * [Çeşitli tutarlılık düzeyleri için kullanılabilirlik ve performans seçenekleri](consistency-levels-tradeoffs.md)
 * [Uygulamanız için oturum belirteci yönetme](how-to-manage-consistency.md#utilize-session-tokens)
-* [İzleyici probabilistically sınırlanmış eskime durumu ölçümü](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [İzleyici Probabilistically sınırlanmış eskime durumu (PBS) ölçüm](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

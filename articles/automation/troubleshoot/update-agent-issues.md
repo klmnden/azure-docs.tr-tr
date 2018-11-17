@@ -1,5 +1,5 @@
 ---
-title: Azure güncelleştirme yönetimi Aracısı denetimi sonuçları anlama
+title: Güncelleştirme yönetimini Azure Windows Aracısı onay sonuçları anlama
 description: Güncelleştirme yönetimi Aracısı ile ilgili sorunları giderme hakkında bilgi edinin.
 services: automation
 author: georgewallace
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 20323afe79ad3de1e3dfccd4752c4f7e28d22266
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 33ae9160cd173ae594407220390c4dab1806fa94
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095380"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824141"
 ---
-# <a name="understand-the-agent-check-results-in-update-management"></a>Güncelleştirme yönetimi Aracısı denetimi sonuçları anlama
+# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Windows Aracısı onay sonuçları güncelleştirme yönetimini anlama
 
 Azure olmayan makinenize göstermiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede, Azure portalından ve çevrimdışı senaryolarda sorun gidericisini çalıştırmak anlatılmaktadır.
 
@@ -47,10 +47,6 @@ Tamamlandığında, sonuçları penceresinde döndürülür. [Bölümleri işare
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Destekler, yalnızca değerlendirme güncelleştirin.         |
 |Windows Server 2008 R2 SP1 ve üzeri     |.NET framework 4.5.1 veya üzeri gereklidir. ([İndirme .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 veya üzeri gereklidir. ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1, daha fazla güvenilirlik için önerilir.  ([İndirme WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır. Sınıflandırma tabanlı düzeltme eki uygulama, CentOS, kullanıma hazır yok güvenlik verileri döndürmek için 'ı yum' gerektirir.         |
-|Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
-|Ubuntu 14.04 LTS, 16.04 LTS ve 18.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
 
 ### <a name="net-451"></a>.NET 4.5.1
 

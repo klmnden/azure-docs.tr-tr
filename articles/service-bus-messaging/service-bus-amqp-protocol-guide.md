@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013335"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821557"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -258,7 +258,7 @@ Bir işlem, iki veya daha fazla işlem yürütme kapsam birleştirerek grupland�
 
 İşlem etkileşimi için istemci gören bir `transaction controller` , birlikte gruplandırılmalıdır işlemleri kontrol eder. Service Bus hizmeti görür bir `transactional resource` ve iş tarafından istenen şekilde gerçekleştirir `transaction controller`.
 
-İstemci ve hizmet üzerinden iletişim bir `control link` , istemci tarafından oluşturulmuş. `declare` Ve `discharge` iletileri, denetleyici tarafından ayırmak ve işlemleri sırasıyla tamamlamak için denetim bağlantısı üzerinden gönderilir (işlem tabanlı iş düzenleme temsil ettikleri değil). Bu bağlantıya gerçek gönderme/alma işlemi yapılmaz. İstenen işlem her işlem açıkça olduğundan istenen ile tanımlanan `txn-id` ve bu nedenle herhangi bir bağlantı bağlantıda ortaya çıkabilir. Oluşturulan olmayan taburcu işlemleri varken denetim bağlantıyı kapattıysanız, ardından tüm işlemleri hemen geri alınır ve bunlar üzerinde daha fazla işlem tabanlı iş gerçekleştirmeyi dener hatasına neden. Denetimi bağlantı iletileri önceden kapatılmış olması gerekir.
+İstemci ve hizmet üzerinden iletişim bir `control link` , istemci tarafından oluşturulmuş. `declare` Ve `discharge` iletileri, denetleyici tarafından ayırmak ve işlemleri sırasıyla tamamlamak için denetim bağlantısı üzerinden gönderilir (işlem tabanlı iş düzenleme temsil ettikleri değil). Gerçek gönderme ve alma gerçekleştirilmez bu bağlantıya. İstenen işlem her işlem açıkça olduğundan istenen ile tanımlanan `txn-id` ve bu nedenle herhangi bir bağlantı bağlantıda ortaya çıkabilir. Oluşturulan olmayan taburcu işlemleri varken denetim bağlantıyı kapattıysanız, ardından tüm işlemleri hemen geri alınır ve bunlar üzerinde daha fazla işlem tabanlı iş gerçekleştirmeyi dener hatasına neden. Denetimi bağlantı iletileri önceden kapatılmış olması gerekir.
 
 İlk ve son işlemler için kendi denetimi bağlantı başlatmak her bağlantısı vardır. Hizmet olarak işlevler özel bir hedef tanımlar bir `coordinator`. İstemci/denetleyicisi bu hedef denetim bağlantı kurar. Denetim bağlantı varlığın sınırları dışında diğer bir deyişle, aynı denetim bağlantısını başlatmak ve taburcu işlemleri için birden fazla varlık için kullanılabilir.
 

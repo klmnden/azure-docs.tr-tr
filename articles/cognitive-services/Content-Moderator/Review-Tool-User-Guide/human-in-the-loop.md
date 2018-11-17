@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212208"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854229"
 ---
-# <a name="human-in-the-loop"></a>İnsan içinde--döngüsü
+# <a name="review-tool-overview"></a>Gözden geçirme aracı genel bakış
 
 İnsanlar ve makineler birlikte içerik denetleme üzerinde çalışırken en iyi sonuçları alın. Makineleri etkili bir şekilde tahmin olasılık Yardımlı ya da bir gerçek dünya bağlamında geliştirildiğinde sahip olduğu incelemelere artırabilir. Sonuç gerçekleştiren insanlar ve makineler yalnızca çalışmakta olduğunuz, daha iyi bir karma içerik denetleme işlemidir.
 
-## <a name="how-the-review-tool-helps"></a>İnceleme aracını yönelik yardımları ##
+## <a name="what-it-does"></a>Ne yapar?
 
-İnsan tarafından İnceleme aracı makine Yardımlı resim denetimi API'leri ile birlikte kullanıldığında, içerik denetleme yaşam döngüsü ile ilgili önemli görevleri gerçekleştirmenize olanak sağlar.
+Makine Yardımlı resim denetimi API'leri ile birlikte kullanıldığında insan tarafından İnceleme aracı, içerik denetleme yaşam döngüsü ile ilgili önemli görevleri gerçekleştirmenize olanak sağlar.
 
 1. Temel alınan denetimi API'si sonuçlarından incelemelere oluşturulmasını otomatikleştirin
-2. Orta birden çok biçimde (metin, görüntü ve video) için bir aracı (gözden geçirme aracı ve API) kullanın
+2. Bir aracı (gözden geçirme aracı ve API) (metin, görüntü ve video) birden çok biçimde Orta
 3. Atayın veya içerik kategori veya deneyim düzeyine göre düzenlenmiş birden çok gözden geçirme ekibi için içerik incelemeleri ilerletebilirsiniz.
 4. Varsayılan iş akışlarını kullanın veya özel iş akışları ile esnek kurallara ve herhangi bir kod yazmadan tanımlar.
 5. Herhangi bir API veya iş için insan tarafından İnceleme ekleyin yalnızca bağlayıcı oluşturmanın tarafından işlem.

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 952d8801c189322161bbf8b795676af48b92c29f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394349"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854263"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure Veri Gezgini için sorguları yazma
 
@@ -28,7 +28,7 @@ Bu makalede iki yoldan biriyle sorgular çalıştırabilirsiniz:
 
 - Kendi kümenizi, StormEvents örnek veriler içerir. Daha fazla bilgi için [hızlı başlangıç: bir Azure Veri Gezgini kümesi ile veritabanı oluşturma](create-cluster-database-portal.md) ve [örnek verileri Azure veri Gezgini'ne alma](ingest-sample-data.md).
 
-Hava durumu ile ilgili verileri StormEvents örnek veri kümesini içeren [ortam bilgilerini Ulusal merkezine](https://www.ncdc.noaa.gov/stormevents/).
+[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Sorgu dili genel bakış
 
@@ -97,7 +97,7 @@ StormEvents | take 5
 > [!TIP]
 > Kaynak veriler sürece hangi kayıtlar döndürülür bir garanti yoktur.
 
-### <a name="project"></a>proje
+### <a name="project"></a>Proje
 
 [**Proje**](https://docs.microsoft.com/azure/kusto/query/projectoperator): bir sütun alt kümesi seçer.
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>Sayfanın Üstü
 
-[**üst**](https://docs.microsoft.com/azure/kusto/query/topoperator): ilk döndürür *N* kayıtları belirtilen sütunlara göre sıralanır.
+[**üst**](https://docs.microsoft.com/azure/kusto/query/topoperator): ilk döndürür *N* kayıtları belirtilen sütunlara göre sıralanır.
 
 Aşağıdaki sorgu, aynı sonuçları üzerinde daha az bir işleci ile döndürür.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): hesaplar **dcount** HyperLogLog sonuçlarından (tarafından oluşturulan [ **hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) veya [ **hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): hesaplar **dcount** HyperLogLog sonuçlarından (tarafından oluşturulan [**hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction)   veya [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
 Aşağıdaki sorgu HLL algoritması sayısı üretmek için kullanır.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Tahmin için belirtilen döndürür [ **derece en yakın yüzde birlik** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) popülasyonun bir ifadesi tarafından tanımlanan. Yüzdelik dilim bölgede popülasyonunu yoğunluğunu doğruluğu bağlıdır. Yalnızca toplama içinde bağlamında kullanılan [ **özetlemek**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Tahmin için belirtilen döndürür [**derece en yakın yüzde birlik**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) popülasyonun bir ifadesi tarafından tanımlanan. Yüzdelik dilim bölgede popülasyonunu yoğunluğunu doğruluğu bağlıdır. Yalnızca toplama içinde bağlamında kullanılan [**özetlemek**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 Aşağıdaki sorgu storm süre yüzdebirliklerini hesaplar.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**birleştirme**](https://docs.microsoft.com/azure/kusto/query/joinoperator): eşleşen değerler her tablodan belirtilen sütunların tarafından yeni bir tablo oluşturmak için iki tablo satırları birleştirir. Kusto birleşim türleri çeşitli destekler: **fullouter**, **iç**, **innerunique**, **leftanti**, **leftantisemi** , **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter** , **rightsemi**.
+[**birleştirme**](https://docs.microsoft.com/azure/kusto/query/joinoperator): eşleşen değerler her tablodan belirtilen sütunların tarafından yeni bir tablo oluşturmak için iki tablo satırları birleştirir. Kusto birleşim türleri çeşitli destekler: **fullouter**, **iç**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
 
 Aşağıdaki örnekte, bir iç birleştirme ile iki tabloyu birleştirir.
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>new_activity_metrics eklentisi
 
-[**new_activity_metrics eklentisi**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): yeni kullanıcıların kohortu için kullanışlı bir etkinlik ölçümlerinin (ayrı sayım değerleri, yeni değerleri, elde tutma oranı ve karmaşıklık oranı ayrı sayım) hesaplar. Bu eklenti kavramını benzer [ **activity_metrics eklentisi**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), ancak yeni kullanıcılar üzerinde odaklanmaktadır.
+[**new_activity_metrics eklentisi**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): yeni kullanıcıların kohortu için kullanışlı bir etkinlik ölçümlerinin (ayrı sayım değerleri, yeni değerleri, elde tutma oranı ve karmaşıklık oranı ayrı sayım) hesaplar. Bu eklenti kavramını benzer [**activity_metrics eklentisi**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), ancak yeni kullanıcılar üzerinde odaklanmaktadır.
 
 Aşağıdaki sorguyu yeni kullanıcılar kohortu (ilk haftasında gelen kullanıcılar) için bir hafta üzerinden hafta penceresi ile bekletme ve değişim sıklığı bir oran hesaplar.
 
@@ -902,7 +902,7 @@ StormEvents
 
 [**funnel_sequence_completion eklentisi**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): tamamlanmış dizisinin Huni adımları farklı süreler içinde hesaplar.
 
-Aşağıdaki sorgu dizisi tamamlama Huni denetler: `Hail -> Tornado -> Thunderstorm -> Wind` "Genel" sürelerinin bir saate dört saat ve bir gün içinde (`[1h, 4h, 1d]`).
+Aşağıdaki sorgu dizisi tamamlama Huni denetler: `Hail -> Tornado -> Thunderstorm -> Wind` "Genel" sürelerinin bir saate dört saat ve bir gün içinde (`[1h, 4h, 1d]`).
 
 **\[**[**Sorguyu çalıştırmak için tıklayın**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>İşlevler
 
-Bu bölümde ele alınmaktadır [ **işlevleri**](https://docs.microsoft.com/azure/kusto/query/functions): sunucuda depolanan yeniden sorgular. İşlevler, sorgular ve (özyinelemeli işlevler desteklenmez) diğer işlevler tarafından çağrılabilir.
+Bu bölümde ele alınmaktadır [ **işlevleri**](https://docs.microsoft.com/azure/kusto/query/functions): sunucuda depolanan yeniden sorgular. İşlevler, sorgular ve (özyinelemeli işlevler desteklenmez) diğer işlevler tarafından çağrılabilir.
 
 > [!NOTE]
 > Salt okunur Yardım kümede işlevleri oluşturulamıyor. Kendi test kümesi için bu bölümü kullanın.

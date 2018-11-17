@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2caf3d6373e764f5d5538a14a1750f1bfee2871d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614149"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822288"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft azure'da Klasik uyarılar nedir?
 
@@ -89,7 +89,7 @@ Web kancaları otomasyon ve düzeltme, örneğin, kullanarak sağlar:
 ## <a name="next-steps"></a>Sonraki adımlar
 Uyarı kuralları ve bunları kullanarak yapılandırma hakkında bilgi alın:
 
-* Daha fazla bilgi edinin [ölçümleri](../monitoring/monitoring-data-collection.md)
+* Daha fazla bilgi edinin [ölçümleri](../azure-monitor/platform/data-collection.md)
 * Yapılandırma [Azure portalında Klasik ölçüm uyarıları](alert-metric-classic.md)
 * Yapılandırma [Klasik ölçüm uyarılarını PowerShell](alert-metric-classic.md)
 * Yapılandırma [Klasik ölçüm uyarılarını komut satırı arabirimi (CLI)](alert-metric-classic.md)

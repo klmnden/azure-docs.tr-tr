@@ -1,10 +1,11 @@
 ---
-title: Machine Learning modellerini program aracılığıyla yeniden eğitme | Microsoft Docs
-description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning ile yeni eğitilen modelini kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
+title: Machine Learning modellerini programlama yoluyla yeniden eğitme | Microsoft Docs
+description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
@@ -15,128 +16,128 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e6be52dbfbe6f5d51589f3a3738013dedeee6bdd
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835513"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824770"
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Machine Learning modellerini programlı olarak yeniden eğitme
-Bu kılavuzda, bir Azure Machine Learning Web hizmeti C# ve makine öğrenme toplu yürütme hizmeti kullanarak program aracılığıyla yeniden eğitme öğreneceksiniz.
+Bu izlenecek yolda, program aracılığıyla kullanarak bir Azure Machine Learning Web hizmetini yeniden eğitme hakkında bilgi edineceksiniz C# ve Machine Learning Batch Execution hizmeti.
 
-Model retrained sonra aşağıdaki izlenecek Tahmine dayalı web hizmetiniz modelinde güncelleştirmek nasıl göster:
+Model retrained sonra aşağıdaki izlenecek yollar, Tahmine dayalı web hizmeti olarak modeli güncelleştirmek nasıl göster:
 
-* Machine Learning Web Hizmetleri portalında bir Klasik web hizmeti dağıttıysanız bkz [bir Klasik web hizmeti yeniden eğitme](retrain-a-classic-web-service.md). 
-* Yeni bir web hizmetini dağıttıysanız bkz [makine öğrenme yönetimi cmdlet'lerini kullanarak yeni bir web hizmeti yeniden eğitme](retrain-new-web-service-using-powershell.md).
+* Machine Learning Web Hizmetleri portalında bir Klasik web hizmetini dağıttıysanız bkz [bir Klasik web hizmetini yeniden eğitme](retrain-a-classic-web-service.md). 
+* Yeni bir web hizmetini dağıttıysanız bkz [Machine Learning Yönetimi cmdlet'lerini kullanarak yeni bir web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md).
 
-Yeniden eğitme işlemine genel bakış için bkz: [makine öğrenimi modeline yeniden eğitme](retrain-machine-learning-model.md).
+Yeniden eğitme sürecinin genel bakış için bkz. [makine öğrenme modeli yeniden eğitme](retrain-machine-learning-model.md).
 
-Mevcut yeni Azure Resource Manager temelli web hizmetiniz ile başlatmak istiyorsanız, bkz: [var olan bir Tahmine dayalı web hizmetini yeniden eğitme](retrain-existing-resource-manager-based-web-service.md).
+Var olan yeni Azure Resource Manager tabanlı web hizmetiyle başlatmak istiyorsanız, bkz. [mevcut bir Tahmine dayalı web hizmetini yeniden eğitme](retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Eğitim denemenizi oluşturma
-Bu örnek için kullanacağınız "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi" Microsoft Azure Machine Learning örnekleri gelen. 
+Bu örnekte, kullanacağınız "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi" Microsoft Azure Machine Learning örnekleri öğesinden. 
 
-Deneme oluşturmak için:
+Bir deneme oluşturmak için:
 
-1. Oturum açın Microsoft Azure Machine Learning Studio. 
-2. Üzerinde Pano sağ alt köşesindeki, tıklatın **yeni**.
+1. Oturum Microsoft Azure Machine Learning Studio'da. 
+2. Üzerinde panosunu sağ alt köşesindeki, tıklayın **yeni**.
 3. Microsoft Samples örnek 5'i seçin.
-4. Deneme tuvalinin üstündeki denemeyi yeniden adlandırmak için deneme adını seçin "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi".
-5. Tür Census modeli.
-6. Deneme tuvalinin altındaki tıklatın **çalıştırmak**.
-7. Tıklatın **Ayarla web hizmeti** seçip **web hizmeti yeniden eğitme**. 
+4. Deneme tuvalinin üst kısmındaki denemeyi yeniden adlandırma için deneme adını seçin "örnek 5: Eğitimi, Test, değerlendir ikili sınıflandırma: yetişkinlere yönelik veri kümesi".
+5. Sayım Model türü.
+6. Deneme tuvalinin altındaki tıklatın **çalıştırma**.
+7. Tıklayın **Ayarla web hizmeti** seçip **web hizmetini yeniden eğitme**. 
 
-İlk deneme gösterir.
+Aşağıdaki ilk deneme gösterir.
    
    ![İlk deneme.][2]
 
 
-## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Tahmine dayalı bir deneme oluşturma ve bir web hizmeti olarak Yayımla
+## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Tahmine dayalı bir deneme oluşturma ve bir web hizmeti olarak yayımlama
 Ardından bir Predicative deneme oluşturun.
 
-1. Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Tahmine dayalı Web hizmeti**. Bu model eğitilen Model olarak kaydeder ve web hizmeti giriş ve çıkış modülleri ekler. 
+1. Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Tahmine dayalı Web hizmeti**. Bu model, eğitilen Model olarak kaydeder ve web hizmeti giriş ve çıkış modülleri ekler. 
 2. **Çalıştır**’a tıklayın. 
-3. Denemeyi çalışması bittikten sonra tıklatın **Web hizmeti Dağıt [Klasik]** veya **Web hizmeti dağıtma [Yeni]**.
+3. Denemeyi çalışması bittikten sonra tıklayın **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]**.
 
 > [!NOTE] 
-> Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md). 
+> Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi edinmek, [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 
 
-## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Eğitim denemenizi eğitim web hizmeti olarak dağıtma
-Eğitim modeli yeniden eğitme Retraining web hizmeti olarak oluşturulan eğitim denemenizi dağıtmanız gerekir. Bu web hizmeti gereken bir *Web hizmeti çıkış* bağlı Modülü *[Train Model] [ train-model]* yeni üretmek için modülü, eğitilmiş modeller.
+## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Eğitim denemesini eğitim web hizmeti olarak dağıtma
+Eğitim modeli yeniden eğitme Retraining web hizmeti olarak oluşturduğunuz eğitim denemesini dağıtmanız gerekir. Bu web hizmetini gereken bir *Web hizmeti çıkış* bağlı Modülü *[modeli eğitme] [ train-model]* yeni üretmek için modülü, eğitim modeller.
 
-1. Eğitim denemenizi dönmek için sol bölmede denemeler simgesini tıklatın, sonra Census modeli adlı denemeye tıklayın.  
+1. Eğitim denemesini için geri dönmek için sol bölmedeki denemeleri simgesine tıkladıktan sonra Görselleştirmenizdeki modeli adlı denemeye tıklayın.  
 2. Web hizmeti arama deneme öğeleri arama kutusuna yazın. 
-3. Sürükleme bir *Web hizmeti girişi* deneme modülü tuvale ve çıktısını için bağlanmak *Clean Missing Data* modülü.  Bu yeniden eğitme verilerinizi özgün eğitim verilerinizi aynı şekilde işlenir sağlar.
-4. İki *web hizmeti çıkış* deneme tuvale modüller. Çıkışına bağlayın *Train Model* biri ve çıktısını modülüne *Evaluate Model* diğer modülü. İçin web hizmeti çıktı **Train Model** bize yeni eğitilen modeli sağlar. Çıktı bağlı **Evaluate Model** bu modül animasyonun çıktı, performans sonuçları olduğu döndürür.
+3. Sürükleme bir *Web hizmeti girişini* denemeyi modülü tuval ve bağlanmak için çıktısını *eksik verileri temizleme* modülü.  Bu, yeniden eğitme verilerinizi özgün eğitim verilerinizi aynı şekilde işlenir sağlar.
+4. İki *web hizmeti çıkış* modülleri deneme tuvaline sürükleyin. Çıkışını *modeli eğitme* modülü bir tane ve çıktısını *Evaluate Model* diğerine modülü. Web hizmeti çıktısı **modeli eğitme** yeni eğitim modeli sağlıyor. Çıktı bağlı **Evaluate Model** bu modül derleyicisinin çıktısının, performans sonuçlarını olduğu döndürür.
 5. **Çalıştır**’a tıklayın. 
 
-Sonraki eğitim denemenizi eğitilen bir modelin ve model değerlendirme sonuçlarını üreten bir web hizmeti olarak dağıtmanız gerekir. Bunu başarmak için sonraki eylemler kümesidir, Klasik web hizmeti veya yeni bir web hizmeti ile çalışma hakkında bağımlı.  
+Sonraki eğitim denemesini eğitilen bir modelin ve model değerlendirme sonuçları üreten bir web hizmeti olarak dağıtmanız gerekir. Bunu yapmak için sonraki eylemleri kümesini, Klasik web hizmetini veya yeni bir web hizmeti ile çalışma hakkındaki bağlı.  
 
 **Klasik web hizmeti**
 
-Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Web hizmeti Dağıt [Klasik]**. Web hizmeti **Pano** toplu iş yürütme için API anahtarı ve API Yardım sayfası görüntülenir. Yalnızca toplu iş yürütme yöntemi, eğitilmiş modeller oluşturmak için kullanılabilir.
+Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Web hizmeti dağıtma [Klasik]**. Web hizmeti **Pano** toplu iş yürütme için API anahtarını ve API Yardım sayfası görüntülenir. Yalnızca Batch yürütme yöntemi, eğitilen modeller oluşturmak için kullanılabilir.
 
 **Yeni web hizmeti**
 
-Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Web hizmeti dağıtma [Yeni]**. Web hizmeti Azure Machine Learning Web Hizmetleri Portalı'nı dağıtma web hizmeti sayfası açılır. Web hizmetiniz için bir ad yazın ve ödeme planı seçin ve ardından **dağıtma**. Yalnızca toplu iş yürütme yöntemi eğitilmiş modeller oluşturmak için kullanılabilir.
+Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Web hizmeti dağıtma [Yeni]**. Web hizmeti Azure Machine Learning Web Hizmetleri portalını dağıtma web hizmeti sayfası açılır. Web hizmetiniz için bir ad yazın ve ödeme planı seçin ve ardından tıklayın **Dağıt**. Yalnızca Batch yürütme yöntemi eğitilmiş modeller oluşturmak için kullanılabilir.
 
-Deneme çalışması, tamamlandıktan sonra her iki durumda da, sonuçta elde edilen iş akışı şu şekilde görünmelidir:
+Her iki durumda da, denemeyi çalıştırma, tamamlandıktan sonra elde edilen iş akışı aşağıdaki gibi görünmelidir:
 
 ![Çalıştırdıktan sonra elde edilen iş akışı.][4]
 
 
 
-## <a name="retrain-the-model-with-new-data-using-bes"></a>Model BES kullanarak yeni verilerle yeniden eğitme
-Bu örnekte, C# yeniden eğitme uygulaması oluşturmak için kullandığınız. Python veya R örnek kod, bu görevi gerçekleştirmek için de kullanabilirsiniz.
+## <a name="retrain-the-model-with-new-data-using-bes"></a>BES kullanarak yeni verilerle modeli yeniden eğitme
+Bu örnek için kullanmakta olduğunuz C# yeniden eğitme uygulama oluşturmak için. Python veya R örnek kod, bu görevi gerçekleştirmek için de kullanabilirsiniz.
 
 Yeniden eğitme API'lerini çağırmak için:
 
-1. Visual Studio'da bir C# konsol uygulaması oluşturun: **yeni** > **proje** > **Visual C#** > **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
-2. Machine Learning Web hizmeti portalında oturum açın.
-3. Klasik web hizmeti ile çalışıyorsanız, tıklatın **Klasik Web Hizmetleri**.
-   1. Çalıştığınız web hizmeti tıklatın.
-   2. Varsayılan uç noktasına tıklayın.
-   3. Tıklatın **tüketen**.
-   4. Ekranın alt kısmındaki **Tüket** sayfasında **örnek kod** 'yi tıklatın **toplu**.
+1. Visual Studio'da C# konsol uygulaması oluşturun: **yeni** > **proje** > **Visual C#** > **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
+2. Machine Learning Web hizmetini portalında oturum açın.
+3. Klasik web hizmeti ile çalışıyorsanız, tıklayın **Klasik Web Hizmetleri**.
+   1. Çalıştığınız web hizmetine tıklayın.
+   2. Varsayılan uç noktaya tıklayın.
+   3. Tıklayın **tüketen**.
+   4. Sayfanın alt kısmında **Tüket** sayfasında **örnek kodu** bölümünde **Batch**.
    5. Bu yordamın 5 adıma geçin.
-4. Yeni bir web hizmeti ile çalışıyorsanız, tıklatın **Web Hizmetleri**.
-   1. Çalıştığınız web hizmeti tıklatın.
-   2. Tıklatın **tüketen**.
-   3. AT Tüket alt sayfası, buna **örnek kod** 'yi tıklatın **toplu**.
-5. Toplu iş yürütme için örnek C# kodu kopyalayın ve ad alanı olduğu gibi kalır emin Program.cs dosyasına yapıştırın.
+4. Yeni bir web hizmeti ile çalışıyorsanız, tıklayın **Web Hizmetleri**.
+   1. Çalıştığınız web hizmetine tıklayın.
+   2. Tıklayın **tüketen**.
+   3. AT Tüket altındaki sayfasında **örnek kodu** bölümünde **Batch**.
+5. Örneği kopyalamak C# kod için toplu yürütme ve ad alanı korunur sağlamaktan Program.cs dosyasına yapıştırın.
 
-Açıklamaları belirtildiği gibi Microsoft.AspNet.WebApi.Client Nuget paketini ekleyin. Microsoft.WindowsAzure.Storage.dll başvuru eklemek için önce Microsoft Azure depolama hizmetleri için istemci kitaplığı yüklemeniz gerekebilir. Daha fazla bilgi için bkz: [Windows depolama hizmetleri](https://www.nuget.org/packages/WindowsAzure.Storage).
+Yorumlar bölümünde belirtildiği gibi System.NET.http.Formatting Nuget paketini ekleyin. Microsoft.WindowsAzure.Storage.dll başvuru eklemek için önce Microsoft Azure depolama hizmetleri için istemci kitaplığı yüklemeniz gerekebilir. Daha fazla bilgi için [Windows depolama hizmetleri](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-### <a name="update-the-apikey-declaration"></a>Apikey ile yapılan bildirimini güncelleştirin
-Bulun **apikey ile yapılan** bildirimi.
+### <a name="update-the-apikey-declaration"></a>Apikey bildirimini güncelleştirin
+Bulun **apikey** bildirimi.
 
     const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-İçinde **temel tüketim bilgileri** bölümünü **Tüket** sayfasında, birincil anahtarını bulun ve kopyalayın **apikey ile yapılan** bildirimi.
+İçinde **temel tüketim bilgileri** bölümünü **Tüket** sayfasında birincil anahtarını bulun ve kopyalayıp **apikey** bildirimi.
 
 ### <a name="update-the-azure-storage-information"></a>Azure depolama bilgilerini güncelleştir
-BES örnek kod (örneğin "C:\temp\CensusIpnput.csv") yerel bir sürücüden bir dosyayı Azure Storage'a yükler, işler ve sonuçları Azure depolama birimine geri yazar.  
+BES örnek kodu (örneğin "C:\temp\CensusIpnput.csv") yerel bir sürücüden bir dosyayı Azure Storage'a yükler, işler ve sonuçları, Azure Depolama'ya geri yazar.  
 
-Bu görevi gerçekleştirmek için depolama hesabınızdan Klasik Azure portalı ve kodunda güncelleştirme karşılık gelen değerler için depolama hesabı adı, anahtar ve kapsayıcı bilgi almanız gerekir. 
+Bu görevi gerçekleştirmek için Klasik Azure portalı ve güncelleştirme karşılık gelen değerleri kodda depolama hesabınızın depolama hesabı adı, anahtar ve kapsayıcı bilgileri almanız gerekir. 
 
 1. Klasik Azure portalında oturum açın.
-2. Sol gezinti sütununda tıklatın **depolama**.
+2. Sol gezinti sütununda **depolama**.
 3. Depolama hesapları listesinden bir retrained modelini depolamak için seçin.
-4. Sayfanın alt kısmındaki tıklatın **erişim anahtarlarını Yönet**.
-5. Kopyalayıp kaydedin **birincil erişim anahtarını** ve iletişim kutusunu kapatın. 
-6. Sayfanın üstündeki **kapsayıcıları**.
-7. Var olan bir kapsayıcı seçin veya yeni bir tane oluşturun ve ad kaydedin.
+4. Sayfanın en altında tıklayın **erişim anahtarlarını Yönet**.
+5. Kopyalayıp kaydedin **birincil erişim anahtarı** ve iletişim kutusunu kapatın. 
+6. Sayfanın üst kısmında tıklayın **kapsayıcıları**.
+7. Var olan bir kapsayıcı seçin veya yeni bir tane oluşturun ve adını kaydedin.
 
-Bulun *StorageAccountName*, *StorageAccountKey*, ve *StorageContainerName* bildirimleri ve Azure portalından kaydettiğiniz değerlerini güncelleştirin.
+Bulun *StorageAccountName*, *StorageAccountKey*, ve *StorageContainerName* bildirimleri ve Azure Portalı'ndan kaydedilmiş değerleri güncelleştirin.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage Key
     const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage Container name
 
-Ayrıca, girdi dosyası, kodda belirttiğiniz konumda kullanılabilir olduğundan emin olmalısınız. 
+Ayrıca, giriş dosyası, kodda belirttiğiniz konumda kullanılabilir olduğundan emin olmalısınız. 
 
-### <a name="specify-the-output-location"></a>Çıkış konumu belirtin
+### <a name="specify-the-output-location"></a>Çıkış konumunu belirtme
 Çıkış konumu istek yükünde belirtirken, dosya uzantısını belirtilen *RelativeLocation* ilearner belirtilmelidir. 
 
 Aşağıdaki örneğe bakın:
@@ -152,27 +153,27 @@ Aşağıdaki örneğe bakın:
         },
 
 > [!NOTE]
-> Çıktı konumlarınıza adlarını web hizmeti çıkış modülleri eklenen sırasına göre bu kılavuzda gördüğünüzden farklı olabilir. Bu eğitim denemenizi iki çıkışları ile ayarlama olduğundan, sonuçlar her ikisi için depolama konumu bilgilerini içerir.  
+> Çıkış konumlarınıza adları web hizmeti çıkış modüllerinin eklediğiniz ölçütüne göre bu izlenecek yolda gösterilenlerden farklı olabilir. İki çıkışı ile bu eğitim denemesini ayarladıktan sonra sonuçlar her ikisi için depolama konumu bilgilerini içerir.  
 > 
 > 
 
 ![Çıktı yeniden eğitme][6]
 
-Diyagram 4: çıkış yeniden eğitme.
+Diyagram 4: yeniden eğitme çıktı.
 
 ## <a name="evaluate-the-retraining-results"></a>Yeniden eğitme sonuçları değerlendirin
-Uygulamayı çalıştırdığınızda, çıktı değerlendirme sonuçlarını erişmek gerekli URL ve SAS belirteci içerir.
+Uygulamayı çalıştırdığınızda, çıktı değerlendirme sonuçlarını erişmek gerekli URL'si ve SAS belirteci içerir.
 
-Birleştirerek retrained modeli performans sonuçlarını görebilirsiniz *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* içinçıktısonuçlarından*output2* (yukarıdaki yeniden eğitme çıkış görüntüde gösterildiği gibi) ve tam URL'sini tarayıcınızın adres çubuğuna yapıştırma.  
+Performans sonuçlarını retrained modelinin birleştirerek gördüğünüz *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* içinçıkışsonuçlarından*output2* (önceki yeniden eğitme çıkış resimde gösterildiği gibi) ve tam URL'sini tarayıcınızın adres çubuğuna yapıştırma.  
 
-Yeni eğitilen model yeterince iyi var olan dosyayla gerçekleştirip gerçekleştirmeyeceğini belirlemek için sonuçlarını inceleyin.
+Yeni eğitim modeli yeterince iyi var olan dosyayla gerçekleştirip gerçekleştirmediğini belirlemek için sonuçları inceleyin.
 
-Kopya *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* çıkış sonuçlarından, bunları yeniden eğitme işlemi sırasında kullanın.
+Kopyalama *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* çıktı sonuçları, bunları yeniden eğitme işlemi sırasında kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tıklayarak Tahmine dayalı web hizmetini dağıttıysanız **Web hizmeti Dağıt [Klasik]**, bkz: [bir Klasik web hizmeti yeniden eğitme](retrain-a-classic-web-service.md).
+Tıklayarak Tahmine dayalı web hizmetini dağıttıysanız **Web hizmeti dağıtma [Klasik]**, bkz: [bir Klasik web hizmetini yeniden eğitme](retrain-a-classic-web-service.md).
 
-Tıklayarak Tahmine dayalı web hizmetini dağıttıysanız **Web hizmeti dağıtma [Yeni]**, bkz: [makine öğrenme yönetimi cmdlet'lerini kullanarak yeni bir web hizmeti yeniden eğitme](retrain-new-web-service-using-powershell.md).
+Tıklayarak Tahmine dayalı web hizmetini dağıttıysanız **Web hizmeti dağıtma [Yeni]**, bkz: [Machine Learning Yönetimi cmdlet'lerini kullanarak yeni bir web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/01/2018
+ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ecde7cb3662fc80e7968acfcac99bc8f28e8b15b
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287582"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852648"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile Azure SQL veri ambarı sorgu
 
@@ -31,24 +31,24 @@ Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir s�
 >
 >
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) komutunu kullanarak Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+Oturum açmak için kullanarak Azure aboneliğinizde [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) izleyin ve komut ekrandaki yönergeleri izleyin.
 
 ```powershell
 Add-AzureRmAccount
 ```
 
-Kullanmakta olduğunuz aboneliği görmek için [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) komutunu çalıştırın.
+Kullanmakta olduğunuz aboneliği görmek için çalıştırma [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription) komutunu çalıştırın.
+Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa, çalıştırma [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -60,10 +60,10 @@ Bu hızlı başlangıçtaki betiklerde kullanılacak değişkenleri tanımlayaca
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# The logical server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
-# Set an admin login and password for your database
-# The login information for the server
+# Set an admin name and password for your database
+# The sign-in information for the server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Mantıksal sunucu oluşturma
 
-Oluşturma bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-logical-servers.md) kullanarak [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) komutu. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Aşağıdaki örnek, kaynak grubunuzda `ServerAdmin` yönetici oturum açma bilgileri ve `ChangeYourAdminPassword1` parolası ile rastgele olarak adlandırılmış bir sunucu oluşturur. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
+Oluşturma bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-logical-servers.md) kullanarak [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) komutu. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Aşağıdaki örnek rastgele olarak adlandırılmış bir sunucu, kaynak grubunuzda adlı yönetici kullanıcı ile oluşturur `ServerAdmin` ve bir parola `ChangeYourAdminPassword1`. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -102,7 +102,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL veritabanı ve SQL veri ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL sunucunuza bağlanmak mümkün olmayacaktır.
+> SQL veritabanı ve SQL veri ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden gelen bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe verilmez. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL sunucunuza bağlanmak mümkün olmayacaktır.
 >
 
 
@@ -122,10 +122,10 @@ New-AzureRmSqlDatabase `
 
 Gerekli Parametreler şunlardır:
 
-* **RequestedServiceObjectiveName**: miktarını [veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md) aşağıda. Bu miktar artırılması, işlem maliyetini artırır. Desteklenen değerler listesi için bkz. [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
-* **DatabaseName**: Oluşturduğunuz SQL Data Warehouse'un adı.
+* **RequestedServiceObjectiveName**: miktarını [veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md) isteyen. Bu miktar artırılması, işlem maliyetini artırır. Desteklenen değerler listesi için bkz. [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
+* **DatabaseName**: oluşturduğunuz SQL Data warehouse'un adı.
 * **ServerName**: oluşturmak için kullandığınız sunucunun adı.
-* **ResourceGroupName**: Kullandığınız kaynak grubu. Aboneliğinizdeki kullanılabilir kaynak gruplarını bulmak için Get-AzureResource komutunu kullanın.
+* **ResourceGroupName**: kullandığınız kaynak grubu. Aboneliğinizdeki kullanılabilir kaynak gruplarını bulmak için Get-AzureResource komutunu kullanın.
 * **Edition**: SQL Veri Ambarı oluşturmak için "DataWarehouse" olmalıdır.
 
 İsteğe Bağlı Parametreler şunlardır:
@@ -141,7 +141,7 @@ Parametre seçenekleri hakkında daha fazla bilgi için bkz. [New-AzureRmSqlData
 Bu koleksiyondaki diğer hızlı başlangıç öğreticileri, bu hızlı başlangıcı temel alır. 
 
 > [!TIP]
-> Sonraki hızlı başlangıç öğreticileriyle çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız Azure portalında bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
+> Daha hızlı başlangıç öğreticileriyle çalışmaya devam etmeyi planlıyorsanız, kaynakları oluşturulan temizlemeyin Bu hızlı başlangıçta. Devam etmeyi planlamıyorsanız, Azure portalında Bu Hızlı Başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
 >
 
 ```powershell
@@ -150,6 +150,6 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şimdi bir veri ambarı oluşturdunuz, bir güvenlik duvarı kuralı oluşturdunuz, veri ambarınıza bağlandınız ve birkaç sorgu çalıştırdınız. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
+Şimdi bir veri ambarı, veri ambarı'na bağlı bir güvenlik duvarı kuralı, oluşturduğunuz ve birkaç sorgu çalıştırdınız. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
 > [!div class="nextstepaction"]
 >[SQL veri ambarına veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)

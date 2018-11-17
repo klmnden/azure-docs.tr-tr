@@ -1,10 +1,11 @@
 ---
-title: Machine Learning modeli sonuçlarında yorumlama | Microsoft Docs
-description: Bir algoritma kullanmak için en iyi parametre seçme ayarlayın ve score model görselleştirme çıkarır.
+title: Machine learning'de model sonuçlarını yorumlama | Microsoft Docs
+description: Bir algoritma kullanarak ve score model çıktıları görselleştirme için en iyi parametresinde nasıl seçeceğinizi öğrenin.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -15,139 +16,139 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b50d85de744426435fb06767e6a459e4c8bf46d3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837013"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824226"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Azure Machine Learning modeli sonuçlarında yorumlama
-Bu konu, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlanacağı açıklanmaktadır. Bir model eğitilmiş ve Öngörüler ("model skoru") en üstünde bitti sonra anlamak ve tahmin sonuç yorumlamak gerekir.
+# <a name="interpret-model-results-in-azure-machine-learning"></a>Azure Machine learning'de model sonuçlarını yorumlama
+Bu konuda, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlama açıklanmaktadır. Bir modeli eğitilir ve Öngörüler, ("modeli puanlanmış") üzerinde yapılan sonra anlamak ve yorumlamak tahmin sonuç gerekir.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-Machine learning Azure Machine Learning modellerini dört ana tür vardır:
+Makine öğrenimi modellerini Azure Machine Learning, dört ana türü vardır:
 
 * Sınıflandırma
 * Kümeleme
-* regresyon
+* Regresyon
 * Öneren sistemleri
 
-Bu modeller üstünde tahmin için kullanılan modülleri şunlardır:
+Bu modellerin üzerinde tahmin için kullanılan modüller şunlardır:
 
 * [Modeli Puanlama] [ score-model] sınıflandırma ve regresyon için Modülü
 * [Kümeye atamak] [ assign-to-clusters] kümeleme Modülü
-* [Matchbox öneren puan] [ score-matchbox-recommender] önerisi sistemleri
+* [Matchbox öneren puan] [ score-matchbox-recommender] öneri sistemleri
 
-Bu belgede tahmin sonuçlarını bu modüllerin her biri için yorumlama açıklanmaktadır. Bu modüller genel bakış için bkz: [, Azure Machine Learning algoritmaları en iyi duruma getirmek için parametreleri seçme](algorithm-parameters-optimize.md).
+Bu belgede, bu modüllerin her biri için tahmin sonuçlarını yorumlama açıklanmaktadır. Bu modüller genel bakış için bkz. [Azure Machine Learning algoritmalarınızı iyileştirmek için parametreleri seçme](algorithm-parameters-optimize.md).
 
-Bu konu, tahmin yorumlama ancak değil modeli değerlendirme giderir. Modelinizi değerlendirme hakkında daha fazla bilgi için bkz: [Azure Machine Learning modeli performansını değerlendirmek nasıl](evaluate-model-performance.md).
+Bu konuda, tahmin yorumu ancak değil model değerlendirme yöneliktir. Modelinizi değerlendirilecek hakkında daha fazla bilgi için bkz. [Azure Machine learning'de model performansını değerlendirme nasıl](evaluate-model-performance.md).
 
-Azure Machine Learning için yenidir ve başlamak için bkz: basit bir deneme oluşturma konusunda Yardım ihtiyacınız varsa [Azure Machine Learning Studio'da basit bir deneme oluşturmak](create-experiment.md) Azure Machine Learning Studio'da.
+Azure Machine Learning ile yeni kullanmaya başladıysanız ve başlamak için görmek için basit bir deneme oluşturma yardıma ihtiyacınız varsa [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md) Azure Machine Learning Studio'da.
 
 ## <a name="classification"></a>Sınıflandırma
-Sınıflandırma sorunları iki alt kategorileri şunlardır:
+İki alt kategorileri sınıflandırma sorunları vardır:
 
-* Yalnızca iki sınıf (iki sınıflı veya ikili sınıflandırma) sorunları
-* İkiden fazla sınıfları (çok sınıfı sınıflandırma) sorunları
+* Yalnızca iki sınıf (iki sınıflı veya ikili sınıflandırma) ile ilgili sorunlar
+* İkiden fazla sınıfları (çok sınıflı sınıflandırma) ile ilgili sorunlar
 
-Azure Machine Learning için türlerinin her biri bu sınıflandırma ile mücadele etmek için farklı modülleri olsa da, tahmin sonuçlarını yorumlanması için yöntemler benzerdir.
+Azure Machine Learning için sınıflandırma türlerinin her biriyle dağıtılacak farklı modülleri olsa da, kendi tahmin sonuçları yorumlayarak destek sağlama yöntemleri benzerdir.
 
 ### <a name="two-class-classification"></a>İki sınıflı sınıflandırma
 **Örnek deneme**
 
-İki sınıflı sınıflandırma sorunu iris çiçekler sınıflandırmasını örnektir. Kendi özelliklerini temel alarak iris çiçekler sınıflandırmak için bir görevdir. Azure Machine Learning ile sağlanan Iris veri kümesi popüler bir alt kümesidir [Iris veri kümesi](http://en.wikipedia.org/wiki/Iris_flower_data_set) iki sağındaki (0 ve 1 sınıflar) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişlik, petal uzunluğu ve petal genişliği) için dört özellikler vardır.
+Iris çiçek sınıflandırma iki sınıflı sınıflandırma problemi örneğidir. Iris çiçek kendi özelliklere göre sınıflandırmak için bir görevdir. Azure Machine Learning'de sağlanan kullanarak Iris veri kümesini popüler alt kümesidir [Iris veri kümesini](http://en.wikipedia.org/wiki/Iris_flower_data_set) iki türler (sınıflar 0 ve 1) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişliği, petal uzunluğu ve petal genişliği) için dört özellikler mevcuttur.
 
-![İris deneme ekran görüntüsü](./media/interpret-model-results/1.png)
+![Iris deneme ekran görüntüsü](./media/interpret-model-results/1.png)
 
-Şekil 1 '. Iris iki sınıflı sınıflandırma sorunu deneme
+Şekil 1. Iris iki sınıflı sınıflandırma sorunu deneme
 
-Bir deneme Şekil 1'de gösterildiği gibi bu sorunu çözmek için yapılmıştır. İki sınıflı artırılmış karar ağacı modeli eğitilmiş ve skoru. Tahmin sonuçlarını görselleştirme artık [Score Model] [ score-model] çıkış bağlantı noktasına tıklayarak Modülü [Score Model] [ score-model] modülü ve ardından **Görselleştir**.
+Bir deney Şekil 1'de gösterildiği gibi bu sorunu çözmek için yapılmıştır. İki sınıflı artırmalı karar ağacı modeli eğitilir ve puanlanmış. Tahmin sonuçları görselleştirebilirsiniz artık [Score Model] [ score-model] modülünün çıkış bağlantı noktasına tıklayarak [Score Model] [ score-model] modülü ve ardından **Görselleştir**.
 
 ![Score model Modülü](./media/interpret-model-results/1_1.png)
 
-Şekil 2'de gösterildiği gibi bu Puanlama sonuçları getirir.
+Şekil 2'de gösterildiği gibi bu Puanlama sonuçlarını getirir.
 
-![İris iki sınıflı sınıflandırma deneme sonuçları](./media/interpret-model-results/2.png)
+![Iris iki sınıflı sınıflandırma deneme sonuçları](./media/interpret-model-results/2.png)
 
-Şekil 2. İki sınıflı sınıflandırma score model sonucunda Görselleştirme
+Şekil 2. Bir model Puanlama sonucunda iki sınıflı sınıflandırma görselleştirin
 
-**Sonuç yorumlama**
+**Sonuç yorumu**
 
-Sonuçlar tablosunda altı sütun vardır. Sol dört sütun dört özellikleridir. Sağda iki sütun, skoru etiketleri ve skoru olasılıklar tahmin sonuçlarını vardır. Olasılık skoru olasılıklar sütunda görüntülenir çiçek pozitif sınıfı (sınıf 1) ait. Örneğin, ilk sütun (0.028571) gösterir ilk çiçek sınıfı 1'e ait 0.028571 olasılık sayısıdır. Skoru etiketleri sütunu her çiçek için tahmin edilen sınıfı gösterir. Bu skoru olasılıklar sütunu temel alır. Bir çiçek puanlanmış olasılığını 0,5 büyükse, sınıf 1 olarak tahmin. Aksi takdirde sınıfı 0 tahmin.
+Sonuçlar tablosunda altı sütunları vardır. Sol dört sütun dört özellikleridir. Tahmin sonuçlarını Puanlanmış etiketler ve Puanlanmış olasılıklar, şu iki sütun var. Puanlanmış olasılıklar sütunu olasılığını gösterir çiçek (sınıf 1) pozitif sınıfına ait. Örneğin, ilk sütun (0.028571) gösterir ilk çiçek sınıfı 1'e ait 0.028571 olasılık sayısıdır. Puanlanmış etiketler sütunu her çiçek için tahmin edilen sınıf gösterir. Bu, Puanlanmış olasılıklar sütunu temel alır. Çiçek puanlanmış olasılığını 0,5 büyük ise, sınıf 1 olarak tahmin edildiğinde. Aksi takdirde, sınıf 0 olarak tahmin edildiğinde.
 
-**Web hizmet yayımı**
+**Web hizmet yayımlama**
 
-Tahmin sonuçlarını anlamış ve ses nitelendirilmiştir sonra böylece çeşitli uygulamalar dağıtmak ve yeni bir iris çiçek üzerinde sınıf Öngörüler almak üzere çağrı denemeyi bir web hizmeti olarak yayımlanabilir. Eğitim denemenizi Puanlama denemeyi değiştirmek ve bir web hizmeti olarak yayımlamak öğrenmek için bkz: [Azure Machine Learning web hizmeti yayımlama](walkthrough-5-publish-web-service.md). Bu yordam ile Puanlama bir deneme, Şekil 3'te gösterildiği gibi sağlar.
+Tahmin sonuçlarını anladım ve ses materyali sonra deneme, çeşitli uygulamaları dağıtmak ve yeni bir süsen Çiçeği sınıfı tahminleri almak üzere çağrı bir web hizmeti olarak yayımlanabilir. Puanlama bir denemenin bir eğitim denemesini değiştirmek ve bir web hizmeti olarak yayımlama bilgi edinmek için [Azure Machine Learning web hizmeti yayımlama](walkthrough-5-publish-web-service.md). Bu yordam ile bir Puanlama deney, Şekil 3'te gösterildiği gibi sağlar.
 
-![Deneme Puanlama işleminin ekran görüntüsü](./media/interpret-model-results/3.png)
+![Deneme Puanlama ekran görüntüsü](./media/interpret-model-results/3.png)
 
-Şekil 3 '. İris iki sınıflı sınıflandırma sorunu deneme Puanlama
+Şekil 3. Iris iki sınıflı sınıflandırma sorunu denemeyi Puanlama
 
-Şimdi giriş ve çıkış web hizmeti için ayarlamanız gerekir. Sağ giriş bağlantı noktasını girdidir [Score Model][score-model], Iris çiçek olduğu giriş özellikleri. Çıktı Seçimi olup, tahmin edilen sınıfı (puanlanmış etiketi), puanlanmış olasılık veya her ikisi de ilginizi bağlıdır. Bu örnekte, her ikisinde de ilginizi varsayılır. İstenen çıkış sütunları seçmek için kullanın bir [veri kümesinde Sütun Seç] [ select-columns] modülü. ' I tıklatın [veri kümesinde Sütun Seç][select-columns], tıklatın **başlatma Sütun seçiciyi**seçip **skoru etiketleri** ve **skoru olasılıklar**. Çıkış bağlantı noktasına ayarlandıktan sonra [veri kümesinde Sütun Seç] [ select-columns] ve yeniden çalıştırmayı, tıklayarak bir web hizmeti olarak Puanlama deneme yayımlanacağını hazır olmalısınız **yayımlama WEB hizmeti**. Son deneme Şekil 4 gibi görünüyor.
+Artık giriş ve çıkış web hizmeti için ayarlamanız gerekir. Sağ giriş bağlantı noktasına giriştir [Score Model][score-model], süsen Çiçeği olduğu giriş özellikleri. Çıkış seçimi olup, tahmin edilen sınıf (puanlanmış etiketi), puanlanmış olasılık ya da her ikisini bağlıdır. Bu örnekte, her ikisini de ilginizi varsayılır. İstenen çıkış sütunları seçmek için kullanın. bir [veri kümesindeki sütunları seçme] [ select-columns] modülü. Tıklayın [veri kümesindeki sütunları seçme][select-columns], tıklayın **Sütun seçiciyi Başlat**seçip **Puanlanmış etiketler** ve **Scored Olasılıklar**. Çıkış bağlantı noktasına ayarlandıktan sonra [veri kümesindeki sütunları seçme] [ select-columns] ve yeniden çalıştırma, tıklayarak denemeyi Puanlama web hizmeti olarak yayımlamaya hazır olmalısınız **WEB hizmeti yayımlama** . Son deneme Şekil 4 gibi görünüyor.
 
-![İris iki sınıflı sınıflandırma deneme](./media/interpret-model-results/4.png)
+![Iris iki sınıflı sınıflandırma deneme](./media/interpret-model-results/4.png)
 
-Şekil 4 '. Bir iris iki sınıflı sınıflandırma sorununun son Puanlama deneme
+Şekil 4. Iris iki sınıflı sınıflandırma sorununun son Puanlama deneme
 
-Web hizmetini çalıştırmak ve bir test örneğinin bazı özellik değerleri girin sonra iki sayının sonucunu döndürür. Puanlanmış etiket ilk sayıdır ve ikinci puanlanmış olasılıktır. Bu çiçek sınıfı 1 olarak 0.9655 olasılık ile tahmin.
+Web hizmetini çalıştırma ve test örneğinin bazı özellik değerlerini girin. sonra iki sayının sonucunu döndürür. Puanlanmış etiket ilk sayıdır ve ikinci puanlanmış bir olasılıktır. Bu çiçek sınıf 1 olarak ile 0.9655 olasılığını tahmin edildiğinde.
 
-![Test yorumlama score model](./media/interpret-model-results/4_1.png)
+![Test yorumlama puan modeli](./media/interpret-model-results/4_1.png)
 
-![Puanlama test sonuçları](./media/interpret-model-results/5.png)
+![Test sonuçlarını Puanlama](./media/interpret-model-results/5.png)
 
-Şekil 5. Web hizmeti sonucu iris iki sınıflı sınıflandırma
+Şekil 5. Web hizmeti sonucu Iris iki sınıflı sınıflandırma
 
-### <a name="multi-class-classification"></a>Birden çok sınıf sınıflandırma
+### <a name="multi-class-classification"></a>Çok sınıflı sınıflandırma
 **Örnek deneme**
 
-Bu deneme içinde bir harf tanıma görev çok sınıflı sınıflandırma örneği olarak gerçekleştirin. Sınıflandırıcı, elle yazılmış görüntülerden ayıklanan bazı elle yazılmış öznitelik değerlerine göre belirli bir harfi (sınıfı) tahmin etmek çalışır.
+Bu deneyde bir harf tanıma görev sınıflı sınıflandırma örneği olarak gerçekleştirin. Sınıflandırıcı elle yazılmış görüntülerden ayıkladığınız bazı el ile yazılmış öznitelik değerlerine göre belirli bir harfi (sınıf) tahmin etmek çalışır.
 
 ![Harf tanıma örneği](./media/interpret-model-results/5_1.png)
 
-Eğitim verileri içinde elle yazılmış harf görüntülerden ayıklanan 16 özellikler vardır. 26 harf bizim 26 sınıfları oluşturur. Şekil 6 harf tanıma için çok sınıflı sınıflandırma modeli eğitmek ve tahmin bir denemeyi sınama veri kümesi üzerinde aynı özelliğini gösterir.
+Eğitim verileri, elle yazılmış harf görüntülerden ayıkladığınız 16 özellikler mevcuttur. 26 harf 26 göreceğiniz sınıfların oluşturur. Şekil 6 test veri kümesinde kudu ile aynı özelliklere harf tanıma için bir çok sınıflı sınıflandırma modeli eğitmek ve tahmin bir denemeyi gösterir.
 
-![Harf tanıma çok sınıflı sınıflandırma deneme](./media/interpret-model-results/6.png)
+![Harf tanıma sınıflı sınıflandırma deneme](./media/interpret-model-results/6.png)
 
-Şekil 6. Harf tanıma çok sınıflı sınıflandırma sorunu deneme
+Şekil 6. Harf tanıma sınıflı sınıflandırma sorunu deneme
 
-Sonuçlarını görselleştirme [Score Model] [ score-model] çıkış bağlantı noktasına tıklayarak Modülü [Score Model] [ score-model] modülü ve ardından **Görselleştir**, içerik Şekil 7'de gösterildiği gibi görmeniz gerekir.
+Sonuçlardan görselleştirme [Score Model] [ score-model] modülünün çıkış bağlantı noktasına tıklayarak [Score Model] [ score-model] modülü ve ardından **Görselleştir**, içerik Şekil 7'de gösterildiği gibi görmeniz gerekir.
 
 ![Score model sonuçları](./media/interpret-model-results/7.png)
 
-Şekil 7. Birden çok sınıf sınıflandırma içinde Puanlama modeli sonuçlarını Görselleştirme
+Şekil 7. Bir çok sınıflı sınıflandırma içinde Puanlama modeli sonuçlarını Görselleştirme
 
-**Sonuç yorumlama**
+**Sonuç yorumu**
 
-Sol 16 sütunlar sınama kümesi özellik değerlerini temsil eder. Sütunları skoru olasılıklar sınıf "XX" için yalnızca gibi adlara sahip iki sınıflı durumda skoru olasılıklar sütun ister. Olasılık Göster, belirli bir sınıfına karşılık gelen bir giriş döner. Örneğin, ilk giriş için bir "A", "B" ve benzeri olduğunu 0.000451 olasılık olduğunu 0.003571 olasılık yoktur. Son sütun (skoru etiketleri) skoru etiketleri aynı iki sınıflı durumda değil. En büyük puanlanmış olasılık sınıfıyla ilgili girişi tahmin edilen sınıf olarak seçilir. Örneğin, bir "F" (0.916995) olması için en büyük olasılık olduğundan ilk girişi için puanlanmış etiketi "F" olur.
+Sol 16 sütundan sınama kümesi özellik değerlerini temsil eder. Puanlanmış olasılıklar "XX" sınıf için yalnızca gibi adları olan sütunları Puanlanmış olasılıklar sütunu iki sınıflı durumda ister. Olasılık gösterdikleri karşılık gelen bir giriş denk gelen belirli bir sınıfa dönüştürür. Örneğin, ilk giriş için bir "A", "B" ve benzeri olduğunu 0.000451 olasılık olduğunu 0.003571 olasılık yoktur. Son sütun (Puanlanmış etiketler) Puanlanmış etiketler iki sınıflı durumda aynıdır. En büyük puanlanmış olasılık sınıfıyla ilgili girişi tahmin edilen sınıf seçilir. Örneğin, bir "F" (0.916995) olacak şekilde en büyük olasılıkla olduğundan ilk girişi için "F" puanlanmış etiketi olur.
 
-**Web hizmet yayımı**
+**Web hizmet yayımlama**
 
-Ayrıca, her giriş ve puanlanmış etiket olasılığını için puanlanmış etiket elde edebilirsiniz. Temel mantığı puanlanmış olasılıklar arasında büyük olasılık bulmaktır. Bunu yapmak için kullanmanız gerekir [R betiği yürütün] [ execute-r-script] modülü. R kodu Şekil 8'de gösterilen ve deneme sonucunu Şekil 9'da gösterilir.
+Puanlanmış etiket Ayrıca, her giriş ve puanlanmış etiket olasılığını da alabilirsiniz. Temel mantığı tüm puanlanmış olasılıklar arasındaki en büyük olasılık bulmaktır. Bunu yapmak için kullanmanız gerekir [R betiği yürütme] [ execute-r-script] modülü. Şekil 8'de R kodunu görüntülenir ve deneme sonucunu Şekil 9'da gösterilir.
 
 ![R kod örneği](./media/interpret-model-results/8.png)
 
-Şekil 8'de. R kodunu skoru etiketleri ve etiketlerin ilişkili olasılıklar ayıklanıyor
+Şekil 8. Puanlanmış etiketler ve etiketlerin ilişkili olasılıklar ayıklanması için R kodu
 
 ![Deneme sonucu](./media/interpret-model-results/9.png)
 
-Şekil 9. Harf tanıma çok sınıflı sınıflandırma sorununun son Puanlama deneme
+Şekil 9. Harf tanıma sınıflı sınıflandırma problemi, son Puanlama deneme
 
-Sonra yayımlama ve web hizmetini çalıştırmak ve bazı giriş özellik değerleri, Şekil 10 döndürülen sonuç görülüyor girin. Bu elle yazılmış harf ayıklanan 16 özelliklerini 0.9715 olasılık ile "T" olarak tahmin.
+Sonra yayımlama ve web hizmetini çalıştırmak ve döndürülen sonuç aşağıdaki gibi görünür Şekil 10 bazı giriş özellik değerleri girin. Bu elle yazılmış harf ayıklanan 16 özelliklerini 0.9715 olasılık ile "T" Tahmin edildiğinde.
 
-![Sınama yorumlama puan Modülü](./media/interpret-model-results/9_1.png)
+![Testi yorumlama puanı Modülü](./media/interpret-model-results/9_1.png)
 
 ![Test sonucu](./media/interpret-model-results/10.png)
 
-Şekil 10. Web hizmeti sonucu çok sınıflı sınıflandırma
+Şekil 10. Web hizmeti sonucu sınıflı sınıflandırma
 
-## <a name="regression"></a>regresyon
-Regresyon sorunları sınıflandırma sorunlarında farklıdır. Bir sınıflandırma sorunu sınıfı iris çiçek ait olduğu gibi ayrık sınıfları tahmin deniyorsunuz. Ancak regresyon sorun aşağıdaki örnekte görüldüğü gibi bir araba fiyatını gibi sürekli bir değişken tahmin etmeye çalıştığınız.
+## <a name="regression"></a>Regresyon
+Regresyon sorunları sınıflandırma sorunlarında farklıdır. Ayrık sınıflar, sınıf bir süsen Çiçeği ait olduğu gibi tahmin etmek bir sınıflandırma sorun çalıştığınız. Ancak, regresyon problemi aşağıdaki örnekte görebileceğiniz gibi bir araba fiyatını gibi sürekli bir değişkene tahmin etmeye çalıştığınız.
 
 **Örnek deneme**
 
-Otomobil fiyat tahmini regresyon için örnek olarak kullanın. Oluştur, yakıt türü, gövde türü ve sürücü tekerleği dahil olmak üzere kendi özelliklerini temel alarak otomobil fiyatını tahmin etmek çalışıyorsunuz. Denemeyi Şekil 11'de gösterilir.
+Otomobil fiyat tahmini için regresyon, örnek olarak kullanın. Oluştur, yakıt türü, gövde türü ve sürücü tekerleği dahil olmak üzere kendi özelliklerini temel alarak bir araba fiyatını tahmin etmek çalışıyorsunuz. Denemeyi Şekil 11'de gösterilir.
 
 ![Otomobil fiyat regresyon denemesini](./media/interpret-model-results/11.png)
 
@@ -155,158 +156,158 @@ Otomobil fiyat tahmini regresyon için örnek olarak kullanın. Oluştur, yakıt
 
 Görselleştirme [Score Model] [ score-model] modülü, sonuç Şekil 12 gibi görünüyor.
 
-![Otomobil fiyat tahmini soruna yönelik Puanlama sonuçları](./media/interpret-model-results/12.png)
+![Otomobil fiyat tahmini sorun için Puanlama sonuçları](./media/interpret-model-results/12.png)
 
-Şekil 12. Otomobil fiyat tahmini soruna yönelik Puanlama sonucu
+Şekil 12. Otomobil fiyat tahmini sorun için Puanlama sonuç
 
-**Sonuç yorumlama**
+**Sonuç yorumu**
 
-Puanlanmış etiketler Puanlama bu sonucu sonuç sütununda olur. Tahmin edilen her araba fiyatını numaralarıdır.
+Puanlanmış etiketler, sonuç sütunuyla bu Puanlama sonuç olur. Tahmin edilen her bir araba fiyatını sayılardır.
 
-**Web hizmet yayımı**
+**Web hizmet yayımlama**
 
-Bir web hizmeti içine regresyon denemesini yayımlayın ve bu otomobil fiyat tahmini için iki sınıflı sınıflandırma kullanım durumunda olduğu gibi aynı şekilde çağırın.
+Regresyon denemesini bir web hizmeti olarak yayımlayabilir ve otomobil fiyat tahmini için iki sınıflı sınıflandırma kullanım örneği olduğu gibi aynı şekilde çağırın.
 
-![Otomobil fiyat regresyon sorun için deneme Puanlama](./media/interpret-model-results/13.png)
+![Otomobil fiyat regresyon problemi için deneme Puanlama](./media/interpret-model-results/13.png)
 
-Şekil 13. Bir otomobil fiyat regresyon sorununun deneme Puanlama
+Şekil 13. Otomobil fiyat regresyon sorununun deneme Puanlama
 
-Web hizmeti çalıştıran, döndürülen sonuç Şekil 14 gibi görünüyor. Bu otomobil fiyatını tahmin edilen $15,085.52 ' dir.
+Web servis çalışıyor, döndürülen sonuç Şekil 14 gibi görünüyor. Bu araç için tahmin edilen fiyat $15,085.52 olur.
 
-![Sınama yorumlama Puanlama Modülü](./media/interpret-model-results/13_1.png)
+![Testi yorumlama Puanlama Modülü](./media/interpret-model-results/13_1.png)
 
 ![Puanlama modülü sonuçları](./media/interpret-model-results/14.png)
 
-Şekil 14. Web hizmeti bir otomobil fiyat regresyon sorun sonucu
+Şekil 14. Web hizmeti bir otomobil fiyat regresyon problemi sonucunu
 
 ## <a name="clustering"></a>Kümeleme
 **Örnek deneme**
 
-Şimdi Iris veri kümesini yeniden kümeleme bir deneme oluşturmak için kullanın. Burada yalnızca özelliklere sahiptir ve kümeleme için kullanılan veri kümesi sınıfı etiketler çıkışı filtreleyebilirsiniz. Bu iris kullanım, iki iki sınıf halinde çiçekler küme anlamına gelir eğitim işlemi sırasında olması için küme sayısını belirtin. Denemeyi Şekil 15'te gösterilir.
+Şimdi kullanarak Iris veri kümesini, küme bir deneme oluşturmak için yeniden kullanın. Burada yalnızca özelliklere sahiptir ve kümeleme için kullanılan çıkış veri kümesi sınıfı etiketleri filtreleyebilirsiniz. İçinde bu Iris kullanım örneği, iki iki sınıflara satmanın küme anlamına gelir eğitim işlemi sırasında olmasını küme sayısını belirtin. Şekil 15'te deneme gösterilmektedir.
 
-![Iris kümeleme sorun denemeler](./media/interpret-model-results/15.png)
+![Iris kümeleme sorun denemeler yapın](./media/interpret-model-results/15.png)
 
-Şekil 15. Iris kümeleme sorun denemeler
+Şekil 15. Iris kümeleme sorun denemeler yapın
 
-Eğitim veri kümesinin başından başlayarak gerçekte etiketleri tek başına yok kümeleme sınıflandırma farklıdır. Grupları eğitim veri kümesi örnekleri, ayrı kümeler halinde kümeleme. Eğitim işlemi sırasında model özelliklerine arasındaki farklar öğrenerek girişleri etiketler. Bundan sonra eğitilen model daha ileride girişleri sınıflandırmak için kullanılabilir. Biz kümeleme sorun içinde ilgilendiğiniz sonucunun iki bölümü vardır. İlk bölümü eğitim veri kümesi etiketleme ve ikinci bir yeni veri kümesi ve eğitilen modele ile sınıflandırmak.
+Eğitim veri kümesi çığır truth etiketleri kendisi tarafından yok, kümeleme sınıflandırmasından farklıdır. Grupları eğitim veri kümesi örnekleri, ayrı kümeler halinde kümeleme. Eğitim işlemi sırasında modeli, özellikler arasındaki farkları öğrenerek girişleri etiketler. Bundan sonra eğitilen model daha ileride girişleri sınıflandırmak için kullanılabilir. İçinde bir kümeleme sorun ilgileniriz sonucun iki bölümü vardır. İlk bölümü, eğitim veri kümesi etiketleme ve ikinci, eğitilen modeli ile yeni bir veri kümesi sınıflandırma.
 
-Sol çıkış bağlantı noktasına tıklayarak sonucu ilk bölümü canlandırılabilir [tren kümeleme modelinde] [ train-clustering-model] ve ardından **Görselleştir**. Görselleştirme Şekil 16'gösterilir.
+Sonuç ilk bölümünü sol çıkış bağlantı noktasına tıklayarak görselleştirilebilir [kümeleme modeli eğitme] [ train-clustering-model] tıklayıp **Görselleştir**. Görsel, Şekil 16'gösterilir.
 
-![Kümeleme sonucu](./media/interpret-model-results/16.png)
+![Sonuç kümesi](./media/interpret-model-results/16.png)
 
-Şekil 16. Sonuç eğitim veri kümesi için kümeleme Görselleştirme
+Şekil 16. Sonuç bir eğitim veri kümesi için küme Görselleştirme
 
-Yeni girişlerle eğitilen kümeleme modeli, kümeleme ikinci bölümü, sonuç şekil 17'de gösterilir.
+Yeni girişlerle eğitilen kümeleme modeli, kümeleme ikinci bölümü sonucunu şekil 17'de gösterilir.
 
-![Sonuç kümeleme Görselleştirme](./media/interpret-model-results/17.png)
+![Sonuç kümesi görselleştirin](./media/interpret-model-results/17.png)
 
-Şekil 17. Yeni bir veri kümesi üzerinde sonuç kümeleme Görselleştirme
+Şekil 17. Sonuç yeni bir veri kümesinde Küme Görselleştirme
 
-**Sonuç yorumlama**
+**Sonuç yorumu**
 
-Farklı deneme aşamaları iki bölümden sonuçlarını gövdesi karşın, aynı bakın ve aynı şekilde yorumlanır. İlk dört sütun özellikleridir. Son sütun atamaları tahmin sonucudur. Atanan aynı sayı girişleri, (Bu deneme varsayılan Euclidean uzaklığı ölçüm kullanır) şekilde benzerlikler paylaştıkları aynı küme olacak şekilde tahmin. 2 küme sayısı belirtilmediğinden atamaları girdileri 0 veya 1 etiketlenir.
+İki bölümü sonuçlarını farklı deneme aşamalarını kökü olsa da, aynı görünür ve aynı şekilde yorumlanır. İlk dört sütun özellikleridir. Son sütun, atama, tahmin sonucudur. Aynı numara atanan girişleri, bunlar benzerliğe şekilde (varsayılan Euclidean uzaklık ölçümü bu denemeyi kullanır) aynı kümede olması tahmin. 2 küme sayısı belirttiğinden atamaları girişleri 0 veya 1 olarak etiketlenmiştir.
 
-**Web hizmet yayımı**
+**Web hizmet yayımlama**
 
-Bir web hizmeti içine kümeleme deneme yayımlama ve iki sınıflı sınıflandırma olduğu gibi kullanım örneği tahminleri kümeleme için çağırın.
+Kümeleme denemenin bir web hizmeti yayımlama ve iki sınıflı sınıflandırma aynı şekilde kullanım örneği Öngörüler kümeleme için çağırın.
 
-![Deneme iris kümeleme sorunu Puanlama](./media/interpret-model-results/18.png)
+![Iris kümeleme sorun için deneme Puanlama](./media/interpret-model-results/18.png)
 
-Şekil 18. Deneme iris kümeleme sorununun Puanlama
+Şekil 18. Iris kümeleme sorununun deneme Puanlama
 
-Sonra web hizmetini çalıştırmak, döndürülen sonuç şekil 19 gibi görünüyor. Küme 0 olması için bu çiçek tahmin.
+Sonra web hizmetini çalıştırma döndürülen sonuç şekil 19 gibi görünüyor. Bu çiçek 0 kümede tahmin edildiğinde.
 
 ![Test Puanlama modülü yorumlama](./media/interpret-model-results/18_1.png)
 
 ![Puanlama modülü sonuç](./media/interpret-model-results/19.png)
 
-Şekil 19. Web hizmeti sonucu iris iki sınıflı sınıflandırma
+Şekil 19. Web hizmeti sonucu Iris iki sınıflı sınıflandırma
 
 ## <a name="recommender-system"></a>Öneren sistem
 **Örnek deneme**
 
-Öneren sistemleri için örnek olarak Restoran öneri sorun kullanabilirsiniz: müşteriler kendi derecelendirme geçmiş temelinde Restoran öneririz. Giriş verisi üç bölümden oluşur:
+Öneren sistemleri için örnek olarak Restoran öneri sorun kullanabilirsiniz: müşterilerin kendi derecelendirme geçmişi temel alarak restoranlar önerilir. Giriş verileri üç bölümden oluşur:
 
-* Müşterilerden Restoran derecelendirme
+* Müşterilerin restoran derecelendirmeleri
 * Müşteri özellik verileri
 * Restoran özelliği verileri
 
-Biz ile yapabilir birkaç şey vardır [tren Matchbox öneren] [ train-matchbox-recommender] Azure Machine Learning modülünde:
+Biz ile yapabilir birkaç şey vardır [eğitme Matchbox öneren] [ train-matchbox-recommender] Azure Machine learning'de Modülü:
 
-* Verilen kullanıcı ve madde derecelendirmesi tahmin etme
-* Belirli bir kullanıcıya öğeleri önerilir
+* Verilen kullanıcı ve öğe dereceleri tahmin edin
+* Belirli bir kullanıcıya öğeleri önerin
 * Belirli bir kullanıcıyla ilişkili kullanıcı Bul
-* Belirli bir öğesiyle ilgili öğeleri bulma
+* Belirli bir öğe için ilgili öğeleri bulma
 
-Dört seçeneklerinde seçerek yapmak istediğiniz seçebilirsiniz **öneren tahmin türü** menüsü. Burada tüm dört senaryolar üzerinden yol.
+Dört seçeneklerinde seçerek yapmasını istediğinizi seçebilirsiniz **öneren tahmin tür** menüsü. Burada, tüm dört senaryolar üzerinden yol.
 
 ![Matchbox öneren](./media/interpret-model-results/19_1.png)
 
-Tipik bir Azure Machine Learning deneme öneren sistemi Şekil 20 gibi görünüyor. Bu öneren sistem modüllerini kullanma hakkında daha fazla bilgi için bkz: [tren matchbox öneren] [ train-matchbox-recommender] ve [puan matchbox öneren][score-matchbox-recommender].
+Tipik bir Azure Machine Learning denemesi öneren sistemi Şekil 20 gibi görünüyor. Bu öneren sistem modüllerini kullanma hakkında daha fazla bilgi için bkz: [eğitme matchbox öneren] [ train-matchbox-recommender] ve [puanı matchbox öneren] [ score-matchbox-recommender].
 
 ![Öneren sistem deneme](./media/interpret-model-results/20.png)
 
 Şekil 20. Öneren sistem deneme
 
-**Sonuç yorumlama**
+**Sonuç yorumu**
 
-**Verilen kullanıcı ve madde derecelendirmesi tahmin etme**
+**Verilen kullanıcı ve öğe dereceleri tahmin edin**
 
-Seçerek **derecelendirme tahmin** altında **öneren tahmin türü**, öneren sistem verilen kullanıcı ve madde için derecelendirme tahmin etmek istiyoruz. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 21 gibi görünüyor.
+Seçerek **derecelendirme tahmin** altında **öneren tahmin tür**, belirli kullanıcı ve öğe derecesini tahmin etmek için öneren sistem seçmenizi istiyoruz. Bir görselleştirme [puanı Matchbox öneren] [ score-matchbox-recommender] çıktı şekil 21 gibi görünür.
 
-![Tahmin derecelendirme öneren sistem--sonucunu puan](./media/interpret-model-results/21.png)
+![Sonucu tahmin derecelendirme öneren sisteminin--Puanlama](./media/interpret-model-results/21.png)
 
-Şekil 21. Tahmin derecelendirme öneren sistem--puan sonucunu Görselleştirme
+Şekil 21. Puan sonucu tahmin derecelendirme öneren sistem--görselleştirin
 
-İlk iki sütunu giriş verisi tarafından sağlanan kullanıcı öğesi çiftleridir. Bir kullanıcı belirli bir öğe için tahmin edilen derecesi üçüncü sütundur. Örneğin, ilk satırda müşteri U1048 oranı Restoran 135026 2 olarak tahmin.
+İlk iki sütun, girdi verilerini tarafından sağlanan kullanıcı öğesi çiftleridir. Üçüncü sütunda, bir kullanıcı belirli bir öğe için tahmin edilen derecesi ' dir. Örneğin, ilk satırın müşteri U1048 oranı restorana 135026 2 olarak tahmin edildiğinde.
 
-**Belirli bir kullanıcıya öğeleri önerilir**
+**Belirli bir kullanıcıya öğeleri önerin**
 
-Seçerek **öğesi öneri** altında **öneren tahmin türü**, öğeleri belirli bir kullanıcıya önermek için öneren sistem isteyen. Bu senaryoda seçmek için son parametre *öğe seçimi önerilen*. Seçenek **gelen derecelendirilmiş öğeleri (model değerlendirme)** eğitim işlemi sırasında model değerlendirme öncelikle içindir. Bu tahmin aşaması için seçeneğini belirledik **gelen tüm öğeleri**. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış Şekil 22 gibi görünüyor.
+Seçerek **öğesi öneri** altında **öneren tahmin tür**, belirli bir kullanıcıya önermek öneren sistem isteyen. Bu senaryoda seçmek için son parametre *öğe seçimi önerilen*. Seçeneğini **gelen derecelendirilmiş öğeleri (model değerlendirme)** öncelikle eğitim işlemi sırasında model değerlendirme içindir. Bu tahmin aşaması için Seçtiğimiz **gelen tüm öğeleri**. Bir görselleştirme [puanı Matchbox öneren] [ score-matchbox-recommender] çıktı Şekil 22 gibi görünür.
 
-![Öneren sistem--öğesi öneri puan sonucu](./media/interpret-model-results/22.png)
+![Öneren sistem--öğesi öneri puanı sonucu](./media/interpret-model-results/22.png)
 
-Şekil 22. Öneren sistem--öğesi öneri puan sonucunu Görselleştirme
+Şekil 22. Öneren sisteminin--öğesi öneri puanı sonucun görselleştirilmesi
 
-İlk altı sütunların giriş verisi tarafından sağlanan belirli kullanıcı için öğeleri önermek için kimlikleri temsil eder. Diğer beş sütun ilgi azalan düzende kullanıcıya önerilen öğeleri temsil eder. Örneğin, ilk satırda müşteri U1048 en önerilen Restoran 135018, 134975, 135021 ve 132862 tarafından izlenen 134986 ' dir.
+İlk altı sütunların giriş verileri sağlanan belirli kullanıcı kimlikleri için önermek temsil eder. Diğer beş sütun, azalan ilgi düzeyi, kullanıcı için önerilen öğeler temsil eder. Örneğin, ilk satırın ardından 135018, 134975, 135021 ve 132862 134986, müşteri U1048 için önerilen en Restoran olur.
 
 **Belirli bir kullanıcıyla ilişkili kullanıcı Bul**
 
-Seçerek **ilgili kullanıcıları** altında **öneren tahmin türü**, verili bir kullanıcı için ilgili kullanıcıları bulmak için öneren sistem isteyen. Benzer Tercihler kullanıcılar ilgili kullanıcılardır. Bu senaryoda seçmek için son parametre *ilgili kullanıcı seçimi*. Seçenek **gelen kullanıcılar, derecelendirilmiş öğeleri (model değerlendirme)** eğitim işlemi sırasında model değerlendirme öncelikle içindir. Seçin **tüm kullanıcıların** bu tahmin aşaması için. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 23 gibi görünüyor.
+Seçerek **ilgili kullanıcıları** altında **öneren tahmin tür**, öneren sistemin belirli bir kullanıcı için ilgili kullanıcıları bulmak isteyen. Benzer tercihleri olan kullanıcıları ilgili kullanıcılardır. Bu senaryoda seçmek için son parametre *ilgili kullanıcı seçimine*. Seçenek **öğesinden kullanıcılar olduğunu derecelendirilmiş öğeleri (model değerlendirme)** öncelikle eğitim işlemi sırasında model değerlendirme içindir. Seçin **tüm kullanıcıların** bu tahmin aşama için. Bir görselleştirme [puanı Matchbox öneren] [ score-matchbox-recommender] çıktı şekil 23'gibi görünür.
 
-![Öneren sistem--ilgili kullanıcıları puan sonucu](./media/interpret-model-results/23.png)
+![Öneren sistem--ilgili kullanıcılar sonucunun Puanlama](./media/interpret-model-results/23.png)
 
 Şekil 23. Öneren sisteminin--ilgili kullanıcıları Puanlama sonuçlarını Görselleştirme
 
-İlk altı sütunların verilen kullanıcı kimlikleri ilgili kullanıcıları bulmak gerekli giriş verileri tarafından sağlanan gibi gösterir. Diğer beş sütun ilgi azalan sırada kullanıcının tahmin edilen ilgili kullanıcıları depolar. Örneğin, ilk satırda müşteri U1048 en ilgili müşteri U1066, U1044, U1017 ve U1072 tarafından izlenen U1051 ' dir.
+İlk altı sütunların, belirtilen kullanıcı kimlikleri ilgili kullanıcıları bulmak için gereken girdi verilerini tarafından sağlanan gösterir. Diğer beş sütun ilgi azalan sırada kullanıcının tahmin edilen ilgili kullanıcıları depolayın. Örneğin, ilk satırın ardından U1066, U1044, U1017 ve U1072 U1051, müşteri U1048 en ilgili müşteri olur.
 
-**Belirli bir öğesiyle ilgili öğeleri bulma**
+**Belirli bir öğe için ilgili öğeleri bulma**
 
-Seçerek **ilgili öğeler** altında **öneren tahmin türü**, belirli bir öğe için ilgili öğeleri bulmak için öneren sistem istiyoruz. İlgili öğeler aynı kullanıcı tarafından beğendiğinizi olasılıkla öğelerdir. Bu senaryoda seçmek için son parametre *ilgili öğe seçimi*. Seçenek **gelen derecelendirilmiş öğeleri (model değerlendirme)** eğitim işlemi sırasında model değerlendirme öncelikle içindir. Seçeneğini belirledik **gelen tüm öğeleri** bu tahmin aşaması için. Görsel olarak [puan Matchbox öneren] [ score-matchbox-recommender] çıkış şekil 24 gibi görünüyor.
+Seçerek **ilgili öğeleri** altında **öneren tahmin tür**, belirli bir öğe için ilgili öğeleri bulmak için öneren sistem seçmenizi istiyoruz. İlgili öğeleri aynı kullanıcı tarafından beğenilen en olası öğeler görüntülenir. Bu senaryoda seçmek için son parametre *ilgili öğe seçimi*. Seçeneğini **gelen derecelendirilmiş öğeleri (model değerlendirme)** öncelikle eğitim işlemi sırasında model değerlendirme içindir. Burada **gelen tüm öğeleri** bu tahmin aşama için. Bir görselleştirme [puanı Matchbox öneren] [ score-matchbox-recommender] çıktı şekil 24 gibi görünür.
 
-![Puan sonuç öneren sisteminin--ilgili öğeler](./media/interpret-model-results/24.png)
+![Puan sonucunu öneren sistem--ilgili öğeler](./media/interpret-model-results/24.png)
 
-Şekil 24. Öneren sisteminin--ilgili öğeler Puanlama sonuçlarını Görselleştirme
+Şekil 24. İlgili öğeler öneren sisteminin--Puanlama sonuçlarını Görselleştirme
 
-İlk altı sütunların verilen öğesi ilgili öğeleri bulmak için giriş verileri tarafından sağlanan gibi gerekli kimlikleri temsil eder. Diğer beş sütun uygunluk açısından azalan sırada tahmin edilen ilgili öğeler öğenin depolar. Örneğin, ilk satırda en uygun öğesinin 135026 135035, 132875, 135055 ve 134992 tarafından izlenen 135074 öğesidir.
+İlk altı sütunların verilen öğe giriş verileri tarafından sağlanan gibi ilgili öğeleri bulmak için gerekli kimlikleri temsil eder. Diğer beş sütun öğesinin tahmin edilen ilgili öğeler bakımından ilgi azalan sırada depolayın. Örneğin, ilk satırın en uygun öğesinin 135026 135074, ardından 135035, 132875, 135055 ve 134992 öğesidir.
 
-**Web hizmet yayımı**
+**Web hizmet yayımlama**
 
-Bu denemeler Öngörüler almak için web Hizmetleri olarak yayımlama işlemi her dört senaryo için benzer. Burada size ikinci senaryo (belirli bir kullanıcının öğelerine önerilir) örnek olarak alın. Diğer üç ile aynı yordamı izleyebilirsiniz.
+Bu denemeleri Öngörüler almak için web Hizmetleri olarak yayımlama işlemi her dört senaryo için benzerdir. Burada biz İkinci senaryoda (belirli bir kullanıcı için önerilen öğeler) örnek olarak alın. Diğer üç ile aynı yordamı izleyebilirsiniz.
 
-Eğitilmiş öneren sistem eğitilen model olarak kaydetme ve istendiği gibi tek bir kullanıcı kimliği sütunu için giriş verileri filtreleme, Şekil 25 olduğu gibi deneme bağlanacağını ve web hizmeti olarak yayımlayın.
+Eğitilen öneren sistem eğitilen model olarak kaydetme ve girdi verilerini tek bir kullanıcı kimliği sütunu için istenen şekilde filtreleme, denemeyi şekil 25 olduğu gibi denetime ve bir web hizmeti olarak yayımlayın.
 
-![Deneme Restoran öneri sorununun Puanlama](./media/interpret-model-results/25.png)
+![Deneme Restoran öneri sorunun Puanlama](./media/interpret-model-results/25.png)
 
-Şekil 25. Deneme Restoran öneri sorununun Puanlama
+Şekil 25. Deneme Restoran öneri sorunun Puanlama
 
-Web hizmeti çalıştıran, döndürülen sonuç şekil 26 gibi görünüyor. Kullanıcı U1048 için beş önerilen Restoran 134986, 135018, 134975, 135021 ve 132862 ' dir.
+Web servis çalışıyor, döndürülen sonuç şekil 26 gibi görünüyor. Kullanıcının U1048 beş önerilen restoranlar 134986, 135018, 134975, 135021 ve 132862 ' dir.
 
 ![Öneren sistem hizmeti örneği](./media/interpret-model-results/25_1.png)
 
 ![Örnek deneme sonuçları](./media/interpret-model-results/26.png)
 
-Şekil 26. Web hizmeti Restoran öneri sorun sonucu
+Şekil 26. Web hizmeti sonucu Restoran öneri sorun
 
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/

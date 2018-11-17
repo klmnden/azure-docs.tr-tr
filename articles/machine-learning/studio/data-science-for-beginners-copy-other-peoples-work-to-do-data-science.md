@@ -1,11 +1,12 @@
 ---
-title: Başkalarının veri bilimi örnekler – Azure Machine Learning kopyalama | Microsoft Docs
-description: "Veri bilimi, ticari sır: çalışmanızı bunu başkalarına alın. Machine learning örnekler Azure AI Galerisi'nden alın."
-keywords: Veri bilimi örnekler, algoritma örnek kümeleme algoritması, kümeleme machine learning örnek
+title: 'Başkalarının veri bilimi örnekler: Azure Machine Learning kopyalama | Microsoft Docs'
+description: 'Veri bilimi, ticari sır: başkalarının çalışmanıza sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri, Azure yapay ZEKA Galeriden alın.'
+keywords: Veri bilimi örnekler, kümeleme algoritması örnek kümeleme algoritması, machine learning örneği
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
@@ -16,22 +17,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: 84c6f4a1cedc0a04ee820f1de60f51e653f28425
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 66af7e21943fb82826717ffef6e6ed153f1f5dd7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833888"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823529"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
-## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Yeni başlayanlar seri için veri bilimi
-Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır. Kendi makine öğrenimi denemesinin için kullanılacak Azure AI Galerisi'ndeki kümeleme algoritması örnek bulun.
+## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Seri yeni başlayanlar için veri bilimi
+Bir veri bilimi, ticari sırlar, başkalarının çalışmanıza sizin için gerçekleştirmesini istemeniz almaktır. Kendi makine öğrenimi denemesi için kullanılacak Azure AI Gallery'de bir kümeleme algoritması örnek bulun.
 
 > [!IMPORTANT]
-> **Cortana Intelligence Galerisi** adlandırıldı **Azure AI galeri**. Sonuç olarak, metin ve görüntüler bu dökümü biraz eski adı kullanan video farklı.
+> **Cortana Intelligence Galerisi** yeniden adlandırıldı **Azure AI Gallery**. Sonuç olarak, metin ve görüntüleri Bu dökümdeki biraz daha eski adı kullanan videodan değişir.
 >
 
-Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#other-videos-in-this-series)
+En yetersiz serisi almak için tüm bunları izleyin. [Videoları listesine Git](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
@@ -39,63 +40,63 @@ Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#o
 >
 
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
-*Yeni başlayanlar için veri bilimi* veri bilimi beş kısa videolar içindeki bir giriş değil.
+*Yeni başlayanlar için veri bilimi* beş kısa videoyu veri bilimine hızlı bir giriş niteliğindedir.
 
-* Video 1: [5 veri bilimi yanıtlar sorular](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 dakika 14 saniye)*
-* Video 2: [verileriniz için veri bilimi hazır?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sn)*
-* Video 3: [verilerle yanıt soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sn)*
-* Video 4: [basit bir modelle bir yanıt tahmin](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sn)*
-* Video 5: veri bilimi yapmak için diğer kişilerin çalışma kopyalayın
+* Video 1: [ilgili 5 veri biliminin yanıtladığı](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 en az 14 sn)*
+* Video 2: [verileriniz veri bilimi için hazır mı?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 dk 56 sn)*
+* Video 3: [verilerle yanıt soru](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 dk 17 sn)*
+* Video 4: [basit model ile yanıtı tahmin etme](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 dk 42 sn)*
+* Video 5: veri bilimi için başkalarının işlerini kopyalama
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Dökümü: veri bilimi yapmak için diğer kişilerin iş kopyalama
-Serideki beşinci video "Yeni başlayanlar için veri bilimi." Hoş Geldiniz
+## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transkript: veri bilimi için başkalarının işlerini kopyalama
+Serinin beşinci videoda "Yeni başlayanlar için veri bilimi." Hoş Geldiniz
 
-Bu tek bir yerde, gelen bir başlangıç noktası olarak kendi iş için kullanırım Bul örnekler için öğreneceksiniz. Bu serideki önceki videoları ilk izleyin, en iyi bu videoyu alabilirsiniz.
+Bu tek bir yerde, gelen bir başlangıç noktası olarak kendi çalışma kullanırım Bul örnekleri keşfedeceksiniz. Öncelikle bu serideki önceki videolar izleyin, en iyi bu videoyu alabilirsiniz.
 
-Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır.
+Bir veri bilimi, ticari sırlar, başkalarının çalışmanıza sizin için gerçekleştirmesini istemeniz almaktır.
 
-## <a name="find-examples-in-the-azure-ai-gallery"></a>Azure AI Galerisi'nde örnekleri Bul
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Azure AI Gallery'de örnekler bulabilirsiniz
 
-Microsoft adlı bulut tabanlı bir hizmete sahip [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) ücretsiz deneyin Hoş Geldiniz. Bu, bir çalışma alanıyla farklı machine learning algoritmaları ile deneyebilirsiniz ve yerdir, çalışılan çözümünüzün var olduğunda sağlar, web hizmeti olarak başlatın.
+Sahip adı verilen bir bulut tabanlı hizmeti Microsoft [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) ücretsiz denemeye Hoş Geldiniz. Size bir çalışma alanıyla farklı makine öğrenimi algoritmalarıyla denemeler yapabilir ve, çözümünüzü çalışılan süreyi bulduğunuzda, sağlar, web hizmeti olarak başlatın.
 
-Bu hizmetin parçası olan bir şey adlı  **[Azure AI galeri](https://gallery.cortanaintelligence.com/)**. Azure Machine Learning denemeleri veya kişiler yerleşik ve diğerleri için kullanılacak katkıda modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler düşünce ve diğer kendi çözümlerini başlamanıza yardımcı olmak için sabit iş yararlanmak için harika bir yoludur. Herkes üzerinden Gözat Hoş Geldiniz.
+Bu hizmetin bir parçası olan bir şey adlı  **[Azure AI Gallery](https://gallery.cortanaintelligence.com/)**. Bu, Azure Machine Learning denemeleri veya kişilerin oluşturduğu ve başkalarının kullanması için katkıda bulunan modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler, kendi çözümlerinizi başlamanıza yardımcı olmak için başkalarının çalışmalarını sabit ve düşünce yararlanmak için harika bir yoludur. Herkesin göz atmak Hoş Geldiniz.
 
 ![Azure Yapay Zeka Galerisi](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
-Tıklatırsanız **denemeler** en üstte en son ve popüler denemeler galerideki sayısı görürsünüz. Tıklatarak denemeler kullanılmadıkları arayabilirsiniz **tümüne Gözat** ekranın üstünde ve orada girdiğiniz arama terimleri ve arama filtrelerini seçin.
+Tıklarsanız **denemeleri** galeri'deki en son ve popüler denemeleri sayısı üst kısmında görürsünüz. Tıklayarak denemeleri rest üzerinden arayabilirsiniz **tümüne Gözat** ekranın üst kısmındaki ve orada girdiğiniz arama terimlerini ve arama filtrelerini seçin.
 
-## <a name="find-and-use-a-clustering-algorithm-example"></a>Bulma ve kümeleme algoritması örneği kullanın
-Bu nedenle, örneğin, arama için kümeleme nasıl çalıştığını, bir örnek görmek istediğiniz diyelim ki **"Tarama Kümeleme"** denemeler.
+## <a name="find-and-use-a-clustering-algorithm-example"></a>Bulma ve bir kümeleme algoritması örnek kullanma
+Bu nedenle, örneğin, araması için kümeleme nasıl çalıştığına ilişkin bir örnek görmek istediğiniz varsayalım **"Süpürme Kümeleme"** denemeleri.
 
-![Denemeler kümeleme için arama](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
+![Denemeleri kümeleme için arama](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 
-Birisi Galeriye katkıda ilginç bir İşte.
+Birisi Galeri'ye katkıda ilgi çekici bir İşte.
 
 ![Deneme kümeleme](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment.png)
 
-Üzerinde deneme ve bazı sonuçları yanı sıra bu katkıda bulunan, yaptığınız iş açıklayan bir web sayfası Al'ı tıklatın.
+Deneme ve bazı sonuçları ile birlikte bu katkıda bulunan, yaptığınız çalışmayı açıklayan bir web sayfası alma tıklayın.
 
-![Deneme açıklama sayfa kümeleme](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
+![Deneme açıklama sayfasında kümeleme](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Bildirim bağlantısını **Studio'da Aç**.
+Bildirim bağlantısına **Studio'da Aç**.
 
 ![Studio düğmesi Aç](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-Üzerinde tıklayabilir ve bana sağdan sürdüğünü **Azure Machine Learning Studio**. Denemeyi bir kopyasını oluşturur ve çalışma Alanım kendi yerleştirir. Bu, Katkıda Bulunanlar veri kümesi, yaptıkları işlemin, tüm işlemler tüm kullandıkları algoritmaları ve sonuçları kaydedilme içerir.
+Benim için doğru sürer ve üzerinde tıklayabilirsiniz **Azure Machine Learning Studio**. Bu denemenin bir kopyasını oluşturur ve bunu kendi çalışma alanına yerleştirir. Bu, katkıda bulunan kişinin veri kümesi, yaptıkları işlemin, tüm işleme tüm kullandıkları algoritmalar ve sonuçları kaydedilme içerir.
 
-![Machine Learning Studio - kümeleme algoritması örnek bir galeri deneme açın](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
+![Machine Learning Studio'da - kümeleme algoritması örnek bir galeri deneme açın](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
-Ve bir başlangıç noktası şimdi sahibim. I için kendi verilerini takas ve kendi modelini uyguladıkça yapın. Bu bana bir çalışan başlangıç verir ve bana bilen gerçekten ne yaptıklarını kişilerin çalışmalarını yapı olanak tanır.
+Ve bir başlangıç noktası artık sahibim. Ben için kendi verilerini takas ve kendi modelini ince ayar yapma yapın. Bana bir çalıştırma başlangıç sağlar ve bana gerçekten ne yaptıklarını bilmeniz kişilerin çalışmalarını yapı olanak tanır.
 
-## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Machine learning teknikleri göstermek denemeler Bul
-Diğer denemeler vardır [Azure AI galeri](https://gallery.cortanaintelligence.com) , katkıda bulunan özellikle veri bilimi yeni kişiler için nasıl yapılır örnekler sağlamak için. Örneğin, bir deneme eksik değerleri nasıl ele alınacağını gösteren galerisinde yoktur ([eksik değerleri işlemek için yöntemleri](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yöntemler size yol gösterir ve her yöntem ve ne zaman kullanılmalı avantajları hakkında ettiği.
+## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Makine öğrenimi tekniklerinden gösteren denemeleri bulma
+İçindeki diğer denemeleri vardır [Azure AI Gallery](https://gallery.cortanaintelligence.com) , katkıda özellikle veri bilimi için yeni olan kişiler için nasıl yapılır örnekleri sağlamak için. Örneğin, bir deneme eksik değerleri nasıl ele alınacağını gösteren galeri yoktur ([eksik değerleri işlemek için yöntemler](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yollar için size ve her yöntem ve ne zaman kullanacağınız avantajları hakkında konuşuyor.
 
-![Machine Learning Studio'da - eksik değerleri için yöntemleri galeri denemeler açın](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Machine Learning Studio'da - yöntemleri eksik değerler için Galeri denemeleri açın](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Azure AI galeri](https://gallery.cortanaintelligence.com) kendi çözümleri için bir başlangıç noktası olarak kullanabileceğiniz çalışma denemeleri bulmak için bir yerdir.
+[Azure AI Gallery](https://gallery.cortanaintelligence.com) kendi çözümlerinizi için başlangıç noktası olarak kullanabileceğiniz çalışma denemeleri bulmak için bir yerdir.
 
 "Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları kullanıma emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Machine Learning ile ilk veri bilimi denemenizi deneyin](create-experiment.md)
-* [Microsoft Azure Machine Learning giriş Al](what-is-machine-learning.md)
+* [Microsoft Azure'da Machine learning'e giriş yapın](what-is-machine-learning.md)

@@ -11,25 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684035"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851579"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını kaldırma
 
 SQL kaynak sağlayıcısı kaldırmadan önce tüm sağlayıcısı bağımlılıklarını kaldırmanız gerekir. Kaynak sağlayıcısını yüklemek için kullanılan dağıtım paketinin bir kopyasını da gerekir.
 
-  |Azure Stack en düşük sürüm|SQL RP sürümü|
-  |-----|-----|
-  |Sürüm 1808 (1.1808.0.97)|[SQL RP 1.1.30.0 sürümü](https://aka.ms/azurestacksqlrp11300)|
-  |Sürüm 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 sürümü](https://aka.ms/azurestacksqlrp11240)
-  |     |     |
+> [!NOTE]
+> Kaynak sağlayıcısı yükleyiciler, indirme bağlantıları bulabilirsiniz [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="dependency-cleanup"></a>Bağımlılık temizleme
 

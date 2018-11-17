@@ -1,10 +1,11 @@
 ---
-title: Machine Learning toplu yürütme hizmeti işleri için kapasite ayrılmış | Microsoft Docs
-description: Machine Learning işleri için Azure Batch hizmetlerine genel bakış.
+title: Machine Learning Batch yürütme hizmeti işleri için kapasite ayrılmış | Microsoft Docs
+description: Machine Learning işler için Azure Batch hizmetlerine genel bakış.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
@@ -14,47 +15,47 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 1e4cf34582e28e00108e280d928eea8a8134699a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6a8c89428026a1c491e8a4d26c7d66b99fd2e8cd
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834534"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822645"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning işleri için Azure Batch hizmeti
+# <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning işler için Azure Batch hizmeti
 
-Machine Learning Batch havuzundaki işlem Azure Machine Learning toplu yürütme hizmeti için müşteri tarafından yönetilen ölçek sağlar. Machine learning eşzamanlı iş sayısını sınırlayan bir çok kiracılı ortamında, gerçekleşir için Klasik toplu işleme gönderebilir ve işler ilk olarak ilk çıkar temelinde kuyruğa alınır. Bu belirsizlik, doğru şekilde işinizi ne zaman çalışacağını tahmin edilemez olduğunu anlamına gelir.
+Machine Learning Batch havuzu işleme, Azure Machine Learning Batch yürütme hizmeti için müşteri tarafından yönetilen ölçek sağlar. Machine learning eşzamanlı iş sayısını sınırlayan bir çok kiracılı ortamında, gerçekleşir için Klasik toplu işleme gönderebilir ve ilk-giren ilk çıkar temelinde işi kuyruğa alındı. Bu bir belirsizlik, doğru bir şekilde iş ne zaman çalışacağını tahmin edemezsiniz, anlamına gelir.
 
-Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar. Havuz boyutunu denetlemek ve hangi havuz iş gönderildiğinde. BES işinizi tahmin edilebilir işlem performansı ve gönderdiğiniz işleme yükünü karşılık gelen kaynak havuzları oluşturmanıza olanak sağlayan kendi işleme alan çalıştırır.
+Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar. Havuz boyutunu denetlemek ve hangi havuzuna iş gönderilir. BES iş işleme tahmin edilebilir performans ve gönderdiğiniz işleme yükünü karşılık gelen kaynak havuzları oluşturma olanağı sağlayarak kendi işlem alanı çalıştırır.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Batch havuzundaki işlem kullanma
 
-Azure portalı üzerinden yapılandırma havuzu toplu işlem şu anda kullanılamıyor. Batch havuzundaki işlem kullanmak için şunları yapmalısınız:
+Azure portalı üzerinden yapılandırma Batch havuzu işleme şu anda kullanılamıyor. Batch havuzu işleme kullanmak için yapmanız gerekir:
 
--   Batch havuzu hesabı oluşturmak ve bir havuz hizmet URL'sini ve bir yetkilendirme anahtarını elde etmek için CSS çağırın
--   Yeni kaynak tabanlı Manager web hizmeti ve fatura planı oluşturma
+-   Bir Batch havuzu hesabı oluşturmak ve bir havuz hizmet URL'sini ve bir yetkilendirme anahtarını elde etmek için CSS çağırın
+-   Yeni Resource Manager tabanlı web hizmeti ve fatura planı oluşturma
 
-Hesabınızı oluşturmak için Microsoft Müşteri Hizmetleri ve desteği (CSS) arayın ve abonelik kimliğinizi sağlayın CSS senaryonuz için uygun kapasitesini belirlemek için sizinle birlikte çalışır. CSS sonra hesabınızı maksimum sayısı havuzu oluşturabilirsiniz ve her havuzda yerleştirebilirsiniz sanal makineler (VM'ler) üst sınırını yapılandırır. Hesabınızı yapılandırıldıktan sonra havuzu hizmet URL'niz ve bir yetkilendirme anahtarı sağlanır.
+Hesabınızı oluşturmak için Microsoft Müşteri Hizmetleri ve desteği (CSS) arayın ve abonelik kimliğinizi sağlayın CSS senaryonuz için uygun kapasitesini belirlemek için sizinle birlikte çalışır. CSS, ardından hesabınızı havuzlarını oluşturabileceğiniz en fazla sayısını ve her havuzda yerleştirebilirsiniz, sanal makineler (VM) sayısı ile yapılandırır. Hesabınız yapılandırıldıktan sonra havuzu hizmet URL'niz ve bir yetkilendirme anahtar sağlanır.
 
-Hesabınızı oluşturduktan sonra Batch havuzundaki havuzu yönetim işlemlerini gerçekleştirmek için havuz hizmet URL'sini ve yetkilendirme tuşunu kullanın.
+Hesabınızı oluşturduktan sonra Batch havuzu havuzu yönetim işlemlerini gerçekleştirmek için havuz hizmet URL'sini ve yetkilendirme anahtarını kullanın.
 
 ![Batch havuzu hizmet mimarisi.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-CSS size sağlanan havuz hizmet URL'si havuzu oluştur işlemi çağırarak havuzları oluşturun. Bir havuz oluşturduğunuzda, Machine Learning web hizmeti VM'ler ve Yeni Kaynak Yöneticisi'nin swagger.json URL'sini sayısına dayalı belirtin. Bu web Hizmeti'nin, fatura ilişkisi kurmak için sağlanır. Batch havuzu hizmeti swagger.json havuzunu bir faturalandırma planı ile ilişkilendirmek için kullanır. Web hizmeti, iki yeni Resource Manager temelli herhangi BES çalıştırabilir ve klasik, havuzu seçin.
+CSS size sağlanan havuzu hizmet URL'si havuzu oluşturma işlemi çağırarak, havuzları oluşturun. Bir havuz oluşturduğunuzda, VM'ler ve swagger.json, yeni bir kaynak yöneticisi URL'si sayısı Machine Learning web hizmeti tabanlı belirtin. Bu web hizmetini, fatura ilişki kurmak için sağlanır. Batch havuzu hizmet swagger.json havuzu bir fatura planı ile ilişkilendirmek için kullanır. Bir BES web hizmeti, her iki yeni Resource Manager tabanlı çalıştırın ve klasik, havuzda seçin.
 
-Tüm yeni Resource Manager temelli web hizmetini kullanır, ancak işleri için fatura ücretlendirilirsiniz, hizmetle ilişkili faturalandırma planı karşı unutmayın. Bir web hizmeti ve özellikle Batch havuzu işlerini çalıştırmak için yeni fatura planı oluşturmak isteyebilirsiniz.
+Herhangi bir yeni Resource Manager tabanlı web hizmeti kullanır, ancak işlerin faturalandırması ücretlendirilir, hizmetle ilişkili faturalandırma planı karşı unutmayın. Bir web hizmeti ve Batch havuzu işleri çalıştırmak için özellikle yeni faturalandırma planı oluşturmak isteyebilirsiniz.
 
-Web hizmetleri oluşturma hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
+Web hizmetleri oluşturma hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 
-Bir havuzu oluşturduktan sonra toplu iş isteklerini URL için web hizmetini kullanarak BES işi gönderin. Bir havuz veya Klasik toplu işleme göndermek seçebilirsiniz. Toplu işlem havuzu için bir işi göndermek için iş gönderme istek gövdesi aşağıdaki parametresini ekleyin:
+Havuz oluşturulduktan sonra web hizmeti için toplu iş isteklerini URL'yi kullanarak BES iş gönderin. Bir havuz veya Klasik toplu işlem gönderme seçebilirsiniz. Toplu işlem havuzuna bir işi göndermek için iş gönderme istek gövdesi için aşağıdaki parametreyi ekleyin:
 
-"AzureBatchPoolId": "&lt;kimliği havuzu&gt;"
+"AzureBatchPoolId": "&lt;kimliği havuz&gt;"
 
-Parametresini eklemezseniz iş Klasik toplu işlem ortamında çalıştırılır. Kullanılabilir kaynak havuzu varsa, iş çalıştırdıktan hemen başlar. Havuz kaynakları serbest bırakmak yoksa, bir kaynak kullanılabilir hale gelene kadar işinizi sıraya alındı.
+Parametresini eklemezseniz, iş Klasik toplu işlem ortamında çalıştırılır. Havuzu kullanılabilir kaynaklarınız varsa, iş çalıştırdıktan hemen başlar. Havuz ücretsiz kaynaklara sahip değilse bir kaynak kullanılabilir hale gelene kadar iş kuyruğa alınır.
 
-Düzenli olarak, havuzlarınızı kapasitesini ulaşmak ve artan kapasite gerektiğini fark ederseniz, CSS çağırın ve, kotalar artırmak için bir temsilcisi ile çalışır.
+Düzenli olarak, havuzlarınızı kapasitesini ulaşın ve daha fazla kapasiteye ihtiyaç bulursanız, CSS çağırın ve kotanızı artırmak için bir temsilcisi ile çalışma.
 
-Örnek isteği:
+Örnek istek:
 
 https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c3b2957990c/services/9fe659022c9747e3b9b7b923c3830623/jobs?api-version=2.0
 
@@ -97,19 +98,19 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 }
 ```
 
-## <a name="considerations-when-using-batch-pool-processing"></a>Batch havuzundaki işlem kullanmayla ilgili konular
+## <a name="considerations-when-using-batch-pool-processing"></a>Batch havuzu işleme kullanmayla ilgili konular
 
-Havuz toplu işleme bir her zaman açık Faturalanabilir hizmetidir ve bir Resource Manager temelli fatura planı ile ilişkilendirmenizi gerektirir. Havuz çalışan saat tutarında işlem için yalnızca faturalandırılır; o zaman havuzunu sırasında çalıştırmak işlerin sayısı ne olursa olsun. Bir havuzu oluşturursanız, havuzu silinene kadar toplu iş havuzda çalıştırıyor olsanız bile, her bir sanal makine havuzundaki işlem saatlik için faturalandırılır. Sanal makineler için fatura sağlama bittiğinde, başlatır ve silinmiş zaman durdurur. Bulunan planları birini kullanabilirsiniz [Machine Learning fiyatlandırması sayfa](https://azure.microsoft.com/pricing/details/machine-learning/).
+Batch havuzu işleme bir her zaman açık Faturalanabilir hizmetidir ve bir Resource Manager tabanlı faturalandırma planı ile ilişkilendirmenizi gerektirir. Yalnızca havuzu çalışan bilgi işlem saati sayısı için faturalandırılırsınız; işleri çalıştırma sırasında o zaman havuzu sayısı ne olursa olsun. Bir havuzu oluşturursanız, havuzu silinene kadar havuzda çalışan toplu iş olsa bile havuzdaki her bir sanal makinenin işlem saatleri için faturalandırılırsınız. Sanal makineler için faturalandırma sağlama işiniz bittiğinde başlar ve silinmiş sona erer. Bulunan planlardan herhangi birini kullanabilirsiniz [Machine Learning fiyatlandırması sayfası](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-Faturalama örnek:
+Faturalandırma örnek:
 
-2 sanal makinelerle Batch havuzu oluşturma ve 24 saat sonra silerseniz, faturalandırma planınıza 48 işlem saatleri düşülür; kaç tane işleri bağımsız olarak, bu süre boyunca çalıştırılmadı.
+2 sanal makine ile bir Batch havuzu oluşturma ve bu 24 saat sonra silerseniz, faturalandırma planınızı 48 işlem saatleri düşülür; kaç tane işin ne olursa olsun, bu süre içinde çalıştırılamadı.
 
-4 sanal makinelerle Batch havuzu oluşturma ve 12 saat sonra silerseniz, faturalandırma planınıza ayrıca borç kaydedilen 48 işlem saattir.
+4 sanal makine ile bir Batch havuzu oluşturma ve 12 saat sonra silin, faturalandırma planınızı borç kaydedilen 48 işlem saatleri de olur.
 
-İşlerini tamamlandığında belirlemek için işin durumunu yoklama öneririz. Çalışan tüm işleri tamamladığınızda, sanal makine sayısı sıfır havuzuna ayarlamak için havuzu yeniden boyutlandırma işlemi çağırın. Çalışan tüm işleri tamamladığınızda havuzu kaynaklardaki kısa ve örneğin farklı bir fatura planı karşı faturalandırmak yeni bir havuz oluşturmak ihtiyacınız varsa havuzu yerine silebilirsiniz.
+İşleri tamamlandığında belirlemek için iş durumunu yoklamak öneririz. Çalışan tüm işleri tamamladığınızda, sıfıra havuzundaki sanal makinelerin sayısını ayarlamak için havuz yeniden boyutlandırma işlemi çağırın. Çalışan tüm işler tamamladıktan sonra havuzu kaynaklardaki kısa ve örneğin farklı bir fatura planı karşı faturalandırmak yeni bir havuz oluşturmak ihtiyacınız varsa havuzu yerine silebilirsiniz.
 
 
-| **Batch havuzundaki işlemesini kullanın**    | **Klasik toplu ne zaman işleme kullanın**  |
+| **İşlemesini Batch havuzu kullanma**    | **İşleme zamanı Klasik Batch'i kullanma**  |
 |---|---|
-|Çok sayıda işlerini çalıştırmanız gerekir<br>Veya<br/>İşleriniz hemen çalışacağını bilmeniz gerekir<br/>Veya<br/>Garantili işleme gerekir. Örneğin, belirli bir zaman dilimi içinde iş sayısı çalıştırın ve ihtiyaçlarınızı karşılamak için işlem kaynaklarınızı ölçeklendirmek istediğiniz gerekir.    | Yalnızca birkaç işleri çalıştırma<br/>Ve<br/> İşlerin hemen çalıştırmanız gerekmez |
+|Çok sayıda işlerini çalıştırmanız gerekir<br>Veya<br/>İşleriniz hemen çalışacağını bilmeniz gerekir<br/>Veya<br/>Garantili aktarım hızı gerekir. Örneğin, belirli bir zaman dilimi içinde çalıştırılan bir iş sayısı ve ihtiyaçlarınızı karşılamak üzere işlem kaynaklarınızı ölçeklendirmek istediğinizden gerekir.    | Yalnızca birkaç iş çalışıyor<br/>Ve<br/> İşleri hemen çalıştırmanız gerekmez. |

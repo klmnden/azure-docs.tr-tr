@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e1d4f9f5c91900216398dd651d238fc3fa305234
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409008"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823937"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB tanılama günlüğüne kaydetme
 
@@ -29,9 +29,9 @@ Aşağıdaki görüntüde, farklı türlerde kullanılabilir Azure günlükleri 
 
 ![Çeşitli Azure günlükleri](./media/logging/azurelogging.png)
 
-Görüntüde **işlem kaynaklarını** kendisi için erişebileceğiniz Microsoft konuk işletim sistemi Azure kaynaklarını temsil eder. Örneğin, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Container Service, ve bu şekilde dikkate alınan bilgi işlem kaynakları. İşlem kaynakları etkinlik günlükleri, tanılama günlükleri ve uygulama günlüklerini oluşturur. Daha fazla bilgi edinmek için bkz [azure'da veri izleme kaynakları](../monitoring/monitoring-data-sources.md#) makalesi.
+Görüntüde **işlem kaynaklarını** kendisi için erişebileceğiniz Microsoft konuk işletim sistemi Azure kaynaklarını temsil eder. Örneğin, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Container Service, ve bu şekilde dikkate alınan bilgi işlem kaynakları. İşlem kaynakları etkinlik günlükleri, tanılama günlükleri ve uygulama günlüklerini oluşturur. Daha fazla bilgi edinmek için bkz [azure'da veri izleme kaynakları](../azure-monitor/platform/data-sources.md#) makalesi.
 
-**Olmayan işlem kaynakları** içinde edemez temel işletim sistemi erişmek ve iş doğrudan kaynak kaynaklardır. Örneğin, ağ güvenlik grupları, Logic Apps ve benzeri. Azure Cosmos DB işlem dışı bir kaynaktır. Etkinlik günlüğü'nde olmayan işlem kaynakları için günlükleri görüntüleyebilir veya Portalı'nda tanılama günlükleri seçeneğini etkinleştirin. Daha fazla bilgi edinmek için bkz [Azure İzleyici'de veri kaynaklarını](../monitoring/monitoring-data-sources.md) makalesi.
+**Olmayan işlem kaynakları** içinde edemez temel işletim sistemi erişmek ve iş doğrudan kaynak kaynaklardır. Örneğin, ağ güvenlik grupları, Logic Apps ve benzeri. Azure Cosmos DB işlem dışı bir kaynaktır. Etkinlik günlüğü'nde olmayan işlem kaynakları için günlükleri görüntüleyebilir veya Portalı'nda tanılama günlükleri seçeneğini etkinleştirin. Daha fazla bilgi edinmek için bkz [Azure İzleyici'de veri kaynaklarını](../azure-monitor/platform/data-sources.md) makalesi.
 
 Etkinlik günlüğü, Azure Cosmos DB için abonelik düzeyinde işlemleri kaydeder. Listkeys'i DatabaseAccounts yazma ve daha fazlası gibi işlemleri günlüğe kaydedilir. Tanılama günlükleri daha ayrıntılı günlük kaydı sağlayın ve DataPlaneRequests (oluşturma, okuma, sorgu vb.) ve MongoRequests oturum olanak sağlar.
 
@@ -361,7 +361,7 @@ Günlüklerinizi görüntülemek için önce denetleyin ve Log Analytics çalı�
 ![Azure portalında log Analytics](./media/logging/azure-portal.png)
 
 >[!NOTE]
->OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.  
+>OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.  
 
 Aşağıdaki iletiyi görürseniz **Log Analytics çalışma alanı** sayfasında, çalışma alanınız Henüz yükseltme yeni dil kullanmak üzere. Yeni sorgu diline yükseltme hakkında daha fazla bilgi için bkz. [yeni günlük araması için Azure Log Analytics çalışma alanınızı yükseltme](../log-analytics/log-analytics-log-search-upgrade.md). 
 

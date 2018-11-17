@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: cwatson
-ms.openlocfilehash: c39dcdc0c4a89aa01c31dde1c5354ef1d4afe91d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7418bc8095ffa640d70dff562d7683f0748ce38e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395575"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821421"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure aboneliğiniz iptal et
 
@@ -44,7 +44,7 @@ Aboneliğinizi iptal etmeden önce:
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Aboneliğimi iptal sonra ne olur?
 
-Faturalandırma, hemen iptal sonra durdurulur. Ancak, portalda iptal Göster 10 dakikaya kadar sürebilir.
+Faturalandırma, hemen iptal sonra durdurulur. Ancak, portalda göstermek iptal 10 dakikaya kadar sürebilir.
 
 Bundan sonra hizmetlerinizi devre dışı bırakılır. Bu, sanal makinelerinizi paylaştırılmamış, geçici IP adreslerini serbest ve depolama salt okunur anlamına gelir.
 

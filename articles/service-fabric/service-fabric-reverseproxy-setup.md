@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506272"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852988"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Ayarlama ve Azure Service Fabric ters proxy ayarlarını yapılandırma
 Ters proxy, bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma bir Service Fabric kümesinde çalışan mikro hizmetler yardımcı olan isteğe bağlı bir Azure Service Fabric hizmetidir. Daha fazla bilgi için bkz. [ters proxy Azure Service fabric'te](service-fabric-reverseproxy.md). Bu makalede ayarlama ve kümedeki ters Ara sunucu yapılandırma gösterilmektedir. 
@@ -231,7 +231,7 @@ Aşağıdaki adımlar ters proxy etkinleştirmek için kullanılacak ayarları g
 
    Ve hakkında daha fazla yapılandırma bir tek başına küme yanı sıra ters proxy güvenliğini sağlamak için kullanılan sertifikaları yapılandırma hakkında daha fazla ayrıntı için sertifikaları yönetme bilgi edinmek için [X509 sertifika tabanlı güvenlik](./service-fabric-windows-cluster-x509-security.md).
 
-Ters proxy etkinleştirmek için ClusterConfig.json dosyanızı değiştirdiğiniz sonra yönergeleri izleyin [küme yapılandırmasını yükseltme](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) kümenize değişiklikleri göndermek için.
+Ters proxy etkinleştirmek için ClusterConfig.json dosyanızı değiştirdiğiniz sonra yönergeleri izleyin [küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md) kümenize değişiklikleri göndermek için.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Ters proxy Azure Load Balancer üzerinden bir genel bağlantı noktasını kullanıma sunma
@@ -332,7 +332,7 @@ Ters proxy aracılığıyla Azure veya tek başına kümeler için ClusterConfig
    }
    ``` 
 
-Yapı ayarları Azure kümeleri için güncelleştirme hakkında daha fazla bilgi için bkz. [Resource Manager şablonlarını kullanarak küme ayarlarını özelleştirme](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Tek başına kümeler için bkz: [tek başına kümeler için küme ayarlarını Özelleştir](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Yapı ayarları Azure kümeleri için güncelleştirme hakkında daha fazla bilgi için bkz. [Resource Manager şablonlarını kullanarak küme ayarlarını özelleştirme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için bkz: [tek başına kümeler için küme ayarlarını Özelleştir](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Birkaç yapı ayarları ters proxy ve hizmetler arasında güvenli iletişim kurmak amacıyla kullanılır. Bu ayarları hakkında ayrıntılı bilgi için bkz: [güvenli hizmet ters proxy ile bağlanma](service-fabric-reverseproxy-configure-secure-communication.md).
 

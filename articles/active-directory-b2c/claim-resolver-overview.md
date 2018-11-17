@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49313056"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852393"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkelerinde talep Çözümleyicileri hakkında
 
@@ -33,10 +33,10 @@ Aşağıdaki örnekte, bir talep türü adlı `correlationId` ile tanımlanmış
 </ClaimType>
 ```
 
-Teknik profili içinde talep çözümleyici talep türüne eşlenir. Azure AD B2C talep çözümleyici değerini doldurur `{context:corelationId}` talep içine `correlationId` ve teknik profil için bir talep gönderir.
+Teknik profili içinde talep çözümleyici talep türüne eşlenir. Azure AD B2C talep çözümleyici değerini doldurur `{Context:CorrelationId}` talep içine `correlationId` ve teknik profil için bir talep gönderir.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Talep türleri çözme

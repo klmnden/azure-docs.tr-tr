@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958614"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822679"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
 ## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor?
@@ -82,7 +82,7 @@ Ana veri kategorileri şunlardır:
 ## <a name="case-study-real-madrid-fc"></a>Örnek olay incelemesi: Real Madrid'in F.C.
 Web hizmeti, [Real Madrid futbol kulübü](http://www.realmadrid.com/) 450 milyon dünyanın işlevi görür. Fanlar, hem web tarayıcıları ve mobil uygulamalar kulübü'nın aracılığıyla erişin. Fanlar yalnızca biletleri kitap, ancak ayrıca sonuçları, oyuncuların ve yaklaşan oyun bilgileri ve video klipleri erişim. Hedefleri sayıda puanlanmış gibi filtrelerle arama yapabilirsiniz. Sosyal medya bağlantıları vardır. Kullanıcı deneyimi, yüksek oranda kişiselleştirilmiş ve iki yönlü bir iletişim fanlar etkileşim kurmak amacıyla tasarlanmıştır.
 
-Çözüm [hizmet ve uygulamaların Microsoft Azure üzerinde bir sistem](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Ölçeklenebilirlik temel bir gereksinimdir: trafik değişkendir ve çok yüksek miktarlarda sırasında ve eşleşme etrafında ulaşabilirsiniz.
+Çözüm [hizmet ve uygulamaların Microsoft Azure üzerinde bir sistem](https://www.microsoft.com/inculture/sports/real-madrid/). Ölçeklenebilirlik temel bir gereksinimdir: trafik değişkendir ve çok yüksek miktarlarda sırasında ve eşleşme etrafında ulaşabilirsiniz.
 
 İçin Real Madrid, sistemin performansını izlemek önemlidir. Azure Application Insights, bir güvenilir ve yüksek düzeyde hizmet sağlama, sistem kapsamlı bir görünüm sağlar. 
 

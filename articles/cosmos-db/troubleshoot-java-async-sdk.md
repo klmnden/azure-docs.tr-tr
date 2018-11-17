@@ -1,6 +1,6 @@
 ---
 title: Tanılama ve sorun giderme Azure Cosmos DB Java zaman uyumsuz SDK'sı | Microsoft Docs
-description: İstemci tarafı günlüğe kaydetme gibi kullanım özellikleri ve diğer üçüncü taraf araçları tanımlamak için tanılama ve Azure Cosmos DB sorunlarını giderme.
+description: İstemci tarafı günlüğe kaydetme ve tanımlamak, tanılamak ve Azure Cosmos DB sorunlarını gidermek için diğer üçüncü taraf araçları gibi özellikleri kullanın.
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
@@ -9,61 +9,67 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 2c73cda19a3f8b9b7c5ab493c0dfcd6c2e7be745
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632943"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820248"
 ---
-# <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullanırken sorunlarını giderme
-Bu makale ortak sorunları, geçici çözümler, tanılama adımları ve araçları kullanırken kapsar [Java zaman uyumsuz ADK](sql-api-sdk-async-java.md) ile Azure Cosmos DB SQL API hesabı.
+# <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullandığınızda sorunlarını giderme
+Bu makalede kullanırken yaygın sorunlar, geçici çözümler, tanılama adımları ve araçları kapsayan [Async Java SDK'sı](sql-api-sdk-async-java.md) Azure Cosmos DB SQL API hesabı olan.
 Async Java SDK'sı, Azure Cosmos DB SQL API'sine erişmek için istemci tarafı mantıksal gösterim sağlar. Bu makalede, araçları ve yaklaşımları herhangi bir sorunla karşılaşırsanız çalıştırırsanız yardımcı olması için açıklar.
 
 Bu liste başlatın:
-    * Bir göz atın [genel sorunlar ve çözümleri] bu makaledeki bir bölüm.
-    * SDK'mız olduğu [github üzerinde açık kaynaklı](https://github.com/Azure/azure-cosmosdb-java) ve sahip olduğumuz [sorunları bölümüne](https://github.com/Azure/azure-cosmosdb-java/issues) , etkin bir şekilde izleyin. Zaten kaydedilen bir geçici çözüm ile benzer bir sorun bulursanız denetleyin.
-    * Gözden geçirme [performans ipuçları](performance-tips-async-java.md) ve önerilen uygulamaları izleyin.
-    * Bu makalenin geri kalanında izleyin bir çözüm bulamadıysanız, dosya bir [GitHub sorunu](https://github.com/Azure/azure-cosmosdb-java/issues).
+
+* Bir göz atın [genel sorunlar ve çözümleri] bu makaledeki bir bölüm.
+* Konum kullanılabilir SDK [GitHub üzerinde açık kaynak](https://github.com/Azure/azure-cosmosdb-java). Sahip bir [sorunları bölümüne](https://github.com/Azure/azure-cosmosdb-java/issues) , etkin olarak izlenir. Geçici bir çözüm ile benzer bir sorun önceden dosyalanmış denetleyin.
+* Gözden geçirme [performans ipuçları](performance-tips-async-java.md)ve önerilen uygulamaları izleyin.
+* Bir çözüm bulamadıysanız, bu makalenin geri kalanında okuyun. Ardından dosya bir [GitHub sorunu](https://github.com/Azure/azure-cosmosdb-java/issues).
 
 ## <a name="common-issues-workarounds"></a>Genel sorunlar ve çözümleri
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Ağ sorunları, zaman aşımı hatası, düşük aktarım hızı, gecikme süresi yüksek Netty okuyun
 
 #### <a name="general-suggestions"></a>Genel öneriler
-* Uygulama, Cosmos DB hesabınızla aynı bölgede üzerinde çalıştığından emin olun. 
-* Uygulamanın çalıştığı konak üzerindeki CPU kullanımını denetleyin. CPU kullanımı % 90 veya daha fazla ise, daha yüksek bir yapılandırmaya sahip bir konağa uygulamanızı çalıştırmayı deneyin veya daha fazla makine üzerinde yük dağıtabilirsiniz.
+* Uygulamayı Azure Cosmos DB hesabınız ile aynı bölgede çalıştığından emin olun. 
+* Uygulamanın çalıştığı konak üzerindeki CPU kullanımını denetleyin. CPU kullanımı yüzde 90 veya daha fazla ise, bir konakta daha yüksek bir yapılandırma ile uygulamanızı çalıştırın. Veya daha fazla makine üzerinde yük dağıtabilirsiniz.
 
 #### <a name="connection-throttling"></a>Bağlantı daraltma
-Bağlantı daraltma gerçekleşebilir nedeniyle [konak makinedeki bağlantı sınırı], veya [Azure SNAT (PAT) bağlantı noktası tükenmesi]:
+Bağlantı daraltma gerçekleşebilir nedeniyle ya da bir [konak makinedeki bağlantı sınırı] veya [Azure SNAT (PAT) bağlantı noktası tükenmesi].
 
 ##### <a name="connection-limit-on-host"></a>Konak makinedeki bağlantı sınırı
-Bazı Linux sistemleri (örneğin, 'Red Hat'), üst sınır açık dosyaların, toplam sayısına sahip. Bu sayı çok bağlantı toplam sayısını sınırlar için yuva Linux'ta dosyaları olarak uygulanır.
-Şu komutu çalıştırın:
+Red Hat gibi bazı Linux sistemleri, üst sınır açık dosyaların, toplam sayısına sahip. Bu sayı çok bağlantıları, toplam sayısını sınırlar için yuva Linux'ta dosyaları olarak uygulanır.
+Aşağıdaki komutu çalıştırın.
 
 ```bash
 ulimit -a
 ```
-Açık sayısı ("nofile") (en az olarak çift, bağlantı havuzu boyutu olarak) yeterince büyük olması gerekiyor dosyaları. Daha ayrıntılı olarak okuma [performans ipuçları](performance-tips-async-java.md).
+"Nofile" tanımlanır, maksimum izin verilen açık dosyaları sayısı, bağlantı havuzu boyutu en az iki katı olması gerekir. Daha fazla bilgi için [performans ipuçları](performance-tips-async-java.md).
 
 ##### <a name="snat"></a>Azure SNAT (PAT) bağlantı noktası tükenmesi
 
-Uygulamanız varsayılan olarak bir genel IP adresi Azure sanal makinesinde dağıtılması durumunda [Azure SNAT bağlantı noktaları](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) VM'nizi dışında herhangi bir uç noktaya bağlantı kurmak için kullanılır. Sanal makineden Cosmos DB uç noktasına izin verilen bağlantı sayısı tarafından sınırlı [Azure SNAT yapılandırma](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Uygulamanızı Azure sanal makineler üzerinde bir genel IP adresi, varsayılan olarak dağıtılırsa [Azure SNAT bağlantı noktaları](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) VM'nizi dışında herhangi bir uç noktaya bağlantı. Sanal makineden Azure Cosmos DB uç noktasına izin verilen bağlantı sayısı tarafından sınırlı [Azure SNAT yapılandırma](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
-Azure SNAT bağlantı noktaları, yalnızca Azure sanal makinenizin özel IP adresi vardır ve bir genel IP adresi için bir bağlantı kurmak bir işlem VM'den çalışır olduğunda kullanılır. Bu nedenle, Azure SNAT sınırlama önlemek için iki geçici çözüm vardır:
-    * Azure Cosmos DB hizmet uç noktanıza açıklandığı gibi Azure VM ağınızın alt ağa eklemek [sanal ağ hizmet uç noktası etkinleştirme](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Hizmet uç noktası etkinleştirildiğinde, artık bir genel IP ile cosmos DB'ye yerine VNET gönderdiği istekleri ve alt ağ kimlik gönderilir. Bu değişiklik, genel IP'ler izin verilir, yalnızca güvenlik duvarı bırakmaları neden olabilir. Hizmet uç noktası etkinleştirilirken güvenlik duvarı kullanıyorsanız, güvenlik duvarını kullanarak alt ağ Ekle [VNET ACL'leri](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
-    * Azure VM için genel bir IP atayın.
+ Yalnızca, sanal Makinenizin özel IP adresi vardır ve bir işlem VM'den bir genel IP adresine bağlanmaya Azure SNAT bağlantı noktaları kullanılır. Azure SNAT sınırlama önlemek için iki geçici çözüm vardır:
+
+* Azure Cosmos DB Hizmeti uç noktanızı Azure sanal makineler sanal ağınızın alt ağa ekleyin. Daha fazla bilgi için [Azure sanal ağ hizmet uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+
+    Hizmet uç noktası etkinleştirildiğinde, istekleri artık Azure Cosmos DB'ye bir genel IP ile gönderilir. Bunun yerine, sanal ağ ve alt ağ kimlik gönderilir. Bu değişiklik, genel IP'ler izin verilir, yalnızca güvenlik duvarı bırakmaları neden olabilir. Hizmet uç noktasını etkinleştirdiğinizde, bir güvenlik duvarı kullanıyorsanız, bir alt ağ için Güvenlik Duvarı'nı kullanarak eklemek [sanal ağ ACL'leri](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+* Azure VM için genel bir IP atayın.
 
 #### <a name="http-proxy"></a>HTTP Ara sunucusu
 
-Bir HTTP proxy kullanıyorsanız, HttpProxy SDK'da yapılandırılmış bağlantı sayısını destekleyebilir unutmayın `ConnectionPolicy`.
+Bir HTTP Proxy'si kullanıyorsanız, SDK'yı yapılandırılmış bağlantı sayısını destekleyen emin `ConnectionPolicy`.
 Aksi takdirde, bağlantı sorunlarını yönetmektir.
 
 #### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Kodlama düzeni geçersiz: Netty GÇ iş parçacığı engelleme
 
-SDK'sı kullanır [Netty](https://netty.io/) iletişim kurmak için Azure Cosmos DB hizmetini GÇ Kitaplığı. Zaman uyumsuz API sunuyoruz ve engelleyici olmayan netty g/ç API'leri kullanın. SDK'ın GÇ iş netty GÇ iş parçacığı üzerinde gerçekleştirilir. GÇ netty iş parçacığı sayısı, uygulama makinesinin CPU çekirdek sayısı ile aynı olacak şekilde yapılandırılır. Netty GÇ iş parçacığı için kullanılacak yalnızca yöneliktir engelleyici olmayan netty GÇ iş. SDK'sı API çağırma sonucu uygulamalar'ın kod netty GÇ iş parçacığı birini döndürür. Netty iş parçacığında sonuçları aldıktan sonra uygulamayı netty iş parçacığında uzun süreli bir işlem yaparsa, SDK'sı GÇ iş parçacığı, iç GÇ işini gerçekleştirmek için yeterli sayıda olmamasına neden olabilir. Bu tür bir uygulama kodlama düşük aktarım hızı gecikme süresi yüksek, neden olabilir ve `io.netty.handler.timeout.ReadTimeoutException` hataları. İşlemi sürmesi bildiğinizde iş parçacığına geçiş yapmak için çözüm olabilir.
+SDK'sı kullanır [Netty](https://netty.io/) Azure Cosmos DB ile iletişim kurmak için GÇ Kitaplığı. SDK, zaman uyumsuz API vardır ve engelleyici olmayan, g/ç API'leri Netty kullanır. SDK'ın GÇ iş GÇ Netty iş parçacığı üzerinde gerçekleştirilir. GÇ Netty iş parçacığı sayısı, uygulama makinesinin CPU çekirdek sayısı ile aynı olacak şekilde yapılandırılır. 
 
-   Örneğin, aşağıdaki kod parçacığı netty iş parçacığı üzerinde birden fazla birkaç milisaniye, uzun süreli iş gerçekleştirirseniz, burada netty bir GÇ iş parçacığı g/ç işleri işlemek için mevcut ve sonuç olarak, ReadTimeou elde bir duruma sonunda alabilirsiniz gösterir. tException:
+Netty GÇ iş parçacığı için kullanılması amaçlanmıştır engelleyici olmayan Netty GÇ iş için yalnızca. SDK'sı API çağırma sonucu uygulamanın kodu Netty GÇ iş parçacığı birini döndürür. SDK'sı Netty iş parçacığında sonuçları aldıktan sonra uygulamanın bir uzun süreli işlem yaparsa, iç GÇ işini gerçekleştirmek için yeterli g/ç iş parçacığı sahip olmayabilir. Bu tür bir uygulama kodlama düşük aktarım hızı gecikme süresi yüksek, neden olabilir ve `io.netty.handler.timeout.ReadTimeoutException` hataları. İşlem Sürüyor bildiğinizde iş parçacığına geçiş yapmak için çözüm olabilir.
+
+Örneğin, aşağıdaki kod parçacığı göz atın. Fazla sayıda milisaniye Netty iş parçacığı üzerinde alan uzun süreli iş gerçekleştirebilir. Bu durumda, sonuçta Netty GÇ iş parçacığı g/ç işleri işlemek için mevcut olduğu bir duruma alabilirsiniz. Sonuç olarak, ReadTimeoutException hata alırsınız.
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -89,19 +95,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
                 .createDocument(getCollectionLink(), docDefinition, null, false);
         createObservable.subscribe(r -> {
                     try {
-                        // time consuming work. For example:
-                        // writing to a file, computationally heavy work, or just sleep
-                        // basically anything which takes more than a few milliseconds
-                        // doing such operation on the IO netty thread
-                        // without a proper scheduler, will cause problems.
-                        // The subscriber will get ReadTimeoutException failure.
+                        // Time-consuming work is, for example,
+                        // writing to a file, computationally heavy work, or just sleep.
+                        // Basically, it's anything that takes more than a few milliseconds.
+                        // Doing such operations on the IO Netty thread
+                        // without a proper scheduler will cause problems.
+                        // The subscriber will get a ReadTimeoutException failure.
                         TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
                     } catch (Exception e) {
                     }
                 },
 
                 exception -> {
-                    //will be io.netty.handler.timeout.ReadTimeoutException
+                    //It will be io.netty.handler.timeout.ReadTimeoutException.
                     exception.printStackTrace();
                     failureCount.incrementAndGet();
                     latch.countDown();
@@ -115,42 +121,42 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   Geçici çözüm, iş parçacığı zaman alma iş gerçekleştirdiğiniz değiştirmektir. Uygulamanız için tekil bir zamanlayıcı örneğini tanımlayın:
+   Geçici çözüm, zaman alan işleri gerçekleştirmek iş parçacığı değiştirmektir. Uygulamanız için Zamanlayıcı tekil örneğini tanımlar.
    ```java
-// have a singleton instance of executor and scheduler
+// Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
    ```
-   (Örneğin, g/ç engelleme hesaplama açısından yoğun iş) alma iş zaman ihtiyaç duyduğunuzda tarafından sağlanan bir çalışan iş parçacığı geçin, `customScheduler` kullanarak `.observeOn(customScheduler)` API.
+   Alır, örneğin, işlem bakımından yoğun iş veya engelleyici bir GÇ saat çalışmak gerekebilir. Bu durumda, iş parçacığı tarafından sağlanan bir çalışan geçin, `customScheduler` kullanarak `.observeOn(customScheduler)` API.
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
 
 createObservable
-        .observeOn(customScheduler) // switches the thread.
+        .observeOn(customScheduler) // Switches the thread.
         .subscribe(
             // ...
         );
 ```
-Kullanarak `observeOn(customScheduler)`, netty GÇ iş parçacığı bırakın ve kendi özel iş parçacığı customScheduler tarafından sağlanan geçin. Sorunu çözmek için bu değişikliği ve size vermeyecektir `io.netty.handler.timeout.ReadTimeoutException` artık hata.
+Kullanarak `observeOn(customScheduler)`, Netty GÇ iş parçacığı bırakın ve kendi özel iş parçacığı özel Zamanlayıcı tarafından sağlanan geçin. Bu değişiklik, sorunu çözer. Size vermeyecektir bir `io.netty.handler.timeout.ReadTimeoutException` artık hata.
 
 ### <a name="connection-pool-exhausted-issue"></a>Bağlantı havuzu tükenmiş sorunu
 
-`PoolExhaustedException` bir istemci-tarafı hatasıdır. Genellikle bu hata alırsanız, uygulama yükünüz SDK bağlantı havuzu verebilen daha büyük bir gösterge olmasıdır. Bağlantı havuzu boyutu artırmayı veya birden fazla uygulama üzerindeki yükü dağıtma yardımcı olabilir.
+`PoolExhaustedException` bir istemci-tarafı hatasıdır. Bu hata, uygulama yükünüz SDK bağlantı havuzu hizmet verebilir daha yüksek olduğunu gösterir. Bağlantı havuzu boyutu artırabilir ya da birden fazla uygulama üzerindeki yük dağıtabilirsiniz.
 
 ### <a name="request-rate-too-large"></a>İstek oranı çok büyük
-Bu hata, sağlanan aktarım hızınızı harcanan ve daha sonra yeniden denemesi gerektiğini gösteren bir sunucu tarafı hatasıdır. Genellikle bu hata alırsanız, koleksiyon işleme hacmini artırmayı düşünün.
+Bu hata, bir sunucu tarafı hatasıdır. Bu, sağlanan aktarım hızınızı harcanan gösterir. Daha sonra yeniden deneyin. Genellikle bu hata alırsanız, koleksiyon işleme hacmini artış göz önünde bulundurun.
 
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB öykünücüsü'nü bağlanma başarısız
 
-Cosmos DB öykünücüsü'nü HTTPS sertifikası otomatik olarak imzalanır. Öykünücü ile çalışmanız için SDK, Java TrustStore için öykünücü sertifikayı içeri aktarmalısınız. Açıklandığı gibi [burada](local-emulator-export-ssl-certificates.md).
+Azure Cosmos DB öykünücüsü'nü HTTPS sertifikası otomatik olarak imzalanır. Öykünücü ile çalışmak için SDK, bir Java TrustStore için öykünücü sertifikayı içeri aktarın. Daha fazla bilgi için [dışarı Azure Cosmos DB öykünücüsü'nü sertifikaları](local-emulator-export-ssl-certificates.md).
 
 
 ## <a name="enable-client-sice-logging"></a>İstemci SDK'sı günlüğe yazmayı etkinleştir
 
 Log4j ve logback gibi popüler günlük altyapılarına oturum destekleyen günlük cephe olarak SLF4j Async Java SDK'sını kullanır.
 
-Örneğin, log4j günlük altyapısının kullanmak istiyorsanız, aşağıdaki kitaplıklar içinde Java sınıf yolunuza ekleyin:
+Örneğin, log4j günlük altyapısının kullanmak istiyorsanız, aşağıdaki kitaplıklar içinde Java sınıf yolunuza ekleyin.
 
 ```xml
 <dependency>
@@ -165,7 +171,7 @@ Log4j ve logback gibi popüler günlük altyapılarına oturum destekleyen günl
 </dependency>
 ```
 
-Ayrıca bir log4j yapılandırması ekleyin:
+Ayrıca bir log4j yapılandırması ekleyin.
 ```
 # this is a sample log4j configuration
 
@@ -183,20 +189,20 @@ log4j.appender.A1.layout=org.apache.log4j.PatternLayout
 log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 ```
 
-Gözden geçirme [sfl4j günlük kaydını el ile](https://www.slf4j.org/manual.html) daha fazla bilgi için.
+Daha fazla bilgi için [sfl4j günlük kaydını el ile](https://www.slf4j.org/manual.html).
 
 ## <a name="netstats"></a>İşletim sistemi bellek istatistikleri
-Kaç bağlantıları olduğundan, fikir netstat komut çalıştırma `Established` durumu `CLOSE_WAIT` vb. durumu.
+Kaç tane bağlantılar gibi durumlarda, bir fikir netstat komut çalıştırma `ESTABLISHED` ve `CLOSE_WAIT`.
 
-Linux üzerinde aşağıdaki komutu çalıştırabilirsiniz:
+Linux üzerinde aşağıdaki komutu çalıştırabilirsiniz.
 ```bash
 netstat -nap
 ```
-Cosmos DB uç noktası yalnızca bağlantı sonucu filtreleyin.
+Yalnızca Azure Cosmos DB uç noktası bağlantıları sonucu filtreleyin.
 
-Görünüşe göre Cosmos DB uç noktası, bağlantı sayısı `Established` durumu değil, yapılandırılan bağlantı havuzu boyutu büyük olmalıdır.
+Azure Cosmos DB uç noktası için bağlantı sayısını `ESTABLISHED` durumu, yapılandırılan bağlantı havuzu boyutu büyük olamaz.
 
-Cosmos DB uç noktası, bağlantı sayısı olup olmadığını `CLOSE_WAIT` durum için bir gösterge bağlantıları kullanıcının 1000 bağlantıları, birden çok örnek kurulan ve hızlı bir şekilde, olası sorunlara yol açabilir aşağı bozuk. Gözden geçirme [genel sorunlar ve çözümleri] bölümünde daha ayrıntılı bilgi için.
+Azure Cosmos DB uç noktası bağlantı sayısı olabilir `CLOSE_WAIT` durumu. 1. 000'den fazla olabilir. Bu yüksek bir sayı, bağlantı kurulan ve hızlı bir şekilde bozuk belirtir. Bu durumun olası sorunlara neden olur. Daha fazla bilgi için [genel sorunlar ve çözümleri] bölümü.
 
  <!--Anchors-->
 [Genel sorunlar ve çözümleri]: #common-issues-workarounds

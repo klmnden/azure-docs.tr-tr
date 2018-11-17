@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning algoritmaları en iyi duruma getirme | Microsoft Docs
-description: Azure Machine learning'de algoritma için en iyi parametresinde seçin açıklanmaktadır.
+title: Azure Machine Learning algoritmalarınızı en iyi duruma getirme | Microsoft Docs
+description: Azure Machine learning'de algoritma için en iyi parametresi seçin açıklanmaktadır.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
@@ -15,65 +16,65 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 64d725712dc8cf87deb150944a390c9cef87b56f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0be0aec3f14dfc4d32327c64a54faaa4e039a93c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833905"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822458"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning algoritmaları en iyi duruma getirmek için parametreleri seçin
-Bu konuda, Azure Machine learning'de algoritma için ayarlanmış sağ hyperparameter seçmek açıklar. Çoğu machine learning algoritmaları ayarlamak için parametrelere sahip. Bir modeli eğitmek zaman o parametreler için değerler sağlamanız gerekir. Seçtiğiniz model parametreleri eğitilen model sürecinin bağlıdır. En iyi parametrelerinin bulma işleminin olarak bilinen *model seçimi*.
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning algoritmalarınızı iyileştirmek için parametreleri seçin
+Bu konuda, Azure Machine learning'de algoritma için doğru hiper parametre seçin açıklar. Çoğu makine öğrenimi algoritmaları ayarlanacak parametrelere sahip. Bir model eğitip yaparken bu parametrelerin değerlerini sağlamasını gerekir. Eğitilen modelin çalışıp çalışmadığını seçtiğiniz model parametreleri bağlıdır. Parametreleri en uygun kümesini bulma işlemi olarak bilinir *model seçimi*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-Seçim modellemek için çeşitli yolları vardır. Machine learning, çapraz doğrulama model seçimi için en yaygın olarak kullanılan yöntemleri biridir ve varsayılan model seçimi mekanizma Azure Machine Learning değil. Azure Machine Learning R ve Python desteklediğinden, R veya Python kullanarak her zaman kendi model seçimi mekanizmaları uygulayabilirsiniz.
+Seçimi modellemek için çeşitli yollar vardır. Machine Learning, çapraz doğrulama model seçimi için en yaygın olarak kullanılan yöntemlerden biridir ve onu varsayılan model seçimi Azure Machine Learning mekanizmasıdır. Azure Machine Learning, R ve Python hem desteklediğinden, R veya Python kullanarak her zaman kendi model seçim mekanizmalarını uygulayabilirsiniz.
 
-En iyi parametre kümesi bulma sürecinde dört adım vardır:
+En iyi parametre kümesi bulma işlemi dört adım vardır:
 
-1. **Parametre alanı tanımlamak**: algoritması, ilk olarak istediğiniz dikkate alınması gereken tam parametre değerlerini karar verin.
-2. **Çapraz doğrulama ayarlarını tanımla**: veri kümesi için çapraz doğrulama Katlama seçmek nasıl karar verin.
-3. **Ölçümü tanımlayın**: en iyi doğruluğu gibi parametreleri kümesini belirlemek için kullanılacak hangi ölçüm karar, kök ortalama karesi alınmış hata, kesinlik, geri çağırma veya f-score.
-4. **Eğitim, değerlendirmek ve karşılaştırmak**: parametre değerlerini benzersiz her birleşimi için çapraz doğrulama tarafından yürütülen ve tanımladığınız hata ölçüm tabanlı. Değerlendirme ve karşılaştırma sonra en çok gerçekleştirme modeli seçebilirsiniz.
+1. **Parametre alanı tanımlama**: algoritma için istediğiniz dikkate alınması gereken tam parametre değerlerini ilk karar verin.
+2. **Çapraz doğrulama ayarlarını tanımlayın**: veri kümesi için çapraz doğrulama hatları seçmenizi nasıl karar verin.
+3. **Ölçüm tanımlama**: en iyi doğruluğu gibi parametreleri kümesini belirlemek için kullanılacak hangi ölçüm karar, kök ortalama karesi alınmış hata, kesinlik, geri çağırma veya f puanı.
+4. **Eğitim, değerlendirmek ve karşılaştırma**: her benzersiz birleşimi parametre değerleri için çapraz doğrulama tarafından gerçekleştirilen ve tanımladığınız hata ölçüme göre. Değerlendirme ve karşılaştırma sonra en yüksek performansa modeli seçebilirsiniz.
 
-Aşağıdaki resim Azure Machine Learning ile bu nasıl sağlanabilir gösterir gösterilmektedir.
+Aşağıdaki görüntüde gösterildiği Azure Machine Learning'de bunu nasıl sağlanabilir gösterir.
 
-![En iyi parametre kümesi Bul](./media/algorithm-parameters-optimize/fig1.png)
+![En iyi parametre kümesi bulma](./media/algorithm-parameters-optimize/fig1.png)
 
-## <a name="define-the-parameter-space"></a>Parametre alanını tanımlayın
-Parametre modeli başlatma adımda kümesi tanımlayabilirsiniz. Tüm makine öğrenimi algoritma parametresi bölmesini iki Eğitmen modu vardır: *tek bir parametre* ve *parametre aralık*. Parametre aralık modu seçin. Parametre aralık modunda her parametre için birden çok değer girebilirsiniz. Metin kutusunda, virgülle ayrılmış değerler girebilirsiniz.
+## <a name="define-the-parameter-space"></a>Parametre alanı tanımlayın
+Model başlatma adım kümesi parametresi tanımlayabilirsiniz. Tüm makine öğrenimi algoritma parametresi bölmesinde iki trainer modu vardır: *tek parametre* ve *parametresi aralık*. Parametre aralık modu seçin. Parametre aralık modunda her parametre için birden çok değer girebilirsiniz. Metin kutusuna, virgülle ayrılmış değerler girebilirsiniz.
 
-![İki sınıflı artırılmış karar ağacı, tek bir parametre](./media/algorithm-parameters-optimize/fig2.png)
+![İki sınıflı artırmalı karar ağacı, tek bir parametre](./media/algorithm-parameters-optimize/fig2.png)
 
- Alternatif olarak, kılavuz ve nokta ile oluşturulacak toplam sayısı maksimum ve minimum noktalarının tanımlayabilirsiniz **kullanım aralık oluşturucu**. Varsayılan olarak, parametre değerlerini doğrusal bir ölçekte üretilir. Ancak **günlük ölçek** denetlenir değerlerin, günlük ölçeğin oluşturulur (diğer bir deyişle, bitişik noktalarının yerine kendi fark sabit orandır). Tamsayı Parametreler için kısa çizgi kullanarak bir aralığı tanımlayabilirsiniz. 1 ile 10 (her ikisi de dahil) arasındaki tüm tamsayılara parametre kümesi form Örneğin, "1-10" anlamına gelir. Karma mod da desteklenir. Örneğin, parametre kümesini "1-10, 20, 50" tamsayılar 1-10, 20, içerir ve 50.
+ Alternatif olarak, maksimum ve minimum noktaları ve kılavuz ile oluşturulması gereken noktaları toplam sayısını tanımlayabilirsiniz **kullanım aralık oluşturucu**. Varsayılan olarak, parametre değerlerini bir doğrusal ölçek üzerinde oluşturulur. Ancak **Logaritmik ölçek** denetlenir değerlerin günlük ölçek oluşturulur (diğer bir deyişle, bitişik noktalar oranını yerine kendi fark sabittir). Tamsayı parametre için bir kısa çizgi kullanarak bir aralığı tanımlayabilirsiniz. 1 ile 10 (her ikisi de dahil) arasında tüm tamsayıların parametre kümesi oluşturur Örneğin, "1-10" anlamına gelir. Karma mod da desteklenir. Örneğin, parametre "1-10, 20, 50" tamsayılar 1-10, 20, içerir ve 50.
 
-![İki sınıflı artırılmış karar ağacı, parametre aralığı](./media/algorithm-parameters-optimize/fig3.png)
+![İki sınıflı artırmalı karar ağacı, parametre aralık](./media/algorithm-parameters-optimize/fig3.png)
 
-## <a name="define-cross-validation-folds"></a>Çapraz doğrulama Katlama tanımlayın
-[Bölüm ve örnek] [ partition-and-sample] modülü, rastgele verileri Katlama atamak için kullanılabilir. Aşağıdaki örnek yapılandırma modülü için beş Katlama tanımlayın ve rastgele Katlama birkaç örnek örneklerine atayın.
+## <a name="define-cross-validation-folds"></a>Çapraz doğrulama hatları tanımlayın
+[Bölüm ve örnek] [ partition-and-sample] modülü, rastgele verileri hatları atamak için kullanılabilir. Aşağıdaki örnek yapılandırmada modülü için beş hatları tanımlayın ve Katlama birkaç örnek örneklerine rastgele atayın.
 
 ![Bölüm ve örnek](./media/algorithm-parameters-optimize/fig4.png)
 
-## <a name="define-the-metric"></a>Ölçümü tanımlayın
-[Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] modülü empirically verilen algoritması ve veri kümesi için en iyi parametrelerinin seçme için destek sağlar. Diğer bilgilerine ek olarak eğitim modeli ilgili **özellikleri** Bu modülün bölmesinde en iyi parametre kümesi belirlemek için ölçüm içerir. Sınıflandırma ve regresyon algoritmalar için iki farklı aşağı açılan liste kutusu sırasıyla sahiptir. Algoritma odaklanılan bir sınıflandırma algoritmasıdır ise, regresyon ölçüm göz ardı edilir ve tersi. Bu belirli örnekte ölçümüdür **doğruluğu**.   
+## <a name="define-the-metric"></a>Ölçüm tanımlama
+[Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] modül türü belirli algoritma ve veri kümesi için en iyi parametrelerinin seçmek için destek sağlar. Diğer bilgilere ek olarak, modeli eğitmek ilgili **özellikleri** bölmesinde Bu modülün en iyi parametre kümesini belirlemek için ölçüm içerir. Sınıflandırma ve regresyon algoritmalar için iki farklı aşağı açılan liste kutuları sırasıyla sahiptir. Algoritma odaklanılan bir sınıflandırma algoritmasıdır ise, regresyon ölçüm göz ardı edilir ve bunun tersi de geçerlidir. Bu belirli örnekte unsurdur **doğruluğu**.   
 
-![Tarama parametreleri](./media/algorithm-parameters-optimize/fig5.png)
+![Gözden geçirme parametreleri](./media/algorithm-parameters-optimize/fig5.png)
 
-## <a name="train-evaluate-and-compare"></a>Eğitim, değerlendirmek ve karşılaştırma
-Aynı [Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] üzerinde ölçüm parametresine karşılık gelen tüm modelleri ayarlayın, çeşitli ölçümleri değerlendirir ve en iyi eğitim modeli oluşturur modülü trenler dayalı ' ı seçin. Bu modül iki zorunlu giriş vardır:
+## <a name="train-evaluate-and-compare"></a>Eğitim, değerlendirin ve karşılaştırın
+Aynı [Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] ölçüme göre parametresine karşılık gelen tüm modelleri ayarlayın, çeşitli ölçümleri değerlendirir ve ardından en eğitim modeli oluşturur modülü trenler tabanlı ' ı seçin. Bu modül, iki zorunlu giriş vardır:
 
-* Eğitimsiz öğrenen
+* Deneyimsiz öğrenici
 * Veri kümesi
 
-Modül de giriş isteğe bağlı bir veri kümesine sahiptir. Zorunlu dataset giriş için Katlama bilgilerle dataset bağlayın. Veri kümesi herhangi bir Katlama bilgi atanmamışsa bir 10-fold çapraz doğrulama otomatik olarak varsayılan olarak yürütülür. Katlama atama yapılmaz ve isteğe bağlı veri kümesi bağlantı noktasına bir doğrulama dataset sağlanır, tren test modu seçilir ve ilk veri kümesini her parametre birleşimi için modeli eğitmek için kullanılır.
+Modül giriş isteğe bağlı bir veri kümesi de vardır. Zorunlu veri kümesi giriş Katlama bilgilerle veri kümesine bağlanın. Veri kümesi herhangi bir Katlama bilgi uygulanmamışsa 10-fold bir çapraz doğrulama otomatik olarak varsayılan olarak yürütülür. Katlama atama yapılmaz ve isteğe bağlı bir veri kümesi bağlantı noktalarından sağlanan doğrulama veri kümesi, eğitin ve test modu seçilir ve ilk veri kümesi için her parametre bileşimi modeli eğitmek için kullanılır.
 
-![Artırılmış karar ağacı sınıflandırıcı](./media/algorithm-parameters-optimize/fig6a.png)
+![Artırmalı karar ağacı Sınıflandırıcısı](./media/algorithm-parameters-optimize/fig6a.png)
 
-Model doğrulama veri kümesine sonra değerlendirilir. Modülünün sol çıkış bağlantı noktasına parametre değerleri olarak işlevler farklı ölçütleri gösterir. Doğru çıkış bağlantı noktasına en gerçekleştirme modele seçilen ölçüm göre karşılık gelen eğitilen model sağlar (**doğruluğu** bu durumda).  
+Model doğrulama veri kümesinde ardından değerlendirilir. Modülünün sol çıkış bağlantı noktasına parametre değerlerinin işlevleri farklı ölçümlerini gösterir. Seçilen ölçüm göre en yüksek performansa modeline karşılık gelen eğitilen model doğru çıkış bağlantı noktasına sağlar (**doğruluğu** bu durumda).  
 
 ![Doğrulama veri kümesi](./media/algorithm-parameters-optimize/fig6b.png)
 
-Doğru çıkış bağlantı noktasına görselleştirme tarafından seçilen tam parametreleri görebilirsiniz. Bu model, bir sınama kümesi Puanlama veya bir kullanıma hazır hale getirilmiş web hizmeti modeli olarak kaydettikten sonra kullanılabilir.
+Doğru çıkış bağlantı noktasına görselleştirerek seçilen tam parametreleri görebilirsiniz. Bu model, bir sınama kümesi Puanlama veya çalışır hale getirilen web hizmeti olarak eğitilen bir modelin kaydettikten sonra kullanılabilir.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/

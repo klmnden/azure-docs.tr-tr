@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a9738f95ce8a0de750ffa348e167bce3b0e659f6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012335"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821404"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
@@ -21,6 +21,7 @@ Mobility hizmetinin yüklenmesi sırasında bir anahtar çoğaltmayı etkinleşt
 * Kimlik bilgisi/ayrıcalık hataları
 * Bağlantı hataları
 * Desteklenmeyen işletim sistemleri
+* VSS yükleme hataları
 
 Çoğaltmayı etkinleştirdiğinizde göndermeye çalıştığında Azure Site Recovery mobility Hizmeti Aracısı sanal makinenize yükleyin. Bunun bir parçası olarak, yapılandırma sunucusu ile sanal makineye bağlanın ve aracıyı kopyalamak çalışır. Başarılı yükleme etkinleştirmek için aşağıda verilen adım adım sorun giderme yönergeleri izleyin.
 
@@ -40,13 +41,10 @@ Seçilen kullanıcı hesabının kimlik bilgilerini değiştirmek istiyorsanız,
 ## <a name="connectivity-check-errorid-95117--97118"></a>**Bağlantı denetimi (errorID: 95117 & 97118)**
 
 * Yapılandırma Sunucusu'na kaynak makinenizden ping mümkün olduğundan emin olun. Çoğaltmayı etkinleştirme sırasında genişleme işlem sunucusu seçtiyseniz, işlem sunucusu, kaynak makineden ping mümkün olduğundan emin olun.
-  * Kaynak sunucu makine komut satırından Telnet kullanma ping yapılandırma sunucusu / genişleme işlem sunucusu ile https bağlantı noktası (varsayılan 9443) herhangi bir ağ bağlantısı sorunları veya güvenlik duvarı bağlantı noktası engelleme sorunları olup olmadığını görmek için aşağıda gösterildiği gibi.
+  * Kaynak sunucu makine komut satırından Telnet kullanma ping yapılandırma sunucusu / genişleme işlem sunucusu ile https bağlantı noktası (herhangi bir ağ bağlantısı sorunları veya güvenlik duvarı bağlantı noktası engelleme sorunları olup olmadığını görmek için aşağıda gösterildiği gibi 135).
 
-     `telnet <CS/ scale-out PS IP address> <port>`
-
-  * Bağlanmak bulamıyorsanız, gelen bağlantı noktası 9443 yapılandırma sunucusu / genişleme işlem sunucusu sağlar.
+     `telnet <CS/ scale-out PS IP address> <135>`
   * Hizmet durumunu **Inmage Scout VX Aracısı-Sentinel/Outpost**. Çalışır durumda değilse hizmeti başlatın.
-
 * Ayrıca **Linux VM**,
   * En son openssh, openssh-server ve openssl paketlerini yüklü olup olmadığını denetleyin.
   * Denetleyin ve Secure Shell (SSH) etkin ve bağlantı noktası 22 üzerinde çalıştığından emin olun.
@@ -95,6 +93,43 @@ Diğer WMI sorun giderme makaleleri aşağıdaki makalelerinden bulunamadı.
 Başka bir yaygın başarısızlık nedeni desteklenmeyen bir işletim sistemi nedeniyle olabilir. Desteklenen işletim sistemi/çekirdek sürümü mobilite hizmetinin başarılı yükleme için üzerinde olduğundan emin olun.
 
 Azure Site Recovery tarafından desteklenen işletim sistemleri hakkında bilgi edinmek için bkz bizim [destek matrisi belge](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## <a name="vss-installation-failures"></a>VSS yükleme hataları
+
+VSS, Mobility Aracısı yüklemesinin parçası yüklemedir. Bu hizmet oluşturma sürecinde uygulama tutarlı kurtarma noktalarına kullanılır. Hataları VSS yüklemesi sırasında birden çok nedenlerden ötürü oluşabilir. Tam hataları belirlemek için başvurmak **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**. Aşağıdaki bölümde, bazı yaygın hatalar ve çözüm adımları vurgulanır.
+
+### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS hatası-2147023170 [0x800706BE] - 511 çıkış kodu
+
+Bu sorun, çoğunlukla bir virüsten koruma yazılımının Azure Site Recovery hizmetleri işlemlerini engellediğinde görülür. Bu sorunu gidermek için
+
+1. Bahsedilen tüm klasörleri dışarıda [burada](vmware-azure-set-up-source.md#exclude-antivirus-on-the-configuration-server).
+2. Windows DLL kaydını engelini kaldırmak için virüsten koruma sağlayıcınız tarafından yayımlanan yönergeleri izleyin.
+
+### <a name="vss-error-7-0x7---exit-code-511"></a>7 [0x7] - çıkış kodu 511 VSS hatası
+
+Bu çalışma zamanı hatası ve VSS'yi yüklemek için yetersiz bellek nedeniyle neden olur Bu işlemin başarıyla tamamlanması için disk alanını artırmak için emin olun.
+
+### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>VSS hatası-2147023824 [0x80070430] - 517 çıkış kodu
+
+Azure Site Recovery VSS sağlayıcısı hizmetidir. Bu hata oluşur [silinmek üzere işaretlenmiş](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Kaynak makinede el ile yüklemeyi aşağıdaki komutu çalıştırarak VSS deneyin
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>VSS hatası-2147023841 [0x8007041F] - 512 çıkış kodu
+
+Azure Site Recovery VSS sağlayıcısı hizmeti veritabanı olduğunda bu hata oluşur [kilitli](https://msdn.microsoft.com/en-us/library/ms833798.aspx). Kaynak makinede el ile yüklemeyi aşağıdaki komutu çalıştırarak VSS deneyin
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-exit-code-806"></a>VSS çıkış kodu 806
+
+Yükleme için kullanılan kullanıcı hesabının CSScript komutu yürütmek için izinlere sahip olmadığında bu hata oluşur. Bu betiği yürütün ve işlemi yeniden denemek için kullanıcı hesabına gereken izinler sağlayın.
+
+### <a name="other-vss-errors"></a>Diğer VSS hataları
+
+Kaynak makinede el ile yüklemeyi aşağıdaki komutu çalıştırarak VSS sağlayıcısı hizmeti deneyin
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

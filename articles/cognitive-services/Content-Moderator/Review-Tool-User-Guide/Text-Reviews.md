@@ -1,6 +1,6 @@
 ---
-title: Azure içerik denetleyici metinde gözden | Microsoft Docs
-description: İçerik kendi skoru görmek için denetleyici metinde gözden öğrenin ve etiketleri algıladı. İçeriği uygun olup olmadığını bilgileri tanımadığını belirlemek için kullanın.
+title: Azure Content Moderator metinde gözden geçirin | Microsoft Docs
+description: Content Moderator, puan görmek için metin gözden geçirmeyi öğrenin ve etiketleri algılandı. İçeriği uygun olup olmadığını erişmeye bilgileri kullanın.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,27 +9,27 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cb8774395b7374677e8de3b80630a2d4abf490f9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351515"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852104"
 ---
 # <a name="review-text"></a>Metni inceleme
 
-Etiketler algılandı ve Azure içerik denetleyici metin puanları kullanarak gözden geçirmek için kullanabilirsiniz. İçeriği uygun olup olmadığını belirlemek için bilgileri kullanın. 
+Etiketleri algılandı ve Azure Content Moderator puanları kullanarak metin gözden geçirmek için kullanabilirsiniz. İçerik uygun olup olmadığını belirlemek için bilgileri kullanın. 
 
 ## <a name="select-or-enter-the-text-to-review"></a>Gözden geçirmek için metin girin veya seçin
 
-İçerik Aracı alanında seçin **deneyin** sekmesi. Ardından, seçin **metin** seçeneği metin denetleme Başlangıç ekranına gidin. Herhangi bir metin girin veya Otomatik Metin denetleme için varsayılan örnek metin gönderin. En çok 1024 karakter girebilirsiniz.
+Content Moderator seçin **deneyin** sekmesi. Ardından, **metin** metin denetimi Başlangıç ekranına gitmek için seçeneği. Herhangi bir metni girin veya otomatik metin denetimi için varsayılan örnek metinler gönderin. En fazla 1024 karakter girebilirsiniz.
 
-## <a name="get-ready-to-review-results"></a>Sonuçlarını gözden geçirmek hazırlanma
+## <a name="get-ready-to-review-results"></a>Sonuçları gözden geçirmek hazırlanma
 
-Gözden geçirme Aracı'nı ilk metin denetleme API'sini çağırır. Ardından, algılanan etiketleri kullanarak metin incelemeler oluşturur. Gözden geçirme Aracı'nı ekibinizin dikkat Puanlama sonuçlarını eşleşir.
+İnceleme aracını ilk metin denetimi API'sini çağırır. Ardından, algılanan etiketleri kullanarak metin incelemeleri oluşturur. İnceleme aracını takımınızın ilgi puanı sonuçları eşleşir.
 
 ## <a name="review-text-results"></a>Metin sonuçlarını gözden geçirin
 
-Windows'da ayrıntılı sonuçları görüntülenir. Sonuçları algılanan etiketleri ve metin denetleme API tarafından döndürülen koşulları içerir. Bir etiketin seçim durumunu geçiş yapmak için etiketi seçin. Ayrıca, oluşturmuş olabileceğiniz özel etiketler ile çalışabilirsiniz.
+Ayrıntılı sonuçlar windows görüntülenir. Sonuçlar, algılanan etiket ve metin denetimi API'si tarafından döndürülen koşulları içerir. Etiketin seçim durumu geçiş yapmak için etiketi seçin. Ayrıca, oluşturmuş olabileceğiniz özel etiketler ile de çalışabilir.
 
-![Metin sonuçlarını gözden geçirin](images/3-review-text-2.png)
+![Metin bir Chrome tarayıcı penceresinde gözden geçirme aracı gösteren ekran görüntüsü bayrağı](../images/reviewresults_text.png)

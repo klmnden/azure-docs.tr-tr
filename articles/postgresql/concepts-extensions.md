@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/12/2018
-ms.openlocfilehash: 43db0e66c05b6b5c3331d3fba3e4db363d61c9f8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 195a54ab65573a24911169b7dc42de7637ad60f9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624361"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823818"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda PostgreSQL uzantıları
 PostgreSQL Uzantıları'nı kullanarak veritabanını genişletmek olanağı sağlar. Birden çok ilişkili SQL nesneleri birlikte yüklenen ya da tek bir komutla veritabanından kaldırıldı tek bir pakette paketleme için uzantılar sağlar. Yerleşik özellikler gibi veritabanında yüklenen sonra uzantıları çalışabilir. PostgreSQL uzantıları hakkında daha fazla bilgi için bkz. [paketleme ilgili nesneleri uzantı](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -89,6 +89,7 @@ Aşağıdaki tablolar, şu anda PostgreSQL için Azure veritabanı tarafından d
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Tanımlama grubu düzeyinde istatistikleri göstermek için bir yol sağlar. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Dış PostgreSQL sunucuları depolanan verilere erişmek için kullanılan yabancı veri sarmalayıcıdır. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | CPU veya disk maliyet yoktur kuramsal dizinler oluşturma bir yol sağlar. |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | Veritabanı oturum içindeki başka bir PostgreSQL veritabanına bağlantıları destekleyen bir modül. |
 
 
 ### <a name="postgis-extensions"></a>PostGIS uzantıları

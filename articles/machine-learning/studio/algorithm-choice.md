@@ -3,7 +3,8 @@ title: Makine öğrenimi algoritmaları seçme | Microsoft Docs
 description: Azure Machine Learning Studio algoritmaları için denetimli ve Denetimsiz öğrenme kümeleme, sınıflandırma veya regresyon denemeleri nasıl seçeceğinizi öğrenin.
 services: machine-learning
 author: pakalra
-ms.author: pakalra
+ms.custom: (previous ms.author pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 tags: ''
@@ -12,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02355239bb908cded1f65a5b41953c4148efaec
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262310"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823240"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
 

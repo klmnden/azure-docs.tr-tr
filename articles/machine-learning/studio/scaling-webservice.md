@@ -4,10 +4,11 @@ description: Ek uç noktaları ekleyerek bir Azure Machine Learning web hizmetin
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-keywords: azure machine Learning web hizmetlerini ölçeklendirme, uç nokta, eşzamanlılık operationalization
+keywords: azure machine Learning web Hizmetleri, kullanıma hazır hale getirme, ölçeklendirme, uç nokta, eşzamanlılık
 ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
 ms.service: machine-learning
 ms.component: studio
@@ -16,12 +17,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 2f950d93c0d923e20451eb1622dd4b1393f343a7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f0b639d27dd5114c47bd5a1cfa0f6a72a6d78d83
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835908"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824192"
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Ek uç noktaları ekleyerek bir Azure Machine Learning web hizmetini ölçeklendirme
 > [!NOTE]
@@ -29,17 +30,17 @@ ms.locfileid: "34835908"
 > 
 > 
 
-Varsayılan olarak, yayımlanan her Web hizmeti 20 eş zamanlı istekleri desteklemek üzere yapılandırılmış ve 200 eş zamanlı istekleri olarak yüksek olabilir. Azure Machine Learning web hizmeti için en iyi performansı sağlamak için bu ayarı otomatik olarak iyileştirir ve portal değeri yoksayılır. 
+Varsayılan olarak, yayımlanan her Web hizmeti 20 eş zamanlı istek destekleyecek şekilde yapılandırıldığından ve 200 eş zamanlı istekleri olarak yüksek olabilir. Azure Machine Learning web hizmeti için en iyi performansı sağlamak için ayarı otomatik olarak iyileştirilir ve portal değer yoksayılır. 
 
-API 200 en fazla eşzamanlı çağrıları değerden daha yüksek bir yük ile çağırmak için plan destekleyecekse aynı Web hizmetinde birden fazla uç noktası oluşturmanız gerekir. Ardından rastgele yük bunların tümünün arasında dağıtabilirsiniz.
+200 en fazla eş zamanlı çağrılar değerden daha yüksek bir yük ile API'sini çağırmak için plan destekleyecekse aynı Web hizmetini birden fazla uç noktası oluşturmanız gerekir. Ardından rastgele yük tümünün arasında dağıtabilirsiniz.
 
-Bir Web hizmeti ölçeklendirme ortak bir görevdir. 200'den fazla eşzamanlı isteği destekler, birden fazla uç noktası aracılığıyla kullanılabilirliğini artırmak veya web hizmeti için ayrı uç noktaları sağlamak için ölçeklendirmek için bazı nedenler şunlardır. Ek uç noktalar aynı Web hizmeti ekleyerek ölçeği artırabilir [Azure Machine Learning Web hizmeti](https://services.azureml.net/) portal.
+Bir Web hizmeti ölçeklendirme genel bir görevdir. Ölçeklendirmek için bazı nedenler, 200'den fazla eşzamanlı isteği destekler, birden fazla uç nokta üzerinden kullanılabilirliğini artırmak veya web hizmeti için ayrı bir uç noktaları vermek üzeresiniz. Aynı Web hizmeti aracılığıyla ek uç noktalar ekleyerek ölçeği artırabilir [Azure Machine Learning Web hizmetini](https://services.azureml.net/) portalı.
 
-Yeni uç nokta ekleme hakkında daha fazla bilgi için bkz: [uç noktaları oluşturma](create-endpoint.md).
+Yeni uç nokta ekleme hakkında daha fazla bilgi için bkz. [uç noktaları oluşturma](create-endpoint.md).
 
-Bir yüksek eşzamanlılık sayısı kullanarak API gelenlere yüksek oranda ile arıyoruz değil, detrimental göz önünde bulundurun. Yüksek yük için yapılandırılmış bir API nispeten düşük yük yerleştirirseniz gecikme ara sıra zaman aşımları ve/veya ani görebilirsiniz.
+Yüksek eşzamanlılık sayısı kullanarak gelenlere yüksek oranda bir API arıyoruz değil, verebilirliğinde göz önünde bulundurun. Yüksek yük için yapılandırılmış bir API nispeten düşük yüke yerleştirirseniz, ara sıra zaman aşımları ve/veya ani gecikme süresindeki görebilirsiniz.
 
-Zaman uyumlu API'leri genellikle düşük gecikme süresi burada istenen durumlarda kullanılır. Burada gecikme API bir isteği tamamlamak alır ve tüm ağ gecikme hesabı olmayan zaman anlamına gelir. 50-ms gecikme süresi ile bir API sahip varsayalım. Kullanılabilir kapasiteye sahip azaltma düzeyi yüksek ve en fazla eşzamanlı çağrıları tam olarak kullanmak üzere = 20, bu API 20 * 1000 çağırmanız gerekir / saniye başına 50 = 400 zaman. Bu daha fazla genişletme, en fazla eşzamanlı çağrıları 200, 50-ms gecikme varsayılarak saniyede API 4000 kez çağrılması olanak sağlar.
+Zaman uyumlu API, genellikle düşük gecikme süreli olduğu istenen durumlarda kullanılır. Burada gecikme süresi, bir isteğin tamamlanması için API alır ve herhangi bir ağ gecikmeleri için hesap olmayan zaman anlamına gelir. Bir API 50 MS'den az gecikme süresiyle sahip varsayalım. Kullanılabilir kapasite azaltma düzeyi yüksek ve en fazla eş zamanlı çağrılar tam olarak kullanmak için 20 = 20 * 1000 Bu API'yi çağırmak gereken / saniye başına 50 = 400 saatleri. Bu daha da genişleterek, en fazla eş zamanlı çağrılar 200, saniyede bir 50 MS'den az gecikme süresiyle varsayılarak API 4000 kez çağrılması olanak tanır.
 
 <!--Image references-->
 [1]: ./media/scaling-webservice/machlearn-1.png

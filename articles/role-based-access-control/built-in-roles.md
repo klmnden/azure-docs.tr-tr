@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 72a8a09d04dc009598dafc35b65304662b7b8915
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a57aae3b5f854871c94d5a4d62b41ad6a1bafcfd
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955924"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824940"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -39,7 +39,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [AcrImageSigner](#acrimagesigner) | acr görüntüsü imzalayan |
 | [AcrQuarantineReader](#acrquarantinereader) | acr karantina veri okuyucu |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr karantina veri yazıcı |
-| [API Yönetimi Hizmeti Katılımcısı](#api-management-service-contributor) | API Management hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
+| [API Yönetimi Hizmeti Katılımcısı](#api-management-service-contributor) | API Management Hizmetleri, ancak onlara yönelik erişimi yönetmenize olanak tanır. |
 | [API Management hizmet operatörü rolü](#api-management-service-operator-role) | Hizmeti yönetebilir, ancak API'leri yönetemez |
 | [API Management hizmet okuyucusu rolü](#api-management-service-reader-role) | Hizmet ve API'lere salt okunur erişim |
 | [Application Insights bileşeni Katılımcısı](#application-insights-component-contributor) | Application Insights bileşenlerini yönetebilir |
@@ -47,13 +47,13 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Otomasyon işi işleci](#automation-job-operator) | Otomasyon Runbook'larını kullanarak İş oluşturun ve yönetin. |
 | [Otomasyon operatörü](#automation-operator) | Otomasyon Operatörleri, işleri başlatabilir, durdurabilir, askıya alabilir ve sürdürebilir |
 | [Otomasyon Runbook'u işleci](#automation-runbook-operator) | Runbook'un İşlerini oluşturabilmek için Runbook özelliklerini okuyun. |
-| [Azure Kubernetes hizmeti Küme Yöneticisi rolü](#azure-kubernetes-service-cluster-admin-role) | Küme Yöneticisi kimlik bilgileri eylem listeleyin. |
-| [Azure Kubernetes hizmeti küme kullanıcı rolü](#azure-kubernetes-service-cluster-user-role) | Küme kullanıcı kimlik bilgileri eylem listeleyin. |
+| [Azure Kubernetes hizmeti Küme Yöneticisi rolü](#azure-kubernetes-service-cluster-admin-role) | Küme yöneticisi kimlik bilgileri eylemini listele. |
+| [Azure Kubernetes hizmeti küme kullanıcı rolü](#azure-kubernetes-service-cluster-user-role) | Küme kullanıcısı kimlik bilgileri eylemini listele. |
 | [Azure Stack kayıt sahibi](#azure-stack-registration-owner) | Azure Stack kayıtlarını yönetmenize imkan sağlar. |
 | [Yedekleme Katılımcısı](#backup-contributor) | Yedekleme hizmetini yönetmenize olanak sağlar ancak kasa oluşturma ve diğer kullanıcılara erişim verme izni sağlamaz |
 | [Yedekleme işletmeni](#backup-operator) | Yedekleme kaldırma, kasa oluşturma ve diğer kullanıcılara erişim verme dışındaki yedekleme hizmetlerini yönetmenize olanak sağlar |
 | [Yedekleme okuyucusu](#backup-reader) | Yedekleme hizmetlerini görüntüleyebilir ancak değişiklik yapamaz |
-| [Faturalama okuyucusu](#billing-reader) | Faturalama verilerini okumanıza izin verir |
+| [Faturalama okuyucusu](#billing-reader) | Fatura veri okumanıza olanak tanır |
 | [BizTalk Katılımcısı](#biztalk-contributor) | BizTalk hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [CDN uç noktası katkıda bulunanı](#cdn-endpoint-contributor) | CDN uç noktalarını yönetebilir, ancak diğer kullanıcılara erişim izni veremez. |
 | [CDN uç nokta okuyucusu](#cdn-endpoint-reader) | CDN uç noktalarını görüntüleyebilir, ancak değişiklik yapamaz. |
@@ -63,20 +63,20 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Klasik depolama hesabı Katılımcısı](#classic-storage-account-contributor) | Klasik depolama hesaplarını yönetmenize izin verir ancak bu hesaplara erişim hakkı vermez. |
 | [Klasik depolama hesabı anahtarı işleci hizmet rolü](#classic-storage-account-key-operator-service-role) | Klasik Depolama Hesabı Anahtarı İşleçlerine, Klasik Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
 | [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
-| [Bilişsel hizmetler katkıda bulunan](#cognitive-services-contributor) | Oluşturma, okuma, güncelleştirme, silme ve Bilişsel hizmetler anahtarlarını yönetme sağlar. |
-| [Bilişsel hizmetler kullanıcı](#cognitive-services-user) | Okuma ve Bilişsel hizmetler, anahtarları listeleme sağlar. |
+| [Bilişsel hizmetler katkıda bulunan](#cognitive-services-contributor) | Bilişsel Hizmetler anahtarlarını oluşturmanıza, okumanıza, güncelleştirmenize, silmenize ve yönetmenize olanak sağlar. |
+| [Bilişsel hizmetler kullanıcı](#cognitive-services-user) | Bilişsel Hizmetler anahtarlarını okumanıza ve listelemenize olanak sağlar. |
 | [Cosmos DB hesabı okuyucusu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesabı verileri okuyabilir. Bkz: [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetme. |
-| [Maliyet Yönetimi katkıda bulunan](#cost-management-contributor) | Maliyetleri görüntüleyebilir ve maliyet yapılandırmasını (örneğin, bütçeler, dışarı aktarma) |
-| [Maliyet Yönetimi okuyucusu](#cost-management-reader) | Maliyet verileri ve yapılandırma (örneğin, bütçeler, dışarı aktarma) görüntüleyebilirsiniz. |
-| [Veri kutusu katkıda bulunan](#data-box-contributor) | Erişim başkalarına vererek dışında veri kutusu hizmeti altındaki her şeyi yönetmenizi sağlar. |
-| [Veri kutusu okuyucusu](#data-box-reader) | Sipariş oluşturma veya sipariş ayrıntılarını düzenleme ve erişim başkalarına vererek dışındaki veri kutusu hizmeti yönetmenizi sağlar. |
-| [Data Factory Katılımcısı](#data-factory-contributor) | Veri fabrikalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
+| [Maliyet Yönetimi katkıda bulunan](#cost-management-contributor) | Maliyetleri görüntüleyebilir ve maliyet yapılandırmasını yönetebilir (örneğin bütçeler, dışarı aktarmalar) |
+| [Maliyet Yönetimi okuyucusu](#cost-management-reader) | Maliyet verileri ve yapılandırmasını (örneğin bütçeler, dışarı aktarmalar) görüntüleyebilir |
+| [Veri kutusu katkıda bulunan](#data-box-contributor) | Başkalarına erişim izni verme hariç Veri Kutusu Hizmeti altındaki her şeyi yönetmenize olanak sağlar. |
+| [Veri kutusu okuyucusu](#data-box-reader) | Sipariş oluşturma veya sipariş ayrıntılarını düzenleme ve başkalarına erişim izni verme hariç Veri Kutusu Hizmeti özelliklerini yönetmenize olanak sağlar. |
+| [Data Factory Katılımcısı](#data-factory-contributor) | Veri fabrikaları ancak onlara yönelik erişimi yönetmenize olanak tanır. |
 | [Data Lake Analytics geliştiricisi](#data-lake-analytics-developer) | İşlerinizi göndermenize, izlemenize ve yönetmenize izin verir, ancak Data Lake Analytics hesabı oluşturmanıza veya silmenize izin vermez. |
 | [Veri Purger](#data-purger) | Analiz verilerini temizleyebilir |
-| [DevTest Labs kullanıcısı](#devtest-labs-user) | Azure DevTest Labs'teki sanal makinelere bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
+| [DevTest Labs kullanıcısı](#devtest-labs-user) | Azure DevTest Labs'teki sanal makineleri başlatma, yeniden başlatma ve kapatma bağlanmanıza olanak sağlar. |
 | [DNS bölgesi katkıda bulunanı](#dns-zone-contributor) | Azure DNS'te, DNS bölgelerini ve kayıt kümelerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB, eski adıyla DocumentDB bilinir. |
-| [HDInsight etki alanı Hizmetleri katkıda bulunan](#hdinsight-domain-services-contributor) | Okuyabilir, oluşturma, değiştirme ve silme etki alanı Hizmetleri ilgili işlemler için HDInsight Kurumsal güvenlik paketi gerekli |
+| [HDInsight etki alanı Hizmetleri katkıda bulunan](#hdinsight-domain-services-contributor) | Okuyabilir oluşturma, değiştirme ve etki alanı Hizmetleri Sil ilgili işlemler için HDInsight Kurumsal Güvenlik Paketi için gereken Etki Alanı Hizmetleriyle ilgili işlemleri Okuyabilir, Oluşturabilir, Değiştirebilir ve Silebilir |
 | [Akıllı sistemler hesap Katılımcısı](#intelligent-systems-account-contributor) | Akıllı Sistemler hesaplarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Key Vault katkıda bulunanı](#key-vault-contributor) | Anahtar kasalarını yönetmenize izin verir, ancak bunlara erişmenize izin vermez. |
 | [Laboratuvar oluşturan](#lab-creator) | Azure Laboratuvar Hesaplarınız altında yönetilen laboratuvarları oluşturmanıza, yönetmenize ve silmenize olanak sağlar. |
@@ -84,14 +84,14 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Log Analytics okuyucusu](#log-analytics-reader) | Log Analytics Okuyucusu, tüm izleme verilerinin görüntüleme ve aramanın yanı sıra izleme ayarlarını da (tüm Azure kaynaklarındaki Azure tanılama yapılandırmalarını görüntüleme dahil) görüntüleyebilir. |
 | [Mantıksal uygulama katkıda bulunanı](#logic-app-contributor) | Mantıksal uygulamayı yönetmenize izin verir, ancak bunlara yönelik erişimi yönetmenize izin vermez. |
 | [Mantıksal uygulama operatörü](#logic-app-operator) | Mantıksal uygulamayı okumanıza, etkinleştirmenize ve devre dışı bırakmanıza izin verir. |
-| [Yönetilen uygulama operatörü rolü](#managed-application-operator-role) | Okuma ve yönetilen uygulama kaynaklarında işlemleri sağlar |
-| [Yönetilen uygulamaların okuyucusu](#managed-applications-reader) | Yönetilen bir uygulama ve istek JIT erişim kaynaklarında okumanıza olanak tanır. |
+| [Yönetilen uygulama operatörü rolü](#managed-application-operator-role) | Yönetilen Uygulama kaynakları üzerinde eylemleri okumanıza ve gerçekleştirmenize olanak sağlar |
+| [Yönetilen uygulamaların okuyucusu](#managed-applications-reader) | Yönetilen bir uygulama içinde kaynakları okumanıza ve JIT erişimi isteğinde bulunmanıza olanak sağlar. |
 | [Yönetilen kimlik Katılımcısı](#managed-identity-contributor) | Kullanıcı Tarafından Atanan Kimliği Oluşturma, Okuma, Güncelleştirme ve Silme |
 | [Yönetilen kimlik işleci](#managed-identity-operator) | Kullanıcı Tarafından Atanan Kimliği Oku ve Ata |
 | [Yönetim grubu katkıda bulunan](#management-group-contributor) | Yönetim Grubu Katkıda Bulunanı Rolü |
 | [Yönetim grubu okuyucusu](#management-group-reader) | Yönetim Grubu Okuyucusu Rolü |
 | [İzleme katkıda bulunanı](#monitoring-contributor) | Tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
-| [İzleme ölçümlerini yayımcı](#monitoring-metrics-publisher) | Azure kaynaklarına karşı ölçümleri yayımlama etkinleştirir |
+| [İzleme ölçümlerini yayımcı](#monitoring-metrics-publisher) | Azure kaynaklarına karşı ölçümleri yayımlamayı etkinleştirir |
 | [İzleme okuyucusu](#monitoring-reader) | (Ölçümler, günlükler, vb.) tüm izleme verilerini okuyabilir. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Ağ Katılımcısı](#network-contributor) | Ağları yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Yeni Relic APM hesap Katılımcısı](#new-relic-apm-account-contributor) | New Relic Application Performance Management hesaplarını ve uygulamalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
@@ -101,7 +101,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Scheduler iş koleksiyonları Katılımcısı](#scheduler-job-collections-contributor) | Zamanlayıcı iş koleksiyonlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Search Hizmeti Katılımcısı](#search-service-contributor) | Search hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Güvenlik Yöneticisi](#security-admin) | Yalnızca Güvenlik Merkezi'ndeki: güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler düzenleme, uyarıları ve öneriler Kapat |
-| [Güvenlik Yöneticisi](#security-manager) | Güvenlik bileşenlerini, güvenlik ilkelerini ve sanal makineleri yönetmenizi sağlar |
+| [Güvenlik Yöneticisi](#security-manager) | Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetmenize olanak tanır |
 | [Güvenlik okuyucusu](#security-reader) | Yalnızca Güvenlik Merkezi'ndeki: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumlarını görüntüleyebilir ancak değişiklik yapamaz görünüm görüntüleyebilirsiniz. |
 | [Site Recovery katkıda bulunanı](#site-recovery-contributor) | Kasa oluşturma ve rol atama işlemleri dışında Site Recovery hizmetini yönetmenize imkan sağlar |
 | [Site Recovery operatörü](#site-recovery-operator) | Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işlemlerini gerçekleştirmenize izin vermez |
@@ -118,9 +118,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Destek isteği Katılımcısı](#support-request-contributor) | Destek istekleri oluşturmanıza ve bunları yönetmenize olanak sağlar |
 | [Traffic Manager katkıda bulunanı](#traffic-manager-contributor) | Traffic Manager profillerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [Kullanıcı Erişimi Yöneticisi](#user-access-administrator) | Azure kaynaklarına yönelik kullanıcı erişimini yönetmenizi sağlar. |
-| [Sanal Makine Yöneticisi oturum açma](#virtual-machine-administrator-login) | Görünüm sanal makineler portalı ve yönetici olarak oturum açın |
-| [Sanal Makine Katılımcısı](#virtual-machine-contributor) | Sanal makineleri yönetmenize izin verir ancak bu sanal makinelere veya bağlı oldukları sanal ağa ya da depolama hesaplarına erişmenize izin vermez. |
-| [Sanal makine kullanıcı oturum açma](#virtual-machine-user-login) | Görünüm sanal makineler portalı ve normal bir kullanıcı olarak oturum açın. |
+| [Sanal Makine Yöneticisi oturum açma](#virtual-machine-administrator-login) | Portalda Sanal Makineleri görüntüleyin ve yönetici olarak oturum açın |
+| [Sanal Makine Katılımcısı](#virtual-machine-contributor) | Sanal makineler, ancak, onlara yönelik erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenizi sağlar. |
+| [Sanal makine kullanıcı oturum açma](#virtual-machine-user-login) | Portalda Sanal Makineleri görüntüleyin ve normal bir kullanıcı olarak oturum açın. |
 | [Web planı Katılımcısı](#web-plan-contributor) | Web siteleri için web planlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Web sitesi Katılımcısı](#website-contributor) | Web sitelerini (web planlarını değil) yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 
@@ -146,8 +146,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/Delete | Rolleri ve rol ataması silinemiyor |
 > | Microsoft.Authorization/*/Write | Rolleri ve rol atamalarını oluşturulamıyor |
 > | Microsoft.Authorization/elevateAccess/Action | Çağırana kiracı kapsamında Kullanıcı Erişim Yöneticisi erişimi verir |
-> | Microsoft.Blueprint/blueprintAssignments/write | Herhangi Bir Şema Yapıtı Oluşturun veya Güncelleştirin |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Şema Yapıtlarını Silin |
+> | Microsoft.Blueprint/blueprintAssignments/write | Herhangi bir Blueprint Yapıtları güncelle |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Herhangi bir Blueprint yapıtlarını silin |
 
 ## <a name="reader"></a>Okuyucu
 > [!div class="mx-tableFixed"]
@@ -175,7 +175,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Açıklama** | acr karantina veri okuyucu |
 > | **Kimlik** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Eylemler** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -184,14 +184,14 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Açıklama** | acr karantina veri yazıcı |
 > | **Kimlik** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Eylemler** |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
 
 ## <a name="api-management-service-contributor"></a>API Yönetimi Hizmeti Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | API Management hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
+> | **Açıklama** | API Management Hizmetleri, ancak onlara yönelik erişimi yönetmenize olanak tanır. |
 > | **Kimlik** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Eylemler** |  |
 > | Microsoft.ApiManagement/service/* | Oluşturma ve API Management hizmeti yönetme |
@@ -339,20 +339,20 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes hizmeti Küme Yöneticisi rolü
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes Hizmet Kümesi Yönetici Rolü
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Küme Yöneticisi kimlik bilgileri eylem listeleyin. |
+> | **Açıklama** | Küme yöneticisi kimlik bilgileri eylemini listele. |
 > | **Kimlik** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Eylemler** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Yönetilen bir küme clusterAdmin kimlik listesi |
 
-## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes hizmeti küme kullanıcı rolü
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes Hizmet Kümesi Kullanıcı Rolü
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Küme kullanıcı kimlik bilgileri eylem listeleyin. |
+> | **Açıklama** | Küme kullanıcısı kimlik bilgileri eylemini listele. |
 > | **Kimlik** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Eylemler** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Yönetilen bir küme clusterUser kimlik listesi |
@@ -536,7 +536,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Faturalama verilerini okumanıza izin verir |
+> | **Açıklama** | Fatura veri okumanıza olanak tanır |
 > | **Kimlik** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -691,11 +691,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="cognitive-services-contributor"></a>Bilişsel hizmetler katkıda bulunan
+## <a name="cognitive-services-contributor"></a>Bilişsel Hizmetler Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Oluşturma, okuma, güncelleştirme, silme ve Bilişsel hizmetler anahtarlarını yönetme sağlar. |
+> | **Açıklama** | Bilişsel Hizmetler anahtarlarını oluşturmanıza, okumanıza, güncelleştirmenize, silmenize ve yönetmenize olanak sağlar. |
 > | **Kimlik** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -716,11 +716,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="cognitive-services-user"></a>Bilişsel hizmetler kullanıcı
+## <a name="cognitive-services-user"></a>Bilişsel Hizmetler Kullanıcısı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Okuma ve Bilişsel hizmetler, anahtarları listeleme sağlar. |
+> | **Açıklama** | Bilişsel Hizmetler anahtarlarını okumanıza ve listelemenize olanak sağlar. |
 > | **Kimlik** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Eylemler** |  |
 > | Microsoft.CognitiveServices/*/read |  |
@@ -752,11 +752,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="cost-management-contributor"></a>Maliyet Yönetimi katkıda bulunan
+## <a name="cost-management-contributor"></a>Maliyet Yönetimi Katkıda Bulunanı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Maliyetleri görüntüleyebilir ve maliyet yapılandırmasını (örneğin, bütçeler, dışarı aktarma) |
+> | **Açıklama** | Maliyetleri görüntüleyebilir ve maliyet yapılandırmasını yönetebilir (örneğin bütçeler, dışarı aktarmalar) |
 > | **Kimlik** | 434105ed-43f6-45C7-a02f-909b2ba83430 |
 > | **Eylemler** |  |
 > | Microsoft.Consumption/* |  |
@@ -766,11 +766,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="cost-management-reader"></a>Maliyet Yönetimi okuyucusu
+## <a name="cost-management-reader"></a>Maliyet Yönetimi Okuyucusu
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Maliyet verileri ve yapılandırma (örneğin, bütçeler, dışarı aktarma) görüntüleyebilirsiniz. |
+> | **Açıklama** | Maliyet verileri ve yapılandırmasını (örneğin bütçeler, dışarı aktarmalar) görüntüleyebilir |
 > | **Kimlik** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | **Eylemler** |  |
 > | Microsoft.Consumption/*/read |  |
@@ -780,11 +780,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="data-box-contributor"></a>Veri kutusu katkıda bulunan
+## <a name="data-box-contributor"></a>Veri Kutusu Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Erişim başkalarına vererek dışında veri kutusu hizmeti altındaki her şeyi yönetmenizi sağlar. |
+> | **Açıklama** | Başkalarına erişim izni verme hariç Veri Kutusu Hizmeti altındaki her şeyi yönetmenize olanak sağlar. |
 > | **Kimlik** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -794,11 +794,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.Databox/* |  |
 
-## <a name="data-box-reader"></a>Veri kutusu okuyucusu
+## <a name="data-box-reader"></a>Veri Kutusu Okuyucusu
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Sipariş oluşturma veya sipariş ayrıntılarını düzenleme ve erişim başkalarına vererek dışındaki veri kutusu hizmeti yönetmenizi sağlar. |
+> | **Açıklama** | Sipariş oluşturma veya sipariş ayrıntılarını düzenleme ve başkalarına erişim izni verme hariç Veri Kutusu Hizmeti özelliklerini yönetmenize olanak sağlar. |
 > | **Kimlik** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -813,7 +813,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Veri fabrikalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
+> | **Açıklama** | Veri fabrikaları ancak onlara yönelik erişimi yönetmenize olanak tanır. |
 > | **Kimlik** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -872,7 +872,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure DevTest Labs'teki sanal makinelere bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
+> | **Açıklama** | Azure DevTest Labs'teki sanal makineleri başlatma, yeniden başlatma ve kapatma bağlanmanıza olanak sağlar. |
 > | **Kimlik** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -937,11 +937,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="hdinsight-domain-services-contributor"></a>HDInsight etki alanı Hizmetleri katkıda bulunan
+## <a name="hdinsight-domain-services-contributor"></a>HDInsight Etki Alanı Hizmetleri Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Okuyabilir, oluşturma, değiştirme ve silme etki alanı Hizmetleri ilgili işlemler için HDInsight Kurumsal güvenlik paketi gerekli |
+> | **Açıklama** | Okuyabilir oluşturma, değiştirme ve etki alanı Hizmetleri Sil ilgili işlemler için HDInsight Kurumsal Güvenlik Paketi için gereken Etki Alanı Hizmetleriyle ilgili işlemleri Okuyabilir, Oluşturabilir, Değiştirebilir ve Silebilir |
 > | **Kimlik** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | **Eylemler** |  |
 > | Microsoft.AAD/*/read |  |
@@ -1082,20 +1082,20 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Web/customApis/*/read | Özel API okuyun. |
 > | Microsoft.Web/serverFarms/read | Bir App Service planı üzerinde özelliklerini alma |
 
-## <a name="managed-application-operator-role"></a>Yönetilen uygulama operatörü rolü
+## <a name="managed-application-operator-role"></a>Yönetilen Uygulama İşletmeni Rolü
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Okuma ve yönetilen uygulama kaynaklarında işlemleri sağlar |
+> | **Açıklama** | Yönetilen Uygulama kaynakları üzerinde eylemleri okumanıza ve gerçekleştirmenize olanak sağlar |
 > | **Kimlik** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Eylemler** |  |
 > | Microsoft.Solutions/applications/read | Uygulama listesi alır. |
 
-## <a name="managed-applications-reader"></a>Yönetilen uygulamaların okuyucusu
+## <a name="managed-applications-reader"></a>Yönetilen Uygulamalar Okuyucusu
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Yönetilen bir uygulama ve istek JIT erişim kaynaklarında okumanıza olanak tanır. |
+> | **Açıklama** | Yönetilen bir uygulama içinde kaynakları okumanıza ve JIT erişimi isteğinde bulunmanıza olanak sağlar. |
 > | **Kimlik** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **Eylemler** |  |
 > | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
@@ -1174,7 +1174,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Okunan ölçüm tanımları (bir kaynak için ölçüm kullanılabilir türler listesi). |
 > | Microsoft.Insights/Metrics/* | Bir kaynak için ölçüm okuyun. |
-> | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını Kaydet |
+> | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını kaydedin |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Web testleri okuma/yazma/silme Application Insights. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Log Analytics çözüm paketleri okuma/yazma/silme. |
@@ -1187,14 +1187,14 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
-## <a name="monitoring-metrics-publisher"></a>İzleme ölçümlerini yayımcı
+## <a name="monitoring-metrics-publisher"></a>Ölçüm Yayımcısını İzleme
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure kaynaklarına karşı ölçümleri yayımlama etkinleştirir |
+> | **Açıklama** | Azure kaynaklarına karşı ölçümleri yayımlamayı etkinleştirir |
 > | **Kimlik** | 3913510d-42f4-4E42-8a64-420c390055eb |
 > | **Eylemler** |  |
-> | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını Kaydet |
+> | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını kaydedin |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | **DataActions** |  |
@@ -1340,7 +1340,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Güvenlik bileşenlerini, güvenlik ilkelerini ve sanal makineleri yönetmenizi sağlar |
+> | **Açıklama** | Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetmenize olanak tanır |
 > | **Kimlik** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1737,7 +1737,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Görünüm sanal makineler portalı ve yönetici olarak oturum açın |
+> | **Açıklama** | Portalda Sanal Makineleri görüntüleyin ve yönetici olarak oturum açın |
 > | **Kimlik** | 1c0163c0-47E6-4577-8991-ea5c82e286e4 |
 > | **Eylemler** |  |
 > | Microsoft.Network/publicIPAddresses/read | Bir genel IP adresi tanımı alır. |
@@ -1753,7 +1753,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Sanal makineleri yönetmenize izin verir ancak bu sanal makinelere veya bağlı oldukları sanal ağa ya da depolama hesaplarına erişmenize izin vermez. |
+> | **Açıklama** | Sanal makineler, ancak, onlara yönelik erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenizi sağlar. |
 > | **Kimlik** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Yetkilendirme okuyun |
@@ -1799,7 +1799,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Görünüm sanal makineler portalı ve normal bir kullanıcı olarak oturum açın. |
+> | **Açıklama** | Portalda Sanal Makineleri görüntüleyin ve normal bir kullanıcı olarak oturum açın. |
 > | **Kimlik** | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | **Eylemler** |  |
 > | Microsoft.Network/publicIPAddresses/read | Bir genel IP adresi tanımı alır. |

@@ -1,68 +1,69 @@
 ---
-title: Görüntüleyin ve verilerinizi Azure AI galerisinden Sil | Microsoft Docs
-description: Dışarı aktarma ve ürün kullanıcı verilerinizi Azure AI arabirimi veya AI galeri Kataloğu API'sini kullanarak Galerisi'nden silin. Bu makale size nasıl gösterir.
+title: Görüntüleme ve verilerinizi Azure AI Gallery silmek | Microsoft Docs
+description: Dışarı aktarma ve ürün içi kullanıcı verilerinizi arabirimi veya yapay ZEKA Galerisi'ni Kataloğu API'sini kullanarak Azure AI Gallery Sil. Bu makalede, nasıl gösterir.
 services: machine-learning
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: bc6ffa912d7914c8662dbde623e04947540ac149
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 557896dd31f9a8acfe1ca630142be25a1d8cd5b8
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655778"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820588"
 ---
-# <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Görüntüleyin ve ürün kullanıcı verilerini Azure AI galerisinden Sil
+# <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ve Azure AI Gallery ürün içi kullanıcı verilerini silme
 
-Görüntüleyebilir ve ürün kullanıcı verilerinizi Azure AI arabirimi veya AI galeri Kataloğu API'sini kullanarak Galerisi'nden silebilirsiniz. Bu makalede bunun nasıl yapılacağı açıklanmaktadır.
+Görüntüleyebilir ve ürün içi kullanıcı verilerinizi arabirimi veya yapay ZEKA Galerisi'ni Kataloğu API'sini kullanarak Azure AI Gallery Sil. Bu makalede nasıl yapılacağı açıklanmaktadır.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="view-your-data-in-ai-gallery-with-the-ui"></a>Kullanıcı Arabirimi ile AI Galerisi'nde verilerinizi görüntüleme
+## <a name="view-your-data-in-ai-gallery-with-the-ui"></a>AI Galerisi'nde kullanıcı Arabirimi ile verilerinizi görüntüleyin
 
-Azure AI galeri Web kullanıcı Arabirimi yayımlanan öğeleri görüntüleyebilirsiniz. Kullanıcılar, hem genel hem de listelenmemiş çözümleri, projeler, denemeler ve diğer yayımlanan öğeleri görüntüleyebilir:
+Azure AI Gallery Web UI yayımlanan öğeleri görüntüleyebilir. Kullanıcılar, hem genel hem de listelenmemiş çözümler, projeler, denemeler ve yayımlanan diğer öğeleri görüntüleyebilir:
 
-1.  Oturum [Azure AI galeri](https://gallery.azure.ai/).
-2.  Profil resmi sağ üst köşesinde ve profil sayfanızı yüklemek için hesap adını tıklatın.
-3.  Profil sayfası listelenmemiş girişleri dahil olmak üzere Galerisine yayımlanan tüm öğeleri görüntüler.
+1.  Oturum [Azure AI Gallery](https://gallery.azure.ai/).
+2.  Profil resmi sağ üst köşedeki ve hesap adını, böylece profil sayfanızı yüklemek için tıklayın.
+3.  Profil sayfasında listelenmeyen girişleri de dahil olmak üzere galeride yayımlanmış tüm öğeleri görüntüler.
 
-## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Verilerinizi görüntülemek için AI galeri Kataloğu API'sini kullanın
+## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Verilerinizi görüntülemek için yapay ZEKA Galerisi'ni Kataloğu API'sini kullanın.
 
-Programlı olarak erişilebilir adresindeki AI galeri Kataloğu API'si aracılığıyla toplanan verileri görüntüleme https://catalog.cortanaanalytics.com/entities. Verileri görüntülemek için kimliğinizi Yazar gerekir Kataloğu API'si aracılığıyla listelenmemiş varlıkları görüntülemek için bir erişim belirteci gerekir.
+Programlı olarak adresinden erişilebilen yapay ZEKA Galerisi'ni Kataloğu API'si aracılığıyla toplanan verileri görüntüleme https://catalog.cortanaanalytics.com/entities. Verileri görüntülemek için yazar kimliğinizi gerekir Katalog API aracılığıyla listelenmemiş olan varlıkları görüntülemek için bir erişim belirteci gerekir.
 
 Katalog yanıtları JSON biçiminde döndürülür.
 
-### <a name="get-an-author-id"></a>Bir yazar kimlik alma
-Yazar Kimliği Azure AI Galerisi'ne yayımlarken kullanılan e-posta adresini temel alır. Değişmez:
+### <a name="get-an-author-id"></a>Bir yazar Kimliğini alın
+Yazar Kimliği için Azure AI Gallery yayımlama sırasında kullanılan e-posta adresini temel alır. Değişmez:
 
-1.  Oturum [Azure AI galeri](https://gallery.azure.ai/).
-2.  Profil resmi sağ üst köşesinde ve profil sayfanızı yüklemek için hesap adını tıklatın.
-3.  Adres çubuğundaki URL'yi alfasayısal kimliği aşağıdaki görüntüler `authorId=`. Örneğin, URL için: `https://gallery.cortanaintelligence.com/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1.  Oturum [Azure AI Gallery](https://gallery.azure.ai/).
+2.  Profil resmi sağ üst köşedeki ve hesap adını, böylece profil sayfanızı yüklemek için tıklayın.
+3.  Alfasayısal kimliği aşağıdaki adres çubuğundaki URL'yi görüntüler `authorId=`. Örneğin, URL için: `https://gallery.cortanaintelligence.com/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     Yazar Kimliği: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
-### <a name="get-your-access-token"></a>Erişim belirteci alın
+### <a name="get-your-access-token"></a>Erişim belirteci alma
 
-Kataloğu API'si aracılığıyla listelenmemiş varlıkları görüntülemek için bir erişim belirteci gerekir. Bir erişim belirteci, kullanıcılar genel varlıkları ve diğer kullanıcı bilgileri görüntüleyebilirsiniz.
+Katalog API aracılığıyla listelenmemiş olan varlıkları görüntülemek için bir erişim belirteci ihtiyacınız vardır. Bir erişim belirteci, kullanıcılar hala genel varlıklar ve diğer kullanıcı bilgileri görüntüleyebilir.
 
-Bir erişim belirteci almak için incelemesi gereken `DataLabAccessToken` tarayıcı yapar katalog oturum açtığınızda API'sine HTTP isteği üstbilgisi:
+Erişim belirteci almak için incelemesi gereken `DataLabAccessToken` tarayıcı yapar Kataloğu oturumunuz açıkken API'sine HTTP isteği üstbilgisi:
 
-1.  Oturum [Azure AI galeri](https://gallery.azure.ai/).
-2.  Profil resmi sağ üst köşesinde ve profil sayfanızı yüklemek için hesap adını tıklatın.
-3.  F12 tuşuna basarak tarayıcının geliştirici araçları bölmesini açın, ağ sekmesini seçin ve sayfayı yenileyin. 
-4. Dize isteklerinde filtre *katalog* filtre metin kutusuna yazarak.
-5.  İstek URL `https://catalog.cortanaanalytics.com/entities`, bir GET isteği bulun ve seçin *üstbilgileri* sekmesi. Ekranı aşağı kaydırarak *istek üstbilgileri* bölümü.
-6.  Başlığı altında `DataLabAccessToken` alfasayısal belirteci. Verilerinizi güvenli tutmaya yardımcı olmak için bu belirteç paylaşmayın.
+1.  Oturum [Azure AI Gallery](https://gallery.azure.ai/).
+2.  Profil resmi sağ üst köşedeki ve hesap adını, böylece profil sayfanızı yüklemek için tıklayın.
+3.  F12 tuşuna basarak tarayıcı geliştirici araçları bölmesini açın, ağ sekmesini seçin ve sayfayı yenileyin. 
+4. Filtre dizesi isteklerinde *Kataloğu* filtre metin kutusuna yazarak.
+5.  İstek URL'si `https://catalog.cortanaanalytics.com/entities`bir GET isteği bulup seçin *üstbilgileri* sekmesi. Ekranı aşağı kaydırarak *istek üstbilgileri* bölümü.
+6.  Başlık altında `DataLabAccessToken` alfasayısal belirteç. Verilerinizin güvenliğini sağlamanıza yardımcı olmak için bu belirteci paylaşmayın.
 
 ### <a name="view-user-information"></a>Kullanıcı bilgilerini görüntüleme
-Önceki adımda aldığınız Yazar Kimliğini kullanarak, bir kullanıcının profili değiştirerek bilgilerini `[AuthorId]` aşağıdaki URL'de:
+Önceki adımda aldığınız Yazar Kimliğini kullanarak, bilgileri kullanıcının profilinde değiştirerek görüntülemek `[AuthorId]` aşağıdaki URL:
 
     https://catalog.cortanaanalytics.com/users/[AuthorID]
 
@@ -75,11 +76,11 @@ Gibi bir yanıt döndürür:
     {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
 
 
-### <a name="view-public-entities"></a>Genel varlıkları görüntüle
+### <a name="view-public-entities"></a>Görünüm genel varlıklar
 
-Katalog API doğrudan görüntüleyebilirsiniz Azure AI Galeriye yayımlanan varlıkları hakkındaki bilgileri depolar [AI Galerisi Web sitesi](https://gallery.azure.ai/). 
+Kataloğu API'sini doğrudan görüntüleyebilirsiniz Azure AI Gallery için yayımlanan varlıkları hakkında bilgi depolar [yapay ZEKA Galerisi'ni Web sitesi](https://gallery.azure.ai/). 
 
-Yayımlanan varlıkları görüntülemek için aşağıdaki URL'yi ziyaret değiştirme `[AuthorId]` elde Yazar kimlikli [bir Yazar Kimliği almak](#get-an-author-ID) yukarıda.
+Yayımlanmış olan varlıkları görüntülemek için aşağıdaki URL'yi ziyaret edin değiştirerek `[AuthorId]` elde Yazar kimlikli [Yazar Kimliğini alın](#get-an-author-ID) yukarıda.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
@@ -87,13 +88,13 @@ Yayımlanan varlıkları görüntülemek için aşağıdaki URL'yi ziyaret deği
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 
-### <a name="view-unlisted-and-public-entities"></a>Listede bulunmayan ve genel varlıklar görüntüleyin
+### <a name="view-unlisted-and-public-entities"></a>Listede bulunmayan ve ortak olan varlıkları görüntülemek
 
-Bu sorgu yalnızca genel varlıklar görüntüler. Listede bulunmayan olanlar da dahil olmak üzere tüm varlıklarınızı, görüntülemek için erişim sağlamak belirteç elde önceki bölümden.
+Bu sorgu, yalnızca genel varlıklar görüntüler. Listelenmemiş olanlar da dahil olmak üzere tüm varlıklarınızı, görüntülemek için erişim sağlamak önceki bölümden alınan belirteci.
 
-1.  Gibi bir araç kullanarak [Postman](https://www.getpostman.com), kataloğu URL'si için bir HTTP GET isteği açıklandığı gibi oluşturmak [erişim belirteci almak](#get-your-access-token).
-2.  Adlı bir HTTP isteği üstbilgisini oluşturmak `DataLabAccessToken`, erişim belirtecine ayarlanan değer ile.
+1.  Bir aracı gibi kullanarak [Postman](https://www.getpostman.com), açıklandığı Kataloğu URL'si için bir HTTP GET isteği oluşturmak [erişim belirteci alma](#get-your-access-token).
+2.  Adlı bir HTTP isteği üstbilgisini oluşturmak `DataLabAccessToken`, değeri için erişim belirteci olarak ayarlanmış.
 3.  HTTP isteği gönderin.
 
 > [!TIP]
-> Listede bulunmayan varlıklar katalog API'sinden yanıtlarındaki görünmüyorsa, kullanıcı geçersiz olabilir ya da erişim belirtecinin süresi. Oturum dışında Azure AI Galerisi ve adımlarını yineleyin [erişim belirteci almak](#get-your-access-token) belirteç yenilemek için. 
+> Listelenmemiş varlıkları Kataloğu API'sinden yanıtlarındaki görünmüyorsa, kullanıcı geçersiz olabilir ya da erişim belirtecinizin süresi. Oturum dışında Azure AI Gallery ve adımları yineleyin [erişim belirteci alma](#get-your-access-token) belirteci yenileme. 

@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning Web hizmeti parametreleri kullanarak | Microsoft Docs
-description: Web hizmeti erişilen modelinizin davranışını değiştirmek için Azure Machine Learning Web hizmeti parametreleri kullanma
+title: Azure Machine Learning Web hizmeti parametrelerini kullanma | Microsoft Docs
+description: Web hizmeti erişim sağlandığında modelinizi davranışını değiştirmek için Azure Machine Learning Web hizmeti parametrelerini kullanma
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
@@ -15,69 +16,69 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 91b3c9df8a7fd0e1abb79c21b1e1d833e57c24d5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: db46dfd98b402668f5d716902b96fed469648460
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835935"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819076"
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Azure Machine Learning Web Hizmeti Parametrelerini kullanma
-Bir Azure Machine Learning web hizmetini yapılandırılabilir parametrelerle modülleri içeren bir denemeyi yayımlayarak oluşturulur. Bazı durumlarda, web hizmetinin çalıştığı sırada modülü davranışı değiştirmek isteyebilirsiniz. *Web hizmeti parametreleri* bu görevi yapmanıza olanak sağlar. 
+Bir Azure Machine Learning web hizmeti modülleri ile yapılandırılabilir parametreler içeren bir denemeyi yayımlayarak oluşturulur. Bazı durumlarda, web hizmetinin çalıştığı sırada modülü davranışını değiştirmek isteyebilirsiniz. *Web hizmeti parametreleri* bu işi yapmanıza olanak sağlar. 
 
-Yaygın bir örnek ayarlama [veri içeri aktarma] [ reader] modülü böylece web hizmeti erişildiğinde yayımlanan web hizmeti kullanıcı farklı bir veri kaynağına belirtebilirsiniz. Veya yapılandırma [verileri dışa aktar] [ writer] modülü böylece farklı bir hedef belirtilebilir. Bazı diğer BITS sayısını değiştirme örnekler [özellik karma] [ feature-hashing] modül veya sayısı istenen özellikleri [filtre tabanlı özellik seçimi] [ filter-based-feature-selection] modülü. 
+Yaygın olarak karşılaşılan örneklerden ayarlama [verileri içeri aktarma] [ reader] modülü web hizmeti erişim sağlandığında yayımlanan web hizmeti kullanıcı farklı bir veri kaynağına belirtebilirsiniz. Veya yapılandırma [verileri dışarı aktarma] [ writer] modülü böylece farklı bir hedef belirtilebilir. Diğer örnekler için bit sayısı kadar değiştireceğiniz [özellik karma] [ feature-hashing] modül veya sayısı istenen özellikleri [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] modülü. 
 
-Web hizmeti parametreleri ayarlayabilir ve bunları bir veya daha fazla modülü parametrelerle denemenizde ilişkilendirmeyi ve gerekli veya isteğe bağlı oldukları belirtebilirsiniz. Web hizmeti çağırdığınızda web hizmeti kullanıcı ardından bu parametreler için değerler sağlayabilir. 
+Web hizmeti parametreleri ayarlama ve bunları denemenizde bir veya daha fazla modül parametrelerini ile ilişkilendirin ve bunlar gerekli veya isteğe bağlı olup olmadığını belirtebilirsiniz. Web hizmeti aradıklarında web hizmeti kullanıcı daha sonra bu parametreler için değerleri sağlayabilirsiniz. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="how-to-set-and-use-web-service-parameters"></a>Ayarlama ve Web hizmeti parametreleri kullanma
-Parametresi için bir modül yanındaki simgeyi tıklatarak ve "web hizmeti parametresi Ayarla" seçerek bir Web hizmeti parametre tanımlayın. Bu yeni bir Web hizmeti parametre oluşturur ve bu modülü parametreye bağlanır. Ardından, web hizmeti erişildiğinde kullanıcı Web hizmeti parametresi için bir değer belirtebilir ve modülü parametresi uygulanır.
+## <a name="how-to-set-and-use-web-service-parameters"></a>Ayarlayın ve Web hizmeti parametrelerini kullanma
+Parametresi bir modül için yanındaki simgeye tıklayarak ve "web hizmeti parametre olarak Ayarla" seçerek bir Web hizmeti parametre tanımlayın. Bu yeni bir Web hizmeti parametresi oluşturur ve bu modülü parametreye bağlanır. Ardından, web hizmeti erişim sağlandığında kullanıcı Web hizmeti parametresi için bir değer belirtebilir ve modülü parametresi uygulanır.
 
-Bir Web hizmeti parametresi tanımladıktan sonra başka bir modül parametre denemede için kullanılabilir. Bir modül için bir parametre ile ilişkili bir Web hizmeti parametresi tanımlarsanız, aynı türde bir değer parametresini beklemektedir sürece, aynı Web hizmeti parametresi diğer herhangi bir modül için kullanabilirsiniz. Web hizmeti parametresi bir sayısal değer ise, örneğin, daha sonra yalnızca sayısal bir değer beklediğiniz modülü parametreleri için kullanılabilir. Kullanıcı Web hizmeti parametresi için bir değer ayarlar, tüm ilişkilendirilmiş modülü parametreleri uygulanır.
+Bir Web hizmeti parametresi tanımladıktan sonra başka bir modül parametre denemede için kullanılabilir. Bir modül için bir parametre ile ilişkili bir Web hizmeti parametresi tanımlarsanız, değer aynı türde bir parametre bekliyor sürece, aynı Web hizmeti parametre başka herhangi bir modül için kullanabilirsiniz. Web hizmeti parametresi sayısal bir değerdir, örneğin, daha sonra yalnızca sayısal bir değer beklediğiniz modül parametrelerini kullanılabilir. Kullanıcı, Web hizmeti parametresi için bir değer ayarlar, tüm ilişkili modül parametrelerini için uygulanır.
 
-Web hizmeti parametresi için varsayılan bir değer sağlamak karar verebilirsiniz. Bunu yaparsanız, parametre web hizmeti kullanıcı için isteğe bağlıdır. Varsayılan değer sağlamazsanız, kullanıcı web hizmeti erişildiğinde bir değer girmesini gereklidir.
+Web hizmeti parametresi için varsayılan bir değer sağlamak karar verebilirsiniz. Bunu yaparsanız, parametre web hizmeti kullanıcı için isteğe bağlıdır. Varsayılan değer sağlamazsanız, web hizmeti erişim sağlandığında bir değer girmek için kullanıcı gereklidir.
 
-Web hizmeti için API belgeleri web hizmeti kullanıcı için Web hizmeti parametresi program aracılığıyla web hizmeti erişirken nasıl belirtileceği hakkında bilgi içerir.
+Web hizmeti için API belgeleri, web hizmeti kullanıcı için Web hizmeti parametresi web hizmetine erişirken programlı olarak belirtme hakkında bilgi içerir.
 
 > [!NOTE]
-> Klasik web hizmeti için API belgeleri sağlanır **API Yardım sayfası** web hizmeti bağlantı **PANO** Machine Learning Studio'da. Yeni bir web hizmeti için API belgeleri sağlanır [Azure Machine Learning Web Hizmetleri](https://services.azureml.net/Quickstart) portalını **Tüket** ve **Swagger API'si** web hizmetiniz için sayfa.
+> Klasik web hizmeti için API belgeleri sağlanır **API Yardım sayfası** web hizmeti bağlantı **PANO** Machine Learning Studio'da. API belgeleri için yeni bir web hizmeti aracılığıyla sağlanan [Azure Machine Learning Web Hizmetleri](https://services.azureml.net/Quickstart) Şirket portalı **Tüket** ve **Swagger API'si** web sayfaları hizmeti.
 > 
 > 
 
 ## <a name="example"></a>Örnek
-Bir örnek, bir deneme ile sahibiz varsayalım bir [verileri dışa aktar] [ writer] bilgileri Azure blob depolama alanına gönderir modülü. Web hizmeti "yol Blob" adlı bir parametre tanımlama olasılığınız yüksektir hizmet erişildiğinde blob depolama alanına yolunu değiştirmek web hizmeti kullanıcı verir.
+Örnek olarak, varsayalım deneme ile sahip olduğumuz bir [verileri dışarı aktarma] [ writer] bilgileri Azure blob depolamaya gönderir modülü. Web hizmeti "Blob yolu" adlı bir parametre tanımlarız hizmet eriştiğinde, blob depolama alanına yolunu değiştirmek web hizmeti kullanıcı verir.
 
-1. Machine Learning Studio'da tıklatın [verileri dışa aktar] [ writer] modülü seçin. Özelliklerini deneme tuvaline sağındaki Özellikler bölmesinde gösterilir.
+1. Machine Learning Studio'da tıklayın [verileri dışarı aktarma] [ writer] modülü seçin. Özellikler bölmesinde deneme tuvaline sağındaki özellikleri gösterilmektedir.
 2. Depolama türünü belirtin:
    
-   * Altında **Lütfen verileri hedef belirtin**, "Azure Blob Storage" seçin.
+   * Altında **veri hedef zadejte**, "Azure Blob Depolama" seçin.
    * Altında **Lütfen kimlik doğrulama türünü belirtin**, "Hesap" seçin.
    * Azure blob depolama hesabı bilgilerini girin. 
 
-3. Simgesine sağ tarafındaki **kapsayıcı parametresi ile başlayan blob yolu**. Şöyle görünür:
+3. Simgesini sağ tarafındaki **kapsayıcı parametresi ile başlayan blob yolu**. Şöyle görünür:
    
-   ![Web hizmeti parametresi simgesi][icon]
+   ![Web hizmeti parametre simgesi][icon]
    
-   "Web hizmeti parametresi Ayarla" seçin.
+   "Web hizmeti parametre olarak Ayarla" seçin.
    
-   Bir giriş altında eklenen **Web hizmeti parametreleri** alt kısmındaki "kapsayıcı ile başlayan blob yolu" adıyla Özellikler bölmesi. Bu Web hizmeti, şu anda parametredir bununla ilişkili [verileri dışa aktar] [ writer] modülü parametresi.
-4. Web hizmeti parametresi yeniden adlandırmak için adına tıklayın, "Blob yolu" girin ve basın **Enter** anahtarı. 
-5. Web hizmeti parametresi için varsayılan bir değer sağlamak için adının sağındaki simgesini tıklatın, "varsayılan değer sağla" seçin, (örneğin, "container1/output1.csv"), bir değer girin ve basın **Enter** anahtarı.
+   Bir girdi altında eklenir **Web hizmeti parametrelerini** Özellikler bölmesinde "blob kapsayıcısı ile başlayan yol" adlı alt kısmındaki. Bu Web hizmeti, şu anda parametredir bununla ilişkili [verileri dışarı aktarma] [ writer] modülü parametresi.
+4. Web hizmeti parametreyi yeniden adlandır, adına tıklayın, "Blob yolu" girin ve basın **Enter** anahtarı. 
+5. Web hizmeti parametresi için varsayılan bir değer sağlamak için adının sağ tarafındaki simgesine tıklayın, "sağlar. varsayılan değer"'i seçin, (örneğin, "container1/output1.csv"), bir değer girin ve basın **Enter** anahtarı.
    
    ![Web hizmeti parametresi][parameter]
 6. **Çalıştır**’a tıklayın. 
-7. Tıklatın **Web hizmeti Dağıt** seçip **Web hizmeti Dağıt [Klasik]** veya **Web hizmeti dağıtma [Yeni]** web hizmeti dağıtmak için.
+7. Tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** web hizmeti dağıtmak için.
 
 > [!NOTE] 
-> Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md). 
+> Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi edinmek, [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 
 
-Web hizmeti kullanıcı için yeni bir hedef artık belirtebilirsiniz [verileri dışa aktar] [ writer] web hizmeti erişirken modülü.
+Web hizmeti kullanıcı için yeni bir hedef artık belirtebilirsiniz [verileri dışarı aktarma] [ writer] web hizmetine erişirken modülü.
 
 ## <a name="more-information"></a>Daha fazla bilgi
-Daha ayrıntılı bir örnek için bkz: [Web hizmeti parametreleri](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) girişi [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Daha ayrıntılı bir örnek için bkz. [Web hizmeti parametrelerini](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) girişi [Machine Learning Web günlüğü](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Machine Learning web hizmetine erişim ile ilgili daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmeti kullanmak nasıl](consume-web-services.md).
+Machine Learning web hizmetine erişim ile ilgili daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmetini kullanma](consume-web-services.md).
 
 <!-- Images -->
 [icon]: ./media/web-service-parameters/icon.png

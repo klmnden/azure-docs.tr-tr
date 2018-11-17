@@ -4,7 +4,8 @@ description: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Ga
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 250b0cf6ff949fab064dc61a5260a68fd78d0387
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c17365816095f4580afb79e7835d7b9aedd609d3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346380"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823342"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşın ve Azure AI Gallery'de kaynakları keşfedin
 

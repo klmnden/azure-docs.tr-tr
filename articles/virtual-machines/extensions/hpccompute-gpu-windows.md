@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 85ac478bf753d5bb0aed96eca538e48525354eff
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061126"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823801"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows için NVIDIA GPU sürücüsünün uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu uzantı, Windows N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve NVIDIA son kullanıcı lisans sözleşmesi koşullarını kabul etmiş olursunuz. Sürücü Kurulumu tamamlamak için yükleme işlemi sırasında sanal makinenizi yeniden başlatabilirsiniz.
+Bu uzantı, Windows N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve koşullarını kabul etmiş [NVIDIA son kullanıcı lisans sözleşmesi](https://go.microsoft.com/fwlink/?linkid=874330). Yükleme işlemi sırasında sürücü kurulumu tamamlamak için VM yeniden başlatılabilir.
 
 Bir uzantı NVIDIA GPU sürücüleri yüklemek de kullanılabilir [Linux N serisi Vm'lerde](hpccompute-gpu-linux.md).
-
-NVIDIA son kullanıcı lisans sözleşmesi koşullarını burada bulunur- https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,7 +43,7 @@ Bu uzantı şu OSs destekler:
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
-Microsoft Azure uzantısı için NVIDIA GPU sürücüleri, hedef sanal makineyi internet'e bağlı ve erişimi gerektirir.
+Microsoft Azure uzantısı için NVIDIA GPU sürücüleri, hedef sanal Makineyi internet'e bağlı ve erişimi gerektirir.
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
@@ -71,15 +69,23 @@ Aşağıdaki JSON şema uzantısı gösterir.
 }
 ```
 
-### <a name="property-values"></a>Özellik değerleri
+### <a name="properties"></a>Özellikler
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | tarih |
+| apiVersion | 2015-06-15 | date |
 | Yayımcı | Microsoft.HpcCompute | dize |
 | type | NvidiaGpuDriverWindows | dize |
 | typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Ayarlar
+
+Tüm ayarlar isteğe bağlıdır. Varsayılan davranış yükleyecek en son desteklenen sürücü olarak uygulanabilir.
+
+| Ad | Açıklama | Varsayılan Değer | Geçerli Değerler | Veri Türü |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: Kılavuz sürücü sürümü<br> NC/ND: CUDA sürücü sürümü | en son | KILAVUZ: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | dize |
+| installGridND | ND serisi VM'ler hakkında kılavuz sürücüsünü yükleyin | false | TRUE, false | boole |
 
 ## <a name="deployment"></a>Dağıtım
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
+Aşağıdaki örnek, yukarıdaki ARM ve PowerShell örneğinde yansıtır ve ayrıca varsayılan olmayan sürücü yüklemesi için örnek olarak özel ayarları ekler. Özellikle, bir ND serisi VM sağlanıyor olsa bile belirli bir kılavuz sürücü yükler.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

@@ -3,18 +3,18 @@ title: Azure Haritalar ile arama sonuçlarını gösterme | Microsoft Docs
 description: Bir arama gerçekleştirme isteği ile Azure haritalar sonra sonuçları bir Javascript harita üzerinde görüntüleyebilirsiniz
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/07/2018
+ms.date: 11/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cf27864d691fe2fe13c9483348fb2abed121874d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 031085b3048d0ffc92dd5a35b4054903088b4858
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713512"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824345"
 ---
 # <a name="show-search-results-on-the-map"></a>Harita üzerinde arama sonuçlarını göster
 
@@ -24,27 +24,36 @@ Bu makalede ilgi konumu aramak ve arama sonuçlarını haritada gösterme göste
 
 ## <a name="make-a-search-request-via-service-module"></a>Bir arama hizmeti modülü aracılığıyla istekte
 
-<iframe height='500' scrolling='no' title='Arama sonuçları bir haritada (hizmet Modülü) göster' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Show arama sonuçları bir haritada (hizmet Modülü)</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Arama sonuçları bir haritada (hizmet Modülü) göster' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Show arama sonuçları bir haritada (hizmet Modülü)</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-İlk bloğu kod eşleme nesnesi oluşturur ve istemci hizmetini başlatır. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
+Yukarıdaki kod, kod bloğunun ilk eşleme nesnesi oluşturur ve istemci hizmetini başlatır. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
 
-İkinci kod bloğunu kullanır [Azure haritalar belirsiz arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) için ilgi noktası arama. Belirsiz arama API'si benzer girişler herhangi bir birleşimini başa çıkabilir. GeoJSON biçiminde kullanarak belirsiz arama hizmetinden gelen yanıt ayrıştırılır [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) yöntemi. PIN, ardından ilgi çekici noktalar haritada gösterilecek eşlemesine eklenir.
+İkinci kod bloğunu kullanır [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) yönteminde [hizmeti Modülü](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Bu serbest biçimli metin arama yoluyla gerçekleştirmenize olanak tanıyan [belirsiz arama rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) için ilgi noktası arama. Belirsiz arama API'si benzer girişler herhangi bir birleşimini başa çıkabilir. GeoJSON biçiminde kullanarak belirsiz arama hizmetinden gelen yanıt ayrıştırılır [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) yöntemi. 
 
-Haritanın kullanarak son blok kod eşlemesi için kamera sınırları ayarlar [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) özelliği.
+Üçüncü kod bloğunun bir veri kaynağı nesnesi kullanılarak oluşturur [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı ve arama sonuçları ekleyin. A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak.  Bir sembol katmanı sonra oluşturulur ve ardından eşlemesine eklenen sembol katmanı, veri kaynağı eklenir.
+
+Haritanın kullanarak son blok kod eşlemesi için kamera sınırları ayarlar [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) özelliği.
+
+Arama isteği, veri kaynağı ve sembol katman ve kamera sınırları oluşturulur ve haritanın içinde ayarlamak [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) harita tamamen yüklendikten sonra sonuçları görüntülendiğinden emin olmak için.
+
 
 ## <a name="make-a-search-request-via-xmlhttprequest"></a>Arama isteği aracılığıyla XMLHttpRequest olun
 
-<iframe height='500' scrolling='no' title='Arama sonuçları bir haritada gösterme' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show arama sonuçları bir haritada</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Arama sonuçları bir haritada gösterme' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show arama sonuçları bir haritada</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-İlk kod bloğunu bir harita nesnesi oluşturur. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
+Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
 
-İkinci kod bloğu arama sonuçları katmanı haritaya ekler. Arama sonuçları katman haritada sabitler gibi arama sonuçlarını görüntüler. PIN kullanarak eklenir [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+İkinci kod bloğunu gönderen bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) için [Azure haritalar belirsiz arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) ilgi noktası için aranacak. Belirsiz arama API'si benzer girişler herhangi bir birleşimini başa çıkabilir. 
 
-Üçüncü kod bloğunu gönderen bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) için [Azure haritalar belirsiz arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) ilgi noktası için aranacak. Belirsiz arama API'si benzer girişler herhangi bir birleşimini başa çıkabilir.
+Üçüncü kod bloğunu arama yanıt ayrıştırır ve sonuçları sınırları hesaplamak için bir dizide saklar. Ardından, arama sonuçlarını döndürür.
 
-Son kod bloğunu yanıt ayrıştırır ve ayarlar harita kamera sınırları haritanın kullanarak ayarlar [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) sonucu PIN'ler işlemek için.
+Dördüncü kod bloğunun bir veri kaynağı nesnesi kullanılarak oluşturur [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı ve arama sonuçları ekleyin. A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak. Bir sembol katmanı sonra oluşturulur ve ardından eşlemesine eklenen sembol katmanı, veri kaynağı eklenir.
+
+Son blok kod oluşturur bir [sınırlayıcı kutu](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) Sonuçlar dizisi kullanarak nesne ve sonra haritanın kullanarak kamera sınırları eşlemesi için ayarlar [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-). Bunu ardından işler sonucu PIN.
+
+Arama isteği, veri kaynağı ve sembol katman ve kamera sınırları haritanın içinde ayarlanan [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) harita tamamen yüklendikten sonra sonuçları görüntülendiğinden emin olmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

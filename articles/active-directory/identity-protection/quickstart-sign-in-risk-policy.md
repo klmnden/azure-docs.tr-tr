@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632396"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822156"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Hızlı Başlangıç: Azure Active Directory kimlik koruması ile oturum risk algılandığında erişimi engelle  
 
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-Bu öğreticide senaryoyu tamamlamak için gerekir:
+Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 
 - **Bir Azure AD Premium P2 sürümünü erişimi** -Azure AD kimlik koruması, bir Azure AD Premium P2 özelliğidir. 
 
@@ -109,7 +109,7 @@ Bu bölümde, gerekli oturum açma riski koşullu erişim ilkesi oluşturma işl
 14. İlke sayfasında tıklayın **Kaydet**.  
 
 
-## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
+## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
 
 İlkenizi test etmek için oturum açın deneyin, [Azure portalında](https://portal.azure.com) olarak **Alan Charon** Tor tarayıcıyı kullanarak. Oturum açma denemesi, koşullu erişim ilkesi tarafından engellenmesi gerekir.
 
@@ -122,6 +122,6 @@ Artık gerekli değilse, test kullanıcısı, Tor tarayıcı silin ve oturum aç
 
 - Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [ekleme veya kullanıcıları silmek](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
-- Tor tarayıcı kaldırma yönergeleri için bkz: [kaldırma](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Tor tarayıcı kaldırma yönergeleri için bkz: [kaldırma](https://tb-manual.torproject.org/uninstalling/).
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441944"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Öğretici: Azure Active Directory Leapsome ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Leapsome yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Leapsome çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Leapsome tümleştirmesini yapılandırmak için Leapsome Galeriden 
 
 **Galeriden Leapsome eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -134,7 +134,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
     | resmi | Çalışanın resim URL'si | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > Resim özniteliğinin değerini gerçek değil. Bu değer, gerçek resim URL'si ile güncelleştirin. Bu değer kişi almak için [Leapsome istemci Destek ekibine](mailto:support@leapsome.com).
+    > Resim özniteliğinin değerini gerçek değil. Bu değer, gerçek resim URL'si ile güncelleştirin. Bu değer kişi almak için [Leapsome istemci Destek ekibine](mailto:support@leapsome.com).
     
     a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
 
@@ -176,7 +176,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
     b. Kopyalama **oturum açma URL'si (oturum açma başlatmak için kullanıcılarınızın burada işaret)** yapıştırın ve değer **oturum açma URL'si** metin kutusunda **Leapsome etki alanı ve URL'ler** bölümü Azure portalı.
 
-    c. Kopyalama **yanıt URL'si (kimliği sağlayıcınızdan recieves yanıtı)** yapıştırın ve değer **yanıt URL'si** metin kutusunda **Leapsome etki alanı ve URL'ler** bölümü Azure portalı.
+    c. Kopyalama **yanıt URL'si (yanıtı alır, kimlik sağlayıcınızdan)** yapıştırın ve değer **yanıt URL'si** metin kutusunda **Leapsome etki alanı ve URL'ler** bölümü Azure portalı.
 
     d. İçinde **SSO oturum açma URL'si (Kimlik sağlayıcısı tarafından sağlanan)** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, Azure Portalı'ndan kopyaladığınız.
 
@@ -218,7 +218,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-leapsome-test-user"></a>Leapsome test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Leapsome içinde adlı bir kullanıcı oluşturun. Çalışmak [Leapsome istemci Destek ekibine](mailto:support@leapsome.com) kullanıcı veya Leapsome platformunda beyaz listeye alınması gereken etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Leapsome platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon Leapsome içinde adlı bir kullanıcı oluşturun. Çalışmak [Leapsome istemci Destek ekibine](mailto:support@leapsome.com) kullanıcı veya Leapsome platformunda beyaz listeye alınması gereken etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Leapsome platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
