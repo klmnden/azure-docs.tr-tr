@@ -11,17 +11,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: raiye
-ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578782"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854280"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
+
+## <a name="november-2018-guest-os"></a>Kasım 2018'den konuk işletim sistemi
+
+>[!NOTE]
+>Kasım konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Kasım konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
+
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2,80, 3.67 4.60 | 13 Kasım 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60 5.25 | 13 Kasım 2018 |
+| Rel 18-11 | [4467106] | Windows Güvenlik | 2,80 | 13 Kasım 2018 |
+| Rel 18-11 | [4467678] | Windows Güvenlik | 3.67 | 13 Kasım 2018 |
+| Rel 18-11 | [4467703] | Windows Güvenlik | 4.60 | 13 Kasım 2018 |
+| Rel 18-11 | [4467691] | Windows 10 Güvenlik | 5.25 | 13 Kasım 2018 |
+| Yok | [3173426] | Hizmet yığını güncelleştirmesi | 3.67 | 12 Temmuz 2016 |
+| Yok | [4465659] | Hizmet yığını güncelleştirmesi | 5.25 | 13 Kasım 2018 |
+| Yok | [4462923] | Ekim güvenlikle dökümü | 2,80 | 9 Ekim 2018 |
+| Yok | [4462929] | Ekim güvenlikle dökümü | 3.67 | 9 Ekim 2018 |
+| Yok | [4462926] | Ekim güvenlikle dökümü | 4.60 | 9 Ekim 2018 |
+| Yok | [3109976] | Uygulama uyumluluğu dolgular | 4.60 | 12 Nisan 2016 |
+| Yok | [4457037] | Uygulama uyumluluğu dolgular | 4.60| 12 Haziran 2018 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
 
 ## <a name="october-2018-guest-os"></a>Ekim 2018 konuk işletim sistemi
 

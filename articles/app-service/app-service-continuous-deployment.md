@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9dead2c8801340a736b6f67010a85f3dd34fbe85
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298956"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820272"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure uygulama Hizmeti'ne sürekli dağıtım
 Bu makale için sürekli dağıtım yapılandırma işlemi gösterilmektedir [Azure App Service](app-service-web-overview.md). App Service; BitBucket, GitHub, sürekli dağıtımı sağlar ve [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/) Bu hizmetlerden biri olarak mevcut deponuzdaki en son güncelleştirmeleri çekerek.
@@ -152,5 +152,5 @@ Sol menüde **Dağıtım Merkezi** > **GitHub** veya **Azure DevOps Hizmetleri**
 [Git Belgeleri]: http://git-scm.com/documentation
 
 [Depo oluşturma (GitHub)]: https://help.github.com/articles/create-a-repo
-[Depo oluşturma (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[Depo oluşturma (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
 [Azure DevOps hizmetleriyle çalışmaya başlama]: https://www.visualstudio.com/docs/vsts-tfs-overview
