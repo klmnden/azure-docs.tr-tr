@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: fb9b919621174f38520ab5365d4a67abc8095631
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854801"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977293"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Hızlı Başlangıç: Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
 
@@ -53,7 +53,7 @@ Azure Veri Gezgini ile genellikle yerel sorgu dili kullanır, ancak burada kulla
     |---|---|---|
     | Sunucu | *help.kusto.Windows.NET* | Yardım kümesi URL'sini (olmadan *https://*). Diğer kümeler için URL biçimindedir  *\<ClusterName\>.\< Bölge\>. kusto.windows.net*. |
     | Database | *Örnekler* | Bağlanmakta olduğunuz kümesi üzerinde barındırılan örnek veritabanı. |
-    | Veri bağlantısı modu | *İçeri Aktarma* | Power BI veri aldığında veya doğrudan veri kaynağına bağlanan belirler. |
+    | Veri bağlantısı modu | *İçeri Aktarma* | Power BI veri aldığında veya doğrudan veri kaynağına bağlanan belirler. Bu bağlayıcıyı kullanarak, iki seçenekten birini kullanabilirsiniz. |
     | Komut zaman aşımı | Boş bırakın | Bir zaman aşımı hatası fırlatmadan önce ne kadar sorgusu çalıştırır. |
     | SQL deyimi | Bu tablonun altındaki sorguyu Kopyala | Azure Veri Gezgini, bir yerel sorguya çevirir SQL deyimi. |
     | Diğer seçenekler | Varsayılan değer olarak bırakın. | Seçenekler, Azure Veri Gezgini kümeleri için geçerli değildir. |

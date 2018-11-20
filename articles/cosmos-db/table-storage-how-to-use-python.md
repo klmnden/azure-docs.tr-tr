@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 0fca20f4f714e586281a32e57fe6129b262f5fa5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 9778911d56f55ea83b542d6fbe5c31b646d85d2d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248498"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976477"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 
@@ -32,9 +32,9 @@ Bu örnek, [Python için Azure Cosmos DB Tablosu SDK'sını](https://pypi.python
 * Varlık ekleme ve sorgulama
 * Varlıkları değiştirme
 
-Bu örnekteki senaryolarda çalışırken [Python API'si için Azure Cosmos DB SDK'sı belgelerine](https://azure.github.io/azure-cosmosdb-python/) başvurmanız önerilir.
+Bu örnekteki senaryolarda çalışırken [Python API'si için Azure Cosmos DB SDK'sı belgelerine](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python) başvurmanız önerilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği başarıyla tamamlamak için aşağıdakiler gerekir:
 
@@ -222,7 +222,7 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [SSS - Tablo API'siyle geliştirme](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
-* [Python API'si için Azure Cosmos DB SDK'sı belgeleri](https://azure.github.io/azure-cosmosdb-python/)
+* [Python API'si için Azure Cosmos DB SDK'sı belgeleri](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md): Windows'da, macOS'te ve Linux'ta Azure Depolama verileriyle görsel olarak çalışmak için ücretsiz, platformlar arası bir uygulama.
 * [Visual Studio'da (Windows) Python ile çalışma](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)

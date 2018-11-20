@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 7948d1d765f597bd25d94447ce704b44f3c97a98
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854809"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974280"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Hızlı Başlangıç: Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
 
@@ -55,7 +55,7 @@ Bu hızlı başlangıcı tamamlamak için şunlara ihtiyacınız vardır:
     | Database | Boş bırakın | Bağlanmakta olduğunuz kümesi üzerinde barındırılan bir veritabanı. Biz bu daha sonraki bir adımda seçersiniz. |
     | Tablo adı | Boş bırakın | Bir veritabanı ya da bir sorgu tablo ister ' StormEvents | 1000' yararlanın. Biz bu daha sonraki bir adımda seçersiniz. |
     | Gelişmiş seçenekler | Boş bırakın | Sonuç gibi sorgularınız için seçenekleri boyutunu ayarlayın. |
-    | Veri bağlantısı modu | *DirectQuery* | Power BI veri aldığında veya doğrudan veri kaynağına bağlanan belirler. |
+    | Veri bağlantısı modu | *DirectQuery* | Power BI veri aldığında veya doğrudan veri kaynağına bağlanan belirler. Bu bağlayıcıyı kullanarak, iki seçenekten birini kullanabilirsiniz. |
     | | | |
 
 1. Yardım kümeyle bir bağlantı zaten yoksa, oturum açın. Bir kuruluş hesabıyla oturum açın ve ardından **Connect**.

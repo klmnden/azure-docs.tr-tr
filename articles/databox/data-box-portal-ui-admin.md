@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: f0849bf82acfd6bc72cd35fb1fc18bdb8aac2282
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819196"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974998"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Data Box Disk'inizi (Önizleme) yönetmek için Azure portal'ı kullanma
 
@@ -132,7 +132,7 @@ Bildirim ayrıntılarını düzenlemek için aşağıdaki adımları gerçekleş
 |Teslim alındı     |İade gönderiniz teslim alındı. <br> Sevkiyat Azure veri merkezinde alındıktan sonra verileri Azure'a otomatik olarak yüklenir.         |
 |Alındı     | Diskleriniz Azure veri merkezine alındı. Veri kopyalama işlemi yakında başlayacak.        |
 |Veriler kopyalandı     |Veri kopyalama işlemi devam ediyor.<br> Veri kopyalama işlemi tamamlanana kadar bekleyin.         |
-|Tamamlandı       |Sipariş başarıyla tamamlandı.<br> Şirket içi verileri sunuculardan silmeden önce verilerinizin Azure'a kopyalandığından emin olun.         |
+|Tamamlandı       |Sipariş başarıyla tamamlandı.<br> Şirket içi verilerini sunuculardan silmeden önce verilerinizin Azure’a kopyalandığından emin olun.         |
 |Hatalarla tamamlandı| Veri kopyalama işlemi tamamlandı ancak hatalar var. <br> **Genel bakış** sayfasında belirtilen yolu kullanarak kopyalama günlüklerini gözden geçirin. Daha fazla bilgi için [Tanılama günlüklerini indir](data-box-disk-troubleshoot.md#download-diagnostic-logs) sayfasına gidin.   |
 |İptal edildi            |Sipariş iptal edildi. <br> Siparişi iptal ettiniz veya bir hatayla karşılaşıldı ve sipariş, hizmet tarafından iptal edildi.     |
 

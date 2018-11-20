@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: 67bdd70a8edf76cc5689ee2d5e164e9f5bbb70f3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: HT
+ms.openlocfilehash: 65dd0c7038d6b99d1a5532898a3a6468c498a95f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343999"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976936"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>PowerShell kullanarak VPN Gateway oluşturma ve Siteden Siteye bağlantı ekleme
 
@@ -106,7 +106,7 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | Yeni bir ağ geçidi ip yapılandırması oluşturur. |
 | [New-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway?view=azurermps-6.8.1) | VPN Gateway oluşturur. |
 | [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1) | Yerel ağ geçidi oluşturur. |
-| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgatewayconnection) | Siteden siteye bağlantı oluşturur. |
+| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection) | Siteden siteye bağlantı oluşturur. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | Sanal ağ için alt ağ yapılandırmasını ayarlar. |
 | [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | VPN Gateway için yapılandırmayı ayarlar. |

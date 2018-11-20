@@ -4,17 +4,17 @@ description: Bir sanal edge cihazında analiz çalıştırarak Azure IoT Edge’
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/02/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 16c5b15612acebacfa034c6c55dd053a21eac0d2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 78cb00c568942e6b8c0f5da035381c82f5789a08
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566339"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977021"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IoT Edge modülünüzü Azure portalından bir Windows cihaza dağıtma - önizleme
 
@@ -61,8 +61,8 @@ IoT Edge cihazı:
 * IoT Edge cihazınız olacak bir Windows bilgisayar veya sanal makine. Desteklenen bir Windows sürümünü kullanın:
   * Windows 10 veya daha yenisi
   * Windows Server 2016 veya daha yenisi
-* Bir Windows bilgisayarsa, Hyper-V için [sistem gereksinimlerini](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) karşıladığından emin olun.
-* Sanal makineyse [iç içe sanallaştırmayı](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) etkinleştirin ve en az 2 GB bellek ayırın.
+* Bir Windows bilgisayar etkinleştirilmişse, bu karşıladığından emin olun [sistem gereksinimleri](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) Hyper-V için.
+* Bir sanal makineyse etkinleştirme [iç içe sanallaştırma](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) ve en az 2 GB bellek ayrılamadı.
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)’u yükleyin ve çalıştığından emin olun.
 
 > [!TIP]
@@ -82,7 +82,7 @@ Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub�
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
    ```
 
-   Aboneliğinizde zaten bir ücretsiz hub olduğu için hata alırsanız, SKU değerini **S1** olarak değiştirin.
+   Aboneliğinizde zaten bir ücretsiz hub olduğu için hata alırsanız, SKU değerini **S1** olarak değiştirin. IOT hub'ı adı kullanılamıyor, bir hata alırsanız, başka birisi zaten bu ada sahip bir hub'ı olduğu anlamına gelir. Yeni bir ad deneyin. 
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
@@ -91,7 +91,7 @@ Yeni oluşturulan IoT Hub'ına bir IoT Edge cihazı kaydedin.
 
 IoT hub'ınızla iletişim kurabilmesi amacıyla simülasyon cihazınız için bir cihaz kimliği oluşturun. Cihaz kimliği bulutta kalır ve fiziksel cihazla cihaz kimliği arasında bağlantı kurmak için benzersiz bir bağlantı dizesi kullanılır.
 
-IoT Edge cihazlarının davranışları ve yönetim özellikleri tipik IoT cihazlarından farklı olduğundan bunun en başından itibaren bir IoT Edge cihazı olduğunu bildirmiş olursunuz.
+IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönetilebilir olduğundan, bu kimlik ile IOT Edge cihazı için bildirmek `--edge-enabled` bayrağı. 
 
 1. Azure Cloud Shell'de aşağıdaki komutu girerek hub'ınızda **myEdgeDevice** adlı bir cihaz oluşturun.
 
@@ -99,13 +99,15 @@ IoT Edge cihazlarının davranışları ve yönetim özellikleri tipik IoT cihaz
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-1. Fiziksel cihazınızla IoT Hub'daki kimliği arasında bağlantı oluşturan cihaz bağlantı dizesini alın.
+   İlke anahtarları iothubowner hakkında bir hata alırsanız, cloud shell azure CLI IOT ext uzantısı'nın en son sürümünü çalıştırdığından emin olun. 
+
+2. Fiziksel cihazınızla IoT Hub'daki kimliği arasında bağlantı oluşturan cihaz bağlantı dizesini alın.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. Bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız.
+3. Bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız.
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yükleme ve başlatma
 
@@ -118,7 +120,9 @@ IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bile�
 
 Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarla yapılandırmaktadır. Windows kapsayıcıları kullanmak istiyorsanız bkz. [Azure IoT Edge çalışma zamanını Windows kapsayıcılarla kullanmak üzere Windows'a yükleme](how-to-install-iot-edge-windows-with-windows.md).
 
-Aşağıdaki adımları bir Windows makinede veya IoT Edge cihazı olarak çalışmasını planladığınız VM'de tamamlayın.
+### <a name="connect-to-your-iot-edge-device"></a>IOT Edge Cihazınızı bağlama
+
+Tüm bu bölümdeki adımlarda, IOT Edge Cihazınızda gerçekleşir. IOT Edge cihazı olarak kendi makine kullanıyorsanız, bu bölümü atlayabilirsiniz. Bir sanal makine ya da ikincil donanım kullanıyorsanız, artık bu makineye bağlanmak istediğiniz. 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge hizmetini indirme ve yükleme
 
@@ -195,7 +199,7 @@ iotedge logs tempSensor -f
 
   ![Verileri modülünüzden görüntüleme](./media/quickstart/iotedge-logs.png)
 
-[Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak IoT Hub'ınıza gönderilen iletileri de görüntüleyebilirsiniz.
+Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -203,7 +207,7 @@ IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta ka
 
 ### <a name="delete-azure-resources"></a>Azure kaynaklarını silme
 
-Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. İlgili kaynak grubunda bulunan saklamak istediğiniz bir şey varsa, temizlemek istediğiniz kaynakları silmeniz yeterlidir.
+Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. Çifte denetim var. emin olmak için kaynak grubunun içeriğini kullanıcının tutmak istediğiniz bir şey. Tüm bir grubu silmek istemiyorsanız, bunun yerine bu kaynakları tek tek silebilirsiniz.
 
 **IoTEdgeResources** grubunu kaldırın.
 

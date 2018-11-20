@@ -2,14 +2,14 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 72b63754accee2dbd812f338f5756cc8ba914df2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572836"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "52156835"
 ---
 | Kategori | Veri deposu | Kaynak olarak desteklenen | Havuz olarak desteklenen |
 |:--- |:--- |:--- |:--- |
@@ -42,6 +42,4 @@ ms.locfileid: "51572836"
 | &nbsp; |[Genel ODBC](../articles/data-factory/v1/data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../articles/data-factory/v1/data-factory-salesforce-connector.md) |✓ | |
 | &nbsp; |[Web Tablosu (HTML tablosu)](../articles/data-factory/v1/data-factory-web-table-connector.md) |✓ | |
-| &nbsp; |[GE Historian](../articles/data-factory/v1/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
-
 

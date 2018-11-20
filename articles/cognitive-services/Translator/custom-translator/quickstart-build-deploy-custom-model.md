@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 949fb2487c3ca519c1d7022c1434d0a029ed20bb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626585"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975781"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Hızlı Başlangıç: Oluşturmanızı, dağıtmanızı ve özel bir model için çeviri kullanın
 
@@ -26,7 +26,7 @@ Bu makalede, bir çeviri sistem özel Translator ile oluşturmak için adım ad�
 
 2. Azure portal aracılığıyla Translator Text API aboneliği. Çalışma alanınızda özel Translator ile ilişkilendirmek için Translator Text API aboneliği anahtarı gerekir. Bkz: [Translator metin çevirisi API'si için kaydolma](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Yukarıdaki iki sahip olduğunuzda, oturum [özel Translator](https://portal.customtranslator.azure.ai) portalı. Bir kez özel Translator portalında çalışma alanınızla Microsoft Translator Text API aboneliği anahtarınızı burada ilişkilendirebilirsiniz ayarları sayfasına gidin. 
+3. Yukarıdaki iki sahip olduğunuzda, oturum [özel Translator](https://portal.customtranslator.azure.ai) portalı. Bir kez özel Translator portalında çalışma alanınızla Microsoft Translator Text API aboneliği anahtarınızı burada ilişkilendirebilirsiniz ayarları sayfasına gidin.
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
@@ -53,7 +53,7 @@ Oluşturduğunuz projeyi seçin. Bu proje ile dil çifti paylaşmak, yüklediği
 
 ![Bir model oluşturma](media/quickstart/ct-how-to-train.png)
 
-İstenen belgelerinizi seçmeyi tamamladığınızda, modelinizi oluşturmak ve eğitim başlatmak için Model oluşturma düğmesine basın. Eğitim ve Ayrıntılar, modelleri sekmede eğitilmiş tüm modelleri için durumunu görebilirsiniz.
+İstenen belgelerinizi seçerek bitirdiğinizde, modelinizi oluşturmak ve eğitim başlatmak için Model oluşturma düğmesine basın. Eğitim ve modelleri sekmede eğittiğimize tüm modelleri ayrıntılarını durumunu görebilirsiniz.
 
 Daha fazla bilgi için ziyaret [Model oluşturma](how-to-train-model.md).
 

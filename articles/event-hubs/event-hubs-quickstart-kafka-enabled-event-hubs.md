@@ -1,24 +1,19 @@
 ---
-title: Apache Kafka için Azure Event Hubs’a akış oluşturma | Microsoft Docs
+title: Apache Kafka için Azure Event hubs'ta Stream
 description: Kafka protokolü ve API'leri kullanılarak Event Hubs’a akış oluşturun.
 services: event-hubs
-documentationcenter: ''
 author: basilhariri
-manager: timlt
+ms.author: bahariri
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/01/2018
-ms.author: bahariri
-ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 748ed7dde98d81de6e1d2661c6ce50d10357ba3d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418798"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975320"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Apache Kafka için Event Hubs’da akış yapma
 Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturulacağı gösterilir. Yalnızca uygulamalarınızdaki bir yapılandırma değişikliğiyle Kafka etkin Event Hubs ile konuşmak için üreticilerinizi ve tüketicilerinizi nasıl kullanacağınızı öğrenirsiniz. Azure Event Hubs [Apache Kafka sürüm 1.0](https://kafka.apache.org/10/documentation.html)’ı destekler.
@@ -26,7 +21,7 @@ Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi 
 > [!NOTE]
 > Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)'da sağlanır
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
@@ -47,7 +42,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
  
 3. Benzersiz bir ad belirtin ve ad alanında Kafka'yı etkinleştirin. **Oluştur**’a tıklayın.
     
-    ![Ad alanı oluşturma](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Ad alanı oluşturma](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Ad alanı oluşturulduktan sonra **Ayarlar** sekmesinde **Paylaşılan erişim ilkeleri**'ne tıklayarak bağlantı dizesini alın.
 

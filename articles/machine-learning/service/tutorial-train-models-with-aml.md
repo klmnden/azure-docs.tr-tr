@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 11/16/2018
-ms.openlocfilehash: 221bca6cb11d488e38417280e16b5caa9133bd46
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6b3cc7d90557525666ffe3b5024dc617e12f6ce6
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853498"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977276"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici 1: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme
 
@@ -93,7 +93,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-remote-compute-target"></a>Uzak işlem hedefi oluşturma
 
-Azure Azure ML yönetilen bilgi işlem, veri bilimcileri kümelerinde GPU desteğine sahip VM'ler gibi Azure sanal makineler, makine öğrenimi modellerini eğitmenize sağlayan yönetilen bir hizmettir.  Bu öğreticide, bir yönetilen Azure bilgi işlem kümesi eğitim ortamınızı oluşturun. Çalışma alanınızda henüz bir küme yoksa, bu kod sizin için kümeyi oluşturur. 
+Azure ML işlem yönetilen kümelerinde GPU desteğine sahip VM'ler gibi Azure sanal makineler, makine öğrenimi modellerini eğitmek veri bilimcilerine sağlayan yönetilen bir hizmettir.  Bu öğreticide, bir yönetilen Azure bilgi işlem kümesi eğitim ortamınızı oluşturun. Çalışma alanınızda henüz bir küme yoksa, bu kod sizin için kümeyi oluşturur. 
 
  **Kümenin oluşturulması yaklaşık 5 dakika sürer.** Çalışma alanınızda zaten küme varsa, bu kod onu kullanır ve oluşturma işlemini atlar.
 

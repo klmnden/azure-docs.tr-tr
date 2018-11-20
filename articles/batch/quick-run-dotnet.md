@@ -2,20 +2,20 @@
 title: Azure Hızlı Başlangıç - Batch işi çalıştırma - .NET
 description: Bir Batch işini ve görevleri Batch .NET istemci kitaplığı ile hızlıca çalıştırın.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/06/2018
-ms.author: danlep
+ms.date: 11/16/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814840"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975118"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Hızlı Başlangıç: .NET API ile ilk Azure Batch işinizi çalıştırma
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıç, Azure Batch .NET API üzerinde derlenmiş bir C# uygula
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs) veya Linux, macOS ya da Windows için [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1). 
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Visual Studio `BatchDotNetQuickstart.sln` çözüm dosyasını içeren dizine gidin.
 
-Çözüm dosyasını Visual Studio'da açın ve `program.cs` içindeki kimlik bilgisi dizelerini hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örnek:
+Çözüm dosyasını Visual Studio'da açın ve `program.cs` içindeki kimlik bilgisi dizelerini hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örneğin:
 
 ```csharp
 // Batch account credentials
@@ -73,7 +73,7 @@ Batch iş akışını uygulamalı olarak görmek için uygulamayı Visual Studio
 Ardından çalıştırın. Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` konumunda bir duraklama yaşarsınız. Görevler, ilk işlem düğümünü çalışır çalışmaz çalışmak üzere kuyruğa alınır. Havuz, işlem düğümleri, iş ve görevleri izlemek için [Azure portalında](https://portal.azure.com) Batch hesabınıza gidin.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/16/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -150,7 +150,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Bir Batch havuzu oluşturmak için uygulama, düğüm sayısını, VM boyutunu ve havuz yapılandırmasını ayarlamak üzere [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) yöntemini kullanır. Burada [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) nesnesi, Azure Market’te yayımlanmış bir Windows Server görüntüsüne [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) belirtir. Batch, Azure Market’te çok çeşitli Linux ve Windows Server görüntülerinin yanı sıra özel VM görüntülerini destekler.
 
-Düğüm sayısı (`PoolNodeCount`) ve VM boyutu (`PoolVMSize`), tanımlı sabitlerdir. Varsayılan olarak, örnek 2 boyutunda *Standard_A1_v2* düğümleri havuzu oluşturur. Önerilen boyut, bu hızlı örnek için performans ile maliyetin iyi bir dengesini sunar. 
+Düğüm sayısı (`PoolNodeCount`) ve VM boyutu (`PoolVMSize`), tanımlı sabitlerdir. Varsayılan olarak, örnek 2 boyutunda *Standard_A1_v2* düğümleri havuzu oluşturur. Önerilen boyut, bu hızlı örnek için performans ile maliyetin iyi bir dengesini sunar.
 
 [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) yöntemi, havuzu Batch hizmetine gönderir.
 
@@ -158,7 +158,7 @@ Düğüm sayısı (`PoolNodeCount`) ve VM boyutu (`PoolVMSize`), tanımlı sabit
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =

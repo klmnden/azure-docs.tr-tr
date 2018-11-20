@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: c675b6d50cf6bf5c4e7ea064f3741cae7a091946
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578329"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974827"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak genel yük dengeleyici oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın.
@@ -44,7 +44,7 @@ Uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## <a name="create-basic-load-balancer"></a>Temel Yük Dengeleyici Oluşturma
@@ -251,7 +251,7 @@ VM’ler için [Get-Credential](https://msdn.microsoft.com/powershell/reference/
 $cred = Get-Credential
 ```
 
-Artık [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile VM’leri oluşturabilirsiniz. Aşağıdaki örnek, iki VM ve mevcut değilse gerekli olan sanal ağ bileşenlerini oluşturur:
+Artık [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile VM’leri oluşturabilirsiniz. Aşağıdaki örnek, zaten mevcut değilse iki VM ve gerekli olan sanal ağ bileşenlerini oluşturur. Aynı sanal ağda atanmış olan aşağıdaki örnekteki VM oluşturma sırasında önceden oluşturulmuş NIC ile Vm'leri ilişkili olduğundan (*myVnet*) ve alt ağ (*mySubnet*):
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

@@ -4,17 +4,17 @@ description: Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/14/2018
+ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a392c4c20e54081ae5e4876b7c718759b8200ce5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d4ea7d3fba891e954ca7faa5176a73d2341630d6
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566440"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976919"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
@@ -58,8 +58,10 @@ IoT Edge cihazı:
 * IoT Edge cihazınız olacak bir Linux cihazı veya sanal makinesi. Azure'da bir sanal makine oluşturmak istiyorsanız aşağıdaki komutu kullanarak hızlı bir başlangıç yapabilirsiniz:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   Yeni bir sanal makine oluşturduğunuzda, Not **Publicıpaddress**, oluşturma komut çıktısı bir parçası olarak sağlanır. Bu hızlı başlangıcın sonraki bölümlerinde sanal makineye bağlanmak için bu genel IP adresi kullanın.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -75,7 +77,7 @@ Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub�
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   Aboneliğinizde zaten bir ücretsiz hub olduğu için hata alırsanız, SKU değerini **S1** olarak değiştirin.
+   Aboneliğinizde zaten bir ücretsiz hub olduğu için hata alırsanız, SKU değerini **S1** olarak değiştirin. IOT hub'ı adı kullanılamıyor, bir hata alırsanız, başka birisi zaten bu ada sahip bir hub'ı olduğu anlamına gelir. Yeni bir ad deneyin. 
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
@@ -84,7 +86,7 @@ Yeni oluşturulan IoT hub'ına bir IoT Edge cihazı kaydedin.
 
 IoT hub'ınızla iletişim kurabilmesi amacıyla simülasyon cihazınız için bir cihaz kimliği oluşturun. Cihaz kimliği bulutta kalır ve fiziksel cihazla cihaz kimliği arasında bağlantı kurmak için benzersiz bir bağlantı dizesi kullanılır. 
 
-IoT Edge cihazlarının davranışları ve yönetim özellikleri tipik IoT cihazlarından farklı olduğundan bunun en başından itibaren bir IoT Edge cihazı olduğunu bildirmiş olursunuz. 
+IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönetilebilir olduğundan, bu kimlik ile IOT Edge cihazı için bildirmek `--edge-enabled` bayrağı. 
 
 1. Azure Cloud Shell'de aşağıdaki komutu girerek hub'ınızda **myEdgeDevice** adlı bir cihaz oluşturun.
 
@@ -92,13 +94,15 @@ IoT Edge cihazlarının davranışları ve yönetim özellikleri tipik IoT cihaz
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
-1. Fiziksel cihazınızla IoT Hub'daki kimliği arasında bağlantı oluşturan cihaz bağlantı dizesini alın. 
+   İlke anahtarları iothubowner hakkında bir hata alırsanız, cloud shell azure CLI IOT ext uzantısı'nın en son sürümünü çalıştırdığından emin olun. 
+
+2. Fiziksel cihazınızla IoT Hub'daki kimliği arasında bağlantı oluşturan cihaz bağlantı dizesini alın. 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. Bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız. 
+3. Bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız. 
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yükleme ve başlatma
 
@@ -109,13 +113,21 @@ IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bile�
 
 Çalışma zamanı yapılandırması sırasında cihaz bağlantı dizesi sağlamanız gerekir. Azure CLI'den aldığınız dizeyi kullanın. Bu dize, fiziksel cihazınızı Azure'daki IoT Edge cihaz kimliğiyle ilişkilendirir. 
 
-Aşağıdaki adımları bir Linux makinede veya IoT Edge cihazı olarak çalışmasını planladığınız VM'de tamamlayın. 
+### <a name="connect-to-your-iot-edge-device"></a>IOT Edge Cihazınızı bağlama
+
+Tüm bu bölümdeki adımlarda, IOT Edge Cihazınızda gerçekleşir. IOT Edge cihazı olarak kendi makine kullanıyorsanız, bu bölümü atlayabilirsiniz. Bir sanal makine ya da ikincil donanım kullanıyorsanız, artık bu makineye bağlanmak istediğiniz. 
+
+Bu hızlı başlangıçta bir Azure sanal makinesinde oluşturduysanız tarafından oluşturma komut çıktısı genel IP adresini alın. Genel IP adresini sanal makinenizin genel bakış sayfasında Azure Portalı'nda da bulabilirsiniz. Sanal makinenize bağlanmak için aşağıdaki komutu kullanın. Değiştirin **{Publicıpaddress}** makinenizin adresine sahip. 
+
+```azurecli-interactive
+ssh azureuser@{publicIpAddress}
+```
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Yazılım deposunu kullanmak için cihazınızı kaydetme
 
 IoT Edge çalışma zamanını çalıştırmak için ihtiyacınız olan paketler, bir yazılım deposunda yönetilir. Bu depoya erişmek için IoT Edge cihazınızı yapılandırın. 
 
-Bu bölümdeki adımlar **Ubuntu 16.04** çalıştıran x64 cihazlara yöneliktir. Diğer Linux sürümlerinde veya cihaz mimarilerinde yazılım deposuna erişmek için bkz. [Azure IoT Edge çalışma zamanını Linux (x64) üzerine yükleme](how-to-install-iot-edge-linux.md) veya [Azure IoT Edge çalışma zamanını Linux (ARM32v7/armhf) üzerine yükleme](how-to-install-iot-edge-linux-arm.md).
+Bu bölümdeki adımlar **Ubuntu 16.04** çalıştıran x64 cihazlara yöneliktir. Linux veya cihaz mimarileri diğer sürümlerinde yazılım deposuna erişmek için bkz: [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) veya [Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. IoT Edge cihazı olarak kullandığınız makineye depo yapılandırmasını yükleyin.
 
@@ -164,7 +176,7 @@ Güvenlik daemon'u sistem hizmeti olarak yüklenir ve bu sayede IoT Edge çalı�
    sudo apt-get install iotedge
    ```
 
-2. IoT Edge yapılandırma dosyasını açın. Korumalı bir dosya olduğu için yükseltilmiş ayrıcalıklarla erişmeniz gerekir.
+2. IoT Edge yapılandırma dosyasını açın. Erişim için yükseltilmiş ayrıcalıklar kullanmak zorunda korumalı bir dosyadır.
    
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -242,7 +254,7 @@ tempSensor modülünden gönderilen iletileri görüntüleyin:
 
 Günlüğün son satırında `Using transport Mqtt_Tcp_Only` varsa sıcaklık sensörü modülü Edge Hub'ına bağlanmayı bekliyor olabilir. Modülü sonlandırıp Edge Aracısı tarafından yeniden başlatılmasını sağlayın. `sudo docker stop tempSensor` komutuyla sonlandırabilirsiniz.
 
-[Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak IoT Hub'ınıza gönderilen telemetri verilerini de görüntüleyebilirsiniz. 
+Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -250,7 +262,7 @@ IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta ka
 
 ### <a name="delete-azure-resources"></a>Azure kaynaklarını silme
 
-Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. İlgili kaynak grubunda bulunan saklamak istediğiniz bir şey varsa, temizlemek istediğiniz kaynakları silmeniz yeterlidir. 
+Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. Çifte denetim var. emin olmak için kaynak grubunun içeriğini kullanıcının tutmak istediğiniz bir şey. Tüm bir grubu silmek istemiyorsanız, bunun yerine bu kaynakları tek tek silebilirsiniz.
 
 **IoTEdgeResources** grubunu kaldırın.
 
