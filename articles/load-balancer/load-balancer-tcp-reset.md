@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: bf55f4f4aa91efaf1c4512339a6d54f893788bae
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816761"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883644"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer ile TCP boşta kalma (genel Önizleme) Sıfırla
 
@@ -29,7 +29,7 @@ Kullanabileceğiniz [Standard Load Balancer](load-balancer-standard-overview.md)
 ![Yük Dengeleyici TCP Sıfırla](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Şu anda genel önizleme olarak kullanılabilir ve sınırlı sayıda kullanılabilir TCP boşta kalma zaman aşımı işlevselliğini sıfırlama yük Dengeleyiciyle [bölgeleri](#regions). Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Belirli özellikler desteklenmiyor olabilir ya da kısıtlı yeteneklere sahip olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Şu anda genel önizleme olarak kullanılabilir ve sınırlı sayıda kullanılabilir TCP boşta kalma zaman aşımı işlevselliğini sıfırlama yük Dengeleyiciyle [bölgeleri](#regions). Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Bu varsayılan davranış ve üzerinde bir gelen NAT kuralları, Yük Dengeleme kuralları, boşta kalma zaman aşımını TCP sıfırlar gönderme etkinleştir değiştirmek ve [giden kuralları](https://aka.ms/lboutboundrules).  Yük Dengeleyici kuralı başına etkin olduğunda, gönderir çift TCP Reset (TCP lk paketleri) yönlü istemci ve sunucu uç noktalarına eşleşen tüm akışlar için boşta kalma zaman aşımı, zamanında.
 
@@ -43,7 +43,7 @@ TCP boşta kalma zaman aşımını ayarlama sıfırlar, etkinleştirmenizi yarar
 
 ## <a name="enabling-tcp-reset-on-idle-timeout"></a>Boşta kalma zaman aşımını TCP sıfırlama etkinleştirme
 
-API sürümü 2018-08-01 kullanarak, iki TCP sıfırlar yönlü üzerinde bir kural başına temelinde boşta kalma zaman aşımı gönderimi etkinleştirebilirsiniz:
+API sürümü 2018-07-01 kullanarak, iki TCP sıfırlar yönlü üzerinde bir kural başına temelinde boşta kalma zaman aşımı gönderimi etkinleştirebilirsiniz:
 
 ```json
       "loadBalancingRules": [
