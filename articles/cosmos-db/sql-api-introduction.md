@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: f71a7ad538e22359a2a0dd9c2e3f6c4448ee5a2d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e86630ff9143a75e5b0502a64c7661cc2822c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232403"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161097"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB: SQL API’si
 
@@ -24,7 +24,7 @@ ms.locfileid: "51232403"
 
 ![Azure SQL API](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
-SQL API’si ile Azure Cosmos DB, şemasız JSON verileri üzerinde tutarlı düşük gecikme süreleriyle zengin ve kullanımı kolay [SQL sorgu işlevleri](sql-api-sql-query.md) sağlar. Bu makalede Azure Cosmos DB SQL API’sine genel bakış ve çok büyük hacimlerdeki JSON verilerini depolamak, milisaniyelik gecikme süresi içinde sorgulamak ve şemayı kolayca geliştirmek için nasıl kullanılabileceği hakkında bilgiler verilmektedir. 
+SQL API’si ile Azure Cosmos DB, şemasız JSON verileri üzerinde tutarlı düşük gecikme süreleriyle zengin ve kullanımı kolay [SQL sorgu işlevleri](how-to-sql-query.md) sağlar. Bu makalede Azure Cosmos DB SQL API’sine genel bakış ve çok büyük hacimlerdeki JSON verilerini depolamak, milisaniyelik gecikme süresi içinde sorgulamak ve şemayı kolayca geliştirmek için nasıl kullanılabileceği hakkında bilgiler verilmektedir. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB’nin sunduğu yetenekler ve önemli özellikler nelerdir?
 Azure Cosmos DB, SQL API’si üzerinden aşağıdaki temel işlevleri ve avantajları sunar:
@@ -34,7 +34,7 @@ Azure Cosmos DB, SQL API’si üzerinden aşağıdaki temel işlevleri ve avanta
 
 * **Çok bölgeli çoğaltma:** Azure Cosmos DB, verilerinizi Azure Cosmos DB hesabınızla ilişkilendirdiğiniz tüm bölgelere şeffaf biçimde çoğaltır ve tutarlılık, kullanılabilirlik ve performansın hepsi için garantili bir denge sağlarken verilere genel erişim gerektiren uygulamalar geliştirmenize imkan tanır. Azure Cosmos DB çok girişli API’ler ile şeffaf bölgesel yük devretme olanağının yanı sıra aktarım hızını ve depolamayı dünya çapında elastik bir şekilde ölçeklendirme imkanı sağlar. [Azure Cosmos DB ile verileri küresel ölçekte dağıtma](distribute-data-globally.md) bölümünde daha fazla bilgi edinin.
 
-* **Tanıdık SQL söz dizimi ile geçici sorgular:** Heterojen JSON belgelerini depolayın ve bilindik bir SQL söz dizimi aracılığıyla bu belgeleri sorgulayın. Azure Cosmos DB, tüm belge içeriğinin otomatik olarak dizinini oluşturmak için yüksek derecede eşzamanlı, kilitsiz, günlük yapılı bir dizin oluşturma teknolojisi kullanır. Böylece şema ipuçları, ikincil dizinler veya görünümler belirtmek gerekmeden gerçek zamanlı zengin sorgulara olanak sağlanır. [Azure Cosmos DB’yi sorgulama](sql-api-sql-query.md) bölümünden daha fazla bilgi edinin. 
+* **Tanıdık SQL söz dizimi ile geçici sorgular:** Heterojen JSON belgelerini depolayın ve bilindik bir SQL söz dizimi aracılığıyla bu belgeleri sorgulayın. Azure Cosmos DB, tüm belge içeriğinin otomatik olarak dizinini oluşturmak için yüksek derecede eşzamanlı, kilitsiz, günlük yapılı bir dizin oluşturma teknolojisi kullanır. Böylece şema ipuçları, ikincil dizinler veya görünümler belirtmek gerekmeden gerçek zamanlı zengin sorgulara olanak sağlanır. [Azure Cosmos DB’yi sorgulama](how-to-sql-query.md) bölümünden daha fazla bilgi edinin. 
 * **Veritabanı içinde JavaScript yürütme:** Standart JavaScript'i kullanarak uygulama mantığını saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) olarak ifade edin. Böylece uygulama ve veritabanı şeması arasındaki uyumsuzluk hakkında endişelenmeye gerek kalmadan uygulama mantığınızın veriler üzerinde çalışması sağlanır. SQL API’si, doğrudan veritabanı altyapısının içinde JavaScript uygulama mantığının tam işlem tabanlı olarak yürütülmesini sağlar. JavaScript derin tümleştirmesi YERLEŞTİRME, DEĞİŞTİRME, SİLME ve SEÇME işlemlerinin bir JavaScript programı içinden yalıtılmış bir işlem olarak yürütülmesini sağlar. Daha fazla bilgi için bkz. [SQL sunucu tarafı programlama](programming.md).
 
 * **İnce ayarlanabilir tutarlılık düzeyleri:** Tutarlılık ve performans arasında en iyi dengeyi elde etmek için iyi tanımlanmış beş tutarlılık düzeyi arasından seçim yapın. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında sağlam bir denge kurmanıza olanak sağlar. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).

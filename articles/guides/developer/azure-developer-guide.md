@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956451"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976817"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -92,7 +92,7 @@ Yerine oluşturmak ve bir uygulamanın veya altyapının tamamı kodunuzu çalı
 
 Azure Service Fabric, derleme, paketleme, dağıtma ve ölçeklenebilir ve güvenilir mikro Hizmetleri kolay bir dağıtılmış sistemler platformudur. Kapsamlı uygulama yönetim özellikleri de sağlar sağlama, dağıtma, izleme, yükseltmek/düzeltme eki uygulama için ve dağıtılan uygulamalar siliniyor. Paylaşılan makine havuzu üzerinde çalışan, uygulamalar küçükten başlayabilir ve gerektiği gibi yüzlerce veya binlerce makineyi ölçeklendirin.
 
-Service Fabric .NET (OWIN) ve ASP.NET Core için açık Web arabirimi ile Webapı'yi destekler. Bu, Linux'ta .NET Core hem de Java hizmetler oluşturmaya yönelik SDK'lar sağlar. Service Fabric hakkında daha fazla bilgi için bkz: [Service Fabric öğrenme yolunu](https://azure.microsoft.com/documentation/learning-paths/service-fabric/).
+Service Fabric .NET (OWIN) ve ASP.NET Core için açık Web arabirimi ile Webapı'yi destekler. Bu, Linux'ta .NET Core hem de Java hizmetler oluşturmaya yönelik SDK'lar sağlar. Service Fabric hakkında daha fazla bilgi için bkz: [Service Fabric belgeleri](https://docs.microsoft.com/en-us/azure/service-fabric/).
 
 >**Ne zaman kullanılacağı:** uygulama oluşturma ya da bir mikro hizmet mimarisi kullanan mevcut bir uygulamayı yeniden yazma Service Fabric, iyi bir seçimdir. Service Fabric, daha fazla denetime veya doğrudan erişim için temel altyapıyı ihtiyacınız olduğunda kullanın.
 

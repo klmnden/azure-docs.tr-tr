@@ -3,19 +3,19 @@ title: "Öğretici: Bing Yazım Denetimi API'si ile Yazım Denetimi Sonuçların
 titlesuffix: Azure Cognitive Services
 description: Bing Yazım Denetimi özelliğini kullanma adımlarını gösterir.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: d7afcd18e00e820ad63b8b12bbc352faaca24c84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: d0cfc952511ac0d8e1328f7b01fe5eeb2b4f7e48
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803605"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160555"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Öğretici: Web sayfası şeklinde bir Yazım Denetimi istemcisi oluşturma
 
@@ -27,7 +27,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 > - Bing Yazım Denetimi API'sine basit bir sorgu gönderme
 > - Sorgu sonuçlarını görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Öğreticiyi takip edebilmek için Bing Yazım Denetimi API'si için bir abonelik anahtarına ihtiyacınız olacaktır. Bir aboneliğiniz yoksa [ücretsiz deneme sürümüne kaydolun](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

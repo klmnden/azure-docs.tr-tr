@@ -3,25 +3,25 @@ title: 'Hızlı başlangıç: Python kullanarak uç nokta çağırma - Bing Öze
 titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Python kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: d16b7354b0ef727ba3c670b97105e1bd6f99034e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: e3e4256d3654f532f16d33c77f4c7e8cb7e93dd4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815469"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162645"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-python"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Python)
 
 Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Python kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 

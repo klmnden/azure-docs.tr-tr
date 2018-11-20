@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 45ddb31a20b830de29cf77231bb3acd6f8917601
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230912"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976232"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Hataları, başarısız veya reddedildi Azure Linux VM'ye SSH bağlantısı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya SSH, Linux sanal makinesi (VM) bağlanmaya çalıştığınızda reddedildi çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI veya Linux için VM erişimi uzantısı ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -242,7 +242,7 @@ Klasik dağıtım modeli kullanılarak oluşturulan sanal makineler için en sı
 * VM için yeni bir Azure düğümüne yeniden dağıtın. Bir VM'yi yeniden dağıtma hakkında daha fazla bilgi için bkz: [sanal makineyi yeni Azure düğümüne yeniden dağıtma](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Bu işlem tamamlandıktan sonra kısa ömürlü diskin veri kaybı olmayacağını ve sanal makineyle ilişkili olan dinamik IP adresleri güncelleştirildi.
-* Bölümündeki yönergeleri [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlama](../linux/classic/reset-access-classic.md?) için:
+* Bölümündeki yönergeleri [Linux tabanlı sanal makineler için bir parola veya SSH sıfırlama](../linux/classic/reset-access-classic.md) için:
   
   * Parolayı veya SSH anahtarını Sıfırla.
   * Oluşturma bir *sudo* kullanıcı hesabı.

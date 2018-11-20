@@ -3,25 +3,25 @@ title: 'Hızlı başlangıç: Node.js kullanarak uç nokta çağırma - Bing Öz
 titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Node.js kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: af77b4c06b61cda4fd18d19ac3578129004c4914
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 64fc631e3d8473b53e4b360001dcc4e87dd27be6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167214"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162628"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Node.js)
 
 Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Node.js kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 

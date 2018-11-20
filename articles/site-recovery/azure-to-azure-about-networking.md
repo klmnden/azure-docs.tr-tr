@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915934"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976257"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma ağı hakkında
 
@@ -60,10 +60,9 @@ Giden bağlantıyı denetlemek için IP tabanlı güvenlik duvarı proxy veya NS
 - Depolama hesabı kaynak bölgede karşılık gelen tüm IP adresi aralıkları
     - Oluşturma bir [depolama hizmet etiketi](../virtual-network/security-overview.md#service-tags) NSG kuralı kaynak bölge için bağlı.
     - Sanal makineden önbellek depolama hesabına veri yazılabilir böylece bu adresler sağlar.
-- Office 365'e karşılık gelen tüm IP adresi aralıklarını [kimlik doğrulaması ve kimlik IP V4 uç noktaları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - Yeni adresler için Office 365 aralıkları gelecekte eklenirse, yeni NSG kuralları oluşturmanız gerekir.
+- Oluşturma bir [Azure Active Directory (AAD) hizmet etiketi](../virtual-network/security-overview.md#service-tags) erişimi için AAD karşılık gelen tüm IP adreslerine izin vermek için NSG kural tabanlı
+    - Azure Active Directory (AAD) gelecekte yeni adresler eklenir, yeni NSG kuralları oluşturmak gerekir.
 - Site Recovery Hizmeti uç noktası IP adresleri - bulunan bir [XML dosyası](https://aka.ms/site-recovery-public-ips) ve hedef konumunuz bağlıdır.
--  Yapabilecekleriniz [indirin ve bu betiği kullanın](https://aka.ms/nsg-rule-script)gerekli kuralları NSG üzerinde otomatik olarak oluşturmak için.
 - Gerekli NSG kuralları NSG test oluşturma ve bir üretim NSG kuralları oluşturmadan önce herhangi bir sorun olduğunu doğrulayın öneririz.
 
 

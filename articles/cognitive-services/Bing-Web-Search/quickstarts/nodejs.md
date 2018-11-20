@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Node.js ile arama gerçekleştirme - Bing Web Aram
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Node.js kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 9/26/2018
-ms.author: erhopf
-ms.openlocfilehash: debaa63adeb97063d0ea42e1da36352dc2c9c4e7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 80d527baa5d919290bc80c65745bcaaf6ef5639d
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405865"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164363"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için Node.js kullanma  
 
@@ -23,7 +23,7 @@ ms.locfileid: "47405865"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 

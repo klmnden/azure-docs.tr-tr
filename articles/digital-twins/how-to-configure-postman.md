@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 5c06e38bf5a51744a4878a7acb6c365d7e812a61
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711149"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164005"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure dijital çiftleri için Postman'ı yapılandırma
 
@@ -53,19 +53,18 @@ Ardından, ayarlama ve Azure AD belirteçlerini almak için Postman'ı yapıland
 1. Emin olun, **yetkilendirme URL'si** doğrudur. Bu biçim sürer:
 
     ```plaintext
-    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
+    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
     | Ad  | Şununla değiştir | Örnek |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Kiracı veya kuruluş adı | `microsoft` |
-    | YOUR_RESOURCE_ID | Kaynak Kimliği | `10b07f429-9f4b-4714-9392-cc5e8e80c8b0` |
 
 1. Seçin **yetkilendirme** sekmesinde **OAuth 2.0**ve ardından **yeni erişim belirteci Al**.
 
     | Alan  | Değer |
     |---------|---------|
-    | İzin Verme Türü | `Implicit` |
+    | İzin verme türü | `Implicit` |
     | Geri çağırma URL'si | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
     | Kimlik doğrulama URL'si | Kullanım **yetkilendirme URL'si** gelen yukarıdaki 2. adım |
     | İstemci Kimliği | Kullanım **uygulama kimliği** oluşturulmuş veya başka bir amaçla kullanılması önceki bölümden bir Azure AD uygulamasının |

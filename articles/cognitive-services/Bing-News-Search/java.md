@@ -3,19 +3,19 @@ title: 'Hızlı başlangıç: Bing Haber Arama API’si, Java'
 titlesuffix: Azure Cognitive Services
 description: Azure'da Microsoft Bilişsel Hizmetler içindeki Bing Haber Arama API'sini kullanmaya hızla başlamanıza yardımcı olacak bilgilere ve kod örneklerine ulaşın.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: f7011ceb51d4fb4a5a92c6aeb56a0c26e7d86388
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 7cd15addcb5e717a0dd3f13b3979b4f342fe9f0a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803639"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162594"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-java"></a>Hızlı başlangıç: Java ile Bing Haber Arama API’si
 
@@ -25,7 +25,7 @@ Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Ara
 
 API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)'na bakın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 **Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 
@@ -34,7 +34,7 @@ API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microso
 [Bing Haber Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) Bing arama motorundan haber sonuçları döndürür.
 
 1. [Gson kitaplığı](https://github.com/google/gson)’nı indirip yükleyin.
-2. Sık kullandığınız IDE veya düzenleyicide yeni bir Java projesi oluşturun.
+2. Tercih ettiğiniz IDE veya düzenleyicide bir Java projesi oluşturun.
 3. Aşağıda sağlanan kodu ekleyin.
 4. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 5. Programı çalıştırın.

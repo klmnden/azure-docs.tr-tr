@@ -1,6 +1,6 @@
 ---
-title: 'Bir sanal ağ VPN ağ geçidi ve PowerShell kullanarak birden çok siteye Bağlan: Klasik | Microsoft Docs'
-description: Birden çok yerel şirket içi siteye bir VPN ağ geçidi kullanarak Klasik sanal ağına bağlayın.
+title: 'Birden çok siteye VPN Gateway ve PowerShell kullanarak bir sanal ağa bağlama: Klasik | Microsoft Docs'
+description: Birden çok yerel şirket içi siteye bir VPN ağ geçidi kullanarak bir Klasik sanal ağa bağlayın.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,78 +15,78 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399381"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160877"
 ---
-# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Mevcut bir VPN ağ geçidi bağlantısı olan (Klasik) bir sanal ağa bir siteden siteye bağlantı Ekle
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Bir sanal ağa bir VPN ağ geçidi bağlantısı var (Klasik) ile siteden siteye bağlantı ekleme
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klasik)](vpn-gateway-multi-site.md)
 >
 >
 
-Bu makalede PowerShell kullanarak siteden siteye (S2S) bağlantıları varolan bir bağlantıyı sahip bir VPN ağ geçidi eklemek aracılığıyla anlatılmaktadır. Bu bağlantı türü genellikle "çok siteli" yapılandırma olarak adlandırılır. Bu makaledeki adımları (Hizmet Yönetimi olarak da bilinir) Klasik dağıtım modeli kullanılarak oluşturulmuş sanal ağlar için geçerlidir. Bu adımları ExpressRoute /-siteye eşzamanlı bağlantı yapılandırmaları için geçerli değildir.
+Bu makalede PowerShell kullanarak siteden siteye (S2S) bağlantı var olan bir bağlantısı olan bir VPN ağ geçidi ekleme adımları gösterilmektedir. Bu bağlantı türü genellikle "çok siteli" yapılandırmayı olarak adlandırılır. Bu makaledeki adımlarda Klasik dağıtım modelini (Hizmet Yönetimi olarak da bilinir) kullanılarak oluşturulan sanal ağlar için geçerlidir. Bu adımlar, ExpressRoute/için siteden siteye bağlantı yapılandırmaları uygulanmaz.
 
 ### <a name="deployment-models-and-methods"></a>Dağıtım modelleri ve yöntemleri
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Bu tabloda yeni makaleler olarak güncelleştiriyoruz ve ek araçlar bu yapılandırma için kullanılabilir hale gelir. Bir makale kullanılabilir olduğunda sizi doğrudan bu tablodan bağlayın.
+Bu tabloda yeni makaleler güncelleştiriyoruz ve bu yapılandırma için ek araçlar kullanılabilir. Bir makale kullanılabilir olduğunda, doğrudan bu tablodan bağlantısı verilir.
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
 ## <a name="about-connecting"></a>Bağlama hakkında
 
-Birden çok şirket içi siteler tek bir sanal ağa bağlanabilir. Karma bulut çözümleri oluşturmak için özellikle çekici budur. Azure sanal ağ geçidiniz için çok siteli bağlantı oluşturma, diğer siteden siteye bağlantılar oluşturmak için benzer. Aslında, ağ geçidini dinamik olduğu sürece, mevcut bir Azure VPN ağ geçidi kullanabilirsiniz (rota tabanlı).
+Birden çok şirket içi siteler tek bir sanal ağa bağlanabilir. Bu özellikle karma bulut çözümleri oluşturmak için idealdir. Azure sanal ağ geçidinizin çok siteli bağlantı oluşturma, diğer siteden siteye bağlantı oluşturma işlemiyle benzerdir. Aslında, ağ geçidini dinamik olduğu sürece, var olan bir Azure VPN ağ geçidi kullanabilirsiniz (rota tabanlı).
 
-Sanal ağınıza bağlı bir statik ağ geçidi zaten varsa, ağ geçidi türü için dinamik çok siteli karşılamak üzere sanal ağ yeniden oluşturmak zorunda kalmadan değiştirebilirsiniz. Yönlendirme türü değiştirmeden önce şirket içi VPN ağ geçidinizi rota tabanlı VPN yapılandırmaları desteklediğinden emin olun.
+Sanal ağınıza bağlı statik ağ geçidi zaten varsa, ağ geçidi türünü dinamik olarak çok siteli uyum sağlamak için sanal ağ'ı yeniden dağıtmaya gerek kalmadan değiştirebilirsiniz. Yönlendirme türü değiştirmeden önce şirket içi VPN ağ geçidi rota tabanlı VPN yapılandırmaları desteklediğinden emin olun.
 
 ![çok siteli diyagramı](./media/vpn-gateway-multi-site/multisite.png "çok siteli")
 
-## <a name="points-to-consider"></a>Dikkate alınacak noktalar
+## <a name="points-to-consider"></a>Dikkat edilmesi gereken noktalar
 
-**Bu sanal ağa değişiklik yapmak için portal kullanmanız mümkün olmayacaktır.** Portal kullanmak yerine ağ yapılandırma dosyasının değişiklikler yapmanız gerekir. Portalda değişiklik yaparsanız, bu sanal ağ için çok siteli başvuru ayarlarınızı üzerine.
+**Bu sanal ağa değişiklik yapmak için portalın kullanmanız mümkün olmayacaktır.** Portalı yerine ağ yapılandırma dosyasını değişiklikler yapmanız gerekir. Portalda değişiklik yaparsanız, bu sanal ağ için çok siteli başvuru ayarlarınızı şunun üzerine yazacağız.
 
-Çok siteli yordamı tamamladıktan zamanına göre ağ yapılandırma dosyası kullanarak rahat geliyor olmalıdır. Ancak, ağ yapılandırmanızı üzerinde çalışan birden çok kişi varsa, herkes bu sınırlama hakkında bilir emin olmak gerekir. Bu, portal hiç kullanamazsınız anlamına gelmez. Bu belirli sanal ağa yapılandırma değişikliklerinden dışında başka her şey için kullanabilirsiniz.
+Çok siteli yordamı tamamladınız zamanında ağ yapılandırma dosyasını kullanarak hissedene. Ancak, ağ yapılandırmanız üzerinde çalışan birden çok kişinin varsa, herkes bu sınırlama hakkında bilmesi emin olmanız gerekir. Bu, portal hiç kullanamazsınız gelmez. Bu belirli sanal ağa yapılandırma değişikliklerinden dışındaki diğer her şey için kullanabilirsiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Yapılandırmaya başlamadan önce aşağıdakilere sahip olduğunu doğrulayın:
 
-* Uyumlu VPN donanım her konum şirket içi. Denetleme [sanal ağ bağlantısı için VPN aygıtları hakkında](vpn-gateway-about-vpn-devices.md) kullanmak istediğiniz cihaz uyumlu olması için bilinen bir şey olup olmadığını doğrulayın.
-* Bir dışarıya dönük IPv4 için genel IP adresi her VPN cihazı. IP adresi bir NAT'nin arkasında olamaz Bu gerekli değildir.
-* Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. Resource Manager sürüm yanı sıra Hizmet Yönetimi (SM) sürümü yüklediğinizden emin olun. Bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) daha fazla bilgi için.
-* Birisinden VPN donanımınızın yapılandırma sırasında yeterli. Mu birisiyle çalışmak veya VPN Cihazınızı yapılandırma güçlü bir anlamış olmanız gerekir.
-* (, Zaten bir oluşturmadıysanız) sanal ağınız için kullanmak istediğiniz IP adresi aralığı.
-* IP adresi aralıkları için bağlanma yerel ağ sitelerinin her biri için. IP adresi her çakışmaması bağlanmak istediğiniz yerel ağ sitesi için aralıkları emin olmak gerekir. Aksi takdirde, portalı veya REST API'yi karşıya yüklenen yapılandırma reddeder.<br>Örneğin, her ikisi de IP adresi aralığı 10.2.3.0/24 içerir ve hedef adres 10.2.3.3 ile bir pakete sahip iki yerel ağ sitesi varsa, Azure adres aralıklarını çakışan çünkü paketi göndermek istediğiniz hangi site bildiğiniz olmayacaktır. Yönlendirme sorunlarını önlemek için Azure örtüşen aralıklarına sahip bir yapılandırma dosyası karşıya izin vermiyor.
+* Her uyumlu VPN donanımına konumu şirket içi. Denetleme [sanal ağ bağlantısı için VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md) kullanmak istiyorsanız cihazın uyumlu olarak bilinen bir sorun olup olmadığını doğrulayın.
+* Dışarıya dönük genel IPv4 için bir IP adresi her VPN cihazı. IP adresi bir NAT'nin arkasında olamaz Bu gereksinimdir.
+* Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. Resource Manager sürümü yanı sıra Hizmet Yönetimi (SM) sürümünü yüklediğinizden emin olun. Bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) daha fazla bilgi için.
+* Öğrenciyseniz VPN donanımınızın yapılandırma sırasında yeterli. VPN Cihazınızı yapılandırmak ya da vermez kişi ile çalışma konusunda güçlü bir anlayışa sahip olmanız.
+* (Zaten yüklemediyseniz oluşturduysanız) sanal ağınız için kullanmak istediğiniz IP adresi aralığı.
+* IP adresi aralıklarını her yerel ağ siteleri için bağlanmayı. IP adresi her çakışmadığından bağlanmak istediğiniz yerel ağ siteleri için aralıklarını emin olmanız gerekir. Aksi takdirde, portalı veya REST API'yi karşıya yüklenen yapılandırma reddeder.<br>Örneğin, IP adresi aralığı 10.2.3.0/24 içeren ve bir hedef adresi 10.2.3.3 paketiyle sahip iki yerel ağ siteleri varsa, Azure adres aralıklarını çakışan çünkü paketi göndermek istediğiniz hangi site bilmeniz mıydı. Yönlendirme sorunlarını önlemek için Azure, çakışan aralıklarını içeren bir yapılandırma dosyası karşıya izin vermez.
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1. Siteden Siteye VPN oluşturma
-Zaten bir dinamik yönlendirme ağ geçidi ile siteden siteye VPN harika varsa! Geçebilirsiniz [sanal ağ yapılandırma ayarlarını dışarı aktar](#export). Aksi halde, aşağıdakileri yapın:
+Zaten bir dinamik yönlendirme ağ geçidi ile siteden siteye VPN harika varsa! Geçebilirsiniz [sanal ağ yapılandırma ayarlarını dışarı aktar](#export). Aksi durumda, aşağıdakileri yapın:
 
-### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Siteden siteye sanal ağ zaten var, ancak statik (ilke tabanlı) yönlendirme ağ geçidi varsa:
-1. Dinamik yönlendirme için ağ geçidi türünü değiştirin. Çok siteli VPN dinamik (olarak da bilinen rota tabanlı) yönlendirme ağ geçidi gerektirir. Ağ geçidi türünü değiştirmek için önce mevcut ağ geçidini silin, sonra yeni bir tane oluşturmak gerekir.
-2. Yeni ağ geçidiniz yapılandırın ve VPN tüneli oluşturur. Yönergeler için yönergeler için bkz: [SKU ve VPN türünü belirtin](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Yönlendirme türü 'Dinamik' olarak belirttiğinizden emin olun.
+### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Zaten sahip olduğunuz bir siteden siteye sanal ağ, ancak bu statik (ilke tabanlı) yönlendirme ağ geçidi varsa:
+1. Dinamik yönlendirme ağ geçidi türüne değiştirin. Çok siteli VPN dinamik (diğer adıyla rota tabanlı) yönlendirme ağ geçidi gerektirir. Ağ geçidi türünü değiştirmek için önce mevcut ağ geçidini silin ve ardından yeni bir tane oluşturmak gerekir.
+2. Yeni ağ geçidi yapılandırması ve, VPN tüneli oluşturun. Yönergeler, yönergeler için bkz. [SKU ve VPN türünü belirtme](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Yönlendirme türü 'Dynamic' olarak belirttiğinizden emin olun.
 
-### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Siteden siteye sanal ağınız yoksa:
-1. Bu yönergeleri kullanarak, siteden siteye sanal ağ oluşturma: [bir sanal ağ ile bir siteden siteye VPN bağlantısı oluşturma](vpn-gateway-site-to-site-create.md).  
+### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Siteden siteye sanal ağ yoksa:
+1. Bu yönergeleri kullanarak, siteden siteye sanal ağ oluşturma: [bir siteden siteye VPN bağlantısı ile sanal ağ oluşturma](vpn-gateway-site-to-site-create.md).  
 2. Bu yönergeleri kullanarak dinamik yönlendirme ağ geçidi yapılandırma: [bir VPN ağ geçidi yapılandırma](vpn-gateway-configure-vpn-gateway-mp.md). Seçtiğinizden emin olun **dinamik yönlendirme** , ağ geçidi türü.
 
-## <a name="export"></a>2. Ağ yapılandırma dosyasını dışarı aktarma
-Azure ağı yapılandırma dosyanızda aşağıdaki komutu çalıştırarak dışa aktarın. Farklı bir konum gerekirse dışa aktarılacak dosya konumunu değiştirebilirsiniz.
+## <a name="export"></a>2. Ağ yapılandırma dosyasını dışarı aktar
+Azure ağ yapılandırma dosyanız, aşağıdaki komutu çalıştırarak dışarı aktarın. Farklı bir konuma gerekirse dışa aktarılacak dosyanın konumunu değiştirebilirsiniz.
 
 ```powershell
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
 ## <a name="3-open-the-network-configuration-file"></a>3. Ağ yapılandırma dosyasını açın
-Son adımda indirdiğiniz ağ yapılandırma dosyasını açın. İstediğiniz herhangi bir xml düzenleyicisi kullanın. Dosya aşağıdakine benzer görünmelidir:
+Son adımda yüklediğiniz ağ yapılandırma dosyasını açın. İstediğiniz herhangi bir xml düzenleyici kullanın. Dosya, aşağıdakine benzer görünmelidir:
 
         <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -135,10 +135,10 @@ Son adımda indirdiğiniz ağ yapılandırma dosyasını açın. İstediğiniz h
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-## <a name="4-add-multiple-site-references"></a>4. Birden çok sitesi başvuruları ekleme
-Site başvuru bilgileri ekleyip, yapılandırma değişikliklerini ConnectionsToLocalNetwork/LocalNetworkSiteRef hale getireceğiz. Yeni bir yerel site başvuru Tetikleyiciler yeni bir tünel oluşturmak için Azure ekleniyor. Aşağıdaki örnekte, tek siteli bağlantı için ağ yapılandırmadır. Yaptığınız değişiklikleri yaptıktan sonra dosyayı kaydedin.
+## <a name="4-add-multiple-site-references"></a>4. Birden çok site başvurular ekleme
+Site başvuru bilgilerini ekleyip, yapılandırma ConnectionsToLocalNetwork/LocalNetworkSiteRef değişiklik yapacaksınız. Yeni bir yerel site başvuru Tetikleyicileri yeni bir tünel oluşturmak için Azure ekleniyor. Aşağıdaki örnekte, tek sitede bağlantısı için ağ yapılandırmadır. Değişikliklerinizi yaptıktan sonra dosyayı kaydedin.
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
@@ -146,9 +146,9 @@ Site başvuru bilgileri ekleyip, yapılandırma değişikliklerini ConnectionsTo
   </Gateway>
 ```
 
-Ek sitesi başvuruları (çok siteli yapılandırma Oluştur) eklemek için aşağıdaki örnekte gösterildiği gibi ek "LocalNetworkSiteRef" satırı eklemeniz yeterlidir:
+(Çok siteli bir yapılandırma oluşturun) ek site başvuruları eklemek için aşağıdaki örnekte gösterildiği gibi ek "LocalNetworkSiteRef" satırı eklemeniz yeterlidir:
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
@@ -157,11 +157,11 @@ Ek sitesi başvuruları (çok siteli yapılandırma Oluştur) eklemek için aşa
   </Gateway>
 ```
 
-## <a name="5-import-the-network-configuration-file"></a>5. Ağ yapılandırma dosyasını içeri aktar
-Ağ yapılandırma dosyasını içeri aktarın. Bu dosya değişiklikleri içe aktardığınızda, yeni tüneller eklenir. Tünelleri, daha önce oluşturduğunuz dinamik ağ geçidi kullanır. Dosyayı içe aktarmak için PowerShell kullanın.
+## <a name="5-import-the-network-configuration-file"></a>5. Ağ yapılandırma dosyasını içe aktarın
+Ağ yapılandırma dosyasını içeri aktarın. Bu dosya değişikliği içeri aktardığınızda, yeni tüneller eklenir. Tüneller, daha önce oluşturduğunuz dinamik ağ geçidi kullanır. Dosyayı içe aktarmak için PowerShell kullanabilirsiniz.
 
-## <a name="6-download-keys"></a>6. Anahtarları indirin
-Yeni tüneller eklendikten sonra her tüneli için IPSec/IKE önceden paylaşılan anahtarı almak için 'Get-AzureVNetGatewayKey' PowerShell cmdlet'ini kullanın.
+## <a name="6-download-keys"></a>6. Anahtarlarını indir
+Yeni, tünel ekledikten sonra her tünel için IPSec/IKE önceden paylaşılan anahtarları almak için 'Get-AzureVNetGatewayKey' PowerShell cmdlet'ini kullanın.
 
 Örneğin:
 
@@ -170,10 +170,10 @@ Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 ```
 
-İsterseniz, ayrıca kullanabileceğiniz *alma sanal ağ geçidi paylaşılan anahtarı* önceden paylaşılan anahtarı almak için REST API.
+Dilerseniz de kullanabilirsiniz *sanal ağ geçidi paylaşılan anahtar Al* önceden paylaşılan anahtarları almak için REST API.
 
 ## <a name="7-verify-your-connections"></a>7. Bağlantılarınızı doğrulayın
-Çok siteli tünel durumunu kontrol edin. Her tünel tuşları indirdikten sonra bağlantıları doğrulamak istersiniz. Aşağıdaki örnekte gösterildiği gibi sanal ağ tüneller listesini almak için 'Get-AzureVnetConnection' kullanın. VNet1 VNet adıdır.
+Çok siteli tünel durumunu kontrol edin. Her tünel anahtarlar'ı indirdikten sonra bağlantıları doğrulamak isteyebilirsiniz. Aşağıdaki örnekte gösterildiği gibi sanal ağ tüneller, listesini almak için 'Get-AzureVnetConnection' kullanın. Vnet1'e VNet adıdır.
 
 ```powershell
 Get-AzureVnetConnection -VNetName VNET1
@@ -209,4 +209,4 @@ Get-AzureVnetConnection -VNetName VNET1
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-VPN ağ geçitleri hakkında daha fazla bilgi için bkz: [VPN ağ geçitleri hakkında](vpn-gateway-about-vpngateways.md).
+VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN Gateways hakkında](vpn-gateway-about-vpngateways.md).

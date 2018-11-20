@@ -1,18 +1,18 @@
 ---
 title: Şirket içi fiziksel sunucularını azure'a olağanüstü durum kurtarma için hedef ortamı ayarlama | Microsoft Docs
 description: Bu makalede, Azure Site Recovery ile fiziksel sunucuları olağanüstü durum kurtarma için Azure ortamı hedef açıklar.
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: b89d04a6e2fd11a61de8b56690664f6204c208ad
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.author: ramamill
+ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209301"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974178"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Hedef (Vmware'den azure'a) hazırlama
 

@@ -3,19 +3,19 @@ title: 'Öğretici: Özel arama web sayfası oluşturma - Bing Özel Arama'
 titlesuffix: Azure Cognitive Services
 description: Özel arama örneği yapılandırma ve bunu bir web sayfasıyla tümleştirme adımları açıklanmaktadır.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
-ms.author: v-brapel
-ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: ebc4779876a52113c20e2ace50b3333e254a744e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279220"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161795"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Öğretici: Özel Arama web sayfası oluşturma
 
@@ -32,7 +32,7 @@ Ele alınan görevler şunlardır:
 > - Sabitlenmiş girişleri ekleme
 > - Özel aramayı bir web sayfasıyla tümleştirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Öğreticiyi takip edebilmek için Bing Özel Arama API'si için bir abonelik anahtarına ihtiyacınız olacaktır.  Anahtar almak için bkz. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz.

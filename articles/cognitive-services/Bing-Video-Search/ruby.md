@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Bing Video Arama, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Bing Video Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: dfabfe24a653f84e5e242f32167b57b6a28b0075
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: b92fbbfdeb38c0fadca038007918c882c16e97cd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223585"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165722"
 ---
 # <a name="quickstart-bing-video-search-api-with-ruby"></a>Hızlı başlangıç: Ruby ile Bing Video Arama API'si
 
@@ -25,7 +25,7 @@ Bu makale, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Video
 
 API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)'na bakın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 **Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 

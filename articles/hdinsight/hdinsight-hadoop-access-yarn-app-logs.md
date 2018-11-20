@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 81a156f3c3d211caffbc33a1f0b45a6c6cd56cb4
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035654"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975151"
 ---
 # <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde erişim Apache YARN uygulama günlüklerine
 Bu belgede, Azure HDInsight Windows tabanlı bir Hadoop kümesinde tamamladınız Apache YARN uygulamaları için günlüklere erişmek açıklanmaktadır
@@ -28,7 +28,7 @@ Bu belgede, Azure HDInsight Windows tabanlı bir Hadoop kümesinde tamamladını
 * Bir Windows tabanlı HDInsight kümesi.  Bkz: [oluşturma Windows tabanlı Hadoop kümeleri HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline sunucusu
-<a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline sunucusu</a> genel bilgiler tamamlanmış uygulamaları iki farklı arabirimler üzerinden de olarak çerçeveye özgü uygulama bilgileri sağlar. Bu avantajlar şunlardır:
+<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline sunucusu</a> genel bilgiler tamamlanmış uygulamaları iki farklı arabirimler üzerinden de olarak çerçeveye özgü uygulama bilgileri sağlar. Bu avantajlar şunlardır:
 
 * Depolama ve HDInsight kümelerinde genel uygulama bilgilerin alınmasını 3.1.1.374 sürümüyle etkin ya da daha yüksek olmuştur.
 * HDInsight kümelerinde çerçeveye özgü uygulama bilgileri bileşenini Timeline sunucusu şu anda kullanılamıyor.

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f597425fc3813f243950b16f5debbd63ce3a805
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113946"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975899"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
-Azure işlevleri iki farklı modda çalışır: Tüketim planı ve Azure App Service planı. Kodunuzu çalıştırırken tüketim planı otomatik olarak bilgi işlem gücü ayırır. Uygulamanız, gerektiğinde yükü işlemek için ölçeği ve kod çalışmadığı zamanlarda ölçeği. Boş Vm'leri için kullandıkları kadar ödemeyi veya yedek kapasite önceden gerekmez. Bu makalede tüketim planı üzerinde odaklanır bir [sunucusuz](https://azure.microsoft.com/solutions/serverless/) uygulama modeli. Adanmış App Service planı nasıl çalıştığı hakkında daha fazla ayrıntı için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Azure işlevleri iki farklı modda çalışır: Tüketim planı ve Azure App Service planı. Kodunuzu çalıştırırken tüketim planı otomatik olarak bilgi işlem gücü ayırır. Uygulamanız, gerektiğinde yükü işlemek için ölçeği ve kod çalışmadığı zamanlarda ölçeği. Boş Vm'leri için kullandıkları kadar ödemeyi veya yedek kapasite önceden gerekmez.
 
 > [!NOTE]  
 > [Linux barındırma](functions-create-first-azure-function-azure-cli-linux.md) şu anda yalnızca bir App Service planı üzerinde kullanılabilir.

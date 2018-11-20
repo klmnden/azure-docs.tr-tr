@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629306"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161887"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Enterprise Kılavuzu
 
@@ -27,17 +27,18 @@ Bu kılavuzu temel kavramları ve Linux için App Service kullanarak kurumsal Ja
 
 ## <a name="scale-with-app-service"></a>App Service ile ölçeklendirme 
 
-Linux üzerinde App Service'te çalışan WildFly uygulama sunucusu bir etki alanı yapılandırmasında tek başına modunda çalışır. 
+Linux üzerinde App Service'te çalışan WildFly uygulama sunucusu bir etki alanı yapılandırmasında tek başına modunda çalışır. App Service planı ölçeğini daralttığınızda her WildFly örnek bir tek başına sunucu olarak yapılandırılır.
 
- Uygulamanız ile yatay veya dikey olarak ölçeklendirme [ölçeklendirme kuralları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) ve [, örnek sayısını artırıyorsanız](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Uygulamanız ile yatay veya dikey olarak ölçeklendirme [ölçeklendirme kuralları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) ve [, örnek sayısını artırıyorsanız](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Uygulama sunucusu yapılandırması özelleştirme
 
-Geliştiriciler, Bash betiği gibi uygulama için gereken ek yapılandırma yürütülecek bir başlangıç yazabilirsiniz:
+Web uygulaması örneği durum bilgisi olduğundan başlatılan yeni örneklerin başlangıçta uygulama tarafından gerek duyulan Wildfly yapılandırmayı desteklemek için yapılandırılması gerekir.
+Bir başlangıç WildFly CLI için çağrılacak Bash betiği yazabilirsiniz:
 
-- Veri kaynağı kurma
+- Veri kaynakları ayarlayın
 - Mesajlaşma sağlayıcılarını yapılandırma
-- Diğer modüller ve dependnecies Wildfly sunucu yapılandırmasına ekleniyor.
+- Diğer modüller ve bağımlılıkları Wildfly sunucu yapılandırmasına ekleyin.
 
  Betik Wildfly hazır ve çalışır durumda olduğunda, ancak uygulama başlatılmadan önce çalışır. Betik kullanması gereken [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) çağrılır `/opt/jboss/wildfly/bin/jboss-cli.sh` herhangi bir yapılandırma veya sunucu başladıktan sonra gerekli değişiklikleri uygulama sunucusu yapılandırmak için. 
 
@@ -51,7 +52,7 @@ Başlangıç betiği için karşıya yükleme `/home/site/deployments/tools` App
 
 Ayarlama **başlangıç betiği** Azure portalında, başlangıç Kabuk betiği konumunu Örneğin alan `/home/site/deployments/tools/your-startup-script.sh`.
 
-Kullanma [uygulama ayarları](/azure/app-service/web-sites-configure#application-settings) betik kullanmak için ortam değişkenlerini ayarlamak için. Bu ayarlar, başlatma komut dosyası ortamı için kullanılabilir hale getirilir ve bağlantı dizelerini ve diğer gizli dizileri sürüm denetimi dışında tutun.
+Tedarik [uygulama ayarları](/azure/app-service/web-sites-configure#application-settings) kullanmak için ortam değişkenlerini betiğe geçirmek için uygulama yapılandırması. Uygulama ayarları, bağlantı dizeleri ve sürüm denetimi dışında Uygulamanızı yapılandırmak için gerekli diğer gizli dizileri koruyun.
 
 ## <a name="modules-and-dependencies"></a>Modüller ve bağımlılıkları
 

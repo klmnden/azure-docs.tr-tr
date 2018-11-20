@@ -1,18 +1,18 @@
 ---
 title: VMware ve fiziksel sunucuya Azure Site Recovery ile olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme | Microsoft Docs
 description: Bu makalede VMware vm'lerinin olağanüstü durum kurtarma için mevcut yapılandırma sunucusu ve fiziksel sunucuları Azure Site Recovery ile azure'a nasıl yönetileceği açıklanır.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
-ms.author: raynew
-ms.openlocfilehash: 8096f1b5b29c0445d8bae85fb56e2735469184d4
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.author: ramamill
+ms.openlocfilehash: a58de808816bf80cf950d7b032ca042c7913a2e5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823954"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976393"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 

@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Ruby ile arama gerçekleştirme - Bing Web Aramas�
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Ruby kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: e1819be51c339b302dbc1181e2a8f998170b2413
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: b6d5122fce4db393e4b7bdb9b3556e49551d2c17
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127066"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163635"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için Ruby kullanma  
 
@@ -23,7 +23,7 @@ ms.locfileid: "46127066"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 

@@ -12,7 +12,6 @@ Bir Azure sanal makinesi birkaç veri diskini eklemeyi destekler. Bu makalede, b
 > | Premium Yönetilen Diskler | 10,000 | 50,000 |
 > | Standard_LRS anlık görüntüleri | 10,000 | 50,000 |
 > | Standard_ZRS anlık görüntüleri | 10,000 | 50,000 |
-> | Premium_LRS anlık görüntüleri | 10,000 | 50,000 |
 > | Yönetilen bir görüntü | 10,000 | 50,000 |
 
 * **Standart depolama hesapları için:** Standart bir depolama hesabı en fazla toplam 20.000 IOPS istek oranına sahiptir. Standart bir depolama hesabındaki tüm sanal makine disklerinizde toplam IOPS bu sınırı aşmamalıdır.

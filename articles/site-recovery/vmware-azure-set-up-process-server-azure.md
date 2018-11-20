@@ -2,18 +2,18 @@
 title: Azure'da bir işlem sunucusu VMware VM ve Azure Site Recovery ile fiziksel sunucuda yeniden çalışma için ayarlama | Microsoft Docs
 description: Bu makalede, Azure Vm'leri vmware'e yeniden çalışma, azure'da bir işlem sunucusu ayarlamak açıklar.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
-ms.author: raynew
-ms.openlocfilehash: a54fe3099854e6e5200a50ec6ef5db1401a223bf
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 6bdbb60da2a135b5f53f6119377c703d88df6ed9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077621"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975354"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Azure'da yeniden çalışma için bir işlem sunucusu ayarlama
 
@@ -24,6 +24,7 @@ VMware Vm'lerini veya fiziksel sunucuları aracılığıyla Azure'a yük devretm
 Daha fazla bilgi edinin [yeniden koruma](vmware-azure-reprotect.md) ve [geri dönme](vmware-azure-failback.md) işlem.
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+
 
 ## <a name="deploy-a-process-server-in-azure"></a>Azure'da bir işlem sunucusu dağıtma
 

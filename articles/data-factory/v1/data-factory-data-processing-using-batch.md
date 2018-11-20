@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238531"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976868"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -41,7 +41,7 @@ Batch hizmetiyle, uygulamalarınızı paralel olarak ve ölçekte yürütmek iç
 * [Batch temel bilgileri](../../batch/batch-technical-overview.md)
 * [Batch özelliklerine genel bakış](../../batch/batch-api-basics.md)
 
-İsteğe bağlı olarak Batch hakkında daha fazla bilgi için bkz: [toplu işlem öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/batch/).
+İsteğe bağlı olarak Batch hakkında daha fazla bilgi için bkz: [Batch documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Neden Azure Data Factory?
 Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Data Factory, şirket içinden veri taşıma ve merkezi bir veri deposuna veri depolarında bulut yönetilen veri işlem hatları oluşturmak için kullanabilirsiniz. Azure Blob Depolama buna bir örnektir. Data Factory işlem/veri dönüştürme gibi Azure HDInsight ve Azure Machine Learning hizmetlerini kullanarak için kullanabilirsiniz. Ayrıca, zamanlanmış bir şekilde (örneğin, saatlik, günlük ve haftalık) çalıştırmak için veri işlem hatlarını zamanlayabilirsiniz. İzleme ve işlem hatlarını sorunlarını tanımlamak ve eylem için bir bakışta yönetme.
@@ -51,7 +51,7 @@ Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve 
 * [Data Factory'ye giriş](data-factory-introduction.md)
 * [İlk veri işlem hattı oluşturma](data-factory-build-your-first-pipeline.md)   
 
-İsteğe bağlı olarak, Data Factory hakkında daha fazla bilgi için bkz: [veri fabrikası için öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+İsteğe bağlı olarak, Data Factory hakkında daha fazla bilgi için bkz: [Data Factory belgeleri](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory ve Batch birlikte
 Veri Fabrikası yerleşik etkinlikler içerir. Örneğin, kopyalama etkinliği, kaynak veri deposundan hedef veri deposuna veri kopyalama/taşıma için kullanılır. Hive etkinliği, Azure üzerinde Hadoop kümeleri (HDInsight) kullanarak verileri işlemek için kullanılır. Desteklenen dönüştürme etkinliklerinin listesi için bkz. [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md).

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a096bd2f23910eb2eb3bc4aa36e34400ccfbb701
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853413"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165433"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Çevir
 
@@ -86,7 +86,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>AllowFallback</td>
-    <td>*İsteğe bağlı parametre*.<br/>Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir. Olası değerler şunlardır: `true` (varsayılan) veya `false`.<br/><br/>`AllowFallback=false` Çeviri sistemleri için eğitim yalnızca kullanması gerektiğini belirtir `category` istek tarafından belirtilen. Dil Y X diline yönelik bir çeviri pivot diliyle E, ardından tüm sistemler zincirindeki zincir gerektiriyorsa (X -> E ve E -> Y) özel ve aynı kategoride olması gerekir. Belirli bir kategoriye sahip hiçbir sistemi bulunursa istek bir 400 durum kodu döndürür. `AllowFallback=true` özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir.
+    <td>*İsteğe bağlı parametre*.<br/>Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir. Olası değerler şunlardır: `true` (varsayılan) veya `false`.<br/><br/>`allowFallback=false` Çeviri sistemleri için eğitim yalnızca kullanması gerektiğini belirtir `category` istek tarafından belirtilen. Dil Y X diline yönelik bir çeviri pivot diliyle E, ardından tüm sistemler zincirindeki zincir gerektiriyorsa (X -> E ve E -> Y) özel ve aynı kategoride olması gerekir. Belirli bir kategoriye sahip hiçbir sistemi bulunursa istek bir 400 durum kodu döndürür. `allowFallback=true` özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir.
 </td>
   </tr>
 </table> 
@@ -111,11 +111,6 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <tr>
     <td>X-ClientTraceId</td>
     <td>*İsteğe bağlı*.<br/>İstek benzersiz olarak tanımlanabilmesi için bir istemci tarafından oluşturulan GUID. İzleme kimliği adlı bir sorgu parametresi kullanarak sorgu dizesinde eklerseniz bu başlığı atlayabilirsiniz `ClientTraceId`.</td>
-  </tr>
-  <tr>
-    <td>X-MT-sistem</td>
-    <td>*İsteğe bağlı*.<br/>Çeviri için istenen her 'to' dil için çeviri için kullanılan sistem türü belirtir. Dizeleri, virgülle ayrılmış listesini değerdir. Her bir dizenin bir tür gösterir:<br/><ul><li>Özel bir sistem özel - istek içerir ve en az bir özel sistemi çevirisi sırasında kullanıldı.</li><li>Takım - tüm diğer isteklerden</li></ul>
-</td>
   </tr>
 </table> 
 
@@ -174,6 +169,21 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
 
 Örnek JSON yanıtları verilmiştir [örnekler](#examples) bölümü.
 
+## <a name="response-headers"></a>Yanıt üst bilgileri
+
+<table width="100%">
+  <th width="20%">Üst bilgiler</th>
+  <th>Açıklama</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>İstek tanımlamak için hizmeti tarafından oluşturulan değeri. Sorun giderme amacıyla kullanılır.</td>
+  </tr>
+  <tr>
+    <td>X-MT-sistem</td>
+    <td>Çeviri için istenen her 'to' dil için çeviri için kullanılan sistem türü belirtir. Dizeleri, virgülle ayrılmış listesini değerdir. Her bir dizenin bir tür gösterir:<br/><ul><li>Özel bir sistem özel - istek içerir ve en az bir özel sistemi çevirisi sırasında kullanıldı.</li><li>Takım - tüm diğer isteklerden</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>Yanıt durum kodları
 
 Bir isteği döndüren olası HTTP durum kodları şunlardır: 
@@ -199,7 +209,7 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>408</td>
-    <td>Bir kaynak eksik olduğu için istek yerine getirilemedi. Ayrıntıları hata iletisine bakın. Özel bir kullanırken `category`, bu da genellikle özel çeviri sistemi henüz isteklere hizmet kullanılabilir olmadığını gösterir. Bekleme süresi (örn. 10 dakika) sonra isteği yeniden denenmesi gerekiyor.</td>
+    <td>Bir kaynak eksik olduğu için istek yerine getirilemedi. Ayrıntıları hata iletisine bakın. Özel bir kullanırken `category`, bu da genellikle özel çeviri sistemi henüz isteklere hizmet kullanılabilir olmadığını gösterir. Bekleme süresi (örneğin, 1 dakika) sonra isteği yeniden denenmesi gerekiyor.</td>
   </tr>
   <tr>
     <td>429</td>

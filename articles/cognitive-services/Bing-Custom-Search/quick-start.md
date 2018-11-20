@@ -3,19 +3,19 @@ title: 'Hızlı başlangıç: İlk Bing Özel Arama örneğinizi oluşturma'
 titlesuffix: Azure Cognitive Services
 description: Bing Özel Arama hizmetini kullanmak için görünümünüzü veya web dilimini tanımlayan özel bir arama örneği oluşturmanız gerekir. Örnekte Bing'in aramasını istediğiniz genel etki alanları, alt siteler ve web sayfalarına ek olarak derecelendirme ayarlarını belirten ayarlar bulunur.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
-ms.author: v-brapel
-ms.openlocfilehash: 866d32aa4de45076fcbc4e413d8c2e67d5346878
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: c9b37486d664920bbc4b85a0715ce7f5ea910365
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816251"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161558"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Hızlı başlangıç: İlk Bing Özel Arama örneğinizi oluşturma
 Bing Özel Arama hizmetini kullanmak için görünümünüzü veya web dilimini tanımlayan özel bir arama örneği oluşturmanız gerekir. Örnekte Bing'in aramasını istediğiniz genel etki alanları, web siteleri ve web sayfalarına ek olarak derecelendirme ayarlarını belirten ayarlar bulunur. Örneği oluşturmak için Bing Özel Arama [portalını](https://customsearch.ai) kullanın. 

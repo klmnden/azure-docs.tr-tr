@@ -3,25 +3,25 @@ title: 'Hızlı başlangıç: C# kullanarak uç nokta çağırma - Bing Özel Ar
 titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için C# kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: maheshb
-ms.openlocfilehash: c0e315f9b96133d68bf1f9c02da1436b877baf40
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: a04d2a2bcaaf4edcf03fac3e2242f94712ce8022
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468424"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163053"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-c"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (C#)
 
 Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için C# kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 

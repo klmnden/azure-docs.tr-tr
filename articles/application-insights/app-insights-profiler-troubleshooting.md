@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978851"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164312"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -46,9 +46,6 @@ Profil Oluşturucu, application ınsights kaynağınızın izleme iletileri ve �
 
 1. Dönem boyunca isteği yoksa profil oluşturucuyu çalışan, profil oluşturucu etkin olan, bir uygulama bölümü tarafından işlenen istekleri emin olun. Bazen uygulamaları birden çok bileşenden oluşur ancak Profiler yalnızca bazıları için değil, bileşenlerin tümünü etkindir. Application Insights Profiler ' ı yapılandırma sayfası izlemeleri karşıya yüklediğiniz bileşenleri gösterir.
 
-### <a name="net-core-21-bug"></a>.Net Core 2.1 hata
-İzlemeleri ASP.NET Core 2.1 üzerinde çalışan uygulamalardan alınan karşıya yükleme engelleyen Profil Oluşturucu aracı bir hata yoktur. Biz bir düzeltme üzerinde çalışıyoruz ve sahip olur, hazır olan en kısa sürede. Bu hata düzeltmesini Ekim sonuna dağıtılır.
-
 ### <a name="other-things-to-check"></a>Denetlenecek başka şeyler:
 * Uygulamanızı .NET Framework 4.6 üzerinde çalışıyor.
 * Web uygulamanız için bir ASP.NET Core uygulaması ise, en az çalıştırmalıdır ASP.NET Core 2.0.
@@ -69,10 +66,11 @@ Portalında bir destek bileti gönderin. Hata iletisindeki bağıntı Kimliğini
 ## <a name="troubleshooting-profiler-on-app-services"></a>Profiler uygulama hizmetlerinde sorunlarını giderme
 ### <a name="for-the-profiler-to-work-properly"></a>Düzgün çalışması profil oluşturucu için:
 * Temel katman web app service planınızın olması gerekir veya üzeri.
-* Web uygulamanızı uygulama Hizmetleri (2.6.5) Application Insights uzantısının yüklü olması gerekir.
+* Web uygulamanızı Application Insights'ın etkin olması gerekir.
 * Web uygulamanızı olmalıdır **appınsıghts_ınstrumentatıonkey** Application Insights SDK'sı tarafından kullanılan aynı izleme anahtarı ile yapılandırılmış uygulama ayarı.
 * Web uygulamanızı olmalıdır **APPINSIGHTS_PROFILERFEATURE_VERSION** uygulama ayarı tanımlanan ve 1.0.0 sürümüne ayarlayın.
-* **ApplicationInsightsProfiler2** web işi çalışıyor olmalıdır. Web işi giderek denetleyebilirsiniz [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)ve açma **Web işleri Panosu'nu** Araçlar menüsü altına. Aşağıdaki ekran görüntülerinde ApplicationInsightsProfiler2 bağlantıya tıklayarak görebileceğiniz gibi günlük'dahil olmak üzere Web işi ayrıntıları görebilirsiniz.
+* Web uygulamanızı olmalıdır **DiagnosticServices_EXTENSION_VERSION** uygulama ayarı tanımlanan ve ~ 3'e ayarlayın.
+* **ApplicationInsightsProfiler3** web işi çalışıyor olmalıdır. Web işi giderek denetleyebilirsiniz [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)ve açma **Web işleri Panosu'nu** Araçlar menüsü altına. Aşağıdaki ekran görüntülerinde ApplicationInsightsProfiler2 bağlantıya tıklayarak görebileceğiniz gibi günlük'dahil olmak üzere Web işi ayrıntıları görebilirsiniz.
 
     Webjob ayrıntıları görmek için'ye tıklamanız bağlantı şu şekildedir: 
 
@@ -91,11 +89,7 @@ Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar 
 1. Ayarlama **her zaman açık** için **üzerinde**.
 1. Ekleme **appınsıghts_ınstrumentatıonkey** uygulama ayarı ve değeri SDK'sı tarafından kullanılan aynı izleme anahtarını ayarlayın.
 1. Ekleme **APPINSIGHTS_PROFILERFEATURE_VERSION** uygulama ayarı ve 1.0.0 değeri ayarlayın.
-1. Açık **Gelişmiş Araçlar**.
-1. Seçin **Git** Kudu Web sitesini açın.
-1. Kudu Web sitesinde seçin **Site uzantıları**.
-1. Yükleme **Application Insights** Azure Web uygulamaları Galerisi.
-1. Web uygulamasını yeniden başlatın.
+1. Ekleme **DiagnosticServices_EXTENSION_VERSION** uygulama ayarı ve yaklaşık 3 değeri ayarlayın.
 
 ### <a name="too-many-active-profiling-sessions"></a>Profil oluşturma çok fazla etkin oturumlar
 

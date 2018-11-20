@@ -3,19 +3,19 @@ title: 'Hızlı başlangıç: Java kullanarak uç nokta çağırma - Bing Özel 
 titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Java kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: 99ce1b982296387423ec6e8fdfb592ee9fd32b73
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: edbeda3245ab2e91ef1b3e7e5812a49e11d57d98
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974235"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165025"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Java)
 

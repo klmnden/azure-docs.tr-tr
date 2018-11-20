@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634511"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163180"
 ---
-# <a name="configure-storage"></a>Depolamayı yapılandırma
+# <a name="configure-storage"></a>Depolama alanını yapılandırma
 
 Bu adım arka uç depolama sistemi vFXT kümeniz için ayarlar.
 
@@ -48,15 +48,20 @@ Aşağıdaki adımlar bir NAS çekirdek gösterecek şekilde ekleyin:
 
 1. Avere Denetim Masası'ndan tıklayın **ayarları** en üstteki sekmedeki.
 
-2. Tıklayın **çekirdek dosyalayıcı** > **yönetme çekirdek filtrelerin** soldaki.
+1. Tıklayın **çekirdek dosyalayıcı** > **yönetme çekirdek filtrelerin** soldaki.
 
-3. **Oluştur**’a tıklayın.
+1. **Oluştur**’a tıklayın.
 
-   ![Çekirdek dosyalayıcı adı ve tam etki alanı adı ekleme yeni çekirdek dosyalayıcı sayfasının ekran görüntüsü](media/avere-vfxt-add-core-filer.png)
+   ![Oluştur düğmesine imleci ile Ekle yeni çekirdek dosyalayıcı sayfasının ekran görüntüsü](media/avere-vfxt-add-core-filer-start.png)
+
+1. Sihirbaz gerekli bilgileri doldurun: 
 
    * Çekirdek gösterecek şekilde adlandırın.
    * Varsa bir tam etki alanı adı (FQDN) belirtin. Aksi takdirde, bir IP adresi veya ana bilgisayar adı, çekirdek dosyalayıcı için çözümler sağlar.
    * Dosyalayıcı sınıfınıza listeden seçin. Emin değilseniz, belirleyin **diğer**.
+
+     ![Çekirdek dosyalayıcı adı ve tam etki alanı adı ekleme yeni çekirdek dosyalayıcı sayfasının ekran görüntüsü](media/avere-vfxt-add-core-filer.png)
+  
    * Tıklayın **sonraki** ve önbellek İlkesi'ni seçin. 
    * Tıklayın **dosyalayıcı ekleme**.
    * Daha ayrıntılı bilgi için bkz [yeni bir NAS ekleme çekirdek dosyalayıcı](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) Avere içinde küme ayarları Kılavuzu.
@@ -110,7 +115,7 @@ Küme oluşturulduktan sonra BLOB Depolama eklemek için aşağıdaki adımları
 
 1. Kümenizin Avere Denetim Masası'nı açın. Tıklayın **ayarları**ve daha sonra **küme** > **bulut kimlik bilgileri** sol gezinti bölmesinde. Bulut kimlik bilgileri sayfasında tıklayın **kimlik bilgileri Ekle**.
 
-   ![Bulut kimlik bilgileri yapılandırma sayfasında kimlik bilgileri Ekle düğmesi](media/avere-vfxt-new-credential-button.png)
+   ![Bulut kimlik bilgileri yapılandırma sayfasında kimlik bilgileri Ekle düğmesine tıklayın](media/avere-vfxt-new-credential-button.png)
 
 1. Bulut çekirdek Fili Oluşturucu için bir kimlik bilgisi oluşturmak için aşağıdaki bilgileri doldurun: 
 
@@ -120,7 +125,7 @@ Küme oluşturulduktan sonra BLOB Depolama eklemek için aşağıdaki adımları
    | Hizmet türü | (Azure depolama erişim anahtarını seçin) |
    | Kiracı | Depolama hesabı adı |
    | Abonelik | Abonelik kimliği |
-   | Depolama Erişim Anahtarı | Azure depolama hesabı anahtarı (önceki adımda kopyaladığınız) | 
+   | Depolama erişim anahtarı | Azure depolama hesabı anahtarı (önceki adımda kopyaladığınız) | 
 
    Tıklayın **gönderme**.
 

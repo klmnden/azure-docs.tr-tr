@@ -3,19 +3,19 @@ title: Arama yanıtları - Bing Web araması API'si
 titleSuffix: Azure Cognitive Services
 description: Yanıt türleri ve Bing Web araması API'si tarafından alınan yanıtları hakkında bilgi edinin.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
-ms.author: erhopf
-ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123785"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164793"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web araması API'si yanıt yapısı ve yanıt türleri  
 
@@ -128,7 +128,7 @@ Aşağıdaki örnek ilgili sorgular kullanımı Bing.com içinde gösterir.
 
 ## <a name="videos-answer"></a>Videoları yanıt
 
-[Videoları](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) yanıt Bing sorgu ile ilgili olduğunu düşündük videoların bir listesini içerir. Her [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) listesinde video, süresi, boyutlar ve kodlama, biçim URL'sini içerir. Video nesnesi, bir küçük resim, video ve küçük 's boyutları URL'sini de içerir.
+[Videoları](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) yanıt Bing sorgu ile ilgili olduğunu düşündük videoların bir listesini içerir. Her [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) listesinde video, süresi, boyutlar ve kodlama, biçim URL'sini içerir. Video nesnesi aynı zamanda video küçük resminin URL'sini ve küçük resmin boyutlarını içerir.
 
 ```json
 {
@@ -166,13 +166,13 @@ Kullanıcının cihaza bağlı olarak, genellikle bir alt kümesini kullanıcın
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
 -->
 
-Küçük resmin üzerinde kullanıcı gezinen olarak kullanabileceğiniz `motionThumbnailUrl` videonun küçük bir sürüm yürütülecek. Hareket küçük resim, görüntülediğinizde özniteliği emin olun.
+Küçük resmin üzerinde kullanıcı gezinen olarak kullanabileceğiniz `motionThumbnailUrl` videonun küçük bir sürüm yürütülecek. Hareket küçük resmini görüntülediğinizde öznitelik belirlediğinizden emin olun.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-Kullanıcı küçük resim tıklarsa, video görüntüleme seçenekleri şunlardır:
+Kullanıcı küçük resme tıklarsa, aşağıdaki video görüntüleme seçenekleri sunulur:
 
 - Kullanım `hostPageUrl` konak Web sitesinde (örneğin, YouTube) videoyu görüntülemek için
 - Kullanım `webSearchUrl` Bing video tarayıcıda videoyu görüntülemek için
@@ -182,7 +182,7 @@ Videolar ve video yanıt hakkında daha fazla ayrıntı için bkz: [Video arama 
 
 ## <a name="news-answer"></a>Haber yanıt
 
-[Haber](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) yanıt Bing sorgu ile ilgili olduğunu düşündük haber makaleleri bir listesini içerir. Her [haber makalesinin](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) listesinde konağın Web sitesi makaleye makalenin adını, açıklamasını ve URL'sini içerir. Makale bir görüntü içeriyorsa, bir küçük resim görüntüsünün nesne içerir.
+[Haber](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) yanıt Bing sorgu ile ilgili olduğunu düşündük haber makaleleri bir listesini içerir. Listedeki her [haber makalesi](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle), makalenin adı, açıklaması ve konağın web sitesindeki makalenin URL’sini içerir. Makale bir görüntü içeriyorsa, nesne görüntünün küçük resmini içerir.
 
 ```json
 {
@@ -205,7 +205,7 @@ Videolar ve video yanıt hakkında daha fazla ayrıntı için bkz: [Video arama 
 }, ...
 ```
 
-Kullanıcının cihaza bağlı olarak, haber makaleleri kullanıcının kalan makaleleri görüntülemek bir seçenek kümesini görüntüleyebilir. Kullanım `name` ve `url` konağın sitesinde haber makalesinin kullanıcıya alan köprü oluşturmak için. Makale bir görüntü içerdiğinden, görüntü tıklanabilir kullanarak olun `url`. Kullandığınızdan emin olun `provider` makaleyi özniteliği için.
+Kullanıcının cihaza bağlı olarak, haber makaleleri kullanıcının kalan makaleleri görüntülemek bir seçenek kümesini görüntüleyebilir. Kullanıcıyı konağın sitesindeki haber makalesine götüren bir köprü bağlantı oluşturmak için `name` ve `url` kullanın. Makale bir görüntü içerdiğinden, görüntü tıklanabilir kullanarak olun `url`. Makaleyi ilişkilendirmek için `provider` kullandığınızdan emin olun.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.

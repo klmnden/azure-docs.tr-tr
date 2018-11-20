@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: dea343dee65ab66d52b431614fd334fd6e380f50
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629191"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165297"
 ---
-# <a name="working-with-azure-cosmos-db-accounts"></a>Azure Cosmos DB hesapları ile çalışma
+# <a name="working-with-azure-cosmos-account"></a>Azure Cosmos hesabıyla çalışma
 
-Azure Cosmos DB, bir tam olarak yönetilen platformu-bir hizmet olarak (PaaS) ' dir. Azure Cosmos DB'yi kullanmaya başlamak için başlangıçta, Azure aboneliğinizde bir Azure Cosmos DB hesabı oluşturmanız gerekir. Azure Cosmos hesabınıza benzersiz bir DNS adı içerir ve bir hesabı, Azure portalı, Azure CLI kullanarak veya farklı dile özgü SDK'ları kullanarak yönetebilir. Daha fazla bilgi için [Azure Cosmos hesabınızı yönetmek nasıl](how-to-manage-database-account.md).
+Azure Cosmos DB, bir tam olarak yönetilen platformu-bir hizmet olarak (PaaS) ' dir. Azure Cosmos DB'yi kullanmaya başlamak için başlangıçta, Azure aboneliğinizde bir Azure Cosmos hesabı oluşturmanız gerekir. Azure Cosmos hesabınıza benzersiz bir DNS adı içerir ve bir hesabı, Azure portalı, Azure CLI kullanarak veya farklı dile özgü SDK'ları kullanarak yönetebilir. Daha fazla bilgi için [Azure Cosmos hesabınızı yönetmek nasıl](how-to-manage-database-account.md).
 
-Azure Cosmos DB hesabı genel dağıtım ve yüksek kullanılabilirlik temel birimidir. Genel veriler ve aktarım hızı Azure bölgelerinde dağıtmaktan, ekleyin ve Azure bölgeleri herhangi bir zamanda Azure Cosmos hesabınızı kaldırın. Tek veya birden çok yazma bölgeleri için Azure Cosmos hesabınızı yapılandırabilirsiniz. Daha fazla bilgi için [Azure Cosmos hesabınıza Azure bölgeleri ekleyip nasıl](how-to-manage-database-account.md). Yapılandırabileceğiniz [varsayılan tutarlılık](consistency-levels.md) Azure Cosmos hesap düzeyi. Azure Cosmos DB, aktarım hızı, düşük gecikme süresi 99. yüzdebirlik dilimde, tutarlılık ve yüksek kullanılabilirlik kapsayan kapsamlı SLA'lar sağlar. Daha fazla bilgi için [Azure Cosmos DB SLA'ları](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/).
+Azure Cosmos hesabı genel dağıtım ve yüksek kullanılabilirlik temel birimidir. Genel veriler ve aktarım hızı Azure bölgelerinde dağıtmaktan, ekleyin ve Azure bölgeleri herhangi bir zamanda Azure Cosmos hesabınızı kaldırın. Tek veya birden çok yazma bölgeleri için Azure Cosmos hesabınızı yapılandırabilirsiniz. Daha fazla bilgi için [Azure Cosmos hesabınıza Azure bölgeleri ekleyip nasıl](how-to-manage-database-account.md). Yapılandırabileceğiniz [varsayılan tutarlılık](consistency-levels.md) Azure Cosmos hesap düzeyi. Azure Cosmos DB, aktarım hızı, düşük gecikme süresi 99. yüzdebirlik dilimde, tutarlılık ve yüksek kullanılabilirlik kapsayan kapsamlı SLA'lar sağlar. Daha fazla bilgi için [Azure Cosmos DB SLA'ları](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
 Azure Cosmos hesabınızdaki tüm verileri erişimi güvenli bir şekilde yönetmek için hesabınızla ilişkili ana anahtarları kullanabilirsiniz. Verilerinizi daha güvenli erişimi için bir sanal ağ hizmet uç noktası ve IP Güvenlik Duvarı, Azure Cosmos hesabınızda yapılandırabilirsiniz. 
 
@@ -41,4 +41,4 @@ Azure Cosmos DB kapsayıcısı ölçeklenebilirlik temel birimidir. Bir kapsayı
 * [Sanal ağ hizmet uç noktası Azure Cosmos hesabınız için](firewall-support.md)
 * [Azure Cosmos hesabınız için IP Güvenlik Duvarı](vnet-service-endpoint.md)
 * [Nasıl yapılır, Azure Cosmos hesabınıza Azure bölgeleri ekleyip](how-to-manage-database-account.md)
-* [Azure Cosmos DB SLA'lar](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLA'lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

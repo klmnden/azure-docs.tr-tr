@@ -11,29 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 11/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090374"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161965"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack kullanım verileri Azure'a rapor 
 
 Kullanım verileri, tüketim verilerini olarak da bilinir, kullanılan kaynakların miktarını temsil eder. 
 
-Kullanım tabanlı faturalandırma modeli kullandığınız azure Stack çok düğümlü sistemleri, faturalama amacıyla Azure'da kullanım verilerini bildirmeniz gerekir.  Azure Stack operatörleri, kendi Azure Stack örneği kullanım verilerini raporlamaya azure'a yapılandırmanız gerekir.
+Kullanım tabanlı faturalandırma modeli kullandığınız azure Stack çok düğümlü sistemleri, faturalandırma için Azure'a kullanım verilerini bildirmeniz gerekir. Azure Stack operatörleri, kendi Azure Stack örneği kullanım verilerini raporlamaya azure'a yapılandırmanız gerekir.
 
 > [!NOTE]
 > Veri Kullanım raporlaması,-,-kullandıkça modeli altında lisans Azure Stack çok düğümlü kullanıcılar için gereklidir. İsteğe bağlı kapasite modeli altında lisans müşteriler için (bkz [sayfa satın alma](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Azure Stack operatörlerinin Azure Stack geliştirme Seti'ni kullanıcılar için kullanım verileri rapor ve özelliği test etmek. Ancak, kullanıcılar bunlara uygulanmaz kullanımı için ücretlendirilmez. 
 
-
 ![Fatura akışı](media/azure-stack-usage-reporting/billing-flow.png)
 
-Kullanım verileri, Azure yığını, Azure köprü üzerinden azure'a gönderilir. Azure'da, ticaret sistemi kullanım verileri işler ve fatura oluşturur. Fatura oluşturulduktan sonra bir Azure aboneliği sahibi görüntüleyebilir ve indirdiği [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). Azure Stack nasıl lisanslanır hakkında bilgi edinmek için bkz [paketleme ve belge fiyatlandırma Azure Stack](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409).
+Kullanım verileri, Azure yığını, Azure köprü üzerinden azure'a gönderilir. Azure'da, ticaret sistemi kullanım verileri işler ve fatura oluşturur. Fatura oluşturulduktan sonra bir Azure aboneliği sahibi görüntüleyebilir ve indirdiği [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). Azure Stack nasıl lisanslanır hakkında bilgi edinmek için [paketleme ve belge fiyatlandırma Azure Stack](https://go.microsoft.com/fwlink/?LinkId=842847).
 
 ## <a name="set-up-usage-data-reporting"></a>Set up reporting kullanım verileri
 
@@ -44,36 +43,35 @@ Kullanım verilerini raporlama ayarlamak için şunları yapmanız gerekir [Azur
 - **Konum** – geçerli Azure Stack kaynak dağıtıldığı konum.
 - **Kaynak URI** – tam olarak hangi kullanım raporlanır kaynağın URI'sini.
 - **Abonelik kimliği** – yerel (Azure Stack) abonelik Azure Stack kullanıcının abonelik kimliği.
-- **Zaman** – Kullanım verilerinin başlangıç ve bitiş zamanı. Bir gecikme olması arasındaki zaman bu kaynakları Azure Stack'te tüketilir ve kullanım verileri için ticaret bildirildiğinde. 24 saatte bir Azure Stack toplamalar kullanım verileri ve azure'da ticaret ardışık raporlama kullanım verileri başka bir birkaç saat sürer. Bu nedenle, kısa bir süre önce gece yarısından kullanım Azure'da sonraki gün görünebilir.
+- **Zaman** – Kullanım verilerinin başlangıç ve bitiş zamanı. Bir gecikme olması arasındaki zaman bu kaynakları Azure Stack'te tüketilir ve kullanım verileri için ticaret bildirildiğinde. 24 saatte bir Azure Stack toplamalar kullanım verileri ve azure'da ticaret ardışık düzenine raporlama kullanım verileri başka bir birkaç saat sürer. Bu nedenle, kısa bir süre önce gece yarısından kullanım Azure'da sonraki gün görünebilir.
 
 ## <a name="generate-usage-data-reporting"></a>Kullanım raporlama verilerini oluştur
 
-1. Kullanım verilerini raporlama test etmek için Azure Stack'te birkaç kaynak oluşturun. Örneğin, oluşturabileceğiniz bir [depolama hesabı](azure-stack-provision-storage-account.md), [Windows Server VM](azure-stack-provision-vm.md) ve bir Linux VM çekirdek kullanımı nasıl bildirildiği görmek için temel ve standart SKU'lar ile. Farklı kaynak türleri için kullanım verilerini altında farklı ölçümleri raporlanır.
+- Kullanım verilerini raporlama test etmek için Azure Stack'te birkaç kaynak oluşturun. Örneğin, oluşturabileceğiniz bir [depolama hesabı](azure-stack-provision-storage-account.md), [Windows Server VM](azure-stack-provision-vm.md) ve bir Linux VM çekirdek kullanımı nasıl bildirildiği görmek için temel ve standart SKU'lar ile. Farklı kaynak türleri için kullanım verilerini altında farklı ölçümleri raporlanır.
 
-2. Kaynaklarınız için kaç saat çalışan bırakın. Kullanım bilgileri yaklaşık olarak saatte bir toplanır. Topladıktan sonra bu verileri Azure'a aktarılan ve Azure ticaret sisteminde işlenir. Bu işlem birkaç saat sürebilir.
+- Kaynaklarınız için kaç saat çalışan bırakın. Kullanım bilgileri yaklaşık olarak saatte bir toplanır. Topladıktan sonra bu verileri Azure'a aktarılan ve Azure ticaret sisteminde işlenir. Bu işlem birkaç saat sürebilir.
 
 ## <a name="view-usage---csp-subscriptions"></a>Görünüm kullanımı - CSP abonelikleri
 
 Bir CSP aboneliği kullanarak, Azure Stack kaydettiyseniz, kullanımı ve ücretleri Azure tüketim görüntülediğiniz aynı şekilde görüntüleyebilirsiniz. Azure Stack kullanım faturanızı ve aracılığıyla mutabakat dosyasına dahil edilecektir [iş ortağı Merkezi](https://partnercenter.microsoft.com/partner/home). Mutabakat dosyasına aylık güncelleştirilir. En son Azure Stack kullanım bilgilerini erişmeniz gerekiyorsa, iş ortağı merkezi API'leri kullanabilirsiniz.
 
-   ![iş ortağı Merkezi](media/azure-stack-usage-reporting/partner-center.png)
-
+![iş ortağı Merkezi](media/azure-stack-usage-reporting/partner-center.png)
 
 ## <a name="view-usage--enterprise-agreement-subscriptions"></a>Kurumsal Anlaşma abonelikleri – kullanımını görüntüleyin
 
-Azure Stack kullanarak bir Kurumsal Sözleşme aboneliğine kaydolduysanız, kullanım ve Ücret görüntüleyebilirsiniz [EA Portal](https://ea.azure.com/). Azure Stack kullanım EA portalında Raporlar bölümünde Azure kullanım yanı sıra gelişmiş indirmeler dahil edilir. 
+Azure Stack kullanarak bir Kurumsal Sözleşme aboneliğine kaydolduysanız, kullanım ve Ücret görüntüleyebilirsiniz [EA portal](https://ea.azure.com/). Azure Stack kullanım Raporlar bölümünde bu portalda Azure kullanım yanı sıra gelişmiş indirmeleri dahil edilir. 
 
 ## <a name="view-usage--other-subscriptions"></a>Diğer abonelikler – kullanımını görüntüleyin
 
-Herhangi diğer abonelik türü, örneğin, bir Kullandıkça Öde aboneliği kullanarak, Azure Stack kaydettiyseniz Azure hesap Merkezi'nde kullanımı ve ücretleri görüntüleyebilirsiniz. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) Azure Hesap Yöneticisi ve Azure Stack kaydolmak için kullandığınız Azure aboneliğini seçin. Azure Stack kullanım verilerini, aşağıdaki görüntüde gösterildiği gibi her kullanılan kaynaklar için ücret tutarı görüntüleyebilirsiniz:
+Azure Stack kaydettiyseniz kullanarak başka bir aboneliğe yazın. Örneğin, bir Kullandıkça Öde aboneliği, Azure hesap Merkezi'nde kullanımı ve ücretleri görüntüleyebilirsiniz. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) Azure Hesap Yöneticisi ve Azure Stack kaydolmak için kullandığınız Azure aboneliğini seçin. Azure Stack kullanım verilerini, aşağıdaki görüntüde gösterildiği gibi her kullanılan kaynaklar için ücret tutarı görüntüleyebilirsiniz:
 
-   ![Fatura akışı](media/azure-stack-usage-reporting/pricing-details.png)
+![Fatura akışı](media/azure-stack-usage-reporting/pricing-details.png)
 
-Fiyat $0,00 gösterilen şekilde, Azure Stack Geliştirme Seti için Azure Stack kaynakları ücretlendirilmez.
+Fiyat $0,00 gösterilen şekilde Azure Stack Geliştirme Seti Azure Stack kaynakları, ücretlendirilmez.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>Hangi Azure Stack dağıtımları ücretlendirilir mi?
 
-Azure Stack Geliştirme Seti için kaynak kullanımı ücretsizdir. Azure Stack çok düğümlü sistemler için uygulama hizmetleri iş yükü sanal makineleri ve depolama hizmetleri ücretlendirilirsiniz ancak.
+Azure Stack Geliştirme Seti için kaynak kullanımı ücretsizdir. Azure Stack çok düğümlü sistemleri, iş yükü Vm'lerinden, depolama hizmetleri ve uygulama hizmetleri ücretlendirilir.
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Kullanıcılar, altyapı Vm'leri için ücretlendirilir mi?
 
@@ -83,14 +81,15 @@ Kullanıcılar, yalnızca Kiracı aboneliklerine altında çalışan VM'ler içi
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Azure Stack'te kullanmak istediğiniz bir Windows Server lisansım, nasıl musunuz?
 
-Mevcut lisanslarınızı kullanarak kullanım ölçümleri oluşturma önler. Mevcut Windows Server lisansları "mevcut yazılım Azure Stack ile kullanma" bölümünde açıklandığı gibi Azure Stack'te kullanılabilir [Azure Stack lisanslama Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Müşteriler ihtiyaç açıklandığı gibi Windows Server sanal makinelerini dağıtmak [hibrit teklifi Windows Server lisansı için](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) makale mevcut lisanslarını kullanmak için.
+Mevcut lisanslarınızı kullanarak kullanım ölçümleri oluşturma önler. Mevcut Windows Server lisansları "mevcut yazılım Azure Stack ile kullanma" bölümünde açıklandığı gibi Azure Stack'te kullanılabilir [Azure Stack lisanslama Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=851536). Açıklandığı, müşterilere Windows Server sanal makinelerini dağıtma gerekir [hibrit teklifi Windows Server lisansı için](../virtual-machines/windows/hybrid-use-benefit-licensing.md) makale mevcut lisanslarını kullanmak için.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Hangi abonelik tüketilen kaynaklar için ücretlendirilir?
+
 Ne zaman sağlanan abonelik [Azure Stack Azure ile kaydetme](azure-stack-register.md) ücretlendirilir.
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Abonelikleri hangi türde veri Kullanım raporlaması için destekleniyor mu?
 
-Azure Stack multinode için Kurumsal Anlaşma (EA) ve CSP abonelikleri desteklenir. Azure Stack Geliştirme Seti için Kurumsal Anlaşma (EA), Kullandıkça Öde, CSP ve MSDN Abonelikleri kullanım raporlama verilerini destekler.
+Azure Stack için çok düğümlü, Kurumsal Anlaşma (EA) ve CSP abonelikleri desteklenir. Azure Stack Geliştirme Seti için Kurumsal Anlaşma (EA), Kullandıkça Öde, CSP ve MSDN Abonelikleri kullanım raporlama verilerini destekler.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Kullanım verilerini bağımsız bulutlarda iş raporlama mu?
 

@@ -1,6 +1,6 @@
 ---
-title: Azure DevOps Projesi ile ASP.NET Core Uygulamanızı Azure Service Fabric'e dağıtma | Azure DevOps Services Öğreticisi
-description: DevOps Projesi, Azure’u kullanmaya başlamayı kolaylaştırır. Azure DevOps Projesi, Azure Service Fabric ile birkaç hızlı adımda ASP.NET Core Uygulamanızı dağıtmanızı kolaylaştırır.
+title: "Öğretici: Azure DevOps projeleri'ni kullanarak ASP.NET Core uygulamanızı Azure Service Fabric'e dağıtma"
+description: Azure DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştırır. DevOps projeleri ile Azure Service Fabric için birkaç Hızlı adımda azure'da ASP.NET Core uygulamanızı dağıtabilirsiniz.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,144 +9,169 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6a0539b2213b99e09021a4f90d914172eac62560
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 91cd051c8f6dfe4c5b4f93d2f287ac6de200c7df
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300409"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162377"
 ---
-# <a name="tutorial--deploy-your-aspnet-core-app-to-azure-service-fabric-with-the-azure-devops-project"></a>Öğretici: Azure DevOps Projesi ile ASP.NET Core Uygulamanızı Azure Service Fabric'e dağıtma
+# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Öğretici: Azure DevOps projeleri'ni kullanarak ASP.NET Core uygulamanızı Azure Service Fabric'e dağıtma
 
-Azure DevOps Projesi, mevcut kodunuzu ve Git deponuzu getirdiğiniz ya da Azure’da bir sürekli tümleştirme (CI) ve sürekli teslim (CD) işlem hattı oluşturmak üzere örnek uygulamalardan birini seçtiğiniz basitleştirilmiş bir deneyim sunar.  DevOps Projesi Azure Service Fabric gibi Azure kaynaklarını otomatik olarak oluşturur, Azure DevOps’ta bir CI/CD işlem hattı ayarlamayı içeren bir yayın işlem hattı oluşturur ve yapılandırır ve ardından izleme için Azure Application Insights kaynağı oluşturur.
+Azure DevOps projeleri, mevcut kodunuzu ve Git deposuna taşıyın veya sürekli tümleştirme (CI) ve azure'a sürekli teslim (CD) işlem hattı oluşturmak için örnek bir uygulama seçin basitleştirilmiş bir deneyim sunar. 
 
-Yapacaklarınız:
+DevOps projeleri ayrıca:
+* Azure Service Fabric gibi Azure kaynaklarını otomatik olarak oluşturur.
+* Oluşturur ve yayın işlem hattı bir CI/CD işlem hattı ayarlar Azure DevOps yapılandırır.
+* İzleme için Azure Application Insights kaynağı oluşturur.
+
+Bu öğreticide şunları yapacaksınız:
 
 > [!div class="checklist"]
-> * ASP.NET Core Uygulaması ve Service Fabric için Azure DevOps Projesi oluşturma
-> * Azure DevOps Services ve bir Azure aboneliği yapılandırma 
+> * Bir ASP.NET Core uygulaması oluşturma ve Service Fabric'e dağıtma DevOps projeleri'ni kullanın
+> * Azure DevOps ve Azure aboneliğinin yapılandırın 
 > * CI işlem hattını inceleme
 > * CD işlem hattını inceleme
 > * Git’e değişiklikleri işleme ve Azure’a otomatik olarak dağıtma
 > * Kaynakları temizleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) aracılığıyla ücretsiz bir abonelik alabilirsiniz.
 
-## <a name="create-an-azure-devops-project-for-an-aspnet-core-app-and-service-fabric"></a>ASP.NET Core Uygulaması ve Service Fabric için Azure DevOps Projesi oluşturma
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Bir ASP.NET Core uygulaması oluşturma ve hizmet Fabricc için dağıtmak için DevOps projeleri'ni kullanın
 
-Azure DevOps Projesi bir CI/CD işlem hattı oluşturur.  **Yeni bir Azure DevOps Services** kuruluşu oluşturabilir veya **var olan bir kuruluşu** kullanabilirsiniz.  Azure DevOps Projesi ayrıca tercih ettiğiniz **Azure aboneliğinde** Service Fabric kümesi gibi **Azure kaynakları** oluşturur.
+DevOps projeleri, Azure işlem hatlarında bir CI/CD işlem hattı oluşturur. Yeni bir Azure DevOps kuruluş oluşturun veya mevcut bir kuruluşa kullanın. DevOps projeleri, tercih ettiğiniz bir Azure aboneliği bir Service Fabric kümesi gibi Azure kaynaklarını da oluşturur.
 
-1. [Microsoft Azure portalında](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-1. Sol gezinti çubuğunda **Kaynak oluştur** simgesini seçin ve ardından **DevOps Projesini** arayın.  **Oluştur**’u seçin.
+1. Sol bölmede seçin **kaynak Oluştur**.
 
-    ![Sürekli Teslim Başlatılıyor](_img/azure-devops-project-service-fabric/fullbrowser.png)
+1. Arama kutusuna **DevOps projeleri**ve ardından **Oluştur**.
 
-1. **.NET**'i ve sonra da **İleri**'yi seçin.
+    ![DevOps projeleri Panosu](_img/azure-devops-project-github/fullbrowser.png)
 
-1. **Uygulama çerçevesi seçin** alanında **ASP.NET Core**'u seçin ve sonra da **İleri**'yi seçin.
+1. Seçin **.NET**ve ardından **sonraki**.
 
-1. **Service Fabric Kümesi**'ni ve ardından **İleri**'yi seçin.  
+1. Altında **uygulama çerçevesini seçin**seçin **ASP.NET Core**ve ardından **sonraki**.
 
-## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Azure DevOps Services ve bir Azure aboneliği yapılandırma
+1. Seçin **Service Fabric kümesi**ve ardından **sonraki**. 
 
-1. **Yeni** bir Azure DevOps Services kuruluşu oluşturun veya **var olan** bir kuruluşu seçin.  Azure DevOps projeniz için bir **ad** seçin.  
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps ve Azure aboneliğinin yapılandırın
 
-1. **Azure aboneliğinizi** seçin.
+1. Yeni bir Azure DevOps kuruluş oluşturun veya mevcut bir kuruluşa seçin. 
 
-1. Ek Azure yapılandırma ayarlarını görmek için **Değiştir** bağlantısını seçin ve **Service Fabric kümesi** için **düğüm sanal makine boyutu** ve **işletim sistemi** belirtin.  Burada, Azure hizmetlerinin türünü ve konumunu yapılandırmaya yönelik çeşitli seçenekler vardır.
+1. Azure DevOps projeniz için bir ad girin. 
+
+1. Azure aboneliğinizi seçin.
+
+1. Ek Azure yapılandırma ayarlarını görüntülemek ve düğüm sanal makine boyutu ve işletim sistemi için Service Fabric kümesini tanımlamak için seçin **değişiklik**.  
+    Bu bölme, türü ve konumu Azure hizmetlerini yapılandırmak için çeşitli seçenekleri görüntüler.
  
-1. Azure yapılandırma alanından çıkın ve **Bitti**'yi seçin.
+1. Azure yapılandırma alanı çıkın ve ardından **Bitti**.  
+    Birkaç dakika sonra işlemi tamamlandı. Azure DevOps kuruluşunuzdaki Git deposunda bir örnek ASP.NET Core uygulaması ayarlayın, bir Service Fabric kümesi oluşturulur, CI/CD işlem hattı yürütülür ve uygulamanız Azure'a dağıtılır. 
 
-1. İşlemin tamamlanması birkaç dakika sürer.  Azure DevOps Services kuruluşunuzdaki bir depoda örnek ASP.NET Core uygulaması ayarlanır, Service Fabric kümesi oluşturulur, bir CI/CD işlem hattı yürütülür, uygulamanız Azure’a dağıtılır.  
+    DevOps projeleri Pano, tüm bu tamamlandıktan sonra Azure portalında görüntülenir. DevOps projeleri panoya doğrudan gidebilirsiniz **tüm kaynakları** Azure portalında. 
 
-    Tamamlandıktan sonra, Azure portala Azure DevOps **Proje panosu** yüklenir.  **Azure DevOps Proje Panosu**'na doğrudan **Azure portalı** içindeki **Tüm kaynaklar**'dan da gidebilirsiniz.  
+    Bu pano, Azure DevOps kod deposu, CI/CD işlem hattınızı ve Service Fabric kümenizi görünürlük sağlar. Azure depoları, CI/CD işlem hattı için ek seçenekleri yapılandırabilirsiniz. Sağ taraftaki seçin **Gözat** çalışan uygulamanızı görüntülemek için.
 
-    Bu pano Azure DevOps Services **kod deponuza**, **Azure DevOps Services CI/CD işlem hattına** ve **Service Fabric kümesine** görünürlük sağlar.  Azure DevOps Services üzerinde başka seçenekleri de yapılandırabilirsiniz.  Panonun sağ tarafında çalışan uygulamanızı görüntülemek için **Gözat**’ı seçin.
+## <a name="examine-the-ci-pipeline"></a>CI işlem hattını inceleme
 
-## <a name="examine-the-azure-devops-services-ci-pipeline"></a>Azure DevOps Services CI işlem hattını inceleme
+DevOps projeleri, bir CI/CD işlem hattı, Azure işlem hatlarında otomatik olarak yapılandırır. İşlem hattını inceleyebilir ve özelleştirebilirsiniz. Kendisiyle tanımak için aşağıdakileri yapın:
 
-Azure DevOps Projesi, Azure DevOps Services kuruluşunuzda otomatik olarak bir Azure DevOps Services CI/CD işlem hattı yapılandırır.  İşlem hattını inceleyebilir ve özelleştirebilirsiniz.  Azure DevOps Services derleme işlem hattına alışmak için aşağıdaki adımları izleyin.
+1. DevOps Projectss panosuna gidin.
 
-1. **Azure DevOps Projesi panosuna** gidin.
+1. DevOps projeleri panonun üst kısmında seçin **derleme işlem hatlarını**.  
+    Derleme işlem hattı yeni projeniz için bir tarayıcı sekmesi görüntülenir.
 
-1. **Azure DevOps Projesi panosunun** **üst** kısmından **Derleme İşlem Hatları**’nı seçin.  Bu bağlantı bir tarayıcı sekmesi açar ve yeni projeniz için Azure DevOps Services derleme işlem hattını açar.
-
-1. Fare imlecini **Durum** alanının yanındaki derleme işlem hattının sağına taşıyın. Görüntülenen **üç noktayı** seçin.  Bu eylem, **yeni bir derlemeyi sıraya alma**, **derleme duraklatma** ve **derleme işlem hattını düzenleme** gibi birkaç etkinliği başlatabileceğiniz bir menüyü açar.
+1. İşaret **durumu** alan ve ardından üç nokta (...) seçin.  
+    Bir derleme duraklatma ve derleme işlem hattı düzenleme yeni bir derleme kuyruğa alma gibi çeşitli seçenekler bir menü görüntüler.
 
 1. **Düzenle**’yi seçin.
 
-1. Bu görünümden derleme işlem hattınızın **çeşitli görevlerini inceleyin**.  Derleme, Azure DevOps Services Git deposundan kaynak getirme, bağımlılıkları geri yükleme ve dağıtım için kullanılan çıkışları yayımlama gibi çeşitli görevleri yürütür.
+1. Bu bölmede, derleme işlem hattı için çeşitli görevleri inceleyebilirsiniz.  
+    Derleme, bağımlılıklarını geri yükleme ve yayımlama depo çıkarır Git getirilirken kaynaklardan dağıtımları için kullanılan gibi çeşitli görevleri gerçekleştirir.
 
-1. Derleme işlem hattının üst kısmında **derleme işlem hattı adını** seçin. 
+1. Derleme işlem hattı üstünde derleme işlem hattı adı seçin. 
 
-1. Derleme işlem hattı adınızın altında **Geçmiş**’i seçin.  Derleme için yaptığınız son değişikliklere ait denetim kaydını görürsünüz.  Azure DevOps Services, derleme işlem hattında yapılan değişiklikleri izler ve sürümleri karşılaştırmanızı sağlar.
+1. Derleme işlem hattı adınızın altında **Geçmiş**’i seçin.  
+    Bu bölme bir denetim kaydı derleme için en son değişikliği görüntüler. Azure DevOps derleme işlem hattı için yapılan değişiklikleri izler ve sürümleri karşılaştırmanızı sağlar.
 
-1. **Tetikleyiciler**’i seçin.  Azure DevOps Projesi otomatik olarak bir CI tetikleyicisi oluşturur ve depoya yönelik her işleme yeni bir derleme başlatır.  İsteğe bağlı olarak dalları CI işlemine dahil etmeyi veya işlemden hariç tutmayı seçebilirsiniz.
+1. **Tetikleyiciler**’i seçin.  
+    DevOps projeleri CI tetikleyicisini otomatik olarak oluşturur ve depoya her işleme, yeni bir derleme başlar. İsteğe bağlı olarak, dahil etmek veya dallar CI işleminden hariç tutmak seçim yapabilirsiniz.
 
-1. **Saklama**’yı seçin.  Senaryonuza bağlı olarak, belirli sayıdaki derlemeleri saklayacak veya kaldıracak ilkeleri belirtebilirsiniz.
+1. **Saklama**’yı seçin.  
+    Senaryonuza bağlı olarak, saklamak veya belirli bir sayıda derlemeleri kaldırmak için ilkeleri belirtebilirsiniz.
 
-## <a name="examine-the-azure-devops-services-cd-pipeline"></a>Azure DevOps Services CD işlem hattını inceleme
+## <a name="examine-the-cd-pipeline"></a>CD işlem hattını inceleme
 
-Azure DevOps Projesi, Azure DevOps Services kuruluşunuzdan Azure aboneliğinize dağıtım için gereken adımları otomatik olarak oluşturur ve yapılandırır.  Bu adımlar Azure aboneliğinde Azure DevOps Services’ın kimliğini doğrulamak için bir Azure hizmet bağlantısı yapılandırmayı içerir.  Otomasyon bir Azure DevOps Services Yayın işlem hattı da oluşturur bu yayın Azure'a CD sağlar.  Azure DevOps Services Yayın işlem hattı hakkında daha fazla inceleme yapmak için aşağıdaki adımları izleyin.
+DevOps projeleri, otomatik olarak oluşturur ve Azure DevOps kuruluşunuzdan Azure aboneliğinize dağıtmak için gerekli adımları yapılandırır. Bu adımlar, Azure DevOps, Azure aboneliğiniz için kimlik doğrulaması için bir Azure hizmet bağlantısı yapılandırmayı içerir. Otomasyon, ayrıca Azure'da CD sağlayan bir yayın ardışık düzeni oluşturur. Yayın ardışık düzeni hakkında daha fazla bilgi için aşağıdakileri yapın:
 
-1. **Derleme ve Yayın**’ı ve ardından **Yayınlar**’ı seçin.  Azure DevOps projesi Azure'a yönelik dağıtımları yönetmek için bir Azure DevOps Services yayın işlem hattı oluşturdu.
+1. Seçin **derleme ve yayın**ve ardından **yayınlar**.  
+    DevOps projeleri, azure'da dağıtımlarını yönetmek için bir yayın ardışık düzeni oluşturur.
 
-1. Tarayıcının sol tarafında, yayın işlem hattınızın yanındaki **üç noktayı** ve ardından **Düzenle**’yi seçin.
+1. Yayın işlem hattınızı yanındaki üç nokta (...) seçin ve ardından **Düzenle**.  
+    Yayın işlem hattı, yayın işlemini tanımlayan bir *işlem hattı* içerir.
 
-1. Yayın işlem hattı, yayın işlemini tanımlayan bir **işlem hattı** içerir.  **Yapıtlar**’ın altında **Bırak**’ı seçin.  Önceki adımlarda incelediğiniz derleme işlem hattı, yapıt için kullanılan çıkışı üretir. 
+1. **Yapıtlar**’ın altında **Bırak**’ı seçin.  
+    Denetlenen derleme işlem hattı daha önce yapıt için kullanılan bir çıktı üretir. 
 
-1. **Bırak** simgesinin sağ tarafında **Sürekli dağıtım tetikleyicisi** **simgesini** seçin (şimşek şeklindedir).  Bu yayın işlem hattının etkin bir CD tetikleyicisi vardır.  Tetikleyici, her yeni derleme yapısı kullanılabilir olduğunda bir dağıtım başlatır.  İsteğe bağlı olarak, dağıtımlarınızın el ile yürütme gerektirmesi için tetikleyiciyi devre dışı bırakabilirsiniz. 
+1. Sağ tarafında **bırak** simgesini seçme **sürekli dağıtım tetikleyicisi**.  
+    Bu yayın işlem hattı, her seferinde yeni bir derleme yapıtının kullanılabilir olan bir dağıtımın yürüttüğü etkin bir CD tetikleyicisine sahiptir. İsteğe bağlı olarak, el ile yürütme dağıtımlarınızı gerektirir böylece tetikleyiciyi devre dışı bırakabilirsiniz. 
 
-1. Tarayıcının sağ tarafında **Yayınları görüntüle**’yi seçin.  Bu görünümde yayın geçmişi gösterilir.
+1. Sağ taraftaki seçin **yayınları görüntüleyebilir** yayınlar geçmişini görüntülemek için.
 
-1. Yayınlarınızdan birinin yanındaki **üç nokta** simgesini seçin ve sonra da **Aç**'ı seçin.  Bu görünümde keşfedilebilecek **yayın özeti**, **ilişkili iş öğeleri** ve **Testler** gibi çeşitli menüler vardır.
+1. Bir yayın yanındaki üç nokta (...) seçin ve ardından **açık**.  
+    Yayın özeti ilişkili iş öğeleri ve test gibi çeşitli menüleri keşfedebilirsiniz.
 
-1. **İşlemeler**'i seçin.  Bu görünümde, belirli bir dağıtımla ilişkilendirilmiş kod işlemeleri gösterilir. Dağıtımlar arasındaki işleme farklılıklarını görmek için yayınları karşılaştırabilirsiniz.
+1. **İşlemeler**'i seçin.  
+    Bu görünüm, bu dağıtımla ilişkilendirilmiş kodu yürütmeleri gösterir. Dağıtımlar arasındaki işleme farklılıklarını görmek için yayınları karşılaştırın.
 
-1. **Günlükler**’i seçin.  Günlüklerde, dağıtım işlemiyle ilgili yararlı bilgiler bulunur.  Bunlar hem dağıtım sırasında hem de sonrasında görüntülenebilir.
+1. **Günlükler**’i seçin.  
+    Günlüklerde, dağıtım işlemiyle ilgili yararlı bilgiler bulunur. Bunları, sırasında ve sonrasında dağıtımları görüntüleyebilirsiniz.
 
-## <a name="commit-changes-to-git-and-automatically-deploy-to-azure"></a>Git’e değişiklikleri işleme ve Azure’a otomatik olarak dağıtma 
+## <a name="commit-changes-to-git-and-automatically-deploy-them-to-azure"></a>Değişiklikleri Git'e kaydedin ve otomatik olarak Azure'a dağıtın 
 
  > [!NOTE]
- > Aşağıdaki adımlarda, web uygulamanızda yapılan basit bir metin değişikliğiyle CI/CD işlem hattı test edilir.
+ > Aşağıdaki yordam, CI/CD işlem hattı basit metin değişikliği yaparak test eder.
 
-Artık en son çalışmanızı otomatik olarak web sitenize dağıtan bir CI/CD işlemiyle uygulamanız üzerinde bir ekiple birlikte çalışmaya hazırsınız.  Git deposunda yapılan her değişiklik bir derleme başlatır ve bir yayın değişikliklerinizi Azure’a dağıtır.  Değişikliklerinizi deponuza işlemek için aşağıdaki adımları izleyin veya başka teknikler kullanın.  Örneğin, Git deposunu tercih ettiğiniz araca veya IDE'ye **kopyalayabilir** ve ardından bu değişiklikleri depoya gönderebilirsiniz.
+Artık otomatik olarak en son iş sitenize dağıtan bir CI/CD işlem kullanarak uygulamanızı bir ekip ile işbirliği yapmaya hazır. Bir yapı her değişiklik için Git deposu başlar ve bir yayın değişikliklerinizi Azure'a dağıtır. Bu bölümdeki yordamı izleyin veya değişiklikleri deponuza işlemek için başka bir teknik kullanın. Örneğin, en sevdiğiniz aracı veya IDE Git deposunda kopyalayabilirsiniz ve ardından bu depoya itme değiştirir.
 
-1. Azure DevOps Services menüsünde **Kod**'u ve **Dosyalar**'ı seçin, sonra da deponuza gidin.
-1. **Views\Home** dizinine gidin, **Index.cshtml** dosyasının yanındaki **üç nokta** simgesini seçin ve sonra da **Düzenle**'yi seçin.
+1. Azure DevOps menüde **kod** > **dosyaları**, deponuza gidin.
 
-1. Dosyada bir değişiklik yapın; örneğin, **div etiketlerinden** birinin içinde biraz metin ekleyin.  Sağ üst kısımda **İşle**'yi seçin.  Değişikliğinizi göndermek için **İşle**'yi yeniden seçin. 
+1. Git *görünümler/giriş* dizin yanındaki üç nokta (...) seçin *Index.cshtml* dosya ve ardından **Düzenle**.
 
-1. Birkaç dakika içinde **derleme başlatılır** ve ardından değişiklerin dağıtılması için bir yayın yürütülür.  DevOps proje panosuyla veya Azure DevOps Services gerçek zamanlı günlük tutma ile tarayıcıda **derleme durumunu** izleyebilirsiniz.
+1. Div etiketlerinden birini bazı metinler ekleme gibi bu dosyaya bir değişiklik yapın. 
 
-1. Yayın tamamlandığında, değişikliklerinizi gördüğünüzü doğrulamak için tarayıcıda **uygulamanızı yenileyin**.
+1. Sağ üst kısımdaki seçin **işleme**ve ardından **işleme** değişikliğiniz yeniden göndermek için.  
+    Birkaç dakika sonra bir yapı başlatır ve ardından değişiklikleri dağıtmak için bir yayın yürütür. DevOps projeleri Panoda veya tarayıcı Azure DevOps gerçek zamanlı günlük kaydı ile yapı durumunu izleyebilirsiniz.
+
+1. Yayın tamamlandığında, değişikliklerinizi doğrulamak için uygulamanıza yenileyin.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
- > [!NOTE]
- > Aşağıdaki adımlar kaynakları kalıcı olarak siler.  Bu işlevi ancak bilgi istemlerini dikkatle okuduktan sonra kullanın.
+Test yapıyorsanız, kaynaklarınızı temizleyerek fatura ücretler tahakkuk önleyebilirsiniz. Artık gerekli değilse, bu öğreticide oluşturduğunuz kaynaklar ve Azure Service Fabric kümesini silebilirsiniz. Bunu yapmak için **Sil** DevOps projeleri Pano işlevselliği.
 
-Test yapıyorsanız,tahakkuk eden ücretleri ödemekten kaçınmak için kaynakları temizleyebilirsiniz.  Artık gerekli olmadığında, Azure DevOps Projesi panosundaki **Sil** işlevini kullanarak bu öğreticide oluşturulmuş olan Azure Service Fabric kümesini ve ilgili kaynakları silebilirsiniz.  **Dikkatli olun**. Sil işlevi hem Azure hem de Azure DevOps Services üzerinde Azure DevOps Projesi tarafından oluşturulan verileri yok eder ve yok edildikten sonra bu verileri geri alamazsınız.
+> [!IMPORTANT]
+> Aşağıdaki yordam, kaynakları kalıcı olarak siler. *Sil* işlevselliği, hem Azure hem de Azure DevOps, DevOps projeleri, proje tarafından oluşturulan verileri yok eder ve onu almak mümkün olmayacaktır. Yönergeleri dikkatle yalnızca okuduktan sonra bu yordamı kullanın.
 
-1. **Azure portalında** **Azure DevOps Projesi**'ne gidin.
-2. Panonun **sağ üst** tarafında **Sil**'i seçin.  İstemi okuduktan sonra, kaynakları **kalıcı olarak silmek** için **Evet**'i seçin.
+1. Azure portalında DevOps projeleri panoya gidin.
+1. Sağ üst kısımdaki seçin **Sil**. 
+1. İstemde, seçin **Evet** için *kalıcı olarak silmek* kaynakları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ekibinizin gereksinimlerine uygun olarak bu Azure CI/CD işlem hatlarını istediğiniz gibi değiştirebilirsiniz. Ayrıca bu CI/CD desenini diğer projelerinizde şablon olarak kullanabilirsiniz.  Şunları öğrendiniz:
+Ekibinizin gereksinimlerine uygun olarak bu Azure CI/CD işlem hatlarını istediğiniz gibi değiştirebilirsiniz. Ayrıca bu CI/CD desenini diğer işlem hatlarınızda şablon olarak kullanabilirsiniz. Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * ASP.NET Core Uygulaması ve Service Fabric için Azure DevOps Projesi oluşturma
-> * Azure DevOps Services ve bir Azure aboneliği yapılandırma 
+> * Bir ASP.NET Core uygulaması oluşturma ve Service Fabric'e dağıtma DevOps projeleri'ni kullanın
+> * Azure DevOps ve Azure aboneliğinin yapılandırın 
 > * CI işlem hattını inceleme
 > * CD işlem hattını inceleme
-> * Git’e değişiklikleri işleme ve Azure’a otomatik olarak dağıtma
+> * Değişiklikleri Git'e kaydedin ve otomatik olarak Azure'a dağıtın
 > * Kaynakları temizleme
 
-Service Fabric ve mikro hizmetler hakkında daha fazla bilgi edinmek için aşağıya bakın:
+Service Fabric ve mikro hizmetler hakkında daha fazla bilgi için bkz:
 
 > [!div class="nextstepaction"]
 > [Uygulamaları oluşturmak için bir mikro hizmetler yaklaşımı kullanma](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
