@@ -48,7 +48,7 @@
 #### [SQL Değerlendirmesi](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
-#### [VMWare Analizi](../log-analytics/log-analytics-vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [VMware Analizi](../log-analytics/log-analytics-vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Kablo Verileri](../log-analytics/log-analytics-wire-data.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### Otomasyon ve denetim
 #### [Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
