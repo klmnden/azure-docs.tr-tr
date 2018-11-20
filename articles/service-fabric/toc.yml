@@ -239,12 +239,16 @@ items:
       items:
       - name: Düğüm türleri ve VM Ölçek Kümeleri
         href: service-fabric-cluster-nodetypes.md
+      - name: Azure’da kümeleri yükseltme
+        href: service-fabric-cluster-upgrade.md
       - name: Ölçeklendirme
         href: service-fabric-cluster-scaling.md
       - name: Küme ağ desenleri
         href: service-fabric-patterns-networking.md
     - name: Tek başına kümeler
       items:
+      - name: Tek başına kümeleri yükseltme
+        href: service-fabric-cluster-upgrade-standalone.md
       - name: Ölçeklendirme
         href: service-fabric-cluster-scaling-standalone.md
     - name: Küme kaynağı yöneticisi
@@ -585,19 +589,27 @@ items:
         - name: Sanal Makine Ölçek Kümesi Düğüm Türü ölçeğini genişletme
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: Yükseltme
-        href: service-fabric-cluster-upgrade.md
-      - name: Erişim denetimini ayarlama
-        href: service-fabric-cluster-security-roles.md
-      - name: Yük dengeleyicide bağlantı noktası açma
-        href: create-load-balancer-rule.md
-      - name: Küme sertifikasını ortak ad olarak değiştirme
-        href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
-      - name: Küme sertifikalarını el ile geçirme
-        href: service-fabric-cluster-rollover-cert-cn.md
-      - name: Küme sertifikalarını yönetme
-        href: service-fabric-cluster-security-update-certs-azure.md
-      - name: Küme düğümü VM’sine uzaktan bağlanma
-        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        items:
+        - name: Service Fabric sürümünü yükseltme
+          href: service-fabric-cluster-upgrade-version-azure.md
+        - name: Küme yapılandırmasını yükseltme
+          href: service-fabric-cluster-config-upgrade-azure.md
+        - name: Küme düğümlerine yama yapma (Windows)
+          href: service-fabric-patch-orchestration-application.md
+        - name: Küme düğümlerine yama yapma (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
+        - name: Erişim denetimini ayarlama
+          href: service-fabric-cluster-security-roles.md
+        - name: Yük dengeleyicide bağlantı noktası açma
+          href: create-load-balancer-rule.md
+        - name: Küme sertifikasını ortak ad olarak değiştirme
+          href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+        - name: Küme sertifikalarını el ile geçirme
+          href: service-fabric-cluster-rollover-cert-cn.md
+        - name: Küme sertifikalarını yönetme
+          href: service-fabric-cluster-security-update-certs-azure.md
+        - name: Küme düğümü VM’sine uzaktan bağlanma
+          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: Tek başına kümeler
       items:
       - name: Oluştur
@@ -612,20 +624,22 @@ items:
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Ölçek
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: Erişim denetimini ayarlama
-        href: service-fabric-cluster-security-roles.md
-      - name: Yapılandırma
-        href: service-fabric-cluster-manifest.md
       - name: Yükseltme
-        href: service-fabric-cluster-upgrade-windows-server.md
+        items:
+        - name: Service Fabric sürümünü yükseltme
+          href: service-fabric-cluster-upgrade-windows-server.md
+        - name: Küme yapılandırmasını yükseltme
+          href: service-fabric-cluster-config-upgrade-windows-server.md
+        - name: Yapılandırma ayarları
+          href: service-fabric-cluster-manifest.md
+        - name: Erişim denetimini ayarlama
+          href: service-fabric-cluster-security-roles.md
+        - name: Küme düğümlerine yama yapma (Windows)
+          href: service-fabric-patch-orchestration-application.md
     - name: Küme görselleştirme
       href: service-fabric-visualizing-your-cluster.md
     - name: Güvenli bir kümeye bağlanma
       href: service-fabric-connect-to-secure-cluster.md
-    - name: Küme düğümlerine yama yapma (Windows)
-      href: service-fabric-patch-orchestration-application.md
-    - name: Küme düğümlerine yama yapma (Linux)
-      href: service-fabric-patch-orchestration-application-linux.md
   - name: İzleme ve tanılama
     items:
     - name: Uygulamaları izleme
@@ -767,9 +781,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 810c04b2d6b2b5e7a8db64e21c10225ccddcb117
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 98ca5a1cbf5298931c14d6c696119d0c98893072
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634286"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853651"
