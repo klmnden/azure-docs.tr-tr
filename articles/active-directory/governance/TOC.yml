@@ -5,37 +5,58 @@ items:
   items:
   - name: Kimlik idaresi nedir?
     href: identity-governance-overview.md
-  expanded: true
+  - name: Erişim gözden geçirmeleri nedir?
+    href: access-reviews-overview.md
+  expanded: false
+- name: Kavramlar
+  items:
+  - name: Gözden geçirmelerle konuk erişimini yönetme
+    href: manage-guest-access-with-access-reviews.md
+  - name: Gözden geçirmelerle kullanıcı erişimini yönetme
+    href: manage-user-access-with-access-reviews.md
+  - name: Programları ve denetimlerini yönetme
+    href: manage-programs-controls.md
+  - name: Koşullu erişimin dışında tutulan kullanıcıları yönetme
+    href: conditional-access-exclusion.md
+  expanded: false
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Erişim gözden geçirmeleri
     items:
-    - name: Erişim gözden geçirmesi nedir?
-      href: access-reviews-overview.md
-    - name: Erişim gözden geçirmesi oluşturma
-      href: create-access-review.md
-    - name: Erişim gözden geçirmesi tamamlama
-      href: complete-access-review.md
-    - name: Erişim gözden geçirmesi gerçekleştirme
-      href: perform-access-review.md
-    - name: Erişiminizi gözden geçirme
-      href: review-your-access.md
-    - name: Erişim gözden geçirmesi ile konuk erişimi
-      href: manage-guest-access-with-access-reviews.md
-    - name: Gözden geçirmelerle kullanıcı erişimini yönetme
-      href: manage-user-access-with-access-reviews.md
-    - name: Programları ve denetimlerini yönetme
-      href: manage-programs-controls.md
-    - name: Erişim gözden geçirmesi sonuçlarını alma
-      href: retrieve-access-review.md
-    - name: Dışlanacak kullanıcıları yönetme
-      href: conditional-access-exclusion.md
+    - name: Gruplar ve uygulamalar
+      items:
+      - name: Erişim gözden geçirmesi oluşturma
+        href: create-access-review.md
+      - name: Erişim gözden geçirmesi başlatma
+        href: perform-access-review.md
+      - name: Kendi erişiminizi gözden geçirme
+        href: review-your-access.md
+      - name: Erişim gözden geçirmesi tamamlama
+        href: complete-access-review.md
+      - name: Erişim gözden geçirmesi sonuçlarını alma
+        href: retrieve-access-review.md
+    - name: Dizin rolleri
+      items:
+      - name: Dizin rollerimi inceleme
+        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Erişim gözden geçirmesi başlatma
+        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Erişim gözden geçirmesi tamamlama
+        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Kaynak rolleri
+      items:
+      - name: Kaynak rollerimi inceleme
+        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Erişim gözden geçirmesi başlatma
+        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Erişim gözden geçirmesi tamamlama
+        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
   - name: Kullanım koşulları
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1c70e219aab05e8f8bd905cdc341ccd0d7b563a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163146"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261155"

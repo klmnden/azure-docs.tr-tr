@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239014"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262101"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Team Data Science işlem (TDSP) şablonu kullanarak biyomedikal varlık tanıma
 
@@ -174,7 +174,7 @@ Word2Vec etiketlenmemiş eğitim topluluğunuza sinir ağı modelden eğitir Den
 
 ![Skip Gram modeli](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Performansı iyileştirmek için hiyerarşik Softmax ve negatif örnekleme modelini kullanır. Hiyerarşik SoftMax (SoftMax H) bir ikili ağaçlara göre ilham değeridir. H SoftMax ayrıldığında sözcükleri hiyerarşik bir katmanla temelde düz SoftMax katman yerini alır. Bu, bize pahalı normalleştirme tüm sözcükleri hesaplamak zorunda kalmaktan kurtarır olasılık hesaplamaları dizisini bir sözcük olasılığını hesaplama parçalayın olanak tanır. Log2 derinliğini dengeli bir ikili ağacı sahip olduğundan (| V |) (V olduğundan kelime), yalnızca en fazla log2 değerlendirmek ihtiyacımız (| V |) bir sözcük son olasılığını almak için düğümleri. Kendi bağlam c verilen sözcük w olasılığını sonra yalnızca doğru alınmasına olasılıklar ürünüdür ve sol sırasıyla yaprak düğümü yol açan kapatır. Biz daha sık sözcükleri daha kısa gösterimleri aldığından emin olmak için veri kümesinde bir kelimelerin sıklığına göre Huffman ağacı oluşturabilirsiniz. Daha fazla bilgi için [bu bağlantıyı](http://sebastianruder.com/word-embeddings-softmax/).
+Performansı iyileştirmek için hiyerarşik Softmax ve negatif örnekleme modelini kullanır. Hiyerarşik SoftMax (SoftMax H) bir ikili ağaçlara göre ilham değeridir. H SoftMax ayrıldığında sözcükleri hiyerarşik bir katmanla temelde düz SoftMax katman yerini alır. Bu, bize pahalı normalleştirme tüm sözcükleri hesaplamak zorunda kalmaktan kurtarır olasılık hesaplamaları dizisini bir sözcük olasılığını hesaplama parçalayın olanak tanır. Log2 derinliğini dengeli bir ikili ağacı sahip olduğundan (| V |) (V olduğundan kelime), yalnızca en fazla log2 değerlendirmek ihtiyacımız (| V |) bir sözcük son olasılığını almak için düğümleri. Kendi bağlam c verilen sözcük w olasılığını sonra yalnızca doğru alınmasına olasılıklar ürünüdür ve sol sırasıyla yaprak düğümü yol açan kapatır. Biz daha sık sözcükleri daha kısa gösterimleri aldığından emin olmak için veri kümesinde bir kelimelerin sıklığına göre Huffman ağacı oluşturabilirsiniz. Daha fazla bilgi için [bu bağlantıyı](http://ruder.io/word-embeddings-softmax/).
 Alınan görüntü [burada](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Görselleştirme

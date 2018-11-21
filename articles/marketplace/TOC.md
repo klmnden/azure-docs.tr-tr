@@ -5,7 +5,6 @@
 ### [Markette yayımcı olma](./become-publisher.md)  
 #### [Microsoft hesabı oluşturma](./guidelines.md)
 #### [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md) 
-#### [Azure Market için faturalandırma seçenekleri](./billing-options-azure-marketplace.md)  
 #### [Azure iş ortağı müşteri kullanımı ilişkilendirmesi](./azure-partner-customer-usage-attribution.md)
 #### [Bulut marketi için müşteri adayı yönetimi](./lead-management-for-cloud-marketplace.md)
 
@@ -13,7 +12,7 @@
 
 ### [Çözümünüz için yayımlama seçeneğini belirleme](./determine-your-listing-type.md)  
 
-### Teklif türüne göre yayımlama kılavuzu 
+### [Teklif türüne göre yayımlama kılavuzu](./publisher-guide-by-offer-type.md)
 #### [Sanal Makineler](./marketplace-virtual-machines.md)
 #### [Azure Uygulamaları: Çözüm şablonları](./marketplace-solution-templates.md)
 #### [Azure Uygulamaları: Yönetilen uygulamalar](./marketplace-managed-apps.md)
@@ -27,6 +26,8 @@
 ### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
 #### [Tercih edilen çözümler](./preferred-solutions.md) 
 #### [Market içerik doğrulaması](./marketplace-criteria-content-validation.md)
+#### [Özel Teklifler](./private-offers.md)
+#### [Market ‎ticari işlem özellikleri ve dikkat edilmesi gereken noktalar](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 ### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
 
@@ -34,6 +35,16 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Bulut İş Ortağı Portalı](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## [Portal Turu](./cloud-partner-portal/portal-tour/cpp-portal-tour.md)
+### [Portal gezintisi](./cloud-partner-portal/portal-tour/cpp-portal-navigation.md)
+### [Yeni teklif menüsü](./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md)
+### [Tüm teklifler sayfası](./cloud-partner-portal/portal-tour/cpp-all-offers-page.md)
+### [Onaylar sayfası](./cloud-partner-portal/portal-tour/cpp-approvals-page.md)
+### [Tüm yayımcılar sayfası](./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md)
+### [Kullanıcılar sayfası](./cloud-partner-portal/portal-tour/cpp-users-page.md)
+### [Denetim geçmişi sayfası](./cloud-partner-portal/portal-tour/cpp-history-page.md)
+### [İçgörüler sayfası](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
 ## Portal yönetimi
 ### [Geliştirme merkezi hesabı kaydı](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
