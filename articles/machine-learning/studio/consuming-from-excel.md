@@ -3,8 +3,8 @@ title: Bir Machine Learning Web hizmetini Excel'den kullanma | Microsoft Docs
 description: Bir Azure Machine Learning Web hizmetini Excel'den kullanma
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: 88150763d7deeda2e4fcba896df56d012d58cd1d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 241f482aa24d45788277813a0f11cde326057222
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821965"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265041"
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Bir Azure Machine Learning Web Hizmetini Excel’den kullanma
  Azure Machine Learning Studio web Hizmetleri, kod yazmaya gerek kalmadan doğrudan Excel'den çağırın kolaylaştırır.

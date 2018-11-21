@@ -9,13 +9,13 @@ ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
-manager: dougeby
-ms.openlocfilehash: e705a0f57b598eb60932ca1056131cedc1416ffc
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+manager: benshy
+ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394485"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274561"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -38,7 +38,7 @@ Bu öğreticide, Azure 'un ve AWS Ayrılmış Örneklerin (RI) Cloudyn tarafınd
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure hesabınız olmalıdır.
 - Cloudyn için bir deneme kaydına veya ücretli aboneliğe sahip olmanız gerekir.

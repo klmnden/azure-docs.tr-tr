@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684826"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276049"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IOT Edge modülü SKU'ları sekmesi
 
@@ -125,7 +125,7 @@ Amaç, içeriği, aşağıdaki tabloda açıklanmıştır ve alanların biçimle
 
 |  **Alan**       |     **Açıklama**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Varsayılan yollar**        | Her bir varsayılan rota adı ve değeri az 512 karakter olmalıdır. En fazla 5 varsayılan yol tanımlayabilirsiniz. Doğru kullandığınızdan emin olun [yol söz dizimi](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) , rota değeri. Modülünüzün için başvurmak için olacak varsayılan modül adı kullanın, **SKU başlık** alanları ve özel karakterler olmadan. Henüz bilinen diğer modüllerle başvurmak için kullanma `<FROM_MODULE_NAME>` bu bilgileri güncelleştirmek gerektiğini bildirin, müşterilerin, kapasitelerinde kuralı. Daha fazla bilgi edinin [IOT Edge yönlendiren](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Örneğin, Modülü `ContosoModule` girdiler için dinlediği `ContosoInput` ve çıktı veri `ContosoOutput`, aşağıdaki 2 varsayılan rotaları tanımlamak için mantıklıdır:<br/>-Adı #1: `ToContosoModule`<br/>-#1 değeri:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-Adı #2: `FromContosoModuleToCloud`<br/>-#2 değeri: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **Varsayılan yollar**        | Her bir varsayılan rota adı ve değeri az 512 karakter olmalıdır. En fazla 5 varsayılan yol tanımlayabilirsiniz. Doğru kullandığınızdan emin olun [yol söz dizimi](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) , rota değeri. Modülünüzün için başvurmak için olacak varsayılan modül adı kullanın, **SKU başlık** alanları ve özel karakterler olmadan. Henüz bilinen diğer modüllerle başvurmak için kullanma `<FROM_MODULE_NAME>` bu bilgileri güncelleştirmek gerektiğini bildirin, müşterilerin, kapasitelerinde kuralı. Daha fazla bilgi edinin [IOT Edge yönlendiren](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Örneğin, Modülü `ContosoModule` girdiler için dinlediği `ContosoInput` ve çıktı veri `ContosoOutput`, aşağıdaki 2 varsayılan rotaları tanımlamak için mantıklıdır:<br/>-Adı #1: `ToContosoModule`<br/>-#1 değeri:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-Adı #2: `FromContosoModuleToCloud`<br/>-#2 değeri: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **Varsayılan çiftinin istenen özelliklerini**      | Her varsayılan çiftinin istenen özelliklerini ad ve değer az 512 karakter olmalıdır. En fazla 5 ad/değer çiftinin istenen özelliklerini tanımlayabilirsiniz. Geçerli JSON, olmayan kaçış, Dizileri olmadan ve 4'ün en fazla iç içe hiyerarşisini çiftinin istenen özelliklerini değerleri olmalıdır. Daha fazla bilgi edinin [çiftinin istenen özelliklerini](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Bir modül çiftinin istenen özelliklerini aracılığıyla dinamik olarak yapılandırılabilir yenileyerek destekliyorsa, örneğin, aşağıdaki varsayılan çiftinin istenen özelliği tanımlamak için mantıklıdır:<br/> -Adı #1: `RefreshRate`<br/>-#1 değeri: `60`|
 | **Varsayılan ortam değişkenleri**  | Her bir varsayılan ortam değişkenleri adı ve değeri az 512 karakter olmalıdır. En fazla 5 ad/değer ortam değişkenlerini tanımlayabilirsiniz. <br/>Örneğin, bir modül Başlatılmakta olan önce kullanım koşulları kabul etmesini gerektiriyorsa, aşağıdaki ortam değişkenlerini tanımlayabilirsiniz:<br/> -Adı #1: `ACCEPT_EULA`<br/>-#1 değeri: `Y`|
 | **Varsayılan createOptions**  | CreateOptions az 512 karakter olmalıdır. Atlanan geçerli JSON olmalıdır. Daha fazla bilgi edinin [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Bir modül gerektiriyorsa bir bağlantı noktası, örneğin, bağlama aşağıdaki createOptions tanımlayabilirsiniz:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

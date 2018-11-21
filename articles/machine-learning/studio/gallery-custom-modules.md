@@ -3,8 +3,8 @@ title: Azure AI Gallery özel modüller | Microsoft Docs
 description: Azure AI Gallery'de özel machine learning modüllerinin keşfedin.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: 6f92f3d81889bf79db21b5f24cb98963e4eafdb4
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 9ca07adecaa8d6e8b51d20014c95d4147a4a5eb8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821183"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263512"
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Azure AI Gallery'de özel machine learning modüllerinin keşfedin
 

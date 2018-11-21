@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83fff9fa322431983c1d385705ae235a8e818570
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237273"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275291"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Azure Otomasyonu (Beta) Orchestrator'dan geçiş
 Runbook'ları [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) Azure automation'daki runbook'lar Windows PowerShell tabanlı, özellikle Orchestrator için yazılmış tümleştirme paketleri gerçekleştirilen etkinlikler temel alır.  [Grafik runbook'ları](automation-runbook-types.md#graphical-runbooks) Azure Otomasyonu'nda benzer bir görünümü Orchestrator runbook'ları için PowerShell cmdlet'leri, alt runbook'ları ve varlıkları temsil eden kendi etkinliklerle sahip.
@@ -79,7 +79,9 @@ Orchestrator runbook dönüştürmek ve Azure Automation'a içeri aktarılması 
 ### <a name="using-runbook-converter"></a>Runbook dönüştürücü kullanma
 Sözdizimi **ConvertFrom-SCORunbook** aşağıdaki gibidir:
 
-    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```powershell
+ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```
 
 * RunbookPath - dönüştürmek için runbook'ları içeren dışarı aktarma dosyasının yolu.
 * Modül - runbook'lar etkinlikler içeren tümleştirme modülleri listesini virgülle ayrılmış.
@@ -87,8 +89,9 @@ Sözdizimi **ConvertFrom-SCORunbook** aşağıdaki gibidir:
 
 Aşağıdaki örnek komut, runbook'ları olarak adlandırılan bir dışarı aktarma dosyası dönüştürür **MyRunbooks.ois_export**.  Bu runbook'ları, Active Directory ve Data Protection Manager tümleştirme paketlerini kullanın.
 
-    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
-
+```powershell
+ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
+```
 
 ### <a name="log-files"></a>Günlük dosyaları
 Runbook dönüştürücü aşağıdaki günlük dosyalarına dönüştürülen runbook ile aynı konumda oluşturur.  Dosyalar zaten mevcutsa, ardından bunların son dönüştürme bilgileriyle üzerine yazılacak.

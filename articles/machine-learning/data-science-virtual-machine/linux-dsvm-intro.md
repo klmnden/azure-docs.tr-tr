@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056189"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262562"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure'da bir Linux CentOS veri bilimi sanal makinesi sağlama
 
@@ -77,7 +77,7 @@ Bir örneği, Linux veri bilimi sanal makinesi oluşturmak için adımlar şunla
    * **Ad**: oluşturmakta olduğunuz veri bilimi sunucunuzun adını yazın.
    * **Kullanıcı adı**: ilk hesap oturum açma kimliği
    * **Parola**: ilk hesap parolası (kullanabileceğiniz SSH ortak anahtarı parola yerine).
-   * **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin. Bu abonelik için kaynak oluşturma ayrıcalıkları olmalıdır.
+   * **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin. Bu abonelikte kaynak oluşturma ayrıcalıklarına sahip olmanız gerekir.
    * **Kaynak grubu**: yeni bir tane oluşturabilir veya varolan bir grubu kullanın.
    * **Konum**: en uygun veri merkezi seçin. Genellikle, verilerinizden en iyi sahip veya bu fiziksel konumunuza en hızlı ağ erişimi için en yakın veri merkezi bulunur.
    
@@ -97,12 +97,12 @@ Bir örneği, Linux veri bilimi sanal makinesi oluşturmak için adımlar şunla
    
    e. **Satın alma**:
    
-   * Sağlama başlatmak için tıklatın **satın**. İşlem koşullarını bir bağlantı sağlanır. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım.
+   * Sağlama başlatmak için tıklatın **satın**. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım.
 
 Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Linux veri bilimi sanal makinesi erişme
-VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows üzerinde bir SSH istemcisi aracı gibi indirebilirsiniz [Putty](http://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows'da [Putty](http://www.putty.org) gibi bir SSH istemcisi aracı indirebilirsiniz. Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
 
 > [!NOTE]
 > X2Go istemci gerçekleştirilen önemli ölçüde testinde iletme X11 iyidir. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.
@@ -374,6 +374,6 @@ Bir sekme kümesi ile artık bir grafik arabirim açılır. Aşağıda bir örne
 
 * [Veri bilimi üzerinde Linux veri bilimi sanal makinesi](linux-dsvm-walkthrough.md) izlenecek yol, Linux veri bilimi buraya sağlanan VM ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. 
 * Çeşitli veri bilimi araçlarını, veri bilimi sanal makinesi, bu makalede açıklanan araçları deneyerek keşfedin. Ayrıca çalıştırabileceğiniz *dsvm daha fazla bilgi* Kabuk temel bir giriş ve işaretçileri VM'de yüklü araçları hakkında daha fazla bilgi için sanal makine içinde.  
-* Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 * Ziyaret [Cortana Analytics Galerisi](http://gallery.cortanaanalytics.com) Cortana Analytics Suite kullanan makine öğrenimi ve veri analizi örnekleri için.
 

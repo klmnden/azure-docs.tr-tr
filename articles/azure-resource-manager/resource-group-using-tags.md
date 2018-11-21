@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a517597c2c4586b59594415f2361e3e4166d4c5a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299665"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260606"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
 
@@ -123,7 +123,7 @@ Bir kaynak grubundaki tüm etiketleri *yinelenmeyen kaynaklardaki mevcut etiketl
 
 ```azurepowershell-interactive
 $group = Get-AzureRmResourceGroup "examplegroup"
-if ($group.Tags -ne $null) {
+if ($null -ne $group.Tags) {
     $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
@@ -272,8 +272,6 @@ REST API işlemleri için bkz: [Azure faturalandırma REST API Başvurusu](/rest
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* Tüm kaynak türleri etiketleri destekler. Bir kaynak türü için bir etiket uygulamak, belirlemek için bkz: [etiket Azure kaynakları için destek](tag-support.md).
 * Özelleştirilmiş ilkeler kullanarak, aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke, tüm kaynakların belirli bir etiket için bir değer olmasını gerektirebilir. Daha fazla bilgi için [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md)
-* Kaynak dağıtırken Azure PowerShell kullanarak bir giriş için bkz. [Azure PowerShell kullanarak Azure Resource Manager ile](powershell-azure-resource-manager.md).
-* Kaynak dağıtırken Azure CLI kullanarak bir giriş için bkz. [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
 * Portalı kullanarak bir giriş için bkz. [Azure kaynaklarınızı yönetmek için Azure portalını kullanarak](resource-group-portal.md).  
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

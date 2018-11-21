@@ -3,8 +3,8 @@ title: Azure AI Gallery | Microsoft Docs
 description: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: c17365816095f4580afb79e7835d7b9aedd609d3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91d83c0551571c376fd7ef7dd4d174147e4ff4fe
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823342"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260588"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşın ve Azure AI Gallery'de kaynakları keşfedin
 

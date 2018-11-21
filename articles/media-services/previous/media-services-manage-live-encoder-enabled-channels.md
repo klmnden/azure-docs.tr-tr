@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222072"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262627"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 
@@ -268,8 +268,8 @@ Ne zaman true olarak bu ayar bir ad sonu sırasında maskeleme görüntüsü ekl
 İsteğe bağlı. Medya Hizmetleri varlık maskeleme görüntüsünü içeren varlık kimliğini belirtir. Varsayılan olarak NULL'dur. 
 
 
->[!NOTE] 
->Kanal oluşturmadan önce aşağıdaki kısıtlamalar geçerlidir maskeleme görüntüsü (başka hiçbir dosya bu varlığı olmalıdır) özel bir varlık olarak yüklenmelidir. Bu görüntü, yalnızca gerçek zamanlı Kodlayıcı ad sonu nedeniyle bir maskeleme görüntüsü ekleme veya açıkça bir maskeleme görüntüsü eklemek için sinyal kullanılır. Gerçek zamanlı Kodlayıcı ayrıca bir maskeleme görüntüsü moduna sırasında belirli hata koşulları – Örneğin giriş sinyalini kayıp olup olmadığını gidebilirsiniz. Şu anda Canlı Kodlayıcı bu tür bir 'giriş sinyalini kayıp' durumuna girdiğinde, özel görüntü kullanma seçeneği yoktur. Bu özellik için oy verebilirsiniz [burada](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Kanal oluşturmadan önce aşağıdaki kısıtlamalar geçerlidir maskeleme görüntüsü (başka hiçbir dosya bu varlığı olmalıdır) özel bir varlık olarak yüklenmelidir. Bu görüntü, yalnızca gerçek zamanlı Kodlayıcı ad sonu nedeniyle bir maskeleme görüntüsü ekleme veya açıkça bir maskeleme görüntüsü eklemek için sinyal kullanılır. Şu anda Canlı Kodlayıcı bu tür bir 'giriş sinyalini kayıp' durumuna girdiğinde, özel görüntü kullanma seçeneği yoktur. Bu özellik için oy verebilirsiniz [burada](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * En fazla 1920 x 1080 çözünürlükte.

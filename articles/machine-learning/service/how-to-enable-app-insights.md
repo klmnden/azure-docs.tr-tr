@@ -1,6 +1,6 @@
 ---
-title: Üretimde Azure Machine Learning hizmeti için Application Insights'ı etkinleştir
-description: Dağıtım için Azure Kubernetes hizmeti Azure Machine Learning hizmeti için Application Insights'ı ayarlamayı öğrenin
+title: Azure Machine Learning hizmeti için Application Insights'ı etkinleştir
+description: Azure Machine Learning hizmeti aracılığıyla dağıtılan hizmetler için Application Insights'ı ayarlamayı öğrenin
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 71dc7c0dbb2400802235da4f1bb952c7863a1862
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713223"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275063"
 ---
-# <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Azure Machine Learning Modellerinizi üretimde Application Insights ile izleme
+# <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Azure Machine Learning Modellerinizi Application Insights ile izleme
 
 Bu makalede, Azure Application ınsights'ı, Azure Machine Learning hizmeti için ayarlama konusunda bilgi edinin. Application Insights izleme olanağı sağlar:
 * Oranları, yanıt süreleri ve hata oranları isteyin.
@@ -32,14 +32,53 @@ Bu makalede, Azure Application ınsights'ı, Azure Machine Learning hizmeti içi
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
 * Bir Azure Machine Learning çalışma alanı, yüklü Python için betikleri ve Azure Machine Learning SDK'sını içeren yerel bir dizin. Bu Önkoşullar alma hakkında bilgi için bkz: [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md).
-* Azure Kubernetes Service (AKS) dağıtılması için eğitilen makine öğrenme modeli. Yoksa, bkz. [görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) öğretici.
-* Bir [AKS kümesi](how-to-deploy-to-aks.md).
+* Azure Kubernetes Service (AKS) veya Azure Container örneği (ACI) dağıtılması için eğitilen makine öğrenme modeli. Yoksa, bkz. [görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) öğretici.
 
+
+## <a name="enable-and-disable-from-the-sdk"></a>Etkinleştirme ve SDK'sından devre dışı
+
+### <a name="update-a-deployed-service"></a>Dağıtılan bir hizmette güncelleştir
+1. Hizmet çalışma alanınızdaki belirleyin. Değeri `ws` çalışma alanınızın adıdır.
+
+    ```python
+    from azureml.core.webservice import Webservice
+    aks_service= Webservice(ws, "my-service-name")
+    ```
+2. Hizmet uygulamanızın güncelleştirme ve Application Insights'ı etkinleştirin. 
+
+    ```python
+    aks_service.update(enable_app_insights=True)
+    ```
+
+### <a name="log-custom-traces-in-your-service"></a>Özel günlük izlemelerini hizmetinizde
+Günlük izlemeleri özel istiyorsanız için standart dağıtım işlemini izleyin [AKS](how-to-deploy-to-aks.md) veya [ACI](how-to-deploy-to-aci.md) . Daha sonra:
+
+1. Puanlama dosyası, yazdırma ifadeleri ekleyerek güncelleştirin.
+    
+    ```python
+    print ("model initialized" + time.strftime("%H:%M:%S"))
+    ```
+
+2. Hizmet yapılandırmasını güncelleştirin.
+    
+    ```python
+    config = Webservice.deploy_configuration(enable_app_insights=True)
+    ```
+
+3. Bir görüntü oluşturun ve üzerinde dağıtım [AKS](how-to-deploy-to-aks.md) veya [ACI](how-to-deploy-to-aci.md).  
+
+### <a name="disable-tracking-in-python"></a>Python'da izleme devre dışı bırak
+
+Application ınsights'ı devre dışı bırakmak için aşağıdaki kodu kullanın:
+
+```python 
+## replace <service_name> with the name of the web service
+<service_name>.update(enable_app_insights=False)
+```
+    
 ## <a name="enable-and-disable-in-the-portal"></a>Etkinleştirme ve portalda devre dışı
 
 Etkinleştirebilir ve Azure portalında Application ınsights'ı devre dışı bırakın.
-
-### <a name="enable"></a>Etkinleştirme
 
 1. İçinde [Azure portalında](https://portal.azure.com), kendi çalışma alanını açın.
 
@@ -68,47 +107,7 @@ Etkinleştirebilir ve Azure portalında Application ınsights'ı devre dışı b
    [![Temizlenmiş onay kutusu için tanılamayı etkinleştirme](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Seçin **güncelleştirme** değişiklikleri uygulamak için ekranın alt kısmındaki. 
-
-## <a name="enable-and-disable-from-the-sdk"></a>Etkinleştirme ve SDK'sından devre dışı
-
-### <a name="update-a-deployed-service"></a>Dağıtılan bir hizmette güncelleştir
-1. Hizmet çalışma alanınızdaki belirleyin. Değeri `ws` çalışma alanınızın adıdır.
-
-    ```python
-    aks_service= Webservice(ws, "my-service-name")
-    ```
-2. Hizmet uygulamanızın güncelleştirme ve Application Insights'ı etkinleştirin. 
-
-    ```python
-    aks_service.update(enable_app_insights=True)
-    ```
-
-### <a name="log-custom-traces-in-your-service"></a>Özel günlük izlemelerini hizmetinizde
-Günlük izlemeleri özel istiyorsanız izleyin [AKS için standart dağıtım işlemini](how-to-deploy-to-aks.md). Daha sonra:
-
-1. Puanlama dosyası, yazdırma ifadeleri ekleyerek güncelleştirin.
-    
-    ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
-    ```
-
-2. AKS yapılandırmasını güncelleştirin.
-    
-    ```python
-    aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
-    ```
-
-3. [Görüntüsü derleme ve dağıtma](how-to-deploy-to-aks.md).  
-
-### <a name="disable-tracking-in-python"></a>Python'da izleme devre dışı bırak
-
-Application ınsights'ı devre dışı bırakmak için aşağıdaki kodu kullanın:
-
-```python 
-## replace <service_name> with the name of the web service
-<service_name>.update(enable_app_insights=False)
-```
-    
+ 
 
 ## <a name="evaluate-data"></a>Veri değerlendir
 Application ınsights'ı hesabınız, Azure Machine Learning hizmeti aynı kaynak grubunda hizmetinizin veriler depolanır.

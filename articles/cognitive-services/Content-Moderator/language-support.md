@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: sajagtap
-ms.openlocfilehash: 3b0cd73be1857d0849c4cb53dcc52c5c27206e80
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230922"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276389"
 ---
-# <a name="language-and-region-support-for-content-moderator-api"></a>Content Moderator API'si için dil ve bölge desteği
+# <a name="language-support-for-content-moderator-api"></a>Content Moderator API'si için dil desteği
 
 > [!NOTE]
 > İçin **dil** parametresi, Ata `eng` veya makine destekli görmek için boş bırakın **sınıflandırma** yanıt (Önizleme özelliği). **Bu özellik yalnızca İngilizce destekler**.
@@ -35,13 +35,13 @@ ms.locfileid: "50230922"
 | Carian | Assam dili | Felemenkçe                     | Fransızca 
 | Çince (Basitleştirilmiş) | Azerice | Türkçe  | Yunanca (modern)
 | Çince (Geleneksel) | Bangla - Bangladeş | Fince  | İtalyanca
-| Church (Slavca) | Bangla - Hindistan | Fransızca      | Kore dili
+| Church (Slavca) | Bangla - Hindistan | Fransızca      | Korece
 | Koptikleri | Bask dili | Almanca                       | Norveççe
 | Çekçe |  Belarusça | Yunanca (modern)         | Lehçe
 | Dhivehi | Boşnakça - Kiril | Macarca      | Portekizce
 | Felemenkçe | Boşnakça - Latin | İtalyanca             | Rumence
 | Türkçe | (Kreyolu) | Bretonca [GeoPol olmayan] | Japonca  | Rusça
-| Farsça | Bulgarca | Kore dili                        | Slovakça
+| Farsça | Bulgarca | Korece                        | Slovakça
 | Fransızca  | Katalanca | Norveççe                        | İspanyolca 
 | Almanca  | Orta Kürtçe | Lehçe        | Türkçe
 | Yunanca | Çeroki dili | Portekizce
@@ -51,8 +51,8 @@ ms.locfileid: "50230922"
 | Hmong | Hırvatça | Sırpça Latin
 | Macarca | Çekçe | Slovakça
 | İtalyanca | Danca | İspanyolca 
-| Japonca | Dari dili | İsveç dili
-| Kore dili | Felemenkçe | Türkçe
+| Japonca | Dari dili | İsveççe
+| Korece | Felemenkçe | Türkçe
 | Kürtçe (Arapça) | Türkçe
 | Kürtçe (Latin) | Estonca
 | Lepça dili | Filipin dili
@@ -79,11 +79,11 @@ ms.locfileid: "50230922"
 | Sinhali dili | Kannada dili
 | Slovence | Kazakça
 | İspanyolca  | Khmer dili
-| İsveç dili | Kiçe dili
+| İsveççe | Kiçe dili
 | Sylheti | Kinyarvanda dili
 | Süryanice | Svahili dili
 | Tagbanwa | Konkan dili
-| Tai (Nua) | Kore dili
+| Tai (Nua) | Korece
 | Tamashek | Kırgızca
 | Türkçe | Lao dili
 | Ugaritic | Letonca
@@ -123,7 +123,7 @@ ms.locfileid: "50230922"
 | | Slovakça
 | | Slovence
 | | İspanyolca 
-| | İsveç dili
+| | İsveççe
 | | Tacik dili
 | | Tamil dili
 | | Tatarca

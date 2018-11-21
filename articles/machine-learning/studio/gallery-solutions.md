@@ -3,8 +3,8 @@ title: Azure yapay ZEKA Galerisi'ni çözümleri | Microsoft Docs
 description: Azure AI Galerisi'nde çözümleri keşfedin.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 8c67263feff4ac89b786f6d71d78d0a5fbe17b5b
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ebdecfa1ae936b9cc12a27a99b3b92c84869d1e3
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820469"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261318"
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI Galerisi'nde çözümleri keşfedin
 

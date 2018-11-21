@@ -4,7 +4,7 @@ description: Ücretsiz deneme aboneliği gibi Azure aboneliğinizi iptal etmeyi 
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: cwatson
-ms.openlocfilehash: 7418bc8095ffa640d70dff562d7683f0748ce38e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: dfce0a97812cb958e4fb299d0225b42a7aa8f68f
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821421"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276309"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure aboneliğiniz iptal et
 

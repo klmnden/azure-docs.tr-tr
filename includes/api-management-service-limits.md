@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: b40e2ba448236bcef72ffe501b4b14fa0dd64e1c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 676bd3b3a369e3f834016f626a8e69f6b41d9b23
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756104"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52170709"
 ---
 | Kaynak | Sınır |
 | --- | --- |
 | Ölçek birimleri | Bölge başına 10<sup>1</sup> |
 | Önbellek | Birim başına 5 GB<sup>1</sup> |
 | Eş zamanlı arka uç bağlantı<sup>2</sup> HTTP yetkilisi başına | Birim başına 2048<sup>3</sup> |
-| Önbelleğe alınan en büyük yanıt boyutu | 10MB |
+| Önbelleğe alınan en büyük yanıt boyutu | 2MB |
 | En fazla ilke belge boyutu | 256KB |
 | En fazla özel ağ geçidi etki alanları | Hizmet örneği başına 20<sup>4</sup> |
 

@@ -1,6 +1,6 @@
 ---
 title: Azure ServiceFabric tanılama ve izleme | Microsoft Docs
-description: Bu makale performans sayaçları tarafından gösterilen gibi Service Fabric güvenilir ServiceRemoting çalışma zamanında performans izleme özelliklerini açıklar.
+description: Bu makalede, Service Fabric güvenilir ServiceRemoting çalışma zamanı tarafından yayınlanan performans sayaçları gibi performans izleme özelliklerini açıklar.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,91 +14,91 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e1dec182f09eccebfe03ab9727018dbf34128acd
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206428"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275257"
 ---
-# <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Tanılama ve güvenilir hizmeti uzaktan iletişim için performans izleme
-Güvenilir ServiceRemoting çalışma zamanı yayar [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bunlar ServiceRemoting nasıl çalıştığını içine bilgiler ve sorun giderme ve performans izleme ile yardımcı.
+# <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Tanılama ve güvenilir hizmet uzaktan iletişim için performans izleme
+Güvenilir ServiceRemoting çalışma zamanı yayan [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bunlar ServiceRemoting nasıl çalıştığını içine ayrıntılı bilgiler sağlar ve sorun giderme ve performansı izleme ile Yardım.
 
 
 ## <a name="performance-counters"></a>Performans sayaçları
-Güvenilir ServiceRemoting çalışma zamanı aşağıdaki performans sayacı kategorisi tanımlar:
+Güvenilir ServiceRemoting çalışma zamanı, aşağıdaki performans sayacı kategorileri tanımlar:
 
 | Kategori | Açıklama |
 | --- | --- |
-| Service Fabric Service |Azure Service Fabric hizmeti uzaktan iletişim için özel sayaçlar Örneğin, ortalama isteğinin işlenmesi için geçen süre |
-| Service Fabric Service Metodu |Yöntemlere özel sayaçlar ne sıklıkta bir hizmet yöntemi çağrılır doku uzaktan iletişim hizmeti tarafından Örneğin, uygulanmadı. |
+| Service Fabric Service |Azure Service Fabric Service uzaktan iletişim için özel sayaçlar isteği işlemek için harcanan süre gibi ortalama |
+| Service Fabric Service Metodu |Yöntemlere özel sayaçlar ne sıklıkta hizmet yöntemi çağrılır Service Fabric uzaktan iletişim hizmeti tarafından gibi uygulanır. |
 
-Önceki kategorilerden her biri bir veya daha fazla sayaca sahiptir.
+Yukarıdaki kategorilerden her biri bir veya daha fazla sayaca sahiptir.
 
-[Windows Performans İzleyicisi'ni](https://technet.microsoft.com/library/cc749249.aspx) varsayılan olarak Windows işletim sisteminde kullanılabilir uygulama, toplama ve performans sayacı verilerini görüntülemek için kullanılabilir. [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) performans sayaç verileri toplayan ve Azure tablolara karşıya yükleme için başka bir seçenektir.
+[Windows Performans İzleyicisi'ni](https://technet.microsoft.com/library/cc749249.aspx) kullanılabilen Windows işletim sistemindeki varsayılan uygulama, toplama ve performans sayacı verilerini görüntülemek için kullanılabilir. [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) performans sayacı verilerini toplama ve Azure tablolara yüklemeye başka bir seçenektir.
 
 ### <a name="performance-counter-instance-names"></a>Performans sayacı örneği adları
-Çok sayıda ServiceRemoting Hizmetleri veya bölümleri olan bir küme, çok sayıda performans sayacı örnekleri vardır. Performans sayacı örneği adları belirli bir bölüm ve hizmet yöntemi (varsa) performans sayacı örneği ile ilişkili olduğunu belirlemenize yardımcı olabilir.
+Çok sayıda ServiceRemoting Hizmetleri veya bölümler sahip bir küme, çok sayıda performans sayacı örnekler vardır. Performans sayacı örneği adları, belirli bir bölüm ve hizmet yöntemi (varsa) performans sayacı örneği ile ilişkili olduğunu tanımlanmasına yardımcı olabilir.
 
 #### <a name="service-fabric-service-category"></a>Service Fabric hizmeti kategorisi
-Kategori için `Service Fabric Service`, sayaç örneği adları aşağıdaki biçimdedir:
+Kategori `Service Fabric Service`, şu biçimde sayaç örneği adları şunlardır:
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* performans sayacı örneği ile ilişkili Service Fabric bölüm kimliği dize gösterimidir. Bölüm kimliği bir GUID olduğundan ve dize gösterimi aracılığıyla oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) biçim belirticisi "D" yöntemiyle.
+*ServiceFabricPartitionID* performans sayacı örneği ile ilişkili Service Fabric bölüm kimliği dizesi gösterimidir. Bölüm kimliği bir GUID olduğundan dize gösterimine aracılığıyla oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) "D" biçim belirteci ile yöntemi.
 
-*ServiceReplicaOrInstanceId* performans sayacı örneği ile ilişkili Service Fabric çoğaltma/örnek kimliği dize gösterimidir.
+*ServiceReplicaOrInstanceId* performans sayacı örneği ile ilişkili Service Fabric çoğaltma/örnek kimliği dizesi gösterimidir.
 
-*ServiceRuntimeInternalID* iç kullanımı için Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı dize gösterimidir. Bu benzersizliğini sağlamak ve diğer performans sayacı örneği adları ile çakışmayı önlemek için performans sayacı örneği adını dahil edilir. Kullanıcılar, bu performans sayacı örneği adı kısmını yorumlamaya deneyin.
+*ServiceRuntimeInternalID* kendi iç kullanım için Service Fabric çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı, dize temsilidir. Bu, benzersiz olmasını sağlamak ve diğer performans sayacı örneği adlarla çakışma olmasını önlemek için performans sayacı örnek adı dahil edilir. Kullanıcılar bu performans sayacı örneği adı kısmı yorumlamak çalışmamanız gerekir.
 
-Aşağıdaki bir sayaç örneği adı ait bir sayacın örneğidir `Service Fabric Service` kategorisi:
+Aşağıdaki örneğidir ait bir sayacın sayaç örneği adı `Service Fabric Service` kategorisi:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046_5008379932`
 
-Önceki örnekte `2740af29-78aa-44bc-a20b-7e60fb783264` Service Fabric bölüm kimliği dize gösterimidir `635650083799324046` çoğaltma/InstanceId dize gösterimidir ve `5008379932` çalışma zamanı iç için oluşturan 64-bit kimliği kullanın.
+Önceki örnekte `2740af29-78aa-44bc-a20b-7e60fb783264` Service Fabric bölüm kimliği dizesi gösterimidir `635650083799324046` çoğaltma/InstanceId dize gösterimini olduğu ve `5008379932` olan çalışma zamanı iç için oluşturulan 64-bit kimliği kullanın.
 
-#### <a name="service-fabric-service-method-category"></a>Service Fabric hizmeti yöntemi kategorisi
-Kategori için `Service Fabric Service Method`, sayaç örneği adları aşağıdaki biçimdedir:
+#### <a name="service-fabric-service-method-category"></a>Service Fabric Service metodu kategorisi
+Kategori `Service Fabric Service Method`, şu biçimde sayaç örneği adları şunlardır:
 
 `MethodName_ServiceRuntimeMethodId_ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*MethodName* performans sayacı örneği ile ilişkili hizmet yöntemi adı. Yöntem adı biçimi, bazı performans sayacı örneği adları en fazla uzunluğu kısıtlamalar Windows adıyla okunabilirliğini dengeleyen Fabric hizmeti çalışma zamanı mantığında göre belirlenir.
+*MethodName* performans sayacı örneği ile ilişkili hizmet yöntemin adı. Yöntem adı biçimi, Windows performans sayacı örneği adları en fazla uzunluk kısıtlamaları adıyla okunabilirliğini dengeleyen Service Fabric çalışma zamanı mantığa göre belirlenir.
 
-*ServiceRuntimeMethodId* iç kullanımı için Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 32 bit tamsayı dize gösterimidir. Bu benzersizliğini sağlamak ve diğer performans sayacı örneği adları ile çakışmayı önlemek için performans sayacı örneği adını dahil edilir. Kullanıcılar, bu performans sayacı örneği adı kısmını yorumlamaya deneyin.
+*ServiceRuntimeMethodId* kendi iç kullanım için Service Fabric çalışma zamanı tarafından oluşturulan bir 32 bit tamsayı, dize temsilidir. Bu, benzersiz olmasını sağlamak ve diğer performans sayacı örneği adlarla çakışma olmasını önlemek için performans sayacı örnek adı dahil edilir. Kullanıcılar bu performans sayacı örneği adı kısmı yorumlamak çalışmamanız gerekir.
 
-*ServiceFabricPartitionID* performans sayacı örneği ile ilişkili Service Fabric bölüm kimliği dize gösterimidir. Bölüm kimliği bir GUID olduğundan ve dize gösterimi aracılığıyla oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) biçim belirticisi "D" yöntemiyle.
+*ServiceFabricPartitionID* performans sayacı örneği ile ilişkili Service Fabric bölüm kimliği dizesi gösterimidir. Bölüm kimliği bir GUID olduğundan dize gösterimine aracılığıyla oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) "D" biçim belirteci ile yöntemi.
 
-*ServiceReplicaOrInstanceId* performans sayacı örneği ile ilişkili Service Fabric çoğaltma/örnek kimliği dize gösterimidir.
+*ServiceReplicaOrInstanceId* performans sayacı örneği ile ilişkili Service Fabric çoğaltma/örnek kimliği dizesi gösterimidir.
 
-*ServiceRuntimeInternalID* iç kullanımı için Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı dize gösterimidir. Bu benzersizliğini sağlamak ve diğer performans sayacı örneği adları ile çakışmayı önlemek için performans sayacı örneği adını dahil edilir. Kullanıcılar, bu performans sayacı örneği adı kısmını yorumlamaya deneyin.
+*ServiceRuntimeInternalID* kendi iç kullanım için Service Fabric çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı, dize temsilidir. Bu, benzersiz olmasını sağlamak ve diğer performans sayacı örneği adlarla çakışma olmasını önlemek için performans sayacı örnek adı dahil edilir. Kullanıcılar bu performans sayacı örneği adı kısmı yorumlamak çalışmamanız gerekir.
 
-Aşağıdaki bir sayaç örneği adı ait bir sayacın örneğidir `Service Fabric Service Method` kategorisi:
+Aşağıdaki örneğidir ait bir sayacın sayaç örneği adı `Service Fabric Service Method` kategorisi:
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-Önceki örnekte `ivoicemailboxservice.leavemessageasync` yöntem adı `2` zamanının iç kullanım için oluşturulan 32-bit kimliği `89383d32-e57e-4a9b-a6ad-57c6792aa521` Service Fabric bölüm kimliği dize gösterimidir`635650083804480486` Service Fabric çoğaltma/örnek kimliği dize gösterimi ise ve `5008380` çalışma zamanı iç için oluşturulan 64-bit Kimliğini kullanın.
+Önceki örnekte `ivoicemailboxservice.leavemessageasync` yöntem adı `2` çalışma zamanının iç kullanım için oluşturulan 32-bit kimliği `89383d32-e57e-4a9b-a6ad-57c6792aa521` Service Fabric bölüm kimliği dizesi gösterimidir`635650083804480486` olan dize gösterimi Service Fabric çoğaltma/örnek kimliği ve `5008380` çalışma zamanı iç için oluşturulan 64-bit Kimliğini kullanın.
 
-## <a name="list-of-performance-counters"></a>Performans sayaçlarının listesi
-### <a name="service-method-performance-counters"></a>Hizmet yöntemi performans sayaçları
+## <a name="list-of-performance-counters"></a>Performans sayaçları listesi
+### <a name="service-method-performance-counters"></a>Hizmeti yöntemi performans sayaçları
 
-Güvenilir hizmet çalışma zamanı hizmet yöntemleri yürütülmesi ile ilgili aşağıdaki performans sayaçları yayımlar.
+Güvenilir hizmet çalışma zamanı hizmet yöntemleri çalıştırmayla ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
 | Service Fabric Service Metodu |Çağrı/Sn |Hizmet yöntemi, saniye başına çağrılma sayısı |
-| Service Fabric Service Metodu |Çağrı başına ortalama süre (milisaniye) |Milisaniye cinsinden hizmet yöntemin yürütülmesi için geçen süre |
+| Service Fabric Service Metodu |Çağrı başına ortalama süre (milisaniye) |Milisaniye cinsinden service metodunu yürütmek için harcanan süre |
 | Service Fabric Service Metodu |Saniye Başına Oluşturulan Özel Durum |Kaç kez hizmet yöntemi saniye başına özel durum oluşturdu |
 
 ### <a name="service-request-processing-performance-counters"></a>Hizmet isteği işleme performans sayaçları
-Bir istemci bir hizmet proxy nesnesi yöntemiyle çalıştırdığında, ağ üzerinden uzaktan iletişim hizmeti için gönderilen bir istek iletisi sonuçlanır. Hizmet İsteği iletisini işler ve istemcisine geri yanıt gönderir. Güvenilir ServiceRemoting çalışma zamanı hizmet isteği işlemiyle ilgili aşağıdaki performans sayaçları yayımlar.
+Bir istemci bir hizmeti proxy nesnesi aracılığıyla bir yöntemi çağırdığında, ağ üzerinden uzaktan iletişim hizmetine gönderilen bir istek iletisi ile sonuçlanır. Hizmet isteği iletiyi işler ve istemcisine geri yanıt gönderir. Güvenilir ServiceRemoting çalışma zamanı hizmet isteği işlemiyle ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric Service |Beklemedeki istek sayısı |Hizmetinde işlenmekte olan istek sayısı |
-| Service Fabric Service |İstek başına ortalama süre (milisaniye) |Bir isteği işlemek için (milisaniye cinsinden) hizmeti tarafından harcanan süre |
-| Service Fabric Service |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında hizmet isteği iletisi serisini kaldırmak için harcanan süre |
-| Service Fabric Service |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmetine hizmet yanıt iletisi yanıtı istemciye gönderilmeden önce serileştirmek için harcanan süre |
+| Service Fabric Service |Beklemedeki istek sayısı |Hizmette işlenmekte olan istek sayısı |
+| Service Fabric Service |İstek başına ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti tarafından bir isteği işlemek için harcanan süre |
+| Service Fabric Service |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında hizmet istek iletisi seri durumdan çıkarmak için harcanan süre |
+| Service Fabric Service |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmetine hizmet yanıt iletisi yanıtı istemciye gönderilmeden önce seri hale getirmek için harcanan süre |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Örnek kod](https://github.com/Azure/servicefabric-samples)
-* [PerfView EventSource sağlayıcıları](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Örnek kod](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
+* [EventSource sağlayıcıları Perfview'de Aç](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

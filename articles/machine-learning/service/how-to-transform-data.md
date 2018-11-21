@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 76b417d1592671006d3d5cfa2363e306e4db48fd
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945680"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263052"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı ile verileri dönüştürün
 
-[Azure Machine Learning veri hazırlığı SDK'sı](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) verilerinizi temizlemek için farklı dönüştürme yöntemi sunar. Bu yöntemler sütun ekleme, istenmeyen satırları veya sütunları filtrelemek ve eksik değerleri impute basitleştirir.
+[Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) verilerinizi temizlemek için farklı dönüştürme yöntemi sunar. Bu yöntemler sütun ekleme, istenmeyen satırları veya sütunları filtrelemek ve eksik değerleri impute basitleştirir.
 
 Şu anda aşağıdaki görevleri için yöntemleri vardır:
 - [Bir ifade kullanarak sütun ekleme](#column)
@@ -347,7 +347,7 @@ df
 
 SDK'sı yöntemleri içerir `Dataflow.drop_columns` ve `Dataflow.filter` izin verecek şekilde satırları veya sütunları filtreleyin.
 
-### <a name="initial-setup"></a>İlk kurulum
+### <a name="initial-setup"></a>Başlangıç kurulumu
 ```
 import azureml.dataprep as dprep
 from datetime import datetime

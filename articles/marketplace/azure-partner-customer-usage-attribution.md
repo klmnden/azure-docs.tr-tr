@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685710"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262610"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
-Bir yazılım iş ortağı Azure çözümlerinizi Azure bileşenlerini gerektirir veya doğrudan Azure altyapısının üzerinde dağıtılması gerekir. Bir iş ortağı çözümü dağıtmak ve kendi Azure kaynaklarını hazırlayacak müşteriler dağıtım durumunu görmenize zor ve optik Azure büyümesi üzerindeki etkisi içine alın. Daha yüksek bir görünürlük düzeyi eklediğinizde, Microsoft satış takımlarıyla Hizala ve Microsoft iş ortağı programları için kredi elde edin.   
+Bir yazılım iş ortağı Azure çözümlerinizi Azure bileşenlerini gerektirir veya doğrudan Azure altyapısının üzerinde dağıtılması gerekir. Bir iş ortağı çözümü dağıtmak ve kendi Azure kaynaklarını hazırlayacak müşteriler dağıtım durumunu görmenize zor ve optik Azure büyümesi üzerindeki etkisi içine alın. Daha yüksek bir görünürlük düzeyi eklediğinizde, Microsoft satış takımlarıyla Hizala ve Microsoft iş ortağı programları için kredi elde edin. 
 
 Microsoft artık ortakları Azure kullanımınızın müşteri dağıtımları yazılımlarını Azure üzerinde daha iyi izlemek için bir yöntem sunar. Azure Hizmetleri dağıtımını düzenlemek için Azure Resource Manager yeni yöntemi kullanır.
 
 Microsoft iş ortağı olarak, Azure kullanımı, bir müşterinin adıma sağlamanız tüm Azure kaynakları ile ilişkilendirebilirsiniz. Azure marketi, hızlı başlangıç depo, özel GitHub depoları ve bire bir müşteri katılımı ile ilişki kurabilir. İzlemeyi etkinleştirmek için iki yaklaşım kullanılabilir:
 
 - Azure Resource Manager şablonları: Resource Manager şablonları ya da iş ortağının yazılımlarını çalıştırmak üzere Azure hizmetlerini dağıtmak için çözüm şablonları. İş ortakları, altyapı ve bunların Azure çözüm yapılandırmasını tanımlamak için bir Resource Manager şablonu oluşturabilirsiniz. Siz ve müşterilerinizin yaşam döngüsü boyunca çözümünüzü dağıtmak Resource Manager şablonu sağlar. Kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. 
-
 - Azure Resource Manager API'leri: İş ortakları doğrudan bir Resource Manager şablonu dağıtma veya doğrudan Azure hizmetleri sağlamak için API çağrıları oluşturmak için Resource Manager API'leri çağırabilirsiniz. 
+
+Müşteri kullanım attribution gerekli tüm [çözüm şablonları](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) Azure Market'te yayımlanan. 
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager şablonlarını kullanma
 

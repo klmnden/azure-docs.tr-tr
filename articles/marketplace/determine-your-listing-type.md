@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578506"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261080"
 ---
 # <a name="determine-your-publishing-option"></a>Yayımlama seçeneğinizi belirleyin
 Teklifiniz için seçtiğiniz yayımlama seçeneği doğrudan hem uygunluk gereksinimleri ve Market Avantajlarımız ilişkilendirir. Daha da önemlisi, kullanıcılar, Market teklifi ile nasıl etkileşime gireceğini seçeneğini ve Teklif türü bulut iş ortağı Portalı'nda yayımlama seçimi tanımlar.
@@ -64,26 +64,18 @@ Burada, teklifinizin sunulur, mağazada Azure Market ve/veya AppSource, kategori
 
 Fark yaratan müşteri katılımı, ayırabilir sırasında Yayımlama seçenekleri sunan müşteri adayı paylaşmaya erişim ve [Go-To-Market avantajları](https://partner.microsoft.com/en-US/reach-customers/gtm). Market teklifi oluşturmak için bulut iş ortağı portalını kullanmadan önce üç olası yayımlama seçeneklerinden birini belirleyin. Çağrıları yayımlama seçeneğiyle karşılık gelen eylem dikkat edin:
 
-**Liste** basit uygulamanızın veya Market kullanıcının isteği müşteri ile bağlanmanıza olanak sağlayan hizmeti listeleme – **benimle iletişim kurun** eylem çağrısı.
+| **Yayımlama seçeneği**    | **Açıklama**  |
+| :------------------- | :-------------------|
+| **Liste** | Uygulamanız veya hizmetiniz bir Market kullanıcının isteği müşteri ile bağlanmanıza olanak sağlayan listesi basit **benimle iletişim kurun** eylem çağrısı. |
+| **Deneme** | Market bulunabilirliği geliştirin ve olası kullanıcıların SaaS, Iaas veya Microsoft uygulama deneyiminizi bunlar satın almadan önce sınırlı bir süreliğine ücretsiz olarak kullanmak, uygulamanızın deneme sürümü deneyimi sağlanmasını otomatikleştirmek için kullanın. Çağrıları deneme yayımlama seçeneği için kullanılan eylem ötekisi: **ücretsiz deneme** veya **Test Sürüşü**. |
+| **Transact** | Uygulamanız Azure üzerinde çalışır ve bir müşteri eylemi artık çağrısından Get seçtiğinde doğrudan müşterinin Azure aboneliği ile bir kaynak olarak sağlanabilir. Yazılım Lisans ücretleri, isteğe bağlı olarak satın alınıp müşterinin tercih ettiğiniz ödeme ve koşulları faturalandırılır ve süre sınırlı erişim sunmak seçebilirsiniz, **ücretsiz yazılım deneme sürümü** (yalnızca Azure için kullanılabilir Market.) |
 
-**Deneme** – bulunabilirliği geliştirin ve olası kullanıcıların SaaS, Iaas veya Microsoft uygulama deneyiminizi bunlar satın almadan önce sınırlı bir süreliğine ücretsiz olarak kullanmak, uygulamanızın deneme sürümü deneyimi sağlanmasını otomatikleştirmek için Market kullanın. Çağrıları deneme yayımlama seçeneği için kullanılan eylem ötekisi: **ücretsiz deneme** veya **Test Sürüşü**.
-
-**Transact** – uygulamanız Azure üzerinde çalışır ve bir müşteri eylemi artık çağrısından Get seçtiğinde doğrudan müşterinin Azure aboneliği ile bir kaynak olarak sağlanabilir. Yazılım Lisans ücretleri, isteğe bağlı olarak satın alınıp müşterinin tercih ettiğiniz ödeme ve koşulları faturalandırılır ve süre sınırlı erişim sunmak seçebilirsiniz, **ücretsiz yazılım deneme sürümü** (yalnızca Azure için kullanılabilir Market.) 
-
-## <a name="select-an-offer-type"></a>Bir teklif türü seçin
-
-Karar verdikten yayımlama seçeneği teklifinizi sunmak için kullanılan Teklif türü seçmek hazır olursunuz. 
-
-Teklif, oluşturma, yayımlama ve yönetme bulut iş ortağı Portalı'nda yayımlama nesnedir. Meta veriler, yapıtlar ve teklif Market'te sunmak için kullanılan diğer içerik gibi teklif yapısı teklif türüne göre tanımlanır.
-
-Bir teklif oluşturabilmeniz için önce bir teklif türü seçmeniz gerekir. Teklif türü çözüm, uygulama, veya yayımlamak istediğiniz bir hizmet teklifinin yanı sıra Microsoft ürünleri ve hizmetlerine hizalamanın türüne karşılık gelir. 
-
-Tek bir teklif türü sağlama veya fiyatlandırma farklı yayımlama seçeneklerini, çağrıları eylem, etkinleştirmek için bulut iş ortağı portalında farklı şekilde yapılandırılabilir. Ayrıca yayımlama seçeneğini ve Teklif türü yapılandırmasını teklif uygunluk gereksinimlerini ve teknik gereksinimleri için hizalayın. 
-
-Mağazada gözden geçirin ve bu tür uygunluk gereksinimlerini mutlaka [yayımcı rehberi](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) ve teknik gereksinimleri teklifinizi oluşturmadan önce yayımlama.
+>[!Note]
+>Yayımlama seçeneği Transact kullanırken, fiyatlandırma, faturalandırma, faturalama ve ödeme konuları teklif türünü seçme ve teklifinizi oluşturma önce anlamak önemlidir. Gözden geçirme [daha fazla bilgi için Market faturalama ve ticari konuları makale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
+*   Bir yayımlama seçeneği karar verdiğinizde, hazır olduğunuz [teklif türünü seçin](./publisher-guide-by-offer-type.md) teklifinizi sunmak için kullanılır.
 *   Seçme ve yapılandırma teklifinizin sonlandırmak için Teklif türü bölümünde yayımlama seçeneklerini uygunluk gereksinimlerini gözden geçirin.
 *   Yayımlama modelleri, çözümünüzü bir teklif türüne ve yapılandırmayı eşlemelerini nasıl ilişkin örnekler için mağaza tarafından gözden geçirin.
 *   Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com) oluşturmak ve teklifinizi yapılandırmak için.

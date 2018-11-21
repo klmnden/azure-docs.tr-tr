@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 93c61f0b9b923f84b2c84d2db4456442e2f9fb27
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444513"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276503"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation Tümleştirme Modülleri
 PowerShell, Azure Automation’un ardındaki temel teknolojidir. Azure Automation PowerShell üzerine kurulu olduğundan, PowerShell modülleri Azure Automation’un genişletilmesinde önemlidir. Bu makalede, biz size, azure'da tümleştirme modülü olarak çalıştığından emin olmak için "Tümleştirme modülleri" ve kendi PowerShell modüllerinizi oluştururken için en iyi yöntemler olarak adlandırılır, PowerShell modülleri Azure Otomasyonu'nun kullanımını ayrıntılarını yol Otomasyon. 
@@ -34,7 +34,7 @@ Tümleştirme Modülü paketini içeri aktardığınız biçim modülle aynı ad
 
 Modülde bir Azure Otomasyonu bağlantı türü varsa, bağlantı türü özelliklerini belirten `<ModuleName>-Automation.json` adlı bir dosya da olmalıdır. Sıkıştırılmış .zip dosyanızın modül klasöründe yer alan bu json dosyasında, sisteme veya modülü temsil eden hizmete bağlanmak için gereken "bağlantı" alanları bulunur. Bu, Azure Automation'da bağlantı türü oluşturma yukarı sona erer. Bu dosyayı kullanarak, modülün bağlantı türü için alan adlarını, türlerini ve alanların şifreli veya isteğe bağlı olup olmayacağını ayarlayabilirsiniz. Burada, json dosyası biçiminde bir şablon verilmiştir:
 
-```
+```json
 { 
    "ConnectionFields": [
    {
@@ -67,7 +67,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
 
 1. Modüldeki her cmdlet için bir özet, açıklama ve yardım URI’sı vardır. PowerShell'de, kullanıcının **Get-Help** cmdlet'ini kullanarak cmdlet'ler hakkında yardım almasını sağlayacak bazı bilgiler tanımlayabilirsiniz. Örneğin, bir .psm1 dosyasında yazılan PowerShell modülü için bir yardım URI’sını ve özeti nasıl tanımlayacağınız aşağıda anlatılmıştır.<br>  
    
-    ```
+    ```powershell
     <#
         .SYNOPSIS
          Gets all outgoing phone numbers for this Twilio account 
@@ -109,7 +109,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
 
     Modüldeki cmdlet'ler, bağlantı türü alanlarının bulunduğu nesneyi cmdlet’e parametre olarak geçirme izni verirseniz Azure Automation’da daha kolay kullanılır. Bu şekilde, kullanıcılar bir cmdlet’i her çağırdığında bağlantı varlığı parametrelerinin cmdlet'in ilgili parametreleriyle eşlenmesi gerekmez. Yukarıdaki runbook örneğinde, Twilio’ya erişmek ve tüm telefon numaralarını hesaba getirmek için CorpTwilio adlı bir Twilio bağlantı varlığı kullanılmıştır.  Bağlantı alanlarının cmdlet parametreleriyle nasıl eşlendiğini fark ettiniz mi?<br>
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -122,7 +122,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
   
     Buna daha iyi ve daha kolay bir yaklaşım, bağlantı nesnesini doğrudan cmdlet’e geçirmektir. 
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -133,7 +133,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
    
     Cmdlet’lerinizin, bağlantı nesnesini parametrelerin bağlantı alanları yerine doğrudan bir parametre olarak kabul etmelerine izin vererek benzer bir yaklaşım elde edebilirsiniz. Azure Automation kullanmayan kullanıcılar cmdlet'lerinizi bağlantı nesnesi gibi davranacak bir Hashtable yapılandırmadan çağırabilir, genellikle bir parametre kümesi her biri için kullanmanız gerekir. Bağlantı alanı özelliklerini tek tek geçirmek için aşağıdaki **SpecifyConnectionFields** parametre kümesi kullanılmıştır. **UseConnectionObject** bağlantıyı doğrudan geçirmenizi sağlar. Gördüğünüz gibi, [Twilio PowerShell modülündeki](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) Send-TwilioSMS cmdlet’i iki şekilde de geçirmenizi sağlar: 
    
-    ```
+    ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
       HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
@@ -160,7 +160,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
 1. Modüldeki tüm cmdlet’ler için çıktı türünü tanımlayın. Cmdlet için bir çıktı türünün tanımlanması tasarım zamanında IntelliSense’in, cmdlet’in yazma sırasında kullanılan çıktı özelliklerini belirlemenize yardımcı olmasını sağlar. Bu işlem, Modülünüzde kolay bir kullanıcı deneyimi sağlamak için tasarım zamanı bilgisinin önemli olduğu Automation runbook grafik yazma işlemleri sırasında özellikle yardımcı olur.<br><br> ![Grafik Runbook’u Çıktı Türü](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> PowerShell ISE’de cmdlet çıktısının cmdlet’in çalıştırılmasını gerektirmeyen "ileri tür" işlevine benzer.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 1. Modüldeki cmdlet'ler parametreler için karmaşık nesne türlerini almamalıdır. PowerShell İş Akışı, karmaşık türleri seri durumdan çıkarılmış biçimde depolaması nedeniyle PowerShell’den farklıdır. Temel türler temel olarak kalır, ancak karmaşık türler temelde özellik paketi olurlar, seri durumdan çıkarılmış hale dönüştürülür. Örneğin, bir runbook’ta (veya bununla ilgili PowerShell İş Akışı) **Get-Process** cmdlet’i kullanırsanız, beklenen [System.Diagnostic.Process] türünü değil, [Deserialized.System.Diagnostic.Process] türü nesnesini döndürür. Bu tür, seri durumdan çıkarılmamış türle aynı özelliklere sahip olsa da, yöntemlerin hiçbiri yoktur. Ve bu değer, burada cmdlet Bu parametre için bir [System.Diagnostic.Process] değerini bekler cmdlet'e parametre olarak geçirmek çalışırsanız aşağıdaki hatayı alırsınız: *'işlem' parametresinde bağımsız değişken dönüşümü işlenemiyor. Hata: "Deserialized.System.Diagnostics.Process" türündeki "System.Diagnostics.Process (CcmExec)" değeri "System.Diagnostics.Process" türüne dönüştürülemez.*   Bunun nedeni, beklenen [System.Diagnostic.Process] türüyle verilen [Deserialized.System.Diagnostic.Process] türü arasında tür uyuşmazlığı olmasıdır. Bu sorunla karşılaşmamak için modülünüze ait cmdlet’lerin parametre olarak karmaşık tür kullanmaması gerekir. Burada bunu yapmanın yanlış yolu gösterilmektedir.
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [System.Diagnostic.Process] $process
@@ -171,7 +171,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
     <br>
     Buradaysa doğru yolu; karmaşık nesneyi alıp kullanmak için cmdlet tarafından dahili olarak kullanılabilen temel nesne alınmaktadır. Cmdlet’ler PowerShell İş Akışı değil de PowerShell bağlamında yürütüldüğünden, cmdlet’in içinde $process doğru [System.Diagnostic.Process] türüne dönüşür.  
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [String] $processName
@@ -185,7 +185,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
    Runbook’lardaki bağlantı varlıkları hashtable’lardır. Bu hashtable’lar karmaşık tür olmalarına rağmen Bağlantı parametreleri nedeniyle yayın özel durumu olmadan cmdlet’lere sorunsuz geçebilirler. Teknik olarak, bazı PowerShell türleri, seri durumdaki biçimlerinden seri durumdan çıkarılmış biçimlerine düzgün bir şekilde yayınlanabilirler; bu nedenle de seri durumdan çıkarılmış türü kabul eden parametrelerde cmdlet'lere geçirilebilirler. Hashtable bunlardan biridir. Bir modül yazarının tanımlı türlerinin de seri durumdan çıkarılabilecek şekilde uygulanması mümkündür, ancak bu durumda bazı kısıtlamalar geçerli olur. Türün bir varsayılan oluşturucusu olmalı, özelliklerinin tümü genel olmalı ve bir PSTypeConverter’ı olması gerekir. Ancak, modül yazarına ait olmayan zaten tanımlı türler için, bunları “düzeltmenin” bir yolu yoktur; bu nedenle, parametrelerin tüm karmaşık türlerinden kaçınılması önerilir. Runbook yazma ipucu: Bazı cmdlet'lerinizin karmaşık tür parametre alması gerekirse ya da başka birinin karmaşık tür parametre gerektiren bir modülünü kullanıyorsanız, PowerShell İş Akışı runbook'larında ve yerel PowerShell'deki PowerShell İş Akışları’nda kullanabileceğiniz geçici çözüm karmaşık türü oluşturan cmdlet’i ve karmaşık türü tüketen cmdlet’i aynı InlineScript etkinliğinde sarmalamaktır. InlineScript, içeriklerini PowerShell İş Akışı değil de PowerShell olarak yürüttüğünden, karmaşık tür oluşturan cmdlet, seri durumdan çıkarılan karmaşık türü değil, doğru türü üretir.
 1. Modüldeki tüm cmdlet’leri durum bilgisiz hale getirin. PowerShell İş Akışı, iş akışında çağrılan her cmdlet’i farklı bir oturumda çalıştırır. Bu nedenle aynı modüldeki başka cmdlet’ler tarafından oluşturulan veya değiştirilen oturum durumuna bağlı cmdlet'lerin PowerShell İş Akışı runbook'larında çalışmaz.  İşte yapılmaması gereken bir örnek.
    
-    ```
+    ```powershell
     $globalNum = 0
     function Set-GlobalNum {
        param(

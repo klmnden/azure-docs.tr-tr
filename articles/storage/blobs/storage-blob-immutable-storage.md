@@ -1,6 +1,6 @@
 ---
 title: Azure depolama BLOB'ları için sabit depolama | Microsoft Docs
-description: Azure depolama, kullanıcıların verileri silinebilir olmayan ve değiştirilebilir olmayan bir durumda, belirtilen bir zaman aralığı için depolamak olanak sağlayan Blob (nesne) depolama SOLUCAN (bir kez yazma, okuma çok) desteği sunar.
+description: Azure depolama SOLUCAN (yazma, okuma çok kez) verileri silinebilir olmayan ve değiştirilebilir olmayan bir durumda, belirtilen bir zaman aralığı için depolamak kullanıcıların sağlayan Blob (nesne) depolama desteği sunar.
 services: storage
 author: xyh1
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037014"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261482"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
-Sabit depolama (nesne) Azure Blob Depolama için kullanıcıların bir SOLUCAN (bir kez yazma, okuma çok) durumda iş açısından kritik verileri depolamak sağlar. Bu durum verileri silinebilir olmayan ve değiştirilebilir olmayan bir kullanıcı tarafından belirtilen aralığı için yapar. Blobları oluşturulabilir ve okuma, ancak değil değiştirildi veya silindi, saklama aralığı süresince.
+Sabit depolama (nesne) Azure Blob Depolama için kullanıcıların bir SOLUCAN (yazma, okuma çok kez) durumda iş açısından kritik verileri depolamak sağlar. Bu durum verileri silinebilir olmayan ve değiştirilebilir olmayan bir kullanıcı tarafından belirtilen aralığı için yapar. Blobları oluşturulabilir ve okuma, ancak değil değiştirildi veya silindi, saklama aralığı süresince.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -47,7 +47,7 @@ Azure tüm ortak bölgelerde sabit depolama etkin.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Azure Blob Depolama için sabit depolama SOLUCAN veya sabit ilkeleri iki tür destekler: zamana bağlı bekletme ve yasal tutma kuralı. Bu sabit ilkelerinin nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [Başlarken](#Getting-started) bölümü.
+Azure Blob Depolama için sabit depolama SOLUCAN veya sabit ilkeleri iki tür destekler: zamana bağlı bekletme ve yasal tutma kuralı. Bu sabit ilkelerinin nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [Başlarken](#getting-started) bölümü.
 
 Zamana bağlı bekletme ilkesi veya yasal tutma bir kapsayıcı uygulandığında, tüm mevcut blobları değişmez Taşı (yazma ve silme korumalı) durumu. Kapsayıcıya yüklenir ve yeni tüm bloblar da değişmez durumuna taşınır.
 
@@ -69,7 +69,7 @@ Yeni bloblar için geçerli olan saklama süresi, kullanıcı tarafından belirt
 
 ### <a name="legal-holds"></a>Yasal tutma
 
-Yasal tutma ayarlandığında, tüm mevcut ve yeni BLOB'lar yasal tutma temizlenene kadar değişmez durumda kalır. Ayarlama ve Temizle yasal tutma kuralı hakkında daha fazla bilgi için bkz. [Başlarken](#Getting-started) bölümü.
+Yasal tutma ayarlandığında, tüm mevcut ve yeni BLOB'lar yasal tutma temizlenene kadar değişmez durumda kalır. Ayarlama ve Temizle yasal tutma kuralı hakkında daha fazla bilgi için bkz. [Başlarken](#getting-started) bölümü.
 
 Bir kapsayıcı, aynı anda hem yasal tutma hem de zamana bağlı bekletme ilkesi olabilir. Tüm yasal tutma kuralı temizlenir kadar bu kapsayıcıdaki tüm blob'lara, etkin tutma süresi dolmuş olsa bile değişmez durumda kalır. Buna karşılık, etkin tutma süresi dolana kadar tüm yasal tutma kuralı temizlenmiş olsa bile bir blob değişmez bir durumda kalır.
 

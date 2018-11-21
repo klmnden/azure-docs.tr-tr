@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625836"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262661"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -37,7 +37,7 @@ Y: Bunlar aynı şeydir. [Log Analytics'e tümleşik Azure İzleyici'de bir öze
 Y: günlük araması hala kullanılabilir OMS portalında ve adla Azure portalında şu anda **günlükleri (Klasik)**. OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacaktır. Azure portalında Klasik günlükleri deneyimi yavaş yavaş kullanımdan kaldırılacak ve yerini yeni günlükleri deneyimi. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>S. Gelişmiş analiz portalını kullanabilir miyim? 
-Azure portalında yeni günlükleri deneyimine dayanır [Gelişmiş analiz portalı](https://portal.loganalytics.io/), ancak yine de Azure portal dışında erişilebilir. Bu dış portal devre dışı bırakma için yol haritası yakında duyurulacaktır.
+Azure portalında yeni günlükleri deneyimi Gelişmiş analiz portalında bağlıdır, ancak yine de Azure portal dışında erişilebilir. Bu dış portal devre dışı bırakma için yol haritası yakında duyurulacaktır.
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>S. Neden olamaz miyim sorgu Gezgini görebilir ve yeni günlükleri deneyiminde düğmeleri kaydetmek mi?
 
@@ -71,7 +71,7 @@ Y: azure'da bir çalışma alanına erişmek için atanan Azure izinleri olmalı
 Y: Görünüm Tasarımcısı yalnızca katkıda bulunan izinlerine sahip ya da daha yüksek atanan kullanıcılar için günlüklerde kullanılabilir.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>S. Azure dışındaki Analytics portalını kullanabilir miyim?
-A. Evet, Azure'da günlükleri sayfasında ve [Gelişmiş analiz portalını](https://portal.loganalytics.io) aynı kodu temel alır. Log Analytics, Azure İzleyici'nın daha birleşik bir izleme deneyimi sağlamak için bir özellik olarak tümleştiriliyor. Analiz portalı URL'sini kullanarak erişmeye devam edebilirsiniz: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Evet, Azure ve Gelişmiş analiz portalını günlükleri sayfasında aynı koda bağlıdır. Log Analytics, Azure İzleyici'nın daha birleşik bir izleme deneyimi sağlamak için bir özellik olarak tümleştiriliyor. Analiz portalı URL'sini kullanarak erişmeye devam edebilirsiniz: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 

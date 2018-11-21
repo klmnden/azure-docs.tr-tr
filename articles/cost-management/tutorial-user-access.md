@@ -9,13 +9,13 @@ ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
-manager: dougeby
-ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+manager: benshy
+ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957483"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275278"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Öğretici: Cloudyn verilerine erişim atama
 
@@ -35,10 +35,10 @@ Azure sözleşmenizi veya hesabınızı kaydettiğinizde, bu öğreticideki tüm
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure hesabınız olmalıdır.
-- Cloudyn için bir deneme kaydı veya ücretli aboneliğe sahip olmanız gerekir.
+- Cloudyn için bir deneme kaydına veya ücretli aboneliğe sahip olmanız gerekir.
 
 ## <a name="create-a-user-with-admin-access"></a>Yönetici erişimi olan bir kullanıcı oluşturma
 

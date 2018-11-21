@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0f36cd798faac275e0f6dcb8a81bd37e14ab6d8d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578493"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275828"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkeleri teknik profilleri hakkında
 
@@ -106,7 +106,7 @@ Her ikisi de **AAD UserReadUsingAlternativeSecurityId NoError** ve **AAD UserRea
 </TechnicalProfile>
 ```
 
-Teknik profil dahil edin veya başka bir içerebilecek başka bir teknik profili devralır. Düzey sayısına bir sınır yoktur. İş gereksinimlerine bağlı olarak, kullanıcı yolculuğunuza çağırabilir **AAD UserReadUsingAlternativeSecurityId** kullanıcı sosyal hesap yok, hata oluşturan veya  **AAD UserReadUsingAlternativeSecurityId NoError** hangi hata yükseltmek değil.
+Teknik profil dahil edin veya başka bir içerebilecek başka bir teknik profili devralır. Düzey sayısına bir sınır yoktur. İş gereksinimlerine bağlı olarak, kullanıcı yolculuğunuza çağırabilir **AAD UserReadUsingAlternativeSecurityId** sosyal bir kullanıcı hesabı yoksa, bir hata oluşturan veya  **AAD UserReadUsingAlternativeSecurityId NoError** hangi hata yükseltmek değil.
 
 
 

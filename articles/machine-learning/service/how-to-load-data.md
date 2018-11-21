@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f8092c7a05935dcb2ca176bee2c5820b50f3c814
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237594"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263562"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
-Kullanım [Azure Machine Learning veri hazırlığı SDK'sı](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) giriş verisi farklı türler yüklenemedi. 
+Kullanım [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) giriş verisi farklı türler yüklenemedi. 
 
 Verilerinizi yüklemek için verileri dosya türünü ve parametrelerini belirtin
 
@@ -149,11 +149,11 @@ dataflow.head(5)
 Örnek çıktı:
 ||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
-|0|Hoba|Demir, IVB|60000000.0|Bulundu|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
-|1|Cabo York|Demir, IIIAB|58200000.0|Bulundu|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
-|2|Campo del Cielo|Demir, IAB MG|50000000.0|Bulundu|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
-|3|Diablo Canyon|Demir, IAB MG|30000000.0|Bulundu|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
-|4|Armanty|Demir, IIIE|28000000.0|Bulundu|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
+|0|Hoba|Demir, IVB|60000000.0|Bulunamadı|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
+|1|Cabo York|Demir, IIIAB|58200000.0|Bulunamadı|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
+|2|Campo del Cielo|Demir, IAB MG|50000000.0|Bulunamadı|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
+|3|Diablo Canyon|Demir, IAB MG|30000000.0|Bulunamadı|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
+|4|Armanty|Demir, IIIE|28000000.0|Bulunamadı|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
 
 Excel dosyası birinci sayfasını yüklediniz. Açıkça yüklemek istediğiniz sayfanın adını belirterek aynı sonucu elde edebilirsiniz. Bunun yerine ikinci sayfa yüklemek istiyorsanız, bağımsız değişken olarak abonenin adını sağlayabilirsiniz. Örneğin:
 ```python
@@ -194,13 +194,13 @@ dataflow.head(5)
 ```
 
 Örnek çıktı:
-||010000|99999|SAHTE NORVEÇ|HAYIR|NO_1|ENRS|Column7|Column8|Column9|
+||010000|99999|SAHTE NORVEÇ|NO|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010003|99999|SAHTE NORVEÇ|HAYIR|HAYIR|ENSO||||
-|1|010010|99999|JAN MAYEN|HAYIR|JN|ENJA|+70933|-008667|+00090|
-|2|010013|99999|ROST|HAYIR|HAYIR|||||
-|3|010014|99999|SOERSTOKKEN|HAYIR|HAYIR|ENSO|+59783|+005350|+00500|
-|4|010015|99999|BRINGELAND|HAYIR|HAYIR|ENBL|+61383|+005867|+03270|
+|0|010003|99999|SAHTE NORVEÇ|NO|NO|ENSO||||
+|1|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|2|010013|99999|ROST|NO|NO|||||
+|3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 
 Dosyaları bir üstbilgi varsa, ilk satır verisi olarak kabul isteyebilirsiniz. Geçirerek `PromoteHeadersMode.NONE` üstbilgi anahtar sözcük bağımsız değişkeni için üst bilgi algılama önlemek ve doğru verileri alın. Örneğin:
@@ -217,12 +217,12 @@ df
 
 ||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010000|99999|SAHTE NORVEÇ|HAYIR|NO_1|ENRS|Column7|Column8|Column9|
-|1|010003|99999|SAHTE NORVEÇ|HAYIR|HAYIR|ENSO||||
-|2|010010|99999|JAN MAYEN|HAYIR|JN|ENJA|+70933|-008667|+00090|
-|3|010013|99999|ROST|HAYIR|HAYIR|||||
-|4|010014|99999|SOERSTOKKEN|HAYIR|HAYIR|ENSO|+59783|+005350|+00500|
-|5|010015|99999|BRINGELAND|HAYIR|HAYIR|ENBL|+61383|+005867|+03270|
+|0|010000|99999|SAHTE NORVEÇ|NO|NO_1|ENRS|Column7|Column8|Column9|
+|1|010003|99999|SAHTE NORVEÇ|NO|NO|ENSO||||
+|2|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|3|010013|99999|ROST|NO|NO|||||
+|4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 ## <a name="use-sql-data"></a>SQL verileri kullanın
 Azure Machine Learning veri hazırlığı SDK'sı, SQL sunuculardan veri de yükleyebilirsiniz. Şu anda yalnızca Microsoft SQL Server desteklenir.
@@ -343,7 +343,7 @@ dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.a
 dataflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Web sitesi|Sokak|city|Ülke|
+||FMID|MarketName|Web sitesi|Sokak|city|Vilayet|
 |----|------|-----|----|----|----|----|
 |0|1012063|İlişkilendirme - Danville Kaledonya Çiftçilerden pazarlayın|https://sites.google.com/site/caledoniafarmers... ||Danville|Kaledonya|
 |1|1011871|Stearns yerimizle Çiftçilerden'Pazar|http://Stearnshomestead.com |6975 ridge yol|Parma|Cuyahoga|

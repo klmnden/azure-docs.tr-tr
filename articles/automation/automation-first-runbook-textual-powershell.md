@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1680a7d9fae9f8b8c04383c9f199e4c2ec8b8dfe
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166461"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275240"
 ---
 # <a name="my-first-powershell-runbook"></a>İlk PowerShell runbook’um
 
@@ -116,7 +116,7 @@ Azure aboneliğinize, runbook kimlik doğrulaması, kaynakları yönetebilir. Bi
 
 1. Sonra *Connect-AzureRmAccount*, türü *Start-AzureRmVM-Name 'VMName' - ResourceGroupName 'NameofResourceGroup'* adı ve sanal makinenin kaynak grubu adı sağlar.  
    
-   ```
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -131,7 +131,7 @@ Runbook'unuzda sanal makine şu anda runbook'ta o, kodlanmış başlatmaz, bunun
 
 1. Parametrelerini ekleyin *VMName* ve *ResourceGroupName* runbook ve bu değişkenleri ile **Start-AzureRmVM** cmdlet'i aşağıdaki örnekte olduğu gibi.
 
-   ```
+   ```powershell
    Param(
     [string]$VMName,
     [string]$ResourceGroupName

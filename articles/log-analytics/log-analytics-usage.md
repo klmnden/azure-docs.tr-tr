@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a881ea18558e49656dc165d1545250bffeac4303
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 01603655be9b6051be9b894da4e55338ff4df810
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713089"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262134"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -29,37 +29,127 @@ ms.locfileid: "51713089"
 > - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](log-analytics-manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
 > - [Kullanım ve Tahmini maliyetler izleme](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) çoklu Azure İzleme özelliklerini farklı fiyatlandırma modelleri için tahmini maliyetleri ve kullanım görüntülemeyi açıklar. Ayrıca, uygulamanızın fiyatlandırma modelinin değiştirilmesi nasıl açıklar.
 
-Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Veri kullanımını gözden geçirmek ve analiz etmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
+## <a name="understand-usage"></a>Kullanımını anlama
 
-## <a name="understand-the-usage-dashboard"></a>Kullanım panosunu anlama
-**Log Analytics kullanım** panosu aşağıdaki bilgileri gösterir:
+Kullanım **Log Analytics kullanımı ve Tahmini maliyetler** gözden geçirin ve veri kullanımını çözümleme. Her çözüm tarafından toplanan veri miktarını gösterir, ne kadar veri tutulur ve maliyetlerinizi tahmini temel alınan veri miktarına ve herhangi ek bir saklama dahil edilen miktarın üzerinde.
 
-- Veri hacmi
-    - Zaman içindeki veri hacmi (geçerli zaman kapsamınıza bağlı olarak)
-    - Çözüme göre veri hacmi
-    - Bir bilgisayar ile ilişkilendirilmemiş olan veriler
-- Bilgisayarlar
-    - Veri gönderen bilgisayarlar
-    - Son 24 içinde hiç veri göndermeyen bilgisayarlar
-- Teklifler
-    - İçgörü ve Analiz düğümleri
-    - Otomasyon ve Kontrol düğümleri
-    - Güvenlik düğümleri  
-- Performans
-    - Verileri toplamak ve dizinlemek için harcanan süre  
-- Sorgu listesi
+![Kullanım ve tahmini maliyetler](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 
-![Kullanım ve maliyet panosu](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
+Verilerinizi daha ayrıntılı incelemek için üstteki simgeye tıklayın ya da grafikler, sağ **kullanım ve Tahmini maliyetler** sayfası. Artık daha fazla kullanım ayrıntılarını incelemek için bu sorgu ile çalışabilirsiniz.  
+
+![Günlükleri görüntüle](media/log-analytics-usage/logs.png)<br>
+
+## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Kullanımın neden beklenenden daha yüksek olduğuyla ilgili sorunları giderme
+Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
+- Log Analytics'da beklenenden daha fazla veri gönderiliyordur
+- Log Analytics'e beklenenden daha fazla düğüm veri gönderiyordur
+
+### <a name="data-volume"></a>Veri hacmi 
+Üzerinde **kullanım ve Tahmini maliyetler** sayfasında *çözüm başına veri alımı* grafik, toplam gönderilen veri hacmini ve ne kadar her çözüm tarafından gönderilen verilerin gösterir. Bu sayede olup genel veri kullanımı (veya belirli bir çözüm tarafından kullanım) artıyor mu gibi eğilimleri belirlemek sabit kaldığını veya azaldığını. Bu oluşturmak için kullanılan sorgu
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Unutmayın yan tümcesi "nerede IsBillable = true" veri türleri için ücretsizdir alımı belirli çözümlerinden filtreler. 
+
+Bkz: veri eğilimlerini IIS günlükler nedeniyle verileri incelemek isterseniz, örneğin belirli veri türleri için daha fazla sınırlandıramazsınız gidebilir:
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="nodes-sending-data"></a>Veri gönderen düğüm
+
+Geçen ay verilerini raporlamaya düğüm sayısını undersand için kullanın
+
+`Heartbeat | where TimeGenerated > startofday(ago(31d))
+| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| render timechart`
+
+Bilgisayar başına alınan olayların sayısını görmek için kullanın
+
+`union withsource = tt *
+| summarize count() by Computer |sort by count_ nulls last`
+
+Yürütmek pahalı olduğundan bu sorgu tedbirli şekilde kullanın. Sendng veri belirli bir bilgisayar için hangi veri türlerini görmek istiyorsanız bu seçeneği kullanın:
+
+`union withsource = tt *
+| where Computer == "*computer name*"
+| summarize count() by tt |sort by count_ nulls last `
+
+> [!NOTE]
+> Bazı kullanım veri türünde alanlar yine de şema sırada, kullanım dışı bırakıldı ve değerlerine artık doldurulur olur. Bunlar **bilgisayar** alımıyla ilgili alanları yanı sıra (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** ve **AverageProcessingTimeMs**.
+
+Belirli veri türü için veri kaynağına daha ayrıntılı incelemek için bazı yararlı örnek sorgular şunlardır:
+
++ **Güvenlik** çözümü
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
++ **Günlük Yönetimi** çözümü
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
++ **Perf** veri türü
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
++ **Event** veri türü
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
++ **Syslog** veri türü
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
++ **AzureDiagnostics** veri türü
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
+
+### <a name="tips-for-reducing-data-volume"></a>Veri hacmini azaltmak için ipuçları
+
+Toplanan günlük hacmini azaltmak için bazı öneriler şunlardır:
+
+| Yüksek veri hacminin kaynağı | Veri hacmi nasıl azaltılır |
+| -------------------------- | ------------------------- |
+| Güvenlik olayları            | [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin <br> Güvenlik denetimi ilkesini yalnızca gerekli olayları toplayacak şekilde değiştirin. Özellikle, şunlarla ilgili olayları toplamak gerekip gerekmediğini gözden geçirin: <br> - [filtre platformu denetimi](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [kayıt defteri denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [dosya sistemi denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [çekirdek nesnesi denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [tanıtıcı değiştirme denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - çıkarılabilir depolama birimi denetimi |
+| Performans sayaçları       | [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) şöyle değiştirin: <br> - Koleksiyonun sıklığını azaltın <br> - Performans sayaçlarının sayısını azaltın |
+| Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> - Toplanan olay günlüklerinin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
+| Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> - Toplanan tesislerin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
+| AzureDiagnostics           | Aşağıdaki amaçlarla kaynak günlüğü koleksiyonunu değiştirin: <br> - Log Analytics’e günlük gönderen kaynak sayısını azaltma <br> - Yalnızca gerekli günlükleri toplama |
+| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../azure-monitor/insights/solution-targeting.md) özelliğini kullanın. |
+
+### <a name="getting-node-counts"></a>Başlangıç düğüm sayısı 
+
+"Fiyatlandırma katmanı düğümde (OMS)" olduğunuz sonra düğüm ve çözüm sayısına göre kullanacağınız Insights sayısı ve Analytics düğümleri için faturalandırılır gösterilecek tabloda ücretlendirilir **kullanım ve tahmini maliyet**sayfası.  
+
+Güvenlik düğümleri sayısını görmek için sorguyu kullanabilirsiniz:
+
+`union
+(
+    Heartbeat
+    | where (Solutions has 'security' or Solutions has 'antimalware' or Solutions has 'securitycenter')
+    | project Computer
+),
+(
+    ProtectionStatus
+    | where Computer !in~
+    (
+        (
+            Heartbeat
+            | project Computer
+        )
+    )
+    | project Computer
 )
+| distinct Computer
+| project lowComputer = tolower(Computer)
+| distinct lowComputer
+| count`
 
-### <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
-3. Log Analytics çalışma alanlarınızın listesinde, bir çalışma alanı seçin.
-4. Sol bölmedeki listeden **Kullanım ve tahmini maliyetler**’i seçin.
-5. **Kullanım ve tahmini maliyetler** panosunda, **Zaman: Son 24 saat** değerini seçerek zaman aralığı üzerinde değişiklik yapabilir ve zaman aralığını değiştirebilirsiniz.<br><br> ![zaman aralığı](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-queries.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.<br><br> ![örnek veri kullanım kpi’si](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
-7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.<br><br> ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search-01.png)
+Farklı bir Otomasyon düğüm sayısını görmek için sorguyu kullanın:
+
+` ConfigurationData 
+ | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
+ | extend lowComputer = tolower(Computer) | summarize by lowComputer 
+ | join (
+     Heartbeat 
+       | where SCAgentChannel == "Direct"
+       | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
+ ) on lowComputer
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
 Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklanır:
@@ -109,68 +199,6 @@ Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için
 Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](../monitoring-and-diagnostics/monitoring-action-groups.md) kullanın veya yeni bir tane oluşturun.
 
 Uyarı aldığınızda, kullanımın neden beklenenden fazla olduğu konusundaki sorunları gidermek için aşağıdaki bölümde yer alan adımları kullanın.
-
-## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Kullanımın neden beklenenden daha yüksek olduğuyla ilgili sorunları giderme
-Kullanım panosu, kullanımın (dolayısıyla da maliyetin) neden beklediğinizden yüksek olduğunu belirlemenize yardımcı olur.
-
-Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
-- Log Analytics'da beklenenden daha fazla veri gönderiliyordur
-- Log Analytics'e beklenenden daha fazla düğüm veri gönderiyordur
-
-### <a name="check-if-there-is-more-data-than-expected"></a>Beklenenden daha fazla veri olup olmadığını denetleme 
-Kullanım sayfasında, çok veri toplanmasına neyin neden olduğunu belirlemenize yardımcı olacak iki önemli bölüm vardır.
-
-*Zaman içindeki veri hacmi* grafiği, gönderilen toplam veri hacmini ve en çok veriyi gönderen bilgisayarları gösterir. Üstteki grafik, genel olarak veri kullanımınızın arttığını, sabit kaldığını veya azaldığını görmenizi sağlar. Bilgisayar listesi, en çok veri gönderen 10 bilgisayarı gösterir.
-
-*Çözüme göre veri hacmi* grafiği, her çözüm tarafından gönderilen veri hacmini ve en çok veri gönderen çözümleri gösterir. Üstteki grafik, zaman içinde her çözüm tarafından gönderilen toplam veri hacmini gösterir. Bu bilgiler bir çözümün zaman içinde daha fazla veri gönderdiğini, yaklaşık aynı miktarda veri gönderdiğini veya daha az veri gönderdiğini belirlemenize olanak tanır. Çözüm listesinde, en çok veriyi gönderen 10 çözüm gösterilir. 
-
-Bu iki grafik, tüm verileri görüntüler. Bazı veriler faturalanabilir, bazıları ise ücretsizdir. Yalnızca faturalanabilir verilere odaklanmak için arama sayfasındaki sorguyu `IsBillable=true` ifadesini içerecek şekilde değiştirin.  
-
-![veri hacmi grafikleri](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
-
-*Zaman içinde veri hacmi* grafiğine bakın. Belirli bir bilgisayara en çok veriyi gönderen çözümleri ve veri türlerini görmek için, bilgisayarın adına tıklayın. Listedeki ilk bilgisayarın adına tıklayın.
-
-Aşağıdaki ekran görüntüsünde, bilgisayar için en fazla gönderilen veri *Günlük Yönetimi / Perf* veri türündedir.<br><br> ![bilgisayar için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
-
-Ardından, *Kullanım* panosuna dönün ve *Çözüme göre veri hacmi* grafiğine bakın. Bir çözümle ilgili en fazla veriyi gönderen bilgisayarları görmek için, listede çözümün adına tıklayın. Listedeki ilk çözümün adına tıklayın. 
-
-Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok veriyi *mycon* bilgisayarının gönderdiği doğrulanır.<br><br> ![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
-
-Gerekirse, bir çözüm veya veri türü içindeki büyük hacimleri belirlemek için ek çözümlemeler yapın. Örnek sorgular şunları içerir:
-
-+ **Güvenlik** çözümü
-  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
-+ **Günlük Yönetimi** çözümü
-  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
-+ **Perf** veri türü
-  - `Perf | summarize AggregatedValue = count() by CounterPath`
-  - `Perf | summarize AggregatedValue = count() by CounterName`
-+ **Event** veri türü
-  - `Event | summarize AggregatedValue = count() by EventID`
-  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
-+ **Syslog** veri türü
-  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
-  - `Syslog | summarize AggregatedValue = count() by ProcessName`
-+ **AzureDiagnostics** veri türü
-  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
-
-Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
-
-| Yüksek veri hacminin kaynağı | Veri hacmi nasıl azaltılır |
-| -------------------------- | ------------------------- |
-| Güvenlik olayları            | [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin <br> Güvenlik denetimi ilkesini yalnızca gerekli olayları toplayacak şekilde değiştirin. Özellikle, şunlarla ilgili olayları toplamak gerekip gerekmediğini gözden geçirin: <br> - [filtre platformu denetimi](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [kayıt defteri denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [dosya sistemi denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [çekirdek nesnesi denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [tanıtıcı değiştirme denetimi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - çıkarılabilir depolama birimi denetimi |
-| Performans sayaçları       | [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) şöyle değiştirin: <br> - Koleksiyonun sıklığını azaltın <br> - Performans sayaçlarının sayısını azaltın |
-| Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> - Toplanan olay günlüklerinin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
-| Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> - Toplanan tesislerin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
-| AzureDiagnostics           | Aşağıdaki amaçlarla kaynak günlüğü koleksiyonunu değiştirin: <br> - Log Analytics’e günlük gönderen kaynak sayısını azaltma <br> - Yalnızca gerekli günlükleri toplama |
-| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../azure-monitor/insights/solution-targeting.md) özelliğini kullanın. |
-
-### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
-Kullanıyorsanız *(Log Analytics) düğüm başına* düğüm ve çözüm sayısına göre temel fiyatlandırma katmanındaysanız ödersiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.<br><br> ![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
-
-Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görüntülemek için **Tümünü göster...** öğesine tıklayın.
-
-Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../azure-monitor/insights/solution-targeting.md) özelliğini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-queries.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.

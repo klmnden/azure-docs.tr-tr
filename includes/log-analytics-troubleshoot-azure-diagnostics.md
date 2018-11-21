@@ -1,3 +1,16 @@
+---
+author: mgoedtel
+ms.service: log-analytics
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: magoedte
+ms.openlocfilehash: 44febf95c660601df78047fc473f61e0d3169890
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52272682"
+---
 ### <a name="troubleshoot-azure-diagnostics"></a>Azure Tanılama Sorunlarını Giderme
 
 Aşağıdaki hata iletisini alırsanız, Microsoft.insights kaynak sağlayıcısı kayıtlı değildir:

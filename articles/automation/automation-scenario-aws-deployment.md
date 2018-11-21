@@ -1,6 +1,6 @@
 ---
 title: Amazon Web Hizmetleri'nde VM'nin dağıtımını otomatik hale getirme
-description: Bu makalede Azure Otomasyonu bir Amazon Web hizmeti VM oluşturmayı otomatikleştirmek için nasıl kullanılacağı gösterilmektedir
+description: Bu makalede bir Amazon Web hizmeti VM oluşturmayı otomatikleştirmek için Azure Otomasyonu'nu nasıl yapılacağı açıklanır.
 services: automation
 ms.service: automation
 ms.component: process-automation
@@ -9,62 +9,63 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f49adf006e8d55337220fad9ee84de65209880b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5133a3d724a362a3d022e0dfd29f798a509c4743
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193490"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275478"
 ---
-# <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Otomasyonu senaryo - bir AWS sanal makine sağlama
-Bu makalede, Azure Automation'ı Amazon Web hizmeti (AWS) aboneliğinizde bir sanal makine sağlama ve "VM etiketleme olarak" AWS başvurduğu belirli bir adı – bu VM vermek için nasıl yararlanabileceğiniz öğrenin.
+# <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure otomasyonu senaryosu - bir AWS sanal makinesi sağlama
+Bu makalede, Amazon Web hizmeti (AWS) aboneliğiniz bir sanal makinesi sağlama ve bu VM – AWS "VM etiketleme olarak" başvuran olan belirli bir ad vermek için Azure Otomasyonu'nu nasıl yararlanabileceğiniz öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede amaçları doğrultusunda, bir Azure Otomasyonu hesabı ve bir AWS aboneliği olması gerekir. Bir Azure Otomasyonu hesabının ayarlanması ve AWS aboneliği kimlik bilgilerinizle yapılandırması hakkında daha fazla bilgi için gözden [Amazon Web Hizmetleri ile kimlik doğrulaması yapılandırma](automation-config-aws-account.md). Bu hesap oluşturulan veya AWS abonelik bilgilerinizi devam etmeden önce aşağıdaki adımlar bu hesapta başvuru olarak güncelleştirildi.
+Bu makalenin amaçları için Azure Otomasyonu hesabı ve bir AWS aboneliği olması gerekir. Bir Azure Otomasyonu hesabının ayarlanması ve AWS abonelik kimlik bilgilerinizle yapılandırması hakkında daha fazla bilgi için gözden [Amazon Web Hizmetleri ile kimlik doğrulamasını yapılandırma](automation-config-aws-account.md). Bu hesap oluşturuldu veya AWS abonelik kimlik bilgilerinizle devam etmeden önce aşağıdaki adımları Bu hesapta başvuru olarak güncelleştirildi.
 
-## <a name="deploy-amazon-web-services-powershell-module"></a>Amazon Web Hizmetleri PowerShell modülü dağıtma
-Runbook sağlama VM işini yapmak için AWS PowerShell modülü yararlanır. Modül AWS aboneliği kimlik bilgilerinizle yapılandırılmış Otomasyon hesabınızı eklemek için aşağıdaki adımları gerçekleştirin.  
+## <a name="deploy-amazon-web-services-powershell-module"></a>Amazon Web Services PowerShell modülü dağıtma
+VM'nizi runbook sağlama işlemini gerçekleştirmek için AWS PowerShell modülünden yararlanır. AWS abonelik kimlik bilgilerinizle yapılandırılmış Otomasyon hesabınızı eklemek için aşağıdaki adımları gerçekleştirin.  
 
-1. Web tarayıcınızı açın ve gidin [PowerShell Galerisi](http://www.powershellgallery.com/packages/AWSPowerShell/) ve tıklayın **Azure Otomasyonu düğmesi Dağıt**.<br><br> ![AWS PS modülü içe aktarma](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
-2. Azure oturum açma sayfası ve kimlik doğrulaması sonra alınır, size Azure portalına yönlendirilir ve olması aşağıdaki sayfasıyla sunulan:<br><br> ![İçeri aktarma modül sayfası](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
-3. Kullanın ve'ı tıklatın Otomasyon hesabı seçin **Tamam** dağıtımı başlatmak için.
+1. Web tarayıcınızı açın ve gidin [PowerShell Galerisi](http://www.powershellgallery.com/packages/AWSPowerShell/) tıklayın **Dağıt düğmesine Azure Otomasyonu**.<br><br> ![AWS PS modül içeri aktarma](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+2. Azure oturum açma sayfası ve kimliklerini doğruladıktan sonra alınır, Azure portalına yönlendirilir ve şu sayfaya ile sunulan:<br><br> ![İçeri aktarma modül sayfası](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
+3. ' E tıklayın, Otomasyon hesabı seçin **Tamam** dağıtımını başlatmak için.
 
    > [!NOTE]
-   > PowerShell modülü Azure Automation'a içeri bu da cmdlet'leri ayıklanıyor ve bu etkinlikler kadar görünmez modülü içeri aktarma ve cmdlet'leri ayıklama tamamen bitirdi. Bu işlem birkaç dakika sürebilir.  
+   > Bir PowerShell modülü Azure Automation'a içeri aktarma, bu da cmdlet'ler ayıklıyor ve modül içeri aktarma ve cmdlet'ler ayıklama tamamen tamamlanana kadar bu etkinlikleri görünmez olsa da. Bu işlem birkaç dakika sürebilir.  
    > <br>
 
-1. Azure portalında 3. adımda başvurulan Automation hesabınızı açın.
-2. Tıklayın **varlıklar** döşeme ve **varlıklar** bölmesinde, **modülleri** döşeme.
+1. Azure portalında, adım 3'te başvurulan Otomasyon hesabınızı açın.
+2. Tıklayın **varlıklar** kutucuğuna ve **varlıklar** bölmesinde **modülleri** Döşe.
 3. Üzerinde **modülleri** sayfasında, gördüğünüz **AWSPowerShell** modül listesinde.
 
 ## <a name="create-aws-deploy-vm-runbook"></a>Oluşturma AWS VM runbook dağıtma
-AWS PowerShell modülü dağıtıldıktan sonra bir sanal makinede bir PowerShell Betiği kullanılarak AWS sağlama otomatikleştirmek için bir runbook artık yazabilirsiniz. Aşağıdaki adımlar, Azure automation'da yerel PowerShell betik yararlanan göstermektedir.  
+AWS PowerShell modülü dağıtıldıktan sonra artık bir sanal makinede bir PowerShell betiğini kullanarak AWS sağlanmasını otomatikleştirmek için runbook yazabilirsiniz. Aşağıdaki adımlar, Azure automation'da yerel PowerShell Betiği yararlanmak nasıl ekleyebileceğiniz gösterilmektedir.  
 
 > [!NOTE]
-> Daha fazla seçenekleri ve bu komut dosyası ile ilgili bilgi için lütfen şu adresi ziyaret [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> Ek seçenekleri ve bu betik ile ilgili daha fazla bilgi için lütfen [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
 > 
 
-1. PowerShell komut dosyasını yeni AwsVM PowerShell Galerisi'nden bir PowerShell oturumu'ni açıp aşağıdakileri yazarak yükleyin:<br>
-   ```
+1. PowerShell Betiği yeni AwsVM PowerShell Galerisi'nden bir PowerShell oturumu açın ve aşağıdakileri yazarak indirin:<br>
+   ```powershell
    Save-Script -Name New-AwsVM -Path <path>
    ```
    <br>
-2. Azure portalından Automation hesabınızı açın ve seçin **Runbook'lar** bölümünün altında **işlem Otomasyonu** soldaki.  
-3. Gelen **Runbook'lar** sayfasında, **runbook Ekle**.
-4. Üzerinde **runbook Ekle** bölmesinde, **hızlı Oluştur** (yeni bir runbook oluşturma).
-5. Üzerinde **Runbook** Özellikler bölmesinde, bir gelen ve giden runbook'unuzu için ad ad kutusuna yazın **Runbook türü** aşağı açılan listesinde seçin **PowerShell**ve ardından **Oluşturma**.<br><br> ![Runbook bölmesi oluşturun](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
-6. PowerShell Runbook'unu Düzenle sayfası görüntülendiğinde, kopyalayıp tuvale yazma runbook'a PowerShell betiğini yapıştırın.<br><br> ![Runbook PowerShell Betiği](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
+2. Azure portalından Otomasyon hesabınızı açın ve seçin **runbook'ları** bölümünde **süreç otomasyonu** soldaki.  
+3. Gelen **runbook'ları** sayfasında **runbook Ekle**.
+4. Üzerinde **runbook Ekle** bölmesinde **hızlı Oluştur** (yeni bir runbook oluşturma).
+5. Üzerinde **Runbook** Özellikler bölmesi, bir ad ve bağlantı kurmak, runbook için ad kutusuna yazın **Runbook türü** açılan listesini seçin **PowerShell**ve ardından**Oluşturma**.<br><br> ![Runbook bölmesi oluşturun](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
+6. PowerShell Runbook'unu Düzenle sayfası görüntülendiğinde, kopyalayın ve PowerShell betiğini yazma tuvalinde runbook'a yapıştırın.<br><br> ![Runbook PowerShell Betiği](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
    
     > [!NOTE]
-    > PowerShell komut dosyası örneği ile çalışırken, aşağıdakileri unutmayın:
+    > Aşağıdaki örnek PowerShell Betiği ile çalışırken dikkat edin:
     > 
-    > * Runbook varsayılan parametre değerlerini içerir. Tüm varsayılan değerlerini değerlendirmek ve gerekirse güncelleştirin.
-    > * Daha farklı bir kimlik bilgisi varlığı adlı gibi AWS kimlik bilgilerinizi depolanan durumunda **AWScred**, komut satırında buna göre eşleşecek şekilde 57 güncelleştirmeniz gerekir.  
-    > * PowerShell, özellikle bu örnek runbook ile AWS CLI komutları ile çalışırken, AWS bölge belirtmeniz gerekir. Aksi takdirde, cmdlet başarısız. Görünüm AWS konu [AWS bölge belirtin](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) daha ayrıntılı bilgi için PowerShell belge için AWS araçları.  
+    > * Runbook'un varsayılan parametre değerlerini içerir. Tüm varsayılan değerleri değerlendirmek ve gerekirse güncelleştirin.
+    > * Bir kimlik bilgisi varlığı değerinden farklı şekilde adlandırılmış gibi AWS kimlik bilgilerinizi, depoladığınız, **AWScred**, komut satırında 57 uygun şekilde eşleşecek şekilde güncelleştirmeniz gerekir.  
+    > * PowerShell, özellikle bu örnek runbook ile AWS CLI komutları ile çalışırken, AWS bölge belirtmeniz gerekir. Aksi takdirde, cmdlet başarısız. Görünüm AWS konu [AWS bölge belirtin](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) PowerShell belge için daha fazla ayrıntı için AWS araçları.  
     >
 
-7. AWS aboneliğinizden görüntü adlarının bir listesini almak için PowerShell ISE başlatın ve AWS PowerShell modülünü içeri aktarın. Değiştirerek karşı AWS kimlik doğrulaması **Get-AutomationPSCredential** ISE ortamınızda **AWScred Get-Credential =**. Bu kimlik bilgilerinizi ister ve bunu sağlayabilir, **erişim anahtarı kimliği** kullanıcı adı için ve **gizli erişim anahtar** parolası. Aşağıdaki örneğe bakın:  
+7. AWS aboneliğinizden görüntü adlarının bir listesini almak için PowerShell ISE'yi başlatma ve AWS PowerShell modülünü içeri aktarın. AWS karşı kimlik doğrulaması değiştirerek **Get-AutomationPSCredential** ISE ortamınızda **AWScred = Get-Credential**. Bu kimlik bilgilerinizi ister ve sunabilir, **erişim anahtarı kimliği** kullanıcı adı ve **gizli erişim anahtarı** parola. Aşağıdaki örneğe bakın:  
 
+        ```powershell
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
         Import-Module AWSPowerShell
@@ -78,25 +79,26 @@ AWS PowerShell modülü dağıtıldıktan sonra bir sanal makinede bir PowerShel
         Set-DefaultAWSRegion -Region $AwsRegion
    
         Get-EC2ImageByName -ProfileName AWSProfile
-
-    Aşağıdaki çıkış döndürdü:<br><br>
-   ![AWS görüntüleri alma](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
-8. Kopyalayıp resim adları bir runbook'ta başvurulan bir Otomasyon değişkeninde **$InstanceType**. Bu örnekte, olduğundan katmanlı abonelik boş AWS kullanarak, kullandığınız **t2.micro** runbook örneğin.  
-9. Runbook'u kaydedin ve ardından **Yayımla** runbook'u yayımlamak için ve ardından **Evet** istendiğinde.
+        ```
+        
+    Aşağıdaki çıktı döndürülür:<br><br>
+   ![AWS görüntü alma](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
+8. Görüntü adlarının bir runbook'ta başvurulan bir Otomasyon değişkeni içinde yapıştırın **$InstanceType**. Bu örnekte, olduğundan ücretsiz AWS kullanarak katmanlı abonelik, kullandığınız **t2.micro** , runbook örneği için.  
+9. Runbook'u kaydedin ve ardından tıklayın **Yayımla** runbook'u yayımlayamadı ve ardından **Evet** istendiğinde.
 
 ### <a name="testing-the-aws-vm-runbook"></a>AWS VM runbook'u test etme
-Runbook testi ile devam etmeden önce birkaç doğrulamanız gerekir. Bu avantajlar şunlardır:  
+Runbook'u test etme ile devam etmeden önce size birkaç şey doğrulamanız gerekiyor. Bu avantajlar şunlardır:  
 
-* AWS karşı kimlik doğrulaması için bir varlık çağrılan oluşturuldu **AWScred** veya komut dosyası, kimlik bilgisi varlığının adını başvuracak şekilde güncelleştirilmez.    
+* AWS karşı kimlik doğrulaması için bir varlık adlandırılan oluşturulup **AWScred** veya komut dosyası, kimlik bilgisi varlığının adını başvurmak için güncelleştirildi.    
 * Azure Otomasyonu'nda AWS PowerShell modülünü içeri aktarıldı  
-* Yeni bir runbook oluşturulur ve parametre değerlerini doğrulandı ve gerektiğinde güncelleştirildi  
-* **Ayrıntılı kayıtları günlüğe** ve isteğe bağlı olarak **oturum ilerleme durumu kayıtlarını** runbook ayarı altında **günlüğe kaydetme ve izleme** ayarlanmış **üzerinde**.<br><br> ![Runbook günlüğü ve izleme](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
+* Yeni runbook oluşturuldu ve parametre değerlerini doğrulandı ve gerektiğinde güncelleştirildi  
+* **Ayrıntılı kayıtları günlüğe** ve isteğe bağlı olarak **ilerleme durumu kayıtlarını günlüğe** runbook ayarı altında **günlüğe kaydetme ve izleme** ayarlanmış **üzerinde**.<br><br> ![Runbook günlüğe kaydetme ve izleme](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
-1. Runbook'u başlatmak için bu nedenle tıklatın istediğiniz **Başlat** ve ardından **Tamam** zaman Runbook'u Başlat bölmesini açar.
-2. Runbook'u Başlat bölmesinde sağlayan bir **VMname**. Komut dosyasında daha önce yapılandırılmış bir parametre için varsayılan değerleri kabul edin. Tıklatın **Tamam** runbook işi başlatmak için.<br><br> ![Yeni AwsVM runbook başlatın](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
-3. Oluşturduğunuz runbook işi için bir iş bölmesi açıldı. Bu bölmesini kapatın.
-4. İlerleme çıktısı iş ve görünüm durumunu görüntüleyebilirsiniz **akışları** seçerek **tüm günlükleri** döşeme runbook işi sayfasından.<br><br> ![Akış çıkışı](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
-5. VM'i sağlayan onaylamak için AWS yönetim konsolunda oturum, şu anda günlüğe kaydedilir.<br><br> ![AWS Konsolu VM dağıtılan](./media/automation-scenario-aws-deployment/aws-instances-status.png)
+1. Runbook'u başlatmak için bu nedenle tıklatın istediğiniz **Başlat** ve ardından **Tamam** zaman Runbook'u Başlat bölmeyi açar.
+2. Runbook'u Başlat bölmede sağlayan bir **VMname**. Betik daha önce yapılandırılmış bir parametre için varsayılan değerleri kabul edin. Tıklayın **Tamam** runbook işini başlatmak için.<br><br> ![New-AwsVM runbook başlatma](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+3. Oluşturduğunuz runbook işi için bir iş bölmesi açılır. Bu bölmesini kapatın.
+4. İş ve görünümü çıktılarını ilerlemesini görüntüleyebileceğiniz **akışları** seçerek **tüm günlükler** kutucuğunda runbook işi sayfasında.<br><br> ![Stream çıkış](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
+5. VM sağlandıktan onaylamak için AWS yönetim konsoluna oturum açmış olduğunuz değil.<br><br> ![AWS konsolunda dağıtılan VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md)

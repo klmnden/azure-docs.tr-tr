@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252352"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275496"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Azure Automation'da bir runbook başlatma
 Aşağıdaki tabloda kendi belirli senaryonuza en uygun Azure automation'da bir runbook başlatma yöntemi belirlemenize yardımcı olur. Bu makale, Azure portalı ve Windows PowerShell ile bir runbook başlatma hakkında bilgi içerir. Aşağıdaki bağlantılardan erişebileceğiniz diğer belgeler diğer yöntemler hakkında ayrıntılı bilgi sağlanır.
@@ -43,13 +43,13 @@ Aşağıdaki resimde bir runbook yaşam döngüsünü ayrıntılı adım adım i
 ## <a name="starting-a-runbook-with-windows-powershell"></a>Windows PowerShell ile bir runbook başlatma
 Kullanabileceğiniz [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) Windows PowerShell ile bir runbook'u başlatın. Aşağıdaki örnek kod, Test-Runbook adlı bir runbook başlatır.
 
-```
+```azurepowershell-interactive
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
 Start-AzureRmAutomationRunbook runbook başlatıldıktan sonra durumunu izlemek için kullanabileceğiniz bir iş nesnesi döndürür. Ardından ile bu iş nesnesini kullanabilirsiniz [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) işin durumunu belirlemek için ve [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) çıktısını almak için. Aşağıdaki örnek kod, Test-Runbook, tamamlandı ve ardından çıktısını görüntüler kadar bekler adlı bir runbook başlatır.
 
-```
+```azurepowershell-interactive
 $runbookName = "Test-Runbook"
 $ResourceGroup = "ResourceGroup01"
 $AutomationAcct = "MyAutomationAccount"
@@ -68,7 +68,7 @@ Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job
 
 Runbook parametre gerektiriyor sonra olarak sağlamanız gereken bir [hashtable](https://technet.microsoft.com/library/hh847780.aspx) burada karma tablosu anahtarının parametre adıyla eşleştiği ve değerin parametre değeri olduğu. Aşağıdaki örnek, FirstName ve LastName, RepeatCount adlı bir tamsayı ve Show adlı bir Boole parametresi adlı iki dize parametre ile bir runbook başlatmak gösterilmektedir. Parametreler hakkında daha fazla bilgi için bkz. [Runbook parametreleri](#Runbook-parameters) aşağıda.
 
-```
+```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
@@ -83,7 +83,7 @@ Veri türü [object] parametresi olan sonra görünen değerlerin bir listesini 
 
 Kullanıcı adlı bir parametreyi kabul eden aşağıdaki sınama runbook'unu göz önünde bulundurun.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -101,13 +101,13 @@ Workflow Test-Parameters
 
 Aşağıdaki metin kullanıcı parametresi için kullanılabilir.
 
-```
+```json
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 Bu, aşağıdaki çıktı olur:
 
-```
+```output
 Joe
 Smith
 Joe
@@ -119,7 +119,7 @@ Parametre, [dizi] gibi bir dizi olup olmadığını veya [string []], değerleri
 
 Adlı bir parametreyi kabul eden aşağıdaki sınama runbook'unu göz önünde bulundurun *kullanıcı*.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -136,13 +136,13 @@ Workflow Test-Parameters
 
 Aşağıdaki metin kullanıcı parametresi için kullanılabilir.
 
-```
+```input
 ["Joe","Smith",2,true]
 ```
 
 Bu, aşağıdaki çıktı olur:
 
-```
+```output
 Joe
 Smith
 Joe
@@ -154,7 +154,7 @@ Parametre veri türü ise **PSCredential**, bir Azure Otomasyonu adını sağlay
 
 Kimlik bilgisi adlı bir parametreyi kabul eden aşağıdaki sınama runbook'unu göz önünde bulundurun.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -166,13 +166,13 @@ Workflow Test-Parameters
 
 Aşağıdaki metin kullanıcı parametresi adlı bir kimlik bilgisi varlığı olduğunu için kullanılabilecek *My kimlik bilgisi*.
 
-```
+```input
 My Credential
 ```
 
 Kullanıcı adı kimlik varsayılarak olan *jsmith*, bu aşağıdaki çıktı olur:
 
-```
+```output
 jsmith
 ```
 

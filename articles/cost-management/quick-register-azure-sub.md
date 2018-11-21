@@ -9,13 +9,13 @@ ms.date: 08/07/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: e49be3d61cfbbf71a0e9cbeef4c171f3af222544
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+manager: benshy
+ms.openlocfilehash: 4b0c0a6fdf8d84b6519d1228f148342b8486c282
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979565"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276406"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Ayrı bir Azure aboneliğini kaydetme ve maliyet verilerini görüntüleme
 
@@ -25,7 +25,7 @@ Cloudyn’e kaydolmak için Azure aboneliğinizi kullanırsınız. Kaydınız Cl
 
 - http://portal.azure.com adresinden Azure portalında oturum açın.
 
-## <a name="register-with-cloudyn"></a>Cloudyn ile kaydetme
+## <a name="register-with-cloudyn"></a>Cloudyn’e kaydolma
 
 1. Azure portalında, hizmetler listesinde **Maliyet Yönetimi + Faturalama**’ya tıklayın.
 2. **Genel Bakış** altında, **Cloudyn**’e tıklayın  

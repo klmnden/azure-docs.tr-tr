@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights Docker uygulamalarında izleme | Microsoft Docs
-description: Docker performans sayaçları, olaylar ve özel durumları Application Insights üzerinde kapsayıcılı uygulamalardan telemetri ile birlikte görüntülenebilir.
+title: Azure Application ınsights'ta Docker uygulamalarını izleme | Microsoft Docs
+description: Docker performans sayaçları, olayları ve özel durumlar üzerinde Application Insights, kapsayıcılı uygulamaları alınan telemetri birlikte görüntülenebilir.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,53 +11,49 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 53ade76b9dbdc27df90da1f7e197464816529d1d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4df6780fa61c1ed32279d882f383097dc0287716
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295770"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275924"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>Application ınsights'ta Docker uygulama izleme
-Yaşam döngüsü olayları ve performans sayaçları [Docker](https://www.docker.com/) kapsayıcıları Application Insights grafiğinin. Yükleme [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) ana bilgisayarınız ve kapsayıcısında görüntü diğer görüntüleri yanı sıra, ana bilgisayar için performans sayaçlarını görüntüler.
+# <a name="monitor-docker-applications-in-application-insights"></a>Application ınsights'ta Docker uygulamalarını izleme
 
-Docker ile uygulamalarınızı basit kapsayıcılarında tüm bağımlılıkları ile tam dağıtın. Bunlar, Docker altyapısına çalıştıran herhangi bir ana makinede çalıştıracaksınız.
+Yaşam döngüsü olayları ve performans sayaçları gelen [Docker](https://www.docker.com/) kapsayıcıları Application Insights grafiğinin. Yükleme [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) görüntü bir kapsayıcıda, konak ve diğer görüntüleri yanı sıra, ana bilgisayar için performans sayaçlarını görüntüler.
 
-Çalıştırdığınızda [Application Insights görüntü](https://hub.docker.com/r/microsoft/applicationinsights/) , Docker ana bilgisayarda bu avantajlarını elde edersiniz:
+Docker ile uygulamalarınızı basit kapsayıcıların tüm bağımlılıklarla birlikte eksiksiz olarak dağıtın. Bunlar bir Docker altyapısını çalıştıran herhangi bir ana makinede çalıştırın.
+
+Çalıştırdığınızda [Application Insights görüntü](https://hub.docker.com/r/microsoft/applicationinsights/) Docker konak üzerinde bu avantajlar alın:
 
 * Yaşam döngüsü telemetri çalıştıran tüm kapsayıcıları hakkında konakta - başlatmak, durdurmak ve benzeri.
-* Tüm kapsayıcıları için performans sayaçları. CPU, bellek, ağ kullanımını ve daha fazlası.
-* Varsa, [Java için Application Insights SDK'sı yüklü](app-insights-java-live.md) kapsayıcılarında çalışan uygulamalar, bu uygulamaların tüm telemetri kapsayıcı ve ana bilgisayar makine tanımlayan ek özellikleri sahip olur. Dolayısıyla örneğin bir uygulama içinde birden fazla ana çalışan örneklerini varsa, ana bilgisayar tarafından uygulama telemetrinizi kolayca filtreleyebilirsiniz.
-
-![Örnek](./media/app-insights-docker/00.png)
-
-## <a name="set-up-your-application-insights-resource"></a>Application Insights kaynağı ayarladıysanız
-1. Oturum [Microsoft Azure portal](https://azure.com) ve; uygulamanız için Application Insights kaynağını açma veya [yeni bir tane oluşturun](app-insights-create-new-resource.md). 
-   
-    *Hangi kaynak kullanmalıyım?* Konağınız üzerinde çalışan uygulamalar başka birisi tarafından geliştirilen sonra yapmanız [yeni bir Application Insights kaynağı oluşturma](app-insights-create-new-resource.md). Burada görüntüleyebilir ve telemetriyi Çözümle budur. (Uygulama türü için ' genel' seçin.)
-   
-    Ancak uygulama geliştiricisi olduğunuz sonra umuyoruz [Application Insights SDK'sı eklenen](app-insights-java-live.md) bunların her biri için. Gerçekten'ın tüm bileşenleri tek bir iş uygulaması olup olmadıklarını, sonra tüm bir kaynağa telemetri gönderecek şekilde yapılandırmanız ve Docker yaşam döngüsü ve performans verilerini görüntülemek için aynı kaynak kullanacaksınız. 
-   
-    Üçüncü senaryo uygulamaları çoğunu geliştirilmiş, ancak bunların telemetri görüntülemek için ayrı kaynakları kullanarak ' dir. Bu durumda, Docker verileri için ayrı bir kaynak oluşturmak için büyük olasılıkla de istersiniz. 
-2. Docker kutucuğu ekleyin: seçin **eklemek döşeme**, Docker döşeme Galeriden sürükleyin ve ardından **Bitti**. 
-   
-    ![Örnek](./media/app-insights-docker/03.png)
+* Tüm kapsayıcılar için performans sayaçları. CPU, bellek, ağ kullanımı ve daha fazlası.
+* Varsa, [Java için Application Insights SDK'sı yüklü](app-insights-java-live.md) kapsayıcılarda çalıştırılan uygulamalar, bu uygulamaların tüm telemetri kapsayıcı ve ana makine tanımlayan ek özelliklere sahip. Örneğin, birden fazla ana çalışan bir uygulamanın bir örneği varsa, uygulama telemetrinizi ana bilgisayarı tarafından kolayca filtre uygulayabilirsiniz.
 
 > [!NOTE]
-> Application Insights genel bakış bölmesinde artık kilitli ve döşeme Galeriden ekleme izin vermez. Yukarıda Azure Pano arabirimi açıklanan Docker kutucuk eklemeye devam edebilirsiniz.
+> Bu çözümü kullanım dışıdır. Kapsayıcı izleme geçerli yaptığımız yatırımlardan hakkında daha fazla bilgi edinmek için kullanıma almasını öneririz [kapsayıcılar için Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
-3. Tıklatın **Essentials** açılır ve izleme anahtarını kopyalayın. Bu SDK, telemetri gönderileceği yeri bildirmek için kullanın.
+## <a name="set-up-your-application-insights-resource"></a>Kendi Application Insights kaynağını ayarlama
 
-    ![Örnek](./media/app-insights-docker/02-props.png)
+1. Oturum [Microsoft Azure Portal'da](https://azure.com) ; uygulamanız için Application Insights kaynağını açın veya [yeni bir tane oluşturun](app-insights-create-new-resource.md). 
+   
+    *Hangi kaynak kullanmalıyım?* Konağınız üzerinde çalışan uygulamalar başkası tarafından geliştirilen sonra yapmanız [yeni bir Application Insights kaynağı oluşturun](app-insights-create-new-resource.md). Burada görüntüleyebilir ve telemetriyi analiz budur. (Uygulama türü için ' genel' seçin.)
+   
+    Ancak uygulamalardan geliştiriciyseniz sonra umuyoruz [Application Insights SDK'sı eklenen](app-insights-java-live.md) bunların her biri için. Tüm gerçekten bileşenleri tek bir iş uygulamasının iseler, tüm bir kaynağa telemetri gönderecek şekilde yapılandırmanız ve Docker yaşam döngüsü ve performans verilerini görüntülemek için aynı kaynak kullanacaksınız. 
+   
+    Uygulamaların çoğu geliştirilen, ancak bunların telemetri görüntülemek için ayrı kaynaklar kullanıyorsanız, üçüncü bir senaryodur. Bu durumda, Docker verileri için ayrı bir kaynak oluşturmak için büyük olasılıkla de istersiniz.
 
-En kısa sürede, telemetrisini görünmesini için geri gelin gibi bu tarayıcı penceresini elinizin altında tutun.
+2. Tıklayın **Essentials** açılır ve izleme anahtarını kopyalayın. Bu SDK, telemetri gönderileceği bildirmek için kullanın.
 
-## <a name="run-the-application-insights-monitor-on-your-host"></a>Ana bilgisayarda Application Insights İzleyicisi'ni çalıştırın
-Telemetri görüntülemek için bir yere olduğuna göre toplar ve göndermeden kapsayıcılı uygulama ayarlayabilirsiniz.
+Bu tarayıcı penceresini elinizde bulundurun telemetrinizi kısa süre içinde görünmesini için geri dönen.
 
-1. Docker ana bilgisayara bağlanın. 
+## <a name="run-the-application-insights-monitor-on-your-host"></a>Konağınız üzerinde Application Insights izlemeyi Çalıştır
+
+Telemetri görüntülemek için bir yere kendinizi, toplar ve bunları gönderir kapsayıcılı uygulamayı ayarlayabilirsiniz.
+
+1. Docker ana bilgisayarına bağlayın.
 2. Bu komutta, izleme anahtarını düzenleyin ve ardından çalıştırın:
    
    ```
@@ -65,65 +61,46 @@ Telemetri görüntülemek için bir yere olduğuna göre toplar ve göndermeden 
    docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
    ```
 
-Docker ana bilgisayar başına yalnızca bir Application Insights görüntü gereklidir. Uygulamanız birden çok Docker ana bilgisayarda dağıtılırsa, her ana bilgisayarda komutu yineleyin.
+Docker ana bilgisayar başına yalnızca bir Application Insights görüntü gereklidir. Ardından, uygulamanızın birden çok Docker ana bilgisayarda dağıtılmışsa, her konakta komutu yineleyin.
 
-## <a name="update-your-app"></a>Uygulamanızı güncelleştirme
-Uygulamanız ile işaretlenir varsa [Java için Application Insights SDK](app-insights-java-get-started.md), altında aşağıdaki satırı projenizdeki Applicationınsights.xml dosyasına ekleyin `<TelemetryInitializers>` öğe:
+## <a name="update-your-app"></a>Uygulamanızı güncelleştirin
+Uygulamanız ile işaretlenmiş ise [Java için Application Insights SDK'sı](app-insights-java-get-started.md), altında aşağıdaki satırı, projenizdeki Applicationınsights.XML dosyasının içine ekleyin `<TelemetryInitializers>` öğesi:
 
 ```xml
 
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-Bu kapsayıcı ve ana bilgisayar kimliği gibi Docker bilgileri uygulamanızdan gönderilen her telemetri öğesi ekler.
+Bu, kapsayıcı ve konak kimliği gibi Docker bilgileri uygulamanızdan gönderilen her telemetri öğesine ekler.
 
 ## <a name="view-your-telemetry"></a>Telemetrinizi görüntüleme
 Azure portalında Application Insights kaynağınıza dönün.
 
 Docker kutucuğa tıklayın.
 
-Özellikle, Docker altyapısı üzerinde çalışan diğer kapsayıcılar varsa, kısa süre içinde Docker uygulamadan gelen veri görürsünüz.
+Özellikle, Docker altyapısı üzerinde çalışan diğer kapsayıcılar varsa, kısa süre içinde Docker uygulamadan gelen verileri görürsünüz.
 
-Alabileceğiniz görünümleri bazıları aşağıda verilmiştir.
-
-### <a name="perf-counters-by-host-activity-by-image"></a>Ana bilgisayar, görüntü göre etkinlik tarafından performans sayaçları
-![Örnek](./media/app-insights-docker/10.png)
-
-![Örnek](./media/app-insights-docker/11.png)
-
-Herhangi bir ana bilgisayar veya görüntü adıyla daha fazla ayrıntı için'ı tıklatın.
-
-Görünümü özelleştirmek için herhangi Grafik başlığı kılavuz'a tıklayın veya ekleme grafik kullanın. 
-
-[Ölçüm Gezgini hakkında daha fazla bilgi](app-insights-metrics-explorer.md).
-
-### <a name="docker-container-events"></a>Docker kapsayıcısı olayları
+### <a name="docker-container-events"></a>Docker kapsayıcı olayları
 ![Örnek](./media/app-insights-docker/13.png)
 
-Olayları tek tek incelemek için tıklatın [arama](app-insights-diagnostic-search.md). Arama ve istediğiniz olayları bulmak için filtre. Daha fazla ayrıntı almak için herhangi bir etkinliğe tıklayın.
+Tek tek olayları araştırmak için tıklayın [arama](app-insights-diagnostic-search.md). Arama ve istediğiniz olayları bulmak için filtre uygulayın. Daha fazla ayrıntı almak için herhangi bir etkinliğe tıklayın.
 
-### <a name="exceptions-by-container-name"></a>Kapsayıcı adı tarafından özel durumlar
+### <a name="exceptions-by-container-name"></a>Özel durumların kapsayıcı adı
 ![Örnek](./media/app-insights-docker/14.png)
 
-### <a name="docker-context-added-to-app-telemetry"></a>Uygulama telemetri eklenen docker bağlamı
-AI Docker bağlamla zenginleştirilmiş SDK'sı, izlenmiş uygulamasından gönderilen telemetri isteği:
-
-![Örnek](./media/app-insights-docker/16.png)
-
-İşlemci zamanı ve kullanılabilir bellek performans sayaçları, zenginleştirilmiş ve Docker kapsayıcısı adına göre gruplandırılır:
-
-![Örnek](./media/app-insights-docker/15.png)
+### <a name="docker-context-added-to-app-telemetry"></a>Docker bağlamı uygulama telemetri eklendi
+AI SDK'sı ile izleme eklenmiş uygulama gönderilen istek telemetrisi ile Docker bağlam bilgilerini zenginleştirilmiş.
 
 ## <a name="q--a"></a>Soru-Cevap
-*Ne Application Insights Docker elde edilemiyor bana veriyor?*
+*Application Insights Docker elde edilemiyor bana hangi mülklere?*
 
-* Performans sayaçları kapsayıcı ve görüntü tarafından ayrıntılı dökümü.
+* Performans sayaçları kapsayıcı ve görüntü ayrıntılı dökümü.
 * Kapsayıcı ve uygulama verilerini tek bir Panoda tümleştirin.
-* [Telemetri verme](app-insights-export-telemetry.md) daha fazla çözümleme için bir veritabanı, Power BI veya diğer Pano için.
+* [Telemetriyi dışarı aktarma](app-insights-export-telemetry.md) daha detaylı analiz bir veritabanı, Power BI veya diğer Pano.
 
-*Telemetri uygulamasından nasıl sağlarım?*
+*Uygulamadan telemetri nasıl alabilirim?*
 
-* Application Insights SDK uygulamada yükleyin. Bilgi edinmek için nasıl: [Java web uygulamaları](app-insights-java-get-started.md), [Windows web uygulamaları](app-insights-asp-net.md).
+* Uygulama içinde Application Insights SDK'sını yükleyin. Bilgi edinmek için nasıl: [Java web uygulamalarını](app-insights-java-get-started.md), [Windows web uygulamaları](app-insights-asp-net.md).
 
 ## <a name="video"></a>Video
 

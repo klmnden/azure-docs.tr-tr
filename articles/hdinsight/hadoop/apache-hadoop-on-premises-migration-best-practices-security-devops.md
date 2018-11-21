@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9489d6e8780a30c5c54ee307d6c45c4bc2eb0e5d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419291"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265296"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Azure HDInsight için - güvenlik ve iyi DevOps uygulamalarından şirket içi Apache Hadoop kümelerini geçirme
 
@@ -24,7 +24,7 @@ Bu makalede, Azure HDInsight sistemlerinde güvenlik ve DevOps için öneriler s
 
 Kurumsal güvenlik paketi (ESP), Active Directory tabanlı kimlik doğrulaması, çoklu kullanıcı desteği ve rol tabanlı erişim denetimini destekler. Seçilen ESP seçeneği ile HDInsight kümesi için Active Directory etki alanına katılmış ve kuruluş yöneticisi Apache Ranger'ı kullanarak Hive güvenliği için rol tabanlı erişim denetimi (RBAC) yapılandırabilirsiniz. Yönetici ayrıca çalışanlar ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz.
 
-ESP özellikler şu anda Önizleme aşamasındadır ve yalnızca aşağıdaki küme türleri üzerinde kullanılabilir: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka ve Apache Interactive Query.
+ESP aşağıdaki küme türleri üzerinde kullanılabilir: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka ve etkileşimli sorgu (LLAP Hive). 
 
 Etki alanına katılmış HDInsight kümesini dağıtmak için aşağıdaki adımları kullanın:
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637987"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264395"
 ---
 # <a name="prediction-score"></a>Tahmin puanı
 Tahmin puanı LUIS sahip tahmin sonuçlarını için güvenilirlik derecesi gösterir. 
@@ -62,7 +62,7 @@ Eğitim doğrulukla öğesi olduğundan farklı bir uygulamada aynı modeli eği
 Bir güven göstermek için belirli bir LUIS puanı, sohbet botu gerektiriyorsa, bunun yerine üst iki amacı puanı birbirinden kullanmanız gerekir. Bu eğitim çeşitleri için esneklik sağlar. 
 
 ## <a name="punctuation"></a>Noktalama işaretleri
-Noktalama, LUIS, ayrı bir belirteçtir. Daha önceden bir utterance ve sonunda nokta içeren bir utterance iki ayrı konuşma olan ve iki farklı Öngörüler elde edebilirsiniz. Model emin olun ya da noktalama işleme içinde [örnek konuşma](luis-concept-utterance.md) (sahip ve noktalama işaretleri olmaması) veya [patterns}(luis-concept-patterns.md) noktalama özel söz dizimi ile yok saymak daha kolay olduğu: `I am applying for the {Job} position[.]`
+Noktalama, LUIS, ayrı bir belirteçtir. Daha önceden bir utterance ve sonunda nokta içeren bir utterance iki ayrı konuşma olan ve iki farklı Öngörüler elde edebilirsiniz. Model emin noktalama işareti ya da işleme içinde [örnek konuşma](luis-concept-utterance.md) (sahip ve noktalama işaretleri olmaması) veya [desenleri](luis-concept-patterns.md) noktalama özel söz dizimi ile yok saymak daha kolay olduğu: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

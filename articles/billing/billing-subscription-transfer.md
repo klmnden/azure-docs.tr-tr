@@ -5,7 +5,7 @@ keywords: Azure aboneliği, azure aktarım aboneliği aktarmayı, azure aboneli�
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e9b5d1a84417cf6e6264211ea6e542ab712f9fe
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 66ad7c4eb07946daa278589e4a1a819f12315270
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422617"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276384"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure aboneliğinin sahipliğini başka bir hesaba aktarma
 
@@ -110,9 +110,9 @@ Self Servis abonelik aktarımı, aşağıdaki tabloda listelenen abonelik türle
 
 ### <a name="whoisaa"></a> Aboneliğin Hesap Yöneticisi kimdir?
 
-Hesap Yöneticisi yapıldı veya Azure aboneliği satın kişidir. Erişim yetkiniz [hesap Merkezi](https://account.azure.com/Subscriptions) ve abonelikleri oluşturabilir, aboneliklerinizi iptal etmeniz, bir abonelik için faturalama değiştirmek veya hizmet yöneticisini değiştiremez gibi çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Bir abonelik için hesap yöneticisi olan bilmiyorsanız, öğrenmek için aşağıdaki adımları kullanın.
+Hesap Yöneticisi yapıldı veya Azure aboneliği satın kişidir. Erişim yetkiniz [hesap Merkezi](https://account.azure.com/Subscriptions) ve abonelikleri oluşturabilir, aboneliklerinizi iptal etmeniz, bir abonelik için faturalama değiştirmek veya hizmet yöneticisini değiştiremez gibi çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Bir aboneliğin hesap yöneticisinin kim olduğunu bilmiyorsanız aşağıdaki adımları izleyerek bulabilirsiniz.
 
-1. Ziyaret [Azure portalındaki abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. [Azure portalda Abonelikler sayfasını](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ziyaret edin.
 1. Kontrol edin ve ardından altına bakın istediğiniz aboneliği seçin **ayarları**.
 1. Seçin **özellikleri**. Aboneliğin Hesap Yöneticisi görüntülenen **Hesap Yöneticisi** kutusu.
 

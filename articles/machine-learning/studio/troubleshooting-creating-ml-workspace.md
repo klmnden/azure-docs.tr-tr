@@ -3,8 +3,8 @@ title: 'Sorun giderme: Oluşturma ve bir Machine Learning çalışma alanına ba
 description: Oluşturma ve bir Azure Machine Learning çalışma alanına bağlanırken yaygın sorunların çözümleri
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 678d422cc241a75c1e3dc0c644f0ac5055750ca3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f86018c78de842717bf387c007fdd4c7cd048ef1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824158"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265211"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Sorun giderme kılavuzu: Machine Learning çalışma alanı oluşturun ve bağlanın
 Bu kılavuz, Azure Machine Learning çalışma alanları ayarlarken çözümleri bazı zorluklar sık karşılaşıldı. sağlar.

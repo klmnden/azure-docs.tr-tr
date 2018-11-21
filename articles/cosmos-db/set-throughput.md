@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 984d4675aa96a890e7fa14f45eb6412bbd2ddc6f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161693"
+ms.locfileid: "52263902"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Azure Cosmos kapsayıcılar ve veritabanları sağlama aktarım hızı
 
@@ -67,7 +67,6 @@ Bir veritabanı için sağlanan işleme paylaşımı birden çok mantıksal böl
 
 |**Kota**  |**Bir veritabanı üzerinde sağlanan aktarım hızı**  |**Bir kapsayıcı sağlanan aktarım hızı**|
 |---------|---------|---------|
-|Birim ölçeklenebilirlik|Kapsayıcı|Kapsayıcı|
 |En az ru |400 |400|
 |Kapsayıcı başına en az ru|100|400|
 |1 GB depolama alanı kullanmak için gereken en düşük ru|40|40|

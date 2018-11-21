@@ -1,6 +1,6 @@
 ---
-title: Azure AD'yi kullanarak erişimi gözden geçir erişim gözden geçirmeleriyle | Microsoft Docs
-description: Azure Active Directory erişim gözden geçirmelerini kullanarak erişim gözden geçirmeyi öğrenin.
+title: Azure AD erişim gözden geçirmeleri ile erişim değerlendirmesi başlatma | Microsoft Docs
+description: Azure Active Directory erişim gözden geçirmelerini kullanarak erişim değerlendirmesi başlatma hakkında bilgi edinin.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -14,14 +14,14 @@ ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 09247a430d2ece44c307297838b7f4dc2819d56d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 455a4922dfd0832c49729bed007dd696562be07a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607874"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263435"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Azure AD ile erişimi gözden geçir erişim gözden geçirmeleri
+# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri ile erişim değerlendirmesi başlatma
 
 Azure Active Directory (Azure AD) nasıl kuruluşlar, Azure AD'de uygulamaları ve grupların üyeleri erişim yönetmek ve diğer çevrimiçi Microsoft hizmetlerine erişim adlı bir özellik ile incelemeleri kolaylaştırır. Belki de üyeleri bir grup veya uygulamaya erişimi olan kullanıcılar için erişim gözden geçirme ister Microsoft'tan bir e-posta aldı. 
 

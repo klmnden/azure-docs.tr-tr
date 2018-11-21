@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8197e3695da8869806e44775f601d95b17fcb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 902c4c94cc7366af342816e9b4776af603711c8b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028676"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275457"
 ---
 # <a name="know-the-terms"></a>Koşulları bildirin
 
@@ -39,7 +39,7 @@ Mimari ve Teknik Dağıtım Kılavuzu, birkaç ortak tanımlara yaygın olarak k
    Şirket içi etki alanının etki alanı kullanıcıları, sunuculara erişmek ve Hizmetleri (DBMS hizmetler gibi) bu sanal makineler üzerinde çalıştırın. Şirket içi sanal makineler arasında iletişim ve ad çözümlemesini dağıtılır ve Azure tarafından dağıtılan Vm'leri mümkündür. Bu senaryo, çoğu SAP varlıklar dağıtıldığı yol, tipik bir durumdur. Daha fazla bilgi için [planlamak ve tasarlamak için Azure VPN ağ geçidi](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ve [Azure portalını kullanarak siteden siteye bağlantı ile sanal ağ oluşturma](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Kiracı**: HANA büyük örneği damgasında dağıtılan bir müşteri olarak yalıtılmış bir *Kiracı.* Bir kiracı, ağ, depolama ve bilgi işlem katmanını diğer kiracılardan içinde yalıtılır. Farklı kiracıların atanan depolama ve işlem birimleri birbirine göremez veya birbirleri ile iletişim kurmak HANA büyük örnek damgası düzeyine. Bir müşteri farklı kiracıların dağıtımlarını sahip olmayı seçebilirsiniz. Daha sonra HANA büyük örnek damgası düzeyinde kiracılar arasında hiçbir iletişim yok.
 - **SKU kategori**: HANA büyük örneği için aşağıdaki iki kategoriden SKU ile sunulur:
-    - **Ben sınıf türü**: S72, S72m, S144, S144m, S192, S192m ve S192xm
+    - **Ben sınıf türü**: S72, S72m, S96, S144, S144m, S192, S192m ve S192xm
     - **Türü II sınıfı**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm ve S960m
 
 

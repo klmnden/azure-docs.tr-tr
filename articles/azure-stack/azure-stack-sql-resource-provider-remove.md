@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851579"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275036"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını kaldırma
 
@@ -28,20 +28,16 @@ SQL kaynak sağlayıcısı kaldırmadan önce tüm sağlayıcısı bağımlılı
 > [!NOTE]
 > Kaynak sağlayıcısı yükleyiciler, indirme bağlantıları bulabilirsiniz [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
+SQL kaynak sağlayıcısı kaldırıldığında, Kiracı veritabanlarını barındıran sunucu silinmez.
+
 ## <a name="dependency-cleanup"></a>Bağımlılık temizleme
 
 Kaynak Sağlayıcısı'nı kaldırmak için DeploySqlProvider.ps1 betik çalıştırılmadan önce yapmak için birkaç temizleme görevi vardır.
 
-Azure Stack Kiracı kullanıcıları için aşağıdaki temizleme görevlerini sorumludur:
-
-* Tüm veritabanları, kaynak Sağlayıcısı'ndan silin. (Kiracı veritabanlarını silerek verileri silmez.)
-* Sağlayıcı ad alanından kaydını silin.
-
 Azure Stack operatörü için aşağıdaki temizleme görevlerini sorumludur:
 
-* Barındırma sunucusu MySQL bağdaştırıcısından siler.
-* MySQL bağdaştırıcı başvuru planları siler.
-* MySQL bağdaştırıcısı ile ilişkili olan herhangi bir kota siler.
+* SQL bağdaştırıcı başvuru planları silin.
+* SQL bağdaştırıcısı ile ilişkili olan herhangi bir kota silin.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>SQL kaynak Sağlayıcısı'nı kaldırmak için
 
@@ -50,9 +46,9 @@ Azure Stack operatörü için aşağıdaki temizleme görevlerini sorumludur:
    > [!NOTE]
    > Bağımlı kaynaklar halen kaynak sağlayıcısı kullanıyor olsanız bile, SQL kaynak sağlayıcısı kaldırma devam edecek.
   
-2. İkili SQL kaynak sağlayıcısı bir kopyasını alın ve ardından içeriği geçici bir dizine ayıklayın ayıklayıcısı çalıştırın.
+2. SQL kaynak sağlayıcısı yükleme paketinin bir kopyasını alın ve ardından içeriği geçici bir dizine ayıklayın ayıklayıcısı çalıştırın.
 
-3. Yeni yükseltilmiş bir PowerShell konsol penceresi açın ve SQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin.
+3. Yeni yükseltilmiş bir PowerShell konsol penceresi açın ve SQL kaynak sağlayıcısı yükleme dosyaları ayıkladığınız dizine geçin.
 
 4. Aşağıdaki parametreleri kullanarak DeploySqlProvider.ps1 betiği çalıştırın:
 

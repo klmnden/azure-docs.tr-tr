@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e4d4c2115ddae592e9ca7bdf119b36d0ccee2da4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998721"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276661"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Maliyet Yönetimi raporlarını anlama Cloudyn
 
@@ -112,7 +112,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
         - Ön maliyet yok
         - Kısmi ön maliyet
         - İsteğe Bağlı
-        - Rezervasyon
+        - Ayırma
         - Nokta
     - **Ücret türü**
         - Negatif veya pozitif farkı türü veya her ikisini de seçin.
@@ -147,7 +147,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
     - Günlük
     - Haftalık
     - Aylık
-    - Üç aylık
+    - Üç Aylık
     - Yıllık
 
 9. **Ayırma kuralları**
@@ -166,7 +166,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
 
     Görüntü biçimlerini çeşitli graph'i ya da tablo görünümleri seçmek için kullanın.
 
-    ![görüntü biçimleri](./media/understanding-cost-reports/display-formats.png)
+    ![Görüntü biçimleri](./media/understanding-cost-reports/display-formats.png)
 
 13. **Çok renkli**
 

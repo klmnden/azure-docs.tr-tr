@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 751c2df42ee8e4ace22fe94e1fef8d734ab81c3c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240741"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275675"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Otomasyonu
 Karmaşık bir nesne başka bir iş akışı tarafından kullanılması amaçlanan ya da kullanıcıya bir hata iletisi gibi bir çıkış çoğu Azure Automation runbook'larına sahiptir. Windows PowerShell sağlar [birden çok akış](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) bir betik veya iş akışı, çıkış göndermek için. Azure Otomasyonu bu akışları her biriyle farklı şekilde çalışır ve bir runbook oluştururken her kullanmak için en iyi uygulamaları izlemelisiniz.
@@ -64,13 +64,17 @@ Workflow Test-Runbook
 
 Runbook işi için çıkış akışı olacaktır:
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 Runbook işi için ayrıntılı akış şu şekilde olur:
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 Runbook yayımlandıktan sonra ve onu başlamadan önce runbook ayarlarında Verbose stream çıktısını almak amacıyla ayrıntılı günlüğe yazmayı üzerinde de etkinleştirmeniz gerekir.
 

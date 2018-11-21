@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685183"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262916"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 
 Bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma, bir REST API oluşturur. Bu API için veri göndermek ve modeli tarafından döndürülen tahmin alırsınız. Bu belgede, web hizmeti kullanmak için istemcileri oluşturmayı öğrenin C#, Go, Java ve Python.
 
-Bir web hizmeti, görüntüyü Azure Container örneği, Azure Kubernetes hizmeti veya Project Brainwave (alanda programlanabilir kapı dizileri) dağıttığınızda oluşturulur. Görüntüleri, kayıtlı bir model ve puanlama dosyaları oluşturulur. Bir web hizmetine erişmek için kullanılan URI kullanılarak alınabilir [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
+Bir web hizmeti, görüntüyü Azure Container örneği, Azure Kubernetes hizmeti veya Project Brainwave (alanda programlanabilir kapı dizileri) dağıttığınızda oluşturulur. Görüntüleri, kayıtlı bir model ve puanlama dosyaları oluşturulur. Bir web hizmetine erişmek için kullanılan URI kullanılarak alınabilir [Azure Machine Learning SDK'sı](https://aka.ms/aml-sdk). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
 
 Bir XML web hizmeti kullanan bir istemci oluşturma, genel iş akışı şöyledir:
 

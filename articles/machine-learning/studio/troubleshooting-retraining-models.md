@@ -3,8 +3,8 @@ title: Bir Azure Machine Learning Klasik web hizmetini yeniden eğitme sorunlar�
 description: Tanımlamak ve bir Azure Machine Learning Web hizmeti için modeli yeniden eğitme durumlarda sık karşılaşılan sorunları aygıtındaki düzeltin.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 2afbeef4a9c79a5d5c57718ff0bfbebc9b063f7a
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 49a76729d38662667328632c83e98a1211438a98
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820486"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261710"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Sorun giderme bir Azure Machine Learning Klasik web hizmetini yeniden eğitme
 ## <a name="retraining-overview"></a>Yeniden eğitme genel bakış

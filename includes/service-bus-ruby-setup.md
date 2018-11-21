@@ -1,22 +1,35 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: 16ce537a54fc77fc0f72b859d6d193501d86c1fc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52272675"
+---
 ## <a name="create-a-ruby-application"></a>Ruby uygulaması oluşturma
-Yönergeler için bkz: [Azure üzerinde bir Ruby uygulaması oluşturmak](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
+Yönergeler için [Azure'da Ruby uygulaması oluşturma](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
-## <a name="configure-your-application-to-use-service-bus"></a>Uygulamanızı kullanım hizmet veri yolu için yapılandırma
-Service Bus hizmetini kullanmak için karşıdan yükle ve storage REST Hizmetleri ile iletişim kuran bir dizi kolaylık içeren Azure Ruby paketini kullanın.
+## <a name="configure-your-application-to-use-service-bus"></a>Service Bus kullanmak için uygulamanızı yapılandırma
+Service Bus hizmetini kullanmak için indirin ve depolama REST Hizmetleri ile iletişim kuran bir dizi kolaylık içeren Azure Ruby paketi kullanın.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Paket elde etmek için RubyGems kullanın
-1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows), **Terminal** (Mac) veya **Bash** (UNIX).
+### <a name="use-rubygems-to-obtain-the-package"></a>Paketi edinmek için RubyGems kullanma
+1. **PowerShell** (Windows), **Terminal** (Mac) veya **Bash** (Unix) gibi bir komut satırı arabirimi kullanın.
 2. Gem ve bağımlılıklarını yüklemek için komut penceresinde "gem yükleme azure" yazın.
 
-### <a name="import-the-package"></a>Paket alma
-Sık kullandığınız metin Düzenleyicisi'ni kullanarak aşağıdaki depolama kullanmayı düşündüğünüz Söyleniş dosyasının üstüne ekleyin:
+### <a name="import-the-package"></a>Paketi içeri aktarma
+Metin düzenleyiciyi kullanarak, depolama alanı kullanmayı düşündüğünüz Ruby dosyasının en üstüne aşağıdakileri ekleyin:
 
 ```ruby
 require "azure"
 ```
 
-## <a name="set-up-a-service-bus-connection"></a>Hizmet veri yolu bağlantı kurma
-Ad alanı değerleri, anahtar, anahtar, imzalayan ve ana bilgisayar adını ayarlamak için aşağıdaki kodu kullanın:
+## <a name="set-up-a-service-bus-connection"></a>Service Bus bağlantı kurma
+Ad alanı değerlerini, anahtar, anahtar, imzalayan ve ana bilgisayar adını ayarlamak için aşağıdaki kodu kullanın:
 
 ```ruby
 Azure.configure do |config|
@@ -28,4 +41,4 @@ signer = Azure::ServiceBus::Auth::SharedAccessSigner.new
 sb_host = "https://#{Azure.sb_namespace}.servicebus.windows.net"
 ```
 
-Ad alanı değeri URL'nin tamamı yerine oluşturulan değere ayarlayın. Örneğin, **"yourexamplenamespace"**, değil "yourexamplenamespace.servicebus.windows.net".
+Ad alanı değeri, URL'nin tamamı yerine oluşturduğunuz değere ayarlayın. Örneğin, **"yourexamplenamespace"**, olmayan "yourexamplenamespace.servicebus.windows.net".

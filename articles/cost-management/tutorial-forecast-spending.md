@@ -9,13 +9,13 @@ ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
-manager: dougeby
-ms.openlocfilehash: e1954ae9fcbb010c66e8a812e3e34477ac2bfc29
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+manager: benshy
+ms.openlocfilehash: 25fa099bcd6fa3843deadb3dc39d4250624ead06
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395233"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274595"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Öğretici: Gelecek harcamaları tahmin etme
 
@@ -26,7 +26,7 @@ Cloudyn, geçmiş kullanımı ve harcanan verileri kullanarak gelecek harcamalar
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure hesabınız olmalıdır.
 - Cloudyn için bir deneme kaydına veya ücretli aboneliğe sahip olmanız gerekir.

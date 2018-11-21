@@ -3,8 +3,8 @@ title: Web Hizmeti uç noktalarını Machine Learning'de oluşturma | Microsoft 
 description: Web Hizmeti uç noktalarını Azure Machine Learning'de oluşturma
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 45115f0a987093d7e3816891fa5f4c242b449fb7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f046db11bf3c04c9ea15e759b4e0080cab4f71d5
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819245"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265075"
 ---
 # <a name="creating-endpoints"></a>Uç nokta oluşturma
 > [!NOTE]

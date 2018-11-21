@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435057"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274747"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Koşullu erişim ile Azure yönetim erişimi yönetme
 
@@ -32,7 +32,7 @@ Azure yönetimi için bir ilke oluşturmak için seçtiğiniz **Microsoft Azure 
 
 ![Azure yönetimi için koşullu erişim](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Oluşturduğunuz ilke, hizmet yönetim API'leri ve Azure PowerShell Klasik Azure portalı, Azure portalı, Azure Resource Manager sağlayıcısı, Klasik dahil olmak üzere tüm Azure yönetim uç uygulanır.
+Oluşturduğunuz ilke, hizmet yönetim API'leri ve Azure PowerShell Klasik Azure portalı, Azure portalı, Azure Resource Manager sağlayıcısı, Klasik dahil olmak üzere tüm Azure yönetim uç uygulanır. İlke, Azure Resource Manager API çağrılarının Azure PowerShell için geçerli olduğunu unutmayın. Geçerli olmayan [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), Microsoft Graph çağırır.
 
 > [!CAUTION]
 > Koşullu erişim anladığınızdan emin olun Azure yönetim erişimi yönetmek için bir ilke ayarlamadan önce çalışır. Kendi portal erişimini engelleyebilecek koşullar oluşturmayın emin olun.

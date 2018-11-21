@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 24bc0b19d03148e98083fe6d21dd3980fcdf3714
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249826"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276627"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x
 
@@ -187,7 +187,7 @@ Java kod aşağıdaki gibidir:
             databaseName = "ToDoList",
             collectionName = "Items",
             leaseCollectionName = "leases",
-            reateLeaseCollectionIfNotExists = true,
+            createLeaseCollectionIfNotExists = true,
             connectionStringSetting = "AzureCosmosDBConnection") String[] items,
             final ExecutionContext context ) {
                 context.getLogger().info(items.length + "item(s) is/are changed.");
@@ -1157,9 +1157,9 @@ JavaScript kod aşağıdaki gibidir:
 
 <a name="infsharp"></a>
 
-### <a name="input---f-examples"></a>Giriş - F # örnekleri
+### <a name="input---f-examples"></a>Giriş - F# örnekleri
 
-Aşağıdaki örnek, bir Cosmos DB giriş bağlama gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, tek bir belge okur ve belgenin metin değerini güncelleştirir.
+Aşağıdaki örnek, bir Cosmos DB giriş bağlama gösterir. bir *function.json* dosyası ve bir [ F# işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, tek bir belge okur ve belgenin metin değerini güncelleştirir.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -1177,7 +1177,7 @@ Veri bağlama işte *function.json* dosyası:
 
 [Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-F # kodu şu şekildedir:
+İşte F# kod:
 
 ```fsharp
     (* Change input document contents using Azure Cosmos DB input binding *)
@@ -1201,7 +1201,7 @@ Bu örnekte gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dyna
 }
 ```
 
-Eklemek için bir `project.json` bkz [F # paket Yönetimi](functions-reference-fsharp.md#package).
+Eklemek için bir `project.json` bkz [ F# paket Yönetimi](functions-reference-fsharp.md#package).
 
 ### <a name="input---java-examples"></a>Giriş - Java örnekleri
 
@@ -1255,7 +1255,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="input---usage"></a>Giriş - kullanım
 
-İşlev başarıyla çıktığında, C# ve F # işlevleri aracılığıyla adlandırılmış giriş parametreleri giriş belgesi yapılan tüm değişiklikler otomatik olarak kalır. 
+İçinde C# ve F# İşlevler, işlev giriş belgesi adlandırılmış giriş aracılığıyla yapılan tüm değişiklikler başarıyla çıktığında parametreleri otomatik olarak kalıcı olur. 
 
 JavaScript işlevleri'nde güncelleştirmeleri otomatik olarak işlevi çıkıştan sonra duruma getirilmez. Bunun yerine, `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirmeleri yapmak. Bkz: [JavaScript örnek](#input---javascript-example).
 
@@ -1277,7 +1277,7 @@ Ayrıca bkz: [giriş örnek](#input---c-examples) kullanan `DocumentClient`.
 
 [Çıkışı örnekleri atla](#output---attributes)
 
-### <a name="ouput---c-examples"></a>Çıkış - C# örnekleri
+### <a name="output---c-examples"></a>Çıkış - C# örnekleri
 
 Bu bölüm aşağıdaki örnekleri içerir:
 
@@ -1562,9 +1562,9 @@ JavaScript kod aşağıdaki gibidir:
 
 [Çıkışı örnekleri atla](#output---attributes)
 
-### <a name="output---f-examples"></a>Çıkış - F # örnekleri
+### <a name="output---f-examples"></a>Çıkış - F# örnekleri
 
-Aşağıdaki örnek, bir Azure Cosmos DB çıktı bağlama gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, JSON alan şu biçimde bir kuyruk için bir kuyruk giriş bağlama kullanır:
+Aşağıdaki örnek, bir Azure Cosmos DB çıktı bağlama gösterir. bir *function.json* dosyası ve bir [ F# işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, JSON alan şu biçimde bir kuyruk için bir kuyruk giriş bağlama kullanır:
 
 ```json
 {
@@ -1600,7 +1600,7 @@ Veri bağlama işte *function.json* dosyası:
 ```
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-F # kodu şu şekildedir:
+İşte F# kod:
 
 ```fsharp
     open FSharp.Interop.Dynamic
@@ -1639,7 +1639,7 @@ Bu örnekte gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dyna
 }
 ```
 
-Eklemek için bir `project.json` bkz [F # paket Yönetimi](functions-reference-fsharp.md#package).
+Eklemek için bir `project.json` bkz [ F# paket Yönetimi](functions-reference-fsharp.md#package).
 
 ## <a name="output---java-examples"></a>Çıkış - Java örnekleri
 

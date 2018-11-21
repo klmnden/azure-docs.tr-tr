@@ -2,8 +2,8 @@
 title: Dışarı aktarma ve Machine Learning Studio - Azure verilerinizi silme | Microsoft Docs
 description: Azure Machine Learning Studio'da tarafından depolanan ürün içi verileri dışarı aktarma ve silme işlemi Azure portalından ve kimliği doğrulanmış REST API aracılığıyla da kullanılabilir. Telemetri verilerini Azure gizlilik Portal üzerinden erişilebilir. Bu makalede, nasıl gösterir.
 services: machine-learning
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: cgronlun
 ms.reviewer: jmartens, mldocs
@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 318fabf44d0a58cc0b3a9f166bc6048127038de3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820452"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262386"
 ---
 # <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Dışarı aktarma ve Machine Learning Studio'dan ürün içi kullanıcı verilerini sil
 

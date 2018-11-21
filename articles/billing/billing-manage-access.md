@@ -4,7 +4,7 @@ description: ''
 services: ''
 documentationcenter: ''
 author: vikramdesai01
-manager: vikdesai
+manager: amberb
 editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0a8b5532f00d5feb964109710132816a191298e7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429652"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274781"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure için fatura bilgilerini erişimi yönetme
 
-Aşağıdaki kullanıcı rollerinden aboneliğinize atayarak takım üyeleriniz için Azure fatura bilgileri için erişim verebilirsiniz: Hesap Yöneticisi, Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve faturalandırma okuyucusu. Fatura bilgilerine erişimleri [Azure portalında](https://portal.azure.com/), ve kullanabilecekleri [faturalandırma API'lerini](billing-usage-rate-card-overview.md) programlı olarak (bir kez kabul-gelen) faturaları ve kullanım ayrıntılarını almak için. Hakkında daha fazla bilgi için kimin rolleri ve verin hangi rollerin neler, bkz: [Azure RBAC rolleri](../role-based-access-control/built-in-roles.md).
+Aboneliğinize şu kullanıcı rollerinden birini atayarak ekibinizin üyelerine Azure ödeme bilgilerine erişim izni verebilirsiniz: Hesap Yöneticisi, Hizmet Yöneticisi, Ortak Yönetici, Sahip, Katkıda Bulunan, Okuyucu ve Faturalandırma Okuyucusu. Fatura bilgilerine erişimleri [Azure portalında](https://portal.azure.com/), ve kullanabilecekleri [faturalandırma API'lerini](billing-usage-rate-card-overview.md) programlı olarak (bir kez kabul-gelen) faturaları ve kullanım ayrıntılarını almak için. Hakkında daha fazla bilgi için kimin rolleri ve verin hangi rollerin neler, bkz: [Azure RBAC rolleri](../role-based-access-control/built-in-roles.md).
 
 ## <a name="opt-in"></a> Faturalar erişmek ek kullanıcılara izin verilmesi
 
@@ -42,13 +42,13 @@ Hesap Yöneticisi kullanarak etmeniz gerekir [Azure portalında](https://portal.
 
 Seçim Azure portalında PDF fatura indirmek için abonelikte Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve faturalandırma okuyucusu sağlar. Ancak, aralık 2016'dan daha eski faturalar şimdilik yalnızca Hesap Yöneticisi için kullanılabilir.
 
-Hesap Yöneticisi, e-posta ile gönderilen faturalar için de yapılandırabilirsiniz. Daha fazla bilgi için bkz. [faturanızı e-posta ile alın](billing-download-azure-invoice-daily-usage-date.md).
+Hesap Yöneticisi ayrıca faturaların e-posta ile gönderilmesini de sağlayabilir. Daha fazla bilgi için bkz. [Faturanızı e-posta ile alma](billing-download-azure-invoice-daily-usage-date.md).
 
 ## <a name="adding-users-to-the-billing-reader-role"></a>Faturalandırma okuyucusu rolüne kullanıcı ekleme
 
 Faturalandırma okuyucusu rolü, Azure portalında abonelik fatura bilgilerini yalnızca okuma erişimi ve sanal makineleri ve depolama hesapları gibi hizmetlere erişim yok sahiptir. Abonelik fatura bilgilerini ancak değil Azure hizmetlerini yönetme özelliği erişmesi birine faturalandırma okuyucusu rolü atayın. Bu rolün yalnızca bir Azure aboneliğine mali ve maliyet Yönetimi gerçekleştiren bir kuruluştaki kullanıcı için uygundur.
 
-1. Aboneliğinizden seçin [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında.
+1. Azure portalda [Abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) aboneliğinizi seçin.
 
 1. Seçin **erişim denetimi (IAM)** ve ardından **Ekle**.
 
@@ -58,11 +58,11 @@ Faturalandırma okuyucusu rolü, Azure portalında abonelik fatura bilgilerini y
 
     ![Ekran görüntüsü, faturalandırma okuyucusu açılan görünümünde gösterir.](./media/billing-manage-access/select-roles.PNG)
 
-1. Davet edin ve ardından istediğiniz kullanıcının e-posta türü **Tamam** davet gönderilecek.
+1. Davet etmek istediğiniz kullanıcının e-posta adresini yazın ve **Tamam**'a tıklayarak davet gönderin.
 
     ![Davet e-posta girmesini gösteren ekran görüntüsü](./media/billing-manage-access/add-user.PNG)
 
-1. Faturalama okuyucusu olarak oturum açmak için davet e-postadaki yönergeleri izleyin.
+1. Davet e-postasındaki yönergeleri izleyerek Faturalandırma Okuyucusu olarak oturum açın.
 
     ![Azure portalında faturalama okuyucusu görebileceklerini gösteren ekran görüntüsü](./media/billing-manage-access/billing-reader-view.png)
 

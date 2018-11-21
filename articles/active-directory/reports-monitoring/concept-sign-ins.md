@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623809"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275342"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -57,6 +57,9 @@ Kullanıcı oturum açma işlemleri raporu aşağıdaki soruların yanıtların�
 Oturum açma işlemleri raporu seçerek erişebilirsiniz **oturum açma işlemleri** içinde **etkinlik** bölümünü **Azure Active Directory** dikey penceresinde [Azureportalı](https://portal.azure.com).
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/61.png "oturum açma etkinliği")
+
+> [!IMPORTANT]
+> Yalnızca görüntüler oturum açma işlemleri raporu **etkileşimli** olan oturum açma işlemleri, burada bir el ile oturum açtığında, kullanıcı adı ve parolasını kullanarak oturum açma işlemleri. Etkileşimli olmayan oturum açma işlemleri, hizmetten hizmete kimlik doğrulaması gibi oturum açma işlemleri raporu görüntülenmez. 
 
 Oturum açma günlüklerinin aşağıdakileri gösteren bir varsayılan liste görünümü vardır:
 

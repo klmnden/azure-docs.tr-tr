@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963827"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261760"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux için sanal makine seri Konsolu
 
@@ -95,7 +95,7 @@ Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var
 > Etkinleştirmek veya seri konsol bir abonelik için devre dışı bırakmak için abonelik için yazma izinleri olmalıdır. Yönetici veya sahip rollerinin bu izinleri içerir. Özel roller ayrıca yazma izinlerine sahip olabilir.
 
 ### <a name="subscription-level-disable"></a>Abonelik düzeyinde devre dışı bırak
-Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, girin **varsayılan** için **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
+Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](/rest/api/serialconsole/console/disableconsole). Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, girin **varsayılan** için **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
 
 ![REST API'yi deneyin](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

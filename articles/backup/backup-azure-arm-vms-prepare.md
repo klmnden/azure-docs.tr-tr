@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 086399f669b704a0ae2c9f719906e7efa672b5b1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256281"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262521"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
@@ -34,7 +34,7 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 
 ## <a name="supported-operating-systems-for-backup"></a>Yedekleme için desteklenen işletim sistemleri
 
- * **Linux**: Azure Backup'ı destekleyen [bir Azure onayladığı bir dağıtım listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), CoreOS Linux hariç. Dosyaları geri yükleme destekleyen Linux işletim sistemleri listesi için bkz: [dosyaları sanal makine yedekten kurtarma](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Azure Backup'ı destekleyen [bir Azure onayladığı bir dağıtım listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), CoreOS Linux ve 32-bit işletim sistemi hariç. Dosyaları geri yükleme destekleyen Linux işletim sistemleri listesi için bkz: [dosyaları sanal makine yedekten kurtarma](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Diğer Getir your-kendi Linux'unu dağıtımları VM Aracısı sanal makinede kullanılabilir olduğu sürece, çalışma ve Python desteği bulunduğu. Ancak, bu dağıtımları desteklenmez.

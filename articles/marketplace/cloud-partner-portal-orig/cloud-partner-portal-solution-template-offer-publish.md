@@ -1,5 +1,5 @@
 ---
-title: Bir çözüm şablonu yayımlama | Microsoft Docs
+title: Bir Azure çözümü şablonu | Microsoft Docs
 description: Bir çözüm şablonu, Azure Market'te yayımlayın.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345598"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261626"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Bir çözüm şablonu, Azure Market'te yayımlama
 
@@ -31,31 +31,22 @@ Aşağıdaki teknik ve teknik gereksinimleri, bir çözüm şablonu Azure Market
 
 ### <a name="technical"></a>Teknik
 
-- [Azure Resource Manager şablonları anlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [Azure Resource Manager şablonları anlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 - Azure hızlı başlangıç şablonları:
-
     - [Azure Hızlı Başlangıç şablonu belgeleri](https://azure.microsoft.com/documentation/templates/)
-
     - [Github'da Azure hızlı başlangıç belgeleri](https://github.com/azure/azure-quickstart-templates)
-
  - [Azure portal kullanıcı arabirimi dosyası oluşturma](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - Etkinleştirme [müşteri kullanım attribution](./../azure-partner-customer-usage-attribution.md) Azure'da Azure müşteri dağıtımları yazılım kullanımını izlemenize yardımcı olması için.
 
 ### <a name="non-technical-business-requirements"></a>Teknik olmayan (iş gereksinimlerini)
 
--   Azure Marketi tarafından desteklenen ülkeden bir satış şirketinizin (veya yan kuruluşunun) bulunmalıdır.
-
--   Ürününüzün Azure Marketi tarafından desteklenen faturalandırma modelleri ile uyumlu bir şekilde lisanslanmalıdır.
-
--   Teknik Destek müşterilere ticari açıdan makul bir şekilde sağlama yoksa, ücretsiz, ücretli veya topluluk desteği aracılığıyla sorumlu.
-
--   Yazılımınızı ve üçüncü taraf yazılım bağımlılıkları lisansı sağlamaktan sorumlu.
-
--   Teklifinizin Azure Market'te ve Azure Yönetim Portalı'nda listelenmesi ölçütlerini karşılayan içerik sağlar.
-
--   Azure Marketi katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul etmiş olursunuz.
-
--   Kullanım Koşulları, Microsoft Gizlilik Bildirimi ve Microsoft Azure Sertifikalı Program Sözleşmesi’ne uymayı kabul edin.
+- Azure Marketi tarafından desteklenen ülkeden bir satış şirketinizin (veya yan kuruluşunun) bulunmalıdır.
+- Ürününüzün Azure Marketi tarafından desteklenen faturalandırma modelleri ile uyumlu bir şekilde lisanslanmalıdır.
+- Teknik Destek müşterilere ticari açıdan makul bir şekilde sağlama yoksa, ücretsiz, ücretli veya topluluk desteği aracılığıyla sorumlu.
+- Yazılımınızı ve üçüncü taraf yazılım bağımlılıkları lisansı sağlamaktan sorumlu.
+- Teklifinizin Azure Market'te ve Azure Portalı'nda listelenmesi ölçütlerini karşılayan içerik sağlar.
+- Azure Marketi katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul etmiş olursunuz.
+- Kullanım Koşulları, Microsoft Gizlilik Bildirimi ve Microsoft Azure Sertifikalı Program Sözleşmesi’ne uymayı kabul edin.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -101,7 +92,7 @@ Her görünüm alanlarını doldurmak size bir dizi içeriyor. Gerekli alanları
 
     **Teklif kimliği**
 
-     Bir yayımcı profilinde teklif için benzersiz bir tanımlayıcı. Bu kimliği ürün URL'ler, ARM şablonları, görünür ve faturalandırma bildirir. Yalnızca küçük harf alfasayısal karakterler veya tire (-) kullanabilirsiniz. Kimliği tire bitemez ve en çok 50 karakter olabilir. 
+     Bir yayımcı profilinde teklif için benzersiz bir tanımlayıcı. Bu kimliği ürün URL'leri, Azure Resource Manager şablonları, görünür ve faturalandırma bildirir. Yalnızca küçük harf alfasayısal karakterler veya tire (-) kullanabilirsiniz. Kimliği tire bitemez ve en çok 50 karakter olabilir. 
     >[!Note]
     >Bir teklif etkin durumda olduğunda bu alan kilitli.
 
@@ -128,7 +119,7 @@ teklifiniz için.
 
     ![Yeni SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    SKU kimliği, teklif içinde SKU için benzersiz bir tanımlayıcıdır. Bu kimliği ürün URL'ler, ARM şablonları, görünür ve faturalandırma bildirir. SKU kimliği:
+    SKU kimliği, teklif içinde SKU için benzersiz bir tanımlayıcıdır. Bu kimlik; ürün URL’leri, Kaynak Yöneticisi şablonları ve faturalandırma raporlarında görünürdür. SKU kimliği:
     - Yalnızca en çok 50 karakter olabilir.
     - Yalnızca küçük harf alfasayısal karakterler veya tire (-) oluşturulabilir.
     - Kimlik tire ile bitemez.
@@ -146,14 +137,10 @@ teklifiniz için.
 Aşağıdaki SKU ayarları sağlayın.
 
 - **Başlık** -SKU için bir başlık. Bu konu başlığı, bu öğe için galerisinde görüntülenir.
-
 - **Özet** - bir Özet açıklaması sku'sunun kısa. (En fazla 100 karakterdir.)
-
 - **Açıklama** - ayrıntılı SKU açıklaması.
-
 - **SKU türü** -bu değerleri içeren bir açılan listedeki: "Yönetilen uygulama (Önizleme)" ve "Çözüm şablonu". Bu senaryo için seçin **çözüm şablonu**.
-
-- **Bulut kullanılabilirlik** -SKU konumu. Genel Azure varsayılandır.
+- **Bulut kullanılabilirlik** -SKU konumu. Varsayılan değer **genel Azure**.
 
 ### <a name="package-details"></a>Paket Ayrıntıları
 
@@ -162,19 +149,16 @@ SKU ayarları tamamladıktan sonra aşağıdaki Paket ayrıntılarını sağlay�
 ![Paket Ayrıntıları](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
 - **Geçerli sürümü** -karşıya yükleyeceğiniz paketin sürümü. Sürüm etiketleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır.
-
 - **Dosya paketini** -bu paket bir .zip dosyasına kaydedilir aşağıdaki dosyaları içerir.
-
     -   MainTemplate.json - çözüm/uygulamayı dağıtmak ve çözüm için tanımlanan kaynakları oluşturmak için kullanılan dağıtım şablonu dosyası. Daha fazla bilgi için [nasıl dağıtım şablonu dosyaları yazma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-
-    -   createUIDefinition.json - bu dosya, bu çözüm/uygulama sağlamak için kullanıcı arabirimi oluşturmak için Azure Portal tarafından kullanılır. Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal kullanıcı arabirimi](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+    -   createUIDefinition.json - bu dosya, bu çözüm/uygulama sağlamak için kullanıcı arabirimi oluşturmak için Azure portal tarafından kullanılır. Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal kullanıcı arabirimi](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
 
     >[!IMPORTANT]
     >Bu paket, herhangi bir iç içe geçmiş şablonlar veya bu uygulama sağlamak için gereken komut dosyaları içermelidir. MainTemplate.json ve createUIDefinition.json kök klasöründe olması gerekir.
 
 ## <a name="to-configure-the-marketplace"></a>Market yapılandırmak için
 
-Teklif için görüntülenen alanları yapılandırmak için Market görünümünü kullanın [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalı](https://portal.azure.com/).
+Teklif için görüntülenen alanları yapılandırmak için Market görünümünü kullanın [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalında](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Önizleme abonelik kimlikleri
 
@@ -182,7 +166,7 @@ Teklif yayımlandığında teklif erişmesini istediğiniz Azure abonelik kimlik
 
 ### <a name="suggested-categories"></a>Önerilen kategorileri
 
-En fazla 5 kategorileri, teklifinizi en iyi ile ilişkilendirilebilen sağlanan listeden seçin. Seçili kategorilerdeki teklifinizi, bulunan ürün kategorilerini eşlemek için kullanılan [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalı](https://portal.azure.com/).
+En fazla beş kategoriye teklifinizi en iyi ile ilişkilendirilebilen sağlanan listeden seçin. Seçili kategorilerdeki teklifinizi, bulunan ürün kategorilerini eşlemek için kullanılan [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalı](https://portal.azure.com/).
 
 Aşağıdaki örnekler, Azure Marketi'nde hem de Azure portalında Market bilgileri gösterir.
 
@@ -197,7 +181,7 @@ Aşağıdaki örnekler, Azure Marketi'nde hem de Azure portalında Market bilgil
 ![publishvm15](./media/cloud-partner-portal-publish-managed-app/publishvm15.png)
 
 
-**Azure Portal**
+**Azure portal**
 
 
 ![publishvm12](./media/cloud-partner-portal-publish-managed-app/publishvm12.png)
@@ -215,11 +199,11 @@ Bulut iş ortağı portalına karşıya logo için aşağıdaki yönergeleri izl
 -   Azure portal'ın Tema renkleri beyaz ve siyah. Bu renkler, logolar arka plan rengi kullanmaktan kaçının. Logo, Azure portalında belirgin hale getirir bir renk kullanın. Basit birincil renkleri öneririz.
 
     >[!Note] 
-    >Saydam arka plan kullanıyorsanız, ardından logoları/metin beyaz, olmayan emin olun, beyaz veya mavi.
+    >Saydam arka plan kullanıyorsanız, ardından logoları/metin beyaz, olmayan emin olun, siyah veya mavi.
 
 -   Logoda gradyan arka plan kullanmayın.
 
--   Metin logosunu yerleştirmekten kaçının. Bu, şirketinizin veya marka adı içerir. Logonuzu Görünüm ve yapısını olmalıdır *düz* gradyanlar kaçınmalısınız.
+-   Metin logosunu yerleştirmekten kaçının. Bu kılavuz, şirketiniz veya marka adı içerir. Logonuzu Görünüm ve yapısını olmalıdır *düz* gradyanlar kaçınmalısınız.
 
 -   Logo esnetilmiş olmamalıdır.
 
@@ -229,7 +213,7 @@ Hero logosu isteğe bağlıdır. Yayımcı Hero logoyu karşıya yükleyin deği
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Hero logosu simgesi için yönergeler
 
--   Yayımcı görünen adı, planı başlık ve teklife ilişkin uzun özeti beyaz bir renkli yazı tipi kullanarak görüntülenir. Açık bir renk arka planda kullanmaktan kaçının. Siyah, beyaz ve saydam arka planlar için Hero simgeler izin verilmez.
+-   Beyaz renkte bir yazı tipi kullanarak yayımcı görünen adı, planı başlık ve teklife ilişkin uzun özeti görüntülenir. Açık bir renk arka planda kullanmaktan kaçının. Siyah, beyaz ve saydam arka planlar için Hero simgeler izin verilmez.
 
 -   Yayımcı görünen adı, plan teklife ilişkin listede, başlık, uzun Özet teklif ve Oluştur düğmesine program aracılığıyla içinde Hero logosu katıştırılır. Hero logosu tasarlarken, herhangi bir metin girmeyin. Logo sağ tarafındaki bir boşluk bırakın. Bu alanı 415 x 100 piksel olmalı ve 370 tarafından uzaklık piksel soldan.
 

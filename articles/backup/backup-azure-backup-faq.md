@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241268"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261675"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -125,7 +125,7 @@ Windows Storage Server 2012 64 bit | Standard, Workgroup | En son hizmet paketle
 Windows Server 2008 R2 SP1 64 bit | Standard, Enterprise, Datacenter, Foundation | En son güncelleştirmeleri ile.
 Windows Server 2008 64 bit | Standard, Enterprise, Datacenter | En son güncelleştirmeler yüklü.
 
-Azure VM Linux yedeklemeleri için Azure yedeklemeyi destekler [Azure tarafından desteklenen dağıtım listesini](../virtual-machines/linux/endorsed-distros.md), Core OS Linux hariç.  Diğer Getir kendi Linux dağıtımları VM Aracısı VM üzerinde kullanılabilir olduğu sürece çalışır ve Python desteği bulunduğu.
+Azure VM Linux yedeklemeleri için Azure yedeklemeyi destekler [Azure tarafından desteklenen dağıtım listesini](../virtual-machines/linux/endorsed-distros.md), Core OS Linux ve 32-bit işletim sistemi hariç. Diğer Getir kendi Linux dağıtımları VM Aracısı VM üzerinde kullanılabilir olduğu sürece çalışır ve Python desteği bulunduğu.
 
 
 ## <a name="are-there-size-limits-for-data-backup"></a>Veri yedekleme boyutu sınırlar var mıdır?

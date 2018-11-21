@@ -5,7 +5,7 @@ keywords: Fatura, fatura indirme, azure fatura, azure kullanımı
 services: billing
 documentationcenter: ''
 author: genlin
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.service: billing
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: f0cdfef50c07674a08766933f2f7edfc946462a4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9067162c6f1bd95b0a1c25bef17836b19ecf6946
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395024"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276118"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura ve günlük kullanım verilerini görüntüleme
 Faturanızı dan indirebileceğiniz [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) veya e-posta ile gönderilen sahip. Günlük kullanımınızla indirmek için Git [Azure hesap Merkezi](https://account.azure.com/Subscriptions). Yalnızca bazı rollerde fatura ve kullanım bilgilerini, Hesap Yöneticisi gibi alma iznine sahip. Faturalama bilgilerine erişme hakkında daha fazla bilgi için bkz. [Rolleri kullanarak Azure faturalamasına erişimi yönetme](billing-manage-access.md).
@@ -100,15 +100,15 @@ Günlük kullanımınız hakkında daha fazla bilgi için bkz. [Microsoft Azure 
 
 ## <a name="noinvoice"></a> Son fatura dönemi için fatura neden göremiyorum?
 
-Fatura görmüyor çeşitli nedenleri olabilir:
+Bir faturayı görmemenizin birden fazla nedeni olabilir:
 
-- Bir aylık kredi miktarını aşan alamadık, aboneliğiniz ile sahip olduğunuz veya ücretsiz deneme sürümü vardır. Fatura para borçlu yalnızca üretilir.
+- Aboneliğinizde henüz aşmadığınız aylık kredi miktarı bulunabilir veya Ücretsiz Deneme aboneliğiniz olabilir. Fatura yalnızca yapmanız gereken ödemeler olduğunda düzenlenir.
 
-- Azure'a abone günden itibaren 30 günden az olduğu.
+- Azure'a abone olmanızın üzerinden 30 gün geçmemiştir.
 
-- Fatura henüz oluşturulmadığından. Fatura döneminin sonuna kadar bekleyin.
+- Fatura henüz düzenlenmemiştir. Fatura döneminin sonuna kadar bekleyin.
 
-- Hesap Yöneticisi değilseniz, eski faturalar için kullanılamıyor olabilir.
+- Hesap Yöneticisi değilseniz eski faturaları görüntüleyemezsiniz.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

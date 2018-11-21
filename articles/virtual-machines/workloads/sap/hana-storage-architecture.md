@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 614d6aef4a2b7be551574fd3c8e25e2a3e3c1c07
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028653"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276006"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA (büyük örnekler) depolama mimarisi
 
-Depolama alanı düzenini (büyük örnekler) Azure üzerinde SAP HANA için SAP HANA tarafından önerilen yönergeleri SAP Klasik dağıtım modeliyle yapılandırılır. Yönergeleri bölümünde belgelendirilen [SAP HANA depolama gereksinimlerini](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) teknik incelemesi.
+Depolama alanı düzenini (büyük örnekler) Azure üzerinde SAP HANA için SAP HANA tarafından önerilen yönergeleri SAP başına Klasik dağıtım modelinde yapılandırılır. Yönergeleri bölümünde belgelendirilen [SAP HANA depolama gereksinimlerini](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) teknik incelemesi.
 
 Ben sınıf türünün HANA büyük örneği dört kez bellek toplu depolama birimi olarak gelir. HANA büyük örneği birimleri Type II sınıfı için depolama dört kat daha fazla değildir. Birimleri tasarlanmıştır HANA işlem günlüğü yedeklemeleri depolamak için bir birim gelir. Daha fazla bilgi için [yüklemek ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -33,6 +33,7 @@ Depolama tahsisi açısından aşağıdaki tabloya bakın. Tablo farklı HANA b�
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
+| S96 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S192 | 4.608 GB | 1.024 GB | 1.536 GB | 1.024 GB |
 | S192m | 11,520 GB | 1.536 GB | 1,792 GB | 1.536 GB |
 | S192xm |  11,520 GB |  1.536 GB |  1,792 GB |  1.536 GB |
@@ -72,11 +73,11 @@ Başvuru [HLI desteklenen senaryoları](hana-supported-scenario.md) senaryonuz i
 
 HANA büyük örneği birimi birden fazla etkin SAP HANA örneğinde barındırmak mümkündür. Depolama anlık görüntüleri ve olağanüstü durum kurtarma özellikleri sağlamak için bu tür bir yapılandırma örneği başına bir birim gerektirir. Şu anda, HANA büyük örneği birimleri gibi alt bölümlere ayrılabilir:
 
-- **S72, S72m, S144, S192**: en düşük başlangıç birim 256 GB ile 256 GB'lık artışlarla. 256 GB ile 512 GB gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
+- **S72 S72m, S96 S144, S192**: en düşük başlangıç birim 256 GB ile 256 GB'lık artışlarla. 256 GB ile 512 GB gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
 - **S144m ve S192m**: en küçük birim 512 GB ile 256 GB'lık artışlarla. 512 GB ve 768 GB gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
 - **Türü II sınıfı**: en düşük başlangıç birim 2 TB ile 512 GB'lık artışlarla. 512 GB, 1 TB ve 1,5 TB'lık gibi farklı aralıklarla en büyük bellek birimi birleştirilebilir.
 
-Birden çok SAP HANA örnekleri çalışan bazı örnekler aşağıdaki gibi görünebilir.
+Birden çok SAP HANA örnekleri çalışan örneklerde aşağıdaki gibi görünebilir.
 
 | SKU | Bellek boyutu | Depolama boyutu | Birden fazla veritabanıyla, boyutları |
 | --- | --- | --- | --- |
@@ -91,7 +92,7 @@ Diğer farklılıklar da vardır.
 ## <a name="encryption-of-data-at-rest"></a>Bekleyen verilerin şifrelenmesi
 Disklere depolanan gibi verilerin saydam bir şifrelenmesi HANA büyük örneği için kullanılan depolama alanı sağlar. Bir HANA büyük örneği birim dağıtıldığında, bu tür şifrelemeyi etkinleştirebilirsiniz. Dağıtım gerçekleştirildikten sonra şifrelenmiş birimlere da değiştirebilirsiniz. Şifrelenmemiş taşımak şifrelenmiş birimlere saydamdır ve kapalı kalma süresi gerektirmez. 
 
-Ben türüyle sınıfı SKU'ları bir LUN üzerinde depolanan önyükleme birimi şifrelenir. SKU'ları, HANA büyük örneği Type II sınıfı için işletim sistemi yöntemleriyle LUN önyükleme şifrelemeniz gerekir. Daha fazla bilgi için Microsoft Hizmet Yönetimi ekibine başvurun.
+Ben türüyle sınıfı SKU, LUN üzerinde depolanan önyükleme birimi şifrelenir. SKU'ları, HANA büyük örneği Type II sınıfı için işletim sistemi yöntemleriyle LUN önyükleme şifrelemeniz gerekir. Daha fazla bilgi için Microsoft Hizmet Yönetimi ekibine başvurun.
 
 **Sonraki adımlar**
 - Başvuru [HANA büyük örnekler için desteklenen senaryolar](hana-supported-scenario.md)

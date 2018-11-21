@@ -8,20 +8,20 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976797"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276032"
 ---
 # <a name="use-cloudyn-reports"></a>Cloudyn raporlarını kullanma
 
 Bu makalede, Cloudyn portalında bulunan Cloudyn raporlarını amacını açıklar. Ayrıca, raporları etkili bir şekilde nasıl kullanabileceğinizi açıklar. Raporların çoğu, sezgisel ve Tekdüzen bir görünümüne sahip. Çoğu bir raporda gerçekleştirebileceğiniz eylemleri, diğer raporları da yapabilirsiniz. Özelleştirme ve kaydedin veya raporları zamanlamak üzere nasıl dahil olmak üzere, Cloudyn raporların nasıl kullanılacağı hakkında genel bir bakış için bkz. [maliyet raporlarını anlama](understanding-cost-reports.md).
 
-Azure maliyet Yönetimi Cloudyn'e benzer işlevsellik sunar. Azure maliyet yönetimi, yerel Azure maliyet yönetimi çözümüdür. Maliyetlerini, oluşturma ve bütçelerini yönetin, verileri dışarı aktarma ve gözden geçirin ve paradan tasarruf etmek için iyileştirme önerileri davranmasına yardımcı olur. Daha fazla bilgi için [Azure maliyet Yönetimi](overview-cost-mgt.md).
+Azure Maliyet Yönetimi, Cloudyn'e benzer işlevler sunar. Azure Maliyet Yönetimi, yerel Azure maliyet yönetimi çözümüdür. Maliyet analizi yapmanıza, bütçe oluşturup yönetmenize, verileri dışarı aktarmanıza ve tasarruf önerilerini gözden geçirip gerekli eylemleri gerçekleştirmenize yardımcı olur. Daha fazla bilgi için bkz. [Azure Maliyet Yönetimi](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Rapor türleri
 

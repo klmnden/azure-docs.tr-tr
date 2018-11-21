@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740391"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262083"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Azure DevTest Labs altyapı - kaynak İdaresi
 Bu makalede, hizalama ve kaynakları, kuruluşunuzdaki Yönetim için DevTest Labs yöneliktir. 
@@ -35,7 +35,7 @@ Genel uygulama geliştirme için Azure'u kullanmak bir kuruluş başlamadan önc
 - Segmentlere ayırma geliştirme ve üretim ortamlarını ayırmak için gerekli mi? 
 - Hangi denetimlerin, uzun vadeli kolaylığı yönetimi, kararlılık ve büyüme için sunulan?
 
-**İlk yöntem önerilen** kuruluşun Azure sınıflandırma üretim ve geliştirme abonelikler arasında bölümler Burada özetlenen incelemektir. Aşağıdaki diyagramda, önerilen Sınıflandırma, geliştirme/test ve üretim ortamları için bir mantıksal ayrım sağlar. Bu yaklaşımda, bir kuruluş, ayrı ayrı her ortamla ilişkilendirilmiş maliyetleri izlemek için fatura kodları ortaya çıkarabilir. Daha fazla bilgi için [öngörücü abonelik İdaresi](/architecture/cloud-adoption/appendix/azure-scaffold). Ayrıca, kullanabileceğiniz [Azure etiketleri](../azure-resource-manager/resource-group-using-tags.md) izleme ve faturalandırma için kaynakları düzenlemek için.
+**İlk yöntem önerilen** kuruluşun Azure sınıflandırma üretim ve geliştirme abonelikler arasında bölümler Burada özetlenen incelemektir. Aşağıdaki diyagramda, önerilen Sınıflandırma, geliştirme/test ve üretim ortamları için bir mantıksal ayrım sağlar. Bu yaklaşımda, bir kuruluş, ayrı ayrı her ortamla ilişkilendirilmiş maliyetleri izlemek için fatura kodları ortaya çıkarabilir. Daha fazla bilgi için [öngörücü abonelik İdaresi](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Ayrıca, kullanabileceğiniz [Azure etiketleri](../azure-resource-manager/resource-group-using-tags.md) izleme ve faturalandırma için kaynakları düzenlemek için.
 
 **İkinci önerilen uygulama** Azure Enterprise portal geliştirme ve test aboneliğinde etkinleştirmektir. Azure Kurumsal aboneliğinin genellikle kullanılabilir olmayan bir istemci işletim sistemlerini çalıştıran bir kuruluşun sağlar. Ardından, burada yalnızca işlem için ödeme yaparsınız ve lisans hakkında endişelenmeyin değil Kurumsal Yazılım kullanın. Microsoft SQL Server gibi Iaas galeri görüntüleri dahil olmak üzere belirlenmiş hizmetler faturalandırması yalnızca tüketimini temel alarak, sağlar. Azure geliştirme ve test aboneliği hakkında daha fazla bilgi bulunabilir [burada](https://azure.microsoft.com/offers/ms-azr-0148p/) Kurumsal Sözleşme (EA) müşterileri için ve [burada](https://azure.microsoft.com/offers/ms-azr-0023p/) Kullandıkça Öde müşterileri için.
 

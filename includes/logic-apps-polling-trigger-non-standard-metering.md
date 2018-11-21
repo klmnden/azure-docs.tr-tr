@@ -1,3 +1,16 @@
-Daha doğru tüketim maliyetleri tahmin etmek için iletileri veya belirli bir günde gelmesini yerine, hesaplamaları yalnızca yoklama aralığı üzerinde temel olayları olası sayısını göz önünde bulundurun. Bir olay veya ileti tetikleme ölçütü karşıladığında tüm diğer bekleme olayları ya da ölçütlere uyan iletileri okumak birçok Tetikleyicileri hemen deneyin. Bir uzun yoklama aralığı, bekleyen olayları veya iş akışlarını başlatmak için uygun iletileri sayısına dayalı tetikleyici ateşlenir seçtiğinizde bile bu davranış anlamına gelir. Bu davranış izleyin Tetikleyicileri Azure Service Bus ve Azure olay hub'ı içerir.
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: estfan
+ms.openlocfilehash: 3fa71085d649ace95aa24ac87c8714a7268f5386
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52272683"
+---
+Daha doğru tüketim maliyetlerinin tahmin etmek için iletileri veya belirli bir günde gelmesi yerine yalnızca yoklama aralığına Hesaplamalarınızda temel olayları olası sayısını göz önünde bulundurun. Tetikleme ölçütü karşıladığında bir olay ya da ileti ve tüm diğer bekleyen olayları ya da ölçütleri karşılayan iletileri okumak birçok tetikleyici hemen deneyin. Bekleyen olaylar veya iş akışlarını başlatmak için uygun bulunmuş iletileri sayısına dayalı tetikleyici bir uzun yoklama aralığı seçtiğinizde bu davranışı anlamına gelir. Bu davranışı uygular tetikleyicileri, Azure Service Bus ve Azure olay hub'ı içerir.
 
-Bu nedenle, her gün bir uç nokta denetler tetikleyici kümesi örneğin varsayalım. Tetikleyici uç nokta denetler ve ölçütlere uyan 15 olayları bulduğunda tetikleyici harekete ve karşılık gelen iş akışı 15 kez çalıştırır. Logic Apps gerçekleştiren 15 bu iş akışları, tetikleyici istekleri dahil olmak üzere tüm eylemleri meters. Olası maliyetleriniz hesaplamak için deneyin [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/).
+Bu nedenle, her gün bir uç nokta denetleyen tetikleyici ayarlama gibi varsayalım. Tetikleyici bitiş noktasını denetler ve ölçütlere uyan 15 olayları bulur, tetiklenir ve 15 kez karşılık gelen iş akışı çalıştırır. Logic Apps bu 15 iş akışlarının gerçekleştirmek, tetikleyici istekleri dahil olmak üzere tüm eylemleri ölçümleri. Olası maliyetlerinizi hesaplamak için deneyin [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/).

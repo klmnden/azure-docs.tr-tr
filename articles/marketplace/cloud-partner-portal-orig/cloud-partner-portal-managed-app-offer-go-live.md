@@ -1,5 +1,5 @@
 ---
-title: BAŞLIK | Microsoft Docs
+title: Azure Marketi'nde teklif dinamik Azure uygulamanızı | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811519"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263605"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Azure Marketi'nde teklif dinamik Azure uygulamanızı yapın 
 ===========================================================
@@ -33,19 +33,22 @@ Artık,\'ve doldurulan Teklif Ayrıntıları,\'teklifinizi yayımlayın ve kolay
 <a name="publishing-process"></a>Yayımlama işlemi 
 ------------------
 
-Tıkladığınız \"Yayımla\" yayımlama işlemini başlatmak için düzenleyici sekmesi altında.
+Tıkladığınız \"Yayımla\" altında **Düzenleyicisi** yayımlama işlemini başlatmak için sekmesinde.
 
 ![Go Live dizisi 1 teklif - yayımlama](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-Durum sekmesindeki yayımlama adımları görürsünüz ve hangi teklifinizi adımda altındadır.
+Altında **durumu** sekmesinde, teklifinizi adımda olduğunu ve yayımlama adımları göreceksiniz.
 
 ![Go Live dizisi 2 - sunan iş akışı](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-Yayımlama işleminde herhangi bir noktada oturum açın ve herhangi bir Teklifleriniz için en son durumu görüntülemek için tüm sunar sekmesine tıklayın. Teklifiniz için doğrudan duruma tıklayın ve teklifinizi yayımlama işleminin neresinde olduğunu görebilir.
+Yayımlama işleminde herhangi bir noktada, ayrıca oturum açın ve tıklayın **tüm sunar** tekliflerinizi hiçbiri için en son durumu görüntülemek için sekmesinde. Teklifiniz için doğrudan duruma tıklayın ve teklifinizi yayımlama işleminin neresinde olduğunu görebilir.
 
-İzin\'yayımlama adımların her biri s kılavuzda ele her adımda neler ve her bir adımın ne kadar süreyle tahmin götürür.
+> [!WARNING]
+> Müşteri kullanım attribution etkin değilse, yayımlama işlemi sırasında şu hata iletisini alırsınız: "Azure iş ortağı müşteri kullanım attribution bir veya daha fazla Azure Resource Manager şablonlarında eksik. Çözmek için aşağıdaki planı mainTemplate.json paketleri Azure Resource Manager şablonunda bir izleme GUID ekleyin: servicenow. Daha fazla ayrıntı için http://aka.ms/customerusageattribution. " 
 
-### <a name="validate-pre-requisites-1-day"></a>Önkoşulları doğrulama (\<1 gün) 
+Şimdi her yayımlama adımları yol ve her adımda ne ve ne kadar her adımda sürer tahmin etmelidir.
+
+### <a name="validate-prerequisites-1-day"></a>Önkoşulları doğrulama (\<1 gün) 
 
 Tıkladığınızda \"Yayımla\", bir otomatik onay emin olmak için yer alacak\'ve teklifinizi tüm gerekli alanları doldurulur. Herhangi bir alan değil doldurulur, alanın yanında bir uyarı görünür ve daha sonra tıklatın doğru doldurmak ihtiyacınız olacak \'Yayımla\' yeniden.
 
@@ -59,7 +62,7 @@ Bu adım, Azure uygulama paketinizi Azure sertifikası için gereksinimleri kar�
 
 Bu adım birkaç gün sürebilir olduğundan, bulut iş ortağı portalında oturum açabilir. Herhangi bir hata varsa size bir e-posta bildirim göndereceğiz. Her şeyi başarılı bir şekilde geçerse, işlem otomatik olarak sağlama adımına geçmek.
 
-### <a name="packaging-and-lead-generation-registration-1-hour"></a>Paketleme ve müşteri adayı oluşturma kaydı (\<1 saat) 
+### <a name="packaging-and-lead-generation-registration-1-hour"></a>Paketleme ve müşteri adayı oluşturma kayıt (\<1 saat) 
 
 Bu aşamada, biz ne Web sitesinde ürün sayfası olacaktır uygulamasına teknik ve pazarlama içeriği birleştiriyorsanız.
 

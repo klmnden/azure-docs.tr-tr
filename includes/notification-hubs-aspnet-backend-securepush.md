@@ -1,6 +1,19 @@
-## <a name="webapi-project"></a>Webapı proje
-1. Visual Studio'da açın **AppBackend** oluşturduğunuz proje **kullanıcılara bildirme** Öğreticisi.
-2. Tüm Notifications.cs içinde Değiştir **bildirimleri** aşağıdaki kodla sınıfı. Yer tutucuları bağlantı dizenizi (tam erişimli) için bildirim hub'ınızı ve hub adı ile değiştirdiğinizden emin olun. Bu değerleri elde edebilirsiniz [Azure portal](http://portal.azure.com). Bu modül şimdi gönderilecek farklı güvenli bildirimleri temsil eder. Tam bir uygulama bildirimleri bir veritabanında depolanır; Kolaylık olması için bu durumda bunları bellekte depolarız.
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52272694"
+---
+## <a name="webapi-project"></a>Webapı projesi
+1. Visual Studio'da açın **AppBackend** oluşturduğunuz proje **kullanıcılara bildirme** öğretici.
+2. Notifications.cs sınıfında bütün değiştirin **bildirimleri** aşağıdaki kodla sınıfı. Yer tutucuları bildirim hub'ınıza ve hub adını, bağlantı dizesi (tam erişimli) değiştirdiğinizden emin olun. Bu değerleri edinebilirsiniz [Azure portalında](http://portal.azure.com). Bu modül, gönderilecek farklı güvenli bildirimler artık temsil eder. Tam bir uygulama bildirimleri bir veritabanında depolanır; Kolaylık olması için bu durumda bunları bellekte depolarız.
    
         public class Notification
         {
@@ -40,7 +53,7 @@
             }
         }
 
-1. Kod içinde NotificationsController.cs içinde değiştirin **NotificationsController** sınıf tanımını aşağıdaki kod ile. Bu bileşen, cihazın güvenli bir şekilde bildirim almak bir yol uygular ve ayrıca cihazlarınıza güvenli push tetiklemek için (Bu öğreticinin amaçları doğrultusunda) bir yol sağlar. Bildirim hub'ına bildirimi gönderirken, biz yalnızca ham bildirim kimliği bildirim (ve gerçek ileti yok) göndermek olduğunu unutmayın:
+1. NotificationsController.cs içindeki kodu değiştirin **NotificationsController** sınıf tanımını aşağıdaki kodla. Bu bileşen, cihazın güvenli bir şekilde bildirim almak bir yol uygular ve ayrıca cihazlarınıza güvenli bir anında iletme tetiklemek için (Bu öğreticinin amaçları doğrultusunda) bir yol sağlar. Bildirim bildirim hub'ına gönderirken, yalnızca bildirim (ve gerçek ileti yok) Kimliğine sahip bir ham bildirim göndereceğiz olduğunu unutmayın:
    
        public NotificationsController()
        {
@@ -75,8 +88,8 @@
         }
 
 
-Unutmayın `Post` yöntemi şimdi göndermez bildirim. Yalnızca bildirim kimliği ve hassas olmayan tüm içeriği içeren bir ham bildirim gönderir. Ayrıca, gönderme işlemi hatalarına neden şekilde, bildirim hub'ına, yapılandırılmış kimlik bilgilerine sahip olduğunuz değil platformlar için açıklama emin olun.
+Unutmayın `Post` yöntemi artık göndermez bir bildirim. Bu, yalnızca bildirim kimliği ve hassas olmayan tüm içeriği içeren bir ham bildirim gönderir. Ayrıca, gönderme işleminin hatalara neden olabilecek gibi kimlik bilgileri, bildirim hub'ındaki yapılandırılmış olan olmayan platformlar için açıklama emin olun.
 
-1. Şimdi Biz bu uygulamayı bir Azure Web sitesine tüm cihazlar üzerinden erişilebilir olması için yeniden dağıtır. **AppBackend** projesine sağ tıklayıp **Yayımla**’yı seçin.
-2. Azure Web sitesi yayımlama hedefi olarak seçin. Azure hesabınızla oturum açın ve mevcut veya yeni bir Web sitesini seçin ve Not **hedef URL** özelliğinde **bağlantı** sekmesi. Bu URL'ye bu öğreticinin sonraki bölümlerinde *arka uca ait uç nokta* olarak başvuracağız. **Yayımla**’ta tıklayın.
+1. Artık bir Azure Web sitesi için bu uygulamayı tüm cihazlardan erişilebilir olması için yeniden dağıtacağız. **AppBackend** projesine sağ tıklayıp **Yayımla**’yı seçin.
+2. Azure Web sitesi, yayımlama hedefi seçin. Azure hesabınızla oturum açın ve mevcut veya yeni bir Web sitesini seçin ve Not **hedef URL** özelliğinde **bağlantı** sekmesi. Bu URL'ye bu öğreticinin sonraki bölümlerinde *arka uca ait uç nokta* olarak başvuracağız. **Yayımla**’ta tıklayın.
 
