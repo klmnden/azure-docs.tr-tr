@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288042"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264138"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Becerileri ve örnek verileri kullanarak bilişsel arama işlem hattı oluşturma
 
@@ -33,9 +33,16 @@ Aşağıdaki bölgelerde oluşturulan bir Azure Search hizmetinde bilişsel aram
 * Batı Orta ABD
 * Orta Güney ABD
 * Doğu ABD
+* Doğu ABD 2
+* Batı ABD 2
+* Orta Kanada
 * Batı Avrupa
+* Birleşik Krallık Güney
 * Kuzey Avrupa
+* Güney Brezilya
 * Güneydoğu Asya
+* Orta Hindistan
+* Avustralya Doğu
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

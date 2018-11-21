@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: be2c68922221af848c9e484d03527d02808c071a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 68c8c3767ff3a3d2873c1ff50928ab8d2cada4b1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283827"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263762"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeylerini yönetme
 
@@ -34,7 +34,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-Aşağıdaki örnekte Doğu ABD ve Batı ABD bölgelerinde çoklu ana kaynak özelliği etkinleştirilmiş bir Cosmos DB hesabı oluşturulmakta ve varsayılan tutarlılık ilkesi maksimum eskime aralığı 10 saniye ve maksimum eskime isteği toleransı 200 olan Sınırlanmış Eskime Durumu özelliğine sahip varsayılan tutarlılık ilkesi ayarlanmaktadır.
+Aşağıdaki örnek, varsayılan tutarlılık İlkesi ayarı olarak oturumu Doğu ABD ve Batı ABD bölgelerinde etkin çok ana şablon ile yeni bir Cosmos DB hesabı oluşturur.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -42,9 +42,7 @@ $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
 
 $iprangefilter = ""
 
-$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
-                       "maxIntervalInSeconds"= "10";
-                       "maxStalenessPrefix"="200"}
+$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
 
 $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "locations"=$locations;

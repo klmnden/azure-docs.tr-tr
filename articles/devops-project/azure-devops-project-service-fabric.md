@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 91cd051c8f6dfe4c5b4f93d2f287ac6de200c7df
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162377"
+ms.locfileid: "52264769"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Öğretici: Azure DevOps projeleri'ni kullanarak ASP.NET Core uygulamanızı Azure Service Fabric'e dağıtma
 
@@ -77,7 +77,7 @@ DevOps projeleri, Azure işlem hatlarında bir CI/CD işlem hattı oluşturur. Y
 
 ## <a name="examine-the-ci-pipeline"></a>CI işlem hattını inceleme
 
-DevOps projeleri, bir CI/CD işlem hattı, Azure işlem hatlarında otomatik olarak yapılandırır. İşlem hattını inceleyebilir ve özelleştirebilirsiniz. Kendisiyle tanımak için aşağıdakileri yapın:
+DevOps projeleri, bir CI/CD işlem hattı Azure işlem hatlarında otomatik olarak yapılandırır. İşlem hattını inceleyebilir ve özelleştirebilirsiniz. Kendisiyle tanımak için aşağıdakileri yapın:
 
 1. DevOps Projectss panosuna gidin.
 

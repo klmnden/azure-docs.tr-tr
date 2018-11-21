@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4d8e8dabf9d6977393158ad716c8e8f3dc8d1512
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710499"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263324"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Öğretici: Azure PowerShell ile bir Azure VM'nin özel görüntüsünü oluşturma
 
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Görüntüden VM oluşturma
 
-Artık bir görüntünüz olduğuna göre, görüntüden bir veya daha fazla yeni VM oluşturabilirsiniz. Özel görüntüden VM oluşturma işlemi, Market görüntüsü kullanarak VM oluşturmaya benzer. Market görüntüsünü kullandığınızda, görüntü, görüntü sağlayıcısı, teklif, SKU ve sürüm hakkındaki bilgileri sağlamanız gerekir. [New-AzureRMVM]() cmdlet'inin basitleştirilmiş parametre kümesini kullanarak, aynı kaynak grubunda yer aldığı sürece özel görüntünün yalnızca adını sağlamanız yeterli olur. 
+Artık bir görüntünüz olduğuna göre, görüntüden bir veya daha fazla yeni VM oluşturabilirsiniz. Özel görüntüden VM oluşturma işlemi, Market görüntüsü kullanarak VM oluşturmaya benzer. Market görüntüsünü kullandığınızda, görüntü, görüntü sağlayıcısı, teklif, SKU ve sürüm hakkındaki bilgileri sağlamanız gerekir. [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet'inin basitleştirilmiş parametre kümesini kullanarak, aynı kaynak grubunda yer aldığı sürece özel görüntünün yalnızca adını sağlamanız yeterli olur. 
 
 Bu örnekte *myResourceGroup* içindeki *myImage* görüntüsünden *myVMfromImage* adlı VM'yi oluşturursunuz.
 

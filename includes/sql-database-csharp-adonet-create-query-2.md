@@ -1,49 +1,61 @@
-
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genemi
+ms.openlocfilehash: c4329b9efef3cdb2911466e64ac6c9f07a1e9b31
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52272690"
+---
 <a name="cs_0_csharpprogramexample_h2"/>
 
-## <a name="c-program-example"></a>C# programı örneği
+## <a name="c-program-example"></a>C#örnek program
 
-Bu makalenin sonraki bölümlerinde, SQL veritabanı Transact-SQL deyimlerini göndermek için ADO.NET kullanan bir C# programı sunar. C# programı aşağıdaki eylemleri gerçekleştirir:
+Mevcut bu makalenin sonraki bölümlerinde bir C# Transact-SQL deyimleri SQL veritabanına göndermek için ADO.NET kullanan programı. C# Programı aşağıdaki eylemleri gerçekleştirir:
 
-1. [ADO.NET kullanarak bizim SQL veritabanına bağlanan](#cs_1_connect).
+1. [Bizim ADO.NET kullanarak SQL veritabanına bağlanan](#cs_1_connect).
 2. [Tablolar oluşturur](#cs_2_createtables).
-3. [Veri tabloları T-SQL INSERT deyimleri vererek doldurur](#cs_3_insert).
-4. [Bir birleştirme kullanımıyla veri güncelleştirmeleri](#cs_4_updatejoin).
-5. [Bir birleşim kullanarak verileri siler](#cs_5_deletejoin).
-6. [Bir birleştirme kullanımıyla veri satırları seçer](#cs_6_selectrows).
+3. [T-SQL INSERT deyimleri göndererek tabloları verilerle doldurur](#cs_3_insert).
+4. [Bir birleşimin kullandığı veri güncelleştirmeleri](#cs_4_updatejoin).
+5. [Bir birleşimin kullandığı verilerini siler](#cs_5_deletejoin).
+6. [Bir birleşim kullanarak veri satırları seçer](#cs_6_selectrows).
 7. (Bu, herhangi bir geçici tablo tempdb üzerinden bırakır) bağlantıyı kapatır.
 
-C# programı içerir:
+C# Program içerir:
 
-- Veritabanına bağlanmak için C# kodu.
+- C#veritabanına bağlanmak için kod.
 - T-SQL kaynak kodunu döndüren yöntemler.
-- T-SQL veritabanına gönderme iki yöntem.
+- T-SQL veritabanına göndermek iki yöntem.
 
 #### <a name="to-compile-and-run"></a>Derlemek ve çalıştırmak için
 
-Bu C# programı mantıksal bir .cs dosyasıdır. Ancak burada program blokların görebilir ve anlamak daha kolay hale getirmek için birkaç kod blokları içinde fiziksel olarak ayrılır. Derleme ve bu programı çalıştırmak için aşağıdakileri yapın:
+Bu C# mantıksal olarak bir .cs dosyası bir programdır. Ancak burada program her blok görmek ve anlamak daha kolay hale getirmek için bazı kod blokları şeklinde, fiziksel olarak ayrılmıştır. Derleme ve bu programı çalıştırmak için aşağıdakileri yapın:
 
-1. Visual Studio'da bir C# projesi oluşturun.
-    - Proje türü olmalıdır. bir *konsol* uygulama aşağıdaki hiyerarşi şöyle gelen: **şablonları** > **Visual C#** >  **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
-3. Dosyasındaki **Program.cs**, kod küçük starter satırları silme.
-3. Program.cs, içine kopyalayın ve her biri aşağıdaki blokları burada verildikleri sırada yapıştırın.
-4. Program.cs içinde aşağıdaki değerleri Düzenle **ana** yöntemi:
+1. Oluşturma bir C# Visual Studio'da proje.
+    - Proje türü olmalıdır bir *konsol* çerçevedeki aşağıdaki hiyerarşi gibi uygulama: **şablonları** > **Visual C#**  > **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
+3. Dosyasındaki **Program.cs**, kodun küçük bir başlangıç satırları sil.
+3. Program.cs, içine kopyalayın ve her biri aşağıdaki blok, burada belirtilen sırayla yapıştırın.
+4. Program.cs'ye aşağıdaki değerleri Düzenle **ana** yöntemi:
 
-   - **cb. Veri kaynağı**
+   - **Kal. Veri kaynağı**
    - **CD. Kullanıcı Kimliği**
-   - **cb. Parola**
+   - **Kal. Parola**
    - **InitialCatalog**
 
-5. Doğrulayın derleme **System.Data.dll** başvuruluyor. Doğrulamak için Genişlet **başvuruları** düğümünde **Çözüm Gezgini** bölmesi.
-6. Visual Studio'da programı oluşturmak için tıklatın **yapı** menüsü.
-7. Visual Studio'dan programı çalıştırmak için tıklatın **Başlat** düğmesi. Rapor çıktısı cmd.exe penceresinde görüntülenir.
+5. Doğrulayın derleme **System.Data.dll** başvurulur. Doğrulamak için genişletme **başvuruları** düğümünde **Çözüm Gezgini** bölmesi.
+6. Visual Studio'da bir program oluşturmak için tıklayın **derleme** menüsü.
+7. Program Visual Studio'dan çalıştırmak için tıklayın **Başlat** düğmesi. Rapor çıktısı cmd.exe penceresinde görüntülenir.
 
 > [!NOTE]
-> Başında eklemek için T-SQL düzenleme seçeneği sahip  **#**  tablo adları için oluşturan bunları olarak geçici tablolarda **tempdb**. Test veritabanı kullanılabilir olduğunda bu tanıtım amacıyla yararlı olabilir. Bağlantıyı kapatır, geçici tablolar otomatik olarak silinir. Yabancı anahtarlar için tüm başvuruları geçici tablolar için zorunlu değildir.
+> Bir satır eklemek için T-SQL düzenleme seçeneğiniz **#** tablo adlarına oluşturan bunları gibi geçici tablolarda **tempdb**. Test veritabanı kullanılabilir olduğunda bu tanıtım amacıyla yararlı olabilir. Bağlantıyı kapatır, geçici tabloları otomatik olarak silinir. Yabancı anahtarlar için tüm başvurular geçici tablolar için zorunlu değildir.
 >
 
 <a name="cs_1_connect"/>
-### <a name="c-block-1-connect-by-using-adonet"></a>C# blok 1: ADO.NET kullanarak bağlanma
+### <a name="c-block-1-connect-by-using-adonet"></a>C#Block 1: ADO.NET kullanarak bağlanma
 
 - [Sonraki](#cs_2_createtables)
 
@@ -99,9 +111,9 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>C# blok 2: Tablo oluşturmak için T-SQL
+### <a name="c-block-2-t-sql-to-create-tables"></a>C#Block 2: Tablo oluşturmak için T-SQL
 
-- [Önceki](#cs_1_connect) &nbsp;  /  &nbsp; [sonraki](#cs_3_insert)
+- [Önceki](#cs_1_connect) &nbsp;  /  &nbsp; [İleri](#cs_3_insert)
 
 ```csharp
       static string Build_2_Tsql_CreateTables()
@@ -131,19 +143,19 @@ CREATE TABLE tabEmployee
       }
 ```
 
-#### <a name="entity-relationship-diagram-erd"></a>Varlık ilişki diyagramı (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>Varlık ilişkisi şeması (ERD)
 
-Önceki CREATE TABLE deyimleri içeren **başvuruları** oluşturmak için anahtar sözcüğü bir *yabancı anahtar* iki tablo arasındaki ilişki (FK).  Out tempdb kullanıyorsanız, açıklama `--REFERENCES` başında tire çifti kullanarak anahtar sözcüğü.
+Önceki bir CREATE TABLE deyimi içeren **başvuruları** oluşturmak için anahtar sözcüğü bir *yabancı anahtar* iki tablo arasında ilişki (FK).  Tempdb kullanıyorsanız, açıklama `--REFERENCES` önünde çizgiler çifti kullanarak anahtar sözcüğü.
 
-Sonraki iki tablo arasındaki ilişkiyi görüntüler ERD'yi olduğu. #TabEmployee.DepartmentCode değerleri *alt* sütun #tabDepartment.Department mevcut değerleri için sınırlı *üst* sütun.
+Sonraki iki tablo arasındaki ilişkiyi gösteren ERD olduğu. #TabEmployee.DepartmentCode değerleri *alt* sütun #tabDepartment.Department içinde mevcut değerleri için sınırlı *üst* sütun.
 
 ![ERD gösteren yabancı anahtar](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 
 <a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>C# Blok 3: veri eklemek için T-SQL
+### <a name="c-block-3-t-sql-to-insert-data"></a>C#Block 3: T-SQL, veri eklemek için
 
-- [Önceki](#cs_2_createtables) &nbsp;  /  &nbsp; [sonraki](#cs_4_updatejoin)
+- [Önceki](#cs_2_createtables) &nbsp;  /  &nbsp; [İleri](#cs_4_updatejoin)
 
 
 ```csharp
@@ -173,9 +185,9 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>C# blok 4: T-SQL güncelleştirme katılma
+### <a name="c-block-4-t-sql-to-update-join"></a>C#Block 4: T-SQL güncelleştirme katılma
 
-- [Önceki](#cs_3_insert) &nbsp;  /  &nbsp; [sonraki](#cs_5_deletejoin)
+- [Önceki](#cs_3_insert) &nbsp;  /  &nbsp; [İleri](#cs_5_deletejoin)
 
 
 ```csharp
@@ -201,9 +213,9 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>C# blok 5: T-SQL delete katılma
+### <a name="c-block-5-t-sql-to-delete-join"></a>C#Block 5: T-SQL delete-katılma
 
-- [Önceki](#cs_4_updatejoin) &nbsp;  /  &nbsp; [sonraki](#cs_6_selectrows)
+- [Önceki](#cs_4_updatejoin) &nbsp;  /  &nbsp; [İleri](#cs_6_selectrows)
 
 
 ```csharp
@@ -233,9 +245,9 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>C# blok 6: satırları seçmek için T-SQL
+### <a name="c-block-6-t-sql-to-select-rows"></a>C#Block 6: satırları seçmek için T-SQL
 
-- [Önceki](#cs_5_deletejoin) &nbsp;  /  &nbsp; [sonraki](#cs_6b_datareader)
+- [Önceki](#cs_5_deletejoin) &nbsp;  /  &nbsp; [İleri](#cs_6b_datareader)
 
 
 ```csharp
@@ -261,11 +273,11 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-### <a name="c-block-6b-executereader"></a>C# blok 6b: ExecuteReader
+### <a name="c-block-6b-executereader"></a>C#6B engelle: ExecuteReader
 
-- [Önceki](#cs_6_selectrows) &nbsp;  /  &nbsp; [sonraki](#cs_7_executenonquery)
+- [Önceki](#cs_6_selectrows) &nbsp;  /  &nbsp; [İleri](#cs_7_executenonquery)
 
-Bu yöntem tarafından oluşturulmuş T-SQL SELECT deyimi çalışmak üzere tasarlanmıştır **Build_6_Tsql_SelectEmployees** yöntemi.
+Bu yöntem tarafından oluşturulan T-SQL SELECT deyimi çalıştırmak için tasarlanmış **Build_6_Tsql_SelectEmployees** yöntemi.
 
 
 ```csharp
@@ -297,11 +309,11 @@ Bu yöntem tarafından oluşturulmuş T-SQL SELECT deyimi çalışmak üzere tas
 
 
 <a name="cs_7_executenonquery"/>
-### <a name="c-block-7-executenonquery"></a>C# blok 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>C#Block 7: ExecuteNonQuery
 
-- [Önceki](#cs_6b_datareader) &nbsp;  /  &nbsp; [sonraki](#cs_8_output)
+- [Önceki](#cs_6b_datareader) &nbsp;  /  &nbsp; [İleri](#cs_8_output)
 
-Bu yöntem, hiçbir veri satırı dönmeden tabloların veri içeriğini değiştirme işlemleri için çağrılır.
+Bu yöntem, tüm veri satırları dönmeden tabloların veri içeriğini değiştirme işlemleri için çağrılır.
 
 
 ```csharp
@@ -335,11 +347,11 @@ Bu yöntem, hiçbir veri satırı dönmeden tabloların veri içeriğini değiş
 
 
 <a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>C# blok 8: konsoluna gerçek test çıkışı
+### <a name="c-block-8-actual-test-output-to-the-console"></a>C#Block 8: konsola gerçek test çıkışı
 
 - [Önceki](#cs_7_executenonquery)
 
-Bu bölüm, konsola program gönderilen çıkış yakalar. Yalnızca GUID değerleri test çalışmaları arasında farklılık gösterir.
+Bu bölümde, konsola program gönderilen çıktısını yakalar. GUID değerleri, test çalışmaları arasında farklılık gösterir.
 
 
 ```text

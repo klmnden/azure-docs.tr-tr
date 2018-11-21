@@ -4,8 +4,8 @@ description: Tahmine dayalı bir analiz denemesi geliştirmek ve bu denemeyi Azu
 keywords: machine learning studio,genel bakış diyagramı,indirme
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.custom: (previous ms.author haining)
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: d13599f3c6ebbae4ef9adb188f278352b201b06d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 283a37cd708dfd41a7840cef2f4236fd887130bf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819280"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262644"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio işlevlerine genel bakış diyagramı
 **Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış** diyagramı, tahmine dayalı bir analiz modeli geliştirmek ve bunu Azure bulutunda faaliyete geçirmek için Studio'yu nasıl kullanacağınız konusunda üst düzey bir genel bakış sağlar.

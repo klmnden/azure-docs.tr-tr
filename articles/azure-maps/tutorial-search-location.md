@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412729"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262066"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktaları arama
 
@@ -178,7 +178,7 @@ Bu bölümde, Haritalar Arama API’sini kullanarak haritanızda ilgi çekici bi
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Ardından arama sorgusunu oluşturmak için aşağıdaki betik bloğunu ekleyin. Bu, Arama Hizmetinin temel arama API'si olan Belirsiz Arama Hizmetini kullanır. Belirsiz Arama Hizmeti adres, yer ve ilgi çekici nokta (POI) gibi çoğu belirsiz girişi işler. Bu kod, belirtilen yarıçap içinde olup yakında bulunan Benzin İstasyonlarını arar. Yanıt GeoJSON biçiminde ayrıştırılıp veri kaynağına eklenir ve bunun sonucunda veriler otomatik olarak simge katmanı aracılığıyla harita üzerinde işlenir. Betiğin son bölümü haritanın [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliğini kullanarak sonuçların sınırlayıcı kutusuna göre harita kamera görünümünü ayarlar. Sınırlayıcı kutu koordinatlara göre hesaplandığından simgelerin piksel boyutlarını telafi eden bir iç boşluk eklenir. 
+2. Ardından arama sorgusunu oluşturmak için aşağıdaki betik bloğunu ekleyin. Bu, Arama Hizmetinin temel arama API'si olan Belirsiz Arama Hizmetini kullanır. Belirsiz Arama Hizmeti adres, yer ve ilgi çekici nokta (POI) gibi çoğu belirsiz girişi işler. Bu kod, belirtilen yarıçap içinde olup yakında bulunan Benzin İstasyonlarını arar. Yanıt GeoJSON biçiminde ayrıştırılıp veri kaynağına eklenir ve bunun sonucunda veriler otomatik olarak simge katmanı aracılığıyla harita üzerinde işlenir. Betiğin son bölümü haritanın [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) özelliğini kullanarak sonuçların sınırlayıcı kutusuna göre harita kamera görünümünü ayarlar. Sınırlayıcı kutu koordinatlara göre hesaplandığından simgelerin piksel boyutlarını telafi eden bir iç boşluk eklenir. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.
