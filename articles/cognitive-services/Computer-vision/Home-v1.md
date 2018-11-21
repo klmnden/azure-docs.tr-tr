@@ -12,7 +12,7 @@ ms.date: 08/10/2017
 ms.author: kefre
 ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
 ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/18/2018
 ms.locfileid: "45982130"
@@ -231,7 +231,7 @@ Görüntü                                                      | Yanıt
 ## <a name="optical-character-recognition-ocr"></a>Optik Karakter Tanıma (OCR)
 OCR teknolojisi bir görüntüdeki metin içeriğini algılar ve tanımlanan metni makine tarafından okunabilen bir karakter akışına ayıklar. Sonucu, arama yapmak için veya tıbbi kayıtlar, güvenlik ve bankacılık gibi çok çeşitli amaçlarla kullanabilirsiniz. Dili otomatik olarak algılar. OCR, zaman tasarrufu sağlar ve kullanıcılara, metni yazmak yerine bunların fotoğrafını çekme olanağı tanıyarak kolaylık sunar.
 
-OCR, 25 dili destekler. Bu diller: Almanca, Arapça, Çekçe, Çince Basitleştirilmiş, Çince Geleneksel, Danca, Felemenkçe, Fince, Fransızca, İngilizce, İspanyolca, İsveççe, İtalyanca, Japonca, Korece, Lehçe, Macarca, Norveççe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakça, Türkçe ve Yunanca.
+OCR, 25 dili destekler. Bu diller: Almanca, Arapça, Çekçe, Basitleştirilmiş Çince, Geleneksel Çince, Danca, Felemenkçe, Fince, Fransızca, İngilizce, İspanyolca, İsveççe, İtalyanca, Japonca, Korece, Lehçe, Macarca, Norveççe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakça, Türkçe ve Yunanca.
 
 Gerekirse, OCR tanınan metnin yönünü yatay görüntü ekseninde derece olarak düzeltir. OCR, aşağıdaki çizimde gösterildiği gibi her sözcük için çerçeve koordinatlarını verir.
 
