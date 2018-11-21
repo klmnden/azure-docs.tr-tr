@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966971"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275590"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği kullanarak Azure Data Factory'de bir SSIS paketi çağırma
 Bu makalede bir saklı yordam etkinliği kullanarak bir SSIS paketi bir Azure Data Factory işlem hattından çağırma açıklar. 
@@ -115,7 +115,7 @@ Bu çıktı veri kümesi işlem hattının zamanlamasını sürücüleri işlevs
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Saklı yordam etkinliği ile işlem hattı oluşturma 
 Bu adımda, bir saklı yordam etkinliği ile işlem hattı oluşturun. Etkinlik, SSIS paketi çalıştırmak için sp_executesql depolanan yordamını çağırır. 
 
-1. Sol bölmede **... Daha fazla** ve **Yeni işlem hattı** öğelerine tıklayın.
+1. Sol bölmede **... Daha fazla** ve **Yeni işlem hattı öğelerine tıklayın.
 2. Aşağıdaki JSON kod parçacığında, JSON düzenleyicisine kopyalayın: 
 
     > [!IMPORTANT]
@@ -236,7 +236,7 @@ Barındıran Azure SQL veritabanınıza bağlamak için bağlı hizmet, SSIS Kat
 ### <a name="create-an-output-dataset"></a>Çıktı veri kümesi oluşturma
 Bu çıktı veri kümesi işlem hattının zamanlamasını sürücüleri işlevsiz bir veri kümesi var. Sıklık saat olarak ayarlanır ve aralık 1 olarak ayarlanmış olduğuna dikkat edin. Bu nedenle, bir saat içinde bir işlem hattı başlangıç ve bitiş zamanlarını sonra işlem hattını çalışır. 
 
-1. Aşağıdaki içerikle OuputDataset.json dosyası oluşturun: 
+1. Aşağıdaki içerikle OutputDataset.json dosyası oluşturun: 
     
     ```json
     {

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646660"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261811"
 ---
 # <a name="validate-oem-packages"></a>OEM paketleri doğrula
 
@@ -58,22 +58,17 @@ Oluştururken bir **paket doğrulama** VaaS portalı akışı paketinizi içeren
 
 #### <a name="option-1-generating-an-account-sas-url"></a>1. seçenek: hesap SAS URL'si oluşturuluyor
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. İçinde [Azure portalında](https://portal.azure.com/), depolama hesabınıza gidin ve paketinizi içeren .zip olarak gidin
 
-1. Seçin **Blob** gelen **izin verilen hizmetler seçenekleri**. Diğer seçenekleri seçimini kaldırın.
+2. Seçin **Generate SAS** bağlam menüsünden
 
-1. Seçin **kapsayıcı** ve **nesne** gelen **izin verilen kaynak türleri**. Diğer seçenekleri seçimini kaldırın.
+3. Seçin **okuma** gelen **izinleri**
 
-1. Seçin **okuma** ve **listesi** gelen **iznine**. Diğer seçenekleri seçimini kaldırın.
+4. Ayarlama **başlangıç zamanı** geçerli saat ve **bitiş saati** en az 48 saate **başlangıç zamanı**. Aynı paket ile diğer testler çalıştıracaksanız artırmayı **bitiş saati** testinizin uzunluğu. Sonra VaaS aracılığıyla zamanlanmış herhangi bir test **bitiş saati** başarısız olur ve yeni SAS oluşturulması gerekecek.
 
-1. Ayarlama **başlangıç zamanı** geçerli saat ve **bitiş saati** geçerli saatten 1 saate.
+5. Seçin **blob SAS belirteci ve URL oluştur**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    İşte biçimi nasıl görünmelidir: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Paket kapsayıcısı dahil etmek için oluşturulan SAS URL'sini değiştirmek `{containername}`, paket blobunuz adını `{mypackage.zip}`gibi:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Bu değer, yeni bir başlatırken kullanılacak **paket doğrulama** VaaS Portalı'nda iş akışı.
+Kullanım **Blob SAS URL'si** başlatırken Yeni **paket doğrulama** VaaS Portalı'nda iş akışı.
 
 #### <a name="option-2-using-public-read-container"></a>2. seçenek: Genel okuma kapsayıcı kullanma
 
