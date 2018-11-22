@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616376"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285127"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile çözüm öğrenme bir makine oluşturma
 
@@ -89,7 +89,7 @@ Azure ve Azure Stack biri gereklidir. Devam etmeden önce daha fazla bilgi için
 
  -  Azure Stack tümleşik sistemi veya Azure Stack geliştirme Seti'ni dağıtımı.
 
-    - Azure Stack, yüklemek için yönergeler bulun [Azure Stack geliştirme Seti'ni yüklemek](/articles/azure-stack/asdk/asdk-install).
+    - Azure Stack, yüklemek için yönergeler bulun [Azure Stack geliştirme Seti'ni yüklemek](../asdk/asdk-install.md).
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Bu yüklemenin tamamlanması birkaç saat gerektirebilir.
 
  -  Dağıtımı [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS Hizmetleri Azure stack'e
