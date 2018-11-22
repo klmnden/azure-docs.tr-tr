@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254596"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284923"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -31,7 +31,7 @@ SAS, Service Bus yetkilendirme kurallarına göre erişimi korur. Bu, bir ad ala
 
 Paylaşılan erişim imzaları basit belirteçleri kullanarak bir beyana dayalı yetkilendirme mekanizması mevcuttur. SAS kullanarak, anahtarları asla kablo geçirilir. Anahtarlar şifreli olarak daha sonra hizmet tarafından doğrulanabilir bilgi imzalamak için kullanılır. SAS benzer bir kullanıcı adı ve parola düzeni için istemci anında bir yetkilendirme kuralı adı ve eşleşen bir anahtar elinde olduğu kullanılabilir. SAS de benzer bir Federasyon güvenlik modeli, burada istemci bir süre sınırlı ve imzalanmış bir erişim belirteci bir güvenlik belirteci Hizmeti'nden imzalama anahtarı elinde gelmeden alır kullanılabilir.
 
-Service Bus SAS kimlik doğrulaması yapılandırılmış adlı [paylaşılan erişimi yetkilendirme kuralları](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ilişkili erişim hakları ve bir çift birincil ve ikincil şifreleme anahtarına. Anahtarları Base64 gösterimine 256 bitlik değerler. Ad alanı düzeyinde, hizmet veri yolu kuralları yapılandırabilirsiniz [geçişleri](../service-bus-relay/relay-what-is-it.md), [kuyrukları](/service-bus-messaging/service-bus-messaging-overview.md#queues), ve [konuları](/service-bus-messaging/service-bus-messaging-overview.md#topics).
+Service Bus SAS kimlik doğrulaması yapılandırılmış adlı [paylaşılan erişimi yetkilendirme kuralları](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ilişkili erişim hakları ve bir çift birincil ve ikincil şifreleme anahtarına. Anahtarları Base64 gösterimine 256 bitlik değerler. Ad alanı düzeyinde, hizmet veri yolu kuralları yapılandırabilirsiniz [geçişleri](../service-bus-relay/relay-what-is-it.md), [kuyrukları](service-bus-messaging-overview.md#queues), ve [konuları](service-bus-messaging-overview.md#topics).
 
 [Paylaşılan erişim imzası](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) belirteç erişilebilir, bir süre sonu anında, kaynağın URI'sini seçilen Yetkilendirme kuralının adını içerir ve HMAC SHA256 şifreleme imzası kullanarak bu alanları hesaplanır birincil veya ikincil şifreleme anahtarı seçilen yetkilendirme kuralı.
 
@@ -259,7 +259,7 @@ Aşağıdaki tablo, Service Bus kaynakları üzerinde çeşitli işlemler için 
 | Üzerinde bir ad alanı yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir ad alanı adresi |
 | **Hizmet kayıt defteri** | | |
 | Özel ilkeler listeleme |Yönetme |Herhangi bir ad alanı adresi |
-| Bir ad alanı üzerinde dinleme başlayın |Dinleme |Herhangi bir ad alanı adresi |
+| Bir ad alanı üzerinde dinleme başlayın |Dinle |Herhangi bir ad alanı adresi |
 | Bir ad alanı, bir dinleyici iletiler gönderme |Gönder |Herhangi bir ad alanı adresi |
 | **Kuyruk** | | |
 | Bir kuyruk oluşturma |Yönetme |Herhangi bir ad alanı adresi |
@@ -268,13 +268,13 @@ Aşağıdaki tablo, Service Bus kaynakları üzerinde çeşitli işlemler için 
 | Kuyruk açıklamasını alın |Yönetme |Herhangi bir geçerli kuyruk adresi |
 | Bir kuyruk için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli kuyruk adresi |
 | İçine kuyruğa gönderme |Gönder |Herhangi bir geçerli kuyruk adresi |
-| Bir kuyruktan ileti alma |Dinleme |Herhangi bir geçerli kuyruk adresi |
-| İptal veya iletiyi gözlem kilidi modunda aldıktan sonra iletileri tamamlayın |Dinleme |Herhangi bir geçerli kuyruk adresi |
-| Daha sonra almak için bir iletiyi ertele |Dinleme |Herhangi bir geçerli kuyruk adresi |
-| Bir ileti teslim edilemeyen iletiler |Dinleme |Herhangi bir geçerli kuyruk adresi |
-| Bir ileti kuyruğu oturumla ilişkili durumunu Al |Dinleme |Herhangi bir geçerli kuyruk adresi |
-| Bir ileti kuyruğu oturumla ilişkili durumunu ayarla |Dinleme |Herhangi bir geçerli kuyruk adresi |
-| Bir ileti sonraki teslimat zamanlaması; Örneğin, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Dinleme | Herhangi bir geçerli kuyruk adresi
+| Bir kuyruktan ileti alma |Dinle |Herhangi bir geçerli kuyruk adresi |
+| İptal veya iletiyi gözlem kilidi modunda aldıktan sonra iletileri tamamlayın |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Daha sonra almak için bir iletiyi ertele |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti teslim edilemeyen iletiler |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti kuyruğu oturumla ilişkili durumunu Al |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti kuyruğu oturumla ilişkili durumunu ayarla |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti sonraki teslimat zamanlaması; Örneğin, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Dinle | Herhangi bir geçerli kuyruk adresi
 | **Konu** | | |
 | Konu başlığı oluşturma |Yönetme |Herhangi bir ad alanı adresi |
 | Bir konu Sil |Yönetme |Herhangi bir geçerli konunun adresi |
@@ -284,14 +284,14 @@ Aşağıdaki tablo, Service Bus kaynakları üzerinde çeşitli işlemler için 
 | Konuya gönderme |Gönder |Herhangi bir geçerli konunun adresi |
 | **Abonelik** | | |
 | Abonelik oluşturma |Yönetme |Herhangi bir ad alanı adresi |
-| Aboneliği silme |Yönetme |../myTopic/Subscriptions/mySubscription |
+| Aboneliği silin |Yönetme |../myTopic/Subscriptions/mySubscription |
 | Aboneliklerini listeleme |Yönetme |../ myTopic/abonelikleri |
 | Abonelik açıklaması Al |Yönetme |../myTopic/Subscriptions/mySubscription |
-| İptal veya iletiyi gözlem kilidi modunda aldıktan sonra iletileri tamamlayın |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Daha sonra almak için bir iletiyi ertele |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Bir ileti teslim edilemeyen iletiler |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Bir konu oturumla ilişkili durumunu Al |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Bir konu oturumla ilişkili durumunu ayarla |Dinleme |../myTopic/Subscriptions/mySubscription |
+| İptal veya iletiyi gözlem kilidi modunda aldıktan sonra iletileri tamamlayın |Dinle |../myTopic/Subscriptions/mySubscription |
+| Daha sonra almak için bir iletiyi ertele |Dinle |../myTopic/Subscriptions/mySubscription |
+| Bir ileti teslim edilemeyen iletiler |Dinle |../myTopic/Subscriptions/mySubscription |
+| Bir konu oturumla ilişkili durumunu Al |Dinle |../myTopic/Subscriptions/mySubscription |
+| Bir konu oturumla ilişkili durumunu ayarla |Dinle |../myTopic/Subscriptions/mySubscription |
 | **kuralları** | | |
 | Kural oluşturma |Yönetme |../myTopic/Subscriptions/mySubscription |
 | Kuralı silme |Yönetme |../myTopic/Subscriptions/mySubscription |

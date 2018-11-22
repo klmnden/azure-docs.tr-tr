@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902935"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282524"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-Bu örnekte [Azure portalında](https://portal.azure.com) güncelleştirme için *acceptedMappedClaims* alan:
+Bu örnekte [Azure portalında](https://portal.azure.com) güncelleştirilecek *acceptedMappedClaims* alan:
 1. [Azure portalında](https://portal.azure.com) genel yönetici olarak oturum açın.
 2. Seçin **Azure Active Directory** > **uygulama kayıtları**.
 3. Uygulamanızı seçin > **bildirim**.

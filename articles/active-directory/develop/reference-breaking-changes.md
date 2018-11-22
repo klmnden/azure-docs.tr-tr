@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da681500ccff24e6e9bfa6b7bb9e5a14a725f158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279645"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282393"
 ---
 # <a name="whats-new-for-authentication"></a>Kimlik doğrulaması için yenilikler nelerdir? 
 
@@ -56,7 +56,7 @@ Hiçbiri şu anda zamanlanmış.
 
 Uygulamanız için birden fazla kaynak belirteçlerini almak için yetkilendirme kodları yeniden kullanır, bir yenileme belirteci almak için kodu kullanın ve ardından diğer kaynaklar için ek belirteçlerini almak için yenileme belirtecini kullanmak öneririz. Yetkilendirme kodları yalnızca bir kez kullanılabilir, ancak yenileme belirteçleri birden fazla kaynak arasında birden çok kez kullanılabilir. Kimlik doğrulaması kodu OAuth kod akışı sırasında yeniden başlatmayı deneyen herhangi yeni bir uygulama bir invalid_grant hata alırsınız.
 
-Yenileme belirteçleri hakkında daha fazla bilgi için bkz: [erişim belirteçlerini yenileme](v1-protocols-oauth-code.md#refreshing-the-access-tokens).
+Yenileme belirteçleri hakkında daha fazla bilgi için bkz: [erişim belirteçlerini yenileme](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  ADAL veya MSAL kullanıyorsanız bu sizin için kitaplığı tarafından işlenir; 'AcquireTokenSilentAsync' ile 'AcquireTokenByAuthorizationCodeAsync' in ikinci örneğini değiştirin. 
 
 ## <a name="may-2018"></a>Mayıs 2018
 

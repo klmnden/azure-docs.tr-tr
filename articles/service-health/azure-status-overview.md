@@ -1,9 +1,9 @@
 ---
-title: Azure durum genel bakış | Microsoft Docs
-description: Durumu Azure hizmetleri hakkında genel bir görünüm.
+title: Azure durumu genel bakış | Microsoft Docs
+description: Azure hizmetlerinin durumuna dair genel bir görünüm.
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shtabriz
-ms.openlocfilehash: 6bb67fa17ace2e662091c6b66a774baf9d7d8bfd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181829"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282915"
 ---
 # <a name="azure-status"></a>Azure durumu
-[Azure durum](https://azure.microsoft.com/status/) Azure hizmetlerinin durumunu genel bir görünümünü sağlar. Azure durumuyla hizmet kullanılabilirliği hakkında güncel bilgi elde edebilirsiniz. Azure durum herkes erişebilir ve kendi hizmet durumu rapor görünümü tüm hizmetleri. 
+[Azure durumu](https://azure.microsoft.com/status/) Azure hizmetlerinin durumuna dair genel bir görünümünü sağlar. Azure durumu ile hizmet kullanılabilirliği hakkında güncel bilgi edinebilirsiniz. Azure durum herkes erişebilir ve görünümü tüm hizmetleri, hizmetin sistem durumunu raporlayabilirsiniz. 
 
-![Azure durum sayfası](./media/azure-status-overview/azure-status.PNG)
+![Azure durumu sayfası](./media/azure-status-overview/azure-status.PNG)
 
 ## <a name="azure-status-updates"></a>Azure durum güncelleştirmeleri
-Azure durum sayfasına gerçek zamanlı olarak Azure Hizmetleri değişiklik durumu güncelleştirilir. Azure durum sayfasına açık bırakırsanız sayfa yeni verilerle yenilenme hızı kontrol edebilirsiniz. En üstte, sayfanın güncelleştirildiği son zaman görebilirsiniz.
+Azure durum sayfasında, Azure Hizmetleri değişiklik durumunu gerçek zamanlı olarak güncelleştirilir. Azure durum sayfasında açık bırakırsanız, yeni verilerle sayfa yenilendikten Geçirme hızını denetleyebilir. En üstünde, sayfanın güncelleştirildiği son zaman görebilirsiniz.
 
-![Azure durumunu Yenile](./media/azure-status-overview/update.PNG)
+![Azure durumu yenileme](./media/azure-status-overview/update.PNG)
 
 ## <a name="azure-status-history"></a>Azure durum geçmişi
-Azure durum sayfasına her zaman en son sistem durumu bilgileri gösterirken kullanarak eski olayları görüntüleyebilirsiniz [Azure Durum geçmişi sayfası](https://azure.microsoft.com/status/history/).
+Azure durum sayfasında her zaman en son sistem durumu bilgileri gösterir, ancak daha eski olaylar kullanarak görüntüleyebileceğiniz [Azure Durum geçmişi sayfası](https://azure.microsoft.com/status/history/).
 
-Yukarı olayları var. görebilirsiniz geçmiş 90 gün için ön kök nedeni, azaltma ve sonraki adımlar için Azure dahil olmak üzere.
+Yukarı Olayları orada gördüğünüz geçmiş 90 gün için Azure başlangıç kök nedeni, azaltma ve sonraki adımlar dahil.
 
 ## <a name="rss-feed"></a>RSS akışı
-Azure durum ayrıca sağlar [bir RSS](https://azure.microsoft.com/status/feed/) abone olabilirsiniz Azure Hizmetleri sistem durumu değişiklikleri.
+Azure durumu da sağlar [bir RSS akışı](https://azure.microsoft.com/en-us/status/feed/) abone olabileceğiniz Azure hizmetlerinin sistem durumunu değişiklikler.
 
 # <a name="next-steps"></a>Sonraki Adımlar
-* Azure health ile içine daha kişiselleştirilmiş bir görünüm nasıl erişebileceğini öğrenin [hizmet durumu](./service-health-overview.md).
-* Durumu belirli Azure kaynaklarıyla hakkında daha ayrıntılı bir görünüm nasıl erişebileceğini öğrenin [kaynak durumu](./resource-health-overview.md).
+* Nasıl Azure health ile oturum daha kişiselleştirilmiş bir görünüm elde edeceğinizi öğrenin [hizmet durumu](./service-health-overview.md).
+* Nasıl sistem durumunun belirli Azure kaynaklarıyla daha ayrıntılı bir görünüm elde edeceğinizi öğrenin [kaynak durumu](./resource-health-overview.md).

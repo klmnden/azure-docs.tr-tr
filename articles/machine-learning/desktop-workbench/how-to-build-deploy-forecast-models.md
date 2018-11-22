@@ -10,12 +10,12 @@ ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06613ed1eac43ebe865666f85235de74903b1d5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3fac7c6d0a2274813c6ba6d96d8014d6452d28f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953614"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284906"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning ile tahmin modellerini Derleme ve dağıtma
 
@@ -109,7 +109,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Verileri yüklemek ve keşfedin
 
-Bu kod parçacığı ile ham bir veri kümesi, bu durumda başlatma tipik işlemini gösterir [Dominick'ın daha hassas Foods verilerden](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Kolaylık işlevini de kullanabilirsiniz [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Bu kod parçacığı ile ham bir veri kümesi, bu durumda başlatma tipik işlemini gösterir [Dominick'ın daha hassas Foods verilerden](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Kolaylık işlevini de kullanabilirsiniz [load_dominicks_oj_data](/python/api/azuremlftk/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -340,7 +340,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Veriler yaklaşık 250 farklı birleşimlerini deposu ve bir veri çerçevesinde marka içeriyor. Her bir bileşimi kendi zaman serisi satış tanımlar. 
 
-Kullanabileceğiniz [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) rahatça birden fazla seri kullanarak bir tek veri yapısı model sınıfı _dilimi_. Dilimi tarafından belirtilen `store` ve `brand` sütun.
+Kullanabileceğiniz [TimeSeriesDataFrame](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe) rahatça birden fazla seri kullanarak bir tek veri yapısı model sınıfı _dilimi_. Dilimi tarafından belirtilen `store` ve `brand` sütun.
 
 Arasındaki fark _dilimi_ ve _grubu_ grubu olması gerekmez ancak dilimi her zaman gerçek dünyada, fiziksel olarak anlamlı olmasıdır. İç paket işlevleri, kullanıcı bu gruplandırma model performansını artırır inanırsa birden çok zaman serisindeki tek bir model oluşturmak için grubu kullanın. Varsayılan olarak, grup için dilimi eşit olacak şekilde ayarlanır ve tek bir model için her bir dilimi oluşturulmuştur. 
 
@@ -500,10 +500,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
   </tbody>
 </table>
 
-
-
-[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) işlevi, zaman serisi veri çerçevesi ilişkin kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik belirli zaman serisi verilerini içerir. 
-
+[TimeSeriesDataFrame.ts_report](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#ts-report) işlevi, zaman serisi veri çerçevesi ilişkin kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik belirli zaman serisi verilerini içerir. 
 
 ```python
 whole_tsdf.ts_report()
@@ -889,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Verileri önceden işleme ve eksik değerleri impute
 
-Başlangıç Eğitim kümesi ve bir sınama kümesi verileri bölerek [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi testi her zaman serisinin son 40 gözlemler içerir. 
+Başlangıç Eğitim kümesi ve bir sınama kümesi verileri bölerek [last_n_periods_split](/python/api/azuremlftk/ftk.ts_utils#last-n-periods-split) yardımcı program işlevi. Sonuç kümesi testi her zaman serisinin son 40 gözlemler içerir. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Temel zaman serisi modelleri, bitişik zaman serisi gerektirir. Seriyi kullanarak düzenli aralıklarla örneklenen bir zaman dizine sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) işlevi.
+Temel zaman serisi modelleri, bitişik zaman serisi gerektirir. Seriyi kullanarak düzenli aralıklarla örneklenen bir zaman dizine sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#check-regularity-by-grain) işlevi.
 
 
 ```python
@@ -971,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Seri (213 tanesi 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Aşağıdaki örnek kod, birçok imputation seçenek olsa da, doğrusal enterpolasyon kullanır.
+Seri (213 tanesi 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](/python/api/azuremlftk/ftk.transforms.time_series_imputer.timeseriesimputer) satış miktarı değerleri eksik doldurmak için gereklidir. Aşağıdaki örnek kod, birçok imputation seçenek olsa da, doğrusal enterpolasyon kullanır.
 
 
 ```python
@@ -1037,8 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Birden çok modeli birleştirin
 
-[ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak tanır.
-
+[ForecasterUnion](/python/api/azuremlftk/ftk.models.forecaster_union.forecasterunion) estimator birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak tanır.
 
 ```python
 forecaster_union = ForecasterUnion(
@@ -1251,7 +1247,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-[RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) TimeSeriesDataFrame üzerinde geliştirilen böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster, aynı modele bu durum deposunda her grup ayrıca koyar. Benzer olarak kabul ve birlikte bir havuzda toplanabilir mi seri grubu için bir model forecaster öğrenebilirsiniz. Seri grubu için bir model, uzun serisi verilerinden genellikle kısa bir seri için tahminlerini geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için birbirinin yerine kullanabilir. 
+[RegressionForecaster](/python/api/azuremlftk/ftk.models.regression_forecaster.regressionforecaster) TimeSeriesDataFrame üzerinde geliştirilen böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster, aynı modele bu durum deposunda her grup ayrıca koyar. Benzer olarak kabul ve birlikte bir havuzda toplanabilir mi seri grubu için bir model forecaster öğrenebilirsiniz. Seri grubu için bir model, uzun serisi verilerinden genellikle kısa bir seri için tahminlerini geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için birbirinin yerine kullanabilir. 
 
 
 ```python
@@ -1369,13 +1365,13 @@ Bazı makine öğrenimi modelleri eklenen özellikler ve daha iyi tahmin doğrul
 
 ### <a name="cross-validation-parameter-and-model-sweeping"></a>Çapraz doğrulama, parametre ve Model Süpürme    
 
-Paket işlevleri tahmin bir uygulama için bazı geleneksel makine uyum sağlar.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) ne olduğu ve tahmin bir çerçeve bilinmiyor uyarak zamansal olarak, çapraz doğrulama yapar. 
+Paket işlevleri tahmin bir uygulama için bazı geleneksel makine uyum sağlar.  [RollingOriginValidator](/python/api/azuremlftk/ftk.model_selection.cross_validation.rollingoriginvalidator) ne olduğu ve tahmin bir çerçeve bilinmiyor uyarak zamansal olarak, çapraz doğrulama yapar. 
 
 Aşağıdaki çizimde, her kare bir zaman noktasından verileri temsil eder. Mavi kareler eğitim temsil eder ve her kat test turuncu kareler temsil eder. Test verilerinin zaman noktalarından en büyük eğitim zaman noktasından sonra gelmelidir. Aksi halde gelecekteki verilerle eğitim verilerini model değerlendirme geçersiz olmasına neden sızmış. 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Parametre Süpürme**  
-[TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) sınıfı ayrıntısına arar belirtilen parametre değerleri ve kullandığı `RollingOriginValidator` en iyi parametreleri bulmak için parametre performansını değerlendirmek için.
+[TSGridSearchCV](/python/api/azuremlftk/ftk.model_selection.search.tsgridsearchcv) sınıfı ayrıntısına arar belirtilen parametre değerleri ve kullandığı `RollingOriginValidator` en iyi parametreleri bulmak için parametre performansını değerlendirmek için.
 
 
 ```python
@@ -1647,7 +1643,7 @@ aml_deployment.deploy()
 
 ### <a name="score-the-web-service"></a>Puanlama web hizmeti
 
-Küçük bir veri kümesi puanlamak için kullanmak [puanı](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) bir web hizmeti göndermek için yöntemi çağırmak için tüm veriler.
+Küçük bir veri kümesi puanlamak için kullanmak [puanı](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score) bir web hizmeti göndermek için yöntemi çağırmak için tüm veriler.
 
 
 ```python
@@ -1668,8 +1664,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-Büyük bir veri kümesini puanlamak için kullanmak [paralel Puanlama](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) birden çok web hizmetine göndermek için modu çağrıları, her veri grubu için bir tane.
-
+Büyük bir veri kümesini puanlamak için kullanmak [paralel Puanlama](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score-parallel) birden çok web hizmetine göndermek için modu çağrıları, her veri grubu için bir tane.
 
 ```python
 results = aml_web_service.score(score_context=score_context, method='parallel')

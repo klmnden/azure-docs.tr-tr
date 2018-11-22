@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: e30ffe2dd79d55e856ef297608745b60578cf7e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131304"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282885"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>PostgreSQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları
 
 Bilinen sorunlar ve sınırlamalar online geçişleri PostgreSQL için Azure veritabanı için PostgreSQL ile ilişkili aşağıdaki bölümlerde açıklanmıştır. 
 
 ## <a name="online-migration-configuration"></a>Çevrimiçi geçişi yapılandırma
-- PostgreSQL sunucusu kaynağı 9.5.11, 9.6.7 veya 10.3 sürümü çalıştırması gerekir veya üzeri. Daha fazla bilgi için bkz [desteklenen PostgreSQL veritabanı sürümlere](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- PostgreSQL sunucusu kaynağı 9.5.11, 9.6.7 veya 10.3 sürümü çalıştırması gerekir veya üzeri. Daha fazla bilgi için bkz [desteklenen PostgreSQL veritabanı sürümlere](../postgresql/concepts-supported-versions.md).
 - Yalnızca aynı sürüm geçişler desteklenir. Örneğin, 9.6.7 PostgreSQL için Azure veritabanı geçişi PostgreSQL 9.5.11 desteklenmiyor.
 - İçinde mantıksal çoğaltmayı etkinleştirmek için **PostgreSQL postgresql.conf kaynak** dosya için şu parametreleri ayarlayın:
     - **wal_level** mantıksal =
@@ -66,7 +66,7 @@ Bilinen sorunlar ve sınırlamalar online geçişleri PostgreSQL için Azure ver
     
     ```
 
-    Sorgu sonucu (olan ikinci sütundaki) bırakma yabancı anahtarı çalıştırın.
+    Sorgu sonucunda bırakma yabancı anahtarını (ikinci sütun) çalıştırın.
 
 - Şemanın hedef PostgreSQL için Azure veritabanı içinde hiçbir tetikleyici olmaması gerekir. Hedef veritabanı Tetikleyicileri devre dışı bırakmak için aşağıdakileri kullanın:
 

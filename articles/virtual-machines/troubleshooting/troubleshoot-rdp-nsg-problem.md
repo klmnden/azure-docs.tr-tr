@@ -1,11 +1,11 @@
 ---
-title: Azure sanal makinelere RDP bağlantı noktası NSG'de etkin olmadığından bağlanamıyor | Microsoft Docs
+title: Azure Vm'lere RDP bağlantı noktası NSG'de etkin olmadığından bağlanamıyor | Microsoft Docs
 description: NSG yapılandırma Azure portalında RDP içinde başarısız olan bir sorunu giderme hakkında bilgi edinin | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
-editor: ''
+editor: v-jesits
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: troubleshooting
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 89af30533e10df0968b60039d7ea15886e89bc25
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267101"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284736"
 ---
-#  <a name="cannot-rdp-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>RDP bağlantı noktası NSG'de etkin olmadığından bir VM'ye RDP yapılamıyor
+#  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Bir VM'ye RDP bağlantı noktası NSG'de etkinleştirilmediğinden uzaktan bağlanılamıyor
 
-Bu makalede, bağlantı noktası ağ güvenlik grubunda etkin olmadığından Azure Windows sanal makinelerine (VM'ler) bağlanamıyor bir sorunun nasıl çözüleceği gösterilmektedir.
+Bu makalede, Uzak Masaüstü Protokolü (RDP) bağlantı noktası ağ güvenlik grubu (NSG) etkin olmadığından bir Azure Windows sanal makinesine (VM) bağlanamıyor bir sorunun nasıl giderileceği açıklanmaktadır.
 
 
 > [!NOTE] 
-> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modelini kullanarak kapsar. 
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli vardır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Yeni dağıtımlar için Klasik dağıtım modeli yerine Resource Manager dağıtım modeli kullanmanızı öneririz. 
 
 ## <a name="symptom"></a>Belirti
 
-Bir Uzak Masaüstü Protokolü (RDP bağlantı noktası nedeniyle bağlantı azure'da VM için ağ güvenlik grubunda açılmadı RDP) yapamaz.
+Ağ güvenlik grubunda RDP bağlantı noktası açık değil olduğundan azure'da bir VM ile RDP bağlantısı yapamazsınız.
 
 ## <a name="solution"></a>Çözüm 
 
 Yeni bir VM oluşturduğunuzda, varsayılan olarak İnternet'ten gelen tüm trafik engellenir. 
 
-Ağ güvenlik grubunda RDP bağlantı noktasını etkinleştirmek için bu adımları izleyin:
-1. [Azure portalda](https://portal.azure.com) oturum açın.
-2. İçinde **sanal makineler**, sorunlu VM. 
+Bir NSG içinde RDP bağlantı noktasını etkinleştirmek için bu adımları izleyin:
+1. Oturum [Azure portalında](https://portal.azure.com).
+2. İçinde **sanal makineler**, sorunlu VM'yi seçin. 
 3. İçinde **ayarları**seçin **ağ**. 
-4. İçinde **gelen bağlantı noktası kuralları**, RDP bağlantı noktası doğru şekilde ayarlanıp ayarlanmadığını denetleyin. Örnek Yapılandırması aşağıda verilmiştir. 
+4. İçinde **gelen bağlantı noktası kuralları**, RDP bağlantı noktası doğru şekilde ayarlanıp ayarlanmadığını denetleyin. Yapılandırmasına bir örnek verilmiştir: 
 
     **Öncelik**: 300 </br>
     **Bağlantı noktası**: 3389 </br>
@@ -51,16 +51,16 @@ Ağ güvenlik grubunda RDP bağlantı noktasını etkinleştirmek için bu adım
     **Hedefleri**: tüm </br>
     **Eylem**: izin ver </br>
 
-İçinde kaynak IP adresini belirtin, bu ayar yalnızca belirli IP veya IP aralığı VM'ye bağlanmak için gelen trafiğe izin verir. RDP oturumu başlatmak için kullandığınız bilgisayara aralığında olduğundan emin olun.
+İçinde kaynak IP adresini belirtin, bu ayar yalnızca belirli bir IP adresi veya IP adresleri, sanal Makineye bağlanmak için gelen trafiğe izin verir. RDP oturumu başlatmak için kullandığınız bilgisayara aralığında olduğundan emin olun.
 
-Ağ güvenlik grubu hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu](../../virtual-network/security-overview.md).
+Nsg'ler hakkında daha fazla bilgi için bkz. [ağ güvenlik grubu](../../virtual-network/security-overview.md).
 
 > [!NOTE]
-> RDP bağlantı noktası 3389 Internet'e kullanıma sunulur. Bu yalnızca test etmek için önerilir. Üretim ortamları için bir VPN veya özel bağlantı kullanmanızı öneririz.
+> RDP bağlantı noktası 3389 Internet'e kullanıma sunulur. Bu nedenle, bu bağlantı noktası yalnızca, test etmek için önerilen kullanmanızı öneririz. Üretim ortamları için bir VPN veya özel bağlantı kullanmanızı öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ güvenlik grubunda RDP bağlantı noktası zaten etkin değilse [Azure VM'de bir RDP genel hata giderme](./troubleshoot-rdp-general-error.md).
+NSG'de RDP bağlantı noktası zaten etkin değilse [Azure VM'de bir RDP genel hata giderme](./troubleshoot-rdp-general-error.md).
 
 
 

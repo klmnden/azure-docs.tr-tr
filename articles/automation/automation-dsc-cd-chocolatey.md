@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4172afc3adf23a05384fec0413465cf491af3a79
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275308"
+ms.locfileid: "52284804"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Kullanım örneği: Sanal makinelere Otomasyon durum yapılandırması ve Chocolatey kullanarak sürekli dağıtım
 
@@ -34,14 +34,14 @@ Her iki çekirdek işlem yerinde olduktan sonra otomatik olarak yeni sürümlerl
 ## <a name="component-overview"></a>Bileşenine genel bakış
 
 Yöneticileri gibi paket [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) Linux dünya, ancak vermeyecek kadar Windows dünyanın oldukça iyi bilinen sorunlardır.
-[Chocolatey](https://chocolatey.org/) böyle bir şey ve Scott Hanselman'ın [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) konuda harika bir giriş olduğundan. Buna koysalar Chocolatey paketleri paketleri merkezi bir depodan komut satırını kullanarak bir Windows sistemine yüklemek sağlar. Oluşturabilir ve kendi deponuzda yönetmek ve Chocolatey belirlediğiniz depoları arasında herhangi bir sayı paketlerini yükleyebilirsiniz.
+[Chocolatey](https://chocolatey.org/) böyle bir şey ve Scott Hanselman'ın [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) konuda harika bir giriş olduğundan. Buna koysalar Chocolatey paketleri paketleri merkezi bir depodan komut satırını kullanarak bir Windows sistemine yüklemek sağlar. Oluşturabilir ve kendi deponuzda yönetmek ve Chocolatey belirlediğiniz depoları arasında herhangi bir sayı paketlerini yükleyebilirsiniz.
 
 Desired State Configuration ' nı (DSC) ([genel bakış](/powershell/dsc/overview)) bir makine için istediğiniz yapılandırmayı bildirmek izin veren bir PowerShell aracıdır. Örneğin, söylediğiniz, "yüklü Chocolatey istiyorum, yüklü IIS istiyorum, bağlantı noktası 80 açık istiyorum, yüklü sürüm 1.0.0 sitemde istiyorum." DSC yerel Configuration Manager (LCM) yapılandırma uygular. Bir DSC çekme sunucusuna bir depo makineleriniz için yapılandırmaları içerir. Her bir makinede LCM düzenli aralıklarla yapılandırmasıyla depolanan yapılandırma eşleşip eşleşmediğini teslim eder. Bu durum raporu veya makine depolanan yapılandırma ile aynı doğrultuda içine geri getirmek çalışır. Bir makine ya da değiştirilmiş yapılandırma ile aynı doğrultuda gelmesini makineler kümesi neden çekme sunucusunda depolanan yapılandırmasını düzenleyebilirsiniz.
 
 Azure Otomasyonu, runbook'ları, düğümler, kimlik bilgileri, kaynaklar ve zamanlamaları ve genel değişkenler gibi varlıklar'ı kullanarak çeşitli görevleri otomatik hale getirmenizi sağlayan Microsoft Azure yönetilen bir hizmettir.
 Azure Otomasyonu durum yapılandırması bu Otomasyon PowerShell DSC araçları dahil etme yeteneği genişletir. Harika bir işte [genel bakış](automation-dsc-overview.md).
 
-DSC kaynağı, ağ, Active Directory ya da SQL Server'ı yönetme gibi belirli özellikleri olan kod için kullanılan bir modüldür. Chocolatey DSC kaynak erişim (diğerlerinin arasında) bir NuGet sunucusu, paketleri indirin, paketleri yüklemek ve benzeri nasıl bilir. Diğer birçok DSC kaynaklarında vardır [PowerShell Galerisi](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
+DSC kaynağı, ağ, Active Directory ya da SQL Server'ı yönetme gibi belirli özellikleri olan kod için kullanılan bir modüldür. Chocolatey DSC kaynak erişim (diğerlerinin arasında) bir NuGet sunucusu, paketleri indirin, paketleri yüklemek ve benzeri nasıl bilir. Diğer birçok DSC kaynaklarında vardır [PowerShell Galerisi](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Bu modüller (sizin tarafınızdan) çekme Azure Otomasyonu durumu yapılandırma sunucusu yüklü yapılandırmalarınızı tarafından kullanılabilmesi için.
 
 Resource Manager şablonları, altyapınızı - ağlar, alt ağlar, ağ güvenliği gibi şeyleri oluşturmanın bildirim temelli bir yöntemini sağlar ve yönlendirme, yük Dengeleyiciler, NIC'ler, VM'ler ve benzeri. İşte bir [makale](../azure-resource-manager/resource-manager-deployment-model.md) , Resource Manager dağıtım modelini (bildirim) (zorunlu) Azure Hizmet Yönetimi (ASM veya Klasik) dağıtım modeli ile karşılaştırır ve çekirdek kaynak sağlayıcıları açıklar, bilgi işlem, depolama ve ağ.
@@ -179,7 +179,7 @@ Bu adımların sonucu yeni bir düğüm yapılandırması "çekme sunucusunda ye
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>5. adım: Oluşturma ve paket meta verileri koruma
 
 Paket Deposu yerleştirdiğiniz her paket için tanımladığı bir nuspec gerekir.
-Bu nuspec derlenmiş ve NuGet sunucunuzun depolanır. Bu işlem açıklanan [burada](http://docs.nuget.org/create/creating-and-publishing-a-package). Bir NuGet sunucusu olarak MyGet.org kullanabilirsiniz. Bu hizmet satmak, ancak ücretsiz SKU Başlatıcı sahip. NuGet.org kendi NuGet sunucusu, özel paketler için yükleme yönergeleri bulabilirsiniz.
+Bu nuspec derlenmiş ve NuGet sunucunuzun depolanır. Bu işlem açıklanan [burada](https://docs.nuget.org/create/creating-and-publishing-a-package). Bir NuGet sunucusu olarak MyGet.org kullanabilirsiniz. Bu hizmet satmak, ancak ücretsiz SKU Başlatıcı sahip. NuGet.org kendi NuGet sunucusu, özel paketler için yükleme yönergeleri bulabilirsiniz.
 
 ## <a name="step-6-tying-it-all-together"></a>6. adım: tümünü bir araya getirmeye kadar
 

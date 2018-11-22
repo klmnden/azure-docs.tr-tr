@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 751c2df42ee8e4ace22fe94e1fef8d734ab81c3c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275675"
+ms.locfileid: "52284123"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Otomasyonu
-Karmaşık bir nesne başka bir iş akışı tarafından kullanılması amaçlanan ya da kullanıcıya bir hata iletisi gibi bir çıkış çoğu Azure Automation runbook'larına sahiptir. Windows PowerShell sağlar [birden çok akış](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) bir betik veya iş akışı, çıkış göndermek için. Azure Otomasyonu bu akışları her biriyle farklı şekilde çalışır ve bir runbook oluştururken her kullanmak için en iyi uygulamaları izlemelisiniz.
+Karmaşık bir nesne başka bir iş akışı tarafından kullanılması amaçlanan ya da kullanıcıya bir hata iletisi gibi bir çıkış çoğu Azure Automation runbook'larına sahiptir. Windows PowerShell sağlar [birden çok akış](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) bir betik veya iş akışı, çıkış göndermek için. Azure Otomasyonu bu akışları her biriyle farklı şekilde çalışır ve bir runbook oluştururken her kullanmak için en iyi uygulamaları izlemelisiniz.
 
 Hem yayımlanan bir runbook çalıştırılırken hem de aşağıdaki tabloda her akışları ve Azure Portalı'ndaki davranışları kısa bir açıklaması verilmiştir [bir runbook'u test etme](automation-testing-runbook.md). Her akış hakkındaki ek ayrıntılar sonraki bölümlerde verilmiştir.
 
@@ -135,7 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>Verbose stream
-Ayrıntılı ileti akışı, runbook işlemi hakkında genel bilgi içindir. Bu yana [hata ayıklama Stream](#Debug) kullanılabilir olmayan bir runbook'ta hata ayıklama bilgileri için ayrıntılı iletiler kullanılmalıdır. Varsayılan olarak, yayımlanan runbook'lardan ayrıntılı iletiler iş geçmişinde depolanmaz. Ayrıntılı iletileri depolamak için Azure Portalı'nda runbook'un yapılandırma sekmesinde ayrıntılı kayıtları günlüğe yayımlanan runbook'ları yapılandırın. Çoğu durumda, performans nedenleriyle runbook için ayrıntılı kayıtları günlüğe kaydetmeme varsayılan ayarını korumalısınız. Yalnızca sorun gidermek veya bir runbook'ta hata ayıklamak için bu seçeneği etkinleştirin.
+Ayrıntılı ileti akışı, runbook işlemi hakkında genel bilgi içindir. Bu yana [hata ayıklama Stream](#debug-stream) kullanılabilir olmayan bir runbook'ta hata ayıklama bilgileri için ayrıntılı iletiler kullanılmalıdır. Varsayılan olarak, yayımlanan runbook'lardan ayrıntılı iletiler iş geçmişinde depolanmaz. Ayrıntılı iletileri depolamak için Azure Portalı'nda runbook'un yapılandırma sekmesinde ayrıntılı kayıtları günlüğe yayımlanan runbook'ları yapılandırın. Çoğu durumda, performans nedenleriyle runbook için ayrıntılı kayıtları günlüğe kaydetmeme varsayılan ayarını korumalısınız. Yalnızca sorun gidermek veya bir runbook'ta hata ayıklamak için bu seçeneği etkinleştirin.
 
 Zaman [bir runbook'u test etme](automation-testing-runbook.md), runbook ayrıntılı kayıtları günlüğe kaydetmek üzere yapılandırılmış bile olsa ayrıntılı iletiler görüntülenmez. Ederken ayrıntılı iletileri görüntülemek için [bir runbook'u test etme](automation-testing-runbook.md), devam et $VerbosePreference değişkenini ayarlamalıdır. Bu değişken ayarlandığında, ayrıntılı iletiler, Azure portalında Test çıkışı bölmesinde görüntülenir.
 

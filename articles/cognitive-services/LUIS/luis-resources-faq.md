@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649321"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284379"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -60,6 +60,16 @@ Cortana önceden oluşturulmuş uygulamalar, 2017'de kullanım dışı bırakıl
 
 ## <a name="luis-endpoint"></a>LUIS uç noktası
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Uç nokta Sorgum beklenmeyen bir sonuç döndürdü. Ne yapmalıyım?
+
+Beklenmeyen sorgu tahmin sonuçlarını yayımlanan model durumuna dayanır. Model düzeltmek için modeli değiştirmek gerek eğitme ve yeniden yayımlayın. 
+
+Model düzeltme ile başlayan [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md).
+
+Güncelleştirerek belirleyici eğitim kaldırabilirsiniz [uygulama sürümü ayarları API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) tüm eğitim verilerini kullanmak için. 
+
+Gözden geçirme [en iyi uygulamalar](luis-concept-best-practices.md) diğer ipuçları için. 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Neden LUIS geçici bir çözüm veya sözcük ortasında sorguya alanları ekliyor mu?
 LUIS [tokenizes](luis-glossary.md#token) utterance temel alarak [kültür](luis-language-support.md#tokenization). Parçalanmış değeri ve özgün değeri kullanılabilir [veri ayıklama](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ LUIS [tokenizes](luis-glossary.md#token) utterance temel alarak [kültür](luis-
 [Uç nokta oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) için azure'da, [hizmet](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) düzeyi. [Anahtar atama](luis-how-to-manage-keys.md#assign-endpoint-key) üzerinde **[anahtarları ve uç noktaları](luis-how-to-manage-keys.md)** sayfası. Bu eyleme karşılık gelen hiçbir API yoktur. HTTP isteği için uç nokta için değiştirmeniz gerekir sonra [yeni uç nokta anahtarını kullanmak](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS puanları nasıl yorumlanacağı?
-Sisteminizi, en yüksek Puanlama amaç değeri ne olursa olsun kullanmanız gerekir. Örneğin, 0,5 (daha az % 50'den) altında bir puan mutlaka LUIS düşük güven olduğunu gelmez. Daha fazla eğitim verilerini sağlayarak, olasılıkla amaç puanı artırmaya yardımcı olabilir.
+Sisteminizi, en yüksek Puanlama amaç değeri ne olursa olsun kullanmanız gerekir. Örneğin, 0,5 (daha az % 50'den) altında bir puan mutlaka LUIS düşük güven olduğunu gelmez. Daha fazla eğitim verileri yardımcı sağlama artırmak [puanı](luis-concept-prediction-score.md) olasılıkla hedefinin.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Benim uygulamamın Pano uç noktası isabet neden göremiyorum?
 Uygulamanızın panosunda toplam uç noktası İsabeti düzenli olarak güncelleştirilir ancak Azure portalında LUIS uç nokta anahtarıyla ilişkili ölçümleri daha sık güncelleştirilir.

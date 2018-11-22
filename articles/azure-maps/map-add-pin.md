@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d80d9a4d39a3f21539e5e6e498fc52df213a19
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248821"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282694"
 ---
 # <a name="add-symbols-and-markers-to-a-map"></a>Simgeler ve işaretli bir haritaya eklemek
 
@@ -51,7 +51,7 @@ Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [b
 
 İkinci kod bloğu içinde bir dizi konumları tanımlanır ve [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest) nesnesi oluşturulur. Kullanarak bir veri kaynağı nesnesi oluşturulur [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) nesne sınıfı ve MultiPoint veri kaynağına eklenir.
 
-A [Kabarcık katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işler [veri kaynağı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) haritada daireler. Son kod bloğunu Kabarcık katman oluşturur ve onu haritaya ekler. Kabarcık katmanında özelliklerini görmek [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+A [Kabarcık katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işler [veri kaynağı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) haritada daireler. Son kod bloğunu Kabarcık katman oluşturur ve onu haritaya ekler. Kabarcık katmanında özelliklerini görmek [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
 MultiPoint nesne veri kaynağı ve kabarcık katman oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlev eşlemesi tam olarak yüklendikten sonra dairenin görüntülendiğinden emin olun.
 
@@ -64,9 +64,9 @@ Yukarıdaki kod haritada nasıl görselleştirebileceğinizi ve etiket verilerin
 
 İkinci kod bloğu oluşturur bir [noktası](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) nesne. Ardından bir veri kaynağı nesnesi kullanılarak oluşturur [veri kaynağı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı ve veri kaynağına noktası ekler.
 
-A [Kabarcık katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işler [veri kaynağı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) haritada daireler. Üçüncü kod bloğunu Kabarcık katman oluşturur ve onu haritaya ekler. Kabarcık katmanında özelliklerini görmek [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+A [Kabarcık katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işler [veri kaynağı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) haritada daireler. Üçüncü kod bloğunu Kabarcık katman oluşturur ve onu haritaya ekler. Kabarcık katmanında özelliklerini görmek [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
-A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak. Son kod bloğunu oluşturur ve kabarcık metin etiketini işler eşlemesine bir sembol katmanı ekler. Sembol katmanında özelliklerini görmek [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.symbollayeroptions?view=azure-iot-typescript-latest).
+A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak. Son kod bloğunu oluşturur ve kabarcık metin etiketini işler eşlemesine bir sembol katmanı ekler. Sembol katmanında özelliklerini görmek [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
 
 Veri kaynağı katmanları oluşturulur ve eşlemesine eklenen [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) işlev eşlemesi tam olarak yüklendikten sonra veri görüntülendiğinden emin olun.
 

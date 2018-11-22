@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567035"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284651"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IOT Edge cihazları, modülleri ve alt cihazlar (Önizleme) genişletilmiş çevrimdışı özelliklerini anlama
 
@@ -48,7 +48,7 @@ Aşağıdaki örnek, bir IOT Edge senaryo çevrimdışı modda nasıl çalışt�
 
 Bu makalede açıklanan genişletilmiş çevrimdışı özellikleri kullanılabilir [IOT Edge 1.0.4 sürümü veya üzeri](https://github.com/Azure/azure-iotedge/releases). Önceki sürümlerde çevrimdışı özelliklerinin bir alt kümesi. IOT Edge mevcut genişletilmiş çevrimdışı özellikleri olmayan cihazlar, çalışma zamanı sürümü değiştirerek yükseltilemez ancak bu özellikler sağlamak için yeni bir IOT Edge cihaz kimliği ile yapılandırılması gerekir. 
 
-Genişletilmiş çevrimdışı desteği, IOT hub'ı kullanılabildiği, Doğu ABD ve Batı Avrupa tüm bölgelerde kullanılabilir. 
+Genişletilmiş çevrimdışı destek IOT hub'ı kullanılabildiği, tüm bölgelerde kullanılabilir **dışında** Doğu ABD.
 
 IOT Edge olmayan cihazlar yalnızca alt cihazlar olarak eklenebilir. 
 
@@ -65,6 +65,19 @@ Alt aygıtları aynı IOT Hub'ına kayıtlı herhangi bir kenar-olmayan cihaz ol
    ![IOT Edge cihaz ayrıntıları sayfasından alt cihazları yönetme](./media/offline-capabilities/manage-child-devices.png)
 
 Üst cihazları birden çok alt cihazlar olabilir, ancak alt cihaz, yalnızca bir üste sahip olabilir.
+
+### <a name="specifying-dns-servers"></a>DNS sunucusu belirtme 
+
+Sağlamlığını artırmak için ortamınızda kullanılan DNS sunucusu adresleri belirtmeniz önerilir. Örneğin, Linux üzerinde güncelleştirme **/etc/docker/daemon.json** (dosya oluşturmanız gerekebilir) eklemek için:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Yerel bir DNS sunucusu kullanıyorsanız, her 1.1.1.1 de yerel DNS sunucusunun IP adresi ile değiştirin. Değişikliklerin etkili olması docker hizmeti yeniden başlatın.
+
 
 ## <a name="optional-offline-settings"></a>İsteğe bağlı bir çevrimdışı ayarları
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855400"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282558"
 ---
 # <a name="message-deferral"></a>İleti erteleme
 
@@ -40,7 +40,6 @@ Ertelenmiş ileti almak için sahibi hatırlamak için sorumlu [SequenceNumber](
 
 Bir ileti işlenemiyor, çünkü bu iletiyi işlemek için belirli bir kaynağa geçici olarak kullanılamıyor, ancak ileti işleme değil summarily askıya alınır, bu iletiyi tarafında birkaç dakikalığına koymak için bir unutmayın yöntemdir  **SequenceNumber** içinde bir [zamanlanmış iletileri](message-sequencing.md) birkaç dakika içinde yayınlanabilir ve zamanlanmış ileti geldiğinde, ertelenmiş ileti yeniden almak için. Tüm işlemler için bir veritabanı bir ileti işleyicisi bağlıdır ve bu veritabanı geçici olarak devre dışı ise, bu erteleme kullanmaz, bunun yerine iletileri alma askıya veritabanı yeniden kullanılabilir olana kadar toptan.
 
-İleti erteleme ertelenmiş ileti hala başlangıçta zamanlanmış zaman sona erecek ve sonra atılacak kuyruğuna taşınır şekilde yapılandırdıysanız anlamına ileti süre sonu etkilemez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

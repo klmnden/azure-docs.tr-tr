@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228547"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284685"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -175,8 +175,14 @@ Uygulamanız çok miktarda veri gönderir ve ASP.NET sürüm 2.0.0-beta3 veya da
 
 Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili telemetri doğru tanılama amacıyla iletilen şekilde tasarlanmıştır. 
 
-## <a name="client-ip-address-is-0000"></a>İstemci IP adresi 0.0.0.0 ise 
-Şubat 2018 tarihinden itibaren biz [duyurulan](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) istemci IP adresini günlüğe kaldırdık. Bu, coğrafi konum etkilemez.
+## <a name="client-ip-address-is-0000"></a>İstemci IP adresi 0.0.0.0 ise
+
+5 Şubat 2018'de, istemci IP adresini günlüğe kaldırdık duyurduk. Bu, coğrafi konum etkilemez.
+
+> [!NOTE]
+> IP adresinin ilk 3 sekizlik tabanda gerekiyorsa, kullanabileceğiniz bir [telemetri başlatıcısını](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) özel bir öznitelik eklemek için.
+> Bu, 5 Şubat 2018’den önce toplanan verileri etkilemez.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Kullanıcı telemetri yanlış coğrafi verileri
 Şehir, bölge ve ülke boyutları IP adreslerinden türetilir ve her zaman doğru değil. Bu IP adresleri için konum ilk işlenen ve ardından depolanacak 0.0.0.0 olarak değiştirildi.

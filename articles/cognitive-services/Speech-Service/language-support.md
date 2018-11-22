@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622525"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284770"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -70,7 +70,6 @@ ar-SA | Arapça (Suudi Arabistan) | Erkek | "Microsoft Server Konuşma metin kon
 BG-BG | Bulgarca | Erkek | "Microsoft Server Konuşma metin okuma ses (bg-BG, çalışan Ivan)"
 CA-ES | Katalanca (İspanya) | Kadın | "Microsoft Server Konuşma metin okuma ses (ca-ES, HerenaRUS)"
 cs-CZ | Çekçe | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Jakub)"
-cs-CZ | Çekçe | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Vit)"
 v-DK | Danca | Kadın | "Microsoft Server Konuşma metin konuşma ses (v-DK, HelleRUS)"
 de-AT | Almanca (Avusturya) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-AT, Michael)"
 de-CH | Almanca (İsviçre) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-CH, Karsten)"
@@ -86,7 +85,6 @@ en-GB | English (UK) | Kadın | "Microsoft Server Konuşma metin konuşma ses (e
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, HazelRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-GB, George, Apollo)"
 IE tr | İngilizce (İrlanda) |Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Sean)"
-IE tr | İngilizce (İrlanda) |Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Shaun)"
 tr-giriş | English (India) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN Heera, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN, PriyaRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-IN Ravi, Apollo)"
@@ -153,10 +151,10 @@ zh-TW | Çince (Tayvan)|Kadın | "Microsoft Server Konuşma metin konuşma ses (
 
 ### <a name="customization"></a>Özelleştirme
 
-Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca (it-IT) için kullanılabilir.
+Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fransızca (fr-FR), Almanca (de-DE) ve İtalyanca (it-IT) kullanılabilir.
 
 > [!NOTE]
-> Bir veri kümesi ile 2000'den fazla konuşma İtalyan sesi eğitim başlatır. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
+> Almanca ve İtalyanca üslup eğitimi Fransızca, 2. 000 + ile bir veri kümesi konuşma başlatır. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
 
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 

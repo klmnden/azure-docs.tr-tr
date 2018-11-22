@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9358f280efb847bdce802cc3a20e64710ffc3214
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 1f7bd4bc74e63e3b4dd25a7185ce3641712538f1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275393"
+ms.locfileid: "52284396"
 ---
 # <a name="available-skus-for-hli"></a>HLI için kullanılabilir SKU'ları
 
@@ -52,7 +52,7 @@ SAP HANA TDIv5 altında SAP müşteriye özgü boyutlandırma ve içinde onaylı
 
 | SKU|CPU | Bellek | Depolama | Kullanılabilirlik |
 | ---| --- | --- | --- | --- |
-| S96 | Azure S96 üzerinde SAP HANA<br /> -4 x Intel® Xeon® İşlemci E7-8890 v4<br /> 48 CPU Çekirdeği ve 96 CPU iş parçacıkları |  768 TB |  3 TB | Kullanılabilir |
+| S96 | Azure S96 üzerinde SAP HANA<br /> – 2 x Intel® Xeon® İşlemci E7-8890 v4<br /> 48 CPU Çekirdeği ve 96 CPU iş parçacıkları |  768 TB |  3 TB | Kullanılabilir |
 
 
 | Olabilir özgün SKU <br /> bellekte genişletilmiş | CPU | Bellek | Depolama | Kullanılabilirlik |

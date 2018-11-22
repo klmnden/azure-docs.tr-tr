@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409365"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285059"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -167,7 +167,7 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 
 1. Küme hazırlamak için tüm önkoşul adımlarını tamamlayın.
 2. Herhangi bir Service Fabric uygulaması gibi düzeltme eki düzenleme uygulaması dağıtın. PowerShell kullanarak uygulama dağıtabilirsiniz. Bağlantısındaki [PowerShell kullanarak dağıtma ve Kaldır uygulamaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. Dağıtım sırasında uygulama yapılandırmak için geçirmek `ApplicationParamater` için `New-ServiceFabricApplication` cmdlet'i. Kolaylık olması için uygulamanın yanı sıra betik Deploy.ps1 sağladık. Betiği kullanmak için:
+3. Dağıtım sırasında uygulama yapılandırmak için geçirmek `ApplicationParameter` için `New-ServiceFabricApplication` cmdlet'i. Kolaylık olması için uygulamanın yanı sıra betik Deploy.ps1 sağladık. Betiği kullanmak için:
 
     - Kullanarak bir Service Fabric kümesine bağlanın `Connect-ServiceFabricCluster`.
     - Uygun Deploy.ps1 PowerShell betiğini yürütün `ApplicationParameter` değeri.

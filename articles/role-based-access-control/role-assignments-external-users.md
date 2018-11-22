@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304450"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284532"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>RBAC kullanarak dış kullanıcıların erişimini yönetme
 
@@ -45,7 +45,7 @@ Yönetici oturum açtıktan sonra Azure portalından "Abonelikler" ve ardından 
 ![Azure portalında abonelik dikey](./media/role-assignments-external-users/0.png) yönetici kullanıcı Azure aboneliği satın aldıysanız, varsayılan olarak, kullanıcı olarak görünecek **Hesap Yöneticisi**, bu abonelik rol alınıyor. Azure aboneliği rolleri hakkında daha fazla bilgi için bkz. [ekleme veya değiştirme Azure aboneliği yöneticileri](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Bu örnekte, kullanıcı "alflanigan@outlook.com" olan **sahibi** "ücretsiz deneme sürümü" aboneliğinde AAD Kiracı "varsayılan Kiracı Azure". Bu kullanıcı ilk Microsoft Account "Outlook" ile Azure aboneliğini oluşturan olduğundan (Microsoft Account = Outlook, Canlı vb.) bu kiracıda eklenen tüm kullanıcılar için varsayılan etki alanı adı **"\@ alflaniganuoutlook.onmicrosoft.com"**. Tasarım gereği, yeni etki alanının sözdizimi Kiracı oluşturan kullanıcının kullanıcı adı ve etki alanı adını bir araya getirilmesi ve uzantı ekleyerek biçimlendirilmiş **". onmicrosoft.com"**.
-Ayrıca, kullanıcılar oturum kiracıdaki özel etki alanı ekleme ve yeni Kiracı için doğruladıktan sonra oturum açabilir. Azure Active Directory kiracısında özel etki alanı doğrulama hakkında daha fazla bilgi için bkz. [dizininize özel etki alanı adı ekleme](/active-directory/active-directory-add-domain).
+Ayrıca, kullanıcılar oturum kiracıdaki özel etki alanı ekleme ve yeni Kiracı için doğruladıktan sonra oturum açabilir. Azure Active Directory kiracısında özel etki alanı doğrulama hakkında daha fazla bilgi için bkz. [dizininize özel etki alanı adı ekleme](../active-directory/fundamentals/add-custom-domain.md).
 
 Bu örnekte, yalnızca kullanıcıların etki alanı adıyla "Varsayılan Kiracı Azure" dizinini içeren "\@alflanigan.onmicrosoft.com".
 
@@ -85,7 +85,7 @@ Dizinde Konuk olan sırasında dış kullanıcı Azure aboneliği için tüm kay
 
 ![Azure active Directory'yi Azure portalına kısıtlı erişim](./media/role-assignments-external-users/9.png)
 
-Azure Active Directory ve Azure aboneliği diğer Azure kaynakları gibi bir üst-alt ilişkisi yok (örneğin: sanal makineler, sanal ağlar, web uygulamaları, depolama vb.) ile bir Azure aboneliğine sahip. Tüm ikinci oluşturulmuş, yönetilen ve Azure aboneliğinin bir Azure dizinine erişimi yönetmek için kullanılan bir Azure aboneliği altında faturalandırılırken. Daha fazla bilgi için [nasıl bir Azure aboneliği Azure AD ile ilgili](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory ve Azure aboneliği diğer Azure kaynakları gibi bir üst-alt ilişkisi yok (örneğin: sanal makineler, sanal ağlar, web uygulamaları, depolama vb.) ile bir Azure aboneliğine sahip. Tüm ikinci oluşturulmuş, yönetilen ve Azure aboneliğinin bir Azure dizinine erişimi yönetmek için kullanılan bir Azure aboneliği altında faturalandırılırken. Daha fazla bilgi için [nasıl bir Azure aboneliği Azure AD ile ilgili](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Tüm yerleşik RBAC rolleri gelen **sahibi** ve **katkıda bulunan** katkıda bulunan oluşturun ve yeni RBAC rollerini silme emin olmasına fark ortamındaki tüm kaynakların tam yönetim erişimi sunar. . Bir yerleşik roller ister **sanal makine Katılımcısı** yalnızca ada göre bakılmaksızın belirtilen kaynaklar için tam yönetim erişimi sunan **kaynak grubu** içinde oluşturulan.
 

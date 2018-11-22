@@ -1,5 +1,5 @@
 ---
-title: HBase ve Phoenix yedekleme ve çoğaltma - Azure HDInsight'ı ayarlama
+title: Apache HBase ve Apache Phoenix yedekleme ve çoğaltma - Azure HDInsight'ı ayarlama
 description: HBase ve Phoenix için yedekleme ve çoğaltma ayarlayın.
 services: hdinsight
 author: ashishthaps
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 0dfb1cf5ce16e9aa30bb7f9fcc43bd24ccb90d76
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 00402b7ba6004d382693d5f6f82c1108a254fba8
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042228"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283580"
 ---
-# <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>HBase ve Phoenix HDInsight üzerinde için yedekleme ve çoğaltma ayarlama
+# <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Apache HBase ve HDInsight üzerinde Apache Phoenix için yedekleme ve çoğaltma ayarlama
 
-HBase veri kaybına karşı kullanılan koruyarak için çeşitli yaklaşımları destekler:
+Apache HBase, kullanılan veri kaybına karşı koruyarak için çeşitli yaklaşımları destekler:
 
 * Kopyalama `hbase` klasörü
 * Ardından içeri dışarı aktarma
@@ -101,7 +101,7 @@ Hedef adresini, aşağıdaki üç bölümden oluşur:
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>` Örneğin ZooKeeper düğümleri, virgülle ayrılmış bir listesi verilmiştir:
+* `<ZooKeeperQuorum>` Örneğin, Apache ZooKeeper düğümleri, virgülle ayrılmış bir listesi verilmiştir:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net, zk4 hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net zk3 hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
@@ -109,7 +109,7 @@ Hedef adresini, aşağıdaki üç bölümden oluşur:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
-Bkz: [ZooKeeper çekirdek listesini el ile toplama](#manually-collect-the-zookeeper-quorum-list) HDInsight kümeniz için bu değerleri almak hakkında ayrıntılar için bu makaledeki.
+Bkz: [el ile Apache ZooKeeper çekirdek listesi toplama](#manually-collect-the-apache-zookeeper-quorum-list) HDInsight kümeniz için bu değerleri almak hakkında ayrıntılar için bu makaledeki.
 
 CopyTable yardımcı programını Ayrıca satır kopyalamak ve kopyalamak için bir tablodaki sütun ailesi kümesini belirtmek için zaman aralığını belirtmek için parametreleri destekler. CopyTable tarafından desteklenen parametreler tam listesini görmek için hiçbir parametre olmadan CopyTable çalıştırın:
 
@@ -120,7 +120,7 @@ CopyTable üzerinden hedef tabloya kopyalanacak tüm kaynak tablo içeriğini ta
 > [!NOTE]
 > Tablolar arasında veri kopyalama otomatik hale getirmek için bkz: `hdi_copy_table.sh` betiğini [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) github deposu.
 
-### <a name="manually-collect-the-zookeeper-quorum-list"></a>ZooKeeper çekirdek listesini el ile toplayın
+### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Apache ZooKeeper çekirdek listesini el ile toplayın
 
 HDInsight kümeleri hem daha önce açıklandığı gibi aynı sanal ağda olduğunda iç ana bilgisayar adı çözümlemesi otomatik olarak gerçekleşir. İki ayrı sanal ağ tarafından VPN ağ geçidi bağlı HDInsight kümelerinde CopyTable kullanmak için ana bilgisayar çekirdek Zookeeper düğümleri IP adreslerini sağlamanız gerekir.
 
@@ -201,8 +201,8 @@ HBase çoğaltmasını kaynak kümesinden bir işlem kaynak kümede en az bir Gi
 5. Mevcut verilerin kaynak tablolardan hedef tablolara kopyalayın.
 6. Çoğaltma, kaynak tabloları yeni veri değişikliklerine hedef tablolarla otomatik olarak kopyalar.
 
-HDInsight üzerinde çoğaltmayı etkinleştirmek için bir betik eylemi çalıştıran kaynak HDInsight kümenize uygulayın. Çoğaltma, kümenizdeki veya Azure Resource Manager şablonlarını kullanarak sanal ağları oluşturulmuş örnek kümeleri üzerinde çoğaltma denemek için etkinleştirme yönergeleri için bkz [yapılandırma HBase çoğaltmayı](apache-hbase-replication.md). Bu makalede, Phoenix meta verilerin etkinleştirmek için yönergeleri de içerir.
+HDInsight üzerinde çoğaltmayı etkinleştirmek için bir betik eylemi çalıştıran kaynak HDInsight kümenize uygulayın. Çoğaltma, kümenizdeki veya Azure Resource Manager şablonlarını kullanarak sanal ağları oluşturulmuş örnek kümeleri üzerinde çoğaltma denemek için etkinleştirme yönergeleri için bkz [yapılandırma Apache HBase çoğaltmayı](apache-hbase-replication.md). Bu makalede, Phoenix meta verilerin etkinleştirmek için yönergeleri de içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HBase çoğaltmasını yapılandırma](apache-hbase-replication.md)
+* [Apache HBase çoğaltmayı yapılandırma](apache-hbase-replication.md)

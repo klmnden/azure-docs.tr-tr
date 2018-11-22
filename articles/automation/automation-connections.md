@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261222"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284549"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure automation'da bağlantı varlıkları
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 Eklediğiniz bir **Get-AutomationConnection** bağlantıda grafik Düzenleyicisi Kitaplık bölmesinde sağ tıklatıp seçerek grafiksel bir runbook etkinliğine **tuvale Ekle**.
 
-![](media/automation-connections/connection-add-canvas.png)
+![Tuvale Ekle](media/automation-connections/connection-add-canvas.png)
 
 Aşağıdaki görüntüde, grafik bir runbook'ta bağlantı kullanma örneği gösterilmektedir.  Bu, metinsel bir runbook ile farklı çalıştır hesabını kullanarak kimlik doğrulaması için yukarıda gösterilen aynı örnektir.  Bu örnekte **sabit değer** veri kümesi için **farklı çalıştır bağlantısını Al** aktivitesi kimlik doğrulaması için bir bağlantı nesnesi kullanır.  A [ardışık düzen bağlantısına](automation-graphical-authoring-intro.md#links-and-workflow) ServicePrincipalCertificate parametre kümesi tek bir nesne bekliyor olduğundan burada kullanılır.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![bağlantıları](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 runbook örneği
 Aşağıdaki örnek, bir Python2 runbook farklı çalıştır bağlantısı kullanarak kimlik doğrulaması yapmayı gösterir.

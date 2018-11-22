@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1b76bfded6562f61a0a9f4a870a18a1fff71bc6a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309748"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284327"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında modül ikizlerini kullanma
 
@@ -327,7 +327,7 @@ Bu bilgiler, Nesne anahtarları kaldırma güncelleştirmeleri korumak için her
 ## <a name="optimistic-concurrency"></a>İyimser eşzamanlılık
 
 Etiketler, istenen ve tüm destek iyimser eşzamanlılık bildirilen özellikler.
-Etikete göre bir ETag sahip [RFC7232]()https://tools.ietf.org/html/rfc7232, etiketin JSON gösterimi, temsil eder. Tutarlılık sağlamak için Etag'ler çözüm arka ucu koşullu güncelleştirme işlemlerini kullanabilirsiniz.
+Etikete göre bir ETag sahip [RFC7232](https://tools.ietf.org/html/rfc7232), etiketin JSON gösterimi, temsil eder. Tutarlılık sağlamak için Etag'ler çözüm arka ucu koşullu güncelleştirme işlemlerini kullanabilirsiniz.
 
 Modül ikizi istenen ve bildirilen özellikler Etag'ler yoktur, ancak sahip bir `$version` artımlı olması garanti değeri. Benzer şekilde bir ETag öğesine sürümü güncelleştirme tarafça güncelleştirmeleri tutarlılığını zorlamak için kullanılabilir. Örneğin, bir modül uygulaması bildirilen özellik veya istenen özelliği için çözüm arka ucu için.
 

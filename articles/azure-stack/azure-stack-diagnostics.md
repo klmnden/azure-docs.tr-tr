@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623987"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283461"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack tanılama araçları
 
@@ -70,13 +70,14 @@ if($s)
     Remove-PSSession $s
 }
 ```
-- Parametreleri **OutputSharePath** ve **OutputShareCredential** belirtilen bir kullanıcı günlüklerini depolamak için kullanılan konum.
-- **FromDate** ve **ToDate** parametreleri, belirli bir süre için günlükleri toplamak için kullanılabilir. Günlükleri son dört saat boyunca, bu parametre belirtilmezse, varsayılan olarak toplanır.
+
 
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog bir Azure Stack geliştirme Seti'ni (ASDK) sistem üzerinde çalışacak şekilde
-1. Olarak oturum **AzureStack\CloudAdmin** konaktaki.
-2. Yönetici olarak bir PowerShell penceresi açın.
+Get-AzureStackLog bir ASDK ana bilgisayarda çalıştırmak için aşağıdaki adımları kullanın.
+
+1. Olarak oturum **AzureStack\CloudAdmin** ASDK ana bilgisayarda.
+2. Yönetici olarak yeni bir PowerShell penceresi açın.
 3. Çalıştırma **Get-AzureStackLog** PowerShell cmdlet'i.
 
 **Örnekler:**
@@ -107,7 +108,10 @@ if($s)
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK hem tümleşik sistemler için parametre konuları
 
-- Varsa **FromDate** ve **ToDate** parametreleri belirtilmemişse, varsayılan olarak son dört saat boyunca günlükleri toplanır.
+- Parametreleri **OutputSharePath** ve **OutputShareCredential** belirtilen bir kullanıcı günlüklerini depolamak için kullanılan konum.
+
+- **FromDate** ve **ToDate** parametreleri, belirli bir süre için günlükleri toplamak için kullanılabilir. Günlükleri son dört saat boyunca, bu parametre belirtilmezse, varsayılan olarak toplanır.
+
 - Kullanım **FilterByNode** günlükleri bilgisayar adına göre filtre uygulamak için parametre. Örneğin:
 
     ```powershell

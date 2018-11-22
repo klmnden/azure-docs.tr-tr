@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 130d0154fc0558ae7284e8407ba88fda3a2a53d5
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391309"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284021"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Bir Azure sanal ağ içindeki vm'lerden erişim Azure Data Lake depolama Gen1
 Azure Data Lake depolama Gen1 genel Internet IP adreslerinde çalıştırılan bir PaaS hizmetidir. Genel Internet'e bağlanabilen herhangi bir sunucu genellikle de Azure Data Lake depolama Gen1 Uç noktalara bağlanabilirsiniz. Varsayılan olarak, Azure sanal ağ tüm VM'lerin İnternet'e erişebilir ve bu nedenle Azure Data Lake depolama Gen1 erişebilir. Ancak, internet erişimi olmaması için bir vnet'teki VM'ler yapılandırmak mümkündür. Bu tür VM'ler için Azure Data Lake depolama Gen1 erişimi de sınırlıdır. Azure sanal ağlardaki sanal makineler için genel Internet erişimini engelleyen yapılabilir aşağıdaki yaklaşımlardan birini kullanarak:
@@ -29,7 +29,7 @@ Azure Data Lake depolama Gen1 genel Internet IP adreslerinde çalıştırılan b
 Bu makalede, Azure Data Lake depolama Gen1 için daha önce listelenen üç yöntemden birini kullanarak kaynaklara erişim için sınırlandı Azure sanal erişmesini öğreneceksiniz.
 
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>Bağlantı için Azure Data Lake depolama Gen1 sanal makinelerinden kısıtlı bağlantısı ile etkinleştirme
-Azure Data Lake depolama Gen1 gibi Vm'lerden erişmek için Azure Data Lake depolama Gen1 hesabı kullanılabilir olduğu IP adresine erişmek için bunları yapılandırmanız gerekir. Hesaplarınızı DNS adlarını çözerek, Data Lake depolama Gen1 hesaplarınız için IP adreslerini tanımlayabilirsiniz (`<account>.azuredatalakestore.net`). Hesaplarınızı DNS adlarını çözümlemek için Araçlar gibi kullanabilirsiniz **nslookup**. Bilgisayarınızda bir komut istemi açın ve aşağıdaki komutu çalıştırın:
+Azure Data Lake depolama Gen1 gibi Vm'lerden erişmek için Azure Data Lake depolama Gen1 hesabı kullanılabilir olduğu bölge için IP adresi erişmek için bunları yapılandırmanız gerekir. Hesaplarınızı DNS adlarını çözerek, Data Lake depolama Gen1 hesabı bölgeler için IP adreslerini tanımlayabilirsiniz (`<account>.azuredatalakestore.net`). Hesaplarınızı DNS adlarını çözümlemek için Araçlar gibi kullanabilirsiniz **nslookup**. Bilgisayarınızda bir komut istemi açın ve aşağıdaki komutu çalıştırın:
 
     nslookup mydatastore.azuredatalakestore.net
 

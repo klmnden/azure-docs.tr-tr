@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca19ce2cca314950adc40bbf065dec80e7fa3e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227935"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283306"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'ları ve modüller oluşturmak yerine, çeşitli Microsoft ve topluluk tarafından zaten oluşturulduğundan senaryoları erişebilirsiniz.  Bu senaryolar yapmadan ya da kullanabilirsiniz veya bunları bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -68,7 +68,7 @@ Microsoft, runbook'ları diğer müşteriler için yararlı olabilecek düşünd
 * Otomasyon, Galeri saatte bir kez güncelleştirir, böylece Katkılarınızı hemen göremezsiniz.
 
 ## <a name="modules-in-powershell-gallery"></a>PowerShell Galerisi modülleri
-PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azure Automation'da yükleyebilmek için var olan modüller kullanılabilir [PowerShell Galerisi](http://www.powershellgallery.com).  Azure portalında bu Galeriden başlatın ve bunları doğrudan Azure Automation'a yüklemeniz veya indirmeniz ve bunları el ile yükleyin.  
+PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azure Automation'da yükleyebilmek için var olan modüller kullanılabilir [PowerShell Galerisi](https://www.powershellgallery.com).  Azure portalında bu Galeriden başlatın ve bunları doğrudan Azure Automation'a yüklemeniz veya indirmeniz ve bunları el ile yükleyin.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Otomasyon modülü Galerisi'nden Azure portalıyla bir modülü içeri aktarmak için
 1. Azure portalında, Otomasyon hesabınızı açın.

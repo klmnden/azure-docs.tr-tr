@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961917"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284498"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı ile Jeo-uzamsal ve GeoJSON konum verileri kullanın
 
@@ -151,7 +151,7 @@ Enlem ve boylam bilgilerine sahip değilseniz, ancak fiziksel adres veya şehir 
 Biz Jeo-uzamsal veriler ekleme işlemini Anlamadıysanız ayırdıktan sonra SQL ve LINQ kullanarak Azure Cosmos DB kullanarak bu verileri sorgulamak nasıl bir göz atalım.
 
 ### <a name="spatial-sql-built-in-functions"></a>Uzamsal SQL yerleşik işlevler
-Azure Cosmos DB, Jeo-uzamsal sorgulamak için aşağıdaki açık Jeo-uzamsal Consortium (OGC) yerleşik işlevleri destekler. Tam bir set SQL dilinde yerleşik işlevler hakkında daha fazla bilgi için bkz. [Azure Cosmos DB'yi sorgulama](sql-api-sql-query.md).
+Azure Cosmos DB, Jeo-uzamsal sorgulamak için aşağıdaki açık Jeo-uzamsal Consortium (OGC) yerleşik işlevleri destekler. Tam bir set SQL dilinde yerleşik işlevler hakkında daha fazla bilgi için bkz. [Azure Cosmos DB'yi sorgulama](how-to-sql-query.md).
 
 <table>
 <tr>
@@ -392,6 +392,6 @@ Azure Cosmos DB'de Jeo-uzamsal destek kullanmaya başlamak öğrendiniz, sonra �
 
 * İle kodlamaya başlayın [github'da Jeo-uzamsal .NET kodu örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Jeo-uzamsal, sorgulama ile yaşayın [Azure Cosmos DB sorgu oyun alanı](http://www.documentdb.com/sql/demo#geospatial)
-* Daha fazla bilgi edinin [Azure Cosmos DB sorgusu](sql-api-sql-query.md)
-* Daha fazla bilgi edinin [Azure Cosmos DB dizinleme ilkeleri](indexing-policies.md)
+* Daha fazla bilgi edinin [Azure Cosmos DB sorgusu](how-to-sql-query.md)
+* Daha fazla bilgi edinin [Azure Cosmos DB dizinleme ilkeleri](index-policy.md)
 

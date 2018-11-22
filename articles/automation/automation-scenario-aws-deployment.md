@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5133a3d724a362a3d022e0dfd29f798a509c4743
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275478"
+ms.locfileid: "52282746"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure otomasyonu senaryosu - bir AWS sanal makinesi sağlama
 Bu makalede, Amazon Web hizmeti (AWS) aboneliğiniz bir sanal makinesi sağlama ve bu VM – AWS "VM etiketleme olarak" başvuran olan belirli bir ad vermek için Azure Otomasyonu'nu nasıl yararlanabileceğiniz öğrenin.
@@ -25,7 +25,7 @@ Bu makalenin amaçları için Azure Otomasyonu hesabı ve bir AWS aboneliği olm
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Amazon Web Services PowerShell modülü dağıtma
 VM'nizi runbook sağlama işlemini gerçekleştirmek için AWS PowerShell modülünden yararlanır. AWS abonelik kimlik bilgilerinizle yapılandırılmış Otomasyon hesabınızı eklemek için aşağıdaki adımları gerçekleştirin.  
 
-1. Web tarayıcınızı açın ve gidin [PowerShell Galerisi](http://www.powershellgallery.com/packages/AWSPowerShell/) tıklayın **Dağıt düğmesine Azure Otomasyonu**.<br><br> ![AWS PS modül içeri aktarma](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+1. Web tarayıcınızı açın ve gidin [PowerShell Galerisi](https://www.powershellgallery.com/packages/AWSPowerShell/) tıklayın **Dağıt düğmesine Azure Otomasyonu**.<br><br> ![AWS PS modül içeri aktarma](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
 2. Azure oturum açma sayfası ve kimliklerini doğruladıktan sonra alınır, Azure portalına yönlendirilir ve şu sayfaya ile sunulan:<br><br> ![İçeri aktarma modül sayfası](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
 3. ' E tıklayın, Otomasyon hesabı seçin **Tamam** dağıtımını başlatmak için.
 
@@ -60,7 +60,7 @@ AWS PowerShell modülü dağıtıldıktan sonra artık bir sanal makinede bir Po
     > 
     > * Runbook'un varsayılan parametre değerlerini içerir. Tüm varsayılan değerleri değerlendirmek ve gerekirse güncelleştirin.
     > * Bir kimlik bilgisi varlığı değerinden farklı şekilde adlandırılmış gibi AWS kimlik bilgilerinizi, depoladığınız, **AWScred**, komut satırında 57 uygun şekilde eşleşecek şekilde güncelleştirmeniz gerekir.  
-    > * PowerShell, özellikle bu örnek runbook ile AWS CLI komutları ile çalışırken, AWS bölge belirtmeniz gerekir. Aksi takdirde, cmdlet başarısız. Görünüm AWS konu [AWS bölge belirtin](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) PowerShell belge için daha fazla ayrıntı için AWS araçları.  
+    > * PowerShell, özellikle bu örnek runbook ile AWS CLI komutları ile çalışırken, AWS bölge belirtmeniz gerekir. Aksi takdirde, cmdlet başarısız. Görünüm AWS konu [AWS bölge belirtin](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) PowerShell belge için daha fazla ayrıntı için AWS araçları.  
     >
 
 7. AWS aboneliğinizden görüntü adlarının bir listesini almak için PowerShell ISE'yi başlatma ve AWS PowerShell modülünü içeri aktarın. AWS karşı kimlik doğrulaması değiştirerek **Get-AutomationPSCredential** ISE ortamınızda **AWScred = Get-Credential**. Bu kimlik bilgilerinizi ister ve sunabilir, **erişim anahtarı kimliği** kullanıcı adı ve **gizli erişim anahtarı** parola. Aşağıdaki örneğe bakın:  

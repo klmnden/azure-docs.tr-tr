@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038477"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284838"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -198,7 +198,9 @@ On iki dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 * Bu özelliği destekleyen Azure PowerShell sürümü 6.6.0 olan veya üzeri (AzureRM.DataFactoryV2, 0.5.7 veya üzeri).
 
-* İzin vermek için kullanıcının sahip rolü veya paylaşılan IR bulunduğu data factory'de devralınan sahip rolü olmalıdır. 
+* İzin vermek için kullanıcının sahip rolü veya paylaşılan IR bulunduğu data factory'de devralınan sahip rolü olmalıdır.
+
+* Paylaşımı özelliğini, yalnızca aynı Azure Active Directory kiracısı içindeki veri fabrikaları için çalışır.
 
 * Active Directory için [Konuk kullanıcılar](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), (tüm veri fabrikalarını arama anahtar sözcüğü kullanarak listeleme) arama işlevleri kullanıcı arabiriminde [çalışmıyor](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Ancak Konuk kullanıcı, data factory'nin sahibi olduğu sürece, IR arama işlevlerinde olmadan doğrudan, paylaşılan IR ile gereken veri fabrikasının MSI yazarak paylaşabilirler **atama izni** metin kutusu ve seçme **Ekle** Azure Data Factory kullanıcı arabiriminde. 
 

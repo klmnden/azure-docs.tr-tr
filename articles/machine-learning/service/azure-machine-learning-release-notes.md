@@ -9,16 +9,50 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52c8eed7f8b5a65ef13215e677d52f44cb95fd64
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261594"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285008"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+
+## <a name="2018-11-20"></a>2018-11-20
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine SDK için Python v0.1.80 Learning
+
++ **Bozucu değişiklikler** 
+  * *azureml.Train.widget* ad alanı taşındığı *azureml.train*.
+  * *azureml.core.compute.AmlCompute* kullanımdan kaldırıldı *azureml.core.compute.BatchAICompute*. İkinci sınıfı sonraki sürümlerde kaldırılacak.
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning veri hazırlama SDK v0.5.1 
+Veri hazırlığı SDK'sı hakkında daha fazla bilgi edinmek [başvuru belgeleri](https://aka.ms/data-prep-sdk).
++ **Yeni Özellikler**
+   * DataPrep paketleri çalıştırmak ve bir veri kümesi veya veri akışı veri profilini görüntülemek için yeni bir DataPrep CLI oluşturdunuz
+   * Kullanılabilirliği iyileştirmek için tasarlanan SetColumnType API
+   * Yeniden adlandırılan smart_read_file auto_read_file için
+   * Şimdi veri profilinde sapması ve basıklık içerir
+   * İle stratified örnekleme örnek oluşturabilirsiniz
+   * CSV dosyaları içeren zip dosyaları okuyabilir
+   * Rastgele bölünmüş row-wise kümeleriyle (örn. test train kümeleri halinde) bölebilirsiniz.
+   * Tüm sütun veri türlerini bir veri akışı veri profili .dtypes çağırarak alabilir veya
+   * Satır sayısı bir veri akışı veri profili .row_count çağırarak alabilir veya
+
++ **Hata düzeltmeleri**
+   * Uzun çift dönüştürme sabit 
+   * Sabit sütun ekleyin, sonra onaylama 
+   * Grupları nereden bazı durumlarda algılaması değil, FuzzyGrouping ile bir sorun düzeltildi
+   * Birden çok sütunu sıralamayı cevaben sabit bir sıralama işlevi
+   * Sabit ve/veya Pandas bunları nasıl işlediğini için benzer deyimler
+   * Dbfs yolundan sabit okuma
+   * Hata iletileri daha anlaşılır hale 
+   * AML belirteci kullanarak uzak işlem hedefte okurken şimdi artık başarısız
+   * Artık üzerinde Linux DSVM'sini artık başarısız
+   * Dize olmayan değerler dize koşullarda şimdi artık çöküyor
+   * Artık doğru şekilde veri akışı başarısız olursa, onaylama hatalarını ele alır
+   * Artık Azure Databricks'te dbutils bağlı depolama konumları destekler
 
 ## <a name="2018-11-05"></a>2018-11-05
 

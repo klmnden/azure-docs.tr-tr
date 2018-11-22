@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244534"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284821"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama
 
@@ -42,7 +42,7 @@ Azure Otomasyonu durum yapılandırması ile yapılandırma yönetimi için Azur
 
 ### <a name="azure-portal"></a>Azure portal
 
-İçinde [Azure portalında](http://portal.azure.com/), tıklayın **Gözat** -> **sanal makineler (Klasik)**. Eklemek istediğiniz Windows VM'yi seçin. Sanal makinenin Pano dikey penceresinde tıklayın **tüm ayarlar** -> **uzantıları** -> **Ekle** -> **Azure Automation DSC** -> **oluşturma**.
+İçinde [Azure portalında](https://portal.azure.com/), tıklayın **Gözat** -> **sanal makineler (Klasik)**. Eklemek istediğiniz Windows VM'yi seçin. Sanal makinenin Pano dikey penceresinde tıklayın **tüm ayarlar** -> **uzantıları** -> **Ekle** -> **Azure Automation DSC** -> **oluşturma**.
 Girin [PowerShell DSC Local Configuration Manager değerleri](/powershell/dsc/metaconfig4) kullanım Örneğinize, Otomasyon hesabınıza ait kayıt anahtarını ve kayıt URL'si ve bir düğüm yapılandırması için isteğe bağlı olarak sanal Makineye atamak için gerekli.
 
 ![DSC için Azure VM uzantıları](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -132,7 +132,7 @@ Makine yoksa PowerShell istenen durum uzantısı yüklü ve güç durumunu çal�
 
 Altında **kayıt**, girin [PowerShell DSC Local Configuration Manager değerleri](/powershell/dsc/metaconfig4) , kullanım örneği ve bir düğüm yapılandırması için isteğe bağlı olarak sanal Makineye atamak için gerekli.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![Ekleme](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 

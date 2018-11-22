@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423179"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285076"
 ---
 # <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 
@@ -38,7 +38,7 @@ Bölümlenmiş kuyruklar ve konular, Azure Service Bus ile kullanmak için Azure
 
 ### <a name="standard"></a>Standart
 
-Standart Mesajlaşma katmanına, Service Bus kuyrukları ve konuları 1, 2, 3, 4 veya 5 GB'lık boyutları (varsayılan 1 GB'tır) oluşturabilirsiniz. Etkin bölümleme ile Service Bus, belirttiğiniz her bir GB için varlık 16 kopyalarını (16 bölümler) oluşturur. Bu nedenle, 5 GB boyutundadır bir kuyruk oluşturmak, en büyük sıra boyutu 16 bölümlerle olur (5 \* 16) = 80 GB. Bölümlenmiş bir kuyruk veya konuda en büyük boyutunu, girdi bakarak gördüğünüz [Azure portalında][Azure portal], **genel bakış** dikey penceresinde söz konusu varlığa ilişkin.
+Standart Mesajlaşma katmanına, Service Bus kuyrukları ve konuları 1, 2, 3, 4 veya 5 GB'lık boyutları (varsayılan 1 GB'tır) oluşturabilirsiniz. Etkin bölümleme ile Service Bus, belirttiğiniz her bir GB için 4 kopya (4. bölüm) varlığı oluşturur. Bu nedenle, 5 GB boyutundadır bir kuyruk oluşturmak, en büyük sıra boyutu 4 bölüm olur (5 \* 4) = 20 GB. Bölümlenmiş bir kuyruk veya konuda en büyük boyutunu, girdi bakarak gördüğünüz [Azure portalında][Azure portal], **genel bakış** dikey penceresinde söz konusu varlığa ilişkin.
 
 ### <a name="premium"></a>Premium
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 99bac69d096095f660e2624194b72e1390c6fc22
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275573"
+ms.locfileid: "52284991"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure kaynakları için etiketi desteği
 Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etiketleme](resource-group-using-tags.md).
@@ -193,7 +193,6 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Evet | 
-| DataBoxEdgeDevices/checkNameAvailability | Hayır | 
 
 ## <a name="data-catalog"></a>Veri Kataloğu
 | Kaynak türü | Etiketleri destekler |
@@ -451,8 +450,8 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="resources"></a>Kaynaklar
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| resourceGroups | Hayır | 
-| Abonelikler/kaynak grupları | Hayır | 
+| resourceGroups | Evet | 
+| Abonelikler/kaynak grupları | Evet | 
 
 ## <a name="scheduler"></a>Scheduler
 | Kaynak türü | Etiketleri destekler |

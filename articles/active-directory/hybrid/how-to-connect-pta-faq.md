@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 220fc7b2b0ce3a4c5fd943c35952a345379a1b91
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685659"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284225"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory geçişli kimlik doğrulaması: Sık sorulan sorular
 
@@ -132,7 +132,7 @@ Ağ trafiğini tahmin etmek için aşağıdaki boyutlandırma yönergeleri kulla
 Çoğu müşteri için toplam iki veya üç kimlik doğrulama aracılarının, yüksek kullanılabilirlik ve kapasite için yeterlidir. Oturum açma gecikme süresini iyileştirmek için etki alanı denetleyicilerinizin yakın kimlik doğrulama aracılarının yüklemeniz gerekir.
 
 >[!NOTE]
->Kiracı başına 12 kimlik doğrulama aracılarının sistem sınırı yoktur.
+>Kiracı başına 40 kimlik doğrulama aracılarının sistem sınırı yoktur.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Azure AD Connect'i çalıştıran farklı bir sunucuda ilk geçişli kimlik doğrulaması Aracısı yükleyebilirim?
 
