@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: bf616dda602edff6add5070ad1f1ab85b6a21380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568980"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285144"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür. Sorgu yürütme işlemi, kullanıcı tarafından tanımlanan bir dizine göre gerçekleştirilir.
@@ -91,7 +91,7 @@ Temel güçlü yönleri şunlardır:
 
 Müşterilerimiz arasında, Azure Search’teki en zengin özelliklerden yararlanabilenler, çevrimiçi kataloglar, iş kolu programları ve belge bulma uygulamalarıdır.
 
-## <a name="rest-api--net-sdk"></a>REST API’si | .Net SDK’sı
+## <a name="rest-api--net-sdk"></a>REST API'Sİ | .NET SDK'SI
 
 Portalda birçok görev gerçekleştirilebilse de Azure Search, mevcut uygulamalarda arama işlevselliğini tümleştirmek isteyen geliştiriciler için tasarlanmıştır. Aşağıdaki programlama arabirimleri kullanılabilir.
 

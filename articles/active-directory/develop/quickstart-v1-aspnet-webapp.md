@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: 538a92c094c10cce1177a9669465b383873fc5a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971850"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285025"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı başlangıç: ASP.NET web uygulamasına Microsoft ile oturum açma özelliği ekleme
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıcın sonunda uygulamanız Azure Active Directory (Azure AD)
 > [!NOTE]
 > İş ve okul hesaplarına ek olarak kişisel hesaplardan oturum açılmasını etkinleştirmeniz gerekiyorsa [v2.0 uç noktasını](azure-ad-endpoint-comparison.md) kullanabilirsiniz. Daha fazla bilgi için [bu v2.0 uç noktası ASP.NET öğreticisini](tutorial-v2-asp-webapp.md) ve v2.0 uç noktasının geçerli sınırlamalarını gösteren [bu makaleyi](active-directory-v2-limitations.md) inceleyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 
@@ -145,7 +145,7 @@ Visual Studio'da oturum açma düğmesini eklemek ve kimlik doğrulaması sonras
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Bu sayfa siyah arka plan üzerinde SVG biçiminde bir oturum açma düğmesi ekler:<br/>![Microsoft ile Oturum Aç](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Daha fazla oturum açma düğmesi için bkz. [Uygulamalar için markalama yönergeleri](https://docs.microsoft.com/azure/active-directory/develop/howto-add-branding-guidelines-in-azure-ad-apps).
+<!--start-collapse--> Bu sayfa siyah arka plan üzerinde SVG biçiminde bir oturum açma düğmesi ekler:<br/>![Microsoft ile Oturum Aç](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Daha fazla oturum açma düğmesi için bkz. [Uygulamalar için markalama yönergeleri](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>7. Adım: Denetleyici ekleyerek kullanıcının taleplerini görüntüleme
@@ -286,7 +286,7 @@ Kullanıcının taleplerini görmek için köprüyü seçin. Bu eylem yalnızca 
 
 | Özellik | Değer | Açıklama |
 |---|---|---|
-| Adı | {User Full Name} | Kullanıcının adı ve soyadı |
+| Ad | {User Full Name} | Kullanıcının adı ve soyadı |
 | Kullanıcı adı | <span>user@domain.com</span> | Oturum açmış kullanıcıyı tanımlamak için kullanılan kullanıcı adı |
 | Konu| {Subject} |Web üzerinde kullanıcı oturumunu benzersiz bir şekilde tanımlayan dize |
 | Kiracı Kimliği | {Guid} | Kullanıcının Azure AD kuruluşunu benzersiz bir şekilde temsil eden *guid* değeri |

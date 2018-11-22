@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 0b61b107e495bb42c6c4cadda35fe9099c612948
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 11/21/2018
+ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711744"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284753"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Öğretici: Azure Machine Learning hizmetinde bir sınıflandırma modelini otomatikleştirilmiş makine öğrenmesiyle eğitme
 
@@ -35,6 +35,9 @@ Bu öğreticide, otomatikleştirilmiş makine öğrenmesi (otomatikleştirilmiş
 > * En iyi modeli kaydetme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://aka.ms/AMLfree) oluşturun.
+
+>[!NOTE]
+> Bu makalede kod Azure Machine Learning SDK sürüm 0.1.79 ile test edilmiştir
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
@@ -214,7 +217,7 @@ Deneme sonuçlarını bur Jupyter pencere öğesiyle veya deneme geçmişini inc
 Tüm sonuçların grafiğini ve tablosunu görmek için Jupyter notebook pencere öğesini kullanın.
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 

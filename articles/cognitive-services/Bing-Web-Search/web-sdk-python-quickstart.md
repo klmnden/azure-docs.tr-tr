@@ -3,19 +3,19 @@ title: "Hızlı başlangıç: Python için Bing Web Araması SDK'sını kullanma
 titleSuffix: Azure Cognitive Services
 description: Bing Web Araması SDK'sı, Bing Web Araması özelliklerini Python uygulamanızla tümleştirmeyi kolaylaştırır. Bu hızlı başlangıçta istek göndermeyi, JSON yanıtı almayı, sonuçları filtrelemeyi ve ayrıştırmayı öğreneceksiniz.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: c83848bc3c8f14aa49c1f87f1cd44224bb3e8081
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127653"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283301"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Hızlı başlangıç: Python için Bing Web Araması SDK'sını kullanma
 
@@ -25,7 +25,7 @@ Kodu hemen görmek istiyor musunuz? GitHub'daki [Python için Bing Web Araması 
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bing Web Araması SDK'sı Python 2.7, 3.3, 3.4, 3.5 ve 3.6 ile uyumludur. Bu hızlı başlangıç için sanal ortam kullanmanızı öneririz.
 
@@ -206,7 +206,7 @@ Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com/python/api/azu
 
 ### <a name="filter-for-news-and-freshness"></a>Haberler ve güncellik filtresi
 
-Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search) ile arama sonuçlarını filtrelemek için `response_filter` ve `freshness` parametreleri kullanılmıştır. Döndürülen arama sonuçları Bing'in son 24 saat içinde keşfettiği haberler ve sayfalarla sınırlıdır. İlk sonucun `name` ve `URL` değerleri yazdırılır.
+Bu örnekte SDK'nın [`search` metodu](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search) ile arama sonuçlarını filtrelemek için `response_filter` ve `freshness` parametreleri kullanılmıştır. Döndürülen arama sonuçları Bing'in son 24 saat içinde keşfettiği haberler ve sayfalarla sınırlıdır. İlk sonucun `name` ve `URL` değerleri yazdırılır.
 
 1. Python projenize şu kodu ekleyin:
     ```python

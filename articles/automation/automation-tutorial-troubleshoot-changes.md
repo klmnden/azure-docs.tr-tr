@@ -11,12 +11,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 92e3935167f5665ee8cda164a8fe9b1cfcc39f73
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: fc4ccdc2d73d0aa7213db9b1d9a28d029ec032b7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275607"
+ms.locfileid: "52284668"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -44,7 +44,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com adresinden Azure portalında oturum açın.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzleme ve Stok özelliklerini etkinleştirme
 

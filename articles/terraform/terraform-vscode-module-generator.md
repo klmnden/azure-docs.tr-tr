@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288026"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284344"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman kullanarak Azure'da Terraform temel şablon oluşturma
 
@@ -227,7 +227,7 @@ Cloud Shell'de önceden yüklenmiş olan tüm bu öğeler.
 
 ### <a name="start-a-cloud-shell-session"></a>Cloud Shell oturumu başlatın
 
-1. Aracılığıyla ya da bir Azure Cloud Shell oturumu başlatın [Azure portalında](https:/portal.azure.com/), [shell.azure.com](https://shell.azure.com), veya [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+1. Aracılığıyla ya da bir Azure Cloud Shell oturumu başlatın [Azure portalında](https://portal.azure.com/), [shell.azure.com](https://shell.azure.com), veya [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
 1. **Hoş Geldiniz Azure Cloud Shell** sayfası açılır. Seçin **(Linux) Bash**. (Power Shell desteklenmiyor.)
 

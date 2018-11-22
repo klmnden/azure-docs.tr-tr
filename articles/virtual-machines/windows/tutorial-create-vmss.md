@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: aa4957375a368da193cb27fd3c8c32651f425a2d
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 561bd71f371be9261686c0a4c34f388ed8324d76
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515514"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284430"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Öğretici: Azure PowerShell ile sanal makine ölçek kümesi oluşturma ve Windows üzerinde yüksek oranda kullanılabilir bir uygulama dağıtma
 Bir sanal makine ölçek kümesi, bir grup özdeş, otomatik ölçeklendirme sanal makinelerin dağıtmanıza ve yönetmenize olanak tanır. Ölçek el ile kümesindeki VM sayısını ölçeklendirebilirsiniz. Ayrıca, CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu öğreticide, azure'da bir sanal makine ölçek kümesini dağıtmak ve bilgi edinmek için nasıl:
@@ -96,10 +96,9 @@ Update-AzureRmVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-
 ## <a name="allow-traffic-to-application"></a>Uygulamaya giden trafiğe izin verme
 
-Temel bir web uygulamasına erişim izni vermek için bir ağ güvenlik grubu oluşturma [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) ve [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup). Daha fazla bilgi için [Azure sanal makine ölçek kümeleri için ağ](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+Temel bir web uygulamasına erişim izni vermek için bir ağ güvenlik grubu oluşturma [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) ve [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). Daha fazla bilgi için [Azure sanal makine ölçek kümeleri için ağ](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set

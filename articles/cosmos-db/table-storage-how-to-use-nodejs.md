@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 77d5d6fa9b9494c934f850d5b82a0328cead67b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7ba8671942b0676fb920b051b7d1a0aa75c3eed6
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245180"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284702"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js uygulamasından Azure Tablo depolama veya Azure Cosmos DB Tablo API’sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -70,7 +70,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB bağlantısını ekleme
-Azure Cosmos DB bağlantısı eklemek için bir **TableService** nesnesi oluşturun ve hesap adınızı, birincil anahtarınızı ve uç noktanızı belirtin. Bu değerleri, Cosmos DB hesabınız için Azure portalındaki **Ayarlar** > **Bağlantı Dizesi** bölümünden kopyalayabilirsiniz. Örnek:
+Azure Cosmos DB bağlantısı eklemek için bir **TableService** nesnesi oluşturun ve hesap adınızı, birincil anahtarınızı ve uç noktanızı belirtin. Bu değerleri, Cosmos DB hesabınız için Azure portalındaki **Ayarlar** > **Bağlantı Dizesi** bölümünden kopyalayabilirsiniz. Örneğin:
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -200,7 +200,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Varsayılan olarak, bir varlık güncelleştirildiğinde, güncelleştirilmekte olan verilerin önceden başka bir işlem tarafından değiştirilip değiştirilmediği denetlenmez. Eş zamanlı güncelleştirmeleri desteklemek için:
 >
 > 1. Güncelleştirilmekte olan nesnenin ETag öğesini alın. Bu, herhangi bir varlıkla ilgili işlemin `response` değerinin parçası olarak döndürülür ve `response['.metadata'].etag` aracılığıyla alınabilir.
-> 2. Bir varlık üzerinde bir güncelleştirme işlemi gerçekleştirirken, önceden alınan ETag bilgilerini yeni varlığa ekleyin. Örnek:
+> 2. Bir varlık üzerinde bir güncelleştirme işlemi gerçekleştirirken, önceden alınan ETag bilgilerini yeni varlığa ekleyin. Örneğin:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Güncelleştirme işlemini gerçekleştirin. Varlık, ETag değerini almanızın ardından değiştirildiyse, (örn. uygulamanızın başka bir örneği), istekte belirtilen güncelleştirme koşulunun karşılanmadığını belirten bir `error` döndürülür.
@@ -394,9 +394,11 @@ var host = tableSvc.host;
 
 SAS sahibi tabloya erişmeye çalıştığında gerekli olacağı için ana bilgisayar bilgilerini de sağlamanız gerektiğini unutmayın.
 
-Daha sonra istemci uygulaması, tabloya karşı işlemleri gerçekleştirmek için **TableServiceWithSAS** ile SAS’ı kullanır. Aşağıdaki örnek, tabloya bağlanır ve bir sorgu gerçekleştirir.
+Daha sonra istemci uygulaması, tabloya karşı işlemleri gerçekleştirmek için **TableServiceWithSAS** ile SAS’ı kullanır. Aşağıdaki örnek, tabloya bağlanır ve bir sorgu gerçekleştirir. Bkz: [paylaşılan erişim imzaları kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris) makalesine tableSAS biçimi. 
 
 ```nodejs
+// Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
+
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 var query = azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');

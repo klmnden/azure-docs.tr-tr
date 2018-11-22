@@ -9,12 +9,12 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a66fd2528d28bb90ec5e6fe77b487d4e634b0c00
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fc83546080111554446cb8f7b7ca97026f99e02e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163600"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283443"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uç cihazlarda veri depolama
 
@@ -231,6 +231,7 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
        "restartPolicy": "always",
        "settings": {
            "image": "",
+           "environment": "",
            "createOptions": ""
        }
    }
@@ -242,18 +243,46 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
 
    * Windows kapsayıcıları:
 
-      ```json
-      "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
-      ```
+        ```json
+        {
+            "image": "microsoft/mssql-server-windows-developer",
+            "environment": {
+                "ACCEPT_EULA": "Y",
+                "SA_PASSWORD": "Strong!Passw0rd"
+            },
+            "createOptions": {
+                "HostConfig": {
+                    "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+                    "PortBindings": {
+                        "1433/tcp": [{"HostPort": "1401"}]
+                    }
+                }
+            }
+        }
+        ```
+ 
 
    * Linux kapsayıcıları:
 
-      ```json
-      "image": "mcr.microsoft.com/mssql/server:latest",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
-      ```
-
+        ```json
+        {
+            "image": "mcr.microsoft.com/mssql/server:latest",
+            "environment": {
+                "ACCEPT_EULA": "Y",
+                "SA_PASSWORD": "Strong!Passw0rd"
+            },
+            "createOptions": {
+                "HostConfig": {
+                    "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+                    "PortBindings": {
+                        "1433/tcp": [{"HostPort": "1401"}]
+                    }
+                }
+            }
+        }
+        ```
+    
+    
    >[!Tip]
    >Üretim ortamında bir SQL Server kapsayıcısı oluşturduğunuzda [varsayılan sistem yöneticisi parolasını değiştirmeniz gerekir](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
