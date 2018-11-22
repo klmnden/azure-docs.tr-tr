@@ -245,6 +245,8 @@ items:
       href: create-ptr-for-smtp-service.md
     - name: Sanal gereçler için sorun giderme denetim listesi
       href: virtual-network-troubleshoot-nva.md
+    - name: Giden SMTP bağlantı sorunlarını giderme
+      href: troubleshoot-outbound-smtp-connectivity.md
   - name: Klasik
     items:
     - name: Sanal ağı oluşturma ve yönetme
@@ -355,9 +357,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: SSS
     href: virtual-networks-faq.md
-ms.openlocfilehash: 693cc8789703a0b224625fe70f501dfc442a6bc6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 03c2f4e3df1ce47405d1b09f93396218e3f57059
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086888"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283513"
