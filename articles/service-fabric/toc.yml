@@ -285,22 +285,23 @@ items:
     items:
     - name: İzlemeye genel bakış
       href: service-fabric-diagnostics-overview.md
+    - name: Uygulama izleme
+      href: service-fabric-diagnostics-event-generation-app.md
     - name: Küme izleme
-      href: service-fabric-diagnostics-event-generation-infra.md
       items:
+      - name: Küme izlemeye genel bakış
+        href: service-fabric-diagnostics-event-generation-infra.md
       - name: Service Fabric olayları
         href: service-fabric-diagnostics-events.md
       - name: EventStore’a genel bakış
         href: service-fabric-diagnostics-eventstore.md
       - name: Reliable Services olayları
         href: service-fabric-reliable-services-diagnostics.md
-      - name: Reliable Actors olayları
-        href: service-fabric-reliable-actors-diagnostics.md
       - name: Uzaktan Hizmet İletişimini izleme
         href: service-fabric-reliable-serviceremoting-diagnostics.md
-    - name: Uygulama günlüğüne kaydetme
-      href: service-fabric-diagnostics-event-generation-app.md
-    - name: Performans ölçümleri
+      - name: Reliable Actors olayları
+        href: service-fabric-reliable-actors-diagnostics.md
+    - name: Altyapı izleme
       href: service-fabric-diagnostics-event-generation-perf.md
     - name: Sistem durumu modeline genel bakış
       href: service-fabric-health-introduction.md
@@ -642,33 +643,35 @@ items:
       href: service-fabric-connect-to-secure-cluster.md
   - name: İzleme ve tanılama
     items:
+    - name: Yaygın senaryoları tanılama
+      href: service-fabric-diagnostics-common-scenarios.md
     - name: Uygulamaları izleme
       items:
-      - name: Application Insights ile analiz
-        href: service-fabric-diagnostics-event-analysis-appinsights.md
       - name: Uygulamanıza günlük bilgileri ekleme
         href: service-fabric-how-to-diagnostics-log.md
-      - name: EventFlow ile olayları toplama
+      - name: Application Insights ile analiz
+        href: service-fabric-diagnostics-event-analysis-appinsights.md
+      - name: EventFlow ile günlükleri toplama
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
       - name: Kapsayıcıları izleme
         href: service-fabric-diagnostics-oms-containers.md
     - name: Kümeleri izleme
       items:
+      - name: Log Analytics’i küme olaylarını toplamak için yapılandırma
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Log Analytics ile kümenizi izleme
+        href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Sorgu EventStore API’leri
         href: service-fabric-diagnostics-eventstore-query.md
-      - name: Windows Azure Tanılama
+      - name: WAD aracısını özelleştirme
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Linux Azure Tanılama
+      - name: LAD aracısını özelleştirme
         href: service-fabric-diagnostics-event-aggregation-lad.md
-      - name: Log Analytics’i ayarlama
-        href: service-fabric-diagnostics-oms-setup.md
-      - name: Log Analytics ile izleme
-        href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Altyapıyı izleme
       items:
-      - name: Log Analytics Aracısı ile performans izleme
+      - name: Log Analytics Aracısı ile performans sayaçlarını toplama
         href: service-fabric-diagnostics-oms-agent.md
-      - name: WAD ile performans izleme
+      - name: WAD ile performans sayaçlarını toplama
         href: service-fabric-diagnostics-perf-wad.md
     - name: Sistem durumunu izleme
       items:
@@ -682,8 +685,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Yerel kümenizde sorun giderme
       href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Yaygın senaryoları tanılama
-      href: service-fabric-diagnostics-common-scenarios.md
   - name: En iyi uygulamalar
     items:
     - name: Üretim hazırlığı denetim listesi
@@ -781,9 +782,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 98ca5a1cbf5298931c14d6c696119d0c98893072
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 320399b277b7b6aa05b128994f68058455353e7b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853651"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291513"

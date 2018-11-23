@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: cde668fdeda7e484585a457a46fc5c25ce6ea6ae
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 5b39094ef081aadc813849399ebebc0c2e8a666d
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310547"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291309"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Ses ve azure'dan SMS özellikleri için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -29,9 +29,7 @@ Twilio ses, VoIP ve mesajlaşma uygulamaları gömmek geliştiricilerin iş ilet
 
 **Twilio ses** yapıp telefon çağrılarını almak, uygulamaların sağlar. **Twilio SMS** SMS iletileri gönderip almak için uygulamalarınızı sağlar. **Twilio istemci** WebRTC destekler ve herhangi bir telefon, tablet veya tarayıcı VoIP çağrı yapmak sağlar.
 
-## <a id="Pricing"></a>Twilio fiyatlandırma ve özel teklifler
-Azure müşterileri alır bir [özel teklif](http://www.twilio.com/azure): 10 ücretsiz Twilio Twilio hesabınızın yükselttiğinizde kredi. Twilio kredi herhangi bir Twilio kullanım (10 ABD Doları kredi 1.000 adede kadar SMS mesajları göndermek veya telefon numarası ve ileti veya çağrı hedef konumuna bağlı olarak en fazla 1000 gelen sesi dakika alma eşdeğerdir) uygulanabilir. Twilio kredi almak ve başlamak [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
-
+## <a id="Pricing"></a>Twilio fiyatlandırması
 Twilio, bir Kullandıkça Öde hizmetidir. Hesabınızı dilediğiniz zaman kapatabilirsiniz ve Kurulum ücret vardır. Daha fazla bilgi bulabilirsiniz [Twilio fiyatlandırma](http://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Kavramları
