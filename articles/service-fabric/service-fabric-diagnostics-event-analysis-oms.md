@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/29/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404486"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291088"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Olay çözümleme ve görselleştirme Log Analytics ile
-Log Analytics toplar ve uygulamalardan ve bulut üzerinde barındırılan hizmetlerden daha fazla telemetri analiz eder ve kullanılabilirliği ve performansı en üst düzeye çıkarmanıza yardımcı olması için analiz araçları sağlar. Bu makalede, Öngörüler ve neler kümenizde sorun giderme için Log analytics'te sorgu çalıştırma açıklanmaktadır. Aşağıdaki yaygın sorular ele alınmıştır:
+ Log Analytics toplar ve uygulamalardan ve bulut üzerinde barındırılan hizmetlerden daha fazla telemetri analiz eder ve kullanılabilirliği ve performansı en üst düzeye çıkarmanıza yardımcı olması için analiz araçları sağlar. Bu makalede, Öngörüler ve neler kümenizde sorun giderme için Log analytics'te sorgu çalıştırma açıklanmaktadır. Aşağıdaki yaygın sorular ele alınmıştır:
 
 * Sistem durumu olaylarını sorunlarını nasıl giderebilirim?
 * Ne zaman bir düğüm arıza olduğunu nasıl öğrenebilirim?
@@ -30,9 +30,12 @@ Log Analytics toplar ve uygulamalardan ve bulut üzerinde barındırılan hizmet
 
 ## <a name="log-analytics-workspace"></a>Log Analytics çalışma alanı
 
+>[!NOTE] 
+>Tanılama depolama, küme oluşturma sırasında varsayılan olarak etkindir, ancak tanılama depolama alanından okuma yine de Log Analytics çalışma alanını ayarlamanız gerekir.
+
 Log Analytics, Azure depolama tablosu veya bir aracı gibi yönetilen kaynaklardan veri toplar ve merkezi bir depoya tutar. Veriler daha sonra analiz, uyarı ve görselleştirme için kullanılan ya da daha fazla dışa aktarma olabilir. Log Analytics, olaylar, performans verisi veya herhangi bir özel veri destekler. Kullanıma [olayları tanılama uzantısını yapılandırma adımları](service-fabric-diagnostics-event-aggregation-wad.md) ve [depolama olayları okumak için bir Log Analytics çalışma alanı oluşturmak için adımları](service-fabric-diagnostics-oms-setup.md) verileri Log Analytics'e akan emin olmak için .
 
-Verilerin Log Analytics tarafından alındıktan sonra Azure vardır *yönetim çözümleri* birkaç senaryo için özelleştirilmiş, gelen verileri izlemek için önceden paketlenmiş çözümleri bulunmaktadır. Bunlar bir *Service Fabric analizi* çözüm ve *kapsayıcıları* tanılama ve Service Fabric kümeleri kullanılırken izleme iki en uygun ayarlara olan çözüm. Bu makalede, çalışma alanı ile oluşturulmuş Service Fabric analizi çözümü kullanmayı açıklar.
+Verilerin Log Analytics tarafından alındıktan sonra Azure vardır *yönetim çözümleri* olan önceden paketlenmiş bir çözüm ya da birkaç senaryo için özelleştirilmiş, gelen verileri izlemek için işletimsel panolar. Bunlar bir *Service Fabric analizi* çözüm ve *kapsayıcıları* tanılama ve Service Fabric kümeleri kullanılırken izleme iki en uygun ayarlara olan çözüm. Bu makalede, çalışma alanı ile oluşturulmuş Service Fabric analizi çözümü kullanmayı açıklar.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric analizi çözümü erişim
 
@@ -40,7 +43,7 @@ Verilerin Log Analytics tarafından alındıktan sonra Azure vardır *yönetim �
 
 2. Kaynak seçin **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Özet olarak, her bir Service Fabric için de dahil olmak üzere etkin çözüm için bir grafik biçiminde kutucuklar görürsünüz. Tıklayın **Service Fabric** graf (aşağıdaki ilk görüntü) Service Fabric analizi çözümü devam etmek için (aşağıdaki ikinci resim).
+2. İçinde `Summary`, her bir Service Fabric için de dahil olmak üzere etkin çözüm için bir grafik biçiminde kutucuklar görürsünüz. Tıklayın **Service Fabric** graf (aşağıdaki ilk görüntü) Service Fabric analizi çözümü devam etmek için (aşağıdaki ikinci resim).
 
     ![Service Fabric çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -48,12 +51,12 @@ Verilerin Log Analytics tarafından alındıktan sonra Azure vardır *yönetim �
 
 Yukarıdaki resimde Service Fabric analizi çözümü, giriş sayfasıdır. Kümenizde neler olduğunu bir anlık görüntü görünümü budur. Küme oluşturma sırasında tanılama etkinleştirilirse, olayları görebilirsiniz. 
 
-* [İşlevsel kanal](service-fabric-diagnostics-event-generation-operational.md): Service Fabric platform (Sistem Hizmetleri koleksiyonunu) gerçekleştirir daha üst düzey işlem.
+* [Service Fabric küme olayları](service-fabric-diagnostics-event-generation-operational.md)
 * [Reliable Actors programlama modelini olayları](service-fabric-reliable-actors-diagnostics.md)
 * [Reliable Services programlama modeline olayları](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->İşlevsel kanal yanı sıra ayrıntılı sistem olaylarını tarafından toplanabilir [tanılama uzantınızın yapılandırmayı güncelleştirerek](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Ayrıntılı sistem olaylarını yanı sıra Service Fabric olayları hazır tarafından toplanabilir [tanılama uzantınızın yapılandırmayı güncelleştirerek](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Görünüm Service Fabric düğümlerinde Eylemler dahil olmak üzere olayları
 

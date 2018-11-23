@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 611f7ccf9ef701bf589a8f9450f8f02695357224
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685455"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291190"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akışı işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -43,8 +43,15 @@ ms.locfileid: "51685455"
 
 ### <a name="v2-builds"></a>v2 oluşturur.
 
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Bölüm başına devamlılık belirteçleri kalıcı hale getirmek için özel depo kullanma desteği eklendi.
+  * Örneğin, bir özel kiralama deposu, Azure Cosmos DB kira koleksiyonu özel herhangi bir yolla bölümlenmiş olabilir.
+  * Yeni genişletilebilirlik noktası ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) ve ortak arabirim ILeaseStoreManager özel kira depoları kullanabilirsiniz.
+  * ILeaseManager arabirimi yeniden düzenlenen içinde birden çok rol arabirimi.
+* Küçük değişiklik: kaldırılan genişletilebilirlik ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager) noktası, ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) kullanın.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Kira koleksiyon bölümlendiğinde ise, bölme işlemi sırasında oluşabilecek bir sorun düzeltildi. Sorunu kiraları kira koleksiyondan silinen değil gitmiş bölümler için neden olabilir. Bu sürümle birlikte olan sorun çözüldüğünde.
+* Bu sürüm, izlenen koleksiyonundaki bir bölünmüş işleme ve bölümlenmiş kira koleksiyonu kullanarak sırasında oluşan bir hatayı düzeltir. Bölünmüş bölüm için bir kira işlerken, bu bölüme karşılık gelen kira silinemez. Bu sürümde olan sorun çözüldüğünde.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Sabit Estimator hesaplama birden çok ana hesap ve yeni bir oturum belirteci biçimi.

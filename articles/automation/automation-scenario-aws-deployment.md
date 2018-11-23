@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282746"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290901"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure otomasyonu senaryosu - bir AWS sanal makinesi sağlama
 Bu makalede, Amazon Web hizmeti (AWS) aboneliğiniz bir sanal makinesi sağlama ve bu VM – AWS "VM etiketleme olarak" başvuran olan belirli bir ad vermek için Azure Otomasyonu'nu nasıl yararlanabileceğiniz öğrenin.
@@ -41,7 +41,7 @@ VM'nizi runbook sağlama işlemini gerçekleştirmek için AWS PowerShell modül
 AWS PowerShell modülü dağıtıldıktan sonra artık bir sanal makinede bir PowerShell betiğini kullanarak AWS sağlanmasını otomatikleştirmek için runbook yazabilirsiniz. Aşağıdaki adımlar, Azure automation'da yerel PowerShell Betiği yararlanmak nasıl ekleyebileceğiniz gösterilmektedir.  
 
 > [!NOTE]
-> Ek seçenekleri ve bu betik ile ilgili daha fazla bilgi için lütfen [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> Ek seçenekleri ve bu betik ile ilgili daha fazla bilgi için lütfen [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
 1. PowerShell Betiği yeni AwsVM PowerShell Galerisi'nden bir PowerShell oturumu açın ve aşağıdakileri yazarak indirin:<br>

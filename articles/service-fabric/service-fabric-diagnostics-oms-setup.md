@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/11/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 88b956fbe283dd39dfc51d6127b32b6f031e8b85
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408090"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291139"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Bir kümesi için log Analytics'i ayarlama
 
@@ -72,7 +72,7 @@ Depolama hesabınızın parçası çalışma alanınızın veri kaynaklarında o
 Service Fabric analizi çözümü, artık doğru kümenizin platform ve Uygulama günlüğünü tabloya bağlandığından bir Log Analytics çalışma alanında ekledik. Ek kaynaklar aynı şekilde çalışma alanına ekleyebilirsiniz.
 
 
-## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak log Analytics'i dağıtma
+## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Log Analytics'i Azure Resource Manager ile dağıtma
 
 Resource Manager şablonu kullanarak bir küme dağıttığınızda, şablonun yeni bir Log Analytics çalışma alanı oluşturur, Service Fabric çözümü çalışma alanına ekler ve uygun depolama tablolardan verileri okumak için yapılandırır.
 
@@ -93,7 +93,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Tem
 
 Azure Resource Manager, bu komut bir güncelleştirme var olan bir kaynak olduğunu algılar. Yalnızca, mevcut dağıtım sürüş şablonu ve sağlanan yeni şablonu arasındaki değişiklikleri işler.
 
-## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Log Analytics, Azure PowerShell kullanarak dağıtma
+## <a name="deploy-log-analytics-with-azure-powershell"></a>Log Analytics'i Azure PowerShell ile dağıtma
 
 Kullanarak Log Analytics kaynağınızı PowerShell aracılığıyla dağıtabilirsiniz `New-AzureRmOperationalInsightsWorkspace` komutu. Bu yöntemi kullanmak için yüklediğinizden emin olun [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Yeni bir Log Analytics çalışma alanı oluşturma ve Service Fabric çözümü eklemek için bu betiği kullanın: 
 

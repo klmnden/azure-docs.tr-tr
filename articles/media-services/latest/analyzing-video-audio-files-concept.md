@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 070e405703a0a794266373a19f8e79977c71a17f
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228140"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290865"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 

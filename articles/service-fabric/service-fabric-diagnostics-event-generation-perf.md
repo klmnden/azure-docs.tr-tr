@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408022"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290782"
 ---
 # <a name="performance-metrics"></a>Performans ölçümleri
 
@@ -31,6 +31,7 @@ Kümenizdeki makineleri için daha iyi her makinede yük anlamak ve uygun küme 
 
 | Sayaç kategorisi | Sayaç Adı |
 | --- | --- |
+| Mantıksal Disk | Mantıksal Disk boş alan |
 | PhysicalDisk (başına Disk) | Ort. Disk okuma kuyruğu uzunluğu |
 | PhysicalDisk (başına Disk) | Ort. Disk yazma kuyruğu uzunluğu |
 | PhysicalDisk (başına Disk) | Ort. Disk sn/Okuma |
@@ -49,6 +50,9 @@ Kümenizdeki makineleri için daha iyi her makinede yük anlamak ve uygun küme 
 | İşlem (hizmet başına) | Sanal bayt sayısı |
 | İşlem (hizmet başına) | Çalışma kümesi |
 | İşlem (hizmet başına) | Çalışma kümesi - özel |
+| Ağ Interface(all-instances) | Bayt recd |
+| Ağ Interface(all-instances) | Gönderilen bayt sayısı |
+| Ağ Interface(all-instances) | Toplam bayt |
 | Ağ Interface(all-instances) | Çıkış sırası uzunluğu |
 | Ağ Interface(all-instances) | Atılan çıkış paketlerinin |
 | Ağ Interface(all-instances) | Atılan alınan paketler |
@@ -65,6 +69,8 @@ Kümenizdeki makineleri için daha iyi her makinede yük anlamak ve uygun küme 
 | .NET CLR bellek (hizmet başına) | # Toplam kaydedilmiş bayt |
 | .NET CLR bellek (hizmet başına) | # Toplam bayt ayrılmış |
 | .NET CLR bellek (hizmet başına) | # Tüm yığınlardaki bayt |
+| .NET CLR bellek (hizmet başına) | Büyük nesne yığın boyutu |
+| .NET CLR bellek (hizmet başına) | # GC işleme |
 | .NET CLR bellek (hizmet başına) | # Gen 0 toplamaları sayısı |
 | .NET CLR bellek (hizmet başına) | # Gen 1 toplamaları sayısı |
 | .NET CLR bellek (hizmet başına) | # Gen 2 toplamaları sayısı |
@@ -76,7 +82,7 @@ Service Fabric özel performans Sayaçlarınızı önemli miktarda oluşturur. S
 
 Uygulamalarda Reliable Actors kullanıyorsanız, kümenize dağıtıyorsanız, gelen countes Ekle `Service Fabric Actor` ve `Service Fabric Actor Method` kategorileri (bkz [Service Fabric güvenilir aktör tanılama](service-fabric-reliable-actors-diagnostics.md)).
 
-Reliable Services kullanıyorsanız, benzer şekilde sahibiz `Service Fabric Service` ve `Service Fabric Service Method` toplamanız gerekir sayaç kategorileri sayaçları öğesinden. 
+Reliable Services veya uzaktan hizmet iletişimini kullanıyorsanız benzer şekilde sahibiz `Service Fabric Service` ve `Service Fabric Service Method` sayaç kategorileri, bkz: sayaçlarını Topla [ile uzaktan hizmet iletişimini izleme](service-fabric-reliable-serviceremoting-diagnostics.md) ve [güvenilir performans sayaçları Hizmetleri](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Reliable Collections kullanımı, eklemenizi öneririz `Avg. Transaction ms/Commit` gelen `Service Fabric Transactional Replicator` işlem ölçüm başına ortalama yürütme gecikmesi toplanacak.
 

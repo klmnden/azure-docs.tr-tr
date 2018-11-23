@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346987"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291332"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics çıkışları sorunlarını giderme
 
@@ -29,7 +29,7 @@ Bu sayfa, çıkış bağlantılarını ve sorun giderme ve onları adreslemek il
       - İleti gövdesi olup olmadığını görmek için işin bir olay hub'ı kullanıyorsanız, denetleyin *Null*.
       
     - Veri dönüştürme hataları > 0 ve tırmanma, aşağıdaki olabilir true:
-      - İş olayları seri durumdan çıkarılamıyor mümkün olmayabilir.
+      - Çıkış olayı bir hedef havuz şemaya uymuyor. 
       - Olay şeması sorguda olayların tanımlı veya beklenen şema eşleşmeyebilir.
       - Bazı alanların veri türlerini beklentileri olay eşleşmeyebilir.
       

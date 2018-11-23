@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: bc86ef5a32e08bc00b5a2fa53dccb8d6313f167b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230994"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290331"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure tanılama uzantısı ile performans izleme
 
@@ -106,6 +106,89 @@ WAD ile performans sayaçları toplamak için kümenin Resource Manager şablonu
 
  Sayaç için örnek hızı ihtiyaçlarınıza göre değiştirilebilir. Bu biçimi `PT<time><unit>`, her saniye sayacı isterseniz, daha sonra ayarlamalısınız `"sampleRate": "PT15S"`.
 
+ Bir dizi işlem başına performans sayaçlarını topladığınızda, kullanışlı olabilir ve performans sayaçları toplamak için ARM şablonunuzu değişkenleri de kullanabilirsiniz. İçinde aşağıdaki örnekte, biz işlemci vakit atık toplayıcı işlemi başına topluyorsunuz ve tüm kullanarak bu 2 performans düğümler üzerinde sayaçları değişkenleri. 
+
+ ```json
+"variables": {
+  "copy": [
+      {
+        "name": "processorTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\Process([parameters('monitoredProcesses')[copyIndex('processorTimeCounters')]])\\% Processor Time",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('processorTimeCounters')],' Processor Time')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      },
+      {
+        "name": "gcTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\.NET CLR Memory([parameters('monitoredProcesses')[copyIndex('gcTimeCounters')]])\\% Time in GC",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('gcTimeCounters')],' Time in GC')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      }
+    ],
+    "machineCounters": [
+      {
+        "counterSpecifier": "\\Memory\\Available Bytes",
+        "sampleRate": "PT1M",
+        "unit": "KB",
+        "sinks": "applicationInsights",
+        "annotation": [
+          {
+            "displayName": "Memory Available Kb",
+            "locale": "en-us"
+          }
+        ]
+      },
+      {
+        "counterSpecifier": "\\Memory\\% Committed Bytes In Use",
+        "sampleRate": "PT15S",
+        "unit": "percent",
+        "annotation": [
+          {
+            "displayName": "Memory usage",
+            "locale": "en-us"
+          }
+        ]
+      }
+    ]
+  }
+....
+"WadCfg": {
+    "DiagnosticMonitorConfiguration": {
+      "overallQuotaInMB": "50000",
+      "Metrics": {
+        "metricAggregation": [
+          {
+            "scheduledTransferPeriod": "PT1M"
+          }
+        ],
+        "resourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmNodeTypeApp2Name'))]"
+      },
+      "PerformanceCounters": {
+        "scheduledTransferPeriod": "PT1M",
+        "PerformanceCounterConfiguration": "[concat(variables ('processorTimeCounters'), variables('gcTimeCounters'),  variables('machineCounters'))]"
+      },
+....
+```
+
  >[!NOTE]
  >Kullanabilirsiniz ancak `*` benzer adlandırılmış performans sayaçlarının grupları belirlemek için tüm sayaçları bir havuz (Application Insights) gönderme bunlar ayrı olarak bildirilen gerektirir. 
 
@@ -115,8 +198,9 @@ WAD ile performans sayaçları toplamak için kümenin Resource Manager şablonu
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Yükseltme tamamlandıktan sonra WAD (alır 15-45 dakika arasında), sıralı performans sayaçlarını toplama olması ve kümenizle ilişkili depolama hesabında WADPerformanceCountersTable adlı tabloda gönderme. Application Insights ile performans Sayaçlarınızı bkz [Resource Manager şablonuna AI havuz ekleme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+5. Yükseltme tamamlandıktan sonra WAD (alır ilk dağıtım ve kaynak grubunuzun boyutunu olmasına bağlı olarak 15-45 dakika arasında), sıralı verilecek performans sayaçlarını toplamayı ve adlı tablonun göndererek Kümenizle ilişkili depolama hesabında WADPerformanceCountersTable. Application Insights ile performans Sayaçlarınızı bkz [Resource Manager şablonuna AI havuz ekleme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kümenizi daha fazla performans sayacını toplar. Bkz: [performans ölçümlerini](service-fabric-diagnostics-event-generation-perf.md) toplama sayaçları listesi.
 * [Kullanımı izleme ve Tanılama'yı bir Windows VM ve Azure Resource Manager şablonları ile](../virtual-machines/windows/extensions-diagnostics-template.md) başka değişiklikler yapmak için `WadCfg`, Tanılama verileri göndermesini ek depolama hesaplarını yapılandırma dahil olmak üzere.
+* Ziyaret [WadCfg Oluşturucu](http://azure.github.io/azure-diagnostics-tools/config-builder/) sıfırdan bir şablon oluşturup sözdiziminizin doğru olduğundan emin olun.

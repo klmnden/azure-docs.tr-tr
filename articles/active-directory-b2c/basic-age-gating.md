@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C'de geçerlilik süresi geçişi kullanma | Microsoft Docs
+title: Azure Active Directory B2C'de yaş geçidi etkinleştirme | Microsoft Docs
 description: Uygulamanızı kullanarak reşit olmayanların tanımlama hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
@@ -7,52 +7,104 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a1020dfcb6c8d312001fbdb1c170987e1216c5d5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318869"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291105"
 ---
-# <a name="using-age-gating-in-azure-ad-b2c"></a>Azure AD B2C'de geçerlilik süresi geçişi kullanma
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de yaş geçidi etkinleştir
 
 >[!IMPORTANT]
->Bu özellik, özel Önizleme aşamasındadır.  Lütfen bkz. bizim [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) olarak bu Ayrıntılar için kullanılabilir veya kişi olur AADB2CPreview@microsoft.com.  Üretim dizinleri kullanmayın, bu yeni özellikleri kullanarak veri kaybına neden olabilir ve olabilir ki genel kullanıma oluncaya kadar davranış beklenmeyen değişiklikleri.  
+>Bu özellik genel Önizleme aşamasındadır. Özelliği, üretim uygulamaları için kullanmayın. 
 >
 
-## <a name="age-gating"></a>Yaş geçidi
-Yaş geçidi reşit olmayanların uygulamanızdaki tanımlamak için Azure AD B2C kullanmanıza olanak tanır.  Kullanıcının uygulamada oturum açar veya kullanıcının yaş grubu ve ebeveyn izni durumlarını tanımlamak ek talep uygulamaya geri dönmek izin vermek seçebilirsiniz.  
+Azure Active Directory (Azure AD) B2C'de yaş geçidi uygulamanızı kullanmak istediğiniz reşit olmayanların tanımlamanızı sağlar. Küçük uygulamasına açmasını engellemeyi seçebilirsiniz. Kullanıcılar da uygulamaya geri dönün ve kendi yaş grubu ve ebeveyn izni durumlarını tanımlar. Azure AD B2C reşit olmayanların ebeveyn izni olmadan engelleyebilir. Azure AD B2C ile reşit olmayanların karar uygulamaya izin vermek için de ayarlanabilir.
 
->[!NOTE]
->Ebeveyn izni adlı bir kullanıcı özniteliği izlenen `consentProvidedForMinor`.  Bu özellik Graph API'si aracılığıyla güncelleştirebilir ve güncelleştirirken bu alanı kullanın `legalAgeGroupClassification`.
->
+İçinde yaş geçidi etkinleştirdikten sonra [kullanıcı akışı](active-directory-b2c-reference-policies.md), kullanıcıların ne zaman geliştirilen ve hangi ülke sorulan Canlı. Bilgileri daha önce girilen edilmemiş bir kullanıcı oturum açtığında, oturum açtığında girmeniz gerekir. Bir kullanıcı her oturum açtığında kuralları uygulanır.
 
-## <a name="setting-up-your-directory-for-age-gating"></a>Yaş geçidi için dizin ayarlama
-Kullanıcı akışı yaş geçidi kullanmak için ek özellikler sağlamak için dizin yapılandırmanız gerekir. Bu işlem aracılığıyla yapılabilir `Properties` (özel Önizleme parçası kullanıyorsanız kullanıma sunulacak) menüden.  
-1. Azure AD B2C uzantısı'nda tıklayarak **özellikleri** sol taraftaki menüden kiracınız için.
-2. Altında **yaş geçidi** bölümünde, tıklayarak **yapılandırma** düğmesi.
-3. İşlemin tamamlanmasını bekleyin ve dizininize yaş geçidi için ayarlanır.
+Küçük oldukları olup olmadığını belirlemek için kullanıcının girdiği bilgileri Azure AD B2C kullanır. **Yaş** hesaplarındaki alan güncelleştirildikten sonra. Değer olabilir `null`, `Undefined`, `Minor`, `Adult`, ve `NotAdult`.  **Yaş** ve **consentProvidedForMinor** alanları değerini hesaplamak için kullanılan ardından **legalAgeGroupClassification**.
 
-## <a name="enabling-age-gating-in-your-user-flow"></a>Kullanıcı akışınızı yaş geçidi etkinleştirme
-Yaş geçidi kullanmaya dizininize ayarladıktan sonra bu özellik Önizleme sürümü kullanıcı akışlarında sonra kullanabilirsiniz.  Bu özellik, kullanıcı akışları varolan türleri uyumsuz yaptığınız değişiklikler gerektirir.  Aşağıdaki adımlarla yaş geçidi sağlar:
-1. Önizleme kullanıcı akışı oluşturun.
-2. Oluşturulduktan sonra Git **özellikleri** menüsünde.
-3. İçinde **yaş geçidi** bölümünde, geçiş özelliği etkinleştirmek için basın.
-4. Ardından, nasıl reşit olmayanların tanımlayan kullanıcıları yönetmek istediğinizi seçebilirsiniz.
+Yaş geçidi iki yaş değerleri içerir: artık kişidir yaş kabul küçük ve yaş, küçük ebeveyn izni olmalıdır. Aşağıdaki tabloda, küçük ve önemsiz gerektirmeden onayı tanımlamak için kullanılan yaş kuralları listeler.
 
-## <a name="what-does-enabling-age-gating-do"></a>Yaş geçidi etkinleştirme ne yapar?
-Yaş geçidi kullanıcı akışınızı etkinleştirildikten sonra kullanıcı değişiklikleri karşılaşırsınız.  Oturum açma, kullanıcılar artık kendi doğum tarihi ve ülke ikametgahınızda kullanıcı akışı için yapılandırılmış kullanıcı öznitelikleri ile birlikte istenecektir.  Oturum açma, daha önce bir doğum tarihi ve ülke ikametgahınızda girmediniz kullanıcılar oturum açtıklarında bu bilgi sonraki istenecektir.  Bu iki değerden Azure AD B2C küçük bir kullanıcı olup olmadığını tanımlar ve güncelleştirme `ageGroup` alanın değeri olabilir `null`, `Undefined`, `Minor`, `Adult`, ve `NotAdult`.  `ageGroup` Ve `consentProvidedForMinor` alanları hesaplamak için kullanılan ardından `legalAgeGroupClassification`. 
+| Ülke | Ülke adı | Alt onay yaş | Küçük yaş |
+| ------- | ------------ | ----------------- | --------- |
+| Varsayılan | None | None | 18 |
+| AE | Birleşik Arap Emirlikleri | None | 21 |
+| AT | Avusturya | 14 | 18 |
+| BE | Belçika | 14 | 18 |
+| BG | Bulgaristan | 16 | 18 |
+| BH | Bahreyn | None | 21 |
+| CM | Kamerun | None | 21 |
+| CY | Kıbrıs | 16 | 18 |
+| CZ | Çek Cumhuriyeti | 16 | 18 |
+| DE | Almanya | 16 | 18 |
+| DK | Danimarka | 16 | 18 |
+| EE | Estonya | 16 | 18 |
+| EG | Mısır | None | 21 |
+| ES | İspanya | 13 | 18 |
+| GS | Fransa | 16 | 18 |
+| GB | Birleşik Krallık | 13 | 18 |
+| GR | Yunanistan | 16 | 18 |
+| HR | Hırvatistan | 16 | 18 |
+| HU | Macaristan | 16 | 18 |
+| IE | İrlanda | 13 | 18 |
+| BT | İtalya | 16 | 18 |
+| KR | Kore Cumhuriyeti | 14 | 18 |
+| LT | Litvanya | 16 | 18 |
+| LU | Lüksemburg | 16 | 18 |
+| LV | Letonya | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| NA | Namibya | None | 21 |
+| NL | Hollanda | 16 | 18 |
+| PL | Polonya | 13 | 18 |
+| PT | Portekiz | 16 | 18 |
+| RO | Romanya | 16 | 18 |
+| SE | İsveç | 13 | 18 |
+| SG | Singapur | None | 21 |
+| SI | Slovenya | 16 | 18 |
+| SK | Slovakya | 16 | 18 |
+| TD | Çad | None | 21 |
+| TH | Tayland | None | 20 |
+| TW | Tayvan | None | 20 | 
+| ABD | Amerika Birleşik Devletleri | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Yaş geçidi seçenekleri
-Azure AD B2C blok reşit olmayanların ebeveyn izni olmadan varsa veya izin vermek ve bunları yapmanız gerekenler hakkında kararlar uygulama seçebilirsiniz.  
-
+ 
 ### <a name="allowing-minors-without-parental-consent"></a>Reşit olmayanların ebeveyn izni olmadan izin verme
-Yukarı ya da oturum izin, oturum ve kullanıcı akışları veya her ikisi için izniniz olmadan reşit olmayanların uygulamanıza izin vermek seçebilirsiniz.  Ebeveyn izni olmadan reşit olmayanlar için bunlar normal ve Azure AD B2C ile bir kimlik belirteci sorunları olarak kaydolun veya oturum izin verilmez `legalAgeGroupClassification` talep.  Bu talep tercih edebilir, bu kullanıcıların deneyimini kullanarak gibi ebeveyn izni toplamak için bir deneyim giden (ve güncelleştirme `consentProvidedForMinor` alan).
+
+İzin vermek ya da kaydolma, oturum açma kullanıcı akışları için veya her ikisi de olmadan reşit olmayanların uygulamanıza izin vermeyi seçebilirsiniz. Reşit olmayanların ebeveyn izni olmadan normal ve Azure AD B2C ile bir kimlik belirteci sorunları olarak kaydolun veya oturum izin verilir **legalAgeGroupClassification** talep. Bu talep, ebeveyn izni toplama ve güncelleştirme gibi kullanıcınız deneyimini tanımlar **consentProvidedForMinor** alan.
 
 ### <a name="blocking-minors-without-parental-consent"></a>Reşit olmayanların ebeveyn izni olmadan engelleme
-Yukarı ya da oturum izin, oturum ve kullanıcı akışları veya her ikisi için reşit olmayanların uygulamadan onayınız olmadan engellemeyi seçebilirsiniz.  Engellenen kullanıcılar Azure AD B2C'yi işlemek için iki seçenek vardır:
-* Uygulamaya bir JSON gönder - Bu seçenek bir ikincil engellenen uygulama geri yanıt gönderir.
-* Bir hata sayfası - kullanıcının uygulama erişemeyeceklerini bildiren bir sayfası gösterilecek Göster
+
+Kaydolma, oturum açma ya da her ikisini de izin kullanıcı akışları için reşit olmayanların uygulamadan onayınız olmadan engellemeyi seçebilirsiniz. Engellenen kullanıcılar Azure AD B2C'yi işlemek için aşağıdaki seçenekler kullanılabilir:
+
+- Uygulamaya bir JSON gönder - Bu seçenek, bir ikincil engellenen uygulama geri yanıt gönderir.
+- Bir hata sayfası - kullanıcının uygulama erişemeyeceklerini bildiren bir sayfası gösterilmektedir gösterir.
+
+## <a name="set-up-your-tenant-for-age-gating"></a>Kiracı yaş geçidi için ayarlama
+
+Kullanıcı akışı yaş geçidi kullanmak için ek özellikler sağlamak için kiracınızda yapılandırmanız gerekir.
+
+1. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menüdeki. Kiracınızın içeren dizini seçin. 
+2. Seçin **tüm hizmetleri** Azure portalının sol üst köşedeki arayın ve seçin **Azure AD B2C**.
+3. Seçin **özellikleri** sol taraftaki menüden kiracınız için.
+2. Altında **yaş geçidi** bölümünde, tıklayarak **yapılandırma**.
+3. İşlemin tamamlanmasını bekleyin ve Kiracı yaş geçidi için ayarlanır.
+
+## <a name="enable-age-gating-in-your-user-flow"></a>Kullanıcı akışınızı yaş geçidi etkinleştir
+
+Kiracınızı kullanmak yaş geçidi kadar ayarlanmış sonra daha sonra bu özelliği kullanabilirsiniz [kullanıcı akışları](user-flow-versions.md) , burada etkinleştirilir. Aşağıdaki adımlarla yaş geçidi sağlar:
+
+1. Etkin yaş geçidi olan kullanıcı akışı oluşturun.
+2. Kullanıcı akışını oluşturduktan sonra seçin **özellikleri** menüsünde.
+3. İçinde **yaş geçidi** bölümünden **etkin**.
+4. Ardından nasıl reşit olmayanların tanımlayan kullanıcıları yönetmek istediğinize karar verin. İçin **kaydolma veya oturum açma**, seçtiğiniz `Allow minors to access your application` veya `Block minors from accessing your application`. Reşit olmayanların engelleme seçili ise, seçtiğiniz `Send a JSON bcak to the application` veya `Show an error message`. 
+
+
+
+

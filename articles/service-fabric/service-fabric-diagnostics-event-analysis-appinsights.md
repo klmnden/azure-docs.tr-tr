@@ -12,22 +12,24 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: aedbc5925a6e101299170843abef79ef6125eafe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230429"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291054"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Olay analizi ve Application Insights ile Görselleştirme
 
-Microsoft Azure Application Insights, uygulama izleme ve tanılama için genişletilebilir bir platformdur. Uyarı seçenekleri dahil olmak üzere daha fazla otomatik ve güçlü analiz ve aracı, özelleştirilebilir bir Pano ve görsel öğeler sorgulanırken içerir. Bu izleme için önerilen platformunu ve Service Fabric uygulamaları ve Hizmetleri tanılama olur. Bu makale aşağıdaki ortak soruları yardımcı olur.
+Azure İzleyici, Application Insights parçası, uygulama izleme ve tanılama için genişletilebilir bir platformdur. Uyarı seçenekleri dahil olmak üzere daha fazla otomatik ve güçlü analiz ve aracı, özelleştirilebilir bir Pano ve görsel öğeler sorgulanırken içerir. Application Insights'ın Service Fabric ile tümleştirmesi araç deneyimlerinden Service Fabric belirli ölçümleri yanı sıra, Visual Studio ve Azure portalı için kapsamlı kullanıma hazır günlüğe kaydetme deneyimi sağlama çalışmaları içerir. Birçok günlükleri otomatik olarak oluşturulur ve sizin için Application Insights ile toplanan rağmen özel günlük daha fazla daha zengin bir tanılama deneyimi oluşturmak için uygulamalarınıza eklemenizi öneririz.
 
-* Nasıl uygulama ve Hizmetleri ve toplama telemetrimi içinde neler olduğunu biliyor musunuz
-* Uygulamamın, özellikle birbiriyle iletişim hizmetleri nasıl giderebilirim
-* Ölçümleri nasıl Hizmetlerim, örneğin gerçekleştiriyorsanız, sayfa yükleme süresi, http istekleri hakkında nasıl alabilirim
+Bu makalede, aşağıdaki yaygın soruları yardımcı olur:
+
+* Nasıl uygulama ve Hizmetleri ve toplama telemetrimi içinde neler olduğunu biliyor musunuz?
+* Uygulamamın, özellikle birbiriyle iletişim hizmetleri nasıl giderebilirim?
+* Ölçümleri nasıl Hizmetlerim, örneğin gerçekleştiriyorsanız, sayfa yükleme süresi, HTTP istekleri hakkında nasıl alabilirim?
 
 Bu makalenin amacı, Öngörüler ve gelen Application Insights içinde ilgili sorunları giderme göstermektir. Ayarlama ve Application Insights ile Service Fabric yapılandırma konusunda bilgi almak istiyorsanız, bunu kontrol [öğretici](service-fabric-tutorial-monitoring-aspnet.md).
 

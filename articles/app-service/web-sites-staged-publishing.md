@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 47b67a6a3475b7f159a14825b168bbf0049db9b8
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636076"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291156"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -75,6 +75,7 @@ Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalana
 * İşleyici eşlemeleri
 * İzleme ve tanılama ayarları
 * WebJobs içeriği
+* Karma bağlantılar
 
 **Değil takas ayarları**:
 

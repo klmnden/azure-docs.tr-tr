@@ -2,19 +2,18 @@
 title: Azure Stream Analytics çıkışları anlama
 description: Bu makalede, Azure Stream Analytics, Power BI gibi analiz sonuçları için kullanılabilir veri çıkış seçenekleri açıklanır.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/21/2018
+ms.openlocfilehash: 1502277276489d1977540018f2a22681ad48d8a7
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257808"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291479"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla. 
@@ -70,8 +69,8 @@ Yetkilendirme, yenilemek için **Durdur** işinizi > Data Lake Store çıkışı
 | Çıktı diğer adı |Sorgular, bu veritabanı sorgusu çıkışı yönlendirmek için kullanılan kolay bir ad. |
 | Database | Burada, çıkış göndermek veritabanının adı. |
 | Sunucu adı | SQL veritabanı sunucu adı. |
-| Kullanıcı adı | Veritabanına yazma erişimi olan kullanıcı. |
-| Parola | Veritabanına bağlanmak için parola |
+| Kullanıcı adı | Veritabanına yazma erişimi olan kullanıcı. Stream Analytics, yalnızca SQL kimlik doğrulamasını da destekler. |
+| Parola | Veritabanına bağlanmak için parola. |
 | Tablo | Çıkış yazıldığı tablo adı. Tablo adı büyük/küçük harfe duyarlıdır ve bu tablonun şeması alanları ve bunların türlerini, iş çıktısı tarafından oluşturulan sayısı tam olarak eşleşmesi gerekir. |
 
 > [!NOTE]

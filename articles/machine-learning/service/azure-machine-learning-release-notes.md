@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 52c8eed7f8b5a65ef13215e677d52f44cb95fd64
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285008"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291349"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -25,9 +25,11 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine SDK için Python v0.1.80 Learning
 
 + **Bozucu değişiklikler** 
-  * *azureml.Train.widget* ad alanı taşındığı *azureml.train*.
-  * *azureml.core.compute.AmlCompute* kullanımdan kaldırıldı *azureml.core.compute.BatchAICompute*. İkinci sınıfı sonraki sürümlerde kaldırılacak.
+  * *azureml.Train.widgets* ad alanı taşındığı *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* aşağıdaki sınıflar - kullanımdan kaldırıldı *azureml.core.compute.BatchAICompute* ve *azureml.core.compute.DSVMCompute*. İkinci sınıfı sonraki sürümlerde kaldırılacak. AmlCompute sınıfı artık daha kolay bir tanıma sahip yalnızca bir vm_size ve max_nodes gerekir ve bir iş gönderildiğinde kümenize 0 max_nodes otomatik olarak ölçeklendirir. Bizim [örnek not defterleri] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) bu bilgilerle güncelleştirilir ve bu kullanımına ilişkin örnekler vermeniz gerekir. Bu basitleştirme ve çok daha heyecan verici özelliklerin bir sonraki sürümde gelir gibi umuyoruz!
+
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning veri hazırlama SDK v0.5.1 
+
 Veri hazırlığı SDK'sı hakkında daha fazla bilgi edinmek [başvuru belgeleri](https://aka.ms/data-prep-sdk).
 + **Yeni Özellikler**
    * DataPrep paketleri çalıştırmak ve bir veri kümesi veya veri akışı veri profilini görüntülemek için yeni bir DataPrep CLI oluşturdunuz
