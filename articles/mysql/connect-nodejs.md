@@ -10,42 +10,42 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: e0edd31027480df3592b46a4c1246462611da26e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: HT
+ms.date: 11/21/2018
+ms.openlocfilehash: f0e76dff32038ba53dbdf7f869f5a04e75316e12
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265338"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290714"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Node.js’yi kullanma
 Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Mac platformlarından [Node.js](https://nodejs.org/) kullanılarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu konuda, Node.js kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
 - [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Şunları da yapmanız gerekir:
 - [Node.js](https://nodejs.org) çalışma zamanını yükleyin.
-- Node.js uygulamasından MySQL’e bağlanmak için [mysql2](https://www.npmjs.com/package/mysql2) paketini yükleyin. 
+- Yükleme [mysql](https://www.npmjs.com/package/mysql) Node.js uygulamasından Mysql'e bağlanmak için paket. 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>Node.js’yi ve MySQL bağlayıcısını yükleme
-Node.js'yi yüklemek için platformunuza uygun bölümdeki yönergeleri izleyin. Proje klasörünüze mysql2 paketini ve bağımlılıklarını yüklemek için npm kullanın.
+Node.js'yi yüklemek için platformunuza uygun bölümdeki yönergeleri izleyin. Proje klasörünüze mysql paketi ve bağımlılıklarını yüklemek için npm kullanın.
 
 ### <a name="windows"></a>**Windows**
 1. [Node.js indirme sayfasını](https://nodejs.org/en/download/) ziyaret edin ve istediğiniz Windows yükleyici seçeneğini belirleyin.
 2. `nodejsmysql` gibi yerel bir proje klasörü oluşturun. 
 3. Komut istemini başlatın ve dizini değiştirerek proje klasörüne geçin; örneğin, `cd c:\nodejsmysql\`
-4. Proje klasörüne mysql2 kitaplığını yüklemek için NPM aracını çalıştırın.
+4. Proje klasörüne mysql Kitaplığı'nı yüklemek için NPM aracını çalıştırın.
 
    ```cmd
    cd c:\nodejsmysql\
-   "C:\Program Files\nodejs\npm" install mysql2
+   "C:\Program Files\nodejs\npm" install mysql
    "C:\Program Files\nodejs\npm" list
    ```
 
-5. `mysql2@1.3.5` için `npm list` çıkış metnini denetleyerek yüklemeyi doğrulayın.
+5. Denetleyerek yüklemeyi doğrulayın `npm list` metin çıktısı. Yeni yamalar yayımlandıkça sürüm numarası değişebilir.
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 1. **Node.js**’yi ve Node.js’nin paket yöneticisi olan **npm**’yi yüklemek için aşağıdaki komutları çalıştırın.
@@ -54,15 +54,15 @@ Node.js'yi yüklemek için platformunuza uygun bölümdeki yönergeleri izleyin.
    sudo apt-get install -y nodejs npm
    ```
 
-2. `mysqlnodejs` proje klasörünü oluşturmak ve o klasöre mysql2 paketini yüklemek için aşağıdaki komutları çalıştırın.
+2. Bir proje klasörü oluşturmak için aşağıdaki komutları çalıştırın `mysqlnodejs` ve mysql paketi bu klasöre yükleyin.
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
-3. `mysql2@1.3.5` için npm listesi çıkış metnini denetleyerek yüklemeyi doğrulayın.
+3. Npm listesi çıkış metnini denetleyerek yüklemeyi doğrulayın. Yeni yamalar yayımlandıkça sürüm numarası değişebilir.
 
 ### <a name="mac-os"></a>**Mac OS**
 1. Mac OS X ve **Node.js**’ye yönelik kullanımı kolay bir paket yöneticisi olan **brew** programını yüklemek için aşağıdaki komutları girin.
@@ -71,16 +71,16 @@ Node.js'yi yüklemek için platformunuza uygun bölümdeki yönergeleri izleyin.
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. `mysqlnodejs` proje klasörünü oluşturmak ve o klasöre mysql2 paketini yüklemek için aşağıdaki komutları çalıştırın.
+2. Bir proje klasörü oluşturmak için aşağıdaki komutları çalıştırın `mysqlnodejs` ve mysql paketi bu klasöre yükleyin.
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
 
-3. `mysql2@1.3.6` için `npm list` çıkış metnini denetleyerek yüklemeyi doğrulayın. Yeni yamalar yayımlandıkça sürüm numarası değişebilir.
+3. Denetleyerek yüklemeyi doğrulayın `npm list` metin çıktısı. Yeni yamalar yayımlandıkça sürüm numarası değişebilir.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
@@ -105,7 +105,7 @@ MySQL sunucusuyla arabirim oluşturmak için [mysql.createConnection()](https://
 `host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -172,7 +172,7 @@ MySQL sunucusuyla arabirim oluşturmak için [mysql.createConnection()](https://
 `host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -224,7 +224,7 @@ MySQL sunucusuyla arabirim oluşturmak için [mysql.createConnection()](https://
 `host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -272,7 +272,7 @@ MySQL sunucusuyla arabirim oluşturmak için [mysql.createConnection()](https://
 `host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {

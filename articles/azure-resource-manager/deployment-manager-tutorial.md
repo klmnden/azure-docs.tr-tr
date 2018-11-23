@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/21/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: af586656889919ed9b3407f2c41253dfadddc742
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345581"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291258"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Öğretici: Azure Deployment Manager’ı Resource Manager şablonlarıyla kullanma (Özel önizleme)
 
@@ -50,12 +50,12 @@ Bu makaleyi tamamlamak için gerekenler:
 * [Azure Resource Manager şablonlarını](./resource-group-overview.md) geliştirme konusunda deneyim.
 * Azure Dağıtım Yöneticisi özel önizleme aşamasındadır. Azure Deployment Manager'ı kullanarak kaydolmak için [kayıt sayfasını](https://aka.ms/admsignup) doldurun. 
 * Azure PowerShell. Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Deployment Manager cmdlet'leri. Bu yayın öncesi cmdlet’leri yüklemek için PowerShellGet’in en son sürümü gereklidir. En son sürümü edinmek için bkz. [PowerShellGet’i Yükleme](/powershell/gallery/installing-psget). PowerShellGet’i yükledikten sonra PowerShell penceresini kapatın. Bir PowerShell penceresi açın ve şu komutu çalıştırın:
+* Deployment Manager cmdlet'leri. Bu yayın öncesi cmdlet’leri yüklemek için PowerShellGet’in en son sürümü gereklidir. En son sürümü edinmek için bkz. [PowerShellGet’i Yükleme](/powershell/gallery/installing-psget). PowerShellGet’i yükledikten sonra PowerShell penceresini kapatın. Yeni yükseltilmiş bir PowerShell penceresi açın ve aşağıdaki komutu kullanın:
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Microsoft Azure Depolama Gezgini](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Azure Depolama Gezgini gerekli değildir, ancak işinizi kolaylaştırır.
+* [Microsoft Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/). Azure Depolama Gezgini gerekli değildir, ancak işinizi kolaylaştırır.
 
 ## <a name="understand-the-scenario"></a>Senaryoyu anlama
 
@@ -145,10 +145,10 @@ Kök klasörde iki klasör vardır:
 Kullanıcı tarafından atanmış yönetilen bir kimlik oluşturmanız ve aboneliğiniz için erişim denetimini yapılandırmanız gerekir.
 
 > [!IMPORTANT]
-> Kullanıcı tarafından atanmış yönetilen kimlik, [piyasaya çıkarma](#create-the-rollout-template) ile aynı konumda olmalıdır. Şu anda piyasaya çıkarma gibi Deployment Manager kaynakları yalnızca Orta ABD veya Doğu ABD 2’de oluşturulabilir.
+> Kullanıcı tarafından atanmış yönetilen kimlik, [piyasaya çıkarma](#create-the-rollout-template) ile aynı konumda olmalıdır. Şu anda piyasaya çıkarma gibi Deployment Manager kaynakları yalnızca Orta ABD veya Doğu ABD 2’de oluşturulabilir. Ancak, bu yalnızca Deployment Manager Kaynakları (örneğin, service topolojisi, hizmetleri, hizmet birimi, dağıtım ve adımları) için geçerlidir. Hedef kaynaklarınız için desteklenen tüm Azure bölgelerine dağıtılabilir. Bu öğreticide, örneğin, Orta ABD için dağıtılan Deployment Manager kaynakları, ancak Hizmetleri, Doğu ABD ve Batı ABD için dağıtılır. Bu kısıtlama, gelecekte yükseltilmiş.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. [Kullanıcı tarafından atanmış bir yönetilen kimlik](../active-directory/managed-identities-azure-resources/overview.md) oluşturun.
+2. [Kullanıcı tarafından atanmış bir yönetilen kimlik](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) oluşturun.
 3. Portalda sol menüden **Abonelikler**’i ve ardından aboneliğinizi seçin.
 4. **Erişim denetimi (IAM)** öğesini ve ardından **Ekle**’yi seçin
 5. Aşağıdaki değerleri yazın veya seçin:
@@ -211,7 +211,7 @@ Topoloji şablonuyla kullanılan bir parametre dosyası oluşturursunuz.
     - **azureResourceLocation**: Azure konumlarını kullanmaya alışık değilseniz, bu öğreticideki **centralus**’u kullanın.
     - **artifactSourceSASLocation**: Hizmet birimi şablonu ve parametreler dosyalarının dağıtım için depolandığı kök dizine (Blob kapsayıcısı) SAS URI’sini girin.  [Yapıtları hazırlama](#prepare-the-artifacts) bölümüne bakın.
     - **templateArtifactRoot**: Yapıtların klasör yapısını değiştirmediğiniz sürece bu öğreticideki **templates/1.0.0.0** klasörünü kullanın.
-    - **tragetScriptionID**: Azure abonelik kimliğinizi girin.
+    - **targetScriptionID**: Azure abonelik kimliğinizi girin
 
 > [!IMPORTANT]
 > Topoloji şablonu ve piyasaya çıkarma şablonu bazı ortak parametreleri paylaşır. Bu parametreler aynı değerlere sahip olmalıdır. Bu parametreler: **namePrefix**, **azureResourceLocation**, ve **artifactSourceSASLocation** (her iki yapıt kaynağı da bu öğreticide aynı depolama hesabını kullanır).
@@ -242,7 +242,7 @@ Değişkenler bölümü kaynakların adlarını tanımlar. Hizmet topolojisi ad�
 
 Kök düzeyde tanımlı üç kaynak vardır: yapıt kaynağı, adım ve piyasaya çıkarma.
 
-Yapıt kaynağı tanımı, topoloji şablonunda tanımlı olanla aynıdır.  Daha fazla bilgi için bkz. [Hizmet topolojisi şablonunu oluşturma](#create-the-service-topology-tempate).
+Yapıt kaynağı tanımı, topoloji şablonunda tanımlı olanla aynıdır.  Daha fazla bilgi için bkz. [Hizmet topolojisi şablonunu oluşturma](#create-the-service-topology-template).
 
 Aşağıdaki ekran görüntüsünde bekleme adımı tanımı gösterilmektedir:
 
@@ -310,7 +310,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
     Kaynakları görmek için **Gizli türleri göster** seçeneği belirlenmelidir.
 
-3. Piyasaya çıkarma şablonunu dağıtın:
+3. <a id="deploy-the-rollout-template"></a>Dağıtım şablonu dağıtın:
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +325,7 @@ Azure PowerShell şablonları dağıtmak için kullanılabilir.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +365,7 @@ Web uygulamasının yeni bir sürümüne (1.0.0.1) sahip olduğunuzda. Web uygul
 
 1. CreateADMRollout.Parameters.json dosyasını açın.
 2. **binaryArtifactRoot** öğesini **binaries/1.0.0.1** olarak güncelleştirin.
-3. [Şablonları dağıtma](#deploy-the-templates) bölümünde anlatıldığı gibi piyasaya çıkarmayı yeniden dağıtın.
+3. [Şablonları dağıtma](#deploy-the-rollout-template) bölümünde anlatıldığı gibi piyasaya çıkarmayı yeniden dağıtın.
 4. [Dağıtımı doğrulama](#verify-the-deployment) bölümünde anlatıldığı gibi dağıtımı doğrulayın. Web sayfası 1.0.0.1 sürümünü gösterir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

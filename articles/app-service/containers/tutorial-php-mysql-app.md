@@ -6,17 +6,17 @@ author: cephalin
 manager: erikre
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: nodejs
+ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9dbdcc9eb09ff137b32225e83e42ec5baca39396
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: 91beef3076005fc7b95b1ffd208be238e23a7b8b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024554"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291496"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir PHP ve MySQL web uygulaması derleme
 
@@ -40,7 +40,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -161,21 +161,21 @@ Bu adımda, [MySQL için Azure Veritabanı](/azure/mysql) içinde bir MySQL veri
 
 MySQL için Azure Veritabanı içinde [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) komutu ile bir sunucu oluşturun.
 
-Aşağıdaki komutta, _&lt;mysql_server_name>_ yer tutucusunu gördüğünüz yerde MySQL sunucunuzun adını değiştirin (geçerli karakterler `a-z`, `0-9` ve `-`). Bu ad, MySQL sunucusu ana bilgisayar adının (`<mysql_server_name>.database.windows.net`) bir parçasıdır ve genel olarak benzersiz olması gerekir.
+Aşağıdaki komutta *\<mysql_server_name>* yer tutucusunu benzersiz bir sunucu ile değiştirin, *\<admin_user>* için bir kullanıcı adı ve *\<admin_password>* yer tutucusu için bir parola girin. Sunucu adı, MySQL uç noktasının (`https://<mysql_server_name>.mysql.database.azure.com`) bir parçası olarak kullanıldığından, adın Azure’daki tüm sunucularda benzersiz olması gerekir.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
 ```
 
 MySQL sunucusu oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
 
 ```json
 {
-  "administratorLogin": "adminuser",
+  "administratorLogin": "<admin_user>",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
+  "fullyQualifiedDomainName": "<mysql_server_name>.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
-  "location": "northeurope",
+  "location": "westeurope",
   "name": "<mysql_server_name>",
   "resourceGroup": "myResourceGroup",
   ...
@@ -194,15 +194,19 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > [Yalnızca uygulamanızın kullandığı giden IP adreslerini kullanarak](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) güvenlik duvarı kurallarınızda daha da kısıtlayıcı olabilirsiniz.
 >
 
-### <a name="connect-to-production-mysql-server-locally"></a>Üretim MySQL sunucusuna yerel olarak bağlanma
+Cloud Shell'de *\<your_ip_address>* yerine [yerel IPv4 IP adresinizi](http://www.whatsmyip.org/) yazdıktan sonra komutu tekrar çalıştırarak yerel bilgisayarınızdan erişim izni verin.
 
-Terminal penceresinde, Azure’da MySQL sunucusuna bağlanın. Daha önce _&lt;mysql_server_name>_ için belirttiğiniz değeri kullanın.
-
-```bash
-mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
+```azurecli-interactive
+az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
 ```
 
-Parola sorulduğunda, veritabanı sunucusunu oluştururken belirttiğiniz _$tr0ngPa$w0rd!_ parolasını kullanın.
+### <a name="connect-to-production-mysql-server-locally"></a>Üretim MySQL sunucusuna yerel olarak bağlanma
+
+Terminal penceresinde, Azure’da MySQL sunucusuna bağlanın. Daha önce için belirttiğiniz değeri kullanın  _&lt;admin_user >_ ve  _&lt;mysql_server_name >_. Parola sorulduğunda, Azure’da veritabanı oluştururken belirttiğiniz parolayı kullanın.
+
+```bash
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+```
 
 ### <a name="create-a-production-database"></a>Üretim veritabanı oluşturma
 
@@ -343,7 +347,7 @@ App Service’te [`az webapp config appsettings set`](/cli/azure/webapp/config/a
 Aşağıdaki komut `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` ve `DB_PASSWORD` uygulama ayarlarını yapılandırır. _&lt;appname>_ ve _&lt;mysql_server_name>_ yer tutucularını değiştirin.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
 Ayarlara erişmek için PHP [getenv](http://php.net/manual/en/function.getenv.php) yöntemini kullanabilirsiniz. Laravel kodu, PHP `getenv` üzerinde bir [env](https://laravel.com/docs/5.4/helpers#method-env) sarmalayıcı kullanır. Örneğin, _config/database.php_ içindeki MySQL yapılandırması aşağıdaki kod gibi görünür:
