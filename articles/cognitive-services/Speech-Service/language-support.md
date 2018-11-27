@@ -88,7 +88,7 @@ IE tr | İngilizce (İrlanda) |Erkek | "Microsoft Server Konuşma metin konuşma
 tr-giriş | English (India) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN Heera, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN, PriyaRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-IN Ravi, Apollo)"
-tr-TR | English (US) |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, ZiraRUS)"
+en-US | English (US) |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, ZiraRUS)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, BenjaminRUS)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)"
