@@ -12,7 +12,7 @@ ms.date: 08/16/2018
 ms.author: shvija
 ms.openlocfilehash: 6a3fe8ae8cfbaeff31bec1d49c3cc5da552e8308
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51254069"

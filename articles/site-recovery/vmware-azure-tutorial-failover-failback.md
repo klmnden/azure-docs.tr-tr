@@ -10,7 +10,7 @@ ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
 ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/29/2018
 ms.locfileid: "50215353"

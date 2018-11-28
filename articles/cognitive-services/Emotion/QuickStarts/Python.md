@@ -12,7 +12,7 @@ ms.author: anroth
 ROBOTS: NOINDEX
 ms.openlocfilehash: f0bcc88b60e0a9b93856aa32a10b9c0ad898ce95
 ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50240707"

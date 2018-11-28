@@ -13,7 +13,7 @@ ms.devlang: multiple
 manager: jeconnoc
 ms.openlocfilehash: 1045e0cc0d114bb8b35e6136a2054b3642eac7e8
 ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50249887"
