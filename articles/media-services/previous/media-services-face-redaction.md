@@ -1,6 +1,6 @@
 ---
-title: Azure medya Analizi ile yüzeyleri Redaksiyon | Microsoft Docs
-description: Bu konuda, Azure medya Analizi ile yüzeyleri Redaksiyon gösterilmiştir.
+title: Azure medya Analizi ile yüzleri özgürlüğü | Microsoft Docs
+description: Bu konuda, Azure medya Analizi ile yüzleri özgürlüğü gösterilmiştir.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,48 +14,49 @@ ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
 ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "33789386"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Azure medya Analizi ile yüzeyleri Redaksiyon
+# <a name="redact-faces-with-azure-media-analytics"></a>Azure medya Analizi ile yüzleri özgürlüğü
 ## <a name="overview"></a>Genel Bakış
-**Azure Media Redactor** olan bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemcisi (MP) ölçeklenebilir yüz Redaksiyon bulutta sunar. Yüz Redaksiyon seçili kişiler yüzeyleri ölçeklendirilmelidir için videonuzu değiştirmenizi sağlar. Genel güvenlik ve haber medya senaryolarda yüz Redaksiyon hizmeti kullanmak isteyebilirsiniz. Birden çok yüzeyleri içeren çekimi birkaç dakika el ile Redaksiyon saat sürebilir, ancak bu hizmet ile birkaç basit adımla yüz Redaksiyon işlem gerektirir. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
+**Azure Media Redactor** olduğu bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemci (MP) bulutta ölçeklenebilir yüz flulaştırma sunar. Yüz flulaştırma seçilen kişilerin yüzlerini bulanıklaştıran için videonuzu değiştirmenize olanak sağlar. Yüz flulaştırma hizmet kamu güvenliği ve haber medya senaryolarında kullanmak isteyebilirsiniz. El ile özgürlüğü saat birden fazla yüzeye içeren görüntülerini, birkaç dakika sürebilir, ancak bu hizmet ile yalnızca birkaç basit adımda yüz flulaştırma işlemi gerektirir. Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
-Bu makalede, ilgili ayrıntıları verir **Azure medya Redactor** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir.
+Bu makalede, ilgili ayrıntıları verir. **Azure Media Redactor** ve .NET için Media Services SDK ile kullanma işlemi gösterilmektedir.
 
-## <a name="face-redaction-modes"></a>Yüz Redaksiyon modları
-Böylece aynı tek diğer açıları bulanık yüz Redaksiyon her çerçevesinde video yüz algılama ve her iki yüz nesne, zaman içindeki iletir ve geriye doğru izleme çalışır. Otomatik Redaksiyon işlemi karmaşıktır ve mu değil her zaman ürettiği % 100'ünü bu nedenle medya analizi için istenen çıkış sağlar, çeşitli şekillerde son çıkışı değiştirilecek.
+## <a name="face-redaction-modes"></a>Yüz flulaştırma modları
+Aynı tek tek de diğer açıları bulanık, böylece videonun her çerçevede yüzleri algılama ve izleme iletir ve geriye dönük zaman içinde her iki yüz nesnesi tarafından yüz flulaştırma çalışır. Otomatik Redaksiyon işlemi karmaşıktır ve mu değil her zaman üretim % 100'ünü, bu nedenle medya analizi için istenen çıkış sağlar, çeşitli şekillerde son çıktısı değiştirilecek.
 
-Tamamen otomatik modu ek olarak, seçim/Kaldır-selection kimlikleri listesini aracılığıyla bulunan yazıtipleri, sağlayan bir iki geçişi iş akışı yok. Ayrıca, çerçeve ayarlamalar MP rasgele yapmak için bir meta veri dosyası JSON biçiminde kullanır. Bu iş akışı bölündüğünü **Çözümle** ve **Redact** modları. Her iki görevi bir işe çalıştıran tek bir geçiş iki modda birleştirebilirsiniz. Bu mod adlı **birleştirilmiş**.
+Tamamen otomatik bir mod yanı sıra seçimi/sona erdirme olanağı-selection kimliklerinin bir listesi üzerinden bulunan dikdörtgenlerini sağlayan bir iki geçişli iş akışı yok. Ayrıca, çerçeve ayarlamaları MP rastgele hale getirmek için JSON biçiminde bir meta veri dosyası kullanır. Bu iş akışı bölündüğünü **Çözümle** ve **Redact** modu. İki modun hem bir işlemde çalıştırır ve tek bir geçişteki birleştirebilirsiniz. Bu modu olarak adlandırılır **birleştirilmiş**.
 
 ### <a name="combined-mode"></a>Birleşik modu
-Bu Redaksiyonu yapılmış bir mp4 otomatik olarak giriş herhangi bir el ile oluşturur.
+Bu sonuç kısaltılmıştır mp4 otomatik olarak giriş herhangi bir el ile üretir.
 
 | Aşama | Dosya Adı | Notlar |
 | --- | --- | --- |
-| Giriş varlık |foo.bar |Video WMV, MOV veya MP4 biçimindeki |
-| Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'modu': 'birleştirilmiş'}} |
-| Çıkış varlık |foo_redacted.mp4 |Uygulanan Bulanıklaştırma ile video |
+| Giriş varlığı |foo.bar |WMV, MOV veya MP4 biçimindeki video |
+| Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'mode': 'birleştirilmiş'}} |
+| Çıktı varlığına |foo_redacted.mp4 |Uygulanan Bulanıklaştırma ile video |
 
-#### <a name="input-example"></a>Giriş örnek:
+#### <a name="input-example"></a>Örnek Giriş:
 [Bu videoyu izleyin](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
-#### <a name="output-example"></a>Çıkış örneği:
+#### <a name="output-example"></a>Örnek çıktı:
 [Bu videoyu izleyin](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
-### <a name="analyze-mode"></a>Mod Çözümle
-**Analiz** geçişi iki geçişi iş akışının video girdi alır ve yüz konumların bir JSON dosyası oluşturur ve her birinin jpg görüntüleri yüz algılandı.
+### <a name="analyze-mode"></a>Modu analiz edin
+**Analiz** iki geçişli bir iş akışı geçişi video bir girdi alır ve yüz konumları bir JSON dosyası oluşturur ve her birinin jpg görüntüleri yüz algılandı.
 
 | Aşama | Dosya Adı | Notlar |
 | --- | --- | --- |
-| Giriş varlık |foo.bar |Video WMV, MPV veya MP4 biçimindeki |
-| Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'modu': 'çözümleyin'}} |
-| Çıkış varlık |foo_annotations.json |Ek açıklama verileri JSON biçiminde yüz konumu. Bu sınırlayıcı kutular Bulanıklaştırma değiştirmek için kullanıcı tarafından düzenlenebilir. Aşağıdaki örneğe bakın. |
-| Çıkış varlık |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Yüz burada yüz labelId sayıyı belirtir, her kırpılmış jpg algılandı |
+| Giriş varlığı |foo.bar |WMV, MPV veya MP4 biçimindeki video |
+| Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'mode': 'çözümleme'}} |
+| Çıktı varlığına |foo_annotations.json |Ek açıklama verileri JSON biçiminde yüz konumları. Sınırlayıcı kutular Bulanıklaştırma değiştirmek için kullanıcı tarafından düzenlenebilir. Aşağıdaki örneğe bakın. |
+| Çıktı varlığına |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Yüz tanıma, burada sayıyı labelId yazıtipinin değerini belirtir her kırpılmış jpg algılandı |
 
-#### <a name="output-example"></a>Çıkış örneği:
+#### <a name="output-example"></a>Örnek çıktı:
 
 ```json
     {
@@ -106,23 +107,23 @@ Bu Redaksiyonu yapılmış bir mp4 otomatik olarak giriş herhangi bir el ile ol
     … truncated
 ```
 
-### <a name="redact-mode"></a>Mod Redaksiyon
-İkinci geçişi iş akışının çok sayıda tek bir varlığa birleştirilmelidir girişleri alır.
+### <a name="redact-mode"></a>Modu özgürlüğü
+İkinci geçiş için iş akışının çok sayıda tek bir varlığa birleştirilmelidir girişleri alır.
 
-Bu ölçeklendirilmelidir kimlikleri, özgün video ve ek açıklamalar JSON listesini içerir. Bu mod, video giriş Bulanıklaştırma uygulamak için ek açıklamalar kullanır.
+Bu, ek açıklamalar JSON bulanıklaştıran kimliklerinin ve özgün video listesini içerir. Bu mod, giriş videosu bulanıklaştırarak uygulamak için ek açıklamalar kullanır.
 
-Çözümle geçişi çıktısını özgün video içermez. Video Redact modu görev için giriş varlık içine yüklenebilir ve birincil dosya olarak seçili gerekiyor.
+Özgün videoyu çözümleme geçişi çıkışı içermez. Video Redact modu görev için giriş varlığı içine yüklenir ve birincil dosya seçili gerekir.
 
 | Aşama | Dosya Adı | Notlar |
 | --- | --- | --- |
-| Giriş varlık |foo.bar |Video WMV, MPV veya MP4 biçimindeki. Aynı 1. adım olduğu gibi video. |
-| Giriş varlık |foo_annotations.json |meta veri dosyasından birinci aşaması, isteğe bağlı değişiklik yapılması açısından ek açıklamaları. |
-| Giriş varlık |foo_IDList.txt (isteğe bağlı) |İsteğe bağlı yeni bir satırla ayrılmış yüz Redaksiyon kimliklerinin listesi. Boş bırakılırsa, bu tüm yüzeyleri bulanıklaştırır. |
-| Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'modu': 'Redaksiyon'}} |
-| Çıkış varlık |foo_redacted.mp4 |Ek açıklamalar uygulanan Bulanıklaştırma ile video dayalı |
+| Giriş varlığı |foo.bar |Video WMV, MPV veya MP4 biçimindeki. Aynı video 1. adım olduğu gibi. |
+| Giriş varlığı |foo_annotations.json |meta veri dosyasından aşaması, isteğe bağlı değişiklikler ile ek açıklamalar. |
+| Giriş varlığı |foo_IDList.txt (isteğe bağlı) |İsteğe bağlı yeni bir satır virgülle ayrılmış yüz özgürlüğü kimliklerinin bir listesi. Boş bırakılırsa, bu tüm yüzleri bulanıklaştırır. |
+| Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'mode': 'özgürlüğü'}} |
+| Çıktı varlığına |foo_redacted.mp4 |Ek açıklamalar göre uygulanan Bulanıklaştırma ile video |
 
 #### <a name="example-output"></a>Örnek çıktı
-Seçili bir Kimliğine sahip bir IDList çıkışı budur.
+Bu, seçilen bir Kimliğe sahip bir IDList çıktısı bulunmaktadır.
 
 [Bu videoyu izleyin](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
@@ -132,9 +133,9 @@ Seçili bir Kimliğine sahip bir IDList çıkışı budur.
      2
      3
 
-## <a name="blur-types"></a>Türleri ölçeklendirilmelidir
+## <a name="blur-types"></a>Bulanıklaştırma türleri
 
-İçinde **birleştirilmiş** veya **Redact** modu, seçim yapabileceğiniz JSON giriş yapılandırma 5 farklı Bulanıklaştırma modu vardır: **düşük**, **Med**, **Yüksek**, **kutusunu**, ve **siyah**. Varsayılan olarak **Med** kullanılır.
+İçinde **birleştirilmiş** veya **Redact** modu, seçim yapabileceğiniz bir JSON giriş yapılandırma ile 5 farklı Bulanıklaştırma mod vardır: **düşük**, **Med**, **Yüksek**, **kutusu**, ve **siyah**. Varsayılan olarak **Med** kullanılır.
 
 Bulanıklaştırma türlerinin örnekleri bulabilirsiniz.
 
@@ -166,16 +167,16 @@ Bulanıklaştırma türlerinin örnekleri bulabilirsiniz.
 
 ## <a name="elements-of-the-output-json-file"></a>Çıkış JSON dosyasının öğeleri
 
-İzleme özelliği en fazla 64 İnsan yüzeyleri video çerçevede algılayabilir ve yüksek düzeyde hassasiyet yüz konumu algılama Redaksiyon MP sağlar. Yan yüz sırasında ve küçük yazıtipleri (küçük veya eşittir 24 x 24 piksel) zor, en iyi sonuçlar tamamen çıplak yüzeyleri belirtin.
+Yüksek hassaslıktaki yüz konumu algılama Redaksiyon MP sağlar ve izleme en fazla 64 İnsan yüzlerini video çerçevede algılayabilir. En iyi sonuçları tamamen çıplak yüzleri sağlayın, yan yüz ve küçük yüzleri (küçüktür veya eşittir 24 x 24 piksel) zor olur.
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
-## <a name="net-sample-code"></a>.NET örnek kod
+## <a name="net-sample-code"></a>.NET örnek kodu
 
 Aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
-2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı yüz Redaksiyon görevle ilgili bir iş oluşturun: 
+1. Bir varlık oluşturun ve varlığa bir medya dosyası yükleyin.
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasını temel alan bir yüz flulaştırma görev ile bir iş oluşturun: 
 
     ```json
             {
@@ -366,11 +367,11 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>İlgili bağlantılar
-[Azure Media Services Analytics a genel bakış](media-services-analytics-overview.md)
+[Azure Media Services Analizi'ne genel bakış](media-services-analytics-overview.md)
 
-[Azure medya analizi gösterileri](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure medya analizi tanıtımları](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
