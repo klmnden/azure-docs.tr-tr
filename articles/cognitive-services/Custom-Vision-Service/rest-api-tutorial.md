@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364969"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334729"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>Öğretici: Özel Görüntü İşleme REST API’sini kullanma
 
@@ -31,7 +31,7 @@ Bu belgedeki bilgiler, Özel Görüntü İşleme hizmetini eğitmek için REST A
 > * Modeli eğitme ve test etme
 > * Modeli dışarı aktarma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Temsili Durum Transferi (REST) konusunda temel bilgi. Bu belgede, HTTP fiilleri, JSON gibi şeylerin veya REST ile yaygın olarak kullanılan diğer şeylerin ayrıntısına inilmemektedir.
 
@@ -100,7 +100,7 @@ $resp.Content
 > [!TIP]
 > Yanıttaki `id` girdisi, yeni projenin kimliğidir. Bu belgenin ilerleyen kısmındaki diğer örneklerde bu kullanılmaktadır.
 
-Bu istek hakkında daha fazla bilgi için bkz. [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+Bu istek hakkında daha fazla bilgi için bkz. [CreateProject](https://go.microsoft.com/fwlink/?linkid=865446).
 
 ### <a name="specific-domains"></a>Belirli etki alanları
 

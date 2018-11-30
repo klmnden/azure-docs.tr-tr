@@ -3,19 +3,19 @@ title: "Hızlı başlangıç: Java için Bing Web Araması SDK'sını kullanma"
 titleSuffix: Azure Cognitive Services
 description: Bing Web Araması SDK'sı, Bing Web Araması özelliklerini Java uygulamanızla tümleştirmeyi kolaylaştırır. Bu hızlı başlangıçta istek göndermeyi, JSON yanıtı almayı, sonuçları filtrelemeyi ve ayrıştırmayı öğreneceksiniz.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.author: erhopf
-ms.openlocfilehash: 854cf1646d716f7cd721a7286b79a0f733243268
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 8883a312bf6da4167936e844e75047ae40cac9f3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416240"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309319"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Hızlı başlangıç: Java için Bing Web Araması SDK'sını kullanma
 
@@ -25,8 +25,9 @@ Kodu hemen görmek istiyor musunuz? GitHub'daki [Java için Bing Web Araması SD
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
 * [JDK 7 veya 8](https://aka.ms/azure-jdks)
@@ -125,7 +126,7 @@ import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject
 import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-Projeyi Maven ile oluşturduysanız paketin tanımlanmış olması gerekir. Aksi takdirde paketi bu adımda tamamlayın. Örnek:
+Projeyi Maven ile oluşturduysanız paketin tanımlanmış olması gerekir. Aksi takdirde paketi bu adımda tamamlayın. Örneğin:
 
 ```java
 package com.bingwebsearch.app

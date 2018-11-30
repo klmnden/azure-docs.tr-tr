@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095347"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334899"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Öğretici: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturma
 
@@ -49,7 +49,7 @@ Bu öğreticide, bir örnek ortama oluşturacaksınız:
 -   Azure aboneliği. Gerekirse, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
 
 - Azure Stack tümleşik sistemi veya Azure Stack geliştirme Seti'ni dağıtımı.
-    - Azure Stack, yüklemek için yönergeler bulun [Azure Stack geliştirme Seti'ni yüklemek](/articles/azure-stack/asdk/asdk-install).
+    - Azure Stack, yüklemek için yönergeler bulun [Azure Stack geliştirme Seti'ni yüklemek](../asdk/asdk-install.md).
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Bu yüklemenin tamamlanması birkaç saat gerektirebilir.
 
 -   Dağıtma [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS Hizmetleri Azure stack'e.
@@ -97,7 +97,7 @@ Etki alanı için DNS bölge dosyasını güncelleştirin. Azure AD'ye özel etk
 Azure ve Azure Stack Web uygulamasına dağıtmak için karma sürekli tümleştirme ve sürekli dağıtım (CI/CD) ayarlama ve her iki bulut için otomatik anında iletme değiştirir.
 
 > [!Note]  
-> Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" bölümünde Azure Stack operatörü için.
+> Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](../azure-stack-app-service-before-you-get-started.md)" bölümünde Azure Stack operatörü için.
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Kod eklemek için Visual Studio Team Services projesi
 
@@ -259,7 +259,7 @@ Mevcut uç nokta bilgileri, Azure Stack bağlantı VSTS'ye kullanıma hazırdır
 ## <a name="develop-the-application-build"></a>Uygulama derleme geliştirin
 
 > [!Note]  
-> Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" bölümünde Azure Stack operatörü için.
+> Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](../azure-stack-app-service-before-you-get-started.md)" bölümünde Azure Stack operatörü için.
 
 Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft.com/resources/templates/) hem bulutlara dağıtmak için vsts'den uygulama kodu.
 

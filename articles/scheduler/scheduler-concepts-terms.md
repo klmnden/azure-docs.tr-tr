@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981170"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334236"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler kavramları, terminolojisi ve varlıkları
 
@@ -78,12 +78,12 @@ Bir Scheduler işi genel olarak şu temel bölümlerden oluşur:
 | Öğe | Gerekli | Açıklama | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Hayır | [ISO 8601 biçiminde](http://en.wikipedia.org/wiki/ISO_8601) saat dilimi farkına sahip olan işin başlangıç zamanı | 
-| [**action**](#action) | Yes | **errorAction** nesnesi de içerebilecek birincil eylem ayrıntıları | 
+| [**action**](#action) | Evet | **errorAction** nesnesi de içerebilecek birincil eylem ayrıntıları | 
 | [**errorAction**](#error-action) | Hayır | Birincil eylemin başarısız olması durumunda çalışan ikinci eylemin ayrıntıları |
 | [**recurrence**](#recurrence) | Hayır | Yinelenen bir işin sıklık ve aralık gibi ayrıntıları | 
 | [**retryPolicy**](#retry-policy) | Hayır | Bir eylemin yeniden deneme sıklığını belirten ayrıntılar | 
-| [**state**](#state) | Yes | İşin geçerli durumunun ayrıntıları |
-| [**status**](#status) | Yes | Hizmet tarafından denetlenen geçerli iş durumu ayrıntıları |
+| [**state**](#state) | Evet | İşin geçerli durumunun ayrıntıları |
+| [**status**](#status) | Evet | Hizmet tarafından denetlenen geçerli iş durumu ayrıntıları |
 ||||
 
 Bu örnekte bir HTTP eyleminin kapsamlı iş tanımı gösterilmiştir ve öğeler sonraki bölümlerde ayrıntılı bir şekilde açıklanacaktır: 
@@ -271,7 +271,7 @@ Bir Scheduler işinin başarısız olması durumunda Scheduler uygulamasının e
 
 | Özellik | Gerekli | Değer | Açıklama | 
 |----------|----------|-------|-------------| 
-| **retryType** | Yes | **Fixed**, **None** | Bir yenileme ilkesi belirtip (**fixed**) belirtmediğinizi (**none**) belirler. | 
+| **retryType** | Evet | **Fixed**, **None** | Bir yenileme ilkesi belirtip (**fixed**) belirtmediğinizi (**none**) belirler. | 
 | **retryInterval** | Hayır | PT30S | Yeniden deneme girişimleri arasındaki aralığı ve sıklığı [ISO 8601 biçiminde](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) belirtir. Minimum değer 15 saniye, maksimum değer ise 18 aydır. | 
 | **retryCount** | Hayır | 4 | Yeniden deneme girişimlerinin sayısını belirtir. Maksimum değer 20'dir. | 
 ||||
@@ -301,7 +301,7 @@ Bir iş başlatıldıktan sonra Scheduler, yalnızca Scheduler tarafından denet
 * Varsa başarısız işlem sayısı
 * Varsa hatalı işlem sayısı
 
-Örnek:
+Örneğin:
 
 ```json
 "status": {
@@ -319,5 +319,5 @@ Bir iş başlatıldıktan sonra Scheduler, yalnızca Scheduler tarafından denet
 * [Kavramlar, terminoloji ve varlık hiyerarşisi](scheduler-concepts-terms.md)
 * [Karmaşık zamanlamalar ve gelişmiş yinelemeler oluşturma](scheduler-advanced-complexity.md)
 * [Sınırlar, kotalar, varsayılan değerler ve hata kodları](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API başvurusu](https://docs.microsoft.com/rest/api/schedule)
+* [Azure Scheduler REST API başvurusu](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)

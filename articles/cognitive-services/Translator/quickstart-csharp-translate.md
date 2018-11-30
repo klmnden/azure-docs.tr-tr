@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: da91a7f84aa2860ef495af1cec412e34213d7e41
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 06e294187247636c552dfd4a7d02167eb55be19a
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291241"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334712"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (C#) ile metin çevirme
 
@@ -41,6 +41,12 @@ cd translate-sample
 
 İlk komut şu iki işlemi yapar. Yeni bir .NET konsol uygulaması oluşturur ve adlı bir dizin oluşturur `translate-sample`. İkinci komut, proje dizinine değiştirir.
 
+Ardından, Json.Net yüklemeniz gerekir. Projenizin dizinden çalıştırın:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
 ## <a name="add-required-namespaces-to-your-project"></a>Gerekli ad alanları projenize ekleyin.
 
 `dotnet new console` Daha önce çalıştırdığınız komutu tarafından oluşturulan bir projeyi dahil olmak üzere `Program.cs`. Burada uygulama kodunuza giriyorum bu dosyasıdır. Açık `Program.cs`, mevcut using deyimlerinin değiştirin. Bu deyimler, derlemek ve örnek uygulamayı çalıştırmak için gerekli tüm türlerine erişimi olduğundan emin olun.
@@ -52,9 +58,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="create-a-function-to-translate-text"></a>Metni Çevir bir işlev oluşturma
+## <a name="create-a-function-to-translate-text"></a>Metni çevirmek için bir işlev oluşturma
 
-İçinde `Program` sınıfı, çağrılan bir işlev oluşturma `TranslateText`. Bu sınıf, çeviri kaynak çağırmak ve sonucu konsola yazdırmak için kullanılan kod kapsüller.
+İçinde `Program` sınıfı, çağrılan bir işlev oluşturma `TranslateText`. Bu sınıf, çeviri kaynak çağırmak için kullanılan kod kapsüller ve sonucu konsola yazdırır.
 
 ```csharp
 static void TranslateText()
@@ -121,7 +127,7 @@ request.Content = new StringContent(requestBody, Encoding.UTF8, "application/jso
 // Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request to Azure service, get response
+// Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
@@ -141,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
 
-İşte bu kadar metin okuma örnek uygulamanızı çalıştırmak hazır olursunuz. Komut satırını (veya terminal oturumu), proje dizinine gidin ve çalıştırın:
+İşte bu kadar örnek uygulamanızı çalıştırmak hazır olursunuz. Komut satırını (veya terminal oturumu), proje dizinine gidin ve çalıştırın:
 
 ```console
 dotnet run

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: fcf913762eb883d299c93e4579c9c81b03739ddb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 4987a50f7a689b74062154b8427fd7bec8e2e8a6
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290884"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334319"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (C#) ile metin çevirme
 
@@ -41,6 +41,12 @@ cd transliterate-sample
 
 İlk komut şu iki işlemi yapar. Yeni bir .NET konsol uygulaması oluşturur ve adlı bir dizin oluşturur `transliterate-sample`. İkinci komut, proje dizinine değiştirir.
 
+Ardından, Json.Net yüklemeniz gerekir. Projenizin dizinden çalıştırın:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
 ## <a name="add-required-namespaces-to-your-project"></a>Gerekli ad alanları projenize ekleyin.
 
 `dotnet new console` Daha önce çalıştırdığınız komutu tarafından oluşturulan bir projeyi dahil olmak üzere `Program.cs`. Burada uygulama kodunuza giriyorum bu dosyasıdır. Açık `Program.cs`, mevcut using deyimlerinin değiştirin. Bu deyimler, derlemek ve örnek uygulamayı çalıştırmak için gerekli tüm türlerine erişimi olduğundan emin olun.
@@ -52,9 +58,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="create-a-function-to-translate-text"></a>Metni Çevir bir işlev oluşturma
+## <a name="create-a-function-to-transliterate-text"></a>Metin alfabeye için bir işlev oluşturma
 
-İçinde `Program` sınıfı, çağrılan bir işlev oluşturma `TransliterateText`. Bu sınıf, çeviri kaynak çağırmak ve sonucu konsola yazdırmak için kullanılan kod kapsüller.
+İçinde `Program` sınıfı, çağrılan bir işlev oluşturma `TransliterateText`. Bu sınıf Transliterate kaynak çağırmak için kullanılan kod kapsüller ve sonucu konsola yazdırır.
 
 ```csharp
 static void TransliterateText()
@@ -68,7 +74,7 @@ static void TransliterateText()
 
 ## <a name="set-the-subscription-key-host-name-and-path"></a>Abonelik anahtarı, konak adı ve yolu ayarlayın
 
-Bu satırları ekleyin `TransliterateText` işlevi. İle birlikte olduğunu fark edeceksiniz `api-version`, iki ek parametreler eklenmiş için `route`. Bu parametreler, çeviri çıkışları ayarlamak için kullanılır. Bu örnekte, Almanca ayarlanmış (`de`) ve İtalyanca (`it`). Abonelik anahtarı değerini güncelleştirdiğinizden emin olun.
+Bu satırları ekleyin `TransliterateText` işlevi. İle birlikte olduğunu fark edeceksiniz `api-version`, iki ek parametreler eklenmiş için `route`. Bu parametreler, giriş dili ve betikleri alfabeye ayarlamak için kullanılır. Bu örnekte, Japonca olarak ayarlanır (`jpan`) ve Latin (`latn`). Abonelik anahtarı değerini güncelleştirdiğinizden emin olun.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
@@ -76,7 +82,7 @@ string route = "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScr
 string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
-Ardından, oluşturma ve çevirmek istediğiniz metni içeren bir JSON nesnesi seri hale getirme ihtiyacımız var. Unutmayın, birden fazla nesne geçirebilirsiniz `body` dizisi.
+Ardından, oluşturma ve alfabeye istediğiniz metni içeren bir JSON nesnesi seri hale getirme ihtiyacımız var. Unutmayın, birden fazla nesne geçirebilirsiniz `body` dizisi.
 
 ```csharp
 System.Object[] body = new System.Object[] { new { Text = @"こんにちは" } };
@@ -121,7 +127,7 @@ request.Content = new StringContent(requestBody, Encoding.UTF8, "application/jso
 // Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request to Azure service, get response
+// Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
@@ -141,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
 
-İşte bu kadar metin okuma örnek uygulamanızı çalıştırmak hazır olursunuz. Komut satırını (veya terminal oturumu), proje dizinine gidin ve çalıştırın:
+İşte bu kadar örnek uygulamanızı çalıştırmak hazır olursunuz. Komut satırını (veya terminal oturumu), proje dizinine gidin ve çalıştırın:
 
 ```console
 dotnet run
@@ -164,7 +170,7 @@ Abonelik anahtarları gibi örnek uygulamanızın kaynak kodundan olan gizli bil
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başka alfabeye çevirme ve dil tanımlayıcı gibi bu ve diğer hızlı başlangıçlardaki örnek kodlarla birlikte GitHub’daki diğer örnek Translator Metin Çevirisi projelerini keşfedin.
+Çeviri ve dil tanımlayıcı gibi bu ve diğer hızlı başlangıçlardaki örnek kodlarla birlikte GitHub’daki diğer örnek Translator Metin Çevirisi projelerini keşfedin.
 
 > [!div class="nextstepaction"]
 > [GitHub’da C# örneklerini keşfedin](https://aka.ms/TranslatorGitHub?type=&language=c%23)

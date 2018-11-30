@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979480"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311543"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Karma kimlik ve Microsoft kimlik çözümleri
 [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) karma kimlik çözümleri, şirket içi dizin nesnelerini Azure AD ile eşitlerken kullanıcı yönetimini şirket içi ortamda gerçekleştirmeye devam etmenizi sağlar. Şirket içi Windows Server Active Directory ortamınızı Azure AD ile eşitleme planlaması yaparken vermeniz gereken ilk karar, yönetilen kimlikler veya federasyon kimliği kullanımı konusunda olacaktır. 
 
-- **Yönetilen kimlikler** - Şirket içi bir Active Directory’den eşitlenen ve kullanıcının kimlik doğrulamasının Azure tarafından yönetildiği kullanıcı hesapları ve grupları.   
+- **Yönetilen kimlik** - kullanıcı hesapları ve grupları şirket içi Active Directory'den eşitlenmesi ve kullanıcı kimlik doğrulaması, Azure tarafından yönetilir.   
 - **Federasyon kimlikleri**, kullanıcı kimlik doğrulamasını Azure'dan ayırıp güvenilen ve şirket içi ortamda bulunan kimlik sağlayıcısını yetkilendirerek kullanıcılar üzerinde daha fazla denetim sahibi olmanızı sağlar. 
 
 Karma kimlik yapılandırması için kullanılabilecek birçok seçenek mevcuttur. Kuruluşunuzun ihtiyaçlarına en uygun olan kimlik modeline karar verirken zaman, var olan altyapı, karmaşıklık düzeyi ve maliyetler üzerine de düşünmeniz gerekir. Bu faktörler her kuruluş için farklıdır ve zaman içinde değişiklik gösterebilir. Ancak gereksinimleriniz değiştikçe farklı bir kimlik modeline geçiş yapma esnekliğine de sahip olursunuz.
@@ -42,7 +42,7 @@ Yönetilen kimlik en kolay ve en hızlı yöntem olsa da kullanıcılarınızın
 Kullanıcılarının Office 365, SaaS uygulamaları ve diğer Azure AD tabanlı kaynaklarda oturum açmasına ihtiyaç duyan çoğu kuruluş için varsayılan parola karması eşitleme seçeneği önerilir. Bu kullanım size uygun değilse doğrudan kimlik doğrulama ile AD FS arasında bir seçim yapmanız gerekir.
 
 > [!TIP]
-> Kullanıcı parolaları, şirket içi Windows Server Active Directory ortamında gerçek kullanıcı parolasını temsil eden bir karma kod biçiminde depolanır. Karma değeri, tek yönlü bir matematiksel işlev (karma algoritması) sonucunda elde edilir. Tek yönlü işlevin sonucunu, parolanın düz metin sürümüne döndürmek mümkün değildir. Parola karması kullanarak şirket içi ağınızda oturum açamazsınız. Parolaları eşitleme seçeneğini kullandığınızda Azure AD Connect şirket içi Active Directory ortamındaki parola karmalarını ayıklar ve bu karmaları Azure AD ile eşitlemeden önce ek güvenlik işlemlerine tabi tutar. Parola karması eşitlemeyi, parola geri yazma özelliğiyle birlikte kullanarak Azure AD'de self servis parola sıfırlama işlevinin kullanılmasını sağlayabilirsiniz. Ayrıca kuruluş ağına bağlanmış ve etki alanına katılmış olan bilgisayarlardaki kullanıcılar için çoklu oturum açma (SSO) özelliğini etkinleştirebilirsiniz. Çoklu oturum açma özelliği etkinleştirildiğinde kullanıcılar yalnızca bir kullanıcı adı ile bulut kaynaklarına güvenle erişim sağlayabilir. 
+> Kullanıcı parolaları, şirket içi Windows Server Active Directory ortamında gerçek kullanıcı parolasını temsil eden bir karma kod biçiminde depolanır. Karma değeri, tek yönlü bir matematiksel işlev (karma algoritması) sonucunda elde edilir. Tek yönlü işlevin sonucunu, parolanın düz metin sürümüne döndürmek mümkün değildir. Parola karması kullanarak şirket içi ağınızda oturum açamazsınız. Parola karmalarını eşitleyecek şekilde iyileştirilmiş, Azure AD Connect şirket içi Active Directory'den parola karmalarının ayıklar ve ek güvenlik için parola karmasını Azure AD'ye eşitlenen önce işlem uygular. Parola karması eşitlemeyi, parola geri yazma özelliğiyle birlikte kullanarak Azure AD'de self servis parola sıfırlama işlevinin kullanılmasını sağlayabilirsiniz. Ayrıca kuruluş ağına bağlanmış ve etki alanına katılmış olan bilgisayarlardaki kullanıcılar için çoklu oturum açma (SSO) özelliğini etkinleştirebilirsiniz. Çoklu oturum açma özelliği etkinleştirildiğinde kullanıcılar yalnızca bir kullanıcı adı ile bulut kaynaklarına güvenle erişim sağlayabilir. 
 >
 
 ## <a name="pass-through-authentication"></a>Doğrudan kimlik doğrulama

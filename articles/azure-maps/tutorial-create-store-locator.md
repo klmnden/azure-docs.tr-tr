@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820282"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317917"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir depolama Bulucu
 
@@ -81,7 +81,7 @@ Verilerin ekran arıyorsanız, aşağıdaki gözlemlere yapabilirsiniz:
 * Bazı ek sütunlar için kahve dükkanları ilgili meta veriler içerir: bir telefon numarası, Wi-Fi etkin nokta ve Tekerlekli erişilebilirlik ve açılış ve kapanış 24 saat biçiminde kez deposu için Boolean sütunlar. Konum verilerinizi daha ilgili meta veriler içeren kendi sütunlarınızı oluşturabilirsiniz.
 
 > [!Note]
-> Azure haritalar'ı bir küresel Mercato yansıtma (EPSG:3857) kullanır.
+> Azure haritalar küresel Mercator izdüşümünü "EPSG:3857" verileri işleyen, ancak "EPSG:4325" WGS84 datum kullanan verileri okur. 
 
 Uygulama için veri kümesi göstermek için birçok yolu vardır. Tek bir veritabanı'na veri yükleme ve verileri sorgular ve sonuçları kullanıcının tarayıcısına gönderen bir web hizmeti kullanıma sunmak için bir yaklaşımdır. Bu seçenek, büyük veri kümeleri için veya sık sık güncelleştirilir veri kümeleri için idealdir. Ancak, bu seçenek, önemli ölçüde daha fazla geliştirme iş gerektirir ve daha yüksek bir maliyet vardır. 
 

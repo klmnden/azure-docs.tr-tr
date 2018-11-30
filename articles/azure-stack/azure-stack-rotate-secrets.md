@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 8d84801aacfc60bb11aac4c9046a433378a59b79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244109"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314482"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -165,7 +165,7 @@ Başlangıç SecretRotation cmdlet'i, bir Azure Stack sisteminin altyapı gizli 
  
 ### <a name="parameters"></a>Parametreler
 
-| Parametre | Tür | Gerekli | Konumu | Varsayılan | Açıklama |
+| Parametre | Tür | Gerekli | Konum | Varsayılan | Açıklama |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Dize  | False  | adlı  | None  | Fileshare yolu **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları veya tüm gizli dizilerin döndürürken gereklidir. Son dizin olmalıdır **\Certificates**. |
 | CertificatePassword | SecureString | False  | adlı  | None  | -PfXFilesPath sağlanan tüm sertifikalar için parola. İç ve dış gizli anahtarları Döndürülmüş PfxFilesPath sağlanır değeri gereklidir. |
@@ -220,7 +220,7 @@ Temel Kart Yönetim denetleyicisine (BMC) fiziksel sunucularınızı durumunu iz
     ```powershell
     # Static Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
-    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
     $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 

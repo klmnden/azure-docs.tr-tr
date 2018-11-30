@@ -10,16 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 36c287f64ddc15eb3cb0179ed2465e1279177595
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802534"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309064"
 ---
 # <a name="quickstart-your-first-news-search-query"></a>Hızlı başlangıç: İlk haber arama sorgunuz
 
-İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
+İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar almak için bkz. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Yalnızca haber arama sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönderirsiniz:
 
@@ -282,7 +282,7 @@ X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-API'yi deneyin. [Haber Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)'na gidin.
+API’yi deneyin. [Haber Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)'na gidin.
 
 Yanıt nesnelerini kullanmanın ayrıntıları için bkz. [Bing Haber Arama nedir?](./search-the-web.md). Ayrıca aşağıdaki yaygın eylemlerle ilgili daha fazla bilgi edinebilirsiniz:
 

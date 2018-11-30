@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cff6d38867ef8ecaf1435fd4c4cc22fe63d70575
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 586e60316ba8bf4f485a151e77015fa3ed104df7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283255"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317424"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
@@ -131,7 +131,7 @@ Site Recovery, abonelik ve kaynak grup/bulut hizmeti ile ilişkili VM’lerin li
 Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini oluşturur. Ayarları gerektiği gibi değiştirebilirsiniz.
 
 1. Hedef ve çoğaltma ayarlarını görüntülemek için **Ayarlar**’a tıklayın.
-2. Varsayılan hedef ayarlarını geçersiz kılmak için **Kaynak grubu, Ağ, Depolama ve Kullanılabilirlik Kümeleri**’nin yanındaki **Özelleştir** seçeneğine tıklayın.
+2. Varsayılan hedef ayarlarını geçersiz kılmak için tıklayın **Özelleştir** yanındaki **kaynak grubu, ağ, depolama ve kullanılabilirlik**.
 
   ![Ayarları yapılandırma](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
@@ -154,7 +154,14 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
       >
 
     - **Yönetilen çoğaltma diskleri (Kaynak sanal makine yönetilen diskleri kullanıyorsa)**: Site Recovery varsayılan olarak kaynak sanal makinenin yönetilen diskiyle aynı depolama türüne (Standart veya premium) sahip kaynak sanal makinenin yönetilen disklerini yansıtmak için hedef bölgede yönetilen çoğaltma diskleri oluşturur.
-    - **Hedef kullanılabilirlik kümeleri**: Site Recovery varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir kullanılabilirlik kümesi oluşturur. Kullanılabilirlik kümelerini yalnızca VM’ler kaynak bölgedeki bir kümenin içindeyse ekleyebilirsiniz.
+    - **Hedef kullanılabilirlik kümeleri**: varsayılan olarak, Azure Site Recovery, yeni bir kullanılabilirlik Vm'leri bir kullanılabilirlik kümesi kaynak bölgede bir parçası için "asr" sonekine sahip adı ile hedef bölgede kümesi oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut durumda yeniden kullanılır.
+    - **Hedef kullanılabilirlik**: hedef bölge kullanılabilirlik destekliyorsa, varsayılan olarak, Site Recovery hedef bölge kaynak bölgede aynı bölge sayısına atar. 
+
+    Hedef bölge kullanılabilirlik bölgelerini desteklemez, hedef Vm'leri varsayılan olarak tek örnekleri olarak yapılandırılır. Gerekirse, tür VM'ler 'Özelleştir' tıklayarak kullanılabilirlik kümeleri hedef bölgede bir parçası olarak yapılandırabilirsiniz.
+
+    >[!NOTE]
+    >Çoğaltmayı etkinleştirdikten sonra kullanılabilirlik türü - tek örnek, kullanılabilirlik kümesi veya kullanılabilirlik alanı değiştiremezsiniz. Devre dışı bırakın ve çoğaltma kullanılabilirlik türünü değiştirmek etkinleştirmeniz gerekir.
+    >
 
 4. Çoğaltma İlkesi ayarlarını özelleştirmek için tıklatın **Özelleştir** yanındaki **Çoğaltma İlkesi**ve aşağıdaki ayarları gerektiği gibi değiştirin:
 

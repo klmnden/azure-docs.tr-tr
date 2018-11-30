@@ -10,16 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802486"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316880"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-java"></a>Hızlı başlangıç: Java ile Bing Haber Arama SDK'sı
 
-Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırma için REST API işlevselliğini sunar. 
+Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırma için REST API işlevselliğini sunar.  **Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 [Java Bing Haber Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) Git Hub'dan edinilebilir.
 

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277741"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313846"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Öğretici: Apache Kafka Üretici ve Tüketici API’lerini kullanma
 
-HDInsight’ta Kafka Üretici ve Tüketici API’lerini kullanmayı öğrenin.
+HDInsight’ta Apache Kafka Üretici ve Tüketici API’lerini kullanmayı öğrenin.
 
 Kafka Üretici API’si, uygulamaların Kafka kümesine veri akışları göndermesine olanak tanır. Kafka Tüketici API’si, uygulamaların kümeden veri akışları okumasına olanak tanır.
 
@@ -56,7 +56,7 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
 
 ## <a name="set-up-your-deployment-environment"></a>Dağıtım ortamınızı ayarlama
 
-Bu öğreticide HDInsight 3.6 üzerinde Apache Kafka kullanılması gerekir. HDInsight kümesi üzerinde Kafka oluşturma hakkında bilgi edinmek için [HDInsight üzerinde Kafka kullanmaya başlama](apache-kafka-get-started.md) belgesine bakın.
+Bu öğreticide HDInsight 3.6 üzerinde Apache Kafka kullanılması gerekir. HDInsight kümesinde Kafka oluşturmak nasıl öğrenmek için bkz. [HDInsight üzerinde Apache Kafka kullanmaya başlama](apache-kafka-get-started.md) belge.
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
@@ -171,7 +171,7 @@ Bu kodda tüketici, konu başlangıcından okumak üzere yapılandırılmıştı
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. Kafka aracısı ana bilgisayarlarını ve Zookeeper ana bilgisayarlarını almak için aşağıdaki komutları kullanın. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin.
+    2. Kafka aracısı ve Apache Zookeeper konakları almak için aşağıdaki komutları kullanın. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin.
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -227,8 +227,8 @@ Kafka’ya depolanan kayıtlar bir bölümde alındıkları sırayla depolanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede, HDInsight üzerinde Kafka ile Kafka Üretici ve Tüketici API’sini nasıl kullanacağınızı öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
+Bu belgede, HDInsight üzerinde Kafka ile Apache Kafka üretici ve tüketici API'sini kullanma hakkında bilgi edindiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
 
-* [Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
-* [Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)
-* [HDInsight ile Kafka Akışı API’si](apache-kafka-streams-api.md)
+* [Apache Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
+* [Apache Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)
+* [Apache Kafka akışlar API'si ile HDInsight](apache-kafka-streams-api.md)

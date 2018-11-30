@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: HT
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180952"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335121"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Öğretici: Okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme
 
@@ -30,7 +30,7 @@ Serinin ikinci bölümünde şunları öğrenirsiniz:
 > * Birincil uç noktayı geri yükleme benzetimi gerçekleştirme
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Fiddler kullanarak hata benzetimi yapmak için: 
 
@@ -145,7 +145,7 @@ Hedef ana bilgisayar için statik rota eklemek üzere bir Windows komut istemind
  
 `<destination_ip>` öğesini depolama hesabınızın IP adresiyle, `<gateway_ip>` öğesini ise yerel ana bilgisayarınızın IP adresiyle değiştirin. Uygulamayı sürdürmek için **herhangi bir tuşa** basın.
 
-Uygulama yeniden çalışmaya başladığında birincil uç nokta istekleri başarısız olmaya başlar. Uygulama birincil uç noktaya 5 kez yeniden bağlanmayı dener. Beş denemelik hata eşiğine ulaştıktan sonra görüntüyü ikincil, salt okunur uç noktadan ister. Uygulama görüntüyü ikincil uç noktadan 20 kez başarıyla aldıktan sonra birincil uç noktaya bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumdaysa uygulama ikincil uç noktadan okumayı sürdürür. Bu düzen, önceki öğreticide açıklanan [Devre Kesici](/azure/architecture/patterns/circuit-breaker.md) düzenidir.
+Uygulama yeniden çalışmaya başladığında birincil uç nokta istekleri başarısız olmaya başlar. Uygulama birincil uç noktaya 5 kez yeniden bağlanmayı dener. Beş denemelik hata eşiğine ulaştıktan sonra görüntüyü ikincil, salt okunur uç noktadan ister. Uygulama görüntüyü ikincil uç noktadan 20 kez başarıyla aldıktan sonra birincil uç noktaya bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumdaysa uygulama ikincil uç noktadan okumayı sürdürür. Bu düzen, önceki öğreticide açıklanan [Devre Kesici](/azure/architecture/patterns/circuit-breaker) düzenidir.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Birincil uç noktayı geri yükleme benzetimi gerçekleştirme
 

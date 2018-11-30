@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 18141e0f58a0b5227c3f5f5c36210017da101780
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6e8f7f18196eb23900c815048e12d57a238d08f7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625343"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423065"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Öğretici: Azure AD Graph API hizmetine erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Bu öğreticide, grup üyeliklerini almak için Microsoft Graph API’ye erişmek amacıyla, Windows sanal makinesi (VM) için sistem tarafından atanmış bir yönetilen kimliği nasıl kullanacağınız gösterilmektedir. Azure kaynaklarına yönelik yönetilen kimlikler Azure tarafından otomatik olarak yönetilir ve kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır.  Bu öğreticide, VM kimliğinizin Azure AD gruplarındaki üyeliğini sorgulayacaksınız. Örnek verecek olursak, grup bilgileri genellikle yetkilendirme kararlarında kullanılır. Arka planda, sanal makinenizin yönetilen kimliği Azure AD’de bir **Hizmet Sorumlusu** ile temsil edilir. Grup sorgusu yapmadan önce, VM'nin kimliğini temsil eden hizmet sorumlusunu Azure AD'deki bir gruba ekleyin. Azure PowerShell, Azure AD PowerShell veya Azure CLI kullanarak bunu yapabilirsiniz.
 

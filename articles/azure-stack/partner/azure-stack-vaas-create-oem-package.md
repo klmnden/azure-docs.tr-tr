@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: 8fd551156d424adbe4d6ce7eb38a6a6a00aa8f83
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fc2659fb9bbe043a61f1ad49bb4290b7ccf834f8
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651617"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422023"
 ---
 # <a name="create-an-oem-package"></a>OEM paketi oluşturma
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Azure Stack OEM uzantı paketi, hangi OEM tarafından kullanılmak üzere güncelleştirme genişletme ve alan değiştirme gibi işletimsel işlemlerin yanı sıra, dağıtım, Azure Stack altyapısının belirli içerik eklenir yönelik mekanizmadır.
 

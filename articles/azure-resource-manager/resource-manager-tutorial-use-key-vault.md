@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615764"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334219"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Öğretici: Azure Key Vault'u Resource Manager şablonu dağıtımıyla tümleştirme
 
@@ -93,7 +93,7 @@ Anahtar Kasası oluşturmak için:
     * **Anahtar Kasası Adı**: Benzersiz bir ad girin. 
     * **Kiracı Kimliği**: Şablon işlevi kiracı kimliğinizi otomatik olarak alır.  Varsayılan değeri değiştirmeyin
     * **AD Kullanıcı Kimliği**: Son yordamdan aldığınız Azure AD kullanıcı nesnesi kimliğinizi girin.
-    * **Gizli Dizi Adı**: Varsayılan ad **mAdminPassword** şeklindedir. Buradaki gizli adı değiştirirseniz sanal makine dağıtma adımında da gizli adı güncelleştirmeniz gerekir.
+    * **Gizli dizi adı**: varsayılan ad **vmAdminPassword**. Buradaki gizli adı değiştirirseniz sanal makine dağıtma adımında da gizli adı güncelleştirmeniz gerekir.
     * **Gizli Değer**: Gizli dizinizi girin.  Gizli dizi, sanal makinede oturum açmak için kullanılan paroladır. Son yordamda oluşturduğunuz parolayı kullanmanız önerilir.
     * **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**: Seçin.
 3. Şablona göz atmak için yukarıdan **Parametreleri düzenle**'yi seçin.

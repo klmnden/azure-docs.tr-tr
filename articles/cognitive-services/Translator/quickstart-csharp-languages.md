@@ -1,7 +1,7 @@
 ---
 title: 'Hızlı Başlangıç: Desteklenen dilleri alma, C# - Translator Metin Çevirisi API’si'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, C# ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
+description: Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,165 +10,239 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: erhopf
-ms.openlocfilehash: 9ac881adcf7d273c9a3bcea55d084acced59c107
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: cc5d9efd017ec2045cc94bbad98e26e8b95e071d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645414"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334695"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-c"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API'si (C#) ile desteklenen dilleri alma
 
-Bu hızlı başlangıçta, Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
+Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 
-## <a name="prerequisites"></a>Ön koşullar
+Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/)’ye ihtiyacınız olacak. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
+## <a name="prerequisites"></a>Önkoşullar
 
-Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
+* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [Json.NET NuGet paketi](https://www.nuget.org/packages/Newtonsoft.Json/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), veya en sevdiğiniz metin düzenleyiciyi
+* Konuşma hizmeti için bir Azure aboneliği anahtarı
 
-## <a name="languages-request"></a>Diller isteği
+## <a name="create-a-net-core-project"></a>.NET Core projesi oluşturma
 
-> [!TIP]
-> En son kodu [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)'dan edinin.
+Yeni bir komut istemi (veya terminal oturumu) açın ve şu komutları çalıştırın:
 
-Aşağıdaki kod, [Diller](./reference/v3-0-languages.md) yöntemini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin listesini alır.
+```console
+dotnet new console -o languages-sample
+cd languages-sample
+```
 
-1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+İlk komut şu iki işlemi yapar. Yeni bir .NET konsol uygulaması oluşturur ve adlı bir dizin oluşturur `languages-sample`. İkinci komut, proje dizinine değiştirir.
+
+Ardından, Json.Net yüklemeniz gerekir. Projenizin dizinden çalıştırın:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
+## <a name="add-required-namespaces-to-your-project"></a>Gerekli ad alanları projenize ekleyin.
+
+`dotnet new console` Daha önce çalıştırdığınız komutu tarafından oluşturulan bir projeyi dahil olmak üzere `Program.cs`. Burada uygulama kodunuza giriyorum bu dosyasıdır. Açık `Program.cs`, mevcut using deyimlerinin değiştirin. Bu deyimler, derlemek ve örnek uygulamayı çalıştırmak için gerekli tüm türlerine erişimi olduğundan emin olun.
 
 ```csharp
 using System;
 using System.Net.Http;
 using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
 using Newtonsoft.Json;
+```
 
-namespace TranslatorTextQuickStart
+## <a name="create-a-function-to-get-a-list-of-languages"></a>Dillerin bir listesini almak için bir işlev oluşturma
+
+İçinde `Program` sınıfı, çağrılan bir işlev oluşturma `GetLanguages`. Bu sınıf, dilleri kaynak çağırmak için kullanılan kod kapsüller ve sonucu konsola yazdırır.
+
+```csharp
+static void GetLanguages()
 {
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/languages?api-version=3.0";
+  /*
+   * The code for your call to the translation service will be added to this
+   * function in the next few sections.
+   */
+}
+```
 
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
+## <a name="set-the-subscription-key-host-name-and-path"></a>Abonelik anahtarı, konak adı ve yolu ayarlayın
 
-        async static void GetLanguages()
-        {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-            var uri = host + path;
-            var response = await client.GetAsync(uri);
-            var result = await response.Content.ReadAsStringAsync();
-            var json = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(result), Formatting.Indented);
-            // Note: If writing to the console, set this.
-            // Console.OutputEncoding = UnicodeEncoding.UTF8;
-            System.IO.File.WriteAllBytes("output.txt", Encoding.UTF8.GetBytes(json));
-        }
+Bu satırları ekleyin `GetLanguages` işlevi.
 
-        static void Main(string[] args)
-        {
-            GetLanguages();
-            Console.ReadLine();
-        }
+```csharp
+string host = "https://api.cognitive.microsofttranslator.com";
+string route = "/languages?api-version=3.0";
+string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+```
+
+## <a name="instantiate-the-client-and-make-a-request"></a>İstemci örneği oluşturun ve bir istek oluşturun
+
+Bu satırlar örneği `HttpClient` ve `HttpRequestMessage`:
+
+```csharp
+using (var client = new HttpClient())
+using (var request = new HttpRequestMessage())
+{
+  // In the next few sections you'll add code to construct the request.
+}
+```
+
+## <a name="construct-the-request-and-print-the-response"></a>Bir isteği oluşturmak ve yanıtı yazdırma
+
+İçinde `HttpRequestMessage` gerekir:
+
+* HTTP metodunu bildir
+* İstek URI'si oluşturmak
+* Gerekli üst bilgileri Ekle
+* Zaman uyumsuz bir istekte
+* Yanıtı yazdırma
+
+Bu kodu ekleyin `HttpRequestMessage`:
+
+```csharp
+// Set the method to GET
+request.Method = HttpMethod.Get;
+
+// Construct the full URI
+request.RequestUri = new Uri(host + route);
+
+// Add the authorization header
+request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+// Send request, get response
+var response = client.SendAsync(request).Result;
+var jsonResponse = response.Content.ReadAsStringAsync().Result;
+
+// Print the response
+Console.WriteLine(jsonResponse);
+Console.WriteLine("Press any key to continue.");
+```
+
+## <a name="put-it-all-together"></a>Hepsini bir araya getirin
+
+Son adım çağırmaktır `GetLanguages()` içinde `Main` işlevi. Bulun `static void Main(string[] args)` ve bu satırları ekleyin:
+
+```csharp
+GetLanguages();
+Console.ReadLine();
+```
+
+## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
+
+İşte bu kadar örnek uygulamanızı çalıştırmak hazır olursunuz. Komut satırını (veya terminal oturumu), proje dizinine gidin ve çalıştırın:
+
+```console
+dotnet run
+```
+
+## <a name="sample-response"></a>Örnek yanıt
+
+```json
+{
+    "translation": {
+        "af": {
+            "name": "Afrikaans",
+            "nativeName": "Afrikaans",
+            "dir": "ltr"
+        },
+        "ar": {
+            "name": "Arabic",
+            "nativeName": "العربية",
+            "dir": "rtl"
+        },
+        ...
+    },
+    "transliteration": {
+        "ar": {
+            "name": "Arabic",
+            "nativeName": "العربية",
+            "scripts": [
+                {
+                    "code": "Arab",
+                    "name": "Arabic",
+                    "nativeName": "العربية",
+                    "dir": "rtl",
+                    "toScripts": [
+                        {
+                            "code": "Latn",
+                            "name": "Latin",
+                            "nativeName": "اللاتينية",
+                            "dir": "ltr"
+                        }
+                    ]
+                },
+                {
+                    "code": "Latn",
+                    "name": "Latin",
+                    "nativeName": "اللاتينية",
+                    "dir": "ltr",
+                    "toScripts": [
+                        {
+                            "code": "Arab",
+                            "name": "Arabic",
+                            "nativeName": "العربية",
+                            "dir": "rtl"
+                        }
+                    ]
+                }
+            ]
+        },
+      ...
+    },
+    "dictionary": {
+        "af": {
+            "name": "Afrikaans",
+            "nativeName": "Afrikaans",
+            "dir": "ltr",
+            "translations": [
+                {
+                    "name": "English",
+                    "nativeName": "English",
+                    "dir": "ltr",
+                    "code": "en"
+                }
+            ]
+        },
+        "ar": {
+            "name": "Arabic",
+            "nativeName": "العربية",
+            "dir": "rtl",
+            "translations": [
+                {
+                    "name": "English",
+                    "nativeName": "English",
+                    "dir": "ltr",
+                    "code": "en"
+                }
+            ]
+        },
+      ...
     }
 }
 ```
 
-## <a name="languages-response"></a>Diller yanıtı
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
-
-```json
-{
-  "translation": {
-    "af": {
-      "name": "Afrikaans",
-      "nativeName": "Afrikaans",
-      "dir": "ltr"
-    },
-    "ar": {
-      "name": "Arabic",
-      "nativeName": "العربية",
-      "dir": "rtl"
-    },
-...
-  },
-  "transliteration": {
-    "ar": {
-      "name": "Arabic",
-      "nativeName": "العربية",
-      "scripts": [
-        {
-          "code": "Arab",
-          "name": "Arabic",
-          "nativeName": "العربية",
-          "dir": "rtl",
-          "toScripts": [
-            {
-              "code": "Latn",
-              "name": "Latin",
-              "nativeName": "اللاتينية",
-              "dir": "ltr"
-            }
-          ]
-        },
-        {
-          "code": "Latn",
-          "name": "Latin",
-          "nativeName": "اللاتينية",
-          "dir": "ltr",
-          "toScripts": [
-            {
-              "code": "Arab",
-              "name": "Arabic",
-              "nativeName": "العربية",
-              "dir": "rtl"
-            }
-          ]
-        }
-      ]
-    },
-...
-  },
-  "dictionary": {
-    "af": {
-      "name": "Afrikaans",
-      "nativeName": "Afrikaans",
-      "dir": "ltr",
-      "translations": [
-        {
-          "name": "English",
-          "nativeName": "English",
-          "dir": "ltr",
-          "code": "en"
-        }
-      ]
-    },
-    "ar": {
-      "name": "Arabic",
-      "nativeName": "العربية",
-      "dir": "rtl",
-      "translations": [
-        {
-          "name": "English",
-          "nativeName": "English",
-          "dir": "ltr",
-          "code": "en"
-        }
-      ]
-    },
-...
-  }
-}
-```
+Abonelik anahtarları gibi örnek uygulamanızın kaynak kodundan olan gizli bilgilerin kaldırdığınızdan emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çeviri ve başka alfabeye çevirme gibi bu ve diğer hızlı başlangıçlardaki örnek kodlarla birlikte GitHub’daki diğer örnek Translator Metin Çevirisi projelerini keşfedin.
+Başka alfabeye çevirme ve dil tanımlayıcı gibi bu ve diğer hızlı başlangıçlardaki örnek kodlarla birlikte GitHub’daki diğer örnek Translator Metin Çevirisi projelerini keşfedin.
 
 > [!div class="nextstepaction"]
 > [GitHub’da C# örneklerini keşfedin](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+* [Metin çevirme](quickstart-csharp-translate.md)
+* [Metni başka dilde yazma](quickstart-csharp-transliterate.md)
+* [Girişe göre dili belirleyin](quickstart-csharp-detect.md)
+* [Alternatif çeviriler edinme](quickstart-csharp-dictionary.md)
+* [Girişten tümce uzunluklarını belirleme](quickstart-csharp-sentences.md)

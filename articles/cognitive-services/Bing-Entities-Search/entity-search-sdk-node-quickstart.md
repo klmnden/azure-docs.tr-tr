@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f94e3b5a6070da5ef9510216abd3f52a958030c5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684129"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311390"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>Hızlı Başlangıç: Node ile Bing Varlık Arama SDK'sı
 
@@ -23,6 +23,7 @@ Bing Varlık Arama SDK'sı, varlık sorguları ve sonuçları ayrıştırmak iç
 
 [C# Bing Varlık Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) Git Hub'dan edinilebilir.
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
+**Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Bing varlık arama SDK'sını kullanarak bir konsol uygulaması ayarlamak için:
 * Çalıştırma `npm install ms-rest-azure` geliştirme ortamınızda.

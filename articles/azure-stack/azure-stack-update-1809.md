@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567919"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314686"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -84,7 +84,11 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 
 ### <a name="changes"></a>Değişiklikler
 
-Yok.
+<!-- 2635202 - IS, ASDK -->
+- Yedekleme hizmet altyapı taşır gelen [genel altyapı ağı](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) için [genel VIP ağları](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Müşterilerin hizmet yedekleme depolama konumu genel VIP ağdan erişim sahip olmak gerekir.  
+
+> [!IMPORTANT]  
+> Dosya sunucusuna genel VIP ağları bağlantılara izin vermeyen bir güvenlik duvarınız varsa, bu değişiklik altyapı yedeklemeleri "ağ yolu bulunamadı hatası ile 53" başarısız olmasına neden olur Geçici çözüm yoktur makul olan bir değişiklik budur. Microsoft, müşteri geri bildirimi doğrultusunda, bu değişikliği, bir düzeltme döner. Lütfen inceleyin [güncelleştirme adımlar bölümüne gönderin](#post-update-steps) 1809 kullanılabilir düzeltmeler hakkında daha fazla bilgi için. Düzeltme kullanılabilir olduğunda, yalnızca ağ ilkelerinizi altyapı aboneliklerinin kaynaklarına erişmek genel VIP ağları izin vermiyorsa için 1809 güncelleştirdikten sonra uygulanacak emin olun. 1811 içinde tüm sistemler için bu değişiklik geçerli olacaktır. İçinde 1809 düzeltme uygulandığında, gereken başka bir işlem yoktur.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Yaygın güvenlik açıklarına ve exposures'ı
 
@@ -169,7 +173,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 > Azure Stack dağıtımınıza, sonraki güncelleştirme paketi tarafından etkinleştirilen uzantısı konağı için hazırlanın. Aşağıdaki yönergeleri kullanarak sisteminizi hazırlama [hazırlamak için Azure Stack için uzantısı konağı](azure-stack-extension-host-prepare.md).
 
 Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
-- [KB 4471993 – Azure Stack düzeltme Azure Stack düzeltme 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack düzeltme Azure Stack düzeltme 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 
@@ -222,7 +226,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
    
   Çalıştırma [Test AzureStack](azure-stack-diagnostic-test.md) altyapı rol örneklerinin durumunu doğrulamak ve birim düğümlerini ölçeklendirme cmdlet'i. Hiçbir sorun tarafından algılanan [Test AzureStack](azure-stack-diagnostic-test.md), bu uyarılar yoksayabilirsiniz. Bir sorun algılandığında, altyapı rol örneği veya Yönetim Portalı veya PowerShell kullanarak bir düğümü başlatma girişiminde bulunabilir.
 
-  En son bu sorun düzeltilene [1809 düzeltme yayın](https://support.microsoft.com/help/4471993/), bu nedenle sorun yaşıyorsanız bu düzeltmenin yüklenebilmesi emin olun. 
+  En son bu sorun düzeltilene [1809 düzeltme yayın](https://support.microsoft.com/help/4477849/), bu nedenle sorun yaşıyorsanız bu düzeltmenin yüklenebilmesi emin olun. 
 
 <!-- 1264761 - IS ASDK -->  
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  

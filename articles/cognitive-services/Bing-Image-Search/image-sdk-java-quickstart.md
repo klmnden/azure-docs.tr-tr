@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: b6cecdb2418be78c40ff08c53f98f4c709a47728
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 81bd7356579b3e4f7b82497bb2163c85374fd0d9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974418"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316336"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Hızlı Başlangıç: Bing Resim Arama SDK’sı ve Java ile görüntü arama
 
@@ -24,6 +24,7 @@ Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren B
 Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart)’da bulunabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+**Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 [Java Geliştirme Seti](https://aka.ms/azure-jdks)’nin (JDK) en son sürümü
 

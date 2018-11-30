@@ -2,21 +2,21 @@
 title: Paralel iş yükü çalıştırma - Azure Batch .NET
 description: Öğretici - Batch .NET istemci kitaplığını kullanarak Azure Batch’te ffmpeg ile paralel medya dosyaları dönüştürme
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/07/2018
-ms.author: danlep
+ms.date: 11/20/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815520"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423618"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Öğretici: .NET API’si kullanarak Azure Batch ile paralel iş yükü çalıştırma
 
@@ -35,13 +35,13 @@ Bu öğreticide, [ffmpeg](http://ffmpeg.org/) açık kaynak aracını kullanarak
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs) veya Linux, macOS ya da Windows için [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
 
 * Bir Batch hesabı ve bağlı bir Azure Depolama hesabı. Bu hesapları oluşturmak için [Azure portalı](quick-create-portal.md) veya [Azure CLI](quick-create-cli.md) kullanan Batch hızlı başlangıçlarına bakın.
 
-* [ffmpeg 3.4’ün Windows 64 bit sürümü](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Zip dosyasını yerel bilgisayarınıza indirin. Bu öğreticide yalnızca zip dosyası gereklidir. Dosyanın sıkıştırmasını açmanız veya yerel olarak yüklemeniz gerekmez. 
+* [ffmpeg 3.4’ün Windows 64 bit sürümü](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Zip dosyasını yerel bilgisayarınıza indirin. Bu öğreticide yalnızca zip dosyası gereklidir. Dosyanın sıkıştırmasını açmanız veya yerel olarak yüklemeniz gerekmez.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Visual Studio `BatchDotNetFfmpegTutorial.sln` çözüm dosyasını içeren dizine gidin.
 
-Çözüm dosyasını Visual Studio'da açın ve `program.cs` içindeki kimlik bilgisi dizelerini hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örnek:
+Çözüm dosyasını Visual Studio'da açın ve `Program.cs` içindeki kimlik bilgisi dizelerini hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örneğin:
 
 ```csharp
 // Batch account credentials
@@ -104,7 +104,7 @@ Uygulamayı Visual Studio'da veya `dotnet build` ve `dotnet run` komutlarıyla k
 Ardından çalıştırın. Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` konumunda bir duraklama yaşarsınız. 
 
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/19/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -120,17 +120,15 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]...
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
-
 
 Havuz, işlem düğümleri, iş ve görevleri izlemek için Azure portalında Batch hesabınıza gidin. Örneğin, havuzunuzdaki işlem düğümlerinin ısı haritasını görmek için **Havuzlar** > *WinFFmpegPool* öğesine tıklayın.
 
 Görevler çalıştırılırken ısı haritası aşağıdakine benzer:
 
 ![Havuz ısı haritası](./media/tutorial-parallel-dotnet/pool.png)
-
 
 Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürütme süresi yaklaşık **10 dakikadır**. En uzun süreyi havuz oluşturma işlemi alır.
 
@@ -155,7 +153,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Uygulama, Batch hizmetinde havuz, iş ve görevleri oluşturup yönetmek üzere bir [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) nesnesi oluşturur. Örnekteki Batch istemcisi, paylaşılan anahtar kimlik doğrulaması kullanır. Batch ayrıca bireysel kullanıcıların ya da katılımsız bir uygulamanın kimlik doğrulamasını yapmak için [Azure Active Directory](batch-aad-auth.md) aracılığıyla kimlik doğrulamayı destekler.
+Uygulama, Batch hizmetinde havuz, iş ve görevleri oluşturup yönetmek üzere bir [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) nesnesi oluşturur. Örnekteki Batch istemcisi, paylaşılan anahtar kimlik doğrulaması kullanır. Batch ayrıca aracılığıyla kimlik doğrulamayı destekler [Azure Active Directory](batch-aad-auth.md) bireysel kullanıcıları veya katılımsız bir uygulamanın kimlik doğrulaması için.
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -178,7 +176,7 @@ Sonra, dosyalar yerel `InputFiles` klasöründen giriş kapsayıcısına yüklen
 Dosyalar karşıya yüklenirken `Program.cs` içindeki iki yöntem kullanılır:
 
 * `UploadResourceFilesToContainerAsync`: ResourceFile nesnelerinin bir koleksiyonunu döndürür ve `inputFilePaths`parametresine geçirilen her dosyayı karşıya yüklemek için `UploadResourceFileToContainerAsync` çağrısı yapar.
-* `UploadResourceFileToContainerAsync`: Her dosyayı blob olarak giriş kapsayıcısına yükler. Blob karşıya yükledikten sonra, dosya için paylaşılan erişim imzasını (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür. 
+* `UploadResourceFileToContainerAsync`: Her dosyayı blob olarak giriş kapsayıcısına yükler. Blob karşıya yükledikten sonra, dosya için paylaşılan erişim imzasını (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -198,9 +196,9 @@ Dosyaları .NET ile blob olarak bir depolama hesabına yükleme hakkında ayrın
 
 Ardından örnek, `CreatePoolIfNotExistAsync` çağrısıyla Batch hesabında bir işlem düğümü havuzu oluşturur. Bu tanımlı yöntem, düğüm sayısını, VM boyutunu ve havuz yapılandırmasını ayarlamak üzere [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) yöntemini kullanır. Burada [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) nesnesi, Azure Market’te yayımlanmış bir Windows Server görüntüsüne [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) belirtir. Batch, Azure Market’te çok çeşitli VM görüntülerinin yanı sıra özel VM görüntülerini destekler.
 
-Düğüm sayısı ve VM boyutu, tanımlı sabitler kullanılarak ayarlanır. Batch, adanmış düğümleri ve [düşük öncelikli düğümleri](batch-low-pri-vms.md) destekler ve havuzlarınızda bunlardan birini ya da her ikisini birden kullanabilirsiniz. Adanmış düğümler, havuzunuz için ayrılmıştır. Düşük öncelikli düğümler ise Azure’daki fazlalık VM kapasitesinden indirimli bir fiyat karşılığında sunulur. Azure’da yeterli kapasite yoksa düşük öncelikli düğümler kullanılamaz duruma gelir. Örnek, varsayılan olarak *Standard_A1_v2* boyutunda yalnızca 5 düşük öncelikli düğüm içeren bir havuz oluşturur. 
+Düğüm sayısı ve VM boyutu, tanımlı sabitler kullanılarak ayarlanır. Batch, adanmış düğümleri ve [düşük öncelikli düğümleri](batch-low-pri-vms.md) destekler ve havuzlarınızda bunlardan birini ya da her ikisini birden kullanabilirsiniz. Adanmış düğümler, havuzunuz için ayrılmıştır. Düşük öncelikli düğümler ise Azure’daki fazlalık VM kapasitesinden indirimli bir fiyat karşılığında sunulur. Azure’da yeterli kapasite yoksa düşük öncelikli düğümler kullanılamaz duruma gelir. Örnek, varsayılan olarak *Standard_A1_v2* boyutunda yalnızca 5 düşük öncelikli düğüm içeren bir havuz oluşturur.
 
-ffmpeg uygulaması, havuz yapılandırmasına bir [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) eklenerek işlem düğümlerine dağıtılır. 
+ffmpeg uygulaması, havuz yapılandırmasına bir [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) eklenerek işlem düğümlerine dağıtılır.
 
 [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) yöntemi, havuzu Batch hizmetine gönderir.
 
@@ -208,7 +206,7 @@ ffmpeg uygulaması, havuz yapılandırmasına bir [ApplicationPackageReference](
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -220,7 +218,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: DedicatedNodeCount,
     targetLowPriorityComputeNodes: LowPriorityNodeCount,
-    virtualMachineSize: PoolVMSize,                                                
+    virtualMachineSize: PoolVMSize,
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -234,7 +232,7 @@ await pool.CommitAsync();
 
 ### <a name="create-a-job"></a>Bir iş oluşturma
 
-Bir Batch işi, üzerinde görevlerin çalıştırılacağı bir havuz ve iş için öncelik ile zamanlama gibi isteğe bağlı ayarları belirtir. Örnek, `CreateJobAsync` çağrısıyla bir iş oluşturur. Bu tanımlı yöntem, havuzunuzda bir iş oluşturmak üzere [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) yöntemini kullanır. 
+Bir Batch işi, üzerinde görevlerin çalıştırılacağı bir havuz ve iş için öncelik ile zamanlama gibi isteğe bağlı ayarları belirtir. Örnek, `CreateJobAsync` çağrısıyla bir iş oluşturur. Bu tanımlı yöntem, havuzunuzda bir iş oluşturmak üzere [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) yöntemini kullanır.
 
 [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) yöntemi, işi Batch hizmetine gönderir. Başlangıçta iş hiçbir görev içermez.
 
@@ -252,7 +250,7 @@ await job.CommitAsync();
 
 Örnek, komut satırını çalıştırdıktan sonra MP3 dosyası için bir [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) nesnesi oluşturur. Her bir görevin çıkış dosyaları (bu örnekte bir tane), görevin [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) özelliği kullanılarak bağlı depolama hesabındaki bir kapsayıcıya yüklenir.
 
-Sonra örnek, [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) yöntemi ile görevleri işe ekler ve işlem düğümleri üzerinde çalışmak üzere kuyruğa alır. 
+Sonra örnek, [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) yöntemi ile görevleri işe ekler ve işlem düğümleri üzerinde çalışmak üzere kuyruğa alır.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -289,7 +287,7 @@ return tasks
 
 ### <a name="monitor-tasks"></a>Görevleri izleme
 
-Batch bir işe görevler eklediğinde, hizmet bu görevleri ilişkili havuzdaki işlem düğümleri üzerinde yürütülmek üzere otomatik olarak kuyruğa alır ve zamanlar. Belirttiğiniz ayarlara göre, Batch tüm kuyruğa alma, zamanlama, yeniden deneme görevlerini ve diğer görev yönetimi sorumluluklarını yerine getirir. 
+Batch bir işe görevler eklediğinde, hizmet bu görevleri ilişkili havuzdaki işlem düğümleri üzerinde yürütülmek üzere otomatik olarak kuyruğa alır ve zamanlar. Belirttiğiniz ayarlara göre, Batch tüm kuyruğa alma, zamanlama, yeniden deneme görevlerini ve diğer görev yönetimi sorumluluklarını yerine getirir.
 
 Görevin yürütülüşünün izlenmesi için birçok yaklaşım vardır. Bu örnek yalnızca tamamlandıktan sonra ve görevin başarısız ya da başarılı durumlarını bildirmek üzere bir `MonitorTasks` yöntemi tanımlar. `MonitorTasks` kodu, görevler hakkında yalnızca çok az bilgiyi verimli bir şekilde seçmek üzere bir [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) belirtir. Sonra, görev durumlarını izlemeye yönelik yardımcı programlar sağlayan bir [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) oluşturur. `MonitorTasks` içinde, örnek tüm görevlerin bir süre sınırı içerisinde `TaskState.Completed` düzeyine ulaşmasını bekler. Sonra işi sonlandırır ve tamamlanan tüm görevleri bildirir, ancak sıfır olmayan çıkış kodu gibi bir arıza ile karşılaşmış olabilir.
 
