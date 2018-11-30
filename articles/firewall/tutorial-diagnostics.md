@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987449"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426176"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Öğretici: Azure Güvenlik Duvarı günlüklerini ve ölçümlerini izleme
 
 Güvenlik duvarı günlüklerini kullanarak Azure Güvenlik Duvarı'nı izleyebilirsiniz. Ayrıca etkinlik günlüklerini kullanarak Azure Güvenlik Duvarı kaynaklarıyla ilgili işlemleri denetleyebilirsiniz. Ölçümleri kullanarak portalda performans sayaçlarını görüntüleyebilirsiniz. 
 
-Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Depolama ve Event Hubs'a gönderilebilir, Log Analytics'te veya Excel ve Power BI gibi farklı araçlarda analiz edilebilir.
+Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Depolama ve Event Hubs'a gönderilebilir, Log Analytics'te veya Excel ve Power BI gibi farklı araçlarda analiz edilebilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -29,7 +29,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Ağ ve uygulama kuralı günlüklerini görüntüleme ve analiz etme
 > * Ölçümleri görüntüle
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce, Azure Güvenlik Duvarında kullanılabilen tanılama günlüklerine ve ölçümlere genel bir bakış için [Azure Güvenlik Duvarı günlükleri ve ölçümleri](logs-and-metrics.md) yazısını okumanız gerekir.
 
@@ -94,7 +94,7 @@ Aşağıdaki yöntemlerden birini kullanarak etkinlik günlüğü verilerini gö
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ağ ve uygulama kuralı günlüklerini görüntüleme ve analiz etme
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), sayaç ve olay günlüğü dosyalarını toplar. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), sayaç ve olay günlüğü dosyalarını toplar. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
 
 Azure Güvenlik Duvarı Log Analytics örnek sorguları için bkz. [Azure Güvenlik Duvarı Log Analytics örnekleri](log-analytics-samples.md).
 
@@ -111,7 +111,7 @@ Bir Azure Güvenlik Duvarına gidin, **İzleme** bölümünde **Ölçümler**’
 Güvenlik duvarınızı günlükleri toplayacak şekilde yapılandırdığınıza göre artık Log Analytics'e göz atarak verilerinizi görüntüleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Log Analytics'teki ağ izleme çözümleri](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Log Analytics'teki ağ izleme çözümleri](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 16d3d0ddf77e37e32cc50961a3870b820ac2748e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 3a0d92e42eed097e244118a60ec0a4223c9cedf5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884250"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52440950"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Hızlı başlangıç: Python'da ilk Bing Görsel Arama sorgunuz
 
@@ -27,18 +27,26 @@ Aşağıda, yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST’un g
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
 
 Bu makale, bir Bing Görsel Arama API'si isteği gönderen ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulamasını içermektedir. Bu uygulama Python ile yazılmış olmakla birlikte API HTTP istekleri gönderebilen ve JSON ayrıştırabilen her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu çalıştırmak için [Python 3](https://www.python.org/) sürümü gerekir.
 
-Bu hızlı başlangıçta bir [ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya ücretli abonelik anahtarı kullanabilirsiniz.
+Bu hızlı başlangıçta bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure portalında bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure portalının üst metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 ## <a name="running-the-walkthrough"></a>Adımları çalıştırma
 

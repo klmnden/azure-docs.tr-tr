@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: d039654fc1d652a3997515a12caa48acaac124fe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429796"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425301"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Depolama Gezgini’ni Azure Dosya depolama ile kullanma
 
 Azure Dosya Depolama, standart Sunucu İleti Blogu (SMB) Protokolü kullanarak bulutta dosya paylaşımı sunan bir hizmettir. SMB 2.1 ve SMB 3.0 desteklenir. Azure File Storage, Azure’a dosya paylaşımı kullanan eski uygulamaları maliyetli yeniden yazdırmaya ihtiyaç duymadan ve hızla taşıyabilmenizi sağlar. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Dosya Depolama’yı kullanabilirsiniz. Bu makalede, dosya paylaşımları ve dosyalarla çalışmak üzere Depolama Gezgini’ni nasıl kullanacağınızı öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-- [Depolama Gezgini’ni indirip yükleme](http://www.storageexplorer.com/)
+- [Depolama Gezgini’ni indirip yükleme](https://www.storageexplorer.com/)
 
 - [Bir Azure depolama hesabı veya hizmetine bağlanma](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -259,6 +259,6 @@ Aşağıdaki adımlar bir dosya paylaşımındaki dosyaları (ve klasörleri) y�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [En son Depolama Gezgini yayın notlarını ve videolarını](http://www.storageexplorer.com/) görüntüleyin.
+- [En son Depolama Gezgini yayın notlarını ve videolarını](https://www.storageexplorer.com/) görüntüleyin.
 
 - [Azure bloblarını, tablolarını, kuyruklarını ve dosyalarını kullanarak uygulama oluşturma](https://azure.microsoft.com/documentation/services/storage/) hakkında bilgi edinin.

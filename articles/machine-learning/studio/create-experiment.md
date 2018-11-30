@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 8f4740a559e73620500c4ab04ea6e9e25405b8a3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263579"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425719"
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Makine öğrenimi öğreticisi: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
@@ -43,9 +43,7 @@ Bu öğreticide, Studio’yu bir makine öğrenimi denemesi oluşturmak için il
 - [Makine öğrenimi algoritması bilgi sayfası](algorithm-cheat-sheet.md) ve [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md) - Bu indirilebilir poster ve tamamlayıcı makale Studio algoritmaları hakkında ayrıntılı bilgiler içerir.
 - [Machine Learning Studio: Algoritma ve Modül Yardımı](https://msdn.microsoft.com/library/azure/dn905974.aspx) - Bu makine öğrenimi de dahil tüm Studio modülleri için tam başvurudur.
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="how-does-machine-learning-studio-help"></a>Machine Learning Studio yardımı nasıl çalışır?
 

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685982"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444469"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Hızlı Başlangıç: Node Bing Görsel Arama SDK'sı 
 
@@ -28,7 +28,15 @@ Kod senaryoları aşağıdaki başlıklar altında belgelenmiştir:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* SDK çağrılarının kimliğini doğrulamak için bir Bilişsel Hizmetler API anahtarı gerekir. [Ücretsiz deneme anahtarına](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7) kaydolun. Deneme anahtarı yedi gün boyunca saniyede bir çağrı için kullanılabilir. Üretim senaryoları için [bir erişim anahtarı satın alın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz: [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Bu hızlı başlangıçta bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure portalında bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure portalının üst metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 

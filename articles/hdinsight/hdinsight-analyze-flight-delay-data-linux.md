@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: ac56475f39f820c2d2af961a1813859ec42b0a46
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: fa84d5a09eab56dc01a6e841323ca11d12886582
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038460"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495504"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 
-Bu öğreticide bir ham CSV veri dosyası alacak, HDInsight kümesi deposuna aktaracak ve sonra Azure HDInsight üzerinde Apache Hive kullanarak verileri dönüştüreceksiniz. Veriler dönüştürüldükten sonra Apache Sqoop kullanarak bu verileri bir Azure SQL veritabanına yükleyeceksiniz. Bu makalede, genel kullanıma açık uçuş verileri kullanacaksınız.
+Bu öğreticide, bir ham CSV verileri dosyası olması, bir HDInsight küme depolama alanına alma ve ardından kullanarak verileri dönüştürme [Apache Hive](https://hive.apache.org/) Azure HDInsight üzerinde. Veri dönüştürüldükten sonra bu verileri kullanarak bir Azure SQL veritabanı yük [Apache Sqoop](http://sqoop.apache.org/). Bu makalede, genel kullanıma açık uçuş verileri kullanacaksınız.
 
 > [!IMPORTANT]
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, Azure HDInsight sürüm 3.4 veya üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -41,13 +41,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **HDInsight üzerinde Linux tabanlı Hadoop kümesi**. Yeni bir Linux tabanlı HDInsight kümesi oluşturma adımları için bkz. [HDInsight’ta Hadoop kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **HDInsight üzerinde Linux tabanlı Hadoop kümesi**. Bkz: [HDInsight Apache Hadoop kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md) yeni Linux tabanlı HDInsight kümesi oluşturma adımları için.
 
 * **Azure SQL Veritabanı**. Azure SQL veritabanını bir hedef veri deposu olarak kullanacaksınız. SQL veritabanınız yoksa bkz. [Azure portalında Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**. Azure CLI yüklemediyseniz, daha fazla adım için [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) konusuna bakın.
 
-* **Bir SSH istemcisi**. Daha fazla bilgi için bkz. [SSH kullanarak HDInsight'a (Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Bir SSH istemcisi**. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 
@@ -102,7 +102,7 @@ Bir HDInsight kümesiyle ilişkili depolama birimine veri yüklemenin birçok yo
 
 ## <a name="transform-data-using-a-hive-query"></a>Hive sorgusu kullanarak veri dönüştürme
 
-Bir HDInsight kümesi üzerinde Hive işi çalıştırmanın çok sayıda yolu vardır. Bu bölümde, bir Hive işi çalıştırmak için Beeline kullanacaksınız. Bir Hive işi çalıştırmanın diğer yöntemleri hakkında bilgi için bkz. [HDInsight üzerinde Hive kullanma](./hadoop/hdinsight-use-hive.md).
+Bir HDInsight kümesi üzerinde Hive işi çalıştırmanın çok sayıda yolu vardır. Bu bölümde, kullandığınız [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell) bir Hive işi çalıştırmak için. Bir Hive işi çalıştırma için diğer yöntemler hakkında bilgi [Apache Hive kullanma HDInsight üzerinde](./hadoop/hdinsight-use-hive.md).
 
 Hive işinin bir parçası olarak, verileri .csv dosyasından **Delays** adlı bir Hive tablosuna aktarın.
 
@@ -269,7 +269,7 @@ Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. [Azure por
 
 5. Tsql yardımcı programından çıkış yapmak için `1>` istemine `exit` girin.
 
-## <a name="export-data-to-sql-database-using-sqoop"></a>Sqoop kullanarak verileri SQL veritabanına aktarma
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Apache Sqoop kullanarak SQL veritabanına veri dışarı aktarma
 
 Önceki bölümlerde, `/tutorials/flightdelays/output` konumunda dönüştürülen verileri kopyaladınız. Bu bölümde, verileri '/tutorials/flightdelays/output` dizininden Azure SQL veritabanında oluşturduğunuz tabloya aktarmak için Sqoop kullanacaksınız. 
 
@@ -311,17 +311,17 @@ Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. [Azure por
 Bu öğreticide, HDInsight üzerinde bir Apache Hadoop kümesi kullanarak veri ayıklama, dönüştürme ve yükleme işlemlerinin nasıl gerçekleştirildiğini öğrendiniz. Azure Data Factory kullanarak isteğe bağlı HDInsight Hadoop kümeleri oluşturmayı öğrenmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
->[Azure Data Factory kullanarak HDInsight’ta isteğe bağlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-adf.md)
+>[İsteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-adf.md)
 
 HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşağıdaki makalelere bakın:
 
 * [Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
-* [HDInsight ile Hive kullanma][hdinsight-use-hive]
-* [HDInsight ile Pig kullanma][hdinsight-use-pig]
-* [HDInsight'ta Hadoop için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
+* [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
+* [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
+* [HDInsight üzerinde Apache Hadoop için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
 * [HDInsight için Python akışı MapReduce programları geliştirme][hdinsight-develop-streaming]
-* [HDInsight ile Oozie kullanma][hdinsight-use-oozie]
-* [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop]
+* [HDInsight ile Apache Oozie kullanma][hdinsight-use-oozie]
+* [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop]
 
 
 

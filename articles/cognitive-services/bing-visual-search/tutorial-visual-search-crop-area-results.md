@@ -9,26 +9,34 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 27141c014c9ccdf9d62c9bde5c96bd31abfc025e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226919"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447104"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Öğretici: Bing Görsel Arama SDK’sı görüntü kırpma alanı ve sonuçları
 Görsel Arama SDK’sı, görüntünün alanını seçip daha büyük görüntünün kırpma alanına benzer görüntüleri çevrimiçi bulma seçeneği içerir.  Bu örnek, birkaç kişinin bulunduğu bir görüntüden bir kişiyi gösteren kırpma alanını belirtir.  Kod, kırpma alanını ve büyük görüntünün URL’sini gönderir ve Bing Arama URL’leri ile çevrimiçi bulunan benzer görüntülerin URL’lerini içeren sonuçları döndürür.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodun Windows üzerinde çalıştırılması için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
-Bing Arama API'lerine sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
+Bu öğreticide, bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure Portalı'nda bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure Portal'ın üstünde metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Bing Web Araması SDK'sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini'nde NuGet Paketlerini Yönet seçeneğine gidin. Microsoft.Azure.CognitiveServices.Search.VisualSearch paketini ekleyin.
+Bing Web Araması SDK’sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini’nde NuGet Paketlerini Yönet seçeneğine gidin. Microsoft.Azure.CognitiveServices.Search.VisualSearch paketini ekleyin.
 
-NuGet Web Araması SDK'sı paketini yüklemek aşağıdakilerin dahil olduğu bağımlılıkları da yükler:
+NuGet Web Araması SDK’sı paketini yüklemek aşağıdakilerin dahil olduğu bağımlılıkları da yükler:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -58,7 +66,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 ```
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>ImageModuleAction öğesinden URL verilerini alma
-Görsel Arama sonuçları `ImageTag` nesneleridir.  Her etiket bir `ImageAction` nesneleri listesi içerir.  Her `ImageAction`, eylem türüne bağımlı olan değerlerin bir listesi olan `Data` alanını içerir:
+Görsel Arama sonuçları `ImageTag` nesneleridir.  Her etiket bir `ImageAction` nesneleri listesi içerir.  Her `ImageAction`, eylem türüne bağlı değerlerin bir listesi olan `Data` alanını içerir:
 
 Aşağıdaki kod ile çeşitli türleri alabilirsiniz:
 ```

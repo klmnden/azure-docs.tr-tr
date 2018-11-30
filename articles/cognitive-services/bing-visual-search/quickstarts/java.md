@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416452"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445183"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Hızlı Başlangıç: Java’da ilk Bing Görsel Arama sorgunuz
 
@@ -35,11 +35,18 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Bu makale, bir Bing Görsel Arama API’si isteği gönderen ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulamasını içermektedir. Bu uygulama Java ile yazılmış olmakla birlikte API, HTTP istekleri gönderebilen ve JSON ayrıştırabilen her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
+Bu hızlı başlangıçta bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure portalında bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure portalının üst metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
-
-Bu hızlı başlangıçta bir [ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya ücretli abonelik anahtarı kullanabilirsiniz.
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 

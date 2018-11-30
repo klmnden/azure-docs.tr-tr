@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/09/2018
+ms.date: 11/27/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8de810e689a00f081df82365eca00131453a6db5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514375"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447123"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack için uzantısı konağı için hazırlama
 
@@ -121,8 +121,6 @@ Sonraki adımlar için Azure Stack ayrıcalıklı uç noktasına bağlanabilir b
     }
     ```
 
-
-
 ### <a name="update-dns-configuration"></a>DNS yapılandırmasını güncelleştirme
 
 > [!Note]  
@@ -131,8 +129,8 @@ Azure Stack uç noktalarını yayımlama için ayrı ayrı konak A kaydı yapıl
 
 | IP | Ana Bilgisayar Adı | Tür |
 |----|------------------------------|------|
-| \<IP &GT; | Adminhosting. <Region>.<FQDN> | A |
-| \<IP &GT; | Barındırma. <Region>.<FQDN> | A |
+| \<IP &GT; | *. Adminhosting. \<Bölge >. \<FQDN > | A |
+| \<IP &GT; | *. Barındırma. \<Bölge >. \<FQDN > | A |
 
 Ayrılmış IP'leri kullanan ayrıcalıklı uç noktasını cmdlet çalıştırılarak alınabilir **Get-AzureStackStampInformation**.
 

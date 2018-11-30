@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888348"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443466"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Öğretici: Bing Görsel Arama karşıya yükleme işlemini bölümlerine ayırma
 
@@ -23,6 +23,15 @@ Bu öğreticide resmi Bing'e yükleme ve içgörüleri geri alma işlemi bölüm
 
 Bu öğretici Bing Görsel Arama yanıtının içeriğini incelemek isteyen geliştiricilere yöneliktir. Tüm kullanım ve görüntüleme gereksinimlerini içermez (örneğin, Microsoft'un gizlilik ilkesinin bağlantısını sağlamaz). Tüm kullanım gereksinimleri için bkz. [Bing Kullanım ve Görüntüleme Gereksinimleri](./use-and-display-requirements.md).
 
+Bu öğreticide, bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure Portalı'nda bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure Portal'ın üstünde metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 ## <a name="where-to-start"></a>Nereden başlamalı?
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623110"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427464"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Öğretici: Azure AD Graph API'ye erişmek için Linux VM sistem tarafından atanan yönetilen kimliği kullanma
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Bu öğreticide, grup üyeliklerini almak için Azure AD Graph API’ye erişmek amacıyla, Linux sanal makinesi (VM) için sistem tarafından atanmış bir yönetilen kimliği nasıl kullanacağınız gösterilmektedir. Azure kaynaklarına yönelik yönetilen kimlikler Azure tarafından otomatik olarak yönetilir ve kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır.  
 
@@ -135,7 +135,7 @@ Bu adımları tamamlamak için bir SSH istemciniz olmalıdır. Windows kullanıy
 
 1. Portalda Linux VM’nize gidin ve **Genel Bakış**’ta **Bağlan**’a tıklayın.  
 2. Tercih ettiğiniz SSH istemcisiyle VM’ye bağlanmak için **Bağlan**’ı seçin. 
-3. Terminal penceresinde, Azure AD Graph erişim belirtecini almak için CURL'yi kullanarak Azure kaynaklarının yerel yönetilen kimliklerine bir istek gönderin.  
+3. Terminal penceresinde CURL, kullanarak Azure AD Graph için bir erişim belirteci almak Azure kaynaklarını uç noktası için yönetilen yerel kimlikler için bir istek olun.  
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://graph.windows.net' -H Metadata:true
@@ -155,7 +155,7 @@ Bu adımları tamamlamak için bir SSH istemciniz olmalıdır. Windows kullanıy
    }
    ```
 
-4. Sanal makinenizin hizmet sorumlusuna ait nesne kimliğini (önceki adımlarda aldığınız değer) kullanarak, grup üyeliklerini almak üzere Azure AD Graph API’yi sorgulayabilirsiniz. `<OBJECT-ID>` değerini sanal makinenizin hizmet sorumlusuna ait Nesne Kimliği ile, `<ACCESS-TOKEN>` değerini ise daha önce alınan erişim belirteci ile değiştirin:
+4. Sanal makinenizin hizmet sorumlusuna ait nesne kimliğini (önceki adımlarda aldığınız değer) kullanarak, grup üyeliklerini almak üzere Azure AD Graph API’yi sorgulayabilirsiniz. Değiştirin `<OBJECT-ID>` VM'NİZİN hizmet sorumlusu nesne kimliği ve `<ACCESS-TOKEN>` daha önce alınan erişim belirteci ile:
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"

@@ -10,20 +10,30 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 62780500d29c891182d3869bf0ba3ccdc5e2f715
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386443"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441070"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Öğretici: Bing Görsel Arama SDK’sı ImageInsightsToken ve sonuçlar
 Görsel Arama SDK’sı, `ImageInsightsToken` döndüren önceki bir aramadan çevrimiçi görüntüleri bulma seçeneğini içerir.  Bu örnek, bir `ImageInsightsToken` alır ve sonraki bir aramada belirteci kullanır.  Kod, Bing’e `ImageInsightsToken` gönderir ve Bing Arama URL’lerini ve çevrimiçi bulunan benzer görüntülerin URL’lerini içeren sonuçları döndürür.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Visual Studio 2017. Gerekirse ücretsiz topluluk sürümünü şuradan indirebilirsiniz: https://www.visualstudio.com/vs/community/.
 SDK çağrılarının kimliğini doğrulamak için bir bilişsel hizmetler API anahtarı gerekir. Ücretsiz deneme anahtarına kaydolun. Deneme anahtarı yedi gün boyunca saniyede bir çağrı için kullanılabilir. Üretim senaryoları için bir erişim anahtarı satın alın. Ayrıca fiyatlandırma bilgilerine de bakın.
 .NET Core SDK'sını, .NET Core 1.1 uygulamalarını çalıştırma olanağı. CORE, Framework ve Çalışma Zamanı sürümlerini şuradan alabilirsiniz: https://www.microsoft.com/net/download/.
+
+Bu öğreticide, bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure Portalı'nda bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure Portal'ın üstünde metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 Bing Web Araması SDK’sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini’nde NuGet Paketlerini Yönet seçeneğine gidin. Ekle:

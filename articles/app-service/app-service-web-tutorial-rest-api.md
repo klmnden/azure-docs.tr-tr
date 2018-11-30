@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b468240d1a9aaf0511358433a8beee7e6442e145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445030"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445439"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Öğretici: Azure App Service’te CORS ile RESTful API barındırma
 
@@ -37,7 +37,7 @@ Bu öğreticideki adımları MacOS, Linux ve Windows üzerinde izleyebilirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -175,6 +175,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 ```
 
 `properties.cors.allowedOrigins` içinde birden çok istemci URL'si belirtebilirsiniz (`"['URL1','URL2',...]"`). Ayrıca `"['*']"` ile tüm istemci URL'lerini etkinleştirebilirsiniz.
+
+> [!NOTE]
+> Uygulamanızı tanımlama veya kimlik doğrulama belirteçlerinizi gönderilecek gibi kimlik bilgileri gerektiriyorsa, tarayıcı gerektirebilir `ACCESS-CONTROL-ALLOW-CREDENTIALS` yanıtı üstbilgisi. App Service'te etkinleştirmek için ayarlamak `properties.cors.supportCredentials` için `true` , CORS yapılandırmasını. Bu olamaz etkin `allowedOrigins` içerir `'*'`.
 
 ### <a name="test-cors-again"></a>CORS'yi yeniden test etme
 

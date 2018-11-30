@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282280"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424715"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Öğretici 5: Bağlamsal olarak ilişkili verileri ayıklama
 Bu öğreticide bağlama göre ilgili veri parçalarını bulacaksınız. Örneğin, bir bina ya da ofisten başka bir bina ya da ofise fiziksel olarak taşınmada çıkış ve varış konumları. Bir çalışma sırası oluşturmak için her iki veri parçasının da mevcut ve birbirleriyle ilişkili olması gerekir.  
@@ -57,7 +57,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Uygulamadaki önceden oluşturulmuş sayı varlığını kaldırma
 Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için önceden oluşturulmuş sayı varlığını geçici olarak kaldırın.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
 
@@ -83,7 +83,7 @@ Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için 
 
     [Liste varlığı](luis-quickstart-intent-and-list-entity.md) öğreticisinde bir çalışan ad, e-posta adresi, dahili telefon, cep telefonu numarası veya ABD federal sosyal güvenlik numarası ile tanımlanmaktadır. Bu çalışan numaraları konuşmalarda kullanılmaktadır. Yukarıdaki örnek konuşmalarda kaynak ve hedef konumlar kalın yazı tipiyle gösterilen farklı biçimlere sahiptir. Yalnızca birkaç konuşmada bilinçli olarak hedefler belirtilmiştir. Bu durum, LUIS uygulamasının kaynak belirtilmediğinde bu konumların konuşmadaki yerini anlamasına yardımcı olmaktadır.     
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Konum varlığı oluşturma
 LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek konumun ne olduğunu anlaması gerekir. Konuşmayı belirteç (ham) görünümünde görmek isterseniz konuşmaların üzerinde çubukta yer alan **Entities View** (Varlık Görünümü) denetimini seçin. Anahtarı açık duruma getirdikten sonra denetim **Tokens View** (Belirteç Görünümü) olarak etiketlenir.

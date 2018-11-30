@@ -3,23 +3,33 @@ title: 'Öğretici: Tek sayfalı Web uygulaması geliştirme - Bing Görsel Aram
 titleSuffix: Azure Cognitive Services
 description: Bing Görsel Arama API'sinin tek sayfalı bir Web uygulamasında kullanılmasını gösterir.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: bking
-ms.openlocfilehash: a63107b86e82bf0bcd89523588414b45e6e21d5a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465206"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443912"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Öğretici: Tek sayfalı Web uygulamasında Görsel Arama
 
 Bing Görsel Arama API'si, Bing.com/images sayfasında gösterilen resim ayrıntılarına benzer bir deneyim sağlar. Görsel Arama ile bir görüntü belirtebilir ve görüntü hakkında görsel olarak benzer görüntüler, alışveriş kaynakları ve görüntüyü içeren web sayfaları gibi içgörüler alabilirsiniz. 
+
+Bu öğreticide, bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure portalında bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure portalının üst metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 Bu öğretici Bing Görüntü Arama öğreticisindeki tek sayfalı web uygulamasını (bkz. [Tek sayfalı Web uygulaması](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)) genişletir. Bu öğreticinin kaynak kodunun ilk halinin tamamı için bkz: [Tek sayfalı Web uygulaması (kaynak kodu)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Bu öğreticinin kaynak kodunun son hali için bkz: [Görsel Arama Tek sayfalı Web uygulaması](tutorial-bing-visual-search-single-page-app-source.md).
 

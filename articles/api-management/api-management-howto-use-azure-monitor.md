@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418857"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443126"
 ---
 # <a name="monitor-published-apis"></a>Yayımlanan API’leri izleme
 
@@ -37,11 +37,13 @@ Aşağıdaki videoda, Azure İzleyici'yi kullanarak API Management’ı izleme i
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 + [Azure API Management terminolojisini](api-management-terminology.md) öğrenin.
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 + Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="view-metrics-of-your-apis"></a>API'lerinizin ölçümlerini görüntüleme
 
@@ -175,42 +177,42 @@ API Management şu anda her bir girdi aşağıdaki şemayı içerecek şekilde t
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boole | HTTP isteği, 2xx veya 3xx aralığı içinde yanıt durum koduyla tamamlandıysa true olur |
 | time | date-time | Ağ geçidi tarafından HTTP isteğini almaya ilişkin zaman damgası |
-| operationName | string | 'Microsoft.ApiManagement/GatewayLogs' sabit değeri |
-| category | string | 'GatewayLogs' sabit değeri |
+| operationName | dize | 'Microsoft.ApiManagement/GatewayLogs' sabit değeri |
+| category | dize | 'GatewayLogs' sabit değeri |
 | durationMs | integer | Ağ geçidinin isteği aldığı andan, yanıtın tamamen gönderildiği ana kadar geçen milisaniye cinsinden süre |
-| callerIpAddress | string | İlk Ağ Geçidi çağıranın (bir aracı olabilir) IP adresi |
-| correlationId | string | API Management tarafından atanmış benzersiz http isteği tanımlayıcısı |
-| location | string | İsteği işleyen Ağ Geçidinin bulunduğu Azure bölgesinin adı |
-| httpStatusCodeCategory | string | Http yanıtı durum kodunun kategorisi: Başarılı (301 veya daha küçük ya da 304 ya da 307), Yetkisiz (401, 403, 429), Hatalı (400, 500 ve 600 arası), Diğer |
-| resourceId | string | "API Management kaynağının kimliği /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| callerIpAddress | dize | İlk Ağ Geçidi çağıranın (bir aracı olabilir) IP adresi |
+| correlationId | dize | API Management tarafından atanmış benzersiz http isteği tanımlayıcısı |
+| location | dize | İsteği işleyen Ağ Geçidinin bulunduğu Azure bölgesinin adı |
+| httpStatusCodeCategory | dize | Http yanıtı durum kodunun kategorisi: Başarılı (301 veya daha küçük ya da 304 ya da 307), Yetkisiz (401, 403, 429), Hatalı (400, 500 ve 600 arası), Diğer |
+| resourceId | dize | "API Management kaynağının kimliği /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | properties | object | Geçerli isteğin özellikleri |
-| method | string | Gelen isteğin HTTP yöntemi |
-| url | string | Gelen isteğin URL’si |
-| clientProtocol | string | Gelen isteğin HTTP protokolü sürümü |
+| method | dize | Gelen isteğin HTTP yöntemi |
+| url | dize | Gelen isteğin URL’si |
+| clientProtocol | dize | Gelen isteğin HTTP protokolü sürümü |
 | responseCode | integer | Bir istemciye gönderilen HTTP yanıtının durum kodu |
-| backendMethod | string | Arka uca gönderilen isteğin HTTP yöntemi |
-| backendUrl | string | Arka uca gönderilen isteğin URL’si |
+| backendMethod | dize | Arka uca gönderilen isteğin HTTP yöntemi |
+| backendUrl | dize | Arka uca gönderilen isteğin URL’si |
 | backendResponseCode | integer | Arka uçtan alınan HTTP yanıtının kodu |
-| backendProtocol | string | Arka uca gönderilen isteğin HTTP protokolü sürümü | 
+| backendProtocol | dize | Arka uca gönderilen isteğin HTTP protokolü sürümü | 
 | requestSize | integer | İstek işlenirken bir istemciden alınan bayt sayısı | 
 | responseSize | integer | İstek işlenirken bir istemciye gönderilen bayt sayısı | 
-| cache | string | API Management önbelleğinin istek işlemeye katılım durumu (örn. hit, miss, none) | 
+| cache | dize | API Management önbelleğinin istek işlemeye katılım durumu (örn. hit, miss, none) | 
 | cacheTime | integer | Genel API Management önbelleği GÇ (bağlanma, gönderme ve alma bayt’ları) için harcanan milisaniye sayısı | 
 | backendTime | integer | Genel arka uç GÇ (bağlanma, gönderme ve alma bayt’ları) için harcanan milisaniye sayısı | 
 | clientTime | integer | Genel istemci G/Ç (bağlanma, gönderme ve alma bayt’ları) için harcanan milisaniye sayısı | 
-| apiId | string | Geçerli istek için API varlığı tanımlayıcısı | 
-| operationId | string | Geçerli istek için işlem varlığı tanımlayıcısı | 
-| productId | string | Geçerli istek için ürün varlığı tanımlayıcısı | 
-| userId | string | Geçerli istek için kullanıcı varlığı tanımlayıcısı | 
-| apimSubscriptionId | string | Geçerli istek için abonelik varlığı tanımlayıcısı | 
-| backendId | string | Geçerli istek için arka uç varlığı tanımlayıcısı | 
+| apiId | dize | Geçerli istek için API varlığı tanımlayıcısı | 
+| operationId | dize | Geçerli istek için işlem varlığı tanımlayıcısı | 
+| productId | dize | Geçerli istek için ürün varlığı tanımlayıcısı | 
+| userId | dize | Geçerli istek için kullanıcı varlığı tanımlayıcısı | 
+| apimSubscriptionId | dize | Geçerli istek için abonelik varlığı tanımlayıcısı | 
+| backendId | dize | Geçerli istek için arka uç varlığı tanımlayıcısı | 
 | LastError | object | Son istek işleme hatası | 
 | elapsed | integer | Ağ Geçidinin isteği aldığı andan, hatanın oluştuğu ana kadar geçen milisaniye cinsinden süre | 
-| source | string | İlke veya işleme iç işleyicisinin adı hataya neden oldu | 
-| scope | string | Hataya neden olan ilkeyi içeren ilke belgesinin kapsamı | 
-| section | string | Hataya neden olan ilkeyi içeren ilke belgesinin bölümü | 
-| reason | string | Hata nedeni | 
-| message | string | Hata iletisi | 
+| source | dize | İlke veya işleme iç işleyicisinin adı hataya neden oldu | 
+| scope | dize | Hataya neden olan ilkeyi içeren ilke belgesinin kapsamı | 
+| section | dize | Hataya neden olan ilkeyi içeren ilke belgesinin bölümü | 
+| reason | dize | Hata nedeni | 
+| message | dize | Hata iletisi | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

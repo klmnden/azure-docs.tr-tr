@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: e970f7cc0d4c4620f2da69286be36d0c22e0d747
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 77a2b8d2b5d3ac42dcbbe2db2b05d38657290073
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260372"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443798"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Öğretici: Azure Data Box Edge ile veri dönüştürme (Önizleme)
 
@@ -33,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!IMPORTANT]
 > Data Box Edge, önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
  
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Data Box Edge'deki işlem rolünü ayarlamadan önce şunları yaptığınızdan emin olun:
 
@@ -163,7 +163,7 @@ Bu yordamda kullanılan örnekte özel modül Edge cihazındaki yerel paylaşım
  
 6.  **Rota belirtme** bölümünde modüller arasındaki rotayı ayarlayın. Bu durumda bulut paylaşımına veri gönderecek olan yerel paylaşımın adını girin. **İleri**’ye tıklayın.
 
-    Yolu aşağıdaki yol dizesiyle değiştirebilirsiniz:       "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
+    Yol aşağıdaki yol dizesi ile değiştirebilirsiniz:       `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
 
     ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  

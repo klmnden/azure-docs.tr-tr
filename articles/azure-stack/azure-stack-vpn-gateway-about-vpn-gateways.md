@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300158"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496210"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack için VPN gateway hakkında
 
@@ -117,6 +117,10 @@ Aşağıdaki tabloda ağ geçidi türleri ve ağ geçidi SKU’suna göre tahmin
 *Not (1)* -VPN aktarım hızını Internet üzerinden şirketler arası bağlantılar için garantili bir verimlilik değildir. Mümkün olan en yüksek verimlilik ölçümüdür.  
 *Not (2)* -en fazla tünel olan tüm abonelikler için Azure Stack dağıtım başına toplam.  
 *Not (3)* -BGP yönlendirme temel SKU için desteklenmiyor.
+
+>[!NOTE]
+>Yalnızca bir siteden siteye VPN bağlantısı arasında iki Azure Stack dağıtımı oluşturulabilir.  Yalnızca tek bir VPN bağlantısı aynı IP adresine izin veren bir platformda bir sınırlama nedeniyle budur.  Azure Stack tek bir genel IP için tüm VPN ağ geçitleri Azure Stack sisteminde kullanan çok kiracılı ağ geçidi yararlanır olduğundan, iki Azure Stack sistemleri arasında yalnızca bir VPN bağlantısı olabilir.  Bu sınırlama, tek bir IP adresi kullanan bir VPN Gateway siteden siteye VPN bağlantıları bağlanma birden fazla de geçerlidir.  Azure Stack birden fazla yerel ağ geçidi kaynak aynı IP adresini kullanarak oluşturulmasına izin vermez.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

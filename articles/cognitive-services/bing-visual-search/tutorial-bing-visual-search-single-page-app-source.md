@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 26fb74dc122682e915c0f9a517bdee58d6c974db
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 4e08044fbfa36663da2da9ed18adf3249cb59930
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291207"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444151"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Öğretici: Tek sayfalı Web uygulamasında Görsel Arama
 
 Bing Görsel Arama için [Tek sayfalı Web uygulamasında Görsel Arama](tutorial-bing-visual-search-single-page-app.md) öğreticisinde tartışılan kaynak kodunun tamamı. Uygulamayı çalıştırmak için kaynak kodu Not Defteri'ne veya başka bir metin düzenleyiciye kopyalayın ve `bing-visual-search.html` olarak kaydedin. Daha sonra kaydedilen dosyayı Microsoft Edge'de veya yaygın olarak kullanılan başka bir tarayıcıda açın.
+## <a name="prerequisites"></a>Önkoşullar
+Bu hızlı başlangıçta bir abonelik S9 fiyat katmanı gösterildiği gibi başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure portalında bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure portalının üst metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 ```html
 <!DOCTYPE html>

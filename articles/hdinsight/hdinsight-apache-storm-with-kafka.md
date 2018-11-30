@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036351"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496620"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: HDInsight üzerinde Apache Kafka ile Apache Storm kullanma
 
-Bu öğreticide, HDInsight üzerinde Apache Kafka ile veri okumak ve yazmak için Apache Storm topolojisinin nasıl kullanılacağı gösterilir. Bu öğreticide, Storm kümesindeki HDFS uyumlu depolamada verileri kalıcı hale getirme işlemi de gösterilir.
+Bu öğreticide nasıl kullanılacağını gösterir. bir [Apache Storm](https://storm.apache.org/) ile veri okuma ve yazma için topoloji [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde. Bu öğretici Ayrıca verileri kalıcı hale getirmek nasıl gösterir [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) Storm kümesinde uyumlu depolama.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -33,11 +33,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Topolojileri durdurma
 > * Kaynakları temizleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Kafka konuları oluşturmayı bilme. Daha fazla bilgi için [HDInsight üzerinde Kafka hızlı başlangıcı](./kafka/apache-kafka-get-started.md) belgesine bakın.
 
-* Storm çözümleri (topolojileri) oluşturmayı ve dağıtmayı bilme. Özel olarak Flux çerçevesini kullanan topolojileri bilmelisiniz. Daha fazla bilgi için [Java'da Storm topolojisi oluşturma](./storm/apache-storm-develop-java-topology.md) belgesine bakın.
+* Storm çözümleri (topolojileri) oluşturmayı ve dağıtmayı bilme. Özellikle, kullandığınız topolojileri [Flux](https://storm.apache.org/releases/current/flux.html) framework. Daha fazla bilgi için [Java'da Storm topolojisi oluşturma](./storm/apache-storm-develop-java-topology.md) belgesine bakın.
 
 * [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) veya üstü. HDInsight 3.5 veya üstü için Java 8 gerekir.
 
@@ -63,7 +63,7 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
 
 ## <a name="storm-and-kafka"></a>Storm ve Kafka
 
-Apache Storm, Kafka ile çalışmak için çeşitli bileşenler sağlar. Bu öğreticide aşağıdaki bileşenler kullanılır:
+Apache Storm, Apache Kafka ile çalışmak için çeşitli bileşenleri sağlar. Bu öğreticide aşağıdaki bileşenler kullanılır:
 
 * `org.apache.storm.kafka.KafkaSpout`: Bu bileşen Kafka'dan verileri okur. Bu bileşen, aşağıdaki bileşenlere dayanır:
 
@@ -82,7 +82,7 @@ Apache Storm, Kafka ile çalışmak için çeşitli bileşenler sağlar. Bu öğ
 Bu bileşenler `org.apache.storm : storm-kafka` paketinde sağlanır. Storm sürümüyle eşleşen paket sürümünü kullanın. HDInsight 3.6 için, Storm sürümü 1.1.0'dır.
 Ayrıca, ek Kafka bileşenlerini içeren `org.apache.kafka : kafka_2.10` paketi de gereklidir. Kafka sürümüyle eşleşen paket sürümünü kullanın. HDInsight 3.6 için, Kafka sürümü 0.10.0.0'dır.
 
-Aşağıdaki XML, Maven projesi için `pom.xml` içindeki bağımlılık bildirimidir:
+Aşağıdaki XML bağımlılık bildirimidir `pom.xml` için bir [Apache Maven](https://maven.apache.org/) proje:
 
 ```xml
 <!-- Storm components for talking to Kafka -->
@@ -369,7 +369,7 @@ Proje, topolojilerin kullandığı parametreleri geçirmek için kullanılan `de
 
 | dev.properties dosyası | Açıklama |
 | --- | --- |
-| `kafka.zookeeper.hosts` | Kafka kümesi için Zookeeper konakları. |
+| `kafka.zookeeper.hosts` | [Apache ZooKeeper](https://zookeeper.apache.org/) konaklar Kafka kümesi için. |
 | `kafka.broker.hosts` | Kafka aracısı konakları (çalışan düğümleri). |
 | `kafka.topic` | Topolojileri kullanan Kafka konusu. |
 | `hdfs.write.dir` | Kafka-okuyucu topolojisinin yazdığı dizin. |
@@ -384,7 +384,7 @@ Aşağıdaki diyagramda Storm ile Kafka arasındaki iletişimin nasıl aktığı
 ![Bir Azure sanal ağında Storm ve Kafka kümeleri diyagramı](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
 > [!NOTE]
-> SSH ve Ambari gibi küme üzerindeki diğer hizmetlere İnternet üzerinden erişilebilir. HDInsight üzerinde kullanılabilir olan genel bağlantı noktaları hakkında daha fazla bilgi için bkz. [HDInsight Tarafından Kullanılan Bağlantı Noktaları ve URI’ler](hdinsight-hadoop-port-settings-for-services.md).
+> Kümeye SSH gibi diğer hizmetlere ve [Apache Ambari](https://ambari.apache.org/) internet üzerinden erişilebilir. HDInsight üzerinde kullanılabilir olan genel bağlantı noktaları hakkında daha fazla bilgi için bkz. [HDInsight Tarafından Kullanılan Bağlantı Noktaları ve URI’ler](hdinsight-hadoop-port-settings-for-services.md).
 
 Bir Azure Sanal Ağı oluşturmak ve sonra bunun içinde Kafka ve Storm kümeleri oluşturmak için aşağıdaki adımları kullanın:
 
@@ -637,8 +637,8 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Storm topolojisi kullanarak HDInsight üzerinde Kafka’dan nasıl yazılıp okunacağını öğrendiniz. HDInsight tarafından kullanılan HDFS uyumlu depolamada verilerin nasıl depolanacağını da öğrendiniz.
+Bu öğretici sayesinde nasıl kullanacağınızı öğrendiniz bir [Apache Storm](https://storm.apache.org/) yazma ve okuma için topoloji [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde. Ayrıca verileri depolamak nasıl öğrendiniz [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) HDInsight tarafından kullanılan uyumlu depolama.
 
-HDInsight üzerinde Kafka kullanma hakkında daha fazla bilgi edinmek için [Kafka Producer Üretici ve Tüketici API'sini kullanma](kafka/apache-kafka-producer-consumer-api.md) belgesine bakın.
+HDInsight üzerinde Kafka kullanma hakkında daha fazla bilgi edinmek için [Apache Kafka üretici ve tüketici API'si](kafka/apache-kafka-producer-consumer-api.md) belge.
 
 Linux tabanlı HDInsight'ta topolojileri dağıtma ve izleme hakkında bilgi için bkz. [Linux tabanlı HDInsight'ta Apache Storm topolojilerini dağıtma ve yönetme](storm/apache-storm-deploy-monitor-topology-linux.md)

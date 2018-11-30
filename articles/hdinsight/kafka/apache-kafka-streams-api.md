@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278710"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495138"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Öğretici: Apache Kafka akışları API’si
 
-Kafka Akışları API’sini kullanan bir uygulama oluşturmayı ve bunu HDInsight üzerinde Kafka ile çalıştırmayı öğrenin. 
+Apache Kafka akışlar API'si kullanan bir uygulama oluşturun ve HDInsight üzerinde Kafka ile çalıştırma hakkında bilgi edinin. 
 
 Bu öğreticide kullanılan uygulama, akışa alma sözcük sayısıdır. Bir Kafka konusundan metin verilerini okur, tek tek sözcükleri ayıklar ve sonra sözcüğü ve sayıyı başka bir Kafka konusunda depolar.
 
 > [!NOTE]
-> Kafka akışı işleme genellikle Apache Spark veya Storm kullanılarak gerçekleştirilir. Kafka 0.10.0 sürümünde (HDInsight 3.5 ve 3.6), Kafka Akışları API’si sunulmuştur. Bu API, girdi ve çıktı konuları arasında veri akışlarını dönüştürmenize olanak sağlar. Bazı durumlarda bu, bir Spark veya Storm akış çözümü oluşturulmasına alternatif olabilir. 
+> Kafka akış işleme yapılan genellikle Apache Spark veya Apache Storm kullanma. Kafka 0.10.0 sürümünde (HDInsight 3.5 ve 3.6), Kafka Akışları API’si sunulmuştur. Bu API, girdi ve çıktı konuları arasında veri akışlarını dönüştürmenize olanak sağlar. Bazı durumlarda bu, bir Spark veya Storm akış çözümü oluşturulmasına alternatif olabilir. 
 >
 > Kafka Akışları hakkında daha fazla bilgi için, Apache.org adresindeki [Akışların Tanıtımı](https://kafka.apache.org/10/documentation/streams/) belgelerine bakın.
 
@@ -36,11 +36,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Kafka konuları yapılandırma
 > * Kodu çalıştırma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-* HDInsight 3.6 kümesi üzerinde bir Kafka. HDInsight kümesi üzerinde Kafka oluşturma hakkında bilgi edinmek için [HDInsight üzerinde Kafka kullanmaya başlama](apache-kafka-get-started.md) belgesine bakın.
+* HDInsight 3.6 kümesi üzerinde bir Kafka. HDInsight kümesinde Kafka oluşturmak nasıl öğrenmek için bkz. [HDInsight üzerinde Apache Kafka kullanmaya başlama](apache-kafka-get-started.md) belge.
 
-* [Kafka Tüketici ve Üretici API’si](apache-kafka-producer-consumer-api.md) belgesindeki adımları tamamlayın. Bu belgede yer alan adımlarda, bu öğreticide oluşturulan örnek uygulama ve konular kullanılmaktadır.
+* Bölümündeki adımları tamamlamanız [Apache Kafka tüketicisi ve Producer API](apache-kafka-producer-consumer-api.md) belge. Bu belgede yer alan adımlarda, bu öğreticide oluşturulan örnek uygulama ve konular kullanılmaktadır.
 
 ## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
 
@@ -158,7 +158,7 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
    
     `sshuser` değerini, kümenizin SSH kullanıcısı ile, `clustername` değerini kümenizin adıyla değiştirin. İstendiğinde, SSH kullanıcı hesabının parolasını girin. HDInsight ile `scp` kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-kafka-topics"></a>Kafka konuları oluşturma
+## <a name="create-apache-kafka-topics"></a>Apache Kafka konularını oluşturma
 
 1. Kümeye SSH bağlantısı açmak için aşağıdaki komutu kullanın:
 
@@ -175,7 +175,7 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Kafka aracısı ana bilgisayarlarını ve Zookeeper ana bilgisayarlarını almak için aşağıdaki komutları kullanın. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin. İki defa parolanız istenir.
+3. Kafka aracısı ve Apache Zookeeper konakları almak için aşağıdaki komutları kullanın. İstendiğinde, küme oturum açma (yönetici) hesabı için parolayı girin. İki defa parolanız istenir.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -255,7 +255,7 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede, HDInsight üzerinde Kafka ile Kafka Akışları API’sini nasıl kullanacağınızı öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
+Bu belgede, HDInsight üzerinde Kafka ile Apache Kafka akışlar API'si kullanmayı öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
 
-* [Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
-* [Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)
+* [Apache Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
+* [Apache Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)

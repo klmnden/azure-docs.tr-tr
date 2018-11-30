@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f9ec8ff1fbd5f6341d2d949d15d963f8abe15200
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166916"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444455"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Azure Cosmos DB verileri içeren SQL sorguları sorgulama
 
@@ -400,9 +400,18 @@ Birli işleçler +,-, ~, değil de desteklenir ve aşağıdaki örneklerde göst
 İkili ve birli işleçler ek olarak başvuran bir özelliğe de izin verilir. Örneğin, `SELECT * FROM Families f WHERE f.isRegistered` özelliği içeren JSON öğeyi döndürür `isRegistered` özelliğinin değeri olduğu JSON eşit `true` değeri. Herhangi bir değer (false, null, Undefined `<number>`, `<string>`, `<object>`, `<array>`, vs.) kaynak öğe sonuçtan dışlanan yol açar. 
 
 ### <a name="equality-and-comparison-operators"></a>Eşitlik ve Karşılaştırma işleçleri
+
 Aşağıdaki tabloda, her iki JSON türünden SQL API eşitlik karşılaştırmaları sonucunu gösterir.
 
-| **OP** | **tanımlanmamış** | **Null** | **Boole** | **numarası**  |  **Dize** | **nesne** | **dizi** || **Tanımlanmamış** | Tanımsız | Tanımsız | Tanımsız | Tanımsız | Tanımsız | Tanımsız | Tanımsız || **Null** | Tanımsız | **Tamam** | Tanımsız | Tanımsız | Tanımsız | Tanımsız | Tanımsız || **Boole** | Tanımsız | Tanımsız | **Tamam** | Tanımsız | Tanımsız | Tanımsız | Tanımsız || **Numarası** | Tanımsız | Tanımsız | Tanımsız | **Tamam** | Tanımsız | Tanımsız | Tanımsız || **Dize** | Tanımsız | Tanımsız | Tanımsız | Tanımsız | **Tamam** | Tanımsız | Tanımsız || **Nesne** | Tanımsız | Tanımsız | Tanımsız | Tanımsız | Tanımsız | **Tamam** | Tanımsız || **Dizi** | Tanımsız | Tanımsız | Tanımsız | Tanımsız | Tanımsız | Tanımsız | **Tamam** |
+| **OP** | **Tanımsız** | **Null** | **Boole değeri** | **Sayı** | **dize** | **Nesne** | **Dizi** |
+|---|---|---|---|---|---|---|---|
+| **Tanımsız** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
+| **Null** | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
+| **Boole değeri** | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
+| **Sayı** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı |
+| **dize** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı | Tanımlanmadı |
+| **Nesne** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** | Tanımlanmadı |
+| **Dizi** | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | Tanımlanmadı | **Tamam** |
 
 Gibi diğer Karşılaştırma işleçleri için >, > =,! =, <, ve < =, aşağıdaki kurallar geçerlidir:
 
@@ -813,11 +822,11 @@ Aşağıdaki tabloda, SQL API'SİNDE desteklenen toplama işlevleri listesini g�
 
 | Kullanım | Açıklama |
 |-------|-------------|
-| SAYISI | İfade öğe sayısını döndürür. |
-| TOPLA   | İfadedeki tüm değerlerin toplamını döndürür. |
+| COUNT | İfade öğe sayısını döndürür. |
+| SUM   | İfadedeki tüm değerlerin toplamını döndürür. |
 | MIN   | İfadedeki en küçük değeri döndürür. |
-| EN FAZLA   | İfadedeki en büyük değeri döndürür. |
-| ORT   | İfadedeki değerlerin ortalamasını döndürür. |
+| MAX   | İfadedeki en büyük değeri döndürür. |
+| AVG   | İfadedeki değerlerin ortalamasını döndürür. |
 
 Toplamlar, ayrıca bir dizi yineleme sonuçları üzerinde gerçekleştirilebilir. Daha fazla bilgi için [dizi yineleme sorgularda](#Iteration).
 

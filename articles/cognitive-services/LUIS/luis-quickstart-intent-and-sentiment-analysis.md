@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277486"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424859"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Öğretici 9: Genel konuşmanın yaklaşımını ayıklama
 Bu öğreticide konuşmalardaki pozitif, negatif ve nötr yaklaşımları ayıklamayı gösteren bir uygulama oluşturacaksınız. Yaklaşım konuşmanın tamamından belirlenir.
@@ -60,7 +60,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 ## <a name="employeefeedback-intent"></a>EmployeeFeedback'in amacı 
 Şirket üyelerinin çalışanlar hakkındaki geri bildirimini yakalamak için yeni bir amaç ekleyin. 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **Create new intent** (Yeni amaç oluştur) öğesini seçin.
 

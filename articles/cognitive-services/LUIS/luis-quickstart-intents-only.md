@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277724"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426868"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Öğretici 1: Kullanıcı amaçlarını belirlemek için özel bir uygulama geliştirin
 
@@ -71,7 +71,7 @@ JSON yanıtı döndürdükten sonra LUIS’in istekle işi biter. LUIS kullanıc
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "MyStore amacı için yeni konuşma girme işleminin ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>Amaç yok 
@@ -156,11 +156,11 @@ LUIS web sitesine geri dönün ve kullanıcı konuşmasının bir iş başvurusu
 
 ## <a name="train-again"></a>Yeniden eğitme
 
-[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>Yeniden yayımlama
 
-[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>Yeniden amaç alma
 

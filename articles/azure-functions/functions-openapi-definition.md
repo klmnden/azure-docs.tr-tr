@@ -8,18 +8,19 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 12/15/2017
+ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 62c04e5893eaefcc5eb7272eb9a99cf932086205
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086885"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496042"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için OpenAPI tanımı oluşturma
+
 REST API’ler genellikle bir OpenAPI tanımı (eski adıyla [Swagger](http://swagger.io/) dosyası) kullanılarak açıklanır. Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir.
 
 Bu öğreticide, bir rüzgar türbini için acil onarımın uygun maliyetli olup olmadığını belirleyen bir işlev oluşturursunuz. Daha sonra, işleve diğer uygulama ve hizmetlerden çağrı yapılabilmesi için işlev uygulamasına yönelik bir OpenAPI tanımı oluşturursunuz.
@@ -33,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * İşleve çağrı yaparak tanımı test etme
 
 > [!IMPORTANT]
-> OpenAPI önizleme özelliği şu anda yalnızca 1.x çalışma zamanında kullanılabilir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
+> Openapı özelliği şu anda Önizleme aşamasındadır ve yalnızca sürüm için kullanılabilir Azure işlevleri çalışma zamanının 1.x.
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
@@ -41,6 +42,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+## <a name="set-the-functions-runtime-version"></a>İşlevler çalışma zamanı sürümünü ayarlama
+
+Varsayılan olarak, oluşturduğunuz işlev uygulamasının sürümünü kullanır. 2.x çalışma zamanı. İşlevinizin oluşturmadan önce çalışma zamanı sürümü 1.x sürümünden ayarlamanız gerekir.
+
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 ## <a name="create-the-function"></a>İşlevi oluşturma
 
@@ -50,34 +56,27 @@ Bu öğreticide HTTP ile tetiklenen ve şu iki parametreyi alan bir işlev kulla
 
     ![Azure portalındaki İşlevler hızlı başlangıç sayfası](media/functions-openapi-definition/add-first-function.png)
 
-2. Arama alanına `http` yazıp HTTP tetikleyici şablonunuz için **C#** dilini seçin. 
- 
+1. Arama alanına `http` yazıp HTTP tetikleyici şablonunuz için **C#** dilini seçin. 
+
     ![HTTP tetikleyicisini seçin](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. İşlevin **Ad** alanına `TurbineRepair` yazın, **[Kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)** için `Function` seçeneğini belirleyip **Oluştur**’u seçin.  
+1. İşlevin **Ad** alanına `TurbineRepair` yazın, **[Kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)** için `Function` seçeneğini belirleyip **Oluştur**’u seçin.  
 
     ![HTTP ile tetiklenen işlevi oluşturun](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. run.csx dosyasının içeriğini aşağıdaki kodla değiştirip **Kaydet**’e tıklayın:
 
     ```csharp
-    #r "Newtonsoft.Json"
-
     using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
 
-    const double revenuePerkW = 0.12; 
-    const double technicianCost = 250; 
+    const double revenuePerkW = 0.12;
+    const double technicianCost = 250;
     const double turbineCost = 100;
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {   
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
         //Get request body
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        dynamic data = await req.Content.ReadAsAsync<object>();
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -93,13 +92,14 @@ Bu öğreticide HTTP ile tetiklenen ve şu iki parametreyi alan bir işlev kulla
             repairTurbine = "No";
         }
 
-        return (ActionResult) new OkObjectResult(new{
+        return req.CreateResponse(HttpStatusCode.OK, new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
-            costToFix = "$"+ costToFix         
-        }); 
+            costToFix = "$"+ costToFix
+        });
     }
     ```
+
     Bu işlev kodu, acil onarımın uygun maliyetli olup olmadığının yanı sıra türbinin temsil ettiği gelir fırsatını ve türbin onarımının maliyetini gösteren `Yes` veya `No` şeklinde bir ileti döndürür. 
 
 1. İşlevi test etmek için en sağdaki **Test** seçeneğine tıklayarak test sekmesini genişletin. **İstek gövdesi** için aşağıdaki değeri girip **Çalıştır**’a tıklayın.
@@ -132,7 +132,7 @@ Artık OpenAPI tanımını oluşturmaya hazırsınız. Bu tanımı API Uygulamal
     1. **Seçili HTTP metotları** bölümünde **POST** dışındaki tüm seçenekleri temizleyip **Kaydet**’e tıklayın.
 
         ![Seçili HTTP metotları](media/functions-openapi-definition/selected-http-methods.png)
-        
+
 1. İşlev uygulamanızın adı (**function-demo-energy** gibi) > **Platform özellikleri** > **API tanımı**’na tıklayın.
 
     ![API tanımı](media/functions-openapi-definition/api-definition.png)
@@ -185,7 +185,8 @@ Artık OpenAPI tanımını oluşturmaya hazırsınız. Bu tanımı API Uygulamal
     Bu tanımın tam bir OpenAPI tanımı olabilmesi için daha fazla meta veri gerektiğinden tanım bir _şablon_ olarak tanımlanmıştır. Bu tanımı bir sonraki adımda değiştireceksiniz.
 
 ## <a name="modify-the-openapi-definition"></a>OpenAPI tanımını değiştirme
-Artık bir şablon tanımınız olduğuna göre, API'nin işlemleri ve veri yapıları hakkında ek meta veri sağlamak için bunu değiştirirsiniz. **API tanımı**’nda, tanımın altındaki `post` bölümünden oluşturulan tanımı silin, içeriği aşağıya yapıştırın ve **Kaydet**’e tıklayın.
+
+Bir şablon tanımınız olduğuna göre API işlemleri ve veri yapıları hakkında ek meta veriler sağlamak üzere değiştirin. **API tanımı**’nda, tanımın altındaki `post` bölümünden oluşturulan tanımı silin, içeriği aşağıya yapıştırın ve **Kaydet**’e tıklayın.
 
 ```yaml
     post:
@@ -249,15 +250,15 @@ securityDefinitions:
 
 Bu durumda yalnızca güncelleştirilen meta verileri yapıştırabilirsiniz, ancak varsayılan şablonda yaptığımız değişiklik türlerinin anlaşılması önemlidir:
 
-+ API’nin verileri bir JSON biçiminde ürettiğini ve tükettiğini belirttik.
+* API’nin verileri bir JSON biçiminde ürettiğini ve tükettiğini belirttik.
 
-+ Adları ve veri türleriyle birlikte gerekli parametreleri belirttik.
+* Adları ve veri türleriyle birlikte gerekli parametreleri belirttik.
 
-+ Başarılı bir yanıt için döndürülen değerleri adları ve veri türleriyle birlikte belirttik.
+* Başarılı bir yanıt için döndürülen değerleri adları ve veri türleriyle birlikte belirttik.
 
-+ API ile ona ait işlemler ve parametreler için kolay özetler ve açıklamalar sağladık. Bu, işlevi kullanacak kişiler için önemlidir.
+* API ile ona ait işlemler ve parametreler için kolay özetler ve açıklamalar sağladık. Bu, işlevi kullanacak kişiler için önemlidir.
 
-+ Kullanıcı arabiriminde Microsoft Flow ve Logic Apps için kullanılan x-ms-summary ve x-ms-visibility öğelerini ekledik. Daha fazla bilgi için bkz. [Microsoft Flow’da özel API’ler için OpenAPI uzantıları](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
+* Kullanıcı arabiriminde Microsoft Flow ve Logic Apps için kullanılan x-ms-summary ve x-ms-visibility öğelerini ekledik. Daha fazla bilgi için bkz. [Microsoft Flow’da özel API’ler için OpenAPI uzantıları](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
 
 > [!NOTE]
 > API anahtarının varsayılan kimlik doğrulama metodunu içeren güvenlik tanımını olduğu gibi bıraktık. Farklı bir kimlik doğrulama türü kullansaydınız tanımın bu bölümünü değiştirmeniz gerekirdi.
@@ -265,6 +266,7 @@ Bu durumda yalnızca güncelleştirilen meta verileri yapıştırabilirsiniz, an
 API işlemlerini tanımlama hakkında daha fazla bilgi için bkz. [OpenAPI belirtimi](https://swagger.io/specification/#operationObject).
 
 ## <a name="test-the-openapi-definition"></a>OpenAPI tanımını test etme
+
 API tanımı kullanmadan önce Azure İşlevleri kullanıcı arabiriminde test etmek iyi bir fikirdir.
 
 1. İşlevinizin **Yönet** sekmesindeki **Ana Bilgisayar Anahtarları** bölümünden **varsayılan** anahtarı kopyalayın.
@@ -305,5 +307,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * İşleve çağrı yaparak tanımı test etme
 
 Oluşturduğunuz OpenAPI tanımını kullanan bir PowerApps uygulaması oluşturmayı öğrenmek için bir sonraki konuya geçin.
+
 > [!div class="nextstepaction"]
 > [PowerApps’ten bir işlev çağırma](functions-powerapps-scenario.md)

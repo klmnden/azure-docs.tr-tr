@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281821"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424821"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Öğretici 8: Konuşmadaki anahtar tümcecikleri ayıklama
 Bu öğreticide konuşmalardan ana konuyu ayıklamak için önceden oluşturulmuş keyPhrase varlığı kullanılmaktadır. Herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez. Varlık otomatik olarak algılanır.
@@ -56,7 +56,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 ## <a name="add-keyphrase-entity"></a>keyPhrase varlığını ekleme 
 Konuşmaların konusunu ayıklamak için önceden oluşturulmuş keyPhrase varlığını ekleyin.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
 
