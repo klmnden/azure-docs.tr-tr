@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 161a5710766db626e4c4ec6bb6fdfafcc20650d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248053"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426392"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Öğretici: buluta tek bir AD ormanı ortamı birleştirme
 
@@ -280,7 +280,7 @@ Artık, şirket içi dizininde vardı kullanıcıları eşitlenmiştir ve artık
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Kullanıcılarımızın biriyle oturum açma testi
 
-1.  Göz atın [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Göz atın [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Sunduğumuz yeni kiracıda oluşturduğunuz kullanıcı hesabı ile oturum.  Aşağıdaki biçimi kullanarak oturum açmanız gerekir: (user@domain.onmicrosoft.com). Kullanıcının oturum açmak için kullandığı aynı parolayı kullanan şirket içi.
 ![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)
 

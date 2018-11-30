@@ -1,26 +1,22 @@
 ---
 title: Bir Hadoop kümesi verileri araştırın ve Azure Machine Learning'de model oluşturma | Microsoft Docs
 description: Team Data Science Process, yapı ve model dağıtma için bir HDInsight Hadoop kümesi kullanan bir uçtan uca senaryo için kullanma.
-services: machine-learning,hdinsight
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586130"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444214"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: kullanımı Azure HDInsight Hadoop kümeleri
 Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 

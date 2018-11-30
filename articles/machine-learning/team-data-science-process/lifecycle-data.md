@@ -2,25 +2,21 @@
 title: Veri edinme ve anlama aşamasına Team Data Science Process yaşam döngüsü - Azure | Microsoft Docs
 description: Hedefleri, görevleri ve teslim edilebilirleri veri alımı ve veri bilimi projelerinizi anlama aşaması
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 3d80759b401dc8c3514736a3de20af5d7b2fe63c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242322"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441592"
 ---
 # <a name="data-acquisition-and-understanding"></a>Veri edinme ve anlama
 
@@ -86,4 +82,4 @@ TDSP yaşam döngüsü içinde her adım için bağlantılar şunlardır:
 
 İşlemin belirli senaryolar için tüm adımları gösteren uçtan uca tam talimatlara sunuyoruz. [Örnek izlenecek yollar](walkthroughs.md) makale bağlantıları ve küçük resim açıklamaları senaryolarıyla bir listesini sağlar. İzlenecek bir iş akışı veya işlem hattı akıllı bir uygulama oluşturmak için bulut, şirket içi araçları ve Hizmetleri birleştirme işlemini göstermektedir. 
 
-Adımlar Azure Machine Learning Studio'nun TDSPs yürütmek nasıl bir örnekleri için bkz: [Azure Machine Learning ile TDSP kullanma](https://aka.ms/datascienceprocess).
+Adımlar Azure Machine Learning Studio'nun TDSPs yürütmek nasıl bir örnekleri için bkz: [Azure Machine Learning ile TDSP kullanma](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).

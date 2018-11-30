@@ -1,4 +1,16 @@
-
+---
+author: MikeRayMSFT
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: mikeray
+ms.openlocfilehash: e81cdb478a63e1e584aef2c32754bd321d245365
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440510"
+---
 ## <a name="start-your-powershell-session"></a>PowerShell oturumunuzu başlatma
 En son ilk gerek [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 

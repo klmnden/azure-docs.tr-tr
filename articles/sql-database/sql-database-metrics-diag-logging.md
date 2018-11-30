@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087755"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426008"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri 
 
@@ -101,7 +101,7 @@ Tanılama telemetrisi için akışını etkinleştirmek için **Azure SQL verita
    ![SQL veritabanı için tanılamayı yapılandırma](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Denetim günlüğü veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2)ve ayrıca bkz: [SQL denetim günlüklerini Azure Log Analytics ve Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Güvenlik Denetim günlükleri, veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2)ve ayrıca bkz: [SQL denetim günlüklerini Azure Log Analytics ve Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Tanılama telemetrisi için akışını etkinleştirmek için **yönetilen örne
 2. Seçin **tanılama ayarları**
 3. Seçin **tanılamayı Aç** önceki ayar yok ya da seçin **ayarını Düzenle** önceki bir ayarı düzenlemek için
 
-   ![Yönetilen örnek için tanılamayı etkinleştirme](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Yönetilen örnek için tanılamayı etkinleştirme](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Ayar - kendi başvuru adını yazın
 5. Elastik havuzundan tanılama veri akışı için hangi kaynak için seçin: **depolama hesabında arşivle**, **Stream olay hub'ına**, veya **Log Analytics'e gönderme**
@@ -190,7 +190,7 @@ Tanılama telemetrisi için akışını etkinleştirmek için **yönetilen örne
 7. Tanılama telemetrisi örneği için onay kutusunu işaretleyin **ResourceUsageStats**
 8. **Kaydet**’e tıklayın
 
-   ![Yönetilen örnek için tanılamayı yapılandırmak](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Yönetilen örnek için tanılamayı yapılandırmak](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Her yönetilen izlemek istediğiniz örneği için yukarıdaki adımları yineleyin.

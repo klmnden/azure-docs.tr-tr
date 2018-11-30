@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 220627e6903abb643cde63cbc9b85402360ce3f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f47faaf5c0536ce7041e00686d630427c72771aa
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999775"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426093"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
 
@@ -60,7 +60,7 @@ Korumalı bir Web API'sini çağırmak için bir belirteç almak için kullanıl
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular(Preview) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET (Önizleme) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Masaüstü uygulaması](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [Yol Haritası](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
 | ![iOS / Objective C ya da swift'te](media/sample-v2-code/logo_iOS.png) | MSAL obj_c (Önizleme) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS uygulaması](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
-|![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL (Önizleme) | [ Merkezi depo](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android uygulaması](quickstart-v2-android.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
+|![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL (Önizleme) | [ Merkezi depo](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android uygulaması](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft tarafından desteklenen sunucusu ara yazılım kitaplıkları
 
@@ -97,7 +97,7 @@ Azure AD v2.0 uç noktası hakkında daha fazla bilgi için bkz: [Azure AD uygul
 
 <!--Reference style links -->
 [AAD-App-Model-V2-Overview]: v2-overview.md
-[ClientLib-NET-Lib]: http://www.nuget.org/packages/Microsoft.Identity.Client
+[ClientLib-NET-Lib]: https://www.nuget.org/packages/Microsoft.Identity.Client
 [ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
@@ -113,12 +113,12 @@ Azure AD v2.0 uç noktası hakkında daha fazla bilgi için bkz: [Azure AD uygul
 [ClientLib-Js-Repo]:/
 [ClientLib-Js-Sample]:/
 
-[Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
+[Microsoft-SDL]: https://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
-[ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/
+[ServerLib-Net4-Owin-Oidc-Repo]: https://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
-[ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
+[ServerLib-Net4-Owin-Oauth-Repo]: https://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet

@@ -1,134 +1,141 @@
 ---
 title: Azure SQL Veritabanı sorgulamak için Node.js kullanma | Microsoft Docs
-description: Bu konu başlığı altında, Node.js kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir.
+description: Bir Azure SQL veritabanına bağlanan ve T-SQL deyimlerini kullanarak bir program oluşturmak için node.js kullanma
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: nodejs
 ms.topic: quickstart
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 60a63486143c64a1dc19a5cd18383baeef6f498d
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 11/26/2018
+ms.openlocfilehash: 3a6060c59c2b338a2fad3327fe89dcf3df955ef5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912793"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496703"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Node.js kullanarak Azure SQL veritabanı sorgulama
 
-Bu hızlı başlangıçta, [Node.js](https://nodejs.org/en/) kullanarak Azure SQL veritabanına bağlanan ve Transact-SQL deyimleriyle veri sorgulayan bir program oluşturma işleminin nasıl yapılacağı açıklanır.
+Bu makalede nasıl yapılacağı açıklanır [Node.js](https://nodejs.org) bir Azure SQL veritabanına bağlanmak için. Ardından, T-SQL deyimleriyle veri kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) kullanmakta olduğunuz bilgisayarın genel IP adresi
 
-- İşletim sisteminiz için Node.js ve ilgili yazılımları yüklediniz:
-    - **MacOS**: Homebrew ve Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD’yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
-    - **Ubuntu**: Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD’yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows**: Chocolatey ve Node.js yükleyin ve ardından ODBC sürücüsünü ve SQL CMD’yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+- İşletim sisteminiz için node.js ile ilgili yazılım:
 
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
+  - **MacOS**Homebrew ve Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+  
+  - **Ubuntu**Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+  
+  - **Windows**, Chocolatey ve Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+
+## <a name="get-database-connection"></a>Veritabanı bağlantı Al
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayar kullanıyorsanız veya farklı bir genel IP adresiniz varsa [Azure portal kullanarak bir sunucu düzeyi güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) oluşturun. 
+> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayarda olduğunuz veya farklı bir genel IP adresine sahip yoksa, oluşturun bir [Azure portalını kullanarak sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
 
-## <a name="create-a-nodejs-project"></a>Node.js projesi oluşturma
+## <a name="create-the-project"></a>Proje oluşturma
 
 Komut istemini açın ve *sqltest* adlı bir klasör oluşturun. Oluşturduğunuz klasöre gidin ve aşağıdaki komutu çalıştırın:
 
-    
-    npm init -y
-    npm install tedious
-    npm install async
-    
+  ```bash
+  npm init -y
+  npm install tedious
+  npm install async
+  ```
 
-## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
+## <a name="add-code-to-query-database"></a>Veritabanını sorgula için kod ekleyin
 
-1. Geliştirme ortamınızda veya sık kullandığınız metin düzenleyicisinde **sqltest.js** adında yeni bir dosya oluşturun.
+1. Sık kullandığınız metin düzenleyicinizde yeni bir dosya oluşturun *sqltest.js*.
 
-2. İçeriğini aşağıdaki kod ile değiştirin ve sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
+1. Dosyanın içeriğini aşağıdaki kodla değiştirin. Ardından, sunucu, veritabanı, kullanıcı ve parola için uygun değerleri ekleyin.
 
-   ```js
-   var Connection = require('tedious').Connection;
-   var Request = require('tedious').Request;
+    ```js
+    var Connection = require('tedious').Connection;
+    var Request = require('tedious').Request;
 
-   // Create connection to database
-   var config = 
-      {
-        userName: 'someuser', // update me
-        password: 'somepassword', // update me
-        server: 'edmacasqlserver.database.windows.net', // update me
-        options: 
-           {
-              database: 'somedb' //update me
-              , encrypt: true
-           }
-      }
-   var connection = new Connection(config);
+    // Create connection to database
+    var config =
+    {
+        userName: 'your_username', // update me
+        password: 'your_password', // update me
+        server: 'your_server.database.windows.net', // update me
+        options:
+        {
+            database: 'your_database', //update me
+            encrypt: true
+        }
+    }
+    var connection = new Connection(config);
 
-   // Attempt to connect and execute queries if connection goes through
-   connection.on('connect', function(err) 
-      {
-        if (err) 
-          {
-             console.log(err)
-          }
-       else
-          {
-              queryDatabase()
-          }
-      }
+    // Attempt to connect and execute queries if connection goes through
+    connection.on('connect', function(err)
+        {
+            if (err)
+            {
+                console.log(err)
+            }
+            else
+            {
+                queryDatabase()
+            }
+        }
     );
 
-   function queryDatabase()
-      { console.log('Reading rows from the Table...');
+    function queryDatabase()
+    {
+        console.log('Reading rows from the Table...');
 
-          // Read all rows from table
+        // Read all rows from table
         request = new Request(
-             "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
-                function(err, rowCount, rows) 
-                   {
-                       console.log(rowCount + ' row(s) returned');
-                       process.exit();
-                   }
-               );
-    
+            "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc "
+                + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
+            function(err, rowCount, rows)
+            {
+                console.log(rowCount + ' row(s) returned');
+                process.exit();
+            }
+        );
+
         request.on('row', function(columns) {
-           columns.forEach(function(column) {
-               console.log("%s\t%s", column.metadata.colName, column.value);
+            columns.forEach(function(column) {
+                console.log("%s\t%s", column.metadata.colName, column.value);
             });
-                });
+        });
         connection.execSql(request);
-      }
-```
+    }
+    ```
+
+> [!NOTE]
+> Kod örneği kullanan **AdventureWorksLT** Azure SQL veritabanı örneği.
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-1. Komut isteminde aşağıdaki komutları çalıştırın:
+1. Komut isteminde programı çalıştırın.
 
-   ```js
-   node sqltest.js
-   ```
+    ```bash
+    node sqltest.js
+    ```
 
-2. En üst 20 satırın döndürüldüğünü doğrulayın ve sonra uygulama penceresini kapatın.
+1. En çok 20 satırlar döndürülür ve uygulama penceresini kapatın doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [SQL Server için Microsoft Node.js Sürücüsü](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/) hakkında bilgi edinin
-- Windows/Linus/macOS’ta [.NET Core kullanarak Azure SQL veritabanını bağlamayı ve sorgulamayı](sql-database-connect-query-dotnet-core.md) öğrenin.  
-- [Komut satırını kullanarak Windows/Linus/macOS’ta .NET Core ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli) hakkında bilgi edinin.
-- [SSMS kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database.md) veya [.NET kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database-csharp.md) öğrenin.
-- [SSMS ile bağlanma ve sorgulamayı](sql-database-connect-query-ssms.md) öğrenin
-- [Visual Studio Code ile bağlanma ve sorgulamayı](sql-database-connect-query-vscode.md) öğrenin.
+- [SQL Server için Microsoft Node.js Sürücüsü](/sql/connect/node-js/node-js-driver-for-sql-server)
 
+- Bağlanma ve sorgulama Windows/Linus/macos'ta ile [.NET core](sql-database-connect-query-dotnet-core.md), [Visual Studio Code](sql-database-connect-query-vscode.md), veya [SSMS](sql-database-connect-query-ssms.md) (yalnızca Windows)
+
+- [Windows/Linus/macos'ta komut satırını kullanarak .NET Core ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli)
+
+- İlk Azure SQL veritabanı kullanarak tasarım [.NET](sql-database-design-first-database-csharp.md) veya [SSMS](sql-database-design-first-database.md)

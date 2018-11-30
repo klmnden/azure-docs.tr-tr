@@ -1,6 +1,6 @@
 ---
-title: Twilio (PHP'nin) bir telefon araması yapma | Microsoft Docs
-description: Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. PHP uygulaması için örneklerdir.
+title: Twilio (PHP'den) bir telefon görüşmesi yapma | Microsoft Docs
+description: Telefon araması yapın ve Azure'da Twilio API'si hizmeti içeren bir SMS mesaj gönderme hakkında bilgi edinin. PHP uygulaması örnekleri içindir.
 documentationcenter: php
 services: ''
 author: devinrader
@@ -14,27 +14,27 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 9866a196b3be10548d7a431430e570b41c190fc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d31cd66138bd20cf09b3dc569d0ac83addaaa95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23865760"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426783"
 ---
-# <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Azure üzerinde bir PHP uygulamasının Twilio kullanarak bir telefon araması yapma
-Aşağıdaki örnek, bir PHP web sayfasından Azure üzerinde barındırılan bir arama yapmak için Twilio nasıl kullanabileceğinizi gösterir. Sonuçta elde edilen uygulama telefon araması değerleri için aşağıdaki ekran görüntüsünde gösterildiği gibi ister.
+# <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Azure'da bir PHP uygulaması içinde Twilio kullanarak telefon görüşmesi yapma
+Aşağıdaki örnek, Azure'da barındırılan bir PHP web sayfasından çağrı yapmak için Twilio nasıl kullanabileceğinizi gösterir. Elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcıdan telefon araması değerlerini ister.
 
 ![Twilio ve PHP kullanarak azure çağrı formu][twilio_php]
 
 Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:
 
-1. Twilio hesabı ve kimlik doğrulaması almak belirtecine, [Twilio konsol][twilio_console]. Twilio ile çalışmaya başlamak için fiyatlandırma değerlendirmek [http://www.twilio.com/pricing][twilio_pricing]. Bir deneme hesabı için kaydolabilirsiniz [https://www.twilio.com/try-twilio][try_twilio].
-2. Elde [Twilio kitaplığı için PHP](https://github.com/twilio/twilio-php) veya ARMUTLU paket olarak yükleyin. Daha fazla bilgi için bkz: [Benioku dosyasını](https://github.com/twilio/twilio-php/blob/master/README.md).
-3. PHP için Azure SDK'yı yükleyin. 
+1. Twilio hesap ve kimlik doğrulama Al belirtecine, [Twilio konsol][twilio_console]. Fiyatlandırma, Twilio ile çalışmaya başlamak için değerlendirmek [ https://www.twilio.com/pricing ] [ twilio_pricing]. Bir deneme hesabı için kaydolabilirsiniz [ https://www.twilio.com/try-twilio ] [ try_twilio].
+2. Elde [PHP için Twilio Kitaplığı](https://github.com/twilio/twilio-php) veya ARMUTLU paket olarak yükleyin. Daha fazla bilgi için [Benioku dosyası](https://github.com/twilio/twilio-php/blob/master/README.md).
+3. PHP için Azure SDK'sını yükleyin. 
 <!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
 
 ## <a name="create-a-web-form-for-making-a-call"></a>Arama yapmak için web formu oluşturma
-Aşağıdaki HTML kod bir web sayfası oluşturmak nasıl gösterir (**callform.html**) arama yapmak için kullanıcı verilerini alır:
+Aşağıdaki HTML kodu bir web sayfası oluşturmak nasıl gösterir (**callform.html**) arama yapmak için kullanıcı verilerini alır:
 
 ```html
 <!DOCTYPE html>
@@ -68,8 +68,8 @@ Aşağıdaki HTML kod bir web sayfası oluşturmak nasıl gösterir (**callform.
 </html>
 ```
 
-## <a name="create-the-code-to-make-the-call"></a>Çağrı yapmak için kod oluşturma
-Aşağıdaki kod nasıl oluşturulacağını gösterir **makecall.php**, kullanıcı tarafından görüntülenen formu gönderdiğinde adlandırılan **callform.html**. Aşağıda gösterilen kodu çağrı iletisi oluşturur ve çağrı oluşturur. Ayrıca, Twilio hesabı ve kimlik doğrulaması kullandığınızdan emin olun belirtecine [Twilio konsol] [ twilio_console] atanan yer tutucu değerlerini yerine **$sid** ve **$token** kod.
+## <a name="create-the-code-to-make-the-call"></a>Çağrı yapmak için kod oluşturun
+Aşağıdaki kod nasıl oluşturulacağını gösterir **makecall.php**, kullanıcı tarafından görüntülenen formu gönderdiğinde çağırılır **callform.html**. Aşağıda gösterilen kod çağrı ileti oluşturur ve bir çağrı oluşturur. Ayrıca kimlik doğrulaması ve Twilio hesabı kullandığınızdan emin olun belirtecine [Twilio konsol] [ twilio_console] atanan yer tutucu değerleri yerine **$sid** ve  **$token** aşağıdaki kodda.
 
 ```html
 <html>
@@ -92,7 +92,7 @@ $client = new Twilio\Rest\Client($sid, $token);
 $call = $client->calls->create(
             $to_number,
             $from_number,
-            array('url' => http://twimlets.com/message?Message=' . urlencode($message))
+            array('url' => https://twimlets.com/message?Message=' . urlencode($message))
         );
 
 echo "Call status: " . $call->status . "<br />";
@@ -102,41 +102,41 @@ echo "URI resource: " . $call->uri . "<br />";
 </html>
 ```
 
-Çağrı yapma yanı sıra **makecall.php** aşağıdaki resimde gösterildiği gibi bazı çağrı meta verilerini görüntüler. Çağrı meta veriler hakkında daha fazla bilgi için bkz: [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties].
+Çağrıyı yapan yanı sıra **makecall.php** aşağıdaki resimde gösterildiği gibi bazı çağrı meta verilerini görüntüler. Çağrı meta veriler hakkında daha fazla bilgi için bkz. [ https://www.twilio.com/docs/api/rest/call#instance-properties ] [ twilio_call_properties].
 
 ![Twilio ve PHP kullanarak azure çağrı yanıtı][twilio_php_response]
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
-Sonraki adım [Azure Web Apps Git ile uygulamanızı dağıtmak](app-service/app-service-web-get-started-php.md) (tüm bilgileri var. ilgili olmasına rağmen). 
+Sonraki adım [uygulamanızı Azure Web Apps, Git ile dağıtmaya](app-service/app-service-web-get-started-php.md) (tüm bilgiler var. ilgili rağmen). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu kod, Azure üzerinde php'de Twilio kullanarak temel işlevselliğini göstermek için sağlanmıştır. Azure'a üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin:
+Bu kod, Twilio azure'da PHP kullanarak temel işlevselliğini göstermek için sağlanmıştır. Üretimde Azure'a dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin:
 
-* Bir web formu kullanmak yerine, Azure storage bloblarında veya SQL veritabanı telefon numaralarını depolamak ve metin çağırmak için kullanabilirsiniz. Azure storage bloblarında PHP ile kullanma hakkında daha fazla bilgi için bkz: [PHP uygulamaları kullanarak Azure depolamaya][howto_blob_storage_php]. SQL veritabanı PHP ile kullanma hakkında daha fazla bilgi için bkz: [SQL veritabanıyla kullanarak PHP uygulamaları][howto_sql_azure_php].
-* **Makecall.php** kod Twilio tarafından sağlanan URL kullanır ([http://twimlets.com/message][twimlet_message_url]) çağrısı ile devam etmek nasıl Twilio bildiren bir Twilio biçimlendirme dili (TwiML) yanıt sağlamak için. Örneğin, döndürülen TwiML içerebilir bir `<Say>` çağrısı alıcıya konuşulan metin sonuçlanır fiil. Twilio tarafından sağlanan URL kullanmak yerine, kendi hizmet Twilio'nın isteğine yanıt vermek için derleme; Daha fazla bilgi için bkz: [ses ve PHP SMS özelliklerini için kullanım Twilio nasıl][howto_twilio_voice_sms_php]. TwiML hakkında daha fazla bilgi bulunabilir [http://www.twilio.com/docs/api/twiml][twiml]ve hakkında daha fazla bilgi `<Say>` ve diğer Twilio fiiller bulunabilir [http://www.twilio.com/docs/api/twiml/say][twilio_say].
-* Twilio güvenlik yönergeleri okuyun [https://www.twilio.com/docs/security][twilio_docs_security].
+* Web formu kullanmak yerine, Azure depolama blobları veya SQL veritabanı telefon numaraları depolamak ve metin çağırmak için kullanabilirsiniz. PHP'de Azure depolama BLOB'ları kullanma hakkında daha fazla bilgi için bkz: [kullanarak Azure depolama ile PHP uygulamaları][howto_blob_storage_php]. PHP'de SQL veritabanını kullanma hakkında daha fazla bilgi için bkz: [kullanarak SQL veritabanı ile PHP uygulamaları][howto_sql_azure_php].
+* **Makecall.php** kod Twilio tarafından sağlanan URL kullanır ([https://twimlets.com/message][twimlet_message_url]) nasıl devam etmek Twilio bildiren bir Twilio biçimlendirme dili (TwiML) yanıt sağlamak için çağrısı. Örneğin, döndürülen TwiML içerebilir bir `<Say>` çağrı alıcıya konuşulan metnin sonuçlanır fiil. Twilio tarafından sağlanan URL kullanmak yerine, Twilio'nın isteğine yanıt vermek için kendi hizmet oluşturabilirsiniz; Daha fazla bilgi için [kullanım Twilio ses ve SMS özellikleri php'de için nasıl][howto_twilio_voice_sms_php]. TwiML hakkında daha fazla bilgi şu adreste bulunabilir: [ https://www.twilio.com/docs/api/twiml ] [ twiml]ve daha fazla bilgi `<Say>` ve diğer Twilio fiilleri şu yolda bulunabilir: [ https://www.twilio.com/docs/api/twiml/say ][twilio_say].
+* Twilio güvenlik yönergeleri okuyun [ https://www.twilio.com/docs/security ] [ twilio_docs_security].
 
-Twilio hakkında ek bilgi için bkz: [https://www.twilio.com/docs][twilio_docs].
+Twilio hakkında ek bilgi için bkz: [ https://www.twilio.com/docs ] [ twilio_docs].
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Ses ve PHP SMS özelliklerini için Twilio kullanma](partner-twilio-php-how-to-use-voice-sms.md)
+* [Ses ve SMS özellikleri php'de için Twilio kullanma](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
-[twilio_pricing]: http://www.twilio.com/pricing
-[try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/docs/api
+[twilio_pricing]: https://www.twilio.com/pricing
+[try_twilio]: https://www.twilio.com/try-twilio
+[twilio_api]: https://www.twilio.com/docs/api
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified
-[twimlet_message_url]: http://twimlets.com/message
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api_service]: http://api.twilio.com
+[twimlet_message_url]: https://twimlets.com/message
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api_service]: https://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
-[howto_blob_storage_php]: http://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: http://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: https://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
+[howto_sql_azure_php]: https://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
-[twilio_docs_security]: http://www.twilio.com/docs/security
-[twilio_docs]: http://www.twilio.com/docs
-[twilio_say]: http://www.twilio.com/docs/api/twiml/say
+[twilio_docs_security]: https://www.twilio.com/docs/security
+[twilio_docs]: https://www.twilio.com/docs
+[twilio_say]: https://www.twilio.com/docs/api/twiml/say
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg

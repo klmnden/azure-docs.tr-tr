@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ac287f2ee50501d703b7d7b79a436ecb5335d1bd
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034566"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497369"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Yayımlanan uygulama - StreamSets Data Collector yükleme
 
-Bu makalede, yüklemek ve çalıştırmak açıklanır [StreamSets Data Collector HDInsight için](https://streamsets.com/) Azure HDInsight üzerinde Apache Hadoop uygulama yayımlanır. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, yüklemek ve çalıştırmak açıklanır [StreamSets Data Collector HDInsight için](https://streamsets.com/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>StreamSets Data Collector hakkında
 
 StreamSets Data Collector, bir Azure HDInsight uygulamasının üzerinde dağıtılır. StreamSets Data Collector, tam özellikli tümleşik geliştirme ortamı (IDE alma işlem hatlarını tasarlamanıza, test edin, dağıtın ve herhangi bir ağdan herhangi yönetmenize olanak tanır) sağlar. Bu işlem hatları, akış ve toplu işlem verileri arasında ağ ve tüm özel kod yazmak zorunda kalmadan akış dönüşümleri çeşitli içerir.
 
-StreamSets Data Collector, HDFS, Kafka, Solr, Hive, HBASE ve Kudu gibi çok sayıda büyük boyutlu veri bileşenlerini kullanarak bir derleme veri akışı sağlar. StreamSets Data Collector, Hadoop kümenizi veya bir uç sunucusu çalıştırıldıktan sonra gerçek zamanlı akış işlem veri anomalileri ve verileri için izleme alın. Bu izleme, eşik tabanlı uyarılar, anomali algılama ve otomatik düzeltme hata kayıtları içerir.
+StreamSets Data Collector gibi çok sayıda büyük boyutlu veri bileşenlerini kullanarak bir derleme veri akışı sağlayan [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Kafka](https://kafka.apache.org/), [Apache Solr](https://lucene.apache.org/solr/), [ Apache Hive](https://hive.apache.org/), [Apache HBase](https://hbase.apache.org/), ve [Apache Kudu](https://kudu.apache.org/). StreamSets Data Collector, Hadoop kümenizi veya bir uç sunucusu çalıştırıldıktan sonra gerçek zamanlı akış işlem veri anomalileri ve verileri için izleme alın. Bu izleme, eşik tabanlı uyarılar, anomali algılama ve otomatik düzeltme hata kayıtları içerir.
 
 StreamSets Data Collector, işlem hattındaki her bir aşama kodlama içermeyen ve en düşük kapalı kalma süresi ile yeni işlemcilere ve bağlayıcılar bırakarak yeni işletme gereksinimlerinizi karşılayabilir şekilde mantıksal olarak ayırmak için tasarlanmıştır.
 
@@ -46,7 +46,7 @@ Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek içi
 
 ## <a name="install-the-streamsets-data-collector-published-application"></a>Yayımlanan uygulamayı yükleme StreamSets Data Collector
 
-Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
+Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-streamsets-data-collector"></a>StreamSets Data Collector başlatın
 

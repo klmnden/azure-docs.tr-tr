@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d037c4fc65bc32ff183ddc7a8925cd2f51411ea0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 41b9d295837d377df98208d43c9cd4699f380b86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034635"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494378"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hive ve Apache Hadoop kullanarak Twitter verilerini çözümleme
 
-Twitter verilerini işleme için Apache Hive'ı kullanmayı öğrenin. Belirli bir sözcük içeren çoğu tweetleri gönderen Twitter kullanıcıların listesini sonucudur.
+Nasıl kullanacağınızı öğrenin [Apache Hive](https://hive.apache.org/) Twitter verilerini işleme. Belirli bir sözcük içeren çoğu tweetleri gönderen Twitter kullanıcıların listesini sonucudur.
 
 > [!IMPORTANT]
 > Bu belgedeki adımlarda HDInsight 3.6 üzerinde test edilmiştir.
@@ -182,7 +182,7 @@ Bu komutlar, veri kümedeki tüm düğümlerin erişebileceği bir konuma depola
 
 ## <a name="run-the-hiveql-job"></a>HiveQL işini çalıştır
 
-1. HiveQL ifadelerini içeren bir dosya oluşturmak için aşağıdaki komutu kullanın:
+1. İçeren bir dosya oluşturmak için aşağıdaki komutu kullanın [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) ifadeleri:
 
    ```bash
    nano twitter.hql
@@ -322,7 +322,7 @@ Bu komutlar, veri kümedeki tüm düğümlerin erişebileceği bir konuma depola
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yapılandırılmamış bir JSON veri kümesi, yapılandırılmış bir Hive tablosuna dönüştürmek öğrendiniz. HDInsight üzerindeki Hive'a hakkında daha fazla bilgi edinmek için aşağıdaki belgelere bakın:
+Yapılandırılmamış bir JSON veri kümesi yapılandırılmış bir dönüştürme hakkında bilgi edindiniz [Apache Hive](https://hive.apache.org/) tablo. HDInsight üzerindeki Hive'a hakkında daha fazla bilgi edinmek için aşağıdaki belgelere bakın:
 
 * [HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)

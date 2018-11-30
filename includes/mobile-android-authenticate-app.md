@@ -1,7 +1,19 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440518"
+---
 1. Projeyi Android Studio'da açın.
 
-2. İçinde **Proje Gezgini** Android Studio'da açmak `ToDoActivity.java` dosyasını açıp aşağıdaki içeri aktarma deyimlerini ekleyin:
+2. İçinde **Proje Gezgini** Android Studio'da açın `ToDoActivity.java` dosyasını açıp aşağıdaki içeri aktarma deyimlerini ekleyin:
 
     ```java
     import java.util.concurrent.ExecutionException;
@@ -47,12 +59,12 @@
     }
     ```
 
-    Bu kod, Google kimlik doğrulama işlemi işlemek için bir yöntem oluşturur. Bir iletişim kutusu, kimliği doğrulanmış kullanıcının Kimliğini görüntüler. Yalnızca başarılı bir kimlik doğrulaması devam edebilirsiniz.
+    Bu kod, Google kimlik doğrulama işlemi işlemek için bir yöntem oluşturur. Bir iletişim kutusu, kimliği doğrulanan kullanıcı Kimliğini görüntüler. Başarılı bir kimlik yalnızca geçebilirsiniz.
 
     > [!NOTE]
-    > Google dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değerini değiştirmek **oturum açma** yöntemi aşağıdaki değerlerden birine: _MicrosoftAccount_, _Facebook_, _Twitter_, veya _windowsazureactivedirectory_.
+    > Google dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değeri değiştirmek **oturum açma** yöntemi aşağıdaki değerlerden birine: _MicrosoftAccount_, _Facebook_, _Twitter_, veya _windowsazureactivedirectory_.
 
-4. İçinde **onCreate** yöntemi, sonra başlatır kodu aşağıdaki kod satırını ekleyin `MobileServiceClient` nesnesi.
+4. İçinde **onCreate** yöntemini başlatan ve sonra kodu aşağıdaki kod satırını ekleyin `MobileServiceClient` nesne.
 
     ```java
     authenticate();
@@ -60,7 +72,7 @@
 
     Bu çağrı, kimlik doğrulama işlemi başlatır.
 
-5. Kalan koddan sonra taşıma `authenticate();` içinde **onCreate** yöntemi yeni bir **createTable** yöntemi:
+5. Sonra geri kalan kod taşıma `authenticate();` içinde **onCreate** yöntemi yeni bir **createTable** yöntemi:
 
     ```java
     private void createTable() {
@@ -80,7 +92,7 @@
     }
     ```
 
-6. Yeniden yönlendirme works beklendiği gibi sağlamak için aşağıdaki kod parçacığını ekleyin `RedirectUrlActivity` için `AndroidManifest.xml`:
+6. Yeniden yönlendirme works beklendiği gibi emin olmak için aşağıdaki kod parçacığı Ekle `RedirectUrlActivity` için `AndroidManifest.xml`:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -111,7 +123,7 @@
     }
     ```
 
-8. Ekleme `com.android.support:customtabs:23.0.1` bağımlılıklar için `build.gradle`:
+8. Ekleme `com.android.support:customtabs:23.0.1` bağımlılıklara, `build.gradle`:
 
     ```gradle
     dependencies {
@@ -120,9 +132,9 @@
     }
     ```
 
-9. Gelen **çalıştırmak** menüsünde tıklatın **uygulama çalıştırma** uygulama ve seçilen kimlik sağlayıcınız ile oturum başlatmak için.
+9. Gelen **çalıştırın** menüsünde tıklatın **uygulamayı çalıştırma** uygulama ve seçilen kimlik sağlayıcınız bir oturum başlatmak için.
 
 > [!WARNING]
-> Belirtilen URL şeması büyük/küçük harf duyarlıdır. Emin tüm oluşumlarını `{url_scheme_of_you_app}` aynı durumda kullanın.
+> Belirtilen URL düzeni, büyük/küçük harf duyarlıdır. Emin tüm oluşumlarını `{url_scheme_of_you_app}` aynı durumda kullanın.
 
-Başarıyla oturum açtığında, uygulama hatasız çalışması gerektiğini ve arka uç hizmetine sorgu ve veri güncelleştirmeleri yapabilirler olmalıdır.
+Oturumunuz başarıyla açıldıktan sonra uygulama hatasız çalışmalıdır ve arka uç hizmetini sorgulama ve güncelleştirmeler yapmak için veri olması gerekir.

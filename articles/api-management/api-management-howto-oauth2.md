@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302818"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444742"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>OAuth 2.0 kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme nasıl
 
@@ -30,6 +30,8 @@ Bu kılavuz, OAuth 2.0 yetkilendirme için geliştirici hesapları kullanmak iç
 
 > [!NOTE]
 > OAuth 2.0 kullanarak Azure Active Directory yapılandırma hakkında daha fazla bilgi için bkz. [WebApp GraphAPI DotNet] [ WebApp-GraphAPI-DotNet] örnek.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>API Yönetimi'nde bir OAuth 2.0 yetkilendirme sunucusu yapılandırma
 

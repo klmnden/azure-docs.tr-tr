@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 3186d580918d7451317ae58cac270556509c6e3e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854348"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497917"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).

@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 60b80843ce343c667413be55b59d02ac14b349f3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d2aeb41c2fcc11c37ec56707932eabcf63e026a0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037524"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497201"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Yayımlanan uygulama - H2O Sparkling Water yükleme
 
-Bu makalede, yüklemek ve çalıştırmak açıklanır [H20 Sparkling Water](http://www.h2o.ai/) Azure HDInsight üzerinde Apache Hadoop uygulama yayımlanır. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, yüklemek ve çalıştırmak açıklanır [H20 Sparkling Water](http://www.h2o.ai/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-h2o-sparkling-water"></a>H2O Sparkling Water hakkında
 
-H2O Sparkling Water, açık kaynaklı, doğrusal ölçeklenebilirlik ile tam olarak dağıtılmış bellek içi makine öğrenimi platformudur ' dir. H2O Sparkling Water, hızlı ve ölçeklenebilir makine öğrenimi algoritmalarını Spark'ın özellikleriyle H2O birleştirmek sağlar. Sparkling Water ile kullanıcılar, Scala, R ve Python H2O Flow kullanıcı arabirimini kullanarak hesaplama yönlendirebilirsiniz.
+H2O Sparkling Water, açık kaynaklı, doğrusal ölçeklenebilirlik ile tam olarak dağıtılmış bellek içi makine öğrenimi platformudur ' dir. H2O Sparkling Water, hızlı ve ölçeklenebilir makine öğrenimi H2O algoritmalarıyla yeteneklerini birleştirerek izin [Apache Spark](https://spark.apache.org/). Sparkling Water ile kullanıcıların hesaplamadan yönlendirebilirsiniz [Scala](https://www.scala-lang.org/), R ve Python H2O Flow kullanıcı arabirimini kullanarak.
 
 H2O Sparkling Water sağlar:
 
@@ -49,11 +49,11 @@ Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek içi
 
 ## <a name="install-the-h2o-sparkling-water-published-application"></a>Yayımlanan uygulamayı yükleme H2O Sparkling Water
 
-Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
+Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-h2o-sparkling-water"></a>H2O Sparkling Water başlatın
 
-1. Yükleme sonrasında, H2O Sparkling Water (sparklingwater h2o) kullanarak Azure portalında kümenizin Jupyter not defterleri açarak başlamak için kullanabileceğiniz (`https://<ClusterName>.azurehdinsight.net/jupyter`). Jupyter için seçerek de sahip olabilirsiniz **küme Panosu** sonra portalda, küme bölmesinden seçerek **Jupyter not defteri**. Kimlik bilgilerinizi girmeniz istenir. Küme oluşturma sırasında belirtilen kümenin Hadoop kimlik bilgilerini girin.
+1. Yükleme sonrasında, H2O Sparkling Water (sparklingwater h2o) kullanarak Azure portalında kümenizin açarak başlamak için kullanabileceğiniz [Jupyter not defterleri](https://jupyter.org/) (`https://<ClusterName>.azurehdinsight.net/jupyter`). Jupyter için seçerek de sahip olabilirsiniz **küme Panosu** sonra portalda, küme bölmesinden seçerek **Jupyter not defteri**. Kimlik bilgilerinizi girmeniz istenir. Küme oluşturma sırasında belirtilen kümenin Hadoop kimlik bilgilerini girin.
 
 2. Jupyter'de, üç klasör görürsünüz: H2O PySparkling örnekler, örnekler PySpark ve Scala örnekleri. Seçin **H2O PySparkling örnekler** klasör.
 

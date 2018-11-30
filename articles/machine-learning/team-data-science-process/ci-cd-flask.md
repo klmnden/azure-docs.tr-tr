@@ -1,26 +1,22 @@
 ---
 title: 'Yapay zeka (AI) uygulamalar için DevOps: Docker, Kubernetes ve Python Flask uygulaması kullanarak Azure üzerinde sürekli tümleştirme işlem hattı oluşturma'
 description: "Yapay zeka (AI) uygulamalar için DevOps: Azure'da Docker ve Kubernetes kullanarak sürekli tümleştirme işlem hattı oluşturma"
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: jainr
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: jainr
-ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=jainr, ms.author=jainr)
+ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094406"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496741"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>Yapay zeka (AI) uygulamalar için DevOps: Azure'da Docker ve Kubernetes kullanarak sürekli tümleştirme işlem hattı oluşturma
 Yapay ZEKA uygulaması için iş, veri Bilimcileri makine öğrenimi modelleri ve bir uygulama oluşturmak ve kullanmak için son kullanıcılara gösterme uygulama geliştiriciler genellikle iki akışlarını vardır. Bu makalede, biz nasıl sürekli tümleştirme (CI) uygulanacağını gösteren / sürekli teslim (CD) işlem hattı için yapay ZEKA uygulama. Yapay ZEKA uygulaması, uygulama kodu kullanan machine learning (ML) bir modelle katıştırılmış birleşimidir. Bu makalede, biz pretrained modeli özel Azure blob depolama hesabından getiriliyor, AWS S3 hesabı da olabilir. Makale için bir basit bir python flask web uygulaması kullanacağız.
@@ -55,7 +51,7 @@ Uygulamayı bir Azure depolama hesabı ve paketlerin en son modelden, uygulaman�
 1. Geliştirici uygulama kodu kendi tercih ettiğiniz IDE'de çalışın.
 2. Bunlar kaynak denetimine (Azure DevOps çeşitli kaynak denetimleri iyi desteği olan) kendi seçtikleri kod işle
 3. Ayrıca, veri uzmanı iş modellerindeki geliştirmeye.
-4. Bu durumda mutlu sonra bunlar için bir model deposu modeli yayımlayın, blob depolama hesabı kullanıyoruz. Bu kolayca Azure ML Workbench'ın Model Yönetimi hizmeti, REST API'ler aracılığıyla ile değiştirilebilir.
+4. Bu durumda mutlu sonra bunlar için bir model deposu modeli yayımlayın, blob depolama hesabı kullanıyoruz. 
 5. Azure DevOps github'da işleme dayalı olarak bir yapı başlatılır.
 6. Azure DevOps derleme işlem hattı, en son modele Blob kapsayıcısından çeker ve bir kapsayıcı oluşturur.
 7. Azure DevOps, Azure Container Registry'de özel görüntü deposu için görüntüyü gönderir.

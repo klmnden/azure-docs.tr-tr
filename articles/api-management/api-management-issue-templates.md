@@ -1,6 +1,6 @@
 ---
-title: Sorun Azure API Management şablonlarında | Microsoft Docs
-description: Azure API Management'ta Geliştirici portalını sorunu sayfalarında içeriğini özelleştirmeyi öğrenin.
+title: Azure API Management şablonlarında sorun | Microsoft Docs
+description: Azure API Management'ta Geliştirici Portalı'nda sorun sayfaların içeriğini özelleştirmeyi öğrenin.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,29 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d13a146e94328b8ac57dc1036676328a4bea9d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f099c27c55b817d6d9217a614ee66bf1d414a4dd
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23835135"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446389"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management şablonları verme
-Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
+Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştirici portal sayfalarının içeriğini özelleştirme becerisi sunuyor. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) söz dizimi ve tercih ettiğiniz düzenleyiciyi gibi [tasarımcılarına yönelik DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter Kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), sayfaların içeriğini bu şablonları kullanarak dilediğiniz şekilde yapılandırmak için harika esnekliğine sahip olursunuz.  
   
- Bu bölümdeki şablonları Geliştirici Portalı sorunu sayfalarında içeriğini özelleştirmenize olanak sağlar.  
+ Bu bölümdeki şablonları, Geliştirici Portalı'nda sorun sayfalarının içeriğini özelleştirmenizi sağlar.  
   
 -   [Sorun listesi](#IssueList)  
   
 > [!NOTE]
->  Örnek varsayılan şablonları aşağıdaki belgelerde yer alır ancak değişikliği sürekli geliştirmeler nedeniyle tabidir. İstenen tek tek şablonları giderek Geliştirici Portalı'nda Canlı varsayılan şablonları görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).  
+>  Örnek varsayılan şablonları aşağıdaki belgelerde bulunan, ancak sürekli geliştirmeler nedeniyle değiştirilebilir. İstenen bireysel şablonlara giderek Canlı varsayılan şablonları Geliştirici Portalı'nda görüntüleyebilirsiniz. Şablonlar ile çalışma hakkında daha fazla bilgi için bkz. [şablonlarını kullanarak API Management Geliştirici portalını özelleştirmek nasıl](api-management-developer-portal-templates.md).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="IssueList"></a>Sorun listesi  
- **Sorun listesi** şablonu Geliştirici portalında sorun listesi sayfasının gövdesi özelleştirmenizi sağlar.  
+##  <a name="IssueList"></a> Sorun listesi  
+ **Sorun listesi** şablon Geliştirici Portalı'nda çıkış listesi sayfasının gövdesi özelleştirmenize olanak sağlar.  
   
  ![Sorun listesi Geliştirici Portalı](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM sorun listesi Geliştirici Portalı")  
   
-### <a name="default-template"></a>Varsayılan şablonu  
+### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <div class="row">  
@@ -89,19 +91,19 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- `Issue list` Şablonu, aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ `Issue list` Şablon aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
--   [disk belleği denetimi](api-management-page-controls.md#paging-control)  
+-   [sayfalama denetimi](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Veri modeli  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Sorunlar|Koleksiyonu [sorunu](api-management-template-data-model-reference.md#Issue) varlıklar.|Geçerli kullanıcıya görülebilir sorunları.|  
-|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Uygulamaları koleksiyonu için disk belleği bilgileri.|  
-|IsAuthenticated|Boole değeri|Olup geçerli kullanıcı Geliştirici portalına açan.|  
-|CanReportIssues|Boole değeri|Geçerli kullanıcının bir sorunu dosya izni olup olmadığı.|  
-|Arama|Dize|Bu özellik kullanım dışıdır ve kullanılmamalıdır.|  
+|Sorunlar|Koleksiyonu [sorunu](api-management-template-data-model-reference.md#Issue) varlıklar.|Sorunları geçerli kullanıcıya görünür.|  
+|Sayfalama|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Uygulama koleksiyonu için sayfalandırma bilgileri.|  
+|Isauthenticated durumunda olmasını gerektirir|boole|Olup geçerli kullanıcı Geliştirici portalında oturum açmış.|  
+|CanReportIssues|boole|Geçerli kullanıcı bir sorun dosya izni olup olmadığı.|  
+|Arama|dize|Bu özellik, kullanım dışıdır ve kullanılmamalıdır.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -135,4 +137,4 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonlar ile çalışma hakkında daha fazla bilgi için bkz. [şablonlarını kullanarak API Management Geliştirici portalını özelleştirmek nasıl](api-management-developer-portal-templates.md).

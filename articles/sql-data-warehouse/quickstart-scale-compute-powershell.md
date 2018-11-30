@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d3a3b30539ed33bf3e8d21a8cc5e5f2692308f98
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
-ms.translationtype: HT
+ms.openlocfilehash: cb6153d2859968a02345cfbcfa66bd9a4177d864
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283201"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427444"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Hızlı Başlangıç: PowerShell’den Azure SQL Veri Ambarı’nda işlemi ölçeklendirme
 
@@ -23,7 +23,7 @@ PowerShell’den Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps.md).
+Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -43,10 +43,10 @@ Kullanmakta olduğunuz aboneliği görmek için [Get-AzureRmSubscription](/power
 Get-AzureRmSubscription
 ```
 
-Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription) komutunu çalıştırın.
+Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa, çalıştırma [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Veri ambarı bilgilerini arama

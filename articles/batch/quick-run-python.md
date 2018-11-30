@@ -2,20 +2,20 @@
 title: Azure Hızlı Başlangıç - Batch işi çalıştırma - Python
 description: Bir Batch işini ve görevleri Batch Python istemci kitaplığı kullanarak hızlıca çalıştırın.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/26/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 424516a4a321227e4e79cfe33d40e8fdca24a779
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815282"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427339"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Hızlı başlangıç: Python API’si ile ilk Batch işinizi çalıştırma
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıç, Azure Batch Python API üzerinde derlenmiş bir uygulam
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Python sürüm 2.7 veya 3.3 ya da üzeri](https://www.python.org/downloads/)
 
@@ -55,8 +55,7 @@ Python geliştirme ortamınızda `pip` kullanarak gerekli paketleri yükleyin.
 pip install -r requirements.txt
 ```
 
-`python_quickstart_client.py` dosyasını açın. Batch ve depolama hesabı kimlik bilgilerini, hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örnek:
-
+`config.py` dosyasını açın. Batch ve depolama hesabı kimlik bilgilerini, hesaplarınız için edindiğiniz değerlerle güncelleştirin. Örneğin:
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -81,7 +80,7 @@ Betiği çalıştırdıktan sonra, uygulamanın her bir parçasının ne işe ya
 Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` konumunda bir duraklama yaşarsınız. Görevler, ilk işlem düğümünü çalışır çalışmaz çalışmak üzere kuyruğa alınır. Batch hesabınızdaki havuz, işlem düğümleri, iş ve görevleri izlemek için [Azure portalında](https://portal.azure.com) Batch hesabınıza gidin.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -115,7 +114,7 @@ Bu hızlı başlangıçtaki Python uygulaması şunları yapar:
 * Düğümler üzerinde çalıştırılacak bir iş ve üç görev oluşturur. Her görev bir Bash kabuk komut satırı kullanarak giriş dosyalarından birini işler.
 * Görevler tarafından döndürülen dosyaları gösterir.
 
-Ayrıntılar için `python_quickstart_client.py` dosyasına ve aşağıdaki bölümlere bakın. 
+Ayrıntılar için `python_quickstart_client.py` dosyasına ve aşağıdaki bölümlere bakın.
 
 ### <a name="preliminaries"></a>Başlangıç bilgileri
 
@@ -123,8 +122,8 @@ Bir depolama hesabıyla etkileşimde bulunmak için uygulama, [azure-storage-blo
 
 ```python
 blob_client = azureblob.BlockBlobService(
-    account_name=_STORAGE_ACCOUNT_NAME,
-    account_key=_STORAGE_ACCOUNT_KEY)
+    account_name=config._STORAGE_ACCOUNT_NAME,
+    account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
 Uygulama, depolama hesabında bir kapsayıcı oluşturmak ve kapsayıcıya veri dosyaları yüklemek için `blob_client` başvurusunu kullanır. Depolama alanındaki dosyalar, Batch hizmetinin daha sonra işlem düğümlerine indirebileceği Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) nesneleri olarak tanımlanır.
@@ -142,14 +141,13 @@ input_files = [
 Uygulama, Batch hizmetinde havuz, iş ve görevleri oluşturup yönetmek üzere bir [BatchServiceClient](/python/api/azure.batch.batchserviceclient) nesnesi oluşturur. Örnekteki Batch istemcisi, paylaşılan anahtar kimlik doğrulaması kullanır. Batch, Azure Active Directory kimlik doğrulamasını da destekler.
 
 ```python
-credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
+    config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=_BATCH_ACCOUNT_URL)
+    base_url=config._BATCH_ACCOUNT_URL)
 ```
-
 
 ### <a name="create-a-pool-of-compute-nodes"></a>İşlem düğümleri havuzu oluşturma
 
@@ -170,8 +168,8 @@ new_pool = batch.models.PoolAddParameter(
             version="latest"
             ),
         node_agent_sku_id="batch.node.ubuntu 16.04"),
-    vm_size=_POOL_VM_SIZE,
-    target_dedicated_nodes=_POOL_NODE_COUNT
+    vm_size=config._POOL_VM_SIZE,
+    target_dedicated_nodes=config._POOL_NODE_COUNT
 )
 batch_service_client.pool.add(new_pool)
 ```
@@ -220,7 +218,7 @@ for task in tasks:
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, _STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

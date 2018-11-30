@@ -2,25 +2,21 @@
 title: 'Azure Data Lake ile ölçeklenebilir veri bilimi: uçtan uca kılavuz | Microsoft Docs'
 description: Bir veri kümesi üzerinde veri keşfi ve ikili sınıflandırma görevleri yapmak için Azure Data Lake kullanma
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: b6813bf20eed17ed5b101d56b0c9d5a6adf2d7b5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 52518f8c9295f00b93dee0ea356513605450aed7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265313"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443568"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: uçtan uca kılavuz
 Bu yönerge, Azure Data Lake veri keşfi ve NYC taksi seyahat örneği ikili sınıflandırma görevleri ve masrafları ipucu tarafından bir taksi Ücretli olup olmadığını tahmin etmek için veri kümesi için nasıl kullanılacağını gösterir. Bu adımlarında size kılavuzluk eder [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımı için.

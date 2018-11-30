@@ -17,18 +17,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466725"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424961"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
 
 Bugün Azure Active Directory (Azure AD) çoklu oturum açma ile Azure AD uygulama galerisinde yanı sıra özel uygulamalar önceden tümleştirilmiş iki uygulama da dahil olmak üzere çoğu kuruluş uygulamaları destekler. Bir kullanıcı, uygulamanın SAML 2.0 protokolünü kullanarak Azure AD üzerinden kimliğini doğrular, Azure AD belirteç (bir HTTP POST) aracılığıyla uygulamaya gönderir. Ve daha sonra uygulama doğrular ve belirteci yerine bir kullanıcı adı ve parola bilgilerini isteyen kullanıcının oturumunu açmak için kullanır. Bu SAML belirteçlerini, "talepler" olarak bilinen kullanıcı hakkında bilgiler içerir.
 
-A *talep* bildiren bir kimlik sağlayıcısı, sorunu bu kullanıcı için belirteç içinde bir kullanıcı hakkında bilgi. İçinde [SAML belirteci](http://en.wikipedia.org/wiki/SAML_2.0), bu veriler genellikle SAML özniteliği deyimde yer alır. Kullanıcının benzersiz kimliği genellikle SAML ad tanımlayıcısı da bilinen konu temsil edilir.
+A *talep* bildiren bir kimlik sağlayıcısı, sorunu bu kullanıcı için belirteç içinde bir kullanıcı hakkında bilgi. İçinde [SAML belirteci](https://en.wikipedia.org/wiki/SAML_2.0), bu veriler genellikle SAML özniteliği deyimde yer alır. Kullanıcının benzersiz kimliği genellikle SAML ad tanımlayıcısı da bilinen konu temsil edilir.
 
 Varsayılan olarak, Azure AD uygulamanızı Azure AD'de kullanıcının kullanıcı adını (AKA kullanıcı asıl adı) değerini içeren bir NameIdentifier talebini içeren bir SAML belirteci verir. Bu değer, kullanıcıyı benzersiz şekilde tanımlayabilir. SAML belirtecindeki Ayrıca, kullanıcının e-posta adresi, ad ve soyadını içeren ek talepleri de içerir.
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 31461e1d316953c2e69d252f1313180c57562dfd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009200"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496307"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight için ek depolama hesapları ekleme
 
 Betik eylemleri, HDInsight için ek Azure depolama hesapları eklemek için kullanmayı öğrenin. Bu belgede yer alan adımlar, mevcut bir Linux tabanlı HDInsight kümesine bir depolama hesabı ekleyin.
 
 > [!IMPORTANT]
-> Bu belgedeki oluşturulduktan sonra ek depolama alanı bir kümeye ekleme hakkındaki bilgilerdir. Küme oluşturma sırasında depolama hesapları ekleme hakkında daha fazla bilgi için bkz: [HDInsight Hadoop, Spark, Kafka ve daha fazlası ile kümelerini ayarlama](hdinsight-hadoop-provision-linux-clusters.md).
+> Bu belgedeki oluşturulduktan sonra ek depolama alanı bir kümeye ekleme hakkındaki bilgilerdir. Küme oluşturma sırasında depolama hesapları ekleme hakkında daha fazla bilgi için bkz: [Apache Hadoop, Apache Spark, Apache Kafka ve daha fazlasıyla HDInsight kümelerinde ayarlama](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
@@ -43,7 +43,7 @@ Bu betik, aşağıdaki parametreleri alır:
 
 * Depolama hesabı için core-site.xml dosyasının ekler.
 
-* Durdurur ve Oozie, YARN MapReduce2 ve HDFS hizmetleri yeniden başlatır. Durdurma ve başlatma bu hizmetler yeni depolama hesabı kullanmak üzere sağlar.
+* Durdurur ve yeniden başlatır [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), ve [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) Hizmetleri. Durdurma ve başlatma bu hizmetler yeni depolama hesabı kullanmak üzere sağlar.
 
 > [!WARNING]
 > HDInsight kümesinden farklı bir konumda bir depolama hesabının kullanılması desteklenmez.

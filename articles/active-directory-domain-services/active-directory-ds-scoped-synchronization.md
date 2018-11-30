@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242203"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442990"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Yönetilen etki alanınızı Azure AD'den kapsamlı eşitlemeyi yapılandırma
 Bu makalede, yalnızca belirli kullanıcı hesaplarını Azure AD dizininizi Azure AD Domain Services yönetilen Etki Alanınızla eşitlenmek üzere yapılandırma işlemini göstermektedir.
@@ -47,7 +47,12 @@ Aşağıdaki tabloda nasıl kapsamlı eşitleme kullanılacağını belirlemeniz
 >
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization"></a>Yeni bir yönetilen etki alanı ve grup tabanlı kapsamlı eşitlemeyi etkinleştirme
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Yeni bir yönetilen etki alanı oluşturma ve Azure portalını kullanarak grup tabanlı kapsamlı eşitlemeyi etkinleştirme
+
+1. İzleyin [Başlarken kılavuzunda](active-directory-ds-getting-started.md) yönetilen bir etki alanı oluşturma.
+2. Seçin **kapsamlı** sırasında Azure AD Domain Services Oluşturma Sihirbazı'nı eşitleme stil seçimi.
+
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Yeni bir yönetilen etki alanı oluşturma ve PowerShell kullanarak grup tabanlı kapsamlı eşitlemeyi etkinleştirme
 Bu adım kümesini tamamlamak için PowerShell kullanın. Yönergelere bakın [Azure Active Directory etki alanı PowerShell kullanarak Services'i etkinleştirme](active-directory-ds-enable-using-powershell.md). Bu makaledeki adımlarda birkaç değiştirildiğinde biraz daha kapsamlı eşitleme yapılandırılamadı.
 
 Grup tabanlı kapsamlı eşitleme yönetilen etki alanınıza yapılandırmak için aşağıdaki adımları tamamlayın:

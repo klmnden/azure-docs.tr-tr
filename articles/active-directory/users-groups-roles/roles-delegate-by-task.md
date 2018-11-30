@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516309"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445030"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Azure Active Directory'de kimlik görev tarafından yönetici rolleri
 
@@ -107,7 +107,7 @@ Tüm yapılandırması okuma | Dizin okuyucular | Varsayılan kullanıcı rolü 
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------
 Azure AD Domain Services örneği oluşturma | Genel Yönetici | 
-Genellikle tüm Azure AD Domain Services görevleri | Azure AD DC Administrators grubu ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Tüm Azure AD Domain Services görevlerini gerçekleştirme | Azure AD DC Administrators grubu ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Tüm yapılandırması okuma | AD DS hizmetini içeren bir Azure aboneliği üzerinde okuyucusu | 
 
 ## <a name="devices"></a>Cihazlar
@@ -147,7 +147,7 @@ Lisans ata | Kullanıcı hesabı yöneticisi |
 Grup oluştur | Kullanıcı hesabı yöneticisi | 
 Oluşturmak, güncelleştirmek veya bir grubun veya bir uygulamanın erişim gözden geçirmesini silme | Kullanıcı hesabı yöneticisi | 
 Grup kullanım süresini yönetme | Kullanıcı hesabı yöneticisi | 
-Grup ayarlarını yönetme | Kullanıcı hesabı yöneticisi | 
+Grup ayarlarını yönetme | Genel Yönetici | 
 Tüm yapılandırma (dışında gizli üyeliği) okuyun | Dizin okuyucular | Varsayılan kullanıcı rolü ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Gizli okuma üyelik | Grup üyesi | Grup sahibi, parola Yöneticisi, Exchange Yöneticisi, SharePoint Yöneticisi, takımlar yönetici, kullanıcı hesabı yöneticisi
 Gizli üyelikle gruplarının üyeliklerini okuyun | Yardım Masası Yöneticisi | Kullanıcı hesabı yöneticisi, takımlar yönetici
@@ -226,7 +226,7 @@ Sunucu durumu okuma | Genel Yönetici |
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------
 Kimlik sağlayıcılarını yönet | Genel Yönetici | 
-Ayarlarını yönetme | Genel Yönetici | 
+Ayarları yönetme | Genel Yönetici | 
 Kullanım koşullarını Yönet | Genel Yönetici | 
 Tüm yapılandırması okuma | Genel Yönetici | 
 

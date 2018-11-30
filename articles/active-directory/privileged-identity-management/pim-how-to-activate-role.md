@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 534714accb504e4ce487950fef028ab675c46a87
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666011"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496400"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerim PIM etkinleştir
 
@@ -70,9 +70,25 @@ Bir Azure AD dizin rolü gerektiğinde kullanarak etkinleştirme isteyebilir **r
 
 1. Tıklayın **etkinleştirme**.
 
-    Rolü onay gerektirmez, artık etkinleştirilir ve rol etkin rollerin listesinde görünür. Varsa [rolünü onay gerektiren](./azure-ad-pim-approval-workflow.md) etkinleştirmek için bir bildirim isteği onay bekliyor olduğunu bildiren, tarayıcınızın sağ üst köşesinde görünür.
+    Rolü onay gerektirmez, etkin ve etkin rollerin listesine eklenir. Rol hemen kullanmak istiyorsanız, sonraki bölümde yer alan adımları izleyin.
+
+    Varsa [rolünü onay gerektiren](./azure-ad-pim-approval-workflow.md) etkinleştirmek için bir bildirim isteği onay bekliyor olduğunu bildiren, tarayıcınızın sağ üst köşesinde görünür.
 
     ![Bildirim istek](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>Hemen etkinleştirildikten sonra bir rol kullanın
+
+Bir rolü PIM etkinleştirdiğinizde, istenen yönetim portalına erişmek veya belirli bir yönetim iş yükü içinde işlevleri gerçekleştirmek için önce en az 10 dakika sürer. İzinlerinizi güncelleştirmesini zorlamak için kullanan **uygulama erişimi** sayfasında aşağıdaki adımlarda anlatıldığı gibi.
+
+1. Azure AD Privileged Identity Management'ı açın.
+
+1. Tıklayın **uygulama erişimi** sayfası.
+
+    ![PIM uygulama erişimi](./media/pim-how-to-activate-role/pim-application-access.png)
+
+1. Tıklayın **Azure Active Directory** Şirket portalı yeniden bağlantı **tüm kullanıcılar** sayfası.
+
+    Bu bağlantıya tıkladığınızda, geçerli belirtecinizi geçersiz kılmak ve güncelleştirilmiş izinlerinizi içermesi gereken yeni bir belirteç almak için Azure portalında zorla.
 
 ## <a name="view-the-status-of-your-requests"></a>İsteklerinizin durumunu görüntüleme
 
@@ -85,20 +101,6 @@ Etkinleştirmek için Bekleyen isteklerinizi durumunu görüntüleyebilirsiniz.
 1. Tıklayın **isteklerim** isteklerinizin listesini görmek için.
 
     ![Azure AD Dizin rolleri - isteklerim](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Hemen etkinleştirildikten sonra bir rol kullanın
-
-Önbelleğe alma nedeniyle etkinleştirmeleri hemen yenilemeye olmadan Azure portalında gerçekleşmez. Bir rol etkinleştirdikten sonra gecikmeler olasılığını azaltmak gerekiyorsa, kullanabileceğiniz **uygulama erişimi** portalında sayfası. Bu sayfadan erişilen uygulamalar için yeni rol atamaları hemen denetleyin.
-
-1. Azure AD Privileged Identity Management'ı açın.
-
-1. Tıklayın **uygulama erişimi** sayfası.
-
-    ![PIM uygulama erişimi](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. Tıklayın **Azure Active Directory** Şirket portalı yeniden **tüm kullanıcılar** sayfası.
-
-    Bu bağlantıyı tıklatın, yenilemeye zorlamak ve yeni Azure denetimi olmadığında AD rol atamaları.
 
 ## <a name="deactivate-a-role"></a>Rol devre dışı bırak
 
@@ -131,6 +133,14 @@ Onay gerektiren bir rolü etkinleştirmesi gerekmiyorsa, bekleyen istek dilediğ
     İptal'i tıklattığınızda, isteği iptal edilecek. Rolü etkinleştirmek için yeniden, etkinleştirme için yeni bir istek göndermeniz gerekir.
 
    ![Bekleyen isteği iptal et](./media/pim-how-to-activate-role/directory-role-cancel.png)
+
+## <a name="troubleshoot"></a>Sorun giderme
+
+### <a name="permissions-not-granted-after-activating-a-role"></a>Bir rol etkinleştirdikten sonra değil izinler
+
+Bir rolü PIM etkinleştirdiğinizde, istenen yönetim portalına erişmek veya belirli bir yönetim iş yükü içinde işlevleri gerçekleştirmek için önce en az 10 dakika sürer. İzinlerinizi güncelleştirmesini zorlamak için kullanan **uygulama erişimi** sayfasında daha önce açıklandığı [hemen etkinleştirildikten sonra bir rol kullanın](#use-a-role-immediately-after-activation).
+
+Ek sorun giderme adımları için bkz. [sorun giderme yükseltilmiş izinler](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

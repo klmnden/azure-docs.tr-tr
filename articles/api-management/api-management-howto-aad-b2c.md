@@ -13,22 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232928"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447138"
 ---
 > [!WARNING]
 > Azure Active Directory B2C tümleştirme kullanılabilir [geliştirici, standart ve Premium](https://azure.microsoft.com/pricing/details/api-management/) yalnızca katmanları.
 
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Yönetimi'nde Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirme nasıl
+
 ## <a name="overview"></a>Genel Bakış
 Azure Active Directory B2C, tüketicilere yönelik web ve mobil uygulamalar için bir bulut kimlik yönetimi çözümü ' dir. Geliştirici portalınızın erişimi yönetmek için kullanabilirsiniz. Bu kılavuz API Management hizmetinizdeki Azure Active Directory B2C ile tümleştirmek için gerekli yapılandırmayı gösterir. Klasik Azure Active Directory kullanarak Geliştirici portal erişimini etkinleştirme hakkında daha fazla bilgi için bkz: [Azure Active Directory kullanarak Geliştirici hesaplarını yetkilendirme nasıl].
 
 > [!NOTE]
 > Bu kılavuzdaki adımları tamamlamak için önce bir uygulamayı oluşturmak için bir Azure Active Directory B2C kiracısı olmalıdır. Ayrıca, kaydolma ve oturum açma ilkeleri hazır olması gerekir. Daha fazla bilgi için [Azure Active Directory B2C genel bakış].
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirme
 

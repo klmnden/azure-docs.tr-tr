@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395142"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427310"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Azure Deployment Manager (özel Önizleme) ile güvenli dağıtım uygulamalarını etkinleştirme
 
@@ -24,7 +24,7 @@ Birçok bölgede hizmetinizi dağıtmadan ve her bölgede beklendiği gibi çal�
 
 Dağıtım Yöneticisi Kaynak Yöneticisi'nin bir özelliktir. Bu, dağıtım sırasında yeteneklerinizi genişletir. Karmaşık bir servis olduğunda Dağıtım Yöneticisi'ni kullanın, çeşitli bölgelere dağıtılması gerekiyor. Hizmetinizi aşamalı kullanıma sunarak, tüm bölgelere dağıtılmadan önce olası sorunları bulabilirsiniz. Aşamalı dağıtım, ek güvenlik önlemleri gerekmiyorsa, standart kullanma [dağıtım seçenekleri](resource-group-template-deploy-portal.md) için Resource Manager. Dağıtım Yöneticisi, sürekli tümleştirme ve sürekli teslim (CI/CD) teklifleri gibi Resource Manager dağıtımlarını destekleyen tüm mevcut üçüncü taraf araçları sorunsuzca tümleştirilir. 
 
-Azure Deployment Manager özel Önizleme aşamasındadır. Azure Deployment Manager'ı için tamamlayın [kayıt formunu](https://aka.ms/admsignup). Yardım sağlayarak özelliği geliştirmek [geri bildirim](https://aka.ms/admfeedback).
+Azure Dağıtım Yöneticisi özel önizleme aşamasındadır. Azure Deployment Manager'ı için tamamlayın [kayıt formunu](https://aka.ms/admsignup). Yardım sağlayarak özelliği geliştirmek [geri bildirim](https://aka.ms/admfeedback).
 
 Deployment Manager'ı kullanmak için dört dosyaları oluşturmak gerekir:
 
@@ -34,6 +34,8 @@ Deployment Manager'ı kullanmak için dört dosyaları oluşturmak gerekir:
 * Piyasaya çıkma için parametre dosyası
 
 Topoloji şablon, dağıtım şablonu dağıtmadan önce dağıtın.
+
+Azure Deployment Manager REST API Başvurusu bulunabilir [burada](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## <a name="supported-locations"></a>Desteklenen konumlar
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237208"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427174"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -95,7 +95,7 @@ Aşağıdaki kod parçacığı bir yanıt örneği gösterilmektedir:
 
 ## <a name="diagnostic-logging"></a>Tanılama günlükleri
 
-Azure'da günlükleri farklı türde, yönetme ve sorun giderme application gateway'ler için kullanabilirsiniz. Bu günlüklerden bazılarına portaldan erişebilirsiniz. Tüm günlükler Azure Blob depolama alanından ayıklanır ve gibi farklı araçlarında görüntülenen [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel ve Power BI. Günlükleri aşağıdaki listeden farklı türleri hakkında daha fazla bilgi edinebilirsiniz:
+Azure'da günlükleri farklı türde, yönetme ve sorun giderme application gateway'ler için kullanabilirsiniz. Bu günlüklerden bazılarına portaldan erişebilirsiniz. Tüm günlükler Azure Blob depolama alanından ayıklanır ve gibi farklı araçlarında görüntülenen [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel ve Power BI. Günlükleri aşağıdaki listeden farklı türleri hakkında daha fazla bilgi edinebilirsiniz:
 
 * **Etkinlik günlüğü**: kullanabileceğiniz [Azure etkinlik günlüklerini](../monitoring-and-diagnostics/insights-debugging-with-events.md) (eski adıyla işletimsel ve Denetim günlükleri), Azure aboneliğinizin ve durumlarını gönderilen tüm işlemleri görüntülemek için. Etkinlik günlüğü girişleri varsayılan olarak toplanır ve bunları Azure portalda görüntüleyebilirsiniz.
 * **Erişim günlüğü**: erişim desenlerini uygulama ağ geçidi'ni görüntüleyip analiz arayanın IP, istenen URL, yanıt gecikme süresi, dönüş kodu ve bayt açma ve kapatma gibi önemli bilgiler için bu günlük kullanabilirsiniz. Bir erişim günlüğü, her 300 saniyede toplanır. Bu günlük, uygulama ağ geçidi örneği başına tek bir kayıt içerir. Uygulama ağ geçidi örneğinin InstanceId özelliği tarafından tanımlanır.
@@ -303,7 +303,7 @@ Aşağıdaki yöntemlerden birini kullanarak etkinlik günlüğü verilerini gö
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Erişim, performans ve güvenlik duvarı günlükleri görüntüleme ve çözümleme
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) sayacını ve olay günlüğü dosyaları Blob Depolama hesabınızı sık toplayabilirsiniz. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) sayacını ve olay günlüğü dosyaları Blob Depolama hesabınızı sık toplayabilirsiniz. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
 
 Dilerseniz depolama hesabınıza bağlanabilir ve JSON erişim günlüklerini ve performans günlüklerini alabilirsiniz. İndirdiğiniz JSON dosyalarını CSV biçimine dönüştürebilir ve Excel, Power BI veya diğer veri görselleştirme araçlarında görüntüleyebilirsiniz.
 
@@ -379,7 +379,7 @@ Web kancaları ve nasıl uyarılarla kullanabilmek için daha iyi anlamak için 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Sayaç ve olay günlüklerini kullanarak görselleştirme [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+* Sayaç ve olay günlüklerini kullanarak görselleştirme [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
 * [Azure etkinlik günlüğü Power BI ile görselleştirin](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog gönderisi.
 * [Görüntüleme ve Power BI ve diğer Azure etkinlik günlüklerini analiz](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog gönderisi.
 

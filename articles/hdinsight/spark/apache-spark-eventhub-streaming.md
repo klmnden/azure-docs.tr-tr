@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 537ae87fa694a8b0e82cb2830dd8ad1f62986093
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283419"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496420"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Öğretici: Azure Event Hubs ve Spark HDInsight'ı kullanarak bir işlem tweet
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Öğretici: Azure Event Hubs ve Apache Spark HDInsight'ı kullanarak bir işlem tweet
 
-Bu öğreticide, Azure olay hub'ına tweetler gönderin ve tweetleri event hub'ından okumak için başka bir uygulama oluşturmak için bir Apache akış uygulaması Spark oluşturma konusunda bilgi edinin. Spark akış ayrıntılı bir açıklaması için bkz. [Apache Spark'ın genel bakış akış](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight, Azure üzerinde bir Spark kümesi için aynı akış özellikleri sunar.
+Bu öğreticide, şunların nasıl oluşturulacağı bir [Apache Spark](https://spark.apache.org/) tweetleri bir Azure olay hub'ına gönderme ve tweetleri event hub'ından okumak için başka bir uygulama oluşturmak için uygulama akış. Spark akış ayrıntılı bir açıklaması için bkz. [Apache Spark'ın genel bakış akış](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight, Azure üzerinde bir Spark kümesi için aynı akış özellikleri sunar.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
@@ -102,7 +102,7 @@ Tweetleri depolamak için bu olay hub'ı kullanın.
 
 Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğunuz **SendTweetsToEventHub**. 
 
-1. Dış Maven kitaplıkları eklemek için aşağıdaki kodu çalıştırın:
+1. Dış Apache Maven kitaplıkları eklemek için aşağıdaki kodu çalıştırın:
 
     ```
     %%configure
@@ -184,7 +184,7 @@ Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğunuz **Send
 
 Başka bir Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğunuz **ReadTweetsFromEventHub**. 
 
-1. Bir dış Maven Kitaplığı eklemek için aşağıdaki kodu çalıştırın:
+1. Bir dış Apache Maven Kitaplığı eklemek için aşağıdaki kodu çalıştırın:
 
     ```
     %%configure -f

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 91da40613e940b3dd577362273cf14e68d019f26
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256179"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442503"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -104,7 +104,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     Azure Cosmos DB, ağ geçidi modunu kullanırken HTTPS/REST yapılır ve olan istekleri için konak adı veya IP adresi başına varsayılan bağlantı üst sınırına tabi. İstemci Kitaplığı, Azure Cosmos DB için çok sayıda eşzamanlı bağlantıyı kullanabilir, böylece daha yüksek bir değere (100-1000) MaxConnections ayarlamanız gerekebilir. .NET SDK 1.8.0 ve üzeri için varsayılan değer [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50'dir ve değeri değiştirmek için ayarlayabileceğiniz [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)daha yüksek bir değer.   
 4. **Bölümlenmiş koleksiyonlar için paralel sorgular ayarlama**
 
-     SQL .NET SDK'sı sürüm 1.9.0 ve üstü bölünmüş bir koleksiyona paralel sorgu sağlayan destek paralel sorgular (bkz [SDK'ları ile çalışma](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili [kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) daha fazla bilgi için). Paralel sorgular seri kendi karşılığı sorgunun gecikme süresi ve aktarım hızı artırmak için tasarlanmıştır. Paralel sorguları, kullanıcıların özel-(a) Maxanalyticsunits gereksinimlerine uyacak şekilde ayarlayabilirsiniz iki parametre sağlar: daha sonra bölüm sayısı, paralel ve (b) MaxBufferedItemCount sorgulanabilen denetimine: sayısını denetlemek için önceden getirilen sonuç.
+     SQL .NET SDK'sı sürüm 1.9.0 ve üstü bölünmüş bir koleksiyona paralel sorgu sağlayan destek paralel sorgular. Daha fazla bilgi için [kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) SDK'ları ile çalışmayla ilgili. Paralel sorgular seri kendi karşılığı sorgunun gecikme süresi ve aktarım hızı artırmak için tasarlanmıştır. Paralel sorguları, kullanıcıların özel-(a) Maxanalyticsunits gereksinimlerine uyacak şekilde ayarlayabilirsiniz iki parametre sağlar: daha sonra bölüm sayısı, paralel ve (b) MaxBufferedItemCount sorgulanabilen denetimine: sayısını denetlemek için önceden getirilen sonuç.
 
     (a) ***ayarlama Maxanalyticsunits\:***  paralel sorgu works birden çok bölümü paralel sorgulayarak. Ancak, tek bir bölümlenmiş toplama verilerden göre sorgu seri olarak getirilir. Bu nedenle, diğer tüm sistem koşulları aynı kalması koşuluyla en yüksek performanslı sorgu başarmaya maksimum olasılığını bir bölüm sayısı Maxanalyticsunits ayarlama sahiptir. Bölüm sayısı bilmiyorsanız, Maxanalyticsunits yüksek bir sayıya ayarlayabilirsiniz ve sistem (bölüm, kullanıcı tarafından sağlanan giriş sayısı) en düşük Maxanalyticsunits olarak seçer.
 
@@ -172,7 +172,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    Daha fazla bilgi için [Azure Cosmos DB dizinleme ilkeleri](indexing-policies.md).
+    Daha fazla bilgi için [Azure Cosmos DB dizinleme ilkeleri](index-policy.md).
 
 ## <a name="throughput"></a>Aktarım hızı
 <a id="measure-rus"></a>

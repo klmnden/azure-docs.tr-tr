@@ -1,26 +1,22 @@
 ---
 title: Ve Azure Depolama Gezgini ile Blob depolama alanından verileri taşıma | Microsoft Docs
 description: Azure Depolama Gezgini’ni kullanarak Azure Blob Depolamadan/Depolamaya Veri Taşıma
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 10bd283f-0875-4c67-af63-6492270b7656
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 295fadd69a86769f74ec45ed3e77e8a5b807e14f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392531"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447011"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Ve Azure Depolama Gezgini'ni kullanarak Azure Blob depolama alanından verileri taşıma
 Azure Depolama Gezgini, Microsoft'un Windows, macOS ve Linux'ta Azure depolama verileriyle çalışmanıza olanak sağlayan ücretsiz bir araçtır. Bu konuda, yüklemek ve Azure blob depolama alanından verileri indirmek için nasıl kullanılacağını açıklar. Aracı indirilebileceğini [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/).

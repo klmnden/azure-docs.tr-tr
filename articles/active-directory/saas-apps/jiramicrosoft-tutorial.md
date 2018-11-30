@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010737"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Öğretici: Azure Active Directory Tümleştirme ile Microsoft tarafından JIRA SAML SSO
 
@@ -154,11 +154,26 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. Eklentiyi yükledikten sonra görünür **kullanıcı yüklü** eklentileri bölümünü **yönetme eklenti** bölümü. Tıklayın **yapılandırma** yeni eklentiyi yapılandırmak için.
+9. JIRA ters proxy senaryonuz ya da yük dengeleyici senaryosu çalıştırmak için aşağıdaki adımları gerçekleştirin:
+
+    > [!NOTE]
+    > Sunucu ilk ile yapılandırdığınız aşağıdaki yönergeleri ve eklentiyi yükleyin.
+
+    a. Aşağıdaki özniteliği ekleyin **bağlayıcı** içinde bağlantı noktası **server.xml** JIRA sunucu uygulaması, dosya.
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![Çoklu oturum açmayı yapılandırın](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. Değişiklik **temel URL** içinde **sistem ayarlarını** proxy/yük dengeleyici göre.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. Eklentiyi yükledikten sonra görünür **kullanıcı yüklü** eklentileri bölümünü **yönetme eklenti** bölümü. Tıklayın **yapılandırma** yeni eklentiyi yapılandırmak için.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. Yapılandırma sayfasında aşağıdaki adımları uygulayın:
+11. Yapılandırma sayfasında aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/jiramicrosoft-tutorial/addon52.png)
 

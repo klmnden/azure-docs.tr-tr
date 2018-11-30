@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eb3bd1b2186d323c5b9d10d89bb68c03bd2b84a8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a36dc0cd8148b8cf58729d2e8d22011e61140b0f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311832"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426358"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory karma kimlik tasarımı hakkında önemli noktalar sonraki adımlar
 Gereksinimlerinizi tanımlamayı ve mobil cihaz Yönetimi çözümünüz için tüm seçenekleri inceleyerek tamamladığınıza göre sonraki adımları kendiniz ve kuruluşunuz için destekleyici altyapının dağıtımını için hazırsınız.
@@ -32,7 +32,7 @@ Gereksinimlerinizi tanımlamayı ve mobil cihaz Yönetimi çözümünüz için t
 * [Çözüm Yapılandırma Yöneticisi 2007 için mobil cihazları yönetme](https://technet.microsoft.com/library/dn508400.aspx) altyapınız System Center Configuration Manager 2007'ye dayanıyorsa, mobil cihazları yönetmenize yardımcı olur. Bu çözüm, Microsoft Intune çalıştırın ve MDM özellğinden yararlanmak için System Center 2012 Configuration Manager çalıştıran tek bir sunucu kurulumu yapmak nasıl gösterir.
 * [Çözümde küçük ortamlarda mobil cihazları yönetme](https://technet.microsoft.com/library/dn715906.aspx) MDM'yi desteklemesi gereken küçük işletmeler için hazırlanmıştır Bu, Microsoft Intune altyapınızı mobil cihaz yönetimi ve KCG'yi destekleyecek şekilde genişletmek için nasıl kullanılacağını açıklar. Bu çözüm, yerel sunucu olmadan yalnızca bulut yapılandırmasında tek başına Microsoft Intune kullanmak için desteklenen en temel senaryo anlatılır.
 
-## <a name="hybrid-identity-documentation"></a>Karma kimlik belgeleri
+## <a name="hybrid-identity-documentation"></a>Hibrit kimlik belgeleri
 Mobil cihaz Yönetimi çözümünüzü hayata geçirirken kavramsal ve yordam planlama, dağıtım ve yönetim içeriği kullanışlıdır:
 
 * [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) çözümleri yardımcı olabilir, altyapı, ilkeler, süreçler ve en iyi uygulamalar hakkında toplu bilgileri yakalamanıza ve böylece BT personeliniz yönetilebilir sistemler oluşturabilir ve işlemleri otomatik hale getirin.
@@ -43,10 +43,10 @@ Mobil cihaz Yönetimi çözümünüzü hayata geçirirken kavramsal ve yordam pl
 Genellikle aşağıdaki kaynakları izleyerek en son haberlere ve mobil cihaz Yönetimi çözümlerimizle ilgili güncelleştirmeleri:
 
 * [Microsoft Enterprise Mobility blogu](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Microsoft ın Cloud blogu](http://blogs.technet.com/b/in_the_cloud/)
-* [Microsoft Intune blogu](http://blogs.technet.com/b/microsoftintune/)
-* [Microsoft System Center Configuration Manager blogu](http://blogs.technet.com/b/configurationmgr/)
-* [Microsoft System Center Configuration Manager ekip blogu](http://blogs.technet.com/b/configmgrteam/)
+* [Microsoft ın Cloud blogu](https://blogs.technet.com/b/in_the_cloud/)
+* [Microsoft Intune blogu](https://blogs.technet.com/b/microsoftintune/)
+* [Microsoft System Center Configuration Manager blogu](https://blogs.technet.com/b/configurationmgr/)
+* [Microsoft System Center Configuration Manager ekip blogu](https://blogs.technet.com/b/configmgrteam/)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 [Tasarım konularına genel bakış](plan-hybrid-identity-design-considerations-overview.md)

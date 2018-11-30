@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058305"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443024"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Azure API Management hizmet örneği birden çok Azure bölgesine dağıtma
 
@@ -26,11 +26,10 @@ Azure API yönetimi, istenen Azure bölgeleri arasında herhangi bir sayı tek b
 
 Yeni bir Azure API Management hizmeti başlangıçta yalnızca bir tane içeriyor [birim] [ unit] tek bir Azure bölgesinde, birincil bölge. Ek bölgeler Azure Portalı aracılığıyla kolayca eklenebilir. Bir API Management ağ geçidi sunucusu, her bir bölgeye dağıtılır ve arama trafiği en yakın ağ geçidine yönlendirilir. Bir bölgeyi çevrimdışı olması durumunda, trafiği otomatik olarak sonraki en yakın ağ geçidine yönlendirilir.
 
-> [!IMPORTANT]
-> Çok bölgeli dağıtım bulunan yalnızca **[Premium] [ Premium]** katmanı.
-
 > [!NOTE]
 > Azure API Management, yalnızca API ağ geçidi bileşenini bölgeler arasında çoğaltır. Hizmet Yönetimi bileşeni, yalnızca birincil bölgede barındırılır. Birincil bölgede kesinti olması durumunda, bir Azure API Management hizmet örneği için yapılandırma değişikliklerini uygulama ayarları veya ilkeleri güncelleştirmeleri dahil olmak üzere - yapılamaz.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>API Management hizmet örneği için yeni bir bölgeye dağıtın.
 

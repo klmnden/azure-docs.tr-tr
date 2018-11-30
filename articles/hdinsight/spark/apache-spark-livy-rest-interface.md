@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236832"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495309"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark uzak bir HDInsight Spark kümesine göndermek için REST API kullanma
 
-Livy, uzak bir Azure HDInsight Spark kümesine göndermek için kullanılan Apache Spark REST API'sini kullanmayı öğrenin. Ayrıntılı belgeler için bkz. [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
+Nasıl kullanacağınızı öğrenin [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API, uzak bir Azure HDInsight Spark kümesine göndermek için kullanılır. Ayrıntılı belgeler için bkz. [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
 
 Etkileşimli Spark Kabukları çalıştırmak veya Spark üzerinde çalıştırılacak toplu iş göndermek için Livy kullanabilirsiniz. Bu makalede, toplu işleri göndermek için Livy kullanma hakkında konuşuyor. Bu makalede kod parçacıkları, Livy Spark uç noktası için REST API çağrıları gerçekleştirmek için cURL kullanın.
 
@@ -28,8 +28,8 @@ Etkileşimli Spark Kabukları çalıştırmak veya Spark üzerinde çalıştır�
 
 * [cURL](http://curl.haxx.se/). Bu makalede, bir HDInsight Spark kümesine göre REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 
-## <a name="submit-a-livy-spark-batch-job"></a>Livy Spark batch işi gönderme
-Batch işi göndermeden önce uygulama jar kümeyle ilişkili küme depolama alanına yüklemeniz gerekir. Bunu yapmak için, bir komut satırı yardımcı programı olan [**AzCopy**](../../storage/common/storage-use-azcopy.md)’yi kullanabilirsiniz. Verileri yüklemek için kullanabileceğiniz çeşitli istemciler vardır. Bunlar hakkında daha fazla bilgi için bkz. [HDInsight'ta Hadoop işleri için veri yükleme](../hdinsight-upload-data.md).
+## <a name="submit-an-apache-livy-spark-batch-job"></a>Bir Apache Livy Spark batch işi gönderme
+Batch işi göndermeden önce uygulama jar kümeyle ilişkili küme depolama alanına yüklemeniz gerekir. Bunu yapmak için, bir komut satırı yardımcı programı olan [**AzCopy**](../../storage/common/storage-use-azcopy.md)’yi kullanabilirsiniz. Verileri yüklemek için kullanabileceğiniz çeşitli istemciler vardır. Onları hakkında daha fazla bulabilirsiniz [HDInsight Apache Hadoop işleri için verileri karşıya yükleme](../hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
@@ -164,7 +164,7 @@ HDInsight 3.5 kümeleri ve varsayılan olarak, yukarıdaki erişim örnek veri d
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Livy işleri bir küme içinde bir Azure sanal ağı için gönderme
 
-Bir Azure sanal ağ içindeki bir HDInsight Spark kümesine bağlanıyorsanız, küme üzerinde Livy için doğrudan bağlantı kurabilir. Böyle bir durumda, Livy uç nokta URL'si şudur `http://<IP address of the headnode>:8998/batches`. Burada, **8998** Livy çalıştığı küme baş düğüme bağlantı noktasıdır. Genel olmayan bağlantı noktalarında hizmetlerine erişme hakkında daha fazla bilgi için bkz: [HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](../hdinsight-hadoop-port-settings-for-services.md).
+Bir Azure sanal ağ içindeki bir HDInsight Spark kümesine bağlanıyorsanız, küme üzerinde Livy için doğrudan bağlantı kurabilir. Böyle bir durumda, Livy uç nokta URL'si şudur `http://<IP address of the headnode>:8998/batches`. Burada, **8998** Livy çalıştığı küme baş düğüme bağlantı noktasıdır. Genel olmayan bağlantı noktalarında hizmetlerine erişme hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -182,7 +182,7 @@ Uzak iş gönderme için Spark kümeleri için Livy kullanırken karşılaşabil
 
 ## <a name="next-step"></a>Sonraki adım
 
-* [Livy REST API belgeleri](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API belgeleri](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](apache-spark-job-debugging.md)
 

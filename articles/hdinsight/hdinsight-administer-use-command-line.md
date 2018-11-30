@@ -9,17 +9,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: d5d4c951bb104159730814f9b1b5820cb17f9f1a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4de4674d8a4c2b573df12648739971e460531636
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234791"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495099"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Nasıl kullanacağınızı öğrenin [Klasik Azure CLI'yı](../cli-install-nodejs.md) Azure HDInsight, Apache Hadoop kümelerini yönetmek için. Klasik CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir.
+Nasıl kullanacağınızı öğrenin [Klasik Azure CLI'yı](../cli-install-nodejs.md) yönetmek için [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight kümeleri. Klasik CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -74,7 +74,7 @@ azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>Kümeleri ölçeklendirme
-Hadoop kümenizin boyutunu değiştirmek için:
+Apache Hadoop kümenizin boyutunu değiştirmek için:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>

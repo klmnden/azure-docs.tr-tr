@@ -9,20 +9,18 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 5e5ba3c0d296a253e716e2944201834ff4482f64
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283999"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497235"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
-## <a name="overview"></a>Genel Bakış 
-
-[Azure işlevleri](functions-overview.md) ile yerleşik tümleştirme sunan [Azure Application Insights](../application-insights/app-insights-overview.md) işlevleri izleme. Bu makalede, Application Insights'a telemetri verileri göndermek için işlevleri yapılandırmak gösterilmektedir.
+[Azure işlevleri](functions-overview.md) ile yerleşik tümleştirme sunan [Azure Application Insights](../application-insights/app-insights-overview.md) işlevleri izleme. Bu makalede, sistem tarafından oluşturulan günlük dosyalarını Application Insights'a gönderme işlevlerini yapılandırma gösterilmektedir.
 
 ![Application Insights ölçüm Gezgini](media/functions-monitoring/metrics-explorer.png)
 
@@ -30,11 +28,11 @@ ms.locfileid: "52283999"
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights fiyatlandırma ve limitler
 
-Application Insights Tümleştirmesi ile işlev uygulamaları ücretsiz deneyebilirsiniz. Ancak, ne kadar veri ücretsiz işlenebilecek bir günlük sınır ve test sırasında bu sınırı neden olabilir. Azure portalı ve e-posta bildirimleri, sizin bölümüyle iletişime geçerken günlük sınırınızı sağlar.  Ancak bu uyarıları kaçırmayın ve sınırına, Application Insights sorgularda yeni günlükler görünmez. Bu nedenle gereksiz sorun giderme süresini önlemek için sınırını unutmayın. Daha fazla bilgi için [Application ınsights fiyatlandırma ve veri hacmini yönetme](../application-insights/app-insights-pricing.md).
+Application Insights Tümleştirmesi ile işlev uygulamaları ücretsiz deneyebilirsiniz. Ancak, ne kadar veri ücretsiz işlenebilecek bir günlük sınır ve test sırasında bu sınırı neden olabilir. Günlük limitinize yaklaştığınıza olduğunda azure portalında ve e-posta bildirimleri sağlar.  Ancak bu uyarıları kaçırmayın ve sınırına, Application Insights sorgularda yeni günlükler görünmez. Bu nedenle gereksiz sorun giderme süresini önlemek için sınırını unutmayın. Daha fazla bilgi için [Application ınsights fiyatlandırma ve veri hacmini yönetme](../application-insights/app-insights-pricing.md).
 
 ## <a name="enable-app-insights-integration"></a>App Insights tümleştirmesini etkinleştirme
 
-Bir işlev uygulaması için Application Insights veri göndermek, bir Application Insights kaynağına ait izleme anahtarını bilmesi gerekir. Anahtarı appınsıghts_ınstrumentatıonkey adlı bir uygulama ayarı sağlanması gerekir.
+Bir işlev uygulaması için Application Insights veri göndermek, bir Application Insights kaynağına ait izleme anahtarını bilmesi gerekir. Anahtar adlı ayar bir uygulamada olmalıdır **appınsıghts_ınstrumentatıonkey**.
 
 Bu bağlantıda ayarlayabilirsiniz [Azure portalında](https://portal.azure.com):
 
@@ -47,15 +45,11 @@ Bu bağlantıda ayarlayabilirsiniz [Azure portalında](https://portal.azure.com)
 
 1. Ayarlama **Application Insights** geçiş **üzerinde**.
 
-2. Seçin bir **Application Insights konumu**.
-
-   İşlev uygulamanızın bölgesine en yakın olan bölgeyi seçin, bir [her Azure coğrafyası](https://azure.microsoft.com/global-infrastructure/geographies/) verilerinizin depolanmasını istediğiniz.
+1. Seçin bir **Application Insights konumu**. İşlev uygulamanızın bölgesine en yakın olan bölgeyi seçin, bir [her Azure coğrafyası](https://azure.microsoft.com/global-infrastructure/geographies/) verilerinizin depolanmasını istediğiniz.
 
    ![Bir işlev uygulaması oluştururken Application Insights'ı etkinleştir](media/functions-monitoring/enable-ai-new-function-app.png)
 
-3. Diğer gerekli bilgileri girin.
-
-1. **Oluştur**’u seçin.
+1. Diğer gerekli bilgileri girin ve seçin **Oluştur**.
 
 Sonraki adım [yerleşik günlüğünü devre dışı](#disable-built-in-logging).
 
@@ -65,7 +59,7 @@ Sonraki adım [yerleşik günlüğünü devre dışı](#disable-built-in-logging
 
    ![Genel tür, bir Application Insights kaynağı oluşturma](media/functions-monitoring/ai-general.png)
 
-2. İzleme anahtarını kopyalama **Essentials** Application Insights kaynağına ait sayfa. Görüntülenen anahtar değerini almak için sonuna üzerinde vurgulu bir **kopyalamak için tıklayın** düğmesi.
+1. İzleme anahtarını kopyalama **Essentials** Application Insights kaynağına ait sayfa. Görüntülenen anahtar değerini almak için sonuna üzerinde vurgulu bir **kopyalamak için tıklayın** düğmesi.
 
    ![Application Insights izleme anahtarını kopyalama](media/functions-monitoring/copy-ai-key.png)
 
@@ -77,7 +71,7 @@ Sonraki adım [yerleşik günlüğünü devre dışı](#disable-built-in-logging
 
 ## <a name="disable-built-in-logging"></a>Yerleşik günlük devre dışı bırakma
 
-Application Insights'ı etkinleştirirseniz, devre dışı bırakmanızı öneririz [Azure depolama kullanan yerleşik günlük](#logging-to-storage). Yerleşik günlük hafif iş yükleri ile test etmek için kullanışlıdır ancak yüksek yük üretim kullanımı için tasarlanmamıştır. Üretim izlemek için Application Insights önerilir. Günlük kaydı, üretimde yerleşik günlük kaydı kullandıysanız, Azure depolama kapasitesi azaltıldığı eksik olabilir.
+Application Insights'ı etkinleştirdiğinizde, devre dışı [Azure depolama kullanan yerleşik günlük](#logging-to-storage). Yerleşik günlük hafif iş yükleri ile test etmek için kullanışlıdır ancak yüksek yük üretim kullanımı için tasarlanmamıştır. Üretim izlemek için Application Insights önerilir. Günlük kaydı, üretimde yerleşik günlük kaydı kullandıysanız, Azure depolama kapasitesi azaltıldığı eksik olabilir.
 
 Yerleşik günlük kaydetme devre dışı bırakmak için silme `AzureWebJobsDashboard` uygulama ayarı. Uygulama ayarları Azure portalında silme hakkında daha fazla bilgi için bkz: **uygulama ayarları** bölümünü [bir işlev uygulaması yönetme](functions-how-to-use-azure-function-app-settings.md#settings). Uygulama ayarı silmeden önce aynı işlev uygulamasında var olan bir işlev yok, Azure depolama Tetikleyicileri veya bağlamaları için kullandığınızdan emin olun.
 
@@ -89,13 +83,13 @@ Application Insights tümleştirmesini ayarlama önceki bölümlerde gösterildi
 
    ![İzleyici sekmesi seçin](media/functions-monitoring/monitor-tab.png)
 
-2. Seçin **Yenile** düzenli aralıklarla işlev çağrılarını listesinde görünene kadar.
+1. Seçin **Yenile** düzenli aralıklarla işlev çağrılarını listesinde görünene kadar.
 
    Bu listenin görünecek şekilde iletilmesi için sunucunun telemetri istemci toplu verileri nedeniyle 5 dakika kadar sürebilir. (Bu gecikme uygulanmaz [Canlı ölçümleri Stream](../application-insights/app-insights-live-stream.md). Günlükleri doğrudan sayfaya aktarılır, böylece sayfa yüklediğinizde bu hizmeti işlevleri ana bilgisayara bağlanır.)
 
    ![Çağrılarını listesi](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-2. Belirli işlev çağrısı için günlükleri görmek için seçin **tarih** bu çağrı için sütun bağlantı.
+1. Belirli işlev çağrısı için günlükleri görmek için seçin **tarih** bu çağrı için sütun bağlantı.
 
    ![Çağrı Ayrıntıları bağlantı](media/functions-monitoring/invocation-details-link-ai.png)
 
@@ -118,7 +112,6 @@ Daha fazla bilgi için [sorgu telemetri verilerini](#query-telemetry-data) bu ma
 Azure portalında bir işlev uygulamasından Application Insights'ı açmak için seçmeniz **Application Insights** bağlantısını **özellikler yapılandırıldı** işlevi uygulamanın bir bölümünü **genelbakış** sayfası.
 
 ![Application Insights bağlantı genel bakış sayfasında](media/functions-monitoring/ai-link.png)
-
 
 Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Application Insights belgeleri](https://docs.microsoft.com/azure/application-insights/). Bu bölümde, Application Insights verilerini görüntüleme ile ilgili bazı örnekler gösterilmektedir. Application Insights ile bilginiz varsa, doğrudan gidebilirsiniz [yapılandırma ve telemetri verilerini özelleştirme hakkında bölümlere](#configure-categories-and-log-levels).
 
@@ -150,7 +143,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Applicat
 
 ![Analiz örneği](media/functions-monitoring/analytics-traces.png)
 
-Bir sorgu örneği aşağıda verilmiştir. Bu, son 30 dakika üzerinden çalışan başına istek dağılımını gösterir.
+Son 30 dakika içindeki alt başına istek dağılımını gösteren bir sorgu örneği aşağıda verilmiştir.
 
 ```
 requests
@@ -209,9 +202,28 @@ Günlük düzeyi `None` sonraki bölümde açıklanmıştır.
 
 ### <a name="configure-logging-in-hostjson"></a>Host.JSON içinde açmayı Yapılandır
 
-*Host.json* bir işlev uygulaması, Application Insights'a gönderir ne kadar günlük dosyası oluşturur. Her kategori için göndermek için en düşük günlük düzeyi belirtin. Bir örneği aşağıda verilmiştir:
+*[Host.json](functions-host-json.md)* bir işlev uygulaması, Application Insights'a gönderir ne kadar günlük dosyası oluşturur. Her kategori için göndermek için en düşük günlük düzeyi belirtin. Hedefleyen bir iki örnekleri vardır [işlevleri sürüm 2.x çalışma zamanı](functions-versions.md#version-2x) (.NET Core) sürüm 1.x çalışma zamanı için ve biri.
 
-#### <a name="functions-version-1"></a>İşlevleri sürüm 1 
+### <a name="version-2x"></a>Sürüm 2.x
+
+Çalışma zamanı'nın v2.x [.NET Core günlük filtresine ilişkin hiyerarşi](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
+### <a name="version-1x"></a>Sürüm 1.x
+
 ```json
 {
   "logger": {
@@ -227,33 +239,34 @@ Günlük düzeyi `None` sonraki bölümde açıklanmıştır.
 }
 ```
 
-#### <a name="functions-version-2"></a>İşlevleri sürüm 2 
-İşlevler v2 şimdi kullandığı [.NET Core günlük filtresine ilişkin hiyerarşi](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+Bu örnekte, aşağıdaki kurallar ayarlar:
+
+1. Günlükleri kategorili `Host.Results` **` or `** `Function`, yalnızca gönderme `Error` düzeyi ve yukarıdaki Application ınsights. Günlüklerinde `Warning` düzeyi ve aşağıda göz ardı edilir.
+2. Günlükleri kategorili `Host.Aggregator`, Application Insights için tüm günlükleri gönderin. `Trace` Günlük düzeyi ne bazı günlükçüleri çağrısı ile aynı olup `Verbose`, ancak `Trace` içinde [host.json](functions-host-json.md) dosya.
+3. Diğer tüm günlükler için yalnızca gönderme `Information` düzeyi ve üzeri için Application Insights.
+
+Kategori değeri [host.json](functions-host-json.md) günlük kaydı için aynı değeri ile başlayan tüm kategorileri denetler. Örneğin, `Host` içinde [host.json](functions-host-json.md) denetimleri için günlüğü `Host.General`, `Host.Executor`, `Host.Results`ve böyle devam eder.
+
+Varsa [host.json](functions-host-json.md) aynı dize ile başlayan birden çok kategori içeren uzun olanlarla ilk eşleştirilir. Örneğin, çalışma zamanı dışında her şeyi istediğinizi varsayalım `Host.Aggregator` günlüğe kaydetmek için `Error` düzeyi, ancak isterseniz `Host.Aggregator` günlüğe kaydetmek için `Information` düzeyi:
+
+### <a name="version-2x"></a>Sürüm 2.x 
+
 ```json
 {
   "logging": {
     "fileLoggingMode": "always",
     "logLevel": {
       "default": "Information",
-      "Host.Results": "Error",
+      "Host": "Error",
       "Function": "Error",
-      "Host.Aggregator": "Trace"
+      "Host.Aggregator": "Information"
     }
   }
 }
 ```
 
-Bu örnekte, aşağıdaki kurallar ayarlar:
+### <a name="version-1x"></a>Sürüm 1.x 
 
-1. Kategori "Host.Results" veya "İşlev" ile günlükleri için yalnızca gönderme `Error` düzeyi ve üzeri için Application Insights. Günlüklerinde `Warning` düzeyi ve aşağıda göz ardı edilir.
-2. Host.Aggregator kategorili günlükleri için Application Insights için tüm günlükleri gönderin. `Trace` Günlük düzeyi ne bazı günlükçüleri çağrısı ile aynı olup `Verbose`, ancak `Trace` içinde *host.json* dosya.
-3. Diğer tüm günlükler için yalnızca gönderme `Information` düzeyi ve üzeri için Application Insights.
-
-Kategori değeri *host.json* günlük kaydı için aynı değeri ile başlayan tüm kategorileri denetler. Örneğin, "içinde ana bilgisayar" *host.json* "Host.General", "Host.Executor", "Host.Results" ve benzeri için günlüğe kaydetmeyi denetler.
-
-Varsa *host.json* aynı dize ile başlayan birden çok kategori içeren uzun olanlarla ilk eşleştirilir. Örneğin, çalışma zamanı günlüğe kaydetmek için "Host.Aggregator" dışında her şeyi istediğinizi varsayalım `Error` düzeyi, ancak isterseniz "Host.Aggregator günlüğe kaydetmek için" `Information` düzeyi:
-
-#### <a name="functions-version-1"></a>İşlevleri sürüm 1 
 ```json
 {
   "logger": {
@@ -264,21 +277,6 @@ Varsa *host.json* aynı dize ile başlayan birden çok kategori içeren uzun ola
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
-    }
-  }
-}
-```
-
-#### <a name="functions-version-2"></a>İşlevleri sürüm 2 
-```json
-{
-  "logging": {
-    "fileLoggingMode": "always",
-    "logLevel": {
-      "default": "Information",
-      "Host": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Information"
     }
   }
 }
@@ -318,7 +316,7 @@ Günlükleri, işlev kodunuzun tarafından yazılan, "İşlev" kategorisi olan v
 
 ## <a name="configure-the-aggregator"></a>Toplayıcı yapılandırma
 
-Önceki bölümde belirtildiği gibi çalışma zamanı bir süre içinde işlev yürütmelerini hakkındaki verileri toplar. 1.000 çalışmadan, hangisi önce geliyorsa veya varsayılan süre 30 saniyedir. Bu ayarı yapılandırabilirsiniz *host.json* dosya.  Bir örneği aşağıda verilmiştir:
+Önceki bölümde belirtildiği gibi çalışma zamanı bir süre içinde işlev yürütmelerini hakkındaki verileri toplar. 1.000 çalışmadan, hangisi önce geliyorsa veya varsayılan süre 30 saniyedir. Bu ayarı yapılandırabilirsiniz [host.json](functions-host-json.md) dosya.  Bir örneği aşağıda verilmiştir:
 
 ```json
 {
@@ -331,7 +329,9 @@ Günlükleri, işlev kodunuzun tarafından yazılan, "İşlev" kategorisi olan v
 
 ## <a name="configure-sampling"></a>Örnekleme yapılandırma
 
-Application Insights'ı olan bir [örnekleme](../application-insights/app-insights-sampling.md) zamanlarda, yoğun yük çok fazla telemetri verileri üreten gelen Koruyabileceğiniz özelliği. Gelen telemetri oranı belirtilen eşiği aşarsa, rastgele gelen öğelerden bazıları yok saymak Application ınsights'ı başlatır. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme yapılandırabileceğiniz *host.json*.  Bir örneği aşağıda verilmiştir:
+Application Insights'ı olan bir [örnekleme](../application-insights/app-insights-sampling.md) zamanlarda, yoğun yük çok fazla telemetri verileri üreten gelen Koruyabileceğiniz özelliği. Gelen telemetri oranı belirtilen eşiği aşarsa, rastgele gelen öğelerden bazıları yok saymak Application ınsights'ı başlatır. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme yapılandırabileceğiniz [host.json](functions-host-json.md).  Bir örneği aşağıda verilmiştir:
+
+### <a name="version-1x"></a>Sürüm 1.x 
 
 ```json
 {
@@ -355,7 +355,7 @@ Günlükleri olarak Application Insights izlemelerinde görünen işlev kodunuzu
 
 Kullanım bir [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) işlevlerinizi yerine parametresinde bir `TraceWriter` parametresi. Günlükleri kullanarak oluşturduğunuz `TraceWriter` Application Insights'a Git ancak `ILogger` yapmanıza olanak sağlayan [günlük yapılandırılmış](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-İle bir `ILogger` çağırmanızı nesne `Log<level>` [ILogger genişletme yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) günlükleri oluşturmak için. Örneğin, aşağıdaki yazma kod `Information` "İşlev" kategorili günlükleri.
+İle bir `ILogger` nesne çağırmanızı `Log<level>` [ILogger genişletme yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) günlükleri oluşturmak için. Örneğin, aşağıdaki yazma kod `Information` "İşlev" kategorili günlükleri.
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -424,9 +424,79 @@ Bu kodu çağırmak için bir alternatifidir `trackMetric` kullanarak [Applicati
 
 ## <a name="custom-telemetry-in-c-functions"></a>C# işlevlerdeki özel telemetri
 
-Kullanabileceğiniz [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) Application Insights özel telemetri verileri göndermek için NuGet paketi.
+Kullanabileceğiniz [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) Application Insights özel telemetri verileri göndermek için NuGet paketi. Aşağıdaki C# örnekte [API özel telemetri](../application-insights/app-insights-api-custom-events-metrics.md). Örnek bir .NET sınıf kitaplığı için yazılmıştır, ancak Application Insights kod C# betiği için aynıdır.
 
-İşte bir örnek kullanan C# kod [API özel telemetri](../application-insights/app-insights-api-custom-events-metrics.md). Örnek bir .NET sınıf kitaplığı için yazılmıştır, ancak Application Insights kod C# betiği için aynıdır.
+### <a name="version-2x"></a>Sürüm 2.x
+
+Sürüm 2.x çalışma zamanı otomatik olarak geçerli işleme telemetrinin bağıntısını kurmanızı Application Insights'ta yeni özellikler kullanıyor. El ile ayarlama işlemi gerek `Id`, `ParentId`, veya `Name`.
+
+```cs
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
+        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
+        // automatically use that key for all telemetry. It will also enable telemetry correlation
+        // with the current operation.
+        // If you require a custom TelemetryConfiguration, create it initially with
+        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
+        private static TelemetryClient telemetryClient = new TelemetryClient();
+
+        [FunctionName("HttpTrigger2")]
+        public static Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            telemetryClient.TrackEvent(evt);
+
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            metric.Context.User.Id = name;
+            telemetryClient.TrackMetric(metric);
+
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+### <a name="version-1x"></a>Sürüm 1.x
 
 ```cs
 using System;
@@ -509,7 +579,7 @@ namespace functionapp0915
 
 Remove() çağırmayın `TrackRequest` veya `StartOperation<RequestTelemetry>`, yinelenen bir işlev çağrısını isteklerinde görürsünüz.  İşlevler çalışma zamanı, istekleri otomatik olarak izler.
 
-Ayarlamamanız `telemetryClient.Context.Operation.Id`. Bu genel bir ayardır ve aynı anda birçok işlev çalışırken yanlış correllation neden olur. Bunun yerine, yeni bir telemetri örneği oluşturma (`DependencyTelemetry`, `EventTelemetry`) ve kendi `Context` özelliği. Ardından ilgili telemetri örneğinde geçirin `Track` metodunda `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Bu, telemetri doğru correllation ayrıntıları geçerli işlev çağrısına sahip olmasını sağlar.
+Ayarlamamanız `telemetryClient.Context.Operation.Id`. Bu genel bir ayardır ve aynı anda birçok işlev çalışırken yanlış bağıntı neden olur. Bunun yerine, yeni bir telemetri örneği oluşturma (`DependencyTelemetry`, `EventTelemetry`) ve kendi `Context` özelliği. Ardından ilgili telemetri örneğinde geçirin `Track` metodunda `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Bu, telemetri doğru bağıntı ayrıntıları geçerli işlev çağrısına sahip olmasını sağlar.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>JavaScript işlevleri'nde özel telemetri
 
@@ -570,7 +640,7 @@ Bir komut satırı oturumu için günlük dosyalarını kullanarak bir yerel iş
 
 Azure CLI için aşağıdaki komutları kullanın oturum açmak, aboneliği ve günlük dosyalarını akışla aktarma'yı seçin:
 
-```
+```azurecli
 az login
 az account list
 az account set <subscriptionNameOrId>
@@ -579,7 +649,7 @@ az webapp log tail --resource-group <resource group name> --name <function app n
 
 Azure PowerShell için aşağıdaki komutları kullanın Azure hesabınızı eklemek için abonelik ve akışı günlük dosyalarını seçin:
 
-```
+```powershell
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
 PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription

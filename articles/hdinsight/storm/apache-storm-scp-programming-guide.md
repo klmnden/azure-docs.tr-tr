@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: e6025ba2645c284cca87483b48b2d79a9558d574
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012539"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496858"
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
 SCP, güvenilir ve tutarlı, gerçek zamanlı oluşturmak için platform ve yüksek performanslı bilgi işlem uygulama ' dir. Üst kısmındaki yerleşik [Apache Storm](http://storm.incubator.apache.org/) --bir akış işleme sistemi OSS topluluklar göre tasarlanmıştır. Storm Nathan Marz tarafından tasarlanmıştır ve açık Twitter tarafından kaynaklanan oluştu. Bunu yararlanır [Apache ZooKeeper](http://zookeeper.apache.org/), işbirliği ve durum yönetimini son derece güvenilir etkinleştirmek için başka bir Apache projesi dağıtılmış. 
@@ -207,7 +207,7 @@ Aşağıdaki arabirimlerinden ilgili belirli bir bağlam örneği. Bağlam örne
 ### <a name="statestore"></a>StateStore
 `StateStore` Meta Veri Hizmetleri, monoton bir sıra oluşturma ve bekleme sorunsuz koordinasyon sağlar. Üst düzey dağıtılmış eşzamanlılık soyutlamalar derlenebilir `StateStore`dağıtılmış kilitleri, dağıtılmış kuyrukları, önündeki engelleri ve işlem Hizmetleri dahil olmak üzere.
 
-SCP uygulamaları kullanabilir `State` ZooKeeper, özellikle işlem Topolojileri için bazı bilgileri kalıcı hale getirmek için nesne. Böylece işlem spout Kilitlenmeler ve yeniden başlatırsanız, ZooKeeper gerekli bilgileri almak ve işlem hattını yeniden yapılıyor.
+SCP uygulamaları kullanabilir `State` bazı bilgileri kalıcı hale getirmek için nesne [Apache ZooKeeper](https://zookeeper.apache.org/), özellikle işlem topolojisi için. Böylece işlem spout Kilitlenmeler ve yeniden başlatırsanız, ZooKeeper gerekli bilgileri almak ve işlem hattını yeniden yapılıyor.
 
 `StateStore` Nesne çoğunlukla bu yöntemleri vardır:
 
@@ -642,9 +642,9 @@ Bu topoloji, bir Java Spout ve bir C içeren\# Bolt. SCP platform tarafından sa
 Bu örnekte HelloWorld temelde aynıdır. Tek fark, kullanıcı kodu DLL olarak derlenir ve SCPHost.exe kullanarak topoloji gönderilen ' dir. Daha ayrıntılı açıklama "SCP konak modu" bölümüne bakın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Storm topolojileri SCP kullanılarak oluşturulan örnekleri için aşağıdaki belgelere bakın:
+Apache Storm topolojilerini SCP kullanılarak oluşturulan örnekleri için aşağıdaki belgelere bakın:
 
 * [Visual Studio kullanarak HDInsight üzerinde Apache Storm için C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md)
-* [HDInsight üzerinde Storm ile Azure Event hubs'dan olayları işleme](apache-storm-develop-csharp-event-hub-topology.md)
-* [HDInsight üzerinde Storm kullanarak Event hubs'tan vehicle sensör verisi işleme](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Ayıklama, dönüştürme ve yükleme (ETL) Azure Event Hubs'dan için HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [HDInsight üzerinde Apache Storm ile Azure Event hubs'dan olayları işleme](apache-storm-develop-csharp-event-hub-topology.md)
+* [HDInsight üzerinde Apache Storm kullanarak Event hubs'tan vehicle sensör verisi işleme](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Ayıklama, dönüştürme ve Apache HBase için Azure Event Hubs'dan yükleme (ETL)](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

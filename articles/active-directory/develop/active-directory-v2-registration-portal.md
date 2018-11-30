@@ -17,12 +17,12 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0a9ec2e84197729f98fbf90bac53b505a8c99a19
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190124"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427356"
 ---
 # <a name="app-registration-reference"></a>Uygulama kayıt başvurusu
 Bu belgede bağlam sağlar ve çeşitli özelliklerin açıklamaları bulunan [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
@@ -37,7 +37,7 @@ Bu liste tüm uygulamalarınızı Azure AD v1.0 uç noktası ile kullanılması 
 Bu liste tüm uygulamalarınızı, yalnızca Microsoft hesabı ile kullanmak için kayıtlı içerir. Azure Active Directory ile kullanmak için etkinleştirilmedi. MSA Geliştirici portalında ile daha önce kaydolan tüm uygulamaları nerede budur `https://account.live.com/developers/applications`. Daha önce sırasında gerçekleştirilen tüm işlevleri `https://account.live.com/developers/applications` artık bu yeni portalda gerçekleştirilebilir `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Uygulama Sırları
-Uygulama gizli dizilerini gerçekleştirmek, uygulamanızın güvenilir izin veren kimlik bilgileri olan [istemci kimlik doğrulaması](http://tools.ietf.org/html/rfc6749#section-2.3) Azure AD ile. OAuth ve Openıd Connect bir uygulama gizli anahtarı yaygın olarak adlandırılır bir `client_secret`. Bir web adreslenebilir konumda bir güvenlik belirteci alan herhangi bir uygulama v2.0 protokolündeki (kullanarak bir `https` düzeni) bu güvenlik belirtecinin kullanım sırasında Azure AD'ye kendisini tanımlamak için bir uygulama gizli anahtarı kullanmanız gerekir. Ayrıca, belirteçleri bir cihazda alan herhangi bir yerel istemcisi istemci kimlik doğrulaması gerçekleştirmek için bir uygulama gizli anahtarı kullanarak Yasak. Bu, gizli dizileri güvenli olmayan ortamlarda depolanmasını gerçekleştirilmesini önler.
+Uygulama gizli dizilerini gerçekleştirmek, uygulamanızın güvenilir izin veren kimlik bilgileri olan [istemci kimlik doğrulaması](https://tools.ietf.org/html/rfc6749#section-2.3) Azure AD ile. OAuth ve Openıd Connect bir uygulama gizli anahtarı yaygın olarak adlandırılır bir `client_secret`. Bir web adreslenebilir konumda bir güvenlik belirteci alan herhangi bir uygulama v2.0 protokolündeki (kullanarak bir `https` düzeni) bu güvenlik belirtecinin kullanım sırasında Azure AD'ye kendisini tanımlamak için bir uygulama gizli anahtarı kullanmanız gerekir. Ayrıca, belirteçleri bir cihazda alan herhangi bir yerel istemcisi istemci kimlik doğrulaması gerçekleştirmek için bir uygulama gizli anahtarı kullanarak Yasak. Bu, gizli dizileri güvenli olmayan ortamlarda depolanmasını gerçekleştirilmesini önler.
 
 Her uygulama, belirli bir zamanda iki geçerli uygulama gizli dizilerini içerebilir. İki gizli dizileri tutarak, uygulamanızın tüm ortam genelinde düzenli anahtar geçişi gerçekleştirme imkanına sahip olursunuz. Uygulamanızın yeni bir gizli dizi tamamen geçiş yaptıktan sonra eski gizli anahtarı silme ve yeni bir tane sağlayın.
 

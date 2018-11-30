@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603073"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442430"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Oluşturma ve Azure API Management'ta Geliştirici hesaplarını yönetmek için grupları kullanma
+
 API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünleri ilk gruplar tarafından görünür yapılır ve ardından bu gruplara geliştiriciler görüntüleyebilir ve gruplarıyla ilişkilendirilmiş ürünlere abone. 
 
 API Management şu sabit sistem gruplarına sahiptir:
@@ -34,6 +35,8 @@ Bu sistem gruplarına ek olarak, yöneticiler özel gruplar oluşturabilir veya 
 Bu kılavuz, nasıl bir API Management örneğinin yöneticileri yeni gruplar eklemek ve ürün ve geliştiriciler ile ilişkilendirmek gösterir.
 
 Oluşturma ve yayımcı portalı içinde grupları yönetme ek olarak, oluşturma ve API Management REST API kullanarak gruplarınızı yönetmek [grubu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) varlık.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b8d8223647d42213eff53c2ff8310bed0cfe6cdb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566033"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446747"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Geliştirme ve C modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -59,7 +59,7 @@ Azure IOT C Visual Studio Code ve Azure IOT Edge uzantısını kullanarak SDK al
 
 7. Bir modül için bir ad girin. Kapsayıcı kayıt defterinizde içinde benzersiz bir ad seçin. 
 
-8. Modülün görüntü deposu adını sağlayın. VS Code autopopulates modül adı ile **localhost:5000**. Kayıt defteri kendi bilgilerinizle değiştirin. Yerel bir Docker kayıt defteri test, ardından kullanıyorsanız **localhost** bir sakınca yoktur. Azure Container Registry kullanırsanız, oturum açma sunucusu defterinizin ayarlarından'ni kullanın. Oturum açma sunucusu benzer  **\<kayıt defteri adı\>. azurecr.io**. Dizenin yalnızca localhost bölümünü değiştirin, modülünüzün adını silmeyin. 
+8. Modülün görüntü deposu adını sağlayın. VS Code autopopulates modül adı ile **localhost:5000**. Kayıt defteri kendi bilgilerinizle değiştirin. Yerel bir Docker kayıt defteri test, ardından kullanıyorsanız **localhost** bir sakınca yoktur. Azure Container Registry kullanırsanız, oturum açma sunucusu defterinizin ayarlarından'ni kullanın. Oturum açma sunucusu benzer  **\<kayıt defteri adı\>. azurecr.io**. Dizenin yalnızca localhost bölümünü değiştirin, modülünüzün adını silmeyin. Son dize şuna benzer \<kayıt defteri adı\>.azurecr.io/\<modulename\>.
 
    ![Docker görüntü deposunu sağlama](./media/how-to-develop-c-module/repository.png)
 
@@ -87,20 +87,11 @@ Kendi kodunuzu ile C şablonu özelleştirmek hazır olduğunuzda kullanın [Azu
 
 Her modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı türü vardır. Uzantısıyla biten bu dosyaları dilediğinizi **.debug** test etmek için modülü. Şu anda C Modüller yalnızca Linux amd64 kapsayıcılarında hata ayıklamayı destekler.
 
-1. VS Code'da gidin `deployment.template.json` dosya. Modül görüntü URL'nizi ekleyerek güncelleştirme **.debug** sonuna.
-
-    ![Ekleme *** .debug, görüntü adı](./media/how-to-develop-c-module/image-debug.png)
-
-2. İçinde C modülü createOptions değiştirin **deployment.template.json** ile içerik aşağıda ve bu dosya: 
-    
-    ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
-    ```
-
+1. VS Code'da gidin `deployment.debug.template.json` dosya. Bu dosya, modülün hata ayıklama sürümünü içerir uygun görüntülerle oluşturma seçenekleri. 
 2. VS Code komut paleti girin ve şu komutu çalıştırın **Azure IOT Edge: derleme ve anında iletme IOT Edge çözüm**.
-3. Seçin `deployment.template.json` komut paletini çözümünüzden dosyası. 
+3. Seçin `deployment.debug.template.json` komut paletini çözümünüzden dosyası. 
 4. Azure IOT hub'ı Device Explorer içinde bir IOT Edge cihaz kimliğini sağ tıklayın. Ardından **tek cihaz için dağıtım oluşturma**. 
-5. Çözümünüzün açın **config** klasör. Ardından `deployment.json` dosya. Seçin **seçin Edge dağıtım bildirimi**. 
+5. Çözümünüzün açın **config** klasör. Ardından `deployment.debug.amd64.json` dosya. Seçin **seçin Edge dağıtım bildirimi**. 
 
 Dağıtım kimliği ile bir VS Code tümleşik terminalde başarıyla oluşturuldu. dağıtım görürsünüz.
 

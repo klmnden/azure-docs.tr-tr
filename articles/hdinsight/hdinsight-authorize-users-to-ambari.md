@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954458"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496891"
 ---
-# <a name="authorize-users-for-ambari-views"></a>Kullanıcıları Ambari Views için yetkilendirme
+# <a name="authorize-users-for-apache-ambari-views"></a>Kullanıcıları Apache Ambari Views için yetkilendirme
 
-[Kurumsal güvenlik paketi (ESP) HDInsight kümelerini etkin](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil kurumsal sınıf özellikler sunar. Yapabilecekleriniz [yeni kullanıcıları eşitleme](hdinsight-sync-aad-users-to-cluster.md) belirli kullanıcılarla belirli eylemleri gerçekleştirmek izin verme kümesine erişim sağlanan Azure AD gruplarına eklenebilir. Kullanıcılar, gruplar ve izinler Ambari ile çalışma ESP HDInsight kümeleri hem de standart HDInsight kümeleri için desteklenir.
+[Kurumsal güvenlik paketi (ESP) HDInsight kümelerini etkin](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil kurumsal sınıf özellikler sunar. Yapabilecekleriniz [yeni kullanıcıları eşitleme](hdinsight-sync-aad-users-to-cluster.md) belirli kullanıcılarla belirli eylemleri gerçekleştirmek izin verme kümesine erişim sağlanan Azure AD gruplarına eklenebilir. Kullanıcılar, gruplar ve izinler ile çalışma [Apache Ambari](https://ambari.apache.org/) ESP HDInsight kümeleri hem de standart HDInsight kümeleri için desteklenir.
 
-Active Directory Kullanıcıları küme düğümlerine, etki alanı kimlik bilgilerini kullanarak oturum açabilir. Bunlar ayrıca, etki alanı kimlik küme etkileşim Hue, Ambari Views, ODBC, JDBC, PowerShell ve REST API'leri gibi diğer onaylanmış uç noktaların kimlik doğrulaması için kullanabilirsiniz.
+Active Directory Kullanıcıları küme düğümlerine, etki alanı kimlik bilgilerini kullanarak oturum açabilir. Bunlar, etki alanı kimlik bilgilerini küme etkileşim gibi diğer onaylanmış uç noktaların kimlik doğrulaması için de kullanabilirsiniz [Hue](http://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell ve REST API'leri.
 
 > [!WARNING]
 > Linux tabanlı HDInsight kümenizdeki Ambari bekçi (hdinsightwatchdog) parolasını değiştirmeyin. Parola değiştirme betik eylemlerini kullanın veya kümenizle ölçeklendirme işlemleri gerçekleştirme olanağı keser.
@@ -29,13 +29,13 @@ Zaten yapmadıysanız, izleyin [bu yönergeleri](./domain-joined/apache-domain-j
 
 ## <a name="access-the-ambari-management-page"></a>Ambari Yönetim sayfasına erişin
 
-Ulaşmak için **Ambari Yönetim sayfası** üzerinde [Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md), Gözat **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Küme Yöneticisi kullanıcı adı ve kümeyi oluştururken tanımladığınız parola girin. Ardından, Ambari panodan seçin **yönetme Ambari** altında **yönetici** menüsü:
+Ulaşmak için **Ambari Yönetim sayfası** üzerinde [Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md), Gözat **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Küme Yöneticisi kullanıcı adı ve kümeyi oluştururken tanımladığınız parola girin. Ardından, Ambari panodan seçin **yönetme Ambari** altında **yönetici** menüsü:
 
 ![Ambari ile yönetme](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
-## <a name="grant-permissions-to-hive-views"></a>Hive görünümleri izinler
+## <a name="grant-permissions-to-apache-hive-views"></a>Apache Hive görünümleri izinler
 
-Ambari ile örnekleri görüntüle ve Hive Tez, diğerlerinin yanı sıra gelir. Bir veya daha fazla Hive görünümü örneğine erişimi vermek için Git **Ambari Yönetim sayfası**.
+Ambari için örnekleri Görüntüle ile birlikte gelen [Apache Hive](https://hive.apache.org/) ve [Apache TEZ](https://tez.apache.org/), diğerlerinin yanı sıra. Bir veya daha fazla Hive görünümü örneğine erişimi vermek için Git **Ambari Yönetim sayfası**.
 
 1. Yönetim sayfasından seçin **görünümleri** altında bağlantı **görünümleri** Soldaki menü başlığı.
 
@@ -72,9 +72,9 @@ Ambari ile örnekleri görüntüle ve Hive Tez, diğerlerinin yanı sıra gelir.
 
 Bu görünümü kullanmak için bir kullanıcıya izin atamak istediğiniz, ancak bunları ek izinlere sahip bir grubun bir üyesi olmasını istemediğiniz bir görünüme doğrudan kullanıcı ekleme yararlı olur. Yönetim yükünü azaltmak için gruplarına izinler atamak daha basit olabilir.
 
-## <a name="grant-permissions-to-tez-views"></a>Tez görünümlere izin ver
+## <a name="grant-permissions-to-apache-tez-views"></a>Apache TEZ görünümlere izin ver
 
-Örnekleri görüntüle Tez izlemek ve Hive sorguları ve Pig betikleri tarafından gönderilen tüm Tez işlerinin hatalarını ayıklamak kullanıcıların. Küme sağlandığında oluşturan bir varsayılan Tez görünümü örneği yok.
+[Apache TEZ](https://tez.apache.org/) örnekleri görüntüle izlemek ve tarafından gönderilen tüm Tez işlerinin hatalarını ayıklamak kullanıcılara izin ver [Apache Hive](https://hive.apache.org/) sorgular ve [Apache Pig](https://pig.apache.org/) betikler. Küme sağlandığında oluşturan bir varsayılan Tez görünümü örneği yok.
 
 Kullanıcılar ve gruplar Tez görünümü örneğine atamak için genişletme **TEZ** daha önce açıklandığı gibi görünüm sayfasında satır.
 
@@ -136,7 +136,7 @@ Azure AD etki alanı kullanıcı "hiveuser2" biz atadığınız *küme kullanıc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [ESP ile HDInsight Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
+* [ESP ile HDInsight, Apache Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
 * [ESP HDInsight kümelerini yönetme](./domain-joined/apache-domain-joined-manage.md)
-* [HDInsight, Hadoop ile Hive görünümünü kullanma](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [HDInsight, Apache Hadoop ile Apache Hive görünümünü kullanma](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Azure AD kullanıcılarının kümeye Eşitle](hdinsight-sync-aad-users-to-cluster.md)

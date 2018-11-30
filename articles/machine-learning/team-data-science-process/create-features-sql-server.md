@@ -2,30 +2,26 @@
 title: SQL ve Python kullanarak SQL Server'daki verilerin özelliklerini oluşturma | Microsoft Docs
 description: SQL Azure işlem verileri
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 6729de763265355125100ccdaf0c5cd81e2bfd8d
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7178f368f7ede8918f316caa46234f63db6414ee
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346560"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445455"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL ve Python kullanarak SQL Server’daki verilerin özelliklerini oluşturma
 Bu belge, daha verimli bir şekilde verilerden bilgi algoritmaları yardımcı olan bir SQL Server VM'si, azure'da depolanan verilerin özelliklerini oluşturma adımları anlatılmaktadır. Bu görevi gerçekleştirmek için SQL veya Python gibi bir programlama dili kullanabilirsiniz. Her iki yaklaşım burada gösterilmiştir.
 
-Bu görev bir adımdır [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Bu görev bir adımdır [Team Data Science işlem (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 > [!NOTE]
 > Pratik bir örnek için başvurabilirsiniz [NYC taksi dataset](http://www.andresmh.com/nyctaxitrips/) ve başlıklı IPNB [Ipython Notebook ve SQL Server'ı kullanarak NYC veri denetimi](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) uçtan uca bir kılavuz için.

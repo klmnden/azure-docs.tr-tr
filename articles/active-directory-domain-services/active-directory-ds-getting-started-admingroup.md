@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0dc4019d2b3f33bfc92d73aeadadc0c64ecaab3b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158525"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446867"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 
@@ -42,6 +42,22 @@ Sihirbaz, yönetim grubunu Azure AD dizininizde otomatik olarak oluşturur. Bu g
 
 3. İşiniz bittiğinde tıklayın **Tamam** üzerinde taşımayı **özeti** Sihirbazı sayfası.
 
+## <a name="configure-synchronization"></a>Eşitlemeyi yapılandırma
+
+Azure AD etki alanı hizmetleri sağlayan tüm kullanıcıların ve grupların Azure AD'de kullanılabilir ya da tam eşitleme veya yalnızca belirli grupları eşitlemek için kapsamlı eşitlemeyi seçebilirsiniz. Tam eşitleme seçerseniz, şunları yapacaksınız **değil** sonraki bir zamanda kapsamlı eşitleme seçim yapabilirsiniz. Kapsamlı eşitleme hakkında daha fazla bilgi edinmek için [Azure AD Domain Services kapsamlı eşitleme makale](active-directory-ds-scoped-synchronization.md).
+
+### <a name="full-synchronization"></a>Tam eşitleme
+
+1. Tam eşitleme, uyarıya tıklayarak "Tamam" ekranının altındaki için tam zaten seçilir.
+    ![Tam eşitleme](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+
+### <a name="scoped-synchronization"></a>Kapsamlı eşitleme
+
+1. Geçiş eşitleme düğmesi "Kapsamındaki" ve grupları seçin sayfasında görünür. Bu işlemi yönetilen Etki Alanınızla eşitlenmesi için hangi grupları zaten seçili görebilirsiniz.
+    ![Kapsamlı eşitleme](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+2. Tıklayın **grupları seçin** üst gezinti çubuğunda. Buradan, bir Grup Seçicisi tarafta açılır. Azure AD etki alanı Hizmetleri ile eşitlemek için istediğiniz diğer grupları seçmek için bunu kullanın. İşiniz bittiğinde tıklayın **seçin** Grup Seçicisi kapatın ve bu gruplara seçilen listeye ekleyin.
+    ![Kapsamlı eşitleme grupları seçin](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+3. Tıklayın **Tamam** Özet sayfasına gitmek için.
 
 ## <a name="deploy-your-managed-domain"></a>Yönetilen etki alanınıza dağıtma
 

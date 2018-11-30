@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002929"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426800"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data factory'de arama etkinliği
 
@@ -58,7 +58,7 @@ Ad | Açıklama | Tür | Gerekli mi?
 ---- | ----------- | ---- | --------
 Veri kümesi | Veri kümesi başvurusu arama için sağlar. Ayrıntılı bilgi **veri kümesi özellikleri** karşılık gelen her Bağlayıcısı makalesi bölümü. | Anahtar/değer çifti | Evet
 source | Kopyalama etkinliği kaynak ile aynı veri kümesine özgü kaynak özelliklerini içerir. Ayrıntılı bilgi **kopyalama etkinliği özellikleri** karşılık gelen her Bağlayıcısı makalesi bölümü. | Anahtar/değer çifti | Evet
-firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülüp döndürülmeyeceğini gösterir. | Boole | Hayır. Varsayılan, `true` değeridir.
+firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülüp döndürülmeyeceğini gösterir. | Boole | Hayır. Varsayılan değer: `true`.
 
 > [!NOTE]
 
@@ -297,6 +297,15 @@ Bu Azure SQL veritabanı, Blob depolama alanına kopyalanacak verileri içerir.
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>Sınırlamalar ve geçici çözümler
+
+Arama etkinliği ve önerilen geçici çözümleri bazı sınırlamalar aşağıda verilmiştir.
+
+| Sınırlama | Geçici çözüm |
+|---|---|
+| Arama etkinliği, en fazla 5000 satır ve 2 MB boyut sınırı vardır. | Burada en fazla satır veya boyutunu aşmadığını veri alır. bir iç işlem hattı dış işlem hattı yinelenir iki düzeyli işlem hattı tasarım. |
+| | |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın: 

@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c90450fa4cc35b460198f5a351a965aee4ea4f4b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 181a8ad7291a8e8a0aa2a8373985c8747bd4569b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636425"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446832"
 ---
-# <a name="build-globally-distributed-applications-with-azure-cosmos-db"></a>Azure Cosmos DB ile küresel olarak dağıtılmış uygulamalar oluşturun
+# <a name="global-data-distribution-with-azure-cosmos-db"></a>Azure Cosmos DB ile verileri küresel dağıtım
 
-Günümüzün uygulamalarının çoğu birden fazla veri merkezlerinde yapılacak gerektirir. Bu uygulamalar, Global olarak dağıtılmış uygulamalar olarak adlandırılır. Bu uygulamalar her zaman "açık" olduğunda ve bunlar dünya genelinde tüm kullanıcılar için erişilebilir. Genel dağıtım, düşük gecikme süresi, aktarım hızı ve dünyanın dört bir yanındaki yüksek kullanılabilirlik, esnek ölçeklenebilirlik'ı sağlayarak bu uygulamaları tarafından kullanılan veri yönetme sabit bir sorundur. Azure Cosmos DB, düşük gecikme süresi, aktarım hızı, esnek ölçeklenebilirlik, iyi tanımlanmış semantik veri tutarlılığı ve yüksek kullanılabilirlik sağlamak üzere tasarlanmış bir Global olarak dağıtılmış veritabanı hizmetidir. Kısacası, uygulamanızın gereksinimlerine göre her zaman çevrimiçi olmasını gerektirir ve sınırsız ve elastik ölçeklenebilirliğini aktarım hızını ve depolamayı gerekiyorsa dünyanın her yerden hızlı yanıt süresi garanti, Azure Cosmos DB kullanarak uygulamaları oluşturmayı düşünmelisiniz.
+Günümüzün uygulamaları, yüksek derecede yanıt veren ve her zaman çevrimiçi olmasını gerektirir. Düşük gecikme süresi ve yüksek kullanılabilirlik elde etmek için bu uygulamaların örnekleri, kullanıcılara yakın olan veri merkezlerinde dağıtılmış gerekir. Bu uygulamalar genellikle birden çok veri merkezlerinde dağıtılır ve Global olarak dağıtılmış olarak adlandırılır. Global olarak dağıtılmış uygulamaların kullanıcılarına yakın olan verilerin bir kopyasını üzerinde çalışılacak uygulamaları etkinleştirmek için dünyanın herhangi bir veri şeffaf bir şekilde çoğaltabilir, Global olarak dağıtılmış bir veritabanı gerekir. Azure Cosmos DB, düşük gecikme süresi, aktarım hızı, esnek ölçeklenebilirlik, iyi tanımlanmış semantik veri tutarlılığı ve yüksek kullanılabilirlik sağlamak üzere tasarlanmış bir Global olarak dağıtılmış veritabanı hizmetidir. Kısacası, uygulamanızın gereksinimlerine göre her zaman çevrimiçi olmasını gerektirir ve sınırsız ve elastik ölçeklenebilirliğini aktarım hızını ve depolamayı gerekiyorsa dünyanın her yerden hızlı yanıt süresi garanti, Azure Cosmos DB kullanarak uygulamaları oluşturmayı düşünmelisiniz.
 
 Azure Cosmos DB, temel Azure hizmet ve tüm kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/) varsayılan olarak. Microsoft 54 fazla bölgenin dünyanın dört bir yanındaki Azure veri merkezlerinde çalışır ve müşterilerin büyüyen ihtiyaçlarını karşılamak için bölgesel varlığı genişletmeye devam ediyor. Bir Azure Cosmos hesabı oluşturduğunuzda, hangi bölgelerin içinde dağıtılmalıdır karar verin. Microsoft Azure Cosmos DB çalıştırır 7/24, hizmet, uygulamalarınız üzerinde odaklanabilirsiniz.
 
-Veritabanlarınızı, tüm Azure bölgelerinde genel olarak dağıtılmış ve kullanılabilir olmasını yapılandırabilirsiniz. Gecikme süresini azaltmak için kullanıcılarınızın bulunduğu konumlara veri yakın yerleştirmeniz gerekir. Gerekli bölgelerini seçme çaplı uygulamanız ve kullanıcılarınızın bulunduğu yere bağlıdır. Azure Cosmos DB hesabınızdaki veriler, hesabınızla ilişkili tüm bölgelere şeffaf biçimde çoğaltır. Bu, küresel olarak dağıtılan Azure Cosmos veritabanı ve uygulamanızı okuma ve yerel olarak yazma kapsayıcıları tek bir sistem görüntüsü sağlar. Azure Cosmos DB ile ekleyebilir veya herhangi bir zamanda hesabınızla ilişkili bölgelerle kaldırın. Uygulamanızı duraklatıldı ya da eklemek veya bir bölgeyi kaldırmak için yeniden gerekmez. Her zaman hizmet sunan çok girişli özellikleri nedeniyle yüksek düzeyde kullanılabilir olmaya devam eder.
+Veritabanlarınızı, tüm Azure bölgelerinde genel olarak dağıtılmış ve kullanılabilir olmasını yapılandırabilirsiniz. Gecikme süresini azaltmak için kullanıcılarınızın bulunduğu konumlara veri yakın yerleştirmeniz gerekir. Gerekli bölgelerini seçme çaplı uygulamanız ve kullanıcılarınızın bulunduğu yere bağlıdır. Azure Cosmos DB hesabınızdaki veriler, hesabınızla ilişkili tüm bölgelere şeffaf biçimde çoğaltır. Bu, Azure Cosmos veritabanı Global olarak dağıtılmış ve uygulamanızı okuma ve yerel olarak yazma kapsayıcıları tek bir sistem görüntüsü sağlar. Azure Cosmos DB ile ekleyebilir veya herhangi bir zamanda hesabınızla ilişkili bölgelerle kaldırın. Uygulamanızı duraklatıldı ya da eklemek veya bir bölgeyi kaldırmak için yeniden gerekmez. Her zaman hizmet sunan çok girişli özellikleri nedeniyle yüksek düzeyde kullanılabilir olmaya devam eder.
 
 ## <a name="key-benefits-of-global-distribution"></a>Genel dağıtım kilit yararları
 

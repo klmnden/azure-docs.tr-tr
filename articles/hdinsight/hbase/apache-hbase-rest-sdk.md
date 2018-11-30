@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: af3b87fbe79624143b6c2b7e0a3c50852e532524
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042130"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495403"
 ---
-# <a name="use-the-hbase-net-sdk"></a>HBase .NET SDK'sını kullanma
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase için .net SDK'sını kullanma
 
-[HBase](apache-hbase-overview.md) , verilerle çalışmak için iki birincil seçenek sağlar: [Hive sorguları ve HBase'nın RESTful API çağrıları](apache-hbase-tutorial-get-started-linux.md). REST API kullanarak doğrudan ile çalışabilir `curl` komut veya benzer bir yardımcı program.
+[Apache HBase](apache-hbase-overview.md) , verilerle çalışmak için iki birincil seçenek sağlar: [sorguları Apache Hive ve HBase'nın RESTful API çağrıları](apache-hbase-tutorial-get-started-linux.md). REST API kullanarak doğrudan ile çalışabilir `curl` komut veya benzer bir yardımcı program.
 
 C# ve .NET uygulamaları için [.NET için Microsoft HBase REST istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.HBase.Client/) HBase REST API'SİNİN üstünde bir istemci kitaplığı sağlar.
 
@@ -37,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-CLUSTERNAME küme oluşturma üzerinde Hadoop kimlik bilgilerinin HDInsight HBase küme adı ve kullanıcı adı ve parola ile değiştirin. Varsayılan Hadoop kullanıcı adı **yönetici**.
+CLUSTERNAME küme oluşturma Apache Hadoop kimlik bilgilerinin HDInsight HBase küme adı ve kullanıcı adı ve parola ile değiştirin. Varsayılan Hadoop kullanıcı adı **yönetici**.
 
 ## <a name="create-a-new-table"></a>Yeni bir tablo oluşturma
 
@@ -113,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase BigTable, uygular, veri biçimi aşağıdaki gibi görünür:
+HBase uygulayan [bulut BigTable](https://cloud.google.com/bigtable/), veri biçimi aşağıdaki gibi görünür:
 
 ![Küme kullanıcı rolüne sahip kullanıcı](./media/apache-hbase-rest-sdk/table.png)
 
@@ -189,4 +189,4 @@ finally
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight, Apache HBase örneğiyle çalışmaya başlama](apache-hbase-tutorial-get-started-linux.md)
-* Uçtan uca uygulamayla yapı [HBase ile gerçek zamanlı Twitter düşüncelerini çözümleme](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Uçtan uca uygulamayla yapı [Apache HBase ile gerçek zamanlı Twitter düşüncelerini çözümleme](../hdinsight-hbase-analyze-twitter-sentiment.md)

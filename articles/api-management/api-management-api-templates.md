@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 74f7956a0b705748228216b3f1aa52607ff55614
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 700fc4b6211155c44d87e5982480551f9fa25ba7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983504"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443483"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management'ta API şablonları
+
 Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştirici portal sayfalarının içeriğini özelleştirme becerisi sunuyor. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) söz dizimi ve tercih ettiğiniz düzenleyiciyi gibi [tasarımcılarına yönelik DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter Kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), sayfaların içeriğini bu şablonları kullanarak dilediğiniz şekilde yapılandırmak için harika esnekliğine sahip olursunuz.  
   
 Bu bölümdeki şablonları, geliştirici portalında API'yi sayfaların içeriğini özelleştirmenize olanak sağlar.  
@@ -40,6 +41,8 @@ Bu bölümdeki şablonları, geliştirici portalında API'yi sayfaların içeri�
 
 > [!NOTE]
 >  Örnek varsayılan şablonları aşağıdaki belgelerde bulunan, ancak sürekli geliştirmeler nedeniyle değiştirilebilir. İstenen bireysel şablonlara giderek Canlı varsayılan şablonları Geliştirici Portalı'nda görüntüleyebilirsiniz. Şablonlar ile çalışma hakkında daha fazla bilgi için bkz. [şablonlarını kullanarak API Management Geliştirici portalını özelleştirmek nasıl](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="APIList"></a> API listesi  
  **API listesi** şablon Geliştirici Portalı API listesi sayfasının gövdesi özelleştirmenize olanak sağlar.  

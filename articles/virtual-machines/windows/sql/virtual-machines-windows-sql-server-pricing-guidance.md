@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003568"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496473"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu
 
@@ -90,6 +90,9 @@ Bu kullanım başına ödeme görüntülerden birini ile bir SQL Server 2017 Azu
 >
 >Ek SQL Server Lisans maliyetlerini Web, Standard ve Enterprise sürümleri içermez. En doğru fiyatlandırma kestirmek için işletim sistemi ve SQL Server sürümü için Fiyatlandırma sayfasında seçin [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) veya [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
+> [!NOTE]
+> Şimdi Ödeme-kendi lisansınızı getirin (BYOL) ve kullanım başına bir lisanslama modeli değiştirmek mümkündür. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md). 
+
 ## <a id="byol"></a> Kendi lisansınızı getirin (BYOL)
 
 **Lisans taşınabilirliği kendi SQL Server lisansınızı getirmek**, de denilen **KLG**, Azure VM'deki Yazılım Güvencesi içeren mevcut bir SQL Server toplu lisans kullanarak anlamına gelir. SQL Server zaten lisanslarınızı ve Yazılım Güvencesi Toplu Lisanslama programı aracılığıyla satın aldığınız koşuluyla, tek ücretleri KLG VM çalıştırmanın maliyeti, SQL Server Lisans değil, kullanarak bir VM.
@@ -123,7 +126,9 @@ Bu duruma-kendi lisansını görüntülerden birini ile bir SQL Server 2017 Azur
 > Bize 10 gün içinde kaç SQL Server Lisansı Azure'da kullandığınız bildirin. Önceki görüntülerinin bağlantılarını bunun nasıl yapılacağı hakkında yönergeler sahip.
 
 > [!NOTE]
-> Bir ödeme saniyede kendi lisansınızı kullanmak için SQL Server VM lisanslama modelini değiştirmek mümkün değildir. Bu durumda yeni bir KLG VM oluşturmanız ve veritabanlarınızı yeni VM'ye geçirmeniz gerekir.
+> Şimdi Ödeme-kendi lisansınızı getirin (BYOL) ve kullanım başına bir lisanslama modeli değiştirmek mümkündür. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md). 
+
+
 
 ## <a name="reduce-costs"></a>Maliyetleri azaltın
 

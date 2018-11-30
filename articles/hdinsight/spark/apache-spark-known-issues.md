@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: c364f9d06d29a601dfb9598bb568e7a6218d0a6f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8c3e3fa6dee41725c95be6f820440f6be50c53e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013811"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496499"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümesi için bilinen sorunlar
 
 Bu belgede, HDInsight Spark genel önizlemesi için tüm bilinen sorunları izler.  
 
-## <a name="livy-leaks-interactive-session"></a>Etkileşimli oturum Livy sızıntıları
-Livy bir etkileşimli oturumu hala etkin (Ambari veya 0 baş düğümüne sanal makine yeniden başlatma nedeniyle) yeniden başlatıldıktan sonra bir etkileşimli işi oturumu sızmış. Sonuç olarak, yeni işleri kabul edilen durumunda takılabilir.
+## <a name="apache-livy-leaks-interactive-session"></a>Etkileşimli oturum Apache Livy sızıntıları
+Zaman [Apache Livy](https://livy.incubator.apache.org/) yeniden başlatılır (gelen [Apache Ambari](https://ambari.apache.org/) veya 0 baş düğümüne sanal makine yeniden başlatma nedeniyle) etkileşimli bir oturum ile hala canlı, etkileşimli işi oturumu sızmış. Sonuç olarak, yeni işleri kabul edilen durumunda takılabilir.
 
 **Azaltma:**
 
@@ -33,7 +33,7 @@ Sorunu çözmek için aşağıdaki yordamı kullanın:
    
         yarn application –list
    
-    Varsayılan proje adları, işleri Livy etkileşimli oturumla hiçbir açık adı belirtilen başlatılmış Livy olacaktır. İş adı Livy oturumu için Jupyter not defteri ile çalışmaya remotesparkmagics_ * ile başlar. 
+    Varsayılan proje adları, işleri Livy etkileşimli oturumla hiçbir açık adı belirtilen başlatılmış Livy olacaktır. Livy oturumu tarafından başlatıldı için [Jupyter not defteri](https://jupyter.org/), iş adı başlar remotesparkmagics_ * ile. 
 3. Bu işleri sonlandırmak için aşağıdaki komutu çalıştırın. 
    
         yarn application –kill <Application ID>
@@ -112,20 +112,20 @@ Spark kümesi kaynaklar yetersiz olduğunda, Jupyter not defterine Spark ve PySp
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
+* [Apache Spark uygulamalarında uzaktan hata ayıklamak amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
+* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](apache-spark-jupyter-notebook-install-locally.md)
 

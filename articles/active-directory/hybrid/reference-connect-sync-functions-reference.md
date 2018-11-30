@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2302061d5a3eaf9ef51543b1304104e2dbe54bd9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312910"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425702"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: İşlevler başvurusu
 Azure AD Connect, işlevleri, bir öznitelik değeri, eşitleme sırasında işlemek için kullanılır.  
@@ -600,7 +600,7 @@ FormatDateTime işlevi DateTime bir dize olarak belirtilen biçimiyle için kull
 * Format: biçim dönüştürme temsil eden bir dize.
 
 **Notlar:**  
-Biçim için olası değerler burada bulunabilir: [kullanıcı tanımlı tarih/saat biçimleri (biçim işlev)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+Biçim için olası değerler burada bulunabilir: [kullanıcı tanımlı tarih/saat biçimleri (biçim işlev)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
 **Örnek:**  
 
@@ -1013,7 +1013,7 @@ PadRight işlevi sağ-kullanamamaktadır sağlanan doldurma karakteri kullanıla
 **Notlar:**
 
 * Dizenin uzunluğunu uzunluğundan küçükse, uzunluğu uzunluğa eşit olana kadar ardından padCharacter art arda dizenin sonuna (sağdaki) eklenir.
-* bir boşluk karakteri padCharacter olabilir, ancak bir null değer olamaz.
+* Bir boşluk karakteri PadCharacter olabilir, ancak bir null değer olamaz.
 * Dizenin uzunluğunu uzunluğundan büyük veya eşit ise, dize değiştirilmeden döndürülür.
 * Dize değerinden büyük veya eşit uzunlukta uzunluğunda bir dize için aynı dize döndürülür.
 * Dizenin uzunluğunu uzunluğundan küçükse, istenilen yeni bir dize ile bir padCharacter azsa içeren bir dize döndürdü.

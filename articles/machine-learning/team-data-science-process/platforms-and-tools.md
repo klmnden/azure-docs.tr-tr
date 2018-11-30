@@ -1,25 +1,21 @@
 ---
 title: Platform ve veri bilimi için Araçlar ekip projeleri - Azure | Microsoft Docs
 description: Maddeler halinde listeler ve üzerinde Team Data Science Process Standartlaştırma kuruluşların kullanabileceği veri ve analiz kaynaklarını ele alır.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 5cfe86414473f352673f39850a34f8ef265c91f5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258910"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446458"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformlar ve araçlar için veri bilimi projeleri
 
@@ -152,4 +148,4 @@ Git komutlarını çalıştırmak için Linux (CentOS) makineleri kullanıyorsan
 
 Tam işlem için tüm adımları gösteren uçtan uca talimatlara **belirli senaryoları** de sağlanır. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) konu. Bunlar, bulut, şirket içi araçları ve Hizmetleri, bir iş akışı veya akıllı bir uygulama oluşturmak için işlem hattı birleştirme işlemini göstermektedir. 
 
-Azure Machine Learning Studio kullanma adımları Team Data Science Process içinde yürütülen örnekler için bkz [Azure ML ile](https://aka.ms/datascienceprocess) öğrenme yolu.
+Azure Machine Learning Studio kullanma adımları Team Data Science Process içinde yürütülen örnekler için bkz [Azure ML ile](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) öğrenme yolu.

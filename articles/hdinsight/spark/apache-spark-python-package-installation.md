@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 46ce112f420a6534140d293332e7ca7efc2def94
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 5b90519120e64a905073eec6b73e4ced64fe4f64
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975695"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496058"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek üzere betik eylemi kullanın
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "51975695"
 >
 >
 
-Betik eylemleri, harici, topluluk tarafından katkıda bulunulan kullanmak için (Linux) HDInsight üzerinde Apache Spark kümesi yapılandırmak için kullanmayı öğrenin **python** kümede olmayan paketleri dahil kullanıma hazır.
+Betik eylemleri yapılandırmak için kullanmayı öğrenin bir [Apache Spark](https://spark.apache.org/) dış kullanmak için (Linux) HDInsight kümesinde topluluk tarafından katkıda bulunulan **python** kümede olmayan paketleri dahil kullanıma hazır.
 
 > [!NOTE]
 > Jupyter Not Defteri kullanarak da yapılandırabilirsiniz `%%configure` magic dış paketleri kullanma. Yönergeler için [, HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md).
@@ -45,13 +45,13 @@ Aşağıdakilere sahip olmanız gerekir:
    > 
    > 
    
-   ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği
+## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği
 
-Microsoft Azure HDInsight hizmeti, açık kaynak teknolojilerini Hadoop geçici olarak biçimlendirilmiş bir kaynak ekosisteminiz kullanır. Microsoft Azure için açık kaynak teknolojilerini genel düzeyde destek sağlar. Daha fazla bilgi için **destek kapsamı** bölümünü [Azure desteği SSS Web sitesine](https://azure.microsoft.com/support/faq/). HDInsight hizmeti, yerleşik bileşenler için ek bir destek düzeyi sağlar.
+Microsoft Azure HDInsight hizmeti, açık kaynak teknolojilerini Apache Hadoop geçici olarak biçimlendirilmiş bir kaynak ekosisteminiz kullanır. Microsoft Azure için açık kaynak teknolojilerini genel düzeyde destek sağlar. Daha fazla bilgi için **destek kapsamı** bölümünü [Azure desteği SSS Web sitesine](https://azure.microsoft.com/support/faq/). HDInsight hizmeti, yerleşik bileşenler için ek bir destek düzeyi sağlar.
 
 HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır:
 
-* **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, YARN ResourceManager, Hive sorgu dili (HiveQL) ve Mahout kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+* **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, Apache Hadoop YARN ResourceManager, Apache Hive sorgu dili (HiveQL) ve Mahout kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Apache Hadoop küme sürümlerindeki yenilikler](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Özel bileşenler** -, kümenin bir kullanıcı olarak yükleyebilir veya herhangi bir bileşeni Topluluğu'nda kullanılabilir veya sizin tarafınızdan oluşturulan iş yükünüzü kullanın.
 
 > [!WARNING]
@@ -96,21 +96,21 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [HDInsight üzerinde Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
+* [Apache Spark uygulamalarında uzaktan hata ayıklamak amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
+* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Kaynakları yönetme

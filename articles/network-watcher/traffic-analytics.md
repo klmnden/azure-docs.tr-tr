@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457417"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443041"
 ---
 # <a name="traffic-analytics"></a>Trafik analizi
 
@@ -53,9 +53,39 @@ Trafik analizi, ham NSG akış günlüklerini inceler ve aynı kaynak IP adresi,
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-Trafik analizi için Nsg'ler aşağıdaki bölgelerden birinde kullanabilirsiniz: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Orta Kuzey ABD, Güney Orta ABD, Orta ABD, Batı ABD, Batı ABD 2, Kanada Orta, Batı Avrupa, Kuzey Avrupa, UK Batı, UK Güney, Doğu Japonya, Hindistan Orta , Avustralya Doğu, Avustralya Güneydoğu ve Güneydoğu Asya. 
+Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanabilirsiniz:
 
-Log analytics çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, UK Güney, Orta Kanada, Doğu Japonya, Hindistan Orta Avustralya Güneydoğu veya Güneydoğu Asya bölgesi içinde bulunmalıdır.
+* Orta Kanada
+* Batı Orta ABD
+* Doğu ABD
+* Doğu ABD 2
+* Orta Kuzey ABD
+* Orta Güney ABD
+* Orta ABD
+* Batı ABD
+* Batı ABD 2
+* Batı Avrupa
+* Kuzey Avrupa
+* Güney Brezilya
+* Birleşik Krallık Batı
+* Birleşik Krallık Güney
+* Avustralya Doğu
+* Avustralya Güneydoğu
+* Güneydoğu Asya
+* Orta Hindistan
+* Güney Hindistan
+* Japonya Doğu 
+
+Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
+* Orta Kanada
+* Batı Orta ABD
+* Doğu ABD
+* Batı Avrupa
+* Birleşik Krallık Güney
+* Avustralya Güneydoğu
+* Güneydoğu Asya
+* Orta Hindistan
+* Japonya Doğu
 
 ## <a name="prerequisites"></a>Önkoşullar
 

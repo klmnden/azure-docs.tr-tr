@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 333e73af3578cdc363e7ede08ca52207cfd0fdb0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248924"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446798"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
@@ -157,13 +157,13 @@ public static string Run(CustomObject req, ILogger log)
 }
 
 public class CustomObject {
-     public String name {get; set;}
+     public string name {get; set;}
 }
 ```
 
-### <a name="trigger---f-example"></a>Tetikleyici - F # örneği
+### <a name="trigger---f-example"></a>Tetikleyici - F# örneği
 
-Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlev arayan bir `name` parametresi sorgu dizesi veya HTTP isteğinin gövdesi.
+Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [ F# işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlev arayan bir `name` parametresi sorgu dizesi veya HTTP isteğinin gövdesi.
 
 İşte *function.json* dosyası:
 
@@ -188,7 +188,7 @@ Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.jso
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-F # kodu şu şekildedir:
+İşte F# kod:
 
 ```fsharp
 open System.Net
@@ -348,7 +348,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-C# ve F # işlevleri için ya da giriş, tetikleyici türü bildirebilirsiniz `HttpRequestMessage` veya özel bir tür. Seçerseniz `HttpRequestMessage`, istek nesnesi tam erişim elde edersiniz. Özel bir tür için çalışma zamanı nesne özelliklerini ayarlamak için JSON istek gövdesini ayrıştırmak çalışır.
+İçin C# ve F# İşlevler, ya da giriş, tetikleyici türü bildirebilirsiniz `HttpRequestMessage` veya özel bir tür. Seçerseniz `HttpRequestMessage`, istek nesnesi tam erişim elde edersiniz. Özel bir tür için çalışma zamanı nesne özelliklerini ayarlamak için JSON istek gövdesini ayrıştırmak çalışır.
 
 JavaScript işlevleri için istek gövdesi istek nesnesi yerine işlevler çalışma zamanı sağlar. Daha fazla bilgi için [JavaScript tetikleyicisi örneğinde](#trigger---javascript-example).
 
@@ -434,6 +434,45 @@ Varsayılan olarak, tüm işlevi yollar ile ön ekli *API*. Ayrıca özelleştir
 }
 ```
 
+### <a name="working-with-client-identities"></a>İstemci kimlikleri ile çalışma
+
+İşlev uygulamanızı kullanıyorsa [App Service kimlik doğrulaması / yetkilendirme](../app-service/app-service-authentication-overview.md), kodunuzdan kimlik doğrulamasından geçen istemcilerin ilgili bilgileri görüntüleyebilirsiniz. Bu bilgiler olarak kullanılabilir [istek üst platform tarafından eklenen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+
+Ayrıca, veri bağlama gelen bu bilgileri okuyabilir. Bu özellik yalnızca işlevler 2.x çalışma zamanı için kullanılabilir. Ayrıca şu anda yalnızca .NET dilleri için kullanılabilir.
+
+Bu bilgiler .NET languagues içinde olarak kullanılabilir bir [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal kullanılabilir aşağıdaki örnekte gösterildiği gibi istek bağlamının bir parçası olarak:
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkResult();
+}
+```
+
+Alternatif olarak, ClaimsPrincipal yalnızca işlev imzası ek bir parametre olarak dahil edilebilir:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+
+```
+
 ### <a name="authorization-keys"></a>Yetkilendirme anahtarları
 
 İşlevler geliştirme sırasında HTTP işlevi uç noktalarınıza erişmek daha zor hale getirmek için anahtarları kullanmanıza imkan tanır.  Standart bir HTTP tetikleyicisi, böyle bir API anahtarı istekteki gerektirebilir. 
@@ -483,7 +522,7 @@ Anahtarları gerektirmeyen anonim isteklere izin verebilirsiniz. Ayrıca ana ana
 
 Tam olarak üretim ortamında işlevi uç noktalarınızı güvenliğini sağlamak için uygulama aşağıdaki işlevi uygulama düzeyinde güvenlik seçeneklerden birini dikkate almanız gerekir:
 
-* App Service kimlik doğrulamasını etkinleştirmek / işlev uygulamanız için yetkilendirme. İstemcilerin kimliğini doğrulamak için Azure Active Directory (AAD) ve çeşitli üçüncü taraf kimlik sağlayıcıları kullanan App Service platformu sağlar. İşlevleriniz için özel yetkilendirme kurallarını uygulamak için bunu kullanabilirsiniz ve işlev kodunuzu kullanıcı bilgileri ile çalışabilirsiniz. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md).
+* App Service kimlik doğrulamasını etkinleştirmek / işlev uygulamanız için yetkilendirme. İstemcilerin kimliğini doğrulamak için Azure Active Directory (AAD) ve çeşitli üçüncü taraf kimlik sağlayıcıları kullanan App Service platformu sağlar. İşlevleriniz için özel yetkilendirme kurallarını uygulamak için bunu kullanabilirsiniz ve işlev kodunuzu kullanıcı bilgileri ile çalışabilirsiniz. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md) ve [istemci kimliklerle çalışma](#working-with-client-identities).
 
 * Azure API Management (APIM) isteklerinin kimliğini doğrulamak için kullanın. APIM API'si güvenlik seçenekleri gelen istekler için çeşitli sağlar. Daha fazla bilgi için bkz. [API Management kimlik doğrulama ilkeleri](../api-management/api-management-authentication-policies.md). Yerinde APIM ile işlev uygulamanızı APIM Örneğinize IP adresi yalnızca gelen istekleri kabul edecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz. [IP adresi sınırlamaları](ip-addresses.md#ip-address-restrictions).
 

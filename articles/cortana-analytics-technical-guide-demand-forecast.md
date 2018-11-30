@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238871"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427072"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Cortana Intelligence çözüm şablonu enerji tahmini talebi teknik Kılavuzu
 ## <a name="overview"></a>**Genel Bakış**
@@ -159,14 +159,14 @@ Veri oluşturucuyu başlatıldıktan sonra işlem hattı hydrated başlar ve eyl
 Bu bölümde, Azure machine learning (Durgun yol) sonuçlarını tahmin yanı sıra Azure akış analizi (etkin yol), gerçek zamanlı verileri görselleştirmek için Power BI Panosu ayarlama açıklar.
 
 ### <a name="setup-hot-path-dashboard"></a>Kurulum etkin yolu Panosu
-Aşağıdaki adımları, Çözüm dağıtımı sırasında oluşturulan Stream Analytics işlerini gerçek zamanlı veri çıkışı görselleştirme konusunda size rehberlik eder. A [Power BI çevrimiçi Hizmetinde](http://www.powerbi.com/) hesabı aşağıdaki adımları gerçekleştirmek için gereklidir. Bir hesabınız yoksa, şunları yapabilirsiniz [oluşturmak](https://powerbi.microsoft.com/pricing).
+Aşağıdaki adımları, Çözüm dağıtımı sırasında oluşturulan Stream Analytics işlerini gerçek zamanlı veri çıkışı görselleştirme konusunda size rehberlik eder. A [Power BI çevrimiçi Hizmetinde](https://www.powerbi.com/) hesabı aşağıdaki adımları gerçekleştirmek için gereklidir. Bir hesabınız yoksa, şunları yapabilirsiniz [oluşturmak](https://powerbi.microsoft.com/pricing).
 
 1. Power BI çıkışına Azure Stream Analytics (ASA) ekleyin.
 
    * Bölümündeki yönergeleri gerek [Azure Stream Analytics ve Power BI: akış verilerini gerçek zamanlı görünürlük için gerçek zamanlı analiz Pano](stream-analytics/stream-analytics-power-bi-dashboard.md) çıktısını Azure Stream Analytics işinizi Power BI panonuz olarak ayarlamak için .
    * Stream analytics işinde bulun, [Azure portalında](https://portal.azure.com). İş adı olmalıdır: YourSolutionName + "streamingjob" + rastgele sayı + "asapbi" (yani demostreamingjob123456asapbi).
    * ASA işi için bir Power BI çıkışına ekleyin. Ayarlama **çıkış diğer adı** olarak **'PBIoutput'**. Ayarlama, **veri kümesi adı** ve **tablo adı** olarak **'EnergyStreamData'**. Çıkış ekledikten sonra tıklayın **"Başlat"** Stream Analytics işi başlatmak için sayfanın alt kısmındaki. Bir onay iletisi (örneğin, "Başlangıç stream analytics başarılı myteststreamingjob12345asablob iş") almanız gerekir.
-2. Oturum [çevrimiçi Power BI](http://www.powerbi.com)
+2. Oturum [çevrimiçi Power BI](https://www.powerbi.com)
 
    * Veri kümeleri, çalışma Alanım bölümünde Sol paneldeki Power BI'ın sol panelde gösteren yeni bir veri kümesi görmeye olmalıdır. Azure Stream Analytics'ten önceki adımda gönderilen veri akışı budur.
    * Emin ***görselleştirmeler*** bölmesinde açın ve ekranın sağ tarafında gösterilir.
@@ -207,7 +207,7 @@ Durgun yoldaki veri işlem hattı, her bölgenin talep tahminini temel hedeftir.
    * Büyütme penceresi, değiştirin **"Server"** ve **"Veritabanı"** kendi sunucu ve veritabanı adları ve ardından **"Tamam"**. Sunucu adı için 1433 numaralı bağlantı noktasını belirttiğinizden emin olun (**YourSolutionName.database.windows.net, 1433**). Ekranda görüntülenen uyarı iletilerini yoksayın.
    * Çıkış penceresi sonraki pop, sol bölmede iki seçenek görürsünüz (**Windows** ve **veritabanı**). Tıklayın **"Veritabanı"**, doldurmak, **"Username"** ve **"Password"** (kullanıcı adı ve ilk çözüm dağıtılan ve bir Azure oluşturulan girdiğiniz parola budur SQL veritabanı). İçinde ***seçmek için bu ayarları uygulamak için hangi düzeye***, veritabanı düzeyinde seçeneği işaretleyin. Ardından **"Bağlan"**.
    * Önceki sayfaya geri destekli sonra penceresini kapatın. Bir ileti POP genişletme - tıklatın **Uygula**. Son olarak, tıklayın **Kaydet** değişiklikleri kaydetmek için düğme. Power BI dosyanızı, şimdi sunucuyla bağlantı kurmuştur. Görselleştirmelerinizi boş ise göstergeleri sağ üst köşesinde Silgi simgesini tıklatarak tüm verileri görselleştirmek için görselleştirmelere seçimleri Temizle emin olun. Bir görselleştirmeyi yeni verileri yansıtması için Yenile düğmesini kullanın. Data factory 3 saatte bir yenileme zamanlandığında başlangıçta yalnızca çekirdek veri görselleştirmelerinizi üzerinde görürsünüz. 3 saat sonra verileri yenilediğinizde görselleştirmeleriniz yansıtılan yeni Öngörüler bakın.
-3. (İsteğe bağlı) Soğuk yolu panoya yayımlama [Power BI çevrimiçi Hizmetinde](http://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.
+3. (İsteğe bağlı) Soğuk yolu panoya yayımlama [Power BI çevrimiçi Hizmetinde](https://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.
 
    * Tıklayın **"Yayımla"** ve birkaç saniye sonra "Yayımlama Power BI başarılı!" görüntüleyen bir pencere görüntülenir. Yeşil bir onay işareti ile. "Power bı'da Aç demoprediction.pbix" aşağıdaki bağlantıya tıklayın. Ayrıntılı yönergeler için bkz [Power BI Desktop'tan yayımlama](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Yeni bir Pano oluşturmak için: tıklayın **+** yanındaki oturum **panolar** sol bölmedeki bölümü. Bu yeni bir Pano için "tahmini isteğe bağlı tanıtımla" adını girin.

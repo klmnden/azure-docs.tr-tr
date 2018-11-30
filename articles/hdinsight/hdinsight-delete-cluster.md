@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: dff9420eb0f91652cc134a37d1b248e2e5b2b681
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 707112f755e6846622d2fde9de466551276925b8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004545"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494361"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>Tarayıcınız, PowerShell veya Azure Klasik CLI kullanarak bir HDInsight kümesini silme
 
-HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bu belgede, Azure portalı, Azure PowerShell ve Azure Klasik CLI'yı kullanarak küme silme hakkında bilgi edinin.
+HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bu belgede, kullanarak küme silme hakkında bilgi edinin [Azure portalında](https://portal.azure.com), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)ve Azure Klasik CLI.
 
 > [!IMPORTANT]
 > Azure depolama hesapları HDInsight küme silme silmez veya Data Lake Store kümeyle ilişkili. Gelecekte bu Hizmetleri'nde depolanan verileri yeniden kullanabilirsiniz.

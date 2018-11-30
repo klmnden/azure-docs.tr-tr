@@ -2,25 +2,21 @@
 title: HDInsight Hadoop Hive'ı kullanarak Azure üzerinde veri bilimi kılavuzları | Microsoft Docs
 description: Team Data Science Process, Tahmine dayalı analiz yapmak için Azure HDInsight Hadoop Hive kullanarak yol örnekleri.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 2aa64d6dc144e85e1a0f03b8548fa47dba91a2eb
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: eae56eda72d775205a231e2c6482a1c0686d9251
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393168"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445933"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>HDInsight Hadoop Hive'ı kullanarak Azure üzerinde veri bilimi kılavuzları 
 

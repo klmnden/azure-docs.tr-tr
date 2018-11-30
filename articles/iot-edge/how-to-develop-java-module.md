@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d72ffd849f9e1e6e661b0e54b7182b02a16c8024
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e50bf42076132f69fcb655da61a790fe207b949
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568997"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444418"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Geliştirme ve Java modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -64,7 +64,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT Edge uzantısını kullana
 7. Seçin **Java Modülü** çözüm içinde ilk modül için şablon olarak.
 8. Modülünüzün için bir ad belirtin. Kapsayıcı kayıt defterinizde içinde benzersiz bir ad seçin. 
 8. groupId için bir değer girin veya varsayılan **com.edgemodule** değerini kabul edin.
-9. Görüntü deposu için modülü sağlar. VS Code autopopulates modül adı, yalnızca değiştirmek zorunda **localhost:5000** kendi kayıt defteri bilgileri. Test etmek için yerel bir Docker kayıt defteri kullanıyorsanız localhost uygundur. Azure Container Registry kullanırsanız, oturum açma sunucusu defterinizin ayarlarından'ni kullanın. Oturum açma sunucusu benzer  **\<kayıt defteri adı\>. azurecr.io**. Dizenin yalnızca localhost bölümünü değiştirin, modülünüzün adını silmeyin.
+9. Görüntü deposu için modülü sağlar. VS Code autopopulates modül adı, yalnızca değiştirmek zorunda **localhost:5000** kendi kayıt defteri bilgileri. Test etmek için yerel bir Docker kayıt defteri kullanıyorsanız localhost uygundur. Azure Container Registry kullanırsanız, oturum açma sunucusu defterinizin ayarlarından'ni kullanın. Oturum açma sunucusu benzer  **\<kayıt defteri adı\>. azurecr.io**. Dizenin yalnızca localhost bölümünü değiştirin, modülünüzün adını silmeyin. Son dize şuna benzer \<kayıt defteri adı\>.azurecr.io/\<modulename\>.
 
    ![Docker görüntü deposunu sağlama](./media/how-to-develop-node-module/repository.png)
 
@@ -79,6 +79,8 @@ VS Code, sağlanan bir IOT Edge çözümü oluşturur, ardından yeni bir pencer
    >Modül için bir görüntü deposuna sağlarsanız, ortam dosyası yalnızca oluşturulur. Test ve yerel olarak hata ayıklama için localhost Varsayılanları kabul ortam değişkenleri gerekmez. 
 
 * A **deployment.template.json** dosyası listeler, yeni bir örnek modülüyle **tempSensor** test etmek için kullanabileceğiniz veri benzetimi gerçekleştiren modülü. Nasıl iş dağıtım bildirimleri hakkında daha fazla bilgi için bkz. [nasıl IOT Edge modülleri, yapılandırılmış, yeniden kaldırılabilir ve anlamak](module-composition.md).
+* A **deployment.debug.template.json** dosya kapsayıcıları modülünüzün hata ayıklama sürümü, uygun kapsayıcı seçeneklerle görüntüler.
+
 
 ## <a name="develop-your-module"></a>Modülü geliştirme
 
@@ -90,6 +92,14 @@ Visual Studio Code için Java desteği vardır. Daha fazla bilgi edinin [VS code
 
 ## <a name="launch-and-debug-module-code-without-container"></a>Başlatma ve kapsayıcı olmadan modül kodu hatalarını ayıklama
 IOT Edge Java modülü, Azure IOT Java cihaz SDK'sı üzerinde bağlıdır. Varsayılan modülü kodda, başlatma bir **ModuleClient** ortam ayarlar ve giriş adı, IOT Edge Java modülü başka bir deyişle, başlatmak ve çalıştırmak ortam ayarları gerektirir ve ayrıca göndermek veya iletileri yönlendirmek gerekir Giriş kanalı. Varsayılan Java modülünüzde yalnızca bir giriş kanalı içerir ve ad **input1**.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IOT Edge çözüm Kurulum IOT Edge simülatörü
+
+Geliştirme makinenizde, IOT Edge çözümü çalıştırmak için IOT Edge güvenlik daemon yüklemek yerine IOT Edge simülatör başlayabilirsiniz. 
+
+1. Sol taraftaki cihaz Gezgini'nde, sağ tıklayın, IOT Edge cihaz Kimliğine, select **Kurulum IOT Edge simülatör** cihaz bağlantı dizesiyle simülatörü başlatın.
+
+2. IOT Edge simülatör tümleşik terminalde Kurulum başarıyla verildi görebilirsiniz.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Kurulum IOT Edge modülü tek uygulama simülatörü
 
@@ -132,7 +142,7 @@ IOT Edge Java modülü, Azure IOT Java cihaz SDK'sı üzerinde bağlıdır. Vars
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Hata ayıklama ve hata ayıklama için modül kapsayıcı derleme içinde modu ekleme
 
-İki modül varsayılan çözümünüzü içeren sanal sıcaklık algılayıcısı modülü biridir ve diğer Java kanal modülüdür. Sanal sıcaklık algılayıcısı Java kanal modülüne iletileri göndermeye devam eder ve sonra iletileri IOT Hub'ına yöneltilen. Oluşturduğunuz modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı türü vardır. Uzantısıyla biten bu dosyaları dilediğinizi **.debug** test etmek için modülü. Şu anda Java Modüller yalnızca linux-amd64 ve linux arm32v7 kapsayıcılarında hata ayıklama destekler.
+İki modül varsayılan çözümünüzü içeren sanal sıcaklık algılayıcısı modülü biridir ve diğer Java kanal modülüdür. Sanal sıcaklık algılayıcısı Java kanal modülüne iletileri göndermeye devam eder ve sonra iletileri IOT Hub'ına yöneltilen. Oluşturduğunuz modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı türü vardır. Uzantısıyla biten bu dosyaları dilediğinizi **.debug** test etmek için modülü. Varsayılan olarak, **deployment.debug.template.json** görüntü hata ayıklama sürümünü içerir. Şu anda Java Modüller yalnızca linux-amd64 ve linux arm32v7 kapsayıcılarında hata ayıklama destekler. Azure IOT Edge varsayılan platformunuz VS Code durum çubuğunda anahtarı kullanabilirsiniz.
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IOT Edge çözüm Kurulum IOT Edge simülatörü
 
@@ -144,12 +154,9 @@ Geliştirme makinenizde, IOT Edge çözümü çalıştırmak için IOT Edge güv
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Derleme ve hata ayıklama ve hata ayıklama için kapsayıcı çalıştırma modu olarak ekleme
 
-1. VS Code'da gidin `deployment.template.json` dosya. Modül görüntü URL'nizi ekleyerek güncelleştirme **.debug** sonuna.
+1. `App.java` sayfasına gidin. Bu dosyada kesme noktası ekleyin.
 
-2. İçindeki Java modülü createOptions değiştirin **deployment.template.json** ile içerik aşağıda ve bu dosya: 
-    ```json
-    "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5005/tcp\":[{\"HostPort\":\"5005\"}]}}}"
-    ```
+2. VS Code dosya Gezgini'nde seçin `deployment.debug.template.json` bağlam menüsü, çözümünüz için dosyaya tıklayın **simülatör derleme ve çalıştırma IOT Edge çözümde**. Aynı pencerede modülü kapsayıcı günlüklerini izleyebilirsiniz. Docker kapsayıcı durumu izlemek için Gezgini da gidebilirsiniz.
 
 5. VS Code hata ayıklama görünümüne gidin. Bir modül için hata ayıklama yapılandırma dosyasını seçin. Hata ayıklama seçeneği adı şuna benzer olmalıdır **ModuleName uzaktan hata ayıklama (Java)**.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD UserPrincipalName popülasyon
+title: Azure AD UserPrincipalName popülasyonu
 description: UserPrincipalName özniteliği nasıl doldurulur aşağıdaki belge açıklar.
 author: billmath
 ms.component: hybrid
@@ -9,14 +9,14 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637723"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426817"
 ---
-# <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName popülasyon
+# <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName popülasyonu
 
 Bu makalede, Azure Active Directory (Azure AD) UserPrincipalName özniteliği nasıl doldurulur açıklanır.
 UserPrincipalName özniteliği değeri, kullanıcı hesapları için Azure AD kullanıcı adıdır.
@@ -34,7 +34,7 @@ Bu makalede aşağıdaki terimler kullanılır:
 |Alternatif oturum açma kimliği|Posta özniteliği, oturum açmak için kullanılan gibi bir şirket içi özniteliği, UserPrincipalName dışında.|
 
 ## <a name="what-is-userprincipalname"></a>UserPrincipalName nedir?
-UserPrincipalName Internet standardına göre bir kullanıcı için bir Internet stili oturum açma adı bir öznitelik olduğunu [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+UserPrincipalName Internet standardına göre bir kullanıcı için bir Internet stili oturum açma adı bir öznitelik olduğunu [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>UPN biçimi
 UPN (kullanıcı hesabı adı) UPN öneki ve UPN soneki (bir DNS etki alanı adı) oluşur. Önekini kullanarak soneki ile birleştirilmiş "\@" simgesi. Örneğin, "birisi\@example.com". UPN directory ormanındaki tüm güvenlik asıl nesneler arasında benzersiz olmalıdır. 

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/19/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd55bb78fd385ab12d711e569ca6d5013c48e545
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4ad1633e4d56e44e3b82f90121a14c6ef6f0b976
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222004"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441410"
 ---
 # <a name="bing-visual-search-sdk"></a>Bing görsel arama SDK'sı
 
@@ -32,6 +32,16 @@ Bing görsel arama, aşağıdaki istemci görsel arama API'sine çalışmak içi
     * [Python kitaplıkları](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) tanımlar ve bağımlılıklar için
 
 SDK'sı örnekleri her dil için bir Benioku dosyasıyla yüklemek ve örnekleri çalıştırmak için SDK adımları ile birlikte kullanma önkoşulları içerir.
+
+Bu örnekler için gösterildiği gibi bir abonelik S9 fiyat katmanı başlatmanız gerekecek [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Azure Portalı'nda bir abonelik başlatmak için:
+1. 'BingSearchV7' ifadesini içeren Azure Portal'ın üstünde metin kutusuna girin `Search resources, services, and docs`.  
+2. Aşağı açılan listesinde Marketi bölümünde seçin `Bing Search v7`.
+3. Girin `Name` yeni kaynak için.
+4. Seçin `Pay-As-You-Go` abonelik.
+5. Seçin `S9` fiyatlandırma katmanı.
+6. Tıklayın `Enable` abonelik başlatmak için.
 
 ### <a name="sdk-tools"></a>SDK Araçları
 Bing görsel arama özelliklerini keşfetmek için SDK araçlarını bu Git deposunda bulunabilir: [Bing görsel arama araçları](https://github.com/Azure-Samples/bing-visualsearch-tools)

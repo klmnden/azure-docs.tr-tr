@@ -1,6 +1,6 @@
 ---
 title: SLES 12 SP3 ile Azure sanal makineler'de SAP HANA 2.0 genişleme HSR Pacemaker Kurulumu sorunlarını giderme | Microsoft Docs
-description: Denetleyin ve SAP HANA sistem çoğaltması (HSR) ve Azure sanal makineler üzerinde çalışan SLES üzerinde Pacemaker SLES 12 SP3 göre karmaşık bir SAP HANA genişletmek kullanılabilirliğinden yapılandırma sorunlarını giderme kılavuzu
+description: Denetleyin ve SAP HANA sistem çoğaltması (HSR) ve Azure sanal makineler üzerinde çalışan SLES üzerinde Pacemaker SLES 12 SP3 göre bir karmaşık SAP HANA genişleme yüksek kullanılabilirlik yapılandırmasında sorun giderme kılavuzu
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 6c0d6397246e8b8db1d59c26229e37a722d49f48
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184977"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497351"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Doğrulayın ve SLES 12 SP3 üzerinde SAP HANA genişleme yüksek kullanılabilirlik Kurulumu sorunlarını giderme 
 
@@ -35,34 +35,35 @@ ms.locfileid: "47184977"
 [sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 
 
-Bu makale, Azure sanal makineler'de çalışan SAP HANA genişleme Pacemaker küme yapılandırmasını denetlemek için yazılmıştır. SAP HANA sistem çoğaltması (HSR) ile birlikte Küme kurulumu gerçekleştirilebilir ve SUSE RPM paketini SAPHanaSR genişletme. Tüm testleri üzerinde SUSE SLES 12 SP3 yalnızca yapıldığını. Farklı alanlarını kapsar ve örnek komutlar ve yapılandırma dosyalarından forumlarından dahil birkaç bölümü vardır. Bu örnekler, doğrulamak ve tüm küme ayarlarını denetlemek için bir yöntem önerilir.
+Bu makalede, Azure sanal makinelerinde (VM'ler) çalışan SAP HANA ölçek genişletme Pacemaker küme yapılandırmanızı denetleyin yardımcı olur. SAP HANA sistem çoğaltması (HSR) ile birlikte Küme kurulumu gerçekleştirilebilir ve SUSE RPM paketini SAPHanaSR genişletme. Tüm testleri üzerinde SUSE SLES 12 SP3 yalnızca yapıldığını. Makalenin bölümleri farklı alanlarını kapsar ve örnek komutlar ve alıntıları yapılandırma dosyalarını içerir. Bu örnekler doğrulayın ve tüm küme Kurulumu denetlemek için bir yöntem öneririz.
 
 
 
 ## <a name="important-notes"></a>Önemli Notlar
 
-SAP HANA ölçeklendirme SAP HANA sistem çoğaltması ve Pacemaker ile birlikte tüm test SAP HANA 2.0 ile yalnızca yapılmadı. İşletim sistemi sürümü, SUSE Linux Enterprise Server 12 SP3 SAP uygulamaları için oluştu. Buna ek olarak en son RPM paketinden SAPHanaSR genişletme SUSE pacemaker kümesini ayarlamak için kullanıldı.
-SUSE yayımlanan bulunabilir, bu en iyi duruma getirilmiş performans Kurulum, ayrıntılı bir açıklaması [burada][sles-hana-scale-out-ha-paper]
+SAP HANA ölçeklendirme SAP HANA sistem çoğaltması ve Pacemaker ile birlikte tüm test SAP HANA 2.0 ile yalnızca yapılmadı. İşletim sistemi sürümü, SAP uygulamaları için SUSE Linux Enterprise Server 12 SP3 oluştu. En son RPM paketi, SUSE, gelen SAPHanaSR genişletme Pacemaker kümesini ayarlamak için kullanıldı.
+SUSE yayımlanan bir [ayrıntılı açıklamasını bu performans için iyileştirilmiş Kurulum][sles-hana-scale-out-ha-paper].
 
-Sanal makine türleri için SAP HANA genişleme denetle desteklenir [SAP HANA sertifikalı ve Iaas dizini][sap-hana-iaas-list]
+SAP HANA ölçeklendirme için desteklenen sanal makine türleri için denetleme [SAP HANA sertifikalı ve Iaas dizin][sap-hana-iaas-list].
 
-SAP HANA ölçeklendirme birlikte birden çok alt ağları ve Vnıc'ler ve HSR ayarlama ile ilgili teknik bir sorun oluştu. Burada Bu sorun düzeltilmiştir en son düzeltme eklerini SAP HANA 2.0 kullanmak için zorunludur. Aşağıdaki SAP HANA sürümleri desteklenir: 
+SAP HANA ölçeklendirme birlikte birden çok alt ağları ve Vnıc'ler ve HSR ayarlama ile ilgili teknik bir sorun oluştu. Burada Bu sorun giderilmiştir en son düzeltme eklerini SAP HANA 2.0 kullanmak için zorunludur. Aşağıdaki SAP HANA sürümleri desteklenir: 
 
-**Rev2.00.024.04 veya üzeri & rev2.00.032 veya üzeri.**
+* Rev2.00.024.04 veya üzeri 
+* Rev2.00.032 veya üzeri
 
-SUSE desteğini gerektirir bir durum olmalıdır durumda izleyin [Kılavuzu][suse-pacemaker-support-log-files]. Makalesinde açıklandığı gibi SAP HANA yüksek kullanılabilirlik kümesi hakkındaki tüm bilgileri toplayın. SUSE desteği ayrıntılı analiz için bu bilgileri gerekir.
+SUSE desteğine ihtiyacınız varsa, bunu izleyin [Kılavuzu][suse-pacemaker-support-log-files]. Makalesinde açıklandığı gibi SAP HANA yüksek kullanılabilirlik (HA) küme ilgili tüm bilgileri toplayın. SUSE desteği ayrıntılı analiz için bu bilgileri gerekir.
 
-İç test sırasında Küme kurulumu Azure portalından bir normal normal VM kapatma tarafından kafası karışıyordu oluştu. Bu nedenle diğer yöntemleri ile bir küme yük devretme testi için önerilir. Bir çekirdek Panik zorlama gibi yöntemleri kullanın veya ağları kapatın veya geçirme **msl** kaynak (aşağıdaki bölümlerde ayrıntılarına bakın). Standart bir kapatma niyetle olur varsayılır. Kasıtlı bir kapatma işlemi için en iyi örnek olan Bakım (Planlı bakım hakkında bölümünde ayrıntılarına bakın).
+İç test sırasında Küme kurulumu Azure portalından bir normal normal VM kapatma tarafından kafası karışıyordu. Bu nedenle diğer yöntemleri ile bir küme yük devretmesi test etmenizi öneririz. Bir çekirdek Panik zorlama gibi yöntemleri kullanın veya ağları kapatın veya geçirme **msl** kaynak. Aşağıdaki bölümlerde ayrıntılara bakın. Standart bir kapatma niyetle olur varsayılır. En iyi kasıtlı bir kapatma için bakım örneğidir. Ayrıntılara bakın [planlı Bakım](#planned-maintenance).
 
-İç test sırasında küme bakım modunda ederken Küme kurulumu sonra el ile bir SAP HANA devralma kafası karışıyordu oluştu. Bu geri el ile yeniden, küme bakım modunu sonlandırmadan önce geçiş yapmak için önerilir. Küme bakım moduna almadan önce bir yük devretmeyi tetiklemek için başka bir seçenektir (daha fazla ayrıntı için planlı bakımla ilgili bölümüne bakın). Bu konuda, crm komutunu kullanarak küme sıfırlama nasıl SUSE belgelerinden açıklar. Ancak, belirtilen bir yaklaşım iç test sırasında ve bir daha sağlam olması gibi görünüyor önce beklenmeyen yan etkileri gösterdi.
+Küme bakım modunda ederken Ayrıca iç sınama sırasında Küme kurulumu sonra el ile bir SAP HANA devralma kafası karışıyordu. Küme bakım modunu sonlandırmadan önce bu geri el ile yeniden geçmenizi öneririz. Başka bir küme bakım moduna koymadan önce bir yük devretmeyi tetiklemek için bir seçenektir. Daha fazla bilgi için [planlı Bakım](#planned-maintenance). SUSE belgelerinden kullanarak küme bu şekilde nasıl sıfırlayabilirsiniz açıklar **crm** komutu. Ancak belirtilen bir yaklaşım daha önce iç test sırasında sağlam ve hiç beklenmedik yan etkileri gösterdi.
 
-Ne zaman crm kullanarak geçiş yapmaya komut yok kaçırmayın küme yapılandırmasını temizleme. Bunu, farkında olmadıklarınız konum kısıtlamaları, ekler. Bu kısıtlamalar küme davranışını etkiler (bölümünde planlı bakım hakkında daha fazla ayrıntılarına bakın).
+Kullanırken **crm geçirme** komutu, küme yapılandırmayı Temizle emin olun. Bunu, farkında olmadıklarınız konum kısıtlamaları ekler. Bu kısıtlamalar, küme davranışını etkiler. Daha fazla bilgi [planlı Bakım](#planned-maintenance).
 
 
 
 ## <a name="test-system-description"></a>Test sistem açıklaması
 
-SAP HANA genişleme HA doğrulama ve bir kurulum kullanılan sertifika için SAP HANA üç düğüm ile iki sistem her - bir ana ve iki çalışan oluşan. Sanal makine adları ve iç IP adresleri listesi aşağıda verilmiştir. Daha fazla tüm doğrulama örneklerini varsayılan olarak, bu Vm'lere aşağı yapıldığını. Bu sanal makine adı ile IP adresleri komutu örneklerden komutlar ve bunların çıkışları daha iyi anlamak için yardımcı olmalıdır.
+ SAP HANA genişleme HA doğrulama ve sertifika için bir kurulum kullanıldı. Üç SAP HANA düğümü olan her iki sistem, toplamda: bir ana ve iki çalışan. Aşağıdaki tablo listeleri VM adları ve iç IP adresleri. İzleyen tüm doğrulama örnekler, bu Vm'lere yapıldığını. Komut örnekleri kullanarak bu sanal makine adları ve IP adresleri, komutlar ve bunların çıkışları daha iyi anlayabilir:
 
 
 | Düğüm türü | VM adı | IP adresi |
@@ -85,24 +86,24 @@ SAP HANA genişleme HA doğrulama ve bir kurulum kullanılan sertifika için SAP
 
 ## <a name="multiple-subnets-and-vnics"></a>Birden çok alt ağları ve Vnıc'ler
 
-SAP HANA ağ önerileri üç alt ağ içinde bir Azure sanal ağı oluşturulur. Azure üzerinde SAP HANA ölçeği genişletilmiş sahip her düğüm için yerel disk birimleri kullandığı anlamına gelir paylaşılmayan modunda yüklenecek **/hana/veri** ve **/hana/günlük**. Yalnızca yerel disk birimlerinin kullanılması nedeniyle depolama için ayrı bir alt ağı tanımlar gerekli değildir:
+SAP HANA ağ önerileri üç alt ağ içinde bir Azure sanal ağı oluşturulur. Azure üzerinde SAP HANA ölçeği genişletilmiş paylaşılmayan modunda yüklü olması gerekir. Her düğüm için yerel disk birimlerini kullanır anlamına **/hana/veri** ve **/hana/günlük**. Düğümler yalnızca yerel diskte birimler kullandığından, depolama için ayrı bir alt ağı tanımlar gerekli değildir:
 
 - SAP HANA düğümler arası iletişim için 10.0.2.0/24
-- SAP HANA sistem çoğaltması HSR 10.0.1.0/24
+- SAP HANA sistem çoğaltması (HSR) için 10.0.1.0/24
 - diğer her şey için 10.0.0.0/24
 
-Kullanmayla ilgili SAP HANA yapılandırma hakkında bilgi için birden fazla ağ bölümüne bakın **global.ini** birazcık daha indiğimde.
+Birden çok ağ kullanmaya ilişkin SAP HANA yapılandırma hakkında daha fazla bilgi için bkz. [SAP HANA global.ini](#sap-hana-globalini).
 
-Kümedeki her bir VM alt ağ sayısını için karşılık gelen üç Vnıc'ler sahiptir. [Bu] [ azure-linux-multiple-nics] makalede olası bir yönlendirme sorunu Azure'da bir Linux VM dağıtılırken. Bu belirli yönlendirme konu, yalnızca çoklu Vnıcs kullanımı için geçerlidir. Sorun, SLES 12 SP3'te varsayılan başına tarafından SUSE çözülür. SUSE makaleden bu konuda bulunabilir [burada][suse-cloud-netconfig].
+Kümedeki her bir VM alt ağ sayısını için karşılık gelen üç Vnıc'ler sahiptir. [Bir Linux sanal makinesini Azure'da birden çok ağ arabirimi kartları oluşturmak nasıl] [ azure-linux-multiple-nics] olası bir yönlendirme sorunu Azure'daki bir Linux VM dağıtılırken açıklanmaktadır. Bu belirli yönlendirme makale yalnızca çoklu Vnıcs kullanımı için geçerlidir. Sorun, SLES 12 SP3'te varsayılan başına tarafından SUSE çözülür. Daha fazla bilgi için [Multi-NIC ile bulut netconfig EC2 ve Azure'da][suse-cloud-netconfig].
 
 
-SAP HANA birden fazla ağ kullanmak için düzgün şekilde yapılandırıldığını doğrulamak için temel onay, yalnızca aşağıdaki komutları çalıştırın. İlk adım tüm üç iç IP adreslerini üç alt ağ için etkin olan işletim sistemi düzeyinde sağlayamazsanız teknolojidir. Farklı IP adresi aralıklarını alt ağlarla tanımlanmış durumda komutları uymak zorunda:
+SAP HANA birden fazla ağ kullanmak için doğru şekilde yapılandırıldığını doğrulamak için aşağıdaki komutları çalıştırın. İlk işletim sistemi düzeyinde, tüm üç iç IP adreslerini üç alt ağ için etkin olup olmadığını denetleyin. Farklı IP adresi aralıklarını alt ağlarla tanımlanmışsa, komutları uymak zorunda:
 
 <pre><code>
 ifconfig | grep "inet addr:10\."
 </code></pre>
 
-İkinci site 2 çalışan düğümü örnek çıktısı aşağıdadır. Üç farklı iç IP adreslerinden eth0 eth1 ve eth2 görebilirsiniz:
+Aşağıdaki örnek çıktıda, ikinci site 2 çalışan düğümü arasındadır. Üç farklı iç IP adreslerinden eth0 eth1 ve eth2 görebilirsiniz:
 
 <pre><code>
 inet addr:10.0.0.42  Bcast:10.0.0.255  Mask:255.255.255.0
@@ -111,23 +112,23 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 </code></pre>
 
 
-SAP HANA bağlantı noktaları için ad sunucusu ve HSR doğrulama ikinci adımıdır. SAP HANA, karşılık gelen alt ağlar dinlemesi gereken. SAP HANA örneği sayısı bağlı olarak, komutlar uymak zorunda. Test sistemi için örnek sayısı olan **00**. Hangi bağlantı noktalarının kullanıldığını anlamak için farklı yolu vardır. 
+Ardından, SAP HANA bağlantı noktaları için ad sunucusu ve HSR doğrulayın. SAP HANA, karşılık gelen alt ağlar dinlemesi gereken. SAP HANA örneği sayısı bağlı olarak, komutlar uymak zorunda. Test sistemi için örnek sayısı olan **00**. Hangi bağlantı noktalarının kullanıldığını bulmak için farklı yolu vardır. 
 
-Aşağıda, örnek kimliği ve diğer bilgileri arasında örnek numarasını döndüren bir SQL deyimi görürsünüz:
+Aşağıdaki SQL deyimini örnek kimliği, örnek numarasını ve diğer bilgileri döndürür:
 
 <pre><code>
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-Doğru bağlantı noktası numaralarını bulmak için örneğin, HANA Studio altında bakabilirsiniz "**yapılandırma**" ya da bir SQL deyimi ile:
+Doğru bağlantı noktası numaralarını bulmak için örneğin, HANA Studio altında bakabilirsiniz **yapılandırma** veya bir SQL deyimi ile:
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 </code></pre>
 
-SAP HANA gibi SAP yazılım yığını kullanılır, her bağlantı noktası bulmak için arama [burada][sap-list-port-numbers].
+SAP HANA gibi SAP yazılım yığını kullanılan her bağlantı noktası bulmak için arama [TCP/IP bağlantı noktaları tüm SAP ürünleri][sap-list-port-numbers].
 
-Örnek numarasını verilen **00** SAP HANA 2.0 test sisteminde ad sunucusu için bağlantı noktası numarasıdır **30001**. HSR meta veri iletişimi için bağlantı noktası numarası **40002**. Bir çalışan düğümü için oturum açın ve ardından ana düğümü Hizmetleri denetlemek için bir seçenek var. Buraya 2 sitesinde site 2 ana düğüme bağlanmaya 2 çalışan düğümü üzerinde onay yapılır.
+Örnek numarasını verilen **00** SAP HANA 2.0 test sisteminde ad sunucusu bağlantı noktası numarasıdır **30001**. HSR meta veri iletişimi için bağlantı noktası numarası **40002**. Bir çalışan düğümü için oturum açın ve ardından ana düğümü Hizmetleri denetlemek için bir seçenek var. Bu makale için size 2 sitesinde site 2 ana düğüme bağlanmaya 2 çalışan düğümü teslim.
 
 Ad sunucusu bağlantı noktasını denetleyin:
 
@@ -137,8 +138,8 @@ nc -vz 10.0.1.40 30001
 nc -vz 10.0.2.40 30001
 </code></pre>
 
-Sonuç çıkış aşağıdaki alt düğümler arası iletişimin kullandığını kanıtlamak için örnek gibi görünmelidir **10.0.2.0/24**.
-Yalnızca alt ağ üzerinden Bağlan **10.0.2.0/24** başarılı olması gerekir:
+Düğümler arası iletişim alt ağ kullanır kanıtlamak için **10.0.2.0/24**, sonuç aşağıdaki örnek çıktı gibi görünmelidir.
+Yalnızca alt ağ bağlantısıyla **10.0.2.0/24** başarılı olması gerekir:
 
 <pre><code>
 nc: connect to 10.0.0.40 port 30001 (tcp) failed: Connection refused
@@ -154,8 +155,8 @@ nc -vz 10.0.1.40 40002
 nc -vz 10.0.2.40 40002
 </code></pre>
 
-Sonuç HSR iletişim alt kullandığını kanıtlamak için çıktı aşağıdaki örneğe benzer görünmelidir **10.0.1.0/24**.
-Yalnızca alt ağ üzerinden Bağlan **10.0.1.0/24** başarılı olması gerekir:
+HSR iletişim alt ağ kullanır kanıtlamak için **10.0.1.0/24**, sonuç aşağıdaki örnek çıktı gibi görünmelidir.
+Yalnızca alt ağ bağlantısıyla **10.0.1.0/24** başarılı olması gerekir:
 
 <pre><code>
 nc: connect to 10.0.0.40 port 40002 (tcp) failed: Connection refused
@@ -168,11 +169,11 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 ## <a name="corosync"></a>Corosync
 
 
-Doğru temel oluşturucu düğüm dahil olmak üzere kümedeki her düğümde corosync yapılandırma dosyası vardır. Bir düğüm kümesi birleşimi beklendiği gibi işe yaramadı durumda ve/veya kopyalama **/etc/corosync/corosync.conf** el ile/tüm düğümlerin ve hizmetini yeniden başlatın.
+**Corosync** temel oluşturucu düğüm dahil olmak üzere kümedeki her düğümde doğru olması yapılandırma dosyası vardır. Bir düğüm kümesi birleşimi beklendiği gibi çalışmazsa, oluşturma veya kopyalama **/etc/corosync/corosync.conf** el ile üzerine tüm düğümleri ve hizmetini yeniden başlatın. 
 
-İçeriği işte **corosync.conf** test sistemi örneği olarak.
+İçeriği **corosync.conf** testten sistem örneğidir.
 
-İlk bölüm **totem** açıklandığı [belgeleri] [ sles-pacemaker-ha-guide] (bölüm Küme yükleme 11. adım). Değeri yoksayabilirsiniz **mcastaddr**. Yalnızca var olan girdiyi sakla. Girişleri **belirteci** ve **fikir birliğine varılmış** bulabileceğiniz Microsoft Azure SAP HANA belgelerinize göre ayarlanmalıdır [burada][sles-pacemaker-ha-guide]
+İlk bölüm **totem**anlatılan şekilde [Küme yükleme](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11. adım. Değeri yoksayabilirsiniz **mcastaddr**. Yalnızca var olan girdiyi sakla. Girişleri **belirteci** ve **fikir birliğine varılmış** göre ayarlanmalıdır [Microsoft Azure SAP HANA belgeleri][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -202,7 +203,7 @@ totem {
 }
 </code></pre>
 
-İkinci bölüm **günlüğü** verilen varsayılanlarından değiştirilen değildi:
+İkinci bölüm **günlüğü**, verilen varsayılanlarından değiştirilen değildi:
 
 <pre><code>
 logging {
@@ -220,7 +221,7 @@ logging {
 }
 </code></pre>
 
-Üçüncü bölümü gösterir **düğüm listesine**. Kümenin tüm düğümleri kendi düğüm kimliği ile gösterilecek vardır:
+Üçüncü bölümü gösterir **düğüm listesine**. Kümenin tüm düğümleri ile göstermek zorunda kendi **nodeId**:
 
 <pre><code>
 nodelist {
@@ -255,7 +256,7 @@ nodelist {
 }
 </code></pre>
 
-Son bölümde **çekirdek**, değeri ayarlamak önemlidir **expected_votes** doğru. Temel oluşturucu düğüm dahil olmak üzere bir düğüm olmalıdır. Ve değeri **two_node** olmak zorundadır **0**. Giriş tamamen kaldırmayın. Değere ayarlamanız yeterlidir **0**.
+Son bölümdeki **çekirdek**, değeri ayarlamak önemlidir **expected_votes** doğru. Temel oluşturucu düğüm dahil olmak üzere bir düğüm olmalıdır. Ve değeri **two_node** olmak zorundadır **0**. Giriş tamamen kaldırmayın. Değere ayarlamanız yeterlidir **0**.
 
 <pre><code>
 quorum {
@@ -279,9 +280,9 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD cihaz
 
-Belgeleri bir Azure sanal makinesinde SBD cihazı ayarlama konusunda açıklanan [burada] [ sles-pacemaker-ha-guide] (bölüm sbd ayarlayalım).
+Azure VM'de bir SBD cihazı ayarlama konusunda açıklanan [SBD çitlemek](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
-Bir kez daha denetleyin ilk şey kümedeki her düğüm için ACL girişleri varsa SBD sunucusunda VM aramaktır. VM SBD sunucuda aşağıdaki komutu çalıştırın:
+İlk olarak, kümedeki her düğüm için ACL girişleri varsa SBD sunucusunda VM kontrol edin. VM SBD sunucuda aşağıdaki komutu çalıştırın:
 
 
 <pre><code>
@@ -289,7 +290,7 @@ targetcli ls
 </code></pre>
 
 
-Test sisteminde, komut çıktısı aşağıdaki örneğe benzer arıyordu. ACL adları gibi **iqn.2006-04.hso-db-0.local:hso-db-0** sanal makinelere karşılık gelen Başlatıcı adı olarak girilmelidir. Her VM'nin farklı bir tane gerekir.
+Test sisteminde, komut çıktısı aşağıdaki örneğe benzer görünür. ACL adları gibi **iqn.2006-04.hso-db-0.local:hso-db-0** sanal makinelere karşılık gelen Başlatıcı adları olarak girilmelidir. Her VM'nin farklı bir tane gerekir.
 
 <pre><code>
  | | o- sbddbhso ................................................................... [/sbd/sbddbhso (50.0MiB) write-thru activated]
@@ -316,13 +317,13 @@ Test sisteminde, komut çıktısı aşağıdaki örneğe benzer arıyordu. ACL a
   |     | o- iqn.2006-04.hso-db-6.local:hso-db-6 .................................................................. [Mapped LUNs: 1]
 </code></pre>
 
-Daha sonra tüm VM'lerin Başlatıcı adları farklıdır ve yukarıda gösterilen girişlere karşılık gelen denetleyin. Çalışan düğümü 1 sitesinde 1'den bir örnek aşağıda verilmiştir:
+Ardından, tüm sanal makineler Başlatıcı adları farklı ve daha önce gösterilen girişlere karşılık gelen denetleyin. Çalışan düğümü 1 sitesinde 1'den bu örneği verilmiştir:
 
 <pre><code>
 cat /etc/iscsi/initiatorname.iscsi
 </code></pre>
 
-Çıktı aşağıdaki örneğe benzer Aranan:
+Çıktı aşağıdaki örneğe benzer görünür:
 
 <pre><code>
 ##
@@ -338,7 +339,7 @@ cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.2006-04.hso-db-1.local:hso-db-1
 </code></pre>
 
-Sonraki doğrulama **bulma** düzgün şekilde çalışır ve her küme düğümünde VM SBD sunucusunun IP adresini kullanarak aşağıdaki komutu çalıştırın:
+Ardından, doğrulayın **bulma** düzgün şekilde çalışır. Aşağıdaki komut, VM SBD sunucusunun IP adresini kullanarak her küme düğümünde çalıştırın:
 
 <pre><code>
 iscsiadm -m discovery --type=st --portal=10.0.0.19:3260
@@ -350,19 +351,19 @@ iscsiadm -m discovery --type=st --portal=10.0.0.19:3260
 10.0.0.19:3260,1 iqn.2006-04.dbhso.local:dbhso
 </code></pre>
 
-Sonraki kavram noktası düğümü SDB cihaz görür doğrulamaktır. Bu, temel oluşturucu düğüm dahil olmak üzere her bir düğümde kontrol edin:
+Sonraki kavram noktayı düğüm SDB cihaz görür doğrulamaktır. Bu, temel oluşturucu düğüm dahil olmak üzere her bir düğümde kontrol edin:
 
 <pre><code>
 lsscsi | grep dbhso
 </code></pre>
 
-Çıktı aşağıdaki örneğe benzer görünmelidir. Adları farklılık gösterebilir göz önünde bulundurun (cihaz adı aynı zamanda değişebilir VM yeniden başlatıldıktan sonra):
+Çıktı aşağıdaki örneğe benzer görünmelidir. Ancak, adları farklı olabilir. VM yeniden başlatıldıktan sonra cihaz adını da değiştirebilirsiniz:
 
 <pre><code>
 [6:0:0:0]    disk    LIO-ORG  sbddbhso         4.0   /dev/sdm
 </code></pre>
 
-Sistem durumu bağlı olarak, sorunu çözmek için iSCSI hizmetleri yeniden başlatmak bazen yardımcı olabilir. Sonra aşağıdaki komutları çalıştırın:
+Sistem durumu bağlı olarak, bu bazen sorunları çözmek için iSCSI hizmetleri yeniden başlatmak için yardımcı olur. Sonra aşağıdaki komutları çalıştırın:
 
 <pre><code>
 systemctl restart iscsi
@@ -370,7 +371,7 @@ systemctl restart iscsid
 </code></pre>
 
 
-Herhangi bir düğümünden tüm düğümleri olup olmadığını denetleyebilir **Temizle**. Yalnızca belirli bir düğümde doğru cihaz adını kullanmaya dikkat edin:
+Herhangi bir düğümünden tüm düğümleri olup olmadığını denetleyebilir **Temizle**. Belirli bir düğümde doğru cihaz adını kullandığınızdan emin olun:
 
 <pre><code>
 sbd -d /dev/sdm list
@@ -389,13 +390,13 @@ sbd -d /dev/sdm list
 </code></pre>
 
 
-Başka bir SBD denetleyin **döküm** sbd komut seçeneği. İşte bir örnek komut ve burada cihaz adı değil temel oluşturucu düğüm çıktısını **sdm** ancak **sdd**:
+Başka bir SBD denetleyin **döküm** seçeneği **sbd** komutu. Bu örnek komut ve temel oluşturucu düğüm çıkışı, cihaz adı neydi **sdd**değil **sdm**:
 
 <pre><code>
 sbd -d /dev/sdd dump
 </code></pre>
 
-Çıktı (cihaz adı dışında) tüm düğümlerde aynı görünmelidir:
+Çıktı, cihaz adı dışında aynı tüm düğümlerde görünmesi gerekir:
 
 <pre><code>
 ==Dumping header on disk /dev/sdd
@@ -410,21 +411,21 @@ Timeout (msgwait)  : 120
 ==Header on disk /dev/sdd is dumped
 </code></pre>
 
-Bir daha fazla onay SBD için başka bir düğüme bir ileti göndermek için olasılıktır. Aşağıdaki komutu çalışan düğümündeki 1 sitesinde 2 2. site 2 çalışan düğümü bir ileti göndermek için çalıştırın:
+Bir daha fazla onay SBD için başka bir düğüme bir ileti göndermek için olasılıktır. 2. site 2 çalışan düğümü bir ileti göndermek için sitesinde 2 çalışan düğümü 1 üzerinde aşağıdaki komutu çalıştırın:
 
 <pre><code>
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 </code></pre>
 
-Hedef VM tarafı - olduğu **hso-hana-vm-s2-2** Bu örnekte - dosyasında şu girişi bulun **/var/log/messages**:
+Hedef VM yan **hso-hana-vm-s2-2** Bu örnekte, dosyasında şu girişi bulun **/var/log/messages**:
 
 <pre><code>
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Varsa denetleyin girişleri **/etc/sysconfig/sbd** açıklamasında karşılık bizim [belgeleri] [ sles-pacemaker-ha-guide] (bölüm sbd ayarlayalım). Ayarı başlangıç doğrulayın **/etc/iscsi/iscsid.conf** otomatik olarak ayarlanır.
+Kontrol girişleri **/etc/sysconfig/sbd** açıklamasında karşılık [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Ayarı başlangıç doğrulayın **/etc/iscsi/iscsid.conf** otomatik olarak ayarlanır.
 
-Önemli girişler **/etc/sysconfig/sbd** (gerekirse kimlik değerini uyum):
+Aşağıdaki önemli girişler **/etc/sysconfig/sbd**. Uyum **kimliği** gerekirse değeri:
 
 <pre><code>
 SBD_DEVICE="/dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68;"
@@ -434,45 +435,45 @@ SBD_WATCHDOG=yes
 </code></pre>
 
 
-Denetlenecek başka bir öğe başlangıç ayardır **/etc/iscsi/iscsid.conf**. Gerekli ayarı tarafından ne olması gerektiğini **iscsiadm** gösterilen komut aşağıda açıklanan belgelerinde. Doğrulayın ve belki de bunu el ile uyum mantıklıdır **VI** farklı olması durumunda.
+Başlatma ayarı iade **/etc/iscsi/iscsid.conf**. Gerekli ayarı ile aşağıdakileri gerçekleşen **iscsiadm** belgelerinde açıklanan komutu. Doğrulayın ve bunu el ile uyum **VI** farklı olması durumunda.
 
-Başlangıç davranışını ayarlamak için komut:
+Bu komut, başlangıç davranışını ayarlar:
 
 <pre><code>
 iscsiadm -m node --op=update --name=node.startup --value=automatic
 </code></pre>
 
-Giriş **/etc/iscsi/iscsid.conf**:
+Bu girdiye olun **/etc/iscsi/iscsid.conf**:
 
 <pre><code>
 node.startup = automatic
 </code></pre>
 
-Sınama ve doğrulama sırasında oluşum oldu burada VM yeniden başlatma sonrasında SBD cihaz artık görünür değildi. Başlatma ayarı ve hangi yast2 gösterdi arasında bir tutarsızlık vardı. Ayarları denetleyin için aşağıdaki adımları gerçekleştirin:
+Sınama ve doğrulama, bir sanal makine yeniden başlatıldıktan sonra sırasında SBD cihaz artık bazı durumlarda görünür değildi. Başlatma ayarı ve hangi YaST2 gösterdi arasında bir tutarsızlık vardı. Ayarlarını denetlemek için şu adımları uygulayın:
 
-1. Yast2 Başlat
-2. Seçin **Ağ Hizmetleri** sol tarafındaki
-3. Aşağı kaydırın için sağ taraftaki **iSCSI başlatıcısı** ve bunu seçin
-4. Sonraki ekranda altında **hizmet** sekmesi, düğüm için benzersiz bir başlatıcı ad görmeniz gerekir
-5. Başlatıcı adı emin **hizmetini** değeri ayarı **olduğunda önyükleme**
-6. Böyle değilse, ayarlayabilirsiniz **olduğunda önyükleme** yerine **el ile**
-7. Sonraki üst sekmeye geçin **bağlı hedefleri**
-8. Bağlı hedefleri ekranda Bu örnek gibi SBD cihaz için bir giriş görmeniz gerekir: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**
-9. Başlangıç değeri şuna ayarlı olmadığını denetle "**onboot**"
-10. Aksi takdirde, seçin **Düzenle** ve değiştirin
-11. Değişiklikleri kaydetmek ve yast2 çıkın
+1. YaST2 başlatın.
+2. Seçin **Ağ Hizmetleri** sol tarafındaki.
+3. Aşağı kaydırın için sağ taraftaki **iSCSI başlatıcısı** ve bu seçeneği belirleyin.
+4. Altında sonraki ekranda **hizmet** sekmesi, düğüm için benzersiz bir başlatıcı ad görürsünüz.
+5. Başlatıcı adı emin **hizmetini** değeri ayarı **olduğunda önyükleme**.
+6. Yüklü değilse, ayarlayabilirsiniz **olduğunda önyükleme** yerine **el ile**.
+7. Ardından, üst sekmeye geçin **bağlı hedefleri**.
+8. Üzerinde **bağlı hedefleri** ekranında, bu örnek gibi SBD cihaz için bir giriş görmeniz gerekir: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+9. Kontrol **başlatma** değeri ayarı **önyüklemede**.
+10. Aksi takdirde, seçin **Düzenle** ve değiştirin.
+11. Değişiklikleri kaydetmek ve YaST2 çıkın.
 
 
 
 ## <a name="pacemaker"></a>Pacemaker
 
-Her şeyin doğru şekilde ayarlandıktan sonra her düğüm üzerinde pacemaker hizmet durumunu denetlemek için aşağıdaki komutu çalıştırabilirsiniz:
+Her şeyin doğru şekilde ayarlandıktan sonra her düğüm üzerinde Pacemaker hizmet durumunu denetlemek için aşağıdaki komutu çalıştırabilirsiniz:
 
 <pre><code>
 systemctl status pacemaker
 </code></pre>
 
-Çıkış üst örnek gibi görünmelidir. Önemli olduğu, sonra durum **etkin** olarak gösterilen **yüklenen** ve **etkin (çalışan)**. Durumu "Yüklü" olarak gösterilmelidir sonra **etkin**.
+Çıkış en üstüne aşağıdaki örneğe benzer görünmelidir. Önemli olduğu, sonra durum **etkin** olarak gösterilen **yüklenen** ve **etkin (çalışan)**. Sonraki durum **Loaded** olarak gösterilmelidir **etkin**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -492,19 +493,19 @@ systemctl status pacemaker
            └─4504 /usr/lib/pacemaker/crmd
 </code></pre>
 
-Ayar hala olması durumunda **devre dışı**, aşağıdaki komutu çalıştırın:
+Ayar hala açık değilse **devre dışı**, aşağıdaki komutu çalıştırın:
 
 <pre><code>
 systemctl enable pacemaker
 </code></pre>
 
-Tüm yapılandırılmış kaynakların pacemaker görmek için aşağıdaki komutu çalıştırın:
+Tüm yapılandırılmış kaynakların Pacemaker görmek için aşağıdaki komutu çalıştırın:
 
 <pre><code>
 crm status
 </code></pre>
 
-Çıktı aşağıdaki örneğe benzer görünmelidir. Tamam cln ve msl kaynakları çoğunluğu Oluşturucu VM durduruldu olarak gösterilir (**hso hana dm**). Hiçbir temel oluşturucu düğüm üzerinde SAP HANA yüklemesi yok. Bu nedenle **cln** ve **msl** kaynakları durduruldu olarak gösterilir. VM'lerin doğru toplam sayısını gösteren önemlidir (**7**). Kümenin parçası olan tüm sanal makineler durumuyla listelenmiş olmalıdır **çevrimiçi**. Geçerli birincil ana düğüm doğru tanınan gerekir (Bu örnekte bu **hso-hana-vm-s1-0**).
+Çıktı aşağıdaki örneğe benzer görünmelidir. Bunu sahip ince, **cln** ve **msl** kaynakları gösterilen çoğunluğu Oluşturucu VM durduruldu **hso hana dm**. Hiçbir temel oluşturucu düğüm üzerinde SAP HANA yüklemesi yok. Bu nedenle **cln** ve **msl** kaynakları durduruldu olarak gösterilir. VM'ler, doğru toplam sayısını gösteren önemlidir **7**. Kümenin parçası olan tüm sanal makineler durumuyla listelenmiş olmalıdır **çevrimiçi**. Geçerli birincil ana düğüm doğru tanınan gerekir. Bu örnekte, bunun **hso-hana-vm-s1-0**:
 
 <pre><code>
 Stack: corosync
@@ -532,14 +533,14 @@ Full list of resources:
      rsc_nc_HSO_HDB00   (ocf::heartbeat:anything):      Started hso-hana-vm-s1-0
 </code></pre>
 
-Bakım moduna almak için yer pacemaker önemli bir özelliğidir. Bu mod (örneğin bir VM yeniden başlatma) bir değişiklik yapmadan hemen küme eylem provoking olmadan sağlar. Tipik bir kullanım örneği planlı işletim sistemi ya da Azure altyapı bakım olacaktır (Ayrıca planlı bakım hakkında ayrı bölümüne bakın). Pacemaker bakım moduna almak için aşağıdaki komutu kullanın:
+Bakım modu yer Pacemaker önemli bir özelliğidir. Bu modda, hemen küme eylem provoking olmadan değişiklikler yapabilirsiniz. VM'yi yeniden başlatma buna bir örnektir. Tipik bir kullanım örneği, planlı işletim sistemi ya da Azure altyapı bakım olacaktır. Bkz: [planlı Bakım](#planned-maintenance). Pacemaker bakım moduna almak için aşağıdaki komutu kullanın:
 
 <pre><code>
 crm configure property maintenance-mode=true
 </code></pre>
 
-İle denetlenirken **crm durumu**, tüm kaynaklar olarak işaretlenmiş çıktıda fark **yönetilmeyen**. Bu durumda, küme üzerinde SAP HANA başlatma/durdurma gibi herhangi bir değişiklik tepki vermez.
-Örnek Çıktı, işte **crm durumu** küme bakım modundayken komutu:
+İade ile **crm durumu**, tüm kaynaklar olarak işaretlenmiş çıktıda fark **yönetilmeyen**. Bu durumda, başlatma veya durdurma SAP HANA gibi herhangi bir değişiklik kümesi tepki vermezse.
+Aşağıdaki örnek çıktısı gösterir **crm durumu** küme bakım modundayken komutu:
 
 <pre><code>
 Stack: corosync
@@ -579,20 +580,20 @@ Full list of resources:
 </code></pre>
 
 
-Ve aşağıdaki komut örnek küme bakım modunu sonlandırmak bkz:
+Bu komut örnek küme bakım modunu sonlandırmak nasıl gösterir:
 
 <pre><code>
 crm configure property maintenance-mode=false
 </code></pre>
 
 
-Başka bir crm komutu tam küme yapılandırma düzenleyicisine düzenlemek için bir ekrandan alınıyor sağlar. Değişiklikleri kaydettikten sonra küme uygun eylemleri başlar:
+Başka bir **crm** komut bunu düzenleyebilmek için bir düzenleyicisine tam küme yapılandırması alır. Değişiklikleri kaydettikten sonra küme uygun eylemleri başlar:
 
 <pre><code>
 crm configure edit
 </code></pre>
 
-Yalnızca tam küme yapılandırmasını aramak için crm kullanın **Göster** seçeneği:
+Tam küme yapılandırmasını aramak için kullanın **crm show** seçeneği:
 
 <pre><code>
 crm configure show
@@ -600,7 +601,7 @@ crm configure show
 
 
 
-Küme kaynaklarının hatasından sonra onu olur, bu **crm durumu** komut listesi gösterilir **başarısız Eylemler**. Bir örnek için bu Çıktıyı aşağıya bakın:
+Küme kaynaklarının hatadan sonra **crm durumu** komut listesi gösterilir **başarısız Eylemler**. Bu çıktı aşağıdaki örneğe bakın:
 
 
 <pre><code>
@@ -633,13 +634,13 @@ Failed Actions:
     last-rc-change='Wed Sep 12 17:01:28 2018', queued=0ms, exec=277663ms
 </code></pre>
 
-Hatasından sonra küme temizleme yapmak gereklidir. Yalnızca crm komutunu tekrar kullanın ve komut seçeneği **Temizleme** başarısız bunlardan kurtulmak için karşılık gelen adlandırma eylemi girişleri aşağıda gösterildiği gibi küme kaynağı:
+Hatasından sonra küme temizleme yapmak gereklidir. Kullanın **crm** komutunu tekrar ve komut seçeneği **Temizleme** bunlardan kurtulmak için eylem girişleri başarısız oldu. Karşılık gelen küme kaynağı şu şekilde adlandırın:
 
 <pre><code>
 crm resource cleanup rsc_SAPHanaCon_HSO_HDB00
 </code></pre>
 
-Komutu aşağıdaki örnekte gibi görünen bir çıktı döndürülmesi gerekir:
+Komutu aşağıdaki örnek gibi bir çıktı döndürülmesi gerekir:
 
 <pre><code>
 Cleaned up rsc_SAPHanaCon_HSO_HDB00:0 on hso-hana-dm
@@ -654,9 +655,11 @@ Waiting for 7 replies from the CRMd....... OK
 
 
 
-## <a name="failover--takeover"></a>Yük devretme / devralma
+## <a name="failover-or-takeover"></a>Yük devretme veya devralma
 
-Zaten önemli notlar ile ilk bölümde bahsedildiği gibi küme yük devretmesi veya SAP HANA HSR devralma işlemini test etmek için standart normal şekilde kapatılmasını kullanmamalısınız. Bunun yerine kaynak geçişi zorla tetiklemek, örneğin, bir çekirdek Panik veya belki de bir sanal makinenin işletim sistemi düzeyindeki tüm ağlar kapatmanız önerilir. Başka bir yöntem olabilir **crm \<düğüm\> bekleme** komutu. Ayrıca bulunabilir SUSE belge bkz [burada][sles-12-ha-paper]. Aşağıda, üç örnek komutlar bir küme yük devretmeye zorlamak için görürsünüz:
+Bölümünde açıklandığı gibi [önemli notlar](#important-notes), küme yük devretmesi veya SAP HANA HSR devralma işlemini test etmek için standart normal şekilde kapatılmasını kullanmamalısınız. Bunun yerine, bir çekirdek Panik tetiklemek, kaynak geçişi zorla veya büyük olasılıkla bir sanal makinenin işletim sistemi düzeyinde tüm ağlar kapatın öneririz. Bir başka yöntem **crm \<düğüm\> bekleme** komutu. Bkz: [SUSE belge][sles-12-ha-paper]. 
+
+Aşağıdaki üç örnek komutlar bir küme yük devretmesi zorlayabilirsiniz:
 
 <pre><code>
 echo c &gt /proc/sysrq-trigger
@@ -670,21 +673,23 @@ wicked ifdown eth2
 wicked ifdown eth&ltn&gt
 </code></pre>
 
-Çalıştırmak için de açıklandığı gibi planlı bakım hakkında bölümünde, küme etkinlikleri izlemek için en iyi yolu olan **SAPHanaSR showAttr** ile **watch** komutu:
+Bölümünde anlatıldığı gibi [planlı Bakım](#planned-maintenance), küme etkinlikleri izlemek için en iyi yolu çalıştırmaktır **SAPHanaSR showAttr** ile **watch** komutu:
 
 <pre><code>
 watch SAPHanaSR-showAttr
 </code></pre>
 
-Ayrıca, bunu bir SAP python betiğini yakında SAP HANA landscape durum bakmak için yardımcı olur. Küme kurulumu aramak için bir durum değerdir. Bir alt düğümde hata oluştuktan hakkında düşünürken, açık hale gelir. Bir çalışan düğümü kalırsa, SAP HANA hemen tüm genişleme sistem durumu için bir hata döndürmez. Gereksiz yük devretme işlemleri önlemek için bazı deneme vardır. Küme, yalnızca durum hatası (dönüş değeri 1) Tamam (dönüş değeri 4) değişirse tepki verir. Bu nedenle doğru olduğundan, çıkışı **SAPHanaSR showAttr** durumuna sahip bir VM gösterir **çevrimdışı** ancak henüz birincil ve ikincil anahtar etkinliği yok. SAP HANA bir hata döndürmez sürece hiçbir küme etkinlik tetiklenen.
+Ayrıca bir SAP Python betiğini yakında SAP HANA landscape durum bakmak yardımcı olur. Küme kurulumu için bu durum değeri arıyor. Bir çalışan düğümü hataları dikkate almamız olduğunda açık hale gelir. Bir çalışan düğümü kalırsa, SAP HANA hemen tüm genişleme sistem durumu için bir hata döndürmez. 
 
-Kullanıcı olarak SAP HANA yatay sistem durumunu izleyebilir \<HANA SID\>SAP python çağırarak adm betik aşağıdaki şekilde (yol uyum gerekebilir):
+Gereksiz yük devretme işlemleri önlemek için bazı deneme vardır. Küme durumu yalnızca değişiklikleri varsa tepki verdiğini **Tamam**, dönüş değeri **4**, **hata**, dönüş değeri **1**. Doğru Bu nedenle, çıkışı **SAPHanaSR showAttr** durumuna sahip bir VM gösterir **çevrimdışı**. Ancak, birincil ve ikincil henüz geçmek için etkinlik yok. SAP HANA bir hata döndürmez sürece hiçbir küme etkinlik tetiklenen.
+
+Kullanıcı olarak SAP HANA yatay sistem durumunu izleyebilir  **\<HANA SID\>adm** gibi SAP Python betiğini çağırarak. Yolun uyum gerekebilir:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
 </code></pre>
 
-Bu komutun çıktısı, aşağıdaki örnek gibi görünmelidir. Önemli **konak durumu** sütun yanı sıra **genel ana bilgisayar durumu**. Gerçek çıkış aslında için ek sütunlar geniş olması gerekir.
+Bu komutun çıktısı, aşağıdaki örneğe benzer görünmelidir. **Konak durumu** sütun ve **genel ana bilgisayar durumu** hem de önemlidir. Ek sütunları içeren gerçek çıkış geniştir.
 Çıktı tablosu bu belgede daha okunaklı hale getirmek için en fazla sütuna sağ tarafındaki kesilmiş:
 
 <pre><code>
@@ -700,7 +705,7 @@ overall host status: ok
 </code></pre>
 
 
-Geçerli Küme etkinlikleri denetlemek için başka bir komut yoktur. Birincil sitenin ana düğüm sonlandırıldı sonra komut ve çıkış kuyruğunu bakın. Geçiş eylemleri gibi listesini görebilirsiniz **yükseltme** önceki ikincil ana düğüm (**hso-hana-vm-s2-0**) yeni birincil anahtarı olarak. Her şey Tamam ve tüm etkinlikleri tamamlanmış olan, bu listesi **geçiş özeti** boş olması gerekir.
+Geçerli Küme etkinlikleri denetlemek için başka bir komut yoktur. Birincil sitenin ana düğüm sonlandırıldı sonra aşağıdaki komutu ve çıkış kuyruğunu görürsünüz. Geçiş eylemleri gibi listesini görebilirsiniz **yükseltme** eski ikincil ana düğümü **hso-hana-vm-s2-0**, yeni birincil anahtarı olarak. Her şeyi bir sakınca yoktur ve tüm etkinlikleri tamamlanmış olan, bu **geçiş özeti** listesine sahip boş olmalıdır.
 
 <pre><code>
  crm_simulate -Ls
@@ -720,38 +725,36 @@ Transition Summary:
 
 ## <a name="planned-maintenance"></a>Planlı bakım 
 
-Bu planlı bakım için söz konusu olduğunda farklı kullanım örnekleri vardır. Yalnızca işletim sistemi düzeyi ve disk yapılandırması veya bir HANA yükseltme değişiklikleri gibi altyapı bakım ise bir soru, örneğin, olur.
-SUSE gibi gelen belgelerde ek bilgiler bulabilirsiniz [burada] [ sles-zero-downtime-paper] veya [başka bir burada][sles-12-for-sap]. Bu belgeler, örnekleri de birincil el ile geçirme.
+Bu planlı bakım için söz konusu olduğunda farklı kullanım örnekleri vardır. Bir soru, yalnızca işletim sistemi düzeyi ve disk yapılandırması veya bir HANA yükseltme değişiklikleri gibi altyapı bakım olup olmadığını ' dir.
+SUSE gibi gelen belgelerde ek bilgiler bulabilirsiniz [doğrultusunda sıfır kapalı kalma süresi] [ sles-zero-downtime-paper] veya [SAP HANA SR performans için iyileştirilmiş senaryo] [ sles-12-for-sap]. Bu belgeleri nasıl birincil el ile geçirmeyi gösteren örnekler de içerir.
 
-Altyapı bakım kullanım örneği doğrulamak için yoğun iç testi yapılmadı. Herhangi bir türden birincil geçirmeye ilgili bir sorun önlemek için her zaman bir küme bakım moduna almadan önce birincil geçirmek için karar yapıldı. Bu şekilde önceki durumu hakkında (hangi tarafta birincil ve ikincil hangi tarafta) unutursanız kümeyi gerekli değildir.
+Altyapı bakım kullanım örneği doğrulamak için yoğun iç testi yapılmadı. Birincil geçirmeye ilgili sorunlardan kaçınmak için her zaman bir küme bakım moduna almadan önce birincil geçirmek verdik. Bu şekilde, önceki durumu hakkında unutursanız küme yapmak ise gerekli değildir: hangi tarafta birincil ve ikincil olduğu.
 
 Bu konuda, iki farklı durum vardır:
 
-1. Planlı bakım geçerli ikincil. 
-   Bu durumda, yalnızca küme bakım moduna almak ve iş ikincil küme etkilemeden gerçekleştirebilirsiniz
+- **Planlı bakım geçerli ikincil**. Bu durumda, yalnızca küme bakım moduna almak ve iş ikincil küme etkilemeden gerçekleştirebilirsiniz.
 
-2. Planlı bakım geçerli birincil. 
-   Bakım sırasında çalışmaya devam etmesine izin vermek için bir yük devretmeye zorlamak gereklidir. Bu yaklaşım ile küme yük devretmesi pacemaker tarafından ve yalnızca SAP HANA HSR düzeyi tetiklemesi gerekir. Pacemaker Kurulum otomatik olarak SAP HANA devralma işlemini tetikler. Ayrıca, küme bakım moduna almadan önce yük devretme gerçekleştirmek gereklidir.
+- **Planlı bakım geçerli birincil**. Kullanıcıların bakım sırasında çalışmaya devam edebilmesi için bir yük devretme zorlamanız gerekir. Bu yaklaşımda, küme yük devretmesi Pacemaker tarafından ve yalnızca SAP HANA HSR düzeyi tetiklemesi gerekir. Pacemaker Kurulum otomatik olarak SAP HANA devralma işlemini tetikler. Ayrıca, küme, bakım moduna önce yük devretme gerçekleştirmek gerekir.
 
-Yordamın geçerli ikincil sitede bakım için aşağıdaki adımları istiyor:
+Geçerli ikincil sitede bakım için yordam şu şekildedir:
 
-1. Bakım moduna küme
-2. İkincil sitede iş gerçekleştirmek 
-3. Son küme Bakım modu
+1. Küme, bakım moduna almak.
+2. İkincil sitede iş gerçekleştirirsiniz. 
+3. Küme Bakım modu bitiş olayı.
 
 Geçerli birincil sitede bakım için daha karmaşık bir yordamdır:
 
-1. El ile bir yük devretmeyi tetiklemek / SAP HANA devralma yoluyla Pacemaker kaynak geçişi (aşağıdaki ayrıntılara bakın)
-2. SAP HANA eski birincil sitede Küme kurulumu tarafından kapatıldığında
-3. Bakım moduna küme
+1. Bir yük devretme veya SAP HANA devralma Pacemaker kaynak geçişi aracılığıyla el ile tetiklersiniz. Aşağıdaki ayrıntılara bakın.
+2. Eski birincil site üzerinde SAP HANA tarafından kümesi Kurulumu kapat.
+3. Küme, bakım moduna almak.
 4. Bakım işi tamamlandıktan sonra eski birincil yeni ikincil site olarak kaydedin.
-5. Küme yapılandırmasını Temizle (aşağıdaki ayrıntılara bakın)
-6. Son küme Bakım modu
+5. Küme yapılandırmasını Temizle. Aşağıdaki ayrıntılara bakın.
+6. Küme Bakım modu bitiş olayı.
 
 
-Bir kaynak (örneğin bir yük devretmeye zorlamak) geçiş küme yapılandırması için bir giriş ekler. Bakım modu bitiş önce bu girdilerin temizlenmesini gerekir. Bir örnek aşağıda verilmiştir:
+Bir kaynak taşıma küme yapılandırması için bir giriş ekler. Bir örnek, bir yük devretme işlemini zorlayarak. Bakım modunu sonlandırmak önce bu girdilerin temizlenmesini gerekir. Aşağıdaki örneğe bakın.
 
-Bir küme yük devretmesi msl kaynak geçerli ikincil ana düğüme geçerek zorlamak ilk adımdır. Aşağıdaki komut, "taşıma kısıtlaması" oluşturulduğunu bir uyarı verir.
+İlk olarak bir küme yük devretmesi geçiş yaparak zorla **msl** geçerli ikincil ana düğümünün kaynağı. Bu komut bir uyarı verir, bir **kısıtlaması taşıma** oluşturuldu:
 
 <pre><code>
 crm resource migrate msl_SAPHanaCon_HSO_HDB00 force
@@ -760,13 +763,13 @@ INFO: Move constraint created for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
 
-Yük devretme işlemini komutu aracılığıyla denetleme **SAPHanaSR showAttr**. Adanmış shell penceresini açın ve komut ile başlatmak için küme durumunu izlemenize yardımcı olan **watch**:
+Yük devretme işlemini komutu aracılığıyla denetleme **SAPHanaSR showAttr**. Küme durumunu izlemek için bir adanmış shell penceresini açın ve komutla başlatın **watch**:
 
 <pre><code>
 watch SAPHanaSR-showAttr
 </code></pre>
 
-Çıktı, el ile yük devretme yansıtmalıdır. Önceki ikincil ana düğüm alındı **yükseltilen** (Bu örnekte **hso-hana-vm-s2-0**) ve eski birincil sitenin durduruldu (**lss** değer **1** eski birincil ana düğüm için **hso-hana-vm-s1-0**): 
+Çıktı, el ile yük devretme göstermesi gerekir. Önceki ikincil ana düğüm alındı **yükseltilen**, bu örnekte **hso-hana-vm-s2-0**. Eski birincil site durdurulmuş, **lss** değer **1** eski birincil ana düğüm için **hso-hana-vm-s1-0**: 
 
 <pre><code>
 Global cib-time                 prim  sec srHook sync_state
@@ -791,21 +794,21 @@ hso-hana-vm-s2-1 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS
 hso-hana-vm-s2-2 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
 </code></pre>
 
-Küme yük devretmesi ve SAP HANA devralma sonra kümeyi pacemaker bölümünde açıklandığı gibi bakım moduna yerleştirin.
+Küme yük devretmesi ve SAP HANA devralma sonra kümeyi bakım açıklandığı moduna [Pacemaker](#pacemaker).
 
-Komutlar **SAPHanaSR showAttr** veya **crm durumu** kaynak geçiş tarafından oluşturulan kısıtlamaları hakkında herhangi bir şey göstermediği. Bu kısıtlamalar görünür yapmak için bir tam küme kaynak yapılandırması aşağıdaki komutla göstermek için seçenektir:
+Komutlar **SAPHanaSR showAttr** ve **crm durumu** kaynak geçiş tarafından oluşturulan kısıtlamaları hakkında herhangi bir şey göstermediği. Bu kısıtlamalar görünür yapmak için bir tam küme kaynak yapılandırması aşağıdaki komutla göstermek için seçenektir:
 
 <pre><code>
 crm configure show
 </code></pre>
 
-Küme Yapılandırması içinde önceki el ile kaynak geçiş işleminin neden yeni bir konum kısıtlaması bulun. Bir örnek aşağıda verilmiştir (ile başlayan girişi **konumu CLI -**):
+Küme Yapılandırması içinde önceki el ile kaynak geçiş işleminin neden yeni bir konum kısıtlaması bulun. Bu örnek girişi ile başlayan **konumu CLI -**:
 
 <pre><code>
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
 </code></pre>
 
-Ne yazık ki bu tür kısıtlamaları genel küme davranışı üzerinde bir etkisi olabilir. Bu nedenle tüm sistemin geri getiriyor daha önce kaldırmak için zorunludur. İle **unmigrate** konum kısıtlamaları, önce oluşturulan temizlemek mümkün olduğu komutu. Adlandırma biraz kafa karıştırıcı. İçinden geçirilen tekrar kendi özgün VM kaynağı geçirmeyi denemeden anlamına gelmez. Yalnızca konum kısıtlamaları kaldırır ve ayrıca komut çalıştırılırken ilgili bilgileri döndürür:
+Ne yazık ki, bu gibi sınırlamalar genel küme davranışını etkileyebilir. Bu nedenle bunları yeniden yedekleme sisteminin tamamını sunmadan önce kaldırmak için zorunludur. İle **unmigrate** komutunu önce oluşturulan konum kısıtlamaları temizlemek olabilir. Adlandırma biraz kafa karıştırıcı. Kaynak içinden geçirilen geri özgün VM geçişi dener. Yalnızca konum kısıtlamaları kaldırır ve komutu çalıştırdığınızda da ilgili bilgileri döndürür:
 
 
 <pre><code>
@@ -814,19 +817,19 @@ crm resource unmigrate msl_SAPHanaCon_HSO_HDB00
 INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
-Bakım işi sonunda pacemaker bölümünde gösterildiği gibi küme bakım modunu durdur.
+Bakım iş sonunda küme bakım modunu gösterildiği durdurmanız [Pacemaker](#pacemaker).
 
 
 
 ## <a name="hbreport-to-collect-log-files"></a>Günlük dosyaları toplamak için hb_report
 
-Pacemaker küme sorunlarını analiz etmenize yardımcı olan ve aynı zamanda çalıştırmak için SUSE desteği tarafından istenen olur **hb_report** yardımcı programı. Bunun ne olduğunu analiz izin önemli logfiles toplar. Başlangıç ve bitiş zamanı (Ayrıca bkz: ilk bölümünde hakkında önemli notlar) belirli bir olaya ilişkin olayın gerçekleştiği kullanarak bir örnek çağrısı şu şekildedir:
+Pacemaker küme sorunlarını analiz etmenize yardımcı olan ve aynı zamanda çalıştırmak için SUSE desteği tarafından istenen olur **hb_report** yardımcı programı. Bunun ne olduğunu çözümlemek için gerek duyduğunuz tüm önemli günlük dosyalarını toplar. Bu örnek çağrı, belirli bir olaya ilişkin olayın gerçekleştiği başlangıç ve bitiş saatini kullanır. Ayrıca bkz: [önemli notlar](#important-notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
 </code></pre>
 
-Komut sıvı sıçraması sıkıştırılmış günlük dosyaları burada bunu koyun:
+Komutu, burada, sıkıştırılmış günlük dosyaları yerleştirdiğiniz bildirir:
 
 <pre><code>
 The report is saved in /tmp/hb_report_log.tar.bz2
@@ -839,7 +842,7 @@ Ardından standart aracılığıyla tek tek dosyaları ayıklayın **tar** komut
 tar -xvf hb_report_log.tar.bz2
 </code></pre>
 
-Ayıklanan dosyaları isteyen tüm günlük dosyalarını bulun. Bunların çoğu, kümedeki her düğüm için ayrı dizinlerde yerleştirilmiştir:
+Ayıklanan dosyaları baktığınızda, tüm günlük dosyalarını bulun. Bunların çoğu, kümedeki her düğüm için ayrı dizinlerde yerleştirilmiştir:
 
 <pre><code>
 -rw-r--r-- 1 root root  13655 Sep 13 09:01 analysis.txt
@@ -858,7 +861,7 @@ drwxr-xr-x 3 root root   4096 Sep 13 09:01 hso-hana-vm-s2-2
 </code></pre>
 
 
-Zaman aralığı içinde olduğu geçerli ana düğüm belirtilen **hso-hana-vm-s1-0** sonlandırıldı. İçinde **journal.log** bu olaya ilişkin girişleri bulabilirsiniz:
+Belirtilmiş olan zaman aralığında geçerli ana düğüm **hso-hana-vm-s1-0** sonlandırıldı. Bu olay ile ilgili girdileri bulabilirsiniz **journal.log**:
 
 <pre><code>
 2018-09-13T07:38:01+0000 hso-hana-vm-s2-1 su[93494]: (to hsoadm) root on none
@@ -880,7 +883,7 @@ Zaman aralığı içinde olduğu geçerli ana düğüm belirtilen **hso-hana-vm-
 2018-09-13T07:38:03+0000 hso-hana-vm-s2-1 su[93494]: pam_unix(su-l:session): session closed for user hsoadm
 </code></pre>
 
-Yeni birincil ana dönüştü ikincil asıl üzerinde pacemaker günlük dosyası başka bir örnektir. Sonlandırılan Birincil ana düğüm durumu ayarlandı olduğunu gösteren bir alıntı işte **çevrimdışı**.
+Yeni birincil ana dönüştü ikincil asıl üzerinde Pacemaker günlük dosyası başka bir örnektir. Sonlandırılan Birincil ana düğüm durumu olarak ayarlandı, bu alıntı gösterir **çevrimdışı**:
 
 <pre><code>
 Sep 13 07:38:02 [4178] hso-hana-vm-s2-0 stonith-ng:     info: pcmk_cpg_membership:      Node 3 still member of group stonith-ng (peer=hso-hana-vm-s1-2, counter=5.1)
@@ -901,7 +904,7 @@ Sep 13 07:38:02 [4184] hso-hana-vm-s2-0       crmd:     info: pcmk_cpg_membershi
 ## <a name="sap-hana-globalini"></a>SAP HANA global.ini
 
 
-Aşağıda, SAP HANA düğümler arası iletişim ve HSR için farklı ağlarda kullanmanın ana bilgisayar adı çözümlemesi girişleri göstermek için örnek olarak küme site 2 üzerinde SAP HANA global.ini dosyasından forumlarından görürsünüz:
+SAP HANA'dan aşağıdaki forumlarından olan **global.ini** dosyayı küme sitesinde 2. Bu örnek, ana bilgisayar adı için SAP HANA düğümler arası iletişim ve HSR farklı ağlarda kullanmak için çözünürlük girişlerini gösterir:
 
 <pre><code>
 [communication]
@@ -942,39 +945,39 @@ listeninterface = .internal
 
 ## <a name="hawk"></a>HAWK
 
-Küme çözümü, ayrıca menüleri ve karşılaştırıldığında grafik Kabuğu düzeyindeki tüm komutları tercih kişiler için iyi bir GUI sağlar bir tarayıcı arabirimi sağlar.
-Tarayıcı arabirimi kullanmak için aşağıda gösterilen URL'si ve yerine **\<düğüm\>** gerçek bir SAP HANA düğüm tarafından küme kimlik bilgilerini girin (kullanıcı **hacluster**):
+Küme çözümü, komutların Kabuk düzeyine sahip olmaya menüleri ve grafik tercih eden kullanıcılar için bir GUI sağlar bir tarayıcı arabirimi sağlar.
+Tarayıcı arabirimi kullanmak üzere değiştirin **\<düğüm\>** gerçek bir SAP HANA düğümü aşağıdaki URL'de bulunan. Ardından, küme kimlik bilgilerini girin (kullanıcı **küme**):
 
 <pre><code>
 https://&ltnode&gt:7630
 </code></pre>
 
-Aşağıdaki ekran görüntüsünde, küme Panosu gösterilmektedir:
+Bu ekran görüntüsünde, küme Panosu gösterilmektedir:
 
 
 ![HAWK küme Panosu](media/hana-vm-scale-out-HA-troubleshooting/hawk-1.png)
 
 
-İkinci ekran görüntüsünde planlı Bakım bölümünde açıklandığı gibi küme kaynak geçişi neden konum kısıtlamaları örneğini görebilirsiniz:
+Bu örnek, bir küme kaynak geçişi tarafından içinde anlatıldığı gibi neden konum kısıtlamaları gösterir [planlı Bakım](#planned-maintenance):
 
 
 ![HAWK liste kısıtlamaları](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Başka bir iyi özelliğini yüklemek için olasılıktır bir **hb_report** çıkış (bölümüne bakın **hb_report**) içinde **HAWK** altında **geçmişi** olarak sonraki ekran görüntüsünde gösterilen:
+Da karşıya yükleyebilirsiniz **hb_report** Hawk çıkış **geçmişi**aşağıdaki şekilde gösterilmiştir. Bkz: [günlük dosyaları toplamak için hb_report](#hbreport-to-collect-log-files): 
 
 ![HAWK karşıya yükleme hb_report çıkış](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-**Geçmişi Gezgini** sonra dahil tüm küme geçişleri aracılığıyla veren **hb_report** çıktı:
+İle **geçmişi Gezgini**, ardından dahil tüm küme geçişleri üzerinden gidebilirsiniz **hb_report** çıktı:
 
-![Geçişleri hb_report çıkış içinde HAWK bakma](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
+![Hb_report çıktıda HAWK geçişleri](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
-Son ekran üzerinde küme üzerinde bir birincil ana düğüm kilitlenmesi tepki verilmiş gösteren tek bir geçiş Ayrıntılar bölümünde görebilirsiniz (düğüm **hso-hana-vm-s1-0**) ve ikincil düğüme yeni Yöneticisi olarak (artıkyükseltiliyor**hso-hana-vm-s2-0**):
+Son bu ekran görüntüsünde gösterilmiştir **ayrıntıları** tek bir geçiş bölümü. Kümenin birincil ana düğüm çökmeyle tepki verilmiş düğüm **hso-hana-vm-s1-0**. İkincil düğüm olarak yeni ana düzeye yükseltilirken artık olan **hso-hana-vm-s2-0**:
 
-![Tek bir geçiş HAWK bakma](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
+![HAWK tek geçiş](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu sorun giderme kılavuzu, SAP HANA için yüksek kullanılabilirlik genişleme yapılandırmasında hakkındadır. Veritabanı yanı sıra bir SAP ortamının içinde başka bir önemli bileşen, SAP NetWeaver yığınıdır. Yüksek kullanılabilirlik hakkında SAP NetWeaver için SUSE Enterprise Linux Server'ı kullanarak Azure sanal makinelerinde İleri okumalıdır [bu] [ sap-nw-ha-guide-sles] makalesi.
+Bu sorun giderme kılavuzu, bir genişleme yapılandırmasında SAP HANA için yüksek kullanılabilirlik açıklar. Veritabanı ek olarak, SAP NetWeaver yığını bir SAP ortamının içinde başka bir önemli bileşenlerden biridir. Hakkında bilgi edinin [SUSE Enterprise Linux Server kullanan Azure sanal makinelerinde SAP NetWeaver için yüksek kullanılabilirlik][sap-nw-ha-guide-sles].
 

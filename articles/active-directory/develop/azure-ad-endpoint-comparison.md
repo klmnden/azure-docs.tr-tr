@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 3e9765bf2c6b746b892f7fbc97ea3124f80d772e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6c11062dbae18eed618fe7dde95daa55024d2ddd
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976019"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444860"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Azure AD v2.0 uç noktası v1.0 uç noktası ile karşılaştırma
 
@@ -137,7 +137,7 @@ V2.0 uç noktası ile tümleştirmek istediğiniz her uygulama için bir uygulam
 İş ve Okul hesapları ve kişisel hesapları destekleyen bir uygulama kayıtları aşağıdaki uyarılar vardır:
 
 * Uygulama Kimliği yalnızca iki uygulama sırrı izin verilir
-* Uygulama kayıt portalında kişisel bir Microsoft hesabı olan bir kullanıcı tarafından kaydedilen bir uygulama kaydı görüntülenebilir ve yalnızca tek bir geliştirici hesabı tarafından yönetilir. Birden fazla Geliştirici arasında paylaşılamaz. Birden fazla Geliştirici ile uygulama kaydınızı paylaşmak istiyorsanız, Azure portalında uygulama kayıtları (Önizleme) bölümünü kullanarak uygulama oluşturabilirsiniz.
+* Bir kiracıda kayıtlı olmayan bir uygulama yalnızca kayıtlı hesap tarafından yönetilebilir. Diğer geliştiricilerle paylaşılamaz. Bu uygulama kayıt Portalı'nda kişisel bir Microsoft hesabı kullanarak kaydolan çoğu uygulama için geçerlidir. Birden fazla Geliştirici ile uygulama kaydınızı paylaşmak istiyorsanız, uygulamayı kullanarak bir kiracıda kaydetme **uygulama kayıtları (Önizleme)** Azure portal'ın bölümü.
 * İzin verilen yeniden yönlendirme URL biçimiyle ilgili çeşitli kısıtlamalar vardır. URL yeniden yönlendirme hakkında daha fazla bilgi için sonraki bölüme bakın.
 
 ### <a name="restrictions-on-redirect-urls"></a>Kısıtlamalar yeniden yönlendirme URL'leri
@@ -183,7 +183,7 @@ V2.0 ile kullanmak için bir uygulamayı kaydetme hakkında bilgi almak için ş
 * Bir web uygulaması derliyorsanız, oturum açma ve belirteç doğrulama gerçekleştirmek için genel kullanıma sunulan sunucu tarafı ara yazılımı güvenli bir şekilde kullanabilirsiniz. Bunlar, ASP.NET ve Node.js Passport eklentisi için OWIN Openıd Connect ara yazılımını içerir. Microsoft Ara yazılımında kullanan kod örnekleri için bkz. [Başlarken v2.0](v2-overview.md#getting-started) bölümü.
 * Masaüstü veya mobil bir uygulama oluşturuyorsanız, Microsoft kimlik doğrulama kitaplığı (MSAL) önizleme birini kullanabilirsiniz. Bu kitaplıklar üretim desteklenen bir önizleme aşamasında olduğundan, bunları üretim uygulamalarında kullanmak daha güvenlidir. Daha fazla Önizleme kullanılabilir kitaplıkları ve terimler hakkında [kimlik doğrulama kitaplıkları başvuru](reference-v2-libraries.md).
 * Microsoft kitaplıkları tarafından kapsamında olmayan platformlar için doğrudan uygulama kodunuzda protokolü ileti alma ve gönderme tarafından v2.0 uç noktası ile tümleştirebilirsiniz. V2.0 Openıd Connect ve OAuth protokolleri [açıkça belirtilmiştir](active-directory-v2-protocols.md) bu tür bir tümleştirme gerçekleştirmenizi sağlayacak.
-* Son olarak, v2.0 uç noktası ile tümleştirmek için açık kaynaklı Openıd Connect ve OAuth kitaplıklarını kullanabilirsiniz. V2.0 uç noktası, değişiklik yapmak zorunda kalmadan birçok açık kaynak Protokolü kitaplıkları ile uyumlu olmalıdır. Bu tür kitaplıkları kullanılabilirliğini, dil ve platforma göre değişir. [Openıd Connect](http://openid.net/connect/) ve [OAuth 2.0](http://oauth.net/2/) Web siteleri korumak popüler uygulamaları listesi. Daha fazla bilgi için [Azure Active Directory v2.0 ve kimlik doğrulama kitaplıkları](reference-v2-libraries.md), açık kaynak istemci kitaplıkları ve v2.0 uç noktası ile test edilmiştir örnekleri listesi.
+* Son olarak, v2.0 uç noktası ile tümleştirmek için açık kaynaklı Openıd Connect ve OAuth kitaplıklarını kullanabilirsiniz. V2.0 uç noktası, değişiklik yapmak zorunda kalmadan birçok açık kaynak Protokolü kitaplıkları ile uyumlu olmalıdır. Bu tür kitaplıkları kullanılabilirliğini, dil ve platforma göre değişir. [Openıd Connect](https://openid.net/connect/) ve [OAuth 2.0](https://oauth.net/2/) Web siteleri korumak popüler uygulamaları listesi. Daha fazla bilgi için [Azure Active Directory v2.0 ve kimlik doğrulama kitaplıkları](reference-v2-libraries.md), açık kaynak istemci kitaplıkları ve v2.0 uç noktası ile test edilmiştir örnekleri listesi.
 * Başvuru için `.well-known` v2.0 ortak uç nokta için uç nokta `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Değiştirin `common` kiracınıza belirli verileri almak için Kiracı kimliği.  
 
 ### <a name="protocol-changes"></a>Protokol değişiklikleri

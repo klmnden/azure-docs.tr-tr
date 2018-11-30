@@ -9,34 +9,27 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
-ms.openlocfilehash: 08510961616d2be8eac9b6a19063d5f0d613321f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 11/27/2018
+ms.openlocfilehash: 91d0f3565db484504a67a3b6ae0989b9291cd24f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263307"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446441"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Azure Machine Learning ile model için verileri hazırlama
- 
-Bu makalede, Azure Machine Learning veri hazırlığı SDK'ın benzersiz özellikleri ve kullanım örnekleri hakkında bilgi edinin. Veri hazırlama, bir machine learning iş akışı, en önemli parçasıdır. Tutarsız veya önemli temizleme ve Dönüştürme Eğitim verisi olarak kullanılan kurulamıyor gerçek veriler genellikle ayrılır. Hatalar ve ham verilerdeki anomaliler düzeltme ve çözmeye çalıştığınız soruna ilgili yeni özellikler derlemeye doğruluğu artırır.
+
+Bu makalede, Azure Machine Learning veri hazırlığı SDK'ın benzersiz özellikleri ve kullanım örnekleri hakkında bilgi edinin. Veri hazırlama, bir machine learning iş akışı, en önemli parçasıdır. Tutarsız veya önemli temizleme ve Dönüştürme Eğitim verisi olarak kullanılan kurulamıyor gerçek veriler genellikle ayrılır. Hatalar ve ham verilerdeki anomaliler düzeltme ve çözmeye çalıştığınız soruna ilgili yeni özellikler derlemeye doğruluğu artırır. SDK'sı önemli senaryolar için avantajlar sunar ve bu diğer kitaplıklarla birlikte çalışabilirlik bakımı sırasında diğer ortak veri hazırlık kitaplıkları, kullanıcılara tanıdık olacak şekilde tasarlanmıştır.
 
 Python kullanarak veri hazırlayabilir [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk).
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı
 
-[Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) içeren bir Python kitaplığı:
-+ Birçok ortak veri ön işleme araçları
-+ Otomatik özellik Mühendisliği ve dönüştürmeler örneklerden türetilmiş
+[Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) sunan bir Python kitaplığı:
 
-SDK gibi popüler kitaplıklara çekirdek işlevindeki benzer **Pandas** ve **PySpark**, henüz daha fazla esneklik sunar. Bellek kapasitesi kısıtlamaları performansı etkilemeden önce pandas genellikle daha küçük veri kümeleri üzerinde (< 2-5 GB) en yararlı olur. Buna karşılık, PySpark genellikle büyük veri uygulamaları için ancak daha yavaş küçük veri kümeleri ile çalışmayı yapan bir ek taşır.
-
-Azure Machine Learning veri hazırlığı SDK'sı sunar:
-- Practicality ve küçük veri kümeleriyle çalışırken kullanışlı
-
-- Büyük veri uygulamaları modern ölçeklenebilirliği
-
-- Her iki kullanım örnekleri aynı kodu ölçeklendirin olanağı
+* Akıllı saati dönüşümleri belirsiz gruplandırma, türetilmiş sütun örneği tarafından otomatik bölme, akıllı dosyayı oku ve çentikli sağ şema işleme gibi.
+* Küçük verilerini yerel olarak veya buluttaki büyük verileri üzerinde çalışan tek bir API **hiçbir kod değişikliği için birkaç**.
+* Belleğe yerine verilerin işlenmesi için akış bir yaklaşım kullanarak tek bir makinede daha etkili bir şekilde ölçeklendirme olanağı.
 
 ### <a name="install-the-sdk"></a>SDK yükle
 
@@ -57,9 +50,12 @@ import azureml.dataprep as dprep
 Bu SDK'sının işlevleri ve modülleri hakkında bilgi edinmek için [veri hazırlığı SDK başvuru belgeleri](https://aka.ms/data-prep-sdk).
 
 Aşağıdaki örnekler SDK'ın benzersiz işlevlerinden bazıları vurgulayın dahil olmak üzere:
-+ Otomatik dosya türü algılama
-+ Otomatik özellik Mühendisliği
-+ Özet istatistikleri
+
+* Otomatik dosya türü algılama
+* Akıllı dönüşümler
+* Özet istatistikleri
+* Çapraz-ortam işlevi
+
 
 #### <a name="automatic-file-type-detection"></a>Otomatik dosya türü algılama
 
@@ -69,7 +65,7 @@ Kullanım `smart_read_file()` dosya türünü belirtmenize gerek kalmadan verile
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
-#### <a name="automated-feature-engineering"></a>Otomatik özellik Mühendisliği
+#### <a name="intelligent-transforms"></a>Akıllı dönüşümler
 
 Bölme ve örnek ve özellik Mühendisliği otomatik hale getirmek için çıkarım sütun türetmek için SDK'yi kullanın. Veri akışı nesnenizin adlı bir alana sahip `datetime` değeriyle `2018-09-15 14:30:00`.
 
@@ -130,6 +126,7 @@ Ayrıntılı örnekler ve her hazırlama adımı kodunu görmek için aşağıda
 ![Veri hazırlama işlemine](./media/concept-data-preparation/data-prep-process.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Gözden geçirme bir [örneğin Not Defteri](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) , Azure Machine Learning veri hazırlığı SDK'sını kullanarak veri hazırlama.
 
 Azure Machine Learning veri hazırlığı SDK [başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).

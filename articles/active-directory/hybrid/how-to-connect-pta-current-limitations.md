@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ae6964b36f837931f2278ceef0b330f9badb1d71
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fabefcffdd7ee9a23d8989f897f30cbf027f42af
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282722"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426426"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory geçişli kimlik doğrulaması: Geçerli sınırlamalar
 
 >[!IMPORTANT]
->Azure Active Directory (Azure AD) geçişli kimlik doğrulaması ücretsiz bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri ihtiyacınız yoktur. Geçişli kimlik doğrulaması, yalnızca Azure ad ve değil dünya çapında örneğinde kullanılabilir [Microsoft Azure Almanya bulut](http://www.microsoft.de/cloud-deutschland) veya [Microsoft Azure kamu bulutundaki](https://azure.microsoft.com/features/gov/).
+>Azure Active Directory (Azure AD) geçişli kimlik doğrulaması ücretsiz bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri ihtiyacınız yoktur. Geçişli kimlik doğrulaması, yalnızca Azure ad ve değil dünya çapında örneğinde kullanılabilir [Microsoft Azure Almanya bulut](https://www.microsoft.de/cloud-deutschland) veya [Microsoft Azure kamu bulutundaki](https://azure.microsoft.com/features/gov/).
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 

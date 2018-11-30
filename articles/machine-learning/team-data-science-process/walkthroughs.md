@@ -2,25 +2,21 @@
 title: Team Data Science Process Azure'da Yürütülüyor izlenecek yollar | Microsoft Docs
 description: Bir iş akışı veya işlem hattı akıllı bir uygulama oluşturmak için bulut ve şirket içi araçları ve Hizmetleri araya getirilebileceğini öğrenin.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: deguhath
-ms.openlocfilehash: 86024316344ccbce87f48adbc0598c94e61c5e6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253576"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495899"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Team Data Science Process yürütme izlenecek yollar
 
@@ -32,7 +28,6 @@ Bunlar **uçtan uca izlenecek yollar** Team Data Science Process belirli senaryo
 Neler ilgili platformlar üzerinde bu gözden geçirme örnekleri sağlar, kısa açıklamaları aşağıda verilmiştir:
 
 
-- [Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) Bu izlenecek yol öğreticilerimiz ve örneklerimizden doğal dil işleme ve sınıflandırma yapmak için Azure Machine Learning Workbench ile yapılandırılmış bir takım veri bilimi projeleri oluşturma işlemini göstermektedir.
 - [PySpark ve Scala kullanarak HDInsight Spark izlenecek yollar](walkthroughs-spark.md) Bu talimatlar PySpark ve Scala bir Azure Spark kümesinde Tahmine dayalı analiz yapmak için kullanın.
 - [Hive kullanarak HDInsight Hadoop izlenecek yollar](walkthroughs-hdinsight-hadoop.md) Bu talimatlar Hive Tahmine dayalı analiz yapmak için bir HDInsight Hadoop kümesi ile kullanın.
 - [U-SQL kullanarak azure Data Lake izlenecek yollar](walkthroughs-azure-data-lake.md) Bu talimatlar U-SQL Tahmine dayalı analiz yapmak için Azure Data Lake ile kullanın.

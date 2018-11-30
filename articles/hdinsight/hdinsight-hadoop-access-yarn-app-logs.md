@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81a156f3c3d211caffbc33a1f0b45a6c6cd56cb4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975151"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495857"
 ---
-# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde erişim Apache YARN uygulama günlüklerine
-Bu belgede, Azure HDInsight Windows tabanlı bir Hadoop kümesinde tamamladınız Apache YARN uygulamaları için günlüklere erişmek açıklanmaktadır
+# <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde erişim Apache Hadoop YARN uygulama günlüklerine
+Bu belge için günlüklere nasıl erişeceğinizi açıklar [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Windows tabanlı bir Apache Hadoop üzerine tamamlanmış uygulamalar Azure HDInsight küme
 
 > [!IMPORTANT]
-> Bu belgedeki bilgiler yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı HDInsight kümelerinde günlüklerini YARN erişme hakkında bilgi için bkz. [erişim Apache YARN uygulama günlüklerine hadoop'ta Linux tabanlı HDInsight üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> Bu belgedeki bilgiler yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı HDInsight kümelerinde günlüklerini YARN erişme hakkında bilgi için bkz. [erişim Apache Hadoop YARN uygulama günlüklerine Apache Hadoop'ta Linux tabanlı HDInsight üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
 ### <a name="prerequisites"></a>Önkoşullar
-* Bir Windows tabanlı HDInsight kümesi.  Bkz: [oluşturma Windows tabanlı Hadoop kümeleri HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Bir Windows tabanlı HDInsight kümesi.  Bkz: [oluşturma Windows tabanlı Apache Hadoop kümeleri HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline sunucusu
-<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline sunucusu</a> genel bilgiler tamamlanmış uygulamaları iki farklı arabirimler üzerinden de olarak çerçeveye özgü uygulama bilgileri sağlar. Bu avantajlar şunlardır:
+<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline sunucusu</a> genel bilgiler tamamlanmış uygulamaları iki farklı arabirimler üzerinden de olarak çerçeveye özgü uygulama bilgileri sağlar. Bu avantajlar şunlardır:
 
 * Depolama ve HDInsight kümelerinde genel uygulama bilgilerin alınmasını 3.1.1.374 sürümüyle etkin ya da daha yüksek olmuştur.
 * HDInsight kümelerinde çerçeveye özgü uygulama bilgileri bileşenini Timeline sunucusu şu anda kullanılamıyor.
@@ -53,7 +53,7 @@ YARN kaynak yönetimi uygulama zamanlama/izleme ayrılarak birden çok programla
 * Bir kapsayıcı temel iş birimidir için bağlam sağlar. 
 * Bir kapsayıcı bağlamında yapılır iş kapsayıcısı için ayrılan tek bir çalışan düğümü üzerindeki gerçekleştirilir. 
 
-Daha fazla bilgi için [YARN kavramları][YARN-concepts].
+Daha fazla bilgi için [Apache Hadoop YARN kavramları][YARN-concepts].
 
 Uygulama günlükleri (ve ilişkili kapsayıcı günlüklerini) sorunlu Hadoop uygulamalarında hata ayıklama içinde önemlidir. YARN toplama, toplama ve uygulama günlükleriyle depolamak için iyi bir çerçeve sağlar [günlük toplama] [ log-aggregation] özelliği. Günlük toplama özelliği, bir çalışan düğümü üzerindeki tüm kapsayıcılar arasında günlükleri toplar ve uygulama bittikten sonra bir toplu günlük dosyası çalışan düğümü başına varsayılan dosya sistemi olarak depolar gibi erişen uygulama günlükleri daha kararlı hale getirir. Uygulamanız, yüzlerce veya binlerce kullanabilir, ancak tek tek bir dosyada uygulamanız tarafından kullanılan çalışan düğümü başına kaynaklanan bir dosyaya tek bir alt düğüm üzerinde çalışan tüm kapsayıcılar için günlükleri toplanır. Günlük toplama HDInsight kümelerinde varsayılan olarak etkinleştirilmiştir (sürüm 3.0 ve üstü), ve toplanan günlükler varsayılan kapsayıcı kümenizin şu konumda bulunabilir:
 

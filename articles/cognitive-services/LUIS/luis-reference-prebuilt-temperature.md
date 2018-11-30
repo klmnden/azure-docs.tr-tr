@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 39d33a3132a400ce0f1853062968cfdaf81c693f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2716600346e65f2ca0b97e56cc156fdfb10ff3a4
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041481"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52440967"
 ---
 # <a name="temperature-entity"></a>Sıcaklık varlığı
 Sıcaklık sıcaklık türleri çeşitli ayıklar. Bu varlık zaten eğitildi çünkü uygulama sıcaklık içeren örnek Konuşma ekleme gerekmez. Sıcaklık varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 

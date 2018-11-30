@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318614"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426076"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
 
@@ -359,7 +359,7 @@ Gerçekleştirmek için Gelişmiş Seçenekleri sorun giderin, NPS hizmetinin y�
 
 Bunlar bir açıklaması için günlük dosyaları, bkz: [NPS veritabanı biçimi günlük dosyalarını yorumlamak](https://technet.microsoft.com/library/cc771748.aspx). Bu günlük dosyaları girişleri bir elektronik tablo veya bir veritabanı aktarmadan yorumlamak zor olabilir. Günlük dosyaları yorumlama içinde yardımcı olmak için birkaç IAS Çözümleyicileri çevrimiçi bulabilirsiniz. 
 
-Aşağıdaki resimde bir çıktı gösterir böyle indirilebilir [paylaşılan yazılım uygulama](http://www.deepsoftware.com/iasviewer). 
+Aşağıdaki resimde bir çıktı gösterir böyle indirilebilir [paylaşılan yazılım uygulama](https://www.deepsoftware.com/iasviewer). 
 
 ![Paylaşılan yazılım uygulama](./media/howto-mfa-nps-extension-rdg/image35.png)
 

@@ -17,15 +17,15 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: cf8de9e6061df59782a6edbccf47341222d256f4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: af35a517fcb2a907244272ecdec0d8dde3d827a9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162242"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427443"
 ---
 # <a name="federation-metadata"></a>Federasyon meta verileri
-Azure Active Directory (Azure AD), hizmetler için Azure AD sorunlarını güvenlik belirteçleri kabul edecek şekilde yapılandırılmış bir Federasyon meta veri belgesi yayımlar. Federasyon meta veri belge biçimi açıklanan [Web Hizmetleri Federasyon dili (WS-Federation) sürüm 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), genişleten [OASISgüvenlikonaylamaişlemibiçimlendirmedili(SAML)v2.0içinmetaverileri](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+Azure Active Directory (Azure AD), hizmetler için Azure AD sorunlarını güvenlik belirteçleri kabul edecek şekilde yapılandırılmış bir Federasyon meta veri belgesi yayımlar. Federasyon meta veri belge biçimi açıklanan [Web Hizmetleri Federasyon dili (WS-Federation) sürüm 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), genişleten [OASISgüvenlikonaylamaişlemibiçimlendirmedili(SAML)v2.0içinmetaverileri](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
 ## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Kiracıya özgü ve Kiracı bağımsız meta veri uç noktaları
 Azure AD Kiracı özgü ve Kiracı bağımsız uç noktaları yayımlar.
@@ -80,7 +80,7 @@ Aşağıdaki meta verileri, bir örneği gösterilmektedir. `KeyDescriptor` bir 
 
 ```
 <KeyDescriptor use="signing">
-<KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+<KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
 <X509Data>
 <X509Certificate>
 MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291bnRzLmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTIwNjA3MDcwMDAwWhcNMTQwNjA3MDcwMDAwWjAtMSswKQYDVQQDEyJhY2NvdW50cy5hY2Nlc3Njb250cm9sLndpbmRvd3MubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArCz8Sn3GGXmikH2MdTeGY1D711EORX/lVXpr+ecGgqfUWF8MPB07XkYuJ54DAuYT318+2XrzMjOtqkT94VkXmxv6dFGhG8YZ8vNMPd4tdj9c0lpvWQdqXtL1TlFRpD/P6UMEigfN0c9oWDg9U7Ilymgei0UXtf1gtcQbc5sSQU0S4vr9YJp2gLFIGK11Iqg4XSGdcI0QWLLkkC6cBukhVnd6BCYbLjTYy3fNs4DzNdemJlxGl8sLexFytBF6YApvSdus3nFXaMCtBGx16HzkK9ne3lobAwL2o79bP4imEGqg+ibvyNmbrwFGnQrBc1jTF9LyQX9q+louxVfHs6ZiVwIDAQABo2IwYDBeBgNVHQEEVzBVgBCxDDsLd8xkfOLKm4Q/SzjtoS8wLTErMCkGA1UEAxMiYWNjb3VudHMuYWNjZXNzY29udHJvbC53aW5kb3dzLm5ldIIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAA4IBAQAkJtxxm/ErgySlNk69+1odTMP8Oy6L0H17z7XGG3w4TqvTUSWaxD4hSFJ0e7mHLQLQD7oV/erACXwSZn2pMoZ89MBDjOMQA+e6QzGB7jmSzPTNmQgMLA8fWCfqPrz6zgH+1F1gNp8hJY57kfeVPBiyjuBmlTEBsBlzolY9dd/55qqfQk6cgSeCbHCy/RU/iep0+UsRMlSgPNNmqhj5gmN2AFVCN96zF694LwuPae5CeR2ZcVknexOWHYjFM0MgUSw0ubnGl0h9AJgGyhvNGcjQqu9vd1xkupFgaN+f7P3p3EVN5csBg5H94jEcQZT7EKeTiZ6bTrpDAnrr8tDCy8ng
@@ -97,7 +97,7 @@ WS-Federasyon özgü bölümünde, WS-Federasyon meta veri okuyucusu sertifikala
 Aşağıdaki meta verileri, bir örneği gösterilmektedir. `RoleDescriptor` öğesi.
 
 ```
-<RoleDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706">
+<RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
 SAML özel bölümde, WS-Federasyon meta veri okuyucusu sertifikalardan okuduğunuz bir `IDPSSODescriptor` öğesi.
@@ -116,7 +116,7 @@ Aşağıdaki meta verileri, bir örneği gösterilmektedir. `PassiveRequestorEnd
 
 ```
 <fed:PassiveRequestorEndpoint>
-<EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
+<EndpointReference xmlns="https://www.w3.org/2005/08/addressing">
 <Address>
 https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </Address>
@@ -127,7 +127,7 @@ Kiracı bağımsız uç noktası için WS-Federasyon URL'sini WS-Federasyon uç 
 
 ```
 <fed:PassiveRequestorEndpoint>
-<EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
+<EndpointReference xmlns="https://www.w3.org/2005/08/addressing">
 <Address>
 https://login.microsoftonline.com/common/wsfed
 </Address>

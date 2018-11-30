@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9d3399ba6ee724d91117486744ad1431f53edbce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053778"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444707"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Yönetimi'nde özel bir CA sertifikası ekleme
 
 Azure API yönetimi, makineye güvenilen kök ve ara sertifika depoları içinde CA sertifikaları yükleme sağlar. Bu işlev özel bir CA sertifikası hizmetlerinizi ihtiyaç duyuyorsanız kullanılmalıdır.
 
 Bu makalede, Azure portalında bir Azure API Management hizmet örneğinin CA sertifikalarını yönetmek gösterilmektedir.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>CA sertifikasını karşıya yükle
 

@@ -1,18 +1,25 @@
 ---
-title: Azure'a yük devretme sorunlarını giderme | Microsoft Docs
-description: Bu makalede, Azure Site Recovery ile azure'a yük devretme sırasında sık karşılaşılan sorunları gidermek açıklar.
+title: Yük devretme Azure hataları için sorun giderme | Microsoft Docs
+description: Bu makalede, azure'a yük devretme, sık karşılaşılan sorunları giderme yolları açıklanır.
+services: site-recovery
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
+ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: 420d061b34734c7b5997f5cdd58fe7faaee9cb82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236765"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447155"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Bir sanal makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
 
@@ -22,7 +29,7 @@ Azure'da bir sanal makine yük devretmesi yaparken aşağıdaki hatalardan birin
 
 Site kurtarma, başarısız bir yük devredilen Azure sanal makine oluşturmak ulaşamadı. Aşağıdaki nedenlerden biri nedeniyle oluşabilir:
 
-* Sanal makine oluşturmak kullanılabilir yeterli kotası yoktur: kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](https://aka.ms/getazuresupport) Kotayı artırmak için.
+* Sanal makine oluşturmak kullanılabilir yeterli kotası yoktur: kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için.
 
 * Yük devretme sanal makineler aynı kullanılabilirlik kümesindeki farklı boyutta ailelerinin deniyorsunuz. Aynı kullanılabilirlik kümesindeki tüm sanal makineler için aynı boyut ailesi seçtiğinizden emin olun. Sanal makinenin işlem ve ağ ayarlarına giderek boyutunu değiştirin ve ardından yük devretmeyi yeniden deneyin.
 
@@ -30,7 +37,7 @@ Site kurtarma, başarısız bir yük devredilen Azure sanal makine oluşturmak u
 
 ## <a name="failover-failed-with-error-id-28092"></a>Hata kimliği 28092 yük devretme başarısız oldu
 
-Site kurtarma, başarısız bir ağ arabirimi oluşturmak mümkün değildi yük devredilen sanal makine. Aboneliğindeki ağ arabirimlerini oluşturmak kullanılabilir yeterli kotası olduğundan emin olun. Kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](https://aka.ms/getazuresupport) Kotayı artırmak için. Yeterli kotanız sonra bu bir aralıklı olabilir gönderme, işlemi yeniden deneyin. Ardından denemelere sorun devam ederse, bu belgenin sonunda bir yorum bırakın.  
+Site kurtarma, başarısız bir ağ arabirimi oluşturmak mümkün değildi yük devredilen sanal makine. Aboneliğindeki ağ arabirimlerini oluşturmak kullanılabilir yeterli kotası olduğundan emin olun. Kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için. Yeterli kotanız sonra bu bir aralıklı olabilir gönderme, işlemi yeniden deneyin. Ardından denemelere sorun devam ederse, bu belgenin sonunda bir yorum bırakın.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Hata kimliği 70038 yük devretme başarısız oldu
 
@@ -38,7 +45,37 @@ Site Recovery Azure'da Klasik sanal makine üzerinde başarısız oluşturmak m�
 
 * Oluşturulacak sanal makine için gerekli olan bir sanal ağ gibi kaynaklardan biri mevcut değil. Sanal makinenin işlem ve ağ ayarlarında sağlanan sanal ağ oluşturma veya bir sanal ağ zaten var ve ardından yük devretmeyi yeniden deneyin ayarını değiştirin.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>Bağlama/RDP/SSH - düğmesi gri VM bağlanmak için
+## <a name="failover-failed-with-error-id-170010"></a>Hata kimliği 170010 ile yük devretme başarısız oldu
+
+Site kurtarma, başarısız bir yük devredilen Azure sanal makine oluşturmak ulaşamadı. Şirket içi sanal makine için bir iç hidrasyonu etkinliğin başarısız olduğundan meydana gelmiş olabilir.
+
+Azure'da herhangi bir makineye getirmek için bazı sürücüler önyükleme olmasını başlangıç durumu ve DHCP autostart durumunda olması gibi hizmetler Azure ortamına gerektirir. Bu nedenle, yük devretme sırasındaki hidrasyonu etkinlik başlangıç türünü dönüştürür **atapi, intelide, storflt, vmbus ve storvsc sürücüleri** önyükleme başlatmak için. Ayrıca DHCP gibi birkaç hizmet başlangıç türünü otomatik başlatma için dönüştürür. Bu etkinlik belirli ortam sorunları nedeniyle başarısız olabilir. Sürücüleri başlatma türü el ile değiştirmeniz için izleyin aşağıdaki adımları:
+
+1. [İndirme](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) çalıştırma ve Hayır hidrasyonu betik olarak izler. Bu betik, VM hidrasyonu gerektirip gerektirmediğini denetler.
+
+    `.\Script-no-hydration.ps1`
+
+    Hydration gerekiyorsa aşağıdaki sonucu verir:
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    VM yok hidrasyonu gereksinimini karşılar durumunda, komut dosyası "Bu sistemi Hayır hidrasyonu gereksinimini karşılar" sonucu verecektir. Bu durumda, tüm sürücüleri ve Hizmetleri Azure gerektirdiği durumunda olan ve hydration VM'de gerekli değildir.
+
+2. VM yok hidrasyonu gereksinimi karşılamıyorsa Hayır hidrasyonu kümesi betiği aşağıdaki gibi çalıştırın.
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    Bu sürücüleri başlangıç türünü dönüştürülür ve sonucu verecektir aşağıdaki gibi:
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Bağlama/RDP veya SSH ile başarısız kurulamıyor sanal makinede bağlantı düğmesi gri nedeniyle sanal makine üzerinde
 
 Varsa **Connect** yük devredilen VM azure'da düğmesi gri ve Azure'a bir Express Route veya siteden siteye VPN bağlantısı aracılığıyla, daha sonra bağlanmamış
 

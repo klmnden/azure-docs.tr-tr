@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: e729d163428723d099157ad62d1c89a7ed917900
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 1653cfe0f75914fa321771a70284602cab75330d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711438"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444877"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -32,8 +32,8 @@ Bu kılavuz, Azure Resource Manager istek doğrulamanın nasıl gerçekleştiril
 > Yedekleme ve olağanüstü durum kurtarma için API Management hizmet örneği geri yükleme işlemi, API Management hizmet örneklerini hazırlama gibi senaryolar için çoğaltmak için de kullanılabilir.
 >
 > Her yedekleme 30 gün sonra süresi dolar. 30 günlük süre sona erdiğinde bir yedekleme geri yükleme girişimi, geri yükleme ile başarısız olur bir `Cannot restore: backup expired` ileti.
->
->
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authenticating-azure-resource-manager-requests"></a>Azure Resource Manager kimlik doğrulama istekleri
 

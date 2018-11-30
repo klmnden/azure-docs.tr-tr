@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230961"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424944"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
@@ -212,7 +212,7 @@ Mobil uygulama hesabını kaldırmak için bu yordamı izlemek için söyleyin v
 
 İki aşamalı doğrulama gerektiren bir hesap ile çalışmayan bir yerel bilgisayarda yüklü bir tarayıcı içi uygulaması oturum açmaya çalıştığınızda 0x800434D4L hata oluşur.
 
-Bu hata ayrı kullanıcı için geçici bir çözüm için yönetici ile ilgili hesapları ve yönetici olmayan işlemler. Daha sonra yönetici olmayan bir hesap kullanarak Outlook'a oturum açabilirsiniz, böylece yönetici hesabı ve yönetici olmayan hesapta arasında posta kutularını bağlayabilirsiniz. Bu çözüm hakkında daha fazla ayrıntı için bilgi nasıl [bir yönetici açın ve bir kullanıcının posta kutusuna içeriğini görüntüleme olanağı sağlayacak](http://help.outlook.com/141/gg709759.aspx?sl=1).
+Bu hata ayrı kullanıcı için geçici bir çözüm için yönetici ile ilgili hesapları ve yönetici olmayan işlemler. Daha sonra yönetici olmayan bir hesap kullanarak Outlook'a oturum açabilirsiniz, böylece yönetici hesabı ve yönetici olmayan hesapta arasında posta kutularını bağlayabilirsiniz. Bu çözüm hakkında daha fazla ayrıntı için bilgi nasıl [bir yönetici açın ve bir kullanıcının posta kutusuna içeriğini görüntüleme olanağı sağlayacak](https://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

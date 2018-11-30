@@ -2,25 +2,21 @@
 title: Team Data Science Process nedir? | Microsoft Docs
 description: Tahmine dayalı analiz çözümlerini ve akıllı uygulamalar sunmak için bir veri bilimi metodolojisidir sağlar.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: deguhath
-ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 44da452b0ec07eaa1b1446de5dab5bedaac3bc30
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996460"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446849"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process nedir?
 

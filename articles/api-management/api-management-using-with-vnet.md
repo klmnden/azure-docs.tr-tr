@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959052"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443534"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Başlat Azure sanal ağları hakkında daha fazla bilgi edinmek için: [Azure sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -27,7 +27,8 @@ Azure API Management, ağından arka uç hizmetlerine erişebilmesi için bu san
 
 > [!NOTE]
 > Azure API Management, hem Klasik hem de Azure Resource Manager sanal ağlarına destekler.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,7 +39,6 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + APIM örneği. Daha fazla bilgi için [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Sanal AĞA bağlantı yalnızca Premium ve geliştirici katmanları için kullanılabilir. Geçiş bu katmanlardan birine'ndaki yönergeleri takip ederek [yükseltme ve ölçeklendirme](upgrade-and-scale.md#upgrade-and-scale) konu.
 
 ## <a name="enable-vpn"> </a>Sanal ağ bağlantısını etkinleştirme
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614286"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427038"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Ağ İzleyicisi nedir?
 
@@ -37,7 +37,7 @@ Uç nokta ulaşılamaz duruma gelirse, bağlantı sorun giderme işlemi size bun
 
 Bağlantı izleyicisi zaman içinde gözlemlenen en düşük, ortalama ve en yüksek gecikme sürelerini de sağlar. Bağlantının gecikme süresini öğrendikten sonra, Azure kaynaklarınızı farklı Azure bölgelerine taşıyarak gecikme süresini kısaltabileceğinizi anlayabilirsiniz. [Azure bölgeleriyle İnternet servis sağlayıcıları arasındaki göreli gecikme sürelerini](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) saptama ve [bağlantı izleyicisi](connection-monitor.md) ile sanal makine ve uç nokta arasındaki iletişimi izleme hakkında daha fazla bilgi edinin. Bağlantı izleyicisiyle yaptığınız gibi zamana yayılmış olarak bağlantıyı izlemek yerine zamanın belirli bir anındaki bağlantıyı test etmeyi tercih ediyorsanız, [bağlantı sorun giderme](#connection-troubleshoot) özelliğini kullanın.
 
-Ağ performansı izleme, ağınızın altyapısındaki çeşitli noktalar arasındaki ağ performansını izlemenize yardımcı olan bulut tabanlı bir karma ağ izleme çözümüdür. Ayrıca hizmet ve uygulama uç noktalarına yapılan ağ bağlantısını izlemenize ve Azure ExpressRoute’un performansını izlemenize yardımcı olur. Ağ Performans İzleyicisi, trafiği tutma ve yönlendirme sorunlarının yanı sıra geleneksel ağ izleme yöntemlerinin algılayamadığı sorunları algılar. Bir ağ bağlantısı için bir eşik ihlal edildiğinde, çözüm uyarılar oluşturur ve size bildirir. Ayrıca ağ performans sorunlarının zamanında tespit edilmesini sağlar ve sorunun kaynağını belirli bir ağ kesimine veya cihazına yerelleştirir. [Ağ performansı izleyicisi](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) hakkında daha fazla bilgi edinin.
+Ağ performansı izleme, ağınızın altyapısındaki çeşitli noktalar arasındaki ağ performansını izlemenize yardımcı olan bulut tabanlı bir karma ağ izleme çözümüdür. Ayrıca hizmet ve uygulama uç noktalarına yapılan ağ bağlantısını izlemenize ve Azure ExpressRoute’un performansını izlemenize yardımcı olur. Ağ Performans İzleyicisi, trafiği tutma ve yönlendirme sorunlarının yanı sıra geleneksel ağ izleme yöntemlerinin algılayamadığı sorunları algılar. Bir ağ bağlantısı için bir eşik ihlal edildiğinde, çözüm uyarılar oluşturur ve size bildirir. Ayrıca ağ performans sorunlarının zamanında tespit edilmesini sağlar ve sorunun kaynağını belirli bir ağ kesimine veya cihazına yerelleştirir. [Ağ performansı izleyicisi](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) hakkında daha fazla bilgi edinin.
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Sanal ağdaki kaynakları ve bunların ilişkilerini görüntüleme
 
@@ -97,7 +97,7 @@ Ağ güvenlik grupları (NSG) sanal makinedeki ağ arabirimine gelen veya burada
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Ağ kaynakları için tanılamak günlüklerini görüntüleme
 
-Ağ güvenlik grupları, genel IP adresleri, yük dengeleyiciler, sanal ağ geçitleri ve uygulama ağ geçitleri gibi Azure ağ kaynakları için tanılama günlüğünü etkinleştirebilirsiniz. *Tanılama günlükleri* özelliği, tanılama günlüğü oluşturan tüm mevcut ağ kaynaklarında ağ kaynağı tanılama günlüklerini tek bir arabirimden etkinleştirmenize ve devre dışı bırakmanıza olanak tanır. Microsoft Power BI ve Azure Log Analytics gibi araçları kullanarak tanılama günlüklerini görüntüleyebilirsiniz. Azure ağ tanılama günlüklerinin analizi hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te Azure ağ çözümleri](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Ağ güvenlik grupları, genel IP adresleri, yük dengeleyiciler, sanal ağ geçitleri ve uygulama ağ geçitleri gibi Azure ağ kaynakları için tanılama günlüğünü etkinleştirebilirsiniz. *Tanılama günlükleri* özelliği, tanılama günlüğü oluşturan tüm mevcut ağ kaynaklarında ağ kaynağı tanılama günlüklerini tek bir arabirimden etkinleştirmenize ve devre dışı bırakmanıza olanak tanır. Microsoft Power BI ve Azure Log Analytics gibi araçları kullanarak tanılama günlüklerini görüntüleyebilirsiniz. Azure ağ tanılama günlüklerinin analizi hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te Azure ağ çözümleri](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Ağ İzleyicisi otomatik etkinleştirme
 Oluşturun veya aboneliğinizdeki sanal ağ güncelleştirmesi, sanal ağınızın bölgede Ağ İzleyicisi otomatik olarak etkinleştirilecektir. Ağ İzleyicisi’nin otomatik olarak etkinleştirilmesi sırasında kaynaklarınız veya bu hizmete ilişkin ücretler etkilenmez. Daha fazla bilgi için [Ağ İzleyicisi oluşturma](network-watcher-create.md).

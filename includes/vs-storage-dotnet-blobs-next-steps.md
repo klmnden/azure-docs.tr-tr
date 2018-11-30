@@ -1,4 +1,16 @@
-
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+ms.openlocfilehash: ede5e2587f1f4d99193e621965b68f75fbad27f4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440509"
+---
 Azure Blob storage'nın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için bu bağlantıları izleyin.
 
 * İçinde Blob hizmeti başvuru belgelerini görüntüleyin [.NET için Azure depolama istemci Kitaplığı](https://go.microsoft.com/fwlink/?LinkID=390731) kullanılabilir API'ler ile ilgili eksiksiz bilgiler için başvuru.

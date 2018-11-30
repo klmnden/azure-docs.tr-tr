@@ -8,18 +8,18 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565080"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446262"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde sanal bir TPM ile Edge cihazı oluşturma ve sağlama
 
-Azure IOT Edge cihazları otomatik-sağlanabilir kullanarak [cihaz sağlama hizmeti](../iot-dps/index.yml) edge etkin olmayan cihazlar'olduğu gibi. Otomatik sağlama işlemine bilmiyorsanız gözden [otomatik sağlama kavramlarını](../iot-dps/concepts-auto-provisioning.md) devam etmeden önce. 
+Azure IOT Edge cihazları olabilir autoprovisioned kullanarak [cihaz sağlama hizmeti](../iot-dps/index.yml) edge etkin olmayan cihazlar'olduğu gibi. Autoprovisioning işlemine bilmiyorsanız gözden [autoprovisioning kavramları](../iot-dps/concepts-auto-provisioning.md) devam etmeden önce. 
 
-Bu makalede, test etmek otomatik sağlama aşağıdaki adımlarla sanal bir kenar cihazda gösterilmektedir: 
+Bu makalede aşağıdaki adımlarla sanal bir kenar cihazda autoprovisioning test gösterilmektedir: 
 
 * Hyper-V ile bir sanal Güvenilir Platform Modülü (TPM) donanımı güvenlik için bir Linux sanal makinesini (VM) oluşturun.
 * Bir örnek, IOT Hub cihaz sağlama hizmeti (DPS) oluşturun.
@@ -35,7 +35,7 @@ Bu makaledeki adımlarda, test amacıyla yöneliktir.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Sanal bir TPM ile bir Linux sanal makinesi oluşturma
 
-Bu bölümde, Hyper-V'de sanal bir TPM otomatik sağlama IOT Edge ile nasıl çalıştığını test etmek için kullanabilirsiniz, böylece olan yeni bir Linux sanal makine oluşturun. 
+Bu bölümde, Hyper-V'de sanal bir TPM autoprovisioning IOT Edge ile nasıl çalıştığını test etmek için kullanabilirsiniz, böylece olan yeni bir Linux sanal makine oluşturun. 
 
 ### <a name="create-a-virtual-switch"></a>Sanal anahtar oluşturma
 
@@ -65,7 +65,7 @@ Yeni sanal anahtar oluştururken hatalar görürseniz, diğer bir anahtarlar eth
    2. **Ağ Yapılandırma**: değerini **bağlantı** , önceki bölümde oluşturduğunuz sanal anahtara. 
    3. **Yükleme Seçenekleri**: seçin **bir önyükleme görüntü dosyasından bir işletim sistemini yüklemek** ve yerel olarak kaydettiğiniz disk görüntü dosyasına göz atın.
 
-Bu yeni VM oluşturmak için bir görünüm dakika sürebilir. 
+Bu, yeni bir VM oluşturmak için birkaç dakika sürebilir. 
 
 ### <a name="enable-virtual-tpm"></a>Sanal TPM etkinleştir
 
@@ -136,7 +136,7 @@ DPS'niz bilmeniz **kimlik kapsamı** ve cihaz **kayıt kimliği** cihaz türün�
 
 Cihazınızı otomatik olarak sağlamak IOT Edge çalışma zamanı için sırada TPM erişimi gerekir. 
 
-TPM erişim vermek için aşağıdaki adımları kullanın. Alternatif olarak, bunu systemd ayarları geçersiz kılarak aynı şeyi gerçekleştirebilirsiniz böylece *iotedge* hizmeti kökü olarak çalıştırabilirsiniz. 
+Systemd ayarlarını geçersiz kılma tarafından IOT Edge çalışma zamanına TPM erişim verebilir böylece *iotedge* hizmet kök ayrıcalıklara sahiptir. Hizmet ayrıcalıklarını istemiyorsanız, aşağıdaki adımları el ile TPM erişim sağlamak için kullanabilirsiniz. 
 
 1. Cihazınızın TPM donanım modülü olan dosya yolunu bulun ve yerel bir değişkene kaydedin. 
 
@@ -180,8 +180,10 @@ TPM erişim vermek için aşağıdaki adımları kullanın. Alternatif olarak, b
    Başarılı çıkış aşağıdaki gibi görünür:
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   Doğru izinler uygulanmış görmüyorsanız udev yenilemek için makinenizi yeniden deneyin. 
 
 8. Açık IOT Edge çalışma zamanı dosyasını geçersiz kılar. 
 
@@ -224,7 +226,7 @@ IOT Edge çalışma zamanı çalışıp çalışmadığını denetleyin.
    sudo systemctl status iotedge
    ```
 
-Sağlama hataları görüyorsanız, yapılandırma değişikliklerinin henüz geçerlik kazanmadı olabilir. IOT Edge arka plan programı kazanç yeniden başlatmayı deneyin. 
+Sağlama hataları görüyorsanız, yapılandırma değişikliklerinin henüz geçerlik kazanmadı olabilir. IOT Edge daemon'ı yeniden başlatmayı deneyin. 
 
    ```bash
    sudo systemctl daemon-reload
@@ -234,7 +236,7 @@ Ya da değişiklikler yeni bir başlangıç etkisi olur, görmek için sanal mak
 
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 
-Çalışma zamanı başarıyla başlatıldı, IOT Hub'ına gidin ve yeni Cihazınızı otomatik olarak sağlandı ve IOT Edge modüllerini çalıştırmak hazırdır. 
+Çalışma zamanı başarıyla başlatıldı, IOT Hub'ına gidin ve yeni Cihazınızı otomatik olarak sağlanan bakın. Artık Cihazınızı IOT Edge modüllerini çalıştırmak hazırdır. 
 
 IOT Edge Daemon durumunu denetleyin.
 
@@ -257,4 +259,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Cihaz sağlama hizmeti kayıt işlemi, yeni cihaz sağlama gibi cihaz kimliği ve cihaz ikizi etiketleri aynı anda belirlemenizi sağlar. Bu değerleri ayrı ayrı cihazlar ya da otomatik cihaz Yönetimi'ni kullanarak cihaz grupları hedeflemek için kullanabilirsiniz. Bilgi edinmek için nasıl [dağıtma ve izleme IOT Edge modülleri, ölçeklendirme Azure portalını kullanarak](how-to-deploy-monitor.md) veya [Azure CLI kullanarak](how-to-deploy-monitor-cli.md)
+Cihaz sağlama hizmeti kayıt işlemi, yeni cihaz sağlama gibi cihaz kimliği ve cihaz ikizi etiketleri aynı anda belirlemenizi sağlar. Bu değerleri ayrı ayrı cihazlar ya da otomatik cihaz Yönetimi'ni kullanarak cihaz grupları hedeflemek için kullanabilirsiniz. Bilgi edinmek için nasıl [dağıtma ve izleme IOT Edge modülleri, ölçeklendirme Azure portalını kullanarak](how-to-deploy-monitor.md) veya [Azure CLI kullanarak](how-to-deploy-monitor-cli.md).

@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
-ms.openlocfilehash: 44f9400a1ecebd3c204ec0b891c5d7fe01bdfd25
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 3d66d825306c5183bdd8d8e611d98904eef2022a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51628223"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440507"
 ---
 | Kaynak | Varsayılan limit | Not |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "51628223"
 | Kimlik doğrulama sertifikaları |40 | |
 | İstek zaman aşımına min |1 saniye | |
 | En fazla istek zaman aşımı |24 saat | |
-| Site sayısı |20 |HTTP Dinleyicileri başına 1 |
+| Site sayısı |40 |HTTP Dinleyicileri başına 1 |
 | Dinleyici başına URL Eşlemeleri |1 | |
 | URL eşlemesi başına en fazla yol temelli kurallar|100|
 | Yeniden yönlendirme yapılandırmaları |40| |

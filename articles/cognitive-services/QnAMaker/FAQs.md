@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 2e4a5d9b7ee2a1a88bcfe819be6540385458108f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622372"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496331"
 ---
 # <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
 
@@ -25,7 +25,7 @@ ms.locfileid: "51622372"
 
 Kalıcı soru ve cevap çiftlerini, dosyaları, URL'ler, özel sorular ve yanıtlar, bilgi bankalarından veya Azure kaynakları dahil olmak üzere tüm siler. Bilgi Bankası dışarı aktardığınızdan emin olun **ayarları** bilgi bankanızı herhangi bir bölümünü silmeden önce sayfa. 
 
-### <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>My URL'lerini neden olduğunu / soru-cevap çiftlerini dosyalar ayıklanıyor değil mi?
+### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>Neden benim URL'lerini veya soru-cevap çiftlerini değil Ayıklanan dosyalar?
 
 Soru-cevap Oluşturucu otomatik-geçerli SSS URL'lerinden soru-cevap (soru-cevap) içerikler ayıklama emin olamaz mümkündür. Böyle durumlarda soru-cevap içeriğini bir .txt dosyasına yapıştırma ve aracı, veri alabilen, bkz. Alternatif olarak, bilgi bankanızı düzenleyerek içerik bilgi bankanızı ekleyebileceğiniz [soru-cevap Oluşturucu portalı](https://qnamaker.ai).
 
@@ -41,13 +41,13 @@ Azure'da henüz herhangi bir soru-cevap Oluşturucu hizmeti oluşturmadınız. O
 
 Soru-cevap Oluşturucu hizmetini düzeyinde çalışır paylaşımı, diğer bir deyişle, hizmetteki tüm bilgi bankalarından paylaşılır. Okuma [burada](./How-To/collaborate-knowledge-base.md) nasıl Bilgi Bankası üzerinde işbirliği yapın.
 
-### <a name="can-you-share-a-kb-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-kb"></a>Bir KB bir KB değiştirmek için aynı AAD kiracısında değil bir katkıda bulunan ile paylaşabilir miyim? 
+### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>Bilgi Bankası değiştirmek için aynı AAD kiracısında değil bir katkıda bulunan ile Bilgi Bankası paylaşabilir miyim? 
 
 Paylaşımı Azure rol tabanlı erişim denetimi (RBAC) bağlıdır. Dilerseniz, _herhangi_ kaynak başka bir kullanıcı ile Azure'da soru-cevap Oluşturucu da paylaşabilirsiniz.
 
-### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-kbs-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-kb"></a>Bir App Service planı ile 5 QnAMaker KB'leri varsa. Bunların her biri yalnızca 1 QnAMaker KB erişebilmesi için 5 farklı kullanıcılara Okuma/Yazma hakkı atayabilirim miyim?
+### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>Bir App Service planı ile 5 QnAMaker bilgi bankalarından varsa. Bunların her biri yalnızca 1 QnAMaker Bilgi Bankası erişebilmesi için 5 farklı kullanıcılara Okuma/Yazma hakkı atayabilirim miyim?
 
-QnAMaker hizmetin tamamı, bireysel KB'leri paylaşabilirsiniz.
+QnAMaker hizmetin tamamı, bireysel bilgi bankalarından paylaşabilirsiniz.
 
 ### <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>İyi bir eşleşme bulunduğunda varsayılan ileti nasıl değiştirebilirim?
 
@@ -65,8 +65,7 @@ Varsayılan ileti ayarları, App Service'te bir parçasıdır.
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Neden SharePoint bağlantımı ayıklanan değil mi?
 
-Araç yalnızca ortak URL'leri ayrıştırır ve kimliği doğrulanmış veri kaynakları şu anda desteklemiyor. Alternatif olarak, dosyayı indirin ve soru ve cevapları ayıklayın için dosya karşıya yükleme seçeneğini kullanın.
-
+Bkz: [veri kaynağı konumları](./Concepts/data-sources-supported.md#data-source-locations) daha fazla bilgi için.
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>My Bilgi Bankası'na yaptığım güncelleştirmeler bankamda. Neden?
 
@@ -94,9 +93,13 @@ Bilgi Bankası'ndaki sürüm değeri yanında uyarı simgesi olduğunda uygulama
 
 Uç nokta anahtarlarınızı geçirildiğini, şüpheleniyorsanız yenileyin.
 
-### <a name="can-i-use-the-same-azure-search-resource-for-kbs-using-multiple-languages"></a>Aynı Azure Search kaynak KB'leri kullanarak birden çok dil için kullanabilir miyim?
+### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>Aynı Azure Search kaynak kullanarak birden çok dil, bilgi bankaları için kullanabilir miyim?
 
-Birden çok dil ve birden çok KB kullanmak için her dil için bir soru-cevap Oluşturucu kaynak oluşturmak kullanıcı vardır. Bu dil başına ayrı bir Azure arama hizmetleri oluşturur. Bir tek bir Azure arama hizmeti farklı dilde KB'leri karıştırma sonuçları düşürülmüş ilgi düzeyi neden olur.
+Birden çok dil ve birden çok bilgi bankalarından kullanmak için her dil için bir soru-cevap Oluşturucu kaynak oluşturmak kullanıcı vardır. Bu dil başına ayrı bir Azure arama hizmetleri oluşturur. Tek bir Azure arama hizmetinde farklı dil bilgi bankalarından karıştırma sonuçları düşürülmüş ilgi düzeyi neden olur.
+
+### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Soru-cevap Oluşturucu tarafından kullanılan Azure Search kaynağın adını nasıl değiştirebilirim?
+
+Azure Search kaynağın adını sonuna birkaç rastgele bir harf ile soru-cevap Oluşturucu kaynak adıdır. Bu soru-cevap Oluşturucu için birden çok arama kaynakları ayırt zorlaştırır. (İstediğiniz şekilde adlandırma) ayrı bir Azure Search hizmeti oluşturma ve soru-cevap hizmetinize bağlanın. Yapmanız için gereken adımlara benzer adımlarla [Azure Search yükseltme](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
 
 ## <a name="integrate-with-other-services-including-bots"></a>Botlar gibi diğer hizmetlerle tümleştirme
 

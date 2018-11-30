@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319872"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444624"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
@@ -32,6 +32,8 @@ API Management'ın bir iç sanal ağ ile uygulama ağ geçidi ön uç sağlanan 
 * Hem iç tüketicilere hem de dış tüketiciler tarafından kullanılmaya aynı API Management kaynağının kullanın.
 * API'leri dış müşterileri için kullanılabilir API Yönetimi'nde tanımlanan bir alt kümesine sahip ve tek bir API Management kaynak'ı kullanın.
 * Anahtar teslim erişim açıp API Management'a genel Internet'ten geçiş olanağını sağlar.
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 

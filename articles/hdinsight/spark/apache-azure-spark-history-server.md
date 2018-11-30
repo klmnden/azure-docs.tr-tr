@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042372"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497264"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Hata ayıklama ve tanılama Spark uygulamaları için genişletilmiş Spark geçmiş sunucusu kullanın
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Hata ayıklama ve tanılama Apache Spark uygulamaları için genişletilmiş Apache Spark geçmiş sunucusu kullanın
 
-Bu makalede, hata ayıklama ve tanılama tamamlanmış ve çalışan Spark uygulamaları için Spark geçmiş sunucusu nasıl kullanılacağı hakkında yönergeler genişletilmiş sağlar. Uzantı, veri sekmesi ve graf sekmesi ve Tanılama sekmesi içerir. Üzerinde **veri** sekmesinde, kullanıcıların, Spark işinin girdi ve çıktı verilerini kontrol edebilirsiniz. Üzerinde **grafik** sekmesinde, kullanıcıların veri akışını ve iş grafiği yeniden yürütme denetleyebilirsiniz. Üzerinde **tanılama** sekmesinde kullanıcı başvurabilir **veri dengesizliği**, **zaman farkı** ve **Yürütücü kullanım analizi**.
+Bu makalede, hata ayıklama ve tanılama tamamlanmış ve çalışan Spark uygulamaları için Apache Spark geçmiş sunucusu nasıl kullanılacağı hakkında yönergeler genişletilmiş sağlar. Uzantı, veri sekmesi ve graf sekmesi ve Tanılama sekmesi içerir. Üzerinde **veri** sekmesinde, kullanıcıların, Spark işinin girdi ve çıktı verilerini kontrol edebilirsiniz. Üzerinde **grafik** sekmesinde, kullanıcıların veri akışını ve iş grafiği yeniden yürütme denetleyebilirsiniz. Üzerinde **tanılama** sekmesinde kullanıcı başvurabilir **veri dengesizliği**, **zaman farkı** ve **Yürütücü kullanım analizi**.
 
-## <a name="get-access-to-spark-history-server"></a>Spark geçmiş sunucusu erişin
+## <a name="get-access-to-apache-spark-history-server"></a>Apache Spark geçmiş sunucusu erişin
 
-Spark geçmiş tamamlanmış ve çalışan Spark uygulamaları için kullanıcı Arabirimi web sunucusudur. 
+Apache Spark geçmiş sunucusu, tamamlanmış ve çalışan Spark uygulamaları için web kullanıcı Arabirimi var. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Azure portalından Spark geçmiş sunucusu Web kullanıcı arabirimini açın
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Azure portalından Apache Spark geçmiş sunucusu Web kullanıcı arabirimini açın
 
 1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Gelen **hızlı bağlantılar**, tıklayın **küme Panosu**ve ardından **Spark geçmiş sunucusu**. İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin. 
@@ -87,7 +87,7 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
     ![Grafik geri bildirim](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Graf sekmesinde Spark geçmiş sunucusu
+## <a name="graph-tab-in-apache-spark-history-server"></a>Apache Spark geçmiş sunucusu sekmesinde grafiği
 İş Kimliği'ni seçin'a tıklayın **grafik** iş graf görünümünü almak için aracı menüsünde.
 
 + Genel Bakış işinizin tarafından oluşturulan iş grafiğinin denetleyin. 
@@ -158,7 +158,7 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
     ![Grafik geri bildirim](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Spark geçmiş sunucusu Tanılama sekmesi
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Apache Spark geçmiş sunucusu Tanılama sekmesi
 İş Kimliği'ni seçin'a tıklayın **tanılama** tanılama görünümü almak için aracı menüsünde. Tanılama sekmesi içerir **veri dengesizliği**, **zaman farkı**, ve **Yürütücü kullanım analizi**.
     
 + Denetleme **veri dengesizliği**, **zaman farkı**, ve **Yürütücü kullanım analizi** sırasıyla sekmelerini seçerek.
@@ -326,8 +326,8 @@ Düzeltme ile yükseltmek istiyorsanız, aşağıdaki spark enhancement.jar* yü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
-* [Spark ayarlarını yapılandırma](apache-spark-settings.md)
+* [HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
+* [Apache Spark ayarlarını yapılandırma](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun

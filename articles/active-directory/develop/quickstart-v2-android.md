@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995746"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427025"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı başlangıç: Android uygulamasından kullanıcıların oturum açma ve Microsoft Graph API'sini çağırma
 
@@ -38,12 +38,12 @@ Bu hızlı başlangıç, bir Android uygulaması ile kişisel, iş ve okul hesap
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Kaydolma ve indirme
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Uygulamanızı ve kod örneğinizi kaydedip yapılandırma
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Uygulamanızı ve kod örneğinizi kaydetme ve yapılandırma
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
 > 1. Uygulamayı kaydetmek için [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app)’na gidin.
 > 1. **Uygulama Adı** kutusuna uygulamanız için bir ad girin.
-> 1. **Destekli Kurulum** onay kutusunun boş olduğundan emin olun ve **Oluştur**’u seçin.
+> 1. **Destekli Kurulum** onay kutusunun işaretli olmadığından emin olun ve **Oluştur**’u seçin.
 > 1. **Platform Ekle**’yi, **Yerel Uygulama**’yı ve **Kaydet**’i seçin.
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -123,7 +123,7 @@ Bu hızlı başlangıç hakkında daha fazla bilgi için aşağıdaki bölümler
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) kullanıcıların oturumlarını açmak için kullanılan kitaplığı ve Microsoft Azure Active Directory (Azure AD) tarafından korunan bir API’ye erişmek için kullanılan istek belirteçlerini içerir. Bunu Gradle kullanarak yüklemek için, **Bağımlılıklar**'ın altında **Gradle Betikleri** > **build.gradle (Module: app)** içine aşağıdaki ekleyebilirsiniz:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) kullanıcıların oturumlarını açmak için kullanılan kitaplığı ve Microsoft Azure Active Directory (Azure AD) tarafından korunan bir API’ye erişmek için kullanılan istek belirteçlerini içerir. Bunu Gradle kullanarak yüklemek için, **Bağımlılıklar**'ın altında **Gradle Betikleri** > **build.gradle (Module: app)** içine aşağıdaki ekleyebilirsiniz:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -138,7 +138,7 @@ implementation 'com.microsoft.identity.client:msal:0.1.+'
 import com.microsoft.identity.client.*;
 ```
 
-Sonra da şu kodu kullanarak MSAL başlatın:
+Sonra şu kodu kullanarak MSAL'yi başlatın:
 
 ```java
 sampleApp = new PublicClientApplication(
@@ -161,7 +161,7 @@ Bazı durumlarda kullanıcıları Azure AD v.2.0 uç noktasıyla etkileşimde bu
 * Kullanıcılar uygulamada ilk kez oturum açtığında
 * Parolanın süresi dolduğundan kullanıcıların kimlik bilgilerini yeniden girmesi gerektiğinde
 * Uygulamanız kullanıcının onaylaması gereken bir kaynağa erişim istediğinde
-* İki öğeli kimlik doğrulama gerektiğinde
+* İki faktörlü kimlik doğrulama gerektiğinde
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());

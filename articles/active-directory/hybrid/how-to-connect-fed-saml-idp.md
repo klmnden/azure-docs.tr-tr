@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08d9566c3ce8f486465f0ed7fb5aab4419e592d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228598"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426418"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
@@ -60,11 +60,11 @@ SAML yanıtını iletisi içindeki imza düğüm iletinin dijital imza hakkında
 
 1. Onaylama işlemi düğümü oturum açmış olmanız gerekir
 2.  RSA sha1 algoritması DigestMethod kullanılmalıdır. Diğer dijital imza algoritmaları kabul edilmez.
-   `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
+   `<ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1"/>`
 3.  Ayrıca, XML belgesi oturum açabilirsiniz. 
-4.  Dönüştürme algoritması, aşağıdaki örnekte değerlerin eşleşmesi gerekir:    `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-       <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  Aşağıdaki örnek SignatureMethod'a algoritması eşleşmesi gerekir:   `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+4.  Dönüştürme algoritması, aşağıdaki örnekte değerlerin eşleşmesi gerekir:    `<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+       <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#"/>`
+9.  Aşağıdaki örnek SignatureMethod'a algoritması eşleşmesi gerekir:   `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Desteklenen bağlamaları
 Bağlamaları gerekli olan aktarım ilgili bilgiler parametreleridir. Bağlamaları aşağıdaki gereksinimler geçerlidir
@@ -103,21 +103,21 @@ Azure AD'den bir örnek SAML 2.0 kimlik sağlayıcısına gönderilen örnek bir
     </samlp:Status>
     <Assertion ID="_7e3c1bcd-f180-4f78-83e1-7680920793aa" IssueInstant="2014-01-31T15:36:31.279Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       <ds:SignedInfo>
-        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
-        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+        <ds:CanonicalizationMethod Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
+        <ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1" />
         <ds:Reference URI="#_7e3c1bcd-f180-4f78-83e1-7680920793aa">
           <ds:Transforms>
-            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
-            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            <ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
           </ds:Transforms>
-          <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+          <ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1" />
           <ds:DigestValue>CBn/5YqbheaJP425c0pHva9PhNY=</ds:DigestValue>
         </ds:Reference>
       </ds:SignedInfo>
       <ds:SignatureValue>TciWMyHW2ZODrh/2xrvp5ggmcHBFEd9vrp6DYXp+hZWJzmXMmzwmwS8KNRJKy8H7XqBsdELA1Msqi8I3TmWdnoIRfM/ZAyUppo8suMu6Zw+boE32hoQRnX9EWN/f0vH6zA/YKTzrjca6JQ8gAV1ErwvRWDpyMcwdYCiWALv9ScbkAcebOE1s1JctZ5RBXggdZWrYi72X+I4i6WgyZcIGai/rZ4v2otoWAEHS0y1yh1qT7NDPpl/McDaTGkNU6C+8VfjD78DrUXEcAfKvPgKlKrOMZnD1lCGsViimGY+LSuIdY45MLmyaa5UT4KWph6dA==</ds:SignatureValue>
-      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
         <ds:X509Data>
           <ds:X509Certificate>MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyhBREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDTE1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9ybWVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/+3ZWxd9T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEMb2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvyJOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBySx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==</ds:X509Certificate>
         </ds:X509Data>
@@ -167,7 +167,7 @@ SAML 2.0 kimlik sağlayıcısı ve Azure AD arasındaki iletişimi etkinleştirm
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>SAML 2.0 kimlik sağlayıcısı ile oturum açma için Windows PowerShell'i yükleme
 Azure AD ile oturum açma, SAML 2.0 kimlik sağlayıcısı kullanmak için yapılandırdıktan sonra sonraki adımda Azure Active Directory için Windows PowerShell modülü yükleyip sağlamaktır. Yüklendikten sonra Azure AD etki alanlarınızı Federasyon etki alanları yapılandırmak için bu cmdlet'leri kullanır.
 
-Azure Active Directory için Windows PowerShell modülü, Azure AD'de Kuruluş verilerinizde yönetmeye yönelik bir yüklemedir. Bu modül için Windows PowerShell cmdlet'leri kümesini yükler; Azure ad çoklu oturum açma erişimi ayarlamak için bu cmdlet'leri çalıştırın ve ardından tüm bulut hizmetlerine abone olduğunuz. İndirin ve cmdlet'lerini yükleme hakkında yönergeler için bkz: [http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
+Azure Active Directory için Windows PowerShell modülü, Azure AD'de Kuruluş verilerinizde yönetmeye yönelik bir yüklemedir. Bu modül için Windows PowerShell cmdlet'leri kümesini yükler; Azure ad çoklu oturum açma erişimi ayarlamak için bu cmdlet'leri çalıştırın ve ardından tüm bulut hizmetlerine abone olduğunuz. İndirin ve cmdlet'lerini yükleme hakkında yönergeler için bkz: [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>SAML kimlik sağlayıcısı ve Azure AD arasında güven oluşturma
 Bir Azure AD etki alanında Federasyon yapılandırmadan önce yapılandırılmış özel bir etki alanının olması gerekir. Microsoft tarafından sağlanan varsayılan etki alanı federasyona eklenemez. Microsoft gelen varsayılan etki alanı "onmicrosoft.com" ile biter.
@@ -188,14 +188,14 @@ Aşağıdaki yordam, SAML 2.0 SP-Lite'ı kullanarak bir Federasyon etki alanına
 
 3.  İmzalama sertifikasını base64 ile kodlanmış dize IDP meta verileri dosyanızdan elde edebilirsiniz. Bu konum örneği sağlanmadı ancak uygulamanız üzerinde biraz göre farklılık gösterebilir.
 
-    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
+    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-"Set-MsolDomainAuthentication" hakkında daha fazla bilgi için bkz: [ http://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
+"Set-MsolDomainAuthentication" hakkında daha fazla bilgi için bkz: [ https://technet.microsoft.com/library/dn194112.aspx ](httpss://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Kullanım çalıştırmanız gerekir "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" için kimlik sağlayıcınıza ECP uzantı ayarlarsanız. Outlook Web uygulaması (OWA) hariç olmak üzere, Exchange Online istemcilerin güvendiği bir GÖNDERİ etkin uç noktasına bağlı. Shibboleth'ın ECP uygulamasına yönelik etkin bir uç noktayı benzer bir etkin uç noktası, SAML 2.0 STS uyguluyorsa Exchange Online hizmetiyle etkileşim kurmak bu zengin istemciler mümkün olabilir.
 
-Federasyon yapılandırıldıktan sonra geri "Federasyon olmayan" (veya "yönetilen"), ancak bu değişikliğin tamamlanması iki saat sürer geçebilir ve her kullanıcı için bulut tabanlı oturum açma için yeni rastgele parolalar atama gerektirir. Geri "yönetilen" geçiş hatayla ayarlarınızı sıfırlamak için bazı senaryolarda gerekebilir. Etki alanı dönüştürme hakkında daha fazla bilgi için bkz: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Federasyon yapılandırıldıktan sonra geri "Federasyon olmayan" (veya "yönetilen"), ancak bu değişikliğin tamamlanması iki saat sürer geçebilir ve her kullanıcı için bulut tabanlı oturum açma için yeni rastgele parolalar atama gerektirir. Geri "yönetilen" geçiş hatayla ayarlarınızı sıfırlamak için bazı senaryolarda gerekebilir. Etki alanı dönüştürme hakkında daha fazla bilgi için bkz: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Azure ad kullanıcı asıl adları sağlama / Office 365
 Kullanıcılarınız Office 365 için kimlik doğrulama gerçekleştirmeden önce SAML 2.0 talep onaylama karşılık gelen kullanıcı asıl adları ile Azure AD hazırlamanız gerekir. Bu kullanıcı ilkeleri önceden Azure AD'ye bilinmiyorsa, ardından bunlar Federasyon oturum açmak için kullanılamaz. Azure AD Connect ya da Windows PowerShell, kullanıcı asıl adları sağlamak için kullanılabilir.
@@ -218,7 +218,7 @@ Bu yordam, tek bir kullanıcı Azure AD'ye ekleme gösterilmektedir.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-"New-MsolUser" kullanıma alma hakkında daha fazla bilgi için [http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
+"New-MsolUser" kullanıma alma hakkında daha fazla bilgi için [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >"UserPrinciplName" değer "IDPEmail için", SAML 2.0 talebi gönderecek bir değerle eşleşmelidir ve "Immutableıd" değer "Nameıd" değerinizi gönderilen değerle eşleşmelidir.

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515735"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445727"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet analiziyle maliyetleri keşfetme ve analiz etme
 
@@ -84,17 +84,17 @@ Ayrıca, her günün maliyetlerini gösteren bir **günlük** görünüm vardır
 
 ![Günlük görünüm](./media/quick-acm-cost-analysis/daily-view.png)
 
-Grup kategorisi seçip en üstteki toplam alan grafiğinde görüntülenen verileri değiştirmek için **Gruplandır** seçeneğini kullanabilirsiniz. Gruplandırma, harcamanızın kaynak türüne göre nasıl kategorilere ayrıldığını hemen görmenizi sağlar. Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görünümü yer alır.
+Grup kategorisi seçip en üstteki toplam alan grafiğinde görüntülenen verileri değiştirmek için **Gruplandır** seçeneğini kullanabilirsiniz. Gruplandırma nasıl harcamalarınızı ortak kaynak ve kullanım özellikler, kaynak grubu veya kaynak etiketleri gibi tarafından kategorilere ayrılmıştır hızlı bir şekilde görmenize olanak tanır. Etiketlere göre gruplandırmak için gruplandırma ölçütü istediğiniz etiket anahtarı seçin ve her bir değer bu etiket için uygulanan bir etiketi olmayan kaynaklar için ek bir segment tarafından ayrılmış maliyetleri görürsünüz. Not maliyet yönetimi, etiketler kaynağa doğrudan uygulanan tarihten itibaren kaynak etiketleri yalnızca destekler. Kaynak grubu etiketleri henüz desteklenmemektedir. Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görünümü yer alır.
 
 ![Gruplandırılmış günlük birikmiş görünümü](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-En yukarıdaki Toplam görünümü altında yer alan özet grafikler farklı gruplandırma ve filtreleme kategorilerinin görünümlerini gösterir. Herhangi bir grup kategorisi seçtiğinizde, toplam görünümü için tam veri kümesi görünümün en altında bulunur. Burada kaynak gruplarının örneğini görebilirsiniz.
+Özet grafiklerin filtreleri ve seçilen zaman aralığı için genel maliyetleri, daha geniş bir resmini vermek için ana grafiğin Göster farklı gruplandırmaları altında. Bir özellik ya da herhangi bir boyuta göre toplanmış maliyetleri görüntülemek üzere etiketi seçin. Toplam görünüm için veri kümesini genişleterek ekranın altında olan **veri** çekmecesi veya seçerek **Dışarı Aktar > CSV indirme** ekranın üst kısmındaki. Kaynak grupları için veri çekmecesi örneği aşağıda verilmiştir.
 
 ![Geçerli görünüm için tüm veriler](./media/quick-acm-cost-analysis/full-data-set.png)
 
-Önceki resimde kaynak grubunun adları gösterilir. Maliyet analizi görünümlerinin, filtrelerin veya gruplandırmaların hiçbirinde kaynaklara ilişkin etiketlerin görünümü sağlanmaz.
+Önceki resimde kaynak grubunun adları gösterilir. Etiket başına toplam maliyetleri görüntülemek üzere etikete göre gruplandırabilirsiniz, ancak kaynak veya kaynak grubu başına tüm etiketleri görüntüleme görünümlerden herhangi birinde maliyet analizi içinde kullanılabilir değil.
 
-Maliyetler belirli bir özniteliğe göre gruplanırken maliyet açısından ilk on katkıda bulunan en yüksekten en düşüğe doğru gösterilir. Toplamda ondan fazla grup varsa maliyet açısından ilk dokuz katkıda bulunana ek olarak kalan tüm grupları içeren bir **Diğer** grubu gösterilir.
+Maliyetler belirli bir özniteliğe göre gruplanırken maliyet açısından ilk on katkıda bulunan en yüksekten en düşüğe doğru gösterilir. Toplamda ondan fazla grup varsa maliyet açısından ilk dokuz katkıda bulunana ek olarak kalan tüm grupları içeren bir **Diğer** grubu gösterilir. Etiketlere göre gruplandırma olduğunda da görebilirsiniz bir **Untagged** , uygulanan etiket anahtarı olmayan maliyetleri için Grup. **Etiketlenmemiş** etiketlenmemiş maliyetleri etiketli maliyetlerinden daha fazla olduğunda bile her zaman en son olur. 10 veya daha fazla etiket değeri varsa, etiketlenmemiş maliyetleri parçası olacak **başkalarının**.
 
 *Klasik* (Azure Service Management veya ASM) sanal makineleri, ağ ve depolama kaynakları ayrıntılı fatura bilgisi paylaşmaz. Bunlar maliyet gruplarında **Klasik hizmetler** olarak gösterilir.
 

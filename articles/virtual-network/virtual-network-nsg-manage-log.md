@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5635998eb72f08ddc665793e77008890b2cdb05d
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: bf7f1f58250d94d821e6ec41266b518d7ebe105b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059947"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427565"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Bir ağ güvenlik grubu tanılama günlüğüne kaydetme
 
@@ -199,7 +199,7 @@ Kural sayacın kaynaklara uygulanan her bir kural hakkındaki bilgileri içerir.
 ## <a name="view-and-analyze-logs"></a>Görüntüleme ve günlüklerini çözümleme
 
 Tanılama günlük verilerini görüntüleme hakkında bilgi edinmek için [Azure tanılama günlüklerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Tanılama verileri göndermek istediğinizde:
-- **Log Analytics**: kullanabileceğiniz [ağ güvenlik grubu analizi](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Log Analytics**: kullanabileceğiniz [ağ güvenlik grubu analizi](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) Gelişmiş ınsights çözümü. Çözüm izin veren veya reddeden trafik, bir sanal makine ağ arabiriminin MAC adresi başına NSG kuralları için görsel öğeler sağlar.
 - **Azure depolama hesabı**: veriler PT1H.json dosyasına yazılır. Bulabilirsiniz:
     - Olay günlüğünde aşağıdaki yolu: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

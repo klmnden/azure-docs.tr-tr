@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 10ac41e60829e1d9a088033f0e754a447cc46f0f
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975541"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426444"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ses ve SMS özellikleri, Ruby için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -30,7 +30,7 @@ Twilio ses ve SMS uygulamaları oluşturmak için mevcut web dilleri ve becerile
 **Twilio ses** yapıp telefon çağrılarını almak, uygulamaların sağlar. **Twilio SMS** yapmak ve SMS mesajları uygulamalarınızı sağlar. **Twilio istemci** uygulamalarınızı mobil bağlantılar da dahil olmak üzere var olan Internet bağlantılarını kullanarak ses iletişimine olanak tanır.
 
 ## <a id="Pricing"></a>Twilio fiyatlandırma ve özel teklifler
-Twilio fiyatlandırması hakkında bilgi şu adreste [Twilio fiyatlandırma][twilio_pricing]. Azure müşterileri alır bir [özel teklif][special_offer]: ücretsiz kredi 1000 metinlerinin veya 1000 dakika sayısı. Bu teklif için kaydolun veya daha fazla bilgi edinmek için lütfen [ http://ahoy.twilio.com/azure ] [ special_offer].  
+Twilio fiyatlandırması hakkında bilgi şu adreste [Twilio fiyatlandırma][twilio_pricing]. Azure müşterileri alır bir [özel teklif][special_offer]: ücretsiz kredi 1000 metinlerinin veya 1000 dakika sayısı. Bu teklif için kaydolun veya daha fazla bilgi edinmek için lütfen [ https://ahoy.twilio.com/azure ] [ special_offer].  
 
 ## <a id="Concepts"></a>Kavramları
 Twilio ses ve SMS işlevselliğini uygulamaları için sağlayan bir RESTful API API'dir. Birden fazla dilde istemci kitaplıkları vardır; bir liste için bkz. [Twilio API kitaplıkları][twilio_libraries].
@@ -179,19 +179,19 @@ Twilio hizmeti temel bilgileri öğrendiniz, daha fazla bilgi için bu bağlant�
 
 
 
-[twilio_pricing]: http://www.twilio.com/pricing
-[special_offer]: http://ahoy.twilio.com/azure
+[twilio_pricing]: https://www.twilio.com/pricing
+[special_offer]: https://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
-[twilio_api_documentation]: http://www.twilio.com/api
-[twilio_security_guidelines]: http://www.twilio.com/docs/security
-[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_api_documentation]: https://www.twilio.com/api
+[twilio_security_guidelines]: https://www.twilio.com/docs/security
+[twilio_howtos]: https://www.twilio.com/docs/howto
 [twilio_on_github]: https://github.com/twilio
-[twilio_support]: http://www.twilio.com/help/contact
-[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+[twilio_support]: https://www.twilio.com/help/contact
+[twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app

@@ -1,13 +1,26 @@
-1. Kaynak, kaynak grubu veya, kilitlemek istediğiniz abonelik için ayarlar dikey penceresinde seçin **kilitler**.
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+ms.openlocfilehash: 03e4053b65cf39101e8cb5d35ce439a759ec11d6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440520"
+---
+1. Kaynak, kaynak grubu veya kilitlemek istediğiniz abonelik için ayarlar dikey penceresinde, seçin **kilitler**.
    
       ![Kilit seçin](./media/resource-manager-lock-resources/select-lock.png)
-2. Kilit eklemek için seçin **Ekle**. Bir üst düzeyde bir kilit oluşturmak istiyorsanız, üst öğe seçin. Şu anda seçilen kaynak kilidi üstten devralmaz. Örneğin, kaynak grubu için tüm kaynaklarını kilitlemek için kilitlenemedi.
+2. Kilit eklemek için seçin **Ekle**. Üst düzeyde bir kilit oluşturmak istiyorsanız, üst öğesini seçin. Şu anda seçilen kaynak kilidi üst öğeden devralır. Örneğin, kaynak grubunun tüm kaynaklarını kilitlemek için kilitlenemiyor.
    
       ![Kilit Ekle](./media/resource-manager-lock-resources/add-lock.png) 
 3. Kilit adı ve kilit düzeyi verin. İsteğe bağlı olarak, kilit açıklayan notlar ekleyebilirsiniz.
    
-      ![set Kilitle](./media/resource-manager-lock-resources/set-lock.png) 
-4. Kilidi silmek için üç nokta seçin ve **silmek** kullanılabilir seçenekler.
+      ![kümesi Kilitle](./media/resource-manager-lock-resources/set-lock.png) 
+4. Kilidi silmek için üç noktayı seçin ve **Sil** kullanılabilir seçeneklerden.
    
-      ![Kilit Sil](./media/resource-manager-lock-resources/delete-lock.png) 
+      ![Kilit silme](./media/resource-manager-lock-resources/delete-lock.png) 
 

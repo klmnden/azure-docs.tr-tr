@@ -3,24 +3,24 @@ title: Java HBase istemci - Azure HDInsight
 description: Apache Maven bir Java tabanlı Apache HBase uygulaması oluşturmayı ve ardından Azure HDInsight üzerinde HBase dağıtmak için kullanmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
-ms.openlocfilehash: 677714487aac6e25a0505cce978792c76bb1cee4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/27/2018
+ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016089"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445660"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase için Java uygulamaları oluşturun
 
 Oluşturmayı bir [Apache HBase](http://hbase.apache.org/) Java uygulaması. Ardından, Azure HDInsight üzerinde HBase ile uygulamayı kullanın.
 
-Bu adımları belge kullanım [Maven](http://maven.apache.org/) ve projeyi oluşturmak için. Maven, yazılım proje yönetimi ve yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak sağlayan kavramayı Aracı ' dir.
+Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve projeyi oluşturmak için. Maven, yazılım proje yönetimi ve yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak sağlayan kavramayı Aracı ' dir.
 
 > [!NOTE]
 > Bu belgedeki adımlarda HDInsight 3.6 ile birlikte en son test edilmiştir.
@@ -35,9 +35,9 @@ Bu adımları belge kullanım [Maven](http://maven.apache.org/) ve projeyi oluş
     > [!NOTE]
     > Java 8 HDInsight 3.5 ve daha sonraki sürümleri gerektirir. HDInsight'ın önceki sürümlerinde, Java 7 gerektirir.
 
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [HBase ile bir Azure HDInsight Linux tabanlı küme](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [Apache HBase ile bir Azure HDInsight Linux tabanlı küme](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## <a name="create-the-project"></a>Proje oluşturma
 
@@ -59,7 +59,7 @@ Bu adımları belge kullanım [Maven](http://maven.apache.org/) ve projeyi oluş
    * **pom.xml**: Proje nesne modeli ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
    * **src**: içeren dizine **main/java/com/microsoft/örnekler** Yazar burada uygulama dizini.
 
-3. Silme `src/test/java/com/microsoft/examples/apptest.java` dosya. Bu Bu örnekte, kullanılabilir.
+3. Silme `src/test/java/com/microsoft/examples/apptest.java` dosya. Bu, bu örnekte kullanılmaz.
 
 ## <a name="update-the-project-object-model"></a>Proje nesne modeli güncelleştirme
 
@@ -81,9 +81,9 @@ Bu adımları belge kullanım [Maven](http://maven.apache.org/) ve projeyi oluş
     Bu bölümde, proje gerektiğini belirtir **hbase istemci** ve **phoenix çekirdek** bileşenleri. Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven merkezi depo arama](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
 
    > [!IMPORTANT]
-   > Hbase istemcisinin sürüm numarası, HDInsight kümenizle sağlanan HBase sürümünü eşleşmesi gerekir. Doğru sürüm numarasını bulmak için aşağıdaki tabloyu kullanın.
+   > Hbase istemcisinin sürüm numarası, Apache HBase, HDInsight kümenizle sağlanan sürümünü eşleşmesi gerekir. Doğru sürüm numarasını bulmak için aşağıdaki tabloyu kullanın.
 
-   | HDInsight küme sürümü | HBase sürümü kullanmak için |
+   | HDInsight küme sürümü | Apache HBase sürümü kullanmak için |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 ve 3.6 |1.1.2 |
@@ -363,7 +363,7 @@ Bu adımları belge kullanım [Maven](http://maven.apache.org/) ve projeyi oluş
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Jar dosyasını karşıya yükleme ve işlerinizi (SSH)
 
-Aşağıdaki adımları kullanın `scp` HDInsight kümesinde, HBase, birincil baş düğüme JAR kopyalanacak. `ssh` Komutu ardından kümeye bağlanın ve doğrudan baş düğümünde örneği çalıştırmak için kullanılır.
+Aşağıdaki adımları kullanın `scp` HDInsight kümesinde, Apache HBase, birincil baş düğüme JAR kopyalanacak. `ssh` Komutu ardından kümeye bağlanın ve doğrudan baş düğümünde örneği çalıştırmak için kullanılır.
 
 1. Kümeye jar dosyasını karşıya yüklemek için aşağıdaki komutu kullanın:
 
@@ -412,7 +412,7 @@ Aşağıdaki adımları kullanın `scp` HDInsight kümesinde, HBase, birincil ba
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Jar dosyasını karşıya yükleme ve işlerinizi (PowerShell)
 
-Aşağıdaki adımlar, varsayılan depolama alanı, HBase kümesi için jar dosyasını yüklemek için Azure PowerShell kullanırsınız. HDInsight cmdlet'leri, daha sonra örnekleri uzaktan çalıştırmak için kullanılır.
+Aşağıdaki adımlar, varsayılan depolama alanı, Apache HBase kümesi için jar dosyasını yüklemek için Azure PowerShell kullanırsınız. HDInsight cmdlet'leri, daha sonra örnekleri uzaktan çalıştırmak için kullanılır.
 
 1. Yükleme ve Azure PowerShell, yapılandırma oluşturduktan sonra adlı bir dosya `hbase-runner.psm1`. Bu dosyanın içeriği olarak aşağıdaki metni kullanın:
 
@@ -683,4 +683,4 @@ __Azure powershell'den__:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[SQuirreL SQL HBase ile kullanmayı öğrenin](apache-hbase-phoenix-squirrel-linux.md)
+[SQuirreL SQL, Apache HBase ile kullanmayı öğrenin](apache-hbase-phoenix-squirrel-linux.md)

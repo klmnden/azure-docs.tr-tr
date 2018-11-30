@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa1fa65315f38d0ce2900b738b70ca3718b0c00e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a664ec3643100f4bf477fbc58070ae966088d3af
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285110"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426059"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -32,7 +32,7 @@ Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 - Bu çözüm, Log Analytics çalışma alanı, bir Azure Otomasyonu hesabını ve Uyarıları destekleyen herhangi bir bölgesine AzureGov ve Azure ile kullanılabilir. E-posta işlevselliği AzureGov bölgeler şu anda desteklemez.
 
 > [!NOTE]
-> Klasik VM'ler için çözümü kullanıyorsanız, tüm Vm'leriniz sıralı olarak bulut hizmeti başına işlenir. Paralel işi işleme olması desteklenmeye farklı bulut hizmetleri arasında.
+> Klasik VM'ler için çözümü kullanıyorsanız, tüm Vm'leriniz sıralı olarak bulut hizmeti başına işlenir. Sanal makine, farklı bulut hizmetleri arasında yine de paralel olarak işlenir.
 >
 > Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. Başlat/Durdur çözümü çalıştığında Klasik kaynakları yönetmek için cmdlet'ler olduğu gibi hatalar alabilirsiniz. CSP hakkında daha fazla bilgi için bkz: [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 

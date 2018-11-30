@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5936157a46643ff76b5e1cc11d636aa6be9175ff
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282008"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427480"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
 Bu makalede, şirket içi Active Directory örneğinden bulut tabanlı bir Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -80,7 +80,7 @@ Aşağıdaki ayrıntılı parola karması eşitleme, Active Directory ve Azure A
 
 
 1. Standart aracılığıyla DC gelen iki dakikada bir, parola karması eşitleme aracı AD Connect sunucusu üzerinde depolanan parola karmalarını (unicodePwd özniteliğini) istekleri [MS DRSR](https://msdn.microsoft.com/library/cc228086.aspx) verileri eşitlemek için kullanılan çoğaltma Protokolü DC'ler arasında. Hizmet hesabı, parola karmaları almak için dizin değişikliklerini çoğaltma ve (varsayılan olarak yükleme izni) dizin değişikliklerini tümüne çoğaltma AD izinleri olmalıdır.
-2. Göndermeden önce DC MD4 parola karması bir anahtarı kullanarak şifreler bir [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) karma RPC oturum anahtarı ve bir güvenlik değeri. Bunu ardından sonuç parola karması eşitleme Aracısı ile RPC üzerinden gönderir. Eşitleme aracısına ayrıca geçirir salt aracı Zarf şifresini olacak şekilde DC çoğaltma protokolü kullanarak etki alanı denetleyicisi.
+2. Göndermeden önce DC MD4 parola karması bir anahtarı kullanarak şifreler bir [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) karma RPC oturum anahtarı ve bir güvenlik değeri. Bunu ardından sonuç parola karması eşitleme Aracısı ile RPC üzerinden gönderir. Eşitleme aracısına ayrıca geçirir salt aracı Zarf şifresini olacak şekilde DC çoğaltma protokolü kullanarak etki alanı denetleyicisi.
 3.  Parola Karması eşitleme Aracısı şifrelenmiş Zarf sahip olduktan sonra bunu kullanan [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) ve özgün MD4 biçiminde dön alınan verilerin şifresini çözmek için bir anahtar oluşturmak için güvenlik değeri. Hiçbir noktada parola karması eşitleme Aracısı düz metin parolaya sahip. Parola Karması eşitleme aracısının MD5 kesinlikle DC ile çoğaltma protokol uyumluluk için kullanılır ve yalnızca şirket içi etki alanı denetleyicisi ve parola karması eşitleme aracısı arasında kullanılır.
 4.  Parola Karması eşitleme Aracısı'nı, ilk UTF-16 kodlamalı ikili ardından bu dize dönüştürme 32 bayt onaltılık dize, karma geri dönüştürerek 64 bayt ile 16 bayt ikili parola karması genişletir.
 5.  Parola Karması eşitleme Aracısı ekler bir kullanıcı güvenlik değeri, özgün karma daha iyi korumak için 64-bayt ikili için 10 bayt uzunlukta bir güvenlik değeri oluşan başına.

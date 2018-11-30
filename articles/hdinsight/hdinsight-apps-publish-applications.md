@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014339"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495377"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir HDInsight uygulaması Azure Market'te yayımlama
 Bir Linux tabanlı HDInsight kümesi üzerinde bir Azure HDInsight uygulama yükleyebilirsiniz. Bu makalede, HDInsight uygulama Azure Marketi'nde yayımlama konusunda bilgi edinin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz. [Azure Marketi'nde teklif yayımlamak](../marketplace/marketplace-publishers-guide.md).
@@ -102,6 +102,6 @@ Bir HDInsight uygulamasını yayımlamak için:
 * Bilgi nasıl [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md) kümeleri içinde.
 * Bilgi edinmek için nasıl [özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md) HDInsight yayımlanmamış bir HDInsight uygulaması ve dağıtma.
 * Bilgi nasıl [Linux tabanlı HDInsight kümeleri özelleştirmek için betik eylemi kullanmanız](hdinsight-hadoop-customize-cluster-linux.md) ve daha fazla uygulama ekleyin. 
-* Bilgi edinmek için nasıl [Azure Resource Manager şablonlarını kullanarak HDInsight içinde Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Bilgi edinmek için nasıl [Azure Resource Manager şablonlarını kullanarak HDInsight içinde Linux tabanlı Apache Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Bilgi edinmek için nasıl [HDInsight içinde boş bir kenar düğümünü kullanın](hdinsight-apps-use-edge-node.md) HDInsight kümeleri erişmek için HDInsight uygulamalarını test etmek ve HDInsight uygulamalarını barındırmak.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241625"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495152"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -32,7 +32,7 @@ Bu makalede bulunan yönergeleri takip etmek için ihtiyacınız vardır:
 ### <a name="resource-manager-templates"></a>Resource Manager şablonları
 Resource Manager şablonu tek ve eşgüdümlü bir işlemle uygulamanız için aşağıdaki resoruces oluşturmak daha kolay hale getirir:
 * HDInsight kümeleri ve bağımlı kaynaklarını (örneğin, varsayılan depolama hesabı)
-* Diğer kaynakları (örneğin, Apache Sqoop'u kullanma amacıyla Azure SQL veritabanı)
+* Diğer kaynakları (kullanmak için Azure SQL veritabanı gibi [Apache Sqoop](http://sqoop.apache.org/))
 
 Şablonda, uygulama için gereken kaynakları tanımlayın. Ayrıca farklı ortamlar için değer girmek için dağıtım parametreleri belirtirsiniz. Şablonda, JSON ve dağıtımınız için değerleri oluşturmak için kullandığınız ifadeler bulunur.
 

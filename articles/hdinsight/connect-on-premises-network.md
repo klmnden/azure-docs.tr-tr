@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016939"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496113"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight’ı şirket içi ağınıza bağlama
 
@@ -321,12 +321,12 @@ HDInsight için sanal ağ üzerinden doğrudan bağlanmak için aşağıdaki ad�
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Bir hizmeti üzerinde kullanılabilir bağlantı noktasını belirlemek için bkz: [HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](./hdinsight-hadoop-port-settings-for-services.md) belge.
+2. Bir hizmeti üzerinde kullanılabilir bağlantı noktasını belirlemek için bkz: [HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](./hdinsight-hadoop-port-settings-for-services.md) belge.
 
     > [!IMPORTANT]
     > Baş düğümler üzerinde barındırılan bazı hizmetler aynı anda yalnızca bir düğümde etkin olan. Bir baş düğüm üzerinde bir hizmete erişim deneyin ve yine başarısız olursanız diğer baş düğümüne geçin.
     >
-    > Örneğin, Ambari yalnızca aynı anda bir baş düğüm üzerinde etkin değil. Ambari bir baş düğüm üzerinde erişim deneyin ve bir 404 hatası döndürür, diğer baş düğüm üzerinde çalışıyor.
+    > Örneğin, Apache Ambari yalnızca aynı anda bir baş düğüm üzerinde etkin değil. Ambari bir baş düğüm üzerinde erişim deneyin ve bir 404 hatası döndürür, diğer baş düğüm üzerinde çalışıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

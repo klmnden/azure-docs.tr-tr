@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dbf73f5de91e4ec0f5133ba34c37dede0a37320b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: dc4e421808ab0f79070224edea4b75f527affaf0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163189"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426246"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
->Ne zaman kopyalayıp yapıştırarak bu URL'yi güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz hakkında bilgi edinin: `https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us/` içine, ![RSS simgesi](./media/whats-new/feed-icon-16x16.png) okuyucu akış.
+>Ne zaman kopyalayıp yapıştırarak bu URL'yi güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz hakkında bilgi edinin: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` içine, ![RSS simgesi](./media/whats-new/feed-icon-16x16.png) okuyucu akış.
 
 Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri güncel kalmak için bu makalede, ile hakkında bilgi sağlar:
 
@@ -148,7 +148,7 @@ Daha fazla bilgi için bu özelliğe erişmek için [Azure etkin verilerinizin b
 **Hizmet kategorisi:** uygulamalarım  
 **Ürün özelliği:** SSO
 
-My Apps erişim panelinde kullanılabilen yeni dağıtım planını göz atın (http://aka.ms/deploymentplans).
+My Apps erişim panelinde kullanılabilen yeni dağıtım planını göz atın (https://aka.ms/deploymentplans).
 My Apps erişim panelinde bulmak ve uygulamalarını erişmek için tek bir yerde kullanıcılara sağlar. Bu portal, uygulamaları ve gruplara erişim isteği veya diğerleri adına bu kaynaklara erişimi yönetme gibi fırsatlar Self Servis kullanıcılarla da sağlar.
 
 Daha fazla bilgi için [uygulamalarım portalı nedir?](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)

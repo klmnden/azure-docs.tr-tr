@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248580"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497116"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R Araçları’ndan iş gönderme
 
@@ -64,7 +64,7 @@ Araçlar sunarak RTVS R akışınızı geliştirir [R etkileşimli penceresi](ht
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>ML Hizmetleri HDInsight kümesine işlerini gönderme
 
-PuTTY ile donatılmış bir Windows bilgisayarında Microsoft ML Server/Microsoft R Client'ı kullanarak dağıtılmış çalıştıracak bir işlem bağlamı oluşturabilirsiniz `RevoScaleR` HDInsight kümenize yerel istemcinizden işlevleri. Kullanım `RxSpark` , kullanıcı adı, Hadoop küme kenar düğümüne, SSH anahtarları ve benzeri belirterek, bir işlem bağlamı oluşturma.
+PuTTY ile donatılmış bir Windows bilgisayarında Microsoft ML Server/Microsoft R Client'ı kullanarak dağıtılmış çalıştıracak bir işlem bağlamı oluşturabilirsiniz `RevoScaleR` HDInsight kümenize yerel istemcinizden işlevleri. Kullanım `RxSpark` , kullanıcı adı, Apache Hadoop küme kenar düğümüne, SSH anahtarları ve benzeri belirterek, bir işlem bağlamı oluşturma.
 
 1. Kenar düğümün konak adı bulmak için Azure HDInsight ML Hizmetleri kümesi bölmesinde açın ve sonra seçin **güvenli Kabuk (SSH)** genel bakış bölmesinin üst menüsünde.
 
@@ -132,7 +132,7 @@ PuTTY ile donatılmış bir Windows bilgisayarında Microsoft ML Server/Microsof
 
         ![Kopyalanan dosya](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. İşiniz bittiğinde geçerli Spark bağlamını kullanarak sonra durdurmanız gerekir. Birden fazla bağlamı aynı anda çalıştıramazsınız.
+6. Geçerli bir Apache Spark bağlamını kullanarak tamamladıktan sonra durdurmanız gerekir. Birden fazla bağlamı aynı anda çalıştıramazsınız.
 
     ```R
     rxStopEngine(mySparkCluster)

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
-ms.translationtype: HT
+ms.openlocfilehash: 6720294fe9a3e166d0d6ef8f141e53212ef4b194
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465869"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496794"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -73,7 +73,7 @@ Privileged Identity Management aşağıdaki senaryoları destekler:
 
 - Bekleyen onayları (istekler) görüntülemek
 - Rol yükseltme (tek ve/veya toplu) isteklerini onaylamak veya reddetmek
-- Onay/red için gerekçe sağlamak 
+- Onay/red için gerekçe sağlamak 
 
 **Uygun rollü kullanıcı olarak şunları yapabilirsiniz:**
 
@@ -81,22 +81,13 @@ Privileged Identity Management aşağıdaki senaryoları destekler:
 - Etkinleştirme isteğinizin durumunu görüntülemek
 - İstek onaylanmışsa Azure AD'deki görevinizi tamamlamak
 
-## <a name="enable-privileged-identity-management-for-your-directory"></a>Dizininiz için Privileged Identity Management'ı etkinleştirme
+## <a name="who-can-do-what-in-pim"></a>PIM'de kimlerin ne yapabilirsiniz
 
-Azure AD Privileged Identity Management'ı [Azure portal](https://portal.azure.com/)'da kullanmaya başlayabilirsiniz.
+PIM'i kullanmak ilk kişi siz, otomatik olarak size atanır [Güvenlik Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) ve [ayrıcalıklı Rol Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) dizindeki roller.
 
-> [!NOTE]
-> Bir dizin için Azure AD Privileged Identity Management'ı etkinleştirme amacıyla Microsoft hesabı (örneğin, @outlook.com) değil kurumsal hesap (örneğin, @yourdomain.com) kullanan bir genel yönetici olmanız gerekir.
+Azure AD rolleri için PIM diğer yöneticiler için atamaları yalnızca ayrıcalıklı Rol Yöneticisi rolünde olduğu bir kullanıcı yönetebilirsiniz. Yapabilecekleriniz [PIM yönetmek için diğer yöneticilere erişim](pim-how-to-give-access-to-pim.md). Genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları PIM'de Azure AD rol atamalarını görüntüleyebilirsiniz.
 
-1. [Azure portalında](https://portal.azure.com/) dizininizin genel yöneticisi olarak oturum açın.
-2. Kuruluşunuz birden fazla dizine sahipse Azure portalının sağ üst köşesinde kullanıcı adınızı seçin. Azure AD Privileged Identity Management'ı kullanacağınız dizini seçin.
-3. **Tüm hizmetler** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
-4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
-
-Dizininizde Azure AD Privileged Identity Management'ı ilk kez siz kullanıyorsanız, Azure AD dizin rollerine gittiğinizde bir [güvenlik sihirbazı](pim-security-wizard.md) ilk atama deneyiminizde size yol gösterir. Bunun ardından, otomatik olarak dizinin ilk **Güvenlik yöneticisi** ve **Ayrıcalıklı rol yöneticisi** olursunuz.
-
-Azure AD rolleri için yalnızca Ayrıcalıklı Rol Yöneticisi rolüne sahip olan kullanıcı, Azure AD PIM'deki diğer yöneticilerin atamalarını yönetebilir. [Başka kullanıcılara PIM'deki dizin rollerini yönetme izni verebilirsiniz](pim-how-to-give-access-to-pim.md). Genel Yöneticiler, Güvenlik Yöneticileri ve Güvenlik Okuyucuları, Azure AD PIM'de Azure AD rolü atamalarını görüntüleyebilir.
-Azure RBAC rolleri için yalnızca abonelik yöneticisi, kaynak sahibi veya kaynak kullanıcısı erişim yöneticisi Azure AD PIM'deki diğer yöneticilerin atamalarını yönetebilir.  Ayrıcalıklı Rol Yöneticileri, Güvenlik Yöneticileri veya Güvenlik Okuyucuları varsayılan olarak Azure AD PIM'deki Azure RBAC rolü atamalarını görüntüleme erişime sahip değildir.
+Azure kaynak rolleri, yalnızca bir abonelik Yöneticisi için bir kaynak sahibi veya bir kaynak kullanıcı erişimi Yöneticisi diğer yöneticiler PIM atamalarını yönetebilir. Kullanıcılar ayrıcalıklı rol yöneticileri, güvenlik yöneticileri ve güvenlik okuyucuları varsayılan olarak Azure kaynak rolleri için atamalar PIM içinde görüntülemek için erişim izniniz.
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management'a Genel Bakış (Giriş Noktası)
 
@@ -186,6 +177,6 @@ Kuruluşunuz Azure AD Premium P2 aboneliğini yenilemez veya deneme sürümünü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- [PIM kullanmaya başlama](pim-getting-started.md)
 - [PIM kullanmak için abonelik gereksinimleri](subscription-requirements.md)
-- [PIM'de yönetebileceğiniz Azure AD dizin rolleri](pim-roles.md)
 - [Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

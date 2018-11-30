@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870188"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444401"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Azure Cloud shell'den LUIS hizmeti için kullanım verileri
 Azure portalında LUIS kaynak ile çalışmak için PowerShell cmdlet'leri kullanmanıza olanak tanır. 
@@ -32,7 +32,7 @@ Bir depolama hesabınız var ve doğrulandıktan sonra PowerShell cmdlet'lerini 
 ## <a name="open-cloud-shell"></a>Cloud Shell’i açma
 Azure portalında cloud shell kullandığınızda, her zaman en son PowerShell sürümüne olur. 
 
-Kullanım **Cloud Shell'i Başlat** Cloud Shell'i açın veya bir tarayıcı ile açmak için düğmeyi [ https://shell.azure.com ](https://shell.azure.com). 
+Kullanım **Cloud Shell'i Başlat** Cloud Shell'i açın veya bir tarayıcı ile açmak için düğmeyi [ https://shell.azure.com ](https://shell.azure.com). Power Shell ortamı seçin. Bir Azure depolama hesabınız yoksa, oluşturmanız gerekir. 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247288"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426919"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Öğretici: parola karması eşitleme (PHS) kullanarak tek bir AD ormanında tümleştirin
 
@@ -224,7 +224,7 @@ Artık, şirket içi dizininde vardı kullanıcıları eşitlenmiştir ve artık
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Kullanıcılarımızın biriyle oturum açma testi
 
-1.  Göz atın [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Göz atın [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Sunduğumuz yeni kiracıda oluşturduğunuz kullanıcı hesabı ile oturum.  Aşağıdaki biçimi kullanarak oturum açmanız gerekir: (user@domain.onmicrosoft.com). Kullanıcının oturum açmak için kullandığı aynı parolayı kullanan şirket içi.</br>
 ![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)</br>
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035314"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497106"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme
 
-HDInsight üzerinde Apache Hive kitaplıklarını önceden yükleme hakkında bilgi edinin. Bu belge, betik eylemi kullanarak küme oluşturma sırasında kitaplıklarını önceden yükleme hakkında bilgi içerir. Bu belgedeki adımları kullanarak eklenen kitaplıkları vardır ve küresel olarak kullanılabilir kovanında - kullanmaya gerek yoktur [ekleme JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) bunları yüklenemedi.
+Önceden yükleme öğrenin [Apache Hive](https://hive.apache.org/) HDInsight üzerinde kitaplıkları. Bu belge, betik eylemi kullanarak küme oluşturma sırasında kitaplıklarını önceden yükleme hakkında bilgi içerir. Bu belgedeki adımları kullanarak eklenen kitaplıkları vardır ve küresel olarak kullanılabilir kovanında - kullanmaya gerek yoktur [ekleme JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) bunları yüklenemedi.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
@@ -93,4 +93,4 @@ Küme oluşturma işlemi tamamlandıktan sonra bu betik ile kullanmak zorunda ka
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hive ile çalışma hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
+Hive ile çalışma hakkında daha fazla bilgi için bkz. [Apache Hive ile HDInsight kullanma](hadoop/hdinsight-use-hive.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure API Management örneği için bir özel etki alanı adı yapılandırma | Microsoft Docs
-description: Bu konuda, Azure API Management örneği için bir özel etki alanı adı yapılandırma açıklanmaktadır.
+title: Azure API Management örneğinizin için bir özel etki alanı adı yapılandırma | Microsoft Docs
+description: Bu konuda bir özel etki alanı adını Azure API Management örneğinizin açıklar.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,58 +11,60 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29345379"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446390"
 ---
 # <a name="configure-a-custom-domain-name"></a>Özel bir etki alanı adı yapılandırma 
 
-Azure API Management (APIM) örneği oluşturduğunuzda, bir alt etki alanı adını azure api.net için atar (örneğin, `apim-service-name.azure-api.net`). Ancak, kendi etki alanı adı gibi kullanarak APIM noktalarınızı getirebilir **contoso.com**. Bu öğretici bir Azure API Management örneği tarafından kullanıma sunulan uç noktaları var olan bir özel DNS adını eşleştirmek nasıl gösterir.
+Azure API Management (APIM) örneğini oluşturduğunuz zaman, azure-api.net alt etki alanı için atar (örneğin, `apim-service-name.azure-api.net`). Ancak, kendi etki alanı adı gibi kullanarak APIM uç noktalarınızı getirebilir **contoso.com**. Bu öğreticide, Azure API Management örneği tarafından kullanıma sunulan uç noktaları için var olan özel bir DNS adı eşlemeyle ilgili bilgi gösterir.
 
 > [!WARNING]
-> Sertifika sabitleme uygulamalarını güvenliğini artırmak için kullanmak istediğiniz müşteriler, özel etki alanı adı kullanmalıdır > ve yönetmek, varsayılan sertifika sertifikası. Varsayılan Sertifika sabitleme müşteriler yerine olacaktır > sıkı bir bağımlılık bunlar yok denetlemek, sertifika özelliklerini, önerilen bir uygulama değil sürüyor.
+> Uygulamalarının güvenliğini artırmak için sertifika sabitleme kullanmak isteyen müşteriler, özel etki alanı adı kullanmalıdır > ve yönettikleri sertifika varsayılan sertifika değil. Varsayılan Sertifika sabitleme müşterilerin bunun yerine olacaktır > önerilen uygulama değil, yoksa denetlemek, sertifikanın özelliklerini üzerinde sabit bir bağımlılık alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmalısınız:
+Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerekir:
 
 + Etkin bir Azure aboneliği.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ APIM örneği. Daha fazla bilgi için bkz: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Size ait bir özel etki alanı adı. Kullanmak istediğiniz özel etki alanı adını ayrı ayrı temin ve bir DNS sunucusunda barındırılan. Bu konu, ana bilgisayar bir özel etki alanı adı nasıl yönergeler sağlamaz.
-+ Bir ortak ve özel anahtarı olan geçerli bir sertifikası olması gerekir (. PFX). Konu veya konu alternatif adı (SAN) (Bu URL'leri SSL üzerinden güvenli bir şekilde kullanıma sunmak APIM sağlar) etki alanı adı ile eşleşmesi gerekir.
++ APIM örneği. Daha fazla bilgi için [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Size ait bir özel etki alanı adı. Kullanmak istediğiniz özel etki alanı adı ayrı olarak temin ve bir DNS sunucusunda barındırılan gerekir. Bu konuda bir özel etki alanı adı barındırmak nasıl yönergeler sağlamaz.
++ Genel ve özel bir anahtara sahip geçerli bir sertifikası olması gerekir (. PFX). Konu veya konu alternatif adı (SAN) (Bu URL'leri SSL üzerinden güvenli bir şekilde kullanıma sunmak APIM sağlar) etki alanı adı ile eşleşmesi gerekir.
 
-## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Özel etki alanı adı ayarlamak için Azure portalını kullanın
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-1. APIM örneğinizi gidin [Azure portal](https://portal.azure.com/).
+## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Özel etki alanı adı ayarlamak için Azure portalını kullanma
+
+1. APIM Örneğinize gidin [Azure portalında](https://portal.azure.com/).
 2. Seçin **özel etki alanları ve SSL**.
     
-    Özel etki alanı atayabilirsiniz uç noktalarının sayısını yoktur. Şu anda şu uç noktalar bulunmaktadır: 
+    Uç noktaları için özel etki alanı atayabilirsiniz sayısı yoktur. Şu anda aşağıdaki uç noktaların bulunmaktadır: 
     + **Proxy** (varsayılan: `<apim-service-name>.azure-api.net`), 
     + **Portal** (varsayılan: `<apim-service-name>.portal.azure-api.net`),     
     + **Yönetim** (varsayılan: `<apim-service-name>.management.azure-api.net`), 
     + **SCM** (varsayılan: `<apim-service-name>.scm.azure-api.net`).
 
     >[!NOTE]
-    > Uç noktaları tümünün veya bazılarının güncelleştirebilirsiniz. Genellikle, müşteriler güncelleştirme **Proxy** (Bu URL'yi API Yönetimi kullanıma sunulan API'sini çağırmak için kullanılır) ve **Portal** (Geliştirici Portalı URL). **Yönetim** ve **SCM** uç noktaları APIM müşteriler tarafından dahili olarak kullanılır ve bu nedenle bir özel etki alanı adı daha az sıklıkta atanır.
+    > Tüm uç noktalar veya bunlardan bazıları güncelleştirebilirsiniz. Yaygın olarak, müşteriler güncelleştirme **Proxy** (Bu URL'yi API Management aracılığıyla kullanıma sunulan API çağırmak için kullanılır) ve **portalı** (Geliştirici Portalı URL'si). **Yönetim** ve **SCM** uç noktaları APIM müşteriler tarafından dahili olarak kullanılır ve bu nedenle daha az sıklıkta özel etki alanı atanır.
 3. Güncelleştirmek istediğiniz uç nokta seçin. 
-4. Sağdaki penceresinde **özel**.
+4. Sağdaki pencerede **özel**.
 
-    + İçinde **özel etki alanı adı**, kullanmak istediğiniz adı belirtin. Örneğin, `api.contoso.com`. <br/>Joker karakter etki alanı adları (örneğin, *. alanı.com) de desteklenir.
-    + İçinde **sertifika**, geçerli bir belirtin. Karşıya yüklemek istediğiniz PFX dosyası. 
+    + İçinde **özel etki alanı adı**, kullanmak istediğiniz adı belirtin. Örneğin, `api.contoso.com`. <br/>Joker karakter etki alanı adlarını (örneğin, *. etkialanı.com) da desteklenir.
+    + İçinde **sertifika**, geçerli bir belirtin. Karşıya yüklemek istediğiniz bir PFX dosyası. 
     + Sertifika bir parolası varsa, bu alana giriş **parola** alan.
-1. Uygula'yı tıklatın.
+1. Uygula düğmesini tıklatın.
 
     >[!NOTE]
-    >Sertifika atama işleminin 15 dakika veya dağıtım boyutuna bağlı olarak daha fazla sürebilir. Geliştirici SKU kapalı kalma süresi varsa, temel ve daha yüksek SKU's kapalı kalma süresi gerekmez.
+    >Sertifika atama işleminin 15 dakika veya daha fazla dağıtım boyutuna bağlı olarak alabilir. Geliştirici SKU kapalı kalma süresi varsa, temel ve daha yüksek SKU kapalı kalma süresi yoktur.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Yükseltme ve hizmetinizi ölçeklendirme](upgrade-and-scale.md)
+[Yükseltme ve hizmetinizi ölçeklendirin](upgrade-and-scale.md)

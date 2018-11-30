@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 233296a825653938da158fc70952c7fe7931498c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a2c66894270a537239c5328eff0acdc4b8339994
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261834"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443551"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB ile Async Java için performans ipuçları
 
@@ -53,7 +53,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
 4. **Bölümlenmiş koleksiyonlar için paralel sorgular ayarlama**
 
-    Azure Cosmos DB SQL Async Java SDK'sını destekleyen paralel bölümlenmiş koleksiyonu sorgulamak etkinleştirdiğiniz paralel sorgular (bkz [SDK'ları ile çalışma](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili [kod örnekleri](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) daha fazla bilgi için). Paralel sorgular seri kendi karşılığı sorgunun gecikme süresi ve aktarım hızı artırmak için tasarlanmıştır.
+    Azure Cosmos DB SQL Async Java SDK bölünmüş bir koleksiyona paralel sorgu sağlayan paralel sorguları destekler. Daha fazla bilgi için [kod örnekleri](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) SDK'ları ile çalışmayla ilgili. Paralel sorgular seri kendi karşılığı sorgunun gecikme süresi ve aktarım hızı artırmak için tasarlanmıştır.
 
     (a) ***setMaxDegreeOfParallelism ayarlama\:***  paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, verileri ayrı bölünmüş bir koleksiyona göre sorgu seri olarak getirilir. Bu nedenle, diğer tüm sistem koşulları sağlanan en yüksek performanslı sorgu başarmaya maksimum olasılığını olan bölüm sayısı ayarlanacak kullanım setMaxDegreeOfParallelism aynı kalır. Bölüm sayısı bilmiyorsanız, setMaxDegreeOfParallelism yüksek bir sayı ayarlamak için kullanabileceğiniz ve sistem (bölüm, kullanıcı tarafından sağlanan giriş sayısı) en düşük maksimum paralellik derecesi seçer. 
 

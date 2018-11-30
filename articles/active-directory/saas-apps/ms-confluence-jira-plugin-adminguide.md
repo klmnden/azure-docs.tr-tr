@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 49516523abdd927c3ae60235fcd74473689c6856
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019871"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426885"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory için Atlassian Jıra ve Confluence Yönetici Kılavuzu
 
@@ -67,9 +67,23 @@ Eklenti yüklemeden önce aşağıdaki bilgileri unutmayın:
 
 Eklenti Jıra ve Confluence aşağıdaki sürümleri destekler:
 
-* Jıra çekirdek ve yazılım: 6.0 için 7.8
-* Jıra hizmet Masası: 3.0 3.2
+* Jıra çekirdek ve yazılım: 6.0 için 7.12
+* Jıra hizmet Masası: 3.0.0 3.5.0
+* JIRA 5.2 da destekler. Daha fazla bilgi için tıklayın [Microsoft Azure Active Directory çoklu oturum açma için JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: 5.0 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ## <a name="installation"></a>Yükleme
 
@@ -79,7 +93,7 @@ Eklentiyi yüklemek için aşağıdaki adımları izleyin:
 
 2. Jıra/Confluence yönetim konsoluna giderek seçin **eklentileri**.
 
-3. Atlassian Market'ten arama **Microsoft SAML SSO eklentisi**.
+3. İndirmek için Microsoft Download Center'dan gelen [Jıra için Microsoft SAML SSO eklentisi](https://www.microsoft.com/download/details.aspx?id=56506)/ [Confluence için Microsoft SAML SSO eklentisi](https://www.microsoft.com/download/details.aspx?id=56503).
 
    Eklenti'nün uygun sürümüne arama sonuçlarında görünür.
 
@@ -171,9 +185,23 @@ Hayır. Eklenti destekler yalnızca şirket içi Jıra ve Confluence sürümleri
 
 Eklenti aşağıdaki sürümlerini destekler:
 
-* Jıra çekirdek ve yazılım: 6.0 için 7.8
-* Jıra hizmet Masası: 3.0 3.2
+* Jıra çekirdek ve yazılım: 6.0 için 7.12
+* Jıra hizmet Masası: 3.0.0 3.5.0
+* JIRA 5.2 da destekler. Daha fazla bilgi için tıklayın [Microsoft Azure Active Directory çoklu oturum açma için JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: 5.0 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>Eklenti olan ücretsiz veya Ücretli?
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094982"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427582"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
@@ -60,7 +60,7 @@ Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [fiyatl
 **Komutları**
 
 
-|Araç|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ public-ip ön eki oluşturma](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[Yeni AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
@@ -89,9 +89,9 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 
 **Komutları**
 
-|Araç|Komut|
+|Aracı|Komut|
 |---|---|
-|CLI|[az ağ public-ip ön ek listesini](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) listesi genel IP adreslerine [az ağ public-ip önek show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) ayarları; göstermek için [az ağ public-ip önek güncelleştirme](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) güncelleştirmek için; [az ağ public-ip ön eki Sil](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) silmek için|
+|CLI|[az ağ public-ip ön ek listesini](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) listesi genel IP adreslerine [az ağ public-ip önek show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) ayarları; göstermek için [az ağ public-ip önek güncelleştirme](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) güncelleştirmek için; [az ağ public-ip ön eki Sil](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) silmek için|
 |PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) genel bir IP adresi nesnesi almak ve ilişkili ayarları görüntülemek için [kümesi AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) ; ayarlarını güncelleştirmek için [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) silmek için|
 
 ## <a name="permissions"></a>İzinler

@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 066734c88890d5f1a6e42c5350db47d1a398b60a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f6393d15572eadb376cbd88dc94c3de0fd8fa80b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277588"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495576"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight, Apache Hadoop mimarisi
 
-Apache Hadoop, iki temel bileşenleri içerir: Hadoop dağıtılmış dosya sistemi (depolama sağlayan HDFS) ve henüz başka bir Resource Negotiator (işleme sağlayan YARN). Bir küme, depolama ve işleme özellikleri sayesinde, gerçekleştirmek istediğiniz veri işleme için MapReduce programlarını çalıştırabilen olur.
+[Apache Hadoop](https://hadoop.apache.org/) iki çekirdek bileşenleri içerir: [Apache Hadoop dağıtılmış dosya sistemi (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) depolama sağlayan ve [Apache Hadoop henüz başka bir Resource Negotiator (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) , işleme sağlar. Depolama ve işleme özellikleri ile bir küme çalıştırılması yeteneği olur [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) istenen veri işleme gerçekleştirmek için programlar.
 
 > [!NOTE]
 > Bir HDFS genellikle depolama sağlamak için HDInsight küme içinde dağıtılmaz. Bunun yerine, HDFS uyumlu bir arabirim katmanına Hadoop bileşenleri tarafından kullanılır. Gerçek depolama özelliği, Azure depolama veya Azure Data Lake Store tarafından sağlanır. Hadoop, HDInsight kümesinde yürütme MapReduce işleri bir HDFS mevcut değilmiş gibi çalıştırın ve depolama gereksinimlerini desteklemek için herhangi bir değişiklik zorunlu. HDInsight üzerinde Hadoop, depolama dış kaynaklı, ancak temel bir bileşenidir YARN işleme kalır. Daha fazla bilgi için [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md).
 
 Bu makalede, YARN ve yürütme HDInsight uygulamalarının nasıl koordine eden tanıtır.
 
-## <a name="apache-yarn-basics"></a>Apache YARN temelleri 
+## <a name="apache-hadoop-yarn-basics"></a>Apache Hadoop YARN temelleri 
 
 YARN Hadoop veri işlemeye düzenler ve yönetir. YARN kümedeki düğümlere Çalıştır iki Çekirdek Hizmetleri sahiptir: 
 
@@ -50,5 +50,5 @@ Tüm HDInsight küme türleri YARN dağıtın. Küme içindeki ilk ve ikinci ba�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 * [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md)

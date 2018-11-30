@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159597"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426953"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Anahtar Kasası Günlüğü
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -265,7 +265,7 @@ Aşağıdaki tabloda operationName ve karşılık gelen REST API'si komutu liste
 
 ## <a id="loganalytics"></a>Log Analytics'i kullanma
 
-Azure Key Vault AuditEvent günlüklerini incelemek için Log Analytics içindeki Azure Key Vault çözümünü kullanabilirsiniz. Kurulum adımları ve daha fazla bilgi için bkz. [Log Analytics'te Azure Key Vault çözümü](../log-analytics/log-analytics-azure-key-vault.md). Bu makalede ayrıca Log Analytics önizlemesinde sunulan ve günlüklerinizi önce bir Azure Depolama hesabına yönlendirip Log Analytics'i bu konumdan okuyacak şekilde yapılandırdığınız eski Key Vault çözümünden geçiş yapmak için kullanabileceğiniz talimatlara da yer verilmektedir.
+Azure Key Vault AuditEvent günlüklerini incelemek için Log Analytics içindeki Azure Key Vault çözümünü kullanabilirsiniz. Kurulum adımları ve daha fazla bilgi için bkz. [Log Analytics'te Azure Key Vault çözümü](../azure-monitor/insights/azure-key-vault.md). Bu makalede ayrıca Log Analytics önizlemesinde sunulan ve günlüklerinizi önce bir Azure Depolama hesabına yönlendirip Log Analytics'i bu konumdan okuyacak şekilde yapılandırdığınız eski Key Vault çözümünden geçiş yapmak için kullanabileceğiniz talimatlara da yer verilmektedir.
 
 ## <a id="next"></a>Sonraki adımlar
 Azure Anahtar Kasası'nın bir web uygulamasında kullanıldığı bir öğretici için bkz. [Azure Anahtar Kasası'nı bir Web Uygulamasından Kullanma](key-vault-use-from-web-application.md).

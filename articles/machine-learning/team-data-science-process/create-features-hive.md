@@ -2,25 +2,21 @@
 title: Hive sorgularını kullanarak bir Hadoop kümesindeki verilerin özelliklerini oluşturma | Microsoft Docs
 description: Bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma Hive sorgularının örnekleri.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 97283b75b24cbdaf40e7dffd05d9826ce7e88af4
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: f63e1aeaca6e19eacb10ed7dc68d311234a31666
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344918"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444555"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Bir Hadoop kümesinde Hive sorgularını kullanarak verilerin özelliklerini oluşturma
 Bu belge, Hive sorgularını kullanarak bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma işlemi gösterilmektedir. Bu Hive sorguları katıştırılmış Hive User-Defined betikleri, sağlanan işlevler (UDF'ler) kullanın.
@@ -29,7 +25,7 @@ Bu belge, Hive sorgularını kullanarak bir Azure HDInsight Hadoop kümesinde de
 
 Sunulan sorgularının örnekleri için belirli [NYC taksi seyahat verilerini](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şemasına sahip ve çalıştırmak için gönderilmeye hazır. Son bölümde, kullanıcılar ayarlayabilirsiniz ve böylelikle Hive sorgu performansı artırılabilir parametreleri de ele alınmıştır.
 
-Bu görev bir adımdır [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Bu görev bir adımdır [Team Data Science işlem (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, olduğunu varsayar:

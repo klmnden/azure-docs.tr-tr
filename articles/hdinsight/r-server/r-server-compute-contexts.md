@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: e132ceb857b05f24664c93729dd43d75b5a19ac2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015069"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494461"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>İçin işlem bağlamı seçenekleri ML hizmetleri üzerinde HDInsight
 
 ML Hizmetleri Azure HDInsight üzerinde işlem bağlamını ayarlayarak çağrıları nasıl yürütülür denetler. Bu makalede görüntülenip görüntülenmeyeceğini ve nasıl yürütme kenar düğümüne veya HDInsight kümesi Çekirdekte paralelleştirildi belirtmek için kullanılabilir seçenekleri açıklar.
 
-Bir küme kenar düğümüne kümeye bağlanın ve, R betikleri çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile çalıştırmanın RevoScaleR uç düğümü sunucusunun çekirdek üzerinde paralel dağıtılmış işlevleri seçeneğiniz vardır. Ayrıca bunları tüm küme düğümlerine RevoScaleR'ın Hadoop Map Reduce kullanarak çalıştırabilirsiniz veya Spark işlem bağlamlarının.
+Bir küme kenar düğümüne kümeye bağlanın ve, R betikleri çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile çalıştırmanın RevoScaleR uç düğümü sunucusunun çekirdek üzerinde paralel dağıtılmış işlevleri seçeneğiniz vardır. Ayrıca bunları tüm küme düğümlerine RevoScaleR'ın Hadoop Map Reduce kullanarak çalıştırabilirsiniz veya Apache Spark işlem bağlamlarının.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>Azure HDInsight üzerinde ML Hizmetleri
-[Azure HDInsight üzerinde ML Hizmetleri](r-server-overview.md) R tabanlı analiz için en son özellikleri sağlar. Bir HDFS kapsayıcısında depolanan veriler kullanabilirsiniz, [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Depolama") depolama hesabı, bir Data Lake store veya yerel Linux dosya sistemi. ML Hizmetleri açık kaynak R kurulu olduğundan, oluşturduğunuz R tabanlı uygulama 8000 + açık kaynak R paketlerinin hiçbirini uygulayabilirsiniz. ' Ndaki yordamlara de kullanabilirsiniz [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), ML Hizmetleri ile birlikte Microsoft'un büyük veri analizi paketi.  
+[Azure HDInsight üzerinde ML Hizmetleri](r-server-overview.md) R tabanlı analiz için en son özellikleri sağlar. Bir Apache Hadoop HDFS kapsayıcısında depolanan veriler kullanabilirsiniz, [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Depolama") depolama hesabı, bir Data Lake store veya yerel Linux dosya sistemi. ML Hizmetleri açık kaynak R kurulu olduğundan, oluşturduğunuz R tabanlı uygulama 8000 + açık kaynak R paketlerinin hiçbirini uygulayabilirsiniz. ' Ndaki yordamlara de kullanabilirsiniz [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), ML Hizmetleri ile birlikte Microsoft'un büyük veri analizi paketi.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>İşlem bağlamları bir kenar düğümü için
 Genel olarak, kenar düğümüne ML Hizmetleri kümede çalıştırılan R betiği İnterpret R içinde bu düğüm üzerinde çalışır. Özel durumlar RevoScaleR işlevi çağıran bu adımlardır. RevoScaleR çağrıları RevoScaleR işlem bağlamına nasıl ayarlanacağını belirlenen işlem ortamında çalıştırın.  Bir edge düğümünü R betiğinizi çalıştırdığınızda, işlem bağlam olası değerler şunlardır:
@@ -52,7 +52,7 @@ Paralel yürütme sağlayan üç seçenekleri, seçtiğiniz analytics iş, boyut
 - Yinelenen analizleri verileri yerel olup olmadığını ve içinde XDF ise daha hızlıdır.
 - Az miktarda bir metin veri kaynağından veri akışını daha iyidir. Veri miktarı büyükse, XDF için önce analiz dönüştürün.
 - Kopyalama veya akış verileri analiz için kenar düğümüne ek yükü çok büyük miktarlardaki verilere yönelik yönetilemeyen haline gelir.
-- Spark Map Reduce Hadoop analizi için daha hızlıdır.
+- ApacheSpark Map Reduce Hadoop analizi için daha hızlıdır.
 
 Aşağıdaki bölümlerde, bu ilkeleri göz önünde bulundurulduğunda, bazı genel kuralları bir işlem bağlamı seçme karşısında sunar.
 
@@ -60,10 +60,10 @@ Aşağıdaki bölümlerde, bu ilkeleri göz önünde bulundurulduğunda, bazı g
 * Analiz etmek için veri miktarı, küçük ve yinelenen analiz gerektirmez, ardından, doğrudan çözümleme yordamı kullanarak akış *yerel* veya *localpar*.
 * Analiz etmek için veri miktarını küçük veya orta ölçekli ve yinelenen bir analiz gerekiyorsa, ardından yerel dosya sistemine kopyalar, XDF için alma ve aracılığıyla analiz *yerel* veya *localpar*.
 
-### <a name="hadoop-spark"></a>Hadoop Spark
+### <a name="apache-spark"></a>Apache Spark
 * Analiz etmek için veri miktarı büyükse, ardından bunu kullanarak bir Spark DataFrame içeri **RxHiveData** veya **RxParquetData**, veya hdfs'deki XDF (depolama bir sorun olmadığı sürece) ve Spark işlem kullanarak analiz edin bağlamı.
 
-### <a name="hadoop-map-reduce"></a>Hadoop harita azaltın
+### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop harita azaltın
 * Genelde daha yavaş olduğundan yalnızca bir Spark işlem bağlamına insurmountable sorun karşılaşırsanız, Map Reduce işlem bağlamını kullanın.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Satır içi Yardım rxSetComputeContext
@@ -76,7 +76,7 @@ Ayrıca başvurabilirsiniz [dağıtılmış bilgi işleme genel bakış](https:/
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede ve bunun nasıl yapılacağını yürütme kenar düğümüne veya HDInsight kümesi Çekirdekte paralelleştirildi belirtmek için kullanılabilir seçenekleri hakkında bilgi edindiniz. ML Hizmetleri, HDInsight kümeleri ile kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-* [Hadoop için ML hizmetleri genel bakış](r-server-overview.md)
-* [Hadoop için ML hizmetleri kullanmaya başlayın](r-server-get-started.md)
+* [Apache Hadoop için ML hizmetleri genel bakış](r-server-overview.md)
+* [Apache Hadoop için ML hizmetleri kullanmaya başlayın](r-server-get-started.md)
 * [HDInsight üzerinde ML Hizmetleri için Azure depolama seçenekleri](r-server-storage.md)
 

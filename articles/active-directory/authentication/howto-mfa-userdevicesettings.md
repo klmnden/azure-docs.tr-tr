@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2f73d9795ba807e5901568507ad2fae5b001c91a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161298"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496906"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure multi Factor Authentication ile kullanıcı ayarlarını yönetme
 
@@ -54,7 +54,7 @@ Bu ayar tüm bir kullanıcının oluşturduğu uygulama parolalarını siler. Bu
 10. Tıklayın **kapatmak**.
 
 ## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Mfa'yı bir kullanıcı için tüm hatırlanan cihazlarda geri yükle
-Azure multi-Factor Authentication'ın yapılandırılabilir özelliklerden biri, kullanıcılarınızın cihazları güvenilir olarak işaretlemek için seçeneği veriyor. Daha fazla bilgi için [Azure multi-Factor Authentication'ı yapılandırma ayarlarını](howto-mfa-mfasettings.md#remember-multi-factor-authentication-for-devices-that-users-trust).
+Azure multi-Factor Authentication'ın yapılandırılabilir özelliklerden biri, kullanıcılarınızın cihazları güvenilir olarak işaretlemek için seçeneği veriyor. Daha fazla bilgi için [Azure multi-Factor Authentication'ı yapılandırma ayarlarını](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
 
 Kullanıcılar normal cihazlarından gün yapılandırılabilir bir süre için iki aşamalı doğrulamayı dışında tercih edebilirsiniz. Bir hesap tehlikede ya da güvenilir bir cihaz kaybolursa, güvenilen durumunu kaldırın ve yeniden iki aşamalı kimlik doğrulaması gerekir.
 

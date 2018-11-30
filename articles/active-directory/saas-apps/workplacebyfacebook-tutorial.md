@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423880"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Öğretici: Azure Active Directory Tümleştirme ile Facebook ile çalışma
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi iş yeri tarafından Facebook ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Facebook çoklu oturum açma tarafından bir çalışma alanı aboneliği etkin
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Azure AD çalışma alanına Facebook ile tümleştirilmesi yapılandırmak içi
 
 **Galeriden Facebook ile çalışma alanına eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -140,7 +140,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    > [!NOTE] 
    > SAML kimlik doğrulaması işleminin bir parçası olarak, çalışma alanı, parametreleri Azure AD'ye geçirmek için sorgu dizeleri en fazla boyutu 2,5 kilobayt değerlendirebilir.
 
-1. İçinde **şirket Pano**Git **kimlik doğrulaması** sekmesi.
+1. İçinde **yönetim paneli**Git **güvenlik** sekmesini, ardından **kimlik doğrulaması**.
 
 1. Altında **SAML kimlik doğrulaması**seçin **yalnızca SSO** aşağı açılan listeden.
 

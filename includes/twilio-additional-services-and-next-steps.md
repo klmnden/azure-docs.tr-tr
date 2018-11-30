@@ -1,14 +1,27 @@
-## <a name="AdditionalServices"></a>Nasıl yapılır: ek Twilio Hizmetleri kullanın
-Burada gösterilen örnekler yanı sıra, Azure uygulamanız ek Twilio işlevinden yararlanmak için kullanabileceğiniz web tabanlı API'ler Twilio sunar. Ayrıntılar için bkz: [Twilio API belgelerine][twilio_api_documentation].
+---
+author: devinrader
+ms.service: multiple
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: MicrosoftHelp@twilio.com
+ms.openlocfilehash: 8acb75f1cac83595da88a4a5ffa33102136266f2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427890"
+---
+## <a name="AdditionalServices"></a>Nasıl yapılır: ek Twilio hizmetlerini kullanma
+Burada gösterilen örneklerden yanı sıra, Twilio, Azure uygulamanızı ek Twilio işlevinden yararlanmak için kullanabileceğiniz web tabanlı API'ler sunar. Tüm Ayrıntılar için bkz. [Twilio API'si belgeleri][twilio_api_documentation].
 
 ## <a name="NextSteps"></a>Sonraki adımlar
-Twilio hizmetinin öğrendiğinize göre daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin:
+Twilio hizmeti temel bilgileri öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin:
 
 * [Twilio güvenlik yönergeleri][twilio_security_guidelines]
 * [Twilio HowTos ve örnek kod][twilio_howtos]
 * [Twilio hızlı başlangıç öğreticileri][twilio_quickstarts] 
-* [Github'da Twilio][twilio_on_github]
-* [Twilio desteklemek için konuşun][twilio_support]
+* [Twilio github'da][twilio_on_github]
+* [Twilio desteği için konuşma][twilio_support]
 
 [twilio_api_documentation]: http://www.twilio.com/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security

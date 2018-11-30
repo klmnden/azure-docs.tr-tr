@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231541"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426263"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Talep tahmini enerji için Cortana Intelligence çözüm şablonu kitabı
 ## <a name="executive-summary"></a>Yönetici Özeti
@@ -122,7 +122,7 @@ Bu tablodan görüldüğü gibi kısa ve uzun vadede bunlar farklı iş ihtiyaç
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Örnek Kullanım örneği 1: eSmart sistemleri – aşırı yükleme en iyi duruma getirme
 Önemli bir rol, bir [akıllı şebeke](https://en.wikipedia.org/wiki/Smart_grid) dinamik ve sürekli olarak iyileştirin ve değişen tüketim düzenlerine için ayarlayın. Kısa vadeli değişikliklerden çoğunlukla sıcaklık dalgalanmalarına göre neden olduğu güç tüketimini etkilenebilir (*örn*, daha fazla güç hava durumu veya ısıtma kullanılır). Aynı zamanda, güç tüketiminde de uzun vadeli eğilimleri etkiler. Bunlar, mevsimsellik etkileri, Ulusal tatilleri, uzun vadeli tüketim büyüme ve tüketici dizini, Petrol fiyat ve gayrisafi yurt içi HASILA gibi daha ekonomik etkenler olabilir.
 
-Bu kullanım örneğindeki [eSmart](http://www.esmartsystems.com/) herhangi belirli alt istasyon üzerinde aşırı yükleme durumuna kılavuzunun eğilimini tahmin sağlayan bulut tabanlı bir çözümü dağıtmak için istiyordu. Özellikle, bir Acil eylem önlemenize veya bu sorunu çözmek için yapılması için sonraki bir saat içinde tekrar olasılığı şalt tanımlamak eSmart istiyordu.
+Bu kullanım örneğindeki [eSmart](https://www.esmartsystems.com/) herhangi belirli alt istasyon üzerinde aşırı yükleme durumuna kılavuzunun eğilimini tahmin sağlayan bulut tabanlı bir çözümü dağıtmak için istiyordu. Özellikle, bir Acil eylem önlemenize veya bu sorunu çözmek için yapılması için sonraki bir saat içinde tekrar olasılığı şalt tanımlamak eSmart istiyordu.
 
 Bir doğru ve hızlı tahmin gerçekleştirme üç Tahmine dayalı modelleri uygulama gerektirir:
 
@@ -365,7 +365,7 @@ Biz modelleme aşamayı nailed ve model performansını doğrulanmış sonra da�
 Enerji talebi tahmin bağlamında, bir yandan devamlı Periyodik tahminlerini yeni bir veri modeli için kullanılabilir olduğunu ve tahmini veri kaybı istemciye geri gönderilir sağlarken çağırmaktır.
 
 ### <a name="web-services-deployment"></a>Web Hizmetleri dağıtımı
-Ana dağıtılabilir yapı taşı Azure ML web hizmetidir. Bu, bulutta Tahmine dayalı bir model kullanımını etkinleştirmek için en etkili yoludur. Web hizmetini model kapsüller ve ile geldik bir [RESTful](http://www.restapitutorial.com/) API (uygulama programlama arabirimi). API, aşağıdaki diyagramda gösterildiği gibi istemci kodunun bir parçası olarak kullanılabilir.
+Ana dağıtılabilir yapı taşı Azure ML web hizmetidir. Bu, bulutta Tahmine dayalı bir model kullanımını etkinleştirmek için en etkili yoludur. Web hizmetini model kapsüller ve ile geldik bir [RESTful](https://www.restapitutorial.com/) API (uygulama programlama arabirimi). API, aşağıdaki diyagramda gösterildiği gibi istemci kodunun bir parçası olarak kullanılabilir.
 
 ![Hizmet dağıtımı ve tüketimi](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

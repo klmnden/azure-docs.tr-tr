@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145749"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446527"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
 * Dış
 * İç
 
-
 API yönetimi, dahili sanal ağ modunda dağıttığında, tüm hizmet uç noktaları (ağ geçidi, Geliştirici Portalı, Azure portalı, doğrudan yönetim ve Git) yalnızca erişimini denetleyen bir sanal ağ içinde görülebilir. Hizmet uç noktalarını hiçbiri genel DNS sunucusunda kayıtlı.
 
 API Management, iç modda kullanma, aşağıdaki senaryoları elde edebilirsiniz:
+
 * Siteden siteye veya Azure ExpressRoute VPN bağlantıları kullanarak özel veri merkezinizde güvenli bir şekilde erişmesini dışındaki üçüncü taraflarca barındırılan API'ler olun.
 * Karma bulut senaryolarında, bulut tabanlı API'ler ve ortak bir ağ geçidi üzerinden şirket içi API'ler göstererek etkinleştirin.
 * Apı'lerinizi tek bir ağ geçidi uç noktası kullanarak birden çok coğrafi bölgelerde barındırılan yönetin. 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -51,7 +52,7 @@ Bir iç sanal ağ API Management hizmetinde bir iç yük dengeleyici (ILB) barı
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal ağ bağlantısını etkinleştirme
 
 1. Azure API Management Örneğinize göz atın [Azure portalında](https://portal.azure.com/).
-2. Seçin **sanal ağ**.
+2. **Sanal ağ**'ı seçin.
 3. Sanal ağ içinde dağıtılmak üzere API Management örneği yapılandırın.
 
     ![Bir Azure API Yönetimi'nde bir iç sanal ağ ayarlama menüsü][api-management-using-internal-vnet-menu]

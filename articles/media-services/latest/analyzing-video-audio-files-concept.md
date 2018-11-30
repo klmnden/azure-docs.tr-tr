@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 070e405703a0a794266373a19f8e79977c71a17f
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290865"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427446"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
@@ -33,7 +33,7 @@ Media Services şu anda aşağıdaki yerleşik Çözümleyicisi hazır destekler
 
 |**Önceden tanımlı ayar adı**|**Senaryo**|**Ayrıntılar**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler.<br/>Ses yükü dilini girişinde 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz (örneğin, ' en-US'). Desteklenen dillerin listesi olduğundan, 'en-US', 'en-GB', 'es-ES', "es-MX", "fr-FR", 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
+|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler.<br/>Ses yükü dilini girişinde 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz (örneğin, ' en-US'). Desteklenen dillerin listesi olduğundan, 'en-US', 'en-GB', 'es-ES', "es-MX", "fr-FR", 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'. Dil belirtilmemişse veya Null olarak ayarlamak, otomatik dil algılama işe. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler.|
 |**VideoAnalyzerPreset**|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

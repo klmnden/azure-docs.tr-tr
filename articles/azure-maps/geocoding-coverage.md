@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3ab0edf4483763c1048b7026175ddce821624ac0
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821115"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444265"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure haritalar coğrafi kodlama kapsamı
 
 Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimlerinizi alır ve coğrafi kodlama adlı bir işlem enlem ve boylam koordinatlarını döndürür. Ancak, Maps yok aynı düzeyde bilgi ve tüm bölge ve ülke doğruluk. Konumlar ne tür güvenilir bir şekilde her bölgede arayabilirsiniz belirlemek için bu makaleyi kullanın. 
+
+Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti coğrafi kodlama duyarlığını temel bağlıdır. Aşağıdaki kategorilere ayırma kullanılan her ülkede coğrafi kodlama destek düzeyini belirtin.
+* **Adres noktaları** -adresleri veri bir enlem/boylam koordinatını (özellik sınırı) adresi paket içinde Çözüldü olabilir. 'Çatı ' doğru bazen adlandırılır. Doğruluk adresleri için kullanılabilir en üst düzey budur. 
+* **Sayı barındırmak** -adresleri Sokak üzerinde bir enlem/boylam koordinatını için ilişkilendirilmiş.
+* **Sokak düzeyi** -adresleri olan sokak adresi içeren enlem/boylam koordinatını çözümlenen. Bina numarasını işlenmeyebilir.
+* **Şehir düzeyinde** -Şehir yer adlarına desteklenir.
 
 ## <a name="americas"></a>Kuzey ve Güney Amerika
 
@@ -52,6 +58,7 @@ Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimleriniz
 | Guadalupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Guyana        |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaika                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -101,6 +108,7 @@ Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimleriniz
 | Heard Adası ve McDonald Adaları                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Endonezya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hindistan       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japonya                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |

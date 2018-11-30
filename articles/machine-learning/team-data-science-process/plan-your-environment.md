@@ -2,25 +2,21 @@
 title: Senaryoları tanımlama ve Azure analytics işleminizi - planı | Microsoft Docs
 description: Gelişmiş analitikler için bir dizi anahtar soru dikkate alarak planlayın.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 949bd8337ced7aa12d4354a46f6ee887a1922a7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227748"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446433"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Senaryoları tanımlama ve gelişmiş analiz verileri işlemeyi planlama
 Hangi kaynakların bir ortamı ayarlama, Gelişmiş analiz bir veri kümesi üzerinde işlem yapmak için ayarlarken içerecek şekilde planlamanız gerekir? Bu makalede bir dizi soru sormak ilgili Yardım için önerdiği görevler ve kaynaklarla ilgili senaryonuzu tanımlama. Tahmine dayalı analiz için üst düzey adımları sırasını açıklandığı [Team Data Science işlem (TDSP) nedir?](overview.md). Bu adımların her biri, özel senaryonuzla ilgili görevler için özel kaynakları gerektirir. Senaryonuzu tanımlama için anahtar soruları veri lojistiğini, özellikleri, veri kümeleri ve araçları ve dilleri analiz yapmak için tercih ettiğiniz kalitesini ilgilendiriyor.

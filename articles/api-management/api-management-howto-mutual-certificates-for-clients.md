@@ -1,6 +1,6 @@
 ---
-title: API Management - Azure API Management sertifika kimlik doğrulaması kullanan istemci API'ları güvenli | Microsoft Docs
-description: İstemci sertifikalarını kullanan API'lerine erişimi güvenli öğrenin
+title: Sertifika kimlik doğrulaması API Management - Azure API Management istemcisini kullanarak API'leri güvenli hale getirme | Microsoft Docs
+description: İstemci sertifikaları kullanarak API'leri güvenli öğrenin
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,22 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 841825923819bdb257e5b5983071d999cca805e9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3307ea391734828cb83c927e8df8aca79685279a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26406752"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441545"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Sertifika kimlik doğrulaması API Management istemcisini kullanarak API güvenliğini sağlama
 
-API Management güvenli API'leri (yani, API Management istemcisini) erişim olanağı sunar istemci sertifikalarını kullanan. Şu anda, istenen değerle istemci sertifikanın parmak izini kontrol edebilirsiniz. Ayrıca karşı API Management yüklenen mevcut sertifika parmak izini kontrol edebilirsiniz.  
+API Management API'leri (yani, API Management istemciden) erişimin güvenliğini sağlama olanağı sunuyor istemci sertifikaları kullanarak. Şu anda, istenen değerle bir istemci sertifikasının parmak izini kontrol edebilirsiniz. Ayrıca, karşı API Management'a yüklenen mevcut sertifika parmak izini kontrol edebilirsiniz.  
 
-İstemci sertifikalarını (yani, arka uç için API Management) kullanan bir API'nin arka uç hizmetine erişim güvenliğini sağlama hakkında daha fazla bilgi için bkz: [arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+İstemci sertifikalarını (yani, arka uç API Management'a) kullanarak bir API'nin arka uç hizmetine erişim güvenliğini sağlama hakkında daha fazla bilgi için bkz: [istemcisini kullanarak arka uç Hizmetleri, sertifika kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="checking-the-expiration-date"></a>Sona erme tarihini denetleniyor
 
-İlkeleri, sertifikanın geçerlilik süresinin dolup olmadığını denetlemek için yapılandırılabilir:
+Sertifikanın süresi dolmuş olmadığını denetlemek için ilkeleri yapılandırılabilir:
 
 ```
 <choose>
@@ -42,7 +44,7 @@ API Management güvenli API'leri (yani, API Management istemcisini) erişim olan
 
 ## <a name="checking-the-issuer-and-subject"></a>Sertifikayı veren ve konu denetleniyor
 
-İlkeleri veren ve bir istemci sertifikasının konu denetlemek için yapılandırılabilir:
+Bir istemci sertifikasının konu ve veren denetlemek için ilkeleri yapılandırılabilir:
 
 ```
 <choose>
@@ -54,9 +56,9 @@ API Management güvenli API'leri (yani, API Management istemcisini) erişim olan
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a>Parmak izi denetleniyor
+## <a name="checking-the-thumbprint"></a>Parmak denetimi
 
-İlkeleri, bir sertifikanın parmak izini istemci denetlemek için yapılandırılabilir:
+Bir istemci sertifikası parmak izi denetlemek için ilkeleri yapılandırılabilir:
 
 ```
 <choose>
@@ -68,9 +70,9 @@ API Management güvenli API'leri (yani, API Management istemcisini) erişim olan
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>API Management karşıya bir parmak izi sertifikalara karşı denetleniyor
+## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>API yönetimi için karşıya bir parmak izi sertifikalara karşı denetleniyor
 
-Aşağıdaki örnek, bir sertifikanın parmak izini istemci API Management karşıya sertifikalara karşı denetleyin gösterilmektedir: 
+Aşağıdaki örnekte, nasıl bir istemci sertifikası karşı API Management'a yüklenen sertifikaların parmak izi kontrol edileceğini göstermektedir: 
 
 ```
 <choose>
@@ -85,6 +87,6 @@ Aşağıdaki örnek, bir sertifikanın parmak izini istemci API Management karş
 
 ## <a name="next-step"></a>Sonraki adım
 
-*  [Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-*  [Nasıl sertifikalarını karşıya yükleme](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Arka uç Hizmetleri istemcisini kullanarak sertifika kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+*  [Sertifikaları karşıya yükleme](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

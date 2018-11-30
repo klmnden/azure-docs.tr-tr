@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037698"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497343"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -28,6 +28,10 @@ Bu kılavuzu temel kavramları ve Linux için App Service kullanarak Java geliş
 ## <a name="logging-and-debugging-apps"></a>Günlüğe kaydetme ve hata ayıklama uygulamaları
 
 Performans raporları, trafiği görselleştirmeler ve sistem durumu denetlemeler Azure portalı üzerinden eeach uygulama için kullanılabilir. Bkz: [Azure App Service tanılama genel bakış](/azure/app-service/app-service-diagnostics) erişmek ve bu tanılama araçları kullanma hakkında daha fazla bilgi için.
+
+## <a name="application-performance-monitoring"></a>Uygulama performansı izleme
+
+Bkz: [uygulama performansı izleme ile Linux üzerinde Azure App Service'te Java uygulamaları Araçları](how-to-java-apm-monitoring.md) New Relic ve Appdynamics'in ile Linux üzerinde App Service'te çalışan Java uygulamalarını yapılandırmak nasıl yapılır yönergeleri için.
 
 ### <a name="ssh-console-access"></a>SSH konsol erişimi 
 
@@ -124,7 +128,7 @@ Alternatif olarak, App Service Maven plugin kullanarak uygulama ayarı yapıland
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>Güvenli uygulama
+## <a name="secure-applications"></a>Uygulamaları güvenli hale getirin
 
 Linux için App Service'te çalışan Java uygulamalarını kümesinin aynısına sahip [en iyi güvenlik uygulamaları](/azure/security/security-paas-applications-using-app-services) diğer uygulamalar olarak. 
 
@@ -168,7 +172,7 @@ Uygulama düzeyi veri kaynakları için:
 
 1. Ekleme bir `context.xml` , web uygulamanız için mevcut değil, eklemek, dosya `META-INF` WAR dosyanızı proje oluşturulduğunda, dizin.
 
-2. Bu dosyadaki Ekle bir `Context` JNDI adresine veri kaynağına bağlamak için yol giriş. ,
+2. Bu dosyadaki Ekle bir `Context` JNDI adresine veri kaynağına bağlamak için yol giriş.
 
     ```xml
     <Context>
@@ -192,7 +196,7 @@ Uygulama düzeyi veri kaynakları için:
 
 Paylaşılan sunucu düzeyinde kaynaklar için:
 
-1. İçeriğini kopyalayın `/usr/local/tomcat/conf` içine `/home/tomcat` , App Service Linux üzerinde örnek, bir yapılandırma var. henüz yoksa SSH kullanarak.
+1. İçeriğini kopyalayın `/usr/local/tomcat/conf` içine `/home/tomcat/conf` , App Service Linux üzerinde örnek, bir yapılandırma var. henüz yoksa SSH kullanarak.
 
 2. Bağlamına ekleyin, `server.xml`
 
@@ -231,7 +235,7 @@ Paylaşılan sunucu düzeyinde kaynaklar için:
 
     3. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib` klasör.
 
-5. App Service Linux uygulamayı yeniden başlatın. Tomcat sıfırlanır `CATALINA_HOME` için `/home/tomcat` ve sınıfları ve güncelleştirilmiş yapılandırmayı kullanın.
+5. App Service Linux uygulamayı yeniden başlatın. Tomcat sıfırlanır `CATALINA_HOME` için `/home/tomcat/conf` ve sınıfları ve güncelleştirilmiş yapılandırmayı kullanın.
 
 ## <a name="docker-containers"></a>Docker kapsayıcıları
 

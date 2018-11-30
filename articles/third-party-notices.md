@@ -4,11 +4,11 @@ Microsoft ve katkıda bulunanların Microsoft belgelerine ve diğer içerikleri 
 
 Microsoft, Windows, Microsoft Azure ve/veya diğer Microsoft ürünleri ve belgelerde sözü ticari markalarınızın ya da Microsoft Amerika Birleşik Devletleri ve/veya diğer ülkelerde kayıtlı ticari markaları olabilir.
 Bu proje için bir lisans herhangi bir Microsoft adları, logo veya ticari kullanma hakkı vermeyin.
-Microsoft'un genel ticari marka yönergelerini bulunabilir [ http://go.microsoft.com/fwlink/?LinkID=254653 ](https://go.microsoft.com/fwlink/?LinkID=254653).
+Microsoft'un genel ticari marka yönergelerini bulunabilir [ https://go.microsoft.com/fwlink/?LinkID=254653 ](httpss://go.microsoft.com/fwlink/?LinkID=254653).
 
 Gizlilik bilgileri şu adreste bulunabilir: [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
 Microsoft ve tüm katkıda bulunanlar ayırma diğer hakların tamamını, ilgili telif hakları yoksa, patentleri veya ZIMNEN, ticari markalar rıza ya da aksi takdirde.
 
-Git gopher tarafından tasarlanan [Renee Fransızca](http://reneefrench.blogspot.com/).
+Git gopher tarafından tasarlanan [Renee Fransızca](https://reneefrench.blogspot.com/).
 Tasarım altında lisanslanmıştır [Creative Commons 3.0 atıfları lisans](https://creativecommons.org/licenses/by/3.0/us/).

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005963"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496913"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML Hizmetleri Azure HDInsight kümesinde çalışır hale getirme
 
@@ -79,9 +79,9 @@ Verilerinizi modelleme tamamlamak için HDInsight küme ML Hizmetleri kullandık
 
     d. Sunulan menü seçeneklerinden girin **E** ana menüye dönmek ve girmeniz **8** için yönetim yardımcı programından çıkın.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Spark'ta Web hizmeti tüketilirken uzun gecikmeler
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Apache Spark üzerinde Web hizmeti tüketilirken uzun gecikmeler
 
-Bir Spark işlem bağlamında mrsdeploy ile oluşturulmuş bir web hizmetini tüketmeye çalışırken uzun gecikmeler yaşıyorsanız bazı eksik klasörleri eklemeniz gerekebilir. Spark uygulaması mrsdeoploy işlevleri kullanılarak bir web hizmetinden çağrıldığında '*rserve2*' adlı bir kullanıcıya ait oluyor. Bu soruna geçici bir çözüm olarak:
+İle oluşturulmuş bir web hizmetini tüketmeye çalışırken uzun gecikmeler yaşıyorsanız işlem bağlamında mrsdeploy bir Apache Spark, bazı eksik klasörleri eklemeniz gerekebilir. Spark uygulaması mrsdeoploy işlevleri kullanılarak bir web hizmetinden çağrıldığında '*rserve2*' adlı bir kullanıcıya ait oluyor. Bu soruna geçici bir çözüm olarak:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ SSH oturumunuz etkin hale geldikten sonra yerel makinenizin 12800 numaralı bağ
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>1. adım: çalışan düğümlerinin yetkisini alma
 
-ML Hizmetleri kümesi YARN yönetilemez. Çalışan düğümlerinin yetkisi alınmazsa, YARN kaynak yöneticisi sunucu tarafından alınan kaynakları farkında olmadığından beklendiği gibi çalışmaz. Bu durumu önlemek için, işlem düğümlerini ölçeklendirmeden önce çalışan düğümlerinin yetkisinin alınması önerilir.
+ML Hizmetleri kümesi aracılığıyla yönetilen değil [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Çalışan düğümlerinin yetkisi alınmazsa, YARN kaynak yöneticisi sunucu tarafından alınan kaynakları farkında olmadığından beklendiği gibi çalışmaz. Bu durumu önlemek için, işlem düğümlerini ölçeklendirmeden önce çalışan düğümlerinin yetkisinin alınması önerilir.
 
 Çalışan düğümlerinin yetkisini almak için aşağıdaki adımları izleyin:
 

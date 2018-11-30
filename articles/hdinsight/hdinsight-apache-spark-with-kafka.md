@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279169"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494277"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark akışını (DStream) HDInsight üzerinde Apache Kafka örneğiyle
 
-Apache Spark akışı verilerini içine veya dışına DStreams kullanarak HDInsight üzerinde Apache kafka'yı kullanmayı öğrenin. Bu örnek, Jupyter Not Defteri kullanarak Spark kümesi üzerinde çalışan kullanır.
+Nasıl kullanacağınızı öğrenin [Apache Spark](https://spark.apache.org/) içinde veya dışında veri akışı [Apache Kafka](https://kafka.apache.org/) HDInsight kullanma [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). Bu örnekte bir [Jupyter not defteri](https://jupyter.org/) kullanarak Spark kümesi üzerinde çalışır.
 
 > [!NOTE]
 > Bu belgede yer alan adımlar hem HDInsight üzerinde Spark hem de HDInsight kümesinde Kafka içeren bir Azure kaynak grubu oluşturur. Bu kümelerin her ikisi de Spark kümesinin Kafka kümesiyle doğrudan iletişim kurmasına olanak tanıyan bir Azure Sanal Ağı içinde bulunur.
@@ -97,6 +97,6 @@ Bu belgedeki adımlarda, aynı Azure kaynak grubu içinde her iki küme oluştur
 Bu örnekte, okuma ve yazma için Kafka için Spark kullanmayı öğrendiniz. Kafka ile çalışmak için diğer yollarını bulmak için aşağıdaki bağlantıları kullanın:
 
 * [HDInsight üzerinde Apache Kafka ile çalışmaya başlama](kafka/apache-kafka-get-started.md)
-* [MirrorMaker kullanarak HDInsight üzerinde Kafka kopyası oluşturma](kafka/apache-kafka-mirroring.md)
-* [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-storm-with-kafka.md)
+* [MirrorMaker HDInsight üzerinde Apache Kafka'nın bir çoğaltma oluşturmak için kullanın](kafka/apache-kafka-mirroring.md)
+* [Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma](hdinsight-apache-storm-with-kafka.md)
 

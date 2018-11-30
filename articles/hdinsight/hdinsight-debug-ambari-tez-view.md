@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034685"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494965"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight üzerinde Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma
 
-HDInsight için Apache Ambari Web kullanıcı Arabirimi, anlamak ve kullanmak Tez işlerinin hatalarını ayıklamak için kullanılan bir Apache Tez görünümü içerir. Tez görünümü bağlı öğelerin bir grafik olarak görselleştirin, her öğenin ayrıntısına ve istatistikleri ve günlük bilgilerini almak sağlar.
+[Apache Ambari](https://ambari.apache.org/) HDInsight için Web kullanıcı Arabirimi içeren bir [Apache TEZ](https://tez.apache.org/) anlamak ve kullanmak Tez işlerinin hatalarını ayıklamak için kullanılan görünümü. Tez görünümü bağlı öğelerin bir grafik olarak görselleştirin, her öğenin ayrıntısına ve istatistikleri ve günlük bilgilerini almak sağlar.
 
 > [!IMPORTANT]
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -101,8 +101,8 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinin [HDInsight üzerinde Hive'ı kullanarak](hadoop/hdinsight-use-hive.md).
+Apache Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinin [HDInsight üzerinde Apache Hive kullanarak](hadoop/hdinsight-use-hive.md).
 
-Daha ayrıntılı Tez üzerinde teknik bilgi için bkz. [Hortonworks Tez sayfanın](http://hortonworks.com/hadoop/tez/).
+Daha ayrıntılı Apache Tez üzerinde teknik bilgi için bkz. [Hortonworks Apache Tez sayfanın](http://hortonworks.com/hadoop/tez/).
 
-Ambari kullanarak HDInsight ile ilgili daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md)
+Apache Ambari kullanarak HDInsight ile ilgili daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Apache Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md)

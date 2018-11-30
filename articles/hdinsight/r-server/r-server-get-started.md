@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006371"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496464"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight'ta ML Services ile çalışmaya başlama
 
-Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. Bu seçenek, R betiklerinin dağıtılmış hesaplamaları çalıştırmak için Spark ve MapReduce kullanmasına olanak tanır. Bu makalede, HDInsight kümesi üzerinde bir ML Services kümesi oluşturma ve ardından dağıtılmış R hesaplamaları için Spark kullanmayı gösteren bir R betiği çalıştırma hakkında bilgi alacaksınız.
+Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. R betikleri kullanmak bu seçenek sayesinde [Apache Spark](https://spark.apache.org/) ve [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) dağıtılmış hesaplamaları çalıştırmak için. Bu makalede, HDInsight kümesi üzerinde bir ML Services kümesi oluşturma ve ardından dağıtılmış R hesaplamaları için Spark kullanmayı gösteren bir R betiği çalıştırma hakkında bilgi alacaksınız.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -37,7 +37,7 @@ Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. Bu seçenek, R be
 
     * **Küme Adı**: HDInsight kümesinin adı.
     * **Abonelik**: Kullanılacak abonelik.
-    * **Küme oturumu kullanıcı adı** ve **Küme oturumu parolası**: HTTPS üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Ambari Web kullanıcı arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
+    * **Küme oturumu kullanıcı adı** ve **Küme oturumu parolası**: HTTPS üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Apache Ambari Web kullanıcı Arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
     * **Güvenli Kabuk (SSH) kullanıcı adı**: SSH üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Varsayılan olarak parola, küme oturum açma parolası ile aynıdır.
     * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
     * **Konum**: Kümenin oluşturulacağı Azure bölgesi.

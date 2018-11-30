@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/6/2018
 ms.author: tylerfox
-ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 936e53ca328b0f54bfd75e7b3d4f6747b0037669
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235267"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495162"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell, denetlemek ve iş yüklerinizi azure'da yönetimini ve dağıtımı otomatik hale getirmek için kullanılabilir. Bu makalede, Azure PowerShell kullanarak Azure HDInsight, Apache Hadoop kümelerini yönetme konusunda bilgi edinin. HDInsight PowerShell cmdlet'leri listesi için bkz: [HDInsight cmdlet başvurusu](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell, denetlemek ve iş yüklerinizi azure'da yönetimini ve dağıtımı otomatik hale getirmek için kullanılabilir. Bu makalede, nasıl yöneteceğinizi öğrenin [Apache Hadoop](https://hadoop.apache.org/) Azure PowerShell kullanarak Azure HDInsight kümeleri. HDInsight PowerShell cmdlet'leri listesi için bkz: [HDInsight cmdlet başvurusu](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Önkoşullar**
 
@@ -80,12 +80,12 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
 HDInsight tarafından desteklenen küme her tür veri düğümü sayısı değiştirmenin etkisi:
 
-* Hadoop
+* Apache Hadoop
 
     Sorunsuz bir şekilde, bekleyen veya çalışan tüm işleri etkilemeden çalışan bir Hadoop kümesinde çalışan düğümleri sayısını artırabilirsiniz. İşlem devam ederken yeni işleri da gönderilebilir. Böylece küme her zaman işlevsel bir durumda bırakılır bir ölçeklendirme işlemi hataları düzgün bir şekilde ele alınır.
 
     Bir Hadoop kümesini veri düğümü sayısını azaltarak ölçeklendiğinde, kümedeki hizmetlerinden bazılarını yeniden başlatılır. Hizmetleri yeniden başlatma bekleyen işleri tüm çalışan ve ölçeklendirme işleminin tamamlanması sırasında başarısız olmasına neden olur. İşlemi tamamlandıktan sonra ancak, işleri yeniden oluşturabilirsiniz.
-* HBase
+* Apache HBase
 
     Sorunsuz bir şekilde ekleyebilir veya çalışırken düğümleri HBase kümenize kaldırın. Bölge sunucuları ölçeklendirme işlemi tamamladıktan birkaç dakika içinde otomatik olarak dengelenir. Ancak, el ile küme baş düğümüne oturum açarak bölgesel sunucular dengelemek ve ardından bir komut istemi penceresinden aşağıdaki komutları çalıştırın:
 
@@ -95,7 +95,7 @@ HDInsight tarafından desteklenen küme her tür veri düğümü sayısı deği�
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     Sorunsuz bir şekilde ekleyebilir veya çalışırken Storm kümenize veri düğümleri kaldırma. Ancak, ölçeklendirme işlemi başarıyla tamamlandıktan sonra topoloji yeniden dengelemeniz gerekir.
 
@@ -207,25 +207,25 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>İş gönderme
-**MapReduce işleri göndermek için**
+**Apache Hadoop MapReduce işlerini göndermek için**
 
-Bkz: [dahil HDInsight MapReduce örneklerini çalıştırma](hadoop/apache-hadoop-run-samples-linux.md).
+Bkz: [dahil HDInsight Apache Hadoop MapReduce örneklerini çalıştırma](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Hive işlerini göndermek için**
+**Apache Hive işleri göndermek için**
 
-Bkz: [PowerShell kullanarak Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md).
+Bkz: [PowerShell kullanarak Apache Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Pig işleri göndermek için**
+**Apache Pig işleri göndermek için**
 
-Bkz: [PowerShell kullanarak çalıştırma Pig işleri](hadoop/apache-hadoop-use-pig-powershell.md).
+Bkz: [PowerShell kullanarak çalıştırma Apache Pig işleri](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**Sqoop işleri göndermek için**
+**Apache Sqoop işleri göndermek için**
 
-Bkz: [HDInsight ile Sqoop kullanma](hadoop/hdinsight-use-sqoop.md).
+Bkz: [HDInsight ile Apache Sqoop'u kullanma](hadoop/hdinsight-use-sqoop.md).
 
-**Oozie işleri göndermek için**
+**Apache Oozie iş göndermek için**
 
-Bkz: [tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](hdinsight-use-oozie.md).
+Bkz: [tanımlamak ve iş akışı çalıştırma HDInsight için Apache Hadoop ile Apache Oozie kullanma](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri yükleme
 Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
@@ -236,7 +236,7 @@ Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
 * [Bir komut satırı arabirimi ile HDInsight'ı yönetme][hdinsight-admin-cli]
 * [HDInsight kümeleri oluşturma][hdinsight-provision]
 * [HDInsight'a veri yükleme][hdinsight-upload-data]
-* [Program aracılığıyla Hadoop işlerini gönderme][hdinsight-submit-jobs]
+* [Program aracılığıyla Apache Hadoop işlerini gönderme][hdinsight-submit-jobs]
 * [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

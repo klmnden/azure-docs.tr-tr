@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: fca83090e6713e4360bd19d49c7fd6b9147fd6ea
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 2ae0450be420edeb4ef18d0c9e5ca6e1dacaf50d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219741"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497020"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
-Microsoft Azure HDInsight yanı sıra Kurumsal güvenlik paketi sürümleri ve Apache Hadoop ekosistemi bileşenleri hakkında bilgi edinin. Ayrıca, HDInsight Hadoop bileşeni sürümlerinde denetleme konusunda bilgi edinin. 
+Hakkında bilgi edinin [Apache Hadoop](https://hadoop.apache.org/) ekosistemi bileşenleri ve Microsoft Azure HDInsight yanı sıra Kurumsal güvenlik paketi sürümleri. Ayrıca, HDInsight Hadoop bileşeni sürümlerinde denetleme konusunda bilgi edinin. 
 
 Her bir HDInsight sürüm, Hortonworks Data Platform (HDP) sürümünün bir bulut dağıtımıdır.
 
@@ -58,7 +58,7 @@ HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablod
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Geçerli Hadoop bileşeni sürüm bilgileri için onay
 
-HDInsight küme sürümleri ile ilişkili Hadoop ekosistemi bileşen sürümü, HDInsight için güncelleştirmeleri ile değiştirebilirsiniz. Hadoop bileşenleri denetimi ve bir küme için hangi sürümlerinin kullanıldığını doğrulamak için Ambari REST API'yi kullanın. **GetComponentInformation** komutu, hizmet bileşenleri hakkında bilgi alır. Ayrıntılar için bkz [Ambari belgeleri][ambari-docs].
+HDInsight küme sürümleri ile ilişkili Hadoop ekosistemi bileşen sürümü, HDInsight için güncelleştirmeleri ile değiştirebilirsiniz. Hadoop bileşenleri denetimi ve bir küme için hangi sürümlerinin kullanıldığını doğrulamak için Ambari REST API'yi kullanın. **GetComponentInformation** komutu, hizmet bileşenleri hakkında bilgi alır. Ayrıntılar için bkz [Apache Ambari belgeleri][ambari-docs].
 
 Windows kümeleri için bileşen sürümü denetlemek için başka bir Uzak Masaüstü kullanarak bir küme için oturum açın ve C:\apps\dist\ dizininin içeriğini incelemek için yoludur.
 
@@ -117,8 +117,8 @@ Kurumsal güvenlik HDInsight kümenizi oluşturma küme iş akışının parças
 
     Daha fazla bilgi için bkz.
 
-    - [Bir etki alanına katılmış HDInsight kümeleriyle Hadoop güvenliğine giriş](./domain-joined/apache-domain-joined-introduction.md)
-    - [HDInsight, Azure etki alanına katılmış Hadoop kümeleri planlama](./domain-joined/apache-domain-joined-architecture.md)
+    - [Bir etki alanına katılmış HDInsight kümeleriyle Apache Hadoop güvenliğine giriş](./domain-joined/apache-domain-joined-introduction.md)
+    - [HDInsight, Azure etki alanına katılmış Apache Hadoop kümeleri planlama](./domain-joined/apache-domain-joined-architecture.md)
     - [Etki alanına katılmış korumalı alan ortamını yapılandırma](./domain-joined/apache-domain-joined-configure.md)
     - [Azure Active Directory Domain Services'ı kullanarak etki alanına katılmış HDInsight kümelerini yapılandırma](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
@@ -129,7 +129,7 @@ Kurumsal güvenlik HDInsight kümenizi oluşturma küme iş akışının parças
 
     Daha fazla bilgi için bkz.
 
-    - [İçinde etki alanına katılmış HDInsight Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
+    - [Etki alanına katılmış HDInsight Apache Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
 
 - İzleyici erişir ve yapılandırılmış ilkeler için denetim günlüklerini görüntüleyin. 
 
@@ -151,7 +151,7 @@ Kurumsal güvenlik paketi için fiyatlandırma ve SLA hakkında ek bilgi için b
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows'un devre dışı bırakılması
 Microsoft Azure HDInsight sürüm 3.3 Windows üzerinde HDInsight son sürümünü oluştu. 31 Temmuz 2018'den Windows üzerinde HDInsight için kullanımdan kaldırma tarihtir. Tüm HDInsight kümeleri Windows 3.3 veya önceki sürümleri varsa, (HDInsight sürüm 3.5 veya sonraki sürümler) Linux'ta HDInsight için 31 Temmuz 2018'den önce geçirmeniz gerekir. Linux işletim sistemine geçiş oluşturun ya da HDInsight kümeleri yeniden boyutlandırma özelliği korumak sağlar. HDInsight sürümü 3.3 Windows üzerinde desteği, 27 Haziran 2016 tarihinde süresi doldu.
 
-HDInsight sürüm 3.4 ile başlayarak, Microsoft HDInsight yalnızca Linux işletim sisteminde kullanıma sundu. Sonuç olarak, bazı bileşenlerin HDInsight içinde yalnızca Linux için kullanılabilir. Apache Ranger, Kafka, Interactive Query, Spark, HDInsight uygulamaları, bunlar ve birincil dosya sistemi olarak Azure Data Lake Store. HDInsight'ın gelecek sürümlerini, yalnızca Linux işletim sisteminde kullanılabilir. Hiçbir Windows üzerinde HDInsight'ın gelecek sürümlerini olacaktır. 
+HDInsight sürüm 3.4 ile başlayarak, Microsoft HDInsight yalnızca Linux işletim sisteminde kullanıma sundu. Sonuç olarak, bazı bileşenlerin HDInsight içinde yalnızca Linux için kullanılabilir. Bunlar [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), etkileşimli sorgu [Apache Spark](https://spark.apache.org/), HDInsight uygulamalarını ve Azure Data Lake Store birincil dosya sistemi olarak. HDInsight'ın gelecek sürümlerini, yalnızca Linux işletim sisteminde kullanılabilir. Hiçbir Windows üzerinde HDInsight'ın gelecek sürümlerini olacaktır. 
 
 ## <a name="faqs"></a>SSS
 
@@ -264,8 +264,8 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
 > - Çalışan olarak bilinen *bölge* için HBase küme türü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Hadoop, Spark ve HDInsight hakkında daha fazla bilgi için Kurulum küme](hdinsight-hadoop-provision-linux-clusters.md)
-- [Bir Windows PC ile gelen HDInsight üzerinde Hadoop çalışma](hdinsight-hadoop-windows-tools.md)
+- [Apache Hadoop, Spark ve HDInsight hakkında daha fazla bilgi için Kurulum küme](hdinsight-hadoop-provision-linux-clusters.md)
+- [Bir Windows PC ile gelen HDInsight üzerinde Apache Hadoop çalışma](hdinsight-hadoop-windows-tools.md)
 
 [Supported HDInsight versions]:(#supported-hdinsight-versions)
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296405"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426213"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalıştığını: Azure AD Self Servis parola sıfırlama
 
@@ -189,7 +189,7 @@ Parola sıfırlama ve değiştirme, tüm işletmeler arası (B2B) yapılandırma
    * **Aracılığıyla kaydolun kullanıcılar** Self Servis kayıt: kuruluş, kullanılan ile işbirliği yapıyoruz, [Self Servis kayıt](../users-groups-roles/directory-self-service-signup.md) biz kayıtlı e-posta ile parola sıfırlama bildirmek, bir kiracıda oturum alınacağı özellik.
    * **B2B kullanıcıları**: yeni kullanılarak oluşturulan tüm yeni B2B kullanıcıları [Azure AD B2B özellikleri](../active-directory-b2b-what-is-azure-ad-b2b.md) davet etme işlemi sırasında kayıtlı e-posta ile kullanıcıların parolalarını sıfırlamalarına mümkün olacaktır.
 
-Bu senaryoyu test etmek için şuraya gidin: http://passwordreset.microsoftonline.com biri olan bu iş ortağı kullanıcılar. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta oluşturulduysa parola beklendiği gibi çalıştığını sıfırlayın.
+Bu senaryoyu test etmek için şuraya gidin: https://passwordreset.microsoftonline.com biri olan bu iş ortağı kullanıcılar. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta oluşturulduysa parola beklendiği gibi çalıştığını sıfırlayın.
 
 > [!NOTE]
 > Bu Hotmail.com, Outlook.com veya diğer kişisel e-posta adresleri gibi Azure AD kiracınıza Konuk erişim verilmiş Microsoft hesapları Azure AD SSPR kullanabilmek için değildir. Bulunan bilgileri kullanarak parolalarını sıfırlamak ihtiyaç duydukları [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) makalesi.

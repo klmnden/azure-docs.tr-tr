@@ -1,25 +1,21 @@
 ---
 title: Veri bilimi görevleri - Azure Machine Learning yürütme | Microsoft Docs
 description: Bir veri Bilimcisi bir veri bilimi proje nasıl izlenebilir, yürütebilir sürüm denetimli ve işbirliğine dayalı yolu.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112653"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495696"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Veri bilimi görevleri yürütme: keşfi, modelleme ve dağıtım
 
@@ -34,7 +30,7 @@ Veri keşfi, modelleme ve dağıtım tipik veri bilimi görevleri içerir. Bu ma
 
 Bir veri Bilimcisi keşfi ve çeşitli yollarla raporlama gerçekleştirebilirsiniz: kitaplıkları ve paketleri kullanılabilir Python (örneğin matplotlib) kullanarak veya R (ggplot veya örneğin kafes). Veri bilimcileri bu tür kod belirli senaryolar için veri İnceleme gereksinimlerine uyacak şekilde özelleştirebilirsiniz. Yapılandırılmış verileri ilgilenmekten sorumlu gereksinimlerini farklıdır, metin veya resimler gibi yapılandırılmamış veriler için. 
 
-Azure Machine Learning Workbench gibi ürünleri de sağlamak [gelişmiş veri hazırlama](../desktop-workbench/tutorial-bikeshare-dataprep.md) veri denetimi ve araştırma, özellik oluşturma dahil. Kullanıcı Araçlar, kitaplıklar ve suite en iyi paketleri ihtiyaçlarını karar vermeniz gerekir. 
+Azure Machine Learning hizmeti gibi ürünleri de sağlamak [gelişmiş veri hazırlama](../service/how-to-transform-data.md) veri denetimi ve araştırma, özellik oluşturma dahil. Kullanıcı Araçlar, kitaplıklar ve suite en iyi paketleri ihtiyaçlarını karar vermeniz gerekir. 
 
 Bu aşamanın sonunda teslim edilebilir bir veri araştırma rapor eder. Rapor, veri modelleme için kullanılmak üzere oldukça kapsamlı bir görünüm ve veri modelleme adıma ilerlemek uygun olup'in bir değerlendirme sağlamanız gerekir. Yarı otomatik keşfi için aşağıdaki bölümlerde açıklanan Team Data Science işlem (TDSP) yardımcı programlar, modelleme ve raporlama da standartlaştırılmış veri keşfi ve modelleme raporlar sağlar. 
 
@@ -90,7 +86,7 @@ Birden çok modeli oluşturduktan sonra genellikle kaydetmek ve yönetim modelle
 Çeşitli yaklaşımlar ve modelleri üretime koymak için Platform vardır. Bazı seçenekler şunlardır:
 
 
-- [Azure Machine learning'de model dağıtımı](../desktop-workbench/model-management-overview.md)
+- [Azure Machine Learning hizmetindeki model dağıtımı](../service/how-to-deploy-and-where.md)
 - [Bir modeli SQL Server dağıtımı](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

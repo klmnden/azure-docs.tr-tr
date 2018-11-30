@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035960"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495587"
 ---
-# <a name="use-batch-transcription"></a>Batch transkripsiyonu kullanın
+# <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
-Batch tanıma, ses büyük miktarda depolama alanında varsa idealdir. REST API kullanarak, paylaşılan erişim imzası (SAS) URI tarafından ses dosyalarının olduğu noktaya ve döküm zaman uyumsuz olarak alır.
+Batch tanıma, ses büyük miktarda depolama alanında varsa idealdir. Adanmış REST API'sini kullanarak bir paylaşılan erişim imzası (SAS) URI ses dosyalarının olduğu noktaya ve döküm zaman uyumsuz olarak alır.
 
 ## <a name="the-batch-transcription-api"></a>Batch tanıma API'si
 
@@ -36,16 +36,16 @@ Batch tanıma API'si, ek özellikleri ile birlikte zaman uyumsuz konuşma metin 
 
 Batch tanıma API'si, aşağıdaki biçimlerde destekler:
 
-Ad| Kanal  |
-----|----------|
-MP3 |   Mono   |   
-MP3 |  Stereo  | 
-WAV |   Mono   |
-WAV |  Stereo  |
-Geçerli|   Mono   |
-Geçerli|  Stereo  |
+| Biçimlendir | Codec bileşeni | Bit hızı | Örnek hızı |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 8 veya 16 kHz, mono, stereo |
+| MP3 | PCM | 16-bit | 8 veya 16 kHz, mono, stereo |
+| OGG | GEÇERLİ | 16-bit | 8 veya 16 kHz, mono, stereo |
 
-Stereo ses akışları için batch döküm sırasında transkripsiyonu sol ve sağ kanal böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Küfür filtresini ve noktalama işaretleri modeli ayarlamak için özellikler de dahil olmak üzere, bir kanal çıktısı aşağıdaki JSON örnek gösterilmektedir:
+> [!NOTE]
+> Batch tanıma API'si (katman ödeme) bir S0 anahtarı gerektirir. Ücretsiz (f0) anahtar ile çalışmaz.
+
+Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm sırasında böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Aşağıdaki JSON örneği kanal çıkış, includuing küfür filtresini ve noktalama işaretleri modeli ayarlama özellikleri gösterir.
 
 ```json
 {
@@ -62,6 +62,16 @@ Stereo ses akışları için batch döküm sırasında transkripsiyonu sol ve sa
 
 > [!NOTE]
 > Döküm, durum ve ilişkili sonuçları istenirken bir REST hizmeti ve Batch tanıma API'sini kullanır. Herhangi bir dilde API'den kullanabilirsiniz. Sonraki bölümde, API'yi nasıl kullanıldığını açıklar.
+
+### <a name="query-parameters"></a>Sorgu parametreleri
+
+Bu parametreleri REST isteğinin sorgu dizesinde eklenebilir.
+
+| Parametre | Açıklama | Gerekli / isteğe bağlı |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Tanıma sonuçları küfür nasıl ele alınacağını belirtir. Kabul edilen değerler `none` , devre dışı bırakır küfür filtresi `masked` yıldız işareti ile küfür değiştirir `removed` sonuç, tüm küfür kaldırır veya `tags` "küfür" etiketleri ekler. Varsayılan ayar `masked`. | İsteğe bağlı |
+| `PunctuationMode` | Noktalama işaretleri tanıma sonuçları nasıl ele alınacağını belirtir. Değerler kabul `none` , devre dışı bırakır, noktalama `dictated` açık noktalama gelir `automatic` noktalama işaretleri ile uğraşmak kod çözücü olanak tanıyan veya `dictatedandautomatic` dikte noktalama işaretleri veya otomatik olduğu anlamına gelir. | İsteğe bağlı |
+
 
 ## <a name="authorization-token"></a>Yetkilendirme belirteci
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/31/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59bce2c61db5838bb21a29757d4e354311ecffd5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 249680f60b3c2ee10ff3f3f1eb39d4bf74e57cd9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666256"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497321"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Azure kaynağı rollerim PIM etkinleştir
 
@@ -67,9 +67,25 @@ Bir Azure Kaynak rolü gerektiğinde kullanarak etkinleştirme isteyebilir **rol
 
 1. Tıklayın **etkinleştirme**.
 
-    Rolü onay gerektirmez, artık etkinleştirilir ve rol etkin rollerin listesinde görünür. Varsa [rolünü onay gerektiren](pim-resource-roles-approval-workflow.md) etkinleştirmek için bir bildirim isteği onay bekliyor olduğunu bildiren, tarayıcınızın sağ üst köşesinde görünür.
+    Rolü onay gerektirmez, etkin ve etkin rollerin listesine eklenir. Rol hemen kullanmak istiyorsanız, sonraki bölümde yer alan adımları izleyin.
+
+    Varsa [rolünü onay gerektiren](pim-resource-roles-approval-workflow.md) etkinleştirmek için bir bildirim isteği onay bekliyor olduğunu bildiren, tarayıcınızın sağ üst köşesinde görünür.
 
     ![Bildirim istek](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>Hemen etkinleştirildikten sonra bir rol kullanın
+
+Bir rolü PIM etkinleştirdiğinizde, istenen yönetim portalına erişmek veya belirli bir yönetim iş yükü içinde işlevleri gerçekleştirmek için önce en az 10 dakika sürer. İzinlerinizi güncelleştirmesini zorlamak için kullanan **uygulama erişimi** sayfasında aşağıdaki adımlarda anlatıldığı gibi.
+
+1. Azure AD Privileged Identity Management'ı açın.
+
+1. Tıklayın **uygulama erişimi** sayfası.
+
+    ![PIM uygulama erişimi - ekran görüntüsü](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Tıklayın **Azure kaynaklarını** Şirket portalı yeniden bağlantı **tüm kaynakları** sayfası.
+
+    Bu bağlantıya tıkladığınızda, geçerli belirtecinizi geçersiz kılmak ve güncelleştirilmiş izinlerinizi içermesi gereken yeni bir belirteç almak için Azure portalında zorla.
 
 ## <a name="view-the-status-of-your-requests"></a>İsteklerinizin durumunu görüntüleme
 
@@ -82,20 +98,6 @@ Etkinleştirmek için Bekleyen isteklerinizi durumunu görüntüleyebilirsiniz.
     ![Azure AD Dizin rolleri ve Azure kaynak rolleri - isteklerim](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Görüntülemek için sağa kaydırma **istek durumu** sütun.
-
-## <a name="use-a-role-immediately-after-activation"></a>Hemen etkinleştirildikten sonra bir rol kullanın
-
-Önbelleğe alma nedeniyle etkinleştirmeleri hemen yenilemeye olmadan Azure portalında gerçekleşmez. Bir rol etkinleştirdikten sonra gecikmeler olasılığını azaltmak gerekiyorsa, kullanabileceğiniz **uygulama erişimi** portalında sayfası. Bu sayfadan erişilen uygulamalar için yeni rol atamaları hemen denetleyin.
-
-1. Azure AD Privileged Identity Management'ı açın.
-
-1. Tıklayın **uygulama erişimi** sayfası.
-
-    ![PIM uygulama erişimi - ekran görüntüsü](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
-
-1. Tıklayın **Azure kaynaklarını** Şirket portalı yeniden **tüm kaynakları** sayfası.
-
-    Bu bağlantıya tıkladığınızda, daha önce yenilemeye zorlamak ve yeni Azure kaynak rol atamaları denetimi yoktur.
 
 ## <a name="cancel-a-pending-request"></a>Bekleyen isteği iptal et
 
@@ -110,6 +112,21 @@ Onay gerektiren bir rolü etkinleştirmesi gerekmiyorsa, bekleyen istek dilediğ
     İptal'i tıklattığınızda, isteği iptal edilecek. Rolü etkinleştirmek için yeniden, etkinleştirme için yeni bir istek göndermeniz gerekir.
 
    ![Bekleyen isteği iptal et](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## <a name="troubleshoot"></a>Sorun giderme
+
+### <a name="permissions-not-granted-after-activating-a-role"></a>Bir rol etkinleştirdikten sonra değil izinler
+
+Bir rolü PIM etkinleştirdiğinizde, istenen yönetim portalına erişmek veya belirli bir yönetim iş yükü içinde işlevleri gerçekleştirmek için önce en az 10 dakika sürer. İzinlerinizi güncelleştirmesini zorlamak için kullanan **uygulama erişimi** sayfasında daha önce açıklandığı [hemen etkinleştirildikten sonra bir rol kullanın](#use-a-role-immediately-after-activation).
+
+Ek sorun giderme adımları için bkz. [sorun giderme yükseltilmiş izinler](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+
+### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>Rol kaynak kilidi nedeniyle etkinleştirilemiyor
+
+Bir ileti alırsanız kapsamında bir rol ataması olan bir kaynak bir kaynak kilidi olduğundan rol etkinleştirmeyi denediğinizde bir Azure kaynağı kilitli olduğunu, bunun olması olabilir. Kilitleri kaynakları yanlışlıkla silme veya beklenmeyen değişikliklerden koruyun. Bir kilit de PIM etkinleştirme süresi sonunda kaynakta bir rol ataması çıkarmasını engeller. PIM bir kilidi uygulandığında düzgün olduğundan PIM rollerine kaynak etkinleştirmesini kullanıcıları engeller. Bu sorunu çözmek iki yolu vardır:
+
+- Bölümünde anlatıldığı gibi silme [beklenmeyen değişiklikleri önlemek için kaynakları kilitleme](../../azure-resource-manager/resource-group-lock-resources.md).
+- Kilit tutmak istiyorsanız, rol ataması kalıcı hale getirmek veya bir kesme cam hesabı kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

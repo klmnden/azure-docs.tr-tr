@@ -2,25 +2,21 @@
 title: Azure - Cortana Intelligence çözüm teknik Kılavuzu ile havacılıkta Tahmine dayalı bakım | Microsoft Docs
 description: Microsoft Cortana Intelligence çözüm şablonuyla teknik Kılavuzu Havacılık, yardımcı programlar ve nakliye Tahmine dayalı bakım için.
 services: machine-learning
-documentationcenter: ''
-author: fboylu
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: fboylu
-ms.openlocfilehash: 28900c39e658a2a8c66b2ded6f2d70b50bf17e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=fboylu, ms.author=fboylu)
+ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231530"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443755"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence çözüm şablonu Havacılık ve diğer işletmelerden Tahmine dayalı bakım için teknik kılavuz
 

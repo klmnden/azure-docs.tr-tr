@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240860"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447223"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management erişim kısıtlama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -133,6 +133,10 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke kapsamları:** ürün  
   
 ##  <a name="LimitCallRateByKey"></a> Anahtara göre çağrı hızını sınırla  
+
+> [!IMPORTANT]
+> Bu özellik kullanılamıyor **tüketim** API Yönetimi katmanı.
+
  `rate-limit-by-key` İlke, belirtilen bir sayıya belirtilen zaman süresi başına çağrı hızını sınırlama tarafından API anahtarı başına temelinde ani engeller. Anahtar, rastgele bir dize olabilir ve genellikle bir ilke ifadesi kullanılarak sağlanır. Hangi istekleri sınırında sayılması belirtmek için isteğe bağlı increment koşul eklenebilir. Bu ilke tetiklenir çağıranın alır bir `429 Too Many Requests` yanıt durum kodu.  
   
  Daha fazla bilgi ve işbu politikaya ilişkin örnekler için bkz. [Gelişmiş istek azaltma ile Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -285,6 +289,10 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke kapsamları:** ürün  
   
 ##  <a name="SetUsageQuotaByKey"></a> Anahtara göre kullanım kotası ayarla  
+
+> [!IMPORTANT]
+> Bu özellik kullanılamıyor **tüketim** API Yönetimi katmanı.
+
  `quota-by-key` Yenilenebilir veya ömrü çağrı birim ve/veya bant genişliği kota anahtarı başına temelinde ilkeleri uygular. Anahtar, rastgele bir dize olabilir ve genellikle bir ilke ifadesi kullanılarak sağlanır. Hangi istekler kota hesaplamanıza dahil sayılması belirtmek için isteğe bağlı increment koşul eklenebilir. Birden çok ilke, aynı anahtar değeri gerçekleştirilemediği, istek başına yalnızca bir kez artırılır. Çağrı sınıra ulaşıldığında, çağırana alır bir `403 Forbidden` yanıt durum kodu.
   
  Daha fazla bilgi ve işbu politikaya ilişkin örnekler için bkz. [Gelişmiş istek azaltma ile Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  

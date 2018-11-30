@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287991"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496150"
 ---
-# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Kullanım Apache Spark, Kafka ve Azure Cosmos DB ile akış yapılandırılmış
+# <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Spark yapılandırılmış akış Apache Kafka ve Azure Cosmos DB ile kullanma
 
-Azure HDInsight üzerinde Apache kafka'dan veri okumak ve ardından Azure Cosmos DB'ye verileri depolamak için Apache Spark yapılandırılmış akış'ı kullanmayı öğrenin.
+Nasıl kullanacağınızı öğrenin [Apache Spark](https://spark.apache.org/) [yapılandırılmış akış](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) verileri okumak için [Apache Kafka](https://kafka.apache.org/) Azure HDInsight, ardından store ve Azure Cosmos DB verileri.
 
-Azure Cosmos DB Global olarak dağıtılmış, çok modelli bir veritabanıdır. Bu örnek, bir SQL API'si veritabanı modeli kullanır. Daha fazla bilgi için [Azure Cosmos DB'ye Hoş Geldiniz](../cosmos-db/introduction.md) belge.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Global olarak dağıtılmış, çok modelli bir veritabanıdır. Bu örnek, bir SQL API'si veritabanı modeli kullanır. Daha fazla bilgi için [Azure Cosmos DB'ye Hoş Geldiniz](../cosmos-db/introduction.md) belge.
 
 Spark yapılandırılmış akışı, Spark SQL üzerinde yerleşik bir akış işleme altyapısıdır. Bu altyapıyı kullanarak, statik veriler üzerinde toplu hesaplamayla aynı şekilde akış hesaplamalarını ifade edebilirsiniz. Yapılandırılmış akış hakkında daha fazla bilgi için bkz: [yapılandırılmış akış Programlama Kılavuzu](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) Apache.org.
 
@@ -143,7 +143,7 @@ Koncový bod dokumentu ve birincil anahtar bilgilerine aşağıdaki metne benzer
 > [!IMPORTANT]
 > Jupyter not defterlerinde gerektiğinde uç noktasını ve anahtarı değerleri kaydedin.
 
-## <a name="get-the-kafka-brokers"></a>Kafka aracıları Al
+## <a name="get-the-apache-kafka-brokers"></a>Apache Kafka aracılarına Al
 
 Bu örnekteki kod Kafka kümesinin Kafka Aracısı ana bilgisayarlara bağlanır. İki Kafka aracı konak adreslerini bulmak için aşağıdaki PowerShell veya Bash örneği kullanın:
 
@@ -201,12 +201,12 @@ Dosyalar karşıya yüklendikten sonra seçin __Stream-taksi-data-için-kafka.ip
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>Spark yapılandırılmış akış'ı kullanarak taksi verilerini işleme
 
-Jupyter not defteri giriş sayfasından seçin __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ girişi. Not defterinde adımları, Kafka ve Spark yapılandırılmış akış'ı kullanarak Azure Cosmos DB içine veri akışı için izleyin.
+Gelen [Jupyter not defteri](https://jupyter.org/) giriş sayfası, select __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ girişi. Not defterinde adımları, Kafka ve Spark yapılandırılmış akış'ı kullanarak Azure Cosmos DB içine veri akışı için izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Spark yapılandırılmış akışını kullanmayı öğrendiniz, Spark, Kafka ve Azure Cosmos DB ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+Apache Spark yapılandırılmış akışını kullanmayı öğrendiniz, Apache Spark, Apache Kafka ve Azure Cosmos DB ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Kafka ile Spark akışı (DStream) kullanma](hdinsight-apache-spark-with-kafka.md).
-* [Jupyter Not Defteri ve HDInsight üzerinde Spark ile Başlama](spark/apache-spark-jupyter-spark-sql.md)
+* [Apache Spark (DStream) akışı ile Apache Kafka kullanma](hdinsight-apache-spark-with-kafka.md).
+* [Jupyter not defteri ve HDInsight üzerinde Apache Spark kullanmaya başlayın](spark/apache-spark-jupyter-spark-sql.md)
 * [Azure Cosmos DB'ye Hoş Geldiniz](../cosmos-db/introduction.md)

@@ -2,25 +2,21 @@
 title: Azure Machine Learning otomatik veri işlem hattı kopya kağıdı | Microsoft Docs
 description: Verilerinizi azure'da veya bir üçüncü taraf bulut hizmetinde akış şirket içinde olup olmadığını bir otomatik veri işlem hattı, Azure Machine Learning web hizmeti için nasıl ayarlanacağı gösteren bir yazdırılabilir kağıdı.
 services: machine-learning
-documentationcenter: ''
-author: garyericson
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: garye
-ms.openlocfilehash: 32c7fca1b56e5426bc422b816279dd0919599f0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=garyericson, ms.author=garye)
+ms.openlocfilehash: 07f7334a98c1220d051ed1be9d04e4e4e86d4dcc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244011"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444445"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Azure Machine Learning öngörüleri için otomatik veri işlem hattı kopya sayfası
 **Microsoft Azure Machine Learning otomatik veri işlem hattı kopya kağıdı** gidin, Machine Learning, verileri almak için kullanabileceğiniz teknolojisi aracılığıyla yardımcı web burada bunu puanlanmış tarafından Tahmine dayalı analiz hizmeti Model.

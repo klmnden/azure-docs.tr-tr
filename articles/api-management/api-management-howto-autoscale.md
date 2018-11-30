@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250843"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444811"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management örneği otomatik olarak ölçeklendirme  
 
@@ -32,6 +32,8 @@ Bu makalede adımları için yapmanız gerekir:
 + Azure API Management örneği vardır. Daha fazla bilgi için [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 + Kavramı anlamak [bir Azure API Management örneğinin kapasite](api-management-capacity.md).
 + Anlamak [el ile bir Azure API Management örneği işlemi ölçeklendirme](upgrade-and-scale.md), maliyet sonuçları dahil olmak üzere.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Azure API Management otomatik ölçeklendirme sınırlamaları
 
