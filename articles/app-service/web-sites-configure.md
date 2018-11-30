@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115531"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443517"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
 
@@ -78,6 +78,8 @@ Bu bölümde, web uygulamanızın başlangıç yükleyecek ad/değer çiftleri i
 
 Uygulama ayarları depolandığında her zaman şifrelenir (şifrelenmiş bekleyen).
 
+Uygulama ayarlarını kullanarak Key Vault çözülmüş olabilir [Key Vault başvuran](app-service-key-vault-references.md).
+
 ### <a name="connection-strings"></a>Bağlantı dizeleri
 Bağlı kaynaklar için bağlantı dizelerini. 
 
@@ -93,6 +95,8 @@ PHP, Python, Java ve Node uygulamaları için bu ayarlar bağlantı türü ile �
 Örneğin, bir MySql bağlantı dizesi olarak adlandırılmışsa `connectionstring1`, ortam değişkeni erişilebilecek `MYSQLCONNSTR_connectionString1`.
 
 Bağlantı dizeleri depolandığında her zaman şifrelenir (şifrelenmiş bekleyen).
+
+Bağlantı dizeleri çözümlenebilir Key Vault kullanarak [Key Vault başvuran](app-service-key-vault-references.md).
 
 ### <a name="default-documents"></a>Varsayılan belgeler
 Varsayılan belge kök URL'si için bir Web sitesi görüntülenir bir web sayfasıdır.  Listedeki ilk eşleşen dosya kullanılır. 

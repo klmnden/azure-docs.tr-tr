@@ -1,6 +1,6 @@
 ---
-title: Azure API Management Geliştirici Portalı şablonları | Microsoft Docs
-description: Azure API Management'te şablonları kümesi kullanılarak Geliştirici portal sayfalarına içeriğini özelleştirmeyi öğrenin.
+title: Azure API Management Geliştirici portal şablonları | Microsoft Docs
+description: Azure API Yönetimi'nde bir dizi şablonları kullanarak Geliştirici portal sayfalarının içeriğini özelleştirme öğrenin.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26128758"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445489"
 ---
-# <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları
+# <a name="developer-portal-templates"></a>Geliştirici portal şablonları
 
-Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
+Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştirici portal sayfalarının içeriğini özelleştirme becerisi sunuyor. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) söz dizimi ve tercih ettiğiniz düzenleyiciyi gibi [tasarımcılarına yönelik DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter Kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), sayfaların içeriğini bu şablonları kullanarak dilediğiniz şekilde yapılandırmak için harika esnekliğine sahip olursunuz.  
   
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).  
+Şablonlar ile çalışma hakkında daha fazla bilgi için bkz. [şablonlarını kullanarak API Management Geliştirici portalını özelleştirmek nasıl](api-management-developer-portal-templates.md).  
 
-##  <a name="DeveloperPortalTemplates"></a>Geliştirici Portalı şablonları  
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+##  <a name="DeveloperPortalTemplates"></a> Geliştirici portal şablonları  
   
 -   [API'ler](api-management-api-templates.md)  
     -   [API listesi](api-management-api-templates.md#APIList)  
@@ -50,13 +52,13 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 -   [Sorunlar](api-management-issue-templates.md)  
     -   [Sorun listesi](api-management-issue-templates.md#IssueList)  
 -   [Kullanıcı profili](api-management-user-profile-templates.md)  
-    -   [Profili](api-management-user-profile-templates.md#Profile)  
+    -   [Profil](api-management-user-profile-templates.md#Profile)  
     -   [Abonelikler](api-management-user-profile-templates.md#Subscriptions)  
     -   [Uygulamalar](api-management-user-profile-templates.md#Applications)  
     -   [Hesap bilgilerini güncelleştir](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Sayfalar](api-management-page-templates.md)  
     -   [Oturum Aç](api-management-page-templates.md#SignIn)  
-    -   [Kaydol](api-management-page-templates.md#SignUp)  
+    -   [Kaydolma](api-management-page-templates.md#SignUp)  
     -   [Sayfa bulunamadı](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>Sonraki adımlar  

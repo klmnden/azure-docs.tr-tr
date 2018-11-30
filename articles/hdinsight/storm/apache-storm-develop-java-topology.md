@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8eb5a2429db26c987e9a6a40130e25c8034a210b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5f07f462fc33761f7d29944594491a72f283cd31
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011655"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582573"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java'da bir Apache Storm topolojisi oluşturma
 
-Apache Storm için Java tabanlı topoloji oluşturmayı öğrenin. Bir word-count uygulama uygulayan bir Storm topolojisi oluşturabilirsiniz. Derlemek ve projeyi paketlemek için Maven'i kullanın. Ardından Flux çerçevesini kullanarak topolojisi tanımlayın konusunda bilgi edinin.
+Bir Java tabanlı topoloji için oluşturmayı [Apache Storm](http://storm.apache.org/). Bir word-count uygulama uygulayan bir Storm topolojisi oluşturabilirsiniz. Kullandığınız [Apache Maven](https://maven.apache.org/) derlemek ve projeyi paketlemek için. Ardından Flux çerçevesini kullanarak topolojisi tanımlayın konusunda bilgi edinin.
 
 Bu belgedeki adımları tamamladıktan sonra HDInsight üzerinde Apache Storm topolojisi dağıtabilirsiniz.
 
@@ -30,7 +30,7 @@ Bu belgedeki adımları tamamladıktan sonra HDInsight üzerinde Apache Storm to
 
 * [Java Developer Kit (JDK) 8 sürümü](https://aka.ms/azure-jdks)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven Java projeleri için bir proje derleme sistemidir.
+* [Apache Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven Java projeleri için bir proje derleme sistemidir.
 
 * Bir metin düzenleyicisi veya IDE.
 
@@ -534,7 +534,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 
-Storm bilgileri günlüğe kaydetmek için Apache Log4j kullanır. Günlük kaydını yapılandırmazsanız topoloji tanılama bilgilerini gösterir. Günlüğe kaydedilenler denetlemek için adlı bir dosya oluşturun. `log4j2.xml` içinde `resources` dizin. Aşağıdaki XML dosyasının içeriği kullanın.
+Storm kullanan [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) bilgileri günlüğe kaydetmek için. Günlük kaydını yapılandırmazsanız topoloji tanılama bilgilerini gösterir. Günlüğe kaydedilenler denetlemek için adlı bir dosya oluşturun. `log4j2.xml` içinde `resources` dizin. Aşağıdaki XML dosyasının içeriği kullanın.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -559,7 +559,7 @@ Bu XML için yeni bir Günlükçü yapılandırır `com.microsoft.example` Bu ö
 
 `<Root level="error">` Bölüm kök düzeyini yapılandırır (içinde olmayan her şeyi `com.microsoft.example`) yalnızca hata bilgileri günlüğe kaydetmek için.
 
-Log4j için günlüğe kaydetmeyi yapılandırma ile ilgili daha fazla bilgi için bkz: [ http://logging.apache.org/log4j/2.x/manual/configuration.html ](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+Log4j 2 için günlüğe kaydetmeyi yapılandırma ile ilgili daha fazla bilgi için bkz: [ http://logging.apache.org/log4j/2.x/manual/configuration.html ](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
 > Storm sürümü: 0.10.0 ve daha yüksek kullanım Log4j 2.x. Storm'ın eski sürümlerinde kullanılan Log4j günlük yapılandırması için farklı bir biçim kullanılan 1.x. Eski yapılandırma hakkında daha fazla bilgi için bkz: [ http://wiki.apache.org/logging-log4j/Log4jXmlFormat ](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
@@ -588,7 +588,7 @@ Arabellek sözcükleri ve sayıları arasında 5 saniyelik aralığına yoktur. 
 
 ## <a name="convert-the-topology-to-flux"></a>Topoloji için Flux Dönüştür
 
-Flux uygulama yapılandırmasından ayrı olanak tanıyan bir yeni kullanılabilir olan Storm 0.10.0 veya üzeri çerçevedir. Bileşenlerinizi yine de Java'da tanımlanır, ancak topoloji, bir YAML dosyası kullanılarak tanımlanır. Varsayılan bir topoloji tanım paketini projenizle veya topoloji gönderirken bir tek başına dosya kullanın. Storm topoloji gönderirken YAML topoloji tanımı değerleri doldurmak için ortam değişkenlerini veya yapılandırma dosyalarını kullanabilirsiniz.
+[Flux](http://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) uygulama yapılandırmasından ayrı olanak tanıyan bir yeni kullanılabilir olan Storm 0.10.0 veya üzeri bir çerçevedir. Bileşenlerinizi yine de Java'da tanımlanır, ancak topoloji, bir YAML dosyası kullanılarak tanımlanır. Varsayılan bir topoloji tanım paketini projenizle veya topoloji gönderirken bir tek başına dosya kullanın. Storm topoloji gönderirken YAML topoloji tanımı değerleri doldurmak için ortam değişkenlerini veya yapılandırma dosyalarını kullanabilirsiniz.
 
 YAML dosyası tanımlar topoloji ve veriler için kullanılacak bileşenler arasındaki akış. Bir YAML dosyası jar dosyasını bir parçası olarak ekleyebilirsiniz veya dış bir YAML dosyası kullanabilirsiniz.
 
@@ -762,23 +762,23 @@ Flux hakkında daha fazla bilgi için bkz. [Flux framework (https://storm.apache
 
     Topoloji başladıktan sonra yayılan toplu işlemleri arasındaki süre newtopology.yaml değerini yansıtmak üzere değiştirildiğini fark. Bu nedenle, yapılandırmanızın bir YAML dosyası aracılığıyla topoloji yeniden derlemenize gerek kalmadan değiştirebilirsiniz olduğunu görebilirsiniz.
 
-Bu ve diğer özellikleri Flux framework'ün hakkında daha fazla bilgi için bkz. [Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
+Bu ve diğer özellikleri Flux framework'ün hakkında daha fazla bilgi için bkz. [Flux (http://storm.apache.org/releases/current/flux.html)](http://storm.apache.org/releases/current/flux.html).
 
 ## <a name="trident"></a>Trident
 
-Trident Storm tarafından sağlanan üst düzey bir soyutlamadır. Bu durum bilgisi olan işleme destekler. Trident birincil avantajı, topoloji girdiği her ileti yalnızca bir kez işlenir garanti edebilir ' dir. Trident kullanmadan topolojinizi yalnızca iletileri en az bir kez işlenir garanti edebilir. Boltlar oluşturmak yerine kullanılabilen yerleşik bileşenleri gibi başka farklılıklar da vardır. Aslında, Cıvatalar filtreleri, tahminler ve işlevler gibi daha az genel bileşenleri tarafından değiştirilir.
+[Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) Storm tarafından sağlanan üst düzey bir soyutlamadır. Bu durum bilgisi olan işleme destekler. Trident birincil avantajı, topoloji girdiği her ileti yalnızca bir kez işlenir garanti edebilir ' dir. Trident kullanmadan topolojinizi yalnızca iletileri en az bir kez işlenir garanti edebilir. Boltlar oluşturmak yerine kullanılabilen yerleşik bileşenleri gibi başka farklılıklar da vardır. Aslında, Cıvatalar filtreleri, tahminler ve işlevler gibi daha az genel bileşenleri tarafından değiştirilir.
 
 Trident uygulamalarını Maven projelerini kullanarak oluşturulabilir. Bu makalenin önceki bölümlerinde sunulan temel adımları tekrarlayın — yalnızca kod farklıdır. Trident ayrıca (şu anda) Flux framework ile kullanılamaz.
 
-Trident hakkında daha fazla bilgi için bkz: [Trident API'sine genel bakış](http://storm.apache.org/documentation/Trident-API-Overview.html).
+Trident hakkında daha fazla bilgi için bkz: [Trident API'sine genel bakış](http://storm.apache.org/releases/current/Trident-API-Overview.html).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Java kullanarak bir Storm topolojisi oluşturulacağını öğrendiniz. Daha fazla bilgi için nasıl:
+Java kullanarak bir Apache Storm topolojisi oluşturulacağını öğrendiniz. Daha fazla bilgi için nasıl:
 
 * [HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme](apache-storm-deploy-monitor-topology.md)
 
 * [Visual Studio kullanarak HDInsight üzerinde Apache Storm için C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md)
 
-Daha fazla örnek Storm topolojileri ederek bulabilirsiniz [HDInsight üzerinde Storm için örnek topolojiler](apache-storm-example-topology.md).
+Apache Storm topolojilerini ziyaret ederek daha fazla örnek bulabilirsiniz [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md).
 

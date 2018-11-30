@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4fc38d033181b60f105fd016a3fa968acd9d9177
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828762"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634277"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure İzleme Aracısı genel bakış 
 Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut sağlayıcılarında barındırılan Linux çalıştıran sanal makineler farklı veri türleri toplamak için birden çok yol sağlar. Bir VM'yi izlemek için kullanılabilen aracıları üç tür şunlardır:
@@ -77,5 +77,5 @@ Sanal makinenizin izlemek üzere bu aracı bileşimi gerekebilir. Aracıları ya
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz: [Log Analytics aracısını bakış](../../log-analytics/log-analytics-agent-overview.md) gereksinimleri ve desteklenen yöntem Azure, veri merkezinizi veya başka bir bulut ortamında barındırılan makineleri aracısını dağıtmak için gözden geçirmek için.
+- Bkz: [Log Analytics aracısını bakış](../../azure-monitor/platform/log-analytics-agent.md) gereksinimleri ve desteklenen yöntem Azure, veri merkezinizi veya başka bir bulut ortamında barındırılan makineleri aracısını dağıtmak için gözden geçirmek için.
 

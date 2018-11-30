@@ -16,18 +16,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: eaaeaf1b37c0d732d8d0009ad5a66f2118674b66
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e00591338fd09cbba6d97e6affebc9dce2399f7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240474"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423771"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>İmzalama anahtarı geçiş işlemi, Azure Active Directory'de
 Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarları hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları geçişi düzenli aralıklarla ve acil bir durum uzatılabilir, hemen dikkat edin önemlidir. Azure AD kullanan tüm uygulamalar, program aracılığıyla anahtarı geçiş işlemi ya da bir düzenli el ile geçiş işlemi'kurmak başlatabilmeniz gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza geçişin etkisini değerlendirmek ve uygulamanızı güncelleştirmeniz veya gerekirse, anahtar geçişi işlemek için bir düzenli el ile geçiş işlemi oluşturmak.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD'de imzalama anahtarı genel bakış
-Azure AD, kendisi ve onu kullanan uygulamalar arasında güven oluşturmak için sektör standartlarında derlenmiş ortak anahtar şifrelemesi kullanır. Pratikte, bu aşağıdaki şekilde çalışır: Azure AD kullanan bir imzalama anahtarı bir ortak ve özel anahtar çiftinden oluşur. Azure AD, bir kullanıcı kimlik doğrulaması için Azure AD kullanan bir uygulama için oturum açtığında, kullanıcı hakkında bilgileri içeren bir güvenlik belirteci oluşturur. Bu belirteç uygulamaya geri göndermeden önce özel anahtarı kullanarak Azure AD tarafından imzalanır. Belirtecin geçerli ve Azure ad kaynaklı olduğunu doğrulamak için uygulamayı kiracının içinde yer alan Azure AD tarafından kullanıma sunulan ortak anahtarı kullanarak belirtecinin imzası doğrulama [Openıd Connect bulma belge](http://openid.net/specs/openid-connect-discovery-1_0.html) veya SAML / WS-Federasyon [Federasyon meta veri belgesi](azure-ad-federation-metadata.md).
+Azure AD, kendisi ve onu kullanan uygulamalar arasında güven oluşturmak için sektör standartlarında derlenmiş ortak anahtar şifrelemesi kullanır. Pratikte, bu aşağıdaki şekilde çalışır: Azure AD kullanan bir imzalama anahtarı bir ortak ve özel anahtar çiftinden oluşur. Azure AD, bir kullanıcı kimlik doğrulaması için Azure AD kullanan bir uygulama için oturum açtığında, kullanıcı hakkında bilgileri içeren bir güvenlik belirteci oluşturur. Bu belirteç uygulamaya geri göndermeden önce özel anahtarı kullanarak Azure AD tarafından imzalanır. Belirtecin geçerli ve Azure ad kaynaklı olduğunu doğrulamak için uygulamayı kiracının içinde yer alan Azure AD tarafından kullanıma sunulan ortak anahtarı kullanarak belirtecinin imzası doğrulama [Openıd Connect bulma belge](https://openid.net/specs/openid-connect-discovery-1_0.html) veya SAML / WS-Federasyon [Federasyon meta veri belgesi](azure-ad-federation-metadata.md).
 
 Güvenlik nedenleriyle, Azure AD'nin imzalama anahtar pay düzenli aralıklarla ve Acil, Uzatılabilir hemen. Azure AD ile tümleştirilen herhangi bir uygulama ne sıklıkta oluşabilir ne olursa olsun, bir anahtar geçişi olayı işlemek için hazırlıklı olmalıdır. Bu değil ve bir belirteç imzayı doğrulamak için süresi dolmuş bir anahtarı kullanmak uygulamanızı çalışır, oturum açma isteği başarısız olur.
 

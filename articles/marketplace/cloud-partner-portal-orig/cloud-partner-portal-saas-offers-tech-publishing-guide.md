@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228904"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620192"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS uygulaması teknik yayımlama Kılavuzu
 ===========================================
@@ -32,7 +32,7 @@ Diğer tüm Market teklifleri genel bakış için bkz [Market yayımcı rehberi]
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>Bir SaaS uygulaması yayımlamak için ön koşullar nelerdir?
 -------------------------------------------------
 
-Yayımlama Portalı izin vererek bir teklifi yayımlama doğru işbirliği yapmak birden çok kişiye portalında rol tabanlı erişim sağlar. Daha fazla bilgi için [Kullanıcıları Yönet](./cloud-partner-portal-manage-users.md). 
+[Bulut iş ortağı portalı](https://cloudpartner.azure.com) izin vererek bir teklifi yayımlama doğru işbirliği yapmak birden çok kişiye portalında rol tabanlı erişim sağlar. Daha fazla bilgi için [Kullanıcıları Yönet](./cloud-partner-portal-manage-users.md). 
 
 Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile *sahibi* rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikalı ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ SaaS uygulama teklifini aşağıdaki tabloda açıklanan beş bölümlerden olu�
 
 ### <a name="creating-a-new-offer"></a>Yeni bir teklif oluşturma
 
-Bulut iş ortağı portalında oturum açtıktan sonra seçin **yeni teklif** üzerinde mevcut tekliflerin bir menü görüntüler sol menü öğesi. Aşağıdaki görüntüde, bu tekliflerin bir örnek gösterilmektedir:
+İçin oturum açtıktan sonra [bulut iş ortağı portalı](https://cloudpartner.azure.com)seçin **yeni teklif** üzerinde mevcut tekliflerin bir menü görüntüler sol menü öğesi. Aşağıdaki görüntüde, bu tekliflerin bir örnek gösterilmektedir:
 
 ![SaaS yeni teklif](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ Aşağıdaki tabloda, pazarlama alanlar açıklanır:
 
 | **Teklif alanları** | **Açıklama**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Logo            | Eğer bir **Azure üzerinden satın** SaaS uygulamasının tüm logosu görüntüleri sağlamalıdır. Bir liste olması durumunda, yalnızca 2 logo gerekli değildir. Bulut iş ortağı Portalı'nda karşıya logo aşağıdaki yönergeleri kullanmanız gerekir:     <br/> -Sayısı birincil ve ikincil renk logonuzu düşük tutun. Azure tasarımının basit bir renk paleti vardır.     <br/> -Sorunlarını giderme siyah veya beyaz arka plan rengi logonuz olarak kullanmaktan kaçının. Azure Portal'ın Tema renkleri siyah beyaz ' dir. Bunun yerine, logonuzu Azure portalında belirgin hale getirir bazı renk kullanın. Basit birincil renkleri öneririz. Saydam arka plan kullanıyorsanız logosu ve metin siyah, beyaz veya mavi olmadığından emin olun.     <br/> -Arka plan gradyan logosunu işaret kullanmayın.     <br/> -Metin, hatta şirket veya marka adı logosunu yerleştirmekten kaçının. Logonuzu Görünüm ve yapısını 'düz' olmalıdır ve gradyanları kaçınmalıdır.    <br/> -Logo resmi uzatılması gerektiğini değil.                   |
+| Logo            | Eğer bir **Azure üzerinden satın** SaaS uygulamasının tüm logosu görüntüleri sağlamalıdır. Bir liste olması durumunda, yalnızca 2 logo gerekli değildir. İçindeki tüm logoları karşıya [bulut iş ortağı portalı](https://cloudpartner.azure.com) aşağıdaki yönergeleri kullanmanız gerekir:     <br/> -Sayısı birincil ve ikincil renk logonuzu düşük tutun. Azure tasarımının basit bir renk paleti vardır.     <br/> -Sorunlarını giderme siyah veya beyaz arka plan rengi logonuz olarak kullanmaktan kaçının. Azure Portal'ın Tema renkleri siyah beyaz ' dir. Bunun yerine, logonuzu Azure portalında belirgin hale getirir bazı renk kullanın. Basit birincil renkleri öneririz. Saydam arka plan kullanıyorsanız logosu ve metin siyah, beyaz veya mavi olmadığından emin olun.     <br/> -Arka plan gradyan logosunu işaret kullanmayın.     <br/> -Metin, hatta şirket veya marka adı logosunu yerleştirmekten kaçının. Logonuzu Görünüm ve yapısını 'düz' olmalıdır ve gradyanları kaçınmalıdır.    <br/> -Logo resmi uzatılması gerektiğini değil.                   |
 | Videolar           | Teklifinizin videoların bağlantılarını eklemenizi sağlar. Teklifinizle birlikte müşterilere gösterilir, YouTube ve/veya Vimeo video bağlantıları kullanabilirsiniz. Bir küçük resim, video 1280 x 720 piksel png görüntüsü ile girmeniz gerekir. Teklif başına dört video en fazla olabilir. |
 | Belgeler        | Teklifinizin pazarlama belgeleri eklemenizi sağlar. Tüm belgeleri, PDF biçiminde olmalıdır ve en fazla üç belgeler Teklif başına olabilir.                                                                                                                                                      |
 | Ekran görüntüleri      | Teklifinizin ekran görüntüleri eklemenizi sağlar. Teklif eklenebilecek beş ekran görüntüleri en fazla yoktur. En yüksek görüntü boyutu 1280 x 720 pikseldir.                                                                                                                                             |

@@ -9,28 +9,32 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983659"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634294"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
 > [!NOTE] 
-> App Service'in Linux'ta ve kapsayıcılar için Web uygulaması şu anda desteklemediği yönetilen kimlikleri.
+> App Service'in Linux'ta ve kapsayıcılar için Web Apps için yönetilen kimlik desteği şu anda Önizleme aşamasındadır.
 
 > [!Important] 
 > App Service ve Azure işlevleri için yönetilen kimlikleri, uygulamanızı abonelikleri/kiracılar genelinde geçirdiyseniz beklendiği gibi davranmaz. Uygulamayı devre dışı bırakıp yeniden özelliğini etkinleştirerek yapılabilir yeni bir kimliği edinmeniz gerekir. Bkz: [Kimlikteki kaldırma](#remove) aşağıda. Aşağı Akış kaynakları da erişim ilkelerini yeni bir kimlik kullanacak şekilde güncelleştirilmiş olması gerekir.
 
 Bu konuda, App Service ve Azure işlevleri uygulamaları için yönetilen bir kimlik oluşturma ve diğer kaynaklarına erişmek için kullanma gösterilmektedir. Azure Key Vault gibi diğer AAD korumalı kaynakları kolayca erişmek için uygulamanızı Azure Active Directory'den yönetilen bir kimlik sağlar. Kimlik Azure platformu tarafından yönetilir ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Aad'de yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [kimliklerini Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="creating-an-app-with-an-identity"></a>Bir kimlik ile uygulama oluşturma
+Uygulamanızı kimlikler iki tür verilebilir: 
+- A **sistem tarafından atanan kimlik** uygulamanıza bağlıdır ve uygulamanızı silinirse silinir. Bir uygulama yalnızca tek bir sistem tarafından atanan kimlik olabilir. Sistem tarafından atanan kimlik desteği, Windows uygulamaları için genel kullanıma sunulmuştur. 
+- A **kullanıcı tarafından atanan kimlik** tek başına uygulamanıza atanan Azure kaynağı olduğundan. Bir uygulamanın birden çok kullanıcı tarafından atanan kimlik olabilir. Kullanıcı tarafından atanan kimlik desteği, tüm uygulama türleri için önizlemeye sunulmuştur.
 
-Bir kimlik ile uygulama oluşturma, uygulama üzerinde ayarlamak için ek bir özellik gerektirir.
+## <a name="adding-a-system-assigned-identity"></a>Sistem tarafından atanan bir kimlik ekleniyor
+
+Sistem tarafından atanan bir kimlikle bir uygulama oluşturmak, uygulama üzerinde ayarlamak için ek bir özellik gerekir.
 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
@@ -42,9 +46,9 @@ Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama ol
 
 3. Seçin **yönetilen kimliği**.
 
-4. Anahtar **Azure Active Directory ile kayıt** için **üzerinde**. **Kaydet**’e tıklayın.
+4. İçinde **sistem tarafından atanan** sekmesinde, geçiş **durumu** için **üzerinde**. **Kaydet**’e tıklayın.
 
-![App Service içindeki yönetilen kimlik](media/app-service-managed-service-identity/msi-blade.png)
+![App Service içindeki yönetilen kimlik](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI kullanma
 
@@ -94,7 +98,7 @@ Aşağıdaki adımlar, bir web uygulaması oluşturma ve Azure PowerShell kullan
     New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Çalıştırma `identity assign` komutu bu uygulama için kimlik oluşturmak için:
+3. Çalıştırma `Set-AzureRmWebApp -AssignIdentity` komutu bu uygulama için kimlik oluşturmak için:
 
     ```azurepowershell-interactive
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -111,7 +115,10 @@ Herhangi bir kaynak türü `Microsoft.Web/sites` kaynak tanımı'nda aşağıdak
 }    
 ```
 
-Bu, oluşturmak ve uygulamanız için kimlik yönetimi için Azure bildirir.
+> [!NOTE] 
+> Bir uygulamanın aynı anda hem sistem tarafından atanan ve kullanıcı tarafından atanan kimlikleri olabilir. Bu durumda, `type` özelliği olacaktır `SystemAssigned,UserAssigned`
+
+Sistem tarafından atanan türü ekleme oluşturmak ve uygulamanız için kimlik yönetimi için Azure söyler.
 
 Örneğin, bir web uygulaması aşağıdakine benzeyebilir:
 ```json
@@ -139,12 +146,100 @@ Bu, oluşturmak ve uygulamanız için kimlik yönetimi için Azure bildirir.
 Site oluşturulduğunda, aşağıdaki ek özellikler vardır:
 ```json
 "identity": {
+    "type": "SystemAssigned",
     "tenantId": "<TENANTID>",
     "principalId": "<PRINCIPALID>"
 }
 ```
 
 Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştirilir. AAD kiracısının kimliği ait ne Tenantıd özelliği tanımlar. Principalıd, uygulamanın yeni kimlik için benzersiz bir tanımlayıcıdır. AAD içinde hizmet sorumlusu, App Service veya Azure işlevleri Örneğinize verdiğiniz aynı ada sahip.
+
+
+## <a name="adding-a-user-assigned-identity-preview"></a>Bir kullanıcı tarafından atanan kimliği (Önizleme) ekleme
+
+> [!NOTE] 
+> Kullanıcı tarafından atanan kimlikleri, şu anda Önizleme aşamasındadır. Sovreign bulut henüz desteklenmemektedir.
+
+Uygulama bir kullanıcı tarafından atanan kimliği oluşturma, kimlik oluşturmak ve ardından, uygulama yapılandırması için kaynak tanımlayıcısını ekleyin gerektirir.
+
+### <a name="using-the-azure-portal"></a>Azure portalını kullanma
+
+> [!NOTE] 
+> Bu portal deneyimi, dağıtılmakta ve henüz tüm bölgelerde kullanılamayabilir.
+
+İlk olarak, bir kullanıcı tarafından atanan kimlik kaynağı oluşturmanız gerekir.
+
+1. Bir kullanıcı tarafından atanan yönetilen kimlik kaynağı göre oluşturun [bu yönergeleri](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+2. Normalde yaptığınız gibi Portalı'nda bir uygulama oluşturun. İçin portalda gidin.
+
+3. Bir işlev uygulaması kullanıyorsanız gidin **Platform özellikleri**. Diğer uygulama türleri için aşağı kaydırarak **ayarları** sol gezinti grubu.
+
+4. Seçin **yönetilen kimliği**.
+
+5. İçinde **kullanıcı (Önizleme) atanmış** sekmesinde **Ekle**.
+
+6. Daha önce oluşturduğunuz kimlik için arama yapın ve seçin. **Ekle**'ye tıklayın.
+
+![App Service içindeki yönetilen kimlik](media/app-service-managed-service-identity/msi-blade-user.png)
+
+### <a name="using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanma
+
+Bir Azure Resource Manager şablonu kullanarak Azure kaynaklarınızı dağıtımını otomatik hale getirmek için kullanılabilir. App Service ve İşlevler için dağıtma hakkında daha fazla bilgi edinmek için [App Service'te kaynak dağıtımını otomatikleştirme](../app-service/app-service-deploy-complex-application-predictably.md) ve [Azure işlevleri'nde kaynak dağıtımını otomatikleştirme](../azure-functions/functions-infrastructure-as-code.md).
+
+Herhangi bir kaynak türü `Microsoft.Web/sites` kaynak tanımı'nda aşağıdaki bloğu dahil olmak üzere bir kimlikle oluşturulabilir değiştirerek `<RESOURCEID>` istenen kimlik kaynak kimliği:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}    
+```
+
+> [!NOTE] 
+> Bir uygulamanın aynı anda hem sistem tarafından atanan ve kullanıcı tarafından atanan kimlikleri olabilir. Bu durumda, `type` özelliği olacaktır `SystemAssigned,UserAssigned`
+
+Kullanıcı tarafından atanan türü ekleme ve bir oluşturmak ve uygulamanız için kimlik yönetimi için Azure cotells.
+
+Örneğin, bir web uygulaması aşağıdakine benzeyebilir:
+```json
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "UserAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
+```
+
+Site oluşturulduğunda, aşağıdaki ek özellikler vardır:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+Burada `<PRINCIPALID>` ve `<CLIENTID>` GUID'lerini aşağıdaki ile değiştirilir. Principalıd AAD Yönetim için kullanılan kimliği için benzersiz bir tanımlayıcıdır. ClientID, uygulamanın çalışma zamanı çağrılar sırasında kullanılacak kimliği belirtmek için kullanılan yeni kimlik için benzersiz bir tanımlayıcıdır.
+
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Azure kaynakları için belirteç edinme
 
@@ -189,6 +284,7 @@ Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardı
 > |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir.|
 > |API sürümü|Sorgu|Kullanılacak belirteç API sürümü. "2017-09-01", şu anda desteklenen tek sürüm aşamasındadır.|
 > |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri.|
+> |ClientID|Sorgu|(İsteğe bağlı) Kullanılacak kullanıcı tarafından atanan kimlik kimliği. Atlanırsa, sistem tarafından atanan kimlik kullanılır.|
 
 
 Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içerir:
@@ -241,7 +337,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 
 <a name="token-js"></a>Node.js'de:
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
     var options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
@@ -265,7 +361,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>Bir kimlik kaldırılıyor
 
-Bir kimlik, oluşturulduğu aynı şekilde portal, PowerShell veya CLI kullanarak özelliğini devre dışı bırakarak kaldırılabilir. REST/ARM şablonu protokolünde "None" türüne ayarlayarak gerçekleştirilir:
+Bir sistem tarafından atanan kimliği, oluşturulduğu aynı şekilde portal, PowerShell veya CLI kullanarak özelliğini devre dışı bırakarak kaldırılabilir. Kullanıcı tarafından atanan kimlikleri ayrı ayrı kaldırabilirsiniz. Tüm kimlikleri REST/ARM şablonu protokolünde kaldırmak için bu ayar türü için "None" gerçekleştirilir:
 
 ```json
 "identity": {
@@ -273,7 +369,7 @@ Bir kimlik, oluşturulduğu aynı şekilde portal, PowerShell veya CLI kullanara
 }    
 ```
 
-Bu şekilde kimlik kaldırma da asıl AAD'den silinir. Uygulama kaynağı silindiğinde sistem tarafından atanan kimlikleri AAD'den otomatik olarak kaldırılır.
+Bir sistem tarafından atanan kimliği bu şekilde kaldırarak Ayrıca, AAD'den siler. Uygulama kaynağı silindiğinde sistem tarafından atanan kimlikleri AAD'den da otomatik olarak kaldırılır.
 
 > [!NOTE] 
 > Ayarlanabilen, bir uygulama ayarı yalnızca yerel belirteç hizmeti devre dışı bırakan WEBSITE_DISABLE_MSI yoktur. Ancak, yerinde kimlik bırakır ve araçları yönetilen kimlik olarak "on" veya "etkin" hala Göster Sonuç olarak, bu seçeneğin önerilen değil.

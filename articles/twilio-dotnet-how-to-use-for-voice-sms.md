@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 5b39094ef081aadc813849399ebebc0c2e8a666d
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291309"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427555"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Ses ve azure'dan SMS özellikleri için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -29,8 +29,10 @@ Twilio ses, VoIP ve mesajlaşma uygulamaları gömmek geliştiricilerin iş ilet
 
 **Twilio ses** yapıp telefon çağrılarını almak, uygulamaların sağlar. **Twilio SMS** SMS iletileri gönderip almak için uygulamalarınızı sağlar. **Twilio istemci** WebRTC destekler ve herhangi bir telefon, tablet veya tarayıcı VoIP çağrı yapmak sağlar.
 
-## <a id="Pricing"></a>Twilio fiyatlandırması
-Twilio, bir Kullandıkça Öde hizmetidir. Hesabınızı dilediğiniz zaman kapatabilirsiniz ve Kurulum ücret vardır. Daha fazla bilgi bulabilirsiniz [Twilio fiyatlandırma](http://www.twilio.com/voice/pricing).
+## <a id="Pricing"></a>Twilio fiyatlandırma ve özel teklifler
+Azure müşterileri alır bir [özel teklif](https://www.twilio.com/azure): 10 ücretsiz Twilio Twilio hesabınızın yükselttiğinizde kredi. Twilio kredi herhangi bir Twilio kullanım (10 ABD Doları kredi 1.000 adede kadar SMS mesajları göndermek veya telefon numarası ve ileti veya çağrı hedef konumuna bağlı olarak en fazla 1000 gelen sesi dakika alma eşdeğerdir) uygulanabilir. Twilio kredi almak ve başlamak [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
+
+Twilio, bir Kullandıkça Öde hizmetidir. Hesabınızı dilediğiniz zaman kapatabilirsiniz ve Kurulum ücret vardır. Daha fazla bilgi bulabilirsiniz [Twilio fiyatlandırma](https://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Kavramları
 Twilio ses ve SMS işlevselliğini uygulamaları için sağlayan bir RESTful API API'dir. Birden fazla dilde istemci kitaplıkları vardır; bir liste için bkz. [Twilio API kitaplıkları][twilio_libraries].
@@ -40,7 +42,7 @@ Twilio API'si önemli yönlerini Twilio fiilleri ve Twilio biçimlendirme dili (
 ### <a id="Verbs"></a>Twilio fiiller
 Twilio'yu kullanarak API yapar; fiiller Örneğin, **&lt;Say&gt;** fiil kullanımı bir çağrıda bir iletiyi teslim etmek için Twilio bildirir.
 
-Twilio fiillerin listesi verilmiştir.  Diğer fiilleri ve aracılığıyla özellikler hakkında bilgi edinin [Twilio işaretleme dili belge](http://www.twilio.com/docs/api/twiml).
+Twilio fiillerin listesi verilmiştir.  Diğer fiilleri ve aracılığıyla özellikler hakkında bilgi edinin [Twilio işaretleme dili belge](https://www.twilio.com/docs/api/twiml).
 
 * `<Dial>`: Çağıran başka bir telefonu bağlanır.
 * `<Gather>`: Telefon tuş takımında girilen sayı toplar.
@@ -96,9 +98,9 @@ Twilio, .NET geliştiricileri için beş kitaplıkları sağlar:
 
 Bu kılavuzda sağlanan örnekleri Twilio.API kitaplığını kullanın.
 
-Kitaplıkları olabilir [NuGet Paket Yöneticisi uzantısını kullanarak yüklü](http://www.twilio.com/docs/csharp/install) 2015 kadar Visual Studio 2010 için kullanılabilir.  Kaynak kodu barındırılan [GitHub][twilio_github_repo], kitaplıkları kullanmaya yönelik kapsamlı belgeler içeren bir Wiki içerir.
+Kitaplıkları olabilir [NuGet Paket Yöneticisi uzantısını kullanarak yüklü](https://www.twilio.com/docs/csharp/install) 2015 kadar Visual Studio 2010 için kullanılabilir.  Kaynak kodu barındırılan [GitHub][twilio_github_repo], kitaplıkları kullanmaya yönelik kapsamlı belgeler içeren bir Wiki içerir.
 
-Varsayılan olarak, Microsoft Visual Studio 2010 NuGet 1.2 sürümünü yükler. Twilio kitaplıkları yükleme sürüm 1.6 NuGet veya üzerini gerektirir. Yükleme veya güncelleştirme NuGet hakkında daha fazla bilgi için bkz: [ http://nuget.org/ ] [ nuget].
+Varsayılan olarak, Microsoft Visual Studio 2010 NuGet 1.2 sürümünü yükler. Twilio kitaplıkları yükleme sürüm 1.6 NuGet veya üzerini gerektirir. Yükleme veya güncelleştirme NuGet hakkında daha fazla bilgi için bkz: [ https://nuget.org/ ] [ nuget].
 
 > [!NOTE]
 > NuGet'ın en son sürümünü yüklemek için önce Visual Studio Uzantı Yöneticisi'ni kullanarak yüklenen sürümü kaldırmanız gerekir. Bunu yapmak için Visual Studio'yu yönetici olarak çalıştırmalısınız. Aksi takdirde Kaldır düğmesini devre dışı bırakıldı.
@@ -126,7 +128,7 @@ const string authToken = "your_twilio_authentication_token";
 TwilioClient.Init(accountSID, authToken);
 
 // Use the Twilio-provided site for the TwiML response.
-var url = "http://twimlets.com/message";
+var url = "https://twimlets.com/message";
 url = $"{url}?Message%5B0%5D=Hello%20World";
 
 // Set the call From, To, and URL values to use for the call.
@@ -139,7 +141,7 @@ var call = CallResource.Create(
     }
 ```
 
-İçin geçirilen parametreler hakkında daha fazla bilgi için **CallResource.Create** yöntemi bkz [ http://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
+İçin geçirilen parametreler hakkında daha fazla bilgi için **CallResource.Create** yöntemi bkz [ https://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
 
 Belirtildiği gibi bu kod bir Twilio tarafından sağlanan site TwiML yanıt döndürmek için kullanır. Bunun yerine, kendi site TwiML yanıt sağlamak için de kullanabilirsiniz. Daha fazla bilgi için [nasıl yapılır: kendi Web sitesinden sağlamak TwiML yanıtları](#howto_provide_twiml_responses).
 
@@ -171,10 +173,10 @@ catch (TwilioException ex)
 ```
 
 ## <a id="howto_provide_twiml_responses"></a>Nasıl yapılır: kendi Web sitesinden TwiML yanıtları sağlayın
-Ne zaman uygulamanızı başlatan Twilio API'si - Örneğin, bir çağrı aracılığıyla **CallResource.Create** yöntem - Twilio gönderir isteğiniz TwiML yanıt dönmesi beklenen bir URL. Örnekte [nasıl yapılır: giden bir çağrı yapmak](#howto_make_call) Twilio tarafından sağlanan URL'yi kullanır [ http://twimlets.com/message ] [ twimlet_message_url] yanıtta döndürülecek.
+Ne zaman uygulamanızı başlatan Twilio API'si - Örneğin, bir çağrı aracılığıyla **CallResource.Create** yöntem - Twilio gönderir isteğiniz TwiML yanıt dönmesi beklenen bir URL. Örnekte [nasıl yapılır: giden bir çağrı yapmak](#howto_make_call) Twilio tarafından sağlanan URL'yi kullanır [ https://twimlets.com/message ] [ twimlet_message_url] yanıtta döndürülecek.
 
 > [!NOTE]
-> TwiML web hizmetleri tarafından kullanılmak üzere tasarlandığından, tarayıcınızda TwiML görüntüleyebilirsiniz. Örneğin, [ http://twimlets.com/message ] [ twimlet_message_url] boş görmek için `<Response>` öğesi; başka bir örnek olarak, tıklayın [ http://twimlets.com/message?Message%5B0%5D=Hello%20World ](http://twimlets.com/message?Message%5B0%5D=Hello%20World) görmek için bir `<Response>` öğesini içeren bir &lt;Say&gt; öğesi.
+> TwiML web hizmetleri tarafından kullanılmak üzere tasarlandığından, tarayıcınızda TwiML görüntüleyebilirsiniz. Örneğin, [ https://twimlets.com/message ] [ twimlet_message_url] boş görmek için `<Response>` öğesi; başka bir örnek olarak, tıklayın [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) görmek için bir `<Response>` öğesini içeren bir &lt;Say&gt; öğesi.
 >
 
 Twilio tarafından sağlanan URL üzerinde işlemine güvenmek yerine, HTTP yanıtlarını döndürür kendi URL site oluşturabilirsiniz. HTTP yanıtlarını döndüren herhangi bir dilde site oluşturabilirsiniz. Bu konuda, bir ASP.NET genel işleyicisi URL'den barındırma varsayılır.
@@ -271,17 +273,17 @@ ASP.NET ile azure'da Twilio kullanma hakkında ek bilgi için bkz: [azure'da bir
 
 [howto_phonecall_dotnet]: partner-twilio-cloud-services-dotnet-phone-call-web-role.md
 
-[twimlet_message_url]: http://twimlets.com/message
+[twimlet_message_url]: https://twimlets.com/message
 
-[twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
+[twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
-[nuget]:http://nuget.org/
+[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/console
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified

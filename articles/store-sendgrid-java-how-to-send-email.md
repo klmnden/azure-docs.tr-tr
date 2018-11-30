@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: cdc6e082207b9128be3e3005305510f3ee493850
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427850"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422094"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java'dan SendGrid kullanarak e-posta gönderme
 Bu kılavuzda, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Örnek Java dilinde yazılır. Senaryoları ele alınmaktadır **e-posta oluşturma**, **e-posta gönderme**, **ekler eklenirken**, **filtreleri kullanarak**ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz. [sonraki adımlar](#next-steps) bölümü.
@@ -34,13 +34,13 @@ SendGrid olduğu bir [bulut tabanlı e-posta hizmeti] sağlayan güvenilir [İş
 * İletme müşteri sorguları
 * Uygulamanızdan e-posta bildirimleri
 
-Daha fazla bilgi için <http://sendgrid.com>.
+Daha fazla bilgi için <https://sendgrid.com>.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid hesabı oluşturma
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Nasıl yapılır: javax.mail kitaplıklarını kullanma
-Javax.mail kitaplıkları, örneğin almak <http://www.oracle.com/technetwork/java/javamail> ve kodunuzun aktarın. Yüksek düzeyde, aşağıdakileri yapmak için kullanarak SMTP e-posta göndermek için javax.mail kitaplığı kullanma işlemini verilmiştir:
+Javax.mail kitaplıkları, örneğin almak <https://www.oracle.com/technetwork/java/javamail> ve kodunuzun aktarın. Yüksek düzeyde, aşağıdakileri yapmak için kullanarak SMTP e-posta göndermek için javax.mail kitaplığı kullanma işlemini verilmiştir:
 
 1. Dahil olan bı'in SendGrid smtp.sendgrid.net SMTP sunucusunun SMTP değerlerini belirtin.
 
@@ -184,13 +184,13 @@ SendGrid e-posta hizmeti ile ilgili temel bilgileri öğrendiniz, daha fazla bil
 * SendGrid API belgeleri: <https://sendgrid.com/docs/API_Reference/index.html>
 * Azure müşterileri için SendGrid özel tekliftir: <https://sendgrid.com/windowsazure.html>
 
-[http://sendgrid.com]: https://sendgrid.com
-[http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
+[https://sendgrid.com]: https://sendgrid.com
+[https://sendgrid.com/pricing.html]: https://sendgrid.com/pricing.html
 [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
-[http://sendgrid.com/features]: https://sendgrid.com/features
-[http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
+[https://sendgrid.com/features]: https://sendgrid.com/features
+[https://www.oracle.com/technetwork/java/javamail]: https://www.oracle.com/technetwork/java/javamail/index.html
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
-[http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
+[https://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [bulut tabanlı e-posta hizmeti]: https://sendgrid.com/email-solutions
 [İşlem tabanlı e-posta teslimi]: https://sendgrid.com/transactional-email

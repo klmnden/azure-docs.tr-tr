@@ -1,6 +1,6 @@
 ---
-title: Machine Learning web hizmetini dağıtma | Microsoft Docs
-description: Bir eğitim denemesini öngörücü bir denemeye dönüştürme, dağıtım için hazırlamak ve ardından bir Azure Machine Learning web hizmeti olarak dağıtma nasıl.
+title: Bir Machine Learning Studio web hizmeti - Azure'ı dağıtma | Microsoft Docs
+description: Bir eğitim denemesini öngörücü bir denemeye dönüştürme, dağıtım için hazırlamak ve ardından bir Azure Machine Learning Studio web hizmeti olarak dağıtma nasıl.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: a5730b6b1d1b8d74b773ae21d4347a85bf370de7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262593"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314277"
 ---
-# <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning web hizmeti dağıtma
+# <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
 Azure Machine Learning, derleme, test etme ve Tahmine dayalı analiz çözümlerini dağıtmak sağlar.
 
 Bir üst düzey noktası-ın-görünümünden, bu üç adımda gerçekleştirilir:
