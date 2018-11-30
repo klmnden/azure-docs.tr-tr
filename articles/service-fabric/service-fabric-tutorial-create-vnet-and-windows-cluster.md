@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 12880c3aada46b1656cf37b0cb539292cce930ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625717"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632900"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Service Fabric Windows kümesi dağıtma
 
 Bu öğretici, bir dizinin birinci bölümüdür. PowerShell ile bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) ve [ağ güvenlik grubuna](../virtual-network/virtual-networks-nsg.md) Windows çalıştıran bir Service Fabric kümesi dağıtmayı öğrenirsiniz. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur.  Azure CLI kullanarak Linux kümesi oluşturmak için bkz. [Azure’da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
-Bu öğreticide bir üretim senaryosu açıklanır.  Test amaçlı olarak hızlıca küçük bir küme oluşturmak istiyorsanız bkz. [Üç düğümlü test kümesi oluşturma](./scripts/service-fabric-powershell-create-test-cluster.md).
+Bu öğreticide bir üretim senaryosu açıklanır.  İsterseniz hızlı bir şekilde test amacıyla daha küçük bir küme oluşturun, bkz: [test kümesi oluşturma](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 

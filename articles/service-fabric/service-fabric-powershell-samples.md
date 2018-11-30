@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 04/09/2018
+ms.date: 11/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 65f6252ecfa4e5850824fc7aa2e6eca2bdb88692
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 5d8137b2ca6c47713b7a681090963dd2749dd1f2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205765"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634056"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell örnekleri
 
@@ -33,7 +33,6 @@ Aşağıdaki tablo, Service Fabric kümelerini, uygulamalarını ve hizmetlerini
 |-|-|
 | **Küme oluşturma** ||
 | [Küme oluşturma (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Bir Azure Service Fabric kümesi oluşturur. |
-|[Test kümesi oluşturma (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Azure’da üç düğümlü bir test Service Fabric kümesi oluşturur.|
 | **Kümeyi, düğümleri ve altyapıyı yönetme** ||
 | [Uygulama sertifikası ekleme](./scripts/service-fabric-powershell-add-application-certificate.md)| Bir kümedeki tüm düğümlere uygulama X.509 sertifikası ekler. |
 | [Küme sanal makinelerinde RDP bağlantı noktası aralığını güncelleştirme](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Dağıtılan bir kümedeki küme düğümü sanal makinelerinde RDP bağlantı noktası aralığını değiştirir.|

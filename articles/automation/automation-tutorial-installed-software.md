@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fa483ea766d1c93256054a5360470edcbef94250
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283800"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635127"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure ve Azure harici makinelerinizde yüklü olan yazılımları keşfetme
 
@@ -70,7 +70,7 @@ Otomasyon Hesabınızda, **YAPILANDIRMA YÖNETİMİ** altında **Stok**’a gidi
 
 ## <a name="onboard-a-non-azure-machine"></a>Azure olmayan bir makine ekleme
 
-Azure olmayan makineler eklemek için, işletin sisteminize bağlı olarak [Windows](../log-analytics/log-analytics-agent-windows.md) veya [Linux](automation-linux-hrw-install.md) için aracıyı yükleyin. Aracı yüklendiğinde, Otomasyon Hesabınıza gidin ve **YAPILANDIRMA YÖNETİMİ** altında **Stok**’a gidin. **Makineleri Yönet**’e tıkladığınızda, Log Analytics çalışma alanınıza raporlayan çözüm etkinleştirilmemiş makinelerin bir listesini görürsünüz. Ortamınız için uygun seçeneği belirleyin.
+Azure olmayan makineler eklemek için, işletin sisteminize bağlı olarak [Windows](../azure-monitor/platform/agent-windows.md) veya [Linux](automation-linux-hrw-install.md) için aracıyı yükleyin. Aracı yüklendiğinde, Otomasyon Hesabınıza gidin ve **YAPILANDIRMA YÖNETİMİ** altında **Stok**’a gidin. **Makineleri Yönet**’e tıkladığınızda, Log Analytics çalışma alanınıza raporlayan çözüm etkinleştirilmemiş makinelerin bir listesini görürsünüz. Ortamınız için uygun seçeneği belirleyin.
 
 * **Kullanılabilir tüm makinelerde etkinleştir** - Bu seçenek, çözümü şu anda Log Analytics çalışma alanınıza raporlayan tüm makinelerde etkinleştirir.
 * **tüm kullanılabilir makinelerde ve gelecekteki makinelerde etkinleştir** - Bu seçenek, çözümü Log Analytics çalışma alanınıza raporlayan tüm makinelerde ve daha sonra çalışma alanına eklenen tüm gelecek makinelerde etkinleştirir.

@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614064"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635382"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -202,17 +202,17 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
     ![App Service Yönetimi](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >Mevcut bir sanal ağa dağıtma ve da dosya için bağlanmak için bir iç IP adresi kullanarak, bir giden güvenlik kuralı eklemeniz gerekir. Bu kural, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği sağlar.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:<br>
-    >  - Kaynak: tüm
-    >  - Kaynak bağlantı noktası aralığı: *
-    >  - Hedef: IP adresleri
-    >  - Hedef IP adresi aralığı: dosya için IP aralığı
-    >  - Hedef bağlantı noktası aralığı: 445
-    >  - Protokol: TCP
-    >  - Eylem: izin ver
-    >  - Öncelik: 700
-    >  - Ad: Outbound_Allow_SMB445
+    Mevcut bir sanal ağa dağıtma ve da dosya için bağlanmak için bir iç IP adresi kullanarak, bir giden güvenlik kuralı eklemeniz gerekir. Bu kural, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği sağlar.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+
+    - Kaynak: tüm
+    - Kaynak bağlantı noktası aralığı: *
+    - Hedef: IP adresleri
+    - Hedef IP adresi aralığı: dosya için IP aralığı
+    - Hedef bağlantı noktası aralığı: 445
+    - Protokol: TCP
+    - Eylem: izin ver
+    - Öncelik: 700
+    - Ad: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Azure Stack üzerinde test sürüşü App Service
 

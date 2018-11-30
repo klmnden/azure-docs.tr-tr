@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26127786"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620685"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management performansını artırmak için önbelleğe alma ekleme
+
 API Management işlemleri yanıt önbelleğe alma için yapılandırılabilir. Yanıt önbelleğe alma, çok sık değişmeyen veriler için API gecikmesi, bant genişliği kullanımı ve web hizmeti yükünü önemli ölçüde azaltabilir.
  
 Önbelleğe alma hakkında daha ayrıntılı bilgi için bkz. [API Management önbelleğe alma ilkeleri](api-management-caching-policies.md) ve [Azure API Management'te özel önbelleğe alma](api-management-sample-cache-by-key.md).
@@ -34,7 +35,12 @@ API Management işlemleri yanıt önbelleğe alma için yapılandırılabilir. Y
 > * API'nize yanıt önbelleği ekleme
 > * Eylem halinde önbelleğe alma işlemini doğrulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="availability"></a>Kullanılabilirlik
+
+> [!NOTE]
+> İç önbelleği kullanılabilir değil **tüketim** Azure API Yönetimi katmanı. Yapabilecekleriniz [bir dış Redis cache'i kullanma](api-management-howto-cache-external.md) yerine.
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -45,17 +51,17 @@ Bu öğreticiyi tamamlamak için:
 
 Bu örnekte önbelleğe alma ilkeleri kullanılarak, **GetSpeakers** işlemine yapılan ilk istek işlemi arka uç hizmetinden bir yanıt döndürür. Bu yanıt, belirtilen üst bilgiler ve sorgu dizesi parametreleri tarafından önbelleğe alınır ve anahtarlanır. Eşleşen parametrelerle, işleme yapılan sonraki çağrılar, önbelleğe alma süresi aralığı sona erinceye kadar, önbelleğe alınan yanıtın döndürülmesini sağlar.
 
-1. [https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. APIM örneğinize göz atın.
 3. **API** sekmesini seçin.
 4. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
 5. **GetSpeakers**’ı seçin.
 6. Ekranın üst kısmında **Tasarım** sekmesini seçin.
-7. **Gelen işlem** penceresinde (kalemin yanındaki) üçgene tıklayın.
+7. İçinde **gelen işlem** bölümünde **</>** simgesi.
 
-    ![kod düzenleyicisi](media/api-management-howto-cache/code-editor.png)
-8. **Kod düzenleyicisi**’ni seçin.
-9. **Gelen** öğesinde, şu ilkeyi ekleyin:
+    ![kod düzenleyicisi](media/api-management-howto-cache/code-editor.png) 
+
+8. **Gelen** öğesinde, şu ilkeyi ekleyin:
 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
@@ -63,11 +69,14 @@ Bu örnekte önbelleğe alma ilkeleri kullanılarak, **GetSpeakers** işlemine y
             <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
 
-10. **Giden** öğesinde, şu ilkeyi ekleyin:
+9. **Giden** öğesinde, şu ilkeyi ekleyin:
 
         <cache-store caching-mode="cache-on" duration="20" />
 
     **Süre** önbelleğe alınan yanıtların sona erme aralığını belirtir. Bu örnekte, aralık **20** saniyedir.
+
+> [!TIP]
+> Bölümünde anlatıldığı gibi bir dış önbellek kullanıyorsanız [Azure API Management'te bir dış Redis cache'i kullanma](api-management-howto-cache-external.md), belirtmek isteyebilirsiniz `cache-preference` önbelleğe alma ilkelerini özniteliği. Bkz: [API Management önbelleğe alma ilkeleri](api-management-caching-policies.md) daha fazla ayrıntı için.
 
 ## <a name="test-operation"> </a>İşlem çağırma ve önbelleğe almayı test etme
 Önbelleğe alma eylemini görmek için, işlemi geliştirici portalından çağırın.
@@ -82,6 +91,7 @@ Bu örnekte önbelleğe alma ilkeleri kullanılarak, **GetSpeakers** işlemine y
 ## <a name="next-steps"> </a>Sonraki adımlar
 * Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusunda][API Management policy reference] [Önbelleğe alma ilkeleri][Caching policies].
 * Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
+* Dış Redis önbelleğini kullanma hakkında daha fazla bilgi için bkz. [Azure API Management'te bir dış Redis cache'i kullanma](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

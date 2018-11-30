@@ -7,20 +7,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 83785e532523c3e921b0772ddaa50502b2dc867d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961050"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633801"
 ---
 # <a name="manage-conflicts-between-regions"></a>Bölgeler arasındaki çakışmaları yönetme
 
-Çok bölgeli yazma işlemlerinde oluşan veri çakışmalarını farklı veri çakışması ilkelerini kullanarak çözebilirsiniz. Bu makalede farklı dil platformları için çakışma çözümleme ilkesi yönetim adımları anlatılmaktadır.
+Çok bölgeli yazma işlemlerinde oluşan veri çakışmalarını farklı veri çakışması ilkelerini kullanarak çözebilirsiniz. Bu makalede, Çakışma çözümlemesi ilkeleri farklı dil platformları yönetmek açıklar.
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Özel bir çakışma çözümleme ilkesi oluşturma
 
-Bu örnekler özel çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Bu çakışmalar, çakışma akışında gösterilir.
+Bu örnekler özel çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Bu çakışmaları çakışması akıştaki gösterilir.
 
 ### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
 
@@ -83,9 +83,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>Saklı yordama sahip özel bir çakışma çözümleme ilkesi oluşturma
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Bir özel çakışma çözüm ilkesi olan bir saklı yordam oluşturma
 
-Bu örnekler çakışmayı çözümlemek için saklı yordama içeren özel çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Saklı yordamınızda hata olmadığı sürece bu çakışmalar, çakışma akışında **gösterilmez**.
+Bu örnekler çakışmayı çözümlemek için saklı yordama içeren özel çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Bu çakışmaları, saklı yordamda hata olmadığı sürece akış çakışma görünmüyor.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -102,7 +102,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-Kapsayıcınızı oluşturduktan sonra `resolver` saklı yordamını oluşturmanız gerekir.
+Kapsayıcı oluşturulduktan sonra oluşturmalısınız `resolver` saklı yordamı.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK’sı
 
@@ -114,7 +114,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-Kapsayıcınızı oluşturduktan sonra `resolver` saklı yordamını oluşturmanız gerekir.
+Kapsayıcı oluşturulduktan sonra oluşturmalısınız `resolver` saklı yordamı.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK’sı
 
@@ -127,7 +127,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-Kapsayıcınızı oluşturduktan sonra `resolver` saklı yordamını oluşturmanız gerekir.
+Kapsayıcı oluşturulduktan sonra oluşturmalısınız `resolver` saklı yordamı.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -146,7 +146,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Kapsayıcınızı oluşturduktan sonra `resolver` saklı yordamını oluşturmanız gerekir.
+Kapsayıcı oluşturulduktan sonra oluşturmalısınız `resolver` saklı yordamı.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK’sı
 
@@ -154,11 +154,11 @@ Kapsayıcınızı oluşturduktan sonra `resolver` saklı yordamını oluşturman
 
 ```
 
-Kapsayıcınızı oluşturduktan sonra `resolver` saklı yordamını oluşturmanız gerekir.
+Kapsayıcı oluşturulduktan sonra oluşturmalısınız `resolver` saklı yordamı.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Son yazan kazanır çakışma çözümleme ilkesi oluşturma
+## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Son yazıcı WINS çakışma çözüm ilkesi oluşturma
 
-Bu örnekler son yazan kazanır çakışma çözümleme ilkesine sahip bir kapsayıcı ayarlama adımlarını göstermektedir. Yolun ayarlanmamış veya geçersiz olması durumunda varsayılan olarak `_ts` özelliği (zaman damgası alanı) kullanılır. Bu çakışmalar, çakışma akışında **gösterilmez**.
+Bu örnekler, son yazıcı WINS çakışma çözüm ilkesi içeren bir kapsayıcıya nasıl gösterir. Yolu ayarlanmamış veya geçersiz ise varsayılan `_ts` özelliği. Bu özellik, zaman damgası alanı olur. Bu çakışmaları çakışması akıştaki gösterme.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -210,7 +210,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-`conflictResolutionPath` özelliğini atlarsanız varsayılan olarak `_ts` özelliği kullanılır.
+Seçeneğini kullanmazsanız `conflictResolutionPath` özelliği varsayılan olarak için `_ts` özelliği.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK’sı
 
@@ -227,7 +227,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="read-from-conflict-feed"></a>Çakışma akışından okuma
 
-Bu örnekler, kapsayıcının çakışma akışından okuma yöntemlerini göstermektedir. Yalnızca otomatik olarak çözümlenmeyen çakışmalar akışta gösterilir.
+Bu örnekler, kapsayıcının çakışma akışından okuma yöntemlerini göstermektedir. Yalnızca bunlar otomatik olarak çözümlenip olmayan besleme çakışmayı çakışmaları gösterilir.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -277,8 +277,8 @@ while conflict:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki Cosmos DB kavramlarını öğrenerek devam edebilirsiniz:
+Aşağıdaki Azure Cosmos DB kavramları hakkında bilgi edinin:
 
 * [Bölümleme ve veri dağıtımı](partition-data.md)
-* [Cosmos DB'de dizine ekleme](indexing-policies.md)
+* [Azure Cosmos DB'yi dizine ekleme](indexing-policies.md)
 

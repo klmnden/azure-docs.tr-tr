@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/28/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: c3c5e904d8e933c09754e13ccb22d6c16d0a37eb
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713478"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620702"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -53,7 +53,6 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Kolay dağıtılan, ekonomik, uygulama odaklı ve kullanıcı merkezli kurumsal sınıf çözümler. Bu görüntüler, en son yamalarla düzenli olarak güncelleştirilir. **Önemli bilgiler: 18 Ocak 2018'den silinir ve en yeni sürümlerle değiştirilir önce yüklenen görüntüler.** | Microsoft |
-| ![Uzak Masaüstü Hizmetleri](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Uzak Masaüstü Hizmetleri (RDS) dağıtım](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Temel bir Uzak Masaüstü Hizmetleri (RDS) dağıtımı oluşturun. **En son Windows Server 2016 Datacenter görüntüsü yükleyin.** | Microsoft |
 | ![SharePoint Server 2013 deneme sürümü](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 deneme sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 deneme sürümünü Windows Server 2012 Datacenter ve Visual Studio 2017 community Edition. | Microsoft |
 | ![SharePoint Server 2016 denemesini](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 denemesini](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 denemesini Windows Server 2016 Datacenter'ın üzerinde. | Microsoft |
 | ![Windows Server 2012 R2'de SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2'de SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 Service Pack 2. **Gerekli yükleme:** SQL Iaas uzantısı. | Microsoft |
@@ -203,7 +202,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![RabbitMQ küme](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ küme](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ uygulamalarınızın iletileri ve alınan kadar Canlı için bir güvenli yer iletilerinizi göndermek ve almak için ortak bir platform sağlayan bir Mesajlaşma Aracısı var. Bu çözüm, tek bir mantıksal aracısı oluşturmak için RabbitMQ kümedeki birden çok düğüm sağlamak için birden çok VM kullanır. **Bu çözüm şablonu ayrıca Debian 8 ve özel betik için Linux 2.0 uzantısı gerektirir.** | Bitnami |
 | ![Re:dash](media/azure-stack-marketplace-azure-items/redash.png) | [Re:dash](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | Açık kaynak veri Görselleştirme ve işbirliği platformudur. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | Güçlü açık kaynak anahtar-değer deposudur. | Bitnami |
-| ![Yüksek kullanılabilirlik redis](media/azure-stack-marketplace-azure-items/redis.png) | [Yüksek kullanılabilirlik redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | Güçlü açık kaynak anahtar-değer deposudur. **Bu çözüm şablonu 1807 veya üzeri sürümde olacak şekilde, Azure Stack ve Debian 8 ve özel betik için Linux 2.0 uzantısı da gerektirir.** | Bitnami |
+| ![Yüksek kullanılabilirlik redis](media/azure-stack-marketplace-azure-items/redis.png) | [Yüksek kullanılabilirlik redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | Güçlü açık kaynak anahtar-değer deposudur. **Bu çözüm şablonu 1807 veya üzeri sürümde olacak şekilde, Azure Stack ve Debian 8 ve özel betik için Linux 2.0 uzantısı da gerektirir.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | Güçlü proje yönetimi web uygulaması | Bitnami |
 | ![Redmine + Çevik](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine + Çevik](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Agile eklentisi ile önceden yapılandırılmış bir proje yönetim uygulaması. | Bitnami |
 | ![ReportServer topluluk](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer topluluk](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | Açık kaynak iş zekası platformu. | Bitnami |
@@ -250,5 +249,5 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall, bilinen ve bilinmeyen güvenlik açıklarına algılar ve web apps'te saldırıları engeller. **Her iki PT Market öğelerini indirme.** | Pozitif teknolojileri |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Kurumsal tüm yaşam döngüsü, Azure Stack altyapısının otomatikleştirmenizi sağlar. **Her iki Puppet Market öğelerini indirme.** | Puppet |
 | ![Quest Hızlı Kurtarma](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Hızlı Kurtarma çekirdek](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Gelişmiş veri koruması Hızlı Kurtarma, yedekleme, çoğaltma ve Kurtarma bir kullanımı kolay yazılım çözümde birleştirir. | Quest yazılım |
-| ![SUSE yönetici 3.1 Proxy'si (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE yönetici 3.1 Proxy'si (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Sınıfının en iyi açık kaynak altyapı yönetimi. | SUSE |
+| ![SUSE yönetici 3.1 Proxy'si (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE yönetici 3.1 Proxy'si (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Sınıfının en iyi açık kaynak altyapı yönetimi. | SUSE |
 | ![ZeroDown yazılım BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hizmet olarak yazılım ZeroDown iş sürekliliği](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® yazılım teknolojisi, işletmelerin şirket verilerine kendi iş sürekliliği aracılığıyla sürekli erişim (BCaaS) hizmet olarak sağlar™ mimarisi, koruma uygulamaları ve işlem, ağ kesintilerinin, gerçekleşirse misiniz normalde Kurumsal cripple. | ZeroDown yazılım |

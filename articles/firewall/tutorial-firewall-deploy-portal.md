@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1d7c880a56c79d516c3904c3f532eb7006f0b68c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633733"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -40,7 +40,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Test amaçlı ağ ortamı oluşturma
 > * Güvenlik duvarı dağıtma
 > * Varsayılan rota oluşturma
-> * Github.com’a erişime izin vermek için uygulama yapılandırma
+> * Msn.com erişmesine izin vermek için bir uygulama yapılandırma
 > * Dış DNS sunucularına erişime izin vermek için ağ kuralı yapılandırma
 > * Güvenlik duvarını test etme
 
@@ -78,7 +78,7 @@ Bu sanal ağda üç alt ağ bulunacaktır.
 11. Diğer alanlar için varsayılan değerleri kullanın ve ardından **Oluştur**'a tıklayın.
 
 > [!NOTE]
-> AzureFirewallSubnet için minimum boyut /25 olacaktır.
+> En düşük AzureFirewallSubnet alt /26 boyutudur.
 
 ### <a name="create-additional-subnets"></a>Ek alt ağ oluşturma
 
@@ -136,7 +136,7 @@ Güvenlik duvarını sanal ağa dağıtın.
 2. **Ağ**'a tıklayın ve **Öne çıkanlar**'ın sonrasında **Tümünü gör**'e tıklayın.
 3. **Güvenlik duvarı** > **Oluştur**’a tıklayın. 
 4. **Güvenlik duvarı oluştur** sayfasında aşağıdaki ayarları kullanarak güvenlik duvarını yapılandırın:
-   
+
    |Ayar  |Değer  |
    |---------|---------|
    |Ad     |Test-FW01|
@@ -146,12 +146,12 @@ Güvenlik duvarını sanal ağa dağıtın.
    |Bir sanal ağ seçin     |**Var olanı kullan**: Test-FW-VN|
    |Genel IP adresi     |**Yeni oluşturun**. Genel IP adresinin türü Standart SKU olmalıdır.|
 
-2. **Gözden geçir ve oluştur**’a tıklayın.
-3. Özeti gözden geçirin ve **Oluştur**'a tıklayarak güvenlik duvarını oluşturun.
+5. **Gözden geçir ve oluştur**’a tıklayın.
+6. Özeti gözden geçirin ve **Oluştur**'a tıklayarak güvenlik duvarını oluşturun.
 
    Dağıtma işlemi birkaç dakika sürebilir.
-4. Dağıtım tamamlandıktan sonra **Test-FW-RG** kaynak grubuna gidin ve **Test-FW01** güvenlik duvarına tıklayın.
-6. Özel IP adresini not edin. Varsayılan rotayı oluştururken bu adresi kullanacaksınız.
+7. Dağıtım tamamlandıktan sonra **Test-FW-RG** kaynak grubuna gidin ve **Test-FW01** güvenlik duvarına tıklayın.
+8. Özel IP adresini not edin. Varsayılan rotayı oluştururken bu adresi kullanacaksınız.
 
 ## <a name="create-a-default-route"></a>Varsayılan rota oluşturma
 
@@ -182,7 +182,7 @@ Güvenlik duvarını sanal ağa dağıtın.
 
 ## <a name="configure-an-application-rule"></a>Uygulama kuralı yapılandırma
 
-Bu, github.com adresine giden erişime izin veren bir uygulama kuralıdır.
+Bu MSN.com giden erişime izin veren uygulama kuralıdır.
 
 1. **Test-FW-RG** öğesini açın ve **Test-FW01** güvenlik duvarına tıklayın.
 2. **Test-FW01** sayfasının **Ayarlar** bölümünde **Kurallar**'a tıklayın.
@@ -194,7 +194,7 @@ Bu, github.com adresine giden erişime izin veren bir uygulama kuralıdır.
 8. Altında **kuralları**, **hedef FQDN**, için **adı**, türü **AllowGH**.
 9. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
 10. **Protokol:bağlantı noktası** alanına **http, https** yazın.
-11. **Hedef FQDNS** alanına **github.com** yazın.
+11. İçin **hedef FQDN**, türü **msn.com**
 12. **Ekle**'ye tıklayın.
 
 Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri için yerleşik bir kural koleksiyonu bulunur. Bu FQDN'ler platforma özgüdür ve başka amaçlarla kullanılamaz. Daha fazla bilgi için bkz. [Altyapı FQDN'leri](infrastructure-fqdns.md).
@@ -204,17 +204,17 @@ Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri i
 Bu, bağlantı noktası 53’deki (DNS) iki IP adresine giden erişime izin veren ağ kuralıdır.
 
 1. Tıklayın **ağ kural koleksiyonu** sekmesi.
-1. **Ağ kuralı koleksiyonu ekle**'ye tıklayın.
-2. **Ad** alanına **Net-Coll01** yazın.
-3. **Öncelik** alanına **200** yazın.
-4. **Eylem** alanında **İzin ver**'i seçin.
+2. **Ağ kuralı koleksiyonu ekle**'ye tıklayın.
+3. **Ad** alanına **Net-Coll01** yazın.
+4. **Öncelik** alanına **200** yazın.
+5. **Eylem** alanında **İzin ver**'i seçin.
 
 6. **Kurallar** bölümünde **Ad** alanında **AllowDNS** yazın.
-8. **Protokol** alanında **UDP**'yi seçin.
-9. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
-10. Hedef adres için **209.244.0.3,209.244.0.4** yazın.
-11. **Hedef Bağlantı Noktaları** için **53** yazın.
-12. **Ekle**'ye tıklayın.
+7. **Protokol** alanında **UDP**'yi seçin.
+8. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
+9. Hedef adres için **209.244.0.3,209.244.0.4** yazın.
+10. **Hedef Bağlantı Noktaları** için **53** yazın.
+11. **Ekle**'ye tıklayın.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>**Srv-Work** ağ arabiriminin birincil ve ikincil DNS adresini değiştirme
 
@@ -235,12 +235,12 @@ Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandır�
 1. Azure portalda **Srv-Work** sanal makinesinin ağ ayarlarını gözden geçirin ve özel IP adresini not edin.
 2. **Srv-Jump** sanal makinesine uzak masaüstü bağlantısı kurun ve oradan da **Srv-Work** özel IP adresine uzak masaüstü bağlantısı açın.
 
-5. Internet Explorer'ı açın ve http://github.com adresine gidin.
-6. Güvenlik uyarılarında **Tamam** > **Kapat**'a tıklayın.
+3. Internet Explorer'ı açın ve http://msn.com adresine gidin.
+4. Güvenlik uyarılarında **Tamam** > **Kapat**'a tıklayın.
 
-   GitHub giriş sayfasını görmeniz gerekir.
+   MSN Giriş sayfasını görmeniz gerekir.
 
-7. http://www.msn.com adresine gidin.
+5. http://www.msn.com adresine gidin.
 
    Güvenlik duvarının engellemesi gerekir.
 
