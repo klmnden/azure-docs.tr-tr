@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296659"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307500"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Hızlı Başlangıç: Bing Resim Arama API’si ve C# kullanarak arama sorguları gönderme
 
@@ -25,13 +25,14 @@ Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle 
 
 Bu örneğin kaynak kodu, ek hata işleme ve kod açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)’da bulunabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
-
+## <a name="prerequisites"></a>Önkoşullar
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
 * NuGet paketi olarak kullanılabilen [Json.NET](https://www.newtonsoft.com/json) çerçevesi.
 * Linux/MacOS kullanıyorsanız bu uygulama, [Mono](http://www.mono-project.com/) kullanılarak çalıştırılabilir.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Proje oluşturma ve başlatma
 

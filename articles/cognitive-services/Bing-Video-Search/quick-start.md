@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 5b1ac98ee9ad5625d8db9790a3be10d42236874b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225523"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307466"
 ---
 # <a name="quickstart-your-first-video-search-query"></a>Hızlı Başlangıç: İlk video arama sorgunuz
 
-İlk çağrınızı yapmadan önce bir Bing Arama Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
+**Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Video arama sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönderirsiniz:  
   
@@ -48,7 +48,7 @@ Tüm istek ve yanıt üstbilgilerinin bir listesi için bkz. [Üstbilgiler](http
 
 ## <a name="the-request"></a>İstek
 
-Aşağıda önerilen tüm sorgu parametrelerini ve üstbilgilerini içeren bir arama isteği gösterilmektedir. Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin. 
+Aşağıda önerilen tüm sorgu parametrelerini ve üst bilgilerini içeren bir arama isteği gösterilmektedir. Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca Bing'e özgü yanıt üstbilgilerini de göstermektedir.
+Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca Bing’e özgü yanıt üst bilgilerini de göstermektedir.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -134,7 +134,7 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-API'yi deneyin. [Video Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8)'na gidin. 
+API’yi deneyin. [Video Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8)'na gidin. 
 
 Yenıt nesnelerini kullanmanın ayrıntıları için bkz. [Web'de Video arama](./search-the-web.md).
 
