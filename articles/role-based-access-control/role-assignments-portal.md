@@ -1,6 +1,6 @@
 ---
 title: RBAC ve Azure portalı kullanarak erişimi yönetme | Microsoft Docs
-description: Rol tabanlı erişim denetimi (RBAC) ve Azure portalı kullanarak kullanıcı, grup ve uygulama erişimini yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
+description: Kullanıcılar, gruplar, hizmet sorumluları ve rol tabanlı erişim denetimi (RBAC) ve Azure portalını kullanarak yönetilen kimlikleri için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,227 +11,153 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034000"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634872"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalı kullanarak erişimi yönetme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu makalede RBAC ve Azure portalı kullanarak kullanıcı, grup ve uygulama yönetimini nasıl yapacağınız açıklanmaktadır.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu makalede, kullanıcıları, grupları, hizmet sorumluları ve RBAC ve Azure portalını kullanarak yönetilen kimlikleri için erişimi nasıl yönetileceği açıklanmaktadır.
 
-## <a name="list-roles"></a>Rolleri listeleme
+## <a name="open-access-control-iam"></a>Erişim denetimi (IAM) açın
 
-Rol tanımı, rol atamaları için kullandığınız izin koleksiyonudur. Azure üzerinde sahip 70 [yerleşik roller](built-in-roles.md). Rolleri Portalı'nda listelemek için aşağıdaki adımları izleyin.
+**Erişim denetimi (IAM)** dikey penceresinde, kimlik ve erişim yönetimi da bilinen portalda görüntülenir. Erişim Portalı'nda yönetmek veya görüntülemek için genellikle yaptığınız ilk görüntülemek veya bir değişiklik yapmak istediğiniz kapsamında erişim denetimi (IAM) dikey penceresini açın şeydir.
 
-1. Azure portalda **Tüm hizmetler**'i ve ardından **Abonelikler**'i seçin.
+1. Azure portalında **tüm hizmetleri** ve kapsam veya yönetmek veya görüntülemek istediğiniz kaynak seçin. Örneğin, seçebileceğiniz **Yönetim grupları**, **abonelikleri**, **kaynak grupları**, ya da bir kaynak.
 
-1. Aboneliğinizi seçin.
+1. Yönetmek veya görüntülemek istediğiniz belirli kaynak'ı tıklatın.
 
-1. **Erişim denetimi (IAM)** öğesini seçin.
+1. Tıklayın **erişim denetimi (IAM)**.
 
-   ![Roller seçeneği](./media/role-assignments-portal/list-subscription-access-control.png)
+    Erişim denetimi (IAM) dikey penceresinde bir abonelik için bir örneğini gösterir.
 
-1. Yerleşik ve özel rollerin listesini görmek için **Roller**'i seçin.
+    ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/role-assignments-portal/access-control-subscription.png)
 
-   ![Roller seçeneği](./media/role-assignments-portal/roles-option.png)
+## <a name="view-roles-and-permissions"></a>Rolleri ve izinleri görüntüleyin
 
-   Her bir role atanmış olan kullanıcı ve grup sayısını görebilirsiniz.
+Rol tanımı, rol atamaları için kullandığınız izin koleksiyonudur. Azure üzerinde sahip 70 [yerleşik roller](built-in-roles.md). Yönetim ve veri düzlemi gerçekleştirilebilir izinleri ve rolleri görüntülemek için aşağıdaki adımları izleyin.
+
+1. Açık **erişim denetimi (IAM)** rolleri ve izinleri görüntülemek istediğiniz bir kapsamda, yönetim grubu, abonelik, kaynak grubu ya da kaynağa, gibi.
+
+1. Tıklayın **rolleri** tüm yerleşik ve özel rollerin bir listesini görmek için sekmesinde.
+
+   Kullanıcılar ve gruplar bu kapsamda her role atanmış olan sayısını görebilirsiniz.
 
    ![Rolleri listesi](./media/role-assignments-portal/roles-list.png)
 
-## <a name="list-access"></a>Erişimi listeleme
+1. Kimin bu role atanmış olan görmek için ayrı bir rol tıklayın ve rol izinlerini de görüntüleyebilirsiniz.
 
-Erişim yönetimi sırasında erişim sahibi olanları, izinlerini ve izin düzeylerini bilmek istersiniz. Erişimi listelemek için rol atamalarını listelemeniz gerekir. Kullanıcılar için erişimi listelemek ve farklı kapsamlarda erişim listelemek için aşağıdaki adımları izleyin.
+   ![Rol atamaları](./media/role-assignments-portal/role-assignments.png)
 
-### <a name="list-role-assignments-for-a-user"></a>Bir kullanıcının rol atamalarını listeleme
+## <a name="view-role-assignments"></a>Rol atamalarını görüntüle
 
-1. Gezinti listesinde **Azure Active Directory**'yi seçin.
+Erişim yönetimi sırasında erişim sahibi olanları, izinlerini ve izin düzeylerini bilmek istersiniz. Liste erişimi bir kullanıcı, Grup, hizmet sorumlusu veya yönetilen kimlik için rol atamalarını görüntüleyin.
 
-1. **Kullanıcılar**'ı seçerek **Tüm kullanıcılar** dikey penceresini açın.
+### <a name="view-role-assignments-for-a-single-user"></a>Tek bir kullanıcı için rol atamalarını görüntüle
 
-   ![Azure Active Directory Tüm kullanıcılar dikey penceresi](./media/role-assignments-portal/aad-all-users.png)
+Tek bir kullanıcı, Grup, hizmet sorumlusu veya belirli bir kapsamda yönetilen kimlik erişimini görüntülemek için aşağıdaki adımları izleyin.
 
-1. Listedeki kullanıcılardan birini seçin.
+1. Açık **erişim denetimi (IAM)** erişim görüntülemek istediğiniz bir kapsamda, yönetim grubu, abonelik, kaynak grubu ya da kaynağa, gibi.
 
-1. **Yönet** bölümünde **Azure kaynakları**'nı seçin.
+1. Tıklayın **denetleyin erişim** sekmesi.
 
-   ![Azure Active Directory kullanıcısı Azure kaynakları](./media/role-assignments-portal/aad-user-azure-resources.png)
+    ![Erişim denetimi - onay erişim sekmesi](./media/role-assignments-portal/access-control-check-access.png)
 
-   Azure kaynaklarını dikey penceresinde, seçili abonelik ve seçilen kullanıcı için rol atamalarını görebilirsiniz. Bu liste yalnızca Rol atamaları için okuma iznine sahip olduğunuz kaynakları içerir. Örneğin, kullanıcı aynı zamanda, okunamıyor rol atamaları varsa, bu rol atamaları listede görünmez.
+1. İçinde **Bul** listesinde, istediğiniz erişimi denetlemek için güvenlik sorumlusu türü seçin.
 
-1. Birden fazla aboneliğiniz varsa, seçebileceğiniz **abonelik** rol atamaları farklı bir abonelikte görmek için aşağı açılan listesi.
+1. Arama kutusunda görünen adları, e-posta adresi veya nesne tanımlayıcıları dizinini aramak için bir dize girin.
 
-### <a name="list-role-assignments-for-a-resource-group"></a>Bir kaynak grubunun rol atamalarını listeleme
+    ![Seçim listesine erişimi denetleyin](./media/role-assignments-portal/check-access-select.png)
 
-1. Gezinti bölmesinde **Kaynak grupları**'nı seçin.
+1. Açmak için güvenlik sorumlusunu **atamaları** bölmesi.
 
-1. Bir kaynak grubunu ve ardından **Erişim denetimi (IAM)** öğesini seçin.
+    ![Atamalar bölmesinin](./media/role-assignments-portal/check-access-assignments.png)
 
-   Kimlik ve erişim yönetimi da bilinen erişim denetimi (IAM) dikey penceresinde, bu kaynak grubu için kimlerin erişebileceğini görebilirsiniz. Bazı rollerin kapsamı **Bu kaynak** olarak belirlenmişken diğerlerinin başka bir kapsamdan **(Devralınmış)** olduğuna dikkat edin. Erişim, özellikle kaynak grubuna atanmış veya üst aboneliğe yapılan atamadan devralınmış olabilir.
+    Bu bölmede, seçili güvenlik sorumlusu ve kapsamına atanan rollerini görebilirsiniz. Varsa tüm atamalarını bu kapsamda reddetme ya da bu kapsama devralınan, bunlar listelenir.
 
-   ![Kaynak grupları](./media/role-assignments-portal/resource-group-access-control.png)
+### <a name="view-all-role-assignments-at-a-scope"></a>Bir kapsamda tüm rol atamalarını görüntüleme
 
-### <a name="list-role-assignments-for-a-subscription"></a>Bir aboneliğin rol atamalarını listeleme
+1. Açık **erişim denetimi (IAM)** erişim görüntülemek istediğiniz bir kapsamda, yönetim grubu, abonelik, kaynak grubu ya da kaynağa, gibi.
 
-1. Azure portalda **Tüm hizmetler**'i ve ardından **Abonelikler**'i seçin.
+1. Tıklayın **rol atamaları** sekme (veya **görünümü** rol atamaları kutucuğu görüntüle düğmesine) tüm rol atamalarını bu kapsamda görüntülemek için.
 
-1. Aboneliğinizi seçin.
+   ![Erişim denetimi - rol atamalarını sekmesi](./media/role-assignments-portal/access-control-role-assignments.png)
 
-1. **Erişim denetimi (IAM)** öğesini seçin.
+   Rol atamaları sekmesinde bu kapsamda kimlerin erişimi olduğunu görebilirsiniz. Bazı rollerin kapsamı **Bu kaynak** olarak belirlenmişken diğerlerinin başka bir kapsamdan **(Devralınmış)** olduğuna dikkat edin. Erişim özellikle bu kaynağa atanmış veya üst kapsama bir atamadan devralınmış.
 
-    Bu abonelik ve rollerine kimlerin erişebileceğini erişim denetimi (IAM) dikey penceresinde görebilirsiniz.
+## <a name="add-a-role-assignment"></a>Rol ataması ekleme
 
-    ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/role-assignments-portal/subscription-access-control.png)
+RBAC, erişim vermek için bir rol bir kullanıcı, Grup, hizmet sorumlusu veya yönetilen kimlik atayın. Farklı kapsamlarda erişim vermek için aşağıdaki adımları izleyin.
 
-    Klasik abonelik yöneticileri ve ortak yöneticileri aboneliğin RBAC modelinde sahipleri olarak kabul edilir.
+### <a name="assign-a-role-at-a-scope"></a>Bir kapsamda bir rol atayın
 
-### <a name="list-role-assignments-for-a-management-group"></a>Bir yönetim grubu için rol atamalarını listelemek
+1. Açık **erişim denetimi (IAM)** erişim vermek istediğiniz bir kapsamda, yönetim grubu, abonelik, kaynak grubu ya da kaynağa, gibi.
 
-1. Azure portalında, **tüm hizmetleri** ardından **Yönetim grupları**.
+1. Tıklayın **rol atamaları** tüm rol atamalarını bu kapsamda görüntülemek için sekmesinde.
 
-1. Yönetim grubunuzu seçin.
+1. Tıklayın **rol ataması Ekle** Ekle rol ataması bölmesini açmak için.
 
-1. Seçin **(Ayrıntılar)** seçili yönetim grubunuz için.
+   Rol atama izinleri yoksa, rol ataması Ekle seçeneğini devre dışı bırakılır.
 
-    ![Yönetim grupları](./media/role-assignments-portal/management-groups-list.png)
-
-1. **Erişim denetimi (IAM)** öğesini seçin.
-
-    Bu yönetim grubu ve rollerine kimlerin erişebileceğini erişim denetimi (IAM) dikey penceresinde görebilirsiniz.
-
-    ![Bir yönetim grubu için erişim denetimi (IAM) dikey](./media/role-assignments-portal/management-groups-access-control.png)
-
-## <a name="grant-access"></a>Erişim verme
-
-RBAC, erişim vermek için bir rol atayın. Farklı kapsamlarda erişim vermek için aşağıdaki adımları izleyin.
-
-### <a name="assign-a-role-at-a-resource-group-scope"></a>Bir kaynak grubu kapsamında bir rol atayın
-
-1. Gezinti bölmesinde **Kaynak grupları**'nı seçin.
-
-1. Kaynak grubu seçin.
-
-1. **Erişim denetimi (IAM)** bölümünde kaynak grubu kapsamındaki mevcut rol ataması listesini görebilirsiniz.
-
-   ![Erişim denetimi (IAM) dikey penceresinde bir kaynak grubu](./media/role-assignments-portal/grant-resource-group-access-control.png)
-
-1. **Ekle**'yi seçerek **İzin ekle** bölmesini açın.
-
-   Rol atamak için gerekli izinlere sahip değilseniz **Ekle** seçeneği görüntülenmez.
-
-   ![İzin ekleme bölmesi](./media/role-assignments-portal/add-permissions.png)
+   ![Rol ataması bölmesi ekleme](./media/role-assignments-portal/add-role-assignment.png)
 
 1. **Rol** açılan listesinde **Sanal Makine Katılımcısı** gibi bir rol seçin.
 
-1. **Seç** listesinde bir kullanıcı, grup veya uygulama seçin. Listede güvenlik sorumlusunu görmüyorsanız **Seç** kutusuna giriş yaparak dizinde görünen ad, e-posta adresi ve nesne tanımlayıcısı arayabilirsiniz.
+1. İçinde **seçin** listesinde, bir kullanıcı, Grup, hizmet sorumlusu veya yönetilen bir kimlik seçin. Listede güvenlik sorumlusunu görmüyorsanız **Seç** kutusuna giriş yaparak dizinde görünen ad, e-posta adresi ve nesne tanımlayıcısı arayabilirsiniz.
 
-1. Seçin **Kaydet** rol atamak için.
+1. Tıklayın **Kaydet** rol atamak için.
 
-   Birkaç dakika sonra güvenlik sorumlusuna kaynak grubu kapsamında rol atanmış olur.
-
-### <a name="assign-a-role-at-a-subscription-scope"></a>Bir abonelik kapsamda bir rol atayın
-
-1. Azure portalda **Tüm hizmetler**'i ve ardından **Abonelikler**'i seçin.
-
-1. Aboneliğinizi seçin.
-
-1. **Erişim denetimi (IAM)** bölümünde abonelik kapsamındaki mevcut rol ataması listesini görebilirsiniz.
-
-   ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/role-assignments-portal/grant-subscription-access-control.png)
-
-1. **Ekle**'yi seçerek **İzin ekle** bölmesini açın.
-
-   Rol atamak için gerekli izinlere sahip değilseniz **Ekle** seçeneği görüntülenmez.
-
-   ![İzin ekleme bölmesi](./media/role-assignments-portal/add-permissions.png)
-
-1. **Rol** açılan listesinde **Sanal Makine Katılımcısı** gibi bir rol seçin.
-
-1. **Seç** listesinde bir kullanıcı, grup veya uygulama seçin. Listede güvenlik sorumlusunu görmüyorsanız **Seç** kutusuna giriş yaparak dizinde görünen ad, e-posta adresi ve nesne tanımlayıcısı arayabilirsiniz.
-
-1. Seçin **Kaydet** rol atamak için.
-
-   Birkaç dakika sonra güvenlik sorumlusuna abonelik kapsamında rol atanmış olur.
+   Birkaç dakika sonra güvenlik sorumlusu seçilen kapsamda rolü atanır.
 
 ### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Bir abonelik Yöneticisi olarak kullanıcı atama
 
 Bir kullanıcının bir Azure aboneliğinin bir yöneticisi olmak için bunları atayın [sahibi](built-in-roles.md#owner) abonelik kapsamında bir rol. Sahip rolü, diğerleri erişim hakkı dahil olmak üzere, Abonelikteki tüm kaynaklara kullanıcı tam erişim sağlar. Bu adımları herhangi bir rol ataması ile aynıdır.
 
-1. Azure portalda **Tüm hizmetler**'i ve ardından **Abonelikler**'i seçin.
+1. Azure portalında **tüm hizmetleri** ardından **abonelikleri**.
 
-1. Aboneliğinizi seçin.
+1. Erişim vermek istediğiniz aboneliğe tıklayın.
 
-1. **Erişim denetimi (IAM)** bölümünde abonelik kapsamındaki mevcut rol ataması listesini görebilirsiniz.
+1. Tıklayın **erişim denetimi (IAM)**.
 
-   ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/role-assignments-portal/grant-subscription-access-control.png)
+1. Tıklayın **rol atamaları** Bu abonelik için tüm rol atamalarını görüntülemek için sekmesinde.
 
-1. **Ekle**'yi seçerek **İzin ekle** bölmesini açın.
+1. Tıklayın **rol ataması Ekle** Ekle rol ataması bölmesini açmak için.
 
-   Rol atamak için gerekli izinlere sahip değilseniz **Ekle** seçeneği görüntülenmez.
+   Rol atama izinleri yoksa, rol ataması Ekle seçeneğini devre dışı bırakılır.
 
-   ![İzin ekleme bölmesi](./media/role-assignments-portal/add-permissions.png)
+   ![Rol ataması bölmesi ekleme](./media/role-assignments-portal/add-role-assignment.png)
 
 1. İçinde **rol** aşağı açılan listesinden **sahibi** rol.
 
 1. İçinde **seçin** listesinde, bir kullanıcı seçin. Kullanıcı listede görmüyorsanız, yazabilirsiniz **seçin** kutusunu dizin görünen adları için arama yapın ve e-posta adresleri.
 
-1. Seçin **Kaydet** rol atamak için.
+1. Tıklayın **Kaydet** rol atamak için.
 
    Birkaç dakika sonra kullanıcıya abonelik kapsamında bir sahip rolü atanır.
 
-### <a name="assign-a-role-at-a-management-group-scope"></a>Bir yönetim grubu kapsamındaki rol atama
-
-1. Azure portalında, **tüm hizmetleri** ardından **Yönetim grupları**.
-
-1. Yönetim grubunuzu seçin.
-
-1. Seçin **(Ayrıntılar)** seçili yönetim grubunuz için.
-
-    ![Yönetim grupları](./media/role-assignments-portal/management-groups-list.png)
-
-1. **Erişim denetimi (IAM)** bölümünde abonelik kapsamındaki mevcut rol ataması listesini görebilirsiniz.
-
-   ![Bir yönetim grubu için erişim denetimi (IAM) dikey](./media/role-assignments-portal/grant-management-groups-access-control.png)
-
-1. **Ekle**'yi seçerek **İzin ekle** bölmesini açın.
-
-   Rol atamak için gerekli izinlere sahip değilseniz **Ekle** seçeneği görüntülenmez.
-
-   ![İzin ekleme bölmesi](./media/role-assignments-portal/add-permissions-management-groups.png)
-
-1. İçinde **rol** aşağı açılan listesinde, bir rol gibi seçin **yönetim grubu katkıda bulunan**.
-
-    Yönetim grupları çeşitli rolleri için desteklenen işlemler hakkında bilgi için bkz. [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../governance/management-groups/index.md#management-group-access).
-
-1. **Seç** listesinde bir kullanıcı, grup veya uygulama seçin. Listede güvenlik sorumlusunu görmüyorsanız **Seç** kutusuna giriş yaparak dizinde görünen ad, e-posta adresi ve nesne tanımlayıcısı arayabilirsiniz.
-
-1. Seçin **Kaydet** rol atamak için.
-
-   Birkaç dakika sonra güvenlik sorumlusu yönetim grubu kapsamındaki rolü atanır.
-
-## <a name="remove-access"></a>Erişimi kaldırma
+## <a name="remove-role-assignments"></a>Rol atamalarını kaldırın
 
 RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Erişimi kaldırmak için aşağıdaki adımları izleyin.
 
-### <a name="remove-a-role-assignment"></a>Rol atamasını kaldırma
+1. Açık **erişim denetimi (IAM)** erişimini kaldırmak istediğiniz bir kapsamda, yönetim grubu, abonelik, kaynak grubu ya da kaynağa, gibi.
 
-1. Açık **erişim denetimi (IAM)** kaldırmak istediğiniz yönetim grubu, abonelik, kaynak grubu veya rolü ataması kaynak dikey penceresinde.
+1. Tıklayın **rol atamaları** Bu abonelik için tüm rol atamalarını görüntülemek için sekmesinde.
 
 1. Rol ataması listesinde kaldırmak istediğiniz rol atamasına sahip güvenlik sorumlusunun yanına onay işareti ekleyin.
 
    ![Rol atamasını kaldırma iletisi](./media/role-assignments-portal/remove-role-assignment-select.png)
 
-1. **Kaldır**'ı seçin.
+1. Tıklayın **Kaldır**.
 
    ![Rol atamasını kaldırma iletisi](./media/role-assignments-portal/remove-role-assignment.png)
 
-1. Açılan rol atamasını kaldırma mesajında **Evet**'i seçin.
+1. Görünür kaldırma rol ataması iletisinde tıklayın **Evet**.
 
     Devralınmış rol atamaları kaldırılamaz. Devralınmış bir rol atamasını kaldırmanız gerekiyorsa bu işlemi rol atamasının oluşturulduğu kapsamda gerçekleştirmeniz gerekir. İçinde **kapsam** sütun, sonraki **(devralınmış)** burada bu rolü atandı kapsamına götüren bir bağlantı. Rol atamasını kaldırmak için orada listelenen kapsama gidin.
 
@@ -239,7 +165,7 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Erişim
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Hızlı başlangıç: RBAC ve Azure portalı kullanarak bir kullanıcıya erişim izni verme](quickstart-assign-role-user-portal.md)
+* [Öğretici: RBAC ve Azure portalını kullanarak bir kullanıcı için erişim verin.](quickstart-assign-role-user-portal.md)
 * [Öğretici: RBAC ve PowerShell kullanarak bir kullanıcıya erişim izni verme](tutorial-role-assignments-user-powershell.md)
 * [Yerleşik roller](built-in-roles.md)
 * [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](../azure-resource-manager/management-groups-overview.md)

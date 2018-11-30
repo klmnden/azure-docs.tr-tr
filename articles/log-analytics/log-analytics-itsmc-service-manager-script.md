@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 10eeb7a94bd6b2513dc36d0d8a1829eddb452835
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2bbcfc95895ca925b585ab15d4a2edf404eb162f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040059"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634855"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Otomatik komut dosyası kullanarak Service Manager Web uygulaması oluşturma
 
-Service Manager Örneğiniz için Web uygulaması oluşturmak için aşağıdaki betiği kullanın. Service Manager bağlantı hakkında daha fazla bilgi aşağıda verilmiştir: [Service Manager Web uygulaması](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Service Manager Örneğiniz için Web uygulaması oluşturmak için aşağıdaki betiği kullanın. Service Manager bağlantı hakkında daha fazla bilgi aşağıda verilmiştir: [Service Manager Web uygulaması](../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Aşağıdaki gerekli ayrıntıları sağlayarak betiği çalıştırın:
 
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-[Karma bağlantıyı yapılandırın](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Karma bağlantıyı yapılandırın](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

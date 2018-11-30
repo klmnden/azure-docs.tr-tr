@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 332939710517e99aaa77642dc5e67256b476bd66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291088"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634584"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Olay çözümleme ve görselleştirme Log Analytics ile
  Log Analytics toplar ve uygulamalardan ve bulut üzerinde barındırılan hizmetlerden daha fazla telemetri analiz eder ve kullanılabilirliği ve performansı en üst düzeye çıkarmanıza yardımcı olması için analiz araçları sağlar. Bu makalede, Öngörüler ve neler kümenizde sorun giderme için Log analytics'te sorgu çalıştırma açıklanmaktadır. Aşağıdaki yaygın sorular ele alınmıştır:
@@ -108,7 +108,7 @@ Kusto sorgu güçlü bir dildir. Başka bir değerli sorgu çalıştırabilir, e
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Yani performans sayaçlarını izleme altyapı etkinleştirmek için attıktan [Log Analytics aracısını ekleme](service-fabric-diagnostics-oms-agent.md). Aracı, performans sayaçlarını toplar ve bunları, mevcut bir çalışma alanına ekler.
-* Şirket içi kümeleri için Log Analytics verilerini Log Analytics'e göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla [Internet erişimi olmayan bilgisayarları Log Analytics ağ geçidini kullanarak Log Analytics'e bağlanma](../log-analytics/log-analytics-oms-gateway.md).
+* Şirket içi kümeleri için Log Analytics verilerini Log Analytics'e göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla [Internet erişimi olmayan bilgisayarları Log Analytics ağ geçidini kullanarak Log Analytics'e bağlanma](../azure-monitor/platform/gateway.md).
 * Yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olacak.
 * Log Analytics’in bir parçası olarak sunulan [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri hakkında bilgi sahibi olun.
 * Log Analytics ve hangi sunduğu daha ayrıntılı bir genel bakış edinme, okuma [Log Analytics nedir?](../operations-management-suite/operations-management-suite-overview.md).

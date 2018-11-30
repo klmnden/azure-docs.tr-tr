@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418186"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584715"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Azure HDInsight - veri geçişi en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -25,20 +25,12 @@ Bu makalede, Azure HDInsight için veri geçiş için öneriler sunar. Geçirme 
 Verileri şirket içinden Azure ortamına geçirmek için iki ana seçeneğiniz vardır:
 
 1.  TLS ile ağ üzerinden veri aktarımı
-    1.  İnternet üzerinden
-    2.  Express Route
-2.  Veri aktarma
-    1.  İçeri / dışarı aktarma hizmeti
-        - İç SATA HDD veya SSD yalnızca
-        - BEKLEME sırasında şifrelenmiş (AES-128 / AES-256)
-        - İçeri aktarma işi için 10 adede kadar disk barındırabilir
-        - Kullanılabilir tüm genel bölgelerde & GA
-    1.  Data Box
-        - En fazla 80 TB veri kutusu başına veri
-        - (AES-256) bekleme durumundayken şifrelenir
-        - NAS protokollerini kullanır ve genel veri kopyalama araçlarını destekler
-        - Sağlamlaştırılmış donanım
-        - Yalnızca ABD & Genel önizlemede kullanılabilir
+    1. -İnternet üzerinden veri için Azure depolama gibi çeşitli araçları herhangi biri kullanılarak normal bir internet bağlantısı üzerinden aktarabilirsiniz: Azure Depolama Gezgini, AzCopy, Azure Powershell ve Azure CLI.  Bkz: [için ve Azure Depolama'dan veri taşıma](../../storage/common/storage-moving-data.md) daha fazla bilgi için.
+    2. Express Route - ExpressRoute, Microsoft veri merkezleri ve şirket içindeki veya ortak yerleşim tesisinizden altyapınız arasında özel bağlantılar oluşturmanızı sağlayan bir Azure hizmetidir. ExpressRoute bağlantıları değil genel Internet üzerinden gidin ve daha yüksek güvenlik, güvenilirlik ve hız tipik daha düşük gecikme süreleriyle Internet üzerinden sunar. Daha fazla bilgi için [oluşturun ve bir ExpressRoute bağlantı hattını değiştirme](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    1. Veri kutusu çevrimiçi veri aktarımı - veri kutusu Edge ve veri kutusu ağ geçidi olan çevrimiçi veri aktarımı ağ ile Azure arasında verileri yönetmek için depolama ağ geçitleri gibi davranan bir ürün. Şirket içi bir ağ cihazı olan Data Box Edge, Azure’ın içine ve dışına veri aktarımı gerçekleştirmesinin yanı sıra verileri işlemek için yapay zeka (AI) özellikli uç işlemini kullanır. Data Box Gateway, depolama ağ geçidi özelliklerine sahip sanal bir gereçtir. Daha fazla bilgi için [Azure veri kutusu belgeleri - Online aktarım](https://docs.microsoft.com/azure/databox-online/).
+1.  Çevrimdışı veri aktarma
+    1. İçeri / dışarı aktarma hizmeti - fiziksel diskleri Azure'a göndermek ve bunlar sizin için yüklenecek. Daha fazla bilgi için [Azure içeri/dışarı aktarma hizmeti nedir?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    1. Veri çevrimdışı veri aktarımı - Data Box, Data Box Disk, kutu ve veri kutusu ağır cihazları ağ bir seçenek olmadığı durumlarda Azure'a büyük miktarlarda veri aktarmanıza yardımcı olur. Bu çevrimdışı veri aktarım cihazları kuruluşunuz ile Azure veri merkezi arasında çift yönlü olarak sevk edilebilir. Bunlar aktarım sırasında verilerinizin korunmasına yardımcı olmak için AES şifrelemesi kullanır ve karşıya yükleme sonrası temizlik işlemine tabi tutularak verileriniz cihazdan silinir. Daha fazla bilgi için [Azure veri kutusu belgeleri - çevrimdışı aktarım](https://docs.microsoft.com/azure/databox/).
 
 Aşağıdaki tabloda veri birimi ve ağ bant genişliğine göre yaklaşık veri aktarım süresi vardır. Bir veri kutusu veri geçişi üç hafta daha uzun sürmesi beklendiğinde kullanın.
 

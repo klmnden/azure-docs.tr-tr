@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 09ecd46837a12f5f1a8278b1644dc099701bcd00
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227376"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584732"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Faturalandırma ve maliyet Yönetimi Otomasyon senaryoları
 
@@ -122,4 +122,4 @@ Bu API'ler benzer veri kümesi sağlar, ancak farklı bir hedef kitlelere sahip.
 
 - Program aracılığıyla Azure kullanımınızı öngörü almak için Azure API'leri kullanma hakkında daha fazla bilgi için bkz: [Azure tüketim API'sine genel bakış](billing-consumption-api-overview.md) ve [Azure faturalama API'sine genel bakış](billing-usage-rate-card-overview.md).
 - Ayrıntılı günlük kullanım dosyası ve Azure portalında maliyet Yönetimi raporlarını faturanızı karşılaştırmak için bkz [Microsoft Azure için faturanızı anlayın](billing-understand-your-bill.md)
-- Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+- Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

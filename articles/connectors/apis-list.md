@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233642"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635450"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps için bağlayıcılar
 
@@ -74,7 +74,7 @@ Veri çıktıları ve bunların biçimleri ile çalışmak için yerleşik eylem
 
 |   |   | 
 |---|---| 
-| ![Yerleşik simgesi][data-operations-icon]<br/>**Veri işlemleri** | Veri işlemlerini gerçekleştirin: <p>- **Compose**: tek bir çıkış çeşitli türleri ile birden çok giriş oluşturun. <br>- **CSV tablosu oluşturma**: JSON nesneleri olan bir dizi virgülle ayrılmış değer (CSV) tablosu oluşturun. <br>- **HTML tablosu oluşturma**: bir dizi JSON nesnesi içeren bir HTML tablosu oluşturun. <br>- **Filtre dizisi**: ölçütlerinizi karşılayan öğeleri başka bir dizide bir dizi oluşturun. <br>- **Birleştirme**: bir dizeyi bir dizideki tüm öğeler oluşturmak ve öğelerin belirtilen sınırlayıcıyı ile ayırın. <br>- **JSON Ayrıştır**: Bu özellikler, iş akışında kullanabilmeniz için kullanıcı dostu belirteçleri özellikleri ve değerlerini json'da içerik oluşturun. <br>- **Seçin**: öğeler veya başka bir dizideki değerleri dönüştürme ve öğelerle eşleme için belirtilen özellikleri JSON nesneleriyle bir dizi oluşturun. | 
+| [![Yerleşik simgeyi][data-operations-icon]<br/>**veri işlemleri**][data-operations-doc] | Veri işlemlerini gerçekleştirin: <p>- **Compose**: tek bir çıkış çeşitli türleri ile birden çok giriş oluşturun. <br>- **CSV tablosu oluşturma**: JSON nesneleri olan bir dizi virgülle ayrılmış değer (CSV) tablosu oluşturun. <br>- **HTML tablosu oluşturma**: bir dizi JSON nesnesi içeren bir HTML tablosu oluşturun. <br>- **Filtre dizisi**: ölçütlerinizi karşılayan öğeleri başka bir dizide bir dizi oluşturun. <br>- **Birleştirme**: bir dizeyi bir dizideki tüm öğeler oluşturmak ve öğelerin belirtilen sınırlayıcıyı ile ayırın. <br>- **JSON Ayrıştır**: Bu özellikler, iş akışında kullanabilmeniz için kullanıcı dostu belirteçleri özellikleri ve değerlerini json'da içerik oluşturun. <br>- **Seçin**: öğeler veya başka bir dizideki değerleri dönüştürme ve öğelerle eşleme için belirtilen özellikleri JSON nesneleriyle bir dizi oluşturun. | 
 | ![Yerleşik simgesi][date-time-icon]<br/>**Tarih saat** | Zaman damgalı işlemleri gerçekleştirin: <p>- **Saate Ekle**: zaman damgası için belirtilen birim sayısını ekleyin. <br>- **Saat dilimini Dönüştür**: bir zaman damgasını kaynak saat diliminden hedef saat dilimine Dönüştür. <br>- **Geçerli saati**: geçerli zaman damgasını dize olarak döndürür. <br>- **Gelecekteki saat Al**: yanı sıra belirtilen zaman birimi geçerli zaman damgasını döndürür. <br>- **Geçmişteki saati Al**: belirtilen zaman birimi eksi geçerli zaman damgasını döndürür. <br>- **Saatten çıkar**: zaman damgası saat birimleri sayısı çıkarın. |
 | [![Yerleşik simgeyi][variables-icon]<br/>**değişkenleri**][variables-doc] | Değişkenleri ile işlemleri gerçekleştirin: <p>- **Dizi değişkenine Ekle**: dizi değişkeni tarafından depolanan son öğenin değeri koyun. <br>- **Dize değişkenine Ekle**: bir değişkeni tarafından depolanan bir dizedeki son karakter olarak değer Ekle. <br>- **Değişkeni Azalt**: bir değişken bir sabit değere göre azaltın. <br>- **Artış değişkeni**: bir değişken bir sabit değere göre artırın. <br>- **Değişkeni başlatmak**: bir değişken oluşturun ve başlangıç değeri ve veri türü bildirin. <br>- **Değişken Ayarla**: farklı bir değer var olan bir değişkene atayın. |
 |  |  | 
@@ -193,6 +193,7 @@ Tetikleyiciler ve eylemler hakkında daha fazla bilgi için bkz. [bağlayıcıla
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Benzersiz değerler atanır durumlarda eylemlere düzenleyin. Yalnızca bir ifade, nesne veya belirteç sonuç değeri eşleşen servis talebi çalıştırın. Herhangi bir eşleşme varsa, varsayılan çalışmasını çalıştırın"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Durdurma veya etkin olarak çalışan bir iş akışı mantıksal uygulamanız için İptal Et"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Eylemler belirtilen koşulun true olması veya bazı durumu değişti kadar yineleyin."
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Veri işlemleri gibi diziler filtreleme veya CSV ve HTML tabloları oluşturma"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Başlatma, set, artırma, azaltma, gibi değişkenleri ile işlemlerini gerçekleştirmek ve dize veya dizi değişkenine Ekle"
 
 <!--Managed API doc links-->

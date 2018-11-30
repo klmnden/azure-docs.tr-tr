@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 1bcdac43eea41a044e920c14310a9f3cd4df793b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285446"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618968"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Azure'da giden SMTP bağlantı sorunlarını giderme
 
@@ -44,7 +44,7 @@ Bir Kullandıkça Öde veya Microsoft iş ortağı ağı aboneliğiniz muaf tutu
 > Microsoft hizmet koşullarını ihlal oluştuğunu belirlenirse bu muafiyet iptal etme hakkını saklı tutar.
 
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, Azure Pass, Open ile Azure, Education, BizSpark ve ücretsiz deneme
-MSDN, Azure Pass, Azure Open, Education, BizSpark veya ücretsiz deneme aboneliğinde 15 Kasım 2017'ye sonra oluşturduysanız, doğrudan sağlayıcıları e-posta ile gönderilen Vm'lerden bu abonelikler içinde blok e-posta teknik kısıtlamalara sahip olacaksınız. Kısıtlamaları, kötüye kullanımı önlemek için yapılır. Bu kısıtlamanın kaldırılması isteklerine izin verilir.
+MSDN, Azure Pass, Azure açık, Education, BizSpark, Azure Sponsorluğu, Azure Öğrenci, ücretsiz deneme sürümü veya herhangi bir Visual Studio aboneliğinizi 15 Kasım 2017'ye sonra oluşturduğunuz yapıyorsanız içinde Vm'lerden gönderilen blok e-posta teknik kısıtlamalara sahip olursunuz doğrudan sağlayıcıları e-posta abonelikleri. Kısıtlamaları, kötüye kullanımı önlemek için yapılır. Bu kısıtlamanın kaldırılması isteklerine izin verilir.
 
 Bu abonelik türleri kullanıyorsanız, bu makalenin önceki bölümlerinde açıklandığı SMTP geçiş hizmetlerini kullanabileceğiniz uğraşmaması teşvik edilir.
 

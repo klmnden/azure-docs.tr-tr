@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406184"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620345"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -43,7 +43,10 @@ Dynamics 365 için özellikle, aşağıdaki uygulama türlerini destekler:
 - Dynamics 365 for Project Service Automation
 - Pazarlama için Dynamics 365
 
-Örneğin Operations ve Finans, beceri diğer uygulama türleri, vb. desteklenmez.
+Diğer uygulama türleri örn Finans ve işlemleri, yetenek, vb. Bu bağlayıcı tarafından desteklenmez.
+
+>[!TIP]
+>Verileri kopyalamak için **Dynamics 365 Finans ve operasyon**, kullanabileceğiniz [Dynamics AX bağlayıcı](connector-dynamics-ax.md).
 
 ## <a name="get-started"></a>başlarken
 

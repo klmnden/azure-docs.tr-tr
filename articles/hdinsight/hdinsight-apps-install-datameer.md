@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 97d99aa59c490cf2dcdd4a69f32411a051942d36
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037813"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498776"
 ---
 # <a name="install-published-application---datameer"></a>Yayımlanan uygulama - Datameer yükleme
 
-Bu makalede, yüklemek ve çalıştırmak açıklanır [Datameer](https://www.datameer.com/) Azure HDInsight üzerinde Apache Hadoop uygulama yayımlanır. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, yüklemek ve çalıştırmak açıklanır [Datameer](https://www.datameer.com/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-datameer"></a>Datameer hakkında
 
@@ -34,7 +34,7 @@ Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek içi
 
 ## <a name="install-the-datameer-published-application"></a>Yayımlanan uygulamayı yükleme Datameer
 
-Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
+Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-datameer"></a>Datameer başlatın
 

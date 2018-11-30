@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 2fff332665652516e4ac25c4eb1a4612c15e2412
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824685"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632985"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../azure-monitor/platform/data-collection.md#logs). 
@@ -50,7 +50,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 - Sınırlı bağlamsal detaya gitme.
 
 ## <a name="azure-monitor-views"></a>Azure İzleyici görünümleri
-[Azure İzleyici görünümlerde](../log-analytics/log-analytics-view-designer.md) günlük verileri Log Analytics içinde depolanan özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](../azure-monitor/insights/solutions.md) bunlar topladığı verileri sunmak için.
+[Azure İzleyici görünümlerde](../azure-monitor/platform/view-designer.md) günlük verileri Log Analytics içinde depolanan özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](../azure-monitor/insights/solutions.md) bunlar topladığı verileri sunmak için.
 
 ![Görünüm](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 - Log Analytics verilerini için zengin görselleştirmeler.
 - Dışarı aktarma ve diğer kaynak gruplarında ve Aboneliklerde aktarmak için görünümler içeri aktarın.
 - Çalışma alanları ve izleme çözümlerinin günlük analitik yönetim modeliyle tümleştirir.
-- [Filtreler](../log-analytics/log-analytics-view-designer-filters.md) özel parametreler için.
+- [Filtreler](../azure-monitor/platform/view-designer-filters.md) özel parametreler için.
 - Etkileşimli, destekleyen çok düzeyli ayrıntıya içinde (başka bir görünüme ayrıntılı açıklanmıştır görünümü)
 
 ### <a name="limitations"></a>Sınırlamalar
@@ -140,7 +140,7 @@ Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir RES
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hakkında bilgi edinin [Azure İzleyici tarafından toplanan veriler](../azure-monitor/platform/data-collection.md).
 - Hakkında bilgi edinin [Azure panoları](../azure-portal/azure-portal-dashboards.md).
-- Hakkında bilgi edinin [Azure İzleyici görünümlerde](../log-analytics/log-analytics-view-designer.md).
+- Hakkında bilgi edinin [Azure İzleyici görünümlerde](../azure-monitor/platform/view-designer.md).
 - Hakkında bilgi edinin [Application Insights çalışma kitaplarında](../application-insights/app-insights-usage-workbooks.md).
 - Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](../log-analytics/log-analytics-powerbi.md).
 - Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

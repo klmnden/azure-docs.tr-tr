@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036592"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499436"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Apache Tez kullanıcı Arabirimi kullanın
-Tez kullanıcı Arabirimi, yürütme altyapısı Tez kullanan Hive işlerinin hatalarını ayıklamak için kullanılabilir. Bir grafik bağlı öğelerin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini alma Tez kullanıcı Arabirimi iş görselleştirir.
+[Apache TEZ](https://tez.apache.org/) UI hata ayıklama için kullanılabilir [Apache Hive](https://hive.apache.org/) yürütme altyapısı Tez kullanan işler. Bir grafik bağlı öğelerin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini alma Tez kullanıcı Arabirimi iş görselleştirir.
 
 > [!IMPORTANT]
 > Bu belgedeki adımlarda Windows kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -32,7 +32,7 @@ Tez kullanıcı Arabirimi, yürütme altyapısı Tez kullanan Hive işlerinin ha
 * Bir Windows tabanlı uzak masaüstü istemcisi.
 
 ## <a name="understanding-apache-tez"></a>Apache Tez anlama
-Tez Apache Hadoop veri işlemeye yönelik genişletilebilir bir çerçevesidir ve geleneksel MapReduce işleme büyük işleyebileceğiniz sağlar. Tez Hive sorgusu bir parçası olarak aşağıdaki metin dahil olmak üzere etkinleştirebilirsiniz:
+Tez Apache Hadoop veri işlemeye yönelik genişletilebilir bir çerçevesidir ve geleneksel büyük işleyebileceğiniz sağlar [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) işleniyor. Tez Hive sorgusu bir parçası olarak aşağıdaki metin dahil olmak üzere etkinleştirebilirsiniz:
 
     set hive.execution.engine=tez;
 
@@ -134,6 +134,6 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
     ![Görev ayrıntıları](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinin [HDInsight üzerinde Hive'ı kullanarak](hadoop/hdinsight-use-hive.md).
+Nasıl kullanılacağını öğrendiğinize göre [Apache TEZ](https://tez.apache.org/) görüntülemek için daha fazla bilgi edinin [HDInsight üzerinde Apache Hive kullanarak](hadoop/hdinsight-use-hive.md).
 
-Daha ayrıntılı Tez üzerinde teknik bilgi için bkz. [Hortonworks Tez sayfanın](http://hortonworks.com/hadoop/tez/).
+Daha ayrıntılı Tez üzerinde teknik bilgi için bkz. [Hortonworks Apache Tez sayfanın](http://hortonworks.com/hadoop/tez/).

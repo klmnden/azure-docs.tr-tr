@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622678"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581808"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C uygulamalarınızın, kullanıcı arabirimini özelleştirme
 
@@ -64,7 +64,7 @@ Bu öğretici için birçok yolla dosyalarınızı depolayabilirsiniz olsa da, o
  Bir tarayıcıda Azure AD B2C kod modern ve standart bir yaklaşım, ilkede belirttiğiniz URL'den özel içerik yüklemek için kullanır. Çıkış noktaları arası kaynak paylaşımı (CORS) başka etki alanlarından istenmesi için bir web sayfasında sınırlı kaynaklar sağlar.
 
 1. Menüde **CORS**.
-2. İçin **çıkış noktaları**, girin `your-tenant-name.b2clogin.com`. Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı. Örneğin, `fabrikam.b2clogin.com`.
+2. İçin **çıkış noktaları**, girin `https://your-tenant-name.b2clogin.com`. Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı. Örneğin, `https://fabrikam.b2clogin.com`. Kiracı adınızın girerken tamamen küçük harf kullanmanız gerekir.
 3. İçin **izin verilen yöntemleri**, her ikisini de seçin `GET` ve `OPTIONS`.
 4. İçin **izin verilen üstbilgileri**, yıldız işareti (*) girin.
 5. İçin **kullanıma sunulan üst bilgiler**, yıldız işareti (*) girin.

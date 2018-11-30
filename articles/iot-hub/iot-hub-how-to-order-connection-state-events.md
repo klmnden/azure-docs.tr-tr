@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: df680469541885ab6413800ee3b9806975e34dba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258672"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582464"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Bağlantı olayları Azure Cosmos DB kullanarak Azure IOT hub'a cihaz sipariş
 
@@ -36,7 +36,7 @@ Sıra numarası onaltılık düzendeki bir sayıyı bir dize gösterimidir. Dize
 
 1. Cosmos DB SQL API içinde seçin **Veri Gezgini** > **öğeleri** > **yeni saklı yordam**.
 
-   ![Saklı yordam oluşturma](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
+   ![Saklı yordam oluştur](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
 2. Bir saklı yordam kimliği girin ve "saklı yordam gövde" aşağıdakini yapıştırın. Bu kodu mevcut kodlar saklı yordam gövde yerini aldığını unutmayın. Bu kod, cihaz kimliği başına bir satır tutar ve en yüksek sıra numarası tanımlayarak bu cihaz kimliği son bağlantı durumunu kaydeder. 
 
@@ -315,7 +315,7 @@ Cosmos DB belge içinde yürütülen saklı yordamının sonuçları görebilirs
 
 ## <a name="use-the-azure-cli"></a>Azure CLI kullanma
 
-Yerine [Azure portalında](http://portal.azure.com), Azure CLI kullanarak IOT hub'ı adımları gerçekleştirebilirsiniz. Azure CLI sayfaları için Ayrıntılar için bkz [bir olay aboneliği oluşturma](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) ve [IOT cihazına oluşturma](https://docs.microsoft.com/cli/azure/iot/device).
+Yerine [Azure portalında](http://portal.azure.com), Azure CLI kullanarak IOT hub'ı adımları gerçekleştirebilirsiniz. Azure CLI sayfaları için Ayrıntılar için bkz [bir olay aboneliği oluşturma](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) ve [IOT cihazına oluşturma](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

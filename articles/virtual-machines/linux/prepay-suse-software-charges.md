@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: yashar
-ms.openlocfilehash: 9c3976a5fa98049de03f2a65b71f1fc927947142
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307833"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582200"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Azure ayırmalardan SUSE yazılım planları için ön ödeme
 
@@ -41,7 +41,7 @@ Azure portalında SUSE yazılım planları satın alabilirsiniz. Bir plan satın
     |Ad        |Bu satın alma adı.|
     |Abonelik|Bu plan için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Abonelik, kurumsal anlaşma (teklif numarası: MS-AZR-0017P) veya Kullandıkça Öde (teklif numarası: MS-AZR-0003P) türündedir. Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|
     |Kapsam       |Kapsam bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Bu abonelikte SUSE Linux kullanımı tek bir abonelik - planı indirim uygulanır. </li><li>Paylaşılan - planı indirim SUSE Linux kullanımı herhangi bir abonelik, fatura bağlamı içinde uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt (geliştirme ve test abonelikleri) hariç tüm aboneliklere dahildir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.</li></ul>|
-    |Yazılım planı     |SUSE Linux planı seçin. Satın almak hangi tanımlama konusunda yardım için bkz: [SUSE Linux Enterprise yazılım ayırma indirimi nasıl uygulandığını anlamanız](../../billing/billing-understand-suse-reservation-charges.md).|
+    |Yazılım planı     |SUSE Linux planı seçin. Satın almanız gereken planı belirleme konusunda yardım için bkz. [SUSE Linux Enterprise yazılım ayırma indiriminin nasıl uygulandığını anlama](../../billing/billing-understand-suse-reservation-charges.md).|
     |VM boyutu     |SUSE Linux fiyatlandırma, VM Vcpu sayısına bağlıdır. SUSE Linux vm'lerde Vcpu sayısını temsil eden bir seçenek belirleyin.|
     |Sözleşme Dönemi        |Bir yıl veya üç yıl.|
     |Miktar    |Bu SUSE Linux plan için satın alıyorsunuz sanal makine sayısı. Fatura indirim almak SUSE Linux örnekleri çalışan sayısını miktarıdır.|
@@ -56,7 +56,7 @@ Ayrılmış VM örnekleri gibi SUSE Linux planları örneği boyutu esnekliği s
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>İptal ve değişimleri izin verilmiyor
 
-İptal edemezsiniz veya satın aldığınız bir SUSE planı exchange. Doğru planı satın emin olmak için kullanımınızı kontrol edin. Satın almak hangi tanımlama konusunda yardım için bkz: [SUSE Linux Enterprise yazılım ayırma indirimi nasıl uygulandığını anlamanız](../../billing/billing-understand-suse-reservation-charges.md).
+Satın aldığınız SUSE planını iptal edemez veya değiştiremezsiniz. Kullanımınızı denetleyerek doğru planı satın aldığınızdan emin olun. Satın almanız gereken planı belirleme konusunda yardım için bkz. [SUSE Linux Enterprise yazılım ayırma indiriminin nasıl uygulandığını anlama](../../billing/billing-understand-suse-reservation-charges.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -70,6 +70,6 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../../billing/billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](../../billing/billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

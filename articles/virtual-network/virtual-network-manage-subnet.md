@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954322"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633121"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ekleme, değiştirme veya bir sanal ağ alt ağı Sil
 
@@ -69,7 +69,7 @@ Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Kat�
 4. Alt ağlar listesinde ayarlarını değiştirmek için istediğiniz alt ağı seçin. Aşağıdaki ayarları değiştirebilirsiniz:
 
     - **Adres aralığı:** kaynak alt ağ içinde dağıtılırsa, adres aralığını değiştirebilirsiniz. Tüm kaynakları alt ağdaki mevcutsa, kaynakları başka bir alt ağa taşıma gerekir veya bunları alt ağdan silin. Taşıma veya bir kaynağı silme için uygulayacağınız adımlar, kaynağa bağlı olarak farklılık gösterir. Taşıma veya alt ağlardaki kaynaklar silme öğrenmek için taşımak veya silmek istediğiniz her bir kaynak türü için belgeleri okuyun. Kısıtlamalar için bkz. **adres aralığı** 5. adımında [bir alt ağ Ekle](#add-a-subnet).
-    - **Kullanıcılar**: yerleşik roller veya kendi özel rollerinizi kullanarak alt ağ erişimi denetleyebilirsiniz. Rol ve alt ağa erişmek için kullanıcı atama hakkında daha fazla bilgi edinmek için [Azure kaynaklarınıza erişimi yönetmek için rol ataması kullanan](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
+    - **Kullanıcılar**: yerleşik roller veya kendi özel rollerinizi kullanarak alt ağ erişimi denetleyebilirsiniz. Rol ve alt ağa erişmek için kullanıcı atama hakkında daha fazla bilgi edinmek için [Azure kaynaklarınıza erişimi yönetmek için rol ataması kullanan](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Ağ güvenlik grubu** ve **yol tablosu**: bkz. 5. adımı [bir alt ağ Ekle](#add-a-subnet).
     - **Hizmet uç noktalarını**: hizmet uç noktaları 5. adımında bkz [bir alt ağ Ekle](#add-a-subnet). Var olan bir alt ağ için hizmet uç noktası etkinleştirirken, kritik görev olmadığından alt ağdaki herhangi bir kaynak üzerinde çalıştığından emin olun. Hizmet uç noktaları olan varsayılan yol kullanarak alt ağdaki her ağ arabirimi yollara geçiş *0.0.0.0/0* adres ön eki ve sonraki atlama türü *Internet*, yeni bir yol ile kullanarak Adres ön ekleri, hizmet ve bir sonraki atlama türü *VirtualNetworkServiceEndpoint*. Geçiş sırasında açık TCP bağlantılarını sonlandırılabilir. Tüm ağ arabirimleri için trafik akışı yeni yol ile güncelleştirilene kadar hizmet uç noktası etkinleştirilmemiş. Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
     - **Alt ağ temsilci:** bkz hizmet uç noktaları 5. adımında [bir alt ağ Ekle](#add-a-subnet). Alt ağ temsilci sıfır veya birden çok temsilcileri için etkin şekilde değiştirilebilir. Alt ağda bir hizmet için bir kaynak zaten dağıtılmışsa, tüm kaynaklar için hizmet kaldırılana kadar alt temsilci kaldırılamaz. Farklı bir hizmet için temsilci seçmek için gelen temsilci olarak istediğiniz hizmeti seçin **Hizmetleri** listesi. 

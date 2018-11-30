@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623172"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582794"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB ile Azure işlevleri'ni kullanarak sunucusuz veritabanı bilgi işlem
 
@@ -124,7 +124,7 @@ Azure işlevleri, ölçeklenebilir iş ya da kısa parçalarını isteğe bağl�
 
 Azure Cosmos DB, aşağıdaki nedenlerden dolayı sunucusuz bilgi işlem mimarisi için önerilen veritabanı şöyledir:
 
-* **Tüm verilerinizi anında erişim**: çünkü depolanan her değerin ayrıntılı erişiminiz Azure Cosmos DB [otomatik olarak dizinleyen](indexing-policies.md) varsayılan olarak, tüm veri ve bu dizinleri hemen kullanılabilir hale getirir. Başka bir deyişle, sürekli olarak sorgu, güncelleştirme ve yeni öğeler eklemek için veritabanı ve Azure işlevleri aracılığıyla anında erişebilirsiniz.
+* **Tüm verilerinizi anında erişim**: çünkü depolanan her değerin ayrıntılı erişiminiz Azure Cosmos DB [otomatik olarak dizinleyen](index-policy.md) varsayılan olarak, tüm veri ve bu dizinleri hemen kullanılabilir hale getirir. Başka bir deyişle, sürekli olarak sorgu, güncelleştirme ve yeni öğeler eklemek için veritabanı ve Azure işlevleri aracılığıyla anında erişebilirsiniz.
 
 * **Şemasız**. Herhangi bir Azure işlevi veri çıkışı benzersiz bir şekilde işleyebilen, bu nedenle azure Cosmos DB, şemasız - olduğu. Bu "hiçbir şey handle" yaklaşım için basit kılar oluşturan çeşitli işlevler tüm Azure Cosmos DB çıktı.
 

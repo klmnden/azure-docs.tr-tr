@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 7f69659767d9e98c9cf6ddf283c66dde65c74a36
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 999f7265cc62236fa085a0c2fb90a68707891dd4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706635"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620414"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure Blob depolamadan/depolamaya veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -207,7 +207,7 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
 
 1. [Veri Fabrikası hizmet kimliği almak](data-factory-service-identity.md#retrieve-service-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
 
-2. Hizmet sorumlusu uygun Azure Blob Depolama alanında izni. Başvurmak [RBAC Azure depolama verileriyle Yönet erişim hakları](../storage/common/storage-auth-aad-rbac.md) rolleri hakkında daha fazla ayrıntı içeren.
+2. Azure Blob Depolama alanında yönetilen kimlik uygun izni verin. Başvurmak [RBAC Azure depolama verileriyle Yönet erişim hakları](../storage/common/storage-auth-aad-rbac.md) rolleri hakkında daha fazla ayrıntı içeren.
 
     - **Kaynak olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
     - **Havuz olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4c31831aedefabc285c92861e9010b242cacf0d7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262661"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635790"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -160,7 +160,7 @@ A. Hayır, rastgele bir tablo veya Azure depolamadaki kapsayıcılar okumak şu 
 
 A. Log Analytics hizmeti, Azure üzerinde oluşturulmuştur. Log Analytics IP adresleridir içinde [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Hizmet dağıtımları yaptığınız gibi Log Analytics hizmetine gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin bölümünde belgelendirilen [ağ gereksinimleri](log-analytics-agent-overview.md#network-firewall-requirements).
+Hizmet dağıtımları yaptığınız gibi Log Analytics hizmetine gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin bölümünde belgelendirilen [ağ gereksinimleri](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>S. Azure'a bağlamak için ExpressRoute kullanıyorum. My Log Analytics trafik, ExpressRoute bağlantım kullanıyor mu?
 
@@ -198,9 +198,22 @@ Altında **Azure Log Analytics (OMS)**, listelenen tüm çalışma alanlarını 
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>S: neden çalışma Alanım'ı bir Azure aboneliğine ait diğerine taşımak çalıştığınızda bir hata alıyorum?
 
-Y: Azure portalında kullanıyorsanız, yalnızca çalışma taşıma için seçildiğinden emin olun. Çalışma alanı taşındıktan sonra--çözümleri otomatik olarak taşınır seçmeyin. 
+A: bir çalışma alanı farklı bir abonelik veya kaynak grubuna taşımak için önce çalışma alanındaki Otomasyon hesabının bağlantısını kaldırmanız gerekir. Bir Otomasyon hesabının bağlantısını gerektiriyorsa Bu çözümleri kaldırılmasını çalışma alanınızda yüklü: güncelleştirme yönetimi, değişiklik izleme veya Vm'leri çalışma saatleri dışında başlatma/durdurma kaldırılır. Bu çözümleri kaldırdıktan sonra seçerek Otomasyon hesabının bağlantısını kaldırmanız **bağlı çalışma alanları** tıklayın ve sol bölmede Otomasyon hesabı kaynak **çalışma alanının bağlantısını Kaldır** Şerit üzerindeki.
+ > Çözümler çalışma alanında yüklenmesi gerek kaldırıldı ve çalışma alanı Otomasyon bağlantısını taşımadan sonra açıklandı gerekir.
 
 Hem Azure aboneliklerinde izninizin olduğundan emin olun.
+
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>S: neden bir SavedSearch güncelleştirmeye çalıştığınızda bir hata alıyorum?
+
+A: 'etag' API'si veya Azure Resource Manager şablonu özellikleri gövdesinde eklemeniz gerekir:
+```
+"properties": {
+   "etag": "*",
+   "query": "SecurityEvent | where TimeGenerated > ago(1h) | where EventID == 4625 | count",
+   "displayName": "An account failed to log on",
+   "category": "Security"
+}
+```
 
 ## <a name="agent-data"></a>Aracı verileri
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>S. Ne kadar veri Log Analytics'e Aracısı üzerinden gönderebilirim? En fazla bir müşteri başına veri miktarını var mı?

@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd27438247b801e384b80d96ba288896b4c5aae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234231"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499395"
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Spark makine öğrenimi işlem hattı oluşturma
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Bir Apache Spark makine öğrenimi işlem hattı oluşturma
 
 Apache Spark'ın ölçeklenebilir makine öğrenimi kitaplığı (MLlib), dağıtılmış bir ortama modelleme özellikleri sunar. Spark paket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) DataFrames üzerinde oluşturulan üst düzey API'ler kümesidir. Bu API'ler oluşturmak ve pratik makine öğrenimi işlem hatlarını ayarlama yardımcı olur.  *Spark machine learning* bu MLlib DataFrame tabanlı API'sine olmayan eski RDD tabanlı ardışık düzen API ifade eder.
 
@@ -131,4 +131,4 @@ only showing top 20 rows
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Azure üzerinde Scala ve Spark kullanan veri bilimi](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Azure üzerinde Scala ve Apache Spark kullanan veri bilimi](../../machine-learning/team-data-science-process/scala-walkthrough.md)

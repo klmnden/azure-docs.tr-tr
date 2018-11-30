@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53f729e23ced00bd0acb5674308f8c610bff8868
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005385"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583168"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme
 
-Storm panosunu kolayca dağıtmasına ve web tarayıcınızı kullanarak HDInsight kümenize Apache Storm topolojileri çalıştırmak sağlar. Pano, çalışan topolojileri izleyip yönetmek ve izlemek için de kullanabilirsiniz. Visual Studio kullanıyorsanız, Visual Studio için HDInsight araçları, Visual Studio'da benzer özellikleri sağlar.
+[Apache Storm](http://storm.apache.org/) çalışma Apache Storm topolojilerini, HDInsight için web tarayıcınızı kullanarak küme ve Pano kolayca dağıtmanızı sağlar. Pano, çalışan topolojileri izleyip yönetmek ve izlemek için de kullanabilirsiniz. Visual Studio kullanıyorsanız, Visual Studio için HDInsight araçları, Visual Studio'da benzer özellikleri sağlar.
 
 Storm panosunu ve Storm özellikleri HDInsight Araçları'nda kendi izleme oluşturmak için kullanılan Storm REST API ve yönetim çözümleri kullanır.
 
@@ -88,7 +88,7 @@ Bir bağlantıdan seçerek **topoloji özeti** bölüm topoloji hakkında aşağ
 
   * **Yeniden Dengeleme**: topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu kümedeki düğümlere artan veya azalan sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır.
 
-      Daha fazla bilgi için bkz. [Bir Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      Daha fazla bilgi için [Apache Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **KILL**: belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 
@@ -118,7 +118,7 @@ Gelen bir spout seçerek **Spout'lar** veya **Cıvatalar** bölümleri seçili �
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>Visual Studio için HDInsight Araçları
 
-HDInsight araçları C# veya karma topolojiler, Storm kümesine göndermek için kullanılabilir. Örnek uygulama aşağıdaki adımları kullanın. HDInsight Araçları'nı kullanarak kendi topolojileri oluşturma hakkında daha fazla bilgi için bkz: [Visual Studio için HDInsight Araçları'nı kullanarak C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md).
+[HDInsight Araçları](https://azure.microsoft.com/resources/videos/hdinsight-tools-for-visual-studio/) göndermek için kullanılan C# veya karma topolojiler, Storm kümesi için. Örnek uygulama aşağıdaki adımları kullanın. HDInsight Araçları'nı kullanarak kendi topolojileri oluşturma hakkında daha fazla bilgi için bkz: [Visual Studio için HDInsight Araçları'nı kullanarak C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md).
 
 HDInsight kümesi üzerinde storm'a bir örneği dağıtma sonra görüntülemek ve topolojisini yönetmek için aşağıdaki adımları kullanın.
 
@@ -159,7 +159,7 @@ HDInsight kümesi üzerinde storm'a bir örneği dağıtma sonra görüntülemek
 
 Storm kullanıcı arabirimini, benzer yönetim ve işlevsellik REST API kullanarak izleme gerçekleştirebilmesi için REST API temelinde oluşturulmuştur. REST API, yönetmeye ve izlemeye Storm Topolojileri için özel araçlar oluşturmak için kullanabilirsiniz.
 
-Daha fazla bilgi için [Storm kullanıcı Arabirimi REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). Aşağıdaki bilgileri, HDInsight üzerinde Apache Storm ile REST API kullanarak özeldir.
+Daha fazla bilgi için [Apache Storm kullanıcı Arabirimi REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). Aşağıdaki bilgileri, HDInsight üzerinde Apache Storm ile REST API kullanarak özeldir.
 
 ### <a name="base-uri"></a>Taban URI
 
@@ -174,7 +174,7 @@ REST API istekleri kullanmalıdır **temel kimlik doğrulaması**, HDInsight kü
 
 ### <a name="return-values"></a>Dönüş değerleri
 
-REST API öğesinden geri döndürülen bilgiler, yalnızca küme veya küme aynı Azure sanal ağ üzerindeki sanal makineler kullanılabilir olabilir. Zookeeper sunucuları olmaması için Internet'ten erişilebilen döndürülen gibi tam etki alanı adı (FQDN).
+REST API öğesinden geri döndürülen bilgiler, yalnızca küme veya küme aynı Azure sanal ağ üzerindeki sanal makineler kullanılabilir olabilir. İçin döndürülen gibi tam etki alanı adı (FQDN) [Apache ZooKeeper](https://zookeeper.apache.org/) sunucuları olan değil Internet'ten erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
@@ -182,9 +182,9 @@ Size nasıl dağıtmak ve Storm panosunu kullanarak topolojileri izleme, öğren
 
 * [Visual Studio için HDInsight Araçları'nı kullanarak C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md)
 
-* [Maven kullanarak Java tabanlı topolojiler geliştirme](apache-storm-develop-java-topology.md)
+* [Apache Maven kullanarak Java tabanlı topolojiler geliştirme](apache-storm-develop-java-topology.md)
 
-Daha fazla örnek topolojileri listesi için bkz. [HDInsight üzerinde Storm için örnek topolojiler](apache-storm-example-topology.md).
+Daha fazla örnek topolojileri listesi için bkz. [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md).
 
 [hdinsight-dashboard]: ./media/apache-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/apache-storm-deploy-monitor-topology/submit.png

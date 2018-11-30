@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 229c3eff0db4f3689f4e2e3fd457410ecccb8ba7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041531"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583222"
 ---
-# <a name="overview-of-spark-streaming"></a>Spark akış genel bakış
+# <a name="overview-of-apache-spark-streaming"></a>Akış Apache Spark'a genel bakış
 
-Spark akışı veri akışı işleme HDInsight Spark kümeleri, bir düğüm arıza durumunda bile herhangi bir giriş olayı tam bir kez işlenir garantisi sağlar. Spark Stream giriş veri kaynakları, Azure Event Hubs, bir Azure IOT Hub, Kafka, Flume, Twitter, ZeroMQ, ham TCP yuvaları dahil olmak üzere çok çeşitli veya HDFS dosya sistemleri izleme alan bir uzun süre çalışan iş. Yalnızca olay temelli bir işlemin aksine bir Spark Stream giriş verisi gibi bir 2 saniyelik dilim zaman pencereleri halinde toplu işlemleri ve ardından her toplu işin eşlemesini kullanarak veri dönüşümleri, azaltmak, katılın ve işlemleri ayıklayın. Spark Stream ardından dönüştürülmüş verileri için dosya sistemleri, veritabanları, panolar ve konsol yazıyor.
+[Apache Spark](https://spark.apache.org/) akış sağlayan veri akışı işleme giriş olayı herhangi bir Garantisi ile HDInsight Spark kümelerinde tam bir kez işlenir bile bir düğüm hatası oluşur. Spark Stream çok çeşitli Azure Event Hubs, bir Azure IOT Hub gibi çeşitli kaynaklardan giriş verileri alan bir uzun süre çalışan iş [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ ](http://zeromq.org/), ham TCP yuvaları veya izlemeyi [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) dosya sistemleri. Yalnızca olay temelli bir işlemin aksine bir Spark Stream giriş verisi gibi bir 2 saniyelik dilim zaman pencereleri halinde toplu işlemleri ve ardından her toplu işin eşlemesini kullanarak veri dönüşümleri, azaltmak, katılın ve işlemleri ayıklayın. Spark Stream ardından dönüştürülmüş verileri için dosya sistemleri, veritabanları, panolar ve konsol yazıyor.
 
 ![Stream, HDInsight ve akış Spark ile işleme](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -86,7 +86,7 @@ Akış uygulama başlatma ve sonlandırma sinyal alınana kadar çalıştırın.
     ssc.start()            
     ssc.awaitTermination()
 
-Spark Stream API ile olay kaynakları, dönüşümler ve çıkış işlemleri desteklediği hakkında ayrıntılı bilgi için bkz. [Spark akış Programlama Kılavuzu](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+Spark Stream API ile olay kaynakları, dönüşümler ve çıkış işlemleri desteklediği hakkında ayrıntılı bilgi için bkz. [Apache Spark akış Programlama Kılavuzu](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 Aşağıdaki örnek uygulama içinde çalıştırabilmeniz için kendi içinde bir [Jupyter not defteri](apache-spark-jupyter-notebook-kernels.md). Bu örnekte beş saniyede bir sayaç ve milisaniye olarak geçerli süre değerini çıkarır DummySource sınıfında sahte veri kaynağı oluşturur. Yeni bir StreamingContext nesnesi, bir toplu iş aralığı 30 saniye sahiptir. Her bir toplu işi oluşturulduğunda akış uygulaması üretilen RDD inceler, bir Spark DataFrame için RDD dönüştürür ve DataFrame üzerinde geçici bir tablo oluşturur.
 
@@ -211,10 +211,10 @@ Genellikle bir JAR dosyasına yerel olarak Spark akışı bir uygulama oluşturu
 
 ![Bir Spark akışı uygulamasını dağıtma](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Tüm uygulamaların durumunu, ayrıca bir LIVY uç noktasına karşı bir GET isteğiyle denetlenebilir. Son olarak, LIVY uç nokta karşı bir silme isteği göndererek çalışan bir uygulamayı sonlandırabilirsiniz. LIVY API hakkında daha fazla bilgi için bkz: [LIVY ile uzak işler](apache-spark-livy-rest-interface.md)
+Tüm uygulamaların durumunu, ayrıca bir LIVY uç noktasına karşı bir GET isteğiyle denetlenebilir. Son olarak, LIVY uç nokta karşı bir silme isteği göndererek çalışan bir uygulamayı sonlandırabilirsiniz. LIVY API hakkında daha fazla bilgi için bkz: [Apache LIVY ile uzak işler](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight Apache Spark kümesi oluşturma](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark akış Programlama Kılavuzu](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [Spark işlerinde LIVY ile uzaktan başlatma](apache-spark-livy-rest-interface.md)
+* [Apache Spark akış Programlama Kılavuzu](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Apache Spark işleri Apache LIVY ile uzaktan başlatma](apache-spark-livy-rest-interface.md)

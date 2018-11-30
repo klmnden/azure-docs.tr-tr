@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 876a564c3cf5ee4b19d7f2530ecff1ed12bebe63
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255259"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581844"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Data Lake Store verilerini çözümlemek için HDInsight Spark kümesi kullanın
 
-Bu öğreticide, Jupyter not defteri kullanılabilir HDInsight Spark kümeleri ile Data Lake Store hesabından veri okuyan bir iş çalıştırmak için kullanın.
+Bu öğreticide kullandığınız [Jupyter not defteri](https://jupyter.org/) bir Data Lake Store hesabından veri okuyan bir iş çalıştırmak için HDInsight Spark kümeleri ile kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -61,7 +61,7 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-store"></a>Data Lake Store ile HDInsight Spark kümesi kullanın
 
-1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Tüm** > **HDInsight Kümelerine Gözat** altından kümenize gidebilirsiniz.
+1. Gelen [Azure portalı](https://portal.azure.com/), (Bu başlangıç panosuna sabitlediğiniz varsa) başlangıç Panosu, Apache Spark kümenizin kutucuğuna tıklayın. Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.
 
 2. Spark kümesi dikey penceresinden **Hızlı Bağlantılar**’a ve sonra **Küme Panosu** dikey penceresinden **Jupyter Not Defteri**’ne tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
 
@@ -115,7 +115,7 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
             # Register the data fram as a table to run queries against
             hvacdf.registerTempTable("hvac")
 
-6. Bir PySpark çekirdeği kullandığınız için `%%sql` sihrini kullanarak yeni oluşturduğunuz **hvac** geçici tablosunda bundan böyle bir SQL sorgusunu doğrudan çalıştırabilirsiniz. `%%sql` sihrinin yanı sıra PySpark çekirdeği kullanılabilen diğer sihirler hakkında daha fazla bilgi için bkz. [Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Bir PySpark çekirdeği kullandığınız için `%%sql` sihrini kullanarak yeni oluşturduğunuz **hvac** geçici tablosunda bundan böyle bir SQL sorgusunu doğrudan çalıştırabilirsiniz. Hakkında daha fazla bilgi için `%%sql` Sihirli yanı sıra PySpark çekirdeği kullanılabilen diğer sihirler bkz [Apache Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -134,5 +134,5 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Tek başına bir Apache Spark kümesi üzerinde bir Scala uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Spark HDInsight Spark Linux kümesi için uygulamalar oluşturmak için Intellij için Azure araç seti, HDInsight araçları kullanın](apache-spark-intellij-tool-plugin.md)
-* [Spark HDInsight Spark Linux kümesi için uygulamalar oluşturmak için Eclipse için Azure araç seti, HDInsight araçları kullanın](apache-spark-eclipse-tool-plugin.md)
+* [HDInsight Spark Linux kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure araç seti, HDInsight araçları kullanma](apache-spark-intellij-tool-plugin.md)
+* [HDInsight Spark Linux kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure araç seti, HDInsight araçları kullanma](apache-spark-eclipse-tool-plugin.md)

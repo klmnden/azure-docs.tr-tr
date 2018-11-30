@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255941"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498169"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Azure HDInsight Spark üzerinde dağıtılmış derin öğrenme için Caffe kullanma
 
@@ -22,9 +22,9 @@ ms.locfileid: "51255941"
 
 Derin öğrenme, sağlık hizmetleri için üretim nakliye kadar her şeyi ve daha fazlasını etkilenip. Şirketler için derin gibi sabit sorunlarını gidermek öğrenme kapatma [görüntü sınıflandırma](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [konuşma tanıma](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)nesne tanıma ve makine çevirisi. 
 
-Vardır [birçok popüler çerçeveleri](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)de dahil olmak üzere [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, vs. Caffe En ünlü sembolik olmayan (zorunlu) sinir ağı çerçeveleri biridir ve görüntü işleme dahil birçok alanda yaygın olarak kullanılan. Ayrıca, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) Caffe Apache Spark, bu durumda derin öğrenme ile var olan bir Hadoop kümesinde kolayca da kullanılabilir bir araya getirir. Derin öğrenme Spark ETL işlem hatları, azalan sistem karmaşıklığını ve gecikme süresi ile birlikte eksiksiz bir çözüm öğrenme için kullanabilirsiniz.
+Vardır [birçok popüler çerçeveleri](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)de dahil olmak üzere [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, vs. [Caffe](http://caffe.berkeleyvision.org/) En ünlü sembolik olmayan (zorunlu) sinir ağı çerçeveleri biridir ve görüntü işleme dahil birçok alanda yaygın olarak kullanılan. Ayrıca, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) Caffe Apache Spark, bu durumda derin öğrenme ile var olan bir Hadoop kümesinde kolayca da kullanılabilir bir araya getirir. Derin öğrenme Spark ETL işlem hatları, azalan sistem karmaşıklığını ve gecikme süresi ile birlikte eksiksiz bir çözüm öğrenme için kullanabilirsiniz.
 
-[HDInsight](https://azure.microsoft.com/services/hdinsight/) bir bulut Hadoop teklifidir Spark, Hive, Hadoop, HBase, Storm, Kafka ve ML Hizmetleri için iyileştirilmiş açık kaynaklı analiz kümeleri sağlayan. HDInsight, % 99,9 SLA ile desteklenir. Her biri bu büyük veri teknolojilerini ve ISV uygulamalarını yönetilen kümeler güvenlik ve izleme kuruluşlara yönelik olarak kolayca dağıtılabilir.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/) olan Apache Hadoop bulut sunan Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka ve ML Hizmetleri için iyileştirilmiş açık kaynaklı analiz kümeleri sağlayan. HDInsight, % 99,9 SLA ile desteklenir. Her biri bu büyük veri teknolojilerini ve ISV uygulamalarını yönetilen kümeler güvenlik ve izleme kuruluşlara yönelik olarak kolayca dağıtılabilir.
 
 Bu makalede nasıl yükleneceği gösterilmektedir [Spark üzerinde Caffe](https://github.com/yahoo/CaffeOnSpark) bir HDInsight kümesi için. Bu makalede yerleşik MNIST tanıtım dağıtılmış CPU üzerinde HDInsight Spark'ı kullanarak ayrıntılı öğrenme kullanmayı göstermek için de kullanır.
 
@@ -69,7 +69,7 @@ Başlamak için yalnızca bu betik eylemi kümenizi karşı tüm çalışan dü�
 ![Bağımlılıkları yüklemek üzere betik eylemleri](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>2. adım: Derleme baş düğüme Caffe HDInsight için Spark üzerinde
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>2. adım: Caffe Apache Spark için HDInsight baş düğüm üzerinde oluşturun
 
 İkinci adım, baş düğüme Caffe oluşturun ve ardından tüm çalışan düğümleri için derlenmiş kitaplıkları dağıtmak sağlamaktır. Bu adımda, gerekir [ssh, baş içine](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Bundan sonra izlemeniz gereken [CaffeOnSpark yapı işlemi](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Aşağıda birkaç ek adım ile CaffeOnSpark oluşturmak için kullanabileceğiniz betiği verilmiştir. 
 
@@ -294,8 +294,8 @@ Bu belgede, basit bir örnek çalıştırmayla CaffeOnSpark yüklemeye çalışt
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Kaynakları yönetme
 * [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441660"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582896"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: özel ilkeler kullanarak kullanıcı Arabirimi ile dinamik içerik yapılandırma
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C kullanarak (Azure AD B2C) özel ilkeler, bir sorgu dizesi parametresi gönderebilirsiniz. HTML uç noktanıza parametre geçirerek, sayfa içeriği dinamik olarak değiştirebilirsiniz. Örneğin, web veya mobil uygulama geçirdiğiniz parametre temel Azure AD B2C kaydolma veya oturum açma sayfasında, arka plan görüntüsü değiştirebilirsiniz. 
+Azure Active Directory B2C kullanarak (Azure AD B2C) özel ilkeler, bir sorgu dizesi parametresi gönderebilirsiniz. Parametreyi HTML uç noktanıza ileterek sayfa içeriğini dinamik olarak değiştirebilirsiniz. Örneğin web veya mobil uygulamanızdan ilettiğiniz bir parametreye göre Azure AD B2C kaydolma veya oturum açma sayfanızdaki arka plan görüntüsünü değiştirebilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede Azure AD B2C'yi kullanıcı arabirimiyle özelleştirme odaklanır *dinamik içerik* özel ilkeler kullanarak. Başlamak için bkz: [UI özelleştirmesi özel bir ilkede](active-directory-b2c-ui-customization-custom.md). 
@@ -80,7 +80,7 @@ Bu kılavuzda:
 
     ![Web uygulaması şablonunu seçin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
-6. Seçin **Tamam** projeyi oluşturmak için.
+6. Projeyi oluşturmak için **Tamam**'ı seçin.
 
 ## <a name="step-2-create-mvc-view"></a>2. adım: MVC görünümü oluşturma
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2.1. adım: B2C yerleşik HTML5 şablon indirme
@@ -178,7 +178,7 @@ Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ard�
 
 3. İçinde **CORS** penceresi içinde **izin verilen çıkış noktaları** kutusunda, aşağıdakilerden birini yapın:
 
-    * URL veya JavaScript çağrılarını alınmasına izin vermek istediğiniz URL'leri girin.
+    * URL veya JavaScript çağrılarını alınmasına izin vermek istediğiniz URL'leri girin. Tüm küçük harfleri girdiğiniz URL'lerinde kullanmanız gerekir.
     * Tüm kaynak etki alanlarının kabul edildiğini belirtmek için yıldız işareti (*) girin.
 
 4. **Kaydet**’i seçin.

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 8f680b60a8f457e1a8619ac044798ff02df15694
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013658"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581910"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>YARN ile yüksek oranda kullanılabilir Spark akış işleri oluşturma
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN ile yüksek kullanılabilirlik Apache Spark akış işleri oluşturma
 
-Spark akış işleme veri akışları için ölçeklenebilir, yüksek performanslı, hataya dayanıklı uygulamalar uygulama olanak tanır. Çeşitli veri kaynakları, Azure Event Hubs, Azure IOT Hub, Kafka, Flume, Twitter, ZeroMQ, ham TCP yuvaları gibi veya HDFS dosya sistemi için değişiklik izleme için HDInsight Spark kümesi üzerinde Spark akış uygulamaları bağlanabilirsiniz. Spark akış, herhangi bir belirli olay bile bir düğüm hatası ile tam bir kez işlenir Garantisi ile hata toleransı destekler.
+[Apache Spark](https://spark.apache.org/) akış işleme veri akışları için ölçeklenebilir, yüksek performanslı, hataya dayanıklı uygulamalar uygulama olanak sağlar. Bir HDInsight Spark kümesi üzerinde Spark akış uygulamaları Azure Event Hubs, Azure IOT Hub gibi veri kaynaklarının çeşitli bağlanabilirsiniz [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ ZeroMQ](http://zeromq.org/), ham TCP yuvaları veya izleme [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) değişiklikler için dosya sistemi. Spark akış, herhangi bir belirli olay bile bir düğüm hatası ile tam bir kez işlenir Garantisi ile hata toleransı destekler.
 
 Spark akışı, uzun süre çalışan işler aşamasında, dönüştürmeleri için veri ve dosya sistemleri, veritabanları, panolar ve konsol için sonuçları ardından dışına oluşturur. Spark akışı, ilk olarak tanımlanan zaman aralığı içinde toplu olayları toplayarak micro-verileri toplu işler. Ardından, toplu işleme ve çıkış için gönderilir. Batch zaman aralıkları genellikle ikinci bölümleri içinde tanımlanır.
 
@@ -54,7 +54,7 @@ Rdd, hataya dayanıklı ve yüksek oranda kullanılabilir Spark akış işleri y
 
 Her olay bir kez (ve yalnızca bir kez) işleyen bir uygulama oluşturmak için göz önünde bulundurun hata tüm sistemin noktaları bir sorun atandıktan sonra yeniden başlatma ve veri kaybını önlemek nasıl. Tam olarak-sonra hiçbir veri herhangi bir noktada kaybolur ve bu ileti işleme hatanın oluştuğu bağımsız olarak yeniden başlatılabilir, semantiği gerektirir. Bkz: [oluşturma Spark akış işleri ile tam olarak-kere olay işleme](apache-spark-streaming-exactly-once.md).
 
-## <a name="spark-streaming-and-yarn"></a>Spark akış ve YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark akış ve Apache Hadoop YARN
 
 HDInsight küme iş tarafından denetlenen *henüz başka bir Resource Negotiator* (YARN). Spark akış için yüksek kullanılabilirlik tasarımı teknikleri için Spark akışı ve YARN bileşenleri içerir.  YARN'ı kullanarak bir örnek yapılandırması aşağıda gösterilmiştir. 
 
@@ -120,8 +120,8 @@ DStream denetim noktası sürücüleriyle kurtarmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Spark akış genel bakış](apache-spark-streaming-overview.md)
-* [Spark akış işleri ile tam olarak oluşturma-kere olay işleme](apache-spark-streaming-exactly-once.md)
-* [Uzun süre çalışan Spark akış işleri YARN üzerinde](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Apache Spark akış genel bakış](apache-spark-streaming-overview.md)
+* [Apache Spark akış işleri ile tam olarak oluşturma-kere olay işleme](apache-spark-streaming-exactly-once.md)
+* [Uzun süre çalışan Apache akış işleri YARN üzerinde Spark](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Yapılandırılmış akış: Hataya dayanıklı semantiği](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Ayrılmış akışları: Hataya dayanıklı bir Model için ölçeklenebilir Stream işleme](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635045"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634651"
 ---
-# <a name="install-and-run-containers"></a>Yükleme ve kapsayıcıları çalıştırma
+# <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
 
 Kapsayıcı, bir uygulama veya hizmet bir kapsayıcı görüntüsüne paketlenmiştir yazılım dağıtım için kullanılan bir yaklaşımdır. Yapılandırma ve bağımlılıklarla uygulama veya hizmet için kapsayıcı görüntüsüne eklenir. Kapsayıcı görüntüsü, bir kapsayıcı konağında çok az kayıpla veya hiç değişiklik ile sonra dağıtılabilir. Birbirine ve bir sanal makine değerinden daha küçük bir kaplama alanı ile temel işletim sistemi, yalıtılmış kapsayıcılardır. Kapsayıcılar için kısa vadeli görevleri kapsayıcı görüntülerinden oluşturulan ve artık gerekli olmadığında kaldırıldı.
 
@@ -60,9 +60,6 @@ Oluşturma ve Azure bir kaynaktan bilgi almak için aşağıdaki adımları ger�
 
 1. Azure portalında bir Azure kaynağı oluşturun.  
    Metni Tanı kapsayıcınızı kullanmak isterseniz, Azure portalında ilk karşılık gelen bir görüntü işleme kaynağı oluşturmanız gerekir. Daha fazla bilgi için [hızlı başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > Görüntü işleme kaynak F0 fiyatlandırma katmanını kullanmanız gerekir.
 
 1. Azure kaynakları için uç nokta URL'si ve abonelik anahtarını alın.  
    Azure kaynak oluşturulduktan sonra karşılık gelen metni tanı kapsayıcı örneği oluşturmak için bu kaynak uç nokta URL'si ve abonelik anahtarını kullanmanız gerekir. Uç nokta URL'si ile abonelik anahtarınızın sayfalarından, sırasıyla, hızlı başlangıç ve anahtarları Azure Portal'daki görüntü işleme kaynak kopyalayabilirsiniz.

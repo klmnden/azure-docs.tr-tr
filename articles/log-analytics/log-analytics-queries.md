@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 921be3f6cc793857a701cb56236d75680d0c1232
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 4aeb14bd7962205b89e1207e082f551999f54558
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282320"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634532"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
@@ -42,8 +42,8 @@ Log Analytics'te sorgu kullanacağını farklı yollar şunlardır:
 
 - **Portalları.** Günlük veri etkileşimli analiz gerçekleştirebilir [Azure portalında](log-analytics-log-search-portals.md).  Bu, sorgunuzu düzenleyin ve çeşitli biçimlerde ve görselleştirmeler sonuçları analiz etmek sağlar.  
 - **Uyarı kuralları.** [Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md) çalışma alanınızdaki veri sorunları proaktif olarak belirleyin.  Her uyarı kuralı otomatik olarak düzenli aralıklarla çalışan bir günlük araması temel alır.  Sonuçları bir uyarının oluşturulması gerektiğini belirlemek için incelenir.
-- **Panolar.** Herhangi bir sorgu sonuçlarını sabitleyebilirsiniz bir [Azure panosuna](log-analytics-dashboards.md) olan izin, günlük ve ölçüm verileri bir araya görselleştirip, isteğe bağlı olarak diğer Azure kullanıcıları ile paylaşın. 
-- **Görünümler.**  Kullanıcı panolarla dahil edilecek veri görselleştirmeleri oluşturabilirsiniz [Görünüm Tasarımcısı](log-analytics-view-designer.md).  Günlük sorguları tarafından kullanılan verileri sağlar [kutucukları](log-analytics-view-designer-tiles.md) ve [görselleştirme bölümleri](log-analytics-view-designer-parts.md) her görünümde.  
+- **Panolar.** Herhangi bir sorgu sonuçlarını sabitleyebilirsiniz bir [Azure panosuna](../azure-monitor/platform/dashboards.md) olan izin, günlük ve ölçüm verileri bir araya görselleştirip, isteğe bağlı olarak diğer Azure kullanıcıları ile paylaşın. 
+- **Görünümler.**  Kullanıcı panolarla dahil edilecek veri görselleştirmeleri oluşturabilirsiniz [Görünüm Tasarımcısı](../azure-monitor/platform/view-designer.md).  Günlük sorguları tarafından kullanılan verileri sağlar [kutucukları](../azure-monitor/platform/view-designer-tiles.md) ve [görselleştirme bölümleri](../azure-monitor/platform/view-designer-parts.md) her görünümde.  
 - **Dışarı aktarın.**  İçeri aktardığınızda verilerin Log Analytics çalışma alanından Excel'e veya [Power BI](log-analytics-powerbi.md), dışarı aktarmak için verileri tanımlamak için bir günlük sorgusu oluşturun.
 - **PowerShell.** Bir komut satırı veya kullanan bir Azure Otomasyonu runbook'u bir PowerShell Betiği çalıştırabilirsiniz [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) Log Analytics'ten verileri almak için.  Bu cmdlet, alınacak verileri belirlemek üzere bir sorgu gerektirir.
 - **Log Analytics API'si.**  [Log Analytics günlük arama API'si](../monitoring-and-diagnostics/monitoring-overview-alerts.md) çalışma alanından günlük verilerini almak herhangi bir REST API istemcisi sağlar.  API isteği almak için verileri belirlemek için Log Analytics karşı çalışan bir sorgu içerir.
@@ -111,4 +111,4 @@ Sırada [Application Insights](../application-insights/app-insights-overview.md)
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Hakkında bilgi edinin [oluşturmak ve düzenlemek için kullandığınız portalları günlük aramaları](log-analytics-log-search-portals.md).
-- Kullanıma bir [sorgu yazmakla ilgili öğretici](log-analytics-tutorial-viewdata.md) yeni sorgu diline kullanarak.
+- Kullanıma bir [sorgu yazmakla ilgili öğretici](query-language/get-started-queries.md) yeni sorgu diline kullanarak.

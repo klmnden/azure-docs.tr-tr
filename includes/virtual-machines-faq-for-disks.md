@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264253"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52585865"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -136,6 +136,10 @@ Hayır, yeni disk oluşturulurken o anda o blobu tam tek başına bir kopyası o
 **Oluşturulduktan sonra ı yönetilen veya yönetilmeyen bir disk yeniden adlandırabilir miyim?**
 
 Yönetilen diskler için bunları yeniden adlandıramazsınız. Ancak, şu anda bir VHD veya VM'ye bağlı değil sürece yönetilmeyen disk yeniden adlandırabilirsiniz.
+
+**Bir Azure diskte GBT bölümleme kullanabilir miyim?**
+
+GBT bölümleme, yalnızca veri disklerinde, işletim sistemi diskleri kullanılabilir. İşletim sistemi diskleri MBR bölümleme stilini kullanmalıdır.
 
 ## <a name="standard-ssd-disks"></a>Standart SSD disk
 
@@ -300,7 +304,7 @@ Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kayd�
 
 **Desteklenen en büyük sayfa blob boyutu nedir?**
 
-8 TiB, Azure'un desteklediği en büyük sayfa blob boyutu olan (8191 GiB). Bir VM'ye veri veya işletim sistemi diskleri olarak bağlanıldığında en fazla sayfa blog 4 TiB boyutudur (4.095 GiB).
+8 TiB, Azure'un desteklediği en büyük sayfa blob boyutu olan (8191 GiB). 4 TiB veri veya işletim sistemi diskleri olarak bir VM'ye bağlı olduğunda en fazla sayfa blob boyutu olan (4.095 GiB).
 
 **Azure Araçları'nın yeni bir sürüm oluşturma, ekleme, yeniden boyutlandırma ve 1 TiB büyük diskler karşıya yükleme için kullanılacak gerekiyor mu?**
 

@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711914"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498024"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Hizmet güncelleştirmeleri ve Bakım yönetmek için bakım zamanlamaları kullanın
 
-Azure SQL veri ambarı bakım zamanlama artık Önizleme aşamasındadır. Bu özellik, hizmet durumu planlı bakım bildirimlerini, kaynak sistem durumu İzleyicisi'ni kontrol edin ve Azure SQL veri ambarı bakım zamanlama hizmetini tümleştirir.
+Bakım zamanlamaları artık tüm Azure SQL veri ambarı bölgelerde kullanılabilir. Bu özellik, hizmet durumu planlı bakım bildirimlerini, kaynak sistem durumu İzleyicisi'ni kontrol edin ve Azure SQL veri ambarı bakım zamanlama hizmetini tümleştirir.
 
 Yeni özellikler, yükseltmeleri ve düzeltme eki almaya uygun olduğunda, bir zaman penceresi seçmek için zamanlama bakım kullanırsınız. Yedi günlük süre içinde bir birincil ve ikincil bir bakım penceresi seçin. Örnek bir Cumartesi birincil penceredir 22:00 ile Pazar 01:00 ve ikincil bir pencere, Çarşamba 19:00 için 22:00. SQL veri ambarı bakım, birincil bir bakım penceresi sırasında gerçekleştiremiyorsanız bakım, ikincil bir bakım penceresi sırasında yeniden deneyecek.
 
@@ -51,6 +51,7 @@ Bakım zamanlaması, seçili bölgesinde kullanılabilir durumda değilse, gör�
 - [Daha fazla bilgi edinin](changing-maintenance-schedule.md) bakım zamanlamasını değiştirme hakkında.
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) oluşturma, görüntüleme ve Azure İzleyici'yi kullanarak Uyarıları yönetme hakkında.
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) günlük uyarısı kuralları için Web kancası eylemleri hakkında.
+- [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) oluşturma ve Eylem grupları yönetme.
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/service-health/service-health-overview) Azure hizmet durumu hakkında.
 
 

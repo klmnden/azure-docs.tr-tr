@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 0db76d7133e28a0826d9ff07cefe02134cd95a47
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274491"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581452"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ekleme, güncelleştirme veya Azure için bir kredi kartı veya banka kartı kaldırma
 
@@ -102,6 +102,6 @@ Ne yazık ki Azure kredi ve banka kartları için şu anda tek seferlik ödemele
 
 Ekleme veya güncelleştirme vergi kimliği için şurayı ziyaret edin [ **profili** Azure hesap Merkezi'nde](https://account.azure.com/Profile), ardından **vergi kayıt**. Vergi numarası, vergi muafiyeti hesaplamaları için kullanılır ve faturanızda görünür.
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

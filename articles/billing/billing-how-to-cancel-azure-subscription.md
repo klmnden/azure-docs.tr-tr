@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: cwatson
-ms.openlocfilehash: dfce0a97812cb958e4fb299d0225b42a7aa8f68f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276309"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584358"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure aboneliğiniz iptal et
 
@@ -58,6 +58,6 @@ Kullandıkça Öde aboneliğinizi yanlışlıkla iptal ederseniz yapabilecekleri
 
 Aboneliğinizi Kullandıkça Öde değilse, aboneliğinizi yeniden etkinleştirmek için İptal 90 gün içinde destek başvurun.
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-Hala sorularınız varsa, [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

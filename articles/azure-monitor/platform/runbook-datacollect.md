@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 1472e6cf05485b942c93f632c147fcb0b0311c61
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828746"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632356"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
-Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../log-analytics/log-analytics-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
+Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
 
 Bu öğreticide oluşturma ve Log Analytics'e veri yazmak için Azure Otomasyonu'nda runbook zamanlama işleminde size yol gösterir.
 
@@ -212,7 +212,7 @@ Bir runbook her başlatıldığında [bir iş oluşturulur](../../automation/aut
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanım [Görünüm Tasarımcısı](../../log-analytics/log-analytics-view-designer.md) Log Analytics deposuna derledik verileri görüntüleyen bir görünüm oluşturmak için.
+- Kullanım [Görünüm Tasarımcısı](../../azure-monitor/platform/view-designer.md) Log Analytics deposuna derledik verileri görüntüleyen bir görünüm oluşturmak için.
 - Runbook'unuza paketini bir [yönetimi çözümü](../../azure-monitor/insights/solutions-creating.md) müşterilere dağıtmak için.
 - Daha fazla bilgi edinin [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Daha fazla bilgi edinin [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/).

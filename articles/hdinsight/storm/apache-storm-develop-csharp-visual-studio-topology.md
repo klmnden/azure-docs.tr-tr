@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dcc9dcada981a6a4174ce34748356d49582f598
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6f26ec6f1743a72a4a396ba245d80227f6f75913
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237579"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584290"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Storm için C# topolojileri geliştirme
 
-Visual Studio için Azure Data Lake (Hadoop) araçları kullanarak bir C# Storm topolojisi oluşturmayı öğrenin. Bu belgede bir Azure HDInsight kümesi üzerinde Apache storm'a dağıtma Visual Studio'da bir Storm projesi oluşturma ve yerel olarak test etme işleminde size yol gösterir.
+Oluşturmayı bir C# Visual Studio için Azure Data Lake (Apache Hadoop) araçlarını kullanarak Apache Storm topolojisi. Bu belgede bir Azure HDInsight kümesi üzerinde Apache storm'a dağıtma Visual Studio'da bir Storm projesi oluşturma ve yerel olarak test etme işleminde size yol gösterir.
 
 Ayrıca C# ve Java bileşenlerini kullanan karma topolojiler oluşturmayı öğrenin.
 
@@ -27,7 +27,7 @@ Ayrıca C# ve Java bileşenlerini kullanan karma topolojiler oluşturmayı öğr
 
 Bir Linux tabanlı kümeyle C# topolojisi kullanmak için proje tarafından kullanılan sürümüne 0.10.0.6 veya üzeri kullandığı Microsoft.SCP.Net.SDK NuGet paketini güncelleştirmeniz gerekir. Paketin sürümünün ayrıca HDInsight üzerinde yüklü olan Storm ana sürümüyle eşleşmesi gerekir.
 
-| HDInsight sürümü | Storm sürümü | SCP.NET sürümü | Mono varsayılan sürüm |
+| HDInsight sürümü | Apache Storm sürümü | SCP.NET sürümü | Mono varsayılan sürüm |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x sürümü |0.10.x.x</br>(yalnızca Windows tabanlı HDInsight üzerinde) | NA |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
@@ -97,7 +97,7 @@ namespace ConsoleApplication2
 }
 ```
 
-## <a name="storm-templates"></a>Storm şablonları
+## <a name="apache-storm-templates"></a>Apache Storm şablonları
 
 Aşağıdaki şablonlar Visual Studio için Data Lake araçları sağlar:
 
@@ -119,7 +119,7 @@ Aşağıdaki şablonlar Visual Studio için Data Lake araçları sağlar:
 
 Bu belgedeki adımlarda bir topoloji oluşturmak için temel bir Storm uygulaması proje türü kullanın.
 
-### <a name="hbase-templates-notes"></a>HBase şablonları notları
+### <a name="apache-hbase-templates-notes"></a>Apache HBase şablonları notları
 
 HBase okuyucu ve yazıcı şablonları HBase REST API, HBase Java API değil, HDInsight kümesindeki bir HBase ile iletişim kurmak için kullanın.
 
@@ -754,14 +754,14 @@ HDInsight ile çalışmak daha yollarını ve HDInsight örnekleri üzerinde dah
 **HDInsight üzerinde Apache Storm**
 
 * [HDInsight üzerinde Apache Storm topolojileri dağıtma ve izleme](apache-storm-deploy-monitor-topology.md)
-* [HDInsight üzerinde Storm için örnek topolojiler](apache-storm-example-topology.md)
+* [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md)
 
 **HDInsight üzerinde Apache Hadoop**
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](../hadoop/hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile Pig kullanma](../hadoop/hdinsight-use-pig.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](../hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](../hadoop/hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](../hadoop/hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hadoop MapReduce kullanma](../hadoop/hdinsight-use-mapreduce.md)
 
 **HDInsight üzerinde Apache HBase**
 
-* [HDInsight üzerinde HBase kullanmaya başlama](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight üzerinde Apache HBase kullanmaya başlama](../hbase/apache-hbase-tutorial-get-started-linux.md)

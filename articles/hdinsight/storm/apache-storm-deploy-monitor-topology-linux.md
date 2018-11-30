@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259063"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582862"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 
-Bu belgede, yönetmeye ve izlemeye üzerinde Storm, HDInsight kümelerinde çalışan Storm topolojilerini temellerini öğrenin.
+Bu belgede, yönetmeye ve izlemeye ilişkin temel bilgileri alın [Apache Storm](http://storm.apache.org/) üzerinde Storm, HDInsight kümelerinde çalışan topolojileri.
 
 > [!IMPORTANT]
 > Bu makaledeki adımlarda, HDInsight kümesinde Linux tabanlı Storm gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
@@ -186,7 +186,7 @@ Bir bağlantıdan seçerek **topoloji özeti** bölüm topoloji hakkında aşağ
   * **Devre dışı bırakma**: çalışan topolojiyi duraklatır.
   * **Yeniden Dengeleme**: topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu işlem artan veya azalan kümedeki düğümlerin sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır.
 
-    Daha fazla bilgi için bkz. <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Bir Storm topolojisinin paralelliğini anlama</a>.
+    Daha fazla bilgi için <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Apache Storm topolojisinin paralelliğini anlama</a>.
   * **KILL**: belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 * **Topoloji istatistikleri**: topoloji hakkındaki istatistiklerdir. Sayfada diğer girdiler için zaman çerçevesini belirlemek için bağlantıları kullanın. **penceresi** sütun.
 * **Spout'lar**: topoloji tarafından kullanılan spout. Bağlantıları bu bölümde belirli spout hakkında daha fazla bilgi görüntülemek için kullanın.
@@ -208,10 +208,10 @@ Gelen bir spout seçerek **Spout'lar** veya **Cıvatalar** bölümleri seçili �
 
 Storm kullanıcı arabirimini, benzer yönetim ve işlevsellik REST API kullanarak izleme gerçekleştirebilmesi için REST API temelinde oluşturulmuştur. REST API, yönetmeye ve izlemeye Storm Topolojileri için özel araçlar oluşturmak için kullanabilirsiniz.
 
-Daha fazla bilgi için [Storm kullanıcı Arabirimi REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Aşağıdaki bilgileri, HDInsight üzerinde Apache Storm ile REST API kullanarak özeldir.
+Daha fazla bilgi için [Apache Storm kullanıcı Arabirimi REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Aşağıdaki bilgileri, HDInsight üzerinde Apache Storm ile REST API kullanarak özeldir.
 
 > [!IMPORTANT]
-> Storm REST API'si, internet üzerinden genel kullanıma açık değil ve HDInsight küme baş düğümüne SSH tüneli kullanılarak erişilmelidir. Bir SSH tüneli oluşturma ve kullanma hakkında daha fazla bilgi için bkz: [kullanım Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
+> Storm REST API'si, internet üzerinden genel kullanıma açık değil ve HDInsight küme baş düğümüne SSH tüneli kullanılarak erişilmelidir. Bir SSH tüneli oluşturma ve kullanma hakkında daha fazla bilgi için bkz: [kullanım Apache Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>Taban URI
 
@@ -232,10 +232,10 @@ REST API istekleri kullanmalıdır **temel kimlik doğrulaması**, HDInsight kü
 
 ### <a name="return-values"></a>Dönüş değerleri
 
-REST API öğesinden geri döndürülen bilgiler, yalnızca küme içinde kullanılabilir olabilir. Örneğin, döndürülen Zookeeper sunucuları için tam etki alanı adı (FQDN), Internet'ten erişilebilir değil.
+REST API öğesinden geri döndürülen bilgiler, yalnızca küme içinde kullanılabilir olabilir. İçin döndürülen gibi tam etki alanı adı (FQDN) [Apache ZooKeeper](https://zookeeper.apache.org/) sunucularının Internet'ten erişilebilir değil.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bilgi edinmek için nasıl [Maven kullanarak geliştirme Java tabanlı topolojiler](apache-storm-develop-java-topology.md).
+Bilgi edinmek için nasıl [Apache Maven kullanarak geliştirme Java tabanlı topolojiler](apache-storm-develop-java-topology.md).
 
-Daha fazla örnek topolojileri listesi için bkz. [HDInsight üzerinde Storm için örnek topolojiler](apache-storm-example-topology.md).
+Daha fazla örnek topolojileri listesi için bkz. [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md).

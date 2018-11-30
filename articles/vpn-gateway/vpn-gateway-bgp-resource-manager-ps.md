@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 4eb62786522dd1ad7cbf1d5668a4c4493028733c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684350"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632594"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>PowerShell kullanarak Azure VPN Gateways üzerinde BGP yapılandırma
 Bu makalede şirket içi siteden siteye (S2S) VPN bağlantısı ve Resource Manager dağıtım modeli ve PowerShell kullanarak VNet-VNet bağlantısı BGP'yi etkinleştirmek için adımlarında size kılavuzluk eder.
@@ -167,7 +167,7 @@ $BGPPeerIP5 = "10.52.255.254"
 Yerel ağ geçidi parametreleri ile ilgili dikkat edilecek noktalar birkaç:
 
 * Yerel ağ geçidi, VPN ağ geçidi olarak aynı veya farklı bir konum ve kaynak grubu içinde olabilir. Bu örnek, bunları farklı kaynak gruplarında farklı konumlarda gösterir.
-* Yerel ağ geçidi için bildirmek için gereken en düşük ön ek VPN cihazınızın BGP eşdeğer IP adresinizin konak adresidir. Bu durumda, bir özelliğini/32 olduğu "10.52.255.254/32" öneki.
+* Yerel ağ geçidi için bildirmek için gereken ön ek VPN cihazınızın BGP eşdeğer IP adresinizin konak adresidir. Bu durumda, bir özelliğini/32 olduğu "10.52.255.254/32" öneki.
 * Farklı BGP Asn'ler şirket içi ağlarınız ve Azure sanal ağı arasında bir anımsatıcı kullanmanız gerekir. Aynı olmaları durumunda, şirket içi VPN cihazınız ile diğer BGP komşu eşlenecek ASN'yi zaten kullanıyorsa, VNet ASN'nizi değiştirmeniz gerekir.
 
 Devam etmeden önce 1. Abonelik’e hala bağlı olduğunuzdan emin olun.

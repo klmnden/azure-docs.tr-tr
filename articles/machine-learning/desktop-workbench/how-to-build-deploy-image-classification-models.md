@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5917cd7a5e4fcc2733765f642ad0958092372c1
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ab9e04b8a9eb4290891b3c7d55f8262c4ba64d44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616223"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584055"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Azure Machine Learning ile görüntü sınıflandırma modellerini Derleme ve dağıtma
 
@@ -37,7 +37,7 @@ Oluşturma ve dağıtma AMLPCV ile bu model, aşağıdaki adımları izleyerek g
 7. Web hizmeti dağıtımı
 8. Web hizmeti yük testi
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) kullanılır derin öğrenme framework eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin öğrenme veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtımı, Azure ML kullanıma hazır hale getirme CLI'yı kullanır.
+[CNTK](https://docs.microsoft.com/cognitive-toolkit/) kullanılır derin öğrenme framework eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin öğrenme veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtımı, Azure ML kullanıma hazır hale getirme CLI'yı kullanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -175,7 +175,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Görüntüleri büyütmek
 
-[ `augmentation` Modülü](https://docs.microsoft.com/python/api/cvtk.augmentation) açıklanan tüm dönüştürmeleri kullanarak bir veri kümesi nesnesi büyütmek için işlevsellik sağlar [imgaug](https://github.com/aleju/imgaug) kitaplığı. Resim dönüşümleri gruplandırılabilir tek bir işlem hattı, bu durumda işlem hattındaki tüm dönüştürmeler eşzamanlı olarak uygulanır her görüntü. 
+[ `augmentation` Modülü](/python/api/cvtk/cvtk.augmentation.augmentation) açıklanan tüm dönüştürmeleri kullanarak bir veri kümesi nesnesi büyütmek için işlevsellik sağlar [imgaug](https://github.com/aleju/imgaug) kitaplığı. Resim dönüşümleri gruplandırılabilir tek bir işlem hattı, bu durumda işlem hattındaki tüm dönüştürmeler eşzamanlı olarak uygulanır her görüntü. 
 
 Farklı güçlendirme adımları ayrı ayrı uygulamak istediğiniz veya farklı şekilde, birden fazla işlem hattını tanımlayabilir ve onlara geçirmek *augment_dataset* işlevi. Daha fazla bilgi ve görüntü güçlendirme örnekler için bkz. [imgaug belgeleri](https://github.com/aleju/imgaug).
 

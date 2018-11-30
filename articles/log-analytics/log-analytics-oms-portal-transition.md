@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612814"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634804"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -84,7 +84,7 @@ Olan artık yeni çalışma alanları OMS portalını kullanarak oluşturamazsı
 Uyarılar olmuştur [Azure portalında Genişletilmiş](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Bu işlem tamamlandıktan sonra Yönetim eylemleri uyarıları yalnızca Azure portalında kullanılabilir olacaktır. Var olan uyarılar OMS portalında listelenmeye devam eder. Uyarılar programlama yoluyla Log Analytics uyarı REST API veya Log Analytics uyarı kaynak şablonu kullanarak erişirseniz, API çağrıları, Azure Resource Manager şablonları ve PowerShell komutlarında Eylemler yerine eylem gruplarını kullanmanız gerekir.
 
 ### <a name="alert-management-solution"></a>Uyarı yönetimi çözümü
-Yerine [uyarı yönetimi çözümü](log-analytics-solution-alert-management.md), kullanabileceğiniz [Azure İzleyici'nın birleşik uyarı arabirimi](../monitoring-and-diagnostics/monitoring-overview-alerts.md) görselleştirip uyarılarınızı yönetme. Bu yeni deneyim, Log Analytics de dahil olmak üzere Azure günlük uyarıları içindeki farklı kaynaklardan uyarılarını toplar. Uyarılarınızı dağıtımlarını görebilir, akıllı grupları ilgili uyarıları otomatik gruplandırması avantajlarından yararlanın ve zengin bir filtre uygulanırken, birden fazla aboneliği analiz uyarıları görüntüleyin. Tüm bu özellikler, 4 Haziran 2018 tarihinden itibaren önizlemede kullanılabilir. Uyarı yönetimi çözümü, Azure portalında kullanılamaz. 
+Yerine [uyarı yönetimi çözümü](../azure-monitor/platform/alert-management-solution.md), kullanabileceğiniz [Azure İzleyici'nın birleşik uyarı arabirimi](../monitoring-and-diagnostics/monitoring-overview-alerts.md) görselleştirip uyarılarınızı yönetme. Bu yeni deneyim, Log Analytics de dahil olmak üzere Azure günlük uyarıları içindeki farklı kaynaklardan uyarılarını toplar. Uyarılarınızı dağıtımlarını görebilir, akıllı grupları ilgili uyarıları otomatik gruplandırması avantajlarından yararlanın ve zengin bir filtre uygulanırken, birden fazla aboneliği analiz uyarıları görüntüleyin. Tüm bu özellikler, 4 Haziran 2018 tarihinden itibaren önizlemede kullanılabilir. Uyarı yönetimi çözümü, Azure portalında kullanılamaz. 
 
 Uyarı yönetimi çözümü (uyarı türünü kayıtlarla) tarafından toplanan veriler, Log Analytics'e çözüm çalışma alanı için yüklü olduğu sürece olmaya devam eder. Ağustos 2018 itibarıyla, birleştirilmiş çalışma alanları halinde uyarı gelen uyarılar, akış, bu özellik değiştirerek etkinleştirilecektir. Bazı şema değişiklikleri beklenir ve daha sonraki bir tarihte duyurulacaktır.
 
@@ -98,7 +98,7 @@ Desteğiyle [kaynaklar arası sorgular](log-analytics-cross-workspace-search.md)
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Ağ Güvenlik Grubu Analizi
-[Azure ağ güvenlik grubu analizi çözümü](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) değiştirilecek kısa süre önce kullanıma ile [trafik analizi](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) üzerinde bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görünürlük sağlar. Trafik analizi, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri denetleme, iş yükü performansı iyileştirmek ve uyumluluğu sürdürün yardımcı olur. 
+[Azure ağ güvenlik grubu analizi çözümü](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) değiştirilecek kısa süre önce kullanıma ile [trafik analizi](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) üzerinde bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görünürlük sağlar. Trafik analizi, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri denetleme, iş yükü performansı iyileştirmek ve uyumluluğu sürdürün yardımcı olur. 
 
 Bu çözüm, NSG akış günlüklerini analiz ederek ve aşağıdaki Öngörüler sağlar.
 

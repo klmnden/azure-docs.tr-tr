@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 669e597424ae936dda59564ad072ac7d77107321
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276168"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581791"
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Azure portalında veya Azure hesap merkezi portalında abonelik hata bulunamadı
 
@@ -53,6 +53,6 @@ Kullandığınız hesabın hesap yöneticisi olup olmadığını denetleyin. Hes
 1. Kontrol edin ve ardından altına bakın istediğiniz aboneliği seçin **ayarları**.
 1. Seçin **özellikleri**. Aboneliğin Hesap Yöneticisi görüntülenen **Hesap Yöneticisi** kutusu.  
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-Hala yardıma ihtiyacınız varsa [desteğe](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) sorununuzun hızlıca çözülebilmesi için. 
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

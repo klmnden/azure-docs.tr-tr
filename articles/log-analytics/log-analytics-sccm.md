@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016718"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633155"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -57,7 +57,7 @@ Aşağıdaki yordamda vermesi *katkıda bulunan* Log Analytics çalışma alanı
 6. Altında **erişim Ata** aşağı açılan listesinde, AD'de daha önce oluşturduğunuz Configuration Manager uygulaması'nı seçin ve ardından **Tamam**.  
 
 ## <a name="download-and-install-the-agent"></a>Aracısını indirme ve yükleme
-Makalesini gözden geçirin [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](log-analytics-agent-windows.md) Configuration Manager service'ı barındıran bilgisayarda Microsoft Monitoring Agent'ı yüklemek için kullanılabilen yöntemler anlamak için bağlantı noktası site sistemi rolü.  
+Makalesini gözden geçirin [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](../azure-monitor/platform/agent-windows.md) Configuration Manager service'ı barındıran bilgisayarda Microsoft Monitoring Agent'ı yüklemek için kullanılabilen yöntemler anlamak için bağlantı noktası site sistemi rolü.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Configuration Manager için bir Log Analytics Bağlantısı Ekle
 Log Analytics bağlantısı eklemek için Configuration Manager ortamınızı olmalıdır bir [hizmet bağlantı noktası](https://technet.microsoft.com/library/mt627781.aspx) çevrimiçi modu için yapılandırılmış.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 3dd624d7de4c30bfd84421d691695b723bd12d1d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 19fd83f19a8eb8c24beeade650544fbe03ca5b6a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274613"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580963"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Çözmek vadesi geçmiş bakiye Azure'dan bir e-posta alma sonra Azure aboneliğiniz için
 
@@ -48,6 +48,6 @@ Hesap Yöneticisi değilseniz [hangi e-posta adresi, bildirimler için kullanıl
 
 Hizmet iptal edilir ve kaynaklarınızı artık kullanılamaz. Azure veri hizmeti sonlandırıldı ettikten 90 gün sonra silinir. Daha fazla bilgi için bkz. [Microsoft Trust Center - verilerinizi nasıl yönetilir](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

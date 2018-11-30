@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: d6cbd2992968a57cfba99117e9f1fc1ab9b5b5b3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2ece10c43f25ac637a29324f46a88e50d9655431
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711846"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620447"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -119,12 +119,12 @@ Algılayıcılar test etmek için B düğmesine basın. Her algılayıcı geçi�
 
 Öneririz [Azure IOT Workbench](https://aka.ms/iot-workbench) DevKit üzerinde geliştirmek Visual Studio Code uzantısı.
 
-Azure IOT Workbench IOT çözümleri geliştirmek için tümleşik bir deneyim sağlar. Bu, Azure IOT ve diğer hizmetleri kullanarak hem şirket cihaz ve bulut geliştirmesini yardımcı olur. Ne işe yaradığını genel bir bakış için bu Channel9 videoları izleyebilirsiniz.
+Azure IOT Workbench IOT çözümleri geliştirmek için tümleşik bir deneyim sağlar. Bu, Azure IOT ve diğer hizmetleri kullanarak hem şirket cihaz ve bulut geliştirmesini yardımcı olur. Bu izleme [kanal 9 videosu](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code) ne işe yaradığını genel bir bakış için.
 
 Geliştirme ortamı için DevKit hazırlamak için aşağıdaki adımları izleyin:
 
 1. İndirme ve yükleme [Arduino IDE](https://www.arduino.cc/en/Main/Software). Derleme ve Arduino kod karşıya yükleme için gerekli araç zinciri sağlar.
-    * **Windows**: kullanım Windows Installer sürümü.
+    * **Windows**: kullanım Windows Installer sürümü. Uygulama Mağazası'ndan yüklemeyin.
     * **macOS**: sürükle ve bırak ayıklanan **Arduino.app** içine `/Applications` klasör.
     * **Ubuntu**: gibi bir klasöre çıkartın `$HOME/Downloads/arduino-1.8.5`
 
@@ -133,15 +133,15 @@ Geliştirme ortamı için DevKit hazırlamak için aşağıdaki adımları izley
 3. Aranacak **Azure IOT Workbench** uzantı Market'te ve yükleyin.
     ![Azure IOT Workbench'i yükleme](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) bağımlı diğer uzantılar IOT Workbench ile birlikte yüklenir.
 
-4. Açık **Dosya > tercih > ayarları** ve Arduino yapılandırmak için satırları ekleyin.
-    * **Windows**:
-
+4. Arduino yapılandırın
+    * **Windows**: üzerinde **Windows** açık **Dosya > tercih > ayarları** tıklayın **...**  ve settings.json açın ardından Arduino yapılandırmak için satırları ekleyin. 
+      
     ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-    * **macOS**:
+    * **macOS**: üzerinde **macOS** açık **kod > Tercihler > ayarları** tıklayın **...**  ve settings.json açın ardından Arduino yapılandırmak için aşağıdaki satırları ekleyin
 
     ```json
     "arduino.path": "/Applications",

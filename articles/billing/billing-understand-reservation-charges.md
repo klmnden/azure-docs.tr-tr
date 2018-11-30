@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: ee73cb3164ce59136dd268853b8caa967a6f42e9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393393"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580380"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Bir Azure ayırma indirimi SQL veritabanına nasıl uygulanacağını anlama
 
@@ -28,7 +28,7 @@ Ayrılmış sanal makine örnekleri için bkz. [anlamak Azure ayrılmış VM ör
 
 ## <a name="reservation-discount-applied-to-sql-databases"></a>SQL veritabanları için uygulanan ayırma indirimi
 
- SQL veritabanları saatlik olarak çalıştırmak için SQL veritabanı ayrılmış kapasite indirim uygulanır. Satın aldığınız ayırma çalışan SQL veritabanı tarafından yayılan işlem kullanımı eşleştirilir. Tam bir saat çalıştırma SQL veritabanları için rezervasyon ayırma öznitelikleri eşleşen diğer SQL veritabanları otomatik olarak uygulanır. İndirim, SQL veritabanları için aynı anda çalışan uygulayabilirsiniz. SQL tam bir saat olarak çalışan ayırma öznitelikleri eşleşen veritabanları yoksa, ayırma indirimini bu saat için tüm avantajlarını elde etmezsiniz.
+ SQL veritabanları saatlik olarak çalıştırmak için SQL veritabanı ayrılmış kapasite indirim uygulanır. Satın aldığınız ayırma çalışan SQL veritabanı tarafından yayılan işlem kullanımı eşleştirilir. Saatin tamamı boyunca çalışmayan SQL Veritabanları olursa rezervasyon, rezervasyon öznitelikleriyle eşleşen diğer SQL veritabanlarına otomatik olarak uygulanır. İndirim, SQL veritabanları için aynı anda çalışan uygulayabilirsiniz. SQL tam bir saat olarak çalışan ayırma öznitelikleri eşleşen veritabanları yoksa, ayırma indirimini bu saat için tüm avantajlarını elde etmezsiniz.
 
 Aşağıdaki örnekler nasıl sayısı bağlı olarak SQL veritabanı ayrılmış kapasite indirim uygulanır çekirdek satın aldığınız ve bunların ne zaman çalıştırdığınızdan.
 
@@ -47,14 +47,13 @@ Anlamak ve kullanım raporları faturalama Azure Ayırmalarınızın uygulamayı
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
-- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
+- [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
-
-Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

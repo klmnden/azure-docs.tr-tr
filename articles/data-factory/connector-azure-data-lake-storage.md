@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: ca2591f34a0aba598c12815de684ec6bb8fca929
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345972"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620362"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure Data Lake depolama Gen2 önizlemesi için veya veri kopyalama
 
@@ -29,7 +29,7 @@ Data Lake depolama 2. nesil için herhangi bir desteklenen kaynak veri deposunda
 
 Özellikle, bu bağlayıcıyı destekler:
 
-- Hesap anahtarı kullanarak veri kopyalama.
+- Azure kaynaklarını kimlik doğrulamaları için hesap anahtarı, hizmet sorumlusu veya yönetilen kimlik kullanarak veri kopyalama.
 - Dosyaları olarak kopyalama-ayrıştırma veya ile dosya oluşturma [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
@@ -49,7 +49,15 @@ Aşağıdaki bölümler belirli Data Factory varlıkları için Data Lake depola
 
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Data Lake depolama Gen2'ye bağlı hizmeti için aşağıdaki özellikleri destekler:
+Azure Data Lake depolama Gen2 Bağlayıcısı aşağıdaki kimlik doğrulama türlerini desteklemek, ilgili ayrıntılar bölümüne bakın:
+
+- [Hesap anahtarı kimlik doğrulaması](#account-key-authentication)
+- [Hizmet sorumlusu kimlik doğrulaması](#service-principal-authentication)
+- [Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik](#managed-identity)
+
+### <a name="account-key-authentication"></a>Hesap anahtarı kimlik doğrulaması
+
+Depolama hesabı anahtarı kimlik doğrulaması kullanmak için aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -62,7 +70,7 @@ Data Lake depolama Gen2'ye bağlı hizmeti için aşağıdaki özellikleri deste
 
 ```json
 {
-    "name": "AzureDataLakeStorageLinkedService",
+    "name": "AzureDataLakeStorageGen2LinkedService",
     "properties": {
         "type": "AzureBlobFS",
         "typeProperties": {
@@ -71,6 +79,95 @@ Data Lake depolama Gen2'ye bağlı hizmeti için aşağıdaki özellikleri deste
                 "type": "SecureString", 
                 "value": "<accountkey>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması
+
+Hizmet sorumlusu kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
+
+1. Azure Active Directory (Azure AD) uygulama varlık kaydınızı [uygulamanızı Azure AD kiracısı ile kaydetmeniz](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Bağlı hizmetini tanımlamak için kullandığınız şu değerleri not edin:
+
+    - Uygulama Kimliği
+    - Uygulama anahtarı
+    - Kiracı Kimliği
+
+2. Hizmet sorumlusu uygun Azure depolamada izni.
+
+    - **Kaynak olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
+    - **Havuz olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
+
+Bu özellikleri bağlı hizmetinde desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Type özelliği ayarlanmalıdır **AzureBlobFS**. |Evet |
+| url | Uç nokta için desenini ile Data Lake depolama Gen2'ye `https://<accountname>.dfs.core.windows.net`. | Evet | 
+| servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet |
+| serviceprincipalkey değerleri | Uygulama anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Evet |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağdaysa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
+
+**Örnek:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
+
+Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği, Blob Depolama kimlik doğrulama kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Bu belirlenen / için Blob depolamanızın erişim ve kopyalama veri fabrikasına sağlar.
+
+Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu adımları izleyin:
+
+1. [Veri Fabrikası hizmet kimliği almak](data-factory-service-identity.md#retrieve-service-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
+
+2. Azure depolama alanında yönetilen kimlik uygun izni verin. 
+
+    - **Kaynak olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
+    - **Havuz olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
+
+Bu özellikleri bağlı hizmetinde desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Type özelliği ayarlanmalıdır **AzureBlobFS**. |Evet |
+| url | Uç nokta için desenini ile Data Lake depolama Gen2'ye `https://<accountname>.dfs.core.windows.net`. | Evet | 
+| connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağdaysa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
+
+**Örnek:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

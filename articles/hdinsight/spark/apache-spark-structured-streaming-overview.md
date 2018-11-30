@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 7470783ba3ebac652c83c397ba2bbe683023c657
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041594"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582233"
 ---
-# <a name="overview-of-spark-structured-streaming"></a>Spark yapılandırılmış akışı genel bakış
+# <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark yapılandırılmış akışı genel bakış
 
-Spark yapılandırılmış akış ölçeklenebilir, yüksek performanslı, hataya dayanıklı uygulamalar, veri akışlarını işlemeye olanak sağlar. Yapılandırılmış akış, Spark SQL altyapısı kurulmuştur ve temel Spark SQL veri çerçevelerden yapıları artırır ve akış aynı şekilde, sorgular yazabilmesi veri kümelerini toplu işlem sorguları yazmalısınız.  
+[Apache Spark](https://spark.apache.org/) yapılandırılmış akış veri akışlarını işlemeye ölçeklenebilir, yüksek performanslı, hataya dayanıklı uygulamalar uygulama olanak sağlar. Yapılandırılmış akış, Spark SQL altyapısı kurulmuştur ve temel Spark SQL veri çerçevelerden yapıları artırır ve akış aynı şekilde, sorgular yazabilmesi veri kümelerini toplu işlem sorguları yazmalısınız.  
 
-Yapılandırılmış akış uygulamaları, HDInsight Spark kümelerinde çalıştırılır ve veri akış için Kafka, bir TCP yuva (hata ayıklama amacıyla için) Azure depolama veya Azure Data Lake Store aracılığıyla bağlanın. Dış depolama Hizmetleri'ni kullanır, ikinci iki seçenek, depolama alanına eklenen yeni dosyalar için izleyebilir ve akış gibi bunların içeriğini işlemek etkinleştirin. 
+Yapılandırılmış akış uygulamaları HDInsight Spark kümelerinde çalıştırılır ve veri akış bağlanma [Apache Kafka](https://kafka.apache.org/), bir TCP yuva (hata ayıklama amacıyla için) Azure depolama veya Azure Data Lake Store. Dış depolama Hizmetleri'ni kullanır, ikinci iki seçenek, depolama alanına eklenen yeni dosyalar için izleyebilir ve akış gibi bunların içeriğini işlemek etkinleştirin. 
 
 Yapılandırılmış akış sırasında işlemleri seçimi, projeksiyon, toplama, Pencereleme ve akış veri çerçevesi ile başvuru veri çerçevelerini katılma gibi giriş verileri için geçerli bir uzun süre çalışan sorgu oluşturur. Ardından, özel kod (örneğin, SQL veritabanı veya Power BI) kullanarak dosya depolama (Azure depolama Blobları veya Data Lake Store) veya herhangi bir veri deposu sonuçları gönderir. HDInsight içinde hata ayıklama için oluşturulan verileri görebilirsiniz. Bu nedenle yapılandırılmış akış çıkışı yerel olarak hata ayıklama için konsolu ve bir bellek içi tablo için de sağlar. 
 
@@ -105,7 +105,7 @@ Akış sorgu başlangıç ve sonlandırma sinyal alınana kadar çalıştırın.
 
     val query = streamingOutDF.start()  
 
-### <a name="view-the-results"></a>Sonuçları görüntüleyin
+### <a name="view-the-results"></a>Sonuçları görüntüleme
 
 Sorgu çalışırken aynı SparkSession içinde SparkSQL sorgu çalıştırabilirsiniz `temps` tablo sorgu sonuçları nerede depolanır. 
 
@@ -124,7 +124,7 @@ Bu sorgu, aşağıdakine benzer bir sonuç verir:
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-Spark yapılandırılmış Stream API hakkında daha fazla bilgi için giriş verilerinin yanı sıra kaynakları, operations ve çıkış havuzlarını, desteklediği için bkz: [Spark yapılandırılmış akış Programlama Kılavuzu](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Spark yapılandırılmış Stream API hakkında daha fazla bilgi için giriş verilerinin yanı sıra kaynakları, operations ve çıkış havuzlarını, desteklediği için bkz: [Apache Spark yapılandırılmış akış Programlama Kılavuzu](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Denetim noktası oluşturma ve yazma tamamlanan günlükleri
 
@@ -132,14 +132,14 @@ Dayanıklılık ve hataya dayanıklılık sağlamak için yapılandırılmış a
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark akış uygulamaları dağıtma
 
-Genellikle bir JAR dosyasına yerel olarak Spark akışı bir uygulama oluşturun ve ardından HDInsight üzerinde Spark HDInsight kümenize bağlı varsayılan depolama alanı için JAR dosyasını kopyalayarak dağıtın. Uygulamanızı bir POST işlemi'ni kullanarak kümenizi LIVY REST API'ler kullanılabilir başlayabilirsiniz. Gönderinin gövdesi olan ana yöntem tanımlar ve akış uygulaması ve isteğe bağlı olarak kaynak gereksinimlerini (örneğin, yürütücüler, bellek ve çekirdek sayısı) işin çalışan sınıfın adı, JAR yol sağlayan bir JSON belgesini içerir. , ve uygulama kodunuzun herhangi bir yapılandırma ayarı gerektirir.
+Genellikle bir JAR dosyasına yerel olarak Spark akışı bir uygulama oluşturun ve ardından HDInsight üzerinde Spark HDInsight kümenize bağlı varsayılan depolama alanı için JAR dosyasını kopyalayarak dağıtın. Uygulamanızla birlikte başlatabilirsiniz [Apache Livy](https://livy.incubator.apache.org/) REST API'leri kullanarak bir gönderme işlemi kümenizden kullanılabilir. Gönderinin gövdesi olan ana yöntem tanımlar ve akış uygulaması ve isteğe bağlı olarak kaynak gereksinimlerini (örneğin, yürütücüler, bellek ve çekirdek sayısı) işin çalışan sınıfın adı, JAR yol sağlayan bir JSON belgesini içerir. , ve uygulama kodunuzun herhangi bir yapılandırma ayarı gerektirir.
 
 ![Bir Spark akışı uygulamasını dağıtma](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Tüm uygulamaların durumunu, ayrıca bir LIVY uç noktasına karşı bir GET isteğiyle denetlenebilir. Son olarak, LIVY uç nokta karşı bir silme isteği göndererek çalışan bir uygulamayı sonlandırabilirsiniz. LIVY API hakkında daha fazla bilgi için bkz: [LIVY ile uzak işler](apache-spark-livy-rest-interface.md)
+Tüm uygulamaların durumunu, ayrıca bir LIVY uç noktasına karşı bir GET isteğiyle denetlenebilir. Son olarak, LIVY uç nokta karşı bir silme isteği göndererek çalışan bir uygulamayı sonlandırabilirsiniz. LIVY API hakkında daha fazla bilgi için bkz: [Apache LIVY ile uzak işler](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight Apache Spark kümesi oluşturma](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark yapılandırılmış akış Programlama Kılavuzu](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
-* [Spark işlerinde LIVY ile uzaktan başlatma](apache-spark-livy-rest-interface.md)
+* [Apache Spark yapılandırılmış akış Programlama Kılavuzu](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Apache Spark işleri Apache LIVY ile uzaktan başlatma](apache-spark-livy-rest-interface.md)

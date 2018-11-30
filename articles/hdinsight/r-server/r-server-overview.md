@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016293"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499461"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>ML Hizmetleri ve açık kaynak R yeteneklerini HDInsight giriş
 
@@ -27,7 +27,7 @@ Azure HDInsight kümeleri oluşturduğunuzda Microsoft Machine Learning sunucusu
 
 HDInsight üzerinde ML Hizmetleri, Azure Blob veya Data Lake depolama birimine yüklenen, neredeyse her boyuttaki veri kümelerinde R tabanlı analiz için en son özellikleri sağlar. ML Hizmetleri küme üzerinde açık kaynak R ile kurulu olduğundan, oluşturduğunuz R tabanlı uygulama 8000 + açık kaynak R paketlerinin hiçbirini yararlanabilirsiniz. ScaleR çalışmalarında, Microsoft'un büyük veri analizi paketi de mevcuttur.
 
-Bir küme kenar düğümüne kümeye bağlanın ve, R betikleri çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile çalıştırmanın dağıtılmış ScaleR işlevlerini Paralel Kenar düğümü sunucusunun çekirdek arasında seçeneğiniz vardır. Ayrıca bunları tüm küme düğümlerine ScaleR'ın Hadoop Map Reduce kullanarak çalıştırabilirsiniz veya Spark işlem bağlamlarının.
+Bir küme kenar düğümüne kümeye bağlanın ve, R betikleri çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile çalıştırmanın dağıtılmış ScaleR işlevlerini Paralel Kenar düğümü sunucusunun çekirdek arasında seçeneğiniz vardır. Ayrıca bunları tüm küme düğümlerine ScaleR'ın Hadoop Map Reduce veya Apache Spark işlem bağlamlarının kullanarak çalıştırabilirsiniz.
 
 Analiz sonucu Öngörüler ve modeller, şirket içi kullanım için indirilebilir. Bunlar ayrıca başka bir yerde, Azure'da özellikle aracılığıyla kullanıma hazır hale getirdiniz [Azure Machine Learning Studio](http://studio.azureml.net) [web hizmetini](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
@@ -114,7 +114,7 @@ Yalnızca yordamları ScaleR Kitaplığı'ndan küme üzerinde kullanıyorsanız
 
 Bu gibi durumlarda, kümeyi oluşturduktan sonra ek paketleri ile betik eylemi yüklenebilir. Daha fazla bilgi için [ML Hizmetleri'nin HDInsight kümesinde](r-server-hdinsight-manage.md).
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>Hadoop MapReduce bellek ayarlarını değiştirme
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Apache Hadoop MapReduce bellek ayarlarını değiştirme
 
 Bir küme bir MapReduce işi çalıştırılırken ML Hizmetleri için kullanılabilir bellek miktarını değiştirmek için değiştirilebilir. Bir küme değiştirmek için kümenizin Azure portalı dikey penceresi aracılığıyla kullanılabilir olan Apache Ambari UI'ı kullanın. Kümeniz için Ambari UI erişme hakkında yönergeler için bkz: [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak](../hdinsight-hadoop-manage-ambari.md).
 

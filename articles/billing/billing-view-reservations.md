@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 2ae30ca55f3ca03a64438025960ddd807e288216
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48272662"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584596"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portalında Azure ayırmalar görünümü
 
@@ -30,7 +30,7 @@ Varsayılan olarak, bir ayırma satın aldığınızda ve Hesap Yöneticisi ayı
  
 Bir sahibi veya okuyucu olarak görüntülemek için
 
-1. [Azure Portal]( http://portal.azure.com)’da oturum açın.
+1. [Azure Portal]( http://portal.azure.com) oturum açın.
 1. Arama **ayırmaları**.
 
     ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-reservation-search.png)
@@ -45,7 +45,7 @@ Rezervasyon kapsamı değiştirmeniz gerekiyorsa, bölünmüş bir ayırma veya 
 
 Azure portalında ayırma işlemleri görüntülemek için
 
-1. [Azure Portal]( http://portal.azure.com)’da oturum açın.
+1. [Azure Portal]( http://portal.azure.com) oturum açın.
 1. Arama **maliyet Yönetimi + faturalandırma**.
 
     ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-cm-billing-search.png)
@@ -71,6 +71,6 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

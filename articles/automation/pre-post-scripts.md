@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956634"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584630"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 * Öncesi ve sonrası betikler kullanırken, parametreler için nesneleri veya diziler geçiremezsiniz. Runbook başarısız olur.
-* Yayımlanmayan Runbook'lar olarak seçilebilir önceki veya sonraki bir betik seçerken görüntülenir. Yayımlanmamış runbook'ları değil çağrılabilir ve başarısız olur yalnızca yayımlanan runbook'lar seçilmelidir.
-* Kullanarak bir dağıtım eklenmiş bilgisayarlar [dinamik gruplar (Önizleme)](automation-update-management.md#using-dynamic-groups) şu anda parçası değildir **SoftwareUpdateConfigurationRunContext** öncesi ve sonrası komut dosyalarını geçirilen parametre.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

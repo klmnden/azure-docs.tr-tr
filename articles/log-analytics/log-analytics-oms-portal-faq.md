@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5f5143800c423bdbaac9994b55e500723018dce4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712254"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634362"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -84,7 +84,7 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 | System Center     | **Gelişmiş ayarlar** çalışma alanı için menü. |
 | Office 365        | Bkz: [belgeleri Office 365 yönetim çözümü](../azure-monitor/insights/solution-office-365.md) yapılandırma ayrıntıları için. |
 | Windows Telemetrisi | Çözüm ayarları menüsü. Bkz: [Azure portalında Windows Analytics](/windows/deployment/update/windows-analytics-azure-portal) yapılandırma ayrıntıları için. |
-| ITSM Bağlayıcısı    | Bkz: [bağlanma ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile](../log-analytics/log-analytics-itsmc-connections.md) ITSM hizmetine Log Analytics ile ilgili yönergeler için. |
+| ITSM Bağlayıcısı    | Bkz: [bağlanma ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile](../log-analytics/../azure-monitor/platform/itsmc-connections.md) ITSM hizmetine Log Analytics ile ilgili yönergeler için. |
 
 ### <a name="data"></a>Veriler
 Çoğu veri ayarlarını yönetme içinde **Gelişmiş ayarlar** çalışma alanı için menü. Aşağıdaki tabloda bu menü, her bölüm için Ayrıntılar sağlar.
@@ -113,7 +113,7 @@ OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunl
 Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../monitoring-and-diagnostics/alert-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Panolarım nasıl erişim sağlanır?
-[Panom'u](../log-analytics/log-analytics-dashboards.md) Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../log-analytics/log-analytics-tutorial-dashboards.md) Azure panolara.
+[Panom'u](../log-analytics/../azure-monitor/platform/dashboards.md) Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](../log-analytics/../azure-monitor/platform/view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../log-analytics/log-analytics-tutorial-dashboards.md) Azure panolara.
 
 ## <a name="how-do-i-check-my-usage"></a>Kullanımım nasıl kontrol edebilirim?
 Artık kolayca görüntüleyebilir ve Log Analytics, maliyet ve kullanım seçerek yönetme **kullanım ve Tahmini maliyetler** çalışma alanınızdaki.

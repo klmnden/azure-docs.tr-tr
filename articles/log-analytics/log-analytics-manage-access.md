@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 14a33a6480cdb2dbc19b912d51eebda386c55d75
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d291a46eaac0f5e4023d343f700448d029765098
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713172"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634889"
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -52,7 +52,7 @@ Tüketimi açısından, mümkün olduğunca az çalışma alanları oluşturma �
 * Yönetilen bir hizmet sağlayıcısıysanız ve yönettiğiniz her bir müşteriye ilişkin Log Analytics verilerini diğer müşterilerin verilerinden yalıtmak istiyorsanız.
 * Birden çok müşteriyi yönetiyorsanız ve her müşteri istediğiniz / bölüm / iş grubunun kendi verilerini, ancak veri diğerlerinden değil görmek için.
 
-Verileri toplamak için Windows aracılarını kullanıyorsanız [her bir aracıyı, bir veya daha fazla çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz](log-analytics-agent-windows.md).
+Verileri toplamak için Windows aracılarını kullanıyorsanız [her bir aracıyı, bir veya daha fazla çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz](../azure-monitor/platform/agent-windows.md).
 
 System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager yönetim grubu yalnızca bir çalışma alanıyla bağlantılı olabilir. Operations Manager tarafından yönetilen bilgisayarlara Microsoft İzleme Aracısını yükleyebilir ve hem Operations Manager hem de farklı bir Log Analytics çalışma alanı için aracı raporu alabilirsiniz.
 
@@ -239,7 +239,7 @@ Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde
 ![OMS şeridi](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [Log Analytics Aracısı genel bakış](log-analytics-agent-overview.md) veri merkezinizde veya diğer bulut ortamında bulunan bilgisayarlardaki verileri toplamak için.
+* Bkz: [Log Analytics Aracısı genel bakış](../azure-monitor/platform/log-analytics-agent.md) veri merkezinizde veya diğer bulut ortamında bulunan bilgisayarlardaki verileri toplamak için.
 * Azure VM’lerden veri toplamayı yapılandırmak için bkz. [Azure Sanal Makineler hakkında veri toplama](log-analytics-quick-collect-azurevm.md).  
 * İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](../azure-monitor/insights/solutions.md).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a38defe41ea7c4e0da32cb73cf2bd73fd80950
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952809"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498216"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Klasik Azure CLI'de eksiksiz bir Linux ortamı oluşturma
 Bu makalede, bir yük dengeleyici ve bir çift geliştirme ve basit bilgi işlem için yararlı olan Vm'leri içeren basit bir ağ ekleriz. İki çalışma, güvenli, gelen herhangi bir Internet'te bağlanabileceği sanal makineleri bulunana kadar komutu komut sürecinde inceleyeceğiz. Ardından, daha karmaşık ağlar ve ortam geçebilirsiniz.
@@ -54,7 +54,7 @@ azure config mode arm
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
 
-Kaynak grubunu oluşturun. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur `myResourceGroup` içinde `westeurope` konumu:
+Kaynak grubunu oluşturun. Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
@@ -279,7 +279,7 @@ azure config mode arm
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>Kaynak grupları oluşturun ve dağıtım konumları seçin
-Azure kaynak gruplarını yapılandırma bilgilerini ve kaynak dağıtımlarını mantıksal yönetimini etkinleştirmek için meta verileri içeren mantıksal dağıtım varlıklardır. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur `myResourceGroup` içinde `westeurope` konumu:
+Azure kaynak gruplarını yapılandırma bilgilerini ve kaynak dağıtımlarını mantıksal yönetimini etkinleştirmek için meta verileri içeren mantıksal dağıtım varlıklardır. Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope

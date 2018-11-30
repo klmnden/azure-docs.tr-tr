@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625803"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583458"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme
 
@@ -100,7 +100,7 @@ Blob Depolama alanında ortak bir kapsayıcı oluşturmak için aşağıdakileri
 BLOB Depolama aşağıdakileri yaparak çıkış noktaları arası kaynak paylaşımı için yapılandırın:
 
 1. Menüde **CORS**.
-2. İçin **çıkış noktaları**, girin `your-tenant-name.b2clogin.com`. Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı. Örneğin, `fabrikam.b2clogin.com`.
+2. İçin **çıkış noktaları**, girin `your-tenant-name.b2clogin.com`. Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı. Örneğin, `fabrikam.b2clogin.com`. Kiracı adınızın girerken tamamen küçük harf kullanmanız gerekir.
 3. İçin **izin verilen yöntemleri**, her ikisini de seçin `GET` ve `OPTIONS`.
 4. İçin **izin verilen üstbilgileri**, yıldız işareti (*) girin.
 5. İçin **kullanıma sunulan üst bilgiler**, yıldız işareti (*) girin.

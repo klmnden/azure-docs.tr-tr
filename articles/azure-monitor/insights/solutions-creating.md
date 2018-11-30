@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4fba078487f99347804362a888bcc2c33dde1ef
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715816"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632475"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Tasarım ve azure'da (Önizleme) bir yönetim çözümü oluşturun
 > [!NOTE]
@@ -42,16 +42,16 @@ Bir yönetim çözümü için en yaygın desen, aşağıdaki diyagramda gösteri
 
 
 ### <a name="data-sources"></a>Veri kaynakları
-Bir çözüm tasarlamanın ilk adımı, Log Analytics depodan ihtiyaç duyduğunuz verileri belirliyor.  Bu veriler tarafından toplanabilir bir [veri kaynağı](../../log-analytics/log-analytics-data-sources.md) veya [başka bir çözüm]( solutions.md), veya çözümünüz, toplama işlemini sağlamanız gerekebilir.
+Bir çözüm tasarlamanın ilk adımı, Log Analytics depodan ihtiyaç duyduğunuz verileri belirliyor.  Bu veriler tarafından toplanabilir bir [veri kaynağı](../../azure-monitor/platform/agent-data-sources.md) veya [başka bir çözüm]( solutions.md), veya çözümünüz, toplama işlemini sağlamanız gerekebilir.
 
-Log Analytics deposunda açıklandığı toplanan veri kaynakları birkaç yol vardır [Log analytics'te veri kaynakları](../../log-analytics/log-analytics-data-sources.md).  Bu, Windows olay günlüğüne olayları içerir veya Syslog tarafından ek olarak performans sayaçları hem Windows hem de Linux istemcileri için oluşturulan.  Azure İzleyici tarafından toplanan Azure kaynaklarından verileri de toplayabilirsiniz.  
+Log Analytics deposunda açıklandığı toplanan veri kaynakları birkaç yol vardır [Log analytics'te veri kaynakları](../../azure-monitor/platform/agent-data-sources.md).  Bu, Windows olay günlüğüne olayları içerir veya Syslog tarafından ek olarak performans sayaçları hem Windows hem de Linux istemcileri için oluşturulan.  Azure İzleyici tarafından toplanan Azure kaynaklarından verileri de toplayabilirsiniz.  
 
 Tüm kullanılabilir veri kaynakları erişilebilir değil veri gerektiren sonra kullanabileceğiniz [HTTP veri toplayıcı API'sini](../../log-analytics/log-analytics-data-collector-api.md) olanak sağlayan bir REST API'sine çağrı yapmadan herhangi bir istemciden Log Analytics depoya veri yazmak.  Özel veri toplama Yönetimi çözümüne en yaygın yolları oluşturmaktır bir [Azure Otomasyonu'nda runbook](../../automation/automation-runbook-types.md) gerekli verileri Azure'a veya dış kaynaklardan toplar ve yazılacak veri toplayıcı API'sini kullanır. Depo.  
 
 ### <a name="log-searches"></a>Günlük aramaları
 [Günlük aramaları](../../log-analytics/log-analytics-queries.md) ayıklayın ve Log Analytics depodaki verileri analiz etmek için kullanılır.  Bunlar, görünümler ve uyarılar, geçici çözümleme veri deposunda gerçekleştirmesine izin verme yanı sıra tarafından kullanılır.  
 
-Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıcıya yardımcı olacağını düşündüğünüz tüm sorguları tanımlamanız gerekir.  Bunlar Portalı'nda kayıtlı aramalar kullanabilecekleri olacaktır ve bunları de içerebilir bir [, liste sorguları görselleştirme bölümü](../../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) özel görünümünüzdeki.
+Herhangi bir görünüm veya uyarılar tarafından kullanılmayan bile kullanıcıya yardımcı olacağını düşündüğünüz tüm sorguları tanımlamanız gerekir.  Bunlar Portalı'nda kayıtlı aramalar kullanabilecekleri olacaktır ve bunları de içerebilir bir [, liste sorguları görselleştirme bölümü](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) özel görünümünüzdeki.
 
 ### <a name="alerts"></a>Uyarılar
 [Log analytics'teki uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) ile ilgili sorunları belirlemenize [günlük aramaları](#log-searches) karşı depodaki verileri.  Bunlar kullanıcıya bildir ya da otomatik olarak yanıtta bir eylem çalıştırın. Uygulamanızın farklı uyarı koşullarını tanımlamak ve karşılık gelen bir uyarı kuralları, çözüm dosyasına eklenecek gerekir.
@@ -61,9 +61,9 @@ Ardından sorun büyük olasılıkla otomatik bir işlem ile düzeltilebilir, bu
 Dış işlevler bir uyarıya yanıt olarak çözümünüzün gerektirdiği sonra kullanabileceğiniz bir [Web kancası yanıtı](../../monitoring-and-diagnostics/alert-metric.md).  Bu, uyarıyı bilgi gönderirken bir dış web hizmetini çağırmak sağlar.
 
 ### <a name="views"></a>Görünümler
-Log Analytics'teki görünümler, Log Analytics deposuna verilerini görselleştirmek için kullanılır.  Her çözüm, genellikle tek bir görünümle içerecek bir [döşeme](../../log-analytics/log-analytics-view-designer-tiles.md) kullanıcının ana panosunda görüntülenir.  Görünüm herhangi bir sayıda içerebilir [görselleştirme bölümleri](../../log-analytics/log-analytics-view-designer-parts.md) kullanıcıya toplanan verilerin farklı görselleştirmeler sağlamak için.
+Log Analytics'teki görünümler, Log Analytics deposuna verilerini görselleştirmek için kullanılır.  Her çözüm, genellikle tek bir görünümle içerecek bir [döşeme](../../azure-monitor/platform/view-designer-tiles.md) kullanıcının ana panosunda görüntülenir.  Görünüm herhangi bir sayıda içerebilir [görselleştirme bölümleri](../../azure-monitor/platform/view-designer-parts.md) kullanıcıya toplanan verilerin farklı görselleştirmeler sağlamak için.
 
-[Görünüm Tasarımcısı'nı kullanarak özel görünümlerini oluşturma](../../log-analytics/log-analytics-view-designer.md) , daha sonra çözüm dosyasına ekleme için dışarı aktarabilirsiniz.  
+[Görünüm Tasarımcısı'nı kullanarak özel görünümlerini oluşturma](../../azure-monitor/platform/view-designer.md) , daha sonra çözüm dosyasına ekleme için dışarı aktarabilirsiniz.  
 
 
 ## <a name="create-solution-file"></a>Çözüm dosyası oluşturma

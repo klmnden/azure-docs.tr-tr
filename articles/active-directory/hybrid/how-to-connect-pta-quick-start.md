@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: caffa1f1a3684de3a7514e1ce1a4fe3014a7dbf8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706152"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582760"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı Başlangıç
 
@@ -44,13 +44,13 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
 
 ### <a name="in-your-on-premises-environment"></a>Şirket içi ortamınızda
 
-1. Windows Server 2012 R2 çalıştıran sunucuya bir veya daha sonra Azure AD Connect çalıştırmak için bu seçeneği belirleyin. Parolaları doğrulamanız gereken kullanıcılar aynı Active Directory ormanında bir sunucu ekleyin.
+1. Windows Server 2012 R2 çalıştıran sunucuya bir veya daha sonra Azure AD Connect çalıştırmak için bu seçeneği belirleyin. Zaten etkinleştirilmezse [sunucuda TLS 1.2 etkinleştirin](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Parolaları doğrulamanız gereken kullanıcılar aynı Active Directory ormanında bir sunucu ekleyin.
 2. Yükleme [Azure AD Connect'in en son sürümünü](https://www.microsoft.com/download/details.aspx?id=47594) önceki adımda tanımlanan sunucusunda. Azure AD Connect çalıştırma zaten varsa, sürüm 1.1.750.0 olduğundan emin olun veya üzeri.
 
     >[!NOTE]
     >Azure AD Connect sürüm 1.1.557.0, 1.1.558.0 1.1.561.0 ve 1.1.614.0 parola karması eşitleme için ilgili bir sorun var. Varsa, _yoksa_ okuma geçişli kimlik doğrulaması ile birlikte parola karması eşitleme kullanmayı düşündüğünüz [Azure AD Connect sürüm notları](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Bir veya daha fazla ek sunucularını belirleyin (Windows Server 2012 R2 çalıştıran veya üzeri) burada çalıştırabileceğiniz tek başına kimlik doğrulama aracılarının. Bu ek sunucular, oturum açmak için istekleri yüksek kullanılabilirliğini sağlamak için gereklidir. Sunucular aynı Active Directory ormanında parolaları doğrulamanız gereken kullanıcılar ekleyin.
+3. Bir veya daha fazla ek sunucularını belirleyin (Windows Server 2012 R2 çalıştıran veya üstünü, TLS 1.2 etkin) burada çalıştırabileceğiniz tek başına kimlik doğrulama aracılarının. Bu ek sunucular, oturum açmak için istekleri yüksek kullanılabilirliğini sağlamak için gereklidir. Sunucular aynı Active Directory ormanında parolaları doğrulamanız gereken kullanıcılar ekleyin.
 
     >[!IMPORTANT]
     >Üretim ortamlarında, en az 3 kimlik doğrulama aracılarının yüklü kiracınızda çalıştırmanızı öneririz. Kiracı başına 12 kimlik doğrulama aracılarının sistem sınırı yoktur. Ve katman 0 sistemleri gibi kimlik doğrulama aracılarının çalıştıran tüm sunucuların en iyi uygulama olarak değerlendir (bkz [başvuru](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -85,7 +85,7 @@ Zaten Azure AD Connect kullanarak yüklediyseniz [hızlı yükleme](how-to-conne
 ![Azure AD Connect: Değişiklik kullanıcı oturum açma](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->Geçişli kimlik doğrulaması, bir kiracı düzeyinde özelliğidir. Oturum açmak için kullanıcılar arasında etkiler üzerinde kapatma _tüm_ kiracınızdaki yönetilen etki alanları. Geçişli kimlik doğrulaması için Active Directory Federasyon Hizmetleri (AD FS) geçiş yapıyorsanız, AD FS altyapınızı kapatmadan önce en az 12 saat beklemeniz gerekir. Bu bekleme süresi, kullanıcılar için Exchange ActiveSync geçiş sırasında oturum açarken tutmak, sağlamaktır. AD FS'den doğrudan kimlik doğrulamaya geçiş ile ilgili daha fazla yardım için yayımlanan ayrıntılı dağıtım kılavuzumuzu denetleyin [burada](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Geçişli kimlik doğrulaması, bir kiracı düzeyinde özelliğidir. Oturum açmak için kullanıcılar arasında etkiler üzerinde kapatma _tüm_ kiracınızdaki yönetilen etki alanları. Geçişli kimlik doğrulaması için Active Directory Federasyon Hizmetleri (AD FS) geçiş yapıyorsanız, AD FS altyapınızı kapatmadan önce en az 12 saat beklemeniz gerekir. Bu bekleme süresi, kullanıcılar için Exchange ActiveSync geçiş sırasında oturum açarken tutmak, sağlamaktır. AD FS'den doğrudan kimlik doğrulamaya geçiş ile ilgili daha fazla yardım için yayımlanan ayrıntılı dağıtım planımız denetleyin [burada](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>3. adım: Test özelliği
 

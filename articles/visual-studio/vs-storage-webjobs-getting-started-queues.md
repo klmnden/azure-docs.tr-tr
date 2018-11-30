@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: c3e0bd338c38165d3a372f60e12ff5ddaa05d2a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248291"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635501"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -35,45 +35,55 @@ Bir kuyruk iletisi alındığında Web işleri SDK'sı çağıran bir işlev yaz
 ### <a name="string-queue-messages"></a>Dize kuyruk iletileri
 Bir dize iletisi sırası aşağıdaki örnekte, bu nedenle içerir **QueueTrigger** adlı bir dize parametresine uygulanan **logMessage** kuyruk iletisinin içeriği içerir. İşlev [Panoya bir günlük iletisi Yazar](#how-to-write-logs).
 
-        public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            logger.WriteLine(logMessage);
-        }
+```csharp
+public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+{
+    logger.WriteLine(logMessage);
+}
+```
 
 Yanında **dize**, parametre bir bayt dizisi olabilir bir **CloudQueueMessage** nesne ya da tanımladığınız bir POCO.
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
 Aşağıdaki örnekte, kuyruk iletisi için JSON içeriyor. bir **BlobInformation** içeren bir nesne bir **BlobName** özelliği. SDK otomatik olarak nesne seri durumdan çıkarır.
 
-        public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
-        {
-            logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
-        }
+```csharp
+public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
+{
+    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+}
+```
 
 SDK'sı kullanır [Newtonsoft.Json NuGet paketini](http://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda kuyruk iletileri oluşturursanız, SDK'sı ayrıştırabilen POCO kuyruk iletisi oluşturmak için aşağıdaki örnekte olduğu gibi kod yazabilirsiniz.
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+```csharp
+BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
+var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+logQueue.AddMessage(queueMessage);
+```
 
 ### <a name="async-functions"></a>Zaman uyumsuz işlevleri
 Aşağıdaki zaman uyumsuz işlev [günlüğü panoya Yazar](#how-to-write-logs).
 
-        public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            await logger.WriteLineAsync(logMessage);
-        }
+```csharp
+public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+{
+    await logger.WriteLineAsync(logMessage);
+}
+```
 
 Zaman uyumsuz işlevleri uzun bir [iptal belirteci](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)bir blobu kopyalar aşağıdaki örnekte gösterildiği gibi. (Bir açıklaması için **queueTrigger** yer tutucu bkz [Blobları](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) bölümüne.)
 
-        public async static Task ProcessQueueMessageAsyncCancellationToken(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
-            CancellationToken token)
-        {
-            await blobInput.CopyToAsync(blobOutput, 4096, token);
-        }
+```csharp
+public async static Task ProcessQueueMessageAsyncCancellationToken(
+    [QueueTrigger("blobcopyqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
+    CancellationToken token)
+{
+    await blobInput.CopyToAsync(blobOutput, 4096, token);
+}
+```
 
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Türleri QueueTrigger özniteliği ile çalışır.
 Kullanabileceğiniz **QueueTrigger** şu türden:
@@ -109,30 +119,32 @@ De ekleyebilirsiniz Azure depolama ile doğrudan API çalışmak istiyorsanız, 
 
 Aşağıdaki örnek, tüm bu meta veri bilgileri uygulama günlüğüne yazar. Bu örnekte, kuyruk iletisinin içeriği logMessage hem queueTrigger içerir.
 
-        public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
-            DateTimeOffset expirationTime,
-            DateTimeOffset insertionTime,
-            DateTimeOffset nextVisibleTime,
-            string id,
-            string popReceipt,
-            int dequeueCount,
-            string queueTrigger,
-            CloudStorageAccount cloudStorageAccount,
-            TextWriter logger)
-        {
-            logger.WriteLine(
-                "logMessage={0}\n" +
-            "expirationTime={1}\ninsertionTime={2}\n" +
-                "nextVisibleTime={3}\n" +
-                "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
-                "queue endpoint={7} queueTrigger={8}",
-                logMessage, expirationTime,
-                insertionTime,
-                nextVisibleTime, id,
-                popReceipt, dequeueCount,
-                cloudStorageAccount.QueueEndpoint,
-                queueTrigger);
-        }
+```csharp
+public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
+    DateTimeOffset expirationTime,
+    DateTimeOffset insertionTime,
+    DateTimeOffset nextVisibleTime,
+    string id,
+    string popReceipt,
+    int dequeueCount,
+    string queueTrigger,
+    CloudStorageAccount cloudStorageAccount,
+    TextWriter logger)
+{
+    logger.WriteLine(
+        "logMessage={0}\n" +
+        "expirationTime={1}\ninsertionTime={2}\n" +
+        "nextVisibleTime={3}\n" +
+        "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
+        "queue endpoint={7} queueTrigger={8}",
+        logMessage, expirationTime,
+        insertionTime,
+        nextVisibleTime, id,
+        popReceipt, dequeueCount,
+        cloudStorageAccount.QueueEndpoint,
+        queueTrigger);
+}
+```
 
 Örnek kodu ile yazılmış bir örnek günlük şu şekildedir:
 
@@ -151,22 +163,24 @@ Sürekli bir WebJob içinde çalışan bir işlev kabul edebilen bir **Cancellat
 
 Aşağıdaki örnek, bir işlevde yaklaşan WebJob sonlandırma olup olmadığını denetlemek gösterilmektedir.
 
-    public static void GracefulShutdownDemo(
-                [QueueTrigger("inputqueue")] string inputText,
-                TextWriter logger,
-                CancellationToken token)
+```csharp
+public static void GracefulShutdownDemo(
+            [QueueTrigger("inputqueue")] string inputText,
+            TextWriter logger,
+            CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        for (int i = 0; i < 100; i++)
+        if (token.IsCancellationRequested)
         {
-            if (token.IsCancellationRequested)
-            {
-                logger.WriteLine("Function was cancelled at iteration {0}", i);
-                break;
-            }
-            Thread.Sleep(1000);
-            logger.WriteLine("Normal processing for queue message={0}", inputText);
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
         }
+        Thread.Sleep(1000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
+```
 
 **Not:** durumunu ve kapatıldığından işlevler çıkışını Pano doğru şekilde göstermeyebilir.
 
@@ -178,37 +192,43 @@ Yeni bir kuyruk iletisi oluşturan bir işlev yazmak için kullanın **kuyruk** 
 ### <a name="string-queue-messages"></a>Dize kuyruk iletileri
 Aşağıdaki zaman uyumsuz olmayan kod örneği, sırasındaki "inputqueue" adlı sıraya alınan kuyruk iletisi olarak aynı içeriğe sahip "outputqueue" adlı yeni bir kuyruk iletisi oluşturur. (İçin zaman uyumsuz işlevleri kullanmak **IAsyncCollector<T>**  daha sonra bu bölümde gösterilen.)
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] out string outputQueueMessage )
-        {
-            outputQueueMessage = queueMessage;
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    [Queue("outputqueue")] out string outputQueueMessage )
+{
+    outputQueueMessage = queueMessage;
+}
+```
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
 Bir dize yerine bir POCO içeren bir kuyruk iletisi oluşturmak için bir çıktı parametresi olarak POCO türü geçirin **kuyruk** öznitelik Oluşturucusu.
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
-            [Queue("outputqueue")] out BlobInformation blobInfoOutput )
-        {
-            blobInfoOutput = blobInfoInput;
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
+    [Queue("outputqueue")] out BlobInformation blobInfoOutput )
+{
+    blobInfoOutput = blobInfoInput;
+}
+```
 
 SDK otomatik olarak JSON nesnesini serileştirir. Nesne null olsa bile bir kuyruk iletisi her zaman oluşturulur.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Birden çok ileti oluşturmak veya zaman uyumsuz işlevleri
 Birden çok ileti oluşturmak için çıkış kuyruğuna için parametre türü olun **ICollector<T>**  veya **IAsyncCollector<T>** aşağıdaki örnekte gösterildiği gibi.
 
-        public static void CreateQueueMessages(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] ICollector<string> outputQueueMessage,
-            TextWriter logger)
-        {
-            logger.WriteLine("Creating 2 messages in outputqueue");
-            outputQueueMessage.Add(queueMessage + "1");
-            outputQueueMessage.Add(queueMessage + "2");
-        }
+```csharp
+public static void CreateQueueMessages(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    [Queue("outputqueue")] ICollector<string> outputQueueMessage,
+    TextWriter logger)
+{
+    logger.WriteLine("Creating 2 messages in outputqueue");
+    outputQueueMessage.Add(queueMessage + "1");
+    outputQueueMessage.Add(queueMessage + "2");
+}
+```
 
 Her kuyruk iletisi hemen oluşturulur, **Ekle** yöntemi çağrılır.
 
@@ -218,7 +238,7 @@ Kullanabileceğiniz **kuyruk** özniteliği aşağıdaki parametre türleri:
 * **Çıkış dizesi** (parametre değeri null olmayan ise işlev sona erdiğinde kuyruk iletisi oluşturur)
 * **bayt [] kullanıma** (gibi çalışır **dize**)
 * **CloudQueueMessage kullanıma** (gibi çalışır **dize**)
-* **POCO kullanıma** (serializable bir tür oluşturduğu bir ileti null bir nesne ile işlev sona erdiğinde parametre null ise)
+* **POCO kullanıma** (serializable bir tür oluşturduğu bir ileti ile bir null Nesne işlev sona erdiğinde parametre null ise)
 * **ICollector**
 * **IAsyncCollector**
 * **CloudQueue** (için el ile Azure depolama API kullanarak doğrudan ileti oluşturma)
@@ -228,15 +248,17 @@ WebJobs SDK öznitelik gibi kullanmadan önce bazı çalışma işlevinizde yapm
 
 Aşağıdaki örnek, bir giriş sırası iletiyi alır ve bir çıkış sırasına aynı içeriğe sahip yeni bir ileti oluşturur. Çıkış kuyruğu adı işlevinin gövdesindeki kod tarafından ayarlanır.
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            IBinder binder)
-        {
-            string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
-            QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
-            CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
-            outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    IBinder binder)
+{
+    string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
+    QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
+    CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
+    outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
+}
+```
 
 **IBinder** arabirimi de kullanılabilir olan **tablo** ve **Blob** öznitelikleri.
 
@@ -249,13 +271,15 @@ Bir dize içeren bir kuyruk iletisi için **queueTrigger** kullanabileceğiniz b
 
 Aşağıdaki örnekte **Stream** okuma ve yazma blobları nesneleri. Kuyruk iletisi textblobs kapsayıcıda bulunan blobların addır. Blob kopyası "-Yeni" eklenecek ad aynı kapsayıcıda oluşturulur.
 
-        public static void ProcessQueueMessage(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void ProcessQueueMessage(
+    [QueueTrigger("blobcopyqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
+```
 
 **Blob** özniteliği Oluşturucu alır bir **blobPath** parametresi kapsayıcı ve blob adını belirtir. Bu yer tutucu hakkında daha fazla bilgi için bkz: [WebJobs SDK ile Azure blob depolama kullanma](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
@@ -263,31 +287,37 @@ Ne zaman öznitelik düzenler bir **Stream** nesnesinin, başka bir oluşturucu 
 
 Aşağıdaki örnekte bir **CloudBlockBlob** bir blobun silinmesi için nesne. Kuyruk iletisi blob adıdır.
 
-        public static void DeleteBlob(
-            [QueueTrigger("deleteblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
-        {
-            blobToDelete.Delete();
-        }
+```csharp
+public static void DeleteBlob(
+    [QueueTrigger("deleteblobqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
+{
+    blobToDelete.Delete();
+}
+```
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
 Kuyruk iletisinde JSON olarak depolanır ve bir POCO için özellikleri nesnesinin adı yer tutucuları kullanabilirsiniz **kuyruk** özniteliğin **blobPath** parametresi. Kuyruk meta veri özellik adlarının yer tutucu olarak kullanabilirsiniz. Bkz: [kuyruğu veya kuyruk iletisi meta verileri alma](#get-queue-or-queue-message-metadata).
 
 Aşağıdaki örnek, farklı bir uzantıya sahip yeni bir blob için bir blobu kopyalar. Kuyruk iletisi bir **BlobInformation** içeren nesne **BlobName** ve **BlobNameWithoutExtension** özellikleri. Blob yolu için yer tutucu olarak kullanılan özellik adları **Blob** öznitelikleri.
 
-        public static void CopyBlobPOCO(
-            [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
-            [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void CopyBlobPOCO(
+    [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
+    [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
+```
 
 SDK'sı kullanır [Newtonsoft.Json NuGet paketini](http://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda kuyruk iletileri oluşturursanız, SDK'sı ayrıştırabilen POCO kuyruk iletisi oluşturmak için aşağıdaki örnekte olduğu gibi kod yazabilirsiniz.
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+```csharp
+BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
+var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+logQueue.AddMessage(queueMessage);
+```
 
 Bir blob için bir nesne bağlama önce bazı çalışma işlevinizde yapmanız gerekiyorsa, gösterildiği gibi işlev gövdesinde özniteliği kullanabilirsiniz [kullanan Web işleri SDK'sı öznitelikleri bir işlevin gövdesinde](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
@@ -316,19 +346,21 @@ Zehirli sıranın adlı *{originalqueuename}*-zehirli. İşlem iletileri bir iş
 
 Aşağıdaki örnekte **CopyBlob** bir kuyruk iletisi mevcut olmayan bir blobun adını içerdiğinde işlevi başarısız olur. Bu durum oluştuğunda yapılacak copyblobqueue poison kuyruğa copyblobqueue kuyruktan taşınır. **ProcessPoisonMessage** ardından zehirli ileti günlüğe kaydeder.
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void CopyBlob(
+    [QueueTrigger("copyblobqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
 
-        public static void ProcessPoisonMessage(
-            [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
-        {
-            logger.WriteLine("Failed to copy blob, name=" + blobName);
-        }
+public static void ProcessPoisonMessage(
+    [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
+{
+    logger.WriteLine("Failed to copy blob, name=" + blobName);
+}
+```
 
 Zehirli ileti işlendikten sonra aşağıdaki resimde bu işlevler konsol çıktısı gösterir.
 
@@ -337,21 +369,23 @@ Zehirli ileti işlendikten sonra aşağıdaki resimde bu işlevler konsol çıkt
 ### <a name="manual-poison-message-handling"></a>El ile zehirli ileti işleme
 Bir ileti toplanmış kaç kez işlenmek ekleyerek alabilirsiniz bir **int** adlı parametre **dequeueCount** işlevinize. Ardından, işlev kodunu sıradan çıkarma sayısı denetleyin ve sayısı bir eşiği aştığında, kendi zehirli ileti aşağıdaki örnekte gösterildiği gibi işleme gerçekleştirin.
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
-            TextWriter logger)
-        {
-            if (dequeueCount > 3)
-            {
-                logger.WriteLine("Failed to copy blob, name=" + blobName);
-            }
-            else
-            {
-            blobInput.CopyTo(blobOutput, 4096);
-            }
-        }
+```csharp
+public static void CopyBlob(
+    [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
+    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
+    TextWriter logger)
+{
+    if (dequeueCount > 3)
+    {
+        logger.WriteLine("Failed to copy blob, name=" + blobName);
+    }
+    else
+    {
+        blobInput.CopyTo(blobOutput, 4096);
+    }
+}
+```
 
 ## <a name="how-to-set-configuration-options"></a>Yapılandırma seçeneklerini ayarlama
 Kullanabileceğiniz **JobHostConfiguration** türü aşağıdaki yapılandırma seçeneklerini ayarlamak için:
@@ -363,24 +397,26 @@ Kullanabileceğiniz **JobHostConfiguration** türü aşağıdaki yapılandırma 
 ### <a name="set-sdk-connection-strings-in-code"></a>Kodda SDK bağlantı dizelerini ayarlama
 Kodda SDK bağlantı dizelerini ayarlama, yapılandırma dosyalarının veya ortam değişkenlerini kendi bağlantı dizesi adları kullanmak aşağıdaki örnekte gösterildiği gibi sağlar.
 
-        static void Main(string[] args)
-        {
-            var _storageConn = ConfigurationManager
-                .ConnectionStrings["MyStorageConnection"].ConnectionString;
+```csharp
+static void Main(string[] args)
+{
+    var _storageConn = ConfigurationManager
+        .ConnectionStrings["MyStorageConnection"].ConnectionString;
 
-            var _dashboardConn = ConfigurationManager
-                .ConnectionStrings["MyDashboardConnection"].ConnectionString;
+    var _dashboardConn = ConfigurationManager
+        .ConnectionStrings["MyDashboardConnection"].ConnectionString;
 
-            var _serviceBusConn = ConfigurationManager
-                .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
+    var _serviceBusConn = ConfigurationManager
+        .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
 
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.StorageConnectionString = _storageConn;
-            config.DashboardConnectionString = _dashboardConn;
-            config.ServiceBusConnectionString = _serviceBusConn;
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.StorageConnectionString = _storageConn;
+    config.DashboardConnectionString = _dashboardConn;
+    config.ServiceBusConnectionString = _serviceBusConn;
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 ### <a name="configure-queuetrigger--settings"></a>QueueTrigger ayarlarını yapılandırma
 Kuyruk ileti işleme için geçerli olan aşağıdaki ayarları yapılandırabilirsiniz:
@@ -391,15 +427,17 @@ Kuyruk ileti işleme için geçerli olan aşağıdaki ayarları yapılandırabil
 
 Aşağıdaki örnek, bu ayarların nasıl yapılandırılacağı gösterilmektedir:
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.Queues.BatchSize = 8;
-            config.Queues.MaxDequeueCount = 4;
-            config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+```csharp
+static void Main(string[] args)
+{
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.Queues.BatchSize = 8;
+    config.Queues.MaxDequeueCount = 4;
+    config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Değerleri Oluşturucu parametresi için Web işleri SDK'sı, kod içinde ayarlayabilirsiniz.
 Bazı durumlarda bir kuyruk adı, bir blob adı veya kapsayıcı belirtmek istediğiniz veya bir tablo adı: sabit kodlamak yerine kod bu. Örneğin, kuyruk adı belirtmek isteyebilirsiniz **QueueTrigger** bir yapılandırma dosyası veya ortam değişkeni içinde.
@@ -408,54 +446,62 @@ Geçirerek bunu yapabilirsiniz bir **NameResolver** nesnesini **JobHostConfigura
 
 Örneğin, test ortamında logqueuetest ve üretimde bir adlandırılmış logqueueprod adlı bir sıra kullanmak istediğiniz varsayalım. Bir giriş adını belirtmek istediğiniz bir sabit kodlanmış kuyruk adı yerine **appSettings** gerçek kuyruk adı olması gereken bir koleksiyon. Varsa **appSettings** anahtar logqueue, işlevinizi aşağıdaki örnekteki gibi görünebilir.
 
-        public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
-        {
-            Console.WriteLine(logMessage);
-        }
+```csharp
+public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
+{
+    Console.WriteLine(logMessage);
+}
+```
 
 **NameResolver** sınıfı kuyruk adından sonra alabilir **appSettings** aşağıdaki örnekte gösterildiği gibi:
 
-        public class QueueNameResolver : INameResolver
-        {
-            public string Resolve(string name)
-            {
-                return ConfigurationManager.AppSettings[name].ToString();
-            }
-        }
+```csharp
+public class QueueNameResolver : INameResolver
+{
+    public string Resolve(string name)
+    {
+        return ConfigurationManager.AppSettings[name].ToString();
+    }
+}
+```
 
 Geçirdiğiniz **NameResolver** için sınıfını **JobHost** nesne aşağıdaki örnekte gösterildiği gibi.
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.NameResolver = new QueueNameResolver();
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+```csharp
+static void Main(string[] args)
+{
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.NameResolver = new QueueNameResolver();
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 **Not:** kuyruk, tablo ve blob adları çözümlenmiş her zaman bir işlevi çağrılır, ancak blob kapsayıcısı adları yalnızca uygulama başladığında çözümlendi. İş çalışırken blob kapsayıcı adı değiştirilemiyor.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Bir işlev el ile tetikleme
 Bir işlev el ile tetiklemek için kullanmak **çağrı** veya **CallAsync** metodunda **JobHost** nesne ve **NoAutomaticTrigger** Aşağıdaki örnekte gösterildiği gibi işlev özniteliği.
 
-        public class Program
-        {
-            static void Main(string[] args)
-            {
-                JobHost host = new JobHost();
-                host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
-            }
+```csharp
+public class Program
+{
+    static void Main(string[] args)
+    {
+        JobHost host = new JobHost();
+        host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
+    }
 
-            [NoAutomaticTrigger]
-            public static void CreateQueueMessage(
-                TextWriter logger,
-                string value,
-                [Queue("outputqueue")] out string message)
-            {
-                message = value;
-                logger.WriteLine("Creating queue message: ", message);
-            }
-        }
+    [NoAutomaticTrigger]
+    public static void CreateQueueMessage(
+        TextWriter logger,
+        string value,
+        [Queue("outputqueue")] out string message)
+    {
+        message = value;
+        logger.WriteLine("Creating queue message: ", message);
+    }
+}
+```
 
 ## <a name="how-to-write-logs"></a>Günlükleri yazma
 Günlükleri iki yerde gösteren panoyu: sayfa WebJob için ve belirli bir WebJob çağrısına sayfası.
@@ -476,15 +522,17 @@ Pano bağlantı dizesi null olarak ayarlayarak günlüğü devre dışı bıraka
 
 Aşağıdaki örnek, günlükleri yazmak için birçok yol gösterir:
 
-        public static void WriteLog(
-            [QueueTrigger("logqueue")] string logMessage,
-            TextWriter logger)
-        {
-            Console.WriteLine("Console.Write - " + logMessage);
-            Console.Out.WriteLine("Console.Out - " + logMessage);
-            Console.Error.WriteLine("Console.Error - " + logMessage);
-            logger.WriteLine("TextWriter - " + logMessage);
-        }
+```csharp
+public static void WriteLog(
+    [QueueTrigger("logqueue")] string logMessage,
+    TextWriter logger)
+{
+    Console.WriteLine("Console.Write - " + logMessage);
+    Console.Out.WriteLine("Console.Out - " + logMessage);
+    Console.Error.WriteLine("Console.Error - " + logMessage);
+    logger.WriteLine("TextWriter - " + logMessage);
+}
+```
 
 WebJobs SDK panosunda çıktısı **TextWriter** ne zaman, belirli bir sayfaya gidin yukarı gösterir işlev çağırma ve seçin nesnesi **çıkışı Aç/Kapat**:
 

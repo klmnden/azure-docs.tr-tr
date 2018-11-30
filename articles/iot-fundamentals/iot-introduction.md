@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288756"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582437"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure nesnelerin interneti (IOT) nedir?
 
@@ -113,7 +113,7 @@ Azure IOT ile ilgili birkaç hizmet mevcuttur ve kullanmak istediğiniz hangi bi
 
 5. [**IOT Edge**](/azure/iot-edge/): Bu hizmet, IOT Hub temelinde geliştirilen. IOT cihazları yerine buluttaki verileri çözümlemek için kullanılabilir. İş yükünüz bölümlerini uca taşıyarak, daha az ileti buluta gönderilmesi gerekir. 
 
-6. [**Azure dijital İkizlerini**](/azure/azure-digital-twins/): Bu hizmet, kapsamlı modelleri, fiziksel ortam oluşturmanıza olanak sağlar. Kişiler, boşluk ve cihazlar arasındaki etkileşimler ve ilişkiler modelleyebilirsiniz. Örneğin, bakım için bir Fabrika, bir Elektrik şebekesi için gerçek zamanlı enerji gereksinimlerini çözümlemek veya bir office için kullanılabilir alanı kullanımını en iyi duruma getirme tahmin edebilirsiniz.
+6. [**Azure dijital İkizlerini**](../digital-twins/index.yml): Bu hizmet, kapsamlı modelleri, fiziksel ortam oluşturmanıza olanak sağlar. Kişiler, boşluk ve cihazlar arasındaki etkileşimler ve ilişkiler modelleyebilirsiniz. Örneğin, bakım için bir Fabrika, bir Elektrik şebekesi için gerçek zamanlı enerji gereksinimlerini çözümlemek veya bir office için kullanılabilir alanı kullanımını en iyi duruma getirme tahmin edebilirsiniz.
 
 7. [**Zaman serisi öngörüleri**](/azure/time-series-insights): Bu hizmeti, zaman serisi verilerini IOT cihazlar tarafından oluşturulan büyük miktarda sorgu depolamak ve görselleştirmenize olanak sağlar. Bu hizmeti ile IOT hub'ı kullanabilirsiniz. 
 

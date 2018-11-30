@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 11/29/2018
 ms.author: spelluru
-ms.openlocfilehash: e2efe2bfb26fa7a14a9e80c26fba1322f82cb0eb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c5df5f43c4f01013cc44a2497203947f303f3e81
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856930"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634838"
 ---
 # <a name="message-expiration-time-to-live"></a>İleti süre sonu (Yaşam Süresi)
 
-Bir ileti veya bir komut veya bir alıcıya, ileti ilettiği sorgu içinde neredeyse her zaman uygulama düzeyi sona erme tarihi çeşit tabi yüktür. Böyle bir son tarihine ulaşıldıktan sonra içerik artık teslim veya istenen işlem artık yürütülür.
+Bir ileti bir komut veya bir alıcıya, ileti ilettiği sorgulama neredeyse her zaman uygulama düzeyi sona erme tarihi çeşit tabi yüktür. Böyle bir son tarihine ulaşıldıktan sonra içerik artık teslim veya istenen işlem artık yürütülür.
 
 Geliştirme ve test ortamları, kuyruklar ve konular genellikle uygulama veya uygulama bölümleri kısmi çalıştırmaları bağlamında kullanılan için de otomatik olarak sonraki test çalıştırın böylece atık olabilir kenarda kalmış test iletileri için tercih edilir temiz başlatın.
 
-Herhangi bir ileti için süre sonu ayarlayarak denetlenebilir [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) göreli süre belirten sistem özelliği. İleti kuyruğa alınan varlık içine süre sonu mutlak anlık olur. O zaman [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) özellik değerini alır [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Herhangi bir ileti için süre sonu ayarlayarak denetlenebilir [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) göreli süre belirten sistem özelliği. İleti kuyruğa alınan varlık içine süre sonu mutlak anlık olur. O zaman [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) özellik değerini alır [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). Hiçbir istemci etkin bir şekilde dinlerken, aracılı ileti yaşam süresi (TTL) ayarı zorlanmaz.
 
 Son **ExpiresAtUtc** anında, iletileri alma işlemi için uygun olur. Sona erme için teslim şu anda kilitli iletileri etkilemez. Bu iletileri hala normal şekilde işlenir. Kilit süresi dolana veya sözleşme ileti bırakıldı, sona erme hemen etkili olur.
 
@@ -44,15 +44,37 @@ Birleşimi [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetoliv
 
 Örneğin, bir web sitesi, güvenilir bir şekilde bir ölçek kısıtlı arka uç işleri yürütmek gereken ve bazen deneyimleri trafik ani veya bu arka uç kullanılabilirlik bölümlerini karşı yalıtılmış istediği göz önünde bulundurun. Normal durumda, sunucu tarafı işleyici gönderilen kullanıcı verileri için bilgileri bir kuyruğa gönderir ve daha sonra başarılı bir yanıt kuyruğu harekete işlenmesini onaylayan bir yanıt alır. Bir trafik ani ve arka uç işleyici kendi biriktirme listesi öğelerini zamanında işleyemez, süresi dolmuş işler üzerinde eski ileti sırası döndürülür. Etkileşimli kullanıcı, istenen işlem normalden biraz daha uzun sürer ve istek sonra işleme yolu için farklı bir sırada nerede işleme nihai sonucu kullanıcıya e-posta ile gönderilen konulabilir bildirilebilir. 
 
+
 ## <a name="temporary-entities"></a>Geçici varlıklar
 
 Service Bus kuyrukları, konular ve abonelikler, belirtilen bir süre için kullanılmamış bağlandığınızda otomatik olarak kaldırılır geçici varlıklar olarak oluşturulabilir.
  
 Otomatik temizleme varlıklarını dinamik olarak oluşturulur ve kullanımı, test veya hata ayıklama çalışma bazı kesinti nedeniyle sonra temizlenir değil geliştirme ve test senaryolarında yararlıdır. Web sunucusu işlemine geri yükleme ya da güvenilir bir şekilde kişilikleri temizlemek zor olduğu başka bir görece kısa süreli nesnesine yanıtlar almak için bir yanıt kuyruğu gibi dinamik varlıkları bir uygulama oluşturduğunda de kullanışlıdır, nesne Örnek kaybolur.
 
-Bu özellik kullanılarak etkinleştirilir [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) otomatik olarak silinmeden önce bir varlık olmalıdır süresi için ayarlanır özelliği (kullanılmayan) boş. En düşük süre 5 dakikadır.
+Bu özellik kullanılarak etkinleştirilir [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) özelliği. Bu özellik için bir varlık gerekir olması boşta (kullanılmayan) otomatik olarak silinmeden önce süresi için ayarlanır. Bu özellik için en düşük değer 5'tir.
  
-**AutoDeleteOnIdle** özelliği ayarlanmalıdır, .NET Framework istemci aracılığıyla veya bir Azure Resource Manager işlem [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'leri. Portal üzerinden ayarlanamaz.
+**AutoDeleteOnIdle** özelliği ayarlanmalıdır, .NET Framework istemci aracılığıyla veya bir Azure Resource Manager işlem [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'leri. Portalda ayarlanamaz.
+
+## <a name="idleness"></a>Modu boşta kalma oranı
+
+İşte ne kabul modu boşta kalma oranı varlıkları (kuyruklar, konular ve abonelikler):
+
+- Kuyruklar
+    - Hiçbir gönderir  
+    - Hayır alır  
+    - Kuyruğa güncelleştirme yok  
+    - Zamanlanmış ileti yok  
+    - Hiçbir gözatma/göz atma 
+- Konu başlıkları  
+    - Hiçbir gönderir  
+    - Konuya güncelleştirme yok  
+    - Zamanlanmış ileti yok 
+- Abonelikler
+    - Hayır alır  
+    - Abonelik için güncelleştirme yok  
+    - Abonelik için eklenen yeni kural  
+    - Hiçbir gözatma/göz atma  
+ 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 1904d6a8866a814e9d9c96ffbc65de9ea25daf3b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c08b57c41cc43bfa47dee69a75663e7a58ef4c21
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977695"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>Öğretici: Azure Active Directory tümleştirmesiyle kayması
 
@@ -148,7 +148,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve k
 
     ![Sertifika indirme bağlantısı](./media/drift-tutorial/tutorial_drift_certificate.png) 
 
-8. Çoklu oturum açmayı yapılandırma **kayması** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** için [kayması Destek ekibine](mailto:integrations@drift.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+8. Farklı bir web tarayıcı penceresinde, kayması yönetici olarak oturum açın.
+
+9. Menü çubuğunun sol taraftan tıklayarak **ayarlar simgesine** > **uygulama ayarları** > **kimlik doğrulaması** ve aşağıdaki adımları gerçekleştirin:
+
+    ![Yönetim bağlantı](./media/drift-tutorial/tutorial_drift_admin.png)
+
+    a. Karşıya yükleme **Federasyon meta verileri XML** içine Azure portalından yüklediğiniz **karşıya kimlik sağlayıcısı meta veri dosyası** metin kutusu.
+
+    b. Meta veri dosyasını karşıya yükledikten sonra kalan değerler sayfada otomatik olarak doldurulur otomatik alın.
+
+    c. Tıklayın **etkinleştirme SAML**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

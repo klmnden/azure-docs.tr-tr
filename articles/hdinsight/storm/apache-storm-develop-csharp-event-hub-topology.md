@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0eb283eda04d4123e0c05d2c48663a5aca88ebc4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249566"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582225"
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>(C#) HDInsight üzerinde Storm ile Azure Event hubs'dan olayları işleme
+# <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme (C#)
 
-Azure Event Hubs'dan HDInsight üzerinde Apache Storm ile çalışma hakkında bilgi edinin. Bu belgede, Event Hubs'dan veri yazma ve okuma için bir C# Storm topolojisi kullanır.
+Azure Event Hubs'dan ile çalışmayı öğrenin [Apache Storm](http://storm.apache.org/) HDInsight üzerinde. Bu belgede, Event Hubs'dan veri yazma ve okuma için bir C# Storm topolojisi kullanır.
 
 > [!NOTE]
-> Bu proje Java sürümü için bkz: [(Java) HDInsight üzerinde Storm ile Azure Event hubs'tan olay işleme](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> Bu proje Java sürümü için bkz: [(Java) HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -158,7 +158,7 @@ Event Hubs, bu örnek için veri kaynağı. Bilgileri kullanın "bir olay hub'ı
    | EventHubPolicyName |Yazıcı (ilkeyle için farklı bir ad kullandıysanız *Gönder* izni, bunun yerine kullanın.) |
    | EventHubPolicyKey |Yazıcı ilkesi için anahtar. |
    | EventHubNamespace |Olay hub'ınızı içeren ad uzayı. |
-   | eventHubName |Olay hub'ı adı. |
+   | EventHubName |Olay hub'ı adı. |
    | EventHubPartitionCount |Olay hub'ındaki bölüm sayısı. |
 
 4. Kaydet ve Kapat **App.config** dosya.
@@ -174,7 +174,7 @@ Event Hubs, bu örnek için veri kaynağı. Bilgileri kullanın "bir olay hub'ı
    | EventHubPolicyName |Okuyucu (ilkeyle için farklı bir ad kullandıysanız *dinleme* izni, bunun yerine kullanın.) |
    | EventHubPolicyKey |Okuyucu ilkesi için anahtar. |
    | EventHubNamespace |Olay hub'ınızı içeren ad uzayı. |
-   | eventHubName |Olay hub'ı adı. |
+   | EventHubName |Olay hub'ı adı. |
    | EventHubPartitionCount |Olay hub'ındaki bölüm sayısı. |
 
 3. Kaydet ve Kapat **App.config** dosya.
@@ -225,4 +225,4 @@ Bu belgede, Event Hubs Java spout ve bolt gelen Azure olay hub'larındaki verile
 
 * [Visual Studio kullanarak HDInsight üzerinde Apache Storm için C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md)
 * [SCP Programlama Kılavuzu](apache-storm-scp-programming-guide.md)
-* [HDInsight üzerinde Storm için örnek topolojiler](apache-storm-example-topology.md)
+* [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md)

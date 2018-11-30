@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091731"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498754"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
 
@@ -42,7 +42,7 @@ Aşağıdaki tabloda, Azure BLOB'ları ile Azure dosyaları karşılaştırır.
 |Uç Noktalar|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Dizinler|Düz ad alanı|Doğru dizin nesneleri|  
 |Adları büyük/küçük harf duyarlılığı|Büyük/Küçük harfe duyarlı|/ Küçük harfe duyarlı çalışması ancak büyük/küçük harf koruma|  
-|Kapasite|En fazla 500 TiB kapsayıcıları|5 TiB dosya paylaşımları|  
+|Kapasite|En fazla 2 PiB hesap sınırı |5 TiB dosya paylaşımları|  
 |Aktarım hızı|Blok blobu başına en fazla 60 MiB/sn|Paylaşım başına en fazla 60 MiB/sn|  
 |Nesne boyutu|Blok blobu başına yaklaşık 4,75 TiB kadar|Dosya başına en fazla 1 TiB|  
 |Faturalandırılan kapasite|Yazılan bayt sayısı tabanlı|Dosya boyutuna göre|  

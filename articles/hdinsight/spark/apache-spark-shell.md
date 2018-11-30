@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 5aaf169418962c08f5f45413f53d4c92588a98bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041491"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581434"
 ---
-# <a name="run-spark-from-the-spark-shell"></a>Spark Spark Kabuğu'ndan çalıştırma
+# <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark Spark Kabuğu'ndan çalıştırma
 
-Etkileşimli bir Spark Shell, Spark, bir seferde komutları çalıştırma ve sonuçları görmek için bir REPL (okuma-yürütme-Yazdır, döngü) ortamı sağlar. Bu işlem, geliştirme ve hata ayıklama için kullanışlıdır. Spark her biri, desteklenen diller için bir kabuk sağlar: Scala, Python ve R'dir
+Etkileşimli [Apache Spark](https://spark.apache.org/) kabuğu, Spark, bir seferde komutları çalıştırma ve sonuçları görmek için bir REPL (okuma-yürütme-Yazdır, döngü) ortamı sağlar. Bu işlem, geliştirme ve hata ayıklama için kullanışlıdır. Spark her biri, desteklenen diller için bir kabuk sağlar: Scala, Python ve R'dir
 
-## <a name="get-to-a-spark-shell-with-ssh"></a>SSH ile bir Spark Shell öğrenin
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Bir Apache Spark Shell SSH ile öğrenin
 
-HDInsight üzerinde bir Spark Shell birincil baş düğümüne SSH kullanarak küme bağlanarak erişebilirsiniz:
+Birincil baş düğümüne SSH kullanarak kümeye'nın bir HDInsight üzerinde Apache Spark Shell erişmek:
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
@@ -40,7 +40,7 @@ Kümeniz için tüm SSH komutunu Azure portalından alabilirsiniz:
 
 HDInsight için bağlanmak için SSH kullanma hakkında daha fazla bilgi için bkz [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run-a-spark-shell"></a>Bir Spark Shell çalıştırma
+## <a name="run-an-apache-spark-shell"></a>Bir Apache Spark Shell çalıştırın
 
 Spark Kabukları (spark-shell) Scala, Python (pyspark) ve R (sparkR) sağlar. HDInsight kümenizin baş düğüm, SSH oturumunda, aşağıdaki komutlardan birini girin:
 
@@ -69,7 +69,7 @@ Spark Shell komutu (`spark-shell`, `pyspark`, veya `sparkR`) birçok komut satı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz: [Azure HDInsight üzerinde Spark giriş](apache-spark-overview.md) genel bakış.
+- Bkz: [Azure HDInsight üzerinde Apache Spark'a giriş](apache-spark-overview.md) genel bakış.
 - Bkz: [Azure HDInsight Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md) SparkSQL ve Spark kümeleri ile çalışmak için.
-- Bkz: [Spark yapılandırılmış Akış nedir?](apache-spark-streaming-overview.md) Spark ile akış verilerini işleme uygulamaları yazmak için.
+- Bkz: [Apache Spark yapılandırılmış Akış nedir?](apache-spark-streaming-overview.md) Spark ile akış verilerini işleme uygulamaları yazmak için.
 

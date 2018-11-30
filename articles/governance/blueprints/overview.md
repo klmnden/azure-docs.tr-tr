@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277544"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498607"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints nedir?
 
@@ -57,7 +57,7 @@ Resource Manager şablonu ile şema arasında seçim yapmanıza gerek yoktur. He
 |Kaynak  | Hiyerarşi seçenekleri| Açıklama  |
 |---------|---------|---------|
 |Kaynak Grupları     | Abonelik | Şema içindeki diğer yapıtlar tarafından kullanılacak yeni bir kaynak grubu oluşturur.  Bu yer tutucu kaynak grupları, kaynakları tam olarak istediğiniz yapıda düzenlemenizi sağlar ve dahil olan ilke ve rol ataması yapıtlarına ek olarak Azure Resource Manager şablonları için kapsam sınırlayıcı olarak görev yapar.         |
-|Azure Resource Manager şablonu      | Kaynak Grubu | Şablonlar, karmaşık ortamlar oluşturmak için kullanılır. Örnek ortamlar: SharePoint grubu, Azure Otomasyonu Durum Yapılandırması veya Log Analytics çalışma alanı. |
+|Azure Resource Manager şablonu      | Abonelik, Kaynak Grubu | Şablonlar, karmaşık ortamlar oluşturmak için kullanılır. Örnek ortamlar: SharePoint grubu, Azure Otomasyonu Durum Yapılandırması veya Log Analytics çalışma alanı. |
 |İlke Ataması     | Abonelik, Kaynak Grubu | Bir ilkenin veya girişimin, şemanın atanmış olduğu aboneliğe atanmasını sağlar. İlke veya girişimin şema kapsamında olması gerekir (şema yönetim grubunda veya altında). İlke veya girişimde parametre varsa bu parametreler şema oluşturma veya şema ataması sırasında atanır.       |
 |Rol Ataması   | Abonelik, Kaynak Grubu | Kaynaklarınıza her zaman doğru kişilerin doğru şekilde erişmesini sağlamak için var olan bir kullanıcıyı veya grubu yerleşik role ekleyin. Rol atamaları aboneliğin tamamı için tanımlanabilir veya şemada bulunan belirli bir kaynak grubuna yerleştirilebilir. |
 

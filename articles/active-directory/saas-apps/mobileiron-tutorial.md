@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428300"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Öğretici: Azure Active Directory MobileIron ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile MobileIron yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik MobileIron çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de MobileIron tümleştirmesini yapılandırmak için MobileIron Galeri
 
 **Galeriden MobileIron eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -106,22 +106,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
  
     ![Çoklu oturum açma iletişim kutusu](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. Üzerinde **MobileIron etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+1. Üzerinde **MobileIron etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
 
     ![MobileIron etki alanı ve URL'ler tek oturum açma bilgileri](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://www.mobileiron.com/<key>`
+    1. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://www.mobileiron.com/<key>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Çoklu oturum açmayı MobileIron etki alanı ve URL'ler](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<host>.mobileiron.com/user/login.html`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu öğreticinin ilerleyen bölümlerinde açıklanan MobileIron, Yönetim Portalı'ndan anahtarı ve ana bilgisayar değerlerini alırsınız.
+    > [!NOTE]  Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu öğreticinin ilerleyen bölümlerinde açıklanan MobileIron, Yönetim Portalı'ndan anahtarı ve ana bilgisayar değerlerini alırsınız.
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -174,13 +173,13 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Kullanıcı iletişim kutusu](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. İçinde **adı** kutusuna **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
+    1. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    1. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’a tıklayın.
   
 ### <a name="create-a-mobileiron-test-user"></a>MobileIron test kullanıcısı oluşturma
 
@@ -199,13 +198,13 @@ MobileIron söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir g�
 
     ![Çoklu oturum açmayı yapılandırma Kullanıcı Ekle düğmesi](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin brittasimon@contoso.com.
+    1. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin brittasimon@contoso.com.
 
-    b. İçinde **ad** metin kutusunda, Britta gibi kullanıcı adını girin.
+    1. İçinde **ad** metin kutusunda, Britta gibi kullanıcı adını girin.
 
-    c. İçinde **Soyadı** metin kutusunda, son Simon gibi kullanıcı adını girin.
+    1. İçinde **Soyadı** metin kutusunda, son Simon gibi kullanıcı adını girin.
     
-    d. **Bitti**’ye tıklayın.  
+    1. **Bitti**’ye tıklayın.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

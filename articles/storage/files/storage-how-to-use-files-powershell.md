@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 48ac46a9087e8027d0282533afccc4d9b28481ba
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157386"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582477"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile Azure dosya paylaşımını oluşturma ve yönetme 
 Bu kılavuzda, PowerShell kullanarak [Azure dosya paylaşımlarıyla](storage-files-introduction.md) çalışmanın temel bilgileri gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -49,7 +49,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
-Artık ilk Azure dosya paylaşımınızı oluşturabilirsiniz. [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) cmdlet’ini kullanarak bir dosya paylaşımı oluşturabilirsiniz. Bu örnek, `myshare` adlı bir paylaşım oluşturur.
+Artık ilk Azure dosya paylaşımınızı oluşturabilirsiniz. [New-AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare) cmdlet’ini kullanarak bir dosya paylaşımı oluşturabilirsiniz. Bu örnek, `myshare` adlı bir paylaşım oluşturur.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -79,7 +79,7 @@ Kullanabilmeyi umduğunuz uygulama ve araçlarını kullanmanıza izin vereceği
 Aşağıdaki örnekler, AzureRM PowerShell modülünün Azure dosya paylaşımınızı Dosya REST protokolü ile yönetmek için nasıl kullanılacağını göstermektedir. 
 
 #### <a name="create-directory"></a>Dizin oluşturma
-Azure dosya paylaşımınızın kökünde *myDirectory* adlı yeni bir dizin oluşturmak için [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet’ini kullanın.
+Azure dosya paylaşımınızın kökünde *myDirectory* adlı yeni bir dizin oluşturmak için [New-AzureStorageDirectory](/powershell/module/azure.storage/new-azurestoragedirectory) cmdlet’ini kullanın.
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `

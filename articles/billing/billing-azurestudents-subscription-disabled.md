@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: d7bf1d06c598dd7e548c109f68d0996c0be2b6b8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391377"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581859"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Neden Azure Öğrenci abonelik devre dışı olduğunu ve nasıl yeniden?
 
@@ -57,6 +57,6 @@ Tablo şu sütunları içerir:
 
 Öğrenciler için Azure aboneliği yanlışlıkla iptal etmeniz durumunda, yeniden iletişim kurarak etkinleştirebilirsiniz [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Yeniden etkinleştirin. sonra kalan kredi ve 12 ay boyunca Ücretsiz Hizmetler kaydolma tarihinizden erişimini çözümlenmedi.
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

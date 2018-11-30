@@ -10,19 +10,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e553833f8b9a5daab5c454cea628acdda0320e76
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9ee5946d9748388cc1f606d89d4edeacb0b9c02
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257648"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498082"
 ---
-# <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Bir machine learning uygulama oluşturmak ve bir veri kümesini analiz için Spark MLlib kullanın
+# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Bir machine learning uygulama oluşturmak ve bir veri kümesini analiz etmek için Apache Spark MLlib kullanın
 
-Spark'ı kullanmayı öğrenin [MLlib](https://spark.apache.org/mllib/) bir machine learning açık bir veri kümesini basit Tahmine dayalı analiz yapmak için uygulama oluşturmak için. Kitaplıkları Spark'ın yerleşik makine öğrenimi, bu örnekte *sınıflandırma* Lojistik regresyon aracılığıyla. 
+Apache Spark'ı kullanmayı öğrenin [MLlib](https://spark.apache.org/mllib/) bir machine learning açık bir veri kümesini basit Tahmine dayalı analiz yapmak için uygulama oluşturmak için. Kitaplıkları Spark'ın yerleşik makine öğrenimi, bu örnekte *sınıflandırma* Lojistik regresyon aracılığıyla. 
 
 > [!TIP]
-> Bu örnekte, HDInsight içinde oluşturduğunuz bir Spark (Linux) kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Öğreticinin bir not defteri içinde takip etmek için bir Spark kümesi oluşturma ve Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Ardından, Not Defteri çalıştırma **Spark Machine Learning - MLlib.ipynb kullanarak yemek İnceleme veri üzerinde Tahmine dayalı analiz** altında **Python** klasör.
+> Bu örnek olarak da kullanılabilir bir [Jupyter not defteri](https://jupyter.org/) üzerinde oluşturduğunuz HDInsight Spark (Linux) kümesi. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Öğreticinin bir not defteri içinde takip etmek için bir Spark kümesi oluşturma ve Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Ardından, Not Defteri çalıştırma **Spark Machine Learning - MLlib.ipynb kullanarak yemek İnceleme veri üzerinde Tahmine dayalı analiz** altında **Python** klasör.
 >
 >
 
@@ -47,7 +47,7 @@ Bu örnekte, Yemek İnceleme verilerinizde bazı Tahmine dayalı analiz gerçekl
 
 Aşağıdaki adımlarda, Geçti veya başarısız bir yemek İnceleme kadar sürdüğünü görmek için bir model geliştirmektir.
 
-## <a name="create-a-spark-mllib-machine-learning-app"></a>Bir Spark MLlib makine öğrenimi uygulaması oluşturma
+## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Bir Apache Spark MLlib makine öğrenimi uygulaması oluşturma
 
 1. PySpark çekirdeği kullanarak bir Jupyter not defteri oluşturun. Yönergeler için bkz. [Jupyter not defteri oluşturma](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
@@ -178,7 +178,7 @@ Hangi veri kümesini içeren bir fikir almak şimdi başlayın.
     SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
     ```
 
-    `%%sql` Sihirli arkasından `-o countResultsdf` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](http://pandas.pydata.org/) belirtilen ada sahip bir dataframe **countResultsdf**. `%%sql` sihrinin yanı sıra PySpark çekirdeği kullanılabilen diğer sihirler hakkında daha fazla bilgi için bkz. [Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    `%%sql` Sihirli arkasından `-o countResultsdf` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](http://pandas.pydata.org/) belirtilen ada sahip bir dataframe **countResultsdf**. Hakkında daha fazla bilgi için `%%sql` sihrinin yanı sıra, PySpark çekirdeği kullanılabilen diğer sihirler bkz [Apache Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     Çıktı.
 
@@ -385,19 +385,19 @@ Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
+* [Apache Spark uygulamalarında uzaktan hata ayıklamak amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
+* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](apache-spark-jupyter-notebook-install-locally.md)
 

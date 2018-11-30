@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/06/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: db5502b796fc345b2e2bf083f864d80bd59e7293
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3c683d5819ded4eb3d286969b8c3fc3f0bd42865
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427136"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497506"
 ---
 # <a name="view-a-maintenance-schedule"></a>Bakım zamanlaması görüntüleyin 
 
@@ -34,6 +34,7 @@ Veri ambarınıza uygulanan bakım zamanlaması görüntülemek için aşağıda
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) oluşturma, görüntüleme ve Azure İzleyici'yi kullanarak Uyarıları yönetme hakkında.
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) günlük uyarısı kuralları için Web kancası eylemleri hakkında.
+- [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) oluşturma ve Eylem grupları yönetme.
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/service-health/service-health-overview) Azure hizmet durumu hakkında.
 
 

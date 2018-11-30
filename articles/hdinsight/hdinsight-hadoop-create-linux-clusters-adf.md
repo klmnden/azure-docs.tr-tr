@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036385"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499559"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: Apache Hadoop kümelerini isteğe bağlı Azure Data Factory kullanarak HDInsight oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Bu makalede, Azure Data Factory kullanarak Azure HDInsight, isteğe bağlı bir Apache Hadoop kümesi oluşturmayı öğrenin. Ardından Hive işleri çalıştırmayı ve kümeyi silmek için veri işlem hatları Azure Data Factory'de kullanın. Bu öğreticinin sonunda, küme oluşturma işi çalıştırma ve küme silme zaman çizelgesinde nerede gerçekleştirilen çalıştırma bir büyük veri iş kullanıma hazır hale getirme hakkında bilgi edinin.
+Bu makalede, şunların nasıl oluşturulacağı bir [Apache Hadoop](https://hadoop.apache.org/) isteğe bağlı, Azure Data Factory kullanarak Azure HDInsight kümesi. Ardından Hive işleri çalıştırmayı ve kümeyi silmek için veri işlem hatları Azure Data Factory'de kullanın. Bu öğreticinin sonunda, küme oluşturma işi çalıştırma ve küme silme zaman çizelgesinde nerede gerçekleştirilen çalıştırma bir büyük veri iş kullanıma hazır hale getirme hakkında bilgi edinin.
 
 Bu öğretici aşağıdaki görevleri kapsar: 
 
@@ -43,7 +43,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 
-Bu bölümde, oluşturduğunuz isteğe bağlı HDInsight kümesi için varsayılan depolama alanı olarak kullanılacak bir depolama hesabı oluşturun. Bu depolama hesabında örnek HiveQL betiğini de içerir. (**hivescript.hql**), küme üzerinde çalışan bir örnek Hive işi benzetimini yapmak için kullanın.
+Bu bölümde, oluşturduğunuz isteğe bağlı HDInsight kümesi için varsayılan depolama alanı olarak kullanılacak bir depolama hesabı oluşturun. Bu depolama hesabı da örnek içeren [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) betik (**hivescript.hql**) bir örnek benzetimini yapmak için kullandığınız [Apache Hive](https://hive.apache.org/) küme üzerinde çalışan iş.
 
 Bu bölümde Azure PowerShell Betiği, gerekli dosyaları depolama hesabında kopyalama ve depolama hesabı oluşturmak için kullanılır. Bu bölümde Azure PowerShell örnek betiği aşağıdaki görevleri gerçekleştirir:
 
@@ -338,7 +338,7 @@ Alternatif olarak, Bu öğretici için oluşturduğunuz tüm kaynak grubunu sile
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, isteğe bağlı HDInsight kümesi oluşturma ve Hive işlerini çalıştırmak için Azure Data Factory kullanmayı öğrendiniz. Özel yapılandırma ile HDInsight kümeleri oluşturma hakkında bilgi edinmek için sonraki artciel ilerleyin.
+Bu makalede, isteğe bağlı HDInsight kümesi ve çalışma oluşturmak için Azure Data Factory kullanmayı öğrendiniz [Apache Hive](https://hive.apache.org/) işler. Özel yapılandırma ile HDInsight kümeleri oluşturma hakkında bilgi edinmek için sonraki artciel ilerleyin.
 
 > [!div class="nextstepaction"]
 >[Azure HDInsight kümeleri ile özel yapılandırma oluşturma](hdinsight-hadoop-provision-linux-clusters.md)

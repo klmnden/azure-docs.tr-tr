@@ -8,20 +8,20 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b97a88a36631af1de3c95f0730a9a951b9a3a907
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569072"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584851"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Tek tek cihazlarda veya uygun ölçekte IOT Edge dağıtımlarını anlama
+# <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>IOT Edge otomatik dağıtımlar tek tek cihazlarda veya uygun ölçekte anlama
 
 Azure IOT Edge cihazları izleyin bir [cihaz yaşam döngüsü](../iot-hub/iot-hub-device-management-overview.md) olan diğer IOT cihazları türlerine benzer:
 
-1. IOT Edge cihazlar sağlanabilir, bir işletim sistemi ile bir cihaz görüntüleme ve yükleme kapsamaktadır [IOT Edge çalışma zamanı](iot-edge-runtime.md).
-2. Cihazları çalışmak üzere yapılandırılan [IOT Edge modülleri](iot-edge-modules.md)ve ardından sistem durumu için izlenir. 
-3. Son olarak, değiştirilen veya kalkacak cihazları bırakılabilir.  
+1. Bir işletim sistemi ile bir cihaz görüntüleme ve yükleme yeni IOT Edge cihaz sağlama [IOT Edge çalışma zamanı](iot-edge-runtime.md).
+2. Cihazlarını çalışacak şekilde yapılandırabilirsiniz [IOT Edge modülleri](iot-edge-modules.md)ve sonra kendi durumunu izleyebilir. 
+3. Son olarak, değiştirilen veya kalkacak cihazları devre dışı bırakın.  
 
 Azure IOT Edge modüllerinin IOT Edge cihazlarında çalışmasını yapılandırmak için iki yol sağlar: biri geliştirme ve tek bir cihaz üzerinde hızlı yinelemeler için (Bu yöntem Azure IOT Edge'de kullanılan [öğreticiler](tutorial-deploy-function.md)), ve büyük bir yönetmek için fleets IOT Edge cihazları. Bu yaklaşımların her ikisi de Azure portalında hem de programsal olarak kullanılabilir. Gruplar veya çok sayıda cihazları hedeflemek için hangi cihazların kullanarak modüllerinizi dağıtmak istediğinizi belirtebilirsiniz [etiketleri](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) cihaz ikizinde. Aşağıdaki adımlarda tanımlanan etiketler özelliği aracılığıyla bir Washington eyaletinde cihaz grubuna bir dağıtım bahsedeceğiz. 
 
@@ -29,16 +29,16 @@ Bu makalede yapılandırmasına odaklanılmıştır ve cihazların filolarına a
 
 1. Bir işleç modülleri, hem de hedef cihazlar kümesini tanımlayan bir dağıtım tanımlar. Her dağıtım, bu bilgileri yansıtan bir dağıtım bildirimi sahiptir. 
 2. IOT Hub hizmeti, tüm hedeflenen cihazların istenen modülleriyle yapılandırılacakları ile iletişim kurar. 
-3. IOT Hub hizmeti, IOT Edge cihazları durumu alır ve bunları izlemek işleç için ortaya çıkarır.  Örneğin, bir işleç bir uç cihazın ne zaman başarılı bir şekilde yapılandırılmamış veya bir modülü çalışma zamanı sırasında başarısız olursa görebilirsiniz. 
+3. IOT Hub hizmeti, IOT Edge cihazları alır ve işleci için kullanılabilir hale getirir.  Örneğin, bir işleç bir uç cihazın ne zaman başarılı bir şekilde yapılandırılmamış veya bir modülü çalışma zamanı sırasında başarısız olursa görebilirsiniz. 
 4. Herhangi bir zamanda hedefleme koşullara uyan IOT Edge cihazları yeni dağıtım için yapılandırılmış. Örneğin, sağlanan ve Washington eyaletinde cihaz grubuna eklenen yeni bir IOT Edge cihazı otomatik olarak, Washington eyaletinde tüm IOT Edge cihazları hedefleyen bir dağıtım yapılandırır. 
  
 Bu makalede, yapılandırma ve dağıtım izleme alan her bir bileşeni açıklar. Oluşturma ve dağıtımı güncelleştirme yönergeleri için bkz [dağıtma ve izleme uygun ölçekte IOT Edge modülleri](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Dağıtım
 
-IOT Edge otomatik dağıtım, IOT Edge modül görüntüleri hedeflenen bir IOT Edge cihazlarının örnekler olarak çalıştırmak için atar. Karşılık gelen başlatma parametreleri ile modüllerin listesini dahil etmek için bir IOT Edge dağıtımı bildirimi yapılandırarak çalışır. (Cihaz Kimliğine göre) tek bir cihaz veya cihazları (etiketlere göre) bir grup için bir dağıtım atanabilir. IOT Edge cihazı bir dağıtım bildirimi aldıktan sonra indirir ve karşılık gelen kapsayıcı depolarından modül kapsayıcı görüntüleri yükler ve buna göre yapılandırır. Bir dağıtımı oluşturulduktan sonra operatörün hedeflenen cihazlar düzgün yapılandırılmış olup olmadığını görmek için dağıtım durumunu izleyebilirsiniz.
+IOT Edge otomatik dağıtım, IOT Edge modül görüntüleri hedeflenen bir IOT Edge cihazlarının örnekler olarak çalıştırmak için atar. Karşılık gelen başlatma parametreleri ile modüllerin listesini dahil etmek için bir IOT Edge dağıtımı bildirimi yapılandırarak çalışır. (Cihaz Kimliğine göre) tek bir cihaz veya cihazları (etiketlere göre) bir grup için bir dağıtım atanabilir. IOT Edge cihazı bir dağıtım bildirimi aldıktan sonra indirir ve karşılık gelen kapsayıcı depolarından kapsayıcı görüntüleri yükler ve buna göre yapılandırır. Bir dağıtımı oluşturulduktan sonra operatörün hedeflenen cihazlar düzgün yapılandırılmış olup olmadığını görmek için dağıtım durumunu izleyebilirsiniz.
 
-Cihazlar bir dağıtım ile yapılandırılması IOT Edge cihazları olarak sağlanması gerekir. Dağıtımı almadan önce aşağıdaki önkoşulların cihazda olmalıdır:
+IOT Edge cihazları yalnızca bir dağıtım ile yapılandırılabilir. Dağıtımı almadan önce aşağıdaki önkoşulların cihazda olmalıdır:
 
 * Temel işletim sistemi
 * Moby ya da Docker gibi bir kapsayıcı yönetim sistemi
@@ -61,9 +61,9 @@ Bir özel kapsayıcı kayıt defteri modülü görüntüsü depolanırsa, IOT Ed
 
 ### <a name="target-condition"></a>Hedef koşul
 
-Hedef koşul gereksinimlerini karşılayan yeni cihazları eklemek veya artık dağıtımın yaşam süresi yapmak cihazları kaldırmak için sürekli olarak değerlendirilir. Hizmet herhangi bir hedef koşulu değişiklik algılarsa dağıtım etkinleştirilmesi. 
+Hedef koşulu sürekli olarak değerlendirilen throughtout dağıtım ömrünü ' dir. Gereksinimleri karşılayan yeni cihazları dahil edin ve artık yapan herhangi bir mevcut cihaza kaldırılır. Dağıtım Hizmeti herhangi bir hedef koşulu değişiklik algılarsa yeniden başlatılır. 
 
-Örneğin, bir A hedef koşulu tags.environment dağıtımınız = 'prod'. Dağıtımı devre dışı yaslanıp, on üretim cihaz bulunur. Modüller, on bu cihazları başarıyla yüklenir. IOT Edge aracı durumu, toplam cihaz sayısı 10, 10 başarılı yanıtlar, 0 hata yanıtları ve 0 bekleyen yanıtlar gösterilir. Şimdi tags.environment ile beş daha fazla cihaz Ekle 'prod' =. Hizmet değişikliği algılar ve beş yeni cihazlara dağıtmak çalıştığında, IOT Edge aracı durumu 15 toplam cihaz sayısı, 10 başarılı yanıtlar, 0 hata yanıtları ve 5 bekleyen yanıtlar olur.
+Örneğin, bir A hedef koşulu tags.environment dağıtımınız = 'prod'. Dağıtımı devre dışı yaslanıp, 10 üretim cihaz bulunur. Modüller, bu 10 cihazları başarıyla yüklenir. IOT Edge aracı durumu, toplam cihaz sayısı 10, 10 başarılı yanıtlar, 0 hata yanıtları ve 0 bekleyen yanıtlar gösterilir. Şimdi tags.environment ile beş daha fazla cihaz Ekle 'prod' =. Hizmet değişikliği algılar ve beş yeni cihazlara dağıtmak çalıştığında, IOT Edge aracı durumu 15 toplam cihaz sayısı, 10 başarılı yanıtlar, 0 hata yanıtları ve 5 bekleyen yanıtlar olur.
 
 Herhangi bir Boolean koşul, hedef cihazları seçmek için cihaz ikizlerini etiketleri veya DeviceID kullanın. Etiketleri koşul kullanmak istiyorsanız, "tags" eklemeniz gerekir:{} cihaz ikizi özelliklerini aynı düzeyde altında bölümünde. [Cihaz ikizindeki etiket hakkında daha fazla bilgi edinin](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -78,8 +78,8 @@ Hedef koşul örnekleri:
 Hedef koşul oluştururken bazı kısıtlar şunlardır:
 
 * Cihaz ikizinde etiketleri veya DeviceID kullanarak bir hedef koşulu yalnızca oluşturabilirsiniz.
-* Çift tırnak işareti, herhangi bir bölümünü hedef koşulu izin verilmez. Lütfen tek tırnak işareti kullanın.
-* Tek tırnak, hedef koşulu değerlerini temsil eder. Bu nedenle, cihaz adı bir parçası ise tek tırnak işareti ile başka bir tek tırnak işareti kaçış gerekir. Örneğin, hedef koşulu: operator'sDevice DeviceID yazılması gerekir =' işleci '' sDevice'.
+* Çift tırnak işareti, herhangi bir bölümünü hedef koşulu izin verilmez. Tek tırnak işareti kullanın.
+* Tek tırnak, hedef koşulu değerlerini temsil eder. Bu nedenle, cihaz adı bir parçası ise tek tırnak işareti ile başka bir tek tırnak işareti kaçış gerekir. Örneğin, bir cihazı hedeflemeniz adlı `operator'sDevice`, yazma `deviceId='operator''sDevice'`.
 * Sayı, harf ve şu karakterleri hedef koşulu değerlerde izin verilir: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Öncelik
@@ -97,7 +97,7 @@ Bir dağıtım için hedeflenen tüm IOT Edge cihazı başarıyla uygulanmış o
 * **Hedef** dağıtım koşulu hedefleyen eşleşen cihazları IOT Edge gösterir.
 * **Gerçek** hedeflenen IOT Edge daha yüksek öncelikli başka bir dağıtım tarafından hedeflenmeyen cihazlar gösterilir.
 * **Sağlıklı** IOT Edge modülleri başarıyla dağıtıldığını hizmete geri bildirdiniz cihazları gösterir. 
-* **Sağlıksız** IOT Edge cihazları bildirilen geri hizmet bir veya modülleri değil dağıtılan başarıyla gösterir. Daha fazla hata araştırmak, bu cihazlara uzaktan bağlanma ve günlük dosyalarını görüntülemek için.
+* **Sağlıksız** IOT Edge cihazları bildirilen geri hizmet bir veya modülleri değil dağıtılan başarıyla gösterir. Daha fazla hata araştırmak, bu cihazlar için uzaktan bağlanma ve günlük dosyalarını görüntülemek için.
 * **Bilinmeyen** IOT Edge, bu dağıtımla ilgili herhangi bir durum bildirmedi cihazları gösterir. Daha fazla araştırmak için hizmet bilgileri ve günlük dosyalarını görüntüleyin.
 
 ## <a name="phased-rollout"></a>Aşamalı dağıtımı 
@@ -115,7 +115,7 @@ Aşamalı aşağıdaki aşamaları ve adımları çalıştırılır: 
 
 ## <a name="rollback"></a>Geri alma
 
-Dağıtımları olması durumunda bir hata veya yanlış yapılandırmalarını geri alınabilir.  Bir dağıtım mutlak modül yapılandırması için bir IOT Edge cihazı tanımladığından, tüm modülleri kaldırmak için hedef olsa bile, ek bir dağıtım de aynı cihaza daha düşük bir öncelikte hedeflenmesi gerekir.  
+Bir hata veya yanlış yapılandırmalarını geri alırsanız, dağıtımları alınabilir.  Bir dağıtım mutlak modül yapılandırması için bir IOT Edge cihazı tanımladığından, tüm modülleri kaldırmak için hedef olsa bile, ek bir dağıtım de aynı cihaza daha düşük bir öncelikte hedeflenmesi gerekir.  
 
 Geri alma işlemleri, aşağıdaki sırayla gerçekleştirin: 
 

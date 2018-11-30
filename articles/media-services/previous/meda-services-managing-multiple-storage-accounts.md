@@ -1,6 +1,6 @@
 ---
-title: Birden çok depolama hesaplarında Hizmetleri varlıklar Media yönetme | Microsoft Docs
-description: Bu makaleler arasında birden çok depolama hesabı media services varlıklarını yönetme konusunda rehberlik sağlar.
+title: Birden çok depolama hesabında Hizmetleri varlıklar Media yönetme | Microsoft Docs
+description: Bu makalede birden çok depolama hesabı arasında medya Hizmetleri varlıkları yönetme hakkında rehberlik verin.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89d1838eb9fed1751581b026d82b06bc20de4ecc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788560"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620277"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Varlıklar arasında birden çok depolama hesabı Hizmetleri ortam yönetme
-Microsoft Azure Media Services 2.2 ile başlayarak, tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsiniz. Bir Media Services hesabına birden çok depolama hesabı ekleme yeteneği aşağıdaki avantajları sağlar:
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Varlıklar birden çok depolama hesabında Hizmetleri ortamlarını yönetme
+Microsoft Azure Media Services 2.2 ile başlayarak, tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsiniz. Bir Media Services hesabına birden çok depolama hesabı ekleme olanağı aşağıdaki avantajları sağlar:
 
-* Birden çok depolama hesaplarında varlıklarınızı dengelemesini.
-* (Şu anda bir tek bir depolama hesabı 500 TB'lık üst sınırı olduğu gibi) içerik işleme büyük miktarlarda ölçeklendirme medya Hizmetleri. 
+* Varlıklarınızı birden çok depolama hesabı arasında yük dengelemeyi.
+* (Şu anda tek bir depolama hesabında en fazla bir sınır 500 TB olduğu gibi) içerik işleme büyük miktarlarda ölçeklendirme medya Hizmetleri. 
 
-Bu makalede, birden çok depolama hesabı kullanarak bir Media Services hesabı eklemek gösterilmiştir [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](/powershell/module/azurerm.media). Ayrıca, farklı depolama hesaplarını varlıklar Media Services SDK'sını kullanarak oluştururken belirtmek nasıl gösterir. 
+Bu makalede, birden fazla depolama hesabı kullanarak bir Media Services hesabı eklemek gösterilmiştir [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](/powershell/module/azurerm.media). Ayrıca, farklı depolama hesapları Media Services SDK'sını kullanarak bir varlık oluştururken belirtmek nasıl gösterir. 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-Birden çok depolama hesabı, Media Services hesabını eklerken aşağıdaki maddeler geçerlidir:
+Birden çok depolama hesapları Media Services hesabınızı eklerken aşağıdaki maddeler geçerlidir:
 
-* Bir Media Services hesabına bağlı tüm depolama hesapları, Media Services hesabı ile aynı veri merkezinde olmalıdır.
-* Şu anda bir depolama hesabı için belirtilen Media Services hesabı bağlandıktan sonra ayrılamıyor.
-* Birincil depolama, Media Services hesabı oluşturma süre boyunca belirtilen bir hesaptır. Şu anda, varsayılan depolama hesabı değiştirilemez. 
-* Şu anda AMS hesabının bir seyrek erişimli depolama hesabı eklemek istiyorsanız, depolama hesabı Blob türü olması gerekir ve birincil olmayan için ayarlayın.
+* Bir Media Services hesabına bağlı tüm depolama hesapları Media Services hesabıyla aynı veri merkezinde olması gerekir.
+* Şu anda bir depolama hesabı için belirtilen Media Services hesabına bağlandıktan sonra ayrılamıyor.
+* Birincil depolama, Media Services hesabı oluşturma süre boyunca belirtilen bir hesaptır. Şu anda, varsayılan depolama hesabı değişemez. 
+* Şu anda AMS hesabına bir seyrek erişimli depolama hesabı eklemek istiyorsanız, depolama hesabının Blob türü ve birincil olmayan için ayarlamanız gerekir.
 
-Diğer noktalar:
+Diğer önemli noktalar:
 
-Media Services değerini kullanır **IAssetFile.Name** URL'leri akış içeriğini (örneğin, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ oluştururken özelliği streamingParameters.) Bu nedenle, yüzde kodlama izin verilmiyor. Name özelliği değeri aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' Dosya adı uzantısı.
+Medya Hizmetleri'ni kullanan değerini **IAssetFile.Name** URL'leri akış içeriği için (örneğin, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ oluştururken özelliği streamingParameters.) Bu nedenle, yüzde kodlama izin verilmez. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' Dosya adı uzantısı.
 
 ## <a name="to-attach-storage-accounts"></a>Depolama hesapları eklemek için  
 
-AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](/powershell/module/azurerm.media), aşağıdaki örnekte gösterildiği gibi:
+AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](/powershell/module/azurerm.media), aşağıdaki örnekte gösterildiği gibi:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -58,17 +58,17 @@ AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Ma
     
     Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
-### <a name="support-for-cool-storage"></a>Seyrek erişimli depolama için destek
+### <a name="support-for-cool-storage"></a>Seyrek erişimli depolama desteği
 
-Şu anda AMS hesabının bir seyrek erişimli depolama hesabı eklemek istiyorsanız, depolama hesabı Blob türü olması gerekir ve birincil olmayan için ayarlayın.
+Şu anda AMS hesabına bir seyrek erişimli depolama hesabı eklemek istiyorsanız, depolama hesabının Blob türü ve birincil olmayan için ayarlamanız gerekir.
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Media Services varlıklar arasında birden çok depolama hesaplarını yönetmek için
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Birden çok depolama hesabı arasında Media Services varlıklarını yönetme
 Aşağıdaki kod, aşağıdaki görevleri gerçekleştirmek için en son Media Services SDK'sını kullanır:
 
-1. Belirtilen Media Services hesabıyla ilişkilendirilen tüm depolama hesapları görüntülenir.
-2. Varsayılan depolama hesabı adını alır.
-3. Yeni bir varlık varsayılan depolama hesabı oluşturun.
-4. Kodlama işinin bir çıkış varlığı belirtilen depolama hesabı oluşturun.
+1. Belirtilen Media Services hesabıyla ilişkili olan tüm depolama hesapları görüntülenir.
+2. Varsayılan depolama hesabı adını alın.
+3. Yeni bir varlık, varsayılan depolama hesabı oluşturun.
+4. Kodlama işinin bir çıktı varlığı belirtilen depolama hesabı oluşturun.
    
 ```
 using Microsoft.WindowsAzure.MediaServices.Client;

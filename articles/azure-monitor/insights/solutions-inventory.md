@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ebbedb38256c997f39e30e27aa29139dc2496fd1
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819262"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634447"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
 Bu makalede bir listesini içerir [yönetim çözümleri](solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
@@ -34,7 +34,7 @@ Sütunların açıklamaları aşağıdaki gibidir:
 - **Operations Manager** -Microsoft monitoring agent olarak aynı aracı. Bu yapılandırmada bulunan [bir Operations Manager yönetim grubuna bağlı](../../log-analytics/log-analytics-om-agents.md) Log Analytics'e bağlı. 
 -  **Azure depolama** -çözüm, bir Azure depolama hesabından veri toplar. 
 - **Operations Manager gerekli?** Bağlı Operations Manager yönetim grubu için veri toplama yönetim çözümü tarafından gereklidir. 
-- **Operations Manager aracısı veri yönetim grubu gönderilen** - aracı [bir SCOM yönetim grubuna bağlı](../../log-analytics/log-analytics-om-agents.md), ardından veri yönetim sunucusundaki verileri Log Analytics'e gönderilir. Bu durumda, aracıyı doğrudan Log Analytics'e bağlama gerekmez. Bu kutusu seçili değilse, aracı bir SCOM yönetim grubuna bağlı olsa bile ardından veriler Aracıdan doğrudan Log Analytics'e gönderilir. Log analytics'e iletişim kurabilmesi gerekir [Log Analytics gateway](../../log-analytics/log-analytics-oms-gateway.md).
+- **Operations Manager aracısı veri yönetim grubu gönderilen** - aracı [bir SCOM yönetim grubuna bağlı](../../log-analytics/log-analytics-om-agents.md), ardından veri yönetim sunucusundaki verileri Log Analytics'e gönderilir. Bu durumda, aracıyı doğrudan Log Analytics'e bağlama gerekmez. Bu kutusu seçili değilse, aracı bir SCOM yönetim grubuna bağlı olsa bile ardından veriler Aracıdan doğrudan Log Analytics'e gönderilir. Log analytics'e iletişim kurabilmesi gerekir [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
 - **Toplama sıklığı** -sıklığı belirtir verileri yönetim çözümü tarafından toplanır. 
 
 
@@ -42,38 +42,38 @@ Sütunların açıklamaları aşağıdaki gibidir:
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Activity Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | bildirim |
-| [AD Değerlendirmesi](../../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
-| [AD Çoğaltma Durumu](../../log-analytics/log-analytics-ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 gün |
+| [AD Değerlendirmesi](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
+| [AD Çoğaltma Durumu](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 gün |
 | [Aracı Durumu](solution-agenthealth.md) | Windows ve Linux | &#8226; | &#8226; | | | &#8226; | 1 dakika |
-| [Uyarı Yönetimi](../../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |geldiğinde |
-| [Uyarı Yönetimi](../../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 dakika |
-| [Uyarı Yönetimi](../../log-analytics/log-analytics-solution-alert-management.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 dakika |
+| [Uyarı Yönetimi](../../azure-monitor/platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |geldiğinde |
+| [Uyarı Yönetimi](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 dakika |
+| [Uyarı Yönetimi](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 dakika |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | yok |
 | [Application Insights Bağlayıcısı (Önizleme)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | bildirim |
 | [Otomasyon karma çalışanı](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | yok |
-| [Azure uygulama ağ geçidi analizi](../../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | bildirim |
+| [Azure uygulama ağ geçidi analizi](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | bildirim |
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |
-| [Azure ağ güvenlik grubu Analytics (kullanım dışı)](../../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | bildirim |
+| [Azure ağ güvenlik grubu Analytics (kullanım dışı)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | bildirim |
 | [Azure SQL Analytics (Önizleme)](../../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 dakika |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | bildirim |
-| [Kapasite ve performans (Önizleme)](../../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |geldiğinde |
+| [Kapasite ve performans (Önizleme)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |geldiğinde |
 | [Değişiklik İzleme](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |saatlik |
 | [Değişiklik İzleme](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |saatlik |
 | [Kapsayıcılar](../../log-analytics/log-analytics-containers.md) | Windows ve Linux | &#8226; | &#8226; |  |  |  | 3 dakika |
-| [Anahtar Kasası Analizi](../../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |bildirim |
+| [Anahtar Kasası Analizi](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |bildirim |
 | [Kötü Amaçlı Yazılım Değerlendirmesi](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |saatlik |
-| [Ağ Performansı İzleyicisi](../../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP el sıkışmaları veri her 5 saniyede 3 dakikada gönderilen. |
+| [Ağ Performansı İzleyicisi](../../azure-monitor/insights/network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP el sıkışmaları veri her 5 saniyede 3 dakikada gönderilen. |
 | [Office 365 Analytics (Önizleme)](solution-office-365.md) |Windows | | | | | |bildirim |
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |
 | [Service Fabric Analizi](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 dakika |
 | [Hizmet Eşlemesi](../../azure-monitor/insights/service-map.md) | Windows ve Linux | &#8226; | &#8226; |  |  |  | 15 saniye |
-| [SQL Değerlendirmesi](../../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
-| [SurfaceHub](../../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |geldiğinde |
-| [System Center Operations Manager değerlendirmesi (Önizleme)](../../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | yedi gün |
+| [SQL Değerlendirmesi](../../azure-monitor/insights/sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
+| [SurfaceHub](../../azure-monitor/insights/surface-hubs.md) |Windows |&#8226; | | | | |geldiğinde |
+| [System Center Operations Manager değerlendirmesi (Önizleme)](../../azure-monitor/insights/scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | yedi gün |
 | [Güncelleştirme yönetimi](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |en az 2 katı gün ve güncelleştirme yüklendikten sonra 15 dakika |
 | [Yükseltme Hazırlığı](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 gün |
-| [(Kullanım dışı) VMware izleme](../../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 dakika |
-| [Wire Data 2.0 (Önizleme)](../../log-analytics/log-analytics-wire-data.md) |Windows (2012 R2 / 8.1 veya üzeri) |&#8226; |&#8226; | | | | 1 dakika |
+| [(Kullanım dışı) VMware izleme](../../azure-monitor/insights/vmware.md) | Linux | &#8226; |  |  |  |  | 3 dakika |
+| [Wire Data 2.0 (Önizleme)](../../azure-monitor/insights/wire-data.md) |Windows (2012 R2 / 8.1 veya üzeri) |&#8226; |&#8226; | | | | 1 dakika |
 
 
 

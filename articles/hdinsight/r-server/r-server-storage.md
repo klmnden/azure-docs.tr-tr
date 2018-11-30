@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011213"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498148"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight üzerinde ML Hizmetleri için Azure depolama çözümleri
 
@@ -26,7 +26,7 @@ HDInsight üzerinde ML Hizmetleri, depolama çözümleri çeşitli veri, kod vey
 
 Ayrıca, birden çok Azure depolama hesabı veya HDInsight kümenizle kapsayıcıları erişme seçeneğiniz de vardır. Azure dosya depolama, uygun veri depolama seçeneğini kullanmak için bir Azure depolama alanı dosya paylaşımını bağlayabilmeniz, örneğin, sağlar kenar düğümündeki Linux dosya sistemi ' dir. Ancak, Azure dosya paylaşımlarını bağlanır ve Windows veya Linux gibi desteklenen bir işletim sistemine sahip tüm sistemler tarafından kullanılan. 
 
-HDInsight Hadoop kümesi oluşturduğunuzda, seçeneklerinden birini belirtin bir **Azure depolama** hesabı veya bir **Data Lake store**. Bu hesabı belirli depolama kapsayıcısından (örneğin, Hadoop dağıtılmış dosya sistemi) oluşturduğunuz küme için dosya sistemini barındırır. Daha fazla bilgi ve yönergeler için bkz:
+HDInsight Apache Hadoop kümesi oluşturduğunuzda, ya da belirttiğiniz bir **Azure depolama** hesabı veya bir **Data Lake store**. Bu hesabı belirli depolama kapsayıcısından (örneğin, Hadoop dağıtılmış dosya sistemi) oluşturduğunuz küme için dosya sistemini barındırır. Daha fazla bilgi ve yönergeler için bkz:
 
 - [HDInsight ile Azure Depolama'yı kullanma](../hdinsight-hadoop-use-blob-storage.md)
 - [Azure HDInsight kümeleriyle kullanımı Data Lake Store](../hdinsight-hadoop-use-data-lake-store.md)
@@ -170,6 +170,6 @@ Azure dosyaları'nın önemli bir avantajı dosya paylaşımları bağlı Window
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight kümesinde ML hizmetleri genel bakış](r-server-overview.md)
-* [Hadoop kümesinde ML hizmetleri kullanmaya başlayın](r-server-get-started.md)
+* [Apache Hadoop kümesinde ML hizmetleri kullanmaya başlayın](r-server-get-started.md)
 * [HDInsight üzerinde ML Services kümesi için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
 

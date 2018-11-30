@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235199"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635841"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
@@ -51,14 +51,14 @@ Sertifikalar, anahtar kasası sertifikası olarak birbirine bağlı üç birbiri
 
 **3. adım** -Yöneticisi veya CA ile doğrudan hesabından bir Contoso Yöneticisi, sertifikalar, CA'ın bağlı olarak sahip bir Contoso çalışanı (Key Vault kullanıcı) ile birlikte bir sertifika edinebilirsiniz.  
 
--   Bir anahtar kasası tarafından bir Ekle kimlik bilgisi işleme başlamak [sertifikayı veren ayarlama](/rest/api/keyvault/setcertificateissuer) kaynak. Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.
+-   Bir anahtar kasası tarafından bir Ekle kimlik bilgisi işleme başlamak [sertifikayı veren ayarlama](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) kaynak. Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.
     -   Örn. MyDigiCertIssuer  
         -   Sağlayıcı  
         -   Kimlik bilgileri – CA hesabı kimlik bilgileri. Her CA'ın kendi belirli veri vardır.  
 
      CA sağlayıcılarıyla hesapları oluşturma hakkında daha fazla bilgi için ilgili gönderiye bakın [Key Vault blog](https://aka.ms/kvcertsblog).  
 
-**Adım 3.1** - ayarlayın [sertifika kişileri](/rest/api/keyvault/setcertificatecontacts) bildirimleri. Key Vault kullanıcı sorumlu budur. Key Vault, bu adımı uygulamaz.  
+**Adım 3.1** - ayarlayın [sertifika kişileri](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) bildirimleri. Key Vault kullanıcı sorumlu budur. Key Vault, bu adımı uygulamaz.  
 
 Not - Bu süreçte adım 3.1, tek seferlik bir işlemdir.  
 
@@ -83,7 +83,7 @@ Not - Bu süreçte adım 3.1, tek seferlik bir işlemdir.
       -   Yenileme bilgilerinizi - > örn. 90 gün kaldığında  
 
   - Bir sertifika oluşturma işlemi, genellikle zaman uyumsuz bir işlemdir ve anahtar kasanız oluşturma sertifika işlemi durumu için yoklama içerir.  
-[Sertifika işlemi Al](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
+[Sertifika işlemi Al](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Durum: hata bilgileri ile başarısız oldu veya iptal edildi tamamlandı  
       -   Oluşturmak için gecikme nedeniyle iptal etme işlemi başlatılabilir. İptal edebilir veya etkili olmayabilir.  
 

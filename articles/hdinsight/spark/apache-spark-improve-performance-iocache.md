@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954515"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581944"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight GÇ Cache (Önizleme) kullanarak Apache Spark iş yüklerinin performansı
 
-GÇ, verileri önbelleğe alma hizmeti için Azure HDInsight, Apache Spark işlerinin performansı artıran önbelleğidir. GÇ önbellek, Spark kümeleri üzerinde çalışabilen Tez ve Hive iş yükleri ile de çalışır. GÇ önbelleği RubiX adlı açık kaynak bir önbelleğe alma bileşen kullanır. RubiX, verilere bulut depolama sistemlerinde büyük veri analiz altyapıları ile kullanmak için yerel disk önbellektir. RubiX sistemleri, önbelleğe alma arasında benzersiz olduğundan Solid-State sürücüleri (SSD) yerine işletim bellek ayırma amacıyla önbelleğe almak için kullanır. GÇ önbellek hizmeti başlatır ve kümenin her çalışan düğümüne RubiX meta verileri sunucularını yönetir. Ayrıca, kümenin tüm hizmetleri RubiX önbelleğin saydam kullanım için yapılandırır.
+GÇ, verileri önbelleğe alma hizmeti için Azure HDInsight, Apache Spark işlerinin performansı artıran önbelleğidir. GÇ önbellek ile de çalışır [Apache TEZ](https://tez.apache.org/) ve [Apache Hive](https://hive.apache.org/) üzerinde çalışan iş yükleri [Apache Spark](https://spark.apache.org/) kümeleri. GÇ önbelleği RubiX adlı açık kaynak bir önbelleğe alma bileşen kullanır. RubiX, verilere bulut depolama sistemlerinde büyük veri analiz altyapıları ile kullanmak için yerel disk önbellektir. RubiX sistemleri, önbelleğe alma arasında benzersiz olduğundan Solid-State sürücüleri (SSD) yerine işletim bellek ayırma amacıyla önbelleğe almak için kullanır. GÇ önbellek hizmeti başlatır ve kümenin her çalışan düğümüne RubiX meta verileri sunucularını yönetir. Ayrıca, kümenin tüm hizmetleri RubiX önbelleğin saydam kullanım için yapılandırır.
 
 Çoğu SSD'ler, bant genişliği saniye başına 1'den fazla GByte sağlar. İşletim sistemi bellek içi dosyası önbelleği tarafından tamamlanan bu bant genişliği, büyük veri işlem işleme altyapıları Apache Spark'ı yüklemek için yeterli bant genişliği sağlar. İşlem bellek seçeneği gibi yoğun bellek bağımlı görevlerini işlemek Apache Spark için kullanılabilir kalır. Bellek işletme özel kullanımda olan Apache Spark'ın en iyi kaynak kullanımını elde etmek sağlar.  
 
@@ -52,7 +52,7 @@ Azure HDInsight GÇ önbellek Önizleme'de varsayılan olarak devre dışı bır
   
 GÇ önbelleğini etkinleştirdikten sonra Spark işleri çalıştırma disk alanı hatalar alabilirsiniz. Spark ayrıca yerel disk depolama alanı karıştırma işlemleri sırasında veri depolamak için kullandığından bu hataları oluşur. Spark SSD alanı yetersiz GÇ önbelleği etkindir ve Spark deposu için alan azaltılmış bir kez çalıştırılabilir. Toplam SSD alanı yarısını GÇ önbelleği varsayılan olarak kullandığı alan miktarı. GÇ önbelleği için disk alanı kullanımı Ambari yapılandırılabilir. Disk alanı hataları alırsanız, g/ç önbelleği için kullanılan SSD alanı miktarını azaltmak ve hizmeti yeniden başlatın. GÇ önbelleği için ayrılan alanın değiştirmek için aşağıdaki adımları uygulayın:
 
-1. Ambari seçin **HDFS** sol taraftaki hizmet.
+1. Apache Ambari seçin **HDFS** sol taraftaki hizmet.
 
 1. Seçin **yapılandırmaları** ve **Gelişmiş** sekmeler.
 

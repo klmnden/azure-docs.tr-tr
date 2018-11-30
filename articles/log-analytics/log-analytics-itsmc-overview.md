@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: c5b05b4ce33222ee9dd84950066b3bd36ea315de
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cab78d09038b8ab00c318b3ce615d99139e9b005
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824872"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634039"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -84,10 +84,10 @@ Bir bağlantı oluşturmak için ITSM Bağlayıcısı çözümünden bağlantıs
 
 Bağlanmakta olduğunuz ITSM ürün bağlı olarak, aşağıdaki adımları kullanın:
 
-- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [System Center Service Manager (SCSM)](../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 ITSM araçlarınıza prepped sonra bir bağlantı oluşturmak için aşağıdaki adımları izleyin:
 
@@ -100,7 +100,7 @@ ITSM araçlarınıza prepped sonra bir bağlantı oluşturmak için aşağıdaki
 
     ![ITSM Bağlantısı Ekle](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
-4.  Bağlantı ayarlarını anlatıldığı gibi belirtin [ITSM ürünler/hizmetler Makalenizi ITSMC bağlantı yapılandırılırken](log-analytics-itsmc-connections.md).
+4.  Bağlantı ayarlarını anlatıldığı gibi belirtin [ITSM ürünler/hizmetler Makalenizi ITSMC bağlantı yapılandırılırken](../azure-monitor/platform/itsmc-connections.md).
 
     > [!NOTE]
 
@@ -193,7 +193,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Çözümleyen
 - Kapatma tarihi
 - Kaynak
-- Atanan
+- Atamayı Alan
 - Kategori
 - Unvan
 - Açıklama
@@ -214,7 +214,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Oluşturan
 - Kapatma tarihi
 - Kaynak
-- Atanan
+- Atamayı Alan
 - Unvan
 - Tür
 - Kategori
@@ -225,7 +225,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Öncelik
 - Risk
 - Etki
-- Atanan
+- Atamayı Alan
 - Oluşturma Tarihi
 - Kapatılma tarihi
 - Son Değişiklik Tarihi
@@ -291,7 +291,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - doğru kullanıcı adı, parola, istemci Kimliğini ve istemci gizli anahtarı bağlantıların her biri için girdiğiniz emin olun.  
     - karşılık gelen ITSM ürününde bağlantı kurmak için yeterli ayrıcalıklara sahip olup olmadığını denetleyin.  
  - Service Manager bağlantıları için  
-    - Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturuldu emin olun. Service Manager şirket içi makine ile bağlantı kurulur başarıyla doğrulamak için Web uygulaması URL'si için yapma belgelerinde açıklandığı ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+    - Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturuldu emin olun. Service Manager şirket içi makine ile bağlantı kurulur başarıyla doğrulamak için Web uygulaması URL'si için yapma belgelerinde açıklandığı ziyaret [karma bağlantı](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  ServiceNow verileri Log Analytics'e eşitlenmediğinden, ServiceNow örneği değil uyku emin olun. Servicenow'ı geliştirme örnekleri, bazen boştayken uzun bir süre için uyku moduna geçer. Aksi takdirde, sorunu bildirin.
 3.  Log Analytics uyarılarını yangın ancak iş öğeleri ITSM ürününde oluşturulmamış veya yapılandırma öğeleri oluşturulan/herhangi diğer genel bilgi için aşağıdaki konumlarda bakın veya iş öğelerine bağlı değildir:
@@ -301,7 +301,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager Web uygulama dağıtım sorunlarını giderme
 1.  Web uygulaması dağıtımı ile ilgili olması durumunda, kaynakları oluşturun/dağıtmak için belirtilen abonelikte yeterli izinlere sahip olun.
 2.  Alırsanız bir **"Nesnesinin bir nesnenin örneğine ayarlı değil başvuru"** çalıştırdığınızda hata [betik](log-analytics-itsmc-service-manager-script.md), altında geçerli değerler girdiğinizden emin olun **Kullanıcı Yapılandırması** bölümü .
-3.  Service bus geçiş ad alanı oluşturmak başarısız olursa, abonelikte gereken kaynak sağlayıcısı kayıtlı olduğundan emin olun. Kayıtlı değil, aynı zamanda Azure portalından el ile service bus geçiş ad alanı oluşturun. Bunu çalışırken de oluşturabilirsiniz [karma bağlantı oluşturma](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) Azure portalından.
+3.  Service bus geçiş ad alanı oluşturmak başarısız olursa, abonelikte gereken kaynak sağlayıcısı kayıtlı olduğundan emin olun. Kayıtlı değil, aynı zamanda Azure portalından el ile service bus geçiş ad alanı oluşturun. Bunu çalışırken de oluşturabilirsiniz [karma bağlantı oluşturma](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) Azure portalından.
 
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun
@@ -309,4 +309,4 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 Tüm sorguları veya BT Hizmet Yönetimi Bağlayıcısı geribildirim için bizimle iletişime geçin [ omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[BT Hizmet Yönetimi Bağlayıcısı için ITSM ürün veya hizmetlerden ekleme](log-analytics-itsmc-connections.md).
+[BT Hizmet Yönetimi Bağlayıcısı için ITSM ürün veya hizmetlerden ekleme](../azure-monitor/platform/itsmc-connections.md).

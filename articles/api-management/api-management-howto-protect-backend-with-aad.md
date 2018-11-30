@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577003"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635076"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory ile API Management OAuth 2.0 kullanarak bir API'yi koruma
 
@@ -100,8 +100,6 @@ API ve geliştirici Konsolu temsil etmek için iki uygulama kaydolduğundan, ark
 
 > [!NOTE]
 > Varsa **Azure Active Directory** select diğer uygulamalara izinler altında listelenmez **Ekle** listeden eklemek için.
-> 
-> 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>OAuth 2.0 kullanıcı kimlik Geliştirici konsolunda etkinleştir
 
@@ -109,7 +107,7 @@ Bu noktada, uygulamalarınızı Azure AD'de oluşturduğunuz ve arka uç uygulam
 
 Bu örnekte istemci uygulaması Geliştirici konsoludur. Aşağıdaki adımlar, OAuth 2.0 kullanıcı kimlik Geliştirici konsolunda etkinleştirmek açıklanmaktadır. 
 
-1. API Management Örneğinize göz atın.
+1. Azure Portalı'nda, API Management Örneğinize göz atın.
 
 2. Seçin **OAuth 2.0** > **ekleme**.
 
@@ -120,6 +118,9 @@ Bu örnekte istemci uygulaması Geliştirici konsoludur. Aşağıdaki adımlar, 
 5. İçin **yetkilendirme verme türleri**seçin **yetkilendirme kodu**.
 
 6. Belirtin **yetkilendirme uç noktası URL'si** ve **belirteç uç noktası URL'si**. Bu değerleri almak **uç noktaları** Azure AD kiracınızda sayfası. Gözat **uygulama kayıtları** yeniden sayfasında ve seçin **uç noktaları**.
+
+    >[!NOTE]
+    > Kullanım **v1** burada uç noktaları
 
 7. Kopyalama **OAuth 2.0 yetkilendirme uç noktası**, yapıştırın **yetkilendirme uç noktası URL'si** metin kutusu.
 
@@ -154,6 +155,9 @@ Sonraki adım, API'niz için OAuth 2.0 kullanıcı kimlik etkinleştirmektir. Bu
 5. **Kaydet**’i seçin.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Başarıyla Geliştirici portalından API çağırma
+
+> [!NOTE]
+> Bu bölümde uygulanmaz **tüketim** katmanı, Geliştirici Portalı desteklemez.
 
 OAuth 2.0 kullanıcı kimlik doğrulaması etkin göre `Echo API`, bir API'yi çağırmadan önce Geliştirici konsolu, kullanıcı adına bir erişim belirteci alır.
 

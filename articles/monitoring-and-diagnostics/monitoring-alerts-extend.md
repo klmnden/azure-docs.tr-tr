@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0f0bee419fdb119fcd99f0e72cc61ddf20f6253a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712951"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632679"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Azure uyarıları log Analytics uyarıları genişletme
 Yakın zamanda kadar Azure Log Analytics, Log Analytics verilerine dayalı koşulları proaktif olarak bildirebilirsiniz kendi uyarı işlevleri dahil. Microsoft Operations Management Suite portalında uyarı kuralları Yönetildi Yeni uyarı deneyimi artık Microsoft azure'da çeşitli hizmetlerdeki uyarı tümleştirilmiştir. Bu olarak kullanılabilir **uyarılar** Azure portalında, Azure İzleyici ve etkinlik günlükleri, ölçümler, uyarı destekler ve hem Log Analytics hem de Azure Application Insights günlüğe kaydeder. 
@@ -55,7 +55,7 @@ Var olan bir uyarı düzenleme veya yeni bir uyarı Operations Management Suite 
 > Uyarıları eklemek veya düzenlemek için gereken kişiler için atanan izinler Azure'da düzgün bir şekilde atandığından emin olun. Hangi izinleri vermek için gereksinim duyduğunuz anlamak için bkz: [Azure İzleyici ve uyarı kullanarak izinlerini](monitoring-roles-permissions-security.md).  
 > 
 
-Uyarıları oluşturmaya devam edebilirsiniz [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) ve [Log Analytics kaynak şablonu](../azure-monitor/insights/solutions-resources-searches-alerts.md). Bunu yaptığınızda Eylem grupları içermelidir.
+Uyarıları oluşturmaya devam edebilirsiniz [Log Analytics API](../azure-monitor/platform/api-alerts.md) ve [Log Analytics kaynak şablonu](../azure-monitor/insights/solutions-resources-searches-alerts.md). Bunu yaptığınızda Eylem grupları içermelidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

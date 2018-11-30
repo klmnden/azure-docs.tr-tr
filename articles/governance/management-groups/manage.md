@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 627ef0123f05e768dd8a83c197b25da7f161a37c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853005"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582426"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -272,12 +272,26 @@ Azure CLI ile bir yönetim grubuna taşımak için güncelleştirme komutunu kul
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>Etkinlik günlüklerini kullanarak denetim Yönetim grupları
+
+Yönetim grupları bu API aracılığıyla izlemek için kullanın [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs). Şu anda Yönetim grupları etkinliğini izlemek için PowerShell, CLI veya Azure portalını kullanmak mümkün değildir.
+
+1. Azure AD kiracısı bir kiracı Yöneticisi olarak [erişimini yükseltme](../../role-based-access-control/elevate-access-global-admin.md) kapsamı üzerinde'da Denetim kullanıcıya bir okuyucu rolü atamak `/providers/microsoft.insights/eventtypes/management`.
+1. Denetim kullanıcı olarak çağrı [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs) yönetim grubu etkinlikleri görmek için. Kaynak sağlayıcısı tarafından filtrelemek istersiniz **Microsoft.Management** tüm yönetim grubu etkinlik için.  Örnek:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Rahatça komut satırından bu API'yi çağırmak için deneyin [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yönetim grupları hakkında daha fazla bilgi için bkz:
+Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
-- [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](overview.md)
 - [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
-- [Azure Powershell modülünü yükleme](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [REST API Belirtimini gözden geçirme](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Azure CLI uzantısını yükleme](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
+- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](https://aka.ms/mgPSdocs)
+- [REST API Yönetim gruplarını gözden geçirin](https://aka.ms/mgAPIdocs)
+- [Azure CLI'de Yönetim gruplarını gözden geçirin](https://aka.ms/mgclidoc)

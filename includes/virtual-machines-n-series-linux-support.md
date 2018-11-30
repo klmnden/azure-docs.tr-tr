@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: eef61421de2a87750caac228d12888421f7442a8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df7d8815eeb588e4e99041844642b6721e25dad7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716289"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585857"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Desteklenen dağıtımlar ve sürücüler
 
@@ -34,7 +34,7 @@ Microsoft, sanal uygulamaları veya NV ve sanal çalışma İstasyonlarınızı 
 
 | Dağıtım | Sürücü |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.4 ya da 7.3<br/><br/>CentOS tabanlı 7.3 veya 7.4 | NVIDIA kılavuz 6.2, sürücü dalı R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.4 ya da 7.3<br/><br/>CentOS tabanlı 7.3 veya 7.4 | NVIDIA Kılavuz 7, sürücü dalı R410|
 
 > [!WARNING] 
 > Red Hat ürünlerine üçüncü taraf yazılım yüklenmesi Red Hat destek koşullarını etkileyebilir. Bkz. [Red Hat Bilgi Bankası makalesi](https://access.redhat.com/articles/1067).

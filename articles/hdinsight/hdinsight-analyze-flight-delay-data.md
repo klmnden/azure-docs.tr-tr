@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e792eb9ab2e2902bfc9c84db7c1c344fb0cf67f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622355"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497752"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight Hive kullanarak uçuş gecikme verilerini çözümleme
-Hive, Apache Hadoop MapReduce işlerini adlı bir SQL benzeri bir betik dilini çalışan bir yol sağlar  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetleme doğru sorgulamak ve büyük hacimli verileri analiz etme.
+# <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme
+[Apache Hive](https://hive.apache.org/) çalıştırmanın sağlar [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) işleri SQL benzeri bir betik dilini aracılığıyla adlı *[HiveQL] [ hadoop-hiveql]*, hangi uygulanabilir özetleme, sorgulamaya ve analiz etmeye büyük hacimli verileri doğru.
 
 > [!IMPORTANT]
-> Bu belgedeki adımlarda Windows tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı bir küme ile çalışmanıza adımlar için bkz: [HDInsight (Linux)'da Hive kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md).
+> Bu belgedeki adımlarda Windows tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı bir küme ile çalışmanıza adımlar için bkz: [HDInsight (Linux), Apache Hive'ı kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md).
 
 Azure HDInsight'ın en önemli avantajlarından biri veri depolama ve işlem ayrılmasıdır. HDInsight, veri depolama için Azure Blob Depolama kullanır. Tipik bir iş üç parça içerir:
 
@@ -44,7 +44,7 @@ Diyagramdaki sayılar için bölüm başlıkları karşılık geldiğini unutmay
 Çok uçuş gecikme verilerini karşıya yükleme, oluşturma/Hive sorgu dizesi karşıya yükleme ve Azure SQL veritabanı Sqoop işine hazırlama yönergeleri bulabilirsiniz.
 
 > [!NOTE]
-> Bu belgedeki adımlarda Windows tabanlı HDInsight kümelerine özeldir. Linux tabanlı bir küme ile çalışmanıza adımlar için bkz: [(Linux) HDInsight Hive kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)
+> Bu belgedeki adımlarda Windows tabanlı HDInsight kümelerine özeldir. Linux tabanlı bir küme ile çalışmanıza adımlar için bkz: [Apache Hive, HDInsight (Linux) kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
@@ -76,7 +76,7 @@ Aşağıdaki tabloda, bu öğreticide kullanılan dosyaları listeler:
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Küme oluşturma ve Hive/Sqoop işleri çalıştırma
 Hadoop MapReduce toplu işlem ' dir. Bir Hive işi çalıştırmak için en uygun maliyetli iş için bir küme oluşturmak ve iş tamamlandıktan sonra işi silmek için yoludur. Bu işlem aşağıdaki betiği kapsar.
-Bir HDInsight kümesi oluşturmayı ve Hive işlerini çalıştırma hakkında daha fazla bilgi için bkz. [Hadoop kümeleri oluşturma HDInsight] [ hdinsight-provision] ve [HDInsight ile Hive kullanma] [hdinsight-use-hive].
+Bir HDInsight kümesi oluşturmayı ve Hive işlerini çalıştırma hakkında daha fazla bilgi için bkz. [Apache Hadoop kümeleri oluşturma HDInsight] [ hdinsight-provision] ve [HDInsight ile Hive kullanma Apache] [hdinsight-use-hive].
 
 **Azure PowerShell ile Hive sorguları çalıştırmak için**
 
@@ -237,10 +237,10 @@ Bir HDInsight kümesi oluşturmayı ve Hive işlerini çalıştırma hakkında d
 - - -
 
 ## <a id="appendix-a"></a>Ek A - karşıya yükleme uçuş gecikme verilerini Azure Blob Depolama
-Veri dosyası ve HiveQL komut dosyalarını karşıya yükleme (bkz [ek B](#appendix-b)) bazı planlama yapmak gerekir. Veri dosyaları ve bir HDInsight kümesi oluşturmayı ve Hive işi önce HiveQL dosyasını depolamak için kullanılan uygulamadır. İki seçeneğiniz vardır:
+Veri dosyasını karşıya yükleme ve [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) komut dosyaları (bkz [ek B](#appendix-b)) bazı planlama yapmak gerekir. Veri dosyaları ve bir HDInsight kümesi oluşturmayı ve Hive işi önce HiveQL dosyasını depolamak için kullanılan uygulamadır. İki seçeneğiniz vardır:
 
 * **Varsayılan dosya sistemi olarak HDInsight küme tarafından kullanılacak olan aynı Azure depolama hesabını kullanın.** HDInsight küme depolama hesabı erişim anahtarı bulunacağından, ek değişiklik gerekmez.
-* **HDInsight kümesi varsayılan dosya sisteminden farklı bir Azure depolama hesabını kullanırsınız.** Bu durumda, Windows PowerShell komut dosyası bulundu oluşturma bölümünü değiştirmeniz gerekir [oluşturma HDInsight kümesi ve çalışma Hive/Sqoop işleri](#runjob) ek bir depolama hesabı depolama hesabı bağlamak için. Yönergeler için [Hadoop kümeleri oluşturma HDInsight][hdinsight-provision]. HDInsight kümesi, ardından depolama hesabı için erişim anahtarı bilir.
+* **HDInsight kümesi varsayılan dosya sisteminden farklı bir Azure depolama hesabını kullanırsınız.** Bu durumda, Windows PowerShell komut dosyası bulundu oluşturma bölümünü değiştirmeniz gerekir [oluşturma HDInsight kümesi ve çalışma Apache Hive/Sqoop işleri](#runjob) ek bir depolama hesabı depolama hesabı bağlamak için. Yönergeler için [Apache Hadoop kümeleri oluşturma HDInsight][hdinsight-provision]. HDInsight kümesi, ardından depolama hesabı için erişim anahtarı bilir.
 
 > [!NOTE]
 > Blob Depolama yolu veri dosyası için HiveQL betik dosyasında kodlanmış zordur. Uygun şekilde güncelleştirmeniz gerekir.
@@ -359,7 +359,7 @@ Dosyaları karşıya yükleme için farklı bir yöntem kullanmayı seçerseniz,
 - - -
 
 ## <a id="appendix-b"></a>Ek B - oluşturma ve HiveQL betiğini karşıya yükleyin
-Azure PowerShell kullanarak, aynı anda birden çok HiveQL ifadelerini bir çalıştırma veya bir komut dosyası HiveQL ifadesine paketleyebilirsiniz. Bu bölümde, HiveQL betiğini oluşturma ve betik, Azure PowerShell kullanarak Azure Blob depolama alanına karşıya yükleme işlemini göstermektedir. Hive, Azure Blob Depolama alanında depolanacak HiveQL betikleri gerektirir.
+Azure PowerShell kullanarak, birden çok çalıştırabileceğiniz [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) deyimleri bir zaman veya paket bir betik dosyasına HiveQL deyimi. Bu bölümde, HiveQL betiğini oluşturma ve betik, Azure PowerShell kullanarak Azure Blob depolama alanına karşıya yükleme işlemini göstermektedir. Hive, Azure Blob Depolama alanında depolanacak HiveQL betikleri gerektirir.
 
 HiveQL betiğini aşağıdakileri gerçekleştirin:
 
@@ -369,7 +369,7 @@ HiveQL betiğini aşağıdakileri gerçekleştirin:
 4. **Gecikmeler tablosu oluşturma**. Daha fazla işleme önce verileri temizlemek yararlıdır. Bu sorgu yeni bir tablo oluşturur *gecikmeleri*, delays_raw tablosundan. Not (daha önce belirtildiği gibi) TEMP sütunları kopyalanmaz ve **substring** işlevi, tırnak işaretleri verileri kaldırmak için kullanılır.
 5. **Test sonuçlarını gruplar ve ortalama hava durumu gecikme şehir adı tarafından işlem.** Ayrıca Blob depolama alanına sonuçları çıktı olarak sunar. Sorgu kesme verilerini kaldırır ve dışladığı Not satırları değeri **weather_delay** null. Bunun gerekli olmasının nedeni, Sqoop, daha sonra Bu öğreticide kullanılan değerler düzgün bir şekilde varsayılan olarak işlemiyor.
 
-HiveQL komutların tam listesi için bkz. [Hive veri tanımlama dili][hadoop-hiveql]. Her HiveQL komutunu noktalı virgül ile sonlandırmanız gerekir.
+HiveQL komutların tam listesi için bkz. [Apache Hive veri tanımlama dili][hadoop-hiveql]. Her [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) gerekir Sonlandır noktalı virgül ile komutu.
 
 **HiveQL komut dosyası oluşturmak için**
 
@@ -712,13 +712,13 @@ HiveQL komutların tam listesi için bkz. [Hive veri tanımlama dili][hadoop-hiv
 5. Betik çıktısı doğrulayın. Betik başarıyla çalıştırdınız emin olun.
 
 ## <a id="nextsteps"></a> Sonraki adımlar
-Artık Azure Blob depolama alanına bir dosya karşıya yükleme, Azure Blob depolama alanındaki verilerin kullanarak bir Hive tablosu doldurmak nasıl, Hive sorgularının nasıl çalıştırılacağını ve verileri HDFS, bir Azure SQL veritabanına dışarı aktarmak için Sqoop kullanma anlayın. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Artık Azure Blob depolama alanına bir dosya karşıya yükleme, Azure Blob depolama alanındaki verilerin kullanarak bir Apache Hive tablosu doldurmak nasıl, Hive sorgularının nasıl çalıştırılacağını ve verileri dışarı aktarmak için Sqoop kullanma anladığınıza göre [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) için bir Azure SQL Veritabanı. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [HDInsight ile çalışmaya başlama][hdinsight-get-started]
-* [HDInsight ile Hive kullanma][hdinsight-use-hive]
-* [HDInsight ile Oozie kullanma][hdinsight-use-oozie]
-* [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop]
-* [HDInsight ile Pig kullanma][hdinsight-use-pig]
+* [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
+* [HDInsight ile Apache Oozie kullanma][hdinsight-use-oozie]
+* [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop]
+* [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
 * [HDInsight için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

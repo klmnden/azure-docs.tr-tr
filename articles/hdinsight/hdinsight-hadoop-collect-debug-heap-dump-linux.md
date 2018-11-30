@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037727"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498691"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için yığın dökümlerini etkinleştirme
 
@@ -39,7 +39,7 @@ Ayrıca eşleme için yığın dökümlerini etkinleştirme ve azaltma işlemler
 
 ## <a name="configuration"></a>Yığın Dökümü yapılandırma anlama
 
-Yığın dökümlerini seçenekleri geçirerek etkinleştirilir (bazen bölgedeyse olarak bilinen veya parametreleri) bir hizmet başlatıldığında JVM için. Hadoop Hizmetleri için bu seçenekleri geçirilecek hizmetini başlatmak için kullanılan bir kabuk betiği değiştirebilirsiniz.
+Yığın dökümlerini seçenekleri geçirerek etkinleştirilir (bazen bölgedeyse olarak bilinen veya parametreleri) bir hizmet başlatıldığında JVM için. Çoğu [Apache Hadoop](https://hadoop.apache.org/) Hizmetleri, bu seçenekler geçirilecek hizmetini başlatmak için kullanılan bir kabuk betiği değiştirebilirsiniz.
 
 Her komut dosyası için bir dışarı aktarma yok  **\* \_OPTS**, JVM için geçirilen seçenekleri içerir. Örneğin, **hadoop env.sh** ile başlayan satırı betik `export HADOOP_NAMENODE_OPTS=` NameNode hizmeti için seçenekleri içerir.
 
@@ -49,7 +49,7 @@ Eşleme ve azaltma işlemlerini MapReduce service'nın bir alt işlemi olarak i�
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Apache Ambari betikler ve mapred-site.xml ayarları değişiklikleri kümedeki düğümler arasında çoğaltmayı Ambari işleyici olarak değiştirmek için kullanmanızı öneririz. Bkz: [kullanarak Ambari](#using-ambari) bölümde belirli adımlar için.
+> Kullanmanızı öneririz [Apache Ambari](https://ambari.apache.org/) betikleri ve mapred-site.xml ayarlarını değiştirmek için değişiklikleri kümedeki düğümler arasında çoğaltmayı Ambari işleme. Bkz: [kullanarak Apache Ambari](#using-apache-ambari) bölümde belirli adımlar için.
 
 ### <a name="enable-heap-dumps"></a>Yığın dökümlerini etkinleştirme
 
@@ -77,11 +77,11 @@ Bir komut dosyası ayrıca tetikleyebilirsiniz olduğunda bir **OutOfMemoryError
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Hadoop dağıtılmış bir sistemde olduğundan, hizmetin üzerinde çalıştığı kümedeki tüm düğümlerde kullanılan herhangi bir betik yerleştirilmelidir.
+> Apache Hadoop dağıtılmış bir sistemde olduğundan, hizmetin üzerinde çalıştığı kümedeki tüm düğümlerde kullanılan herhangi bir betik yerleştirilmelidir.
 > 
 > Betik gerekir ayrıca olması, hizmet olarak çalışır ve sağlamalısınız hesabı tarafından erişilebilen bir konumda Yürütme izinleri. Örneğin, komut dosyalarında depolamak isteyebilirsiniz `/usr/local/bin` ve `chmod go+rx /usr/local/bin/filename.sh` vermek okuma ve Yürütme izinleri.
 
-## <a name="using-ambari"></a>Ambari kullanarak
+## <a name="using-apache-ambari"></a>Apache Ambari kullanarak
 
 Bir hizmetin yapılandırmasını değiştirmek için aşağıdaki adımları kullanın:
 

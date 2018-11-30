@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 8/8/2018
+ms.date: 11/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fe84dfcef2a5dad1c170592f933638b984e16a05
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 439a3338d5b2104d20e8de99a83fe19c6935a5ac
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717038"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499480"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Sanal Ağı nedir?
 
-Azure Sanal Ağı, Azure Sanal Makineleri (VM) gibi birçok Azure kaynağı türünün birbiriyle, İnternet ile ve şirket içi ağlarla güvenli şekilde iletişim kurmasına olanak sağlar. Azure Sanal Ağı aşağıdaki temel özellikleri sağlar:
+Azure Sanal Ağı, Azure Sanal Makineleri (VM) gibi birçok Azure kaynağı türünün birbiriyle, İnternet ile ve şirket içi ağlarla güvenli şekilde iletişim kurmasına olanak sağlar. Bir sanal ağ, tek bir bölgeye kapsamlıdır; Ancak, farklı bölgelerdeki birden fazla sanal ağ sanal ağ eşlemesi kullanarak birbirine bağlanabilir.
+
+Azure Sanal Ağı aşağıdaki temel özellikleri sağlar:
 
 ## <a name="isolation-and-segmentation"></a>Yalıtma ve segmentasyon
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a803353b5dacaa56c181cdad0955191d547eb3c4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092262"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620226"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -50,7 +50,7 @@ Güncelleştirme yönetimi aşağıdaki işletim sistemlerinde desteklenir:
 
 Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.
 
-Bu çözüm, birden çok Azure Log Analytics çalışma alanı için rapor için yapılandırılmış Linux için bir Log Analytics aracısını desteklemez.
+Bu çözüm, birden çok Azure Log Analytics çalışma alanı için rapor için yapılandırılmış Linux için Log Analytics aracısını desteklemez.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Azure sanal makineler için güncelleştirme yönetimini etkinleştirme
 
@@ -165,7 +165,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 Zamanlamayı yapılandırmayı tamamladığınızda, seçin **Oluştur** düğmesi ve durum panosuna dönün. **Zamanlanmış** tablo oluşturduğunuz dağıtım zamanlaması gösterilir.
 
 > [!NOTE]
-> Birinci taraf güncelleştirmelerini dağıtma ve düzeltme ekleri önceden indirilirken güncelleştirme yönetimini destekler. Bu düzeltme eki sistemlerinde değişiklikler gerektirir, bkz: [birinci taraf ve öncesi destek indirme](automation-update-management.md#firstparty-predownload) sistemlerinize bu ayarları yapılandırmak hakkında bilgi edinmek için.
+> Güncelleştirme Yönetimi, birinci taraf güncelleştirmelerini ve indirme öncesi yamalarını dağıtmayı destekler. Bu düzeltme eki sistemlerinde değişiklikler gerektirir, bkz: [birinci taraf ve öncesi destek indirme](automation-update-management.md#firstparty-predownload) sistemlerinize bu ayarları yapılandırmak hakkında bilgi edinmek için.
 
 ## <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 

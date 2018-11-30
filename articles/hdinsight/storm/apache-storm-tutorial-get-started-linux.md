@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d2181fb22079112c84e3e7c65575b12aa0c867ac
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006558"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498276"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
-Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm'u kullanmayı öğrenin.
+Nasıl kullanacağınızı öğrenin [Apache Storm](http://storm.apache.org/) storm-starter örneklerini kullanarak HDInsight içinde.
 
 Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya dayanıklı, dağıtılmış ve gerçek zamanlı bir işlem sistemidir. Azure HDInsight’ta Storm ile büyük veri analizini gerçek zamanlı olarak gerçekleştiren bulut tabanlı bir Storm kümesi oluşturabilirsiniz.
 
@@ -34,7 +34,7 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 
 * **SSH ve SCP hakkında bilgi**. Bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-a-storm-cluster"></a>Storm kümesi oluşturma
+## <a name="create-an-apache-storm-cluster"></a>Apache Storm kümesi oluşturma
 
 HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
@@ -139,7 +139,7 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
     * **Devre dışı bırak** - Çalışan topolojiyi duraklatır.
 
-    * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Yeniden dengeleme, kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için bkz. [Bir Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Yeniden dengeleme, kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için [Apache Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     * **Sonlandır** - Belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 
@@ -187,15 +187,15 @@ HDInsight kümesi oluştururken sorun yaşarsanız bkz. [erişim denetimi gereks
 
 ## <a id="next"></a>Sonraki adımlar
 
-Bu Apache Storm öğreticisinde HDInsight üzerinde Storm ile çalışma hakkındaki temel bilgileri edindiniz. Ardından, [Maven kullanarak Java tabanlı topolojiler geliştirme](apache-storm-develop-java-topology.md) hakkında bilgi edindiniz.
+Bu Apache Storm öğreticisinde HDInsight üzerinde Storm ile çalışma hakkındaki temel bilgileri edindiniz. Ardından, bilgi nasıl [Apache Maven kullanarak geliştirme Java tabanlı topolojiler](apache-storm-develop-java-topology.md).
 
 Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz [HDInsight’ta Apache Storm topolojilerini dağıtma ve yönetme](apache-storm-deploy-monitor-topology-linux.md) belgesine göz atın.
 
-.NET geliştiricisiyseniz Visual Studio'yu kullanarak C# veya karma C#/Java topolojileri oluşturabilirsiniz. Daha fazla bilgi edinmek için bkz. [Visual Studio için Hadoop araçlarını kullanarak HDInsight'ta Apache Storm için C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md).
+.NET geliştiricisiyseniz Visual Studio'yu kullanarak C# veya karma C#/Java topolojileri oluşturabilirsiniz. Daha fazla bilgi için [geliştirme C# Visual Studio için Apache Hadoop araçlarını kullanarak HDInsight üzerinde Apache Storm topolojilerini](apache-storm-develop-csharp-visual-studio-topology.md).
 
 HDInsight üzerinde Storm ile kullanılabilecek örnek topolojiler için şu örneklere bakın:
 
-* [HDInsight üzerinde Storm için örnek topolojiler](apache-storm-example-topology.md)
+* [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

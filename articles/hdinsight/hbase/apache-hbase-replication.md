@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b978adcdcc025c24746167ef5ab92aebe94aca8b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016242"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584188"
 ---
-# <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
+# <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
 
-Bir sanal ağ içinde veya azure'da iki sanal ağ arasında HBase çoğaltmayı ayarlama konusunda bilgi edinin.
+Nasıl ayarlanacağını öğrenin [Apache HBase](http://hbase.apache.org/) çoğaltma sanal ağ içindeki veya azure'daki iki sanal ağ arasında.
 
 Küme çoğaltma, bir kaynak itme yöntemini kullanır. Her iki rolde tek seferde gerçekleştirebilir veya bir kaynak veya hedef bir HBase kümesi olabilir. Çoğaltma zaman uyumsuzdur. Çoğaltma son tutarlılık hedeftir. Kaynak çoğaltma etkinleştirildiğinde bir sütun ailesi için bir düzenleme aldığında, düzenleme için tüm hedef küme dağıtılır. Veriler bir kümeden diğerine çoğaltılır, kaynak kümesi ve veri zaten kullanmışsa tüm kümeler, çoğaltma döngüleri önlemek için izlenir.
 
@@ -46,16 +46,16 @@ Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz
 
 Üç yapılandırma seçeneğiniz vardır:
 
-- Bir Azure sanal ağı iki HBase kümeleri.
-- Aynı bölgede iki farklı sanal ağlardaki iki HBase kümeleri.
-- İki HBase kümeleri iki farklı sanal ağlardaki iki farklı bölgelerde (coğrafi çoğaltma).
+- Bir Azure sanal ağı iki Apache HBase kümeleri.
+- Aynı bölgede iki farklı sanal ağlardaki iki Apache HBase kümeleri.
+- İki Apache HBase kümeleri iki farklı sanal ağlardaki iki farklı bölgelerde (coğrafi çoğaltma).
 
 Bu makalede, coğrafi çoğaltma senaryosuna değiniyor.
 
 Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md). Başka yöntemler kullanarak ortamı ayarlamak isterseniz, bkz:
 
-- [HDInsight Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md)
-- [Azure sanal ağda HBase kümeleri oluşturma](apache-hbase-provision-vnet.md)
+- [HDInsight Apache Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Azure sanal ağ içinde Apache HBase kümeleri oluşturma](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>İki farklı bölgelerdeki iki sanal ağ ayarlama
 
@@ -256,9 +256,9 @@ DNS yapılandırmasını test etmek için iki DNS SSH kullanarak sanal makineler
 sudo service bind9 status
 ```
 
-## <a name="create-hbase-clusters"></a>HBase kümeleri oluşturma
+## <a name="create-apache-hbase-clusters"></a>Apache HBase kümeleri oluşturma
 
-Her iki sanal ağı aşağıdaki yapılandırma ile bir HBase kümesi oluşturun:
+Oluşturma bir [Apache HBase](http://hbase.apache.org/) her iki sanal ağı aşağıdaki yapılandırma ile küme:
 
 - **Kaynak grubu adı**: oluşturduğunuz sanal ağlar aynı kaynak grubu adı kullanın.
 - **Küme türü**: HBase
@@ -274,7 +274,7 @@ Ortamı doğru şekilde yapılandırıldığından emin olmak için iki küme ar
 
 Bir küme çoğalttığınızda, çoğaltmak istediğiniz tabloları belirtmeniz gerekir. Bu bölümde, kaynak kümede bazı veriler yükleyin. Sonraki bölümde, iki küme arasında çoğaltmaya olanak sağlar.
 
-Oluşturmak için bir **kişiler** tablo ve tabloya bazı veriler ekleyin, konumundaki yönergeleri [HBase Öğreticisi: HDInsight Apache HBase kullanmaya başlama](apache-hbase-tutorial-get-started-linux.md).
+Oluşturmak için bir **kişiler** tablo ve tabloya bazı veriler ekleyin, konumundaki yönergeleri [Apache HBase Öğreticisi: HDInsight Apache HBase kullanmaya başlama](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
@@ -293,7 +293,7 @@ Aşağıdaki adımlar komut dosyası eylemi komut dosyası Azure portalından ç
   3.  **HEAD**: Bu seçildiğinden emin olun. Bir düğüm türleri temizleyin.
   4. **Parametreleri**: Aşağıdaki örnek parametreleri mevcut tüm tablolar için çoğaltmayı etkinleştirin ve ardından tüm veri kaynağı kümeden hedef kümeye kopyalayın:
 
-          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
     >[!note]
     >
@@ -317,7 +317,7 @@ Gerekli bağımsız değişkenleri:
 |-su, ambari--src kullanıcı | Ambari için yönetici kullanıcı adı kaynak HBase kümede belirtir. Varsayılan değer **yönetici**. |
 |-,--dst ambari kullanıcı olan du | Ambari için yönetici kullanıcı adı hedef HBase kümede belirtir. Varsayılan değer **yönetici**. |
 |t-,--Tablo listesi | Çoğaltılacak tabloları belirtir. Örneğin:--Tablo listesi = "table1; table2; Tablo3". Tabloları belirtmezseniz, tüm mevcut HBase tablolarını çoğaltılır.|
-|m-,--makine | Betik eylemi çalıştığı baş düğüm belirtir. Değerin geçerli **hn1** veya **hn0**. Çünkü **hn0** kullanmanızı öneririz, baş düğüm genellikle daha yoğun **hn1**. 0 ABD Doları betiği HDInsight portalı ya da Azure PowerShell betik eylemi çalıştırıyorsanız bu seçeneği kullanın.|
+|m-,--makine | Betik eylemi çalıştığı baş düğüm belirtir. Değerin geçerli **hn0** veya **hn1** ve seçilen etkin baş düğümü olduğu bağlı olmalıdır. 0 ABD Doları betiği HDInsight portalı ya da Azure PowerShell betik eylemi çalıştırıyorsanız bu seçeneği kullanın.|
 |-TP, - copydata | Çoğaltma etkin olduğu tablolarda mevcut verilerin geçişini sağlar. |
 |-rpm, - çoğaltma-phoenix-meta | Phoenix tablolarındaki çoğaltmayı etkinleştirir. <br><br>*Bu seçeneği dikkatli kullanın.* Bu betik kullanmadan önce Phoenix tablolarda çoğaltma kümelerini yeniden oluşturmanızı öneririz. |
 |-h,--Yardım | Kullanım bilgilerini görüntüler. |
@@ -332,19 +332,19 @@ Aşağıdaki liste, bazı genel kullanım örneklerinize ve parametre ayarların
 
 - **Tüm tablolar iki küme arasında çoğaltmayı etkinleştir**. Bu senaryo, kopyalama veya tablodaki mevcut verileri geçirme gerektirmez ve Phoenix tabloları kullanmaz. Aşağıdaki parametreleri kullanın:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
 - **Belirli tablolar çoğaltmayı etkinleştir**. Table1, table2 ve Tablo3 çoğaltmayı etkinleştirmek için aşağıdaki parametreleri kullanın:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
 - **Belirli tablolar üzerinde çoğaltmayı etkinleştirir ve var olan verileri kopyalamak**. Table1, table2 ve Tablo3 çoğaltmayı etkinleştirmek için aşağıdaki parametreleri kullanın:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
 - **Tüm tablolarda çoğaltmayı etkinleştirir ve Phoenix meta verileri kaynaktan hedefe çoğaltmak**. Phoenix meta veri çoğaltma kusursuz değil. Bunu dikkatli kullanın. Aşağıdaki parametreleri kullanın:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## <a name="copy-and-migrate-data"></a>Kopyalama ve veri geçirme
 
@@ -379,7 +379,7 @@ Açıklanan aynı yordamı izleyebilirsiniz [çoğaltmayı etkinleştir](#enable
 
 Çoğaltma devre dışı bırakmak için başka bir betik eylemi betikten kullanın [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Açıklanan aynı yordamı izleyebilirsiniz [çoğaltmayı etkinleştir](#enable-replication) betik eylemi çağırmak için. Aşağıdaki parametreleri kullanın:
 
-    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
 `print_usage()` Bölümünü [betik](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) parametrelerinin ayrıntılı bir açıklama sahiptir.
 
@@ -387,20 +387,20 @@ Açıklanan aynı yordamı izleyebilirsiniz [çoğaltmayı etkinleştir](#enable
 
 - **Tüm tabloları çoğaltmayı devre dışı bırak**:
 
-        -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
+        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
   or
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
 - **Belirtilen tabloların (table1, table2 ve Tablo3) çoğaltmayı devre dışı bırak**:
 
-        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, iki sanal ağ arasında veya bir sanal ağ içinde HBase çoğaltmayı ayarlama öğrendiniz. HDInsight ve HBase hakkında daha fazla bilgi edinmek için şu makalelere bakın:
+Bu öğreticide, bir sanal ağdaki veya iki sanal ağ arasında Apache HBase çoğaltmayı ayarlama öğrendiniz. HDInsight ve Apache HBase hakkında daha fazla bilgi edinmek için şu makalelere bakın:
 
 * [HDInsight, Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight Hbase'e genel bakış](./apache-hbase-overview.md)
-* [Azure sanal ağda HBase kümeleri oluşturma](./apache-hbase-provision-vnet.md)
+* [HDInsight Apache Hbase'e genel bakış](./apache-hbase-overview.md)
+* [Azure sanal ağ içinde Apache HBase kümeleri oluşturma](./apache-hbase-provision-vnet.md)
 

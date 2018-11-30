@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 9bab98d8009704d570dc4b03a97b9cbc5d085b4c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3cd6ef1716d455c5ac755122b8696dbc43fdf459
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007561"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581876"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defterine bilgisayarınıza yükleyin ve HDInsight üzerinde Apache spark'a bağlanma
 
-Bu makalede (Python için) özel PySpark ve Spark Sihirli ile (Scala için) Spark defterleri ile Jupyter Not Defteri, yükleme ve not defterini bir HDInsight kümesine bağlanma hakkında bilgi edinin. Birkaç Jupyter yerel bilgisayarınıza yüklemek için neden olabilir ve bazı zorluklar de olabilir. Hakkında daha fazla bilgi için bu konudaki [neden yüklediğimde Jupyter bilgisayarımda](#why-should-i-install-jupyter-on-my-computer) bu makalenin sonunda.
+Bu makalede (Python için) özel PySpark ve Spark Sihirli ile (Scala için) Apache Spark defterleri ile Jupyter Not Defteri, yükleme ve not defterini bir HDInsight kümesine bağlanma hakkında bilgi edinin. Birkaç Jupyter yerel bilgisayarınıza yüklemek için neden olabilir ve bazı zorluklar de olabilir. Hakkında daha fazla bilgi için bu konudaki [neden yüklediğimde Jupyter bilgisayarımda](#why-should-i-install-jupyter-on-my-computer) bu makalenin sonunda.
 
 Jupyter ve Spark Sihirli bilgisayarınızda yüklemeyle ilgili üç önemli adım vardır.
 
@@ -124,7 +124,7 @@ Bu bölümde Azure HDInsight oluşturmuş olmanız gerekir bir Apache Spark küm
     >Farklı bir kümeye bağlanmak için not defteri yapılandırmasını güncelleştirmek istiyorsanız, config.json yukarıdaki adım 3'te gösterildiği gibi değerleri, yeni bir dizi ile güncelleştirin.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Bilgisayarımda Jupyter neden yüklemeliyim?
-Pek çok neden Jupyter bilgisayarınıza yükleyin ve bir HDInsight Spark kümesinde bağlanmak isteyebileceğiniz olabilir.
+Pek çok neden Jupyter bilgisayarınıza yükleyin ve HDInsight üzerinde Apache Spark kümesi bağlanmak isteyebileceğiniz olabilir.
 
 * Jupyter not defterleri Azure HDInsight Spark kümesinde kullanılabilir durumda olsa da, Jupyter bilgisayarınıza yüklemesini, yerel olarak not defterlerinizi oluşturmak, çalışan bir küme uygulamanızı test etmek ve ardından karşıya yükleme seçeneği sunar kümeye not defterleri. Kümeye not defterlerini karşıya yüklemek için çalışan Jupyter Not Defteri veya küme kullanarak karşıya yükleyin veya kümeyle ilişkili depolama hesabına /HdiNotebooks klasörüne kaydedin. Not Defterleri küme üzerinde nasıl depolandığı ile ilgili daha fazla bilgi için [Jupyter not defterleri depolandığı](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
 * Yerel olarak not defterlerini kullanılabilir uygulama ihtiyacınıza göre farklı Spark kümelerine bağlanabilir.
@@ -141,20 +141,20 @@ Pek çok neden Jupyter bilgisayarınıza yükleyin ve bir HDInsight Spark kümes
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
+* [Apache Spark uygulamalarında uzaktan hata ayıklamak amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
+* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
 
 ### <a name="manage-resources"></a>Kaynakları yönetme

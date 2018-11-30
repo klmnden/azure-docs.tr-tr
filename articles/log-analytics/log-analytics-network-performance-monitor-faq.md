@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 31070d03711891353823a72ed9c805995d36024b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415194"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633172"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
@@ -26,7 +26,7 @@ ms.locfileid: "50415194"
 
 Bu makalede sık sorulan sorular (SSS) azure'da Ağ Performansı İzleyicisi'ni (NPM) hakkında yakalar.
 
-[Ağ Performansı İzleyicisi](/azure/networking/network-monitoring-overview) bulut tabanlı [hibrit ağ izleme](log-analytics-network-performance-monitor-performance-monitor.md) yardımcı olan bir çözümü, ağ altyapınızın çeşitli noktalarında arasında ağ performansını izleme. Ayrıca, ağ bağlantısı izlemenize yardımcı olur [hizmet ve uygulama uç noktaları](log-analytics-network-performance-monitor-service-endpoint.md) ve [Azure ExpressRoute performansını izleme](log-analytics-network-performance-monitor-expressroute.md). 
+[Ağ Performansı İzleyicisi](/azure/networking/network-monitoring-overview) bulut tabanlı [hibrit ağ izleme](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) yardımcı olan bir çözümü, ağ altyapınızın çeşitli noktalarında arasında ağ performansını izleme. Ayrıca, ağ bağlantısı izlemenize yardımcı olur [hizmet ve uygulama uç noktaları](../azure-monitor/insights/network-performance-monitor-service-endpoint.md) ve [Azure ExpressRoute performansını izleme](../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Ağ Performansı İzleyicisi trafiği blackholing, yönlendirme hataları ve sorunları geleneksel ağ izleme yöntemleri algılayabilir gibi ağ sorunları algılar. Bir ağ bağlantısı için bir eşik ihlal edildiğinde, çözüm uyarılar oluşturur ve size bildirir. Ayrıca ağ performans sorunlarının zamanında tespit edilmesini sağlar ve sorunun kaynağını belirli bir ağ kesimine veya cihazına yerelleştirir. 
 
@@ -47,21 +47,21 @@ Linux tabanlı düğümleri kullanarak ağları izleme yeteneği şu anda özel 
 VM ağları izlemek için düğümde NPM çözümü çalıştırmak için en az 500 MB bellek ve bir çekirdek düğümleri olması gerekir. NPM çalıştırmak için ayrı düğüm kullanın gerekmez. Çözüm üzerinde çalışan iş yüklerine olan düğümleri çalıştırabilirsiniz. Çözüm, %5 CPU birden çok durumda onu kullanan izleme işlemini durdurmak için özellik sahiptir.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>NPM kullanmak için Bilgisayarım düğümleri doğrudan aracısı veya System Center Operations Manager üzerinden bağlanabilirim?
-Performans İzleyicisi'ni hem de hizmet bağlantı İzleyicisi Özellikleri düğümleri desteklemek [bağlı doğrudan aracılar](log-analytics-agent-windows.md) yanı [Operations Manager ile bağlı](log-analytics-om-agents.md).
+Performans İzleyicisi'ni hem de hizmet bağlantı İzleyicisi Özellikleri düğümleri desteklemek [bağlı doğrudan aracılar](../azure-monitor/platform/agent-windows.md) yanı [Operations Manager ile bağlı](log-analytics-om-agents.md).
 
 ExpressRoute İzleyicisi özelliği için doğrudan aracılar yalnızca Azure düğümleri bağlanmalıdır. Operations Manager ile bağlı olan azure düğümleri desteklenmiyor. Şirket içi düğümleri için bir ExpressRoute bağlantı hattı izlemek için Operations Manager yanı sıra doğrudan aracılar olarak bağlı düğümleri desteklenir.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>İzleme için TCP ve ICMP arasından hangi protokolün seçilmelidir?
 Windows server tabanlı düğümleri kullanarak ağınıza izliyorsanız, çünkü daha büyük doğruluk sağlar İzleyici protokolü olarak TCP kullanmanızı öneririz. 
 
-ICMP tabanlı işletim sistemi Windows Masaüstü/istemci düğümleri için önerilir. Bu platform, ham yuva gönderilecek TCP verileri ağ topolojisini bulmak için NPM izin vermez.
+ICMP tabanlı işletim sistemi Windows Masaüstü/istemci düğümleri için önerilir. Bu platform, NPM, ağ topolojisini bulmak için kullandığı ham yuva gönderilmek üzere TCP veri izin vermez.
 
-Her Protokolü göreli avantajları hakkında daha fazla ayrıntıya ulaşabilirsiniz [burada](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
+Her Protokolü göreli avantajları hakkında daha fazla ayrıntıya ulaşabilirsiniz [burada](../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Bir düğüm TCP protokolünü kullanılarak izleme destekleyecek şekilde nasıl yapılandırabilirim?
 Düğüm TCP protokolünü kullanılarak izleme desteklemek: 
 * Düğüm platformu, Windows Server olduğundan emin olun (2008 SP1 veya üzeri).
-* Çalıştırma [EnableRules.ps1](https://aka.ms/npmpowershellscript) düğümde Powershell betiği. Bkz: [yönergeleri](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) daha fazla ayrıntı için.
+* Çalıştırma [EnableRules.ps1](https://aka.ms/npmpowershellscript) düğümde Powershell betiği. Bkz: [yönergeleri](../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) daha fazla ayrıntı için.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>İzleme için NPM tarafından kullanılan TCP bağlantı noktasını nasıl değiştirebilirim?
@@ -126,10 +126,10 @@ Bağlantı hattı düzeyi bilgileri için kullanması aşağıda belirtilen sorg
     | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM Performans İzleyicisi'ni hangi bölgeler desteklenir?
-NPM birinde barındırılan bir çalışma alanından dünyanın herhangi bir bölümünde ağlar arasında bağlantı izleyebilirsiniz [desteklenen bölgeler](log-analytics-network-performance-monitor.md#supported-regions)
+NPM birinde barındırılan bir çalışma alanından dünyanın herhangi bir bölümünde ağlar arasında bağlantı izleyebilirsiniz [desteklenen bölgeler](../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>NPM Hizmeti Bağlantı İzleyicisi için hangi bölgeler desteklenir?
-NPM izlemek için kullanabileceğiniz Bağlantı Hizmetleri dünyanın herhangi bir bölümünde birinde barındırılan bir çalışma alanından [desteklenen bölgeler](log-analytics-network-performance-monitor.md#supported-regions)
+NPM izlemek için kullanabileceğiniz Bağlantı Hizmetleri dünyanın herhangi bir bölümünde birinde barındırılan bir çalışma alanından [desteklenen bölgeler](../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM ExpressRoute İzleyicisi için hangi bölgeler desteklenir?
 NPM, dilediğiniz Azure bölgesinde bulunan, ExpressRoute devreleri izleyebilirsiniz. Birinde barındırılan bir Log Analytics çalışma alanı gerektirecektir npm için yerleşik, [desteklenen bölgeler](/azure/expressroute/how-to-npm#regions)
@@ -222,4 +222,4 @@ NPM, kullanıcı arabiriminde ve milisaniye cinsinden gecikme rakamları yuvarla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ağ Performansı İzleyicisi hakkında daha fazla başvurarak bilgi [azure'da Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md).
+- Ağ Performansı İzleyicisi hakkında daha fazla başvurarak bilgi [azure'da Ağ Performansı İzleyicisi çözüm](../azure-monitor/insights/network-performance-monitor.md).

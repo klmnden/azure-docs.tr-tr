@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 01603655be9b6051be9b894da4e55338ff4df810
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e702e1f5eb1816b007317765e4c9a9f88bb99bfd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262134"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635433"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -42,7 +42,12 @@ Verilerinizi daha ayrıntılı incelemek için üstteki simgeye tıklayın ya da
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Kullanımın neden beklenenden daha yüksek olduğuyla ilgili sorunları giderme
 Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
 - Log Analytics'da beklenenden daha fazla veri gönderiliyordur
-- Log Analytics'e beklenenden daha fazla düğüm veri gönderiyordur
+- Log analytics'e gönderme beklenen veri değerinden daha fazla düğüm veya bazı düğümler normalden daha fazla veri gönderme
+
+Şimdi nasıl biz hem de bu nedenler hakkında daha fazla bilgi bir göz atalım. 
+
+> [!NOTE]
+> Bazı alanlar kullanım veri türünün hala şemada sırada, kullanımdan kaldırılan ve bunların değerlerini artık doldurulur. Bunlar **bilgisayar** alımıyla ilgili alanları yanı sıra (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** ve **AverageProcessingTimeMs**.
 
 ### <a name="data-volume"></a>Veri hacmi 
 Üzerinde **kullanım ve Tahmini maliyetler** sayfasında *çözüm başına veri alımı* grafik, toplam gönderilen veri hacmini ve ne kadar her çözüm tarafından gönderilen verilerin gösterir. Bu sayede olup genel veri kullanımı (veya belirli bir çözüm tarafından kullanım) artıyor mu gibi eğilimleri belirlemek sabit kaldığını veya azaldığını. Bu oluşturmak için kullanılan sorgu
@@ -60,7 +65,7 @@ Bkz: veri eğilimlerini IIS günlükler nedeniyle verileri incelemek isterseniz,
 
 ### <a name="nodes-sending-data"></a>Veri gönderen düğüm
 
-Geçen ay verilerini raporlamaya düğüm sayısını undersand için kullanın
+Geçen ay verilerini raporlamaya düğüm sayısını anlamak için kullanın
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
@@ -69,16 +74,20 @@ Geçen ay verilerini raporlamaya düğüm sayısını undersand için kullanın
 Bilgisayar başına alınan olayların sayısını görmek için kullanın
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Yürütmek pahalı olduğundan bu sorgu tedbirli şekilde kullanın. Sendng veri belirli bir bilgisayar için hangi veri türlerini görmek istiyorsanız bu seçeneği kullanın:
+Yürütmek pahalı olduğundan bu sorgu tedbirli şekilde kullanın. Bilgisayar başına alınan Faturalanabilir olayların sayısını görmek için kullanın 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Belirli bir bilgisayar için hangi Faturalanabilir veri türlerinin veri gönderdiğini görmek istiyorsanız, bu seçeneği kullanın:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
-
-> [!NOTE]
-> Bazı kullanım veri türünde alanlar yine de şema sırada, kullanım dışı bırakıldı ve değerlerine artık doldurulur olur. Bunlar **bilgisayar** alımıyla ilgili alanları yanı sıra (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** ve **AverageProcessingTimeMs**.
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 Belirli veri türü için veri kaynağına daha ayrıntılı incelemek için bazı yararlı örnek sorgular şunlardır:
 

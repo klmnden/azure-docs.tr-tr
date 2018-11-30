@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635041"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634549"
 ---
-# <a name="install-and-run-containers"></a>Yükleme ve kapsayıcıları çalıştırma
+# <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
 
 Kapsayıcı, bir uygulama veya hizmet bir kapsayıcı görüntüsüne paketlenmiştir yazılım dağıtım için kullanılan bir yaklaşımdır. Yapılandırma ve bağımlılıklarla uygulama veya hizmet için kapsayıcı görüntüsüne eklenir. Kapsayıcı görüntüsü, bir kapsayıcı konağında çok az kayıpla veya hiç değişiklik ile sonra dağıtılabilir. Birbirine ve bir sanal makine değerinden daha küçük bir kaplama alanı ile temel işletim sistemi, yalıtılmış kapsayıcılardır. Kapsayıcılar için kısa vadeli görevleri kapsayıcı görüntülerinden oluşturulan ve artık gerekli olmadığında kaldırıldı.
 
@@ -58,9 +58,6 @@ Oluşturma ve bir yüz kaynaktan bilgi almak için aşağıdaki adımları gerç
 
 1. Azure portalında bir yüz kaynağı oluşturun.  
    Yüz tanıma kapsayıcı kullanmak istiyorsanız, öncelikle Azure portalında karşılık gelen bir yüz kaynak oluşturmanız gerekir. Daha fazla bilgi için [hızlı başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > Yüz tanıma kaynak F0 fiyatlandırma katmanını kullanmanız gerekir.
 
 1. Azure kaynakları için uç nokta URL'si ve abonelik anahtarını alın.  
    Azure kaynak oluşturulduktan sonra karşılık gelen yüz kapsayıcı örneği oluşturmak için bu kaynak uç nokta URL'si ve abonelik anahtarını kullanmanız gerekir. Uç nokta URL'si ile abonelik anahtarınızın sayfalarından, sırasıyla hızlı başlangıç ve anahtarları Azure Portal'da yüz kaynak kopyalayabilirsiniz.

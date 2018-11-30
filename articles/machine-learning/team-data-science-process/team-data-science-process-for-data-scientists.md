@@ -2,25 +2,21 @@
 title: Veri uzmanları için Team Data Science Process | Microsoft Docs
 description: Team Data Science Process ve Azure Machine Learning kullanarak analizi iş yükü anlamak için kılavuz sağlar.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092500"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497580"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Team Data Science Process veri uzmanları için
 
@@ -65,7 +61,7 @@ Kendi gözetimindeki kılavuzu için aşağıdaki tabloda öğeleri kullanabilir
 | Sonuçların görselleştirilmesi için Power BI'ı kullanma                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Power BI Microsoft'un veri görselleştirme aracıdır. Web, mobil ve masaüstü bilgisayarlar için birden fazla platformda kullanılabilir. Bu makalede Azure depolama biriminden sonuçlarına erişme ve Power BI kullanarak görselleştirme oluşturma oluşturduğunuz çözüm çıktısı ile nasıl çalışılacağını öğrenin.                                                                                                                                                                                                                                                                                                                             | [Bu öğreticide Power bı'da tamamlayın.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) Ardından Power BI bir deneme çalıştırma oluşturulan Blob CSV bağlanın.                                                                                                                                                                                                                                                                       |
 | Çözümünüzü izleyin                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | Son çözümünüzü izlemek için kullanabileceğiniz birçok araç vardır. Azure Application Insights, yerleşik izleme çözümünüze tümleştirmeyi kolaylaştırır.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Bir uygulama izlemek için Application ınsights'ı ayarlama](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | Uygulamanızı izlemek için başka bir yöntem, DevOps sürecinizle tümleştirin sağlamaktır. Azure Log Analytics sistem zengin analitik çözümlerinizi dağıtabilmek sonra izleyin yardımcı olacak özellikler sağlar.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Bu öğreticiyi tamamlamak](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) Azure Log Analytics kullanma.                                                                                                                                                                                                                                                                                                       |
-| Bu öğrenme yolu tamamlayın                                                               | Ek projelerin denemek için                                                                                                                           | Tebrikler! Bu öğrenme yolu tamamladınız. Bilgi edinmek için çok daha fazla yoktur. Daha gelişmiş bir örnek, bir müşteri karmaşıklığı modeli Azure Machine Learning hizmetindeki oluşturuyor. [Burada deneyin](../desktop-workbench/scenario-churn-prediction.md).                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| Bu öğrenme yolu tamamlayın                                                               |                                                                                                                           | Tebrikler! Bu öğrenme yolu tamamladınız. Bilgi edinmek için çok daha fazla yoktur.                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Team Data Science Process için geliştirici işlemlerini](team-data-science-process-for-devops.md) bu makalede bir Gelişmiş analiz ve Bilişsel hizmetler çözüm uygulamasına özel olan Geliştirici işlemlerini (DevOps) işlevlerin keşfediyor. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 7ce577901530856690754f3db18ba9f40bfb8a51
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019387"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Öğretici: Azure Active Directory sonsuz kampüs ile tümleştirme
 
@@ -48,6 +48,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 - Gerekli olmadıkça, üretim ortamında kullanmayın.
 - Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- En azından, yapılandırmayı tamamlamak için bir Azure Active Directory yöneticisi olmanız gerekir.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -110,7 +111,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
     ![Çoklu oturum açmayı yapılandırın](common/editconfigure.png)
 
-5. Üzerinde **temel SAML yapılandırma** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası**, aşağıdaki adımları gerçekleştirin:
+5. Üzerinde **temel SAML yapılandırma** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası** (adım **11.b**), aşağıdaki adımları gerçekleştirin:
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
@@ -124,7 +125,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
     ![image](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
 
-    d. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    d. İçinde **oturum açma URL'si** metin kutusuna bir URL (etki alanı barındırma modeliyle göre değişir) aşağıdaki düzeni kullanarak: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
     > Size **hizmet sağlayıcısı meta veri dosyası** sonsuz kampüs SSO Servis Sağlayıcı Yapılandırması sayfasında öğreticinin ilerleyen bölümlerinde açıklanmıştır.
@@ -143,7 +144,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
     ![Sertifika indirme bağlantısı](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
 
-7. Üzerinde **sonsuz kampüs kümesi** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
+7. Üzerinde **sonsuz kampüs kümesi** bölümünde, karşıya yükleme veya Azure meta veri dosyası/URL'sini kullanarak doğrulamak için aşağıdaki değerleri kullanın.
 
     a. Oturum Açma URL'si:
 
@@ -169,7 +170,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
     a. Seçin **etkinleştir SAML çoklu oturum açma**.
 
-    b. Tıklayın **hizmet sağlayıcısı meta verileri** kaydetmek için bağlantı **hizmet sağlayıcısı meta veri dosyası** bilgisayarınızdaki ve bunu karşıya **temel SAML yapılandırma** otomatik olarak bölümü polulate **tanımlayıcı** ve **yanıt URL'si** Azure portalında değerleri.
+    b. Tıklayın **hizmet sağlayıcısı meta verileri** kaydetmek için bağlantı **hizmet sağlayıcısı meta veri dosyası** bilgisayarınızdaki ve bunu karşıya **temel SAML yapılandırma** otomatik olarak bölümü polulate **tanımlayıcı** ve **yanıt URL'si** değerleri Azure portalında (5. adıma bakın).
 
     c. Üzerinde **kimlik sağlayıcısı (IDP) sunucu verilerini almak için bir seçenek belirleyin** bölümünde, seçin **meta veri URL'si** Yapıştır **uygulama Federasyon meta verileri URL'sini** metin kutusuna ve ardından **eşitleme**.
 
@@ -179,7 +180,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Oluşturmak için bu bölümün amacı olan bir _tek_ Britta Simon adlı Azure portalında test kullanıcısı.
 
 1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
@@ -234,8 +235,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için sonsuz kampüs erişim v
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde sonsuz kampüs kutucuğa tıkladığınızda, otomatik olarak sonsuz kampüs uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+Erişim panelinde sonsuz kampüs kutucuğa tıkladığınızda, otomatik olarak sonsuz kampüs uygulamanıza açan. Azure AD yönetmekte olduğunuz tarayıcıda sonsuz Camnpus uygulamasına oturum açıyorsanız, Azure AD test kullanıcısı olarak oturum açtığınız emin olun. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

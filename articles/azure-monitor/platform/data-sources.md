@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: fca8ed66ecee443243dbba49b9ec63c782c5a84e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 201e9e2cb74f18e69d919ff16132cb889d1b6455
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828808"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635331"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure İzleyici'de veri kaynakları
 Bu makalede, durumunu ve performansını, kaynakları ve bunlar üzerinde çalışan uygulamaları izlemek için Azure İzleyici tarafından toplanan veri kaynaklarını açıklar. Bu kaynaklara başka bir bulut ya da şirket içi azure'da olabilir.  Bkz: [Azure İzleyici tarafından toplanan veriler](data-collection.md) nasıl görüntüleyebilirsiniz ve bu verilerin nasıl depolandığı ile ilgili ayrıntılar için.
@@ -66,7 +66,7 @@ Etkinlik günlüğü kaynak düzeyinde bir Azure kaynak gerçekleştirilen işle
 Tanılama günlüklerinin Azure portalında doğrudan görüntüleyemiyorum, ancak yapabilecekleriniz [Azure depolama, arşivleme şirketlerde](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) ve bunları dışarı aktarma [olay hub'ı](../../event-hubs/event-hubs-about.md) diğer hizmetlere yönelik yeniden yönlendirme veya [günlüğüne Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) analiz. Başkalarının edilmeden önce bir depolama hesabına yazma sırasında bazı kaynaklar doğrudan Log Analytics'e yazabilirsiniz [Log Analytics'e içeri](../../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>İzleme Çözümleri
- [İzleme çözümleri](../../azure-monitor/insights/solutions.md) toplama işleminin belirli bir hizmet veya uygulamanın ek Öngörüler sağlar. Bunlar burada olabilir Log Analytics'e veri toplama kullanılarak analiz [sorgu dilini](../../log-analytics/log-analytics-queries.md) veya [görünümleri](../../log-analytics/log-analytics-view-designer.md) genellikle çözümüne eklenmiş.
+ [İzleme çözümleri](../../azure-monitor/insights/solutions.md) toplama işleminin belirli bir hizmet veya uygulamanın ek Öngörüler sağlar. Bunlar burada olabilir Log Analytics'e veri toplama kullanılarak analiz [sorgu dilini](../../log-analytics/log-analytics-queries.md) veya [görünümleri](../../azure-monitor/platform/view-designer.md) genellikle çözümüne eklenmiş.
 
 ## <a name="guest-operating-system"></a>Konuk işletim sistemi
 Azure, diğer bulutlarda ve şirket içi bilgi işlem kaynaklarının izlemek için bir konuk işletim sistemi vardır. Bir veya daha fazla aracı yüklemesi ile aynı izleme araçları Azure Hizmetleri ile Konuk telemetri toplayabilir.
@@ -77,7 +77,7 @@ Azure, diğer bulutlarda ve şirket içi bilgi işlem kaynaklarının izlemek i�
 Azure tanılama uzantısı ile günlükleri toplayarak izleme temel bir düzeyde sağlar ve performans verilerini istemci işletim sisteminde Azure işlem kaynakları.   
 
 ### <a name="log-analytics-agent"></a>Log Analytics Aracısı
-Kapsamlı izleme ve yönetim, Windows veya Linux sanal makineleri veya fiziksel bilgisayar ile Log Analytics aracısını teslim. Sanal makineyi Azure, başka bir bulutta veya şirket içinde çalışan ve aracının Log Analytics'e bağlayan doğrudan ya da System Center Operations Manager ile ve veri toplamanızı sağlar [veri kaynakları](../../log-analytics/log-analytics-data-sources.md) , yapılandırma veya [izleme çözümleri](../../azure-monitor/insights/solutions.md) sanal makinede çalışan uygulamaların ek Öngörüler sağlar.
+Kapsamlı izleme ve yönetim, Windows veya Linux sanal makineleri veya fiziksel bilgisayar ile Log Analytics aracısını teslim. Sanal makineyi Azure, başka bir bulutta veya şirket içinde çalışan ve aracının Log Analytics'e bağlayan doğrudan ya da System Center Operations Manager ile ve veri toplamanızı sağlar [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) , yapılandırma veya [izleme çözümleri](../../azure-monitor/insights/solutions.md) sanal makinede çalışan uygulamaların ek Öngörüler sağlar.
 
 ### <a name="dependency-agent"></a>Bağımlılık aracısı
 [Hizmet eşlemesi](../insights/service-map.md) ve [VM'ler için Azure İzleyici](../../azure-monitor/insights/vminsights-overview.md) bir bağımlılık aracısını Windows ve Linux sanal makinelerinde gerektirir. Bu topladığı için Log Analytics aracısını dış işlem bağımlılıklarını ve sanal makine üzerinde çalışan işlemler hakkında bulunan verileri tümleşir. Bu veriler, Log Analytics'te depolar ve bulunan birbirine bağlı bileşenleri görselleştirir.  

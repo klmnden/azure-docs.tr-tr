@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364270"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498338"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -41,7 +41,7 @@ Vm'lerinizi koruma ilk adımı, yeni VM'ler ve VM erişimi, yalnızca yetkili ku
 **En iyi yöntem**: denetim VM erişimi.   
 **Ayrıntı**: kullanım [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) , kuruluşunuzdaki kaynaklar için kuralları kurmak ve özelleştirilmiş ilkeler oluşturun. Bu ilkeler gibi kaynaklara uygulamak [kaynak grupları](../azure-resource-manager/resource-group-overview.md). Bir kaynak grubuna ait VM'lerin onun ilkelerini devralır.
 
-Kuruluşunuzun fazla aboneliğiniz varsa, erişim ilkeleri ve bu Aboneliklerdeki uyumluluğunun verimli bir şekilde yönetmek için bir yol gerekebilir. [Azure Yönetim grupları](../azure-resource-manager/management-groups-overview.md) abonelikleri yukarıda kapsam düzeyini sağlamak. Yönetim gruplarına (kapsayıcılar) abonelikleri düzenlemenize ve bu gruplara, idare koşullar geçerlidir. Bir yönetim grubundaki tüm abonelikler otomatik olarak gruba uygulanan koşullar devralır. Yönetim grupları, size abonelik türüne sahip olabileceğiniz ne olursa olsun büyük ölçekli Kurumsal düzeyde Yönetimi sunar.
+Kuruluşunuzun fazla aboneliğiniz varsa, erişim ilkeleri ve bu Aboneliklerdeki uyumluluğunun verimli bir şekilde yönetmek için bir yol gerekebilir. [Azure Yönetim grupları](../azure-resource-manager/management-groups-overview.md) abonelikleri yukarıda kapsam düzeyini sağlamak. Yönetim gruplarına (kapsayıcılar) abonelikleri düzenlemenize ve bu gruplara, idare koşullar geçerlidir. Bir yönetim grubundaki tüm abonelikler otomatik olarak gruba uygulanan koşullar devralır. Yönetim grupları, sahip olabileceğiniz abonelik türüne bakılmaksızın kurumsal düzeyde yönetimi büyük ölçekte sunar.
 
 **En iyi yöntem**: Kurulum ve dağıtım VM'lerin sonuçlarındaki azaltın.   
 **Ayrıntı**: kullanım [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) dağıtım seçenekleriniz güçlendirin ve anlayın ve ortamınızda Vm'leri stok daha kolay hale getirmek için şablonları.
@@ -51,7 +51,7 @@ Kuruluşunuzun fazla aboneliğiniz varsa, erişim ilkeleri ve bu Aboneliklerdeki
 
 - [Sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VMs, ancak bunların bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
 - [Klasik sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Klasik dağıtım modeli, ancak sanal makinelere bağlı olduğu sanal ağ veya depolama hesabı değil kullanılarak oluşturulan sanal makineleri yönetebilir.
-- [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-manager): güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilir.
+- [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-admin): içinde yalnızca Güvenlik Merkezi: görüntüle güvenlik ilkeleri, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler Düzenle, uyarıları ve öneriler yok sayın.
 - [DevTest Labs kullanıcısı](../role-based-access-control/built-in-roles.md#devtest-labs-user): her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatın ve Vm'lerini kapatın.
 
 Abonelik yöneticileri ve ortak Yöneticiler bir Abonelikteki tüm VM'lerin Yöneticiler yönetilmelerini, bu ayarı değiştirebilirsiniz. Tüm abonelik yöneticileri ve ortak Yöneticiler makinelerinizi birine oturum açmak için güvenilir olduğundan emin olun.

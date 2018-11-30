@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 69ac91c0d4231064c1be5a6c3748b0480255d16d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023009"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635875"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Hızlı Başlangıç: Windows bilgisayarları Azure Güvenlik Merkezi’ne ekleme
 Azure aboneliklerinizi ekledikten sonra Microsoft Monitoring Agent’ı sağlayarak Azure’ın dışında (örneğin, şirket içi ortamda veya diğer bulutlarda) çalışan kaynaklar için Güvenlik Merkezi’ni etkinleştirebilirsiniz.
 
 Bu hızlı başlangıçta Microsoft Monitoring Agent’ın bir Windows bilgisayara nasıl yükleneceği gösterilmektedir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Güvenlik Merkezi ile çalışmaya başlamak için Microsoft Azure aboneliğinizin olması gerekir. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 
 Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Yükseltme yönergeleri için bkz. [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md). Güvenlik Merkezi’nin Standart katmanını ilk 60 gün boyunca ücretsiz olarak deneyebilirsiniz.
@@ -75,7 +75,7 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 
 Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Burada yapılandırmanızı gözden geçirebilir ve aracının bağlı olup olmadığını doğrulayabilirsiniz.
 
-Aracının yüklenmesi ve yapılandırılması hakkında daha fazla bilgi için bkz. [Windows bilgisayarları bağlama](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
+Aracının yüklenmesi ve yapılandırılması hakkında daha fazla bilgi için bkz. [Windows bilgisayarları bağlama](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
 Artık Azure VM’lerinizi ve Azure olmayan bilgisayarlarınızı tek bir yerde izleyebilirsiniz. **Bilgi İşlem** dikey penceresinde, önerilerle birlikte tüm VM’lere ve bilgisayarlara ilişkin bir genel bakış görürsünüz. Her sütunda bir dizi öneri sunulur. Renk VM'nin veya bilgisayarın söz konusu öneri için geçerli güvenlik durumunu belirtir. Ayrıca Güvenlik Merkezi de Güvenlik uyarılarında bu bilgisayarlara ilişkin tüm bulguları gösterir.
 

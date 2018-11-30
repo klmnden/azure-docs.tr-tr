@@ -1,22 +1,22 @@
 ---
 title: Azure İzleyici'de dinamik eşikler ile uyarılar oluşturma
 description: Makine öğrenimi tabanlı dinamik eşikler ile uyarılar oluşturun
-author: antonfrMSFT
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.author: mbullwin
-ms.reviewer: antonfr
+ms.date: 11/29/2018
+ms.author: Yaniv.Lavi
+ms.reviewer: mbullwin
 ms.component: alerts
-ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: af9f85014ea16dd266c56a71f13b4dce2adccc9a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233975"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619717"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Azure İzleyici (sınırlı genel Önizleme) içinde dinamik eşikler ile uyarılar
+# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Azure İzleyici (sınırlı özel Önizleme) içinde dinamik eşikler ile uyarılar
 
 Dinamik eşikler ile uyarılar Azure ölçüm uyarı Azure İzleyici'de taban çizgileri otomatik olarak hesaplar ve bunları uyarı eşiklerini geçmiş davranışını ölçümleri Gelişmiş Machine Learning (ML) özelliklerinden yararlanmak için bir geliştirme ' dir.
 

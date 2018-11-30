@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi Veri Güvenliği | Microsoft Belgeleri
 description: Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması açıklanmaktadır.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
-ms.author: yurid
-ms.openlocfilehash: 587dd2af0e04b8557182ab041a817878592923d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbf861c582ec8b5297bc1d29aa558b86404b6d99
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230453"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620311"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Güvenlik Merkezi Veri Güvenliği
 Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardımcı olmak amacıyla Azure Güvenlik Merkezi, güvenlikle ilgili veriler, meta veriler, olay günlükleri, kilitlenme dökümü dosyaları ve diğer verileri toplar ve işler. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır.
@@ -31,7 +31,7 @@ Azure Güvenlik Merkezi, güvenlik durumunuzu görüntüleme, güvenlik açıkla
 
 - Azure Hizmetleri: Dağıttığınız Azure hizmetlerinin yapılandırmasına ilişkin bilgileri, ilgili hizmetin kaynak sağlayıcısıyla iletişim kurarak kullanır.
 - Ağ Trafiği: Microsoft’un altyapısından kaynak/hedef IP/bağlantı noktası, paket boyutu ve ağ protokolü gibi örneği alınmış ağ trafiği meta verilerini kullanır.
-- İş Ortağı Çözümleri: Güvenlik duvarları ve kötü amaçlı yazılımdan koruma çözümleri gibi tümleşik iş ortağı çözümlerinden güvenlik uyarılarını kullanır. 
+- İş Ortağı Çözümleri: Güvenlik duvarları ve kötü amaçlı yazılımdan koruma çözümleri gibi tümleşik iş ortağı çözümlerinden güvenlik uyarılarını kullanır.
 - Sanal Makineleriniz ve Sunucularınız: Sanal makinelerinizdeki yapılandırma bilgilerinin yanı sıra Windows olay ve denetim günlükleri, IIS günlükleri, syslog iletileri ve kilitlenme bilgi dökümü dosyaları gibi güvenlik olaylarına ilişkin bilgileri kullanır. Ayrıca, bir uyarı oluşturulduğunda Azure Güvenlik Merkezi etkilenen VM diskinin anlık görüntüsünü oluşturur ve adli amaçlar için kayıt defteri dosyası gibi uyarıyla ilgili makine yapıtlarını VM diskinden ayıklar.
 
 
@@ -44,7 +44,7 @@ Azure Güvenlik Merkezi, güvenlik durumunuzu görüntüleme, güvenlik açıkla
 
 ## <a name="data-location"></a>Veri konumu
 
-**Çalışma Alanlarınız**: Aşağıdaki coğrafi bölgeler için bir çalışma alanı belirtilir ve kilitlenme bilgi dökümlerinin yanı sıra bazı uyarı verisi türleri de dahil olmak üzere Azure sanal makinelerinizden toplanan veriler en yakın çalışma alanında depolanır. 
+**Çalışma Alanlarınız**: Aşağıdaki coğrafi bölgeler için bir çalışma alanı belirtilir ve kilitlenme bilgi dökümlerinin yanı sıra bazı uyarı verisi türleri de dahil olmak üzere Azure sanal makinelerinizden toplanan veriler en yakın çalışma alanında depolanır.
 
 | VM'nin Bulunduğu Coğrafi Bölge                        | Çalışma Alanının Bulunduğu Coğrafi Bölge |
 |-------------------------------|---------------|
@@ -53,20 +53,21 @@ Azure Güvenlik Merkezi, güvenlik durumunuzu görüntüleme, güvenlik açıkla
 | Asya Pasifik, Japonya, Hindistan    | Asya Pasifik  |
 | Avustralya                     | Avustralya     |
 
- 
+
 VM diski anlık görüntüleri, VM diski ile aynı depolama hesabına kaydedilir.
- 
-Başka ortamlarda çalışan sanal makineler ve sunucular için (ör. şirket içi), toplanan verilerin depolanacağı çalışma alanını ve bölgeyi belirtebilirsiniz. 
+
+Başka ortamlarda çalışan sanal makineler ve sunucular için (ör. şirket içi), toplanan verilerin depolanacağı çalışma alanını ve bölgeyi belirtebilirsiniz.
 
 **Azure Güvenlik Merkezi Depolama Alanı**: İş ortağı uyarılarının da dahil olduğu güvenlik uyarıları hakkındaki bilgiler, ilgili Azure kaynağının konumuna göre bölgesel olarak depolanırken güvenlik sistem durumu ve öneriler hakkındaki bilgiler, müşterinin konumuna göre merkezi olarak Amerika Birleşik Devletleri'nde veya Avrupa'da depolanır.
 Azure Güvenlik Merkezi, kilitlenme döküm dosyalarının kısa ömürlü kopyalarını toplar ve açıktan yararlanma girişimlerinin ve başarılı uzlaşmaların kanıtı olarak analiz eder. Azure Güvenlik Merkezi bu analizi çalışma alanıyla aynı coğrafi bölgede gerçekleştirir ve analiz tamamlandığında kısa ömürlü kopyaları siler.
 
-Makine yapıları VM ile aynı bölgede merkezi olarak depolanır. 
+Makine yapıları VM ile aynı bölgede merkezi olarak depolanır.
 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Sanal makinelerden veri toplamayı yönetme
 
-Azure'da Güvenlik Merkezi'ni etkinleştirdiğinizde her Azure aboneliğiniz için veri toplama etkinleştirilir. Abonelikleriniz için veri toplamayı Azure Güvenlik Merkezi'nin Güvenlik İlkesi bölümünden de etkinleştirebilirsiniz. Veri toplama etkin olduğunda Azure Güvenlik Merkezi, desteklenen tüm mevcut Azure sanal makinelerinde ve yeni oluşturulan sanal makinelerde Microsoft Monitoring Agent'ı hazırlar. Microsoft Monitoring Agent, [Windows için Olay İzleme](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) izlerinde güvenlikle ilgili çeşitli yapılandırmaları ve olayları tarar. Ayrıca, işletim sistemi, makinenin çalışması sırasında olay günlüğü olaylarını ortaya koyar. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Microsoft Monitoring Agent, olay günlüğü girişleri ile ETW izlerini okur ve analiz için çalışma alanlarınıza kopyalar. Microsoft Monitoring Agent ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanlarınıza kopyalar, işlem oluşturma olaylarını etkinleştirir ve komut satırı denetimine olanak tanır.
+Azure'da Güvenlik Merkezi'ni etkinleştirdiğinizde her Azure aboneliğiniz için veri toplama etkinleştirilir. Abonelikleriniz için veri toplamayı Azure Güvenlik Merkezi'nin Güvenlik İlkesi bölümünden de etkinleştirebilirsiniz. Veri toplama etkin olduğunda Azure Güvenlik Merkezi, desteklenen tüm mevcut Azure sanal makinelerinde ve yeni oluşturulan sanal makinelerde Microsoft Monitoring Agent'ı hazırlar.
+Microsoft Monitoring Agent, [Windows için Olay İzleme](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) izlerinde güvenlikle ilgili çeşitli yapılandırmaları ve olayları tarar. Ayrıca, işletim sistemi, makinenin çalışması sırasında olay günlüğü olaylarını ortaya koyar. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Microsoft Monitoring Agent, olay günlüğü girişleri ile ETW izlerini okur ve analiz için çalışma alanlarınıza kopyalar. Microsoft Monitoring Agent ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanlarınıza kopyalar, işlem oluşturma olaylarını etkinleştirir ve komut satırı denetimine olanak tanır.
 
 Azure Güvenlik Merkezi Ücretsiz sürümünü kullanıyorsanız Güvenlik İlkesi'nde sanal makinelerden veri toplamayı devre dışı bırakabilirsiniz. Veri Toplama, Standart katmandaki abonelikler için gereklidir. Veri toplama devre dışı bırakılsa bile, VM diski anlık görüntüleri ve yapıt toplama işlemi etkin olmaya devam eder.
 
@@ -79,7 +80,7 @@ Müşteriler, farklı veri akışlarındaki Güvenlik Merkezi ile ilişkili veri
 
 
 > [!NOTE]
-> Güvenlikle ilgili öneriler, REST API’si tarafından da kullanılabilir. Daha fazla bilgi için bkz. [Güvenlik Kaynağı Sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx). 
+> Güvenlikle ilgili öneriler, REST API’si tarafından da kullanılabilir. Daha fazla bilgi için bkz. [Güvenlik Kaynağı Sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması hakkında bilgi aldınız. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek bkz.:

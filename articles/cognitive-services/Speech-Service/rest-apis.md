@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 5522b076fdf3d4e339f5e170679f389259ff1359
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713138"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584868"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -286,7 +286,7 @@ Ses HTTP gövdesi gönderilen `POST` isteği. Bu tabloda biçimlerden birinde ol
 | OGG | GEÇERLİ | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->Yukarıdaki biçimleri, REST API ve konuşma hizmeti, WebSocket üzerinden desteklenir. [Speech SDK'sı](/index.yml) WAV PCM codec ile biçim şu anda yalnızca destekler.
+>Yukarıdaki biçimleri, REST API ve konuşma hizmeti, WebSocket üzerinden desteklenir. [Speech SDK'sı](speech-sdk.md) WAV PCM codec ile biçim şu anda yalnızca destekler.
 
 ### <a name="sample-request"></a>Örnek istek
 
@@ -433,8 +433,8 @@ Konuşma hizmeti, Bing konuşma tarafından desteklenen 16 Khz çıkışları bi
 
 | Yerel Ayar | Dil   | Cinsiyet | Eşleme |
 |--------|------------|--------|---------|
-| tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" |
-| tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)" |
+| en-US  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" |
+| en-US  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)" |
 
 Kullanılabilir seslerini tam listesini görmek [desteklenen diller](language-support.md#text-to-speech).
 

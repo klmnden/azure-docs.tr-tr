@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 11/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ebd5c06b8174c9838a398e97439671e4d3f4c518
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 8b061ad2926110e27524ededb5c33dffa5ea04b6
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713495"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635467"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 Mevcut yatırımınızı korumak için [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) ve Log Analytics ile genişletilmiş özellikleri kullanmak için Operations Manager ile Log Analytics çalışma alanınızın tümleştirebilirsiniz. Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
@@ -37,7 +37,7 @@ Aşağıdaki diyagramda System Center Operations Manager yönetim grubundaki yö
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-BT güvenlik ilkeleriniz bilgisayarları ağınızdaki Internet'e bağlanmasına izin vermiyorsa, yönetim sunucuları yapılandırma bilgilerini almak ve çözümleri bağlı olarak toplanan verileri göndermek için Log Analytics ağ geçidine bağlanmak için yapılandırılabilir. etkin. Daha fazla bilgi ve Log Analytics hizmeti için bir Log Analytics ağ geçidi üzerinden iletişim kurmak için Operations Manager yönetim grubunuzun yapılandırma adımları için bkz. [bilgisayarları Log Analytics gatewaykullanarakLogAnalytics'ebağlayın](log-analytics-oms-gateway.md).  
+BT güvenlik ilkeleriniz bilgisayarları ağınızdaki Internet'e bağlanmasına izin vermiyorsa, yönetim sunucuları yapılandırma bilgilerini almak ve çözümleri bağlı olarak toplanan verileri göndermek için Log Analytics ağ geçidine bağlanmak için yapılandırılabilir. etkin. Daha fazla bilgi ve Log Analytics hizmeti için bir Log Analytics ağ geçidi üzerinden iletişim kurmak için Operations Manager yönetim grubunuzun yapılandırma adımları için bkz. [bilgisayarları Log Analytics gatewaykullanarakLogAnalytics'ebağlayın](../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Önkoşullar 
 Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
@@ -49,10 +49,13 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 
 >[!NOTE]
 >Azure API'leri yapılan son değişikliklerin, müşteriler kendi yönetim grubu ve Log Analytics arasındaki tümleştirme ilk kez başarıyla yapılandırabiliyor olmanın engeller. Var olan bağlantınızı yapılandırmak gerekli olmadıkça zaten kendi yönetim grubu hizmeti ile tümleştirilmiş müşteriler için etkilenmez.  
->Yeni bir Yönetim Paketi Operations Manager her sürümü için yayımlanmıştır.  
+>Yeni bir Yönetim Paketi Operations Manager'ın şu sürümleri için kullanıma sundu:
+>  
 >* System Center Operations Manager 1801'için yönetim paketinden indirme [burada](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* System Center 2016 - Operations Manager uygulamasının yönetim paketinden indirme [burada](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* System Center Operations Manager 2012 R2 için yönetim paketinden indirme [burada](https://www.microsoft.com/download/details.aspx?id=57171)  
+>
+>Bu Yönetim Paketi güncelleştirme bir güncelleştirme sürümü sürümü 1801'e ve ürünün değil tam bir derleme olan System Center Operations Manager 1807 için uygulanamaz.   
 
 ### <a name="network"></a>Ağ
 Aşağıda Log Analytics'le iletişim kurmak için Operations Manager aracısı, yönetim sunucuları ve İşletim konsolu için gereken ara sunucu ve güvenlik duvarı yapılandırma bilgileri listelenmiştir. Her bileşenden gelen trafik, ağınızdan Log Analytics hizmetine giden trafiktir.   

@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde türe göre güvenlik uyarıları | Microsoft
 description: Bu makalede, Azure Güvenlik Merkezi’nde bulunan farklı güvenlik uyarısı türleri ele alınmaktadır.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262123"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633274"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
 
-Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](security-center-policies.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
+Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](security-center-azure-policy.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Güvenlik Merkezi Linux makinelerdeki kötü amaçlı davranışlarını algılamak için denetim kayıtlarını kullanan yeni bir algılama kümesi ve ortak denetim çerçevesi içeren sınırlı bir önizleme sürümüyle yayımlanmıştır. Önizlemeye katılmak için abonelik kimliklerinizi [bize](mailto:ASC_linuxdetections@microsoft.com) e-posta ile gönderin.
@@ -48,7 +48,7 @@ Azure Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlike gi
 Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren kaynakları belirlemek amacıyla gelişmiş analiz kullanır. Örneğin, İşlem Oluşturma Olayları ve Oturum Açma Olayları. Ayrıca, yaygın bir kampanyanın kanıtını desteklemek üzere denetlenmesi gereken diğer sinyallerle bir bağlantı vardır.
 
 * **Şüpheli işlem yürütme algılandı**: Saldırganlar genellikle zararsız işlem kılığına girerek algılanmadan kötü amaçlı kod yürütmeye çalışır. Bu uyarılar bir işlem yürütmenin aşağıdaki desenlerden biriyle eşleştiğini gösterir:
-    * Kötü amaçlar için kullanılacağı bilinen bir işlemin yürütülmesi. Komutlar tek tek zararsız görünebilse de, uyarı bu komutların toplamına göre puanlandırılır.
+    * Kötü amaçlar için kullanılacağı bilinen bir işlemin yürütülmesi. Tek tek komutlarla zararsız görünebilse de, uyarı tabanlı birleştirilmesinden oluşan bu komutları puanlanır.
     * Bir işlemin genel olmayan bir konumdan yürütülmesi.
     * Bir işlemin, bilinen şüpheli dosyalarla ortak bir konumdan yürütülmesi.
     * Bir işlemin şüpheli bir yoldan yürütülmesi.
@@ -57,7 +57,7 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
     * Şüpheli uzantıya sahip bir işlemin yürütülmesi.
     * Şüpheli çift uzantıya sahip bir işlemin yürütülmesi.
     * Dosya adında şüpheli bir soldan sağa (RLO) karakteri olan bir işlemin yürütülmesi.
-    * Adı çok yaygın olarak çalıştırılan bir işleme benzer olup bu işlemden farklı olan bir işlemin yürütülmesi
+    * Benzer ancak farklı bir yaygın olarak çalıştırılan işlem adı olan bir işlemin yürütülmesi
     * Adı bilinen bir saldırgan aracına karşılık gelen bir işlemin yürütülmesi.
     * Rastgele ada sahip bir işlemin yürütülmesi.
     * Şüpheli uzantıya sahip bir işlemin yürütülmesi.
@@ -82,7 +82,7 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **Şüpheli RDP kaynak etkinliği**: Saldırganlar genellikle deneme yanılma saldırıları ile RDP gibi açık yönetim bağlantı noktalarını hedefler. Bu uyarılar aşağıdaki durumları ifade eden şüpheli Uzak Masaüstü oturum açma etkinliğini belirtir:
     * Uzak Masaüstü oturumu açma girişiminde bulunulması.
     * Geçersiz hesaplar kullanılarak Uzak Masaüstü oturumu açma girişiminde bulunulması.
-    * Bazıları makinede başarıyla oturum açabilen Uzak Masaüstü oturumu açma girişiminde bulunulması.
+    * Uzak Masaüstü oturumu açma girişiminde bulunulması, bazıları makinede başarıyla oturum açamaz.
 * **Şüpheli SSH kaynak etkinliği**: Saldırganlar genellikle deneme yanılma saldırıları ile SSH gibi açık yönetim bağlantı noktalarını hedefler. Bu uyarılar aşağıdaki durumları ifade eden şüpheli SSH oturum açma etkinliğini belirtir:
     * Başarısız SSH oturumu açma girişiminde bulunulması.
     * Bazıları başarılı olan SSH oturumu açma girişiminde bulunulması.
@@ -99,12 +99,12 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **Şüpheli birim gölge kopya etkinliği**: Bu uyarı, kaynakta gölge kopya silme etkinliği olduğunu belirtir. Birim Gölge Kopyası (VSC), veri anlık görüntülerini depolayan önemli bir yapıttır. Bu etkinlik genellikle Ransowmare ile ilişkilendirilir, ancak aynı zamanda yasal olabilir.
 * **Windows kayıt defteri kalıcılık yöntemi**: Bu uyarı, yürütülebilir bir dosyayı Windows kayıt defterinde kalıcı hale getirme girişimini belirtir. Kötü amaçlı yazılımlar genellikle bir önyüklemeden kurtulmak için böyle bir teknik kullanır.
 * **Şüpheli yeni güvenlik duvarı kuralı**: Bu uyarı, şüpheli bir konumdaki yürütülebilir dosyadan gelen trafiğe izin vermek için *netsh.exe* aracılığıyla yeni bir Güvenlik Duvarı kuralının eklendiğini belirtir.
-* **Şüpheli XCOPY yürütmeleri**: Bu uyarı, makinelerinizden herhangi birinin tehlikeye girdiği ve kötü amaçlı yazılım yaymak için kullanıldığı anlamına gelebilecek bir dizi XCOPY yürütme işlemi yapıldığını belirtir.
-* **Oturum açma sırasında kullanıcılara gösterilen yasal bildirimi gizleme**: Bu uyarı, oturum açma sırasında kullanıcılara yasal bir bildirim gösterilip gösterilmeyeceğini denetleyen kayıt defteri anahtarında bir değişiklik yapıldığını belirtir. Bu, bir konağı tehlikeye attıktan sonra saldırganlar tarafından gerçekleştirilen yaygın bir etkinliktir.
+* **Şüpheli XCOPY yürütmeleri**: Bu uyarı bir dizi makinelerinizi birini tehlikeye girdiği ve kötü amaçlı yazılım yaymak için kullanıldığı sinyal XCOPY yürütmeleri gösterir.
+* **Oturum açma sırasında kullanıcılara gösterilen yasal bildirimi gizlemeden**: Bu uyarı yasal bir bildirim gösterilip gösterilmeyeceğini denetleyen kayıt defteri anahtarı için bir değişiklik, kullanıcılara gösterilir, oturum açtığında belirtir. Bu, bir konağı tehlikeye attıktan sonra saldırganlar tarafından gerçekleştirilen yaygın bir etkinliktir.
 * **Komut satırında büyük ve küçük harflerin anormal karışımı algılandı**: Bu uyarı, büyük/küçük harfe duyarlı veya karma tabanlı makine kuralından gizlenmek için saldırganlar tarafından kullanılan bir teknik olarak komut satırında büyük ve küçük harflerin anormal bir karışımının kullanıldığını belirtir.
 * **Karıştırılmış komut satırı**: Bu uyarı, komut satırında şüpheli karartma göstergelerinin algılandığını belirtir.
 * **Birden fazla etki alanı hesabı sorgulandı**: Saldırganlar genellikle kullanıcılar, etki alanı yönetici hesapları, etki alanı denetleyicileri ve etki alanları arasındaki güven ilişkileri üzerinde keşif yaparken AD etki alanı hesaplarını sorgular. Bu uyarı, kısa süre içinde birbirinden farklı çok fazla sayıda etki alanı hesabının sorgulandığını belirtir.
-* **Olası yerel keşif etkinliği**: Bu uyarı, keşif etkinliği ile ilişkili sistem bilgisi komutlarının bir birleşiminin yürütüldüğünü belirtir.  *systeminfo.exe* yasal bir Windows aracı olsa da, art arda iki kez yürütülmesi nadir olarak görülür.
+* **Olası yerel keşif etkinliği**: Bu uyarı, Keşif etkinliği ile ilişkili sistem bilgisi komutlarının bir birleşimini yürütüldüğünü belirtir.  *systeminfo.exe* yasal bir Windows aracı olsa da, art arda iki kez yürütülmesi nadir olarak görülür.
 * **Keygen yürütülebilir dosyası yürütme olasılığı**: Bu uyarı, adıyla bir keygen aracını ifade edebilecek bir işlemin yürütüldüğünü belirtir. Bu tür araçlar genellikle yazılım lisanslama mekanizmalarını aşmak için kullanılır, ancak genellikle diğer kötü amaçlı yazılımlar ile paket halinde indirilir.
 * **rundll32.exe aracılığıyla şüpheli yürütme**: Bu uyarı, saldırganlar tarafından tehlikeye girmiş bir konağa ilk aşamada yerleştirme yüklemek amacıyla kullanılan işlem adlandırma şemasıyla tutarlı, yaygın olmayan bir ad ile işlem yürütmek için rundll32.exe dosyasının kullanıldığını belirtir.
 * **HTA ile PowerShell’in şüpheli birleşimi**: Bu uyarı bir Microsoft HTML Uygulama Konağı’nın (HTA) PowerShell komutları başlattığını belirtir. Bu teknik, saldırganlar tarafından kötü amaçlı PowerShell betikleri başlatmak için kullanılır.
@@ -113,7 +113,7 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **24 saatlik süre içinde birden çok konakta hesap oluşturuldu**: Bu uyarı, birden çok konakta aynı kullanıcı hesabını oluşturmak için deneme yapıldığını belirtir; bu durum, bir veya daha fazla ağ varlığı tehlikeye girdikten sonra bir saldırganın ağ üzerinde yanal olarak hareket ettiğini gösterebilir.
 * **Sistemin güvenlik durumunu indirgemek için şüpheli CACLS kullanımı**: Bu uyarı, değişiklik erişim denetim listesinin (CACLS) değiştirildiğini belirtir. Bu teknik genellikle saldırganlar tarafından ftp.exe, net.exe, wscript.exe gibi sistem ikili dosyalarına tam erişim vermek üzere kullanılır.
 * **Şüpheli Kerberos Altın Bilet saldırısı parametreleri**: Bu uyarı, bir Kerberos Altın Bilet saldırısıyla tutarlı komut satırı parametrelerinin yürütüldüğünü belirtir. Güvenliği aşılmış bir krbtgt anahtarı, saldırgan tarafından dilediği kullanıcının kimliğine bürünmek için kullanılabilir.
-* **WDigest UseLogonCredential kayıt defteri anahtarını etkinleştirme**: Bu uyarı, oturum açma kimlik bilgilerinin LSA belleğinde açık metin olarak depolanmasına ve sonra bellekten toplanabilmesine izin verecek şekilde kayıt defteri anahtarının değiştirildiğini belirtir.
+* **WDigest UseLogonCredential kayıt defteri anahtarını etkinleştirme**: Bu uyarı, oturum ardından bellekten toplanan LSA bellekte düz metin olarak depolanması için kimlik bilgilerini verin kayıt defteri anahtarının değiştirildiğini belirtir.
 * **Telegram aracının şüpheli olabilecek kullanımı**: Bu uyarı, saldırganların başka bir bilgisayar, telefon veya tablete kötü amaçlı ikili dosyalar aktarmak için kullandığı ücretsiz, bulut tabanlı bir anlık mesajlaşma hizmeti olan Telegram’ın yüklendiğini belirtir.
 * **Yeni ASEP oluşturma**: Bu uyarı, komut satırında tanımlanan işlem adının otomatik olarak başlatılmasına neden olan ve kalıcılığı sağlamak için bir saldırgan tarafından kullanılabilen yeni bir ASEP (Otomatik Başlatma Genişletilebilirlik Noktası) oluşturulduğunu belirtir.
 * **Şüpheli Set-ExecutionPolicy ve WinRM değişiklikleri**: Bu uyarı, kötü amaçlı ChinaChopper web kabuğunun kullanımıyla ilişkili yapılandırma değişikliklerini belirtir.
@@ -134,7 +134,7 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **Şüpheli komut satırı bağımsız değişkenleri**: Bu uyarı HYDROGEN etkinlik grubu tarafından kullanılan bir ters kabuk ile birlikte kullanılan şüpheli komut satırı bağımsız değişkenlerini belirtir.
 * **Şüpheli belge kimlik bilgileri**: Bu uyarı, bir dosyayı yürütmek için kullanılan kötü amaçlı yazılımın şüpheli ve yaygın bir önceden hesaplanmış parola karması kullandığını belirtir.
 * **Dinamik PS betiği oluşturma**: Bu uyarı bir PowerShell betiğinin dinamik olarak oluşturulduğunu belirtir. Saldırganlar IDS sistemlerinden kurtulmak amacıyla aşamalı olarak betik derlemek için bu tekniği kullanır.
-* **Metasploit göstergeleri**: Bu uyarı, bir dizi saldırgan yeteneği ve aracı sağlayan Metasploit çerçevesiyle ilişkili etkinliği gösterir.
+* **Metasploit göstergeleri**: Bu uyarı bir dizi saldırgan yeteneği ve aracı sağlayan Metasploit çerçevesiyle ilişkili etkinliği gösterir.
 * **Şüpheli hesap etkinliği**: Bu uyarı yakın zamanda güvenliği aşılmış bir hesabı kullanarak bir makineye bağlanma girişiminde bulunulduğunu gösterir.
 * **Hesap oluşturma**: Bu uyarı, makine üzerinde yeni bir hesap oluşturulduğunu belirtir.
 
@@ -146,7 +146,7 @@ Kilitlenme bellek dökümü analizi, geleneksel güvenlik çözümlerini atlatab
 
 Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar. Kilitlenme durumu kötü amaçlı yazılımlardan, genel uygulama veya sistem sorunlarından kaynaklanabilir. Kilitlenme dökümündeki belleği analiz eden Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir. Analiz Güvenlik Merkezi arka ucu tarafından gerçekleştirildiği için bu özellik, ana bilgisayarların performansına en az etki ile sağlanır.
 
-* **Kod ekleme bulundu**: Kod ekleme, çalışmakta olan işlemlere veya iş parçacıklarına yürütülebilir modüllerin eklenmesidir. Bu teknik, kötü amaçlı yazılımlar tarafından verilere erişmek, yazılımı gizlemek ya da kaldırılmasını önlemek (örn. kalıcılık) için kullanılır. Bu uyarı, eklenen bir modülün kilitlenme bilgi dökümünde mevcut olduğunu belirtir. Yasal yazılım geliştiricileri, var olan bir uygulama ya da işletim sistemi bileşenini değiştirme ya da genişletme gibi nadir durumlarda kötü amaçlı olmayan amaçlar için kod ekleme gerçekleştirir. Güvenlik Merkezi, kötü amaçlı olan ve olmayan eklenen modülleri birbirinden ayırt etmenize yardımcı olmak için eklenen modülün bir şüpheli davranış profiline uygun olup olmadığını denetler. Bu denetimin sonucu, uyarının “SIGNATURE” alanı tarafından gösterilir ve uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımlarında yansıtılır.
+* **Kod ekleme bulundu**: Kod ekleme, çalışmakta olan işlemlere veya iş parçacıklarına yürütülebilir modüllerin eklenmesidir. Bu teknik, kötü amaçlı yazılımlar tarafından verilere erişmek, gizleme veya (örneğin, Kalıcılık) da kaldırılmasını önlemek için kullanılır. Bu uyarı, eklenen bir modülün kilitlenme bilgi dökümünde mevcut olduğunu belirtir. Yasal yazılım geliştiricileri, var olan bir uygulama ya da işletim sistemi bileşenini değiştirme ya da genişletme gibi nadir durumlarda kötü amaçlı olmayan amaçlar için kod ekleme gerçekleştirir. Güvenlik Merkezi, kötü amaçlı olan ve olmayan eklenen modülleri birbirinden ayırt etmenize yardımcı olmak için eklenen modülün bir şüpheli davranış profiline uygun olup olmadığını denetler. Bu denetimin sonucu, uyarının “SIGNATURE” alanı tarafından gösterilir ve uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımlarında yansıtılır.
 * **Şüpheli kod kesimi**: Şüpheli kod kesimi uyarısı, bir kod kesiminin yansıtmalı ekleme ve boş işlem gibi standart olmayan yöntemler kullanılarak ayrıldığını belirtir. Bildirilen kod kesiminin özellik ve davranışlarıyla ilgili bağlam sağlamak için kod kesiminin ek özelliklerini işleme alınır.
 * **Kabuk kodu bulundu**: Kabuk Kodu, kötü amaçlı yazılım bir yazılım güvenlik açığından yararlandıktan sonra çalıştırılan yüktür. Bu uyarı, kilitlenme dökümü analizinin kötü amaçlı yükler tarafından yaygın olarak gerçekleştirilen davranışları sergileyen yürütülebilir kodlar algıladığını belirtir. Bu davranış kötü amaçlı olmayan yazılımlar tarafından gerçekleştiriliyor olabilir, ancak normal yazılım geliştirme uygulamaları için alışıldık bir davranış değildir.
 * **Modül ele geçirme bulundu**: Windows, yazılımların ortak Windows sistem işlevselliğinden yararlanmasına izin vermek için dinamik bağlantı kitaplıklarını (DLL) kullanır. DLL Ele Geçirme, kötü amaçlı iş yüklerinin rastgele kodların yürütülebileceği belleğe yüklenmesi için kötü amaçlı yazılım tarafından DLL yükleme sırası değiştirildiğinde gerçekleşir. Bu uyarı, kilitlenme döküm analizinde iki farklı yoldan yüklenip benzer ada sahip bir modülün algılandığını gösterir. Yüklenen yollardan biri, ortak bir Windows sistem ikili dosyası konumundan gelir. Yasal yazılım geliştiricileri, Windows işletim sistemini veya bir Windows uygulamasını izleme, genişletme gibi kötü amaçlı olmayan gerekçelerden dolayı nadiren DLL yükleme sırasını değiştirir. Güvenlik Merkezi, DLL yükleme sırasında yapılan kötü amaçlı değişikliklerle zararsız olabilecek değişikliklerin birbirinden ayırt edilmesine yardımcı olmak için yüklenen bir modülün şüpheli bir profile uygun olup olmadığını denetler.
@@ -184,15 +184,15 @@ Güvenlik Merkezi kaynak analizi, [Azure SQL Veritabanı için Tehdit Algılama]
 * **SQL kimlik bilgilerine deneme yanılma saldırısı**: Bu uyarı, farklı kimlik bilgileri kullanılarak sıra dışı sayıda başarısız oturum açma denemesi olduğunda tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, uyarı deneme yanılma saldırılarını algılar.
 
 ## <a name="contextual-information"></a>Bağlamsal bilgiler
-Araştırma sırasında analistlerin, tehdidin doğası ve nasıl azaltılacağı hakkında bir sonuca ulaşabilmesi için ek bağlam gerekir.  Bir ağ anomalisinin algılandığını varsayalım. Böyle bir durumda, ağ genelinde veya hedeflenen kaynakla ilgili olarak ortaya çıkan diğer sorunları hesaba katmadan, gerçekleştirilecek bir sonraki eylemin ne olacağını anlamak çok zordur. Güvenlik Olayında araştırmacıya bu konuda yardımcı olabilecek yapıtlar, ilgili olaylar ve bilgiler bulunabilir. Ek bilgilerin kullanılabilirliği, algılanan tehdit türüne ve ortamınızın yapılandırmasına göre değişiklik gösterir ve tüm Güvenlik Olayları için geçerli değildir.
+Araştırma sırasında analistlerin, tehdidin doğası ve nasıl azaltılacağı hakkında bir sonuca ulaşabilmesi için ek bağlam gerekir.  Bir ağ anomalisinin algılandığını varsayalım. Böyle bir durumda, ağ genelinde veya hedeflenen kaynakla ilgili olarak ortaya çıkan diğer sorunları hesaba katmadan, gerçekleştirilecek bir sonraki eylemin ne olacağını anlamak çok zordur. Bununla birlikte yardımcı olmak için bir güvenlik olayı yapıtlar, ilgili olaylar ve araştırmacı yardımcı olabilecek bilgiler içerebilir. Ek bilgilerin kullanılabilirliği, algılanan tehdit türüne ve ortamınızın yapılandırmasına göre değişiklik gösterir ve tüm Güvenlik Olayları için geçerli değildir.
 
 Sağlanan ek bilgiler (varsa) uyarı listesinin altındaki Güvenlik Olayında gösterilir. Burada aşağıdaki gibi bilgiler bulunabilir:
 
 - Günlük temizleme olayları
 - Bilinmeyen bir cihaza takılı olan PNP cihazı
-- Eyleme dönüştürülemeyen uyarılar
+- Uyarılar eyleme dönüştürülebilir değildir
 - Yeni hesap oluşturma
-- CertUtil aracı kullanılarak kodu çözülen dosya 
+- CertUtil aracı kullanılarak kodu çözülen dosya
 
 ![Olağan dışı erişim uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 9885783428b51a71fee8733a9d054e82eca0f2f9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828718"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632968"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -133,8 +133,8 @@ Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Anal
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Hizmet eşlemesi, analiz eder ve Windows bilgisayarlardan verileri toplar. <br><br>Ek olarak [Windows için Log Analytics aracısını](../../log-analytics/log-analytics-agent-overview.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
-| Linux aracıları | Evet | Hizmet eşlemesi, analiz eder ve Linux bilgisayarlardan verileri toplar. <br><br>Ek olarak [Linux için Log Analytics aracısını](../../log-analytics/log-analytics-agent-overview.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Windows aracıları | Evet | Hizmet eşlemesi, analiz eder ve Windows bilgisayarlardan verileri toplar. <br><br>Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Linux aracıları | Evet | Hizmet eşlemesi, analiz eder ve Linux bilgisayarlardan verileri toplar. <br><br>Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
 | System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi analiz eder ve Windows ve Linux aracılarını bir bağlı olarak veri toplar [System Center Operations Manager yönetim grubu](../../log-analytics/log-analytics-om-agents.md). <br><br>System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
 | Azure depolama hesabı | Hayır | Azure Depolama'dan toplamak için hiçbir veri bu nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
 
@@ -153,7 +153,7 @@ Log Analytics'e bağlı bir yönetim grubuna sahip bir System Center Operations 
 - System Center Operations Manager aracıları Log Analytics'e bağlanmak için Internet'e erişebiliyorsa ek yapılandırma gerekmiyor.  
 - System Center Operations Manager aracılarının Log Analytics Internet üzerinden erişemiyorsanız, System Center Operations Manager ile çalışmak için Log Analytics ağ geçidi'ni yapılandırmanız gerekir.
   
-Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamazsa, ağ geçidini kullanarak Log Analytics çalışma alanına bağlamak için Log Analytics aracısını yapılandırmanız gerekir. Log Analytics ağ geçidi yapılandırmak ve dağıtmak hakkında daha fazla bilgi için bkz. [Log Analytics ağ geçidini kullanarak Internet erişimi bilgisayarları bağlama](../../log-analytics/log-analytics-oms-gateway.md).  
+Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamazsa, ağ geçidini kullanarak Log Analytics çalışma alanına bağlamak için Log Analytics aracısını yapılandırmanız gerekir. Log Analytics ağ geçidi yapılandırmak ve dağıtmak hakkında daha fazla bilgi için bkz. [Log Analytics ağ geçidini kullanarak Internet erişimi bilgisayarları bağlama](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Yönetim paketleri
 Log Analytics çalışma alanında hizmet eşlemesi etkinleştirildiğinde, 300 KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucuları iletilir. System Center Operations Manager aracıları kullanıyorsanız bir [bağlı yönetim grubu](../../log-analytics/log-analytics-om-agents.md), hizmet eşlemesi Yönetim Paketi, System Center Operations Manager üzerinden dağıtılır. 
@@ -230,7 +230,7 @@ Bağımlılık aracısını el ile Windows bilgisayarlarda çalıştırarak yük
 
 Bağımlılık Aracısı'nı her bir Windows bilgisayara yüklemek için aşağıdaki adımları kullanın:
 
-1.  Açıklanan yöntemlerden birini uygulayarak Windows için Log Analytics aracısını yükleme [Log Analytics Aracısı genel bakış](../../log-analytics/log-analytics-agent-overview.md).
+1.  Açıklanan yöntemlerden birini uygulayarak Windows için Log Analytics aracısını yükleme [Log Analytics Aracısı genel bakış](../../azure-monitor/platform/log-analytics-agent.md).
 2.  Windows Aracısı'nı indirin ve aşağıdaki komutu kullanarak çalıştırabilirsiniz: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ Bağımlılık Aracısı'nı Linux bilgisayarlardan yüklenir `InstallDependency
 
 Bağımlılık Aracısı'nı her Linux bilgisayara yüklemek için aşağıdaki adımları kullanın:
 
-1.  Açıklanan yöntemlerden birini uygulayarak Log Analytics aracısını yükleme [Log Analytics Aracısı genel bakış](../../log-analytics/log-analytics-agent-overview.md).
+1.  Açıklanan yöntemlerden birini uygulayarak Log Analytics aracısını yükleme [Log Analytics Aracısı genel bakış](../../azure-monitor/platform/log-analytics-agent.md).
 2.  Linux bağımlılık aracısını kök olarak aşağıdaki komutu çalıştırarak yükleyin:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -390,7 +390,7 @@ Bağımlılık Aracısı yüklendi, ancak hizmet eşlemesi çözüm sunucunuzda 
 
         Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Sonuçlar arasında olaylar çeşitli mı aldınız? Verilerin güncel mi? Bu durumda, Log Analytics aracısını düzgün çalışmasını ve Log Analytics ile iletişim kurulurken. Aksi takdirde, sunucudaki aracı denetleyin: [Windows sorun giderme için Log Analytics aracısını](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) veya [Linux sorun giderme için Log Analytics aracısını](../../log-analytics/log-analytics-agent-linux-support.md).
+Sonuçlar arasında olaylar çeşitli mı aldınız? Verilerin güncel mi? Bu durumda, Log Analytics aracısını düzgün çalışmasını ve Log Analytics ile iletişim kurulurken. Aksi takdirde, sunucudaki aracı denetleyin: [Windows sorun giderme için Log Analytics aracısını](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) veya [Linux sorun giderme için Log Analytics aracısını](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Sunucu, hizmet eşlemesinde görünür ancak hiçbir işlem sahiptir
 Hizmet eşlemesi sunucunuzun bakın, ancak işlem veya bağlantı veri yok, bağımlılık Aracısı'nı yüklü ve çalışır durumdadır, ancak çekirdek sürücüsü yüklenmedi gösterir. 

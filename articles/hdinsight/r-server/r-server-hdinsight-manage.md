@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255413"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497553"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight kümesinde ML Hizmetleri yönetme
 
@@ -33,7 +33,7 @@ RStudio topluluk sürümünün çalıştığı kenar düğümüne daha fazla kul
 
 ![Eşzamanlı kullanıcı 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
-- **Küme oturum açma kullanıcı adı**: Oluşturduğunuz HDInsight kümelerini korumak için kullanılan HDInsight ağ geçidinden kimlik doğrulaması yapmak için kullanılan HTTP kullanıcısı. Bu HTTP kullanıcısı Ambari UI, YARN UI ve diğer UI bileşenlerine erişmek için kullanılır.
+- **Küme oturum açma kullanıcı adı**: Oluşturduğunuz HDInsight kümelerini korumak için kullanılan HDInsight ağ geçidinden kimlik doğrulaması yapmak için kullanılan HTTP kullanıcısı. Bu HTTP kullanıcısı, Apache Ambari UI, Apache Hadoop YARN UI yanı sıra, diğer UI bileşenlerine erişmek için kullanılır.
 - **Secure Shell (SSH) kullanıcı adı**: Kümeye Secure Shell üzerinden erişmek için kullanılan SSH kullanıcısı. Bu kullanıcı Linux sisteminde tüm baş düğümler, çalışan düğümleri ve kenar düğümler için kullanılan kullanıcıdır. Bu sayede uzak kümedeki düğümlere erişmek için Secure Shell kullanabilirsiniz.
 
 HDInsight ML Hizmetleri kümede kullanılan R Studio Server topluluk sürümü yalnızca Linux kullanıcı adı ve parola bir oturum açma mekanizması olarak kabul eder. Belirteç iletmeyi desteklemez. Bu nedenle, R Studio ML Hizmetleri kümesinde ilk kez erişmeye çalıştığınızda, iki kez oturum açmanız gerekir.
@@ -52,7 +52,7 @@ Kümenin kenar düğümünde RStudio çalıştığı için burada birkaç adım 
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>1. adım: kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
 
-Konumundaki yönergeleri [SSH kullanarak HDInsight (Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md) kenar düğümüne erişin. HDInsight kümesinde ML Hizmetleri için uç düğüm adresi olan `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Konumundaki yönergeleri [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md) kenar düğümüne erişin. HDInsight kümesinde ML Hizmetleri için uç düğüm adresi olan `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>2. Adım: Kenar düğümüne daha fazla Linux kullanıcısı ekleme
 
@@ -104,7 +104,7 @@ Sizin masaüstünüzde çalışan uzak bir örneğini ML istemci HDInsight Spark
       consoleOutput= TRUE
     )
 
-Daha fazla bilgi için bkz: "Kullanarak Microsoft Machine Learning Server ı Hadoop istemcisi olarak" bölümünde [RevoScaleR Spark işlem bağlamında kullanma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+Daha fazla bilgi için bkz: "Kullanarak Microsoft Machine Learning sunucusu olarak bir Apache Hadoop istemcisi" bölümünde [RevoScaleR bir Apache Spark işlem bağlamında kullanma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## <a name="use-a-compute-context"></a>İşlem bağlamı kullanma
 
@@ -250,7 +250,7 @@ Yine de Spark bağlamını kullanıyorsanız bu komut çalışan düğümleri i�
         nodename
     "wn3-mymlser"
 
-## <a name="access-data-in-hive-and-parquet"></a>Hive ve Parquet verilerine erişim
+## <a name="access-data-in-apache-hive-and-parquet"></a>Apache Hive ve Parquet verilerine erişim
 
 HDInsight ML Hizmetleri Spark işlem bağlamındaki ScaleR işlevleri tarafından kullanım için Hive ve Parquet içindeki verilere doğrudan erişime izin verir. Bu özellikler, ScaleR tarafından analiz edilmek üzere bir Spart DataFrame’e doğrudan veri yüklemek için Spark SQL kullanarak çalışan RxHiveData ve RxParquetData adlı yeni ScaleR veri kaynağı işlevleriyle kullanılabilir.
 

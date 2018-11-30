@@ -1,92 +1,94 @@
 ---
-title: Sanal ağ ve alt ağ tabanlı erişim Azure Cosmos hesabınız için yapılandırma
-description: Bu belgede, Kurulum Azure Cosmos DB sanal ağ hizmet uç noktası için gereken adımlar açıklanmaktadır.
+title: Sanal ağ ve alt ağ tabanlı erişim Azure Cosmos DB hesabınız için yapılandırma
+description: Bu belgede, Azure Cosmos DB için sanal ağ hizmet uç noktası ayarlamak için gereken adımlar açıklanmaktadır.
 author: kanshiG
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 16cd959a83850a3bc940803cd23e7542e34825c8
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283221"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620600"
 ---
-# <a name="how-to-access-azure-cosmos-db-resources-from-virtual-networks"></a>Azure Cosmos DB kaynaklarını sanal ağlardan erişme
+# <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Erişim Azure Cosmos DB kaynaklarını sanal ağlardan
 
-Azure CosmosDB hesapları yalnızca Azure sanal ağının belirli alt ağından erişime izin verecek şekilde yapılandırılabilir. Bir sanal ağdaki (VNET) bir alt ağdan bağlantıları ile Azure Cosmos hesabına erişimi sınırlamak için gereken iki adımı vardır.
+Bir Azure sanal ağı, yalnızca belirli bir alt ağından erişime izin vermek için Azure Cosmos DB hesabı yapılandırabilirsiniz. Bir sanal ağdaki bir alt ağdan bağlantısı olan bir Azure Cosmos DB hesabına erişimi sınırlamak için:
  
-1. Azure Cosmos DB için alt ağ ve VNET kimlik göndermek alt ağı etkinleştirin. Hizmet uç noktası için Azure Cosmos DB belirli bir alt ağda sağlayarak bunu gerçekleştirebilirsiniz.
+1. Alt ağ ve sanal ağ kimliği, Azure Cosmos DB'ye göndermek alt ağı etkinleştirin. Hizmet uç noktası için Azure Cosmos DB belirli bir alt ağda sağlayarak bunu gerçekleştirebilirsiniz.
 
-1. Azure Cosmos hesabında alt ağı olan, bir kaynak olarak belirten bir kural ekleyin. hesap erişilebilir.
+1. Azure Cosmos DB hesabı alt hesabı erişilebilir bir kaynak olarak belirtmek için bir kural ekleyin.
 
 > [!NOTE]
-> Bir kez hesabı etkin bir alt ağ üzerinde Azure Cosmos için hizmet uç noktası, Azure Cosmos DB ulaşmasını trafik kaynağını genel IP ile VNET ve alt ağa geçer. Geçiş trafiği, bu alt ağından erişilen herhangi bir Azure Cosmos hesabı için geçerlidir. Azure Cosmos hesaplarınıza bu alt ağ izin vermek için IP tabanlı güvenlik duvarı varsa, alt ağ IP güvenlik duvarı kuralları artık eşleşir ve reddedilir ve etkin hizmetinden ister. Özetlenen adımları daha fazla bilgi için bkz [IP güvenlik duvarı kuralının VNET erişim denetim listesine geçirme](#migrate-from-firewall-to-vnet) bu makalenin. 
+> Azure Cosmos DB hesabınız için bir hizmet uç noktası bir alt ağ üzerinde etkinleştirildiğinde, bir sanal ağ ve alt ağ Azure Cosmos DB ulaştığında trafik kaynağını bir genel IP adresinden geçer. Geçiş trafiği, bu alt ağdan erişilebilen herhangi bir Azure Cosmos DB hesabı için geçerlidir. Bu alt ağ bir IP tabanlı Güvenlik Duvarı'nı, Azure Cosmos DB hesapları varsa hizmeti etkin alt ağından gelen istekleri IP güvenlik duvarı kuralları artık eşleşen ve bunlar reddetti. 
+>
+> Özetlenen adımları daha fazla bilgi için bkz [bir IP güvenlik duvarı kuralı bir sanal ağ erişim denetim listesine geçirme](#migrate-from-firewall-to-vnet) bu makalenin. 
 
-Aşağıdaki bölümlerde, sanal ağ hizmet uç noktası için bir Azure Cosmos hesabı yapılandırma açıklanmaktadır.
+Aşağıdaki bölümlerde, bir Azure Cosmos DB hesabı için bir sanal ağ hizmet uç noktası yapılandırma açıklanmaktadır.
 
-## <a id="configure-using-portal"></a>Azure portalını kullanarak hizmet uç noktasını yapılandırma
+## <a id="configure-using-portal"></a>Azure portalını kullanarak bir hizmet uç noktasını yapılandırın
 
-### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Bir mevcut Azure sanal ağı ve alt ağ için hizmet uç noktası yapılandırma
+### <a name="configure-a-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Bir mevcut Azure sanal ağı ve alt ağ için hizmet uç noktası yapılandırma
 
-1. Gelen **tüm kaynakları** Azure Cosmos hesabına Bul dikey penceresinde istediğiniz güvenliğini sağlamak.
+1. Gelen **tüm kaynakları** dikey penceresinde Azure Cosmos DB hesabını, bulma, istediğiniz güvenliğini sağlamak.
 
-1. Seçin **güvenlik duvarları ve sanal ağlar** Ayarlar menüsünden ve erişime izin verecek **seçili ağlar**.
+1. Seçin **güvenlik duvarları ve sanal ağlar** Ayarlar menüsünden ve erişime izin verecek şekilde seçin **seçili ağlar**.
 
 1. Bir var olan sanal ağın alt ağı, erişim altında vermek **sanal ağlar**seçin **var olan Azure sanal ağı Ekle**.
 
-1. Seçin **abonelik** Azure sanal ağı eklemek istediğiniz. Azure'ı seçin **sanal ağlar** ve **alt ağlar** Azure Cosmos hesabınıza erişim sağlamak istediğiniz. Ardından **etkinleştirme** "Microsoft.AzureCosmosDB için" hizmet uç noktaları ile seçili ağlar'ı etkinleştirmek için. İşlem tamamlandığında seçin **Ekle**. 
+1. Seçin **abonelik** bir Azure sanal ağı eklemek istediğiniz. Azure'ı seçin **sanal ağlar** ve **alt ağlar** Azure Cosmos DB hesabınızın erişim sağlamak istediğiniz. Ardından, **etkinleştirme** "Microsoft.AzureCosmosDB için" hizmet uç noktaları ile seçili ağlar'ı etkinleştirmek için. İşlem tamamlandığında seçin **Ekle**. 
 
    ![Sanal ağ ve alt ağ seçin](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
 
-1. Sanal ağ üzerinden erişmek için Azure Cosmos hesabı etkinleştirildikten sonra yalnızca bu seçilen alt ağa gelen trafiğe izin verir. Sanal ağ ve alt eklediğiniz aşağıdaki ekran görüntüsünde gösterildiği gibi görünmelidir:
+1. Azure Cosmos DB hesabı, bir sanal ağdan erişim için etkinleştirildikten sonra yalnızca bu alt ağ seçilen gelen trafiğe izin verir. Eklenen alt ağı ve sanal ağ, aşağıdaki ekran görüntüsünde gösterildiği gibi görünmelidir:
 
    ![sanal ağ ve alt ağı başarıyla yapılandırıldı](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
 > [!NOTE]
-> Sanal ağ hizmet uç noktalarını etkinleştirmek için aşağıdaki abonelik izinlere ihtiyacınız:
+> Sanal ağ hizmet uç noktalarını etkinleştirmek için aşağıdaki abonelik izinler gerekir:
   * Sanal ağ ile abonelik: ağ Katılımcısı
-  * Azure Cosmos hesabı abonelikle: DocumentDB hesabı Katılımcısı
+  * Azure Cosmos DB hesabı abonelikle: DocumentDB hesabı Katılımcısı
 
-### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Yeni bir Azure sanal ağı ve alt ağ için hizmet uç noktasını yapılandırma
+### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Yeni bir Azure sanal ağı ve alt ağ için hizmet uç noktası yapılandırma
 
-1. Gelen **tüm kaynakları** Azure Cosmos hesabına Bul dikey penceresinde istediğiniz güvenliğini sağlamak.
+1. Gelen **tüm kaynakları** dikey penceresinde Azure Cosmos DB hesabını, bulma, istediğiniz güvenliğini sağlamak.  
 
-1. Seçin **güvenlik duvarları ve Azure sanal ağları** Ayarlar menüsünden ve erişime izin verecek **seçili ağlar**.  
+1. Seçin **güvenlik duvarları ve Azure sanal ağları** Ayarlar menüsünden ve erişime izin verecek şekilde seçin **seçili ağlar**.  
 
-1. Yeni bir Azure sanal ağı, sanal ağlar'ın altında erişim vermek için seçin **Ekle yeni sanal ağ**.  
+1. Yeni bir Azure sanal ağ, erişim altında vermek **sanal ağlar**seçin **Ekle yeni sanal ağ**.  
 
-1. Yeni bir sanal ağ oluşturmak için gereken ayrıntıları sağlayın ve Oluştur'u seçin. Alt ağı "için Microsoft.AzureCosmosDB etkin" olan bir hizmet uç noktası oluşturulur.
+1. Yeni bir sanal ağ oluşturun ve ardından seçmek için gerekli ayrıntıları **Oluştur**. Alt ağı "için Microsoft.AzureCosmosDB etkin" olan bir hizmet uç noktası oluşturulur.
 
-   ![Sanal ağ ve yeni sanal ağ için alt ağ seçin](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
+   ![Bir sanal ağ ve yeni bir sanal ağ için alt ağ seçin](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Azure Cosmos hesabınızı Azure Search gibi diğer Azure Hizmetleri tarafından kullanılan veya Stream analytics veya Power BI, kontrol ederek erişim izni **genel Azure veri merkezlerinin içinde gelen bağlantıları kabul etmesi**.
+Azure Cosmos DB hesabınızın Azure Search gibi diğer Azure Hizmetleri tarafından kullanılan ya da Power BI ve Stream analytics depolamadan erişilen seçerek erişim izni **genel Azure veri merkezlerinin içinde gelen bağlantıları kabul etmesi**.
 
-Erişim sahibi için Azure Cosmos DB ölçümleri portaldan emin olmak için etkinleştirmeniz gerekir **Azure portalından erişim izni** seçenekleri. Bu seçenekler hakkında daha fazla bilgi için Azure Portalı'ndan istekleri ve Azure PaaS Hizmetleri Yapılandırma bölümlerini istekten bkz [IP Güvenlik Duvarı](how-to-configure-firewall.md) makalesi. Erişim seçtikten sonra seçin **Kaydet** ayarları kaydetmek için.
+Portaldan ölçümlerine Azure Cosmos DB erişimi olduğundan emin olun için etkinleştirmeniz gerekir **Azure portalından erişim izni** seçenekleri. Bu seçenekler hakkında daha fazla bilgi için bkz. [bir IP Güvenlik Duvarı Yapılandırma](how-to-configure-firewall.md) makalesi. Erişimi etkinleştirdikten sonra Seç **Kaydet** ayarları kaydetmek için.
 
 ## <a id="remove-vnet-or-subnet"></a>Bir sanal ağ veya alt ağı Kaldır 
 
-1. Gelen **tüm kaynakları** dikey penceresinde, hizmet uç noktaları atadığınız Azure Cosmos hesabı bulunamadı.  
+1. Gelen **tüm kaynakları** dikey penceresinde, hizmet uç noktaları atadığınız Bul Azure Cosmos DB hesabı.  
 
 2. Seçin **güvenlik duvarları ve sanal ağlar** Ayarlar menüsünden.  
 
-3. Bir sanal ağ veya alt ağ kuralı kaldırmak için seçin sanal ağ veya alt ağ ve Seç yanındaki "…" **Kaldır**.
+3. Bir sanal ağ veya alt ağ kuralı kaldırmak için işaretleyin **...**  sanal ağ veya alt ağ ve select yanındaki **Kaldır**.
 
    ![Bir sanal ağ'ı Kaldır](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
 
-4.  Tıklayın **Kaydet** yaptığınız değişiklikleri uygulamak için.
+4.  Seçin **Kaydet** yaptığınız değişiklikleri uygulamak için.
 
-## <a id="configure-using-powershell"></a>Azure PowerShell kullanarak hizmet uç noktasını yapılandırma
+## <a id="configure-using-powershell"></a>Azure PowerShell kullanarak bir hizmet uç noktasını yapılandırma
 
 > [!NOTE]
-> PowerShell veya CLI kullanılırken parametrelerinde, parolaya eklenmesi gerekir olanları IP filtreleri ve sanal ağ ACL'leri tam listesi belirtmeyi unutmayın.
+> PowerShell veya Azure CLI'yı kullanırken, parametreleri, parolaya eklenmesi gerekir olanları IP filtreleri ve sanal ağ ACL'leri tam listesi belirtmeyi unutmayın.
 
-Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını yapılandırmak için aşağıdaki adımları kullanın:  
+Azure PowerShell kullanarak Azure Cosmos DB hesabı için bir hizmet uç noktasını yapılandırmak için aşağıdaki adımları kullanın:  
 
-1. Son yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ve [oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Bir sanal ağın var olan bir alt ağ için hizmet uç noktasını girin.  
 
@@ -104,7 +106,7 @@ Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını 
     -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
    ```
 
-1. VNET bilgileri edinin.
+1. Sanal ağ bilgi alın.
 
    ```powershell
    $vnProp = Get-AzureRmVirtualNetwork `
@@ -112,11 +114,11 @@ Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını 
      -ResourceGroupName $rgName
    ```
 
-1. Azure Cosmos hesabının özellikleri, aşağıdaki cmdlet'i çalıştırarak alın:  
+1. Azure Cosmos DB hesabının özellikleri, aşağıdaki cmdlet'i çalıştırarak alın:  
 
    ```powershell
    $apiVersion = "2015-04-08"
-   $acctName = "<Azure Cosmos account name>"
+   $acctName = "<Azure Cosmos DB account name>"
 
    $cosmosDBConfiguration = Get-AzureRmResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
@@ -146,7 +148,7 @@ Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını 
    }
    ```
 
-1. Azure Cosmos hesap özellikleri, aşağıdaki cmdlet'leri çalıştırarak yeni yapılandırmayla güncelleştirin: 
+1. Azure Cosmos DB hesabı özellikleri, aşağıdaki cmdlet'leri çalıştırarak yeni yapılandırmayla güncelleştir: 
 
    ```powershell
    $cosmosDBProperties = @{
@@ -166,7 +168,7 @@ Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını 
      -Properties $CosmosDBProperties
    ```
 
-1. Azure Cosmos hesabınızı, önceki adımda yapılandırdığınız sanal ağ hizmet uç noktası ile güncelleştirildiğini doğrulamak için aşağıdaki komutu çalıştırın:
+1. Azure Cosmos DB hesabınızın, önceki adımda yapılandırdığınız sanal ağ hizmet uç noktası ile güncelleştirildiğini doğrulamak için aşağıdaki komutu çalıştırın:
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
@@ -178,15 +180,15 @@ Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını 
    $UpdatedcosmosDBConfiguration.Properties
    ```
 
-## <a id="configure-using-cli"></a>Azure CLI kullanarak hizmet uç noktasını yapılandırma 
+## <a id="configure-using-cli"></a>Azure CLI kullanarak bir hizmet uç noktasını yapılandırma 
 
 1. Bir sanal ağ içindeki alt ağ için hizmet uç noktasını girin.
 
-1. Var olan Azure Cosmos hesabı ACL'ler alt ağ ile güncelleştirme
+1. Var olan Azure Cosmos DB hesabı, alt ağ erişim denetim listeleri (ACL) ile güncelleştirin.
 
    ```azurecli-interactive
 
-   name="<Azure Cosmos account name>"
+   name="<Azure Cosmos DB account name>"
    resourceGroupName="<Resource group name>"
 
    az cosmosdb update \
@@ -196,7 +198,7 @@ Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını 
     --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/frontend"
    ```
 
-1. ACL'ler alt ağ ile yeni bir Azure Cosmos hesabı oluşturma
+1. ACL'ler alt ağ ile yeni bir Azure Cosmos DB hesabı oluşturun.
 
    ```azurecli-interactive
    az cosmosdb create \
@@ -209,17 +211,17 @@ Azure PowerShell kullanarak bir Azure Cosmos hesap için hizmet uç noktasını 
     --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default"
    ```
 
-## <a id="migrate-from-firewall-to-vnet"></a>IP güvenlik duvarı kuralının VNET ACL geçirme 
+## <a id="migrate-from-firewall-to-vnet"></a>Bir IP güvenlik duvarı kuralı bir sanal ağa ACL geçirme 
 
-Aşağıdaki adımlar, yalnızca Azure Cosmos hesapları için bir alt ağ izin vererek var olan IP güvenlik duvarı kuralları ile gereklidir ve VNET ve alt ağ tabanlı ACL'ler yerine IP güvenlik duvarı kuralı kullanmak istiyorsunuz.
+Yalnızca bir alt ağ, sanal ağ ve alt ağ tabanlı ACL'ler bir IP güvenlik duvarı kuralı yerine kullanmak istediğinizde sağlayan mevcut IP güvenlik duvarı kuralları ile Azure Cosmos DB hesapları için aşağıdaki adımları kullanın.
 
-Bir alt ağ için Azure Cosmos hesabı için hizmet uç noktası etkinleştirildikten sonra istekleri yerine genel IP VNET ve alt ağ bilgilerini içeren kaynak ile gönderilir. Bu nedenle, bu tür istekleri IP Filtresi eşleşmiyor. Bu kaynak anahtarı, alt ağdan etkin hizmet bitiş noktası ile erişilen tüm Azure Cosmos hesaplar için gerçekleşir. Kapalı kalma süresini önlemek için aşağıdaki adımları kullanın:
+Bir alt ağ için bir Azure Cosmos DB hesabı için bir hizmet uç noktası etkinleştirildikten sonra istekleri bir genel IP yerine sanal ağ ve alt ağ bilgilerini içeren bir kaynak ile gönderilir. Bu istekleri bir IP filtresinin eşleşmiyor. Bu kaynak anahtarı, alt ağdan etkin hizmet bitiş noktası ile erişilen tüm Azure Cosmos DB hesapları için gerçekleşir. Kapalı kalma süresini önlemek için aşağıdaki adımları kullanın:
 
-1. Azure Cosmos hesabının özellikleri, aşağıdaki cmdlet'i çalıştırarak alın:
+1. Azure Cosmos DB hesabının özellikleri, aşağıdaki cmdlet'i çalıştırarak alın:
 
    ```powershell
    $apiVersion = "2015-04-08"
-   $acctName = "<Cosmos account name>"
+   $acctName = "<Azure Cosmos DB account name>"
 
    $cosmosDBConfiguration = Get-AzureRmResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
@@ -228,7 +230,7 @@ Bir alt ağ için Azure Cosmos hesabı için hizmet uç noktası etkinleştirild
      -Name $acctName
    ```
 
-1. Daha sonra kullanmak üzere değişkenlerini başlatın. Mevcut hesabı tanımından tüm değişkenleri ayarlayın. Tüm Azure cosmos VNET ACL hesapları alt ağ ile erişilen ekleme `ignoreMissingVNetServiceEndpoint` bayrağı.
+1. Daha sonra kullanmak üzere değişkenlerini başlatın. Mevcut hesabı tanımından tüm değişkenleri ayarlayın. Sanal ağ ACL'si alt ağ ile erişilen tüm Azure Cosmos DB hesapları ekleyin `ignoreMissingVNetServiceEndpoint` bayrağı.
 
    ```powershell
    $locations = @()
@@ -252,7 +254,7 @@ Bir alt ağ için Azure Cosmos hesabı için hizmet uç noktası etkinleştirild
    }
    ```
 
-1. Azure Cosmos hesap özellikleri, aşağıdaki cmdlet'leri çalıştırarak yeni yapılandırmayla güncelleştirin:
+1. Azure Cosmos DB hesabı özellikleri, aşağıdaki cmdlet'leri çalıştırarak yeni yapılandırmayla güncelleştir:
 
    ```powershell
    $cosmosDBProperties = @{
@@ -272,27 +274,27 @@ Bir alt ağ için Azure Cosmos hesabı için hizmet uç noktası etkinleştirild
       -Properties $CosmosDBProperties
    ```
 
-1. Alt ağdan erişim tüm Azure Cosmos hesaplar için 1-3. adımları tekrarlayın.
+1. Alt ağdan erişim tüm Azure Cosmos DB hesapları için 1-3. adımları tekrarlayın.
 
-1.  İçin 15 dakika bekleyin ve ardından alt ağ hizmet uç noktası etkinleştirmek için güncelleştirin.
+1.  15 dakika bekleyin ve ardından hizmet uç noktasını etkinleştirmek için alt güncelleştirin.
 
 1.  Bir sanal ağın var olan bir alt ağ için hizmet uç noktasını girin.
 
-   ```powershell
-   $rgname= "<Resource group name>"
-   $vnName = "<virtual network name>"
-   $sname = "<Subnet name>"
-   $subnetPrefix = "<Subnet address range>"
+    ```powershell
+    $rgname= "<Resource group name>"
+    $vnName = "<virtual network name>"
+    $sname = "<Subnet name>"
+    $subnetPrefix = "<Subnet address range>"
 
-   Get-AzureRmVirtualNetwork `
-      -ResourceGroupName $rgname `
-      -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
-      -Name $sname `
-      -AddressPrefix $subnetPrefix `
-      -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
-   ```
+    Get-AzureRmVirtualNetwork `
+       -ResourceGroupName $rgname `
+       -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+       -Name $sname `
+       -AddressPrefix $subnetPrefix `
+       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+    ```
 
-1. Alt ağ için IP güvenlik duvarı kuralı kaldırın.
+1. Alt ağ için IP güvenlik duvarı kuralını kaldırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

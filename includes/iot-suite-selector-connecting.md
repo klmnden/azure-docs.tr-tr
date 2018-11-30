@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 218fc33390575a3df96d0b7d7696b3085c38c8f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264432"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620770"
 ---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -56,7 +56,7 @@ Uzaktan izleme çözümü dağıtım işlemi bittiğinde, bilgisayarınızı **b
 > [!NOTE]
 > Çözümünüzde zaten bir cihaz eklediyseniz, bu adımı atlayabilirsiniz. Ancak, sonraki adım, cihaz bağlantısı dizeniz gerektirir. Bir cihazın bağlantı dizesinden alabilirsiniz [Azure portalında](https://portal.azure.com) veya bu adı kullanıyor [az IOT](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI aracı.
 
-Bir cihazın çözüm hızlandırıcısına bağlamayı için kendini IOT hub'a geçerli kimlik bilgilerini kullanarak tanımlamanız gerekir. Cihazı eklediğinizde, bu kimlik bilgilerini içeren cihaz bağlantı dizesini çözümü kaydetmek için fırsatınız. Bu öğreticinin sonraki adımlarında istemci uygulamanıza cihaz bağlantı dizesini içerir.
+Bir cihazın çözüm hızlandırıcısına bağlamayı için kendini IOT hub'a geçerli kimlik bilgilerini kullanarak tanımlamanız gerekir. Çözüme cihaz eklediğinizde, bu kimlik bilgilerini içeren cihaz bağlantı dizesini kaydetmek olanağına sahiptir. Bu öğreticinin sonraki adımlarında istemci uygulamanıza cihaz bağlantı dizesini içerir.
 
 Uzaktan izleme çözümünüze cihaz eklemek için aşağıdaki adımları tamamlayın **cihazları** çözümdeki sayfası:
 

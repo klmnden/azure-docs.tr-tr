@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d60053de98e93d7414b1df3d80aff41ffe1e4756
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959980"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620175"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>İzinler ve onay Azure Active Directory v1.0 uç noktasını
 
@@ -41,7 +41,7 @@ Azure AD iki tür izin tanımlar:
 
 Etkili izinler, uygulamanızın API istekleri yaparken sahip olacağı izinlerdir. 
 
-* Temsilci izinleri için, uygulamanızın etkili izinleri uygulamaya verilmiş olan (onay yoluyla) temsilci izinleriyle o anda oturum açmış olan kullanıcının ayrıcalıklarının en düşük ayrıcalıklı kesişimi olacaktır. Uygulamanızın ayrıcalıkları hiçbir zaman oturum açmış kullanıcının ayrıcalıklarından fazla olamaz. Kuruluşların içinde, oturum açmış kullanıcının ayrıcalıkları ilkeyle ya da bir veya birden çok yönetici rolü üyeliğiyle belirlenebilir. Yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md).
+* Temsilci izinleri için, uygulamanızın etkili izinleri uygulamaya verilmiş olan (onay yoluyla) temsilci izinleriyle o anda oturum açmış olan kullanıcının ayrıcalıklarının en düşük ayrıcalıklı kesişimi olacaktır. Uygulamanızın ayrıcalıkları hiçbir zaman oturum açmış kullanıcının ayrıcalıklarından fazla olamaz. Kuruluşların içinde, oturum açmış kullanıcının ayrıcalıkları ilkeyle ya da bir veya birden çok yönetici rolü üyeliğiyle belirlenebilir. Hangi yönetici rolleri için temsilci izinleri izin alma bilgi edinmek için [Azure AD'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md).
     Örneğin, Microsoft Graph'te uygulamanıza `User.ReadWrite.All` temsilci izni verildiğini varsayalım. Adından da anlaşıldığı gibi bu izin uygulamanıza kuruluştaki her kullanıcının profilini okuma ve güncelleştirme izni verir. Oturum açmış kullanıcının bir genel yönetici olması durumunda, uygulamanız kuruluştaki her kullanıcının profilini güncelleştirebilir. Öte yandan oturum açmış kullanıcı bir yönetici rolünde değilse, uygulamanız yalnızca oturum açmış kullanıcının profilini güncelleştirebilir. Kuruluştaki diğer kullanıcıların profillerini güncelleştiremez çünkü adına çalışma iznine sahip olduğu kullanıcı söz konusu ayrıcalıklara sahip değildir.
 * Uygulama izinleri için, uygulamanızın etkili izinleri izin tarafından belirtilen tüm ayrıcalık düzeylerini kapsar. Örneğin, `User.ReadWrite.All` uygulama iznine sahip bir uygulama kuruluştaki her kullanıcının profilini güncelleştirebilir.
 

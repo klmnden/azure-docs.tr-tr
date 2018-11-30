@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb7e422e0eb4a71e0f88a911083f8f5d6fb0ef2f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092177"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634175"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -95,7 +95,7 @@ Bir grubu kaldırmak için önce daha önce gösterilen bir yordamı kullanarak 
 
 ### <a name="hybrid-worker-role"></a>Karma çalışan rolü
 
-Karma Runbook bağlanın ve Log Analytics ile kaydetmek çalışanı için bu bağlantı noktası numarası ve bu bölümünde açıklanan URL'lere erişimi olmalıdır. En üste bu erişime açıktır [bağlantı noktaları ve URL'ler Microsoft izleme aracısının gerektirdiği](../log-analytics/log-analytics-agent-windows.md) Log Analytics'e bağlanmak için.
+Karma Runbook bağlanın ve Log Analytics ile kaydetmek çalışanı için bu bağlantı noktası numarası ve bu bölümünde açıklanan URL'lere erişimi olmalıdır. En üste bu erişime açıktır [bağlantı noktaları ve URL'ler Microsoft izleme aracısının gerektirdiği](../azure-monitor/platform/agent-windows.md) Log Analytics'e bağlanmak için.
 
 Log Analytics hizmeti ile aracı arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için Güvenlik Duvarı'nı kullanıyorsanız erişime izin vermek için güvenlik duvarını yapılandırmanız gerekir. Log Analytics ağ geçidi bir ara sunucu kullanırsanız, karma çalışanları için yapılandırıldığından emin olun. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Otomasyon karma çalışanı için Log Analytics ağ geçidini yapılandırma](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 

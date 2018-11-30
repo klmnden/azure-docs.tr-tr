@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 29fc264a04111fbbe69c90ebd7250e25022c1217
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274630"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582539"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -167,7 +167,8 @@ Hesap Yöneticisi olup olmadığınızı görmek için Git [abonelikler dikey pe
 
 Hesap Yöneticisi değilseniz sonra birisi kısmi erişim aracılığıyla büyük olasılıkla verdiğiniz [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) (RBAC). Abonelik ve faturalandırma bilgileri, değişiklik yönetmek için [Hesap Yöneticisi Bul](billing-subscription-transfer.md#whoisaa) ve görevleri gerçekleştirmesini isteyin veya [abonelik için aktarım](billing-subscription-transfer.md).
 
-Hesap yöneticiniz, kuruluşunuz artık ise ve faturalandırma, yönetmeniz gereken [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+Hesap yöneticiniz, kuruluşunuz artık ise ve faturalandırma, yönetmeniz gereken [bizimle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

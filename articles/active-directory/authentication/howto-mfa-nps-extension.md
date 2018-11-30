@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297546"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582386"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
-Azure MFA için ağ ilkesi sunucusu (NPS) uzantısı, var olan sunucuları kullanarak kimlik doğrulaması altyapınız için bulut tabanlı MFA özellikleri ekler. NPS uzantısı ile yükleyin, yapılandırın ve yeni sunucuların bakımını yapmak zorunda kalmadan, mevcut kimlik doğrulama akışı için telefon araması, SMS mesajı ve telefon uygulaması doğrulama ekleyebilirsiniz. 
+Azure MFA için ağ ilkesi sunucusu (NPS) uzantısı, var olan sunucuları kullanarak kimlik doğrulaması altyapınız için bulut tabanlı MFA özellikleri ekler. NPS uzantısı ile yükleyin, yapılandırın ve yeni sunucuların bakımını yapmak zorunda kalmadan, mevcut kimlik doğrulama akışı için telefon araması, SMS mesajı ve telefon uygulaması doğrulama ekleyebilirsiniz. 
 
 Bu uzantı, Azure MFA Sunucusu'nu dağıtmadan VPN bağlantıları korumak istediğiniz kuruluşlar için oluşturuldu. Bir bağdaştırıcı RADIUS ve Azure MFA bulut tabanlı bir ikinci faktör kimlik doğrulaması sağlamak için arasında federasyona eklenenler veya eşitlenmiş kullanıcıları NPS uzantısı işlevi görür.
 
-Azure MFA için NPS uzantısı kullanarak, kimlik doğrulaması akışı aşağıdaki bileşenleri içerir: 
+Azure MFA için NPS uzantısı kullanarak, kimlik doğrulaması akışı aşağıdaki bileşenleri içerir: 
 
-1. **NAS/VPN sunucusu** VPN istemcilerinden gelen istekleri alan ve NPS sunucuları için RADIUS isteklerini dönüştürür. 
-2. **NPS sunucusu** birincil kimlik doğrulaması için RADIUS isteklerini gerçekleştirmek için Active Directory'ye bağlanır ve başarılı olduktan sonra yüklenen tüm uzantıları istek geçirir.  
-3. **NPS uzantısı** ikincil kimlik doğrulaması için Azure mfa'yı istek tetikler. Uzantı yanıtı alır ve MFA testini başarılı olursa, MFA talebi içeren güvenlik belirteçleri ile NPS sunucusu sağlayarak kimlik doğrulama isteği tamamlandıktan sonra Azure STS tarafından verilen.  
+1. **NAS/VPN sunucusu** VPN istemcilerinden gelen istekleri alan ve NPS sunucuları için RADIUS isteklerini dönüştürür. 
+2. **NPS sunucusu** birincil kimlik doğrulaması için RADIUS isteklerini gerçekleştirmek için Active Directory'ye bağlanır ve başarılı olduktan sonra yüklenen tüm uzantıları istek geçirir.  
+3. **NPS uzantısı** ikincil kimlik doğrulaması için Azure mfa'yı istek tetikler. Uzantı yanıtı alır ve MFA testini başarılı olursa, MFA talebi içeren güvenlik belirteçleri ile NPS sunucusu sağlayarak kimlik doğrulama isteği tamamlandıktan sonra Azure STS tarafından verilen.  
 4. **Azure mfa'yı** Azure kullanıcının ayrıntılarını almak için Active Directory'ye ile iletişim kurar ve kullanıcı için yapılandırılan bir doğrulama yöntemiyle ikincil kimlik doğrulaması gerçekleştirir.
 
-Aşağıdaki diyagramda bu üst düzey kimlik doğrulama isteği akışı gösterilmektedir: 
+Aşağıdaki diyagramda bu üst düzey kimlik doğrulama isteği akışı gösterilmektedir: 
 
 ![Kimlik doğrulaması akışı diyagramı](./media/howto-mfa-nps-extension/auth-flow.png)
 
@@ -54,7 +54,7 @@ Azure MFA NPS uzantısı ile müşteriler için kullanılabilir [Azure multi-Fac
 
 Windows Server 2008 R2 SP1 veya üstü.
 
-### <a name="libraries"></a>Kitaplıkları
+### <a name="libraries"></a>Kitaplıklar
 
 Bu kitaplıklar uzantısı ile otomatik olarak yüklenir.
 
@@ -118,7 +118,7 @@ Hangi kimlik doğrulama yöntemleri ile bir NPS uzantısı dağıtımı kullanı
 
 NPS uzantısı dağıttığınızda, kullanıcılarınız için hangi yöntemlerin kullanılabilir değerlendirmek için bu faktörlerin kullanın. RADIUS istemcinizi PAP destekler, ancak istemci UX bir doğrulama kodu için giriş alanlarını yok ardından telefon araması ve mobil uygulama bildirimi desteklenen iki seçenek vardır.
 
-Yapabilecekleriniz [desteklenmeyen kimlik doğrulama yöntemleri devre dışı](howto-mfa-mfasettings.md#selectable-verification-methods) azure'da.
+Yapabilecekleriniz [desteklenmeyen kimlik doğrulama yöntemleri devre dışı](howto-mfa-mfasettings.md#verification-methods) azure'da.
 
 ### <a name="register-users-for-mfa"></a>Kullanıcıları MFA'ya kaydetmeniz
 
@@ -212,15 +212,31 @@ Sertifika deposu ve özel anahtarı kullanıcıya verilen izinlere sahip olup ol
 
 PowerShell komut istemi açın ve aşağıdaki komutları çalıştırın:
 
-```
+``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
 Bu komutlar, kiracınız NPS uzantısı örneğinizle PowerShell oturumunuzda ilişkilendirme tüm sertifikaları yazdırın. Sertifikanız için istemci sertifikası özel anahtar olmadan "Base-64 kodlanmış X.509(.cer)" dosyası olarak dışa aktararak bakın ve PowerShell listeden karşılaştırır.
 
+Aşağıdaki komut, biçim .cer, "C:" sürücünüzde "npscertificate" adlı bir dosya oluşturur.
+
+``` PowerShell
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+```
+
+Bu komutu çalıştırdıktan sonra C sürücüsüne dosyasını bulun ve çift tıklayın gidin. Ayrıntılarına gidin ve "parmak izi" aşağı kaydırın, bu sunucuya yüklenen sertifikanın parmak izini karşılaştırın. Sertifika parmak izleri eşleşmesi gerekir.
+
 Geçerli-başlangıç ve geçerli-kadar okunabilir formda bulunan, zaman damgalarını komut birden fazla sertifika döndürürse, açık misfits filtrelemek için kullanılabilir.
+
+-------------------------------------------------------------
+
+### <a name="why-cant-i-sign-in"></a>Yapılamıyor neden oturum açmalıyım?
+
+Parolanızın süresinin dolmadığından denetleyin. NPS uzantısı, oturum açma iş akışının bir parçası parola değiştirmeyi desteklemez. Daha fazla yardım için lütfen kuruluşunuzun BT personeli başvurun.
 
 -------------------------------------------------------------
 

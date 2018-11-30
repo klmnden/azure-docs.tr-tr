@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 220fc7b2b0ce3a4c5fd943c35952a345379a1b91
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284225"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619835"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory geçişli kimlik doğrulaması: Sık sorulan sorular
 
@@ -34,7 +34,7 @@ Gözden geçirme [bu kılavuzda](https://docs.microsoft.com/azure/security/azure
 
 Geçişli kimlik doğrulaması ücretsiz bir özelliktir. Bunu kullanmak için Azure AD Ücretli tüm sürümleri gerekmez.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Geçişli kimlik doğrulaması kullanılabilir [Microsoft Azure Almanya bulut](http://www.microsoft.de/cloud-deutschland) ve [Microsoft Azure kamu bulutundaki](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Geçişli kimlik doğrulaması kullanılabilir [Microsoft Azure Almanya bulut](https://www.microsoft.de/cloud-deutschland) ve [Microsoft Azure kamu bulutundaki](https://azure.microsoft.com/features/gov/)?
 
 Hayır. Geçişli kimlik doğrulaması, yalnızca dünya çapındaki örneğini Azure AD içinde kullanılabilir.
 
@@ -44,7 +44,7 @@ Evet. Azure multi-Factor Authentication dahil, tüm koşullu erişim özellikler
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Geçişli kimlik doğrulaması yapılandırmalıdır "userPrincipalName" yerine "Alternatif kimlik" destekliyor mu?
 
-Evet. Geçişli kimlik doğrulamasını destekleyen `Alternate ID` Azure AD Connect'e bağlanan yapılandırıldığında yapılandırmalıdır. Daha fazla bilgi için [Azure AD Connect özel yüklemesi](how-to-connect-install-custom.md). Tüm Office 365 uygulamaları desteklemez `Alternate ID`. Belirli bir uygulamanın belgelerine destek deyimine bakın.
+Evet, geçişli kimlik doğrulamasını destekleyen `Alternate ID` Azure AD Connect'e bağlanan yapılandırıldığında yapılandırmalıdır. Şirket içi Active Directory eşitleme Azure AD Connect bir önkoşul gerekli `UserPrincipalName` Azure AD'ye özniteliği. Daha fazla bilgi için [Azure AD Connect özel yüklemesi](how-to-connect-install-custom.md). Tüm Office 365 uygulamaları desteklemez `Alternate ID`. Belirli bir uygulamanın belgelerine destek deyimine bakın.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Parola Karması eşitleme, geçişli kimlik doğrulaması için bir geri dönüş olarak davranmak mu?
 
@@ -119,6 +119,10 @@ Geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri
 
 Evet. Çok ormanlı ortamları, Active Directory ormanlarınız arasında orman güveni varsa desteklenir ve ad soneki yönlendirme doğru şekilde yapılandırıldıysa.
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>Geçişli kimlik doğrulaması, birden çok kimlik doğrulama aracılarının arasında yük dengelemeyi sağlar mı?
+
+Hayır, birden fazla geçişli kimlik doğrulama aracılarının yüklenmesi yalnızca sağlar [yüksek kullanılabilirlik](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Kimlik doğrulama aracılarının arasında belirleyici dengelemeyi sağlamaz. Herhangi bir kimlik doğrulama Aracısı (rastgele) belirli bir kullanıcı oturum açma isteği işleyebilir.
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Yükleme kaç geçişli kimlik doğrulama aracılarının gerekiyor?
 
 Birden fazla geçişli kimlik doğrulama aracılarının yüklenmesi sağlar [yüksek kullanılabilirlik](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Ancak, kimlik doğrulama aracılarının arasında belirleyici dengelemeyi sağlamaz.
@@ -149,6 +153,22 @@ Azure AD Connect Sihirbazı'nı yeniden çalıştırın ve kullanıcı oturum a�
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Geçişli kimlik doğrulaması Aracısı kaldırabilirim ne olur?
 
 Geçişli kimlik doğrulaması Aracısı bir sunucudan kaldırırsanız, sunucunun oturum açma istekleri kabul etmeyi durdurmasına neden olur. Kiracınızda oturum açma kullanıcı özelliği bozmayı önlemek için geçişli kimlik doğrulaması Aracısı kaldırmadan önce başka bir kimlik doğrulama Aracısı çalıştıran sahip olun.
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Özgün AD FS kullanarak Kurulum, daha eski bir kiracınız var.  Size yakın zamanda PTA için geçirilen, ancak artık Azure AD ile eşitliyorsanız UPN değişikliklerimizi görmüyor.  Bizim UPN neden olan olmayan eşitlenmesini değiştirir?
+
+Y: altında aşağıdaki durumlarda, şirket içi UPN değişikliklerinizi eşitlenmeyebilir:
+
+- Azure AD kiracınız 15 Haziran 2015 tarihinden önce oluşturulduysa
+- Kimlik doğrulaması için AD FS kullanarak Azure AD kiracınız ile başlangıçta federe
+- Kimlik doğrulaması olarak PTA kullanan kullanıcılar yönetilen için geçiş
+
+UPN değişiklikleri engellemek için varsayılan davranışı, 15 Haziran 2015 tarihinden önce oluşturulan kiracılar olduğu olmasıdır.  UPN değişiklik yapılmasını engelleyin kaldırma gerekiyorsa, aşağıdaki PowerShell cmdlt'sini çalıştırmanız gerekir:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Kiracılar, 15 Haziran 2015 tarihinden sonra oluşturulan UPN değişiklikleri eşitleme varsayılan davranışa sahip.   
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md): hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.

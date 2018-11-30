@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6cbcb42ee8c77ff0c8ded966b4f04af8815ca726
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614965"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633002"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
 Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
@@ -150,7 +150,7 @@ POST isteği başarılı olursa, şu yanıtı birlikte bir HTTP 200 Tamam durumu
 }
 ```
 
-Bu yanıt uyarıları başarılı bir şekilde Azure uyarılarına genişletecektir genişletilmiştir gösterir. Uyarıları Azure'a genişletildi ve bir ilişkisi yoktur, yalnızca denetimi için sürüm özelliğidir [Log Analytics arama API](../log-analytics/log-analytics-api-alerts.md). Uyarılar başarıyla Azure'a genişletilmiş, bir rapor ile POST isteği gönderilir sağlanan herhangi e-posta adresleri. Belirtilen çalışma alanı Uyarılardaki tüm genişletilmesi için zamanlanır, POST isteğinize yanıt denemesi (403 durum kodu) yasaklanmış olur. Herhangi bir hata iletisi görüntülemek veya işlem takılıp takılmadığına anlamak için bir GET isteği gönderebilirsiniz. Bir hata iletisi varsa, bu, Özet bilgilerinin yanı sıra döndürülür.
+Bu yanıt uyarıları başarılı bir şekilde Azure uyarılarına genişletecektir genişletilmiştir gösterir. Uyarıları Azure'a genişletildi ve bir ilişkisi yoktur, yalnızca denetimi için sürüm özelliğidir [Log Analytics arama API](../azure-monitor/platform/api-alerts.md). Uyarılar başarıyla Azure'a genişletilmiş, bir rapor ile POST isteği gönderilir sağlanan herhangi e-posta adresleri. Belirtilen çalışma alanı Uyarılardaki tüm genişletilmesi için zamanlanır, POST isteğinize yanıt denemesi (403 durum kodu) yasaklanmış olur. Herhangi bir hata iletisi görüntülemek veya işlem takılıp takılmadığına anlamak için bir GET isteği gönderebilirsiniz. Bir hata iletisi varsa, bu, Özet bilgilerinin yanı sıra döndürülür.
 
 ```json
 {

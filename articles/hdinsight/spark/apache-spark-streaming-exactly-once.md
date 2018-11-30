@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241332"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581009"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Spark akış işleri ile tam olarak oluşturma-kere olay işleme
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Apache Spark akış işleri ile tam olarak oluşturma-kere olay işleme
 
 Stream işleme uygulamalarını nasıl bunlar yeniden işlem iletileri bazı hatadan sonra sistemde işlemek için farklı yaklaşımlara uygulayın:
 
@@ -25,7 +25,7 @@ Stream işleme uygulamalarını nasıl bunlar yeniden işlem iletileri bazı hat
 
 Bu makalede, tam olarak elde etmek için Spark akışı yapılandırma gösterir-bir kez işlenmesini.
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Tam olarak-Spark akışı ile bir kez semantiği
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Tam olarak-Apache Spark akışı ile bir kez semantiği
 
 İlk olarak göz önünde bulundurun hata tüm sistemin noktaları bir sorun atandıktan sonra yeniden başlatma ve veri kaybını önlemek nasıl. Uygulama Spark akışı vardır:
 
@@ -41,11 +41,11 @@ Tam olarak-sonra hiçbir veri herhangi bir noktada kaybolur ve bu ileti işleme 
 
 Spark Streaming uygulamanız, olaylarından okuma kaynağı olmalıdır *yeniden oynatılabilir*. Bu durumda, burada iletisi alındı, ancak iletinin kalıcı veya işlenen önce sistem başarısız oldu, kaynak aynı ileti yeniden sağlamanız gereken anlamına gelir.
 
-Azure'da, hem Azure Event Hubs hem de HDInsight üzerinde kafka'yı yeniden oynatılabilir kaynakları sağlar. HDFS, Azure depolama blobları gibi bir hataya dayanıklı dosya sistemi yeniden oynatılabilir bir kaynağı başka bir örneği olduğu veya nerede tüm veriler tutulur süresiz olarak ve herhangi bir noktada, Azure Data Lake Store, verilerin tamamına yeniden okuyabilirsiniz.
+Azure'da, hem Azure Event Hubs ve [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde yeniden oynatılabilir kaynakları sağlayın. Hataya dayanıklı dosya sistemi gibi başka bir örnek yeniden oynatılabilir kaynağı olan [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure depolama blobları veya Azure Data Lake Store, burada tüm verileri her zaman tutulur ve herhangi bir noktada verilerin tamamına yeniden okuyabilirsiniz.
 
 ### <a name="reliable-receivers"></a>Güvenilir Alıcılar
 
-Spark akış, olay hub'ları ve Kafka gibi kaynakları *Güvenilir Alıcılar*, burada her alıcı kaynak okuma, ilerleme durumunu izler. Güvenilir bir alıcı, hataya dayanıklı depolama, ZooKeeper içinde veya Spark akışı denetim noktaları HDFS'ye yazılan içine durumuna devam ettirir. Böyle bir alıcı başarısız olursa ve daha sonra yeniden başlatıldı, bu kaldığı yerden devam edebiliyorduk.
+Spark akış, olay hub'ları ve Kafka gibi kaynakları *Güvenilir Alıcılar*, burada her alıcı kaynak okuma, ilerleme durumunu izler. Güvenilir bir alıcı içine içinde ya da hataya dayanıklı depolama durumunu kalıcı [Apache ZooKeeper](https://zookeeper.apache.org/) veya Spark akışı denetim noktaları HDFS'ye yazılan. Böyle bir alıcı başarısız olursa ve daha sonra yeniden başlatıldı, bu kaldığı yerden devam edebiliyorduk.
 
 ### <a name="use-the-write-ahead-log"></a>Yazma önceden yazılan günlük kullanın
 
@@ -89,5 +89,5 @@ Başka bir örnek, bir Azure depolama blobları gibi bölümlenmiş dosya sistem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Spark akış genel bakış](apache-spark-streaming-overview.md)
-* [YARN yüksek oranda kullanılabilir Spark akış işleri oluşturma](apache-spark-streaming-high-availability.md)
+* [Apache Spark akış genel bakış](apache-spark-streaming-overview.md)
+* [Apache Hadoop YARN yüksek oranda kullanılabilir bir Apache Spark akış işleri oluşturma](apache-spark-streaming-high-availability.md)

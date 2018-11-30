@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567154"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620634"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>Bir zaman uyumsuz işlev dışarı aktarma
-JavaScript kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirim ya da aksi takdirde bir JavaScript döndüren [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (kullanılabilir değil hatasıyla işlevleri v1.x), açıkça çağırmak ihtiyacınız olmayan [ `context.done` ](#contextdone-method) işlevinizi tamamlandığını göstermek için geri çağırma. İşlevinizi, dışarı aktarılan zaman uyumsuz işlev/Promise tamamlandığında da tamamlanır.
-
 Kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirim veya düz JavaScript [gösterir](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) sürüm 2.x çalışma zamanı işlevleri değil açıkça çağırmak için size gereken [ `context.done` ](#contextdone-method) işlevinizi tamamlandığını göstermek için geri çağırma. İşlevinizi, dışarı aktarılan zaman uyumsuz işlev/Promise tamamlandığında da tamamlanır. Sürüm 1.x çalışma zamanını hedefleyen işlevler için hala çağırmalısınız [ `context.done` ](#contextdone-method) kodunuz tamamlandığında yürütülüyor.
 
 Aşağıdaki örnek tetiklendi ve hemen bir kısayoldur günlüğe kaydeden basit bir işlevdir.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262344"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584885"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Gelişmiş ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke kapsamları:** tüm kapsamlar
 
 ##  <a name="LimitConcurrency"></a> Eşzamanlılık sınırı
- `limit-concurrency` İlke kapalı ilkeleri tarafından belirtilen istek sayısının birden fazla belirli bir zamanda yürütülmesini engeller. Bu sayıyı aşan üzerine yeni istekler hemen 429 çok fazla istek durum kodu ile başarısız olur.
+ `limit-concurrency` İlke kapalı ilkeleri tarafından belirtilen istek sayısının birden fazla herhangi bir zamanda yürütülmesini engeller. Bu sayıyı aşan üzerine yeni istekler hemen 429 çok fazla istek durum kodu ile başarısız olur.
 
 ###  <a name="LimitConcurrencyStatement"></a> İlke bildirimi
 
@@ -876,7 +876,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

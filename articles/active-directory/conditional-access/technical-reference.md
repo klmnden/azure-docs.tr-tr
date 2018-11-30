@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 6401fbdef07102c6ddba98fe5246ceadfaaca758
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976328"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619648"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -226,7 +226,6 @@ Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 - Microsoft To-Do
 - Microsoft Stream
 - Microsoft Edge
-- Microsoft inceleyin
 
 
 

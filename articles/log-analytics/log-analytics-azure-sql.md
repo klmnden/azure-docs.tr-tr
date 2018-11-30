@@ -2,25 +2,22 @@
 title: Log analytics'te Azure SQL Analytics çözümünü | Microsoft Docs
 description: Azure SQL Analytics çözümünü, Azure SQL veritabanlarınızı yönetmenize yardımcı olur.
 services: log-analytics
-documentationcenter: ''
-author: danimir
-manager: carmonm
-ms.reviewer: carlrab
-ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+author: danimir
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 11/26/2018
 ms.author: v-daljep
-ms.component: ''
-ms.openlocfilehash: 84ccd411fd93004a4d3de50e8f4e844f77635421
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 57faa347b2733ebf65757b02ee9395f94776cf10
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284362"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635399"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -32,21 +29,20 @@ Topladığınız ölçümleri çözümle birlikte kullanarak, özel izleme kural
 
 Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipik kullanım senaryoları için katıştırılmış video bakın:
 
-[!VIDEO https://youtu.be/GK2Hl21aZqQ]
+>[!VIDEO https://youtu.be/j-NDkN4GIzg]
+>
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
-Azure SQL Analytics çözümünü destekleyen tanılama telemetrisi Azure SQL veritabanı, yönetilen örnek veritabanları ve elastik havuzlar için akış yalnızca izleme bir buluttur.
-
-Çözüm, Log Analytics hizmetine bağlanmak için aracıları kullanmaz gibi çözüm barındırılan SQL Server şirket içi veya sanal makineleri izleme desteği değil, uyumluluk tabloya bakın.
+Azure SQL Analytics, bulut çözümü, Azure SQL veritabanları için tanılama telemetrisi destekleyen akış izleme yalnızca: tek, havuza alınmış ve yönetilen örnek veritabanları. Çözüm, Log Analytics hizmetine bağlanmak için aracıları kullanmaz gibi çözüm barındırılan SQL Server şirket içi veya sanal makineleri izleme desteği değil, uyumluluk tabloya bakın.
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| **[Azure tanılama](log-analytics-azure-storage.md)** | **Evet** | Azure ölçüm ve günlük verileri Log Analytics'e doğrudan Azure tarafından gönderilir. |
+| [Azure Tanılama](log-analytics-azure-storage.md) | **Evet** | Azure ölçüm ve günlük verileri Log Analytics'e doğrudan Azure tarafından gönderilir. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Log Analytics, verileri bir depolama hesabından okumaz. |
-| [Windows aracıları](log-analytics-agent-windows.md) | Hayır | Doğrudan Windows aracıları çözüm tarafından kullanılmaz. |
+| [Windows aracıları](../azure-monitor/platform/agent-windows.md) | Hayır | Doğrudan Windows aracıları çözüm tarafından kullanılmaz. |
 | [Linux aracıları](log-analytics-quick-collect-linux-computer.md) | Hayır | Doğrudan Linux aracıları çözüm tarafından kullanılmaz. |
-| [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | SCOM Aracısı'ndan doğrudan bir bağlantı Log analytics'e çözüm tarafından kullanılmaz. |
+| [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md) | Hayır | Operations Manager Aracısı'ndan doğrudan bir bağlantı Log analytics'e çözüm tarafından kullanılmaz. |
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -64,9 +60,9 @@ Azure SQL Analytics çözümünü Azure panonuza eklemek için aşağıdaki adı
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Azure SQL veritabanları, elastik havuzlar ve yönetilen örnekler akışı tanılama telemetrisi için yapılandırma
 
-Azure SQL Analytics çözümünü çalışma alanınızda oluşturduktan sonra Azure SQL veritabanı yönetilen örnek veritabanları ve elastik havuzlar, veritabanlarının performansını izlemek için gerekir **her yapılandırma** bu Çözüm için kendi tanılama telemetrisi akışını izlemek istediğiniz kaynaklar. Lütfen bu sayfada ayrıntılı yönergeleri izleyin:
+Azure SQL Analytics çözümünü çalışma alanınızda oluşturduktan sonra yapmanız **her yapılandırma** çözümü için kendi tanılama telemetrisi akışını izlemek istediğiniz kaynakları. Bu sayfada ayrıntılı yönergeleri izleyin:
 
-- Azure SQL veritabanı, yönetilen örnek veritabanları ve elastik havuzlar için Azure tanılamayı etkinleştirerek [Azure SQL Analytics için tanılama telemetrisi akışını](../sql-database/sql-database-metrics-diag-logging.md).
+- Azure SQL veritabanınızın Azure tanılamayı etkinleştirerek [Azure SQL Analytics için tanılama telemetrisi akışını](../sql-database/sql-database-metrics-diag-logging.md).
 
 Yukarıdaki sayfayı ayrıca tek bir Azure SQL Analytics çalışma alanı birden çok Azure aboneliklerinde tek bir cam bölmeyle izlemek için destek etkinleştirme hakkında yönergeler sağlar.
 
@@ -84,11 +80,11 @@ Azure SQL veritabanları ve elastik havuzlar için Azure SQL Analytics izleme pa
 
 Pano farklı perspektiflerini izlenen tüm veritabanlarının genel bakış içerir. Farklı bakış açıları çalışmak SQL kaynaklarınızın Azure Log Analytics çalışma alanına akışla uygun ölçümleri veya günlükleri etkinleştirmelisiniz.
 
-Bazı ölçümler veya günlüklerini Azure Log Analytics'e aktarılır değil, çözümdeki kutucukları izleme bilgilerini doldurulmaz olduğunu lütfen unutmayın.
+Bazı ölçümler veya günlüklerini Azure Log Analytics'e aktarılır değil, çözümdeki kutucukları izleme bilgilerini doldurulmaz olduğunu unutmayın.
 
 ### <a name="azure-sql-database-and-elastic-pool-view"></a>Azure SQL veritabanı ve elastik havuz görüntüleyin
 
-Azure SQL veritabanı için Azure SQL Analytics kutucuğuna ve elastik havuzlar seçili sonra izleme Panosu gösterilmektedir.
+Veritabanını Azure SQL Analytics kutucuğuna seçildikten sonra izleme Panosu gösterilmektedir.
 
 ![Azure SQL Analytics genel bakış](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -100,7 +96,7 @@ Bu görünümde her bir perspektif, abonelik, sunucu, elastik havuz ve veritaban
 
 ### <a name="managed-instance-and-databases-in-managed-instance-view"></a>Yönetilen örnek ve yönetilen örnek veritabanları görüntüleyin
 
-Yönetilen örnek için Azure SQL Analytics kutucuğuna ve yönetilen Instnace veritabanları seçili sonra izleme Panosu gösterilmektedir.
+Veritabanlarını Azure SQL Analytics kutucuğuna seçildikten sonra izleme Panosu gösterilmektedir.
 
 ![Azure SQL Analytics genel bakış](./media/log-analytics-azure-sql/azure-sql-sol-overview-mi.png)
 
@@ -116,7 +112,7 @@ Aşağıdaki tabloda iki Pano, bir Azure SQL veritabanı ve elastik havuzlar iç
 
 | Perspektif | Açıklama | SQL veritabanı ve elastik havuzlar desteği | Yönetilen örnek destek |
 | --- | ------- | ----- | ----- |
-| Kaynak türüne göre | Bu perspektif izlenen tüm kaynakları sayar. | Evet | Evet | 
+| Kaynak türüne göre | Bu perspektif izlenen tüm kaynakları sayar. | Evet | Evet |
 | Insights | Hiyerarşik detaya gitme performans akıllı Öngörüler sağlar. | Evet | Evet |
 | Hatalar | Hiyerarşik detaya gitme veritabanlarında meydana gelen hatalara SQL sağlar. | Evet | Evet |
 | Zaman Aşımları | Hiyerarşik detaya gitme veritabanlarında gerçekleşen SQL zaman aşımları sağlar. | Evet | Hayır |
@@ -127,7 +123,7 @@ Aşağıdaki tabloda iki Pano, bir Azure SQL veritabanı ve elastik havuzlar iç
 
 ### <a name="intelligent-insights-report"></a>Akıllı İçgörüler raporu
 
-Azure SQL veritabanı [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) ile Azure SQL veritabanları ve yönetilen örnek veritabanlarının performansını neler olduğunu bildiğiniz sağlar. Toplanan tüm akıllı İçgörüler görselleştirileceğini ve öngörüleri perspektif erişilebilir.
+Azure SQL veritabanı [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) performans tüm Azure SQL veritabanı ile neler olduğunu bildiğiniz sağlar. Toplanan tüm akıllı İçgörüler görselleştirileceğini ve öngörüleri perspektif erişilebilir.
 
 ![Azure SQL Analytics öngörüleri](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -147,13 +143,13 @@ Sorgu süresi ve sorgu bekler Perspektifler sorgu raporu aracılığıyla herhan
 
 ## <a name="permissions"></a>İzinler
 
-Azure SQL Analytics kullanmak için Azure okuyucusu rolüne verilebilmesi için en düşük gereksinim, kullanıcıları olacaktır. Bu rol ancak sorgu metni görmesine olanak veya tüm otomatik ayarlama eylemleri gerçekleştirin. Sahibi, katkıda bulunan, SQL DB Katılımcısı veya SQL Server Katılımcısı tam ölçüde çözümünü sağlayacak azure'da daha serbest rolleridir. Yalnızca Azure SQL Analytics kullanmak için gereken belirli izinleri ile ve diğer kaynakları yönetmek için erişim olmaksızın Portalı'nda özel rol oluşturma düşünmek isteyebilirsiniz.
+Azure SQL Analytics kullanmak için kullanıcıların azure'daki okuyucu rolünün en az bir izin verilmesi gerekir. Bu rol, ancak değil sorgu metni görmesine olanak veya tüm otomatik ayarlama eylemleri gerçekleştirin. Tam ölçüde çözümünü sağlayan daha esnek azure'da sahibi, katkıda bulunan, SQL DB Katılımcısı veya SQL Server Katılımcısı rolleridir. Yalnızca Azure SQL Analytics kullanmak için gereken belirli izinleri ile ve diğer kaynakları yönetmek için erişim olmaksızın Portalı'nda özel rol oluşturma düşünmek isteyebilirsiniz.
 
 ### <a name="creating-a-custom-role-in-portal"></a>Portalda özel rol oluşturma
 
-Bazı kuruluşların azure'daki katı izin denetimleri zorunlu tanıma, lütfen aşağıdaki PowerShell betiğini özel bir rol en düşük ile Azure portalında "SQL Analytics izleme operatörü" okuma ve yazma izinlerine oluşturulmasını etkinleştirme Bul Azure SQL Analytics tam boyutuna kullanmak için gerekli.
+Bazı kuruluşların azure'daki katı izin denetimleri zorunlu tanıma, en düşük Azure portalıyla "SQL Analytics izleme operatörü" okuma ve yazma izinleri için gereken özel bir rol oluşturulmasını etkinleştirme aşağıdaki PowerShell Betiği bulma Azure SQL Analytics tam boyutuna kullanın.
 
-"{Subscriptionıd}" Lütfen Değiştir aşağıdaki betiği, Azure abonelik kimliği ile bir Azure sahibi veya katkıda bulunan rolü olarak günlüğe bu betiği yürütün.
+"{Subscriptionıd}" Değiştir aşağıdaki betiği, Azure abonelik kimliği ile bir Azure sahibi veya katkıda bulunan rolü olarak günlüğe bu betiği yürütün.
 
    ```powershell
     Connect-AzureRmAccount
@@ -184,21 +180,21 @@ Yeni rol oluşturulduktan sonra Azure SQL Analytics kullanmak için özel izinle
 
 ## <a name="analyze-data-and-create-alerts"></a>Verileri analiz etmek ve uyarılar oluşturun
 
-Azure SQL Analytics veri analizi temel [Log Analytics dilini](./query-language/get-started-queries.md) özel sorgulama ve raporlama için. Lütfen veritabanı kaynağı olarak özel sorgulamak için toplanan kullanılabilir verileri açıklamasını bulmak [ölçümlerini ve günlüklerini kullanılabilir](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+Azure SQL Analytics veri analizi temel [Log Analytics dilini](./query-language/get-started-queries.md) özel sorgulama ve raporlama için. Kullanılabilir veri bulma açıklamasını toplanan özel sorgulayan için veritabanı kaynaktan [ölçümlerini ve günlüklerini kullanılabilir](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
 
-Koşul sonrasında bir uyarı tetikleyen bir Log Analytics sorgusu karşılanıyor yazmak tabanlı otomatik çözümde uyarı. Lütfen aşağıda birkaç örnek çözümdeki Kurulum hangi uyarı bağlı olabilir Log Analytics sorgularını bulun.
+Koşul sonrasında bir uyarı tetikleyen bir Log Analytics sorgusu karşılanıyor yazmak tabanlı otomatik çözümde uyarı. Log Analytics sorgularını birkaç örneği aşağıda hangi uyarı üzerine çözümde ayarlanabilir bulun.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Uyarılar için Azure SQL veritabanı oluşturma
 
 Kolayca [uyarıları oluşturma](../monitoring-and-diagnostics/alert-metric.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [günlük araması](log-analytics-queries.md) ile günlük uyarısı kullanabileceğiniz sorgular:
 
-*Azure SQL veritabanı yüksek CPU*
+#### <a name="high-cpu-on-azure-sql-database"></a>Azure SQL veritabanı yüksek CPU
 
 ```
-AzureMetrics 
+AzureMetrics
 | where ResourceProvider=="MICROSOFT.SQL"
 | where ResourceId contains "/DATABASES/"
-| where MetricName=="cpu_percent" 
+| where MetricName=="cpu_percent"
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
@@ -207,13 +203,13 @@ AzureMetrics
 > - Bu uyarıyı ayarlama ön gereksinim, izlenen veritabanları akışı tanılama ölçümleri ("Tüm ölçümler" seçeneği) çözüme olmasıdır.
 > - MetricName değer cpu_percent dtu_consumption_percent yüksek DTU sonuçları yerine elde etmek için'ile değiştirin.
 
-*Azure SQL veritabanı elastik havuzlar yüksek CPU*
+#### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Azure SQL veritabanı elastik havuzlar yüksek CPU
 
 ```
-AzureMetrics 
+AzureMetrics
 | where ResourceProvider=="MICROSOFT.SQL"
 | where ResourceId contains "/ELASTICPOOLS/"
-| where MetricName=="cpu_percent" 
+| where MetricName=="cpu_percent"
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
@@ -222,7 +218,7 @@ AzureMetrics
 > - Bu uyarıyı ayarlama ön gereksinim, izlenen veritabanları akışı tanılama ölçümleri ("Tüm ölçümler" seçeneği) çözüme olmasıdır.
 > - MetricName değer cpu_percent dtu_consumption_percent yüksek DTU sonuçları yerine elde etmek için'ile değiştirin.
 
-*Ortalamanın üstünde %95 son 1 saat içinde Azure SQL veritabanı depolama*
+#### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Ortalamanın üstünde %95 son 1 saat içinde Azure SQL veritabanı depolama
 
 ```
 let time_range = 1h;
@@ -240,13 +236,13 @@ AzureMetrics
 > - Bu sorgu bir uyarı kuralı sorgudan koşul bazı veritabanlarında bulunduğunu belirten bir uyarı sonuçlar (> 0 sonuç) varken ateşlenmesine kurulu olmasını gerektirir. Çıktı, yukarıda tanımlanan time_range içinde storage_threshold olan veritabanı kaynakların listesidir.
 > - Çıktı, yukarıda tanımlanan time_range içinde storage_threshold olan veritabanı kaynakların listesidir.
 
-*Akıllı Öngörüler uyar*
+#### <a name="alert-on-intelligent-insights"></a>Akıllı Öngörüler uyar
 
 ```
 let alert_run_interval = 1h;
 let insights_string = "hitting its CPU limits";
 AzureDiagnostics
-| where Category == "SQLInsights" and status_s == "Active" 
+| where Category == "SQLInsights" and status_s == "Active"
 | where TimeGenerated > ago(alert_run_interval)
 | where rootCauseAnalysis_s contains insights_string
 | distinct ResourceId
@@ -260,33 +256,48 @@ AzureDiagnostics
 
 ```
 AzureDiagnostics
-| where Category == "SQLInsights" and status_s == "Active" 
+| where Category == "SQLInsights" and status_s == "Active"
 | distinct rootCauseAnalysis_s
 ```
 
 ### <a name="creating-alerts-for-managed-instance"></a>Yönetilen örnek için uyarıları oluşturma
 
-* % 90'yönetilen Örnek Depolama
+#### <a name="managed-instance-storage-is-above-90"></a>Yönetilen Örnek Depolama % 90'tır.
 
 ```
-let storage_percentage_treshold = 90;
+let storage_percentage_threshold = 90;
 AzureDiagnostics
 | where Category =="ResourceUsageStats"
 | summarize (TimeGenerated, calculated_storage_percentage) = arg_max(TimeGenerated, todouble(storage_space_used_mb_s) *100 / todouble (reserved_storage_mb_s))
    by ResourceId
-| where calculated_storage_percentage > storage_percentage_treshold
+| where calculated_storage_percentage > storage_percentage_threshold
 ```
 
 > [!NOTE]
 > - Bu uyarıyı ayarlamanın ön gereksinim izlenen yönetilen örneği çözümü etkin ResourceUsageStats günlük akış sahip olur.
 > - Bu sorgu, bir uyarı kuralı koşul yönetilen örneği'nde var olduğunu belirten sorgudan gelen sonuçlar (> 0 sonuç) varsa bir uyarı ateşlenmesine kurulu olmasını gerektirir. Çıkış depolama yüzdesi tüketim yönetilen örneği ' dir.
 
+#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Yönetilen örnek CPU ortalama tüketim %95 son 1 saat içinde olduğu
+
+```
+let cpu_percentage_threshold = 95;
+let time_threshold = ago(1h);
+AzureDiagnostics
+| where Category == "ResourceUsageStats" and TimeGenerated > time_threshold
+| summarize avg_cpu = max(todouble(avg_cpu_percent_s)) by ResourceId
+| where avg_cpu > cpu_percentage_threshold
+```
+
+> [!NOTE]
+> - Bu uyarıyı ayarlamanın ön gereksinim izlenen yönetilen örneği çözümü etkin ResourceUsageStats günlük akış sahip olur.
+> - Bu sorgu, bir uyarı kuralı koşul yönetilen örneği'nde var olduğunu belirten sorgudan gelen sonuçlar (> 0 sonuç) varsa bir uyarı ateşlenmesine kurulu olmasını gerektirir. Çıkış ortalama CPU kullanımı yüzde tüketimini tanımlanan süre içinde yönetilen örneği ' dir.
+
 ### <a name="pricing"></a>Fiyatlandırma
 
-Çözümü ücretsiz olsa da, veri alımı ayrılan her ay ücretsiz birimlerinin yukarıda tanılama telemetrisi tüketiminin uygular, bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor). Sağlanan veri alımı ücretsiz birimlerinin ücretsiz çeşitli veritabanları her ay izlemeyi etkinleştirin. Ağır iş yükleri daha etkin veritabanlarıyla boştaki veritabanlarının karşı daha fazla veri içe alma, lütfen unutmayın. Veri alımı tüketiminiz çözümünde, OMS çalışma alanı Azure SQL Analytics Gezinti menüsünde ve ardından kullanım ve Tahmini maliyetler seçerek kolayca izleyebilirsiniz.
+Çözümü ücretsiz olsa da, veri alımı ayrılan her ay ücretsiz birimlerinin yukarıda tanılama telemetrisi tüketiminin uygular, bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor). Sağlanan veri alımı ücretsiz birimlerinin ücretsiz çeşitli veritabanları her ay izlemeyi etkinleştirin. Daha ağır iş yükleri daha etkin veritabanlarıyla boştaki veritabanlarının karşı daha fazla veri alma olduğunu unutmayın. Veri alımı tüketiminiz çözümünde, OMS çalışma alanı Azure SQL Analytics Gezinti menüsünde ve ardından kullanım ve Tahmini maliyetler seçerek kolayca izleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Kullanım [günlük aramaları](log-analytics-queries.md) ayrıntılı Azure SQL veri görüntülemek için Log analytics'te.
-- [Kendi panolarınızı oluşturun](log-analytics-dashboards.md) Azure SQL veri gösteriliyor.
+- [Kendi panolarınızı oluşturun](../azure-monitor/platform/dashboards.md) Azure SQL veri gösteriliyor.
 - [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-alerts.md) belirli bir Azure SQL olaylar gerçekleştiğinde.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 9b30e5a47b49b707c9efc53add9af44502201641
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273685"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580924"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure ayrıntılı Kullanım ücretlerinizi ilgili koşulları anlama 
 
@@ -88,5 +88,6 @@ Daha fazla ayrıntı istediğiniz ayrıntılı kullanım dosyanızdaki bir ücre
 ## <a name="external"></a>Dış hizmet ücretlerini hakkında neler diyeceksiniz?
 Dış hizmetlere (Market siparişlerini olarak da bilinir) bağımsız hizmeti satıcısı tarafından sağlanır ve ayrı olarak faturalandırılır. Ücretler Azure fatura üzerinde gösterme. Daha fazla bilgi için bkz. [Azure, dış hizmet ücretlerini anlama](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?) sorununuzun hızlıca çözülebilmesi için.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

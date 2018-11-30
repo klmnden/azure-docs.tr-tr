@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 11/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6cbefe01632b37c225e0a5d4cd916c66f8c4524d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9fc605ab45241280d9331ad7d515ba007a015daa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274798"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583662"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -63,7 +63,7 @@ Belirtildiği gibi **Azure modüllerini güncelleştirme** düğmesi bağımsız
 
 İçeri aktarma ve çalıştırma [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) Otomasyon hesabınızı Azure modüllerini güncelleştirme girişimi için runbook. Galeriden içeri aktarmaya çalıştığınız sürümlerini değil, hedef Azure ortamı için şu anda dağıtılmış Azure hizmetleriyle uyumlu bu işlemi başarısız olabilir. Bu modülleri uyumlu sürümlerini runbook parametrelerinde belirtilen olmanızı gerektirebilir.
 
-Kullanım `AzureRmEnvironment` parametresini kullanarak doğru ortamı runbook'una geçirebilirsiniz.  Kabul edilebilir değerler **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, ve **AzureUSGovernmentCloud**. Bu değerleri kullanarak elde edilebilir `Get-AzureRmEnvironment | select Name`. Bu parametre için bir değer geçirmezseniz runbook, Azure ortak bulutuna varsayılacaktır **AzureCloud**
+Kullanım `AzureRmEnvironment` parametresini kullanarak doğru ortamı runbook'una geçirebilirsiniz.  Kabul edilebilir değerler **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, ve **AzureUSGovernment**. Bu değerleri kullanarak elde edilebilir `Get-AzureRmEnvironment | select Name`. Bu parametre için bir değer geçirmezseniz runbook, Azure ortak bulutuna varsayılacaktır **AzureCloud**
 
 Belirli bir Azure PowerShell modülü sürüm yerine en son kullanılabilir PowerShell galerisinde kullanmak istiyorsanız, bu sürümleri için isteğe bağlı geçirmek `ModuleVersionOverrides` parametresinin **güncelleştirme AzureModule** runbook. Örnekler için bkz [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. İçinde belirtilmeyen azure PowerShell modüllerini `ModuleVersionOverrides` parametresi ve PowerShell Galerisi'ndeki son modülü sürümleriyle güncelleştirilir. Nothing olarak geçirirseniz `ModuleVersionOverrides` parametresi, tüm modülleri en son modülü PowerShell Galerisi sürümlerinde güncelleştirilir. Bu aynı, davranıştır **Azure modüllerini güncelleştirme** düğmesi.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 74b9673d7ef9dedbcc34682d4707103e696bece3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711710"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635365"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -223,7 +223,7 @@ Bu nedenle aşağıdaki bölümde ayrıntıları sağlayın API, Powershell veya
 ### <a name="powershell-cli-or-api-for-log-analytics"></a>PowerShell, CLI veya Log Analytics için API
 Log Analytics uyarı REST API, RESTful olduğu ve Azure Resource Manager REST API aracılığıyla erişilebilir. API, böylece bir PowerShell komut satırından erişilebilir ve sonuçları programlı olarak birçok farklı şekilde kullanmanıza olanak sağlayan, arama sonuçları JSON biçiminde çıkarır.
 
-Daha fazla bilgi edinin [oluşturmak ve REST API ile Log analytics'teki uyarı kuralları yönetmek](../log-analytics/log-analytics-api-alerts.md)Powershell'den API'sine erişim örnekler dahil.
+Daha fazla bilgi edinin [oluşturmak ve REST API ile Log analytics'teki uyarı kuralları yönetmek](../azure-monitor/platform/api-alerts.md)Powershell'den API'sine erişim örnekler dahil.
 
 ### <a name="powershell-cli-or-api-for-application-insights"></a>PowerShell, CLI veya Application ınsights API
 [Azure İzleyici - zamanlanmış sorgu kuralları API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2678db223fc26a377de8daa79b85a9b8cda7a02
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284957"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635824"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -69,7 +69,7 @@ Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesi gösterilir
 |İşletim sistemi  |Notlar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Destekler, yalnızca değerlendirme güncelleştirin.         |
-|Windows Server 2008 R2 SP1 ve üzeri     |.NET framework 4.5.1 veya üzeri gereklidir. ([İndirme .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 veya üzeri gereklidir. ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1, daha fazla güvenilirlik için önerilir.  ([İndirme WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 ve üzeri (dahil olmak üzere Windows Server 2012 ve 2016)    |.NET framework 4.5.1 veya üzeri gereklidir. ([İndirme .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 veya üzeri gereklidir. ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1, daha fazla güvenilirlik için önerilir.  ([İndirme WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır. Sınıflandırma tabanlı düzeltme eki uygulama, CentOS, kullanıma hazır yoksa güvenlik verileri döndürmek için 'ı yum' gerektirir.         |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
@@ -88,7 +88,7 @@ Aşağıdaki tabloda, desteklenmeyen bir işletim sistemleri listelenmektedir:
 
 #### <a name="windows"></a>Windows
 
-Windows aracıları bir WSUS sunucusuyla iletişim kuracak şekilde yapılandırılması gerekir veya Microsoft Update'e erişimi olmalıdır. System Center Configuration Manager ile güncelleştirme yönetimi kullanabilirsiniz. Tümleştirme senaryoları hakkında daha fazla bilgi için bkz: [güncelleştirme yönetimi ile System Center Configuration Manager tümleştirme](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows Aracısı](../log-analytics/log-analytics-agent-windows.md) gereklidir. Onboarding bir Azure sanal makinesi kullanıyorsanız aracı otomatik olarak yüklenir.
+Windows aracıları bir WSUS sunucusuyla iletişim kuracak şekilde yapılandırılması gerekir veya Microsoft Update'e erişimi olmalıdır. System Center Configuration Manager ile güncelleştirme yönetimi kullanabilirsiniz. Tümleştirme senaryoları hakkında daha fazla bilgi için bkz: [güncelleştirme yönetimi ile System Center Configuration Manager tümleştirme](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows Aracısı](../azure-monitor/platform/agent-windows.md) gereklidir. Onboarding bir Azure sanal makinesi kullanıyorsanız aracı otomatik olarak yüklenir.
 
 #### <a name="linux"></a>Linux
 
@@ -148,7 +148,7 @@ Bir Windows bilgisayarda, Log Analytics ile aracı bağlantısını doğrulamak 
 1. Denetim Masası'nda açın **Microsoft Monitoring Agent**. Üzerinde **Azure Log Analytics** sekmesinde aracı şu iletiyi görüntüler: **Microsoft Monitoring Agent, Log Analytics'e başarıyla bağlandı**.
 2. Windows olay günlüğünü açın. Git **uygulama ve hizmet günlükleri\operations Manager** ve olay kimliği 3000 ve kaynak Olay Kimliği 5002 arama **hizmet Bağlayıcısı**. Bu olaylar bilgisayarın Log Analytics çalışma alanına kaydolduğunu ve yapılandırmayı aldığını gösterir.
 
-Aracı bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim kurmak için yapılandırılmış ve aracının Log Analytics ile iletişim kuramıyor, güvenlik duvarı veya Ara sunucunun düzgün yapılandırıldığını onaylayın. Güvenlik Duvarı veya Ara sunucunun düzgün yapılandırıldığını doğrulama hakkında bilgi edinmek için [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
+Aracı bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim kurmak için yapılandırılmış ve aracının Log Analytics ile iletişim kuramıyor, güvenlik duvarı veya Ara sunucunun düzgün yapılandırıldığını onaylayın. Güvenlik Duvarı veya Ara sunucunun düzgün yapılandırıldığını doğrulama hakkında bilgi edinmek için [Windows aracısı için ağ yapılandırması](../azure-monitor/platform/agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Linux sistemleriniz bir ara sunucu ile iletişim kurmak için yapılandırılmış olan veya Log Analytics Gateway ve kullandığınız ekleme, bu çözüm, güncelleştirme *proxy.conf* izinlerini, omi kullanıcı grubuna vermek için okuma izni dosya çubuğunda kullanarak Aşağıdaki komutlar:
@@ -583,6 +583,6 @@ Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi 
 > [Azure Windows Vm'leriniz için güncelleştirme ve yamaları yönetmenize](automation-tutorial-update-management.md)
 
 * Te günlük aramalarını kullanın [Log Analytics](../log-analytics/log-analytics-log-searches.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
-* [Uyarı oluşturma](../log-analytics/log-analytics-alerts.md) bilgisayarlardan eksik olarak kritik güncelleştirmeler algılandığında veya bir bilgisayarda Otomatik Güncelleştirmeler devre dışı olduğunda.
+* [Uyarı oluşturma](../monitoring-and-diagnostics/monitoring-overview-alerts.md) bilgisayarlardan eksik olarak kritik güncelleştirmeler algılandığında veya bir bilgisayarda Otomatik Güncelleştirmeler devre dışı olduğunda.
 
 * Güncelleştirme yönetimi REST API aracılığıyla etkileşim öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları](/rest/api/automation/softwareupdateconfigurations)

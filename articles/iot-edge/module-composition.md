@@ -4,50 +4,54 @@ description: Bir dağıtım bildirimi dağıtmak için hangi modülü nasıl bil
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3201e8509e7c63bb0d9b607d26292bd85e2b605d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 106ad5d4649b2845327eadd99972d56f1503b3e4
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569242"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584817"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IOT Edge'de yollar oluşturmak ve modülleri dağıtma hakkında bilgi edinin
 
-Her IOT Edge cihazı en az iki modüllerini çalıştırır: IOT Edge çalışma zamanını oluşturan $edgeAgent ve $edgeHub,. Ayrıca, tüm IOT Edge cihazı herhangi bir sayıda işlemleri gerçekleştirmek için birden çok modül çalıştırabilirsiniz. Bu modülleri bir cihaza aynı anda dağıttığınızda, hangi modüllerin dahil edilir ve birbiriyle nasıl etkileşim kurduklarını bildirmek için bir yol gerekir. 
+Her IOT Edge cihazı en az iki modüllerini çalıştırır: $edgeAgent hangilerinin $edgeHub, IOT Edge çalışma zamanı'nın bir parçasıdır. Ayrıca, tüm IOT Edge cihazı herhangi bir sayıda işlemleri gerçekleştirmek için birden çok modül çalıştırabilirsiniz. IOT Edge yüklemek için hangi modülü bildirmek için bir yol ve nasıl yapılandırılacakları birlikte çalışmasına olanak sağlar. Bu nedenle, bu modülleri bir cihaza aynı anda dağıtırsınız. 
 
 *Dağıtım bildirimi* açıklayan bir JSON belgesidir:
 
-* Her modülü, kimlik bilgilerinin erişim özel kapsayıcı kayıt defterleri için kapsayıcı görüntüsü ve nasıl her modülü oluşturulabilir ve yönetilebilir yönergeler içerir Edge Aracısı'nın yapılandırması.
-* Modüller arasında ve sonunda IOT hub'ına iletileri nasıl gerçekleştiğini içeren Edge hub'ı yapılandırma.
-* İsteğe bağlı olarak, istenen özellikleri modül ikizlerini.
+* **IOT Edge Aracısı** her modülü, kimlik bilgilerinin erişim özel kapsayıcı kayıt defterleri için kapsayıcı görüntüsü ve nasıl her modülü oluşturulabilir ve yönetilebilir yönergeler içeren modül ikizi.
+* **IOT Edge hub'ı** modüller arasında ve sonunda IOT hub'ına iletileri nasıl gerçekleştiğini içeren modül ikizi.
+* İsteğe bağlı olarak, istenen özellikleri herhangi bir ek modül ikizlerini.
 
-Tüm IOT Edge cihazları, bir dağıtım bildirimi ile yapılandırılmış olması gerekmez. Yeni yüklenen bir IOT Edge çalışma zamanı, geçerli bir bildirim ile yapılandırılana kadar bir hata kodu bildirir. 
+Tüm IOT Edge cihazları, bir dağıtım bildirimi ile yapılandırılması gerekir. Yeni yüklenen bir IOT Edge çalışma zamanı, geçerli bir bildirim ile yapılandırılana kadar bir hata kodu bildirir. 
 
 Azure IOT Edge öğreticilerde, Azure IOT Edge Portalı'nda bir Sihirbazı aracılığıyla giderek bir dağıtım bildirimi oluşturun. Ayrıca, REST veya IOT Hub hizmeti SDK'sını kullanarak program aracılığıyla bir dağıtım bildirimi de uygulayabilirsiniz. Daha fazla bilgi için [IOT Edge dağıtımlarını anlama](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Bir dağıtım bildirimi oluşturma
 
-Yüksek düzeyde, dağıtım bildirimini bir modül ikizinin istenen özellikleri IOT Edge modülleri bir IOT Edge cihazında dağıtılan için yapılandırır. Bu modüllerin her zaman mevcut ikisidir: `$edgeAgent`, ve `$edgeHub`.
+Yüksek düzeyde, bir dağıtım bildirimi, istenen özellikleri ile yapılandırılan modül ikizlerini bir listesidir. Bir dağıtım bildirimini bir IOT Edge cihazı (veya cihaz grubunuz,) yüklemek için hangi modülü ve nasıl yapılandırılacakları söyler. Dağıtım bildirimleri içeren *istenen özellikleri* her modül ikizi için. IOT Edge cihazları rapor geri *bildirilen özellikler* her bir modül için. 
 
-Yalnızca IOT Edge çalışma zamanı (aracısı ve hub) içeren bir dağıtım bildirimi geçerli değil.
+İki modül, her dağıtım bildiriminde gereklidir: `$edgeAgent`, ve `$edgeHub`. Bu modüller IOT Edge cihazı ve üzerini çalıştıran modüllerini yönetir IOT Edge çalışma zamanı'nın bir parçasıdır. Bu modül hakkında daha fazla bilgi için bkz. [IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md).
 
-Bildirim, bu yapı aşağıdaki gibidir:
+İki çalışma zamanı modülü ek olarak, bir IOT Edge Cihazınızda çalıştırmak için kendi 20 modülleri kadar ekleyebilirsiniz. 
+
+Yalnızca IOT Edge çalışma zamanı (edgeAgent ve edgeHub) içeren bir dağıtım bildirimi geçerli değil.
+
+Dağıtım bildirimleri şu yapıyı izler:
 
 ```json
 {
     "modulesContent": {
-        "$edgeAgent": {
+        "$edgeAgent": { // required
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
                 // includes container registry credentials
             }
         },
-        "$edgeHub": {
+        "$edgeHub": { //required
             "properties.desired": {
                 // desired properties of the Edge hub
                 // includes the routing information between modules, and to IoT Hub
@@ -55,11 +59,13 @@ Bildirim, bu yapı aşağıdaki gibidir:
         },
         "{module1}": {  // optional
             "properties.desired": {
-                // desired properties of module with id {module1}
+                // desired properties of {module1}
             }
         },
         "{module2}": {  // optional
-            ...
+            "properties.desired": {
+                // desired properties of {module2}
+            }
         },
         ...
     }
@@ -68,7 +74,7 @@ Bildirim, bu yapı aşağıdaki gibidir:
 
 ## <a name="configure-modules"></a>Modülleri Yapılandır
 
-IOT Edge çalışma zamanı, dağıtımınızdaki modüllerini yüklemek nasıl söylemeniz gerekir. İçindeki tüm modüller için yapılandırma ve yönetim bilgi gider **$edgeAgent** istenen özellikleri. Bu bilgiler, Edge Aracısı kendisi için yapılandırma parametrelerini içerir. 
+IOT Edge çalışma zamanı modülleri, dağıtımınızdaki nasıl yükler tanımlayın. IOT Edge Aracısı'nı yükleme, güncelleştirmeleri ve durumu raporlama için bir IOT Edge cihazı yöneten çalışma zamanı bileşendir. Bu nedenle $edgeAgent modül ikizi tüm modüller için yapılandırma ve yönetim bilgilerini gerektirir. Bu bilgiler, Edge Aracısı kendisi için yapılandırma parametrelerini içerir. 
 
 Veya dahil edilmesi gereken özellikleri tam bir listesi için bkz. [Edge aracısı ve Edge hub'ı özelliklerini](module-edgeagent-edgehub.md).
 
@@ -107,7 +113,7 @@ $EdgeAgent özellikleri şu yapıyı izler:
 
 ## <a name="declare-routes"></a>Yollar bildirme
 
-Edge hub'ı bildirimli olarak modülleri ve IOT hub'ı arasında ve modüller arasında iletileri yönlendirmek için bir yol sağlar. İçindeki rota bilgilerini gelecek şekilde Edge hub'ı tüm iletişimi yönetir **$edgeHub** istenen özellikleri. Aynı dağıtım içinde birden çok yol olabilir.
+IOT Edge hub'ı, modüller, IOT hub'ı ve tüm yaprak cihazlar arasındaki iletişimi yönetir. Bu nedenle, $edgeHub modül ikizi adlı istenen bir özellik içeren *yollar* iletileri dağıtımında nasıl geçirilir bildirir. Aynı dağıtım içinde birden çok yol olabilir.
 
 İçinde tanımlanmış rotalar **$edgeHub** istenen özellikleri aşağıdaki sözdizimine sahip:
 
@@ -126,23 +132,27 @@ Her yol bir kaynak ve havuz gerekiyor ancak iletileri filtrelemek için kullanab
 
 
 ### <a name="source"></a>Kaynak
-Kaynak iletileri nereden geldiğini belirtir. Aşağıdaki değerlerden biri olabilir:
+
+Kaynak iletileri nereden geldiğini belirtir. IOT Edge yaprak cihazlar veya modüller iletileri yönlendirebilirsiniz.
+
+Source özelliği aşağıdaki değerlerden biri olabilir:
 
 | Kaynak | Açıklama |
 | ------ | ----------- |
-| `/*` | Herhangi bir cihaz veya modülü alınan tüm cihaz-bulut iletileri |
-| `/messages/*` | Bir cihaz veya bazı veya hiç çıkış aracılığıyla bir modül tarafından gönderilen herhangi bir CİHAZDAN buluta ileti |
+| `/*` | Tüm cihaz bulut iletilerini veya ikiz değişiklik bildirimlerini herhangi bir modül veya yaprak CİHAZDAN |
+| `/twinChangeNotifications` | Herhangi bir modül veya yaprak CİHAZDAN gelen herhangi bir ikiz değişiklik (bildirilen Özellikler) |
+| `/messages/*` | Bazı veya hiç çıkış aracılığıyla modül veya yaprak bir cihaz tarafından gönderilen herhangi bir CİHAZDAN buluta ileti |
 | `/messages/modules/*` | Bazı veya hiç çıkış aracılığıyla bir modül tarafından gönderilen herhangi bir CİHAZDAN buluta ileti |
-| `/messages/modules/{moduleId}/*` | {Moduleıd} tarafından hiçbir çıktı ile gönderilen herhangi bir CİHAZDAN buluta ileti |
-| `/messages/modules/{moduleId}/outputs/*` | Bazı çıkış {Moduleıd} tarafından gönderilen herhangi bir CİHAZDAN buluta ileti |
-| `/messages/modules/{moduleId}/outputs/{output}` | {Moduleıd} kullanarak {çıkış} gönderilen herhangi bir CİHAZDAN buluta ileti |
+| `/messages/modules/{moduleId}/*` | Bazı veya hiç çıkış aracılığıyla belirli bir modül tarafından gönderilen herhangi bir CİHAZDAN buluta ileti |
+| `/messages/modules/{moduleId}/outputs/*` | Bazı çıkış aracılığıyla belirli bir modül tarafından gönderilen herhangi bir CİHAZDAN buluta ileti |
+| `/messages/modules/{moduleId}/outputs/{output}` | Belirli bir çıktısına aracılığıyla belirli bir modül tarafından gönderilen herhangi bir CİHAZDAN buluta ileti |
 
 ### <a name="condition"></a>Koşul
-Koşul, bir rota bildiriminde isteğe bağlıdır. Kaynak havuz tüm iletileri geçirmek istiyorsanız, yalnızca dışlamayı **burada** yan tümcesi tamamen. Ya da [IOT Hub sorgu dili](../iot-hub/iot-hub-devguide-routing-query-syntax.md) belirli iletileri veya koşulu karşılayan ileti türlerini filtrelemek için.
+Koşul, bir rota bildiriminde isteğe bağlıdır. Kaynak havuz tüm iletileri geçirmek istiyorsanız, yalnızca dışlamayı **burada** yan tümcesi tamamen. Ya da [IOT Hub sorgu dili](../iot-hub/iot-hub-devguide-routing-query-syntax.md) belirli iletileri veya koşulu karşılayan ileti türlerini filtrelemek için. IOT Edge yollar ikizi etiketleri veya özellikleri göre filtreleme iletilerini desteklemez. 
 
 IOT edge'deki modüller arasında iletileri aynı şekilde Azure IOT Hub ve cihazlar arasında iletileri biçimlendirilir. Tüm iletileri JSON biçimindedir ve sahip **systemProperties**, **appProperties**, ve **gövdesi** parametreleri. 
 
-Tüm üç parametre aşağıdaki söz dizimi ile geçici sorgular oluşturabilirsiniz: 
+Herhangi bir üç parametre aşağıdaki söz dizimi ile geçici sorgular oluşturabilirsiniz: 
 
 * Sistem Özellikleri: `$<propertyName>` veya `{$<propertyName>}`
 * Uygulama özellikleri: `<propertyName>`
@@ -150,19 +160,21 @@ Tüm üç parametre aşağıdaki söz dizimi ile geçici sorgular oluşturabilir
 
 İleti özellikleri için sorguları oluşturma hakkında daha fazla örnek için bkz: [yollar sorgu ifadelerinde CİHAZDAN buluta ileti](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-Bir ağ geçidi cihazı bir yaprak CİHAZDAN gelen iletiler için filtreleme yapmak istediğinizde, IOT Edge için belirli bir örnektir. Modüllerden gelen iletileri içeren bir sistem özelliği olarak adlandırılan **connectionModuleId**. Bu nedenle iletileri yönlendirmek için yaprak cihazlarıyla IOT Hub'ına doğrudan istiyorsanız, aşağıdaki yol modülü iletileri hariç tutmak için kullanın:
+Bir ağ geçidi cihazı bir yaprak CİHAZDAN gelen iletiler için filtreleme yapmak istediğinizde, IOT Edge için belirli bir örnektir. Modüllerden gelen iletileri içer adlı bir sistem özelliği **connectionModuleId**. Bu nedenle iletileri yönlendirmek için yaprak cihazlarıyla IOT Hub'ına doğrudan istiyorsanız, aşağıdaki yol modülü iletileri hariç tutmak için kullanın:
 
-```sql
-FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+```query
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### <a name="sink"></a>Havuz
-Havuz iletilerinin nereye gönderildiğini tanımlar. Aşağıdaki değerlerden biri olabilir:
+Havuz iletilerinin nereye gönderildiğini tanımlar. Yalnızca modüller ve IOT Hub ileti alabilir. İletileri diğer cihazlara yönlendirilemiyor. Herhangi bir havuz özelliği joker seçeneği vardır. 
+
+Havuz özelliği aşağıdaki değerlerden biri olabilir:
 
 | Havuz | Açıklama |
 | ---- | ----------- |
 | `$upstream` | IOT Hub'ına ileti gönderin |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Giriş ileti gönder `{input}` Modülü `{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Belirli bir modül, belirli bir giriş iletisi gönder |
 
 IOT Edge, en az bir kez garantileri sağlar. Bir rota ileti havuzu için yerel olarak iletilmiyor durumunda Edge hub'ı iletileri depolar. Edge hub'ı, IOT hub'ı veya hedef modülü bağlanamazsa, örneğin, bağlı değil.
 
@@ -170,15 +182,15 @@ Edge hub'ı belirtilen süre kadar iletileri depolayan `storeAndForwardConfigura
 
 ## <a name="define-or-update-desired-properties"></a>İstenen özellikleri güncelleştirme veya tanımlama 
 
-Dağıtım bildirimi, IOT Edge cihazına dağıtılan her modülün modül ikizi için istenen özellikleri belirtebilirsiniz. İstenen özellikleri dağıtım bildiriminde belirtildiğinde, tüm istenen özellikleri şu anda modül ikizi üzerine yazın.
+İstenen özellikleri IOT Edge cihazına dağıtılan her bir modül için dağıtım bildirimini belirtir. Dağıtım bildirimi içinde istenen özellikleri tüm istenen özellikleri şu anda modül ikizi üzerine yazın.
 
-Modül ikizinin istenen özellikleri dağıtım bildiriminde belirtmezseniz, IOT hub'ı modül ikizi hiçbir şekilde değiştirmez ve istenen özellikler program üzerinden ayarlamak mümkün olacaktır.
+Modül ikizinin istenen özellikleri dağıtım bildiriminde belirtmezseniz, IOT hub'ı modül ikizi hiçbir şekilde değiştirmez. Bunun yerine, istenen özellikleri programlı olarak ayarlayabilirsiniz.
 
 Cihaz ikizlerini değiştirmenize olanak tanıyan mekanizmalarının aynısını, modül ikizlerini değiştirmek için kullanılır. Daha fazla bilgi için [modül ikizi Geliştirici Kılavuzu](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Dağıtım bildirimi örneği
 
-Bu örnek bir dağıtım bildirimi JSON belgesi olarak.
+Aşağıdaki örnek, geçerli bir dağıtım bildirimi belge neye benzediğini gösterir.
 
 ```json
 {

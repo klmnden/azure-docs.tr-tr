@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038527"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498661"
 ---
-# <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Ambari kullanın
+# <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Apache Ambari kullanın
 
-HDInsight, büyük ölçekli veri işleme uygulamaları için Apache Hadoop kümelerini sağlar. Bu karmaşık çok düğümlü küme en iyi duruma getirme yönetme ve izleme zor olabilir. [Apache Ambari](http://ambari.apache.org/) yönetmek ve HDInsight Linux kümeleri izlemek için bir web arabirimidir.  Windows kümeleri için Ambari kullanmak [REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight sağlar [Apache Hadoop](https://hadoop.apache.org/) kümeleri büyük ölçekli veri işleme uygulamaları için. Bu karmaşık çok düğümlü küme en iyi duruma getirme yönetme ve izleme zor olabilir. [Apache Ambari](http://ambari.apache.org/) yönetmek ve HDInsight Linux kümeleri izlemek için bir web arabirimidir.  Windows kümeleri için kullanan [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Ambari Web kullanıcı arabirimini kullanarak bir giriş için bkz. [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md)
+Ambari Web kullanıcı arabirimini kullanarak bir giriş için bkz. [yönetme HDInsight kümeleri Apache Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md)
 
 Oturum açın Ambari `https://CLUSTERNAME.azurehdidnsight.net` küme kimlik bilgilerinizle. Bir genel bakış panosunun ilk ekran görüntüler.
 
@@ -59,16 +59,16 @@ NameNode Java yığın boyutu değiştirmek için:
 
     ![Değişiklikleri kaydet](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
-## <a name="hive-optimization"></a>Hive en iyi duruma getirme
+## <a name="apache-hive-optimization"></a>Apache Hive en iyi duruma getirme
 
-Aşağıdaki bölümlerde, genel Hive performansını iyileştirme için yapılandırma seçenekleri açıklanmaktadır.
+Aşağıdaki bölümlerde, Apache Hive genel performansını iyileştirmek için yapılandırma seçenekleri açıklanmaktadır.
 
 1. Hive yapılandırma parametreleri değiştirmek için seçin **Hive** Hizmetleri kenar.
 1. Gidin **yapılandırmaları** sekmesi.
 
 ### <a name="set-the-hive-execution-engine"></a>Hive yürütme altyapısı ayarlama
 
-Hive iki yürütme altyapısı sağlar: MapReduce ve Tez. Tez MapReduce hızlıdır. HDInsight Linux kümeleri varsayılan yürütme altyapısı Tez sahiptir. Yürütme altyapısı değiştirmek için:
+Hive iki yürütme altyapısı sağlar: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) ve [Apache TEZ](https://tez.apache.org/). Tez MapReduce hızlıdır. HDInsight Linux kümeleri varsayılan yürütme altyapısı Tez sahiptir. Yürütme altyapısı değiştirmek için:
 
 1. Hive'da **yapılandırmaları** yazın **yürütme altyapısı** filtre kutusuna.
 
@@ -99,7 +99,7 @@ Bu değişiklikler, sunucunun tamamında tüm Tez işlerinin etkiler. Bir en iyi
 
 ### <a name="tune-reducers"></a>Ayarlama genişletin
 
-ORC ve Snappy yüksek performans sunar. Ancak, Hive performans sorunlarını neden çok az sayıda genişletin varsayılan olarak, olabilir.
+[Apache ORC](https://orc.apache.org/) ve [Snappy](https://google.github.io/snappy/) hem de yüksek performans sunar. Ancak, Hive performans sorunlarını neden çok az sayıda genişletin varsayılan olarak, olabilir.
 
 Örneğin, bir giriş veri boyutu 50 GB olduğunu varsayalım. Verileri ORC Snappy sıkıştırmasıyla biçimlendirme 1 GB'tır. Hive tahminleri olarak gerekli genişletin sayısı: (azaltıcının giriş bayt sayısı / `hive.exec.reducers.bytes.per.reducer`).
 
@@ -287,9 +287,9 @@ Hive yürütme altyapısı iyileştirmek için ek öneriler:
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
-## <a name="pig-optimization"></a>Pig en iyi duruma getirme
+## <a name="apache-pig-optimization"></a>Apache Pig en iyi duruma getirme
 
-Ambari web kullanıcı Arabiriminden Pig sorgularınızı ayarlamak için pig özellikleri değiştirilebilir. Ambari pig özelliklerinden doğrudan değiştirme değiştirir Pig özelliklerinde `/etc/pig/2.4.2.0-258.0/pig.properties` dosya.
+[Apache Pig](https://pig.apache.org/) Ambari web kullanıcı Arabiriminden Pig sorgularınızı ayarlamak için özellikleri değiştirilebilir. Ambari pig özelliklerinden doğrudan değiştirme değiştirir Pig özelliklerinde `/etc/pig/2.4.2.0-258.0/pig.properties` dosya.
 
 1. Pig özelliklerini değiştirmek için Pig için gidin **yapılandırmaları** sekmesine ve ardından **Gelişmiş özellikleri pig** bölmesi.
 
@@ -326,7 +326,7 @@ Pig görev düğümler için kullanılabilir hale getirmek için Dağıtılmış
 
 1. Etkinleştirmek için `pig.user.cache.enabled` true. Varsayılan değer false'dur.
 
-1. Önbelleğe alınan jar dosyaları dışındaki temel yolunu ayarlamak için ayarlayın `pig.user.cache.location` temel yolu. Varsayılan, `/tmp` değeridir.
+1. Önbelleğe alınan jar dosyaları dışındaki temel yolunu ayarlamak için ayarlayın `pig.user.cache.location` temel yolu. Varsayılan değer: `/tmp`.
 
 
 ### <a name="optimize-performance-with-memory-settings"></a>Bellek ayarları ile performansı iyileştirme
@@ -344,7 +344,7 @@ Pig, iş yürütme sırasında geçici dosyaları oluşturur. Geçici dosyalar s
 
 * `pig.tmpfilecompression`: TRUE olduğunda, geçici dosya sıkıştırma sağlar. Varsayılan değer false'tur.
 
-* `pig.tmpfilecompression.codec`: Geçici dosyalar sıkıştırılıyor için kullanılacak sıkıştırma codec. Önerilen sıkıştırma codec LZO ve Snappy daha düşük CPU kullanımı için olan.
+* `pig.tmpfilecompression.codec`: Geçici dosyalar sıkıştırılıyor için kullanılacak sıkıştırma codec. Önerilen sıkıştırma codec bileşenleri olan [LZO](https://www.oberhumer.com/opensource/lzo/) ve daha düşük CPU kullanımı için Snappy.
 
 ### <a name="enable-split-combining"></a>Bölünmüş birleştirme etkinleştir
 
@@ -361,9 +361,9 @@ Etkin olduğunda, küçük dosyaları daha az harita görevler için birleştiri
 Genişletin sayısı hesaplanır parametresinde `pig.exec.reducers.bytes.per.reducer`. Parametre Azaltıcı işlenen bayt sayısını belirtir, varsayılan olarak 1 GB. Genişletin sayısı üst sınırını ayarlayın `pig.exec.reducers.max` 999 varsayılan bir özelliği.
 
 
-## <a name="hbase-optimization-with-the-ambari-web-ui"></a>Ambari web kullanıcı Arabirimi ile HBase iyileştirme
+## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Ambari web kullanıcı Arabirimi ile Apache HBase iyileştirme
 
-HBase yapılandırma öğesinden değiştirildiğinde **HBase yapılandırmaları** sekmesi. Aşağıdaki bölümlerde HBase performansı etkileyen önemli yapılandırma ayarlarını bazılarını açıklar.
+[Apache HBase](https://hbase.apache.org/) yapılandırma değişiklik **HBase yapılandırmaları** sekmesi. Aşağıdaki bölümlerde HBase performansı etkileyen önemli yapılandırma ayarlarını bazılarını açıklar.
 
 ### <a name="set-hbaseheapsize"></a>HBASE_HEAPSIZE ayarlayın
 
@@ -453,5 +453,5 @@ Memstore yerel ayırma Arabellek kullanımı özelliği tarafından belirlenir `
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight kümeleri Ambari web kullanıcı Arabirimi ile yönetme](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari web kullanıcı Arabirimi ile HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API'si](hdinsight-hadoop-manage-ambari-rest-api.md)

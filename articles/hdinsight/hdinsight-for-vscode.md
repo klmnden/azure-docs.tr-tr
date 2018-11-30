@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: f8bd1f1181cbd592782ce1126d5d61b5f257ca08
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9603751db01eaffdf9fbe26164aed53017c5e23c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234757"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499534"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
-Azure HDInsight araçları Visual Studio oluşturmak ve Apache Hive toplu işleri göndermek için kod (VS Code), etkileşimli Apache Hive sorgularını ve PySpark betiklerini kullanmayı öğrenin. Azure HDInsight araçları, VS Code tarafından desteklenen platformlardaki yüklenebilir. Bunlar arasında Windows, Linux ve MacOS yer alır. Farklı platformlar için önkoşulları bulabilirsiniz.
+Nasıl kullanacağınızı öğrenin [Visual Studio Code için Azure HDInsight Araçları](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) oluşturmak ve göndermek amacıyla (VS Code) [Apache Hive](https://hive.apache.org/) batch işlerini, etkileşimli Apache Hive sorgularını ve PySpark betiklerini. Azure HDInsight araçları, VS Code tarafından desteklenen platformlardaki yüklenebilir. Bunlar arasında Windows, Linux ve MacOS yer alır. Farklı platformlar için önkoşulları bulabilirsiniz.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -102,7 +102,7 @@ VS koddan betikleri HDInsight kümelerine gönderebilirsiniz önce Azure hesabı
 
 <h3 id="linkcluster">Bir kümeye bağlanmak için</h3>
 
-Bir yönetilen Apache Ambari kullanıcı adı kullanarak normal bir küme bağlantı ya da bir etki alanı kullanıcı adı kullanarak bir kurumsal güvenlik paketi güvenli Hadoop kümesi bağlantı (örneğin: user1@contoso.com).
+Normal bir küme kullanarak bağlayabilirsiniz bir [Apache Ambari](https://ambari.apache.org/) yönetilen kullanıcı adı veya bir etki alanı kullanıcı adı kullanarak bir kurumsal güvenlik paketi güvenli Hadoop kümesi bağlantısını (gibi: user1@contoso.com).
 1. Seçerek komut paletini açın **CTRL + SHIFT + P**yazıp enter **HDInsight: küme bağlantı**.
 
    ![bağlantı kümesi komutu](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -294,9 +294,9 @@ Python2.x kullanmak için adımları izleyin:
 
 Bir Python işi gönderdikten sonra gönderme günlükleri görünür **çıkış** VS code'da penceresi. **Spark UI URL** ve **Yarn UI URL** de gösterilir. URL, iş durumunu izlemek için bir web tarayıcısı açabilirsiniz.
 
-## <a name="livy-configuration"></a>Livy yapılandırma
+## <a name="apache-livy-configuration"></a>Apache Livy yapılandırma
 
-Livy yapılandırma desteklenir, sırasında ayarlanabilir **. VSCode\settings.json** çalışma alanı klasörünün içinde. Şu anda livy yapılandırma yalnızca Python betiğini destekler. Daha fazla bilgi [Livy Benioku](https://github.com/cloudera/livy/blob/master/README.rst ).
+[Apache Livy](https://livy.incubator.apache.org/) yapılandırma desteklenir, sırasında ayarlanabilir **. VSCode\settings.json** çalışma alanı klasörünün içinde. Şu anda livy yapılandırma yalnızca Python betiğini destekler. Daha fazla bilgi [Livy Benioku](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Livy yapılandırma tetikleme**
    
@@ -335,7 +335,7 @@ Bir dosya da gönderebilir, bildirim .vscode klasörü çalışma klasörü otom
     | ad | Bu oturumun adı | dize |
     | conf | Spark yapılandırma özellikleri | Harita anahtarı val = |
 
-    Yanıt gövdesi   
+    Yanıt Gövdesi   
     Oluşturulan toplu iş nesnesi.
 
     | ad | açıklama | type | 
@@ -390,28 +390,28 @@ VS Code için HDInsight aşağıdaki özellikleri destekler:
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 
-* [Spark uygulamalarında VPN üzerinden uzaktan hata ayıklamak amacıyla Intellij için Azure Araç Seti'ni kullanma](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Spark uygulamalarında SSH üzerinden uzaktan hata ayıklamak amacıyla Intellij için Azure Araç Seti'ni kullanma](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Apache Spark uygulamalar VPN üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Apache Spark uygulamalarında SSH üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Spark uygulamaları oluşturmak için Eclipse için Azure araç seti, HDInsight araçlarını kullanın](spark/apache-spark-eclipse-tool-plugin.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](spark/apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Apache Spark uygulamaları oluşturmak için Eclipse için Azure araç seti, HDInsight araçları kullanma](spark/apache-spark-eclipse-tool-plugin.md)
+* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](spark/apache-spark-zeppelin-notebook.md)
+* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Azure HDInsight’ta Microsoft Power BI ile Hive verileri görselleştirme](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Azure HDInsight, Microsoft Power BI ile Apache Hive verileri Görselleştirme](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Power BI'da Azure HDInsight ile etkileşimli sorgu Hive verilerini görselleştirme](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Visual Studio Code için PySpark etkileşimli ortamını ayarlama](set-up-pyspark-interactive-environment.md)
-* [Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanma ](./hdinsight-connect-hive-zeppelin.md)
+* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](spark/apache-spark-custom-library-website-log-analysis.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Oluşturma ve uygulamaları çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
 
 ### <a name="manage-resources"></a>Kaynakları yönetme
 * [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](spark/apache-spark-resource-manager.md)

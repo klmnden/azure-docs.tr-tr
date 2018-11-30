@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: a1b21afb02cffe608ece8687359a021c84b05e1e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014304"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497981"
 ---
-# <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>HDInsight üzerinde Spark ile Application Insights telemetri günlüklerini çözümleme
+# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight üzerinde Apache Spark ile Application Insights telemetri günlüklerini çözümleme
 
-Application Insight telemetri verilerini çözümlemek için HDInsight üzerinde Spark kullanmayı öğrenin.
+Nasıl kullanacağınızı öğrenin [Apache Spark](https://spark.apache.org/) Application Insight telemetri verilerini çözümlemek için HDInsight üzerinde.
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) web uygulamalarınızı izleyen bir analiz hizmetidir. Application Insights tarafından üretilen telemetri verileri Azure depolama alanına aktarılabilir. Azure Depolama'da veri hale geldikten sonra HDInsight incelemek üzere kullanılabilir.
 
@@ -26,7 +26,7 @@ Application Insight telemetri verilerini çözümlemek için HDInsight üzerinde
 
 * Application Insights'ı kullanacak şekilde yapılandırılmış bir uygulama.
 
-* Linux tabanlı HDInsight kümesi oluşturma ile aşinalık. Daha fazla bilgi için [HDInsight üzerinde Spark'ı oluşturma](apache-spark-jupyter-spark-sql.md).
+* Linux tabanlı HDInsight kümesi oluşturma ile aşinalık. Daha fazla bilgi için [HDInsight üzerinde Apache Spark'ı oluşturma](apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
   > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -362,14 +362,14 @@ Azure depolama hesabı mevcut bir kümeye eklemek için yer alan bilgileri kulla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Veri ve hizmetlerinizi azure'da çalışmak için Spark'ı kullanarak daha fazla örnek için aşağıdaki belgelere bakın:
+Veri ve hizmetlerinizi azure'da çalışmak için Apache Spark'ı kullanarak daha fazla örnek için aşağıdaki belgelere bakın:
 
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
+* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 Oluşturma ve Spark uygulamaları çalıştırma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)

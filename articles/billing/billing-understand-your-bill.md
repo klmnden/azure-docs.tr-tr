@@ -13,41 +13,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
+ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 21a573bd0276cc1afafab950e123ac13ee95f59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274730"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584579"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure faturanızı anlama
 Azure faturanızı anlama faturanızı ayrıntılı günlük kullanım dosyası ve Azure portalında maliyet Yönetimi raporlarını ile karşılaştırın.
 
->[!NOTE]
->Bu makalede, Kurumsal Anlaşma (EA) müşterileri için geçerli değildir. Bir EA müşterisinin kullanıyorsanız [fatura belgeleri Enterprise Portal'da bulabilirsiniz.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
+Bu makalede, Azure müşterilerine bir Kurumsal Anlaşma (EA müşterileri) için geçerli değildir. Bir EA müşterisinin kullanıyorsanız bkz [bir kurumsal anlaşma kapsamında olan Azure müşterileri için faturanızı anlayın bölümü](billing-understand-your-bill-ea.md).  
 
-PDF, fatura ve ayrıntılı günlük kullanım dosyası CSV indirme işleminizi bir kopyasını edinmek için bkz. [Azure faturanızı ve günlük kullanım verilerinizi alın](billing-download-azure-invoice-daily-usage-date.md). 
-
-Ayrıntılı hüküm ve fatura ve günlük kullanım dosyası ayrıntılı açıklamaları için bkz. [Microsoft Azure faturanızla ilgili koşulları anlama](billing-understand-your-invoice.md) ve [anlayın koşulları, Microsoft Azure üzerinde ayrıntılı kullanım](billing-understand-your-usage.md). 
-
-Maliyet Yönetimi raporları hakkında daha fazla bilgi için bkz: [Azure portalında maliyet Yönetimi](https://docs.microsoft.com/azure/billing/billing-getting-started).
-
-> [!div class="nextstepaction"]
-> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
-
-## <a name="charges"></a>My fatura ücretleri doğru olduğunu nasıl emin olabilirim?
+## <a name="charges"></a>Yapılacak bir ücret tahminini gözden geçirin
 
 >[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
-Daha fazla ayrıntı almak istediğiniz faturanızla ilgili bir ücret ise, birkaç seçenek vardır.
+Hakkında daha fazla bilgi almak istiyorsanız faturanızla ilgili bir ücret ise, kullanım dosyanın veya Azure portalı ile kullanımı ve maliyetleri karşılaştırabilirsiniz.
 
-### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>1. seçenek: faturanızı gözden geçirin ve kullanımı ve maliyetleri ayrıntılı kullanım CSV dosyası ile Karşılaştır
+### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>1. seçenek: kullanımı ve maliyetleri kullanım dosyayla Karşılaştır
 
-Ayrıntılı kullanım CSV dosyası, fatura dönemindeki günlük kullanım ile bir ücret tahminini gösterir. Ayrıntılı kullanım CSV dosyanız almak için bkz. [Azure faturanızı ve günlük kullanım verilerinizi alın](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
+Ayrıntılı kullanım CSV dosyası, fatura dönemindeki günlük kullanım ile bir ücret tahminini gösterir. Dosyasını almak için bkz. [Azure faturanızı ve günlük kullanım verilerinizi alın](billing-download-azure-invoice-daily-usage-date.md).
 
-Kullanım ücretlerinizi ölçüm düzeyinde görüntülenir. Aşağıdaki terimler fatura hem de ayrıntılı kullanım dosyası aynı şeyi anlamına gelir. Örneğin, faturadaki fatura dönemi için ayrıntılı kullanım dosyasında gösterilen fatura döneminde eşdeğerdir.
+Kullanım ücretlerinizi ölçüm düzeyinde görüntülenir. Aşağıdaki terimler fatura hem de ayrıntılı kullanım dosyası aynı şeyi anlamına gelir. Örneğin, faturadaki fatura döngüsü ayrıntılı kullanım dosyasında gösterilen fatura döneminde aynıdır.
 
  | Fatura (PDF) | Ayrıntılı kullanım (CSV)|
  | --- | --- |
@@ -68,57 +58,47 @@ Kullanım ücretlerinizi ölçüm düzeyinde görüntülenir. Aşağıdaki terim
 
 ![CSV kullanım ücretleri](./media/billing-understand-your-bill/2.png)
 
-Günlük olarak bu ücret dökümünü görmek için Git **günlük kullanım** CSV bölümü. Filtrelemek için "Zamanlayıcı" altında *ölçüm kategorisi* ve hangi günlerinde gördüğünüz ölçüm kullanıldı ve ne kadar tüketildiğinin. *Kaynak* ve *kaynak grubu* bilgi karşılaştırma için ayrıca listelenir. *Tüketilen* değerleri ekleme fatura üzerinde gösterilen için.
+Bu Ücret günlük dökümünü görmek için Git **günlük kullanım** CSV bölümü. "Zamanlayıcı" için filtre altında *ölçüm kategorisi*. Hangi günlerin gördüğünüz ölçüm kullanıldı ve ne kadar tüketildiğinin. *Kaynak* ve *kaynak grubu* bilgi karşılaştırma için ayrıca listelenir. *Tüketilen* değerleri ekleme fatura üzerinde gösterilen için.
 
 ![Günlük kullanım bölümünde CSV](./media/billing-understand-your-bill/3.png)
 
 Gün başına maliyet almak için çarpma *tüketilen* ile tutarları *oranı* değerini **deyimi** bölümü.
 
-Fatura hakkında daha fazla bilgi için bkz: [Azure faturanızı anlama](billing-understand-your-invoice.md).
+Daha fazla bilgi için bkz:
 
-Her CSV sütunların hakkında bilgi edinmek için [Azure ayrıntılı kullanımınızı anlayın](billing-understand-your-invoice.md).
+- [Azure faturanızı anlama](billing-understand-your-invoice.md)
+- [Azure ayrıntılı kullanımınızı anlayın](billing-understand-your-invoice.md)
 
-### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>2. seçenek: faturanızı gözden geçirin ve kullanımı ve maliyetleri Azure portalında ile karşılaştırın
+### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Seçenek 2: kullanımı ve maliyetleri Azure portalı ile Karşılaştır
 
-Azure portalı Ayrıca, yapılacak bir ücret doğrulamanıza yardımcı olabilir. Azure portalı, kullanım ve ücret, faturada hızlı bir genel bakış için maliyet Yönetimi grafikler sağlar.
+Azure portalı Ayrıca, yapılacak bir ücret doğrulamanıza yardımcı olabilir. Faturalanan kullanımı ve ücretleri hızlı bir genel bakış edinmek için maliyet Yönetimi grafiklerini görüntüleyin.
 
-Yukarıdaki örnekte devam etmek için ziyaret [abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), aboneliğinizi seçin ve ardından **maliyet analizi**. Burada, zaman aralığı belirtin ve Azure Zamanlayıcı hizmeti için kullanım ücreti bakın.
+1. Azure portalında Git [abonelikleri](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Aboneliğinizi seçin > **maliyet analizi**. 
+1. Filtre ölçütü **Timespan**.
+1. Önceki örneği devam etmek için Azure Zamanlayıcı hizmeti için bir kullanım ücreti görürsünüz.
 
-![Azure portalında maliyet analizi görüntüle](./media/billing-understand-your-bill/4.png)
+   ![Azure portalında maliyet analizi görüntüle](./media/billing-understand-your-bill/4.png)
 
-Günlük maliyet dökümdeki görmek için **geçmişi maliyet**, satıra tıklayın.
+1. Günlük maliyet dökümünü görmek için satır seçin.
 
-![Azure portalında maliyet geçmişini görüntüle](./media/billing-understand-your-bill/5.png)
+   ![Azure portalında maliyet geçmişini görüntüle](./media/billing-understand-your-bill/5.png)
 
 Daha fazla bilgi için bkz. [Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen maliyetleri engelleme](billing-getting-started.md#costs).
 
-## <a name="external"></a>Dış hizmet ücretlerini hakkında neler diyeceksiniz?
-Dış hizmetlere (olarak da bilinen Azure Market siparişlerini) bağımsız hizmeti satıcısı tarafından sağlanan ve ayrı olarak faturalandırılır. Ücretler Azure faturanızı gösterme. Daha fazla bilgi için bkz. [Azure, dış hizmet ücretlerini anlama](billing-understand-your-azure-marketplace-charges.md).
+## <a name="external"></a>Dış hizmetler ayrı olarak faturalandırılır
 
-## <a name="payment"></a>Ödeme nasıl yapılsın mı?
+Dış hizmetlere ya da Market ücretlerini, üçüncü taraf yazılım satıcıları tarafından oluşturulan kaynakları içindir. Bu kaynakları Azure Market'ten kullanılabilir. Örneğin, bir Barracuda güvenlik duvarı üçüncü taraf tarafından sunulan bir Azure Market kaynağıdır. Tüm ücretler için güvenlik duvarı ve kendi ilgili ölçümleri dış hizmet ücretlerini görülür.
 
-Bir kredi kartı veya banka kartı ödeme yönteminiz olarak ayarlarsanız, ödeme faturalandırma dönemi sona erdikten sonra otomatik olarak 10 gün içinde ücretlendirilir. Kredi kartı Ekstrenizi satır öğesi söyleyin **MSFT Azure**.
+Dış hizmet ücretlerini ayrı olarak faturalandırılır. Ücretler Azure faturanızı gösterme. Daha fazla bilgi için bkz. [Azure, dış hizmet ücretlerini anlama](billing-understand-your-azure-marketplace-charges.md).
 
-Varsa, [fatura ile ödeme](billing-how-to-pay-by-invoice.md), ödemenin konumuna faturanızı alt kısmında listelenen Gönder. Daha fazla yardım için [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+## <a name="resources-billed-by-usage-meters"></a>Kullanım ölçümleri ile faturalandırılır kaynakları
 
-## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Kredi kartı ile yapılan bir ödeme durumunu nasıl kontrol edebilirim?
+Kaynak maliyeti fatura tabanlı doğrudan azure değil. Bir kaynak için bir veya daha fazla ölçümleri kullanılarak hesaplanır. Bu ölçüm, bir kaynağın kullanım ömrü boyunca izlemek için kullanılır. Bu ölçümleri daha sonra faturanıza yansıyan tutarı hesaplamak için kullanılır.
 
-[Bir destek bileti oluşturma](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ödemenizin durumu için isteyebilir. 
+Örneğin, bir sanal makine gibi tek bir Azure kaynak oluşturduğunuzda oluşturulan bir veya daha fazla ölçüm örneği yok. Bu ölçüm, zaman içinde kaynak kullanımını izlemek için kullanılır. Her bir ölçüm, faturanıza yansıyan tutarı hesaplamak için kullanılan Azure tarafından kullanım kayıtlarını yayar.
 
-## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Farklı Azure müşteri türleri var mı? Ben hangi müşteri türü olduğunu nasıl öğrenebilirim?
-Azure müşterileri farklı türde vardır. Fiyatlandırma ve fatura daha iyi anlamak için aşağıdaki müşteri türü açıklamaları bakın.
-
-- **Kurumsal**: Kurumsal müşteriler, Azure üzerinde anlaşılan parasal taahhütler olun ve Azure kaynakları için özel fiyatlandırma için erişim ile Kurumsal Sözleşme açtığınızdan.
-- **Web Direct**: doğrudan Web müşterileri Azure ile özel bir sözleşme işaretli değil. Bu müşteriler, azure.com Azure'a kaydolup ve tüm Azure kaynakları için genel kullanıma yönelik fiyatlar alabilirsiniz.
-- **Bulut hizmeti sağlayıcısı**: Bulut hizmeti sağlayıcıları şirketlerdir genellikle son müşteri tarafından Azure üzerine çözümler oluşturmak için işe.
-
-## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Faturamı içinde oluşturulmuş kaynak maliyeti neden göremiyorum?
-Olmayan bill maliyet kaynağını doğrudan temel azure yapar. Faturalandırma, bir kaynağın kullanım ömrü boyunca izlemek için kullanılan bir veya daha fazla ölçümleri devre dışı tabanlı gerçekleştirilir. Bu ölçümleri daha sonra faturanıza yansıyan tutarı hesaplamak için kullanılır. Aşağıda, Azure ölçümü hakkında daha fazla bilgi bkz.
-
-## <a name="how-does-azure-charge-metering-work"></a>Nasıl Azure ölçüm iş Ücretli midir?
-Bir sanal makine gibi tek bir Azure kaynak hızlanması, de oluşturulan bir veya birden çok ölçüm örnekleri olur. Bu ölçüm, zaman içinde kaynak kullanımını izlemek için kullanılır. Her bir ölçüm daha sonra Azure tarafından sistem ölçümünü bizim maliyetine faturanıza yansıyan tutarı hesaplamak için kullanılan kullanım kayıtlarını yayar. 
-
-Örneğin, Azure'da oluşturulan tek bir sanal makine kullanımını izlemek için oluşturulan aşağıdaki ölçümler sahip olabilir:
+Örneğin, Azure üzerinde oluşturulan bir tek sanal makine (VM) kullanımını izlemek için oluşturulan aşağıdaki ölçümler sahip olabilir:
 
 - İşlem Saatleri
 - IP adresi saatleri
@@ -131,18 +111,35 @@ Bir sanal makine gibi tek bir Azure kaynak hızlanması, de oluşturulan bir vey
 - Standart GÇ-blok blobu yazma
 - Standart GÇ-blok blobu silme
 
-VM oluşturulduktan sonra her biri yukarıdaki ölçütlerden kullanım kayıtlarını yayma başlar. Bu kullanım sonra Azure'nın Ölçüm sistemi ölçümün fiyat yanı sıra bir müşterinin ne kadar ücret belirlemek için kullanılır.
+VM oluşturulduğunda, her biri, bu ölçümleri kullanım kayıtlarını yayma başlar. Bu kullanım ve ölçümün fiyat sistem ölçümünü Azure'da izlenir.
 
-> [!Note]
-> Yukarıdaki örnek ölçümleri yalnızca oluşturulan oluşturulan bir VM'yi ölçümleri bir alt kümesi olabilir.
+## <a name="payment"></a>Faturanızın ödeme
 
-## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Azure arasındaki fark nedir 1. taraf ücretleri ve Azure Market kullanım ücretlerinin?
-Azure 1. taraf ücretleri, doğrudan geliştirilen ve Azure tarafından sunulan kaynakları. Azure Marketi'nde Azure Marketi aracılığıyla kullanılabilir olan üçüncü taraf yazılım satıcıları tarafından oluşturulan kaynakları ücretlerdir. Örneğin, bir Barracuda Güvenlik Duvarı bir üçüncü taraf tarafından sunulan bir Azure Market kaynağıdır. Tüm ücretler için güvenlik duvarı ve kendi ilgili ölçümleri Market ücretlerini görünür. 
+Bir kredi kartı veya banka kartı ödeme yönteminiz olarak ayarlarsanız, ödeme faturalandırma dönemi sona erdikten sonra otomatik olarak 10 gün içinde ücretlendirilir. Kredi kartı Ekstrenizi satır öğesi söyleyin **MSFT Azure**.
+
+Ücretlendirilir kredi veya banka kartı değiştirmek için bkz [ekleme, güncelleştirme veya Azure için bir kredi kartı veya banka kartı kaldırma](billing-how-to-change-credit-card.md).
+
+Varsa, [faturayla ödeme](billing-how-to-pay-by-invoice.md), ödemenin konumuna faturanızı alt kısmında listelenen Gönder.
+
+Üzerinde ödemenin durumunu denetlemek için [bir destek bileti oluşturma](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ## <a name="tips-for-cost-management"></a>Maliyet yönetimi için ipuçları
-- Kullanarak maliyetleri tahmin etme [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) ve [toplam sahiplik hesaplayıcı maliyeti](https://aka.ms/azure-tco-calculator)ve [ayrıntılı fiyatlandırma bilgileri her hizmet için](https://azure.microsoft.com/pricing/).
+
+- Kullanarak maliyetleri tahmin etme:
+  - [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)
+  - [Sahipliği hesaplayıcı toplam maliyeti](https://aka.ms/azure-tco-calculator)
+  - [Ayrıntılı fiyatlandırma bilgileri her hizmet için](https://azure.microsoft.com/pricing/)
 - [Kullanımı ve maliyetleri Azure portalında düzenli olarak gözden geçirme](billing-getting-started.md#costs).
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="learn-more"></a>Daha fazla bilgi edinin
 
-Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+- [Azure fatura ve günlük kullanım verilerini al](billing-download-azure-invoice-daily-usage-date.md)
+- [Microsoft Azure faturanızla ilgili koşulları anlama](billing-understand-your-invoice.md)
+- [Şirket koşulları anlama, Microsoft Azure ayrıntılı kullanım](billing-understand-your-usage.md)
+- [Azure portal maliyet Yönetimi](https://docs.microsoft.com/azure/billing/billing-getting-started)
+- [Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen maliyetleri engelleme](billing-getting-started.md#costs)
+
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

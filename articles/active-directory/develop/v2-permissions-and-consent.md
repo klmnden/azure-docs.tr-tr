@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960337"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620141"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>İzinler ve onay Azure Active Directory v2.0 uç noktası
 
@@ -48,7 +48,7 @@ Aynı durum Microsoft kimlik platformu ile tümleştirdik herhangi bir üçünc�
 
 * Kullanıcının Takvim okuyun
 * Kullanıcının takvim için yazma
-* Bir kullanıcı olarak posta gönderme
+* Kullanıcı olarak posta gönderme
 
 Bu tür izinler tanımlayarak kaynak verilerini ve API işlevselliğini nasıl sunulduğunu üzerinde ayrıntılı denetime sahiptir. Bir üçüncü taraf uygulaması kullanıcılar ve Yöneticiler, bu izinler isteyebilir kimin önce uygulama isteğini onaylaması veri erişebilir veya bir kullanıcı adına hareket. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından üçüncü taraf uygulamaları işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için oluşturulabilir. Tam olarak hangi verilerin uygulama erişimi olan kullanıcıların ve yöneticilerin bilebilirsiniz ve kötü amaçlı bir eyleme çalışmıyorsa doğrulayabilirse olabilir. Geliştiriciler için yalnızca işlev uygulamalarına ihtiyaç duydukları izinleri isteyen en az ayrıcalık kavramı tarafından her zaman uymanız.
 
@@ -64,13 +64,13 @@ Uygulama, v2.0 isteklerinde kapsamları belirterek bu izinleri son noktanın yet
 
 Microsoft kimlik platformu destekleyen iki tür izinler: **temsilci izinleri** ve **uygulama izinleri**.
 
-- **Temsilci izinleri** oturum açmış kullanıcı var olan uygulamaları tarafından kullanılır. Bu uygulamalar için kullanıcı veya yönetici izinleri uygulama istekleri ve uygulama olduğunu temsilci atanmış izin, hedef kaynağın çağrı yaparken oturum açmış kullanıcı olarak davranacak şekilde toplanmasına onay verir. Bazı izinleri devralmış yönetici olmayan kullanıcılar tarafından onay, ancak bazı daha yüksek ayrıcalıklı izinlere gerektiren [yönetici onayı](v2-permissions-and-consent.md#admin-restricted-scopes).  
+* **Temsilci izinleri** oturum açmış kullanıcı var olan uygulamaları tarafından kullanılır. Bu uygulamalar için kullanıcı veya yönetici izinleri uygulama istekleri ve uygulama olduğunu temsilci atanmış izin, hedef kaynağın çağrı yaparken oturum açmış kullanıcı olarak davranacak şekilde toplanmasına onay verir. Bazı izinleri devralmış yönetici olmayan kullanıcılar tarafından onay, ancak bazı daha yüksek ayrıcalıklı izinlere gerektiren [yönetici onayı](v2-permissions-and-consent.md#admin-restricted-scopes). Hangi yönetici rolleri için temsilci izinleri izin alma bilgi edinmek için [Azure AD'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md).
 
-- **Uygulama izinleri** uygulamaları tarafından kullanılan bir oturum açmış kullanıcı mevcut çalıştırın; Örneğin, uygulamaları çalıştıran arka plan Hizmetleri veya daemon'ları olarak.  Uygulama izinleri yalnızca olabilir [bir yönetici tarafından onaylı](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+* **Uygulama izinleri** uygulamaları tarafından kullanılan bir oturum açmış kullanıcı mevcut çalıştırın; Örneğin, uygulamaları çalıştıran arka plan Hizmetleri veya daemon'ları olarak.  Uygulama izinleri yalnızca olabilir [bir yönetici tarafından onaylı](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 _Geçerli İzinler_ uygulamanızı istekleri hedef kaynağı yaparken sahip olacağı izinler. Hedef kaynak çağrı yaparken yetkilendirilen ve uygulamanızı verilen uygulama izinleri ve etkili izinleri arasındaki farkı anlamak önemlidir.
 
-- Temsilci izinleri için _etkili izinleri_ uygulamanızı app (izni) verilmiş temsilci izinleri en az ayrıcalıklı kesişimi ve şu anda oturum açmış kullanıcının ayrıcalıkları olacaktır. Uygulamanızın ayrıcalıkları hiçbir zaman oturum açmış kullanıcının ayrıcalıklarından fazla olamaz. Kuruluşların içinde, oturum açmış kullanıcının ayrıcalıkları ilkeyle ya da bir veya birden çok yönetici rolü üyeliğiyle belirlenebilir. Yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md).
+- Temsilci izinleri için _etkili izinleri_ uygulamanızı app (izni) verilmiş temsilci izinleri en az ayrıcalıklı kesişimi ve şu anda oturum açmış kullanıcının ayrıcalıkları olacaktır. Uygulamanızın ayrıcalıkları hiçbir zaman oturum açmış kullanıcının ayrıcalıklarından fazla olamaz. Kuruluşların içinde, oturum açmış kullanıcının ayrıcalıkları ilkeyle ya da bir veya birden çok yönetici rolü üyeliğiyle belirlenebilir. Hangi yönetici rolleri için temsilci izinleri izin alma bilgi edinmek için [Azure AD'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md).
   Örneğin, uygulamanızın verilen varsayın _User.ReadWrite.All_ izin temsilci. Adından da anlaşıldığı gibi bu izin uygulamanıza kuruluştaki her kullanıcının profilini okuma ve güncelleştirme izni verir. Oturum açmış kullanıcının bir genel yönetici olması durumunda, uygulamanız kuruluştaki her kullanıcının profilini güncelleştirebilir. Öte yandan oturum açmış kullanıcı bir yönetici rolünde değilse, uygulamanız yalnızca oturum açmış kullanıcının profilini güncelleştirebilir. Kuruluştaki diğer kullanıcıların profillerini güncelleştiremez çünkü adına çalışma iznine sahip olduğu kullanıcı söz konusu ayrıcalıklara sahip değildir.
   
 - Uygulama izinleri için _etkili izinleri_ uygulamanızı izinle kapsanan ayrıcalıkları tam düzeyini olacaktır. Örneğin, sahip bir uygulama _User.ReadWrite.All_ uygulama izni, kuruluşunuzdaki her kullanıcının profilini güncelleştirebilirsiniz. 
@@ -87,13 +87,13 @@ Uygulama oturum açma kullanarak gerçekleştiriyorsa [Openıd Connect](active-d
 
 `email` Kapsamı ile kullanılabilir `openid` kapsamı ve diğerleri. Uygulama erişimi için kullanıcının birincil e-posta adresi biçiminde sağlar `email` talep. `email` Yalnızca bir e-posta adresi her zaman çalışması değil kullanıcı hesabıyla ilişkiliyse talep bir belirteç içine eklenir. Kullanılıyorsa `email` kapsamı, uygulamanız hazırlanmış bir durumu işlemek için `email` talep belirteci yok.
 
-### <a name="profile"></a>Profili
+### <a name="profile"></a>profil
 
 `profile` Kapsamı ile kullanılabilir `openid` kapsamı ve diğerleri. Kullanıcı hakkındaki bilgileri önemli miktarda uygulama erişim sağlar. Uygulamaya erişebildiğinizden bilgiler içerir, ancak kullanıcının verilen adı, Soyadı, tercih edilen kullanıcı adı ve nesne kimliği için sınırlı değildir Belirli bir kullanıcı için id_tokens parametresinde kullanılabilir profili talepleri tam bir listesi için bkz. [ `id_tokens` başvuru](id-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
 
-[ `offline_access` Kapsam](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) erişim kaynaklara kullanıcı adına uzun bir süre sağlar. İş hesabı onay sayfasında, bu kapsamı "verilerinizi dilediğiniz zaman erişim" izni görünür. Kişisel Microsoft hesabı onay sayfasında, "bilgilerinize dilediğiniz zaman erişim" izni görünür. Bir kullanıcının ne zaman onaylar `offline_access` kapsamı, uygulama v2.0 belirteç uç noktasından yenileme belirteçleri alabilir. Uzun süreli yenileme belirteçleri. Uygulamanızı, eski görüntülerin süresi dolduğundan yeni erişim belirteçleri elde edebilirsiniz.
+[ `offline_access` Kapsam](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) erişim kaynaklara kullanıcı adına uzun bir süre sağlar. İş hesabı onay sayfasında, bu kapsamı "verilerinizi dilediğiniz zaman erişim" izni görünür. Kişisel Microsoft hesabı onay sayfasında, "bilgilerinize dilediğiniz zaman erişim" izni görünür. Bir kullanıcının ne zaman onaylar `offline_access` kapsamı, uygulama v2.0 belirteç uç noktasından yenileme belirteçleri alabilir. Uzun süreli yenileme belirteçleri. Uygulamanızı, eski görüntülerin süresi dolduğundan yeni erişim belirteçleri elde edebilirsiniz.
 
 Uygulamanızı değil istemiyorsa `offline_access` kapsamı, yenileme belirteçleri almazsınız. Bunun anlamı bir yetkilendirme kodunda şifrenizi kullandığınızda [OAuth 2.0 yetkilendirme kod akışı](active-directory-v2-protocols.md), yalnızca bir erişim belirteci alırsınız `/token` uç noktası. Erişim belirteci, kısa bir süre için geçerlidir. Erişim belirteci, genellikle bir saat içinde süresi dolar. Noktası, kullanıcı yeniden yönlendirmek uygulamanız gereken en başa `/authorize` yeni bir yetkilendirme kodunu almak için uç nokta. Uygulama türünü bağlı olarak bu yeniden yönlendirme sırasında kullanıcı kimlik bilgilerini yeniden girin veya izinleri yeniden onay gerekebilir.
 

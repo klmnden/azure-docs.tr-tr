@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636552"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632934"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Slack yapılandırın.
 
@@ -113,6 +113,14 @@ Bu sonucu Slack içinde atanmış herhangi bir grup nesne **kullanıcılar ve gr
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
+## <a name="connector-limitations"></a>Bağlayıcı sınırlamaları
+
+  * Slack'ın yapılandırırken **displayName** öznitelik, aşağıdaki davranışları unutmayın: 
+  * Değerleri (örneğin 2 kullanıcılar, aynı görünen adı olabilir) tamamen benzersiz değil
+  * İngilizce olmayan karakterler, boşluk, büyük/küçük harf destekler. 
+  * İzin verilen noktalamalar olan nokta, alt çizgi, kısa çizgi, kesme, köşeli ayraçlar (örneğin **([{}])**) ve ayırıcılar (örneğin **, /;**).
+  * Bu iki ayar Slack'ın çalışma alanına/kuruluşta - yapılandırıldıysa yalnızca güncelleştirmeleri **profil eşitleme etkin** ve **kullanıcılar, kullanıcıların görünen adı değiştirilemez**.
+  * Slack'ın **kullanıcıadı** özniteliğine sahip altında 21 karakter olmalı ve benzersiz bir değere sahip. 
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

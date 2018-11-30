@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e1885e1b420f5dfda146dd72b831ccfe4989e446
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: f58d08629fcde791186d27ae09e7417453faf8ad
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707377"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585858"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Desteklenen işletim sistemleri ve sürücüler
 
@@ -36,5 +36,5 @@ Microsoft, sanal uygulamaları veya NV ve sanal çalışma İstasyonlarınızı 
 
 | İşletim Sistemi | Sürücü |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 | [Kılavuz 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
-| Windows Server 2012 R2 | [Kılavuz 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |
+| Windows Server 2016<br/><br/>Windows 10 | [Kılavuz 7 (411.81)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
+| Windows Server 2012 R2 | [Kılavuz 7 (411.81)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |

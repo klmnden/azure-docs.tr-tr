@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 85bd9e93fbd4c5ab5c0d2388d19334bc2cd3cb9e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037304"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497534"
 ---
-# <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight Hive kullanarak Twitter verilerini çözümleme
+# <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Apache Hive, HDInsight kullanarak Twitter verilerini çözümleme
 Sosyal Web siteleri, büyük veri benimsenmesine yönelik önemli itici zorlar biridir. Twitter gibi siteler tarafından sağlanan genel API'leri, veri çözümlemek ve popüler eğilimleri anlamak için yararlı bir kaynaktır.
-Bu öğreticide, bir Twitter akış API'sini kullanarak tweetleri Al ve daha sonra Apache Hive Azure HDInsight üzerinde belirli bir sözcük içeren çoğu tweetleri gönderilen Twitter kullanıcıların bir listesini almak için kullanın.
+Bu öğreticide, Twitter bir akış API'sini kullanarak tweetleri Al ve daha sonra [Apache Hive](https://hive.apache.org/) en belirli bir sözcüğü içeren tweet gönderen Twitter kullanıcıların listesini almak için Azure HDInsight üzerinde.
 
 > [!IMPORTANT]
-> Bu belgedeki adımlarda Windows tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Adımlar için belirli Linux tabanlı bir küme için bkz: [(Linux) HDInsight Hive kullanarak verileri analiz Twitter](hdinsight-analyze-twitter-data-linux.md).
+> Bu belgedeki adımlarda Windows tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Adımlar için belirli Linux tabanlı bir küme için bkz: [Apache Hive, HDInsight (Linux) kullanarak Analiz Twitter verilerini](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
@@ -243,7 +243,7 @@ Bu öğreticide, web hizmeti çağrısı yapmak için Windows PowerShell kullan�
 Doğrulama yordamı, çıktı dosyasını kontrol edebilirsiniz **/tutorials/twitter/data/tweets.txt**, bir Azure Depolama Gezgini veya Azure PowerShell kullanarak Azure Blob Depolama alanınızın üzerinde. Örnek Windows PowerShell komut dosyalarını listelemek için bkz. [HDInsight kullanım Blob depolamayla][hdinsight-storage-powershell].
 
 ## <a name="create-hiveql-script"></a>HiveQL betiğini oluşturma
-Azure PowerShell kullanarak, aynı anda birden çok HiveQL ifadelerini bir çalıştırma veya bir komut dosyası HiveQL ifadesine paketleyebilirsiniz. Bu öğreticide, HiveQL betiğini oluşturur. Betik dosyası Azure Blob depolama alanına yüklenmelidir. Sonraki bölümde, Azure PowerShell kullanarak komut dosyasını çalışır.
+Azure PowerShell kullanarak, birden çok çalıştırabileceğiniz [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) deyimleri bir zaman veya paket bir betik dosyasına HiveQL deyimi. Bu öğreticide, HiveQL betiğini oluşturur. Betik dosyası Azure Blob depolama alanına yüklenmelidir. Sonraki bölümde, Azure PowerShell kullanarak komut dosyasını çalışır.
 
 > [!NOTE]
 > Ortak bir Blob kapsayıcısını karşıya Hive betik dosyası ve 10.000 tweetleri içeren dosya. Karşıya yüklenen dosya kullanmak istiyorsanız, bu bölümü atlayabilirsiniz.
@@ -454,7 +454,7 @@ Tüm hazırlık çalışması tamamladınız. Şimdi, Hive betiğini çağırır
 Hive betiğini çalıştırmak için aşağıdaki Windows PowerShell betiğini kullanın. Birinci değişken ayarlamanız gerekir.
 
 > [!NOTE]
-> Tweetleri ve karşıya yüklediğiniz HiveQL betiğini son iki bölümde kullanmak için ayarlanmış $hqlScriptFile "/ tutorials/twitter/twitter.hql". Sizin için ortak bir blob için yüklenmiş bağlantı noktalarını kullanmak üzere ayarlanmış $hqlScriptFile "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+> Tweetleri kullanılacak ve [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) son iki bölümde karşıya komut dosyası, kümesine $hqlScriptFile "/ tutorials/twitter/twitter.hql". Sizin için ortak bir blob için yüklenmiş bağlantı noktalarını kullanmak üzere ayarlanmış $hqlScriptFile "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell
 #region variables and constants
@@ -532,16 +532,16 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > Hive tablosu \001 alan sınırlayıcı kullanır. Sınırlayıcı çıktıda görünür değil.
 
-Analiz sonuçları, Azure Blob depolama alanına yerleştirildi sonra bir Azure SQL veritabanı/SQL server için verileri dışarı aktarma, Power Query kullanarak verileri Excel'e aktarma veya Hive ODBC sürücüsünü kullanarak uygulamanızı verilere bağlanın. Daha fazla bilgi için [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop], [HDInsight kullanarak uçuş gecikme verilerini çözümleme][hdinsight-analyze-flight-delay-data], [ Excel'i Power Query ile HDInsight bağlama][hdinsight-power-query], ve [HDInsight Microsoft Hive ODBC sürücüsü ile Excel'i bağlama][hdinsight-hive-odbc].
+Analiz sonuçları, Azure Blob depolama alanına yerleştirildi sonra bir Azure SQL veritabanı/SQL server için verileri dışarı aktarma, Power Query kullanarak verileri Excel'e aktarma veya Hive ODBC sürücüsünü kullanarak uygulamanızı verilere bağlanın. Daha fazla bilgi için [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop], [HDInsight kullanarak uçuş gecikme verilerini çözümleme][hdinsight-analyze-flight-delay-data], [ Excel'i Power Query ile HDInsight bağlama][hdinsight-power-query], ve [HDInsight Microsoft Hive ODBC sürücüsü ile Excel'i bağlama][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide yapılandırılmamış bir JSON veri kümesi sorgulamak için keşfetmek ve Azure üzerinde HDInsight kullanarak Twitter verilerini çözümlemek için yapılandırılmış bir Hive tablosuna dönüştürmek nasıl gördük. Daha fazla bilgi için bkz:
+Bu öğreticide yapılandırılmamış bir JSON veri kümesi sorgulamak için keşfetmek ve Azure üzerinde HDInsight kullanarak Twitter verilerini çözümlemek için yapılandırılmış bir Apache Hive tablosuna dönüştürmek nasıl gördük. Daha fazla bilgi için bkz:
 
 * [HDInsight ile çalışmaya başlama][hdinsight-get-started]
 * [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme][hdinsight-analyze-flight-delay-data]
 * [Excel'i Power Query ile HDInsight bağlama][hdinsight-power-query]
 * [Excel'i HDInsight Microsoft Hive ODBC sürücüsü ile bağlama][hdinsight-hive-odbc]
-* [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop]
+* [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

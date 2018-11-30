@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 20d44e05725b034326398c967efbd997433d5200
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: afd40298679375ed5dffcd35cdf5c877277dab8c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230555"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498123"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight’ta Apache Spark nedir?
 
-*Apache Spark*, büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen paralel işleme altyapısıdır. Azure HDInsight’ta Apache Spark, Microsoft'un buluttaki Apache Spark uygulamasıdır. HDInsight, Azure’da bir Spark kümesi oluşturup yapılandırmayı kolaylaştırır. HDInsight'taki Spark kümeleri, Azure Depolama ve Azure Data Lake Store ile uyumludur. Bu nedenle, HDInsight Spark kümelerini Azure’da depolanmış verilerinizi işlemek için kullanabilirsiniz. Bileşenler ve sürüm bilgileri için bkz. [Azure HDInsight’taki Hadoop bileşenleri ve sürümleri](../hdinsight-component-versioning.md).
+*Apache Spark*, büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen paralel işleme altyapısıdır. Azure HDInsight’ta Apache Spark, Microsoft'un buluttaki Apache Spark uygulamasıdır. HDInsight, Azure’da bir Spark kümesi oluşturup yapılandırmayı kolaylaştırır. HDInsight'taki Spark kümeleri, Azure Depolama ve Azure Data Lake Store ile uyumludur. Bu nedenle, HDInsight Spark kümelerini Azure’da depolanmış verilerinizi işlemek için kullanabilirsiniz. Bileşenler ve sürüm bilgileri için bkz. [Apache Hadoop bileşenleri ve sürümleri, Azure HDInsight](../hdinsight-component-versioning.md).
 
 ![Spark: birleşik çerçeve](./media/apache-spark-overview/hdinsight-spark-overview.png)
 
@@ -35,9 +35,9 @@ HDInsight’ta Spark kümeleri, tam olarak yönetilen bir Spark hizmeti sunar. H
 | --- | --- |
 | Kolay oluşturma |Azure portalı, Azure PowerShell veya HDInsight .NET SDK kullanarak dakikalar içinde HDInsight’ta yeni bir Spark kümesi oluşturabilirsiniz. Bkz. [HDInsight’ta Spark kümesi kullanmaya başlama](apache-spark-jupyter-spark-sql.md) |
 | Kullanım kolaylığı |HDInsight’ta Spark kümesi, Jupyter ve Zeppelin not defterlerini içerir. Etkileşimli veri işleme ve görselleştirme için bu not defterlerini kullanabilirsiniz.|
-| REST API'leri |HDInsight’ta Spark kümeleri, işleri uzaktan göndermek ve izlemek amacıyla REST API tabanlı Spark iş sunucusu olan [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)’yi içerir. |
+| REST API'leri |HDInsight Spark kümelerinde dahil [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), uzaktan göndermek ve işleri izlemek için bir REST API tabanlı Spark iş sunucusu. |
 | Azure Data Lake Store desteği | HDInsight’ta Spark kümeleri, birincil depolama veya ek depolama olarak Azure Data Lake Store kullanabilir. Data Lake Store hakkında daha fazla bilgi için bkz. [Azure Data Lake Store’a Genel Bakış](../../data-lake-store/data-lake-store-overview.md). |
-| Azure hizmetleriyle tümleştirme |HDInsight’ta Spark kümesi, Azure Event Hubs için bir bağlayıcı ile birlikte sunulur. Zaten Spark’ın parçası olarak kullanılabilir olan [Kafka](http://kafka.apache.org/)’nın yanı sıra, Event Hubs’ı kullanarak akış uygulamaları oluşturabilirsiniz. |
+| Azure hizmetleriyle tümleştirme |HDInsight’ta Spark kümesi, Azure Event Hubs için bir bağlayıcı ile birlikte sunulur. Ek olarak Event Hubs'ı kullanarak akış uygulamaları oluşturabilirsiniz [Apache Kafka](http://kafka.apache.org/), kullanılabildiği zaten Spark'ın bir parçası olarak. |
 | ML Server desteği | HDInsight'ta ML Server desteği **ML Services** küme türü olarak sağlanır. Bir Spark kümesiyle taahhüt edilen hızlarda dağıtılmış R hesaplamaları çalıştırmak için ML Services kümesi ayarlayabilirsiniz. Daha fazla bilgi için bkz. [HDInsight’ta ML Server kullanmaya başlama](../r-server/r-server-get-started.md). |
 | Üçüncü taraf IDE’lerle tümleştirme | HDInsight, bir HDInsight Spark kümesinde uygulama oluşturup göndermek için faydalı olacak birkaç IDE eklentisi sağlar. Daha fazla bilgi için bkz. [IntelliJ IDEA için Azure Araç Seti'ni Kullanma](apache-spark-intellij-tool-plugin.md),[VSCode için HDInsight Kullanma](../hdinsight-for-vscode.md) ve [Eclipse için Azure Araç Seti'ni Kullanma](apache-spark-eclipse-tool-plugin.md).|
 | Eş zamanlı sorgular |HDInsight’ta Spark kümeleri, eş zamanlı sorguları destekler. Bu özellik, bir kullanıcıdan veya çeşitli kullanıcılar ve uygulamalardan gelen birden çok sorgunun aynı küme kaynaklarında paylaşılmasını sağlar. |
@@ -47,13 +47,13 @@ HDInsight’ta Spark kümeleri, tam olarak yönetilen bir Spark hizmeti sunar. H
 | Ölçeklenebilirlik | HDInsight, küme düğümlerinin sayısını değiştirmenize izin verir. Ayrıca, tüm veriler Azure Depolama’da veya Data Lake Store’da depolandığından, Spark kümeleri veri kaybı olmadan bırakılabilir. |
 | SLA |HDInsight’ta Spark kümeleri, 7 gün 24 saat destek ve % 99,9 çalışma süreli SLA ile birlikte sunulur. |
 
-HDInsight’ta Spark kümeleri, kümelerde varsayılan olarak bulunan aşağıdaki bileşenleri içerir.
+HDInsight, Apache Spark kümeleri kümelerde varsayılan olarak bulunan aşağıdaki bileşenleri içerir.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Spark Core, Spark SQL, Spark akış API’leri, GraphX ve MLlib’i içerir.
 * [Anaconda](http://docs.continuum.io/anaconda/)
-* [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
+* [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 * [Jupyter not defteri](https://jupyter.org)
-* [Zeppelin not defteri](http://zeppelin-project.org/)
+* [Apache Zeppelin not defteri](http://zeppelin-project.org/)
 
 HDInsight’ta Spark kümeleri, Microsoft Power BI gibi BI araçlarından HDInsight’ta Spark kümelerine bağlantı için bir [ODBC sürücüsü](https://go.microsoft.com/fwlink/?LinkId=616229) de sağlar.
 
@@ -65,7 +65,7 @@ Spark’ın HDInsight kümeleri üzerinde çalışması anlaşılarak Spark bile
 
 Spark uygulamaları bir küme üzerinde, ana programınızdaki (sürücü programı olarak adlandırılır) SparkContext nesnesi tarafından koordine edilen bağımsız kümeler halinde çalışır.
 
-SparkContext, uygulamalar arasında kaynakları ayıran birkaç türde küme yöneticisine bağlanabilir. Bu küme yöneticileri Apache Mesos, Apache YARN veya Spark küme yöneticisini içerir. Spark, HDInsight'ta YARN küme yöneticisini kullanarak çalışır. Bağlantı kurulduktan sonra Spark, kümedeki çalışan düğümleri üzerinde yürütücüler devralır. Bunlar, uygulamalarınız için hesaplamalar yapan ve verileri depolayan işlemlerdir. Ardından, uygulama kodunuzu (SparkContext’e geçirilen JAR veya Python dosyaları ile tanımlanır) yürütücülerinize gönderir. Son olarak SparkContext, yürütücülere çalıştırılacak görevleri gönderir.
+SparkContext, uygulamalar arasında kaynakları ayıran birkaç türde küme yöneticisine bağlanabilir. Bu küme yöneticileri [Apache Mesos](http://mesos.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), ya da Spark Küme Yöneticisi. Spark, HDInsight'ta YARN küme yöneticisini kullanarak çalışır. Bağlantı kurulduktan sonra Spark, kümedeki çalışan düğümleri üzerinde yürütücüler devralır. Bunlar, uygulamalarınız için hesaplamalar yapan ve verileri depolayan işlemlerdir. Ardından, uygulama kodunuzu (SparkContext’e geçirilen JAR veya Python dosyaları ile tanımlanır) yürütücülerinize gönderir. Son olarak SparkContext, yürütücülere çalıştırılacak görevleri gönderir.
 
 SparkContext, kullanıcının ana işlevini çalıştırır ve çalışan düğümlerinde çeşitli paralel işlemleri yürütür. Daha sonra SparkContext, işlemlerin sonuçlarını toplar. Çalışan düğümleri Hadoop dağıtılmış dosya sistemi (HDFS) verilerini okur ve yazar. Çalışan düğümleri aynı zamanda dönüştürülmüş verileri Dayanıklı Dağıtılmış Veri Kümesi (RDD) olarak bellek içinde önbelleğe alır.
 
@@ -91,17 +91,17 @@ HDInsight'ta Spark kümeleri, aşağıdaki temel senaryolara olanak tanır:
     
 ## <a name="where-do-i-start"></a>Nereden başlamalıyım?
 
-HDInsight’ta Spark hakkında daha fazla bilgi için aşağıdaki makaleleri kullanabilirsiniz:
+HDInsight, Apache Spark hakkında daha fazla bilgi için aşağıdaki makalelere kullanabilirsiniz:
 
-- [Hızlı Başlangıç: HDInsight’ta Spark kümesi oluşturma ve Jupyter kullanarak etkileşimli sorgu çalıştırma](./apache-spark-jupyter-spark-sql.md)
-- [Öğretici: Jupyter kullanarak Spark işi çalıştırma](./apache-spark-load-data-run-query.md)
+- [Hızlı Başlangıç: HDInsight Apache Spark kümesi oluşturma ve Jupyter'i kullanarak etkileşimli sorgu çalıştırma](./apache-spark-jupyter-spark-sql.md)
+- [Öğretici: Jupyter kullanarak bir Apache Spark işi çalıştırma](./apache-spark-load-data-run-query.md)
 - [Öğretici: BI araçlarını kullanarak verileri çözümleme](./apache-spark-use-bi-tools.md)
-- [Öğretici: Spark kullanarak makine öğrenimi](./apache-spark-ipython-notebook-machine-learning.md)
+- [Öğretici: Apache Spark ile machine learning](./apache-spark-ipython-notebook-machine-learning.md)
 - [Öğretici: Intellij kullanarak Scala Maven uygulaması oluşturma](./apache-spark-create-standalone-application.md)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 Bu genel bakışta, Azure HDInsight'ta Apache Spark ile ilgili bazı temel bilgiler edindiniz. HDInsight Spark kümesi oluşturma ve bazı Spark SQL sorgularını çalıştırma hakkında bilgi almak için sonraki makaleye ilerleyin:
 
-- [HDInsight’ta Spark kümesi oluşturma](./apache-spark-jupyter-spark-sql.md)
+- [HDInsight Apache Spark kümesi oluşturma](./apache-spark-jupyter-spark-sql.md)
 

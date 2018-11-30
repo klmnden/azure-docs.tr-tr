@@ -1,5 +1,5 @@
 ---
-title: Azure ortamınızda uyumlu olmayan kaynakları belirlemek için bir ilke ataması oluşturma
+title: Azure'da uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 description: Bu makalede, uyumlu olmayan kaynakları belirlemek üzere bir ilke tanımı oluşturma adımlarında size yol gösterilir.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 60b8663c5b465fecd3275def7d1e85f4511a23e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954271"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584698"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure ortamınızda uyumlu olmayan kaynakları belirlemek için bir ilke ataması oluşturma
 
@@ -45,7 +45,7 @@ Bu hızlı başlangıçta, bir ilke ataması oluşturup *Yönetilen Diskleri Olm
 
    Bu örnekte **Contoso** aboneliği kullanılır. Sizin aboneliğiniz farklı olacaktır.
 
-1. Kaynaklar **Kapsam**’a göre dışlanabilir.  **Dışlamalar**, **Kapsam**’dan bir düzey daha düşük düzeyde başlatılır. **Dışlamalar** isteğe bağlıdır, bu yüzden şimdilik boş bırakın.
+1. Kaynaklar **Kapsam**’a göre dışlanabilir.  **Dışlamalar**, **Kapsam**’dan bir düzey aşağıda başlatılır. **Dışlamalar** isteğe bağlıdır, bu yüzden şimdilik boş bırakın.
 
 1. **İlke tanımı** üç nokta öğesini seçerek kullanılabilen tanımların listesini açın. Azure İlkesi, kullanabileceğiniz yerleşik ilke tanımlarıyla birlikte gelir. Aşağıdakiler gibi çok sayıda ilke mevcuttur:
 

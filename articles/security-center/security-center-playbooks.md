@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'ndeki Güvenlik Playbook'u | Microsoft Docs
 description: Bu belge, Azure Güvenlik Merkezi'ndeki güvenlik playbook'larını kullanarak güvenlik olaylarına verilen yanıtları otomatik hale getirmenize yardımcı olur.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2018
-ms.author: yurid
-ms.openlocfilehash: 05245b2a7a4f7bf61052b13da5ee2a98be721f7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259964"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619920"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Güvenlik Playbook'u (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'ndeki güvenlik playbook'larını kullanarak güvenlikle ilgili sorunlara yanıt vermenize yardımcı olur.
 
 ## <a name="what-is-security-playbook-in-security-center"></a>Güvenlik Merkezi'ndeki güvenlik playbook'u ne işe yarar?
-Güvenlik playbook'u belirli bir playbook seçilen uyarı tarafından tetiklendiğinde Güvenlik Merkezi'nden çalıştırılabilecek yordam koleksiyonudur. Güvenlik playbook'u Güvenlik Merkezi tarafından tespit edilen belirli bir güvenlik uyarısına verilecek yanıtı otomatikleştirmenize ve yönetmenize yardımcı olabilir. Güvenlik Merkezi'ndeki Güvenlik Playbook'ları [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps) tabanlıdır. Bu nedenle güvenlik kategorisindeki Logic Apps şablonlarını kullanabilir, ihtiyaçlarınıza göre değiştirebilir veya [Azure Logic Apps iş akışını](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app) kullanarak yeni playbook'lar oluşturabilir ve Güvenlik Merkezi'ni tetikleyici olarak kullanabilirsiniz. 
+Güvenlik playbook'u belirli bir playbook seçilen uyarı tarafından tetiklendiğinde Güvenlik Merkezi'nden çalıştırılabilecek yordam koleksiyonudur. Güvenlik playbook'u Güvenlik Merkezi tarafından tespit edilen belirli bir güvenlik uyarısına verilecek yanıtı otomatikleştirmenize ve yönetmenize yardımcı olabilir. Güvenlik Merkezi'ndeki Güvenlik Playbook'ları [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps) tabanlıdır. Bu nedenle güvenlik kategorisindeki Logic Apps şablonlarını kullanabilir, ihtiyaçlarınıza göre değiştirebilir veya [Azure Logic Apps iş akışını](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app) kullanarak yeni playbook'lar oluşturabilir ve Güvenlik Merkezi'ni tetikleyici olarak kullanabilirsiniz.
 
 > [!NOTE]
-> Playbook, Azure Logic Apps'ı kullandığı için ücret alınır. Ayrıntılı bilgi için [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) fiyatlandırma sayfasını ziyaret edin. 
+> Playbook, Azure Logic Apps'ı kullandığı için ücret alınır. Ayrıntılı bilgi için [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) fiyatlandırma sayfasını ziyaret edin.
 
 ## <a name="how-to-create-a-security-playbook-from-security-center"></a>Güvenlik Merkezi'nden güvenlik playbook'u nasıl oluşturulur?
 Güvenlik Merkezi'nden güvenlik playbook'u oluşturmak için bu adımları izleyin:
@@ -37,7 +37,7 @@ Güvenlik Merkezi'nden güvenlik playbook'u oluşturmak için bu adımları izle
 2.  Sol bölmedeki **Otomasyon ve Düzenleme** bölümünde **Playbook'lar (Önizleme)** öğesine tıklayın.
 
     ![Logic App](./media/security-center-playbooks/security-center-playbooks-fig17.png)
- 
+
 3. **Güvenlik Merkezi - Playbook'lar (Önizleme)** sayfasında **Ekle** düğmesine tıklayın.
 
     ![Mantıksal uygulama oluşturma](./media/security-center-playbooks/security-center-playbooks-fig2.png)
@@ -47,7 +47,7 @@ Güvenlik Merkezi'nden güvenlik playbook'u oluşturmak için bu adımları izle
     ![Mantıksal uygulama oluşturma](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
 5. **Mantıksal Uygulama Tasarımcısı** açılır. Yeni bir playbook oluşturmak için **Boş Mantıksal Uygulama** girişine tıklayın. Dilerseniz kategoriler bölümünden **Güvenlik** öğesini seçip şablonlardan birini kullanabilirsiniz.
-    
+
     ![Mantıksal uygulama tasarımcısı](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 
 6. **Tüm bağlayıcılar ve tetikleyiciler içinde arayın** alanına *Azure Güvenlik Merkezi* yazın ve **Bir Azure Güvenlik Merkezi uyarısı yanıtı tetiklendiğinde** girişini seçin.
@@ -57,7 +57,7 @@ Güvenlik Merkezi'nden güvenlik playbook'u oluşturmak için bu adımları izle
 7. Şimdi playbook'unuz tetiklendiğinde gerçekleştirilecek işlemleri tanımlayabilirsiniz. Eylem, mantıksal koşul, anahtar durumu koşulu veya döngü ekleyebilirsiniz.
 
     ![Mantıksal uygulama tasarımcısı](./media/security-center-playbooks/security-center-playbooks-fig5.png)
-     
+
 ## <a name="how-to-run-a-security-playbook-in-security-center"></a>Güvenlik Merkezi'ndeki güvenlik playbook'u nasıl çalıştırılır?
 
 Düzenleme yapmak, diğer hizmetlerden daha fazla bilgi edinmek veya düzeltme yapmak istediğinizde Güvenlik Merkezi'ndeki bir güvenlik playbook'unu çalıştırabilirsiniz. Playbook'lara erişmek için aşağıdaki adımları izleyin:
@@ -78,7 +78,7 @@ Düzenleme yapmak, diğer hizmetlerden daha fazla bilgi edinmek veya düzeltme y
 
 ### <a name="history"></a>Geçmiş
 
-Playbook'u çalıştırdıktan sonra daha önce yürütülen playbook'ların durumu hakkında daha fazla bilgi içeren önceki yürütme bilgilerine ve adımlarına da erişebilirsiniz. Geçmiş, uyarı bağlamında gösterilir. Başka bir deyişle bu sayfada gördüğünüz playbook geçmişi bu playbook'ta tetiklenen uyarıyla bağlantılıdır. 
+Playbook'u çalıştırdıktan sonra daha önce yürütülen playbook'ların durumu hakkında daha fazla bilgi içeren önceki yürütme bilgilerine ve adımlarına da erişebilirsiniz. Geçmiş, uyarı bağlamında gösterilir. Başka bir deyişle bu sayfada gördüğünüz playbook geçmişi bu playbook'ta tetiklenen uyarıyla bağlantılıdır.
 
 ![Geçmiş](./media/security-center-playbooks/security-center-playbooks-fig16.png)
 
@@ -86,7 +86,7 @@ Belirli bir playbook'un yürütülmesi hakkında ayrıntılı bilgilere ulaşmak
 
 ![Ayrıntılar](./media/security-center-playbooks/security-center-playbooks-fig14.png)
 
-Bu iş akışında her bir görevin yürütülmesi için geçen süreyi görebilir ve görevleri genişleterek sonuçları inceleyebilirsiniz. 
+Bu iş akışında her bir görevin yürütülmesi için geçen süreyi görebilir ve görevleri genişleterek sonuçları inceleyebilirsiniz.
 
 ### <a name="changing-an-existing-playbook"></a>Var olan bir playbook'u değiştirme
 
@@ -102,7 +102,6 @@ Bu belgede, Azure Güvenlik Merkezi'ndeki playbook'ları nasıl kullanacağını
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Güvenlik Merkezi’nde uyarıları yönetme ve güvenlik olaylarına yanıt vermeyi öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Farklı güvenlik uyarısı türleri hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin. 
+* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruları bulun.
 * [Azure Güvenlik Blogu](https://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
-

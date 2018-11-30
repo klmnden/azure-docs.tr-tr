@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666955"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584163"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Müşteri verilerini talep özelliklerin özeti
 
@@ -39,9 +39,9 @@ Daha fazla bilgi için [cihaz kayıtlarını yönetme](how-to-manage-enrollments
 
 Kayıtlar ve REST API'leri kullanarak kayıt kayıt silme işlemleri gerçekleştirmek mümkündür:
 
-* Tek bir cihaz kayıt bilgilerini silmek için kullanabileceğiniz [cihaz kaydı - silme](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
-* Cihaz grubu için kayıt bilgileri silmek için kullanabileceğiniz [cihaz kayıt grubu - silme](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
-* Sağlanan cihazlara ilişkin bilgileri silmek için kullanabileceğiniz [kayıt durumu - silme kayıt durumu](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
+* Tek bir cihaz kayıt bilgilerini silmek için kullanabileceğiniz [cihaz kaydı - silme](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
+* Cihaz grubu için kayıt bilgileri silmek için kullanabileceğiniz [cihaz kayıt grubu - silme](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
+* Sağlanan cihazlara ilişkin bilgileri silmek için kullanabileceğiniz [kayıt durumu - silme kayıt durumu](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
 
 ## <a name="exporting-customer-data"></a>Müşteri verilerini dışarı aktarma
 
@@ -53,9 +53,9 @@ Kayıtları yönetme hakkında daha fazla bilgi için bkz. [cihaz kayıtlarını
 
 Kayıtlar ve kayıt kayıtları REST API'lerini kullanarak dışa aktarma işlemleri gerçekleştirmek mümkündür:
 
-* Tek bir cihaz için kayıt bilgileri dışa aktarmak için kullanabileceğiniz [cihaz kaydı - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
-* Bir cihaz grubu için kayıt bilgileri dışa aktarmak için kullanabileceğiniz [cihaz kayıt grubu - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
-* Önceden hazırlanmış cihazlar hakkında bilgi vermek için kullanabileceğiniz [kayıt durumu - Get kayıt durumu](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
+* Tek bir cihaz için kayıt bilgileri dışa aktarmak için kullanabileceğiniz [cihaz kaydı - Get](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
+* Bir cihaz grubu için kayıt bilgileri dışa aktarmak için kullanabileceğiniz [cihaz kayıt grubu - Get](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
+* Önceden hazırlanmış cihazlar hakkında bilgi vermek için kullanabileceğiniz [kayıt durumu - Get kayıt durumu](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
 
 > [!NOTE]
 > Microsoft'un Kurumsal hizmet kullandığınızda, sistem tarafından oluşturulan günlükleri olarak bilinen bazı bilgiler, Microsoft oluşturur. Bazı cihaz sağlama hizmeti sistem tarafından oluşturulan günlükler, erişilebilir veya Kiracı yöneticileri tarafından verilebilir değildir. Bu günlükler, cihazlara ayrı ayrı ilgili tanılama veri ve hizmet içinde gerçekleştirilen yansıttığından eylemleri oluşturur.

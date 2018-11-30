@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277299"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499268"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark kümesi okumak ve Azure SQL veritabanına veri yazmak için kullanın
 
-Azure HDInsight, Apache Spark kümesi ile Azure SQL veritabanına bağlanmak ve ardından okuma, yazma ve SQL veritabanı'na veri akışı öğrenin. Bu makaledeki yönergeleri, Scala kod parçacıklarını çalıştırmak için Jupyter not defteri kullanın. Ancak, Scala veya Python ile tek başına uygulama oluşturabilir ve aynı görevleri. 
+Azure HDInsight, Apache Spark kümesi ile Azure SQL veritabanına bağlanmak ve ardından okuma, yazma ve SQL veritabanı'na veri akışı öğrenin. Kullanım yönergeleri Bu makale bir [Jupyter not defteri](https://jupyter.org/) Scala kod parçacıklarını çalıştırmak. Ancak, Scala veya Python ile tek başına uygulama oluşturabilir ve aynı görevleri. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -32,19 +32,14 @@ Azure HDInsight, Apache Spark kümesi ile Azure SQL veritabanına bağlanmak ve 
 
 * **SQL Server Management Studio**. Konumundaki yönergeleri [bağlanmak ve veri sorgulamak için SSMS kullanma](../../sql-database/sql-database-connect-query-ssms.md).
 
-## <a name="create-a-jupyter-notebook"></a>Jupyter not defteri oluşturma
+## <a name="create-a-jupyter-notebook"></a>Jupyter not defteri oluşturma 
 
-Jupyter Not Defteri kullanarak Spark kümesi ile ilişkili oluşturarak başlayın. Bu makalede kullanılan kod parçacıklarını çalıştırmak için bu not defteri kullanırsınız. 
+Oluşturarak başlayın bir [Jupyter not defteri](https://jupyter.org/) Spark kümesi ile ilişkili. Bu makalede kullanılan kod parçacıklarını çalıştırmak için bu not defteri kullanırsınız. 
 
-1. Gelen [Azure portalında](https://portal.azure.com/), kümenizi açın. 
+1. Gelen [Azure portalında](https://portal.azure.com/), kümenizi açın.
+1. Seçin **Jupyter not defteri** altında **küme panoları** işlecin sağ tarafındaki.  Görmüyorsanız **küme panoları**, tıklayın **genel bakış** dikey penceresinde sol menüden. İstenirse, küme için yönetici kimlik bilgilerini girin.
 
-1. Gelen **hızlı bağlantılar** bölümünde **küme panoları** açmak için **küme panoları** görünümü.  Görmüyorsanız **hızlı bağlantılar**, tıklayın **genel bakış** dikey penceresinde sol menüden.
-
-    ![Spark kümesi Panoda](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Spark üzerinde Küme Panosu") 
-
-1. Tıklayın **Jupyter not defteri**. İstenirse, küme için yönetici kimlik bilgilerini girin.
-
-    ![Spark üzerinde Jupyter notebook](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Spark üzerinde Jupyter notebook")
+    ![Spark üzerinde Jupyter notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark üzerinde Jupyter notebook")
    
    > [!NOTE]
    > Aşağıdaki URL'yi tarayıcınızda açarak da Spark kümesinde Jupyter not defterine erişebilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
@@ -242,4 +237,4 @@ Bu bölümde, biz halinde veri akışı **hvactable** zaten Azure SQL veritaban�
 
 * [Data Lake Store verilerini çözümlemek için HDInsight Spark kümesi kullanın](apache-spark-use-with-data-lake-store.md)
 * [EventHub kullanarak yapılandırılmış akış olayları işleyin](apache-spark-eventhub-structured-streaming.md)
-* [Spark yapılandırılmış akışını HDInsight üzerinde Kafka ile kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Apache Spark yapılandırılmış akışını HDInsight üzerinde Apache Kafka ile kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)

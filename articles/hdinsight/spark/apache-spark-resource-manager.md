@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014593"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583304"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme 
 
-En iyi performans için Küme Yapılandırması'nı ayarlama ve Ambari UI, YARN UI ve Spark kümenizle ilişkili Spark geçmiş sunucusu gibi arabirimler nasıl öğrenin.
+Arabirimler gibi erişmeyi öğrenin [Apache Ambari](https://ambari.apache.org/) kullanıcı Arabirimi, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) kullanıcı Arabirimi ve Spark geçmiş sunucusu ile ilişkili, [Apache Spark](https://spark.apache.org/) küme ve nasıl yapılır en iyi performans için küme yapılandırmasını ayarlayın.
 
 **Ön koşullar:**
 
@@ -26,7 +26,7 @@ En iyi performans için Küme Yapılandırması'nı ayarlama ve Ambari UI, YARN 
 
 ## <a name="open-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini açın
 
-Apache Ambari kümesini izlemek ve yapılandırma değişiklikleri yapmak için kullanılır. Daha fazla bilgi için [yönetme Hadoop, Azure portalını kullanarak HDInsight kümeleri](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
+Apache Ambari kümesini izlemek ve yapılandırma değişiklikleri yapmak için kullanılır. Daha fazla bilgi için [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](../hdinsight-administer-use-portal-linux.md#open-the-apache-ambari-web-ui)
 
 ## <a name="open-the-spark-history-server"></a>Spark geçmiş sunucusu açın
 
@@ -158,19 +158,19 @@ Yarn UI makalenin başında gösterildiği gibi başlatın. Ekranın en üstünd
 
 ### <a name="for-data-analysts"></a>Veri analistleri için
 
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
-* [HDInsight’ta Spark kullanarak Application Insight telemetri verilerinin analizi](apache-spark-analyze-application-insight-logs.md)
+* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
+* [HDInsight Apache Spark'ı kullanarak application Insight telemetri verilerinin analizi](apache-spark-analyze-application-insight-logs.md)
 * [Azure HDInsight Spark üzerinde dağıtılmış derin öğrenme için Caffe kullanma](apache-spark-deep-learning-caffe.md)
 
-### <a name="for-spark-developers"></a>Spark geliştiricileri için
+### <a name="for-apache-spark-developers"></a>Apache Spark geliştiricileri için
 
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
+* [Apache Spark uygulamalarında uzaktan hata ayıklamak amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
+* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](apache-spark-jupyter-notebook-install-locally.md)

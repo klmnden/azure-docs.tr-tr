@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262208"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584783"
 ---
 # <a name="azure-database-security-overview"></a>Azure veritabanı güvenliğine genel bakış
 
@@ -199,7 +199,7 @@ SQL Gelişmiş tehdit Koruması (ATP), veri bulma & Sınıflandırma, güvenlik 
 - Zararlı olabilecek bir uygulamadan erişim 
 - Deneme yanılma kimlik PostgreSQL için Azure veritabanı 
 
-[Gelişmiş tehdit koruması MySQL için Azure veritabanı](/mysql/concepts-data-access-and-security-threat-protection.md) PostgreSQL gelişmiş koruma benzer koruma sağlar.  
+[Gelişmiş tehdit koruması MySQL için Azure veritabanı](../mysql/concepts-data-access-and-security-threat-protection.md) PostgreSQL gelişmiş koruma benzer koruma sağlar.  
 
 ## <a name="centralized-security-management"></a>Güvenlik Merkezi Yönetimi
 
@@ -220,7 +220,7 @@ Güvenlik Merkezi, rol tabanlı erişimi destekler.
 
 Ayrıca, böylece hassas verileri ayıklamak sorguları açıkça denetlenebilir SQL sorguları duyarlılığına sonuç kümesi ve veri korumalı hesaplar. Azure SQL veritabanı veri bulma ve sınıflandırma SQL bilgi koruması hakkında daha fazla bilgi için bkz.
 
-Yapılandırabileceğiniz [SQL bilgi koruması ilkeleri](/security-center/security-center-info-protection-policy.md) Azure Güvenlik Merkezi'nde.
+Yapılandırabileceğiniz [SQL bilgi koruması ilkeleri](../security-center/security-center-info-protection-policy.md) Azure Güvenlik Merkezi'nde.
 
 ## <a name="azure-marketplace"></a>Azure Market
 

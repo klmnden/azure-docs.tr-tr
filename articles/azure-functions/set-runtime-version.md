@@ -2,19 +2,18 @@
 title: Azure İşlevleri çalışma zamanı sürümleri nasıl hedeflenir?
 description: Azure İşlevleri, birden fazla çalışma zamanı sürümünü destekler. Azure'da barındırılan bir işlev uygulamasında çalışma zamanı sürümünü nasıl belirteceğinizi öğrenin.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886816"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498390"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure İşlevleri çalışma zamanı sürümleri nasıl hedeflenir?
 
@@ -37,23 +36,13 @@ Otomatik güncelleştirmeleri etkinleştirmek için `FUNCTIONS_EXTENSION_VERSION
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Geçerli çalışma zamanı sürümünü görüntüleme ve güncelleştirme
 
-Aşağıdaki yordamı uygulayarak, bir işlev uygulamasının kullandığı mevcut çalışma zamanı sürümünü görüntüleyebilirsiniz.
+Tarafından kullanılan çalışma zamanı sürümünü değiştirebilirsiniz işlev uygulaması. İşlev uygulamanızda herhangi bir işlev oluşturmadan önce bozucu değişiklikler olasılığı nedeniyle, yalnızca çalışma zamanı sürümünü değiştirmeniz gerekir. Çalışma zamanı sürümü tarafından belirlenir ancak `FUNCTIONS_EXTENSION_VERSION` ayarı, bu değişikliği Azure portalında ve ayarı değiştirerek değil siz doğrudan. Portal, değişikliklerinizi doğrular ve ilgili diğer değişiklikleri gerektiği gibi yapar olmasıdır.
 
-1. [Azure portal'da](https://portal.azure.com) işlev uygulamanızı bulun.
+### <a name="from-the-azure-portal"></a>Azure portalından
 
-1. Altında **yapılandırılan özellikler**, seçin **işlev uygulaması ayarları**.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![İşlev uygulaması ayarlarını seçin](./media/set-runtime-version/add-update-app-setting.png)
-
-1. **İşlev uygulaması ayarları** sekmesinde **Çalışma zamanı sürümü** bölümünü bulun. Burada ilgili çalışma zamanı sürümünü ve istenen ana sürümü görebilirsiniz. Aşağıdaki örnekte sürüm `~2` olarak ayarlanmıştır.
-
-   ![İşlev uygulaması ayarlarını seçin](./media/set-runtime-version/function-app-view-version.png)
-
-1. İşlev uygulamanızı 1.x çalışma zamanı sürümüne sabitlemek için **Çalışma zamanı sürümü** bölümünde **~1** seçeneğini belirleyin. Uygulamanızda işlevler varsa bu anahtar devre dışı bırakılır.
-
-1. Çalışma zamanı sürümünü değiştirdiyseniz **Genel Bakış** sekmesine dönün ve uygulamayı yeniden başlatmak için **Yeniden Başlat** seçeneğini belirleyin.  İşlev uygulaması, 1.x çalışma zamanı sürümü üzerinde çalıştırılarak yeniden başlatılır ve işlev oluşturduğunuzda 1.x sürümüne ilişkin şablonlar kullanılır.
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Azure CLI'sini kullanarak çalışma zamanı sürümünü görüntüleme ve güncelleştirme
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Azure CLI
 
 `FUNCTIONS_EXTENSION_VERSION` ayarını Azure CLI'sinden de görüntüleyebilir ve belirleyebilirsiniz.
 

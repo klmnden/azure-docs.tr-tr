@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347962"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634515"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Öğretici: Samanage otomatik kullanıcı hazırlama için yapılandırma
 
@@ -141,7 +141,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
     ![Samanage sağlama](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Kullanıcılara ve/veya istediğiniz grupları Samanage sağlamak için istenen değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü.
+15. Kullanıcılara ve/veya istediğiniz grupları Samanage sağlamak için istenen değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü. Seçerken **tüm kullanıcıları ve grupları eşitleme** seçeneğinde, açıklandığı sınırlamaları göz önünde bulundurun **bağlayıcı sınırlamaları** bölümüne bakın.
 
     ![Samanage sağlama](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -153,6 +153,10 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti Samanage üzerinde Azure AD tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Bağlayıcı sınırlamaları
+
+* Varsa **tüm kullanıcıları ve grupları eşitleme** seçeneği belirlendiğinde ve Samanage için yapılandırılmış bir varsayılan değer **rolleri** özniteliği, istenen değerin altında olduğundan emin olun **null ise varsayılan değer (değer İsteğe bağlı)** alan şu biçimde ifade **{"displayName": "rolü"}** istediğiniz varsayılan değere olduğu rol.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

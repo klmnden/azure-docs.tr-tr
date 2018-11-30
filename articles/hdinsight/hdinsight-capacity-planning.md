@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230436"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499104"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite için HDInsight kümeleri planlama
 
@@ -61,7 +61,7 @@ Bir küme farklı depolama hesaplarında birleşimi erişebilirsiniz. Tipik örn
 
 ## <a name="choose-a-cluster-type"></a>Bir küme türü seçin
 
-HDInsight kümenizi, Hadoop, Storm, Kafka ve Spark gibi çalışacak şekilde yapılandırılmış iş yükünün küme türünü belirler. Kullanılabilir küme türleri ayrıntılı bir açıklaması için bkz. [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Düğüm sayısı ve boyutu için gereksinimleri içeren bir belirli dağıtım topolojisi her küme türü vardır.
+HDInsight kümenizi gibi çalıştırmak üzere yapılandırılmış iş yükünün küme türünü belirler [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), veya [ Apache Spark](https://spark.apache.org/). Kullanılabilir küme türleri ayrıntılı bir açıklaması için bkz. [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Düğüm sayısı ve boyutu için gereksinimleri içeren bir belirli dağıtım topolojisi her küme türü vardır.
 
 ## <a name="choose-the-vm-size-and-type"></a>VM boyutunu ve türünü seçin
 
@@ -79,7 +79,7 @@ VM boyutunu ve türünü CPU işleme güç, RAM boyutu ve ağ gecikmesi tarafın
 
 ## <a name="choose-the-cluster-scale"></a>Küme ölçek seçin
 
-Bir kümenin ölçeğini, VM düğümlerinin miktarı tarafından belirlenir. Tüm küme türleri için belirli bir ölçek sahip düğüm türleri ve ölçeği genişletme desteği düğüm türleri vardır. Örneğin, bir küme tam olarak üç ZooKeeper düğümü veya iki baş düğüm gerektirebilir. Dağıtılmış bir biçimde veri işleme çalışması gerçekleştirmek çalışan düğümü, ek çalışan düğümleri ekleyerek ölçek genişletmesi yararlı olabilir.
+Bir kümenin ölçeğini, VM düğümlerinin miktarı tarafından belirlenir. Tüm küme türleri için belirli bir ölçek sahip düğüm türleri ve ölçeği genişletme desteği düğüm türleri vardır. Örneğin, bir küme tam olarak üç gerektirebilir [Apache ZooKeeper](https://zookeeper.apache.org/) düğümleri veya iki baş düğüm. Dağıtılmış bir biçimde veri işleme çalışması gerçekleştirmek çalışan düğümü, ek çalışan düğümleri ekleyerek ölçek genişletmesi yararlı olabilir.
 
 Küme türüne bağlı olarak çalışan düğümlerinin sayısını artırmak (örneğin, daha fazla çekirdeği) ek işlem kapasitesi ekler, ancak toplam bellek içi depolama işlenmekte olan verinin desteklemek tüm küme için gerekli bellek miktarını da ekleyebilirsiniz. Tercih ettiğiniz VM boyutunu ve türünü gibi doğru küme ölçek seçerek genellikle türü, sanal iş yükleri veya kanarya sorguları kullanarak ulaşıldı.
 
@@ -90,7 +90,7 @@ Yoğun yük taleplerini karşılamak ve sonra ölçeği onu tekrar ek düğümle
 Bir kümenin ömrü boyunca ücretlendirilir. Yalnızca belirli saatler kümesi oluşturma ve çalıştırma ihtiyacınız varsa, yapabilecekleriniz [Azure Data Factory kullanarak isteğe bağlı kümeler oluşturma](hdinsight-hadoop-create-linux-clusters-adf.md). Sağlama ve kümenizi sildiğinizden PowerShell betikleri oluşturabilir ve ardından bu komut dosyalarını kullanarak zamanlama [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
-> Bir küme silindiğinde, varsayılan Hive meta veri deposu da silinir. Sonraki küme yeniden oluşturma için meta veri deposu kalıcı hale getirmek için Azure veritabanı veya Oozie gibi bir dış meta veri deposu kullanın.
+> Bir küme silindiğinde, varsayılan Hive meta veri deposu da silinir. Sonraki küme yeniden oluşturma için meta veri deposu kalıcı hale getirmek için Azure veritabanı gibi bir dış meta veri deposunu kullanın veya [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Küme iş hataları yalıtın
@@ -109,5 +109,5 @@ Ancak, bazı sabit kota sınırları vardır, örneğin, tek bir Azure aboneliğ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight Hadoop, Spark, Kafka ve daha fazlası ile kümelerini ayarlama](hdinsight-hadoop-provision-linux-clusters.md): ayarlamak ve HDInsight ile Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Hizmetleri veya Storm kümeleri yapılandırma hakkında bilgi edinin.
+* [Apache Hadoop, Spark, Kafka ve daha fazlası ile HDInsight kümelerinde ayarlama](hdinsight-hadoop-provision-linux-clusters.md): ayarlamak ve Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Hizmetleri veya Storm ile HDInsight kümeleri yapılandırma hakkında bilgi edinin.
 * [Küme performansını izleme](hdinsight-key-scenarios-to-monitor.md): kümenizin kapasitesi etkileyebilecek HDInsight kümeniz için izlemek için önemli senaryolar hakkında bilgi edinin.

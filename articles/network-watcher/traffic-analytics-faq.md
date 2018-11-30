@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402769"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582505"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -30,7 +30,7 @@ Trafik analizi, aşağıdaki önkoşulları gerektirir:
 
 - Ağ İzleyicisi abonelik etkin.
 - Ağ güvenlik grubu (NSG) akış günlüklerini izlemek istediğiniz Nsg'ler için etkin.
-- Ham depolamak için bir Azure depolama hesabı günlükleri flog.
+- Ham akış günlüklerini depolamak için bir Azure depolama hesabı.
 - Okuma ve yazma erişimi ile bir Azure Log Analytics çalışma.
 
 Hesabınızı trafik Analizi'ni etkinleştirmek için aşağıdakilerden birini karşılaması gerekir:
@@ -63,7 +63,38 @@ Herhangi bir çıktı görmediğinizden, komutları çalıştırmak için erişi
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Hangi Azure bölgeleri trafik analizi kullanılabilir?
 
-İçin aşağıdaki desteklenen bölgelerden birinde Nsg'ler trafik analizi kullanma: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Orta Kuzey ABD, Güney Orta ABD, Orta ABD, Batı ABD, Batı ABD 2, Batı Avrupa, Kuzey Avrupa, UK Batı, UK Güney, Avustralya Doğu, Avustralya Güneydoğu ve Güneydoğu Asya. Log Analytics çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, UK Güney, Avustralya Güneydoğu ve Güneydoğu Asya bölgesi içinde bulunmalıdır.
+Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanabilirsiniz:
+- Orta Kanada
+- Batı Orta ABD
+- Doğu ABD
+- Doğu ABD 2
+- Orta Kuzey ABD
+- Orta Güney ABD
+- Orta ABD
+- Batı ABD
+- Batı ABD 2
+- Batı Avrupa
+- Kuzey Avrupa
+- Güney Brezilya
+- Birleşik Krallık Batı
+- Birleşik Krallık Güney
+- Avustralya Doğu
+- Avustralya Güneydoğu 
+- Güneydoğu Asya
+- Orta Hindistan
+- Güney Hindistan
+- Japonya Doğu
+
+Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
+- Orta Kanada
+- Batı Orta ABD
+- Doğu ABD
+- Batı Avrupa
+- Birleşik Krallık Güney
+- Avustralya Güneydoğu
+- Güneydoğu Asya 
+- Orta Hindistan
+- Japonya Doğu
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Akış etkinleştirebilirim Nsg'ler için günlükleri için olması çalışma Alanım'dan farklı bölgelerdeki?
 
@@ -94,8 +125,8 @@ Desteklenen bir bölge seçin. Desteklenmeyen bir bölge seçin, bir "Bulunamad�
 Düzgün çalışması için günlük akışı Microsoft.ınsights sağlayıcısına kayıtlı olması gerekir. Microsoft.Insights sağlayıcısı, aboneliğiniz için kayıtlı olup olmadığını emin değilseniz değiştirin *xxxxx-xxxxx-xxxxxx-xxxx* aşağıdaki komut, powershell'den aşağıdaki komutları çalıştırın:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Çözüm yapılandırdım. Neden hiçbir şey Panoda görüyorum değil mi?

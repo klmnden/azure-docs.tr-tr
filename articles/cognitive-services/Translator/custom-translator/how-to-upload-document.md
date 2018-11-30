@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627567"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633257"
 ---
-# <a name="upload-a-document"></a>Bir belgeyi karşıya yükle
+# <a name="upload-a-document"></a>Bir belgeyi karşıya yükleme
 
 İçinde [özel Translator](https://portal.customtranslator.azure.ai), çeviri Modellerinizi eğitmek için paralel belgeler karşıya yükleyebilirsiniz. [Paralel belgeleri](what-are-parallel-documents.md) belgeleri diğer çeviri olduğu bir çiftleridir. Çifti tek bir belgede kaynak dili cümlelerde ve diğer belge Bu cümle hedef dile çevrilen içerir.
+
+Belgelerinizi karşıya yüklemeden önce gözden [Belge biçimleri ve adlandırma kuralı yönergelerini](document-formats-naming-convention.md) dosyanızı emin olmak için biçim özel Translator içinde desteklenir.
 
 ## <a name="how-to-upload-document"></a>Belgeyi Karşıya yüklemek nasıl?
 

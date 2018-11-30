@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32e95c9098999305d4c48d5c43fae5ef6d3ac36e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267707"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619784"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Log Analytics sorguları kullanmaya başlama
 
@@ -138,7 +138,7 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Bir zaman aralığı belirtin
 
 ### <a name="time-picker"></a>Saat Seçici
-Saat Seçici, biz yalnızca son 24 saat kayıtları sorguladığınız gösteren sol üst köşede bulunduğu. Bu, tüm sorguları uygulanan varsayılan zaman aralığıdır. Son bir saat yalnızca kayıtları ulaşmak için _son bir saat_ ve sorguyu yeniden çalıştırın.
+Saat Seçici Çalıştır düğmesinin yanındaki ve biz yalnızca son 24 saat kayıtları sorguladığınız gösterir. Bu, tüm sorguları uygulanan varsayılan zaman aralığıdır. Son bir saat yalnızca kayıtları ulaşmak için _son bir saat_ ve sorguyu yeniden çalıştırın.
 
 ![Saat Seçici](media/get-started-queries/timepicker.png)
 
@@ -226,14 +226,14 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Bir zaman sütun tarafından özetleme
 Sonuçları gruplandırma de saat sütunu veya başka bir sürekli değer temel alabilir. Yalnızca özetleme `by TimeGenerated` bu benzersiz değerler olduğundan, gruplar için her tek bir milisaniyeden kısa zaman aralığı üzerinde ancak oluşturursunuz. 
 
-Sürekli değerlerine göre grupları oluşturmak için aralığı kullanılarak yönetilebilir birimler halinde bölmek en iyisidir **bin**. Aşağıdaki sorguyu analiz eder *Perf* boş bellek ölçen kayıtları (*Kullanılabilir MBayt*) belirli bir bilgisayardaki. Her dönem if ortalama değerini hesaplar son 2 gün içinde 1 saat:
+Sürekli değerlerine göre grupları oluşturmak için aralığı kullanılarak yönetilebilir birimler halinde bölmek en iyisidir **bin**. Aşağıdaki sorguyu analiz eder *Perf* boş bellek ölçen kayıtları (*Kullanılabilir MBayt*) belirli bir bilgisayardaki. Her dönem if ortalama değerini hesaplar 1 saat, son 7 içinde:
 
 ```Kusto
 Perf 
-| where TimeGenerated > ago(2d)
+| where TimeGenerated > ago(7d)
 | where Computer == "ContosoAzADDS2" 
 | where CounterName == "Available MBytes" 
-| summarize count() by bin(TimeGenerated, 1h)
+| summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
 Çıktı daha anlaşılır hale getirmek için bir zaman grafiği görüntülemek için zaman içinde kullanılabilir bellek gösteren seçin:

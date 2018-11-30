@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 302f2f96a7f17699411ab9fdbdb6ab1f9de149c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e1512d63e83ee213513a3dcd4b858331684dc8a8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277609"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497569"
 ---
-# <a name="access-apache-yarn-application-logs-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde erişim Apache YARN uygulama günlüklerine
+# <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde erişim Apache Hadoop YARN uygulama günlüklerine
 
-Bir Apache Hadoop kümesinde Azure HDInsight üzerinde Apache YARN (henüz başka bir Resource Negotiator) uygulamalar için günlüklere nasıl erişeceğinizi öğrenin.
+İçin günlüklere nasıl erişeceğinizi öğrenin [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (henüz başka bir Resource Negotiator) uygulamaları bir [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight kümesinde.
 
 > [!IMPORTANT]
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde HDInsight 3.6 veya daha fazla kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline sunucusu
 
-[Apache YARN Timeline sunucusu](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) tamamlanmış uygulamalar genel bilgiler sağlar
+[Apache Hadoop YARN Timeline sunucusu](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) tamamlanmış uygulamalar genel bilgiler sağlar
 
 YARN Timeline sunucusu, aşağıdaki veri türünü içerir:
 
@@ -36,9 +36,9 @@ YARN Timeline sunucusu, aşağıdaki veri türünü içerir:
 
 ## <a name="YARNAppsAndLogs"></a>YARN uygulama ve günlükleri
 
-YARN kaynak yönetimi uygulama zamanlama/izleme ayrılarak birden çok programlama modeli (MapReduce bunlardan biri olan) destekler. YARN kullandığı genel *ResourceManager* (RM) çalışan-düğüm başına *NodeManagers* (NMs) ve uygulama başına *ApplicationMasters* (AMs). Uygulama başına AM RM ile uygulamanızı çalıştırmak için kaynaklar (CPU, bellek, disk, ağ) görüşür. RM olarak verilen bu kaynaklara erişim izni için NMs çalışır *kapsayıcıları*. AM RM tarafından atanmış kapsayıcıları ilerlemesini izlemek için sorumludur Bir uygulamayı uygulamanın doğasına bağlı olarak çok sayıda kapsayıcı olması gerekebilir.
+YARN birden fazla programlama modelini destekler ([Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) bunlardan biri olan) kaynak yönetimi uygulama zamanlama/izleme ayırma tarafından. YARN kullandığı genel *ResourceManager* (RM) çalışan-düğüm başına *NodeManagers* (NMs) ve uygulama başına *ApplicationMasters* (AMs). Uygulama başına AM RM ile uygulamanızı çalıştırmak için kaynaklar (CPU, bellek, disk, ağ) görüşür. RM olarak verilen bu kaynaklara erişim izni için NMs çalışır *kapsayıcıları*. AM RM tarafından atanmış kapsayıcıları ilerlemesini izlemek için sorumludur Bir uygulamayı uygulamanın doğasına bağlı olarak çok sayıda kapsayıcı olması gerekebilir.
 
-Her uygulama birden çok oluşabilir *uygulama girişimi*. Bir uygulama başarısız olursa, yeni bir deneme gerçekleştirilmesi. Her girişimde bir kapsayıcıda çalışır. Bir anlamda, temel birim YARN uygulama tarafından gerçekleştirilen iş bağlamı bir kapsayıcı sağlar. Bir kapsayıcı bağlamında yapılır tüm iş kapsayıcı ayrılmış olan tek bir çalışan düğümü üzerinde gerçekleştirilir. Bkz: [YARN kavramları] [ YARN-concepts] daha ayrıntılı başvuru.
+Her uygulama birden çok oluşabilir *uygulama girişimi*. Bir uygulama başarısız olursa, yeni bir deneme gerçekleştirilmesi. Her girişimde bir kapsayıcıda çalışır. Bir anlamda, temel birim YARN uygulama tarafından gerçekleştirilen iş bağlamı bir kapsayıcı sağlar. Bir kapsayıcı bağlamında yapılır tüm iş kapsayıcı ayrılmış olan tek bir çalışan düğümü üzerinde gerçekleştirilir. Bkz: [Apache Hadoop YARN kavramları] [ YARN-concepts] daha ayrıntılı başvuru.
 
 Uygulama günlükleri (ve ilişkili kapsayıcı günlüklerini) sorunlu Hadoop uygulamalarında hata ayıklama içinde önemlidir. YARN toplama, toplama ve uygulama günlükleriyle depolamak için iyi bir çerçeve sağlar [günlük toplama] [ log-aggregation] özelliği. Günlük toplama özelliği erişen uygulama günlükleri daha kararlı hale getirir. Bir çalışan düğümü üzerindeki tüm kapsayıcılar arasında günlükleri toplar ve bunları çalışan düğümü başına bir toplu günlük dosyası olarak depolar. Bir uygulama bittikten sonra günlük varsayılan dosya sistemi üzerinde depolanır. Uygulamanız, yüzlerce veya binlerce kullanabilir, ancak günlükler için tek çalışan düğümü üzerinde çalıştıran tüm kapsayıcıları tek bir dosyaya her zaman toplanır. Bu nedenle var. yalnızca uygulamanız tarafından kullanılan çalışan düğümü başına 1 günlük Günlük toplama, HDInsight kümeleri sürüm 3.0 ve sonraki varsayılan olarak etkindir. Toplanan günlükler kümenin varsayılan depolama alanı bulunur. Aşağıdaki yol günlükleri HDFS yoludur:
 

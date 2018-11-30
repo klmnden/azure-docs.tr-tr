@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 4a7777be01cc15ed5cc4c9c091230afe1ddfa897
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047451"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499139"
 ---
-# <a name="optimize-spark-jobs"></a>Spark işlerini en iyi duruma getirme
+# <a name="optimize-apache-spark-jobs"></a>Apache Spark işlerini en iyi duruma getirme
 
-Spark küme yapılandırması, belirli iş yükü için en iyi duruma getirmeyi öğrenin.  En sık karşılaşılan hatalı yapılandırmalar (özellikle yanlış boyutlu yürütücüler), uzun süre çalışan işlemleri ve Kartezyen işlemlerinde neden görevler nedeniyle bellek baskısı zorluktur. İşleri uygun önbelleğe alma ve verme için hızlandırabilirsiniz [veri dengesizliği](#optimize-joins-and-shuffles). En iyi performans için izleme ve uzun süre çalışan ve kaynak tüketen Spark iş yürütmeleri gözden geçirin.
+Nasıl iyileştirebileceğinizi öğrenmek [Apache Spark](https://spark.apache.org/) belirli iş yükünüz için küme yapılandırması.  En sık karşılaşılan hatalı yapılandırmalar (özellikle yanlış boyutlu yürütücüler), uzun süre çalışan işlemleri ve Kartezyen işlemlerinde neden görevler nedeniyle bellek baskısı zorluktur. İşleri uygun önbelleğe alma ve verme için hızlandırabilirsiniz [veri dengesizliği](#optimize-joins-and-shuffles). En iyi performans için izleme ve uzun süre çalışan ve kaynak tüketen Spark iş yürütmeleri gözden geçirin.
 
 Aşağıdaki bölümlerde, yaygın bir Spark işi iyileştirmeler ve önerileri açıklanmaktadır.
 
@@ -58,7 +58,7 @@ En iyi performans ile parquet biçimi *snappy sıkıştırma*, Spark varsayılan
 
 Yeni bir Spark kümesi oluşturduğunuzda, kümenin varsayılan depolama alanı olarak Azure Blob Depolama veya Azure Data Lake Store tercih yapma seçeneğine sahip olursunuz. Kümenizi sildiğinizde, verilerinizi otomatik olarak silinmez için iki seçenek de uzun vadeli depolama avantajı geçici kümeler için size. Geçici bir küme oluşturun ve verilerinize erişmeye devam edebilirsiniz.
 
-| Store türü | Dosya Sistemi | Hız | Geçici | Kullanım örnekleri |
+| Store türü | Dosya Sistemi | Hız | Geçici | Kullanım Örnekleri |
 | --- | --- | --- | --- | --- |
 | Azure Blob Depolama | **wasb:**//url/ | **Standart** | Evet | Geçici küme |
 | Azure Data Lake Store | **Adl:**//url/ | **Daha hızlı** | Evet | Geçici küme |
@@ -94,7 +94,7 @@ Referans olması açısından Spark bellek yapısı ve bazı önemli Yürütüc�
 
 ### <a name="spark-memory-considerations"></a>Spark bellek konuları
 
-YARN kullanıyorsanız, YARN her Spark düğümdeki tüm kapsayıcıları tarafından kullanılan bellek en yüksek toplamını denetler.  Aşağıdaki diyagramda, anahtar nesneleri ve aralarındaki ilişkiler gösterilmektedir.
+Kullanıyorsanız [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), sonra da YARN her Spark düğümdeki tüm kapsayıcıları tarafından kullanılan bellek en yüksek toplamını denetler.  Aşağıdaki diyagramda, anahtar nesneleri ve aralarındaki ilişkiler gösterilmektedir.
 
 ![YARN Spark bellek yönetimi](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure HDInsight üzerinde çalışan Spark işlerinde hata ayıklama](apache-spark-job-debugging.md)
-* [HDInsight üzerinde Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
-* [Uzak bir Spark kümesine göndermek için Spark REST API kullanma](apache-spark-livy-rest-interface.md)
-* [Spark'ı ayarlama](https://spark.apache.org/docs/latest/tuning.html)
-* [Aslında, Spark'ı ayarlamak için bunu işleri nasıl çalışır](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Azure HDInsight üzerinde çalışan Apache Spark işlerinde hata ayıklama](apache-spark-job-debugging.md)
+* [HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
+* [Uzak bir Apache Spark kümesine göndermek için Apache Spark REST API kullanma](apache-spark-livy-rest-interface.md)
+* [Apache Spark'ı ayarlama](https://spark.apache.org/docs/latest/tuning.html)
+* [Bu nedenle gerçekten ayarlamak için Apache Spark işleri nasıl çalışır](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo seri hale getirme](https://github.com/EsotericSoftware/kryo)

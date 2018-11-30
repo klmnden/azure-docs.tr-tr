@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
-ms.translationtype: HT
+ms.openlocfilehash: 8e98c778c89a74b6c3c1cfa7dc7feb311c62b076
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422975"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499514"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
@@ -36,13 +36,13 @@ Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB [Grem
 
 Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](http://tinkerpop.apache.org/downloads.html) indirebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıca yönelik bir Azure Cosmos DB hesabı oluşturmak için Azure aboneliğinizin olması gerekir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.5 veya daha yüksek bir sürüm kullanın.
+Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.5 veya daha yüksek bir sürüm kullanın. (Windows üzerinde Gremlin konsolunu kullanmak için yüklemek gereken [Java Çalışma zamanı](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 

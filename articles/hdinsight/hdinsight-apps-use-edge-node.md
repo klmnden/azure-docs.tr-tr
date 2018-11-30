@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5994abaf0276d915553494b7272d2a8abed451bb
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281381"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498625"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight, Apache Hadoop kümelerinde boş kenar düğümlerini kullanma
 
-Bir HDInsight kümesi için boş bir kenar düğümünü eklemeyi öğrenin. Linux sanal makinesi aynı istemci araçları yüklü ve yapılandırılmış olduğu gibi baş düğümler ile ancak çalışan bir Apache Hadoop Hizmetleri herhangi bir boş kenar düğümüdür. Kümeye erişen istemci uygulamalarınızı test etme ve istemci uygulamalarınızı barındırmak için kenar düğümünü kullanabilirsiniz. 
+Bir HDInsight kümesi için boş bir kenar düğümünü eklemeyi öğrenin. Bir Linux sanal makinesi ile aynı istemci araçları yüklü ve yapılandırılmış olduğu gibi baş düğümler, ancak olmadan bir boş kenar düğümüdür [Apache Hadoop](https://hadoop.apache.org/) çalışan hizmetleri. Kümeye erişen istemci uygulamalarınızı test etme ve istemci uygulamalarınızı barındırmak için kenar düğümünü kullanabilirsiniz. 
 
 Kümeyi oluşturduğunuzda yeni bir küme için var olan bir HDInsight kümesine, boş bir kenar düğümünü ekleyebilirsiniz. Boş bir kenar düğümünü ekleme yapılır Azure Resource Manager şablonu kullanarak.  Aşağıdaki örnek nasıl yapıldığını gösterir kullanarak bir şablonu:
 
@@ -53,7 +53,7 @@ Kümeyi oluşturduğunuzda yeni bir küme için var olan bir HDInsight kümesine
 
 Aşağıdaki örnekte gösterildiği gibi isteğe bağlı olarak çağırabilirsiniz bir [betik eylemi](hdinsight-hadoop-customize-cluster-linux.md) yükleme gibi ek yapılandırma, gerçekleştirilecek [Apache Hue](hdinsight-hadoop-hue-linux.md) kenar düğümünde. Betik eylemi betiği web üzerinde genel olarak erişilebilir olması gerekir.  Örneğin, komut dosyası Azure depolama alanında depolanır, genel kapsayıcılar veya genel BLOB'lar kullanın.
 
-Edge düğüm sanal makine boyutu, HDInsight kümesi çalışan düğümü vm boyutu gereksinimlerini karşılaması gerekir. Önerilen çalışan düğümü vm boyutları için bkz: [Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+Edge düğüm sanal makine boyutu, HDInsight kümesi çalışan düğümü vm boyutu gereksinimlerini karşılaması gerekir. Önerilen çalışan düğümü vm boyutları için bkz: [Apache Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 Kenar düğümüne oluşturduktan sonra kenar düğümüne SSH kullanarak bağlanma ve HDInsight Hadoop kümesinde erişmek için İstemci Araçları'nı çalıştırın.
 
@@ -63,7 +63,7 @@ Kenar düğümüne oluşturduktan sonra kenar düğümüne SSH kullanarak bağla
 > * [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> Bir Apache teknolojisi kullanıyorsanız, proje siteleri Apache aracılığıyla Yardım bulmak mümkün olabilir [ http://apache.org ](http://apache.org), gibi [Hadoop](http://hadoop.apache.org/) site.
+> Bir Apache teknolojisi kullanıyorsanız, proje siteleri Apache aracılığıyla Yardım bulmak mümkün olabilir [ http://apache.org ](http://apache.org), gibi [Apache Hadoop](http://hadoop.apache.org/) site.
 
 > [!NOTE]
 > Diğer küme düğümleri gibi kenar düğümleri yönetilen patch ayrıca olur.  Daha fazla bilgi için [HDInsight için işletim sistemi düzeltme eki uygulama](./hdinsight-os-patching.md).
@@ -82,7 +82,7 @@ Bu bölümde, mevcut bir HDInsight kümesine bir kenar düğümü eklemek için 
    * **Kaynak grubu**: var olan bir HDInsight kümesi için kullanılan kaynak grubunu seçin.
    * **Konum**: var olan HDInsight kümesinin konumu seçin.
    * **Küme adı**: var olan bir HDInsight kümesi adını girin.
-   * **Kenar düğüm boyutu**: VM boyutlarından birini seçin. Vm boyutu, çalışan düğümüne vm boyutu gereksinimlerini karşılaması gerekir. Önerilen çalışan düğümü vm boyutları için bkz: [Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+   * **Kenar düğüm boyutu**: VM boyutlarından birini seçin. Vm boyutu, çalışan düğümüne vm boyutu gereksinimlerini karşılaması gerekir. Önerilen çalışan düğümü vm boyutları için bkz: [Apache Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Kenar düğümü önek**: varsayılan değer **yeni**.  Varsayılan değer, edge düğüm adı kullanmaktır **edgenode yeni**.  Önek portalından özelleştirebilirsiniz. Ayrıca, şablondan tam adını da özelleştirebilirsiniz.
 
 4. Denetleme **hüküm ve koşulları yukarıda belirtilen kabul ediyorum**ve ardından **satın alma** kenar düğümüne oluşturmak için.
@@ -160,5 +160,5 @@ Bu makalede, bir kenar düğümü ekleme ve kenar düğümüne erişmek nasıl �
 * [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
 * [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
 * [Betik Eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirme](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için Betik Eyleminin nasıl kullanılacağını öğrenin.
-* [Resource Manager şablonları kullanarak HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için Resource Manager şablonlarının nasıl çağrılacağını öğrenin.
+* [Linux tabanlı Apache Hadoop kümelerini Resource Manager şablonlarını kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için Resource Manager şablonlarının nasıl çağrılacağını öğrenin.
 

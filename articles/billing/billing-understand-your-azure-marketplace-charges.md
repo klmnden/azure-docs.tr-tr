@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36db8274c42477631a480d4721a4331202db6c09
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 0e90c043976fc1798f675f8bf480b02e0ed93536
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276554"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581927"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure faturalandırmanızı dış hizmet ücretlerini anlama
 Dış hizmetler, Azure Market'teki üçüncü taraf yazılım satıcıları tarafından yayımlanır. Örneğin, SendGrid Azure'da satın alabilir, ancak Microsoft tarafından yayımlanmayan bir dış hizmetler olur.
@@ -86,6 +86,7 @@ Dış hizmet siparişinizi iptal etmek istiyorsanız, kaynak silme [Azure portal
 
 ![Kaynak silinemedi](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala sorularınız varsa, [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

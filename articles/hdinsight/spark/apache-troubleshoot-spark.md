@@ -7,22 +7,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 835a56413a4274a2be2511278b4dedd7f83c54c3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ab7602f7bae4dfb77a733dd7efe011a29b730377
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016684"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581605"
 ---
-# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Spark sorunlarını giderme
+# <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark, Azure HDInsight'ı kullanarak sorun giderme
 
-Apache Ambari, Apache Spark yükü ile çalışırken sık karşılaşılan sorunlar ve çözümleri hakkında bilgi edinin.
+İle çalışırken sık karşılaşılan sorunlar ve çözümleri hakkında bilgi edinin [Apache Spark](https://spark.apache.org/) yüklerde [Apache Ambari](https://ambari.apache.org/).
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Spark uygulaması kümelerinde Ambari kullanarak nasıl yapılandırabilirim?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>Bir Apache Spark uygulaması kümeleri üzerinde Apache Ambari kullanarak nasıl yapılandırabilirim?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-Bu yordamı için yapılandırma değerlerini daha önce HDInsight ayarlandı. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception). 
+Bu yordamı için yapılandırma değerlerini daha önce HDInsight ayarlandı. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 1. Kümeleri listesinde seçin **Spark2**.
 
@@ -84,14 +84,14 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Kümeleri Jupyter Not Defteri kullanarak Spark uygulaması nasıl yapılandırabilirim?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Bir Apache Spark uygulaması kümeleri Jupyter Not Defteri kullanarak nasıl yapılandırabilirim?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. Jupyter Not Defteri, ilk hücrenin sonra **%% yapılandırma** yönergesi, Spark yapılandırmaları geçerli JSON biçiminde belirtin. Gerçek değerleri gerektiği gibi değiştirin:
 
@@ -99,14 +99,14 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Kümelerinde Livy kullanarak Spark uygulaması nasıl yapılandırabilirim?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Bir Apache Spark uygulaması kümeleri üzerinde Apache Livy kullanarak nasıl yapılandırabilirim?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 2. Spark uygulaması Livy için cURL gibi bir REST istemcisi kullanarak gönderin. Aşağıdakine benzer bir komut kullanın. Gerçek değerleri gerektiği gibi değiştirin:
 
@@ -116,14 +116,14 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Kullanarak uygulama spark-submit Spark kümelerinde nasıl yapılandırabilirim?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Kullanarak uygulama spark-submit bir Apache Spark kümelerinde nasıl yapılandırabilirim?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. Spark-shell, aşağıdakine benzer bir komut kullanarak başlatın. Gerçek değer yapılandırmalarının gerektiği gibi değiştirin: 
 
@@ -133,10 +133,10 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Spark uygulaması OutofMemoryError özel durumu nedeni nedir?
+## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Bir Apache Spark uygulaması OutofMemoryError özel durum nedeni nedir?
 
 ### <a name="detailed-description"></a>Ayrıntılı bir açıklaması
 
@@ -217,8 +217,8 @@ Bu özel durumun en olası nedeni, Java sanal makineleri (JVMs) yeterli yığın
 
 ### <a name="additional-reading"></a>Ek okuma
 
-- [Spark bellek yönetimine genel bakış](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Bir HDInsight kümesi üzerinde bir Spark uygulaması hata ayıklama](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Apache Spark bellek yönetimine genel bakış](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Bir HDInsight kümesi üzerinde bir Apache Spark uygulamasının hatasını ayıklama](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Ayrıca Bkz.

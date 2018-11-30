@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913997"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632798"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -43,18 +43,33 @@ Hayır, Azure kaynaklarını değil henüz tümleşik için ADAL veya MSAL kimli
 
 Kimlik, güvenlik sınırı için bağlı bir kaynaktır. Örneğin, bir sanal makine için güvenlik sınırını Azure kaynakları için yönetilen kimliklerle etkin, sanal makine. Bu VM'de çalışan herhangi bir kod yönetilen kimliklerini Azure kaynakları için uç nokta ve istek belirteçleri çağrılabilir. Azure kaynakları için yönetilen kimlikleri destekleyen diğer kaynaklarla benzer deneyimidir.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Hangi kimlik olacak IMDS varsayılan halinde istekte kimliğini belirtin yok?
+
+- Sistem tarafından yönetilen kimlik atanan etkinleştirilir ve istekte hiçbir kimlik belirtilirse IMDS atanmış yönetilen kimlik sistemi için varsayılan olacaktır.
+- Sistem tarafından yönetilen kimlik atanan etkin değil ve yalnızca bir kullanıcı tarafından atanan yönetilen kimliği varsa IMDS yönetilen bu tek kullanıcı tarafından atanan kimliği için varsayılan. 
+- Sistem tarafından yönetilen kimlik atanan etkin değil ve birden çok kullanıcı tarafından yönetilen kimlikleri atanan var, ardından bir yönetilen kimlik isteği belirterek gereklidir.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Azure kaynaklarını VM IMDS uç nokta veya VM uzantısı uç nokta için yönetilen kimlikleri kullanmalıyım?
 
 VM'ler ile Azure kaynakları için yönetilen kimliklerle, Azure kaynaklarını IMDS uç noktası için yönetilen kimliklerle öneririz. Azure örnek meta veri hizmeti, Azure Resource Manager aracılığıyla oluşturulan tüm Iaas Vm'leri için erişilebilir bir REST uç noktasıdır. Yönetilen kimlik IMDS Azure kaynakları için kullanmanın avantajlarından bazıları şunlardır:
-
-1. Tüm Azure Iaas desteklenen işletim sistemleri, IMDS Azure kaynakları için yönetilen kimlikleri kullanabilirsiniz. 
-2. Azure kaynakları için yönetilen kimlikleri etkinleştirmek için vm'nizde bir uzantı yüklemek için artık gerekli. 
-3. Tarafından yönetilen kimlikleri Azure kaynakları için kullanılan sertifikaları artık VM yok. 
-4. Bir bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca bulunan IMDS uç nokta var. 
+    - Tüm Azure Iaas desteklenen işletim sistemleri, IMDS Azure kaynakları için yönetilen kimlikleri kullanabilirsiniz.
+    - Azure kaynakları için yönetilen kimlikleri etkinleştirmek için vm'nizde bir uzantı yüklemek için artık gerekli. 
+    - Tarafından yönetilen kimlikleri Azure kaynakları için kullanılan sertifikaları artık VM yok.
+    - Bir bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca bulunan IMDS uç nokta var.
 
 VM uzantısı Günümüzde kullanılan hala kullanılabilir Azure kaynakları için yönetilen kimlikleri; ancak biz varsayılan IMDS uç noktayı kullanarak ilerletme. VM uzantısını Azure kaynakları için yönetilen kimlikleri Ocak 2019 ' kullanımdan kaldırılacaktır. 
 
 Azure örnek meta veri hizmeti hakkında daha fazla bilgi için bkz. [IMDS belgeleri](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Abonelik başka bir dizine taşırsanız yönetilen kimlikleri otomatik olarak yeniden oluşturulur?
+
+Hayır. Abonelik başka bir dizine taşırsanız, el ile yeniden oluşturun ve Azure RBAC rolü atamalarını tekrar vermeniz gerekir.
+    - Yönetilen kimlik sistemi atanmış: devre dışı bırakıp yeniden etkinleştirin.
+    - Kullanıcı tarafından atanan yönetilen kimliklerle için: silmek, yeniden oluşturun ve bunları yeniden gerekli kaynakları (örneğin, sanal makineler) ekleme
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Farklı bir dizin/kiracısındaki bir kaynağa erişmek için yönetilen bir kimlik kullanabilir miyim?
+
+Hayır. Yönetilen kimlik şu anda çapraz directory senaryoları desteklemez. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Desteklenen Linux dağıtımları nelerdir?
 

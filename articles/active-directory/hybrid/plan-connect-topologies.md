@@ -12,15 +12,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158865"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582642"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makale, desteklenen ve desteklenmeyen yapılandırmalar içerir.
@@ -84,7 +84,9 @@ Daha fazla bilgi bulabilirsiniz [varsayılan yapılandırmayı anlama](concept-a
 
 Birden fazla Azure AD Connect eşitleme sunucusu tek bir bağlı olan Azure AD kiracısı desteklenmiyor. Özel durum kullanımı olan bir [sunucusu hazırlama](#staging-server).
 
-### <a name="multiple-forests-separate-topologies"></a>Birden çok orman, ayrı topolojiler
+Bir, bu topoloji farklıdır **birden çok eşitleme sunucusu** bağlı tek bir Azure AD Kiracı desteklenmiyor.
+
+### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Birden çok orman, tek eşitleme sunucusu, kullanıcıların yalnızca bir dizine temsil edilir
 ![Kullanıcılar yalnızca bir kez temsil eden tüm dizinler seçeneği](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
 ![Birden çok orman ve ayrı topolojiler gösterimi](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)

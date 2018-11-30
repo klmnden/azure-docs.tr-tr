@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038272"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499135"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Yayımlanan uygulama - Dataiku DDS yükleme
 
-Bu makalede, yüklemek ve çalıştırmak açıklanır [Dataiku DDS](https://www.dataiku.com/) Azure HDInsight üzerinde Apache Hadoop uygulama yayımlanır. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, yüklemek ve çalıştırmak açıklanır [Dataiku DDS](https://www.dataiku.com/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>Dataiku DSS hakkında
 
@@ -26,9 +26,9 @@ Dataiku [Data Science Studio'yu (DSS)](https://www.dataiku.com/dss/features/conn
 
 DSS, hazırlama, veri alımı ile başlayan ve işleme eksiksiz bir analiz çözümü uygulamak için kullanabilirsiniz. DSS çözüm, eğitim ve uygulama makine öğrenimi modelleri, Görselleştirme ve sonra faaliyete de içerebilir.
 
-Hadoop veya Spark kümelerini kullanarak HDInsight üzerinde DSS yükleyebilirsiniz. Yeni bir küme oluştururken, mevcut çalışan kümelerinde veya DSS yükleyebilirsiniz. DSS, veri okumak için bir bağlayıcı olarak Azure Blob depolamayı kullanarak da destekler.
+DSS HDInsight kullanarak yükleyebileceğiniz [Apache Hadoop](https://hadoop.apache.org/) veya [Apache Spark](https://spark.apache.org/) kümeleri. Yeni bir küme oluştururken, mevcut çalışan kümelerinde veya DSS yükleyebilirsiniz. DSS, veri okumak için bir bağlayıcı olarak Azure Blob depolamayı kullanarak da destekler.
 
-DSS, MapReduce veya Spark işleri sonra oluşturabilirsiniz projeleri oluşturmak için kullanabilirsiniz. İsteğe bağlı küme ölçeklendirebilirsiniz. böylece bu işleri, HDInsight, normal MapReduce veya Spark işleri olarak yürütülür.
+DSS sonra oluşturabilirsiniz projeleri oluşturmak için kullanabileceğiniz [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) veya Spark işleri. İsteğe bağlı küme ölçeklendirebilirsiniz. böylece bu işleri, HDInsight, normal MapReduce veya Spark işleri olarak yürütülür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,7 +40,7 @@ Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek içi
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Yayımlanan uygulamayı yükleme Dataiku DSS
 
-Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
+Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım yönergeler için okuma [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-dataiku-dss"></a>Dataiku DSS başlatın
 

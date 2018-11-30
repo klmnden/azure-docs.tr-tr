@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 93ee51c8a00e5cfcbffd56f96b627b68dd124aea
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034702"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497852"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak HDInsight kümeleri oluşturma
 
@@ -120,19 +120,19 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 Klasik CLI kullanarak bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkında bilgi almak için aşağıdakileri kullanın:
 
-### <a name="hadoop-clusters"></a>Hadoop kümeleri
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop kümelerini
 
-* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
+* [HDInsight ile Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase kümeleri
+### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 
-* [HDInsight üzerinde HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight üzerinde HBase için Java uygulamaları geliştirin](hbase/apache-hbase-build-java-maven-linux.md)
+* [HDInsight üzerinde Apache HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight üzerinde Apache HBase için Java uygulamaları geliştirin](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm kümeleri
+### <a name="apache-storm-clusters"></a>Apache Storm kümeleri
 
-* [HDInsight üzerinde Storm için Java topolojileri geliştirme](storm/apache-storm-develop-java-topology.md)
-* [HDInsight üzerinde Storm Python bileşenlerini kullanın](storm/apache-storm-develop-python-topology.md)
-* [HDInsight üzerinde Storm topolojileri dağıtma ve izleme](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [HDInsight üzerinde Apache Storm için Java topolojileri geliştirme](storm/apache-storm-develop-java-topology.md)
+* [HDInsight üzerinde Apache Storm, Python bileşenlerini kullanma](storm/apache-storm-develop-python-topology.md)
+* [HDInsight üzerinde Apache Storm topolojileri dağıtma ve izleme](storm/apache-storm-deploy-monitor-topology-linux.md)

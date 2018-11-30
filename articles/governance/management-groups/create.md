@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.topic: conceptual
+ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956417"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620123"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma
 
@@ -29,7 +29,7 @@ Portal, PowerShell veya Azure CLI kullanarak, yönetim grubu oluşturabilirsiniz
 
 ### <a name="create-in-portal"></a>Portalda oluşturma
 
-1. [Azure portalında](http://portal.azure.com) oturum açın.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
 
 1. Seçin **tüm hizmetleri** > **Yönetim grupları**.
 
@@ -76,8 +76,8 @@ az account management-group create --name 'Contoso'
 
 Yönetim grupları hakkında daha fazla bilgi almak için bkz.:
 
-- [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](overview.md)
+- [Azure kaynaklarını düzenlemek için yönetim grupları oluşturma](create.md)
 - [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
-- [Azure PowerShell modülünü yükleme](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [REST API Belirtimini gözden geçirme](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Azure CLI uzantısını yükleme](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Azure PowerShell kaynakları modülündeki Yönetim gruplarını gözden geçirin](https://aka.ms/mgPSdocs)
+- [REST API Yönetim gruplarını gözden geçirin](https://aka.ms/mgAPIdocs)
+- [Azure CLI'de Yönetim gruplarını gözden geçirin](https://aka.ms/mgclidoc)

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: f00c11881da7624809b1253361c17285666d9ba3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715763"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635773"
 ---
 # <a name="views-in-management-solutions-preview"></a>Görünümlerde yönetim çözümleri (Önizleme)
 > [!NOTE]
 > Şu anda Önizleme aşamasında olan yönetim çözümleri oluşturmak için başlangıç belgeleri budur. Aşağıda açıklanan herhangi bir şema tabi bir değişikliktir.    
 
 
-[Yönetim çözümleri](solutions.md) genellikle verileri görselleştirmek için bir veya daha fazla görünümler içerir.  Bu makalede tarafından oluşturulan bir görünüm dışarı aktarma [Görünüm Tasarımcısı](../../log-analytics/log-analytics-view-designer.md) ve Yönetimi çözümünde içerir.  
+[Yönetim çözümleri](solutions.md) genellikle verileri görselleştirmek için bir veya daha fazla görünümler içerir.  Bu makalede tarafından oluşturulan bir görünüm dışarı aktarma [Görünüm Tasarımcısı](../../azure-monitor/platform/view-designer.md) ve Yönetimi çözümünde içerir.  
 
 > [!NOTE]
 > Bu makaledeki örnekleri parametreler ve değişkenler gerekli olduğunu veya yönetim çözümleri için yaygın olduğunu ve açıklanan kullanmak [tasarım ve derleme Azure Yönetimi çözümünde](solutions-creating.md)
@@ -37,7 +37,7 @@ ms.locfileid: "51715763"
 Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [yönetimi çözümü oluşturmak](solutions-creating.md) ve çözüm dosya yapısı.
 
 ## <a name="overview"></a>Genel Bakış
-Görünüm bir yönetim çözümüne dahil etmek için oluşturduğunuz bir **kaynak** içinde için [çözüm dosyası](solutions-creating.md).  Görünümün ayrıntılı yapılandırma açıklayan JSON olsa ve bir şey tipik çözüm Yazar el ile oluşturmanız mümkün olacaktır genellikle karmaşıktır.  Görünümünü kullanarak oluşturmak için en yaygın yöntemidir [Görünüm Tasarımcısı](../../log-analytics/log-analytics-view-designer.md)dışa aktarın ve ardından ayrıntılı yapılandırmasına ekleyin.
+Görünüm bir yönetim çözümüne dahil etmek için oluşturduğunuz bir **kaynak** içinde için [çözüm dosyası](solutions-creating.md).  Görünümün ayrıntılı yapılandırma açıklayan JSON olsa ve bir şey tipik çözüm Yazar el ile oluşturmanız mümkün olacaktır genellikle karmaşıktır.  Görünümünü kullanarak oluşturmak için en yaygın yöntemidir [Görünüm Tasarımcısı](../../azure-monitor/platform/view-designer.md)dışa aktarın ve ardından ayrıntılı yapılandırmasına ekleyin.
 
 Görünüm bir çözüme eklemek için temel adımlar aşağıdaki gibidir.  Her adım, aşağıdaki bölümlerde daha ayrıntılı açıklanmıştır.
 
@@ -46,7 +46,7 @@ Görünüm bir çözüme eklemek için temel adımlar aşağıdaki gibidir.  Her
 3. Ayrıntıları Görüntüle ekleyin.
 
 ## <a name="export-the-view-to-a-file"></a>Görünüm bir dosyaya aktarın.
-Konumundaki yönergeleri [Log Analytics Görünüm Tasarımcısı](../../log-analytics/log-analytics-view-designer.md) görünümü bir dosyaya vermek için.  Dışarı aktarılan dosya JSON biçiminde aynı olacaktır [öğeleri çözüm dosyası olarak](solutions-solution-file.md).  
+Konumundaki yönergeleri [Log Analytics Görünüm Tasarımcısı](../../azure-monitor/platform/view-designer.md) görünümü bir dosyaya vermek için.  Dışarı aktarılan dosya JSON biçiminde aynı olacaktır [öğeleri çözüm dosyası olarak](solutions-solution-file.md).  
 
 **Kaynakları** görünüm öğesi bir kaynak türünde olacaktır **Microsoft.OperationalInsights/workspaces** , Log Analytics çalışma alanını temsil eder.  Bu öğe türüne sahip bir alt öğesi gerekir **görünümleri** görünümünü temsil eder ve ayrıntılı yapılandırmasını içerir.  Bu öğenin ayrıntıları kopyalayın ve çözümünüze kopyalayın.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 4a8b2c07754b1a1c9679f7b044f112bf03dfb433
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392117"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581600"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Ücretsiz hizmet ölçer eşlemesini anlama
 
@@ -53,10 +53,6 @@ Her bir Azure hizmetinde Azure faturalandırma sistem hizmetleri için kullanıc
 
 \** Paylaşılan ölçümleri birden çok hizmet tarafından kullanılabilir. Örneğin, hem sanal makineleri hem de depolama kullanım veri aktarımı Out(GB) ölçüm karşı gösterin.
 
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
-
-
-
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
-
-Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

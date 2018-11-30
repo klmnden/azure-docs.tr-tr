@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2371f52591db667498398daa889ebc14708a9674
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037771"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499207"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -228,7 +228,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Bu, Portal üzerinden de yapılabilir. Bkz: [Azure portalını kullanarak HDInsight yönetmek][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>HTTP kullanıcısı kimlik bilgilerini güncelleştirme
-Yordamın aynısını olan [vermek/iptal etmek HTTP erişim](#grant/revoke-access). Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
+Yordamın aynısını olan [vermek/iptal etmek HTTP erişim](#grant/revoke-access).  Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
 
 ## <a name="find-the-default-storage-account"></a>Varsayılan depolama hesabı bulunamadı
 Aşağıdaki kod parçacığı, varsayılan depolama hesabı adı ve bir küme için varsayılan depolama hesabı anahtarını almak nasıl gösterir.
@@ -242,25 +242,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>İş gönderme
-**MapReduce işleri göndermek için**
+**Apache Hadoop MapReduce işlerini göndermek için**
 
-Bkz: [HDInsight Hadoop MapReduce çalıştırma örnekleri](hadoop/apache-hadoop-run-samples-linux.md).
+Bkz: [HDInsight çalıştırma Apache Hadoop MapReduce örnekleri](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Apache Hive işleri göndermek için** 
 
-Bkz: [.NET SDK kullanarak Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+Bkz: [.NET SDK kullanarak Apache Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **Apache Pig işleri göndermek için**
 
-Bkz: [.NET SDK'sını kullanarak çalıştırma Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+Bkz: [.NET SDK'sını kullanarak çalıştırma Apache Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **Apache Sqoop işleri göndermek için**
 
-Bkz: [HDInsight ile Sqoop kullanma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+Bkz: [HDInsight ile Apache Sqoop'u kullanma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **Apache Oozie iş göndermek için**
 
-Bkz: [tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](hdinsight-use-oozie-linux-mac.md).
+Bkz: [tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Hadoop ile Apache Oozie kullanma](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri yükleme
 Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].

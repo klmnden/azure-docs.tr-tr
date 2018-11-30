@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: cc4b165b4fa04e22c9c57547df1657a0c6fc4537
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b89830d566b36b0446836d8f32aee5756e2d0991
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263536"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498422"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB bölümleme
 
@@ -47,7 +47,6 @@ Aşağıdaki ayrıntıları bir bölüm anahtarı seçerken göz önünde bulund
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [bir bölüm anahtarı seçmeyi](partitioning-overview.md#choose-partitionkey)
 * Hakkında bilgi edinin [bölümleri](partition-data.md)
 * Hakkında bilgi edinin [Azure Cosmos DB'de sağlanan aktarım hızı](request-units.md)
 * Hakkında bilgi edinin [Azure Cosmos DB'de küresel dağıtım](distribute-data-globally.md)

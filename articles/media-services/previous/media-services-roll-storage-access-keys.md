@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: e8d8067fcf30b16dd3dbc7f6cf50129d837aa3a5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4ab2c58e5a0f9e04d824eeea443a13af7a32617d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306865"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619665"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Depolama erişim anahtarlarını değiştirdikten sonra Media Services'ı güncelleştirme
 
 Yeni bir Azure Media Services (AMS) hesabı oluşturduğunuzda, medya içeriğinizi depolamak için kullanılan bir Azure depolama hesabı seçmeniz istenir. Media Services hesabınız için birden fazla depolama hesapları ekleyebilirsiniz. Bu makale depolama anahtarlarını döndürme işlemini gösterir. Ayrıca bir medya hesabı için depolama hesapları ekleme işlemini de gösterir. 
 
-Bu makalede açıklanan işlemleri gerçekleştirmek için kullanmanız [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Daha fazla bilgi için [PowerShell ve Resource Manager ile Azure kaynaklarını yönetme](../../azure-resource-manager/powershell-azure-resource-manager.md)
+Bu makalede açıklanan işlemleri gerçekleştirmek için kullanmanız [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Daha fazla bilgi için [PowerShell ve Resource Manager ile Azure kaynaklarını yönetmek nasıl](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 ## <a name="overview"></a>Genel Bakış
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6f4f2f6a7999b2d26e198a11bb7cee27991a775b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711965"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633478"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -126,7 +126,7 @@ Docker'ı yükledikten sonra aracıyı kullanmak için Docker ile yapılandırma
 
 **Tüm Linux kapsayıcı konaklar için CoreOS hariç:**
 
-- Daha fazla bilgi ve Linux için Log Analytics aracısını yüklemek adımları için bkz. [Log Analytics Aracısı genel bakış](log-analytics-agent-overview.md).
+- Daha fazla bilgi ve Linux için Log Analytics aracısını yüklemek adımları için bkz. [Log Analytics Aracısı genel bakış](../azure-monitor/platform/log-analytics-agent.md).
 
 **CoreOS dahil olmak üzere tüm Linux kapsayıcı konakları için:**
 
@@ -524,9 +524,9 @@ Windows kapsayıcıları ile kullanılan Docker daemon yapılandırmasını hakk
 
 #### <a name="install-windows-agents"></a>Windows aracıları yükleyin
 
-Windows ve Hyper-V kapsayıcı izlemeyi etkinleştirmek için kapsayıcı konaklarının Windows bilgisayarlarda Microsoft Monitoring Agent (MMA) yükleyin. Şirket içi ortamınızda Windows çalıştıran bilgisayarlar için bkz: [bağlanmak Windows bilgisayarlarını Log Analytics'e](log-analytics-agent-windows.md). Sanal makineler için Azure'da çalışan bunları Log Analytics için kullanılacak bağlantı [sanal makine uzantısı](log-analytics-quick-collect-azurevm.md).
+Windows ve Hyper-V kapsayıcı izlemeyi etkinleştirmek için kapsayıcı konaklarının Windows bilgisayarlarda Microsoft Monitoring Agent (MMA) yükleyin. Şirket içi ortamınızda Windows çalıştıran bilgisayarlar için bkz: [bağlanmak Windows bilgisayarlarını Log Analytics'e](../azure-monitor/platform/agent-windows.md). Sanal makineler için Azure'da çalışan bunları Log Analytics için kullanılacak bağlantı [sanal makine uzantısı](log-analytics-quick-collect-azurevm.md).
 
-Windows kapsayıcıları Service Fabric üzerinde çalışmasını izleyebilirsiniz. Ancak, yalnızca [Azure'da çalışan sanal makineler](log-analytics-quick-collect-azurevm.md) ve [şirket içi ortamınızda Windows çalıştıran bilgisayarlar](log-analytics-agent-windows.md) şu anda Service Fabric için desteklenir.
+Windows kapsayıcıları Service Fabric üzerinde çalışmasını izleyebilirsiniz. Ancak, yalnızca [Azure'da çalışan sanal makineler](log-analytics-quick-collect-azurevm.md) ve [şirket içi ortamınızda Windows çalıştıran bilgisayarlar](../azure-monitor/platform/agent-windows.md) şu anda Service Fabric için desteklenir.
 
 Kapsayıcı izleme çözümü için Windows düzgün şekilde ayarlandığını doğrulayabilirsiniz. Yönetim Paketi indirme doğru olup olmadığını denetlemek için Aranan *ContainerManagement.xxx*. Dosyaları C:\Program Files\Microsoft Monitoring Agent\Agent\Health hizmet State\Management paketleri klasöründe olmalıdır.
 
@@ -543,7 +543,7 @@ Kapsayıcı izleme çözümü, kapsayıcı konağında ve kapsayıcıları etkin
 Verileri üç dakikada bir şu aracı türleri tarafından toplanır.
 
 - [Linux için log Analytics aracısını](log-analytics-quick-collect-linux-computer.md)
-- [Windows Aracısı](log-analytics-agent-windows.md)
+- [Windows Aracısı](../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM uzantısı](log-analytics-quick-collect-azurevm.md)
 
 

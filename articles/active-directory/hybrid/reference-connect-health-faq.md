@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 264e7f3d885535304470c833e228660ba51fefc6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312308"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497726"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
 Bu makale, Azure Active Directory (Azure AD) Connect Health hakkında sık sorulan sorular (SSS) yanıtlarını içerir. Bu SSS, özellik, sınırlamalar ve Destek faturalandırma modeli içeren hizmetin nasıl kullanılacağını hakkında sorular kapsar.
@@ -62,7 +62,7 @@ Lisans bilgilerini üzerinde bulunan ayrıca [Azure AD fiyatlandırma sayfası](
 
 **S: Azure AD Connect Health desteği Azure Almanya Bulutu mu?**
 
-Azure AD Connect Health, Almanya bulutunda dışında desteklenmiyor [eşitleme hata raporu özelliği](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview). 
+Azure AD Connect Health, Almanya bulutunda dışında desteklenmiyor [eşitleme hata raporu özelliği](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
 | Roller | Özellikler | Alman bulutunda desteklenir |
 | ------ | --------------- | --- |

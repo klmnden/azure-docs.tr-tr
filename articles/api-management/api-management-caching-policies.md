@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c1fd0f462a3eb960e27b002f4f7c940a6bf978c8
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246846"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620583"
 ---
 # <a name="api-management-caching-policies"></a>API Management önbelleğe alma ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -46,7 +46,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ### <a name="policy-statement"></a>İlke bildirimi  
   
 ```xml  
-<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
+<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" cache-preference="prefer-external | external | internal" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
   <vary-by-header>Accept</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Accept-Charset</vary-by-header>  
@@ -68,7 +68,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 <policies>  
     <inbound>  
         <base />  
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true">  
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" cache-preference="internal" >  
             <vary-by-query-parameter>version</vary-by-query-parameter>  
         </cache-lookup>           
     </inbound>  
@@ -112,14 +112,15 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="attributes"></a>Öznitelikler  
   
-|Ad|Açıklama|Gerekli|Varsayılan|  
-|----------|-----------------|--------------|-------------|  
-|izin ver-özel-yanıt-önbelleğe alma|Ayarlandığında `true`, yetkilendirme üst bilgisi içeren istekleri önbelleğe almayı sağlar.|Hayır|false|  
-|önbelleğe alma aşağı akış türü|Bu öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -Hiçbiri - aşağı akış önbelleğe alma izin verilmiyor.<br />-Özel - aşağı akış özel önbelleğe alma izin verilir.<br />-Ortak - özel ve paylaşılan aşağı akış önbelleğe alma izin verilir.|Hayır|yok|  
-|revalidate gerekir|Aşağı Akış önbelleği etkin olduğunda, bu öznitelik açar veya kapatır `must-revalidate` ağ geçidi yanıtlarındaki önbellek denetimi yönergesi.|Hayır|true|  
-|farklı-tarafından-Geliştirici|Kümesine `true` Geliştirici anahtarı başına önbellek yanıtları.|Evet||  
-|farklı-tarafından-developer-groups|Kümesine `true` kullanıcı rol başına önbellek yanıtları.|Evet||  
-  
+| Ad                           | Açıklama                                                                                                                                                                                                                                                                                                                                                 | Gerekli | Varsayılan           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| izin ver-özel-yanıt-önbelleğe alma | Ayarlandığında `true`, yetkilendirme üst bilgisi içeren istekleri önbelleğe almayı sağlar.                                                                                                                                                                                                                                                                        | Hayır       | false             |
+| önbelleği tercihi               | Öznitelik arasındaki aşağıdaki değerleri seçin:<br />- `internal` Yerleşik API Management önbelleği kullanmak için<br />- `external` dış önbellek açıklandığı kullanılacak [Azure API Management'te bir dış Redis cache'i kullanma](api-management-howto-cache-external.md),<br />- `prefer-external` yapılandırılmış dış veya iç önbelleğe Aksi takdirde kullanmak için. | Hayır       | `prefer-external` |
+| önbelleğe alma aşağı akış türü        | Bu öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -Hiçbiri - aşağı akış önbelleğe alma izin verilmiyor.<br />-Özel - aşağı akış özel önbelleğe alma izin verilir.<br />-Ortak - özel ve paylaşılan aşağı akış önbelleğe alma izin verilir.                                                                                                          | Hayır       | yok              |
+| revalidate gerekir                | Aşağı Akış önbelleği etkin olduğunda, bu öznitelik açar veya kapatır `must-revalidate` ağ geçidi yanıtlarındaki önbellek denetimi yönergesi.                                                                                                                                                                                                                      | Hayır       | true              |
+| farklı-tarafından-Geliştirici              | Kümesine `true` Geliştirici anahtarı başına önbellek yanıtları.                                                                                                                                                                                                                                                                                                         | Evet      |                   |
+| farklı-tarafından-developer-groups       | Kümesine `true` kullanıcı rol başına önbellek yanıtları.                                                                                                                                                                                                                                                                                                             | Evet      |                   |  
+
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -188,10 +189,10 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="attributes"></a>Öznitelikler  
   
-|Ad|Açıklama|Gerekli|Varsayılan|  
-|----------|-----------------|--------------|-------------|  
-|süre|Zaman yaşam önbelleğe alınan girişlerin saniye cinsinden belirtilen.|Evet|Yok|  
-  
+| Ad             | Açıklama                                                                                                                                                                                                                                                                                                                                                 | Gerekli | Varsayılan           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| süre         | Zaman yaşam önbelleğe alınan girişlerin saniye cinsinden belirtilen.                                                                                                                                                                                                                                                                                                   | Evet      | Yok               |  
+
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -209,7 +210,8 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ```xml  
 <cache-lookup-value key="cache key value"   
     default-value="value to use if cache lookup resulted in a miss"   
-    variable-name="name of a variable looked up value is assigned to" />  
+    variable-name="name of a variable looked up value is assigned to"  
+    cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Örnek  
@@ -230,12 +232,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="attributes"></a>Öznitelikler  
   
-|Ad|Açıklama|Gerekli|Varsayılan|  
-|----------|-----------------|--------------|-------------|  
-|Varsayılan değer|Önbellek anahtar arama değişken if atanacak değeri içinde bir isabetsizliği sonuçlandı. Bu öznitelik belirtilmezse `null` atanır.|Hayır|`null`|  
-|anahtar|Aramada kullanılacak anahtar değeri önbellek.|Evet|Yok|  
-|değişken adı|Adını [bağlam değişkeni](api-management-policy-expressions.md#ContextVariables) için arama başarılı olursa yukarı looked değeri atanır. İçinde bir isabetsizliği arama sonuçları, değişkenin değerini atanacak `default-value` özniteliği veya `null`, `default-value` öznitelik atlanmış.|Evet|Yok|  
-  
+| Ad             | Açıklama                                                                                                                                                                                                                                                                                                                                                 | Gerekli | Varsayılan           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| önbelleği tercihi | Öznitelik arasındaki aşağıdaki değerleri seçin:<br />- `internal` Yerleşik API Management önbelleği kullanmak için<br />- `external` dış önbellek açıklandığı kullanılacak [Azure API Management'te bir dış Redis cache'i kullanma](api-management-howto-cache-external.md),<br />- `prefer-external` yapılandırılmış dış veya iç önbelleğe Aksi takdirde kullanmak için. | Hayır       | `prefer-external` |
+| Varsayılan değer    | Önbellek anahtar arama değişken if atanacak değeri içinde bir isabetsizliği sonuçlandı. Bu öznitelik belirtilmezse `null` atanır.                                                                                                                                                                                                           | Hayır       | `null`            |
+| anahtar              | Aramada kullanılacak anahtar değeri önbellek.                                                                                                                                                                                                                                                                                                                       | Evet      | Yok               |
+| değişken adı    | Adını [bağlam değişkeni](api-management-policy-expressions.md#ContextVariables) için arama başarılı olursa yukarı looked değeri atanır. İçinde bir isabetsizliği arama sonuçları, değişkenin değerini atanacak `default-value` özniteliği veya `null`, `default-value` öznitelik atlanmış.                                       | Evet      | Yok               |  
+
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -251,7 +254,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ### <a name="policy-statement"></a>İlke bildirimi  
   
 ```xml  
-<cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
+<cache-store-value key="cache key value" value="value to cache" duration="seconds" cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Örnek  
@@ -272,11 +275,12 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="attributes"></a>Öznitelikler  
   
-|Ad|Açıklama|Gerekli|Varsayılan|  
-|----------|-----------------|--------------|-------------|  
-|süre|Değer, belirtilen süre değerinin saniye cinsinden belirtilen için önbelleğe alınır.|Evet|Yok|  
-|anahtar|Önbellek anahtarı değerin altında depolanır.|Evet|Yok|  
-|değer|Önbelleğe alınacak değeri.|Evet|Yok|  
+| Ad             | Açıklama                                                                                                                                                                                                                                                                                                                                                 | Gerekli | Varsayılan           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| önbelleği tercihi | Öznitelik arasındaki aşağıdaki değerleri seçin:<br />- `internal` Yerleşik API Management önbelleği kullanmak için<br />- `external` dış önbellek açıklandığı kullanılacak [Azure API Management'te bir dış Redis cache'i kullanma](api-management-howto-cache-external.md),<br />- `prefer-external` yapılandırılmış dış veya iç önbelleğe Aksi takdirde kullanmak için. | Hayır       | `prefer-external` |
+| süre         | Değer, belirtilen süre değerinin saniye cinsinden belirtilen için önbelleğe alınır.                                                                                                                                                                                                                                                                                 | Evet      | Yok               |
+| anahtar              | Önbellek anahtarı değerin altında depolanır.                                                                                                                                                                                                                                                                                                                   | Evet      | Yok               |
+| değer            | Önbelleğe alınacak değeri.                                                                                                                                                                                                                                                                                                                                     | Evet      | Yok               |
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -291,7 +295,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ```xml  
   
-<cache-remove-value key="cache key value"/>  
+<cache-remove-value key="cache key value" cache-preference="prefer-external | external | internal"  />  
   
 ```  
   
@@ -311,9 +315,10 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 #### <a name="attributes"></a>Öznitelikler  
   
-|Ad|Açıklama|Gerekli|Varsayılan|  
-|----------|-----------------|--------------|-------------|  
-|anahtar|Önbellekten kaldırılması için önceden önbelleğe alınan değerin anahtarı.|Evet|Yok|  
+| Ad             | Açıklama                                                                                                                                                                                                                                                                                                                                                 | Gerekli | Varsayılan           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| önbelleği tercihi | Öznitelik arasındaki aşağıdaki değerleri seçin:<br />- `internal` Yerleşik API Management önbelleği kullanmak için<br />- `external` dış önbellek açıklandığı kullanılacak [Azure API Management'te bir dış Redis cache'i kullanma](api-management-howto-cache-external.md),<br />- `prefer-external` yapılandırılmış dış veya iç önbelleğe Aksi takdirde kullanmak için. | Hayır       | `prefer-external` |
+| anahtar              | Önbellekten kaldırılması için önceden önbelleğe alınan değerin anahtarı.                                                                                                                                                                                                                                                                                        | Evet      | Yok               |
   
 #### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  

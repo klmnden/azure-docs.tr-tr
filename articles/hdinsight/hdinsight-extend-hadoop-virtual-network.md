@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238990"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497780"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -25,7 +25,7 @@ HDInsight ile kullanmayı öğrenin bir [Azure sanal ağı](../virtual-network/v
 
 * HDInsight verilerine bağlantı kurma, bir Azure sanal ağında depolar.
 
-* Doğrudan genel internet üzerinden kullanılabilir olmayan Apache Hadoop hizmetlerine erişme. Örneğin, Kafka API'lerin veya HBase Java API'si.
+* Doğrudan erişim [Apache Hadoop](https://hadoop.apache.org/) genel internet üzerinden kullanılabilir olmayan hizmetler. Örneğin, [Apache Kafka](https://kafka.apache.org/) API'leri veya [Apache HBase](https://hbase.apache.org/) Java API'si.
 
 > [!WARNING]
 > Bu belgedeki bilgiler, TCP/IP ağ'ın bilinmesini gerektirir. TCP/IP ağ bağlantısı ile ilgili bilgi sahibi değilseniz, üretim ağları için değişiklik yapmadan önce olan bir kullanıcıyla ortak.
@@ -171,11 +171,11 @@ Sanal ağ ve birleştirilmiş ağlardaki kaynaklar arasında ad çözümlemesine
 
 Daha fazla bilgi için [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
 
-## <a name="directly-connect-to-hadoop-services"></a>Hadoop Hizmetleri doğrudan bağlanın
+## <a name="directly-connect-to-apache-hadoop-services"></a>Apache Hadoop Hizmetleri için doğrudan bağlanma
 
 Konumundaki kümeye bağlanabilirsiniz https://CLUSTERNAME.azurehdinsight.net. Bu adres, internet'ten gelen trafiği kısıtlamak için Nsg kullandıysanız erişilebilir olmayabilir genel bir IP kullanır. Bir sanal ağda küme dağıttığınızda ek olarak, özel uç nokta kullanarak erişebileceğiniz https://CLUSTERNAME-int.azurehdinsight.net. Bu uç nokta kümesi erişim için sanal ağ içinde bir özel IP çözümler.
 
-Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağıdaki adımları kullanın:
+Apache Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağıdaki adımları kullanın:
 
 1. HDInsight küme düğümleri dahili tam etki alanı adlarını (FQDN) bulmak için aşağıdaki yöntemlerden birini kullanın:
 
@@ -316,7 +316,7 @@ Bir ağ kullanmayı planlıyorsanız **sanal gereç Güvenlik Duvarı** sanal a�
 * 11000-11999
 * 14000-14999
 
-Belirli hizmetlere yönelik bağlantı noktalarının listesi için bkz. [HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
+Belirli hizmetlere yönelik bağlantı noktalarının listesi için bkz. [HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
 
 Sanal gereçler için güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz. [sanal gereç senaryo](../virtual-network/virtual-network-scenario-udr-gw-nva.md) belge.
 
@@ -660,8 +660,8 @@ Bu adımları tamamladıktan sonra tam etki alanı adlarını (FQDN) bir sanal a
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir şirket içi ağa bağlanmak için HDInsight yapılandırma uçtan uca örneği için bkz: [bir şirket içi ağa bağlanma HDInsight](./connect-on-premises-network.md).
-* Hbase kümeleri Azure sanal ağları yapılandırmak için bkz: [HBase kümeleri oluşturma Azure sanal ağdaki HDInsight üzerinde](hbase/apache-hbase-provision-vnet.md).
-* HBase coğrafi çoğaltmayı yapılandırmak için bkz: [Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama](hbase/apache-hbase-replication.md).
+* Apache Hbase kümeleri Azure sanal ağları yapılandırmak için bkz: [Apache HBase kümeleri oluşturma Azure sanal ağdaki HDInsight üzerinde](hbase/apache-hbase-provision-vnet.md).
+* Apache HBase coğrafi çoğaltmayı yapılandırmak için bkz: [Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama](hbase/apache-hbase-replication.md).
 * Azure sanal ağları hakkında daha fazla bilgi için bkz. [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
 
 * Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [ağ güvenlik grupları](../virtual-network/security-overview.md).

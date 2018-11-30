@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b6752196d3512ab3ede4f5e339d681948e732e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 93cbb9a891f83eed623f095f208319c9071e287e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853770"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635552"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
 Bu makalede, Azure bulma gibi ve uygulama bağımlılıklarını eşleyerek İzleyicisi sanal makinelerin Azure sanal makineler ve sanal makine ölçek kümeleri ve sanal makineler, ortamınızda işletim sistem durumunu izlemek ayarlama işlemi açıklanmaktadır bunlar üzerinde barındırılabilir.  
@@ -151,8 +151,8 @@ Aşağıdaki tabloda, karma bir ortamda, eşleme özelliğini destekleyen bağl�
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Ek olarak [Windows için Log Analytics aracısını](../../log-analytics/log-analytics-agent-overview.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
-| Linux aracıları | Evet | Ek olarak [Linux için Log Analytics aracısını](../../log-analytics/log-analytics-agent-overview.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Windows aracıları | Evet | Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Linux aracıları | Evet | Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
 | System Center Operations Manager yönetim grubu | Hayır | |  
 
 Bağımlılık Aracısı'nı şu konumdan indirilebilir.
@@ -205,7 +205,7 @@ Bu bölümde yönergelerinde gerçekleştirmek için Azure İzleyici ya da Azure
 Bir Log Analytics çalışma alanı yoksa, altında önerilen yöntemi inceleyin [önkoşulları](#log-analytics) bölümü oluşturun.  
 
 #### <a name="enable-performance-counters"></a>Performans sayaçları sağlar
-Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, etkinleştirilmesi gerekir. Bu açıklandığı şekilde el ile gerçekleştirilebilir [burada](../../log-analytics/log-analytics-data-sources-performance-counters.md), veya tarafından yükleme ve kullanılabilir bir PowerShell Betiği çalıştırma [Azure Powershell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, etkinleştirilmesi gerekir. Bu açıklandığı şekilde el ile gerçekleştirilebilir [burada](../../azure-monitor/platform/data-sources-performance-counters.md), veya tarafından yükleme ve kullanılabilir bir PowerShell Betiği çalıştırma [Azure Powershell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 #### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>ServiceMap ve InfrastructureInsights çözümleri yüklemesi
 Bu yöntem, Log Analytics çalışma alanınıza çözüm bileşenlerini yapılandırmasını belirten bir JSON şablonu içerir.  
@@ -531,9 +531,9 @@ Failed: (0)
 ## <a name="enable-for-hybrid-environment"></a>Hibrit ortamı için etkinleştir
 Bu bölümde, nasıl sanal makine veya fiziksel bilgisayarlar veri merkezinizi veya VM'ler için Azure İzleyici ile izleme için başka bir bulut ortamında barındırılan açıklanmaktadır.  
 
-Azure İzleyici Vm'leri harita bağımlılık aracısı için tüm veriler aktarmaz ve güvenlik duvarları ya da bağlantı noktalarını herhangi bir değişiklik gerektirmez. Harita verileri her zaman doğrudan Azure İzleyici'hizmetine veya üzerinden Log Analytics aracısını tarafından aktarılan [OMS ağ geçidi](../../log-analytics/log-analytics-oms-gateway.md) BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa.
+Azure İzleyici Vm'leri harita bağımlılık aracısı için tüm veriler aktarmaz ve güvenlik duvarları ya da bağlantı noktalarını herhangi bir değişiklik gerektirmez. Harita verileri her zaman doğrudan Azure İzleyici'hizmetine veya üzerinden Log Analytics aracısını tarafından aktarılan [OMS ağ geçidi](../../azure-monitor/platform/gateway.md) BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa.
 
-Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../../log-analytics/log-analytics-agent-overview.md).  
+Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../../azure-monitor/platform/log-analytics-agent.md).  
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -591,7 +591,7 @@ Bağımlılık Aracısı'nı dosyaları aşağıdaki dizinlerde yerleştirilir:
 | İkili depolama dosyaları | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="enable-performance-counters"></a>Performans sayaçları sağlar
-Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, etkinleştirilmesi gerekir. Bu açıklandığı şekilde el ile gerçekleştirilebilir [burada](../../log-analytics/log-analytics-data-sources-performance-counters.md), veya tarafından yükleme ve kullanılabilir bir PowerShell Betiği çalıştırma [Azure Powershell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Çözüm tarafından başvurulan Log Analytics çalışma alanı zaten çözüm için gerekli performans sayaçları toplamak için yapılandırılmamışsa, etkinleştirilmesi gerekir. Bu açıklandığı şekilde el ile gerçekleştirilebilir [burada](../../azure-monitor/platform/data-sources-performance-counters.md), veya tarafından yükleme ve kullanılabilir bir PowerShell Betiği çalıştırma [Azure Powershell Galerisi](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 ### <a name="onboard-azure-monitor-for-vms"></a>Sanal makineler için yerleşik Azure izleme
 Bu yöntem, Log Analytics çalışma alanınıza çözüm bileşenlerini yapılandırmasını belirten bir JSON şablonu içerir.  

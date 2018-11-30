@@ -4,28 +4,27 @@ description: Sürekli tümleştirme ve sürekli dağıtım Azure IOT Edge için 
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 11/12/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 06dec64a55aaece4cd67ebf0485e34aa206a8936
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16dac996f871241b8c9b5e4c1b797d07d79aeb79
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633742"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632571"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
-DevOps ile uygulamalarınızı Azure IOT Edge ile kolayca benimseyebilirsiniz [Azure IOT Edge için Azure işlem hatları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) veya [Jenkins için Azure IOT Edge eklentisi](https://plugins.jenkins.io/azure-iot-edge). Bu makalede, sürekli tümleştirme nasıl kullanabileceğinizi gösterir ve sürekli dağıtım özelliklerini Azure işlem hatları ve Microsoft Team Foundation Server (TFS) oluşturmak için test ve uygulamaları hızla ve verimli bir şekilde dağıtmak için Azure IOT Edge. 
+Azure IOT Edge uygulamalarınızı Azure işlem hatları yerleşik Azure IOT Edge görevleri ile DevOps kolayca benimseyebilirsiniz veya [Jenkins için Azure IOT Edge eklentisi](https://plugins.jenkins.io/azure-iot-edge) Jenkins sunucunuzda. Bu makalede, sürekli tümleştirme nasıl kullanabileceğinizi gösterir ve sürekli dağıtım özelliklerini Azure işlem hatları ve Azure DevOps sunucusu oluşturmak için test ve uygulamaları hızla ve verimli bir şekilde dağıtmak için Azure IOT Edge. 
 
 Bu makalede, öğreneceksiniz nasıl yapılır:
 * Oluşturun ve IOT Edge çözümü bir örnek denetleyin.
-* Azure DevOps için Azure IOT Edge uzantısını yükleyin.
 * Sürekli Tümleştirme (CI) çözümü derlemek için yapılandırın.
 * Çözümü dağıtmak ve yanıtları görüntülemek için sürekli dağıtım (CD) yapılandırın.
 
-Bu makaledeki adımlarda tamamlanması 30 dakika sürer.
+Bu makaledeki adımları tamamlayabilmeniz için 20 dakika sürer.
 
 ![CI ve CD](./media/how-to-ci-cd/cd.png)
 
@@ -34,7 +33,7 @@ Bu makaledeki adımlarda tamamlanması 30 dakika sürer.
 
 Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim testleri içeren örnek bir IOT Edge oluşturacaksınız. Bu bölümdeki yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [bir IOT Edge çözümü Visual Studio code'da birden çok modül ile geliştirme](tutorial-multiple-modules-in-vscode.md).
 
-1. VS Code komut paleti yazın ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge yeni çözüm**. Çalışma alanı klasörünüzde'ı seçin, çözüm adı sağlayın (varsayılan ad **EdgeSolution**) ve bir C# modülü oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri bağlıdır (`localhost:5000/filtermodule`). Azure Container Registry'ye değiştirmeniz gerekir (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker hub'ı.
+1. VS Code komut paleti yazın ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge yeni çözüm**. Çalışma alanı klasörünüzde'ı seçin, çözüm adı sağlayın (varsayılan ad **EdgeSolution**) ve bir C# modülü oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri bağlıdır (`localhost:5000/filtermodule`). Azure Container Registry'ye değiştirme (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker hub'ı.
 
     ![ACR ' ayarlayın](./media/how-to-ci-cd/acr.png)
 
@@ -42,7 +41,7 @@ Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim
 
 3. Artık IOT Edge çözüm örneğinizi hazırdır. Varsayılan C# modülü kanal iletisi modül olarak görev yapar. İçinde `deployment.template.json`, bu çözümü içeren iki modül görürsünüz. İleti kaynaklandığı `tempSensor` modülü ve aracılığıyla doğrudan yöneltilen `FilterModule`, ardından IOT hub'ına gönderilen.
 
-4. Bu projeler kaydettikten sonra Azure depoları veya TFS depoya denetleyin.
+4. Bu projeler kaydettikten sonra Azure depoları veya Azure DevOps sunucusu depoya denetleyin.
     
 > [!NOTE]
 > Azure depoları kullanma hakkında daha fazla bilgi için bkz. [Visual Studio ve Azure depoları ile kodunuzu paylaşmaya](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -55,15 +54,11 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
 
     ![Kod iade etme](./media/how-to-ci-cd/init-project.png)
 
-1. Ziyaret [Azure işlem hatları için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) Azure DevOps Market'te. Tıklayın **Ücretsiz edinin** ve Azure DevOps kuruluşunuz veya indirmek için TFS için bu uzantıyı yüklemek için sihirbazı izleyin.
-
-    ![Uzantıyı yükleme](./media/how-to-ci-cd/install-extension.png)
-
-1. Azure işlem hatlarınız açın **derleme ve yayınlama** hub hem de **yapılar** sekmesini, **+ yeni işlem hattı**. Ya da derleme işlem hatlarını zaten varsa, seçin **+ yeni** düğmesi.
+1. Azure işlem hatlarınız açın **yapılar** sekmesini, **+ yeni işlem hattı**. Ya da derleme işlem hatlarını zaten varsa, seçin **+ yeni** düğmesi. Ardından **yeni derleme işlem hattı**.
 
     ![Yeni ardışık düzen](./media/how-to-ci-cd/add-new-build.png)
 
-1. İstenirse, seçin **Git** kaynak türü. Ardından, proje, depo ve dal kodunuzu bulunduğu seçin. Seçin **devam**.
+1. İstenirse, seçin **Azure DevOps Git** kaynak türü. Ardından, proje, depo ve dal kodunuzu bulunduğu seçin. Seçin **devam**.
 
     ![Gıt'i seçin](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -79,15 +74,19 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
     
     ![Yapı aracısını yapılandırın](./media/how-to-ci-cd/configure-env.png)
 
-1. Aracı işinde tıklayın "+" derleme işlem hattı iki görev eklemek için. İlk dandır **Azure IOT Edge**. Ve ikincisi dandır **derleme Yapıtları yayımlama**
+1. Aracı işinde tıklayın "+" derleme işlem hattı, üç görev eklemek için. İlk iki arasındadır **Azure IOT Edge**. Ve üçüncü dandır **derleme Yapıtları yayımlama**
     
     ![Görev ekleme](./media/how-to-ci-cd/add-tasks.png)
 
-1. İlk **Azure IOT Edge** görev, güncelleştirme **görünen ad** için **modülü oluşturmak ve anında iletme**hem de **eylem** açılan listesinde seçin **Oluşturun ve gönderin**. İçinde **Module.json dosya** metin kutusuna aşağıdaki yolu ekleyin. Ardından **kapsayıcı kayıt defteri türü**, yapılandırma ve aynı kayıt defteri içinde code(module.json) seçin emin olun. Bu görev oluşturacak ve Çözümdeki tüm modüllerin gönderin ve belirttiğiniz kapsayıcı kayıt defterine yayımlama. Farklı kayıt defterlerinde modüllerinizi gönderilir, birden çok olabilir **modülü oluşturmak ve anında iletme** görevleri. IOT Edge çözüm kod deponuzun kök altında değil durumda, belirttiğiniz **çözüm kök yolu, Edge** içinde derleme tanımı.
+1. İlk **Azure IOT Edge** görev, güncelleştirme **görünen ad** için **Azure IOT Edge - derleme modül görüntüleri**hem de **eylem** açılır listesinden **derleme modül görüntüleri**. İçinde **. template.json dosyasını** denetimi, select **deployment.template.json** IOT Edge çözümünüzü tanımlayan dosya. Ardından **varsayılan platform**, IOT Edge cihazınız olarak aynı platforma seçtiğinizden emin olun. Bu görev, belirtilen hedef platform çözümüyle tüm modüllerdeki oluşturacaksınız. Ve ayrıca **deployment.json** dosya, dosya yolu çıkış değişkenleri bulabilirsiniz. Diğer adı ayarlama `edge` bu değişkeni.
     
     ![Derleme ve gönderme](./media/how-to-ci-cd/build-and-push.png)
 
-1. İçinde **derleme Yapıtları yayımlama** görevi derleme görevi tarafından oluşturulan dağıtım dosyası belirtirsiniz. Ayarlama **yayımlama yolu** "config/deployment.json" için. Ayarlarsanız **çözüm kök yolu, Edge** son görevde kök yolu buraya katılın gerekecektir. Örneğin, Edge çözüm kök yolu ". / edgesolution", ardından **yayımlama yolu** olmalıdır ". / edgesolution/config/deployment.json". `deployment.json` Yoksayılabilir kırmızı hata satır metin kutusuna, bu nedenle, dosya derleme zamanında oluşturulur. 
+1. İkinci **Azure IOT Edge** görev, güncelleştirme **görünen ad** için **Azure IOT Edge - anında iletme modül görüntüleri**hem de **eylem** açılır listesinden **modül görüntüleri itme**. Kapsayıcı kayıt defteri türü seçin, yapılandırma ve aynı kayıt defteri içinde code(module.json) seçin emin olun. İçinde **. template.json dosyasını** denetimi, select **deployment.template.json** IOT Edge çözümünüzü tanımlayan dosya. Ardından **varsayılan platform**, yerleşik modülü görüntüleriniz için aynı platforma seçtiğinizden emin olun. Bu görev, tüm modül görüntüleri, seçtiğiniz kapsayıcı kayıt defterine iletilir. Kapsayıcı kayıt defteri kimlik bilgilerini de ekleyin **deployment.json** dosya, dosya yolu çıkış değişkenleri bulabilirsiniz. Diğer adı ayarlama `edge` bu değişkeni. Modül görüntüleri barındırmak için birden çok kapsayıcı kayıt defterleri varsa, bu görev yinelenen, farklı bir kapsayıcı kayıt defteri seçin ve kullanmak gereken **atlama modul** bu olmayan görüntüleri atlamak için Gelişmiş ayarları belirli kayıt defteri.
+
+    ![İstek bildirimi](./media/how-to-ci-cd/push.png)
+
+1. İçinde **derleme Yapıtları yayımlama** görevi derleme görevi tarafından oluşturulan dağıtım dosyası belirtirsiniz. Ayarlama **yayımlama yolu** için `$(edge.DEPLOYMENT_FILE_PATH)`.
 
     ![Yapıt yayımlama](./media/how-to-ci-cd/publish-build-artifacts.png)
 
@@ -133,21 +132,21 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
     ![QA için görev ekleyin](./media/how-to-ci-cd/add-task-qa.png)
 
-5. Azure IOT Edge görevde gidin **eylem** açılan listesinden **IOT Edge cihazına dağıtma**. Seçin, **Azure aboneliği** ve giriş, **IOT hub'ı adı**. IOT Edge belirtebilirsiniz **dağıtım kimliği** ve dağıtım **öncelik**. Tek veya birden çok cihaza dağıtmayı seçebilirsiniz. Dağıtımını yapıyorsanız **birden çok cihaz**, cihaz belirtmeniz gereken **hedef koşulu**. Hedef koşul, bir IOT hub uç cihazlarına eşleşecek şekilde bir filtredir. Cihaz etiketleri koşul olarak kullanmak istiyorsanız, karşılık gelen etiketleri cihazlarınızı IOT Hub ile cihaz ikizi güncelleştirmeniz gerekiyor. Aşağıdaki ekran görüntüsünde gösterildiği gibi görev yapılandırması olmalıdır birkaç IOT Edge cihazları 'qa' etiketli olduğunu kabul edelim. 
+5. Azure IOT Edge görevde gidin **eylem** açılan listesinden **IOT Edge cihazına dağıtma**. Seçin, **Azure aboneliği** ve giriş, **IOT hub'ı adı**. Tek veya birden çok cihaza dağıtmayı tercih edebilirsiniz. Dağıtımını yapıyorsanız **birden çok cihaz**, cihaz belirtmeniz gereken **hedef koşulu**. Hedef koşul, bir IOT hub uç cihazlarına eşleşecek şekilde bir filtredir. Cihaz etiketleri koşul olarak kullanmak istiyorsanız, karşılık gelen etiketleri cihazlarınızı IOT Hub ile cihaz ikizi güncelleştirmeniz gerekiyor. Güncelleştirme **IOT Edge dağıtımı kimliği** "dağıtma-kalite güvence" içinde için Gelişmiş ayarları. Aşağıdaki ekran görüntüsünde gösterildiği gibi görev yapılandırması olmalıdır birkaç IOT Edge cihazları 'qa' etiketli olduğunu kabul edelim. 
 
     ![QA için dağıtma](./media/how-to-ci-cd/deploy-to-qa.png)
 
     Yeni yayın ardışık düzeni kaydedin. **Kaydet** düğmesine tıklayın. Ve ardından **işlem hattı** ardışık düzene dönmek için.
 
-6. Üretim ortamınız için ikinci aşamasıdır. "PROD" yeni aşama ekleyin için yalnızca "Kalite güvence" Aşama kopyalayın ve kopyalanmış aşamasına Yeniden Adlandır **PROD**,
+6. Üretim ortamınız için ikinci aşamasıdır. Yeni aşama "PROD" eklemek için "Kalite güvence" Aşama kopyalayın ve kopyalanmış aşamasına Yeniden Adlandır **PROD**,
 
     ![Aşama kopyalama](./media/how-to-ci-cd/clone-stage.png)
 
-7. Üretim ortamınız için görevleri yapılandırın. Birden çok IOT Edge cihazları 'prod', görev yapılandırmalarında "prod" ve "dağıtma-ürün" olarak dağıtım kimliği ayarlamak için hedef koşulu güncelleştirirken Etiketlenmedi olduğu varsayılır. **Kaydet** düğmesine tıklayın. Ve ardından **işlem hattı** ardışık düzene dönmek için.
+7. Üretim ortamınız için görevleri yapılandırın. Birden çok IOT Edge cihazları 'prod', görev yapılandırmalarında "prod" ve "dağıtma-ürün" Gelişmiş ayarları olarak dağıtım Kimliğini ayarlamak için hedef koşulu güncelleştirirken Etiketlenmedi olduğu varsayılır. **Kaydet** düğmesine tıklayın. Ve ardından **işlem hattı** ardışık düzene dönmek için.
     
     ![Üretime dağıtma](./media/how-to-ci-cd/deploy-to-prod.png)
 
-7. Şu anda, bizim derleme yapıtı sürekli olarak üzerinde tetiklenecek **QA** aşama ve ardından **PROD** aşaması. Ancak, çoğu kez bazı test çalışmaları QA cihazlarda ve el ile tümleştirmek için gereken BITS onaylayın. Daha sonra BITS üretim ortamına dağıtılır. Üretim aşamasında aşağıdaki onay ayarlayın.
+7. Şu anda, bizim derleme yapıtı sürekli olarak üzerinde tetiklenecek **QA** aşama ve ardından **PROD** aşaması. Ancak, çoğu kez bazı test çalışmaları QA cihazlarda ve el ile tümleştirmek için gereken BITS onaylayın. Daha sonra BITS üretim ortamına dağıtılır. Üretim aşamasında onay aşağıdaki ekran görüntüsünde olarak ayarlayın.
 
     1. Açık **dağıtım öncesi koşulları** ayarı paneli.
 
@@ -158,7 +157,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
         ![Durumlar belirleyin](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
 
-8. Yayın işlem hattınızı aşağıdakileri olarak ayarlanmış olan şimdi.
+8. Artık yayın işlem hattınızı aşağıdaki ekran görüntüsü ayarlanmış.
 
     ![Yayın ardışık düzeni](./media/how-to-ci-cd/release-pipeline.png)
 
@@ -171,11 +170,11 @@ Bu bölümde, iş CI/CD işlem hattı yapmak için bir derleme tetikler. Dağıt
 
     ![El ile tetikleme](./media/how-to-ci-cd/manual-trigger.png)
 
-2. Derleme işlem hattı başarıyla tamamlanırsa için yayın tetikleyeceğine **QA** aşaması. Derleme işlem hattı günlükleri gidin ve aşağıdaki görmeniz gerekir.
+2. Derleme işlem hattı başarıyla tamamlanırsa için yayın tetikleyeceğine **QA** aşaması. Derleme işlem hattı günlükleri gidin ve aşağıdaki ekran görmeniz gerekir.
 
     ![Derleme günlükleri](./media/how-to-ci-cd/build-logs.png)
 
-3. Başarılı dağıtımı **QA** aşama onaylayan bir bildirim tetikleme. Yayın işlem gidin, aşağıdakilere bakın. 
+3. Başarılı dağıtımı **QA** aşama onaylayan bir bildirim tetikleme. Yayın işlem gidin, aşağıdaki ekran görüntüsünde görebilirsiniz. 
 
     ![Onay bekleniyor](./media/how-to-ci-cd/pending-approval.png)
 

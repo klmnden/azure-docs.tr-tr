@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: d38b4e511defbb50dd5f74ae72e71d3316a57b3c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 524195372abde91b302ee03c13152f234ef56406
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567137"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498254"
 ---
-# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDFS'ye HDInsight üzerinde Apache Storm yazma
+# <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Apache Hadoop HDFS'ye HDInsight üzerinde Apache Storm yazma
 
-Storm, HDInsight üzerinde Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak amacıyla kullanmayı öğrenin. HDInsight her ikisini birden kullanabilir Azure depolama ve Azure Data Lake depolama HDFS uyumlu depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) verileri HDFS'ye Yazar bileşeni. Bu belge, HdfsBolt ya da depolama türüne yazmaya bilgi sağlar. 
+Nasıl kullanacağınızı öğrenin [Apache Storm](http://storm.apache.org/) HDInsight üzerinde Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak amacıyla. HDInsight her ikisini birden kullanabilir Azure depolama ve Azure Data Lake depolama HDFS uyumlu depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) verileri HDFS'ye Yazar bileşeni. Bu belge, HdfsBolt ya da depolama türüne yazmaya bilgi sağlar. 
 
 > [!IMPORTANT]
 > Bu belgede kullanılan örnek topoloji HDInsight üzerinde Storm ile birlikte gelen bileşenleri kullanır. Bu, diğer Apache Storm kümeleri ile kullanıldığında Azure Data Lake Store ile çalışmak için değişiklik gerektirebilir.
@@ -129,7 +129,7 @@ Aşağıdaki öğeler bu YAML tanımlar:
 * `rotationPolicy`: Dosyalarını döndürmek ne zaman tanımlar. Bu örnekte, hiçbir dönüş gerçekleştirilir.
 * `hdfs-bolt`: Yapılandırma parametreleri olarak önceki bileşenleri'ni kullanan `HdfsBolt` sınıfı.
 
-Flux çerçevesi hakkında daha fazla bilgi için bkz. [ https://storm.apache.org/releases/1.1.2/flux.html ](https://storm.apache.org/releases/1.1.2/flux.html).
+Flux çerçevesi hakkında daha fazla bilgi için bkz. [ https://storm.apache.org/releases/current/flux.html ](https://storm.apache.org/releases/current/flux.html).
 
 ## <a name="configure-the-cluster"></a>Kümeyi yapılandırma
 
@@ -219,5 +219,5 @@ Storm topolojileri durdurulana kadar çalıştırın veya küme silinir. Topoloj
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure depolama ve Azure Data Lake Store yazma Storm kullanmayı öğrendiniz, diğer bulma [örnekleri HDInsight için Storm](apache-storm-example-topology.md).
+Apache Storm, Azure depolama ve Azure Data Lake Store yazma kullanacağınızı öğrendiniz, diğer bulma [HDInsight için Apache Storm örnekleri](apache-storm-example-topology.md).
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901915"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498300"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Git Yönetimi SDK önizlemesi
 
@@ -141,7 +141,7 @@ Yeni bir küme çağırarak oluşturulabilir `client.Create()`.
 
 #### <a name="example"></a>Örnek
 
-Bu örnek 2 baş düğüm ve 1 çalışan düğümü ile bir Spark kümesi oluşturma işlemini gösterir.
+Bu örnek nasıl oluşturulacağını gösterir. bir [Apache Spark](https://spark.apache.org/) kümeye 2 baş düğümü ve 1 çalışan düğümü ile.
 
 > [!NOTE]
 > Önce bir kaynak grubu ve depolama hesabı oluşturmak için aşağıda açıklandığı gibi ihtiyacınız. Zaten bu oluşturduysanız, bu adımları atlayabilirsiniz.

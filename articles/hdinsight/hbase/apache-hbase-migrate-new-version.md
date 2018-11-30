@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 64b3762c40cc2e01944d78c546ebe267503526a7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049339"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499292"
 ---
-# <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Bir HBase kümesi yeni sürüme geçirme
+# <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Bir Apache HBase kümesi yeni sürüme geçirme
 
-İş tabanlı kümeler, Spark ve Hadoop gibi yükseltmek - basit bkz [daha yeni bir sürüme yükseltme HDInsight küme](../hdinsight-upgrade-cluster.md):
+İş tabanlı kümeler, gibi [Apache Spark](https://spark.apache.org/) ve [Apache Hadoop](https://hadoop.apache.org/), yükseltme - görmek basittir [daha yeni bir sürüme yükseltme HDInsight küme](../hdinsight-upgrade-cluster.md):
 
 1. Geçici (yerel olarak depolanan) verileri yedekleyin.
 2. Var olan kümeyi silin.
@@ -26,14 +26,14 @@ ms.locfileid: "43049339"
 4. Geçici veri aktarın.
 5. İşleri başlatmak ve yeni kümede işleme devam edin.
 
-Bir HBase kümesi yükseltmek için bazı ek adımlar, bu makalede anlatıldığı gibi gerekir.
+Yükseltmek için bir [Apache HBase](http://hbase.apache.org/) bazı ek adımlar gerekiyor, bu makalede açıklandığı gibi küme.
 
 > [!NOTE]
 > Yükseltilirken kapalı kalma süresi dakika bazında en az olmalıdır. Bu kapalı kalma süresi, tüm bellek içi verileri ve ardından yeni kümede hizmetlerini yeniden başlatın ve yapılandırma için zaman temizlemeye adımlarla neden olur. Sonuçlarınız, düğümler, veri miktarı ve diğer değişkenleri sayısına bağlı olarak değişir.
 
-## <a name="review-hbase-compatibility"></a>HBase uyumluluğu gözden geçirin
+## <a name="review-apache-hbase-compatibility"></a>Apache HBase uyumluluğu gözden geçirin
 
-HBase yükseltmeden önce kaynak ve hedef kümeler HBase sürümlerinde uyumlu olduğundan emin olun. Daha fazla bilgi için [Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen](../hdinsight-component-versioning.md).
+Apache HBase yükseltmeden önce kaynak ve hedef kümeler HBase sürümlerinde uyumlu olduğundan emin olun. Daha fazla bilgi için [Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen](../hdinsight-component-versioning.md).
 
 > [!NOTE]
 > Sürüm uyumluluk matrisi gözden geçirmenizi öneririz [HBase kitap](https://hbase.apache.org/book.html#upgrading).
@@ -57,7 +57,7 @@ Burada uyumluluk Y gösterir ve olası bir uyumsuzluk N gösteren bir örnek sü
 > [!NOTE]
 > En son uyumsuzlukları HBase sürümü bu sürüm notlarında açıklanmalıdır.
 
-## <a name="upgrade-with-same-hbase-major-version"></a>İle aynı HBase ana sürüm yükseltme
+## <a name="upgrade-with-same-apache-hbase-major-version"></a>Aynı Apache HBase ile ana sürüm yükseltme
 
 Aynı HBase ana sürümle (her ikisi de 1.1.2 Apache HBase ile gelir) 3.6 HDInsight 3.4 ' yükseltmek için aşağıdaki senaryodur. Diğer sürüm yükseltmeleri vardır sürece hiçbir uyumluluk sorunlarını kaynak ve hedef sürümleri arasında benzerdir.
 
@@ -187,7 +187,7 @@ Aynı HBase ana sürümle (her ikisi de 1.1.2 Apache HBase ile gelir) 3.6 HDInsi
     
 4. Eski bir HBase kümesi alımıyla durdurun.
 5. Memstore son tüm veriler aktarılmadan emin olmak için önceki betiği yeniden çalıştırın.
-6. Oturum açmak için Ambari eski kümede (https://OLDCLUSTERNAME.azurehdidnsight.net) ve HBase hizmetleri durdurun. Hizmetlerini durdurmak istediğinizi onaylamak için sorulduğunda, HBase için bakım modunu açmak için kutuyu işaretleyin. Bağlanmak ve Ambari kullanarak daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak](../hdinsight-hadoop-manage-ambari.md).
+6. Oturum [Apache Ambari](https://ambari.apache.org/) eski kümede (https://OLDCLUSTERNAME.azurehdidnsight.net) ve HBase hizmetleri durdurun. Hizmetlerini durdurmak istediğinizi onaylamak için sorulduğunda, HBase için bakım modunu açmak için kutuyu işaretleyin. Bağlanmak ve Ambari kullanarak daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak](../hdinsight-hadoop-manage-ambari.md).
 
     ![Ambari, hizmetler sekmesinden, ardından sol taraftaki menüsünden HBase sonra hizmet eylemleri altında Durdur](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
@@ -211,9 +211,9 @@ Aynı HBase ana sürümle (her ikisi de 1.1.2 Apache HBase ile gelir) 3.6 HDInsi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-HBase ve HDInsight kümelerini yükseltme hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Hakkında daha fazla bilgi edinmek için [Apache HBase](http://hbase.apache.org/) ve HDInsight kümelerini yükseltme, aşağıdaki makalelere bakın:
 
 * [Bir HDInsight kümesine yeni bir sürüme yükseltme](../hdinsight-upgrade-cluster.md)
-* [İzleme ve Azure HDInsight'ın Ambari Web kullanıcı arabirimini kullanarak yönetme](../hdinsight-hadoop-manage-ambari.md)
-* [Hadoop bileşenleri ve sürümleri](../hdinsight-component-versioning.md)
-* [Ambari kullanarak yapılandırmaları en iyi duruma getirme](../hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)
+* [İzleme ve Azure HDInsight, Apache Ambari Web kullanıcı arabirimini kullanarak yönetme](../hdinsight-hadoop-manage-ambari.md)
+* [Apache Hadoop bileşenleri ve sürümleri](../hdinsight-component-versioning.md)
+* [Apache Ambari kullanarak yapılandırmaları en iyi duruma getirme](../hdinsight-changing-configs-via-ambari.md#apache-hbase-optimization-with-the-ambari-web-ui)

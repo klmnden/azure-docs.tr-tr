@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: cd94f17c6f8bb8cc5bc09222d4b561eefff6b20c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267172"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620022"
 ---
 # <a name="private-offers"></a>Özel teklifler
 
@@ -37,7 +37,7 @@ Kurumsal müşteriler, çevrimiçi marketlerden giderek bulmak, deneyin ve bulut
 
 Özel teklifler (Çözüm şablonları uygulanan veya yönetilen uygulamalar) uygulama Azure sanal makine için kullanılabilir ve SaaS uygulamaları sunar. Genel teklifler gibi özel teklifler oluşturulabilir ve aracılığıyla yönetilen [bulut iş ortağı portalı](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  Müşteriler verilebilir veya dakikalar içinde özel teklifler erişimi iptal edildi.
 
-## <a name="creating-private-offers-using-skus-and-plans"></a>Özel teklifler SKU'ları kullanarak ve planları oluşturma
+## <a name="creating-private-offers-using-skus-and-plans"></a>SKU'ları ve planları kullanarak teklifleri özel oluşturma
 
 İçin *genel SKU'ları veya planları ile yeni veya mevcut teklifler*, yayımcılar kolayca oluşturabilir yeni, özel çeşitlemeleri yeni SKU'ları veya planlar oluşturup bunları özel olarak işaretleniyor.  [Özel SKU'ları](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) ve planları bir teklif bileşenleri ve yalnızca görünür ve hedeflenen müşteriler tarafından satın alınabilir. Özel SKU'ları ve planları temel görüntüleri yeniden ve/veya bir ortak SKU veya planı için zaten yayımlanan meta verileri sunar. Yayımcılar aynı temel görüntüyü birden fazla sürümünü yayımlama ve meta verileri sunmak zorunda kalmadan birden çok özel çeşitleri genel teklif oluşturmak bu seçeneği sağlar. Sanal makine ve Azure uygulama teklifleri için yalnızca özel bir SKU genel bir SKU ile temel bir görüntü paylaştığında teklife ilişkin temel görüntü herhangi bir değişiklik, temel görüntüyü kullanarak tüm genel ve özel SKU'ları arasında yayılır.
 

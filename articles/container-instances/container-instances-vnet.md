@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e060d8cf1ec16ac3c900180c01eb3384a56d5e13
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713036"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619852"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -73,7 +73,7 @@ Kapsayıcı grubu için kullandığınız alt ağ yalnızca kapsayıcı grubu i�
 
 Azure kaynakları için ağ yapılandırma şablonu ağ profilidir. Bu kaynak, örneğin, içine, dağıtılması alt ağ için bazı ağ özellikleri belirtir. İlk kez kullandığınızda [az kapsayıcı oluşturma] [ az-container-create] bir kapsayıcı grubu bir alt ağ (ve bir sanal ağ böylece) dağıtmak için komut, Azure sizin için bir ağ profili oluşturur. Ardından bu ağ profili alt ağa gelecekteki dağıtımlar için de kullanabilirsiniz. 
 
-Bir alt ağ için bir kapsayıcı grubu dağıtmak için Resource Manager şablonu, YAML dosyası ya da programlı bir yöntem kullanmak için bir ağ profili tam Resource Manager kaynak Kimliğini sağlamanız gerekir. Kullanarak daha önce oluşturduğunuz bir profili kullanabilirsiniz [az kapsayıcı oluşturma][az-container-create], veya bir Resource Manager şablonu kullanarak profil oluşturma (bkz [başvuru](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Daha önce oluşturulmuş bir profilini Kimliğini almak için kullanın [az ağ profili listesi] [ az-network-profile-list] komutu. 
+Bir alt ağ için bir kapsayıcı grubu dağıtmak için Resource Manager şablonu, YAML dosyası ya da programlı bir yöntem kullanmak için bir ağ profili tam Resource Manager kaynak Kimliğini sağlamanız gerekir. Kullanarak daha önce oluşturduğunuz bir profili kullanabilirsiniz [az kapsayıcı oluşturma][az-container-create], veya bir Resource Manager şablonu kullanarak profil oluşturma (bkz [şablon örneği](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) ve [başvuru](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Daha önce oluşturulmuş bir profilini Kimliğini almak için kullanın [az ağ profili listesi] [ az-network-profile-list] komutu. 
 
 Aşağıdaki diyagramda, birkaç kapsayıcı grupları, Azure Container Instances'a temsilci bir alt ağa dağıtıldığı. Bir alt ağ için bir kapsayıcı grubunu dağıttıktan sonra ek kapsayıcı grubu için aynı ağ profili belirterek dağıtabilirsiniz.
 
@@ -296,6 +296,9 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Yeni sanal ağ, alt ağ, ağ profili ve bir Resource Manager şablonu kullanarak kapsayıcı grubu dağıtmak için bkz. [sanal ağ ile bir Azure kapsayıcı grubu oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
 
 Birden çok sanal ağ kaynakları ve özellikler bu makalede, ancak kısaca ele alınan. Azure sanal ağ belgeleri, kapsamlı bir şekilde bu konuları kapsamaktadır:
 

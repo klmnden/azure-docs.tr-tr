@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32ce9cb456e302647e2e09db6ed549cd4795fed7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448399"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635161"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Verileri Azure Backup için log Analytics veri modeli
 Log Analytics veri modeli, raporlar oluşturmak için kullanın. Veri modeli ile özel sorgular ve panolar oluşturmak veya istediğiniz ancak Azure Backup verileri, özelleştirebilir.
@@ -281,4 +281,4 @@ Bu tablo, kasa ile ilgili alanlar hakkında ayrıntılar sağlar.
 | ResourceType |Metin |Kaynak türü için verileri toplanır. Örneğin, kasaları |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Backup raporları oluşturmak için veri modeli gözden geçirin, sonra başlatabilirsiniz [panosu oluşturma](../log-analytics/log-analytics-dashboards.md) Log analytics'te.
+Azure Backup raporları oluşturmak için veri modeli gözden geçirin, sonra başlatabilirsiniz [panosu oluşturma](../azure-monitor/platform/dashboards.md) Log analytics'te.

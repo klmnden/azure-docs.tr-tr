@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404860"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633414"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için sanal makine uzantısı Analytics oturum
 
@@ -219,7 +219,7 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 | 51 | Bu uzantı sanal makinenin işletim sistemi üzerinde desteklenmiyor | |
 | 55 | Bağlantı kurulamıyor Log Analytics hizmetine veya gerekli paketleri eksik veya dpkg Paket Yöneticisi kilitli| Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin ve curl ve tar yardımcı programları yüklü olmadığını doğrulayın. |
 
-Ek bilgiler bulunabilir [Log Analytics aracısı için Linux sorun giderme kılavuzu](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Ek bilgiler bulunabilir [Log Analytics aracısı için Linux sorun giderme kılavuzu](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Destek
 

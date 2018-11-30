@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 378f52f0418c8c99e9ce6ca393ca10a77504698d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282484"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499592"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Windows tabanlı Apache Hadoop kümelerini yönetme
 
-Kullanarak [Azure portalında][azure-portal], Windows tabanlı Apache Hadoop kümeleri oluşturma Azure HDInsight, Hadoop kullanıcı parolası değiştirme ve Hadoop erişebilmesi için Uzak Masaüstü Protokolü (RDP) etkinleştir kümenin konsolda komutu.
+Kullanarak [Azure portalında][azure-portal], Windows tabanlı oluşturabilirsiniz [Apache Hadoop](https://hadoop.apache.org/) kümeleri Azure HDInsight, Hadoop kullanıcı parolası değiştirme ve Uzak Masaüstü Protokolü (etkinleştir) Küme Hadoop komut konsolunda erişebilmesi için RDP).
 
-Bu makaledeki bilgiler, yalnızca pencere tabanlı HDInsight kümeleri için geçerlidir. Linux tabanlı kümeler yönetme hakkında daha fazla bilgi için bkz. [yönetme Hadoop kümeleri HDInsight Azure portalını kullanarak](hdinsight-administer-use-portal-linux.md).
+Bu makaledeki bilgiler, yalnızca pencere tabanlı HDInsight kümeleri için geçerlidir. Linux tabanlı kümeler yönetme hakkında daha fazla bilgi için bkz. [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](hdinsight-administer-use-portal-linux.md).
 
 [!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
@@ -49,11 +49,11 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 ## <a name="create-clusters"></a>Küme oluşturma
 Portalı kullanarak oluşturma yönergeleri için bkz: [oluşturma HDInsight kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
 
-HDInsight, geniş Hadoop bileşenleri ile çalışır. Doğrulandı ve desteklenen bileşenlerin listesi için bkz [hangi sürümüdür Azure HDInsight hadoop](hdinsight-component-versioning.md). Aşağıdaki seçeneklerden birini kullanarak HDInsight özelleştirebilirsiniz:
+HDInsight, geniş aralığı Apache Hadoop bileşenleri ile çalışır. Doğrulandı ve desteklenen bileşenlerin listesi için bkz [hangi sürümüdür Azure HDInsight Apache hadoop'un](hdinsight-component-versioning.md). Aşağıdaki seçeneklerden birini kullanarak HDInsight özelleştirebilirsiniz:
 
 * Bir kümenin küme yapılandırmasını değiştirin veya Giraph veya Solr gibi özel bileşenleri yüklemek için özelleştirebileceğiniz özel komut dosyaları çalıştırmak için betik eylemi kullanın. Daha fazla bilgi için [betik eylemi kullanarak özelleştirme HDInsight küme](hdinsight-hadoop-customize-cluster.md).
 * Küme oluşturma sırasında küme özelleştirme parametreleri Azure PowerShell veya HDInsight .NET SDK'sını kullanın. Bu yapılandırma değişikliklerini sonra küme kullanım ömrü korunur ve gerçekleştiren Azure platformu düzenli bakım için küme düğümün görüntüsünü yeniden oluşturur etkilenmez. Küme özelleştirmesi parametreleri kullanma hakkında daha fazla bilgi için bkz. [oluşturma HDInsight kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
-* Mahout ve basamaklama, gibi yerel bazı Java bileşenlerini kümede JAR dosyaları olarak çalıştırabilirsiniz. Bu JAR dosyaları Azure Blob depolama alanına dağıtılmış ve HDInsight kümelerine Hadoop işi gönderme mekanizmalar aracılığıyla gönderildi. Daha fazla bilgi için [gönderme Hadoop işlerini program aracılığıyla](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+* İster yerel bazı Java bileşenlerini [Apache Mahout](https://mahout.apache.org/) ve [basamaklama](https://www.cascading.org/), küme üzerinde JAR dosyaları olarak çalıştırılabilir. Bu JAR dosyaları Azure Blob depolama alanına dağıtılmış ve HDInsight kümelerine Hadoop işi gönderme mekanizmalar aracılığıyla gönderildi. Daha fazla bilgi için [gönderme Apache Hadoop işlerini program aracılığıyla](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > HDInsight kümelerinde JAR dosyaları ile iletişime geçin veya JAR dosyalarını HDInsight kümelerine dağıtma sorunları varsa [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -91,7 +91,7 @@ Uzak Masaüstü bağlantısı kullanarak küme üzerinde özel yazılım yüklem
    * **Ambari görünümleri**: Ambari Web bağlanır.
 
      > [!IMPORTANT]
-     > HDInsight kümesi tarafından sağlanan hizmetleri yönetmek için Ambari Web veya Ambari REST API'sini kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Ambari kullanarak](hdinsight-hadoop-manage-ambari.md).
+     > HDInsight kümesi tarafından sağlanan hizmetleri yönetmek için Ambari Web veya Ambari REST API'sini kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [Apache Ambari kullanarak HDInsight yönetme kümelerini](hdinsight-hadoop-manage-ambari.md).
      >
      >
 
@@ -106,7 +106,7 @@ Uzak Masaüstü bağlantısı kullanarak küme üzerinde özel yazılım yüklem
    * **Küme, AAD kimlik**:
    * **Azure depolama anahtarları**: varsayılan depolama hesabını ve anahtarını görüntüleyin. Depolama hesabı küme oluşturma işlemi sırasında bir yapılandırmadır.
    * **Küme oturum açma**: HTTP küme kullanıcı adı ve parolasını değiştirin.
-   * **Dış meta depolar**: Hive ve Oozie meta depolar görüntüleyin. Meta depolar, yalnızca küme oluşturma işlemi sırasında yapılandırılabilir.
+   * **Dış meta depolar**: Görünüm [Apache Hive](https://hive.apache.org/) ve [Apache Oozie](https://oozie.apache.org/) meta depolar. Meta depolar, yalnızca küme oluşturma işlemi sırasında yapılandırılabilir.
    * **Küme ölçeklendirme**: artırma ve azaltma küme çalışan düğümü sayısı.
    * **Uzak Masaüstü**: etkinleştirme ve Uzak Masaüstü (RDP) erişimi devre dışı bırakın ve RDP kullanıcı adını yapılandırın.  RDP kullanıcı adını HTTP kullanıcı adından farklı olmalıdır.
    * **İş ortağı**:
@@ -152,12 +152,12 @@ Ayrıca bkz: [duraklatma/kümeleri kapatma](#pauseshut-down-clusters).
 
 HDInsight tarafından desteklenen küme her tür veri düğümü sayısı değiştirmenin etkisi:
 
-* Hadoop
+* Apache Hadoop
 
     Sorunsuz bir şekilde, bekleyen veya çalışan tüm işleri etkilemeden çalışan bir Hadoop kümesinde çalışan düğümleri sayısını artırabilirsiniz. İşlem devam ederken yeni işleri da gönderilebilir. Böylece küme her zaman işlevsel bir durumda bırakılır bir ölçeklendirme işlemi hataları düzgün bir şekilde ele alınır.
 
     Bir Hadoop kümesini veri düğümü sayısını azaltarak ölçeklendiğinde, kümedeki hizmetlerinden bazılarını yeniden başlatılır. Bu tüm çalışan ve farklı bekleyen işleri ölçeklendirme işleminin tamamlanması sırasında başarısız olmasına neden olur. İşlemi tamamlandıktan sonra ancak, işleri yeniden oluşturabilirsiniz.
-* HBase
+* Apache HBase
 
     Sorunsuz bir şekilde ekleyebilir veya çalışırken düğümleri HBase kümenize kaldırın. Bölge sunucuları ölçeklendirme işlemi tamamladıktan birkaç dakika içinde otomatik olarak dengelenir. Ancak, küme baş düğümüne günlüğe kaydetme ve bir komut istemi penceresinden aşağıdaki komutları çalıştırmadan tarafından el ile bölgesel sunucuları dengeleyebilirsiniz:
 
@@ -166,13 +166,13 @@ HDInsight tarafından desteklenen küme her tür veri düğümü sayısı deği�
         >balancer
 
     HBase kabuğunu kullanma hakkında daha fazla bilgi için bkz]
-* Storm
+* Apache Storm
 
     Sorunsuz bir şekilde ekleyebilir veya çalışırken Storm kümenize veri düğümleri kaldırma. Ancak, ölçeklendirme işlemi başarıyla tamamlandıktan sonra topoloji yeniden dengelemeniz gerekir.
 
     Yeniden Dengeleme iki şekilde gerçekleştirilebilir:
 
-  * Storm web kullanıcı Arabirimi
+  * Apache Storm web kullanıcı Arabirimi
   * Komut satırı arabirimi (CLI) aracı
 
     Lütfen [Apache Storm belgeleri](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
@@ -206,7 +206,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 * Kullanıcı Azure veri fabrikası. Bkz: [Azure HDInsight bağlı hizmeti](../data-factory/compute-linked-services.md) ve [dönüştürmek ve Azure Data Factory kullanarak çözümlemek](../data-factory/transform-data.md) Hizmetleri için isteğe bağlı hem de şirket içinde tanımlanan HDInsight bağlı.
 * Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md).
 * Klasik Azure CLI'yi kullanın. Bkz: [yönetme HDInsight kümeleri Klasik Azure CLI kullanarak](hdinsight-administer-use-command-line.md).
-* HDInsight .NET SDK'sını kullanın. Bkz: [gönderme Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+* HDInsight .NET SDK'sını kullanın. Bkz: [gönderme Apache Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Fiyatlandırma bilgileri için bkz. [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). Portaldan bir kümeyi silmek için bkz: [küme silme](#delete-clusters)
 
@@ -264,7 +264,7 @@ Bkz: [kümeleri Listele ve Göster](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>HDInsight sorgu konsolu aç
 HDInsight sorgu Konsolu aşağıdaki özellikleri içerir:
 
-* **Hive Düzenleyicisi**: Hive işlerini göndermeye yönelik bir GUI web arabirimi.  Bkz: [sorgu Konsolu kullanarak Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-query-console.md).
+* **Hive Düzenleyicisi**: Hive işlerini göndermeye yönelik bir GUI web arabirimi.  Bkz: [sorgu Konsolu kullanarak Apache Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive Düzenleyicisi](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **İş Geçmişi**: İzleyici Hadoop işlerini.  
@@ -301,7 +301,7 @@ Ayrıca **dosya sistemine Gözat** yardımcı programı'ndan **Hadoop UI** HDIns
 **Kullanım** HDInsight küme dikey penceresinde bölümünü nasıl ayrılacağını ve bu küme için ayrılmış çekirdek sayısının yanı sıra HDInsight ile kullanmak için aboneliğinizi kullanılabilir çekirdek sayısı hakkında daha fazla bilgi görüntüler Bu küme içindeki düğümler için. Bkz: [kümeleri Listele ve Göster](#list-and-show-clusters).
 
 > [!IMPORTANT]
-> HDInsight kümesi tarafından sağlanan hizmetleri izlemek için Ambari Web veya Ambari REST API'sini kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Ambari kullanarak](hdinsight-hadoop-manage-ambari.md)
+> HDInsight kümesi tarafından sağlanan hizmetleri izlemek için Ambari Web veya Ambari REST API'sini kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [Apache Ambari kullanarak HDInsight yönetme kümelerini](hdinsight-hadoop-manage-ambari.md)
 >
 >
 
@@ -347,7 +347,7 @@ Uzak Masaüstü'nü kullanarak kümeye bağlanın ve Hadoop komut satırında ku
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-    Hadoop komutları hakkında daha fazla bilgi için bkz. [Hadoop komutlarını başvuru](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    Hadoop komutları hakkında daha fazla bilgi için bkz. [Apache Hadoop komutlarını başvuru](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 Önceki ekran görüntüsünde, klasör adı katıştırılmış Hadoop sürüm numarasına sahip. Sürüm numarası, kümeye yüklü Hadoop bileşenleri göre değiştirebilirsiniz. Bu klasörleri için başvuruda bulunmak için Hadoop ortam değişkenlerini kullanabilirsiniz. Örneğin:
 
@@ -359,14 +359,14 @@ Uzak Masaüstü'nü kullanarak kümeye bağlanın ve Hadoop komut satırında ku
     cd %hcatalog_home%
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, portalı kullanarak bir HDInsight kümesi oluşturma ve Hadoop komut satırı aracını açmak nasıl öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, portalı kullanarak bir HDInsight kümesi oluşturma ve Apache Hadoop komut satırı aracını açmak nasıl öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure PowerShell kullanarak HDInsight'ı yönetme](hdinsight-administer-use-powershell.md)
 * [Klasik Azure CLI kullanarak HDInsight'ı yönetme](hdinsight-administer-use-command-line.md)
 * [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
-* [Program aracılığıyla Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Program aracılığıyla Apache Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Azure HDInsight, Hadoop hangi sürümünü mi?](hdinsight-component-versioning.md)
+* [Azure HDInsight Apache Hadoop hangi sürümünü mi?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop komut satırı"

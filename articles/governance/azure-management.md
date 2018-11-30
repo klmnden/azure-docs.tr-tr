@@ -1,5 +1,5 @@
 ---
-title: Azure Yönetimi
+title: Azure yönetimine genel bakış
 description: Yönetimi için Azure uygulamalarınızın ve kaynaklarınızın Azure Yönetim Araçları içeriği için bağlantılarla birlikte alanlarından genel bakış.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978241"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582325"
 ---
 # <a name="management-in-azure"></a>Azure’da Yönetim
 
@@ -43,7 +43,7 @@ Azure’da İdare, temelde iki hizmet ile uygulanır. [Azure İlkesi](../azure-p
 
 ## <a name="secure"></a>Güvenlik
 
-Uygulamalarınızın, kaynakları ve veri güvenliğini yönetme, toplama ve güvenlik verilerini analiz etme ve uygulamalarınızın ve kaynaklarınızın tasarlanmış ve güvenli bir şekilde tasarlanıp yapılandırılmasını sağlayarak kapsamında, değerlendirilen tehditlerin, bir birleşimini içerir. [Azure Güvenlik Merkezi](../security-center/security-center-intro.md)’nin sağladığı güvenlik izleme ve tehdit analizine hibrit bulut iş yükleri arasında birleşik güvenlik yönetimi ve gelişmiş tehdit koruması dahildir. Azure’da güvenlik ve Azure kaynaklarını güvenli bir şekilde yapılandırma hakkında kapsamlı bilgi için [Azure Güvenlik’e Giriş](../security/azure-security.md) sayfasına da başvurabilirsiniz.
+Uygulamalarınızın, kaynakları ve veri güvenliğini yönetme, toplama ve güvenlik verilerini analiz etme ve uygulamalarınızın ve kaynaklarınızın tasarlanmış ve güvenli bir şekilde tasarlanıp yapılandırılmasını sağlayarak kapsamında, değerlendirilen tehditlerin, bir birleşimini içerir. Güvenlik İzleme ve tehdit Analizine hibrit bulut iş yüklerinde Birleşik güvenlik yönetimi ve Gelişmiş tehdit koruması içeren Azure Güvenlik Merkezi tarafından sağlanır. Azure’da güvenlik ve Azure kaynaklarını güvenli bir şekilde yapılandırma hakkında kapsamlı bilgi için [Azure Güvenlik’e Giriş](../security/azure-security.md) sayfasına da başvurabilirsiniz.
 
 ## <a name="protect"></a>Koruma
 
