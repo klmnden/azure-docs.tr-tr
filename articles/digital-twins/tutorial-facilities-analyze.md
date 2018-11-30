@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 51f3bcee3a2e5bab8f3592d97f0caa91e8002dd4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b7c44184d0a0d8d5a8f1fbd80b053230f2c1ae84
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615989"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582029"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Öğretici: Görselleştirme ve Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleme
 
@@ -160,6 +160,10 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
 Azure dijital İkizlerini bu noktanın ötesine keşfetmeye durdurmak istiyorsanız, bu öğreticide oluşturulan kaynakları silmek çekinmeyin:
 
 1. Sol menüden [Azure portalında](http://portal.azure.com)seçin **tüm kaynakları**dijital İkizlerini kaynak grubunuzu seçin ve ardından **Sil**.
+
+    > [!TIP]
+    > Dijital İkizlerini örneğinizin silme sorun olduysa, bir hizmet güncelleştirmesi düzeltme alındı. Örneğiniz silme yeniden deneyin.
+
 2. Gerekirse, iş makinenizde örnek uygulamaları silin. 
 
 

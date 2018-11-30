@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 529dc37187f6709ecfa93bf3a6d71f053ba49103
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008972"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499316"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Öğretici: HDInsight’ta IntelliJ kullanarak Spark için bir Scala Maven uygulaması oluşturma
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Öğretici: Intellij kullanarak HDInsight, Apache Spark Scala Maven uygulama oluşturma
 
-Bu öğreticide, IntelliJ IDEA ile Maven kullanılarak Scala’da yazılmış bir Spark uygulaması oluşturmayı öğreneceksiniz. Makale, derleme sistemi olarak Apache Maven kullanmakta ve Scala için IntelliJ IDEA tarafından sağlanan mevcut bir Maven mimari türü ile başlamaktadır.  IntelliJ IDEA’da Scala uygulaması oluşturma işlemi aşağıdaki adımları içerir:
+Bu öğreticide, şunların nasıl oluşturulacağı bir [Apache Spark](https://spark.apache.org/) yazılmış uygulama [Scala](https://www.scala-lang.org/) kullanarak [Apache Maven](https://maven.apache.org/) Intellij Idea ile. Makale, derleme sistemi olarak Apache Maven kullanmakta ve Scala için IntelliJ IDEA tarafından sağlanan mevcut bir Maven mimari türü ile başlamaktadır.  IntelliJ IDEA’da Scala uygulaması oluşturma işlemi aşağıdaki adımları içerir:
 
 * Derleme sistemi olarak Maven kullanma.
 * Spark modülü bağımlılıklarını çözümlemek için Proje Nesne Modeli (POM) dosyasını güncelleştirme.
@@ -27,7 +27,7 @@ Bu öğreticide, IntelliJ IDEA ile Maven kullanılarak Scala’da yazılmış bi
 * Livy kullanarak uygulamayı Spark kümesi üzerinde çalıştırma.
 
 > [!NOTE]
-> HDInsight ayrıca uygulamaları oluşturma ve Linux üzerindeki bir HDInsight Spark kümesine gönderme işlemini kolaylaştıran IntelliJ IDEA eklenti aracını sağlar. Daha fazla bilgi için bkz. [Spark uygulamaları oluşturmak ve göndermek üzere IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md).
+> HDInsight ayrıca uygulamaları oluşturma ve Linux üzerindeki bir HDInsight Spark kümesine gönderme işlemini kolaylaştıran IntelliJ IDEA eklenti aracını sağlar. Daha fazla bilgi için [oluşturmak ve Apache Spark uygulamaları göndermek amacıyla Intellij Idea için kullanım HDInsight araçları eklentisi](apache-spark-intellij-tool-plugin.md).
 > 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
@@ -37,7 +37,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development kit. [Buradan](https://aka.ms/azure-jdks) yükleyebilirsiniz.
@@ -183,16 +183,16 @@ Scala eklentisini yüklemek için aşağıdaki adımları kullanın:
        
         ![JAR oluşturma](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>Uygulamayı Spark kümesi üzerinde çalıştırma
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>Apache Spark kümesinde uygulamayı çalıştırın
 Uygulamayı kümede çalıştırmak için aşağıdaki yaklaşımları kullanabilirsiniz:
 
-* **Uygulama jar dosyasını kümeyle ilişkili olan Azure depolama blobuna kopyalayın**. Bunu yapmak için, bir komut satırı yardımcı programı olan [**AzCopy**](../../storage/common/storage-use-azcopy.md)’yi kullanabilirsiniz. Verileri karşıya yüklemek için kullanabileceğiniz çok sayıda başka istemci de mevcuttur. Bunlar hakkında daha fazla bilgi için bkz. [HDInsight'ta Hadoop işleri için veri yükleme](../hdinsight-upload-data.md).
-* Spark kümesine **uzaktan bir uygulama işi göndermek için Livy kullanın**. HDInsight üzerinde Spark kümeleri, Spark işlerini uzaktan göndermek için REST uç noktalarını kullanıma sunan Livy’yi içerir. Daha fazla bilgi için bkz. [HDInsight üzerinde Spark kümeleriyle Livy kullanarak Spark işlerini uzaktan gönderme](apache-spark-livy-rest-interface.md).
+* **Uygulama jar dosyasını kümeyle ilişkili olan Azure depolama blobuna kopyalayın**. Bunu yapmak için, bir komut satırı yardımcı programı olan [**AzCopy**](../../storage/common/storage-use-azcopy.md)’yi kullanabilirsiniz. Verileri karşıya yüklemek için kullanabileceğiniz çok sayıda başka istemci de mevcuttur. Onları hakkında daha fazla bulabilirsiniz [HDInsight Apache Hadoop işleri için verileri karşıya yükleme](../hdinsight-upload-data.md).
+* **Bir uygulama işi uzaktan göndermek için Apache Livy kullanın** Spark kümesine. HDInsight üzerinde Spark kümeleri, Spark işlerini uzaktan göndermek için REST uç noktalarını kullanıma sunan Livy’yi içerir. Daha fazla bilgi için [kümeleri HDInsight üzerinde Apache Livy kullanarak Spark ile uzaktan gönderme Apache Spark işleri](apache-spark-livy-rest-interface.md).
 
 ## <a name="next-step"></a>Sonraki adım
 
-Bu makalede, bir Spark scala uygulaması oluşturmayı öğrendiniz. Bu uygulamayı Livy kullanarak bir HDInsight Spark kümesinde çalıştırmayı öğrenmek için sonraki makaleye ilerleyin.
+Bu makalede, bir Apache Spark scala uygulamasının nasıl oluşturulacağını öğrendiniz. Bu uygulamayı Livy kullanarak bir HDInsight Spark kümesinde çalıştırmayı öğrenmek için sonraki makaleye ilerleyin.
 
 > [!div class="nextstepaction"]
->[Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](./apache-spark-livy-rest-interface.md)
+>[Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](./apache-spark-livy-rest-interface.md)
 

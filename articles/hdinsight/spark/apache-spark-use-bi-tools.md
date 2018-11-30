@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712424"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583287"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Öğretici: Power BI kullanarak HDInsight Apache Spark verileri analiz edin 
 
-Azure HDInsight’ta Apache Spark kümelerinde bulunan verileri görselleştirmek için Microsoft Power BI’yi nasıl kullanacağınızı öğrenin.
+Nasıl kullanacağınızı öğrenin [Microsoft Power BI](https://powerbi.microsoft.com/) verileri görselleştirmek için bir [Apache Spark](https://spark.apache.org/) içinde küme [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="verify-the-data"></a>Verileri doğrulama
 
-[Önceki öğreticide](apache-spark-load-data-run-query.md) oluşturduğunuz Jupyter not defteri bir `hvac` tablosu oluşturmaya yarayan kodu içerir. Bu tablo, **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** dizinindeki tüm HDInsight Spark kümelerinde bulunan CSV dosyasını temel alır. Verileri doğrulamak için aşağıdaki yordamı kullanın.
+[Jupyter not defteri](https://jupyter.org/) oluşturduğunuz [önceki öğreticide](apache-spark-load-data-run-query.md) oluşturmak için kod içeren bir `hvac` tablo. Bu tablo, **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** dizinindeki tüm HDInsight Spark kümelerinde bulunan CSV dosyasını temel alır. Verileri doğrulamak için aşağıdaki yordamı kullanın.
 
 1. Jupyter not defterinden aşağıdaki kodu yapıştırın ve sonra **SHIFT + ENTER** tuşuna basın. Kod, tabloların varlığını doğrular.
 
@@ -164,7 +164,7 @@ Power BI hizmeti, raporları ve panoları kuruluşunuzda paylaşmanıza olanak t
 
 10. Raporda **Panoya git**’e tıklayın. 
 
-Görseliniz panoya sabitlenir. Rapora başka görseller ekleyebilir ve bu görselleri aynı panoya sabitleyebilirsiniz. Raporlar ve panolar hakkında daha fazla bilgi için bkz. [Power BI’da raporlar](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) ve [Power BI’da panolar](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Görseliniz panoya sabitlenir. Rapora başka görseller ekleyebilir ve bu görselleri aynı panoya sabitleyebilirsiniz. Raporlar ve panolar hakkında daha fazla bilgi için bkz: [Power BI raporlarında](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) ve [Power bı'da panolar](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 <!--
 ## <a name="tableau"></a>Use Tableau Desktop 
@@ -214,9 +214,9 @@ Görseliniz panoya sabitlenir. Rapora başka görseller ekleyebilir ve bu görse
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
-- Power BI kullanarak Spark verilerini görselleştirin.
+- Apache Spark verileri Power bı'da görselleştirin.
 
 Spark’a kaydettiğiniz verilerin Power BI gibi bir BI analiz aracına nasıl çekilebileceğini görmek için sonraki makaleye ilerleyin. 
 > [!div class="nextstepaction"]
-> [Spark akış işi çalıştırma](apache-spark-eventhub-streaming.md)
+> [Bir Apache Spark akış işi çalıştırma](apache-spark-eventhub-streaming.md)
 

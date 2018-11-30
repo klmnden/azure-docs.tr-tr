@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277146"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499077"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect eşitlemesini Azure AD Connect Health ile izleme
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](how-to-connect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](how-to-connect-health-adds.md).
@@ -62,7 +62,7 @@ Bu özellik, değerlendirilen ve Azure AD'ye aktarılan değişiklik sayısını
 
 ![Eşitleme Gecikme Süresi](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>Nesne Düzeyinde Eşitleme Hata Raporu (Önizleme)
+## <a name="object-level-synchronization-error-report"></a>Nesne düzeyinde eşitleme hata raporu
 Bu özellik, kimlik verileri Azure AD Connect kullanılarak Windows Server AD ile Azure AD arasında eşitlenirken oluşabilecek eşitleme hataları hakkında bir rapor sağlar.
 
 * Rapor, eşitleme istemcisi tarafından kaydedilen hataları kapsar (Azure AD Connect 1.1.281.0 veya üzeri)
@@ -74,7 +74,7 @@ Bu özellik, kimlik verileri Azure AD Connect kullanılarak Windows Server AD il
   * Kategoriye göre hatalı nesnelerin listesi
   * Hatalarla ilgili tüm veriler tek bir yerde bulunur
   * Çakışma nedeniyle hata oluşan Nesnelerin yan yana karşılaştırılması
-  * Raporu CVS olarak indirme (yakında kullanıma sunulacak)
+  * Hata raporu CVS olarak indirme
 
 ### <a name="categorization-of-errors"></a>Hataların Kategorilere Ayrılması
 Rapor, mevcut eşitleme hatalarını aşağıdaki kategorilere ayırır:

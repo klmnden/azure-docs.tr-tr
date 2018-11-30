@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278370"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499090"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Öğretici: HDInsight üzerinde Apache Spark Yapılandırılmış Akışını Apache Kafka ile kullanma
 
-Bu öğreticide, Azure HDInsight üzerinde Apache Kafka ile veri okumak ve yazmak için Apache Spark Yapılandırılmış Akışının nasıl kullanılacağı gösterilir.
+Bu öğreticide nasıl kullanılacağını gösterir [Apache Spark yapılandırılmış akış](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) ile veri okuma ve yazma için [Apache Kafka](https://kafka.apache.org/) Azure HDInsight üzerinde.
 
 Spark yapılandırılmış akışı, Spark SQL üzerinde yerleşik bir akış işleme altyapısıdır. Bu altyapıyı kullanarak, statik veriler üzerinde toplu hesaplamayla aynı şekilde akış hesaplamalarını ifade edebilirsiniz. 
 
@@ -33,13 +33,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu belgedeki adımları tamamladığınızda, aşırı ücretlerden kaçınmak için kümeleri silmeyi unutmayın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-* HDInsight üzerinde Spark ile Jupyter Notebook kullanma bilgisi. Daha fazla bilgi için [HDInsight üzerinde Spark ile veri yükleme ve sorgular çalıştırma](spark/apache-spark-load-data-run-query.md) belgesine bakın.
+* Kullanarak ile aşinalık [Jupyter not defterleri](https://jupyter.org/) HDInsight üzerinde Spark ile. Daha fazla bilgi için [veri yükleme ve HDInsight üzerinde Apache Spark ile sorguları çalıştırma](spark/apache-spark-load-data-run-query.md) belge.
 
 * [Scala](https://www.scala-lang.org/) programlama dilini bilme. Bu öğreticide kullanılan kod, Scala dilinde yazılmıştır.
 
-* Kafka konuları oluşturmayı bilme. Daha fazla bilgi için [HDInsight üzerinde Kafka hızlı başlangıcı](kafka/apache-kafka-get-started.md) belgesine bakın.
+* Kafka konuları oluşturmayı bilme. Daha fazla bilgi için [hızlı HDInsight üzerinde Apache Kafka](kafka/apache-kafka-get-started.md) belge.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar hem HDInsight üzerinde Spark hem de HDInsight kümesi üzerinde Kafka içeren bir Azure kaynak grubu gerektirir. Bu kümelerin her ikisi de Spark kümesinin Kafka kümesiyle doğrudan iletişim kurmasına olanak tanıyan bir Azure Sanal Ağı içinde bulunur.
@@ -48,7 +48,7 @@ Bu belgedeki adımları tamamladığınızda, aşırı ücretlerden kaçınmak i
 >
 > Sanal ağ üzerinde HDInsight kullanma hakkında daha fazla bilgi için [Sanal ağ kullanarak HDInsight’ı genişletme](hdinsight-extend-hadoop-virtual-network.md) belgesine bakın.
 
-## <a name="structured-streaming-with-kafka"></a>Kafka ile Yapılandırılmış Akış
+## <a name="structured-streaming-with-apache-kafka"></a>Apache Kafka ile structured Streaming
 
 Spark Yapılandırılmış Akışı, Spark SQL altyapısı üzerinde derlenen bir akış işleme altyapısıdır. Yapılandırılmış Akış kullanırken, toplu sorgular yazdığınız şekilde akış sorguları yazabilirsiniz.
 
@@ -205,7 +205,7 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Spark Yapılandırılmış Akışı kullanarak HDInsight üzerinde Kafka’dan nasıl veri yazılıp okunacağını öğrendiniz. Kafka ile Storm kullanmayı öğrenmek için aşağıdaki bağlantıyı kullanın.
+Bu öğretici sayesinde nasıl kullanacağınızı öğrendiniz [Apache Spark yapılandırılmış akış](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) verileri okuyup yazmak için [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde. Nasıl kullanılacağını öğrenmek için aşağıdaki bağlantıyı kullanın [Apache Storm](https://storm.apache.org/) Kafka ile.
 
 > [!div class="nextstepaction"]
-> [Kafka ile Apache Storm’u kullanma](hdinsight-apache-storm-with-kafka.md)
+> [Apache Storm ile Apache kafka'yı kullanma](hdinsight-apache-storm-with-kafka.md)

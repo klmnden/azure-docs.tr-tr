@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 2a72afe708c157fb2a19ac0bfcea2bea34f7b56f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625665"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584205"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Öğretici: Azure Digital Twins ile binanızda sağlama yapma ve çalışma koşullarını izleme
 
@@ -253,6 +253,10 @@ Bu bölümde, adlı proje kullanacağınız *cihaz bağlantısı* örnekteki. Ha
 Bu noktada Azure dijital İkizlerini keşfetmeye durdurmak istiyorsanız, bu öğreticide oluşturulan kaynakları silmek çekinmeyin:
 
 1. Sol menüden [Azure portalında](http://portal.azure.com)seçin **tüm kaynakları**dijital İkizlerini kaynak grubunuzu seçin ve seçin **Sil**.
+
+    > [!TIP]
+    > Dijital İkizlerini örneğinizin silme sorun olduysa, bir hizmet güncelleştirmesi düzeltme alındı. Örneğiniz silme yeniden deneyin.
+
 2. Gerekirse, iş makinenizde örnek uygulamaları silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar

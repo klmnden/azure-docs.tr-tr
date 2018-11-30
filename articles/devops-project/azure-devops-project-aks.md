@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Azure DevOps projeleri'ni kullanarak ASP.NET Core uygulamanızı Azure Kubernetes Service (AKS) dağıtma"
+title: "Öğretici: ASP.NET Core uygulamaları, Azure DevOps projeleri ile Azure Kubernetes Service'e dağıtma"
 description: Azure DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştırır. DevOps projeleri ile ASP.NET Core uygulamanızı birkaç Hızlı adımda Azure Kubernetes Service (AKS) ile dağıtabilirsiniz.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165567"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620651"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Öğretici: Azure DevOps projeleri'ni kullanarak ASP.NET Core uygulamanızı Azure Kubernetes Service (AKS) dağıtma
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Öğretici: ASP.NET Core uygulamaları, Azure DevOps projeleri ile Azure Kubernetes Service'e dağıtma
 
 Azure DevOps projeleri, mevcut kodunuzu ve Git deposuna taşıyın veya sürekli tümleştirme (CI) ve azure'a sürekli teslim (CD) işlem hattı oluşturmak için örnek bir uygulama seçin basitleştirilmiş bir deneyim sunar. 
 
@@ -24,6 +24,7 @@ DevOps projeleri ayrıca:
 * Azure Kubernetes Service (AKS) gibi Azure kaynaklarını otomatik olarak oluşturur.
 * Oluşturur ve bir yayın ardışık düzeni için CI/CD bir derleme ve yayın işlem hattı ayarlar Azure DevOps yapılandırır.
 * İzleme için Azure Application Insights kaynağı oluşturur.
+* Sağlar [kapsayıcılar için Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) AKS kümesinde kapsayıcı iş yüklerinin performansını izlemeniz gerekir
 
 Bu öğreticide şunları yapacaksınız:
 

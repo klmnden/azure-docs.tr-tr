@@ -1,5 +1,5 @@
 ---
-title: Azure İlkesi kullanarak kurumsal uyumluluğu zorunlu tutacak ilkeleri oluşturma ve yönetme
+title: Uyumluluğu zorlamak için ilkeleri oluşturma ve yönetme için Azure İlkesi'ni kullanın
 description: Standartları zorunlu tutmak, yönetmeliklere uygunluğu ve denetim gereksinimlerini karşılamak, maliyetleri denetlemek, güvenlik ve performans tutarlılığını korumak, ayrıca kuruluş genelinde tasarım ilkeleri ayarlamak için Azure İlkesi'ni kullanın.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a7495ca1153fa6b84902423ee79c69f24316cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980966"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583089"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme
 

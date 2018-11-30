@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239568"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580579"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Öğretici: HDInsight’ta Spark makine öğrenimi uygulaması derleme 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Öğretici: bir Apache Spark makine öğrenme HDInsight uygulama derleme 
 
-Bu öğreticide, Jupyter not defterini kullanarak Azure HDInsight için bir Apache Spark makine öğrenimi uygulaması derleme hakkında bilgi edineceksiniz. 
+Bu öğreticide, şunların nasıl kullanılacağını [Jupyter not defteri](https://jupyter.org/) oluşturmak için bir [Apache Spark](https://spark.apache.org/) makine öğrenimi uygulaması Azure HDInsight için. 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html); sınıflandırma, regresyon, kümeleme, ortak filtreleme, boyut düzeyi azaltma gibi genel öğrenme algoritmaları ve yardımcı programlarının yanı sıra temel alınan iyileştirme temellerinden oluşan, Spark’ın makine öğrenimi kitaplığıdır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
-> * Spark makine öğrenimi uygulaması geliştirme
+> * Bir Apache Spark makine öğrenimi uygulama geliştirin
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -190,7 +190,7 @@ HDInsight’ta Apache Spark kümeleri, Anaconda kitaplıklarını içerir. Ayrı
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
-* Spark makine öğrenimi uygulaması geliştirme
+* Bir Apache Spark makine öğrenimi uygulama geliştirin
 
 Spark işleri için IntelliJ IDEA kullanma hakkında bilgi edinmek üzere sonraki öğreticiye ilerleyin. 
 

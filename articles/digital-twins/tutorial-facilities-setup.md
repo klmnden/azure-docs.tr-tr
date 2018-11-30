@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bd1b53acb619130a84400c49aba0cb2b710ad7e3
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616121"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582341"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Öğretici: Azure Digital Twins'i dağıtma ve uzamsal graf yapılandırma
 
@@ -170,7 +170,11 @@ ProvisionSample.yaml dosyasını kaydedip kapatın. Sonraki öğreticide, daha f
 Bu noktada Azure dijital İkizlerini keşfetmeye durdurmak istiyorsanız, bu öğreticide oluşturulan kaynakları silmek çekinmeyin:
 
 1. Sol menüden [Azure portalında](http://portal.azure.com)seçin **tüm kaynakları**dijital İkizlerini kaynak grubunuzu seçin ve seçin **Sil**.
-2. Gerekirse, iş makinenizde örnek uygulamayı silin. 
+   
+    > [!TIP]
+    > Dijital İkizlerini örneğinizin silme sorun olduysa, bir hizmet güncelleştirmesi düzeltme alındı. Örneğiniz silme yeniden deneyin.
+
+1. Gerekirse, iş makinenizde örnek uygulamayı silin. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
